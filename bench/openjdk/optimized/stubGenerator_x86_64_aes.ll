@@ -3869,7 +3869,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
 532:                                              ; preds = %745, %138
   %indvars.iv = phi i64 [ 0, %138 ], [ %indvars.iv.next, %745 ]
   %533 = load ptr, ptr %83, align 8
-  %534 = getelementptr inbounds nuw %class.Label, ptr %45, i64 %indvars.iv
+  %534 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %indvars.iv
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %533, ptr noundef nonnull align 8 dereferenceable(33) %534) #7
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %581, label %535
@@ -3878,7 +3878,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   %536 = load ptr, ptr %83, align 8
   call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %536, i32 8, i32 noundef 64) #7
   %537 = load ptr, ptr %83, align 8
-  %538 = getelementptr inbounds nuw %class.Label, ptr %43, i64 %indvars.iv
+  %538 = getelementptr inbounds nuw [40 x i8], ptr %43, i64 %indvars.iv
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %537, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(33) %538, i1 noundef zeroext true) #7
   %539 = icmp eq i64 %indvars.iv, 1
   %540 = load ptr, ptr %83, align 8
@@ -4137,12 +4137,12 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   %585 = trunc i64 %584 to i32
   call void @_ZN14MacroAssembler5alignEj(ptr noundef nonnull align 8 dereferenceable(40) %583, i32 noundef %585) #7
   %586 = load ptr, ptr %83, align 8
-  %587 = getelementptr inbounds nuw %class.Label, ptr %46, i64 %indvars.iv
+  %587 = getelementptr inbounds nuw [40 x i8], ptr %46, i64 %indvars.iv
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %586, ptr noundef nonnull align 8 dereferenceable(33) %587) #7
   %588 = load ptr, ptr %83, align 8
   call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %588, i32 8, i32 noundef 64) #7
   %589 = load ptr, ptr %83, align 8
-  %590 = getelementptr inbounds nuw %class.Label, ptr %42, i64 %indvars.iv
+  %590 = getelementptr inbounds nuw [40 x i8], ptr %42, i64 %indvars.iv
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %589, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(33) %590, i1 noundef zeroext true) #7
   br i1 %.not, label %594, label %591
 
@@ -4245,7 +4245,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   br i1 %582, label %.lr.ph573.preheader, label %625
 
 .lr.ph573.preheader:                              ; preds = %609
-  %610 = getelementptr inbounds nuw i32, ptr @__const._ZN13StubGenerator53generate_cipherBlockChaining_decryptAESCrypt_ParallelEv.ROUNDS, i64 %indvars.iv
+  %610 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN13StubGenerator53generate_cipherBlockChaining_decryptAESCrypt_ParallelEv.ROUNDS, i64 %indvars.iv
   %611 = load i32, ptr %610, align 4
   %612 = add i32 %611, -2
   %smax581 = call i32 @llvm.smax.i32(i32 %612, i32 1)
@@ -4540,7 +4540,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   %678 = load ptr, ptr %83, align 8
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %678, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %41, i1 noundef zeroext true) #7
   %679 = load ptr, ptr %83, align 8
-  %680 = getelementptr inbounds nuw %class.Label, ptr %43, i64 %indvars.iv
+  %680 = getelementptr inbounds nuw [40 x i8], ptr %43, i64 %indvars.iv
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %679, ptr noundef nonnull align 8 dereferenceable(33) %680) #7
   br i1 %582, label %681, label %692
 
@@ -4635,7 +4635,7 @@ define hidden noundef ptr @_ZN13StubGenerator53generate_cipherBlockChaining_decr
   %703 = trunc i64 %702 to i32
   call void @_ZN14MacroAssembler5alignEj(ptr noundef nonnull align 8 dereferenceable(40) %701, i32 noundef %703) #7
   %704 = load ptr, ptr %83, align 8
-  %705 = getelementptr inbounds nuw %class.Label, ptr %44, i64 %indvars.iv
+  %705 = getelementptr inbounds nuw [40 x i8], ptr %44, i64 %indvars.iv
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %704, ptr noundef nonnull align 8 dereferenceable(33) %705) #7
   %706 = load ptr, ptr %83, align 8
   store i32 7, ptr %80, align 8
@@ -5730,12 +5730,12 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   %453 = trunc i64 %452 to i32
   call void @_ZN14MacroAssembler5alignEj(ptr noundef nonnull align 8 dereferenceable(40) %451, i32 noundef %453) #7
   %454 = load ptr, ptr %63, align 8
-  %455 = getelementptr inbounds nuw %class.Label, ptr %12, i64 %indvars.iv
+  %455 = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %indvars.iv
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %454, ptr noundef nonnull align 8 dereferenceable(33) %455) #7
   %456 = load ptr, ptr %63, align 8
   call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %456, i32 8, i32 noundef 96) #7
   %457 = load ptr, ptr %63, align 8
-  %458 = getelementptr inbounds nuw %class.Label, ptr %13, i64 %indvars.iv
+  %458 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %indvars.iv
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %457, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(33) %458, i1 noundef zeroext true) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %459 = load ptr, ptr %63, align 8
@@ -5764,7 +5764,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   call void @_ZN9Assembler6movdqaE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %465, i32 9, i32 2) #7
   %466 = load ptr, ptr %63, align 8
   call void @_ZN9Assembler6movdqaE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %466, i32 10, i32 2) #7
-  %467 = getelementptr inbounds nuw [6 x %class.Label], ptr %14, i64 %indvars.iv
+  %467 = getelementptr inbounds nuw [240 x i8], ptr %14, i64 %indvars.iv
   %468 = load ptr, ptr %63, align 8
   call void @_ZN9Assembler6pextrqE8Register11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %468, i32 3, i32 6, i32 noundef 0) #7
   %469 = load ptr, ptr %63, align 8
@@ -5890,7 +5890,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   call void @_ZN9Assembler4pxorE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %531, i32 9, i32 3) #7
   %532 = load ptr, ptr %63, align 8
   call void @_ZN9Assembler4pxorE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %532, i32 10, i32 3) #7
-  %533 = getelementptr inbounds nuw i32, ptr @__const._ZN13StubGenerator53generate_cipherBlockChaining_decryptAESCrypt_ParallelEv.ROUNDS, i64 %indvars.iv
+  %533 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN13StubGenerator53generate_cipherBlockChaining_decryptAESCrypt_ParallelEv.ROUNDS, i64 %indvars.iv
   %534 = load i32, ptr %533, align 4
   br label %.lr.ph
 
@@ -6152,7 +6152,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %593 = load ptr, ptr %63, align 8
   call void @_ZN9Assembler6movdqaE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %593, i32 5, i32 2) #7
-  %594 = getelementptr inbounds nuw %class.Label, ptr %15, i64 %indvars.iv
+  %594 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %indvars.iv
   %595 = load ptr, ptr %63, align 8
   call void @_ZN9Assembler6pextrqE8Register11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %595, i32 3, i32 2, i32 noundef 0) #7
   %596 = load ptr, ptr %63, align 8
@@ -6222,7 +6222,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   %614 = load ptr, ptr %63, align 8
   call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %614, i32 8, i32 noundef 16) #7
   %615 = load ptr, ptr %63, align 8
-  %616 = getelementptr inbounds nuw %class.Label, ptr %16, i64 %indvars.iv
+  %616 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %indvars.iv
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %615, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(33) %616, i1 noundef zeroext true) #7
   %617 = load ptr, ptr %63, align 8
   store i32 7, ptr %50, align 8
@@ -6257,7 +6257,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   %625 = load ptr, ptr %63, align 8
   call void @_ZN14MacroAssembler5testqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %625, i32 8, i32 noundef 8) #7
   %626 = load ptr, ptr %63, align 8
-  %627 = getelementptr inbounds nuw %class.Label, ptr %17, i64 %indvars.iv
+  %627 = getelementptr inbounds nuw [40 x i8], ptr %17, i64 %indvars.iv
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %626, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %627, i1 noundef zeroext true) #7
   %628 = load ptr, ptr %63, align 8
   call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %628, i32 0, i32 noundef 8) #7
@@ -6275,7 +6275,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   %631 = load ptr, ptr %63, align 8
   call void @_ZN14MacroAssembler5testqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %631, i32 8, i32 noundef 4) #7
   %632 = load ptr, ptr %63, align 8
-  %633 = getelementptr inbounds nuw %class.Label, ptr %18, i64 %indvars.iv
+  %633 = getelementptr inbounds nuw [40 x i8], ptr %18, i64 %indvars.iv
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %632, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %633, i1 noundef zeroext true) #7
   %634 = load ptr, ptr %63, align 8
   call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %634, i32 0, i32 noundef 4) #7
@@ -6295,7 +6295,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   %638 = load ptr, ptr %63, align 8
   call void @_ZN14MacroAssembler5testqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %638, i32 8, i32 noundef 2) #7
   %639 = load ptr, ptr %63, align 8
-  %640 = getelementptr inbounds nuw %class.Label, ptr %19, i64 %indvars.iv
+  %640 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %indvars.iv
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %639, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %640, i1 noundef zeroext true) #7
   %641 = load ptr, ptr %63, align 8
   call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %641, i32 0, i32 noundef 2) #7
@@ -6315,7 +6315,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   %645 = load ptr, ptr %63, align 8
   call void @_ZN14MacroAssembler5testqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %645, i32 8, i32 noundef 1) #7
   %646 = load ptr, ptr %63, align 8
-  %647 = getelementptr inbounds nuw %class.Label, ptr %20, i64 %indvars.iv
+  %647 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %indvars.iv
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %646, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %647, i1 noundef zeroext true) #7
   %648 = load ptr, ptr %63, align 8
   call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %648, i32 0, i32 noundef 1) #7
@@ -6348,7 +6348,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   %654 = load ptr, ptr %63, align 8
   call void @_ZN14MacroAssembler5testqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %654, i32 8, i32 noundef 8) #7
   %655 = load ptr, ptr %63, align 8
-  %656 = getelementptr inbounds nuw %class.Label, ptr %21, i64 %indvars.iv
+  %656 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %indvars.iv
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %655, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %656, i1 noundef zeroext true) #7
   %657 = load ptr, ptr %63, align 8
   store i32 6, ptr %57, align 8
@@ -6368,7 +6368,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   %661 = load ptr, ptr %63, align 8
   call void @_ZN14MacroAssembler5testqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %661, i32 8, i32 noundef 4) #7
   %662 = load ptr, ptr %63, align 8
-  %663 = getelementptr inbounds nuw %class.Label, ptr %22, i64 %indvars.iv
+  %663 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %indvars.iv
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %662, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %663, i1 noundef zeroext true) #7
   %664 = load ptr, ptr %63, align 8
   store i32 6, ptr %58, align 8
@@ -6388,7 +6388,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   %668 = load ptr, ptr %63, align 8
   call void @_ZN14MacroAssembler5testqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %668, i32 8, i32 noundef 2) #7
   %669 = load ptr, ptr %63, align 8
-  %670 = getelementptr inbounds nuw %class.Label, ptr %23, i64 %indvars.iv
+  %670 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %indvars.iv
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %669, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %670, i1 noundef zeroext true) #7
   %671 = load ptr, ptr %63, align 8
   store i32 6, ptr %59, align 8
@@ -6408,7 +6408,7 @@ define hidden noundef ptr @_ZN13StubGenerator38generate_counterMode_AESCrypt_Par
   %675 = load ptr, ptr %63, align 8
   call void @_ZN14MacroAssembler5testqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %675, i32 8, i32 noundef 1) #7
   %676 = load ptr, ptr %63, align 8
-  %677 = getelementptr inbounds nuw %class.Label, ptr %24, i64 %indvars.iv
+  %677 = getelementptr inbounds nuw [40 x i8], ptr %24, i64 %indvars.iv
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %676, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %677, i1 noundef zeroext true) #7
   %678 = load ptr, ptr %63, align 8
   store i32 6, ptr %60, align 8
@@ -15111,7 +15111,7 @@ define hidden void @_ZN13StubGenerator26ghash16_encrypt16_parallelE8RegisterS0_1
   %84 = load ptr, ptr %80, align 8
   tail call void @_ZN9Assembler6vpadddE11XMMRegisterS0_S0_i(ptr noundef nonnull align 8 dereferenceable(40) %84, i32 5, i32 4, i32 %16, i32 noundef 2) #7
   %85 = sext i32 %3 to i64
-  %86 = getelementptr inbounds %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %85
+  %86 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %85
   %87 = ptrtoint ptr %86 to i64
   %88 = trunc i64 %87 to i32
   %.not.i = icmp eq i32 %88, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 6) to i32)

@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<ggml_backend_feature, std::allocator<ggml_backend_feature>>::_Vector_impl" = type { %"struct.std::_Vector_base<ggml_backend_feature, std::allocator<ggml_backend_feature>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ggml_backend_feature, std::allocator<ggml_backend_feature>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct.ggml_cplan = type { i64, ptr, i32, ptr, ptr, ptr }
-%struct.ggml_backend_feature = type { ptr, ptr }
 
 $_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EED2Ev = comdat any
 
@@ -212,7 +211,7 @@ _ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
 _ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %28, %_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %23, ptr @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, align 8, !tbaa !15
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, i64 8), align 8, !tbaa !5
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, i64 16), align 8, !tbaa !12
   br label %_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE9push_backEOS1_.exit
 
@@ -288,7 +287,7 @@ _ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
 _ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i11: ; preds = %56, %_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i9
   store ptr %51, ptr @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, align 8, !tbaa !15
   store ptr %55, ptr getelementptr inbounds nuw (i8, ptr @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, i64 8), align 8, !tbaa !5
-  %57 = getelementptr inbounds nuw ptr, ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %49
   store ptr %57, ptr getelementptr inbounds nuw (i8, ptr @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, i64 16), align 8, !tbaa !12
   br label %_ZNSt6vectorIP24ggml_backend_buffer_typeSaIS1_EE9push_backEOS1_.exit14
 
@@ -1058,7 +1057,7 @@ _Z39ggml_backend_cpu_get_extra_buffers_typev.exit: ; preds = %10, %13, %16
 
 .critedge81.preheader:                            ; preds = %.critedge81.preheader.preheader, %.critedge81
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge81 ], [ 0, %.critedge81.preheader.preheader ]
-  %32 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !82
   %.not69 = icmp eq ptr %33, null
   br i1 %.not69, label %.critedge81, label %34
@@ -1417,7 +1416,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %26, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   store ptr %21, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %27 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %21, i64 %19
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %19
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit
 
@@ -1505,7 +1504,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i35: ; preds = %57, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i33
   store ptr %52, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %56, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %58 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %52, i64 %50
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %50
   store ptr %58, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit38
 
@@ -1588,7 +1587,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i45: ; preds = %86, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i43
   store ptr %81, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %85, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %87 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %81, i64 %79
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %79
   store ptr %87, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit48
 
@@ -1671,7 +1670,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i55: ; preds = %115, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i53
   store ptr %110, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %114, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %116 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %110, i64 %108
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %110, i64 %108
   store ptr %116, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit58
 
@@ -1754,7 +1753,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i65: ; preds = %144, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i63
   store ptr %139, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %143, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %145 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %139, i64 %137
+  %145 = getelementptr inbounds nuw [16 x i8], ptr %139, i64 %137
   store ptr %145, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit68
 
@@ -1837,7 +1836,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i75: ; preds = %173, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i73
   store ptr %168, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %172, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %174 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %168, i64 %166
+  %174 = getelementptr inbounds nuw [16 x i8], ptr %168, i64 %166
   store ptr %174, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit78
 
@@ -1920,7 +1919,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i85: ; preds = %202, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i83
   store ptr %197, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %201, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %203 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %197, i64 %195
+  %203 = getelementptr inbounds nuw [16 x i8], ptr %197, i64 %195
   store ptr %203, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit88
 
@@ -2003,7 +2002,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i95: ; preds = %231, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i93
   store ptr %226, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %230, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %232 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %226, i64 %224
+  %232 = getelementptr inbounds nuw [16 x i8], ptr %226, i64 %224
   store ptr %232, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit98
 
@@ -2086,7 +2085,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i105: ; preds = %260, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i103
   store ptr %255, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %259, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %261 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %255, i64 %253
+  %261 = getelementptr inbounds nuw [16 x i8], ptr %255, i64 %253
   store ptr %261, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit108
 
@@ -2169,7 +2168,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i115: ; preds = %289, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i113
   store ptr %284, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %288, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %290 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %284, i64 %282
+  %290 = getelementptr inbounds nuw [16 x i8], ptr %284, i64 %282
   store ptr %290, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit118
 
@@ -2252,7 +2251,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i125: ; preds = %318, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i123
   store ptr %313, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %317, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %319 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %313, i64 %311
+  %319 = getelementptr inbounds nuw [16 x i8], ptr %313, i64 %311
   store ptr %319, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit128
 
@@ -2335,7 +2334,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i135: ; preds = %347, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i133
   store ptr %342, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %346, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %348 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %342, i64 %340
+  %348 = getelementptr inbounds nuw [16 x i8], ptr %342, i64 %340
   store ptr %348, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit138
 
@@ -2418,7 +2417,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i145: ; preds = %376, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i143
   store ptr %371, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %375, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %377 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %371, i64 %369
+  %377 = getelementptr inbounds nuw [16 x i8], ptr %371, i64 %369
   store ptr %377, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit148
 
@@ -2501,7 +2500,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i155: ; preds = %405, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i153
   store ptr %400, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %404, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %406 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %400, i64 %398
+  %406 = getelementptr inbounds nuw [16 x i8], ptr %400, i64 %398
   store ptr %406, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit158
 
@@ -2584,7 +2583,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i165: ; preds = %434, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i163
   store ptr %429, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %433, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %435 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %429, i64 %427
+  %435 = getelementptr inbounds nuw [16 x i8], ptr %429, i64 %427
   store ptr %435, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit168
 
@@ -2667,7 +2666,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i175: ; preds = %463, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i173
   store ptr %458, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %462, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %464 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %458, i64 %456
+  %464 = getelementptr inbounds nuw [16 x i8], ptr %458, i64 %456
   store ptr %464, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit178
 
@@ -2750,7 +2749,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i185: ; preds = %492, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i183
   store ptr %487, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %491, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %493 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %487, i64 %485
+  %493 = getelementptr inbounds nuw [16 x i8], ptr %487, i64 %485
   store ptr %493, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit188
 
@@ -2833,7 +2832,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195: ; preds = %521, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i193
   store ptr %516, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %520, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %522 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %516, i64 %514
+  %522 = getelementptr inbounds nuw [16 x i8], ptr %516, i64 %514
   store ptr %522, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit198
 
@@ -2937,7 +2936,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i205: ; preds = %561, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i203
   store ptr %556, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %560, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %562 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %556, i64 %554
+  %562 = getelementptr inbounds nuw [16 x i8], ptr %556, i64 %554
   store ptr %562, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit208
 
@@ -3026,7 +3025,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i215: ; preds = %592, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i213
   store ptr %587, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %591, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %593 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %587, i64 %585
+  %593 = getelementptr inbounds nuw [16 x i8], ptr %587, i64 %585
   store ptr %593, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit218
 
@@ -3109,7 +3108,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i225: ; preds = %621, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i223
   store ptr %616, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %620, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %622 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %616, i64 %614
+  %622 = getelementptr inbounds nuw [16 x i8], ptr %616, i64 %614
   store ptr %622, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit228
 
@@ -3192,7 +3191,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i235: ; preds = %650, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i233
   store ptr %645, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %649, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %651 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %645, i64 %643
+  %651 = getelementptr inbounds nuw [16 x i8], ptr %645, i64 %643
   store ptr %651, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit238
 
@@ -3275,7 +3274,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i245: ; preds = %679, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i243
   store ptr %674, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %678, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %680 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %674, i64 %672
+  %680 = getelementptr inbounds nuw [16 x i8], ptr %674, i64 %672
   store ptr %680, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit248
 
@@ -3358,7 +3357,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i255: ; preds = %708, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i253
   store ptr %703, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %707, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %709 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %703, i64 %701
+  %709 = getelementptr inbounds nuw [16 x i8], ptr %703, i64 %701
   store ptr %709, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit258
 
@@ -3441,7 +3440,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i265: ; preds = %735, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i263
   store ptr %730, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %734, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %736 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %730, i64 %728
+  %736 = getelementptr inbounds nuw [16 x i8], ptr %730, i64 %728
   store ptr %736, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit268
 
@@ -3516,7 +3515,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i275: ; preds = %761, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i273
   store ptr %756, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %760, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %762 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %756, i64 %754
+  %762 = getelementptr inbounds nuw [16 x i8], ptr %756, i64 %754
   store ptr %762, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit278
 
@@ -3586,7 +3585,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i285: ; preds = %785, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i283
   store ptr %780, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %784, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %786 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %780, i64 %778
+  %786 = getelementptr inbounds nuw [16 x i8], ptr %780, i64 %778
   store ptr %786, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit288
 
@@ -3652,7 +3651,7 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i295: ; preds = %809, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i293
   store ptr %804, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   store ptr %808, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
-  %810 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %804, i64 %802
+  %810 = getelementptr inbounds nuw [16 x i8], ptr %804, i64 %802
   store ptr %810, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit298
 

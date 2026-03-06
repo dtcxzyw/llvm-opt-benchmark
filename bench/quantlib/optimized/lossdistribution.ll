@@ -886,7 +886,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIdSaIdE
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %add, 3
   %call5.i.i.i.i2.i.i19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #24
   store ptr %call5.i.i.i.i2.i.i19, ptr %agg.result, align 8, !tbaa !3
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i19, i64 %add
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i19, i64 %add
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i19, i8 0, i64 %mul.i.i.i.i.i.i, i1 false), !tbaa !8
@@ -1000,7 +1000,7 @@ if.end69.i:                                       ; preds = %if.then.i.i.i.i.i.i
   %add.ptr72.i = getelementptr inbounds nuw i8, ptr %6, i64 %sub.ptr.sub.i.i22
   %7 = load double, ptr %6, align 8, !tbaa !8
   %8 = load ptr, ptr %p, align 8, !tbaa !3
-  %add.ptr.i28 = getelementptr inbounds nuw double, ptr %8, i64 %j.063
+  %add.ptr.i28 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %j.063
   %9 = load double, ptr %add.ptr.i28, align 8, !tbaa !8
   %sub = fsub double 1.000000e+00, %9
   %mul = fmul double %7, %sub
@@ -1009,12 +1009,12 @@ if.end69.i:                                       ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp10.not57, label %for.cond.cleanup11, label %for.body12
 
 for.cond.cleanup11:                               ; preds = %for.body12, %if.end69.i
-  %add.ptr.i30 = getelementptr inbounds nuw double, ptr %6, i64 %j.063
+  %add.ptr.i30 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %j.063
   %10 = load double, ptr %add.ptr.i30, align 8, !tbaa !8
   %11 = load double, ptr %add.ptr.i28, align 8, !tbaa !8
   %mul24 = fmul double %10, %11
   %add25 = add nuw i64 %j.063, 1
-  %add.ptr.i32 = getelementptr inbounds nuw double, ptr %2, i64 %add25
+  %add.ptr.i32 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %add25
   store double %mul24, ptr %add.ptr.i32, align 8, !tbaa !8
   %indvars.iv.next = add i64 %indvars.iv, 1
   %exitcond98.not = icmp eq i64 %add25, %sub.ptr.div.i
@@ -1046,7 +1046,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit46:                  ; preds = %lpad3.thread, %lpad
 
 for.body12:                                       ; preds = %if.end69.i, %for.body12
   %i.058 = phi i64 [ %inc, %for.body12 ], [ 1, %if.end69.i ]
-  %13 = getelementptr double, ptr %6, i64 %i.058
+  %13 = getelementptr [8 x i8], ptr %6, i64 %i.058
   %add.ptr.i47 = getelementptr i8, ptr %13, i64 -8
   %14 = load double, ptr %add.ptr.i47, align 8, !tbaa !8
   %15 = load double, ptr %add.ptr.i28, align 8, !tbaa !8
@@ -1054,7 +1054,7 @@ for.body12:                                       ; preds = %if.end69.i, %for.bo
   %sub19 = fsub double 1.000000e+00, %15
   %mul20 = fmul double %16, %sub19
   %17 = tail call double @llvm.fmuladd.f64(double %14, double %15, double %mul20)
-  %add.ptr.i51 = getelementptr inbounds nuw double, ptr %2, i64 %i.058
+  %add.ptr.i51 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %i.058
   store double %17, ptr %add.ptr.i51, align 8, !tbaa !8
   %inc = add nuw i64 %i.058, 1
   %exitcond = icmp eq i64 %inc, %indvars.iv
@@ -1072,7 +1072,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:
   call void @_ZN8QuantLib8LossDist20probabilityOfNEventsERSt6vectorIdSaIdEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %p)
   %conv = sext i32 %k to i64
   %0 = load ptr, ptr %ref.tmp, align 8, !tbaa !3
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %0, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv
   %1 = load double, ptr %add.ptr.i, align 8, !tbaa !8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !25
@@ -1120,7 +1120,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %for.cond.cleanup, %
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %sum.05 = phi double [ 1.000000e+00, %for.body.lr.ph ], [ %sub, %for.body ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %.pre, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %1 = load double, ptr %add.ptr.i, align 8, !tbaa !8
   %sub = fsub double %sum.05, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1183,7 +1183,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i, %for.co
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %sum.05.i = phi double [ 1.000000e+00, %for.body.lr.ph.i ], [ %sub.i, %for.body.i ]
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %.pre.i, i64 %indvars.iv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %indvars.iv.i
   %2 = load double, ptr %add.ptr.i.i, align 8, !tbaa !8
   %sub.i = fsub double %sum.05.i, %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1276,7 +1276,7 @@ if.else.i:                                        ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %cmp6.i, label %if.then7.i, label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
 
 if.then7.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %0, i64 %add
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %add
   %tobool.not.i.i20 = icmp eq ptr %2, %add.ptr.i
   br i1 %tobool.not.i.i20, label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit, label %invoke.cont.i.i21
 
@@ -1344,7 +1344,7 @@ if.else.i32:                                      ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %cmp6.i33, label %if.then7.i34, label %invoke.cont32
 
 if.then7.i34:                                     ; preds = %if.else.i32
-  %add.ptr.i35 = getelementptr inbounds nuw double, ptr %5, i64 %add29
+  %add.ptr.i35 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %add29
   %tobool.not.i.i36 = icmp eq ptr %7, %add.ptr.i35
   br i1 %tobool.not.i.i36, label %invoke.cont32, label %invoke.cont.i.i37
 
@@ -1409,7 +1409,7 @@ call.i.noexc:                                     ; preds = %if.else10.i
 invoke.cont8:                                     ; preds = %call.i.noexc, %if.then7.i45, %if.then3.i, %if.then
   %retval.0.i = phi double [ %call16.i, %call.i.noexc ], [ %cond.i, %if.then3.i ], [ %cond9.i, %if.then7.i45 ], [ 0.000000e+00, %if.then ]
   %20 = load ptr, ptr %probability_, align 8, !tbaa !3
-  %add.ptr.i47 = getelementptr inbounds nuw double, ptr %20, i64 %i.055
+  %add.ptr.i47 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %i.055
   store double %retval.0.i, ptr %add.ptr.i47, align 8, !tbaa !8
   %mul12 = fmul double %volume, %conv4
   %call15 = invoke noundef i32 @_ZN8QuantLib12Distribution6locateEd(ptr noundef nonnull align 8 dereferenceable(225) %agg.result, double noundef %mul12)
@@ -1435,9 +1435,9 @@ if.then.i.i.i:                                    ; preds = %invoke.cont14
 
 invoke.cont20:                                    ; preds = %invoke.cont14
   %23 = load ptr, ptr %probability_, align 8, !tbaa !3
-  %add.ptr.i48 = getelementptr inbounds nuw double, ptr %23, i64 %i.055
+  %add.ptr.i48 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %i.055
   %24 = load double, ptr %add.ptr.i48, align 8, !tbaa !8
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %22, i64 %conv16
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %conv16
   %25 = load double, ptr %add.ptr.i.i.i, align 8, !tbaa !8
   %div = fdiv double %24, %25
   invoke void @_ZN8QuantLib12Distribution10addDensityEid(ptr noundef nonnull align 8 dereferenceable(225) %agg.result, i32 noundef %call15, double noundef %div)
@@ -1472,9 +1472,9 @@ invoke.cont32:                                    ; preds = %if.then.i38.invoke.
   %28 = phi i64 [ %.pre, %if.then.i38.invoke.cont32_crit_edge ], [ %8, %invoke.cont.i.i37 ], [ %8, %if.then7.i34 ], [ %8, %if.else.i32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp30)
   %29 = load ptr, ptr %probability_, align 8, !tbaa !3
-  %add.ptr.i50 = getelementptr inbounds nuw double, ptr %29, i64 %28
+  %add.ptr.i50 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %30 = load double, ptr %add.ptr.i50, align 8, !tbaa !8
-  %add.ptr.i51 = getelementptr inbounds nuw double, ptr %27, i64 %28
+  %add.ptr.i51 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   store double %30, ptr %add.ptr.i51, align 8, !tbaa !8
   %31 = trunc i64 %28 to i32
   %k.056 = add i32 %31, -1
@@ -1499,12 +1499,12 @@ lpad31:                                           ; preds = %if.then.i38
 for.body45:                                       ; preds = %for.body45.preheader, %for.body45
   %indvars.iv60 = phi i64 [ %33, %for.body45.preheader ], [ %indvars.iv.next61, %for.body45 ]
   %indvars.iv = phi i64 [ %32, %for.body45.preheader ], [ %indvars.iv.next, %for.body45 ]
-  %add.ptr.i52 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv60
+  %add.ptr.i52 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv60
   %35 = load double, ptr %add.ptr.i52, align 8, !tbaa !8
-  %add.ptr.i53 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv
+  %add.ptr.i53 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %36 = load double, ptr %add.ptr.i53, align 8, !tbaa !8
   %add53 = fadd double %35, %36
-  %add.ptr.i54 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv
+  %add.ptr.i54 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store double %add53, ptr %add.ptr.i54, align 8, !tbaa !8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp43.not = icmp eq i64 %indvars.iv, 0
@@ -1726,7 +1726,7 @@ if.else.i:                                        ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %cmp6.i, label %if.then7.i, label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
 
 if.then7.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %2, i64 %add
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %add
   %tobool.not.i.i35 = icmp eq ptr %4, %add.ptr.i
   br i1 %tobool.not.i.i35, label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit, label %invoke.cont.i.i36
 
@@ -1786,7 +1786,7 @@ if.else.i48:                                      ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %cmp6.i49, label %if.then7.i50, label %invoke.cont41
 
 if.then7.i50:                                     ; preds = %if.else.i48
-  %add.ptr.i51 = getelementptr inbounds nuw double, ptr %9, i64 %add38
+  %add.ptr.i51 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %add38
   %tobool.not.i.i52 = icmp eq ptr %11, %add.ptr.i51
   br i1 %tobool.not.i.i52, label %invoke.cont41, label %invoke.cont.i.i53
 
@@ -1890,7 +1890,7 @@ if.end69.i:                                       ; preds = %if.then.i.i.i.i.i.i
   %add.ptr72.i = getelementptr inbounds nuw i8, ptr %17, i64 %sub.ptr.sub.i.i61
   %18 = load double, ptr %17, align 8, !tbaa !8
   %19 = load ptr, ptr %p, align 8, !tbaa !3
-  %add.ptr.i68 = getelementptr inbounds nuw double, ptr %19, i64 %k.0110
+  %add.ptr.i68 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %k.0110
   %20 = load double, ptr %add.ptr.i68, align 8, !tbaa !8
   %sub = fsub double 1.000000e+00, %20
   %mul = fmul double %18, %sub
@@ -1900,12 +1900,12 @@ if.end69.i:                                       ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp14.not104, label %for.cond.cleanup15, label %for.body16
 
 for.cond.cleanup15:                               ; preds = %for.body16, %if.end69.i
-  %add.ptr.i70 = getelementptr inbounds nuw double, ptr %17, i64 %k.0110
+  %add.ptr.i70 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %k.0110
   %22 = load double, ptr %add.ptr.i70, align 8, !tbaa !8
   %23 = load double, ptr %add.ptr.i68, align 8, !tbaa !8
   %mul29 = fmul double %22, %23
   %add31 = add nuw i64 %k.0110, 1
-  %add.ptr.i72 = getelementptr inbounds nuw double, ptr %21, i64 %add31
+  %add.ptr.i72 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %add31
   store double %mul29, ptr %add.ptr.i72, align 8, !tbaa !8
   %24 = load i64, ptr %n_, align 8, !tbaa !53
   %cmp = icmp ult i64 %add31, %24
@@ -1924,7 +1924,7 @@ lpad.loopexit.split-lp98:                         ; preds = %if.then3.i.i.i.i.i
 
 for.body16:                                       ; preds = %if.end69.i, %for.body16
   %i.0105 = phi i64 [ %inc, %for.body16 ], [ 1, %if.end69.i ]
-  %25 = getelementptr double, ptr %17, i64 %i.0105
+  %25 = getelementptr [8 x i8], ptr %17, i64 %i.0105
   %add.ptr.i73 = getelementptr i8, ptr %25, i64 -8
   %26 = load double, ptr %add.ptr.i73, align 8, !tbaa !8
   %27 = load double, ptr %add.ptr.i68, align 8, !tbaa !8
@@ -1932,7 +1932,7 @@ for.body16:                                       ; preds = %if.end69.i, %for.bo
   %sub23 = fsub double 1.000000e+00, %27
   %mul24 = fmul double %28, %sub23
   %29 = call double @llvm.fmuladd.f64(double %26, double %27, double %mul24)
-  %add.ptr.i77 = getelementptr inbounds nuw double, ptr %21, i64 %i.0105
+  %add.ptr.i77 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %i.0105
   store double %29, ptr %add.ptr.i77, align 8, !tbaa !8
   %inc = add nuw i64 %i.0105, 1
   %exitcond = icmp eq i64 %inc, %indvars.iv
@@ -1943,9 +1943,9 @@ invoke.cont41:                                    ; preds = %if.then.i54.invoke.
   %31 = phi ptr [ %.pre134, %if.then.i54.invoke.cont41_crit_edge ], [ %7, %invoke.cont.i.i53 ], [ %7, %if.then7.i50 ], [ %7, %if.else.i48 ]
   %32 = phi i64 [ %.pre133, %if.then.i54.invoke.cont41_crit_edge ], [ %8, %invoke.cont.i.i53 ], [ %8, %if.then7.i50 ], [ %8, %if.else.i48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp39)
-  %add.ptr.i78 = getelementptr inbounds nuw double, ptr %31, i64 %32
+  %add.ptr.i78 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %33 = load double, ptr %add.ptr.i78, align 8, !tbaa !8
-  %add.ptr.i79 = getelementptr inbounds nuw double, ptr %30, i64 %32
+  %add.ptr.i79 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %32
   store double %33, ptr %add.ptr.i79, align 8, !tbaa !8
   %34 = trunc i64 %32 to i32
   %k48.0112 = add i32 %34, -1
@@ -1980,12 +1980,12 @@ lpad40:                                           ; preds = %if.then.i54
 for.body54:                                       ; preds = %for.body54.preheader, %for.body54
   %indvars.iv124 = phi i64 [ %36, %for.body54.preheader ], [ %indvars.iv.next125, %for.body54 ]
   %indvars.iv122 = phi i64 [ %35, %for.body54.preheader ], [ %indvars.iv.next123, %for.body54 ]
-  %add.ptr.i80 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv124
+  %add.ptr.i80 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv124
   %40 = load double, ptr %add.ptr.i80, align 8, !tbaa !8
-  %add.ptr.i81 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv122
+  %add.ptr.i81 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv122
   %41 = load double, ptr %add.ptr.i81, align 8, !tbaa !8
   %add62 = fadd double %40, %41
-  %add.ptr.i82 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv122
+  %add.ptr.i82 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv122
   store double %add62, ptr %add.ptr.i82, align 8, !tbaa !8
   %indvars.iv.next123 = add nsw i64 %indvars.iv122, -1
   %cmp52.not = icmp eq i64 %indvars.iv122, 0
@@ -2033,9 +2033,9 @@ if.then.i.i.i:                                    ; preds = %invoke.cont84
 
 invoke.cont90:                                    ; preds = %invoke.cont84
   %46 = load ptr, ptr %probability_, align 8, !tbaa !3
-  %add.ptr.i83 = getelementptr inbounds nuw double, ptr %46, i64 %i71.0116
+  %add.ptr.i83 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %i71.0116
   %47 = load double, ptr %add.ptr.i83, align 8, !tbaa !8
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %45, i64 %conv86
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %conv86
   %48 = load double, ptr %add.ptr.i.i.i, align 8, !tbaa !8
   %div = fdiv double %47, %48
   invoke void @_ZN8QuantLib12Distribution10addDensityEid(ptr noundef nonnull align 8 dereferenceable(225) %agg.result, i32 noundef %call85, double noundef %div)
@@ -2361,7 +2361,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %k.0476 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %for.body ]
   %conv63 = uitofp i64 %k.0476 to double
   %29 = tail call double @llvm.fmuladd.f64(double %div, double %conv63, double %div64)
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i143, i64 %k.0476
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i143, i64 %k.0476
   store double %29, ptr %add.ptr.i, align 8, !tbaa !8
   %inc = add nuw i64 %k.0476, 1
   %exitcond.not = icmp eq i64 %inc, %25
@@ -2387,10 +2387,10 @@ for.cond312.preheader:                            ; preds = %for.cond.cleanup69
 for.body70:                                       ; preds = %for.body70.lr.ph, %for.cond.cleanup78
   %33 = phi ptr [ %1, %for.body70.lr.ph ], [ %38, %for.cond.cleanup78 ]
   %i.0482 = phi i64 [ 0, %for.body70.lr.ph ], [ %inc303, %for.cond.cleanup78 ]
-  %add.ptr.i170 = getelementptr inbounds nuw double, ptr %33, i64 %i.0482
+  %add.ptr.i170 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %i.0482
   %34 = load double, ptr %add.ptr.i170, align 8, !tbaa !8
   %35 = load ptr, ptr %probabilities, align 8, !tbaa !3
-  %add.ptr.i171 = getelementptr inbounds nuw double, ptr %35, i64 %i.0482
+  %add.ptr.i171 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %i.0482
   %36 = load double, ptr %add.ptr.i171, align 8, !tbaa !8
   br label %for.cond76
 
@@ -2414,13 +2414,13 @@ for.cond.cleanup78:                               ; preds = %for.cond76
 
 for.body79:                                       ; preds = %for.cond76
   %conv80 = and i64 %indvars.iv.next, 2147483647
-  %add.ptr.i177 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i124, i64 %conv80
+  %add.ptr.i177 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i124, i64 %conv80
   %39 = load double, ptr %add.ptr.i177, align 8, !tbaa !8
   %cmp82 = fcmp ogt double %39, 0.000000e+00
   br i1 %cmp82, label %if.then83, label %do.body237
 
 if.then83:                                        ; preds = %for.body79
-  %add.ptr.i178 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i143, i64 %conv80
+  %add.ptr.i178 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i143, i64 %conv80
   %40 = load double, ptr %add.ptr.i178, align 8, !tbaa !8
   %add = fadd double %34, %40
   %call89 = invoke noundef i32 @_ZNK8QuantLib17LossDistBucketing18locateTargetBucketEdm(ptr noundef nonnull align 8 dereferenceable(32) %this, double noundef %add, i64 noundef %conv80)
@@ -2789,14 +2789,14 @@ if.then205:                                       ; preds = %if.else
   br i1 %cmp206, label %if.then207, label %if.end226
 
 if.then207:                                       ; preds = %if.then205
-  %add.ptr.i245 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i124, i64 %conv208
+  %add.ptr.i245 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i124, i64 %conv208
   %82 = load double, ptr %add.ptr.i245, align 8, !tbaa !8
   %div212 = fdiv double %82, %78
   %div213 = fdiv double %div212, %36
   %add214 = fadd double %div213, 1.000000e+00
   %div215 = fdiv double 1.000000e+00, %add214
   %sub216 = fsub double 1.000000e+00, %div215
-  %add.ptr.i247 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i143, i64 %conv208
+  %add.ptr.i247 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i143, i64 %conv208
   %83 = load double, ptr %add.ptr.i247, align 8, !tbaa !8
   %84 = load double, ptr %add.ptr.i178, align 8, !tbaa !8
   %add222 = fadd double %34, %84
@@ -2806,7 +2806,7 @@ if.then207:                                       ; preds = %if.then205
   br label %if.end226
 
 if.end226:                                        ; preds = %if.then205, %if.then207
-  %add.ptr.i250 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i124, i64 %conv208
+  %add.ptr.i250 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i124, i64 %conv208
   %86 = load double, ptr %add.ptr.i250, align 8, !tbaa !8
   %add229 = fadd double %mul, %86
   store double %add229, ptr %add.ptr.i250, align 8, !tbaa !8
@@ -2820,7 +2820,7 @@ if.end230:                                        ; preds = %if.end226, %if.else
   br label %do.body237
 
 do.body237:                                       ; preds = %if.then198, %if.end230, %for.body79
-  %add.ptr.i252 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i143, i64 %conv80
+  %add.ptr.i252 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i143, i64 %conv80
   %88 = load double, ptr %add.ptr.i252, align 8, !tbaa !8
   %89 = load double, ptr %epsilon_, align 8, !tbaa !65
   %add240 = fadd double %88, %89
@@ -2999,14 +2999,14 @@ lpad309:                                          ; preds = %for.cond.cleanup69
 for.body316:                                      ; preds = %for.cond312.preheader, %for.inc325
   %i311.0484 = phi i64 [ %inc326, %for.inc325 ], [ 0, %for.cond312.preheader ]
   %conv317 = trunc i64 %i311.0484 to i32
-  %add.ptr.i283 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i124, i64 %i311.0484
+  %add.ptr.i283 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i124, i64 %i311.0484
   %110 = load double, ptr %add.ptr.i283, align 8, !tbaa !8
   %div319 = fdiv double %110, %div
   invoke void @_ZN8QuantLib12Distribution10addDensityEid(ptr noundef nonnull align 8 dereferenceable(225) %agg.result, i32 noundef %conv317, double noundef %div319)
           to label %invoke.cont321 unwind label %lpad320
 
 invoke.cont321:                                   ; preds = %for.body316
-  %add.ptr.i284 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i143, i64 %i311.0484
+  %add.ptr.i284 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i143, i64 %i311.0484
   %111 = load double, ptr %add.ptr.i284, align 8, !tbaa !8
   invoke void @_ZN8QuantLib12Distribution10addAverageEid(ptr noundef nonnull align 8 dereferenceable(225) %agg.result, i32 noundef %conv317, double noundef %111)
           to label %for.inc325 unwind label %lpad320
@@ -3444,7 +3444,7 @@ invoke.cont7:                                     ; preds = %.noexc, %for.body5
   %9 = phi i64 [ %.pre.i.i.i, %.noexc ], [ %8, %for.body5 ]
   %inc.i.i.i = add i64 %9, 1
   store i64 %inc.i.i.i, ptr %mti.i.i.i, align 8, !tbaa !81
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %rng, i64 %9
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %rng, i64 %9
   %10 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !69
   %shr.i.i.i = lshr i64 %10, 11
   %xor.i.i.i = xor i64 %shr.i.i.i, %10
@@ -3460,13 +3460,13 @@ invoke.cont7:                                     ; preds = %.noexc, %for.body5
   %add.i.i = fadd nnan double %conv.i.i, 5.000000e-01
   %div.i.i = fmul nnan double %add.i.i, 0x3DF0000000000000
   %11 = load ptr, ptr %probabilities, align 8, !tbaa !3
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %11, i64 %j.017
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %j.017
   %12 = load double, ptr %add.ptr.i, align 8, !tbaa !8
   %cmp10 = fcmp ugt double %div.i.i, %12
   br i1 %cmp10, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont7
-  %add.ptr.i9 = getelementptr inbounds nuw double, ptr %.pre20, i64 %j.017
+  %add.ptr.i9 = getelementptr inbounds nuw [8 x i8], ptr %.pre20, i64 %j.017
   %13 = load double, ptr %add.ptr.i9, align 8, !tbaa !8
   %add = fadd double %e.016, %13
   br label %if.end
@@ -3997,7 +3997,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then11
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.then11
   %3 = phi ptr [ %.pre, %if.then.i.i.i.i.i.i.i.i.i ], [ %1, %if.then11 ]
-  %add.ptr16 = getelementptr inbounds nuw double, ptr %3, i64 %__n
+  %add.ptr16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %__n
   store ptr %add.ptr16, ptr %_M_finish, align 8, !tbaa !10
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont20, label %if.then.i.i.i.i.i
@@ -4006,7 +4006,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds double, ptr %1, i64 %idx.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont20
 
@@ -4117,7 +4117,7 @@ if.then.i.i.i.i.i.i.i.i.i78:                      ; preds = %invoke.cont57
   br label %invoke.cont60
 
 invoke.cont60:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i78, %invoke.cont57
-  %add.ptr62 = getelementptr inbounds nuw double, ptr %add.ptr54, i64 %__n
+  %add.ptr62 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr54, i64 %__n
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i82 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast49
   %tobool.not.i.i.i.i.i.i.i.i.i83 = icmp eq ptr %1, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i83, label %invoke.cont64, label %if.then.i.i.i.i.i.i.i.i.i84
@@ -4139,7 +4139,7 @@ if.then.i87:                                      ; preds = %invoke.cont64
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %invoke.cont64, %if.then.i87
   store ptr %cond.i63, ptr %this, align 8, !tbaa !3
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i85, ptr %_M_finish, align 8, !tbaa !10
-  %add.ptr90 = getelementptr inbounds nuw double, ptr %cond.i63, i64 %cond.i
+  %add.ptr90 = getelementptr inbounds nuw [8 x i8], ptr %cond.i63, i64 %cond.i
   store ptr %add.ptr90, ptr %_M_end_of_storage, align 8, !tbaa !25
   br label %if.end94
 

@@ -25,9 +25,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<llvm::support::detail::packed_endian_specific_integral<unsigned int, llvm::endianness::little, 1>, std::allocator<llvm::support::detail::packed_endian_specific_integral<unsigned int, llvm::endianness::little, 1>>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::support::detail::packed_endian_specific_integral<unsigned int, llvm::endianness::little, 1>, std::allocator<llvm::support::detail::packed_endian_specific_integral<unsigned int, llvm::endianness::little, 1>>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::support::detail::packed_endian_specific_integral<unsigned int, llvm::endianness::little, 1>, std::allocator<llvm::support::detail::packed_endian_specific_integral<unsigned int, llvm::endianness::little, 1>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<llvm::support::detail::packed_endian_specific_integral<unsigned int, llvm::endianness::little, 1>, std::allocator<llvm::support::detail::packed_endian_specific_integral<unsigned int, llvm::endianness::little, 1>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.llvm::codeview::CrossModuleImport" = type { %"struct.llvm::support::detail::packed_endian_specific_integral", %"struct.llvm::support::detail::packed_endian_specific_integral" }
 %"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
 %struct.anon = type { [4 x i8] }
-%"struct.llvm::codeview::CrossModuleImport" = type { %"struct.llvm::support::detail::packed_endian_specific_integral", %"struct.llvm::support::detail::packed_endian_specific_integral" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -1454,7 +1454,7 @@ _ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endi
 _ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %51, %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i
   store ptr %46, ptr %25, align 8, !tbaa !92
   store ptr %50, ptr %26, align 8, !tbaa !96
-  %52 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %46, i64 %44
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %44
   store ptr %52, ptr %28, align 8, !tbaa !95
   br label %_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EED2Ev.exit
 
@@ -1492,7 +1492,7 @@ define dso_local noundef i32 @_ZNK4llvm8codeview33DebugCrossModuleImportsSubsect
 _ZNK4llvm9StringMapISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS6_EENS_15MallocAllocatorEE5beginEv.exit: ; preds = %.preheader.i.i.i, %1
   %.sroa.0.1.i = phi ptr [ %3, %1 ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
   %9 = zext i32 %5 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %3, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %9
   %.not9 = icmp eq ptr %.sroa.0.1.i, %10
   br i1 %.not9, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS7_EEEEKNS_14StringMapEntryIS9_EEEppEv.exit._crit_edge, label %.lr.ph.preheader
 
@@ -1552,7 +1552,7 @@ _ZNSt12_Vector_baseIPKN4llvm14StringMapEntryISt6vectorINS0_7support6detail31pack
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 3
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #18
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %8
   br label %_ZNSt6vectorIPKN4llvm14StringMapEntryIS_INS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS6_EEEESaISB_EE7reserveEm.exit
 
 _ZNSt6vectorIPKN4llvm14StringMapEntryIS_INS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS6_EEEESaISB_EE7reserveEm.exit: ; preds = %3, %_ZNSt12_Vector_baseIPKN4llvm14StringMapEntryISt6vectorINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS7_EEEESaISC_EE13_M_deallocateEPSC_m.exit.i
@@ -1580,7 +1580,7 @@ _ZNSt6vectorIPKN4llvm14StringMapEntryIS_INS0_7support6detail31packed_endian_spec
 _ZNK4llvm9StringMapISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS6_EENS_15MallocAllocatorEE5beginEv.exit: ; preds = %.preheader.i.i.i, %_ZNSt6vectorIPKN4llvm14StringMapEntryIS_INS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS6_EEEESaISB_EE7reserveEm.exit
   %.sroa.0.1.i = phi ptr [ %12, %_ZNSt6vectorIPKN4llvm14StringMapEntryIS_INS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS6_EEEESaISB_EE7reserveEm.exit ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
   %18 = zext i32 %14 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %12, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %18
   %.not5360 = icmp eq ptr %.sroa.0.1.i, %19
   br i1 %.not5360, label %_ZN4llvm5ErrorD2Ev.exit31, label %.lr.ph.preheader
 
@@ -1721,7 +1721,7 @@ _ZNSt6vectorIPKN4llvm14StringMapEntryIS_INS0_7support6detail31packed_endian_spec
   br label %_ZNSt6vectorIPKN4llvm14StringMapEntryIS_INS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS6_EEEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPKN4llvm14StringMapEntryIS_INS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS6_EEEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i: ; preds = %76, %_ZNSt6vectorIPKN4llvm14StringMapEntryIS_INS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS6_EEEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit16.i.i.i
-  %77 = getelementptr inbounds nuw ptr, ptr %72, i64 %70
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %70
   br label %_ZNSt6vectorIPKN4llvm14StringMapEntryIS_INS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS6_EEEESaISB_EE9push_backEOSB_.exit
 
 _ZNSt6vectorIPKN4llvm14StringMapEntryIS_INS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS6_EEEESaISB_EE9push_backEOSB_.exit: ; preds = %59, %_ZNSt6vectorIPKN4llvm14StringMapEntryIS_INS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS6_EEEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i
@@ -1860,7 +1860,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview33DebugCrossModuleImportsSubse
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %24 ]
   %10 = load ptr, ptr %2, align 8, !tbaa !99
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !97
   %magicptr.i = ptrtoint ptr %12 to i64
   switch i64 %magicptr.i, label %13 [
@@ -1922,7 +1922,7 @@ define linkonce_odr hidden void @_ZN4llvm8codeview33DebugCrossModuleImportsSubse
 .lr.ph.i.i:                                       ; preds = %24, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %24 ]
   %10 = load ptr, ptr %2, align 8, !tbaa !99
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %11, align 8, !tbaa !97
   %magicptr.i.i = ptrtoint ptr %12 to i64
   switch i64 %magicptr.i.i, label %13 [
@@ -2200,7 +2200,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapISt6vectorINS_7support
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #17
   %7 = load ptr, ptr %0, align 8, !tbaa !99
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !97
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -2264,7 +2264,7 @@ _ZN4llvm14StringMapEntryISt6vectorINS_7support6detail31packed_endian_specific_in
   %34 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #17
   %35 = load ptr, ptr %0, align 8, !tbaa !99
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS6_EEE6createINS_15MallocAllocatorEJS8_EEEPS9_NS_9StringRefERT_DpOT0_.exit
@@ -2324,7 +2324,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 18:                                               ; preds = %18, %15
   %.09.i.i.i = phi i64 [ %17, %15 ], [ %21, %18 ]
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %.09.i.i.i
+  %19 = getelementptr inbounds [8 x i8], ptr %0, i64 %.09.i.i.i
   %20 = load ptr, ptr %19, align 8, !tbaa !104
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14StringMapEntryISt6vectorINS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESaIS9_EEEES4_ISE_SaISE_EEEElSE_NS0_5__ops15_Iter_comp_iterIZNKS2_8codeview33DebugCrossModuleImportsSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_T0_SS_T1_T2_"(ptr %0, i64 noundef %.09.i.i.i, i64 noundef %13, ptr noundef %20, ptr readonly %3)
   %.not.i.i.i = icmp eq i64 %.09.i.i.i, 0
@@ -2347,7 +2347,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 29:                                               ; preds = %12
   %30 = add nsw i64 %.022, -1
   %31 = lshr i64 %13, 1
-  %32 = getelementptr inbounds nuw ptr, ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %31
   %33 = getelementptr inbounds i8, ptr %storemerge21, i64 -8
   %.val1.i.i.i = load ptr, ptr %10, align 8, !tbaa !104
   %34 = load ptr, ptr %11, align 8, !tbaa !80
@@ -2535,9 +2535,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.037 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %10 ]
   %11 = shl i64 %.037, 1
   %12 = add i64 %11, 2
-  %13 = getelementptr inbounds ptr, ptr %0, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %0, i64 %12
   %14 = or disjoint i64 %11, 1
-  %15 = getelementptr inbounds ptr, ptr %0, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %0, i64 %14
   %.val1.i = load ptr, ptr %13, align 8, !tbaa !104
   %16 = load ptr, ptr %9, align 8, !tbaa !80
   %17 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 32
@@ -2550,9 +2550,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %24 = tail call noundef i32 @_ZNK4llvm8codeview26DebugStringTableSubsection14getIdForStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(68) %20, ptr nonnull %22, i64 %23) #17
   %25 = icmp ult i32 %19, %24
   %spec.select = select i1 %25, i64 %14, i64 %12
-  %26 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %26 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select
   %27 = load ptr, ptr %26, align 8, !tbaa !104
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %.037
+  %28 = getelementptr inbounds [8 x i8], ptr %0, i64 %.037
   store ptr %27, ptr %28, align 8, !tbaa !104
   %29 = icmp slt i64 %spec.select, %7
   br i1 %29, label %10, label %._crit_edge, !llvm.loop !142
@@ -2572,9 +2572,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 36:                                               ; preds = %32
   %37 = shl nsw i64 %.0.lcssa, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds ptr, ptr %0, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %0, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !104
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %41 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   store ptr %40, ptr %41, align 8, !tbaa !104
   br label %42
 
@@ -2592,7 +2592,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.010.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0911.i, %56 ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %47 = getelementptr inbounds ptr, ptr %0, i64 %.0911.i
+  %47 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0911.i
   %.val2.i.i = load ptr, ptr %47, align 8, !tbaa !104
   %48 = load ptr, ptr %44, align 8, !tbaa !80
   %49 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 32
@@ -2606,14 +2606,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 56:                                               ; preds = %46
   %57 = load ptr, ptr %47, align 8, !tbaa !104
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %.010.i
+  %58 = getelementptr inbounds [8 x i8], ptr %0, i64 %.010.i
   store ptr %57, ptr %58, align 8, !tbaa !104
   %59 = icmp sgt i64 %.0911.i, %1
   br i1 %59, label %46, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14StringMapEntryISt6vectorINS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESaIS9_EEEES4_ISE_SaISE_EEEElSE_NS0_5__ops14_Iter_comp_valIZNKS2_8codeview33DebugCrossModuleImportsSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_T0_SS_T1_RT2_.exit", !llvm.loop !143
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14StringMapEntryISt6vectorINS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESaIS9_EEEES4_ISE_SaISE_EEEElSE_NS0_5__ops14_Iter_comp_valIZNKS2_8codeview33DebugCrossModuleImportsSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_T0_SS_T1_RT2_.exit": ; preds = %46, %56, %42
   %.0.lcssa.i = phi i64 [ %.1, %42 ], [ %.010.i, %46 ], [ %.0911.i, %56 ]
-  %60 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i
+  %60 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i
   store ptr %3, ptr %60, align 8, !tbaa !104
   ret void
 }
@@ -2659,7 +2659,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14StringMapEntryISt6
   %21 = sub i64 %20, %6
   %22 = ashr exact i64 %21, 3
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds ptr, ptr %19, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %19, i64 %23
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %21, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14StringMapEntryISt6vectorINS2_7support6detail31packed_endian_specific_integralIjLNS2_10endiannessE1ELm1ELm1EEESaIS9_EEEES4_ISE_SaISE_EEEENS0_5__ops14_Val_comp_iterIZNKS2_8codeview33DebugCrossModuleImportsSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_T0_.exit"
 

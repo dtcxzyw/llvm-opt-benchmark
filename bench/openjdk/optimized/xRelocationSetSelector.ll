@@ -174,7 +174,7 @@ _ZN18XArrayIteratorImplIP5XPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.e
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %17 = load volatile i64, ptr %16, align 8
   %18 = lshr i64 %17, %5
-  %19 = getelementptr inbounds i32, ptr %1, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %1, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 4
@@ -187,7 +187,7 @@ _ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit.preheader: ; preds = %.lr.ph
 _ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit: ; preds = %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit.preheader, %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit
   %.049 = phi i32 [ %24, %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit ], [ 0, %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit.preheader ]
   %.01548 = phi i64 [ %25, %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit ], [ 0, %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit.preheader ]
-  %22 = getelementptr inbounds nuw i32, ptr %1, i64 %.01548
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.01548
   %23 = load i32, ptr %22, align 4
   store i32 %.049, ptr %22, align 4
   %24 = add nsw i32 %23, %.049
@@ -227,12 +227,12 @@ _ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEC2EiiRKS1_.exit: ; preds = %.lr.ph.p
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %39 = load volatile i64, ptr %38, align 8
   %40 = lshr i64 %39, %5
-  %41 = getelementptr inbounds i32, ptr %1, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %1, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %41, align 4
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds ptr, ptr %.0.i.i3740, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %.0.i.i3740, i64 %44
   store ptr %36, ptr %45, align 8
   %.not45 = icmp eq ptr %37, %35
   br i1 %.not45, label %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit17.loopexit, label %.lr.ph52, !llvm.loop !9
@@ -292,7 +292,7 @@ define hidden void @_ZN27XRelocationSetSelectorGroup12select_innerEv(ptr noundef
   %.04552 = phi i64 [ 0, %.lr.ph ], [ %25, %53 ]
   %.04651 = phi i64 [ 0, %.lr.ph ], [ %16, %53 ]
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40

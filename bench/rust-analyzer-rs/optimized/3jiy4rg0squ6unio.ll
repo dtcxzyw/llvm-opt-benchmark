@@ -16504,7 +16504,7 @@ default.unreachable:                              ; preds = %15
   %.val = load ptr, ptr %45, align 8, !nonnull !5, !noundef !5
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val11 = load i64, ptr %46, align 8, !noundef !5
-  %47 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %.val, i64 %.val11
+  %47 = getelementptr inbounds [104 x i8], ptr %.val, i64 %.val11
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -16684,7 +16684,7 @@ define hidden noundef align 8 dereferenceable_or_null(72) ptr @_ZN10serde_json5v
   %or.cond = select i1 %3, i1 %6, i1 false
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !nonnull !5
-  %9 = getelementptr inbounds { i64, [8 x i64] }, ptr %8, i64 %1
+  %9 = getelementptr inbounds [72 x i8], ptr %8, i64 %1
   %.0.i = select i1 %or.cond, ptr %9, ptr null
   ret ptr %.0.i
 }
@@ -21386,7 +21386,7 @@ define hidden void @"_ZN118_$LT$serde_json..map..Map$LT$alloc..string..String$C$
   %.val = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val7 = load i64, ptr %18, align 8, !noundef !5
-  %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %.val, i64 %.val7
+  %19 = getelementptr inbounds [104 x i8], ptr %.val, i64 %.val7
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -23669,10 +23669,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !3037, !noundef !5
   %.val = load i8, ptr %2, align 1, !range !4694, !noundef !5
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7b63be4b4ebe4db8E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7b63be4b4ebe4db8E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7b63be4b4ebe4db8E.80", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7b63be4b4ebe4db8E.80", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -29561,7 +29561,7 @@ define hidden noundef align 8 dereferenceable_or_null(72) ptr @"_ZN57_$LT$usize$
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i64, [8 x i64] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [72 x i8], ptr %12, i64 %8
   br label %14
 
 14:                                               ; preds = %5, %2, %10
@@ -37573,8 +37573,8 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$14build_internal17h07
 .lr.ph:                                           ; preds = %36, %"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$17assert_match_kind17h9ff289a1a179bf26E.exit"
   %.sroa.850.083 = phi i64 [ %43, %"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$17assert_match_kind17h9ff289a1a179bf26E.exit" ], [ 0, %36 ]
   %43 = add nuw i64 %.sroa.850.083, 1
-  %44 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %.sink5.i27, i64 %.sroa.850.083
-  %45 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i30, i64 %.sroa.850.083
+  %44 = getelementptr inbounds [16 x i8], ptr %.sink5.i27, i64 %.sroa.850.083
+  %45 = getelementptr inbounds [16 x i8], ptr %.sink5.i30, i64 %.sroa.850.083
   %.val = load i64, ptr %45, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %44, ptr %10, align 8, !noalias !8209
@@ -37641,7 +37641,7 @@ default.unreachable:                              ; preds = %.noexc
 64:                                               ; preds = %.else
   %65 = extractvalue { ptr, i64 } %42, 0
   %66 = extractvalue { ptr, i64 } %42, 1
-  %67 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %65, i64 %66
+  %67 = getelementptr inbounds [16 x i8], ptr %65, i64 %66
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %65) ]
   %.sroa.452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !8220
@@ -37712,7 +37712,7 @@ default.unreachable:                              ; preds = %.noexc
   br i1 %85, label %"_ZN4core3ptr94drop_in_place$LT$smallvec..SmallVec$LT$$u5b$hir_ty..builder..ParamKind$u3b$$u20$2$u5d$$GT$$GT$17hc04dfb1a3a62f0b9E.exit", label %86
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds { i64, [1 x i64] }, ptr %82, i64 %.0.i.i.i
+  %87 = getelementptr inbounds [16 x i8], ptr %82, i64 %.0.i.i.i
   %88 = add i64 %.0.i.i.i, 1
   invoke void @"_ZN4core3ptr47drop_in_place$LT$hir_ty..builder..ParamKind$GT$17h45d10171947d8966E.llvm.10409712727403535664"(ptr noalias noundef nonnull align 8 dereferenceable(16) %87)
           to label %84 unwind label %91
@@ -37728,7 +37728,7 @@ default.unreachable:                              ; preds = %.noexc
   br label %89
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds { i64, [1 x i64] }, ptr %82, i64 %.1.i.i.i
+  %94 = getelementptr inbounds [16 x i8], ptr %82, i64 %.1.i.i.i
   %95 = add i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr47drop_in_place$LT$hir_ty..builder..ParamKind$GT$17h45d10171947d8966E.llvm.10409712727403535664"(ptr noalias noundef nonnull align 8 dereferenceable(16) %94) #27
           to label %89 unwind label %96
@@ -38020,8 +38020,8 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17h2cfc08d6f2cdf
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %22, align 8, !alias.scope !8290, !noalias !8295, !nonnull !5
   %.sink5.i.i = select i1 %14, ptr %24, ptr %22
-  %25 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i.i, i64 %.sink4.i
-  %26 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i.i, i64 %.sink4.i.i
+  %25 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i
+  %26 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i.i
   store ptr %25, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %26, ptr %27, align 8
@@ -38109,8 +38109,8 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17h3f4bf607b053c
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %22, align 8, !alias.scope !8315, !noalias !8320, !nonnull !5
   %.sink5.i.i = select i1 %14, ptr %24, ptr %22
-  %25 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i.i, i64 %.sink4.i
-  %26 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i.i, i64 %.sink4.i.i
+  %25 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i
+  %26 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i.i
   store ptr %25, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %26, ptr %27, align 8
@@ -38198,8 +38198,8 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17h8ae1ffd606b61
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %22, align 8, !alias.scope !8340, !noalias !8345, !nonnull !5
   %.sink5.i.i = select i1 %14, ptr %24, ptr %22
-  %25 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i.i, i64 %.sink4.i
-  %26 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i.i, i64 %.sink4.i.i
+  %25 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i
+  %26 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i.i
   store ptr %25, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %26, ptr %27, align 8
@@ -38287,8 +38287,8 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17h9f44dc12abf83
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %22, align 8, !alias.scope !8365, !noalias !8370, !nonnull !5
   %.sink5.i.i = select i1 %14, ptr %24, ptr %22
-  %25 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i.i, i64 %.sink4.i
-  %26 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i.i, i64 %.sink4.i.i
+  %25 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i
+  %26 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i.i
   store ptr %25, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %26, ptr %27, align 8
@@ -38376,8 +38376,8 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17hafa60e5530416
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %22, align 8, !alias.scope !8390, !noalias !8395, !nonnull !5
   %.sink5.i.i = select i1 %14, ptr %24, ptr %22
-  %25 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i.i, i64 %.sink4.i
-  %26 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i.i, i64 %.sink4.i.i
+  %25 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i
+  %26 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i.i
   store ptr %25, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %26, ptr %27, align 8
@@ -38465,8 +38465,8 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17hb6cadec6a5ed8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %22, align 8, !alias.scope !8415, !noalias !8420, !nonnull !5
   %.sink5.i.i = select i1 %14, ptr %24, ptr %22
-  %25 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i.i, i64 %.sink4.i
-  %26 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i.i, i64 %.sink4.i.i
+  %25 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i
+  %26 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i.i
   store ptr %25, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %26, ptr %27, align 8
@@ -38554,8 +38554,8 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17hbc7f51bb7687c
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %22, align 8, !alias.scope !8440, !noalias !8445, !nonnull !5
   %.sink5.i.i = select i1 %14, ptr %24, ptr %22
-  %25 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i.i, i64 %.sink4.i
-  %26 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i.i, i64 %.sink4.i.i
+  %25 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i
+  %26 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i.i
   store ptr %25, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %26, ptr %27, align 8
@@ -38643,8 +38643,8 @@ define hidden void @"_ZN6hir_ty7builder18TyBuilder$LT$D$GT$4fill17he2de19ffde19e
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %22, align 8, !alias.scope !8465, !noalias !8470, !nonnull !5
   %.sink5.i.i = select i1 %14, ptr %24, ptr %22
-  %25 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i.i, i64 %.sink4.i
-  %26 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink5.i.i, i64 %.sink4.i.i
+  %25 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i
+  %26 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i.i
   store ptr %25, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %26, ptr %27, align 8

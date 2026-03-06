@@ -176,7 +176,7 @@ pow_ii.exit196:                                   ; preds = %.lr.ph.i190, %.lr.p
   %96 = load i32, ptr %5, align 4, !tbaa !3
   %97 = add nsw i32 %96, %.0.lcssa
   %98 = zext nneg i32 %40 to i64
-  %99 = getelementptr double, ptr %36, i64 %98
+  %99 = getelementptr [8 x i8], ptr %36, i64 %98
   %100 = getelementptr i8, ptr %99, i64 8
   tail call void @dlaeda_(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %12, ptr noundef %13, ptr noundef %19, ptr noundef %100, ptr noundef nonnull %21) #4
   %101 = load i32, ptr %4, align 4, !tbaa !3
@@ -186,7 +186,7 @@ pow_ii.exit196:                                   ; preds = %.lr.ph.i190, %.lr.p
   br i1 %103, label %108, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.phi.trans.insert213 = getelementptr inbounds i32, ptr %33, i64 %104
+  %.phi.trans.insert213 = getelementptr inbounds [4 x i8], ptr %33, i64 %104
   %.pre = load i32, ptr %.phi.trans.insert213, align 4, !tbaa !3
   %105 = shl i32 %.pre, 1
   %106 = or disjoint i32 %105, 1
@@ -194,38 +194,38 @@ pow_ii.exit196:                                   ; preds = %.lr.ph.i190, %.lr.p
   br label %112
 
 108:                                              ; preds = %._crit_edge
-  %109 = getelementptr inbounds i32, ptr %30, i64 %104
+  %109 = getelementptr inbounds [4 x i8], ptr %30, i64 %104
   store i32 1, ptr %109, align 4, !tbaa !3
-  %110 = getelementptr inbounds i32, ptr %31, i64 %104
+  %110 = getelementptr inbounds [4 x i8], ptr %31, i64 %104
   store i32 1, ptr %110, align 4, !tbaa !3
-  %111 = getelementptr inbounds i32, ptr %33, i64 %104
+  %111 = getelementptr inbounds [4 x i8], ptr %33, i64 %104
   store i32 1, ptr %111, align 4, !tbaa !3
   br label %112
 
 112:                                              ; preds = %._crit_edge._crit_edge, %108
   %113 = phi i64 [ %107, %._crit_edge._crit_edge ], [ 3, %108 ]
   %114 = zext nneg i32 %61 to i64
-  %115 = getelementptr inbounds nuw double, ptr %36, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %114
   %116 = zext nneg i32 %63 to i64
-  %117 = getelementptr inbounds nuw double, ptr %36, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %116
   %118 = zext nneg i32 %62 to i64
-  %119 = getelementptr inbounds nuw double, ptr %36, i64 %118
-  %120 = getelementptr inbounds i32, ptr %31, i64 %104
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %118
+  %120 = getelementptr inbounds [4 x i8], ptr %31, i64 %104
   %121 = load i32, ptr %120, align 4, !tbaa !3
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i32, ptr %32, i64 %122
+  %123 = getelementptr inbounds [4 x i8], ptr %32, i64 %122
   %124 = add nsw i32 %97, 1
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds i32, ptr %33, i64 %125
-  %127 = getelementptr inbounds i32, ptr %33, i64 %104
-  %128 = getelementptr inbounds i32, ptr %34, i64 %113
-  %129 = getelementptr inbounds double, ptr %35, i64 %113
-  %130 = getelementptr inbounds nuw i32, ptr %37, i64 %116
+  %126 = getelementptr inbounds [4 x i8], ptr %33, i64 %125
+  %127 = getelementptr inbounds [4 x i8], ptr %33, i64 %104
+  %128 = getelementptr inbounds [4 x i8], ptr %34, i64 %113
+  %129 = getelementptr inbounds [8 x i8], ptr %35, i64 %113
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %116
   call void @dlaed8_(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %11, ptr noundef %19, ptr noundef nonnull %115, ptr noundef nonnull %117, ptr noundef nonnull %27, ptr noundef nonnull %119, ptr noundef nonnull %123, ptr noundef nonnull %126, ptr noundef nonnull %128, ptr noundef nonnull %129, ptr noundef nonnull %130, ptr noundef %20, ptr noundef nonnull %21) #4
   %131 = load i32, ptr %120, align 4, !tbaa !3
   %132 = load i32, ptr %1, align 4, !tbaa !3
   %133 = add nsw i32 %132, %131
-  %134 = getelementptr inbounds i32, ptr %31, i64 %125
+  %134 = getelementptr inbounds [4 x i8], ptr %31, i64 %125
   store i32 %133, ptr %134, align 4, !tbaa !3
   %135 = load i32, ptr %127, align 4, !tbaa !3
   %136 = load i32, ptr %126, align 4, !tbaa !3
@@ -237,11 +237,11 @@ pow_ii.exit196:                                   ; preds = %.lr.ph.i190, %.lr.p
 
 139:                                              ; preds = %112
   %140 = sext i32 %65 to i64
-  %141 = getelementptr inbounds double, ptr %36, i64 %140
-  %142 = getelementptr inbounds i32, ptr %30, i64 %104
+  %141 = getelementptr inbounds [8 x i8], ptr %36, i64 %140
+  %142 = getelementptr inbounds [4 x i8], ptr %30, i64 %104
   %143 = load i32, ptr %142, align 4, !tbaa !3
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds double, ptr %29, i64 %144
+  %145 = getelementptr inbounds [8 x i8], ptr %29, i64 %144
   call void @dlaed9_(ptr noundef nonnull %24, ptr noundef nonnull @c__1, ptr noundef nonnull %24, ptr noundef nonnull %1, ptr noundef %6, ptr noundef nonnull %141, ptr noundef nonnull %24, ptr noundef %10, ptr noundef nonnull %115, ptr noundef nonnull %119, ptr noundef nonnull %145, ptr noundef nonnull %24, ptr noundef nonnull %21) #4
   %146 = load i32, ptr %21, align 4, !tbaa !3
   %.not184 = icmp eq i32 %146, 0
@@ -255,7 +255,7 @@ pow_ii.exit196:                                   ; preds = %.lr.ph.i190, %.lr.p
 150:                                              ; preds = %147
   %151 = load i32, ptr %142, align 4, !tbaa !3
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds double, ptr %29, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %29, i64 %152
   call void @dgemm_(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef %2, ptr noundef nonnull %24, ptr noundef nonnull %24, ptr noundef nonnull @c_b10, ptr noundef nonnull %117, ptr noundef nonnull %27, ptr noundef nonnull %153, ptr noundef nonnull %24, ptr noundef nonnull @c_b11, ptr noundef %7, ptr noundef nonnull %8) #4
   br label %154
 
@@ -264,7 +264,7 @@ pow_ii.exit196:                                   ; preds = %.lr.ph.i190, %.lr.p
   %156 = load i32, ptr %142, align 4, !tbaa !3
   %157 = mul nsw i32 %155, %155
   %158 = add nsw i32 %156, %157
-  %159 = getelementptr inbounds i32, ptr %30, i64 %125
+  %159 = getelementptr inbounds [4 x i8], ptr %30, i64 %125
   store i32 %158, ptr %159, align 4, !tbaa !3
   store i32 %155, ptr %25, align 4, !tbaa !3
   %160 = load i32, ptr %1, align 4, !tbaa !3
@@ -274,9 +274,9 @@ pow_ii.exit196:                                   ; preds = %.lr.ph.i190, %.lr.p
   br label %.loopexit
 
 162:                                              ; preds = %112
-  %163 = getelementptr inbounds i32, ptr %30, i64 %104
+  %163 = getelementptr inbounds [4 x i8], ptr %30, i64 %104
   %164 = load i32, ptr %163, align 4, !tbaa !3
-  %165 = getelementptr inbounds i32, ptr %30, i64 %125
+  %165 = getelementptr inbounds [4 x i8], ptr %30, i64 %125
   store i32 %164, ptr %165, align 4, !tbaa !3
   %166 = load i32, ptr %1, align 4, !tbaa !3
   %.not183203 = icmp slt i32 %166, 1
@@ -289,7 +289,7 @@ pow_ii.exit196:                                   ; preds = %.lr.ph.i190, %.lr.p
 
 .lr.ph206:                                        ; preds = %.lr.ph206.preheader, %.lr.ph206
   %indvars.iv208 = phi i64 [ 1, %.lr.ph206.preheader ], [ %indvars.iv.next209, %.lr.ph206 ]
-  %168 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv208
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv208
   %169 = trunc nuw nsw i64 %indvars.iv208 to i32
   store i32 %169, ptr %168, align 4, !tbaa !3
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1

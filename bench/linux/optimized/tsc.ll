@@ -178,7 +178,7 @@ define dso_local void @__cyc2ns_read(ptr noundef writeonly captures(none) initia
   %5 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @cyc2ns, i64 32)) #22, !srcloc !6
   %6 = and i32 %5, 1
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr %struct.cyc2ns_data, ptr @cyc2ns, i64 %7
+  %8 = getelementptr [16 x i8], ptr @cyc2ns, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9) #22, !srcloc !7
   store i64 %10, ptr %2, align 8
@@ -207,7 +207,7 @@ define dso_local void @cyc2ns_read_begin(ptr noundef writeonly captures(none) in
   %5 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @cyc2ns, i64 32)) #22, !srcloc !6
   %6 = and i32 %5, 1
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr %struct.cyc2ns_data, ptr @cyc2ns, i64 %7
+  %8 = getelementptr [16 x i8], ptr @cyc2ns, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9) #22, !srcloc !7
   store i64 %10, ptr %2, align 8
@@ -268,7 +268,7 @@ define dso_local i64 @native_sched_clock() #4 section ".noinstr.text" align 16 {
   %8 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @cyc2ns, i64 32)) #22, !srcloc !6
   %9 = and i32 %8, 1
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr %struct.cyc2ns_data, ptr @cyc2ns, i64 %10
+  %11 = getelementptr [16 x i8], ptr @cyc2ns, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %12) #22, !srcloc !7
   %14 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11) #22, !srcloc !8
@@ -307,7 +307,7 @@ define dso_local i64 @native_sched_clock_from_tsc(i64 noundef %0) local_unnamed_
   %3 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @cyc2ns, i64 32)) #22, !srcloc !6
   %4 = and i32 %3, 1
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr %struct.cyc2ns_data, ptr @cyc2ns, i64 %5
+  %6 = getelementptr [16 x i8], ptr @cyc2ns, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #22, !srcloc !7
   %9 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #22, !srcloc !8
@@ -882,7 +882,7 @@ define dso_local void @tsc_restore_sched_clock_state() local_unnamed_addr #5 ali
 
 26:                                               ; preds = %22
   %27 = and i64 %23, 63
-  %28 = getelementptr i64, ptr @__per_cpu_offset, i64 %27
+  %28 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @cyc2ns, i64 8) to i64)
   %31 = inttoptr i64 %30 to ptr
@@ -1356,7 +1356,7 @@ define internal fastcc void @cyc2ns_init_secondary_cpus() unnamed_addr #11 secti
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 0, ptr %19, align 4
   %20 = and i64 %13, 63
-  %21 = getelementptr i64, ptr @__per_cpu_offset, i64 %20
+  %21 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, ptrtoint (ptr @cyc2ns to i64)
   %24 = inttoptr i64 %23 to ptr
@@ -1487,7 +1487,7 @@ define internal fastcc void @detect_art() unnamed_addr #0 section ".init.text" a
 define dso_local i64 @calibrate_delay_is_known() local_unnamed_addr #13 align 16 {
   %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #24, !srcloc !59
   %2 = sext i32 %1 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_info to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -1737,7 +1737,7 @@ define internal fastcc void @__set_cyc2ns_scale(i64 noundef range(i64 0, 4294967
   %6 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @cyc2ns, i64 32)) #22, !srcloc !6
   %7 = and i32 %6, 1
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr %struct.cyc2ns_data, ptr @cyc2ns, i64 %8
+  %9 = getelementptr [16 x i8], ptr @cyc2ns, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %10) #22, !srcloc !7
   %12 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9) #22, !srcloc !8
@@ -1796,7 +1796,7 @@ define internal fastcc void @__set_cyc2ns_scale(i64 noundef range(i64 0, 4294967
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %46, ptr %47, align 8
   %48 = sext i32 %1 to i64
-  %49 = getelementptr i64, ptr @__per_cpu_offset, i64 %48
+  %49 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, ptrtoint (ptr @cyc2ns to i64)
   %52 = inttoptr i64 %51 to ptr

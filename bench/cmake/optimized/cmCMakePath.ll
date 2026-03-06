@@ -2719,7 +2719,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_S_copyEPwPKwm.exit.i: ; p
   %49 = phi i64 [ %.pre.i, %46 ], [ 1, %44 ], [ %41, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %49, ptr %50, align 8, !tbaa !95
-  %51 = getelementptr inbounds nuw i32, ptr %48, i64 %49
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %49
   store i32 0, ptr %51, align 4, !tbaa !96
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEaSEOS4_.exit
 
@@ -3334,10 +3334,10 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZSt16__do_str_codecvtINSt7__c
   call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %31, i32 noundef signext 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %32 = load ptr, ptr %2, align 8, !tbaa !91
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %.032.us
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %.032.us
   store ptr %33, ptr %9, align 8, !tbaa !117
   %34 = load i64, ptr %20, align 8, !tbaa !95
-  %35 = getelementptr i32, ptr %32, i64 %34
+  %35 = getelementptr [4 x i8], ptr %32, i64 %34
   %36 = load ptr, ptr %8, align 8, !tbaa !116
   %37 = call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef %36, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %33, ptr noundef nonnull %35, ptr noundef nonnull align 8 dereferenceable(8) %9)
   %38 = load ptr, ptr %9, align 8, !tbaa !117
@@ -3370,10 +3370,10 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZSt16__do_str_codecvtINSt7__c
   call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %55, i32 noundef signext 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %56 = load ptr, ptr %2, align 8, !tbaa !91
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %.032
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %.032
   store ptr %57, ptr %9, align 8, !tbaa !117
   %58 = load i64, ptr %20, align 8, !tbaa !95
-  %59 = getelementptr i32, ptr %56, i64 %58
+  %59 = getelementptr [4 x i8], ptr %56, i64 %58
   %60 = load ptr, ptr %23, align 8, !tbaa !114
   %61 = getelementptr i8, ptr %60, i64 %.unpack.fr
   %62 = getelementptr i8, ptr %61, i64 -1

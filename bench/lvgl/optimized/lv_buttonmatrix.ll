@@ -98,7 +98,7 @@ define internal void @lv_buttonmatrix_event(ptr readnone captures(none) %0, ptr 
 20:                                               ; preds = %32
   %21 = add i32 %.018.i, 1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %17, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !22
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %has_popovers_in_top_row.exit.thread, label %.lr.ph.i, !llvm.loop !24
@@ -120,7 +120,7 @@ define internal void @lv_buttonmatrix_event(ptr readnone captures(none) %0, ptr 
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %18, align 8, !tbaa !20
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %27
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %27
   %35 = load i32, ptr %34, align 4, !tbaa !27
   %36 = and i32 %35, 1024
   %.not16.i = icmp eq i32 %36, 0
@@ -172,7 +172,7 @@ has_popovers_in_top_row.exit:                     ; preds = %32
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %57 = load ptr, ptr %56, align 8, !tbaa !20
   %58 = zext i32 %54 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !27
   %61 = and i32 %60, 80
   %or.cond351.not = icmp eq i32 %61, 0
@@ -192,7 +192,7 @@ has_popovers_in_top_row.exit:                     ; preds = %32
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %66 = load ptr, ptr %65, align 8, !tbaa !20
   %67 = zext i32 %.pr to i64
-  %68 = getelementptr inbounds nuw i32, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !27
   %70 = and i32 %69, 1616
   %or.cond357.not = icmp eq i32 %70, 0
@@ -240,7 +240,7 @@ has_popovers_in_top_row.exit:                     ; preds = %32
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %89 = load ptr, ptr %88, align 8, !tbaa !20
   %90 = zext i32 %86 to i64
-  %91 = getelementptr inbounds nuw i32, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !27
   %93 = and i32 %92, 192
   %or.cond359.not = icmp eq i32 %93, 128
@@ -286,7 +286,7 @@ has_popovers_in_top_row.exit:                     ; preds = %32
   %110 = phi i32 [ %.pre436, %104 ], [ %.pre435, %108 ], [ %86, %87 ]
   %111 = phi ptr [ %89, %104 ], [ %.pre, %108 ], [ %89, %87 ]
   %112 = zext i32 %110 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !27
   %115 = and i32 %114, 1536
   %or.cond361.not391 = icmp eq i32 %115, 0
@@ -322,7 +322,7 @@ has_popovers_in_top_row.exit:                     ; preds = %32
   %126 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %127 = load ptr, ptr %126, align 8, !tbaa !20
   %128 = zext i32 %124 to i64
-  %129 = getelementptr inbounds nuw i32, ptr %127, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %128
   %130 = load i32, ptr %129, align 4, !tbaa !27
   %131 = and i32 %130, 112
   %or.cond369.not = icmp eq i32 %131, 0
@@ -404,7 +404,7 @@ has_popovers_in_top_row.exit:                     ; preds = %32
 166:                                              ; preds = %.lr.ph, %.critedge10
   %.0293401 = phi i32 [ 0, %.lr.ph ], [ %171, %.critedge10 ]
   %167 = zext i32 %.0293401 to i64
-  %168 = getelementptr inbounds nuw i32, ptr %163, i64 %167
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !27
   %170 = and i32 %169, 336
   %or.cond373 = icmp eq i32 %170, 256
@@ -417,7 +417,7 @@ has_popovers_in_top_row.exit:                     ; preds = %32
 
 172:                                              ; preds = %.lr.ph405, %.critedge14
   %indvars.iv = phi i64 [ 0, %.lr.ph405 ], [ %indvars.iv.next, %.critedge14 ]
-  %173 = getelementptr inbounds nuw i32, ptr %165, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %165, i64 %indvars.iv
   %174 = load i32, ptr %173, align 4, !tbaa !27
   %175 = and i32 %174, 80
   %or.cond375.not = icmp eq i32 %175, 0
@@ -486,7 +486,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
 191:                                              ; preds = %.critedge18, %184
   %192 = phi i32 [ %spec.store.select, %.critedge18 ], [ %spec.store.select341, %184 ]
   %193 = zext i32 %192 to i64
-  %194 = getelementptr inbounds nuw i32, ptr %.pre438, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %.pre438, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !27
   %196 = and i32 %195, 80
   %or.cond377.not = icmp eq i32 %196, 0
@@ -528,7 +528,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
 208:                                              ; preds = %216, %204
   %209 = phi i32 [ %storemerge320, %216 ], [ %storemerge, %204 ]
   %210 = zext i32 %209 to i64
-  %211 = getelementptr inbounds nuw i32, ptr %206, i64 %210
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %210
   %212 = load i32, ptr %211, align 4, !tbaa !27
   %213 = and i32 %212, 80
   %or.cond379.not = icmp eq i32 %213, 0
@@ -571,7 +571,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
 228:                                              ; preds = %.critedge22, %224
   %229 = phi i32 [ %234, %.critedge22 ], [ 0, %224 ]
   %230 = zext i32 %229 to i64
-  %231 = getelementptr inbounds nuw i32, ptr %226, i64 %230
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %230
   %232 = load i32, ptr %231, align 4, !tbaa !27
   %233 = and i32 %232, 80
   %or.cond381.not = icmp eq i32 %233, 0
@@ -592,7 +592,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
   %238 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %239 = load ptr, ptr %238, align 8, !tbaa !19
   %240 = zext i32 %222 to i64
-  %241 = getelementptr inbounds nuw %struct.lv_area_t, ptr %239, i64 %240
+  %241 = getelementptr inbounds nuw [16 x i8], ptr %239, i64 %240
   %242 = load i32, ptr %241, align 4, !tbaa !33
   %243 = tail call i32 @lv_area_get_width(ptr noundef nonnull %241) #7
   %244 = ashr i32 %243, 1
@@ -606,7 +606,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
 .lr.ph412:                                        ; preds = %237
   %250 = load ptr, ptr %238, align 8, !tbaa !19
   %251 = zext i32 %246 to i64
-  %252 = getelementptr inbounds nuw %struct.lv_area_t, ptr %250, i64 %251
+  %252 = getelementptr inbounds nuw [16 x i8], ptr %250, i64 %251
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 4
   %254 = load i32, ptr %253, align 4, !tbaa !34
   %255 = getelementptr inbounds nuw i8, ptr %10, i64 80
@@ -614,7 +614,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
 
 256:                                              ; preds = %.lr.ph412, %272
   %indvars.iv431 = phi i64 [ %251, %.lr.ph412 ], [ %indvars.iv.next432, %272 ]
-  %257 = getelementptr inbounds nuw %struct.lv_area_t, ptr %250, i64 %indvars.iv431
+  %257 = getelementptr inbounds nuw [16 x i8], ptr %250, i64 %indvars.iv431
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 4
   %259 = load i32, ptr %258, align 4, !tbaa !34
   %260 = icmp sgt i32 %259, %254
@@ -634,7 +634,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
 
 267:                                              ; preds = %263
   %268 = load ptr, ptr %255, align 8, !tbaa !20
-  %269 = getelementptr inbounds nuw i32, ptr %268, i64 %indvars.iv431
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %268, i64 %indvars.iv431
   %270 = load i32, ptr %269, align 4, !tbaa !27
   %271 = and i32 %270, 80
   %or.cond383.not = icmp eq i32 %271, 0
@@ -669,7 +669,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
 284:                                              ; preds = %.critedge24, %280
   %285 = phi i32 [ %290, %.critedge24 ], [ 0, %280 ]
   %286 = zext i32 %285 to i64
-  %287 = getelementptr inbounds nuw i32, ptr %282, i64 %286
+  %287 = getelementptr inbounds nuw [4 x i8], ptr %282, i64 %286
   %288 = load i32, ptr %287, align 4, !tbaa !27
   %289 = and i32 %288, 80
   %or.cond385.not = icmp eq i32 %289, 0
@@ -690,7 +690,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
   %294 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %295 = load ptr, ptr %294, align 8, !tbaa !19
   %296 = zext i32 %278 to i64
-  %297 = getelementptr inbounds nuw %struct.lv_area_t, ptr %295, i64 %296
+  %297 = getelementptr inbounds nuw [16 x i8], ptr %295, i64 %296
   %298 = load i32, ptr %297, align 4, !tbaa !33
   %299 = tail call i32 @lv_area_get_width(ptr noundef nonnull %297) #7
   %300 = ashr i32 %299, 1
@@ -703,7 +703,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
 .lr.ph410:                                        ; preds = %293
   %305 = load ptr, ptr %294, align 8, !tbaa !19
   %306 = zext i32 %302 to i64
-  %307 = getelementptr inbounds nuw %struct.lv_area_t, ptr %305, i64 %306
+  %307 = getelementptr inbounds nuw [16 x i8], ptr %305, i64 %306
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 4
   %309 = load i32, ptr %308, align 4, !tbaa !34
   %310 = getelementptr inbounds nuw i8, ptr %10, i64 80
@@ -713,7 +713,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
 
 312:                                              ; preds = %.lr.ph410, %328
   %indvars.iv428 = phi i64 [ %311, %.lr.ph410 ], [ %indvars.iv.next429, %328 ]
-  %313 = getelementptr inbounds nuw %struct.lv_area_t, ptr %305, i64 %indvars.iv428
+  %313 = getelementptr inbounds nuw [16 x i8], ptr %305, i64 %indvars.iv428
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 4
   %315 = load i32, ptr %314, align 4, !tbaa !34
   %316 = icmp slt i32 %315, %309
@@ -733,7 +733,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
 
 323:                                              ; preds = %320
   %324 = load ptr, ptr %310, align 8, !tbaa !20
-  %325 = getelementptr inbounds nuw i32, ptr %324, i64 %indvars.iv428
+  %325 = getelementptr inbounds nuw [4 x i8], ptr %324, i64 %indvars.iv428
   %326 = load i32, ptr %325, align 4, !tbaa !27
   %327 = and i32 %326, 80
   %or.cond387.not = icmp eq i32 %327, 0
@@ -822,7 +822,7 @@ define void @lv_buttonmatrix_set_map(ptr noundef %0, ptr noundef %1) local_unnam
   %14 = add i32 %.09.i, 1
   %15 = load ptr, ptr %10, align 8, !tbaa !21
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !22
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %free_map.exit, label %.lr.ph.i, !llvm.loop !39
@@ -871,7 +871,7 @@ free_map.exit:                                    ; preds = %.lr.ph.i, %9
   %.1.i = phi i32 [ %29, %28 ], [ %.03042.i, %30 ]
   %34 = add i32 %.043.i, 1
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %1, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !22
   %.not.i14 = icmp eq ptr %37, null
   br i1 %.not.i14, label %.critedge.i, label %.lr.ph.i13, !llvm.loop !40
@@ -961,7 +961,7 @@ define internal fastcc void @free_map(ptr noundef captures(none) %0) unnamed_add
   %6 = add i32 %.09, 1
   %7 = load ptr, ptr %2, align 8, !tbaa !21
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !22
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
@@ -1054,14 +1054,14 @@ define internal fastcc void @update_map(ptr noundef %0) unnamed_addr #0 {
   %48 = load ptr, ptr %35, align 8, !tbaa !20
   %49 = add i32 %.096108, %.088122
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !27
   %53 = and i32 %52, 15
   %54 = tail call range(i32 1, 16) i32 @llvm.umax.i32(i32 %53, i32 1)
   %55 = add i32 %54, %.097107
   %56 = add i32 %.096108, 1
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %.093121, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.093121, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !22
   %.not = icmp eq ptr %59, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !41
@@ -1101,7 +1101,7 @@ define internal fastcc void @update_map(ptr noundef %0) unnamed_addr #0 {
   %.092116 = phi i32 [ 0, %62 ], [ %88, %77 ]
   %78 = load ptr, ptr %35, align 8, !tbaa !20
   %79 = zext i32 %.290118 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !27
   %82 = and i32 %81, 15
   %83 = tail call range(i32 1, 16) i32 @llvm.umax.i32(i32 %82, i32 1)
@@ -1121,7 +1121,7 @@ define internal fastcc void @update_map(ptr noundef %0) unnamed_addr #0 {
   %95 = add nsw i32 %.087, %11
   %96 = add nsw i32 %.086, %11
   %97 = load ptr, ptr %39, align 8, !tbaa !19
-  %98 = getelementptr inbounds nuw %struct.lv_area_t, ptr %97, i64 %79
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %97, i64 %79
   tail call void @lv_area_set(ptr noundef %98, i32 noundef %95, i32 noundef %68, i32 noundef %96, i32 noundef %73) #7
   %99 = add nuw i32 %.091117, 1
   %100 = add i32 %.290118, 1
@@ -1131,7 +1131,7 @@ define internal fastcc void @update_map(ptr noundef %0) unnamed_addr #0 {
 101:                                              ; preds = %77
   %102 = add i32 %.096.lcssa, 1
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw ptr, ptr %.093121, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %.093121, i64 %103
   br label %105
 
 105:                                              ; preds = %101, %.critedge.thread
@@ -1217,7 +1217,7 @@ define internal fastcc void @invalidate_button_area(ptr noundef %0, i32 noundef 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !19
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds nuw %struct.lv_area_t, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !34
@@ -1263,7 +1263,7 @@ define internal fastcc void @invalidate_button_area(ptr noundef %0, i32 noundef 
 46:                                               ; preds = %9
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %48 = load ptr, ptr %47, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %12
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %12
   %50 = load i32, ptr %49, align 4, !tbaa !27
   %51 = and i32 %50, 1024
   %.not29 = icmp eq i32 %51, 0
@@ -1320,7 +1320,7 @@ define void @lv_buttonmatrix_set_button_ctrl(ptr noundef %0, i32 noundef %1, i32
 lv_buttonmatrix_clear_button_ctrl.exit.us.i:      ; preds = %lv_buttonmatrix_clear_button_ctrl.exit.us.i, %.lr.ph.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %lv_buttonmatrix_clear_button_ctrl.exit.us.i ], [ 0, %.lr.ph.i ]
   %13 = load ptr, ptr %12, align 8, !tbaa !20
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv13.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv13.i
   %15 = load i32, ptr %14, align 4, !tbaa !27
   %16 = and i32 %15, -257
   store i32 %16, ptr %14, align 4, !tbaa !27
@@ -1336,7 +1336,7 @@ lv_buttonmatrix_clear_button_ctrl_all.exit:       ; preds = %lv_buttonmatrix_cle
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = load ptr, ptr %21, align 8, !tbaa !20
   %23 = zext i32 %1 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !27
   %26 = or i32 %25, %2
   store i32 %26, ptr %24, align 4, !tbaa !27
@@ -1374,7 +1374,7 @@ define void @lv_buttonmatrix_clear_button_ctrl_all(ptr noundef %0, i32 noundef %
 lv_buttonmatrix_clear_button_ctrl.exit.us:        ; preds = %.lr.ph, %lv_buttonmatrix_clear_button_ctrl.exit.us
   %indvars.iv13 = phi i64 [ %indvars.iv.next14, %lv_buttonmatrix_clear_button_ctrl.exit.us ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %6, align 8, !tbaa !20
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv13
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv13
   %10 = load i32, ptr %9, align 4, !tbaa !27
   %11 = and i32 %10, %5
   store i32 %11, ptr %9, align 4, !tbaa !27
@@ -1392,7 +1392,7 @@ lv_buttonmatrix_clear_button_ctrl.exit.us:        ; preds = %.lr.ph, %lv_buttonm
 lv_buttonmatrix_clear_button_ctrl.exit:           ; preds = %.lr.ph, %lv_buttonmatrix_clear_button_ctrl.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %lv_buttonmatrix_clear_button_ctrl.exit ], [ 0, %.lr.ph ]
   %16 = load ptr, ptr %6, align 8, !tbaa !20
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !27
   %19 = and i32 %18, %5
   store i32 %19, ptr %17, align 4, !tbaa !27
@@ -1430,7 +1430,7 @@ define void @lv_buttonmatrix_clear_button_ctrl(ptr noundef %0, i32 noundef %1, i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !27
   %14 = and i32 %13, %8
   store i32 %14, ptr %12, align 4, !tbaa !27
@@ -1481,7 +1481,7 @@ define void @lv_buttonmatrix_set_button_ctrl_all(ptr noundef %0, i32 noundef %1)
 lv_buttonmatrix_clear_button_ctrl_all.exit.i.us.us: ; preds = %.lr.ph.split.us, %lv_buttonmatrix_clear_button_ctrl_all.exit.i.us.us
   %indvars.iv18 = phi i64 [ %indvars.iv.next19, %lv_buttonmatrix_clear_button_ctrl_all.exit.i.us.us ], [ 0, %.lr.ph.split.us ]
   %17 = load ptr, ptr %9, align 8, !tbaa !20
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv18
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv18
   %19 = load i32, ptr %18, align 4, !tbaa !27
   %20 = or i32 %19, %1
   store i32 %20, ptr %18, align 4, !tbaa !27
@@ -1496,7 +1496,7 @@ lv_buttonmatrix_clear_button_ctrl_all.exit.i.us.us: ; preds = %.lr.ph.split.us, 
 lv_buttonmatrix_clear_button_ctrl_all.exit.i.us:  ; preds = %.lr.ph.split.us, %lv_buttonmatrix_clear_button_ctrl_all.exit.i.us
   %indvars.iv15 = phi i64 [ %indvars.iv.next16, %lv_buttonmatrix_clear_button_ctrl_all.exit.i.us ], [ 0, %.lr.ph.split.us ]
   %25 = load ptr, ptr %9, align 8, !tbaa !20
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv15
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv15
   %27 = load i32, ptr %26, align 4, !tbaa !27
   %28 = or i32 %27, %1
   store i32 %28, ptr %26, align 4, !tbaa !27
@@ -1522,7 +1522,7 @@ lv_buttonmatrix_clear_button_ctrl_all.exit.i.us:  ; preds = %.lr.ph.split.us, %l
 lv_buttonmatrix_clear_button_ctrl.exit.us.i.i:    ; preds = %.lr.ph.split, %invalidate_button_area.exit
   %indvars.iv13.i.i = phi i64 [ %indvars.iv.next14.i.i, %invalidate_button_area.exit ], [ 0, %.lr.ph.split ]
   %35 = load ptr, ptr %9, align 8, !tbaa !20
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv13.i.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv13.i.i
   %37 = load i32, ptr %36, align 4, !tbaa !27
   %38 = and i32 %37, -257
   store i32 %38, ptr %36, align 4, !tbaa !27
@@ -1539,7 +1539,7 @@ lv_buttonmatrix_clear_button_ctrl.exit.us.i.i:    ; preds = %.lr.ph.split, %inva
 
 42:                                               ; preds = %41
   %43 = load ptr, ptr %10, align 8, !tbaa !19
-  %44 = getelementptr inbounds nuw %struct.lv_area_t, ptr %43, i64 %indvars.iv13.i.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %indvars.iv13.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !33
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !34
@@ -1579,7 +1579,7 @@ lv_buttonmatrix_clear_button_ctrl.exit.us.i.i:    ; preds = %.lr.ph.split, %inva
 
 72:                                               ; preds = %42
   %73 = load ptr, ptr %9, align 8, !tbaa !20
-  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv13.i.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv13.i.i
   %75 = load i32, ptr %74, align 4, !tbaa !27
   %76 = and i32 %75, 1024
   %.not29.i = icmp eq i32 %76, 0
@@ -1612,7 +1612,7 @@ invalidate_button_area.exit:                      ; preds = %lv_buttonmatrix_cle
 
 lv_buttonmatrix_clear_button_ctrl_all.exit.i:     ; preds = %invalidate_button_area.exit, %.lr.ph.split
   %86 = load ptr, ptr %9, align 8, !tbaa !20
-  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4, !tbaa !27
   %89 = or i32 %88, %1
   store i32 %89, ptr %87, align 4, !tbaa !27
@@ -1653,7 +1653,7 @@ define void @lv_buttonmatrix_set_button_width(ptr noundef %0, i32 noundef %1, i3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !27
   %13 = and i32 %12, -16
   %14 = and i32 %2, 15
@@ -1703,7 +1703,7 @@ define internal fastcc void @make_one_button_checked(ptr noundef %0, i32 noundef
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !27
   %11 = and i32 %10, 256
   %12 = icmp ne i32 %11, 0
@@ -1721,7 +1721,7 @@ define internal fastcc void @make_one_button_checked(ptr noundef %0, i32 noundef
 lv_buttonmatrix_clear_button_ctrl.exit.us.i:      ; preds = %lv_buttonmatrix_clear_button_ctrl.exit.us.i, %.lr.ph.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %lv_buttonmatrix_clear_button_ctrl.exit.us.i ], [ 0, %.lr.ph.i ]
   %14 = load ptr, ptr %13, align 8, !tbaa !20
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv13.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv13.i
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %17 = and i32 %16, -257
   store i32 %17, ptr %15, align 4, !tbaa !27
@@ -1748,7 +1748,7 @@ lv_buttonmatrix_clear_button_ctrl_all.exit:       ; preds = %lv_buttonmatrix_cle
 lv_buttonmatrix_clear_button_ctrl.exit.us.i.i:    ; preds = %22, %lv_buttonmatrix_clear_button_ctrl.exit.us.i.i
   %indvars.iv13.i.i = phi i64 [ %indvars.iv.next14.i.i, %lv_buttonmatrix_clear_button_ctrl.exit.us.i.i ], [ 0, %22 ]
   %26 = load ptr, ptr %13, align 8, !tbaa !20
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv13.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv13.i.i
   %28 = load i32, ptr %27, align 4, !tbaa !27
   %29 = and i32 %28, -257
   store i32 %29, ptr %27, align 4, !tbaa !27
@@ -1763,7 +1763,7 @@ lv_buttonmatrix_clear_button_ctrl.exit.us.i.i:    ; preds = %22, %lv_buttonmatri
 lv_buttonmatrix_clear_button_ctrl_all.exit.i:     ; preds = %lv_buttonmatrix_clear_button_ctrl.exit.us.i.i, %22
   %34 = load ptr, ptr %13, align 8, !tbaa !20
   %35 = zext i32 %1 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !27
   %38 = or i32 %37, 256
   store i32 %38, ptr %36, align 4, !tbaa !27
@@ -1835,7 +1835,7 @@ define ptr @lv_buttonmatrix_get_button_text(ptr noundef readonly captures(addres
   %11 = add i32 %.01625, 1
   %12 = load ptr, ptr %8, align 8, !tbaa !21
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !22
   %16 = tail call i32 @lv_strcmp(ptr noundef %15, ptr noundef nonnull @.str.1) #7
   %17 = icmp eq i32 %16, 0
@@ -1854,7 +1854,7 @@ define ptr @lv_buttonmatrix_get_button_text(ptr noundef readonly captures(addres
   %.016.lcssa32 = phi i64 [ %20, %._crit_edge ], [ 0, %.preheader23 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8, !tbaa !21
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.016.lcssa32
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.016.lcssa32
   %24 = load ptr, ptr %23, align 8, !tbaa !22
   br label %25
 
@@ -1883,7 +1883,7 @@ define zeroext i1 @lv_buttonmatrix_has_button_ctrl(ptr noundef readonly captures
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !27
   %13 = and i32 %12, %2
   %14 = icmp eq i32 %13, %2
@@ -1988,7 +1988,7 @@ define internal fastcc i32 @get_button_from_point(ptr noundef %0, ptr noundef no
 42:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
   %43 = load ptr, ptr %33, align 8, !tbaa !19
-  %44 = getelementptr inbounds nuw %struct.lv_area_t, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !33
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !34
@@ -2155,7 +2155,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   %.1 = phi i32 [ %67, %60 ], [ %.089109, %.preheader ]
   %61 = load ptr, ptr %35, align 8, !tbaa !21
   %62 = zext i32 %.1 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !22
   %65 = call i32 @lv_strcmp(ptr noundef %64, ptr noundef nonnull @.str.1) #7
   %66 = icmp eq i32 %65, 0
@@ -2164,7 +2164,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
 
 68:                                               ; preds = %60
   %69 = load ptr, ptr %36, align 8, !tbaa !20
-  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv
   %71 = load i32, ptr %70, align 4, !tbaa !27
   %72 = and i32 %71, 16
   %.not105 = icmp eq i32 %72, 0
@@ -2189,7 +2189,7 @@ select.unfold:                                    ; preds = %73, %77
   %spec.select104.sink = phi i16 [ %spec.select104, %77 ], [ 128, %73 ]
   %spec.select111 = or disjoint i16 %spec.select, %spec.select104.sink
   %81 = load ptr, ptr %39, align 8, !tbaa !19
-  %82 = getelementptr inbounds nuw %struct.lv_area_t, ptr %81, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %indvars.iv
   %83 = load i32, ptr %82, align 4, !tbaa !33
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %85 = load i32, ptr %84, align 4, !tbaa !34
@@ -2234,7 +2234,7 @@ select.unfold:                                    ; preds = %73, %77
 
 105:                                              ; preds = %100, %97
   %106 = load ptr, ptr %36, align 8, !tbaa !20
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4, !tbaa !27
   %109 = load i32, ptr %46, align 4, !tbaa !62
   %110 = and i32 %109, -9
@@ -2311,7 +2311,7 @@ select.unfold:                                    ; preds = %73, %77
 
 151:                                              ; preds = %148
   %152 = load ptr, ptr %36, align 8, !tbaa !20
-  %153 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %indvars.iv
   %154 = load i32, ptr %153, align 4, !tbaa !27
   %155 = and i32 %154, 1024
   %.not97 = icmp eq i32 %155, 0
@@ -2329,7 +2329,7 @@ select.unfold:                                    ; preds = %73, %77
   %161 = load i32, ptr %54, align 8, !tbaa !69
   %162 = load i32, ptr %55, align 4, !tbaa !70
   %163 = load ptr, ptr %35, align 8, !tbaa !21
-  %164 = getelementptr inbounds nuw ptr, ptr %163, i64 %62
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %62
   %165 = load ptr, ptr %164, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %166 = call i32 @lv_area_get_width(ptr noundef nonnull %2) #7
@@ -2359,7 +2359,7 @@ select.unfold:                                    ; preds = %73, %77
 
 184:                                              ; preds = %159
   %185 = load ptr, ptr %36, align 8, !tbaa !20
-  %186 = getelementptr inbounds nuw i32, ptr %185, i64 %indvars.iv
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %185, i64 %indvars.iv
   %187 = load i32, ptr %186, align 4, !tbaa !27
   %188 = and i32 %187, 1024
   %.not98 = icmp eq i32 %188, 0

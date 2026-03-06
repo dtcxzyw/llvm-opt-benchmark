@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pmi2_job_info = type { %struct.slurm_step_id_msg, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
 %struct.pmi2_tree_info = type { ptr, ptr, i32, i32, i32, i32, i16, ptr, ptr }
-%struct.kvs_bucket = type { ptr, i32, i32 }
 
 @tasks_to_wait = dso_local local_unnamed_addr global i32 0, align 4
 @children_to_wait = dso_local local_unnamed_addr global i32 0, align 4
@@ -398,7 +397,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %5
   %17 = load i32, ptr @hash_size, align 4
   %18 = urem i32 %.09.lcssa.i, %17
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.kvs_bucket, ptr %6, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
   %.not = icmp eq i32 %22, 0
@@ -415,7 +414,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %_hash.exit ]
   %27 = load ptr, ptr %20, align 8
   %28 = shl nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @slurm_xstrcmp(ptr noundef nonnull %0, ptr noundef %30) #6
   %.not13 = icmp eq i32 %31, 0
@@ -423,7 +422,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %5
 
 32:                                               ; preds = %.lr.ph
   %33 = load ptr, ptr %20, align 8
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %28
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %28
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   br label %.loopexit
@@ -484,7 +483,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %6
   %18 = load i32, ptr @hash_size, align 4
   %19 = urem i32 %.09.lcssa.i, %18
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.kvs_bucket, ptr %7, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %20
   %.b = load i1, ptr @no_dup_keys, align 4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
@@ -505,7 +504,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.preheader ]
   %26 = load ptr, ptr %21, align 8
   %27 = shl nuw nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @slurm_xstrcmp(ptr noundef nonnull %0, ptr noundef %29) #6
   %.not = icmp eq i32 %30, 0
@@ -515,11 +514,11 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %6
   %32 = load ptr, ptr %21, align 8
   %33 = and i64 %27, 4294967294
   %34 = or disjoint i64 %33, 1
-  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %34
   tail call void @slurm_xfree(ptr noundef nonnull %35) #6
   %36 = tail call ptr @slurm_xstrdup(ptr noundef %1) #6
   %37 = load ptr, ptr %21, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %34
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %34
   store ptr %36, ptr %38, align 8
   %39 = tail call i32 @slurm_get_log_level() #6
   %40 = icmp sgt i32 %39, 4
@@ -549,11 +548,11 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %6
   %52 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %0) #6
   %53 = load ptr, ptr %21, align 8
   %54 = sext i32 %.pre-phi to i64
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %53, i64 %54
   store ptr %52, ptr %55, align 8
   %56 = tail call ptr @slurm_xstrdup(ptr noundef %1) #6
   %57 = load ptr, ptr %21, align 8
-  %58 = getelementptr ptr, ptr %57, i64 %54
+  %58 = getelementptr [8 x i8], ptr %57, i64 %54
   %59 = getelementptr i8, ptr %58, i64 8
   store ptr %56, ptr %59, align 8
   %60 = load i32, ptr %42, align 8
@@ -582,7 +581,7 @@ define dso_local noundef i32 @kvs_clear() local_unnamed_addr #0 {
   %2 = phi i32 [ %16, %._crit_edge ], [ %1, %0 ]
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %._crit_edge ], [ 0, %0 ]
   %3 = load ptr, ptr @kvs_hash, align 8
-  %4 = getelementptr inbounds nuw %struct.kvs_bucket, ptr %3, i64 %indvars.iv17
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %.not15 = icmp eq i32 %6, 0
@@ -592,10 +591,10 @@ define dso_local noundef i32 @kvs_clear() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph13 ]
   %7 = load ptr, ptr %4, align 8
   %8 = shl nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   tail call void @slurm_xfree(ptr noundef %9) #6
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %12) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

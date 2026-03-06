@@ -186,7 +186,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %2
   %15 = shl i32 %11, 1
   %16 = lshr i32 %15, 5
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %3, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !17
   br i1 %.not8, label %28, label %20
 
@@ -225,7 +225,7 @@ define hidden void @_ZN11tbv_manager3setER3tbvj4tbit(ptr noundef nonnull readnon
   %sext = ashr i32 %6, 31
   %7 = lshr i32 %5, 5
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = xor i32 %10, %sext
   %12 = and i32 %5, 30
@@ -269,7 +269,7 @@ define hidden noundef ptr @_ZN11tbv_manager8allocateEmjj(ptr noundef nonnull ali
   %sext.i.i = ashr i32 %16, 31
   %17 = lshr i32 %15, 5
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %5, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !17
   %21 = xor i32 %sext.i.i, %20
   %22 = and i32 %15, 30
@@ -318,7 +318,7 @@ define hidden void @_ZN11tbv_manager3setER3tbvmjj(ptr noundef nonnull readnone a
   %sext.i = ashr i32 %14, 31
   %15 = lshr i32 %13, 5
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !17
   %19 = xor i32 %18, %sext.i
   %20 = and i32 %13, 30
@@ -356,13 +356,13 @@ define hidden noundef ptr @_ZN11tbv_manager8allocateERK3tbvPKj(ptr noundef nonnu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %11 = shl i32 %indvars.iv.tr, 1
   %12 = lshr i32 %11, 5
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !17
   %16 = and i32 %11, 30
   %17 = shl nuw nsw i32 1, %16
@@ -376,7 +376,7 @@ define hidden noundef ptr @_ZN11tbv_manager8allocateERK3tbvPKj(ptr noundef nonnu
   %sext.i = sext i1 %.not.i.i to i32
   %23 = lshr i32 %22, 5
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %4, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !17
   %27 = xor i32 %26, %sext.i
   %28 = and i32 %22, 30
@@ -423,7 +423,7 @@ define hidden noundef ptr @_ZN11tbv_manager8allocateEPKc(ptr noundef nonnull ali
   %16 = shl i32 %.01821, 1
   %17 = lshr i32 %16, 5
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %3, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !17
   %21 = and i32 %16, 30
   %22 = shl nuw nsw i32 1, %21
@@ -441,7 +441,7 @@ define hidden noundef ptr @_ZN11tbv_manager8allocateEPKc(ptr noundef nonnull ali
   %31 = shl i32 %.01821, 1
   %32 = lshr i32 %31, 5
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %3, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !17
   %36 = xor i32 %35, -1
   %37 = and i32 %31, 30
@@ -503,7 +503,7 @@ define hidden noundef ptr @_ZN11tbv_manager7projectERK10bit_vectorRK3tbv(ptr nou
   %.01213 = phi i32 [ 0, %.lr.ph ], [ %.1, %44 ]
   %10 = lshr i32 %.014, 5
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !17
   %14 = and i32 %.014, 31
   %15 = shl nuw i32 1, %14
@@ -515,7 +515,7 @@ define hidden noundef ptr @_ZN11tbv_manager7projectERK10bit_vectorRK3tbv(ptr nou
   %18 = shl i32 %.014, 1
   %19 = lshr i32 %18, 5
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %2, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !17
   %23 = and i32 %18, 30
   %24 = shl nuw nsw i32 1, %23
@@ -529,7 +529,7 @@ define hidden noundef ptr @_ZN11tbv_manager7projectERK10bit_vectorRK3tbv(ptr nou
   %sext.i = sext i1 %.not.i.i to i32
   %30 = lshr i32 %29, 5
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %4, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !17
   %34 = xor i32 %33, %sext.i
   %35 = and i32 %29, 30
@@ -605,7 +605,7 @@ _ZNK8rational9is_uint64Ev.exit.preheader16:       ; preds = %_ZNK8rational9is_ui
   %sext.i.i = ashr i32 %30, 31
   %31 = lshr i32 %29, 5
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %1, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !17
   %35 = xor i32 %sext.i.i, %34
   %36 = and i32 %29, 30
@@ -634,7 +634,7 @@ _ZNK8rational9is_uint64Ev.exit:                   ; preds = %_ZNK8rational9is_ui
   %sext.i = ashr i32 %50, 31
   %51 = lshr i32 %49, 5
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %1, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !17
   %55 = xor i32 %sext.i, %54
   %56 = and i32 %49, 30
@@ -715,7 +715,7 @@ _ZNK8rational9is_uint64Ev.exit:                   ; preds = %2
   %30 = shl nuw nsw i32 %26, 1
   %31 = lshr i32 %26, 4
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %18, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !17
   br i1 %.not8.i, label %40, label %35
 
@@ -845,7 +845,7 @@ _ZN8rationalD2Ev.exit20:                          ; preds = %.noexc.i19
   %84 = shl nuw i32 %64, 1
   %85 = lshr i32 %64, 4
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %49, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !17
   br i1 %75, label %89, label %97
 
@@ -946,7 +946,7 @@ define hidden noundef zeroext i1 @_ZNK11tbv_manager7set_andER3tbvRKS0_(ptr nound
 
 9:                                                ; preds = %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4, !tbaa !17
   %12 = shl i32 %11, 1
   %13 = or i32 %12, %11
@@ -995,7 +995,7 @@ define hidden noundef zeroext i1 @_ZNK11tbv_manager14is_well_formedERK3tbv(ptr n
 
 7:                                                ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !17
   %10 = shl i32 %9, 1
   %11 = or i32 %10, %9
@@ -1045,7 +1045,7 @@ define hidden void @_ZN11tbv_manager10complementERK3tbvR10ptr_vectorIS0_E(ptr no
   %7 = shl nuw i32 %.016, 1
   %8 = lshr i32 %.016, 4
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !17
   %12 = and i32 %7, 30
   %13 = shl nuw nsw i32 1, %12
@@ -1066,7 +1066,7 @@ define hidden void @_ZN11tbv_manager10complementERK3tbvR10ptr_vectorIS0_E(ptr no
   %22 = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(552) %0)
   %23 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %22)
   tail call void @_ZNK24fixed_bit_vector_manager4copyER16fixed_bit_vectorRKS0_(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %9
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %9
   %25 = load i32, ptr %24, align 4, !tbaa !17
   %26 = xor i32 %25, -1
   %27 = and i32 %13, %26
@@ -1090,7 +1090,7 @@ define hidden void @_ZN11tbv_manager10complementERK3tbvR10ptr_vectorIS0_E(ptr no
   %40 = tail call noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(552) %0)
   %41 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %40)
   tail call void @_ZNK24fixed_bit_vector_manager4copyER16fixed_bit_vectorRKS0_(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %40, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %9
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %9
   %43 = load i32, ptr %42, align 4, !tbaa !17
   %44 = and i32 %43, %13
   %45 = xor i32 %43, -1
@@ -1124,7 +1124,7 @@ define hidden void @_ZN11tbv_manager10complementERK3tbvR10ptr_vectorIS0_E(ptr no
   %.sink = phi ptr [ %22, %33 ], [ %40, %51 ], [ %.sink.ph, %.sink.split.sink.split ]
   %57 = getelementptr inbounds i8, ptr %.sink28, i64 -4
   %58 = zext i32 %.sink27 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %.sink28, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.sink28, i64 %58
   store ptr %.sink, ptr %59, align 8, !tbaa !43
   %60 = add i32 %.sink27, 1
   store i32 %60, ptr %57, align 4, !tbaa !17
@@ -1179,12 +1179,12 @@ define hidden noundef zeroext i1 @_ZNK11tbv_manager8containsERK3tbvRK7svectorIjj
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %select.unfold
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %select.unfold ]
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !17
   %13 = shl i32 %12, 1
   %14 = lshr i32 %13, 5
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !17
   %18 = and i32 %13, 30
   %19 = shl nuw nsw i32 1, %18
@@ -1200,12 +1200,12 @@ define hidden noundef zeroext i1 @_ZNK11tbv_manager8containsERK3tbvRK7svectorIjj
   br i1 %27, label %select.unfold, label %28
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !17
   %31 = shl i32 %30, 1
   %32 = lshr i32 %31, 5
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %3, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !17
   %36 = and i32 %31, 30
   %37 = shl nuw nsw i32 1, %36
@@ -1247,7 +1247,7 @@ define hidden noundef zeroext i1 @_ZN11tbv_manager9intersectERK3tbvS2_RS0_(ptr n
 
 10:                                               ; preds = %9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.i
   %12 = load i32, ptr %11, align 4, !tbaa !17
   %13 = shl i32 %12, 1
   %14 = or i32 %13, %12
@@ -1297,7 +1297,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK11tbv_manager7
   %13 = shl i32 %12, 1
   %14 = lshr i32 %13, 5
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !17
   %18 = and i32 %13, 30
   %19 = shl nuw nsw i32 1, %18

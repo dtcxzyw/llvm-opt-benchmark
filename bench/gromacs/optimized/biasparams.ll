@@ -23,19 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ExceptionInfo" = type { %"class.gmx::internal::IExceptionInfo", %"struct.gmx::ThrowLocation" }
 %"class.gmx::internal::IExceptionInfo" = type { ptr }
 %"struct.gmx::ThrowLocation" = type <{ ptr, ptr, i32, [4 x i8] }>
-%"struct.gmx::DimParams" = type { %"class.std::variant", double }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8 }>
-%"union.std::__detail::__variant::_Variadic_union" = type { %"struct.std::__detail::__variant::_Uninitialized" }
-%"struct.std::__detail::__variant::_Uninitialized" = type { %"struct.gmx::DimParams::PullDimParams" }
-%"struct.gmx::DimParams::PullDimParams" = type { double, double, double }
-%"class.gmx::GridAxis" = type <{ double, double, double, double, i32, i32, i8, [7 x i8] }>
-%"class.gmx::AwhDimParams" = type { i32, i32, double, double, double, double, double, double, double }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -194,7 +181,7 @@ _ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasPa
 .lr.ph.i:                                         ; preds = %90, %.lr.ph.preheader.i
   %.047.i = phi i64 [ %91, %90 ], [ 0, %.lr.ph.preheader.i ]
   %.03946.i = phi i32 [ %.sroa.speculated27.i, %90 ], [ 0, %.lr.ph.preheader.i ]
-  %48 = getelementptr inbounds %"struct.gmx::DimParams", ptr %3, i64 %.047.i
+  %48 = getelementptr inbounds [40 x i8], ptr %3, i64 %.047.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i8, ptr %49, align 8, !tbaa !37
   br label %51
@@ -257,7 +244,7 @@ _ZNK3gmx9DimParams13pullDimParamsEv.exit.i:       ; preds = %60
 _ZNK3gmx9DimParams13pullDimParamsEv.exit19.i:     ; preds = %_ZNK3gmx9DimParams13pullDimParamsEv.exit.i
   %70 = tail call double @sqrt(double noundef %67) #19, !tbaa !53
   %71 = fdiv double 1.000000e+00, %70
-  %72 = getelementptr inbounds %"class.gmx::GridAxis", ptr %39, i64 %.047.i
+  %72 = getelementptr inbounds [48 x i8], ptr %39, i64 %.047.i
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load double, ptr %73, align 8, !tbaa !54
   %75 = fdiv double %74, %71
@@ -387,7 +374,7 @@ _ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit: ; preds =
 .lr.ph.i55:                                       ; preds = %147, %.lr.ph.preheader.i54
   %.01635.i = phi i64 [ %152, %147 ], [ 0, %.lr.ph.preheader.i54 ]
   %.034.i = phi double [ %.sroa.speculated.i56, %147 ], [ 0.000000e+00, %.lr.ph.preheader.i54 ]
-  %134 = getelementptr inbounds %"class.gmx::AwhDimParams", ptr %131, i64 %.01635.i
+  %134 = getelementptr inbounds [64 x i8], ptr %131, i64 %.01635.i
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %136 = load double, ptr %135, align 8, !tbaa !75
   %137 = fcmp ogt double %136, 0.000000e+00
@@ -398,7 +385,7 @@ _ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit: ; preds =
   unreachable
 
 138:                                              ; preds = %.lr.ph.i55
-  %139 = getelementptr inbounds %"class.gmx::GridAxis", ptr %39, i64 %.01635.i
+  %139 = getelementptr inbounds [48 x i8], ptr %39, i64 %.01635.i
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 40
   %141 = load i8, ptr %140, align 8, !tbaa !78, !range !40, !noundef !41
   %142 = trunc nuw i8 %141 to i1
@@ -522,17 +509,17 @@ _ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8
 
 186:                                              ; preds = %.lr.ph, %203
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %203 ]
-  %187 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %39, i64 %indvars.iv
+  %187 = getelementptr inbounds nuw [48 x i8], ptr %39, i64 %indvars.iv
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 24
   %189 = load double, ptr %188, align 8, !tbaa !87
   %190 = fcmp ogt double %189, 0.000000e+00
   br i1 %190, label %191, label %203
 
 191:                                              ; preds = %186
-  %192 = getelementptr inbounds nuw %"class.gmx::AwhDimParams", ptr %131, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw [64 x i8], ptr %131, i64 %indvars.iv
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 56
   %194 = load double, ptr %193, align 8, !tbaa !88
-  %195 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %3, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %indvars.iv
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 32
   %197 = load double, ptr %196, align 8, !tbaa !89
   %198 = fmul double %194, %197
@@ -544,7 +531,7 @@ _ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8
 
 203:                                              ; preds = %186, %191
   %204 = phi i32 [ %202, %191 ], [ 0, %186 ]
-  %205 = getelementptr inbounds nuw i32, ptr %185, i64 %indvars.iv
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %185, i64 %indvars.iv
   store i32 %204, ptr %205, align 4, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %183

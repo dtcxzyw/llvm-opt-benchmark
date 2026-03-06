@@ -39,8 +39,6 @@ module asm ".previous\09\09\09\09\09"
 %union.acpi_object = type { %struct.anon.9 }
 %struct.anon.9 = type { i32, i32, i64, i32 }
 %struct.acpi_buffer = type { i64, ptr }
-%struct.guid_block = type { %struct.guid_t, %union.anon.2, i8, i8 }
-%union.anon.2 = type { [2 x i8] }
 
 @__UNIQUE_ID_author317 = internal constant [27 x i8] c"wmi.author=Carlos Corbacho\00", section ".modinfo", align 1
 @__UNIQUE_ID_description318 = internal constant [40 x i8] c"wmi.description=ACPI-WMI Mapping Driver\00", section ".modinfo", align 1
@@ -1577,7 +1575,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
 
 86:                                               ; preds = %209, %78
   %87 = phi i64 [ 0, %78 ], [ %210, %209 ]
-  %88 = getelementptr %struct.guid_block, ptr %74, i64 %87
+  %88 = getelementptr [20 x i8], ptr %74, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 18
   %90 = load i8, ptr %89, align 1
   %91 = icmp eq i8 %90, 0
@@ -1595,7 +1593,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
 
 .preheader:                                       ; preds = %.preheader21, %105
   %96 = phi i64 [ %106, %105 ], [ 0, %.preheader21 ]
-  %97 = getelementptr ptr, ptr @allow_duplicates, i64 %96
+  %97 = getelementptr [8 x i8], ptr @allow_duplicates, i64 %96
   %98 = load ptr, ptr %97, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !5

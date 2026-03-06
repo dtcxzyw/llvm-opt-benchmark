@@ -903,12 +903,12 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %.0240.i.i = add nsw i32 %.0240.v.i.i, %192
   %194 = zext i32 %.0240.i.i to i64
   %195 = icmp ult i32 %.0240.i.i, 7
-  %196 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.83dd8536bdca2e5c8688614313edd3af.83, i64 %194
+  %196 = getelementptr inbounds nuw [16 x i8], ptr @anon.83dd8536bdca2e5c8688614313edd3af.83, i64 %194
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %narrow8.i.i = add nuw nsw i16 %191, 1
   %narrow9.i.i = select i1 %193, i16 %narrow8.i.i, i16 0
   %.0238.i.i = zext nneg i16 %narrow9.i.i to i64
-  %198 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.83dd8536bdca2e5c8688614313edd3af.32, i64 %.0238.i.i
+  %198 = getelementptr inbounds nuw [16 x i8], ptr @anon.83dd8536bdca2e5c8688614313edd3af.32, i64 %.0238.i.i
   %199 = lshr i32 %105, 3
   %200 = and i32 %199, 1023
   %201 = zext nneg i32 %200 to i64
@@ -2322,7 +2322,7 @@ _ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit.i77.i: ; preds = %7
   br i1 %752, label %753, label %.invoke.i, !prof !108
 
 753:                                              ; preds = %_ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit.i77.i
-  %754 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.83dd8536bdca2e5c8688614313edd3af.48, i64 %751
+  %754 = getelementptr inbounds nuw [16 x i8], ptr @anon.83dd8536bdca2e5c8688614313edd3af.48, i64 %751
   %755 = load ptr, ptr %754, align 8, !noalias !177, !nonnull !5, !align !56, !noundef !5
   %756 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !179, !noalias !188, !noundef !5
   %757 = load i64, ptr %93, align 8, !alias.scope !179, !noalias !188, !noundef !5
@@ -2368,7 +2368,7 @@ _ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit270.i.i: ; preds = %
   br i1 %776, label %777, label %.invoke.i, !prof !108
 
 777:                                              ; preds = %_ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit270.i.i
-  %778 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.83dd8536bdca2e5c8688614313edd3af.73, i64 %775
+  %778 = getelementptr inbounds nuw [16 x i8], ptr @anon.83dd8536bdca2e5c8688614313edd3af.73, i64 %775
   %779 = load ptr, ptr %778, align 8, !noalias !177, !nonnull !5, !align !56, !noundef !5
   %780 = getelementptr inbounds nuw i8, ptr %778, i64 8
   %781 = load i64, ptr %780, align 8, !noalias !177, !noundef !5
@@ -3303,7 +3303,7 @@ _ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit73.i.i: ; preds = %.
   br i1 %1050, label %1051, label %.invoke.i, !prof !108
 
 1051:                                             ; preds = %_ZN6chrono5naive4date9NaiveDate3mdf17h882a46fe58b1084bE.exit73.i.i
-  %1052 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.83dd8536bdca2e5c8688614313edd3af.48, i64 %1049
+  %1052 = getelementptr inbounds nuw [16 x i8], ptr @anon.83dd8536bdca2e5c8688614313edd3af.48, i64 %1049
   %1053 = load ptr, ptr %1052, align 8, !noalias !361, !nonnull !5, !align !56, !noundef !5
   %1054 = load i64, ptr %93, align 8, !alias.scope !396, !noalias !405, !noundef !5
   %1055 = sub i64 %1054, %1046

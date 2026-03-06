@@ -3,8 +3,6 @@ source_filename = "bench/git/original/object.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.object_array_entry = type { ptr, ptr, ptr, i32 }
-
 @the_repository = external local_unnamed_addr global ptr, align 8
 @object_type_strings = internal unnamed_addr constant [5 x ptr] [ptr null, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10], align 16
 @.str = private unnamed_addr constant [25 x i8] c"invalid object type \22%s\22\00", align 1
@@ -41,7 +39,7 @@ define dso_local ptr @get_indexed_object(i32 noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !37
   %7 = zext i32 %0 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !38
   ret ptr %9
 }
@@ -53,7 +51,7 @@ define dso_local ptr @type_name(i32 noundef %0) local_unnamed_addr #1 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @object_type_strings, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @object_type_strings, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !40
   br label %7
 
@@ -77,7 +75,7 @@ define dso_local range(i32 -1, 5) i32 @type_from_string_gently(ptr noundef %0, i
 
 8:                                                ; preds = %7, %12
   %indvars.iv = phi i64 [ 1, %7 ], [ %indvars.iv.next, %12 ]
-  %9 = getelementptr inbounds nuw ptr, ptr @object_type_strings, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @object_type_strings, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !40
   %11 = tail call i32 @xstrncmpz(ptr noundef %10, ptr noundef %0, i64 noundef %.011) #21
   %.not14 = icmp eq i32 %11, 0
@@ -150,7 +148,7 @@ define dso_local ptr @lookup_object(ptr noundef readonly captures(none) %0, ptr 
   %10 = add i32 %9, -1
   %11 = and i32 %10, %.val
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %12
   %14 = load ptr, ptr %13, align 8
   %.not2633 = icmp eq ptr %14, null
   %15 = ptrtoint ptr %14 to i64
@@ -174,7 +172,7 @@ define dso_local ptr @lookup_object(ptr noundef readonly captures(none) %0, ptr 
   %19 = icmp eq i32 %18, %9
   %spec.store.select = select i1 %19, i32 0, i32 %18
   %20 = zext i32 %spec.store.select to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %6, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %20
   %22 = load ptr, ptr %21, align 8
   %.not26 = icmp eq ptr %22, null
   br i1 %.not26, label %.critedge, label %.lr.ph, !llvm.loop !45
@@ -192,7 +190,7 @@ define dso_local ptr @lookup_object(ptr noundef readonly captures(none) %0, ptr 
   br i1 %.02334.lcssa, label %.critedge, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds nuw ptr, ptr %6, i64 %.lcssa
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.lcssa
   store i64 %15, ptr %27, align 1
   store i64 %.sroa.0.0.copyload.lcssa, ptr %13, align 1
   br label %.critedge
@@ -253,7 +251,7 @@ define dso_local noundef ptr @create_object(ptr noundef readonly captures(none) 
 
 30:                                               ; preds = %44, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8, !tbaa !38
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %44, label %33
@@ -263,7 +261,7 @@ define dso_local noundef ptr @create_object(ptr noundef readonly captures(none) 
   %.val.i.i = load i32, ptr %34, align 4
   %35 = and i32 %.val.i.i, %29
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %22, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !38
   %.not11.i.i = icmp eq ptr %38, null
   br i1 %.not11.i.i, label %insert_obj_hash.exit.i, label %.lr.ph.i.i
@@ -274,14 +272,14 @@ define dso_local noundef ptr @create_object(ptr noundef readonly captures(none) 
   %.not9.i.i = icmp ult i32 %39, %spec.select.i
   %spec.store.select.i.i = select i1 %.not9.i.i, i32 %39, i32 0
   %40 = zext i32 %spec.store.select.i.i to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %22, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !38
   %.not.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i, label %insert_obj_hash.exit.i, label %.lr.ph.i.i, !llvm.loop !49
 
 insert_obj_hash.exit.i:                           ; preds = %.lr.ph.i.i, %33
   %.lcssa10.i.i = phi i64 [ %36, %33 ], [ %40, %.lr.ph.i.i ]
-  %43 = getelementptr inbounds nuw ptr, ptr %22, i64 %.lcssa10.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.lcssa10.i.i
   store ptr %32, ptr %43, align 8, !tbaa !38
   br label %44
 
@@ -307,7 +305,7 @@ grow_object_hash.exit:                            ; preds = %44, %18
   %.val.i = load i32, ptr %6, align 4
   %52 = and i32 %.val.i, %.pre-phi
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %50, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !38
   %.not11.i = icmp eq ptr %55, null
   br i1 %.not11.i, label %insert_obj_hash.exit, label %.lr.ph.i13
@@ -318,14 +316,14 @@ grow_object_hash.exit:                            ; preds = %44, %18
   %.not9.i = icmp ult i32 %56, %49
   %spec.store.select.i = select i1 %.not9.i, i32 %56, i32 0
   %57 = zext i32 %spec.store.select.i to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %50, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !38
   %.not.i14 = icmp eq ptr %59, null
   br i1 %.not.i14, label %insert_obj_hash.exit, label %.lr.ph.i13, !llvm.loop !49
 
 insert_obj_hash.exit:                             ; preds = %.lr.ph.i13, %48
   %.lcssa10.i = phi i64 [ %53, %48 ], [ %57, %.lr.ph.i13 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %50, i64 %.lcssa10.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.lcssa10.i
   store ptr %2, ptr %60, align 8, !tbaa !38
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %62 = load i32, ptr %61, align 8, !tbaa !48
@@ -387,7 +385,7 @@ _.exit:                                           ; preds = %19, %21
 
 29:                                               ; preds = %_.exit
   %30 = zext nneg i32 %27 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr @object_type_strings, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @object_type_strings, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !40
   br label %type_name.exit
 
@@ -398,7 +396,7 @@ type_name.exit:                                   ; preds = %_.exit, %29
 
 34:                                               ; preds = %type_name.exit
   %35 = zext nneg i32 %1 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr @object_type_strings, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @object_type_strings, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !40
   br label %type_name.exit17
 
@@ -434,7 +432,7 @@ define dso_local ptr @lookup_unknown_object(ptr noundef %0, ptr noundef readonly
   %10 = add i32 %9, -1
   %11 = and i32 %10, %.val.i
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %12
   %14 = load ptr, ptr %13, align 8
   %.not2633.i = icmp eq ptr %14, null
   %15 = ptrtoint ptr %14 to i64
@@ -458,7 +456,7 @@ define dso_local ptr @lookup_unknown_object(ptr noundef %0, ptr noundef readonly
   %19 = icmp eq i32 %18, %9
   %spec.store.select.i = select i1 %19, i32 0, i32 %18
   %20 = zext i32 %spec.store.select.i to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %6, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %20
   %22 = load ptr, ptr %21, align 8
   %.not26.i = icmp eq ptr %22, null
   br i1 %.not26.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !45
@@ -469,7 +467,7 @@ define dso_local ptr @lookup_unknown_object(ptr noundef %0, ptr noundef readonly
 
 24:                                               ; preds = %.lr.ph.i._crit_edge
   %25 = ptrtoint ptr %22 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %6, i64 %20
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %20
   store i64 %15, ptr %26, align 1
   store i64 %25, ptr %13, align 1
   br label %lookup_object.exit
@@ -795,7 +793,7 @@ lookup_replace_object.exit:                       ; preds = %3, %17, %23
   %32 = add i32 %31, -1
   %33 = and i32 %32, %.val.i
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %28, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %34
   %36 = load ptr, ptr %35, align 8
   %.not2633.i = icmp eq ptr %36, null
   %37 = ptrtoint ptr %36 to i64
@@ -819,7 +817,7 @@ lookup_replace_object.exit:                       ; preds = %3, %17, %23
   %41 = icmp eq i32 %40, %31
   %spec.store.select.i = select i1 %41, i32 0, i32 %40
   %42 = zext i32 %spec.store.select.i to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %28, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %42
   %44 = load ptr, ptr %43, align 8
   %.not26.i = icmp eq ptr %44, null
   br i1 %.not26.i, label %lookup_object.exit.thread, label %.lr.ph.i, !llvm.loop !45
@@ -830,7 +828,7 @@ lookup_replace_object.exit:                       ; preds = %3, %17, %23
 
 46:                                               ; preds = %.lr.ph.i._crit_edge
   %47 = ptrtoint ptr %44 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %28, i64 %42
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %42
   store i64 %37, ptr %48, align 1
   store i64 %47, ptr %35, align 1
   br label %lookup_object.exit
@@ -905,7 +903,7 @@ _.exit:                                           ; preds = %65, %67
   %79 = add i32 %78, -1
   %80 = and i32 %79, %.val.i65
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %75, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %81
   %83 = load ptr, ptr %82, align 8
   %.not2633.i66 = icmp eq ptr %83, null
   %84 = ptrtoint ptr %83 to i64
@@ -929,7 +927,7 @@ _.exit:                                           ; preds = %65, %67
   %88 = icmp eq i32 %87, %78
   %spec.store.select.i72 = select i1 %88, i32 0, i32 %87
   %89 = zext i32 %spec.store.select.i72 to i64
-  %90 = getelementptr inbounds nuw ptr, ptr %75, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %89
   %91 = load ptr, ptr %90, align 8
   %.not26.i73 = icmp eq ptr %91, null
   br i1 %.not26.i73, label %lookup_object.exit76, label %.lr.ph.i67, !llvm.loop !45
@@ -940,7 +938,7 @@ _.exit:                                           ; preds = %65, %67
 
 93:                                               ; preds = %.lr.ph.i67._crit_edge
   %94 = ptrtoint ptr %91 to i64
-  %95 = getelementptr inbounds nuw ptr, ptr %75, i64 %89
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %89
   store i64 %84, ptr %95, align 1
   store i64 %94, ptr %82, align 1
   br label %lookup_object.exit76
@@ -1138,7 +1136,7 @@ define dso_local void @add_object_array_with_path(ptr noundef %0, ptr noundef %1
 17:                                               ; preds = %11, %5
   %.0 = phi ptr [ %16, %11 ], [ %10, %5 ]
   %18 = zext i32 %6 to i64
-  %19 = getelementptr inbounds nuw %struct.object_array_entry, ptr %.0, i64 %18
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %.0, i64 %18
   store ptr %0, ptr %19, align 8, !tbaa !83
   %.not32 = icmp eq ptr %1, null
   br i1 %.not32, label %24, label %20
@@ -1201,7 +1199,7 @@ define dso_local void @add_object_array(ptr noundef %0, ptr noundef %1, ptr noun
 15:                                               ; preds = %9, %3
   %.0.i = phi ptr [ %14, %9 ], [ %8, %3 ]
   %16 = zext i32 %4 to i64
-  %17 = getelementptr inbounds nuw %struct.object_array_entry, ptr %.0.i, i64 %16
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %.0.i, i64 %16
   store ptr %0, ptr %17, align 8, !tbaa !83
   %.not32.i = icmp eq ptr %1, null
   br i1 %.not32.i, label %add_object_array_with_path.exit, label %18
@@ -1239,7 +1237,7 @@ define dso_local ptr @object_array_pop(ptr noundef captures(none) %0) local_unna
   %5 = load ptr, ptr %4, align 8, !tbaa !82
   %6 = add i32 %2, -1
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct.object_array_entry, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !83
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !85
@@ -1279,7 +1277,7 @@ define dso_local void @object_array_filter(ptr noundef captures(none) %0, ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
   %.01921 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %21 ]
-  %7 = getelementptr inbounds nuw %struct.object_array_entry, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv
   %8 = tail call i32 %1(ptr noundef %7, ptr noundef %2) #21
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %15, label %9
@@ -1290,7 +1288,7 @@ define dso_local void @object_array_filter(ptr noundef captures(none) %0, ptr no
   br i1 %.not20, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw %struct.object_array_entry, ptr %6, i64 %10
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !88
   br label %13
 
@@ -1339,7 +1337,7 @@ define dso_local void @object_array_clear(ptr noundef captures(none) %0) local_u
 4:                                                ; preds = %.lr.ph, %object_array_release_entry.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %object_array_release_entry.exit ]
   %5 = load ptr, ptr %3, align 8, !tbaa !82
-  %6 = getelementptr inbounds nuw %struct.object_array_entry, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !85
   %.not.i = icmp eq ptr %8, @object_array_slopbuf
@@ -1387,7 +1385,7 @@ define dso_local void @object_array_remove_duplicates(ptr noundef captures(none)
 .lr.ph:                                           ; preds = %.lr.phthread-pre-split, %.lr.ph.preheader
   %.val = phi i32 [ %.val.pr, %.lr.phthread-pre-split ], [ 0, %.lr.ph.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.phthread-pre-split ], [ 0, %.lr.ph.preheader ]
-  %5 = getelementptr inbounds nuw %struct.object_array_entry, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !83
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !85
@@ -1424,7 +1422,7 @@ define dso_local void @object_array_remove_duplicates(ptr noundef captures(none)
   br i1 %.not20, label %21, label %19
 
 19:                                               ; preds = %.loopexit
-  %20 = getelementptr inbounds nuw %struct.object_array_entry, ptr %4, i64 %18
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !88
   %.pre = load i32, ptr %0, align 8, !tbaa !78
   br label %21
@@ -1480,7 +1478,7 @@ define dso_local void @clear_object_flags(i32 noundef %0) local_unnamed_addr #15
   %13 = phi ptr [ %4, %.lr.ph ], [ %24, %21 ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !37
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !38
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %21, label %18
@@ -1527,7 +1525,7 @@ define dso_local void @repo_clear_commit_marks(ptr noundef readonly captures(non
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !37
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !38
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %23, label %17
@@ -1760,11 +1758,11 @@ define dso_local void @parsed_object_pool_reset_commit_grafts(ptr noundef captur
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %0, align 8, !tbaa !95
   %9 = load ptr, ptr %5, align 8, !tbaa !127
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !128
   tail call void @unparse_commit(ptr noundef %8, ptr noundef %11) #21
   %12 = load ptr, ptr %5, align 8, !tbaa !127
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !128
   tail call void @free(ptr noundef %14) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1790,7 +1788,7 @@ define dso_local void @parsed_object_pool_clear(ptr noundef %0) local_unnamed_ad
 5:                                                ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !37
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !38
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %16, label %9
@@ -1847,11 +1845,11 @@ define dso_local void @parsed_object_pool_clear(ptr noundef %0) local_unnamed_ad
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %28 ]
   %29 = load ptr, ptr %0, align 8, !tbaa !95
   %30 = load ptr, ptr %27, align 8, !tbaa !127
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8, !tbaa !128
   tail call void @unparse_commit(ptr noundef %29, ptr noundef %32) #21
   %33 = load ptr, ptr %27, align 8, !tbaa !127
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8, !tbaa !128
   tail call void @free(ptr noundef %35) #21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

@@ -9,8 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.rawspeed::DataBuffer.base" = type { %"class.rawspeed::Buffer.base", i16 }
 %"class.rawspeed::Buffer.base" = type <{ ptr, i32 }>
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"struct.rawspeed::PanasonicV5Decompressor::Block" = type { %"class.rawspeed::ByteStream", %"class.rawspeed::iPoint2D", %"class.rawspeed::iPoint2D" }
-%"class.rawspeed::iPoint2D" = type { i32, i32 }
 %"class.rawspeed::PanasonicV5Decompressor::ProxyStream" = type { %"class.rawspeed::ByteStream", %"class.std::vector.51", %"class.rawspeed::ByteStream" }
 %"class.std::vector.51" = type { %"struct.std::_Vector_base.52" }
 %"struct.std::_Vector_base.52" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
@@ -381,7 +379,7 @@ _ZNSt12_Vector_baseIN8rawspeed23PanasonicV5Decompressor5BlockESaIS2_EE13_M_deall
   store ptr %28, ptr %11, align 8, !tbaa !113
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 %26
   store ptr %32, ptr %23, align 8, !tbaa !116
-  %33 = getelementptr inbounds nuw %"struct.rawspeed::PanasonicV5Decompressor::Block", ptr %28, i64 %7
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %28, i64 %7
   store ptr %33, ptr %15, align 8, !tbaa !114
   br label %_ZNSt6vectorIN8rawspeed23PanasonicV5Decompressor5BlockESaIS2_EE7reserveEm.exit
 
@@ -517,7 +515,7 @@ _ZNSt6vectorIN8rawspeed23PanasonicV5Decompressor5BlockESaIS2_EE11_S_relocateEPS2
 _ZNSt6vectorIN8rawspeed23PanasonicV5Decompressor5BlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %82, %_ZNSt6vectorIN8rawspeed23PanasonicV5Decompressor5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i.i
   store ptr %77, ptr %11, align 8, !tbaa !113
   store ptr %81, ptr %39, align 8, !tbaa !116
-  %83 = getelementptr inbounds nuw %"struct.rawspeed::PanasonicV5Decompressor::Block", ptr %77, i64 %75
+  %83 = getelementptr inbounds nuw [40 x i8], ptr %77, i64 %75
   store ptr %83, ptr %15, align 8, !tbaa !114
   br label %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed23PanasonicV5Decompressor5BlockESaIS3_EEEaSEOS3_.exit.i
 
@@ -926,7 +924,7 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
   %67 = icmp samesign ult i32 %.02753, %60
   %68 = mul nuw nsw i32 %62, %.02753
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %56, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %69
   %71 = zext nneg i32 %59 to i64
   br label %72
 
@@ -1018,7 +1016,7 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
   %109 = add nsw i32 %104, -12
   %110 = icmp samesign ult i64 %indvars.iv.i, %71
   call void @llvm.assume(i1 %110)
-  %111 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv.i
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %indvars.iv.i
   store i16 %107, ptr %111, align 2, !tbaa !162
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp samesign ult i32 %104, 24
@@ -1464,7 +1462,7 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
   %67 = icmp samesign ult i32 %.02753, %60
   %68 = mul nuw nsw i32 %62, %.02753
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %56, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %69
   %71 = zext nneg i32 %59 to i64
   br label %72
 
@@ -1556,7 +1554,7 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
   %109 = add nsw i32 %104, -14
   %110 = icmp samesign ult i64 %indvars.iv.i, %71
   call void @llvm.assume(i1 %110)
-  %111 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv.i
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %indvars.iv.i
   store i16 %107, ptr %111, align 2, !tbaa !162
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp samesign ult i32 %104, 28

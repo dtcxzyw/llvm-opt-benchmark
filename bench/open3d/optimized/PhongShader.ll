@@ -30,14 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Eigen::PlainObjectBase.32" = type { %"class.Eigen::DenseStorage.39" }
 %"class.Eigen::DenseStorage.39" = type { %"struct.Eigen::internal::plain_array.40" }
 %"struct.Eigen::internal::plain_array.40" = type { [3 x double] }
-%"class.Eigen::Matrix.81" = type { %"class.Eigen::PlainObjectBase.82" }
-%"class.Eigen::PlainObjectBase.82" = type { %"class.Eigen::DenseStorage.89" }
-%"class.Eigen::DenseStorage.89" = type { %"struct.Eigen::internal::plain_array.90" }
-%"struct.Eigen::internal::plain_array.90" = type { [3 x float] }
-%"class.Eigen::Matrix.284" = type { %"class.Eigen::PlainObjectBase.285" }
-%"class.Eigen::PlainObjectBase.285" = type { %"class.Eigen::DenseStorage.292" }
-%"class.Eigen::DenseStorage.292" = type { %"struct.Eigen::internal::plain_array.293" }
-%"struct.Eigen::internal::plain_array.293" = type { [3 x i32] }
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %"struct.std::hash" = type { i8 }
 %"struct.std::equal_to" = type { i8 }
@@ -1256,11 +1248,11 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
   %158 = phi i64 [ %136, %.lr.ph ], [ %249, %237 ]
   %159 = phi ptr [ %135, %.lr.ph ], [ %247, %237 ]
   %.047101 = phi i64 [ 0, %.lr.ph ], [ %245, %237 ]
-  %160 = getelementptr inbounds nuw %"class.Eigen::Matrix.31", ptr %159, i64 %.047101
+  %160 = getelementptr inbounds nuw [24 x i8], ptr %159, i64 %.047101
   %161 = load ptr, ptr %65, align 8, !tbaa !78
-  %162 = getelementptr inbounds nuw %"class.Eigen::Matrix.31", ptr %161, i64 %.047101
+  %162 = getelementptr inbounds nuw [24 x i8], ptr %161, i64 %.047101
   %163 = load ptr, ptr %4, align 8, !tbaa !51
-  %164 = getelementptr inbounds nuw %"class.Eigen::Matrix.81", ptr %163, i64 %.047101
+  %164 = getelementptr inbounds nuw [12 x i8], ptr %163, i64 %.047101
   %165 = load double, ptr %160, align 8, !tbaa !90
   %166 = fptrunc double %165 to float
   store float %166, ptr %164, align 4, !tbaa !91
@@ -1275,7 +1267,7 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
   %174 = fptrunc double %173 to float
   store float %174, ptr %171, align 4, !tbaa !91
   %175 = load ptr, ptr %5, align 8, !tbaa !51
-  %176 = getelementptr inbounds nuw %"class.Eigen::Matrix.81", ptr %175, i64 %.047101
+  %176 = getelementptr inbounds nuw [12 x i8], ptr %175, i64 %.047101
   %177 = load double, ptr %162, align 8, !tbaa !90
   %178 = fptrunc double %177 to float
   store float %178, ptr %176, align 4, !tbaa !91
@@ -1360,7 +1352,7 @@ _ZNK6open3d8geometry10PointCloud9HasColorsEv.exit: ; preds = %215
   br i1 %223, label %224, label %_ZNK6open3d8geometry10PointCloud9HasColorsEv.exit.thread
 
 224:                                              ; preds = %_ZNK6open3d8geometry10PointCloud9HasColorsEv.exit
-  %225 = getelementptr inbounds nuw %"class.Eigen::Matrix.31", ptr %219, i64 %.047101
+  %225 = getelementptr inbounds nuw [24 x i8], ptr %219, i64 %.047101
   %226 = load <2 x double>, ptr %225, align 1, !tbaa !14
   %227 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %228 = load double, ptr %227, align 8, !tbaa !90
@@ -1386,7 +1378,7 @@ _ZNK6open3d8geometry10PointCloud9HasColorsEv.exit.thread: ; preds = %215, %_ZNK6
   %.sroa.9.0 = phi double [ %228, %224 ], [ %.sroa.9.0.copyload99, %_ZNK6open3d8geometry10PointCloud9HasColorsEv.exit.thread ], [ %.sroa.9.0.copyload, %188 ], [ %.sroa.9.0.copyload95, %197 ], [ %.sroa.9.0.copyload97, %206 ]
   %.sroa.0.0 = phi <2 x double> [ %226, %224 ], [ %.sroa.0.0.copyload93, %_ZNK6open3d8geometry10PointCloud9HasColorsEv.exit.thread ], [ %.sroa.0.0.copyload, %188 ], [ %.sroa.0.0.copyload91, %197 ], [ %.sroa.0.0.copyload92, %206 ]
   %238 = load ptr, ptr %6, align 8, !tbaa !51
-  %239 = getelementptr inbounds nuw %"class.Eigen::Matrix.81", ptr %238, i64 %.047101
+  %239 = getelementptr inbounds nuw [12 x i8], ptr %238, i64 %.047101
   %.sroa.0.0.vec.extract = extractelement <2 x double> %.sroa.0.0, i64 0
   %240 = fptrunc double %.sroa.0.0.vec.extract to float
   store float %240, ptr %239, align 4, !tbaa !91
@@ -2055,7 +2047,7 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
 197:                                              ; preds = %.lr.ph, %201
   %198 = phi ptr [ %174, %.lr.ph ], [ %204, %201 ]
   %.066130 = phi i64 [ 0, %.lr.ph ], [ %202, %201 ]
-  %199 = getelementptr inbounds nuw %"class.Eigen::Matrix.284", ptr %198, i64 %.066130
+  %199 = getelementptr inbounds nuw [12 x i8], ptr %198, i64 %.066130
   %200 = mul i64 %.066130, 3
   br label %210
 
@@ -2073,13 +2065,13 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
 210:                                              ; preds = %197, %295
   %.065129 = phi i64 [ 0, %197 ], [ %303, %295 ]
   %211 = add i64 %.065129, %200
-  %212 = getelementptr inbounds nuw i32, ptr %199, i64 %.065129
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %.065129
   %213 = load i32, ptr %212, align 4, !tbaa !88
   %214 = sext i32 %213 to i64
   %215 = load ptr, ptr %42, align 8, !tbaa !78
-  %216 = getelementptr inbounds nuw %"class.Eigen::Matrix.31", ptr %215, i64 %214
+  %216 = getelementptr inbounds nuw [24 x i8], ptr %215, i64 %214
   %217 = load ptr, ptr %4, align 8, !tbaa !51
-  %218 = getelementptr inbounds nuw %"class.Eigen::Matrix.81", ptr %217, i64 %211
+  %218 = getelementptr inbounds nuw [12 x i8], ptr %217, i64 %211
   %219 = load double, ptr %216, align 8, !tbaa !90
   %220 = fptrunc double %219 to float
   store float %220, ptr %218, align 4, !tbaa !91
@@ -2167,7 +2159,7 @@ _ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit: ; preds = %257
   br i1 %267, label %268, label %_ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread
 
 268:                                              ; preds = %_ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit
-  %269 = getelementptr inbounds nuw %"class.Eigen::Matrix.31", ptr %263, i64 %214
+  %269 = getelementptr inbounds nuw [24 x i8], ptr %263, i64 %214
   %270 = load <2 x double>, ptr %269, align 1, !tbaa !14
   %271 = getelementptr inbounds nuw i8, ptr %269, i64 16
   %272 = load double, ptr %271, align 8, !tbaa !90
@@ -2182,7 +2174,7 @@ _ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread: ; preds = %257, %_
   %.sroa.9.0 = phi double [ %274, %_ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread ], [ %.sroa.9.0.copyload, %230 ], [ %.sroa.9.0.copyload126, %239 ], [ %.sroa.9.0.copyload128, %248 ], [ %272, %268 ]
   %.sroa.0.0 = phi <2 x double> [ %273, %_ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread ], [ %.sroa.0.0.copyload, %230 ], [ %.sroa.0.0.copyload123, %239 ], [ %.sroa.0.0.copyload124, %248 ], [ %270, %268 ]
   %276 = load ptr, ptr %6, align 8, !tbaa !51
-  %277 = getelementptr inbounds nuw %"class.Eigen::Matrix.81", ptr %276, i64 %211
+  %277 = getelementptr inbounds nuw [12 x i8], ptr %276, i64 %211
   %.sroa.0.0.vec.extract = extractelement <2 x double> %.sroa.0.0, i64 0
   %278 = fptrunc double %.sroa.0.0.vec.extract to float
   store float %278, ptr %277, align 4, !tbaa !91
@@ -2196,19 +2188,19 @@ _ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread: ; preds = %257, %_
   %283 = load i32, ptr %186, align 8, !tbaa !104
   %284 = icmp eq i32 %283, 0
   %285 = load ptr, ptr %5, align 8, !tbaa !51
-  %286 = getelementptr inbounds nuw %"class.Eigen::Matrix.81", ptr %285, i64 %211
+  %286 = getelementptr inbounds nuw [12 x i8], ptr %285, i64 %211
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 4
   %288 = getelementptr inbounds nuw i8, ptr %286, i64 8
   br i1 %284, label %289, label %292
 
 289:                                              ; preds = %275
   %290 = load ptr, ptr %74, align 8, !tbaa !78
-  %291 = getelementptr inbounds nuw %"class.Eigen::Matrix.31", ptr %290, i64 %.066130
+  %291 = getelementptr inbounds nuw [24 x i8], ptr %290, i64 %.066130
   br label %295
 
 292:                                              ; preds = %275
   %293 = load ptr, ptr %86, align 8, !tbaa !78
-  %294 = getelementptr inbounds nuw %"class.Eigen::Matrix.31", ptr %293, i64 %214
+  %294 = getelementptr inbounds nuw [24 x i8], ptr %293, i64 %214
   br label %295
 
 295:                                              ; preds = %292, %289
@@ -2415,7 +2407,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__det
   %10 = load i64, ptr %9, align 8, !tbaa !116
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %0, align 8, !tbaa !115
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !123
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.critedge, label %28
@@ -2556,7 +2548,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 31:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !115
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !123
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -2583,7 +2575,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %45 = load i32, ptr %43, align 4, !tbaa !88
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !123
   br label %49
 
@@ -2667,7 +2659,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %16 = load i32, ptr %15, align 8, !tbaa !88
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !123
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -2682,7 +2674,7 @@ _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !123
   br label %29
 
@@ -2837,7 +2829,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEEE7setOnesEv.exit28: ; pred
   %40 = fcmp olt double %36, %39
   %41 = select i1 %40, double %39, double %36
   %42 = fptrunc double %41 to float
-  %43 = getelementptr inbounds nuw %"class.Eigen::Matrix.31", ptr %12, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv
   %44 = load double, ptr %43, align 8, !tbaa !90
   %45 = fptrunc double %44 to float
   %46 = load double, ptr %13, align 8, !tbaa !90, !noalias !133
@@ -2899,7 +2891,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEEE7setOnesEv.exit28: ; pred
   %99 = fadd float %98, %92
   store float %99, ptr %90, align 8, !tbaa !91
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %100 = getelementptr inbounds nuw %"class.Eigen::Matrix.31", ptr %24, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %indvars.iv
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i.i.i
   %102 = load double, ptr %100, align 8, !tbaa !90
   %103 = fptrunc double %102 to float
@@ -3106,9 +3098,9 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %33, %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !51
-  %35 = getelementptr inbounds nuw %"class.Eigen::Matrix.81", ptr %30, i64 %12
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %30, i64 %12
   store ptr %35, ptr %3, align 8, !tbaa !48
-  %36 = getelementptr inbounds nuw %"class.Eigen::Matrix.81", ptr %29, i64 %27
+  %36 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %27
   store ptr %36, ptr %13, align 8, !tbaa !54
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
@@ -3117,7 +3109,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocat
   br i1 %38, label %39, label %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw %"class.Eigen::Matrix.81", ptr %5, i64 %1
+  %40 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %40
   br i1 %.not.i4, label %_ZNSt6vectorIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit, label %_ZSt8_DestroyIPN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEES2_EvT_S4_RSaIT0_E.exit.i
 

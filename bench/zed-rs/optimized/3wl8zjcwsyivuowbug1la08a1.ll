@@ -3873,7 +3873,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   %38 = add i64 %.sroa.01.0.i.i.i, %37
   %39 = and i64 %38, %29
   %40 = sub nsw i64 0, %39
-  %41 = getelementptr inbounds { { i32, i32 }, { ptr, ptr, ptr, ptr } }, ptr %30, i64 %40
+  %41 = getelementptr inbounds [40 x i8], ptr %30, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -40
   %.val3.i.i.i = load i32, ptr %42, align 4, !alias.scope !628, !noalias !633, !noundef !9
   %43 = getelementptr i8, ptr %41, i64 -36

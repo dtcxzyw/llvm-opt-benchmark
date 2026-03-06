@@ -328,7 +328,7 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
   br label %40
 
 40:                                               ; preds = %strbuf_addch.exit.i, %30
-  %41 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8, !tbaa !14
   %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #18
   call void @strbuf_add(ptr noundef nonnull %18, ptr noundef nonnull %42, i64 noundef %43) #17
@@ -561,7 +561,7 @@ config_get_rebase.exit:                           ; preds = %105, %.thread.i, %1
 
 130:                                              ; preds = %132, %126
   %.0811.i.i = phi i64 [ 0, %126 ], [ %133, %132 ]
-  %131 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %131 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i73 = icmp eq ptr %129, %131
   br i1 %.not.i.i73, label %.split.loop.exit9.i.i, label %132
 
@@ -820,7 +820,7 @@ get_rebase_fork_point.exit:                       ; preds = %205
 
 219:                                              ; preds = %221, %215
   %.0811.i.i79 = phi i64 [ 0, %215 ], [ %222, %221 ]
-  %220 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i79
+  %220 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i79
   %.not.i.i80 = icmp eq ptr %218, %220
   br i1 %.not.i.i80, label %.split.loop.exit9.i.i83, label %221
 
@@ -1114,7 +1114,7 @@ run_fetch.exit:                                   ; preds = %317, %319
 
 335:                                              ; preds = %337, %331
   %.0811.i.i88 = phi i64 [ 0, %331 ], [ %338, %337 ]
-  %336 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i88
+  %336 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i88
   %.not.i.i89 = icmp eq ptr %334, %336
   br i1 %.not.i.i89, label %.split.loop.exit9.i.i92, label %337
 
@@ -1976,7 +1976,7 @@ define internal fastcc range(i32 0, 2) i32 @already_up_to_date(ptr noundef nonnu
   store ptr null, ptr %3, align 8, !tbaa !72
   %11 = load ptr, ptr @the_repository, align 8, !tbaa !17
   %12 = load ptr, ptr %1, align 8, !tbaa !69
-  %13 = getelementptr inbounds nuw %struct.object_id, ptr %12, i64 %.01319
+  %13 = getelementptr inbounds nuw [36 x i8], ptr %12, i64 %.01319
   %14 = call ptr @lookup_commit_reference(ptr noundef %11, ptr noundef %13) #17
   %15 = call ptr @commit_list_insert(ptr noundef %14, ptr noundef nonnull %3) #17
   %16 = load ptr, ptr @the_repository, align 8, !tbaa !17

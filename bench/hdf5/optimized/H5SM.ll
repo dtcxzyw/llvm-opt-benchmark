@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5C_class_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.H5B2_class_t = type { i32, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.H5O_shmesg_table_t = type { i64, i32, i32 }
-%struct.H5SM_index_header_t = type { i32, i64, i64, i64, i64, i32, i64, i64, i64 }
 %struct.H5SM_table_cache_ud_t = type { ptr }
 %struct.H5SM_mesg_key_t = type { ptr, ptr, ptr, i64, %struct.H5SM_sohm_t }
 %struct.H5SM_sohm_t = type { i32, i32, i32, %union.anon.0 }
@@ -356,7 +355,7 @@ define range(i32 -1, 1) i32 @H5SM_init(ptr noundef %0, ptr noundef %1, ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %81
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %81 ]
   %.08298 = phi i32 [ 0, %.lr.ph.preheader ], [ %82, %81 ]
-  %74 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %75 = load i32, ptr %74, align 4, !tbaa !3
   %76 = and i32 %75, %.08298
   %.not91 = icmp eq i32 %76, 0
@@ -409,16 +408,16 @@ define range(i32 -1, 1) i32 @H5SM_init(ptr noundef %0, ptr noundef %1, ptr nound
   %indvars.iv106 = phi i64 [ 0, %.lr.ph101.preheader ], [ %indvars.iv.next107, %116 ]
   %95 = load i32, ptr %7, align 4, !tbaa !3
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %94, i64 %indvars.iv106
+  %97 = getelementptr inbounds nuw [72 x i8], ptr %94, i64 %indvars.iv106
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
   store i64 %96, ptr %98, align 8, !tbaa !29
   %99 = zext i32 %93 to i64
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 16
   store i64 %99, ptr %100, align 8, !tbaa !31
-  %101 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv106
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv106
   %102 = load i32, ptr %101, align 4, !tbaa !3
   store i32 %102, ptr %97, align 8, !tbaa !32
-  %103 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv106
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv106
   %104 = load i32, ptr %103, align 4, !tbaa !3
   %105 = zext i32 %104 to i64
   %106 = getelementptr inbounds nuw i8, ptr %97, i64 8
@@ -448,7 +447,7 @@ define range(i32 -1, 1) i32 @H5SM_init(ptr noundef %0, ptr noundef %1, ptr nound
   %120 = mul nuw nsw i64 %117, %119
   %121 = add nuw nsw i64 %120, 8
   %122 = load ptr, ptr %86, align 8, !tbaa !28
-  %123 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %122, i64 %indvars.iv106
+  %123 = getelementptr inbounds nuw [72 x i8], ptr %122, i64 %indvars.iv106
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 64
   store i64 %121, ptr %124, align 8, !tbaa !36
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
@@ -608,7 +607,7 @@ define range(i32 -1, 1) i32 @H5SM__get_index(ptr noundef readonly captures(none)
 
 switch.lookup:                                    ; preds = %10
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5SM_get_refcount, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.H5SM_get_refcount, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = shl nuw nsw i32 1, %switch.load
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -633,7 +632,7 @@ switch.lookup:                                    ; preds = %10
 
 26:                                               ; preds = %.lr.ph, %30
   %.015 = phi i64 [ 0, %.lr.ph ], [ %31, %30 ]
-  %27 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %18, i64 %.015
+  %27 = getelementptr inbounds nuw [72 x i8], ptr %18, i64 %.015
   %28 = load i32, ptr %27, align 8, !tbaa !32
   %29 = and i32 %28, %13
   %.not = icmp eq i32 %29, 0
@@ -689,7 +688,7 @@ define range(i32 -1, 2) i32 @H5SM_type_shared(ptr noundef %0, i32 noundef %1) lo
 
 switch.lookup:                                    ; preds = %11
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5SM_get_refcount, i64 %20
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.H5SM_get_refcount, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   %21 = shl nuw nsw i32 1, %switch.load
   %22 = call i64 @H5F_get_sohm_addr(ptr noundef %0) #11
@@ -731,7 +730,7 @@ switch.lookup:                                    ; preds = %11
 
 38:                                               ; preds = %.lr.ph, %36
   %.02035 = phi i64 [ 0, %.lr.ph ], [ %37, %36 ]
-  %39 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %35, i64 %.02035
+  %39 = getelementptr inbounds nuw [72 x i8], ptr %35, i64 %.02035
   %40 = load i32, ptr %39, align 8, !tbaa !32
   %41 = and i32 %40, %21
   %.not23 = icmp eq i32 %41, 0
@@ -824,7 +823,7 @@ define range(i32 -1, 1) i32 @H5SM_get_fheap_addr(ptr noundef %0, i32 noundef %1,
 
 switch.lookup:                                    ; preds = %28
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5SM_get_refcount, i64 %30
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.H5SM_get_refcount, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = shl nuw nsw i32 1, %switch.load
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 256
@@ -846,7 +845,7 @@ switch.lookup:                                    ; preds = %28
 
 40:                                               ; preds = %44, %.lr.ph.i
   %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %45, %44 ]
-  %41 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %39, i64 %.015.i
+  %41 = getelementptr inbounds nuw [72 x i8], ptr %39, i64 %.015.i
   %42 = load i32, ptr %41, align 8, !tbaa !32
   %43 = and i32 %42, %31
   %.not.i = icmp eq i32 %43, 0
@@ -872,7 +871,7 @@ switch.lookup:                                    ; preds = %28
 .loopexit:                                        ; preds = %40, %..loopexit_crit_edge
   %56 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %39, %40 ]
   %.018.ph = phi i64 [ undef, %..loopexit_crit_edge ], [ %.015.i, %40 ]
-  %57 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %56, i64 %.018.ph
+  %57 = getelementptr inbounds nuw [72 x i8], ptr %56, i64 %.018.ph
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
   %59 = load i64, ptr %58, align 8, !tbaa !47
   store i64 %59, ptr %2, align 8, !tbaa !7
@@ -996,7 +995,7 @@ define range(i32 -1, 2) i32 @H5SM_can_share(ptr noundef %0, ptr noundef %1, ptr 
 
 switch.lookup:                                    ; preds = %46
   %48 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5SM_get_refcount, i64 %48
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.H5SM_get_refcount, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
   %49 = shl nuw nsw i32 1, %switch.load
   %50 = getelementptr inbounds nuw i8, ptr %.134, i64 256
@@ -1012,7 +1011,7 @@ switch.lookup:                                    ; preds = %46
 
 55:                                               ; preds = %59, %.lr.ph.i
   %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %60, %59 ]
-  %56 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %54, i64 %.015.i
+  %56 = getelementptr inbounds nuw [72 x i8], ptr %54, i64 %.015.i
   %57 = load i32, ptr %56, align 8, !tbaa !32
   %58 = and i32 %57, %49
   %.not.i43 = icmp eq i32 %58, 0
@@ -1050,7 +1049,7 @@ switch.lookup:                                    ; preds = %46
 77:                                               ; preds = %.loopexit
   %78 = getelementptr inbounds nuw i8, ptr %.134, i64 264
   %79 = load ptr, ptr %78, align 8, !tbaa !28
-  %80 = getelementptr inbounds %struct.H5SM_index_header_t, ptr %79, i64 %.045.ph
+  %80 = getelementptr inbounds [72 x i8], ptr %79, i64 %.045.ph
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load i64, ptr %81, align 8, !tbaa !33
   %83 = icmp ult i64 %71, %82
@@ -1206,7 +1205,7 @@ define range(i32 -1, 2) i32 @H5SM_try_share(ptr noundef %0, ptr noundef %1, i32 
   %70 = getelementptr inbounds nuw i8, ptr %54, i64 264
   %71 = load ptr, ptr %70, align 8, !tbaa !28
   %72 = load i64, ptr %20, align 8, !tbaa !7
-  %73 = getelementptr inbounds %struct.H5SM_index_header_t, ptr %71, i64 %72
+  %73 = getelementptr inbounds [72 x i8], ptr %71, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %75 = load i64, ptr %74, align 8, !tbaa !51
   %76 = icmp eq i64 %75, -1
@@ -1404,7 +1403,7 @@ H5SM__create_index.exit._crit_edge:               ; preds = %H5SM__create_index.
   %164 = phi i64 [ %72, %69 ], [ %72, %H5SM__create_index.exit.thread64 ], [ %.pre88, %H5SM__create_index.exit._crit_edge ]
   %165 = phi ptr [ %71, %69 ], [ %71, %H5SM__create_index.exit.thread64 ], [ %.pre, %H5SM__create_index.exit._crit_edge ]
   %.158 = phi i32 [ 0, %69 ], [ 2, %H5SM__create_index.exit.thread64 ], [ 2, %H5SM__create_index.exit._crit_edge ]
-  %166 = getelementptr inbounds %struct.H5SM_index_header_t, ptr %165, i64 %164
+  %166 = getelementptr inbounds [72 x i8], ptr %165, i64 %164
   %167 = trunc i32 %2 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !71
@@ -1539,7 +1538,7 @@ H5SM__write_mesg.exit.thread:                     ; preds = %161
   %.02236.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %252, %250 ]
   %.02435.i.i = phi ptr [ %13, %.lr.ph.i.i ], [ %.125.i.i, %250 ]
   %238 = load ptr, ptr %235, align 8, !tbaa !86
-  %239 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %238, i64 %.02236.i.i
+  %239 = getelementptr inbounds nuw [32 x i8], ptr %238, i64 %.02236.i.i
   %240 = load i32, ptr %239, align 8, !tbaa !87
   %.not28.i.i = icmp eq i32 %240, -1
   br i1 %.not28.i.i, label %248, label %241
@@ -1605,7 +1604,7 @@ H5SM__find_in_list.exit.thread.i:                 ; preds = %250, %244, %230, %2
 266:                                              ; preds = %265
   %267 = getelementptr inbounds nuw i8, ptr %217, i64 256
   %268 = load ptr, ptr %267, align 8, !tbaa !86
-  %269 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %268, i64 %.1142145.i
+  %269 = getelementptr inbounds nuw [32 x i8], ptr %268, i64 %.1142145.i
   %270 = load i32, ptr %269, align 8, !tbaa !87
   %271 = icmp eq i32 %270, 1
   br i1 %271, label %272, label %290
@@ -1626,13 +1625,13 @@ H5SM__find_in_list.exit.thread.i:                 ; preds = %250, %244, %230, %2
 
 282:                                              ; preds = %272
   %283 = load ptr, ptr %267, align 8, !tbaa !86
-  %284 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %283, i64 %.1142145.i
+  %284 = getelementptr inbounds nuw [32 x i8], ptr %283, i64 %.1142145.i
   store i32 0, ptr %284, align 8, !tbaa !87
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 24
   %286 = load i64, ptr %275, align 8, !tbaa !89
   store i64 %286, ptr %285, align 8, !tbaa !89
   %287 = load ptr, ptr %267, align 8, !tbaa !86
-  %288 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %287, i64 %.1142145.i
+  %288 = getelementptr inbounds nuw [32 x i8], ptr %287, i64 %.1142145.i
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 16
   store i64 2, ptr %289, align 8, !tbaa !89
   br label %294
@@ -1647,7 +1646,7 @@ H5SM__find_in_list.exit.thread.i:                 ; preds = %250, %244, %230, %2
 294:                                              ; preds = %290, %282
   %295 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %296 = load ptr, ptr %267, align 8, !tbaa !86
-  %297 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %296, i64 %.1142145.i
+  %297 = getelementptr inbounds nuw [32 x i8], ptr %296, i64 %.1142145.i
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 24
   %299 = load i64, ptr %298, align 8, !tbaa !89
   store i64 %299, ptr %295, align 8, !tbaa !89
@@ -1878,7 +1877,7 @@ H5SM__find_in_list.exit.thread.i:                 ; preds = %250, %244, %230, %2
   %413 = phi i64 [ %405, %411 ], [ %393, %.thread212.i ]
   %414 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 256
   %415 = load ptr, ptr %414, align 8, !tbaa !86
-  %416 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %415, i64 %413
+  %416 = getelementptr inbounds nuw [32 x i8], ptr %415, i64 %413
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %416, ptr noundef nonnull align 8 dereferenceable(32) %207, i64 32, i1 false), !tbaa.struct !95
   br label %434
 
@@ -2129,7 +2128,7 @@ define range(i32 -1, 1) i32 @H5SM_delete(ptr noundef %0, ptr noundef %1, ptr nou
 
 switch.lookup:                                    ; preds = %37
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5SM_get_refcount, i64 %39
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.H5SM_get_refcount, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
   %40 = shl nuw nsw i32 1, %switch.load
   %41 = getelementptr inbounds nuw i8, ptr %24, i64 256
@@ -2145,7 +2144,7 @@ switch.lookup:                                    ; preds = %37
 
 46:                                               ; preds = %50, %.lr.ph.i
   %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %51, %50 ]
-  %47 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %45, i64 %.015.i
+  %47 = getelementptr inbounds nuw [72 x i8], ptr %45, i64 %.015.i
   %48 = load i32, ptr %47, align 8, !tbaa !32
   %49 = and i32 %48, %40
   %.not.i = icmp eq i32 %49, 0
@@ -2175,7 +2174,7 @@ switch.lookup:                                    ; preds = %37
   br label %.thread95
 
 .loopexit:                                        ; preds = %46
-  %65 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %45, i64 %.015.i
+  %65 = getelementptr inbounds nuw [72 x i8], ptr %45, i64 %.015.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2289,7 +2288,7 @@ switch.lookup:                                    ; preds = %37
   %128 = phi ptr [ %123, %.lr.ph.i.i ], [ %140, %139 ]
   %.02236.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %141, %139 ]
   %129 = load ptr, ptr %126, align 8, !tbaa !86
-  %130 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %129, i64 %.02236.i.i
+  %130 = getelementptr inbounds nuw [32 x i8], ptr %129, i64 %.02236.i.i
   %131 = load i32, ptr %130, align 8, !tbaa !87
   %.not28.i.i = icmp eq i32 %131, -1
   br i1 %.not28.i.i, label %139, label %132
@@ -2336,7 +2335,7 @@ switch.lookup:                                    ; preds = %37
 
 155:                                              ; preds = %135
   %156 = load ptr, ptr %126, align 8, !tbaa !86
-  %157 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %156, i64 %.02236.i.i
+  %157 = getelementptr inbounds nuw [32 x i8], ptr %156, i64 %.02236.i.i
   %158 = load i32, ptr %157, align 8, !tbaa !87
   %159 = icmp eq i32 %158, 0
   br i1 %159, label %160, label %164
@@ -2355,7 +2354,7 @@ switch.lookup:                                    ; preds = %37
 
 164:                                              ; preds = %160, %155
   %165 = phi ptr [ %156, %155 ], [ %.pre.i, %160 ]
-  %166 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %165, i64 %.02236.i.i
+  %166 = getelementptr inbounds nuw [32 x i8], ptr %165, i64 %.02236.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %183
 
@@ -2830,14 +2829,14 @@ define range(i32 -1, 1) i32 @H5SM_get_info(ptr noundef %0, ptr noundef %1) local
   %63 = phi i32 [ %76, %75 ], [ %62, %52 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %75 ], [ 0, %52 ]
   %64 = load ptr, ptr %53, align 8, !tbaa !28
-  %65 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [72 x i8], ptr %64, i64 %indvars.iv
   %66 = load i32, ptr %65, align 8, !tbaa !32
-  %67 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %66, ptr %67, align 4, !tbaa !3
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %69 = load i64, ptr %68, align 8, !tbaa !33
   %70 = trunc i64 %69 to i32
-  %71 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 %70, ptr %71, align 4, !tbaa !3
   %72 = and i32 %66, 4096
   %.not59 = icmp eq i32 %72, 0
@@ -3077,7 +3076,7 @@ define range(i32 -1, 1) i32 @H5SM_get_refcount(ptr noundef %0, i32 noundef %1, p
 
 switch.lookup:                                    ; preds = %34
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.H5SM_get_refcount, i64 %36
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.H5SM_get_refcount, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   %37 = shl nuw nsw i32 1, %switch.load
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 256
@@ -3093,7 +3092,7 @@ switch.lookup:                                    ; preds = %34
 
 43:                                               ; preds = %47, %.lr.ph.i
   %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %48, %47 ]
-  %44 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %42, i64 %.015.i
+  %44 = getelementptr inbounds nuw [72 x i8], ptr %42, i64 %.015.i
   %45 = load i32, ptr %44, align 8, !tbaa !32
   %46 = and i32 %45, %37
   %.not.i = icmp eq i32 %46, 0
@@ -3125,7 +3124,7 @@ switch.lookup:                                    ; preds = %34
 .loopexit138:                                     ; preds = %43, %..loopexit138_crit_edge
   %62 = phi ptr [ %.pre, %..loopexit138_crit_edge ], [ %42, %43 ]
   %.086.ph = phi i64 [ undef, %..loopexit138_crit_edge ], [ %.015.i, %43 ]
-  %63 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %62, i64 %.086.ph
+  %63 = getelementptr inbounds nuw [72 x i8], ptr %62, i64 %.086.ph
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %65 = load i64, ptr %64, align 8, !tbaa !47
   %66 = call ptr @H5HF_open(ptr noundef %0, i64 noundef %65) #11
@@ -3217,7 +3216,7 @@ switch.lookup:                                    ; preds = %34
   %119 = phi ptr [ %114, %.lr.ph.i81 ], [ %131, %130 ]
   %.02236.i = phi i64 [ 0, %.lr.ph.i81 ], [ %132, %130 ]
   %120 = load ptr, ptr %117, align 8, !tbaa !86
-  %121 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %120, i64 %.02236.i
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %120, i64 %.02236.i
   %122 = load i32, ptr %121, align 8, !tbaa !87
   %.not28.i = icmp eq i32 %122, -1
   br i1 %.not28.i, label %130, label %123
@@ -3268,7 +3267,7 @@ switch.lookup:                                    ; preds = %34
 
 146:                                              ; preds = %126
   %147 = load ptr, ptr %117, align 8, !tbaa !86
-  %148 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %147, i64 %.02236.i
+  %148 = getelementptr inbounds nuw [32 x i8], ptr %147, i64 %.02236.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %148, i64 32, i1 false), !tbaa.struct !95
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %173
@@ -3448,7 +3447,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5SM__read_mesg(ptr nound
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !105
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @H5O_msg_class_g, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !106
   %27 = call i32 @H5O_loc_reset(ptr noundef nonnull %8) #11
   %28 = icmp slt i32 %27, 0
@@ -3632,7 +3631,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5SM__find_in_list(ptr noundef read
   %.02236 = phi i64 [ 0, %.lr.ph ], [ %41, %39 ]
   %.02435 = phi ptr [ %2, %.lr.ph ], [ %.125, %39 ]
   %22 = load ptr, ptr %19, align 8, !tbaa !86
-  %23 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %22, i64 %.02236
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %.02236
   %24 = load i32, ptr %23, align 8, !tbaa !87
   %.not28 = icmp eq i32 %24, -1
   br i1 %.not28, label %37, label %25
@@ -3863,7 +3862,7 @@ define range(i32 -1, 1) i32 @H5SM_table_debug(ptr noundef %0, i64 noundef %1, pt
   %52 = trunc nuw nsw i64 %indvars.iv to i32
   %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.54, i32 noundef %3, ptr noundef nonnull @.str.53, i32 noundef %52) #11
   %54 = load ptr, ptr %50, align 8, !tbaa !28
-  %55 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [72 x i8], ptr %54, i64 %indvars.iv
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %57 = load i32, ptr %56, align 8, !tbaa !35
   %58 = icmp eq i32 %57, 0
@@ -3872,36 +3871,36 @@ define range(i32 -1, 1) i32 @H5SM_table_debug(ptr noundef %0, i64 noundef %1, pt
   %61 = select i1 %58, ptr @.str.57, ptr %60
   %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.55, i32 noundef %49, ptr noundef nonnull @.str.53, i32 noundef %4, ptr noundef nonnull @.str.56, ptr noundef nonnull %61) #11
   %63 = load ptr, ptr %50, align 8, !tbaa !28
-  %64 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [72 x i8], ptr %63, i64 %indvars.iv
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %66 = load i64, ptr %65, align 8, !tbaa !51
   %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.60, i32 noundef %49, ptr noundef nonnull @.str.53, i32 noundef %4, ptr noundef nonnull @.str.61, i64 noundef %66) #11
   %68 = load ptr, ptr %50, align 8, !tbaa !28
-  %69 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [72 x i8], ptr %68, i64 %indvars.iv
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 56
   %71 = load i64, ptr %70, align 8, !tbaa !47
   %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.60, i32 noundef %49, ptr noundef nonnull @.str.53, i32 noundef %4, ptr noundef nonnull @.str.62, i64 noundef %71) #11
   %73 = load ptr, ptr %50, align 8, !tbaa !28
-  %74 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [72 x i8], ptr %73, i64 %indvars.iv
   %75 = load i32, ptr %74, align 8, !tbaa !32
   %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.63, i32 noundef %49, ptr noundef nonnull @.str.53, i32 noundef %4, ptr noundef nonnull @.str.64, i32 noundef %75) #11
   %77 = load ptr, ptr %50, align 8, !tbaa !28
-  %78 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [72 x i8], ptr %77, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i64, ptr %79, align 8, !tbaa !33
   %81 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.65, i32 noundef %49, ptr noundef nonnull @.str.53, i32 noundef %4, ptr noundef nonnull @.str.66, i64 noundef %80) #11
   %82 = load ptr, ptr %50, align 8, !tbaa !28
-  %83 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [72 x i8], ptr %82, i64 %indvars.iv
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %85 = load i64, ptr %84, align 8, !tbaa !34
   %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.65, i32 noundef %49, ptr noundef nonnull @.str.53, i32 noundef %4, ptr noundef nonnull @.str.67, i64 noundef %85) #11
   %87 = load ptr, ptr %50, align 8, !tbaa !28
-  %88 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %87, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [72 x i8], ptr %87, i64 %indvars.iv
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load i64, ptr %89, align 8, !tbaa !31
   %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.65, i32 noundef %49, ptr noundef nonnull @.str.53, i32 noundef %4, ptr noundef nonnull @.str.68, i64 noundef %90) #11
   %92 = load ptr, ptr %50, align 8, !tbaa !28
-  %93 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %92, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [72 x i8], ptr %92, i64 %indvars.iv
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %95 = load i64, ptr %94, align 8, !tbaa !29
   %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.65, i32 noundef %49, ptr noundef nonnull @.str.53, i32 noundef %4, ptr noundef nonnull @.str.69, i64 noundef %95) #11
@@ -3984,7 +3983,7 @@ define range(i32 -1, 1) i32 @H5SM_list_debug(ptr noundef %0, i64 noundef %1, ptr
 
 29:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %30 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %28, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [72 x i8], ptr %28, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load i64, ptr %31, align 8, !tbaa !51
   %.not = icmp ne i64 %32, -1
@@ -4011,7 +4010,7 @@ define range(i32 -1, 1) i32 @H5SM_list_debug(ptr noundef %0, i64 noundef %1, ptr
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 264
   %39 = load ptr, ptr %38, align 8, !tbaa !28
   %40 = zext i32 %.094.lcssa to i64
-  %41 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [72 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %41, ptr %42, align 8, !tbaa !83
   %43 = call ptr @H5AC_protect(ptr noundef %0, ptr noundef nonnull @H5AC_SOHM_LIST, i64 noundef %1, ptr noundef nonnull %7, i32 noundef 128) #11
@@ -4026,7 +4025,7 @@ define range(i32 -1, 1) i32 @H5SM_list_debug(ptr noundef %0, i64 noundef %1, ptr
 
 48:                                               ; preds = %37
   %49 = load ptr, ptr %38, align 8, !tbaa !28
-  %50 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %49, i64 %40
+  %50 = getelementptr inbounds nuw [72 x i8], ptr %49, i64 %40
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %52 = load i64, ptr %51, align 8, !tbaa !47
   %.not110 = icmp eq i64 %52, -1
@@ -4041,7 +4040,7 @@ define range(i32 -1, 1) i32 @H5SM_list_debug(ptr noundef %0, i64 noundef %1, ptr
   %.198 = phi ptr [ %54, %53 ], [ null, %48 ]
   %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.72, i32 noundef %3, ptr noundef nonnull @.str.53) #11
   %58 = load ptr, ptr %38, align 8, !tbaa !28
-  %59 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %58, i64 %40
+  %59 = getelementptr inbounds nuw [72 x i8], ptr %58, i64 %40
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load i64, ptr %60, align 8, !tbaa !34
   %.not147 = icmp eq i64 %61, 0
@@ -4057,13 +4056,13 @@ define range(i32 -1, 1) i32 @H5SM_list_debug(ptr noundef %0, i64 noundef %1, ptr
   %.195142 = phi i32 [ 0, %.lr.ph144 ], [ %108, %107 ]
   %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.73, i32 noundef %3, ptr noundef nonnull @.str.53, i32 noundef %.195142) #11
   %67 = load ptr, ptr %63, align 8, !tbaa !86
-  %68 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %67, i64 %65
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %67, i64 %65
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !114
   %71 = zext i32 %70 to i64
   %72 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.74, i32 noundef %62, ptr noundef nonnull @.str.53, i32 noundef %4, ptr noundef nonnull @.str.75, i64 noundef %71) #11
   %73 = load ptr, ptr %63, align 8, !tbaa !86
-  %74 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %73, i64 %65
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %65
   %75 = load i32, ptr %74, align 8, !tbaa !87
   switch i32 %75, label %105 [
     i32 0, label %76
@@ -4073,12 +4072,12 @@ define range(i32 -1, 1) i32 @H5SM_list_debug(ptr noundef %0, i64 noundef %1, ptr
 76:                                               ; preds = %64
   %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.55, i32 noundef %62, ptr noundef nonnull @.str.53, i32 noundef %4, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77) #11
   %78 = load ptr, ptr %63, align 8, !tbaa !86
-  %79 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %78, i64 %65
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %78, i64 %65
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load i64, ptr %80, align 8, !tbaa !89
   %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.78, i32 noundef %62, ptr noundef nonnull @.str.53, i32 noundef %4, ptr noundef nonnull @.str.79, i64 noundef %81) #11
   %83 = load ptr, ptr %63, align 8, !tbaa !86
-  %84 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %83, i64 %65
+  %84 = getelementptr inbounds nuw [32 x i8], ptr %83, i64 %65
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load i64, ptr %85, align 8, !tbaa !89
   %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.60, i32 noundef %62, ptr noundef nonnull @.str.53, i32 noundef %4, ptr noundef nonnull @.str.80, i64 noundef %86) #11
@@ -4087,17 +4086,17 @@ define range(i32 -1, 1) i32 @H5SM_list_debug(ptr noundef %0, i64 noundef %1, ptr
 88:                                               ; preds = %64
   %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.55, i32 noundef %62, ptr noundef nonnull @.str.53, i32 noundef %4, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.81) #11
   %90 = load ptr, ptr %63, align 8, !tbaa !86
-  %91 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %90, i64 %65
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %90, i64 %65
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load i64, ptr %92, align 8, !tbaa !89
   %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.60, i32 noundef %62, ptr noundef nonnull @.str.53, i32 noundef %4, ptr noundef nonnull @.str.82, i64 noundef %93) #11
   %95 = load ptr, ptr %63, align 8, !tbaa !86
-  %96 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %95, i64 %65
+  %96 = getelementptr inbounds nuw [32 x i8], ptr %95, i64 %65
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %98 = load i64, ptr %97, align 8, !tbaa !89
   %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.60, i32 noundef %62, ptr noundef nonnull @.str.53, i32 noundef %4, ptr noundef nonnull @.str.83, i64 noundef %98) #11
   %100 = load ptr, ptr %63, align 8, !tbaa !86
-  %101 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %100, i64 %65
+  %101 = getelementptr inbounds nuw [32 x i8], ptr %100, i64 %65
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load i32, ptr %102, align 8, !tbaa !105
   %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.84, i32 noundef %62, ptr noundef nonnull @.str.53, i32 noundef %4, ptr noundef nonnull @.str.85, i32 noundef %103) #11
@@ -4111,7 +4110,7 @@ define range(i32 -1, 1) i32 @H5SM_list_debug(ptr noundef %0, i64 noundef %1, ptr
   %108 = add i32 %.195142, 1
   %109 = zext i32 %108 to i64
   %110 = load ptr, ptr %38, align 8, !tbaa !28
-  %111 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %110, i64 %40
+  %111 = getelementptr inbounds nuw [72 x i8], ptr %110, i64 %40
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %113 = load i64, ptr %112, align 8, !tbaa !34
   %114 = icmp ugt i64 %113, %109
@@ -4232,7 +4231,7 @@ define range(i32 -1, 1) i32 @H5SM_ih_size(ptr noundef %0, ptr noundef writeonly 
 28:                                               ; preds = %.lr.ph, %89
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
   %29 = load ptr, ptr %26, align 8, !tbaa !28
-  %30 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [72 x i8], ptr %29, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %32 = load i32, ptr %31, align 8, !tbaa !35
   %33 = icmp eq i32 %32, 1
@@ -4291,7 +4290,7 @@ define range(i32 -1, 1) i32 @H5SM_ih_size(ptr noundef %0, ptr noundef writeonly 
 
 63:                                               ; preds = %._crit_edge, %34, %58
   %64 = phi ptr [ %.pre, %._crit_edge ], [ %29, %34 ], [ %29, %58 ]
-  %65 = getelementptr inbounds nuw %struct.H5SM_index_header_t, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [72 x i8], ptr %64, i64 %indvars.iv
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 56
   %67 = load i64, ptr %66, align 8, !tbaa !47
   %.not63 = icmp eq i64 %67, -1
@@ -4423,7 +4422,7 @@ define internal fastcc i64 @H5SM__create_list(ptr noundef %0, ptr noundef %1) un
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.03150 = phi i64 [ %23, %.lr.ph ], [ 0, %.preheader ]
-  %22 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %15, i64 %.03150
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %.03150
   store i32 -1, ptr %22, align 8, !tbaa !87
   %23 = add nuw i64 %.03150, 1
   %exitcond.not = icmp eq i64 %23, %11
@@ -4658,7 +4657,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5SM__convert_list_to_btree(ptr nou
 50:                                               ; preds = %.lr.ph, %72
   %.03951 = phi i64 [ 0, %.lr.ph ], [ %73, %72 ]
   %51 = load ptr, ptr %48, align 8, !tbaa !86
-  %52 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %51, i64 %.03951
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %51, i64 %.03951
   %53 = load i32, ptr %52, align 8, !tbaa !87
   %.not = icmp eq i32 %53, -1
   br i1 %.not, label %72, label %54
@@ -5026,7 +5025,7 @@ define internal noundef i32 @H5SM__bt2_convert_to_list_op(ptr noundef readonly c
   store i64 %14, ptr %12, align 8, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %16 = load ptr, ptr %15, align 8, !tbaa !86
-  %17 = getelementptr inbounds nuw %struct.H5SM_sohm_t, ptr %16, i64 %13
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   br label %18
 

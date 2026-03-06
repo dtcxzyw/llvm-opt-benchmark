@@ -15,21 +15,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.rocksdb::FSReadRequest" = type { i64, i64, ptr, %"class.rocksdb::Slice", %"class.rocksdb::IOStatus", %"class.std::unique_ptr.29" }
-%"class.rocksdb::Slice" = type { ptr, i64 }
-%"class.std::unique_ptr.29" = type { %"struct.std::__uniq_ptr_data.30" }
-%"struct.std::__uniq_ptr_data.30" = type { %"class.std::__uniq_ptr_impl.31" }
-%"class.std::__uniq_ptr_impl.31" = type { %"class.std::tuple.32" }
-%"class.std::tuple.32" = type { %"struct.std::_Tuple_impl.33" }
-%"struct.std::_Tuple_impl.33" = type { %"struct.std::_Tuple_impl.34", %"struct.std::_Head_base.36" }
-%"struct.std::_Tuple_impl.34" = type { %"struct.std::_Head_base.35" }
-%"struct.std::_Head_base.35" = type { %"class.std::function" }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
+%"class.std::function.37" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"struct.std::_Head_base.36" = type { ptr }
-%"class.std::function.37" = type { %"class.std::_Function_base", ptr }
 %"struct.rocksdb::FileOptions" = type <{ %"struct.rocksdb::EnvOptions", %"struct.rocksdb::IOOptions", i8, i8, [6 x i8] }>
 %"struct.rocksdb::EnvOptions" = type { i8, i8, i8, i8, i8, i8, i64, i8, i8, i64, i64, ptr }
 %"struct.rocksdb::IOOptions" = type <{ %"class.std::chrono::duration", i8, [3 x i8], i32, i8, [7 x i8], %"class.std::unordered_map", i8, i8, i8, i8, [4 x i8] }>
@@ -6562,7 +6551,7 @@ define void @_ZN7rocksdb32FSRandomAccessFileTracingWrapper9MultiReadEPNS_13FSRea
   store i64 9, ptr %32, align 8, !tbaa !40
   store i8 0, ptr %44, align 1, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %53 = getelementptr inbounds nuw %"struct.rocksdb::FSReadRequest", ptr %2, i64 %.046
+  %53 = getelementptr inbounds nuw [96 x i8], ptr %2, i64 %.046
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   invoke void @_ZNK7rocksdb6Status8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %54)
           to label %55 unwind label %87

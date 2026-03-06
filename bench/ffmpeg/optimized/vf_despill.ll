@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.AVComponentDescriptor = type { i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [8 x i8] c"despill\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"Despill video.\00", align 1
@@ -251,10 +250,10 @@ define internal noundef i32 @config_output(ptr noundef readonly captures(none) %
 
 9:                                                ; preds = %1, %9
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [20 x i8], ptr %7, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i32, ptr %11, align 4, !tbaa !58
-  %13 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %12, ptr %13, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

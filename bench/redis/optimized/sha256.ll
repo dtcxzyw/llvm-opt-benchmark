@@ -35,7 +35,7 @@ define dso_local void @sha256_transform(ptr noundef captures(none) %0, ptr nound
   %23 = load i8, ptr %22, align 1, !tbaa !5
   %24 = zext i8 %23 to i32
   %25 = or disjoint i32 %20, %24
-  %26 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv110
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv110
   store i32 %25, ptr %26, align 4, !tbaa !8
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
@@ -44,7 +44,7 @@ define dso_local void @sha256_transform(ptr noundef captures(none) %0, ptr nound
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.lr.ph ], [ 16, %4 ]
-  %27 = getelementptr i32, ptr %3, i64 %indvars.iv115
+  %27 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv115
   %28 = getelementptr i8, ptr %27, i64 -8
   %29 = load i32, ptr %28, align 4, !tbaa !8
   %30 = tail call i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 15)
@@ -111,10 +111,10 @@ define dso_local void @sha256_transform(ptr noundef captures(none) %0, ptr nound
   %74 = and i32 %.091103, %73
   %75 = or i32 %74, %72
   %76 = add i32 %71, %75
-  %77 = getelementptr inbounds nuw i32, ptr @k, i64 %indvars.iv119
+  %77 = getelementptr inbounds nuw [4 x i8], ptr @k, i64 %indvars.iv119
   %78 = load i32, ptr %77, align 4, !tbaa !8
   %79 = add i32 %76, %78
-  %80 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv119
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv119
   %81 = load i32, ptr %80, align 4, !tbaa !8
   %82 = add i32 %79, %81
   %83 = tail call i32 @llvm.fshl.i32(i32 %.0107, i32 %.0107, i32 30)

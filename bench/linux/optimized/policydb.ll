@@ -6,9 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.5 }
 %union.anon.5 = type { i64 }
 %struct.policydb_compat_info = type { i32, i32, i32 }
-%struct.symtab = type { %struct.hashtab, i32 }
-%struct.hashtab = type { ptr, i32, i32 }
-%struct.ebitmap = type { ptr, i32 }
 %struct.filename_trans_key = type { i32, i16, ptr }
 %struct.policy_data = type { ptr, ptr }
 
@@ -94,7 +91,7 @@ define dso_local ptr @policydb_filenametr_search(ptr noundef readonly captures(n
   %21 = and i32 %19, %20
   %22 = load ptr, ptr %7, align 8
   %23 = zext i32 %21 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread6, label %.lr.ph
@@ -165,7 +162,7 @@ define dso_local ptr @policydb_rangetr_search(ptr noundef readonly captures(none
   %18 = and i32 %16, %17
   %19 = load ptr, ptr %7, align 8
   %20 = zext i32 %18 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread6, label %.lr.ph
@@ -257,7 +254,7 @@ define dso_local ptr @policydb_roletr_search(ptr noundef readonly captures(none)
   %40 = and i32 %38, %39
   %41 = load ptr, ptr %7, align 8
   %42 = zext i32 %40 to i64
-  %43 = getelementptr ptr, ptr %41, i64 %42
+  %43 = getelementptr [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.thread6, label %.lr.ph
@@ -317,8 +314,8 @@ define dso_local void @policydb_destroy(ptr noundef %0) local_unnamed_addr #2 al
 5:                                                ; preds = %5, %1
   %6 = phi i64 [ 0, %1 ], [ %12, %5 ]
   %7 = tail call i32 @__SCT__cond_resched() #22
-  %8 = getelementptr %struct.symtab, ptr %2, i64 %6
-  %9 = getelementptr ptr, ptr @destroy_f, i64 %6
+  %8 = getelementptr [24 x i8], ptr %2, i64 %6
+  %9 = getelementptr [8 x i8], ptr @destroy_f, i64 %6
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @hashtab_map(ptr noundef %8, ptr noundef %10, ptr noundef null) #22
   tail call void @hashtab_destroy(ptr noundef %8) #22
@@ -328,7 +325,7 @@ define dso_local void @policydb_destroy(ptr noundef %0) local_unnamed_addr #2 al
 
 14:                                               ; preds = %14, %3
   %15 = phi i64 [ 0, %3 ], [ %18, %14 ]
-  %16 = getelementptr ptr, ptr %4, i64 %15
+  %16 = getelementptr [8 x i8], ptr %4, i64 %15
   %17 = load ptr, ptr %16, align 8
   tail call void @kvfree(ptr noundef %17) #22
   %18 = add nuw nsw i64 %15, 1
@@ -356,7 +353,7 @@ define dso_local void @policydb_destroy(ptr noundef %0) local_unnamed_addr #2 al
 31:                                               ; preds = %.loopexit12, %20
   %32 = phi i64 [ 0, %20 ], [ %84, %.loopexit12 ]
   %33 = tail call i32 @__SCT__cond_resched() #22
-  %34 = getelementptr ptr, ptr %30, i64 %32
+  %34 = getelementptr [8 x i8], ptr %30, i64 %32
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit12, label %37
@@ -582,7 +579,7 @@ ocontext_destroy.exit:                            ; preds = %37, %ocontext_destr
 .preheader:                                       ; preds = %141, %.preheader
   %145 = phi i64 [ %148, %.preheader ], [ 0, %141 ]
   %146 = load ptr, ptr %138, align 8
-  %147 = getelementptr %struct.ebitmap, ptr %146, i64 %145
+  %147 = getelementptr [16 x i8], ptr %146, i64 %145
   tail call void @ebitmap_destroy(ptr noundef %147) #22
   %148 = add nuw nsw i64 %145, 1
   %149 = load i32, ptr %142, align 8
@@ -891,7 +888,7 @@ define dso_local range(i32 0, 2) i32 @policydb_context_isvalid(ptr noundef %0, p
   %29 = load ptr, ptr %28, align 8
   %30 = add i32 %4, -1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr ptr, ptr %29, i64 %31
+  %32 = getelementptr [8 x i8], ptr %29, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %61, label %35
@@ -910,7 +907,7 @@ define dso_local range(i32 0, 2) i32 @policydb_context_isvalid(ptr noundef %0, p
   %44 = load i32, ptr %1, align 8
   %45 = add i32 %44, -1
   %46 = zext i32 %45 to i64
-  %47 = getelementptr ptr, ptr %43, i64 %46
+  %47 = getelementptr [8 x i8], ptr %43, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %61, label %50
@@ -974,7 +971,7 @@ define dso_local range(i32 0, -2147483647) i32 @string_to_av_perm(ptr noundef re
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %12 = load ptr, ptr %11, align 8
   %13 = zext i16 %1 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -1170,7 +1167,7 @@ define dso_local i32 @policydb_read(ptr noundef initializes((0, 592)) %0, ptr no
 
 92:                                               ; preds = %89, %.thread
   %93 = phi i64 [ 0, %.thread ], [ %90, %89 ]
-  %94 = getelementptr %struct.policydb_compat_info, ptr @policydb_compat, i64 %93
+  %94 = getelementptr [12 x i8], ptr @policydb_compat, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %95, %88
   br i1 %96, label %97, label %89
@@ -1219,7 +1216,7 @@ define dso_local i32 @policydb_read(ptr noundef initializes((0, 592)) %0, ptr no
   store ptr %122, ptr %1, align 8
   %123 = add i64 %115, -8
   store i64 %123, ptr %6, align 8
-  %124 = getelementptr %struct.symtab, ptr %108, i64 %114
+  %124 = getelementptr [24 x i8], ptr %108, i64 %114
   %125 = tail call i32 @symtab_init(ptr noundef %124, i32 noundef %121) #22
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %127, label %.thread78
@@ -1264,7 +1261,7 @@ define dso_local i32 @policydb_read(ptr noundef initializes((0, 592)) %0, ptr no
   br i1 %147, label %.loopexit100, label %148
 
 148:                                              ; preds = %146
-  %149 = getelementptr ptr, ptr @read_f, i64 %114
+  %149 = getelementptr [8 x i8], ptr @read_f, i64 %114
   %150 = load ptr, ptr %149, align 8
   br label %154
 
@@ -1580,7 +1577,7 @@ define dso_local i32 @policydb_read(ptr noundef initializes((0, 592)) %0, ptr no
 .preheader91:                                     ; preds = %325, %.preheader91
   %330 = phi i64 [ %333, %.preheader91 ], [ 0, %325 ]
   %331 = load ptr, ptr %323, align 8
-  %332 = getelementptr %struct.ebitmap, ptr %331, i64 %330
+  %332 = getelementptr [16 x i8], ptr %331, i64 %330
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %332, i8 0, i64 16, i1 false)
   %333 = add nuw nsw i64 %330, 1
   %334 = load i32, ptr %318, align 8
@@ -1598,7 +1595,7 @@ define dso_local i32 @policydb_read(ptr noundef initializes((0, 592)) %0, ptr no
 .preheader:                                       ; preds = %328, %337
   %342 = phi i64 [ %338, %337 ], [ 0, %328 ]
   %343 = load ptr, ptr %323, align 8
-  %344 = getelementptr %struct.ebitmap, ptr %343, i64 %342
+  %344 = getelementptr [16 x i8], ptr %343, i64 %342
   %345 = load i32, ptr %58, align 8
   %346 = icmp ugt i32 %345, 19
   br i1 %346, label %347, label %350
@@ -1674,7 +1671,7 @@ define internal fastcc i32 @hashtab_insert(ptr noundef %0, ptr noundef nonnull %
   %18 = and i32 %17, %15
   %19 = load ptr, ptr %0, align 8
   %20 = zext i32 %18 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread3.thread, label %.lr.ph
@@ -1708,7 +1705,7 @@ define internal fastcc i32 @hashtab_insert(ptr noundef %0, ptr noundef nonnull %
 
 .thread3.thread:                                  ; preds = %14, %.thread3
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr ptr, ptr %37, i64 %20
+  %38 = getelementptr [8 x i8], ptr %37, i64 %20
   br label %39
 
 39:                                               ; preds = %.thread3.thread, %.thread3.thread10
@@ -1850,7 +1847,7 @@ define internal fastcc i32 @filename_trans_read(ptr noundef %0, ptr noundef %1) 
   %82 = and i32 %80, %81
   %83 = load ptr, ptr %21, align 8
   %84 = zext i32 %82 to i64
-  %85 = getelementptr ptr, ptr %83, i64 %84
+  %85 = getelementptr [8 x i8], ptr %83, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
   br i1 %87, label %policydb_filenametr_search.exit.thread, label %.lr.ph.i
@@ -2228,19 +2225,19 @@ define internal fastcc i32 @policydb_index(ptr noundef initializes((264, 272)) %
 
 42:                                               ; preds = %39, %37
   %43 = phi i64 [ 0, %37 ], [ %40, %39 ]
-  %44 = getelementptr %struct.symtab, ptr %2, i64 %43
+  %44 = getelementptr [24 x i8], ptr %2, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i32, ptr %45, align 8
   %47 = zext i32 %46 to i64
   %48 = shl nuw nsw i64 %47, 3
   %49 = tail call noalias ptr @kvmalloc_node(i64 noundef %48, i32 noundef 3520, i32 noundef -1) #26
-  %50 = getelementptr ptr, ptr %38, i64 %43
+  %50 = getelementptr [8 x i8], ptr %38, i64 %43
   store ptr %49, ptr %50, align 8
   %51 = icmp eq ptr %49, null
   br i1 %51, label %.loopexit, label %52
 
 52:                                               ; preds = %42
-  %53 = getelementptr ptr, ptr @index_f, i64 %43
+  %53 = getelementptr [8 x i8], ptr @index_f, i64 %43
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 @hashtab_map(ptr noundef %44, ptr noundef %54, ptr noundef %0) #22
   %56 = icmp eq i32 %55, 0
@@ -2282,7 +2279,7 @@ define internal fastcc i32 @ocontext_read(ptr noundef %0, ptr noundef nonnull re
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr ptr, ptr %10, i64 %12
+  %22 = getelementptr [8 x i8], ptr %10, i64 %12
   %23 = icmp eq i64 %12, 1
   %24 = trunc nuw i64 %12 to i32
   br label %25
@@ -3121,7 +3118,7 @@ define internal fastcc i32 @range_read(ptr noundef %0, ptr noundef %1) unnamed_a
   %94 = and i32 %92, %93
   %95 = load ptr, ptr %15, align 8
   %96 = zext i32 %94 to i64
-  %97 = getelementptr ptr, ptr %95, i64 %96
+  %97 = getelementptr [8 x i8], ptr %95, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
   br i1 %99, label %.thread28, label %.lr.ph
@@ -3273,7 +3270,7 @@ define dso_local i32 @policydb_write(ptr noundef %0, ptr noundef %1) local_unnam
 
 39:                                               ; preds = %36, %30
   %40 = phi i64 [ 0, %30 ], [ %37, %36 ]
-  %41 = getelementptr %struct.policydb_compat_info, ptr @policydb_compat, i64 %40
+  %41 = getelementptr [12 x i8], ptr @policydb_compat, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, %35
   br i1 %43, label %44, label %36
@@ -3354,7 +3351,7 @@ define dso_local i32 @policydb_write(ptr noundef %0, ptr noundef %1) local_unnam
   br label %.loopexit
 
 83:                                               ; preds = %79
-  %84 = getelementptr %struct.symtab, ptr %74, i64 %80
+  %84 = getelementptr [24 x i8], ptr %74, i64 %80
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %86 = load i32, ptr %85, align 4
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
@@ -3369,7 +3366,7 @@ define dso_local i32 @policydb_write(ptr noundef %0, ptr noundef %1) local_unnam
   %93 = load i64, ptr %19, align 8
   %94 = add i64 %93, -8
   store i64 %94, ptr %19, align 8
-  %95 = getelementptr ptr, ptr @write_f, i64 %80
+  %95 = getelementptr [8 x i8], ptr @write_f, i64 %80
   %96 = load ptr, ptr %95, align 8
   %97 = call i32 @hashtab_map(ptr noundef %84, ptr noundef %96, ptr noundef nonnull %3) #22
   %98 = icmp eq i32 %97, 0
@@ -3436,7 +3433,7 @@ define dso_local i32 @policydb_write(ptr noundef %0, ptr noundef %1) local_unnam
 .preheader:                                       ; preds = %126, %131
   %136 = phi i64 [ %132, %131 ], [ 0, %126 ]
   %137 = load ptr, ptr %127, align 8
-  %138 = getelementptr %struct.ebitmap, ptr %137, i64 %136
+  %138 = getelementptr [16 x i8], ptr %137, i64 %136
   %139 = call i32 @ebitmap_write(ptr noundef %138, ptr noundef %1) #22
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %131, label %.loopexit
@@ -3645,7 +3642,7 @@ define internal fastcc i32 @ocontext_write(ptr noundef readonly captures(none) %
 
 20:                                               ; preds = %.loopexit, %17
   %21 = phi i64 [ 0, %17 ], [ %618, %.loopexit ]
-  %22 = getelementptr ptr, ptr %18, i64 %21
+  %22 = getelementptr [8 x i8], ptr %18, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.loopexit168, label %.preheader
@@ -6725,7 +6722,7 @@ define internal noundef range(i32 -22, 1) i32 @common_index(ptr noundef %0, ptr 
   %12 = load ptr, ptr %11, align 8
   %13 = add i32 %4, -1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr ptr, ptr %12, i64 %14
+  %15 = getelementptr [8 x i8], ptr %12, i64 %14
   store ptr %0, ptr %15, align 8
   br label %16
 
@@ -6751,14 +6748,14 @@ define internal noundef range(i32 -22, 1) i32 @class_index(ptr noundef %0, ptr n
   %12 = load ptr, ptr %11, align 8
   %13 = add i32 %4, -1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr ptr, ptr %12, i64 %14
+  %15 = getelementptr [8 x i8], ptr %12, i64 %14
   store ptr %0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %1, align 8
   %19 = add i32 %18, -1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr ptr, ptr %17, i64 %20
+  %21 = getelementptr [8 x i8], ptr %17, i64 %20
   store ptr %1, ptr %21, align 8
   br label %22
 
@@ -6790,14 +6787,14 @@ define internal noundef range(i32 -22, 1) i32 @role_index(ptr noundef %0, ptr no
   %16 = load ptr, ptr %15, align 8
   %17 = add i32 %4, -1
   %18 = zext i32 %17 to i64
-  %19 = getelementptr ptr, ptr %16, i64 %18
+  %19 = getelementptr [8 x i8], ptr %16, i64 %18
   store ptr %0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %1, align 8
   %23 = add i32 %22, -1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr ptr, ptr %21, i64 %24
+  %25 = getelementptr [8 x i8], ptr %21, i64 %24
   store ptr %1, ptr %25, align 8
   br label %26
 
@@ -6835,14 +6832,14 @@ define internal noundef range(i32 -22, 1) i32 @type_index(ptr noundef %0, ptr no
   %20 = load ptr, ptr %19, align 8
   %21 = add i32 %8, -1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr ptr, ptr %20, i64 %22
+  %23 = getelementptr [8 x i8], ptr %20, i64 %22
   store ptr %0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %1, align 4
   %27 = add i32 %26, -1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr ptr, ptr %25, i64 %28
+  %29 = getelementptr [8 x i8], ptr %25, i64 %28
   store ptr %1, ptr %29, align 8
   br label %30
 
@@ -6874,14 +6871,14 @@ define internal noundef range(i32 -22, 1) i32 @user_index(ptr noundef %0, ptr no
   %16 = load ptr, ptr %15, align 8
   %17 = add i32 %4, -1
   %18 = zext i32 %17 to i64
-  %19 = getelementptr ptr, ptr %16, i64 %18
+  %19 = getelementptr [8 x i8], ptr %16, i64 %18
   store ptr %0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %1, align 8
   %23 = add i32 %22, -1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr ptr, ptr %21, i64 %24
+  %25 = getelementptr [8 x i8], ptr %21, i64 %24
   store ptr %1, ptr %25, align 8
   br label %26
 
@@ -6917,7 +6914,7 @@ define internal noundef range(i32 -22, 1) i32 @sens_index(ptr noundef %0, ptr no
   %17 = load ptr, ptr %16, align 8
   %18 = add i32 %9, -1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr ptr, ptr %17, i64 %19
+  %20 = getelementptr [8 x i8], ptr %17, i64 %19
   store ptr %0, ptr %20, align 8
   br label %21
 
@@ -6949,7 +6946,7 @@ define internal noundef range(i32 -22, 1) i32 @cat_index(ptr noundef %0, ptr nou
   %16 = load ptr, ptr %15, align 8
   %17 = add i32 %8, -1
   %18 = zext i32 %17 to i64
-  %19 = getelementptr ptr, ptr %16, i64 %18
+  %19 = getelementptr [8 x i8], ptr %16, i64 %18
   store ptr %0, ptr %19, align 8
   br label %20
 
@@ -7065,7 +7062,7 @@ define internal noundef range(i32 -22, 1) i32 @user_bounds_sanity_check(ptr noun
   %19 = load ptr, ptr %4, align 8
   %20 = add i32 %12, -1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr ptr, ptr %19, i64 %21
+  %22 = getelementptr [8 x i8], ptr %19, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %5, align 8
   %25 = icmp eq ptr %24, null
@@ -7110,15 +7107,15 @@ define internal noundef range(i32 -22, 1) i32 @user_bounds_sanity_check(ptr noun
   %50 = add i32 %49, -1
   %51 = load ptr, ptr %7, align 8
   %52 = zext i32 %50 to i64
-  %53 = getelementptr ptr, ptr %51, i64 %52
+  %53 = getelementptr [8 x i8], ptr %51, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr ptr, ptr %55, i64 %45
+  %56 = getelementptr [8 x i8], ptr %55, i64 %45
   %57 = load ptr, ptr %56, align 8
   %58 = load i32, ptr %23, align 8
   %59 = add i32 %58, -1
   %60 = zext i32 %59 to i64
-  %61 = getelementptr ptr, ptr %51, i64 %60
+  %61 = getelementptr [8 x i8], ptr %51, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.47, ptr noundef %54, ptr noundef %57, ptr noundef %62) #24
   br label %.critedge
@@ -7210,7 +7207,7 @@ define internal noundef range(i32 -22, 1) i32 @role_bounds_sanity_check(ptr noun
   %19 = load ptr, ptr %4, align 8
   %20 = add i32 %12, -1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr ptr, ptr %19, i64 %21
+  %22 = getelementptr [8 x i8], ptr %19, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %5, align 8
   %25 = icmp eq ptr %24, null
@@ -7255,15 +7252,15 @@ define internal noundef range(i32 -22, 1) i32 @role_bounds_sanity_check(ptr noun
   %50 = add i32 %49, -1
   %51 = load ptr, ptr %7, align 8
   %52 = zext i32 %50 to i64
-  %53 = getelementptr ptr, ptr %51, i64 %52
+  %53 = getelementptr [8 x i8], ptr %51, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr ptr, ptr %55, i64 %45
+  %56 = getelementptr [8 x i8], ptr %55, i64 %45
   %57 = load ptr, ptr %56, align 8
   %58 = load i32, ptr %23, align 8
   %59 = add i32 %58, -1
   %60 = zext i32 %59 to i64
-  %61 = getelementptr ptr, ptr %51, i64 %60
+  %61 = getelementptr [8 x i8], ptr %51, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49, ptr noundef %54, ptr noundef %57, ptr noundef %62) #24
   br label %.critedge
@@ -7354,7 +7351,7 @@ define internal noundef range(i32 -22, 1) i32 @type_bounds_sanity_check(ptr noun
   %17 = load ptr, ptr %4, align 8
   %18 = add i32 %9, -1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr ptr, ptr %17, i64 %19
+  %20 = getelementptr [8 x i8], ptr %17, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24, !prof !68
@@ -7376,7 +7373,7 @@ define internal noundef range(i32 -22, 1) i32 @type_bounds_sanity_check(ptr noun
   %31 = getelementptr i8, ptr %2, i64 224
   %32 = load ptr, ptr %31, align 8
   %33 = zext i32 %30 to i64
-  %34 = getelementptr ptr, ptr %32, i64 %33
+  %34 = getelementptr [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.51, ptr noundef %0, ptr noundef %35) #24
   br label %.loopexit

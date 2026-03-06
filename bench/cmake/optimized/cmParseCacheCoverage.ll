@@ -2118,7 +2118,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %713, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %715, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %710, ptr %622, align 8, !tbaa !127
   store ptr %714, ptr %635, align 8, !tbaa !124
-  %716 = getelementptr inbounds nuw i32, ptr %710, i64 %708
+  %716 = getelementptr inbounds nuw [4 x i8], ptr %710, i64 %708
   store ptr %716, ptr %643, align 8, !tbaa !128
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -2145,7 +2145,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, %.preheader
   %.lcssa338 = phi ptr [ %637, %.preheader ], [ %717, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
-  %724 = getelementptr inbounds nuw i32, ptr %.lcssa338, i64 %629
+  %724 = getelementptr inbounds nuw [4 x i8], ptr %.lcssa338, i64 %629
   %725 = load i32, ptr %724, align 4, !tbaa !136
   %726 = icmp eq i32 %725, -1
   %727 = icmp sgt i32 %634, 0

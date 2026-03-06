@@ -88,7 +88,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E(ptr align 2 %0, i64 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca { ptr, ptr, {} }, align 8
-  %5 = getelementptr inbounds i16, ptr %0, i64 %1
+  %5 = getelementptr inbounds [2 x i8], ptr %0, i64 %1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   store ptr %0, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -134,7 +134,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h32cf
 
 8:                                                ; preds = %5
   %9 = sub nuw i64 %2, %3
-  %10 = getelementptr inbounds i16, ptr %1, i64 %3
+  %10 = getelementptr inbounds [2 x i8], ptr %1, i64 %3
   store ptr %1, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.3.0..sroa_idx, align 8
@@ -164,7 +164,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20split_at_mut_checke
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i16, ptr %1, i64 %3
+  %6 = getelementptr inbounds [2 x i8], ptr %1, i64 %3
   %7 = sub nuw i64 %2, %3
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.2.0..sroa_idx, align 8
@@ -194,8 +194,8 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h46595ec51d454
   unreachable
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i16, ptr %0, i64 %2
-  %12 = getelementptr inbounds i16, ptr %0, i64 %3
+  %11 = getelementptr inbounds [2 x i8], ptr %0, i64 %2
+  %12 = getelementptr inbounds [2 x i8], ptr %0, i64 %3
   %.0.copyload = load i16, ptr %11, align 2
   %13 = load i16, ptr %12, align 2
   store i16 %13, ptr %11, align 2
@@ -210,9 +210,9 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h46595ec51d454
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17ha53a66470756c716E"(ptr align 2 %0, i64 %1) unnamed_addr #1 {
   %3 = lshr i64 %1, 1
-  %4 = getelementptr inbounds i16, ptr %0, i64 %1
+  %4 = getelementptr inbounds [2 x i8], ptr %0, i64 %1
   %5 = sub nsw i64 0, %3
-  %6 = getelementptr inbounds i16, ptr %4, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr %4, i64 %5
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hf5798071f2e98b4eE"(ptr align 2 %0, i64 %3, ptr align 2 %6, i64 %3, i64 %3)
   ret void
 }
@@ -271,8 +271,8 @@ define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..S
 
 5:                                                ; preds = %.preheader.split
   %6 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h8e316fd5971b3f4bE"(i64 %.sroa.01.0, i64 1)
-  %7 = getelementptr inbounds i16, ptr %0, i64 %.sroa.01.0
-  %8 = getelementptr inbounds i16, ptr %2, i64 %.sroa.01.0
+  %7 = getelementptr inbounds [2 x i8], ptr %0, i64 %.sroa.01.0
+  %8 = getelementptr inbounds [2 x i8], ptr %2, i64 %.sroa.01.0
   %9 = tail call zeroext i1 @"_ZN78_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h32c0817388e03f85E"(ptr align 2 %7, ptr align 2 %8)
   br i1 %9, label %.preheader.split, label %.critedge
 
@@ -504,7 +504,7 @@ default.unreachable4:                             ; preds = %2
   %30 = load i64, ptr %29, align 8, !noundef !3
   tail call void @_ZN4core4hash6Hasher19write_length_prefix17hc379e64a37b3fcd3E(ptr align 8 %1, i64 %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %31 = getelementptr inbounds i16, ptr %28, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %28, i64 %30
   store ptr %28, ptr %4, align 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %31, ptr %32, align 8
@@ -546,7 +546,7 @@ _ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E.exit: ; preds = %.lr.ph.i, %2
   %52 = load i64, ptr %51, align 16, !noundef !3
   tail call void @_ZN4core4hash6Hasher19write_length_prefix17hc379e64a37b3fcd3E(ptr align 8 %1, i64 %52)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %53 = getelementptr inbounds i16, ptr %50, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %50, i64 %52
   store ptr %50, ptr %3, align 8
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %53, ptr %54, align 8

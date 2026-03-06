@@ -257,7 +257,7 @@ _ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit: ; preds = %_
   call void @llvm.assume(i1 %107)
   %108 = mul nuw nsw i32 %105, %86
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds nuw i16, ptr %76, i64 %109
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %76, i64 %109
   br label %111
 
 111:                                              ; preds = %.preheader.us, %111
@@ -272,7 +272,7 @@ _ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit: ; preds = %_
   call void @llvm.assume(i1 %117)
   %118 = icmp samesign ult i64 %115, %98
   call void @llvm.assume(i1 %118)
-  %119 = getelementptr inbounds nuw i16, ptr %110, i64 %115
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %115
   %120 = zext i8 %114 to i16
   store i16 %120, ptr %119, align 2, !tbaa !129
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

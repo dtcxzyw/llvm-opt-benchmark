@@ -612,13 +612,13 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %18, %21
   %46 = phi i64 [ 0, %.lr.ph ], [ %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit ]
   %.034 = phi i32 [ 0, %.lr.ph ], [ %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit ]
   %47 = load ptr, ptr %10, align 8, !tbaa !32
-  %48 = getelementptr inbounds nuw float, ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %46
   %49 = load float, ptr %48, align 4, !tbaa !46
   %50 = fcmp ogt float %49, %28
   br i1 %50, label %51, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %44, i64 %46
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %46
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !20
   %55 = load i64, ptr %15, align 8, !tbaa !20
@@ -967,13 +967,13 @@ _ZNK2cv11_InputArray6getMatEi.exit23:             ; preds = %26, %29
   %56 = phi i64 [ 0, %.lr.ph ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit ]
   %.041 = phi i32 [ 0, %.lr.ph ], [ %73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit ]
   %57 = load ptr, ptr %11, align 8, !tbaa !32
-  %58 = getelementptr inbounds nuw float, ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %56
   %59 = load float, ptr %58, align 4, !tbaa !46
   %60 = fcmp ogt float %59, %36
   br i1 %60, label %61, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit
 
 61:                                               ; preds = %53
-  %62 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %54, i64 %56
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %54, i64 %56
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i64, ptr %63, align 8, !tbaa !20
   %65 = load i64, ptr %17, align 8, !tbaa !20

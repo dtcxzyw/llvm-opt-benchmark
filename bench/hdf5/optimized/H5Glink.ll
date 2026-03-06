@@ -8,9 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.1 = type { ptr }
 %struct.H5O_loc_t = type { ptr, i64, i8 }
 %struct.H5O_stab_t = type { i64, i64 }
-%struct.H5O_link_t = type { i32, i8, i64, i32, ptr, %union.anon }
-%union.anon = type { %struct.H5O_link_ud_t }
-%struct.H5O_link_ud_t = type { ptr, i64 }
 
 @H5G_init_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
@@ -705,7 +702,7 @@ define i32 @H5G__link_iterate_table(ptr noundef readonly captures(none) %0, i64 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %.01519.us = phi i64 [ %25, %.lr.ph.split.us ], [ %1, %.lr.ph.split.us.preheader ]
   %22 = load ptr, ptr %21, align 8, !tbaa !53
-  %23 = getelementptr inbounds nuw %struct.H5O_link_t, ptr %22, i64 %.01519.us
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %.01519.us
   %24 = tail call i32 %3(ptr noundef %23, ptr noundef %4) #9
   %25 = add nuw i64 %.01519.us, 1
   %26 = load i64, ptr %0, align 8, !tbaa !50
@@ -717,7 +714,7 @@ define i32 @H5G__link_iterate_table(ptr noundef readonly captures(none) %0, i64 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %.01519 = phi i64 [ %34, %.lr.ph.split ], [ %1, %.lr.ph.split.preheader ]
   %29 = load ptr, ptr %20, align 8, !tbaa !53
-  %30 = getelementptr inbounds nuw %struct.H5O_link_t, ptr %29, i64 %.01519
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %29, i64 %.01519
   %31 = tail call i32 %3(ptr noundef %30, ptr noundef %4) #9
   %32 = load i64, ptr %2, align 8, !tbaa !10
   %33 = add i64 %32, 1
@@ -773,7 +770,7 @@ define range(i32 -1, 1) i32 @H5G__link_release_table(ptr noundef readonly captur
 15:                                               ; preds = %.lr.ph, %11
   %.089 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
   %16 = load ptr, ptr %10, align 8, !tbaa !53
-  %17 = getelementptr inbounds nuw %struct.H5O_link_t, ptr %16, i64 %.089
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %16, i64 %.089
   %18 = tail call i32 @H5O_msg_reset(i32 noundef 6, ptr noundef %17) #9
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %20, label %11

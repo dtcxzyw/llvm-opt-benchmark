@@ -91,7 +91,7 @@ define noundef ptr @ossl_cmp_PKIStatus_to_string(i32 noundef %0) local_unnamed_a
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.snprint_PKIStatusInfo_parts, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.snprint_PKIStatusInfo_parts, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -246,7 +246,7 @@ ossl_cmp_PKIStatus_to_string.exit:                ; preds = %8
 
 switch.lookup:                                    ; preds = %8
   %10 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.snprint_PKIStatusInfo_parts, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.snprint_PKIStatusInfo_parts, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %3, i64 noundef %4, ptr noundef nonnull @.str.9, ptr noundef nonnull %switch.load) #3
   %12 = icmp slt i32 %11, 0
@@ -291,7 +291,7 @@ switch.lookup:                                    ; preds = %8
 
 switch.lookup180:                                 ; preds = %27
   %30 = zext nneg i32 %.0102146 to i64
-  %switch.gep181 = getelementptr inbounds nuw ptr, ptr @switch.table.snprint_PKIStatusInfo_parts.1, i64 %30
+  %switch.gep181 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.snprint_PKIStatusInfo_parts.1, i64 %30
   %switch.load182 = load ptr, ptr %switch.gep181, align 8
   %.not130 = icmp eq i32 %.194148, 0
   %31 = select i1 %.not130, ptr @.str.13, ptr @.str.12

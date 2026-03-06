@@ -206,7 +206,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %2
   %34 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc5lsERSoNS_12RoundingModeE, i64 %34
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc5lsERSoNS_12RoundingModeE, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %switch.load, i64 noundef 3)
   ret ptr %0
@@ -1673,7 +1673,7 @@ define void @_ZSt9to_stringB5cxx11N4cvc55modes13InputLanguageE(ptr dead_on_unwin
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZSt9to_stringB5cxx11N4cvc55modes13InputLanguageE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZSt9to_stringB5cxx11N4cvc55modes13InputLanguageE, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = shl nuw nsw i32 %1, 1
   %narrow = sub nuw nsw i32 11, %7

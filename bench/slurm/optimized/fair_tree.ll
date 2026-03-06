@@ -155,7 +155,7 @@ define internal fastcc ptr @_append_list_to_array(ptr noundef %0, ptr noundef %1
   %.017 = phi i64 [ %20, %.lr.ph ], [ %8, %7 ]
   %19 = load ptr, ptr %4, align 8
   %20 = add i64 %.017, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %.017
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.017
   store ptr %18, ptr %21, align 8
   %22 = call ptr @list_next(ptr noundef %16) #6
   %.not15 = icmp eq ptr %22, null
@@ -165,7 +165,7 @@ define internal fastcc ptr @_append_list_to_array(ptr noundef %0, ptr noundef %1
   call void @list_iterator_destroy(ptr noundef %16) #6
   %23 = load ptr, ptr %4, align 8
   %24 = load i64, ptr %2, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   store ptr null, ptr %25, align 8
   %.012.pre = load ptr, ptr %4, align 8
   br label %26
@@ -263,7 +263,7 @@ _ft_set_assoc_usage_efctv.exit.i:                 ; preds = %21, %15, %.lr.ph
 
 _calc_assoc_fs.exit:                              ; preds = %39, %40, %43, %45
   %48 = add i64 %.053, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %0, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %48
   %50 = load ptr, ptr %49, align 8
   %.not43 = icmp eq ptr %50, null
   br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -387,7 +387,7 @@ _ft_debug.exit:                                   ; preds = %88, %87, %84, %83, 
   %112 = load ptr, ptr %58, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 296
   %114 = add i64 %.156, 1
-  %115 = getelementptr inbounds nuw ptr, ptr %0, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %114
   %116 = load ptr, ptr %115, align 8
   %.not12.i = icmp eq ptr %116, null
   br i1 %.not12.i, label %_count_tied_accounts.exit, label %.lr.ph.i
@@ -415,7 +415,7 @@ _ft_debug.exit:                                   ; preds = %88, %87, %84, %83, 
 130:                                              ; preds = %121
   %131 = add i64 %.013.i, 1
   %132 = add i64 %118, 1
-  %133 = getelementptr inbounds nuw ptr, ptr %0, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %132
   %134 = load ptr, ptr %133, align 8
   %.not.i48 = icmp eq ptr %134, null
   br i1 %.not.i48, label %_count_tied_accounts.exit, label %.lr.ph.i, !llvm.loop !12
@@ -433,7 +433,7 @@ _count_tied_accounts.exit:                        ; preds = %.lr.ph.i, %121, %13
 .lr.ph.i49:                                       ; preds = %_count_tied_accounts.exit, %174
   %.023.i = phi i64 [ %175, %174 ], [ %.156, %_count_tied_accounts.exit ]
   %.01622.i = phi ptr [ %.1.i, %174 ], [ %136, %_count_tied_accounts.exit ]
-  %137 = getelementptr inbounds nuw ptr, ptr %0, i64 %.023.i
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.023.i
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 296
   %140 = load ptr, ptr %139, align 8
@@ -522,7 +522,7 @@ _merge_accounts.exit:                             ; preds = %174, %_count_tied_a
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 176
   %180 = load x86_fp80, ptr %179, align 16
   %181 = add i64 %.2, 1
-  %182 = getelementptr inbounds nuw ptr, ptr %0, i64 %181
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %181
   %183 = load ptr, ptr %182, align 8
   %.not44 = icmp eq ptr %183, null
   br i1 %.not44, label %.loopexit, label %56, !llvm.loop !14

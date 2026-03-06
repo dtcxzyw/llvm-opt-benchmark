@@ -251,7 +251,7 @@ define noundef ptr @u_fstropen_77(ptr noundef %0, i32 noundef %1, ptr noundef %2
   store ptr %0, ptr %10, align 8, !tbaa !18
   store ptr %0, ptr %9, align 8, !tbaa !19
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw i16, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %12, ptr %13, align 8, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 48

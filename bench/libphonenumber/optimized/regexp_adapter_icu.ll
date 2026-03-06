@@ -885,7 +885,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
 
 41:                                               ; preds = %33, %94
   %.02651 = phi i64 [ 0, %33 ], [ %95, %94 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %12, i64 %.02651
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.02651
   %43 = load ptr, ptr %42, align 8, !tbaa !55
   %.not40 = icmp eq ptr %43, null
   br i1 %.not40, label %94, label %44

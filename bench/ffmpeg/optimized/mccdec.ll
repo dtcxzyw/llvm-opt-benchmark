@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FFTextReader = type { i32, ptr, [8 x i8], i32, i32, %struct.FFIOContext }
 %struct.FFIOContext = type { %struct.AVIOContext, ptr, i32, i32, i64, i64, i64, i64, i32, i32, i32, i64 }
 %struct.AVIOContext = type { ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, i64, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, i32, ptr, i64, i64 }
-%struct.alias = type { i8, i32, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"mcc\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"MacCaption\00", align 1
@@ -235,7 +234,7 @@ define internal range(i32 -12, 1) i32 @mcc_read_header(ptr noundef %0) #0 {
 
 80:                                               ; preds = %.lr.ph
   %81 = zext nneg i8 %78 to i64
-  %82 = getelementptr %struct.alias, ptr @aliases, i64 %81
+  %82 = getelementptr [16 x i8], ptr @aliases, i64 %81
   %83 = getelementptr i8, ptr %82, i64 -252
   %84 = load i32, ptr %83, align 4, !tbaa !45
   %.not106 = icmp eq i32 %84, 0

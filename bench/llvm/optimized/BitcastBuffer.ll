@@ -321,7 +321,7 @@ define dso_local void @_ZN5clang6interp13BitcastBuffer15markInitializedENS0_4Bit
 _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.exit: ; preds = %12, %15
   %18 = phi i64 [ 0, %12 ], [ %17, %15 ]
   %19 = load ptr, ptr %9, align 8, !tbaa !16
-  %20 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %18
   store i64 %1, ptr %20, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -333,7 +333,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.ex
 23:                                               ; preds = %6
   %24 = load ptr, ptr %9, align 8, !tbaa !16
   %25 = zext i32 %11 to i64
-  %26 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -8
   %28 = load i64, ptr %27, align 8, !tbaa !14
   %.not = icmp ugt i64 %28, %1
@@ -365,7 +365,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.ex
 _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.exit12: ; preds = %32, %35
   %.pre-phi = phi i64 [ %25, %32 ], [ %.pre31, %35 ]
   %38 = phi ptr [ %24, %32 ], [ %.pre, %35 ]
-  %39 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %38, i64 %.pre-phi
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %.pre-phi
   store i64 %1, ptr %39, align 1
   %.sroa.2.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i11, align 1
@@ -378,7 +378,7 @@ _ZSt7advanceIPN5clang6interp8BitRangeElEvRT_T0_.exit.i.i: ; preds = %23, %_ZSt7a
   %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPN5clang6interp8BitRangeElEvRT_T0_.exit.i.i ], [ %24, %23 ]
   %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPN5clang6interp8BitRangeElEvRT_T0_.exit.i.i ], [ %25, %23 ]
   %42 = lshr i64 %.01116.i.i, 1
-  %43 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %.017.i.i, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i, i64 %42
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %43, align 8, !tbaa !14
   %44 = icmp ult i64 %1, %.sroa.0.0.copyload.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -416,7 +416,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplIN5clang6interp
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !19
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %7
   %9 = icmp eq ptr %1, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !20
@@ -441,7 +441,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplIN5clang6interp
 _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.exit: ; preds = %12, %13
   %.pre-phi = phi i64 [ %7, %12 ], [ %.pre14, %13 ]
   %16 = phi ptr [ %4, %12 ], [ %.pre13, %13 ]
-  %17 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %16, i64 %.pre-phi
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %.pre-phi
   store i64 %.sroa.0.0.copyload, ptr %17, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -450,7 +450,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE9push_backES3_.ex
   store i32 %19, ptr %5, align 8, !tbaa !19
   %20 = load ptr, ptr %0, align 8, !tbaa !16
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   br label %49
 
@@ -473,13 +473,13 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE28reserveForParam
   %.pre-phi16 = phi i64 [ %7, %24 ], [ %.pre15, %28 ]
   %31 = phi ptr [ %4, %24 ], [ %.pre, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %27
-  %33 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %31, i64 %.pre-phi16
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.pre-phi16
   %34 = getelementptr inbounds i8, ptr %33, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !24
   %35 = load ptr, ptr %0, align 8, !tbaa !16
   %36 = load i32, ptr %5, align 8, !tbaa !19
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"struct.clang::interp::BitRange", ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 -16
   %.not.i.i.i.i.i = icmp eq ptr %39, %32
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPN5clang6interp8BitRangeES3_ET0_T_S5_S4_.exit, label %40
@@ -490,7 +490,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6interp8BitRangeELb1EE28reserveForParam
   %43 = sub i64 %41, %42
   %44 = ashr exact i64 %43, 4
   %45 = sub nsw i64 0, %44
-  %46 = getelementptr inbounds %"struct.clang::interp::BitRange", ptr %38, i64 %45
+  %46 = getelementptr inbounds [16 x i8], ptr %38, i64 %45
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %46, ptr nonnull align 8 %32, i64 %43, i1 false)
   %.pre12 = load i32, ptr %5, align 8, !tbaa !19
   br label %_ZSt13move_backwardIPN5clang6interp8BitRangeES3_ET0_T_S5_S4_.exit

@@ -58,7 +58,7 @@ define hidden void @_ZN14JfrThreadState9serializeER19JfrCheckpointWriter(ptr nou
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw %struct.jvmti_thread_state, ptr @_ZL6states, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [16 x i8], ptr @_ZL6states, i64 %indvars.iv
   %4 = load i64, ptr %3, align 16
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %0, i64 noundef %4) #8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8

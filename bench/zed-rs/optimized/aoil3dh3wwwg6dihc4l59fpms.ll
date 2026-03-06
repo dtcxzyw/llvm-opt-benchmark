@@ -253,9 +253,9 @@ define void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element..Rende
   store i64 %79, ptr %59, align 8, !alias.scope !28, !noalias !31
   %81 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %82 = load ptr, ptr %81, align 8, !alias.scope !28, !noalias !31, !nonnull !14, !noundef !14
-  %83 = getelementptr inbounds { { i64, [5 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %82, i64 %79
+  %83 = getelementptr inbounds [96 x i8], ptr %82, i64 %79
   %84 = sub i64 %72, %80
-  %85 = getelementptr inbounds { { i64, [5 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %82, i64 %80
+  %85 = getelementptr inbounds [96 x i8], ptr %82, i64 %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %29, ptr noundef nonnull align 8 dereferenceable(96) %28, i64 96, i1 false), !alias.scope !35, !noalias !24
   %86 = getelementptr inbounds nuw i8, ptr %29, i64 96
   store ptr %83, ptr %86, align 8, !alias.scope !21, !noalias !36
@@ -321,7 +321,7 @@ define void @"_ZN66_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$gpui..element..Rende
   %.sroa.0.0.copyload = load i64, ptr %31, align 8
   %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.466.0.copyload = load ptr, ptr %.sroa.466.0..sroa_idx, align 8, !nonnull !14, !noundef !14
-  %101 = getelementptr inbounds { { i64, [5 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %.sroa.466.0.copyload, i64 %.sroa.567.0.copyload
+  %101 = getelementptr inbounds [96 x i8], ptr %.sroa.466.0.copyload, i64 %.sroa.567.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %102 = getelementptr inbounds nuw i8, ptr %27, i64 32

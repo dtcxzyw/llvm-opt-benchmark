@@ -3,8 +3,6 @@ source_filename = "bench/openjdk/original/jcparam.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.jpeg_component_info = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr }
-
 @jSetLQuality.std_luminance_quant_tbl = internal unnamed_addr constant [64 x i32] [i32 16, i32 11, i32 10, i32 16, i32 24, i32 40, i32 51, i32 61, i32 12, i32 12, i32 14, i32 19, i32 26, i32 58, i32 60, i32 55, i32 14, i32 13, i32 16, i32 24, i32 40, i32 57, i32 69, i32 56, i32 14, i32 17, i32 22, i32 29, i32 51, i32 87, i32 80, i32 62, i32 18, i32 22, i32 37, i32 56, i32 68, i32 109, i32 103, i32 77, i32 24, i32 35, i32 55, i32 64, i32 81, i32 104, i32 113, i32 92, i32 49, i32 64, i32 78, i32 87, i32 103, i32 121, i32 120, i32 101, i32 72, i32 92, i32 95, i32 98, i32 112, i32 100, i32 103, i32 99], align 16
 @jSetLQuality.std_chrominance_quant_tbl = internal unnamed_addr constant [64 x i32] [i32 17, i32 18, i32 24, i32 47, i32 99, i32 99, i32 99, i32 99, i32 18, i32 21, i32 26, i32 66, i32 99, i32 99, i32 99, i32 99, i32 24, i32 26, i32 56, i32 99, i32 99, i32 99, i32 99, i32 99, i32 47, i32 66, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99, i32 99], align 16
 @std_huff_tables.bits_dc_luminance = internal unnamed_addr constant [17 x i8] c"\00\00\01\05\01\01\01\01\01\01\00\00\00\00\00\00\00", align 16
@@ -54,7 +52,7 @@ define hidden void @jAddQuantTable(ptr noundef %0, i32 noundef %1, ptr noundef r
 24:                                               ; preds = %16, %17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = sext i32 %1 to i64
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %32
@@ -71,7 +69,7 @@ define hidden void @jAddQuantTable(ptr noundef %0, i32 noundef %1, ptr noundef r
 
 .split.us:                                        ; preds = %32, %.split.us
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.split.us ], [ 0, %32 ]
-  %34 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv41
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv41
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = mul nsw i64 %36, %33
@@ -81,7 +79,7 @@ define hidden void @jAddQuantTable(ptr noundef %0, i32 noundef %1, ptr noundef r
   %spec.store.select4.us = tail call i64 @llvm.umin.i64(i64 %spec.store.select.us, i64 32767)
   %40 = trunc nuw nsw i64 %spec.store.select4.us to i16
   %41 = load ptr, ptr %27, align 8
-  %42 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv41
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv41
   store i16 %40, ptr %42, align 2
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 64
@@ -89,7 +87,7 @@ define hidden void @jAddQuantTable(ptr noundef %0, i32 noundef %1, ptr noundef r
 
 .split:                                           ; preds = %32, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %32 ]
-  %43 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
   %46 = mul nsw i64 %45, %33
@@ -101,7 +99,7 @@ define hidden void @jAddQuantTable(ptr noundef %0, i32 noundef %1, ptr noundef r
   %50 = trunc nuw nsw i64 %spec.store.select4 to i16
   %spec.select = select i1 %49, i16 255, i16 %50
   %51 = load ptr, ptr %27, align 8
-  %52 = getelementptr inbounds nuw i16, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %51, i64 %indvars.iv
   store i16 %spec.select, ptr %52, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -154,7 +152,7 @@ define hidden void @jSetLQuality(ptr noundef %0, i32 noundef %1, i32 noundef %2)
 
 .split.us.i:                                      ; preds = %20, %.split.us.i
   %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %.split.us.i ], [ 0, %20 ]
-  %22 = getelementptr inbounds nuw i32, ptr @jSetLQuality.std_luminance_quant_tbl, i64 %indvars.iv41.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @jSetLQuality.std_luminance_quant_tbl, i64 %indvars.iv41.i
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
   %25 = mul nsw i64 %24, %21
@@ -164,7 +162,7 @@ define hidden void @jSetLQuality(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %spec.store.select4.us.i = tail call i64 @llvm.umin.i64(i64 %spec.store.select.us.i, i64 32767)
   %28 = trunc nuw nsw i64 %spec.store.select4.us.i to i16
   %29 = load ptr, ptr %15, align 8
-  %30 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv41.i
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv41.i
   store i16 %28, ptr %30, align 2
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next42.i, 64
@@ -172,7 +170,7 @@ define hidden void @jSetLQuality(ptr noundef %0, i32 noundef %1, i32 noundef %2)
 
 .split.i:                                         ; preds = %20, %.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.i ], [ 0, %20 ]
-  %31 = getelementptr inbounds nuw i32, ptr @jSetLQuality.std_luminance_quant_tbl, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @jSetLQuality.std_luminance_quant_tbl, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
   %34 = mul nsw i64 %33, %21
@@ -184,7 +182,7 @@ define hidden void @jSetLQuality(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %38 = trunc nuw nsw i64 %spec.store.select4.i to i16
   %spec.select.i = select i1 %37, i16 255, i16 %38
   %39 = load ptr, ptr %15, align 8
-  %40 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %indvars.iv.i
   store i16 %spec.select.i, ptr %40, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -227,7 +225,7 @@ jAddQuantTable.exit:                              ; preds = %.split.i, %.split.u
 
 .split.us.i14:                                    ; preds = %58, %.split.us.i14
   %indvars.iv41.i15 = phi i64 [ %indvars.iv.next42.i18, %.split.us.i14 ], [ 0, %58 ]
-  %59 = getelementptr inbounds nuw i32, ptr @jSetLQuality.std_chrominance_quant_tbl, i64 %indvars.iv41.i15
+  %59 = getelementptr inbounds nuw [4 x i8], ptr @jSetLQuality.std_chrominance_quant_tbl, i64 %indvars.iv41.i15
   %60 = load i32, ptr %59, align 4
   %61 = zext i32 %60 to i64
   %62 = mul nsw i64 %61, %21
@@ -237,7 +235,7 @@ jAddQuantTable.exit:                              ; preds = %.split.i, %.split.u
   %spec.store.select4.us.i17 = tail call i64 @llvm.umin.i64(i64 %spec.store.select.us.i16, i64 32767)
   %65 = trunc nuw nsw i64 %spec.store.select4.us.i17 to i16
   %66 = load ptr, ptr %53, align 8
-  %67 = getelementptr inbounds nuw i16, ptr %66, i64 %indvars.iv41.i15
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %indvars.iv41.i15
   store i16 %65, ptr %67, align 2
   %indvars.iv.next42.i18 = add nuw nsw i64 %indvars.iv41.i15, 1
   %exitcond44.not.i19 = icmp eq i64 %indvars.iv.next42.i18, 64
@@ -245,7 +243,7 @@ jAddQuantTable.exit:                              ; preds = %.split.i, %.split.u
 
 .split.i7:                                        ; preds = %58, %.split.i7
   %indvars.iv.i8 = phi i64 [ %indvars.iv.next.i12, %.split.i7 ], [ 0, %58 ]
-  %68 = getelementptr inbounds nuw i32, ptr @jSetLQuality.std_chrominance_quant_tbl, i64 %indvars.iv.i8
+  %68 = getelementptr inbounds nuw [4 x i8], ptr @jSetLQuality.std_chrominance_quant_tbl, i64 %indvars.iv.i8
   %69 = load i32, ptr %68, align 4
   %70 = zext i32 %69 to i64
   %71 = mul nsw i64 %70, %21
@@ -257,7 +255,7 @@ jAddQuantTable.exit:                              ; preds = %.split.i, %.split.u
   %75 = trunc nuw nsw i64 %spec.store.select4.i10 to i16
   %spec.select.i11 = select i1 %74, i16 255, i16 %75
   %76 = load ptr, ptr %53, align 8
-  %77 = getelementptr inbounds nuw i16, ptr %76, i64 %indvars.iv.i8
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %76, i64 %indvars.iv.i8
   store i16 %spec.select.i11, ptr %77, align 2
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 64
@@ -879,7 +877,7 @@ jSetColorspace.exit17:                            ; preds = %141, %144
 215:                                              ; preds = %215, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %215 ]
   %216 = load ptr, ptr %214, align 8
-  %217 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %216, i64 %indvars.iv.i
+  %217 = getelementptr inbounds nuw [96 x i8], ptr %216, i64 %indvars.iv.i
   %218 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %218, ptr %217, align 8
   %219 = getelementptr inbounds nuw i8, ptr %217, i64 8
@@ -1206,7 +1204,7 @@ define hidden void @jSetColorspace(ptr noundef %0, i32 noundef %1) local_unnamed
 149:                                              ; preds = %.lr.ph, %149
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %149 ]
   %150 = load ptr, ptr %148, align 8
-  %151 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %150, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [96 x i8], ptr %150, i64 %indvars.iv
   %152 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %152, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -1333,7 +1331,7 @@ define hidden void @jSimProgress(ptr noundef %0) local_unnamed_addr #0 {
 
 51:                                               ; preds = %51, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %51 ]
-  %52 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i
   %53 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %53, ptr %52, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1443,7 +1441,7 @@ fill_scans.exit72:                                ; preds = %.lr.ph.i68
 
 88:                                               ; preds = %88, %.lr.ph.i79
   %indvars.iv.i81 = phi i64 [ 0, %.lr.ph.i79 ], [ %indvars.iv.next.i82, %88 ]
-  %89 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv.i81
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv.i81
   %90 = trunc nuw nsw i64 %indvars.iv.i81 to i32
   store i32 %90, ptr %89, align 4
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
@@ -1514,7 +1512,7 @@ fill_scans.exit72:                                ; preds = %.lr.ph.i68
 
 .split52:                                         ; preds = %110, %.split52
   %indvars.iv.i93 = phi i64 [ %indvars.iv.next.i94, %.split52 ], [ 0, %110 ]
-  %115 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv.i93
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv.i93
   %116 = trunc nuw nsw i64 %indvars.iv.i93 to i32
   store i32 %116, ptr %115, align 4
   %indvars.iv.next.i94 = add nuw nsw i64 %indvars.iv.i93, 1
@@ -1597,7 +1595,7 @@ fill_scans.exit119:                               ; preds = %.lr.ph.i113
 
 144:                                              ; preds = %144, %fill_scans.exit119
   %indvars.iv.i121 = phi i64 [ 0, %fill_scans.exit119 ], [ %indvars.iv.next.i122, %144 ]
-  %145 = getelementptr inbounds nuw i32, ptr %143, i64 %indvars.iv.i121
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %indvars.iv.i121
   %146 = trunc nuw nsw i64 %indvars.iv.i121 to i32
   store i32 %146, ptr %145, align 4
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i121, 1
@@ -1637,7 +1635,7 @@ fill_dc_scans.exit126:                            ; preds = %144
 
 .preheader:                                       ; preds = %110, %.preheader
   %indvars.iv.i135 = phi i64 [ %indvars.iv.next.i136, %.preheader ], [ 0, %110 ]
-  %159 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv.i135
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv.i135
   %160 = trunc nuw nsw i64 %indvars.iv.i135 to i32
   store i32 %160, ptr %159, align 4
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i135, 1
@@ -1720,7 +1718,7 @@ fill_dc_scans.exit140:                            ; preds = %.preheader
 
 197:                                              ; preds = %197, %fill_dc_scans.exit140
   %indvars.iv.i142 = phi i64 [ 0, %fill_dc_scans.exit140 ], [ %indvars.iv.next.i143, %197 ]
-  %198 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv.i142
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %196, i64 %indvars.iv.i142
   %199 = trunc nuw nsw i64 %indvars.iv.i142 to i32
   store i32 %199, ptr %198, align 4
   %indvars.iv.next.i143 = add nuw nsw i64 %indvars.iv.i142, 1

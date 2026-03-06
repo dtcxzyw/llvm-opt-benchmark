@@ -419,7 +419,7 @@ prepare_to_stream.exit63.i:                       ; preds = %48, %46
 
 140:                                              ; preds = %139, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %139 ]
-  %141 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv.i.i
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv.i.i
   %142 = load ptr, ptr %141, align 8, !tbaa !62
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %142, ptr noundef nonnull readonly dereferenceable(32) %0, i64 32)
   %.not.i.not.i.i = icmp eq i32 %bcmp.i.i.i, 0
@@ -466,7 +466,7 @@ already_written.exit.i:                           ; preds = %140, %131
   %162 = phi ptr [ %159, %153 ], [ %.pre23.i, %.loopexit.i ]
   store i32 %.pre-phi.i, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 76), align 4, !tbaa !54
   %163 = zext i32 %161 to i64
-  %164 = getelementptr inbounds nuw ptr, ptr %162, i64 %163
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %163
   store ptr %.0.i, ptr %164, align 8, !tbaa !62
   br label %deflate_blob_to_pack.exit
 
@@ -556,7 +556,7 @@ define internal fastcc void @flush_bulk_checkin_packfile() unnamed_addr #0 {
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %24 ]
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bulk_checkin_packfile, i64 64), align 8, !tbaa !59
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !62
   call void @free(ptr noundef %38) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

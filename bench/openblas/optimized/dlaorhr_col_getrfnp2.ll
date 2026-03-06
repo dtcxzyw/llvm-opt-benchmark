@@ -28,7 +28,7 @@ define void @dlaorhr_col_getrfnp2_(ptr noundef readonly captures(none) %0, ptr n
   %12 = load i32, ptr %3, align 4, !tbaa !3
   %narrow = xor i32 %12, -1
   %13 = sext i32 %narrow to i64
-  %14 = getelementptr inbounds double, ptr %2, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %2, i64 %13
   %15 = getelementptr inbounds i8, ptr %4, i64 -8
   store i32 0, ptr %5, align 4, !tbaa !3
   %16 = load i32, ptr %0, align 4, !tbaa !3
@@ -108,7 +108,7 @@ define void @dlaorhr_col_getrfnp2_(ptr noundef readonly captures(none) %0, ptr n
   %59 = fdiv double 1.000000e+00, %53
   store double %59, ptr %8, align 8, !tbaa !7
   %60 = sext i32 %12 to i64
-  %61 = getelementptr double, ptr %14, i64 %60
+  %61 = getelementptr [8 x i8], ptr %14, i64 %60
   %62 = getelementptr i8, ptr %61, i64 16
   call void @dscal_(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %62, ptr noundef nonnull @c__1) #4
   br label %.loopexit
@@ -121,13 +121,13 @@ define void @dlaorhr_col_getrfnp2_(ptr noundef readonly captures(none) %0, ptr n
   %64 = sext i32 %12 to i64
   %65 = add nuw i32 %56, 1
   %wide.trip.count = zext i32 %65 to i64
-  %invariant.gep = getelementptr double, ptr %14, i64 %64
+  %invariant.gep = getelementptr [8 x i8], ptr %14, i64 %64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %66 = load double, ptr %2, align 8, !tbaa !7
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %67 = load double, ptr %gep, align 8, !tbaa !7
   %68 = fdiv double %67, %66
   store double %68, ptr %gep, align 8, !tbaa !7
@@ -147,13 +147,13 @@ define void @dlaorhr_col_getrfnp2_(ptr noundef readonly captures(none) %0, ptr n
   %74 = add i32 %12, 1
   %75 = add i32 %74, %70
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds double, ptr %14, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %14, i64 %76
   call void @dtrsm_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.4, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull @c_b3, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %77, ptr noundef nonnull %3) #4
   %78 = load i32, ptr %10, align 4, !tbaa !3
   %79 = add nsw i32 %78, 1
   %80 = mul nsw i32 %79, %12
   %81 = sext i32 %80 to i64
-  %82 = getelementptr double, ptr %14, i64 %81
+  %82 = getelementptr [8 x i8], ptr %14, i64 %81
   %83 = getelementptr i8, ptr %82, i64 8
   call void @dtrsm_(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @c_b3, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %83, ptr noundef nonnull %3) #4
   %84 = load i32, ptr %0, align 4, !tbaa !3
@@ -163,14 +163,14 @@ define void @dlaorhr_col_getrfnp2_(ptr noundef readonly captures(none) %0, ptr n
   %87 = add nsw i32 %85, 1
   %88 = add nsw i32 %87, %12
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds double, ptr %14, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %14, i64 %89
   %91 = mul nsw i32 %87, %12
   %92 = sext i32 %91 to i64
-  %93 = getelementptr double, ptr %14, i64 %92
+  %93 = getelementptr [8 x i8], ptr %14, i64 %92
   %94 = getelementptr i8, ptr %93, i64 8
   %95 = add nsw i32 %91, %87
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds double, ptr %14, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %14, i64 %96
   call void @dgemm_(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.4, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull @c_b19, ptr noundef %90, ptr noundef nonnull %3, ptr noundef %94, ptr noundef nonnull %3, ptr noundef nonnull @c_b3, ptr noundef %97, ptr noundef nonnull %3) #4
   %98 = load i32, ptr %0, align 4, !tbaa !3
   %99 = load i32, ptr %10, align 4, !tbaa !3
@@ -179,9 +179,9 @@ define void @dlaorhr_col_getrfnp2_(ptr noundef readonly captures(none) %0, ptr n
   %101 = add nsw i32 %99, 1
   %102 = mul i32 %101, %74
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds double, ptr %14, i64 %103
+  %104 = getelementptr inbounds [8 x i8], ptr %14, i64 %103
   %105 = sext i32 %101 to i64
-  %106 = getelementptr inbounds double, ptr %15, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %15, i64 %105
   call void @dlaorhr_col_getrfnp2_(ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef %104, ptr noundef nonnull %3, ptr noundef nonnull %106, ptr noundef nonnull %9)
   br label %.loopexit
 

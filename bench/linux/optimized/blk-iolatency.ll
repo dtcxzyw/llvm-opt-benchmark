@@ -107,7 +107,7 @@ define internal noundef ptr @iolatency_pd_alloc(ptr noundef readonly captures(no
 12:                                               ; preds = %8, %3
   %13 = phi i64 [ 0, %3 ], [ %11, %8 ]
   %14 = or i32 %2, 256
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %13
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %13
   %15 = getelementptr i8, ptr %.split, i64 64
   %16 = load ptr, ptr %15, align 16
   %17 = tail call noalias noundef align 8 dereferenceable_or_null(216) ptr @kmalloc_node_trace(ptr noundef %16, i32 noundef %14, i32 noundef %5, i64 noundef 216) #15
@@ -192,7 +192,7 @@ define internal void @iolatency_pd_init(ptr noundef %0) #2 align 16 {
   %40 = load ptr, ptr %28, align 8
   %41 = ptrtoint ptr %40 to i64
   %42 = and i64 %36, 63
-  %43 = getelementptr i64, ptr @__per_cpu_offset, i64 %42
+  %43 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %42
   %44 = load i64, ptr %43, align 8
   %45 = add i64 %44, %41
   %46 = inttoptr i64 %45 to ptr
@@ -252,7 +252,7 @@ define internal void @iolatency_pd_init(ptr noundef %0) #2 align 16 {
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 208
   %73 = load i32, ptr @blkcg_policy_iolatency, align 8
   %74 = sext i32 %73 to i64
-  %75 = getelementptr ptr, ptr %72, i64 %74
+  %75 = getelementptr [8 x i8], ptr %72, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %82, label %78
@@ -289,7 +289,7 @@ define internal void @iolatency_pd_offline(ptr noundef readonly captures(address
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %8 = load i32, ptr @blkcg_policy_iolatency, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr ptr, ptr %7, i64 %9
+  %10 = getelementptr [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   br label %.thread
 
@@ -350,7 +350,7 @@ define internal void @iolatency_pd_offline(ptr noundef readonly captures(address
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 208
   %48 = load i32, ptr @blkcg_policy_iolatency, align 8
   %49 = sext i32 %48 to i64
-  %50 = getelementptr ptr, ptr %47, i64 %49
+  %50 = getelementptr [8 x i8], ptr %47, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %58, label %53
@@ -421,7 +421,7 @@ define internal void @iolatency_pd_stat(ptr noundef readonly captures(none) %0, 
   %24 = load ptr, ptr %11, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %20, 63
-  %27 = getelementptr i64, ptr @__per_cpu_offset, i64 %26
+  %27 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, %25
   %30 = inttoptr i64 %29 to ptr
@@ -622,7 +622,7 @@ define internal i64 @iolatency_set_limit(ptr noundef %0, ptr noundef %1, i64 nou
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 208
   %57 = load i32, ptr @blkcg_policy_iolatency, align 8
   %58 = sext i32 %57 to i64
-  %59 = getelementptr ptr, ptr %56, i64 %58
+  %59 = getelementptr [8 x i8], ptr %56, i64 %58
   %60 = load ptr, ptr %59, align 8
   br label %61
 
@@ -699,7 +699,7 @@ define internal i64 @iolatency_set_limit(ptr noundef %0, ptr noundef %1, i64 nou
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 208
   %92 = load i32, ptr @blkcg_policy_iolatency, align 8
   %93 = sext i32 %92 to i64
-  %94 = getelementptr ptr, ptr %91, i64 %93
+  %94 = getelementptr [8 x i8], ptr %91, i64 %93
   %95 = load ptr, ptr %94, align 8
   br label %96
 
@@ -853,7 +853,7 @@ define internal fastcc void @iolatency_clear_scaling(ptr readonly captures(addre
   %3 = getelementptr inbounds nuw i8, ptr %.48.val, i64 208
   %4 = load i32, ptr @blkcg_policy_iolatency, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr ptr, ptr %3, i64 %5
+  %6 = getelementptr [8 x i8], ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
@@ -985,7 +985,7 @@ define internal void @blkiolatency_timer_fn(ptr noundef readonly captures(none) 
   %63 = getelementptr inbounds nuw i8, ptr %42, i64 208
   %64 = load i32, ptr @blkcg_policy_iolatency, align 8
   %65 = sext i32 %64 to i64
-  %66 = getelementptr ptr, ptr %63, i64 %65
+  %66 = getelementptr [8 x i8], ptr %63, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %112, label %69
@@ -1178,7 +1178,7 @@ define internal void @blkcg_iolatency_throttle(ptr noundef %0, ptr noundef reado
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 208
   %23 = load i32, ptr @blkcg_policy_iolatency, align 8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr ptr, ptr %22, i64 %24
+  %25 = getelementptr [8 x i8], ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %187, label %28, !llvm.loop !36
@@ -1194,7 +1194,7 @@ define internal void @blkcg_iolatency_throttle(ptr noundef %0, ptr noundef reado
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 208
-  %37 = getelementptr ptr, ptr %36, i64 %24
+  %37 = getelementptr [8 x i8], ptr %36, i64 %24
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread, label %40
@@ -1490,7 +1490,7 @@ define internal void @blkcg_iolatency_done_bio(ptr readnone captures(none) %0, p
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %18 = load i32, ptr @blkcg_policy_iolatency, align 8
   %19 = sext i32 %18 to i64
-  %20 = getelementptr ptr, ptr %17, i64 %19
+  %20 = getelementptr [8 x i8], ptr %17, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit, label %23
@@ -1522,7 +1522,7 @@ define internal void @blkcg_iolatency_done_bio(ptr readnone captures(none) %0, p
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 208
   %42 = load i32, ptr @blkcg_policy_iolatency, align 8
   %43 = sext i32 %42 to i64
-  %44 = getelementptr ptr, ptr %41, i64 %43
+  %44 = getelementptr [8 x i8], ptr %41, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %335, label %47
@@ -1688,7 +1688,7 @@ define internal void @blkcg_iolatency_done_bio(ptr readnone captures(none) %0, p
   %136 = load ptr, ptr %124, align 8
   %137 = ptrtoint ptr %136 to i64
   %138 = and i64 %132, 63
-  %139 = getelementptr i64, ptr @__per_cpu_offset, i64 %138
+  %139 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %138
   %140 = load i64, ptr %139, align 8
   %141 = add i64 %140, %137
   %142 = inttoptr i64 %141 to ptr
@@ -1752,7 +1752,7 @@ define internal void @blkcg_iolatency_done_bio(ptr readnone captures(none) %0, p
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 208
   %172 = load i32, ptr @blkcg_policy_iolatency, align 8
   %173 = sext i32 %172 to i64
-  %174 = getelementptr ptr, ptr %171, i64 %173
+  %174 = getelementptr [8 x i8], ptr %171, i64 %173
   %175 = load ptr, ptr %174, align 8
   %176 = icmp eq ptr %175, null
   br i1 %176, label %.thread18, label %177
@@ -1779,7 +1779,7 @@ define internal void @blkcg_iolatency_done_bio(ptr readnone captures(none) %0, p
   %192 = getelementptr inbounds nuw i8, ptr %45, i64 144
   %193 = load i64, ptr %192, align 8
   %194 = sext i32 %191 to i64
-  %195 = getelementptr i64, ptr @iolatency_exp_factors, i64 %194
+  %195 = getelementptr [8 x i8], ptr @iolatency_exp_factors, i64 %194
   %196 = load i64, ptr %195, align 8
   %197 = load i64, ptr %3, align 8
   %198 = mul i64 %196, %193

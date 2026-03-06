@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.0 = type { i64, i64, ptr }
 %struct.timespec = type { i64, i64 }
 %struct.timeval = type { i64, i64 }
-%struct.fast_fallback_getaddrinfo_entry = type { i32, i32, i32, %struct.addrinfo, ptr, ptr, i32, i64, i32 }
 %struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
 %union.union_sockaddr = type { %struct.sockaddr_storage, [1920 x i8] }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
@@ -213,7 +212,7 @@ is_specified_ip_address.exit.thread:              ; preds = %21, %is_specified_i
 
 70:                                               ; preds = %68
   %71 = sext i32 %.04775 to i64
-  %72 = getelementptr inbounds i32, ptr %67, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %67, i64 %71
   store i32 %indvars.iv.sroa.phi.sroa.speculated, ptr %72, align 4, !tbaa !6
   %73 = add nsw i32 %.04775, 1
   br label %74
@@ -507,17 +506,17 @@ current_clocktime_ts.exit:                        ; preds = %allocate_connection
   %116 = phi i32 [ %107, %.lr.ph ], [ %189, %186 ]
   %117 = load ptr, ptr %84, align 8, !tbaa !58
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 64
-  %119 = getelementptr inbounds nuw %struct.fast_fallback_getaddrinfo_entry, ptr %118, i64 %indvars.iv
-  %120 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [104 x i8], ptr %118, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv
   store ptr %119, ptr %120, align 8, !tbaa !62
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 72
   store ptr %117, ptr %121, align 8, !tbaa !64
   %122 = zext i32 %116 to i64
   %123 = call ptr @llvm.stacksave.p0()
   %124 = alloca %struct.addrinfo, i64 %122, align 16
-  %125 = getelementptr inbounds nuw %struct.addrinfo, ptr %124, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [48 x i8], ptr %124, i64 %indvars.iv
   %126 = load ptr, ptr %110, align 8, !tbaa !40
-  %127 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv
   %128 = load i32, ptr %127, align 4, !tbaa !6
   %129 = load i32, ptr %111, align 4, !tbaa !38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %125, i8 noundef 0, i64 noundef 48, i1 noundef false) #19
@@ -535,7 +534,7 @@ current_clocktime_ts.exit:                        ; preds = %allocate_connection
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 64
   store ptr null, ptr %136, align 8, !tbaa !71
   %137 = load ptr, ptr %110, align 8, !tbaa !40
-  %138 = getelementptr inbounds nuw i32, ptr %137, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %indvars.iv
   %139 = load i32, ptr %138, align 4, !tbaa !6
   store i32 %139, ptr %135, align 8, !tbaa !72
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 8
@@ -638,7 +637,7 @@ rb_num2int_inline.exit:                           ; preds = %175, %177
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %switch.early.test, %switch.early.test, %115, %rbimpl_intern_const.exit604, %rb_num2int_inline.exit, %168, %rbimpl_RB_TYPE_P_fastpath.exit
-  %182 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %183 = load ptr, ptr %120, align 8, !tbaa !62
   %184 = call i32 @raddrinfo_pthread_create(ptr noundef nonnull %182, ptr noundef nonnull @fork_safe_do_fast_fallback_getaddrinfo, ptr noundef %183) #19
   %.not529 = icmp eq i32 %184, 0
@@ -767,7 +766,7 @@ any_addrinfos.exit611.thread:                     ; preds = %any_addrinfos.exit6
 .split1208.us.split:                              ; preds = %.split1208.us, %225
   %221 = phi i1 [ false, %225 ], [ true, %.split1208.us ]
   %indvars.iv.i.us = phi i64 [ 1, %225 ], [ 0, %.split1208.us ]
-  %222 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv.i.us
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %220, i64 %indvars.iv.i.us
   %223 = load i32, ptr %222, align 4, !tbaa !6
   %224 = icmp eq i32 %223, 10
   br i1 %224, label %.split1210.us, label %225
@@ -781,7 +780,7 @@ any_addrinfos.exit611.thread:                     ; preds = %any_addrinfos.exit6
 .split1208.split.us:                              ; preds = %.split1208, %230
   %226 = phi i1 [ false, %230 ], [ true, %.split1208 ]
   %indvars.iv.i.us1219 = phi i64 [ 1, %230 ], [ 0, %.split1208 ]
-  %227 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv.i.us1219
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %220, i64 %indvars.iv.i.us1219
   %228 = load i32, ptr %227, align 4, !tbaa !6
   %229 = icmp eq i32 %228, 10
   br i1 %229, label %230, label %.split1221.us
@@ -1107,7 +1106,7 @@ reallocate_connection_attempt_fds.exit:           ; preds = %354
   %367 = phi ptr [ %358, %reallocate_connection_attempt_fds.exit ], [ %.pre1603, %351 ]
   %.4471 = phi i32 [ %355, %reallocate_connection_attempt_fds.exit ], [ %.0467, %351 ]
   %368 = sext i32 %366 to i64
-  %369 = getelementptr inbounds i32, ptr %367, i64 %368
+  %369 = getelementptr inbounds [4 x i8], ptr %367, i64 %368
   store i32 %261, ptr %369, align 4, !tbaa !6
   %370 = load i32, ptr %33, align 4, !tbaa !56
   %371 = add nsw i32 %370, 1
@@ -1417,7 +1416,7 @@ any_addrinfos.exit636.thread:                     ; preds = %any_addrinfos.exit6
   %indvars.iv1592 = phi i64 [ %indvars.iv.next1593, %456 ], [ 0, %any_addrinfos.exit636.thread ]
   %.04421372 = phi i32 [ %.1443, %456 ], [ 0, %any_addrinfos.exit636.thread ]
   %451 = load ptr, ptr %32, align 8, !tbaa !55
-  %452 = getelementptr inbounds nuw i32, ptr %451, i64 %indvars.iv1592
+  %452 = getelementptr inbounds nuw [4 x i8], ptr %451, i64 %indvars.iv1592
   %453 = load i32, ptr %452, align 4, !tbaa !6
   %454 = icmp slt i32 %453, 0
   br i1 %454, label %456, label %455
@@ -1578,7 +1577,7 @@ thread-pre-split:                                 ; preds = %501, %504
   %.sroa.0223.61377 = phi i32 [ %.sroa.0223.1797935, %.lr.ph1379 ], [ %.sroa.0223.8842, %.thread836 ]
   %.sroa.18.61376 = phi i32 [ %.sroa.18.1796940, %.lr.ph1379 ], [ %.sroa.18.8841, %.thread836 ]
   %518 = load ptr, ptr %32, align 8, !tbaa !55
-  %519 = getelementptr inbounds nuw i32, ptr %518, i64 %indvars.iv1595
+  %519 = getelementptr inbounds nuw [4 x i8], ptr %518, i64 %indvars.iv1595
   %520 = load i32, ptr %519, align 4, !tbaa !6
   %521 = icmp slt i32 %520, 0
   br i1 %521, label %.thread836, label %522
@@ -1643,7 +1642,7 @@ thread-pre-split:                                 ; preds = %501, %504
 
 .lr.ph.i653:                                      ; preds = %555, %.lr.ph.preheader.i
   %indvars.iv.i654 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %555 ]
-  %542 = getelementptr inbounds nuw i32, ptr %539, i64 %indvars.iv.i654
+  %542 = getelementptr inbounds nuw [4 x i8], ptr %539, i64 %indvars.iv.i654
   %543 = load i32, ptr %542, align 4, !tbaa !6
   %.not.i655 = icmp eq i32 %543, %520
   br i1 %.not.i655, label %.preheader.i, label %555
@@ -1661,9 +1660,9 @@ thread-pre-split:                                 ; preds = %501, %504
 .lr.ph20.i:                                       ; preds = %.preheader.i, %.lr.ph20.i
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %.lr.ph20.i ], [ %indvars.iv.i654, %.preheader.i ]
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
-  %547 = getelementptr inbounds nuw i32, ptr %539, i64 %indvars.iv.next26.i
+  %547 = getelementptr inbounds nuw [4 x i8], ptr %539, i64 %indvars.iv.next26.i
   %548 = load i32, ptr %547, align 4, !tbaa !6
-  %549 = getelementptr inbounds nuw i32, ptr %539, i64 %indvars.iv25.i
+  %549 = getelementptr inbounds nuw [4 x i8], ptr %539, i64 %indvars.iv25.i
   store i32 %548, ptr %549, align 4, !tbaa !6
   %550 = load i32, ptr %33, align 4, !tbaa !6
   %551 = add nsw i32 %550, -1
@@ -1675,7 +1674,7 @@ thread-pre-split:                                 ; preds = %501, %504
   %.pre-phi.i = phi i64 [ %.pre.i, %.preheader.._crit_edge_crit_edge.i ], [ %552, %.lr.ph20.i ]
   %.lcssa.i656 = phi i32 [ %545, %.preheader.._crit_edge_crit_edge.i ], [ %551, %.lr.ph20.i ]
   store i32 %.lcssa.i656, ptr %33, align 4, !tbaa !6
-  %554 = getelementptr inbounds i32, ptr %539, i64 %.pre-phi.i
+  %554 = getelementptr inbounds [4 x i8], ptr %539, i64 %.pre-phi.i
   store i32 -1, ptr %554, align 4, !tbaa !6
   br label %pick_addrinfo.exit.sink.split
 
@@ -1697,7 +1696,7 @@ thread-pre-split:                                 ; preds = %501, %504
 
 .lr.ph.i659:                                      ; preds = %574, %.lr.ph.preheader.i657
   %indvars.iv.i660 = phi i64 [ 0, %.lr.ph.preheader.i657 ], [ %indvars.iv.next.i662, %574 ]
-  %561 = getelementptr inbounds nuw i32, ptr %558, i64 %indvars.iv.i660
+  %561 = getelementptr inbounds nuw [4 x i8], ptr %558, i64 %indvars.iv.i660
   %562 = load i32, ptr %561, align 4, !tbaa !6
   %.not.i661 = icmp eq i32 %562, %520
   br i1 %.not.i661, label %.preheader.i664, label %574
@@ -1715,9 +1714,9 @@ thread-pre-split:                                 ; preds = %501, %504
 .lr.ph20.i670:                                    ; preds = %.preheader.i664, %.lr.ph20.i670
   %indvars.iv25.i671 = phi i64 [ %indvars.iv.next26.i672, %.lr.ph20.i670 ], [ %indvars.iv.i660, %.preheader.i664 ]
   %indvars.iv.next26.i672 = add nuw nsw i64 %indvars.iv25.i671, 1
-  %566 = getelementptr inbounds nuw i32, ptr %558, i64 %indvars.iv.next26.i672
+  %566 = getelementptr inbounds nuw [4 x i8], ptr %558, i64 %indvars.iv.next26.i672
   %567 = load i32, ptr %566, align 4, !tbaa !6
-  %568 = getelementptr inbounds nuw i32, ptr %558, i64 %indvars.iv25.i671
+  %568 = getelementptr inbounds nuw [4 x i8], ptr %558, i64 %indvars.iv25.i671
   store i32 %567, ptr %568, align 4, !tbaa !6
   %569 = load i32, ptr %33, align 4, !tbaa !6
   %570 = add nsw i32 %569, -1
@@ -1729,7 +1728,7 @@ thread-pre-split:                                 ; preds = %501, %504
   %.pre-phi.i668 = phi i64 [ %.pre.i666, %.preheader.._crit_edge_crit_edge.i665 ], [ %571, %.lr.ph20.i670 ]
   %.lcssa.i669 = phi i32 [ %564, %.preheader.._crit_edge_crit_edge.i665 ], [ %570, %.lr.ph20.i670 ]
   store i32 %.lcssa.i669, ptr %33, align 4, !tbaa !6
-  %573 = getelementptr inbounds i32, ptr %558, i64 %.pre-phi.i668
+  %573 = getelementptr inbounds [4 x i8], ptr %558, i64 %.pre-phi.i668
   store i32 -1, ptr %573, align 4, !tbaa !6
   %.pre1606.pre.pre = load i32, ptr %33, align 4, !tbaa !56
   br label %remove_connection_attempt_fd.exit673
@@ -2356,7 +2355,7 @@ define internal noundef i64 @fast_fallback_inetsock_cleanup(i64 noundef %0) #0 {
 
 39:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !62
   %.not63 = icmp eq ptr %41, null
   br i1 %.not63, label %49, label %42
@@ -2370,7 +2369,7 @@ define internal noundef i64 @fast_fallback_inetsock_cleanup(i64 noundef %0) #0 {
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 1, ptr %48, align 4, !tbaa !6
   br label %49
 
@@ -2385,13 +2384,13 @@ define internal noundef i64 @fast_fallback_inetsock_cleanup(i64 noundef %0) #0 {
 50:                                               ; preds = %.lr.ph67, %58
   %51 = phi i32 [ %36, %.lr.ph67 ], [ %59, %58 ]
   %indvars.iv74 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next75, %58 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv74
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv74
   %53 = load ptr, ptr %52, align 8, !tbaa !62
   %.not61 = icmp eq ptr %53, null
   br i1 %.not61, label %58, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv74
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv74
   %56 = load i32, ptr %55, align 4, !tbaa !6
   %.not62 = icmp eq i32 %56, 0
   br i1 %.not62, label %58, label %57
@@ -2436,7 +2435,7 @@ define internal noundef i64 @fast_fallback_inetsock_cleanup(i64 noundef %0) #0 {
   %72 = phi i32 [ %66, %.lr.ph71 ], [ %86, %85 ]
   %indvars.iv77 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next78, %85 ]
   %73 = load ptr, ptr %68, align 8, !tbaa !55
-  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv77
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv77
   %75 = load i32, ptr %74, align 4, !tbaa !6
   %76 = icmp sgt i32 %75, -1
   br i1 %76, label %77, label %85

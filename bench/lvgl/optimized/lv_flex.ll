@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_style_t = type { ptr, i32, i8 }
 %struct.flex_t = type { i32, i32, i32, i8 }
 %struct.track_t = type { i32, i32, i32, i32, ptr, i32, i8 }
-%struct.grow_dsc_t = type { ptr, i32, i32, i32, i32, i8 }
 %struct.lv_area_t = type { i32, i32, i32, i32 }
 
 @lv_global = external local_unnamed_addr global %struct._lv_global_t, align 8
@@ -643,7 +642,7 @@ define internal fastcc i32 @find_track_end(ptr noundef %0, ptr noundef nonnull c
   %74 = load i32, ptr %32, align 8, !tbaa !59
   %75 = add i32 %74, -1
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw %struct.grow_dsc_t, ptr %72, i64 %76
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %76
   store ptr %.0127190, ptr %77, align 8, !tbaa !60
   %78 = load i8, ptr %10, align 4
   %79 = and i8 %78, 1
@@ -655,7 +654,7 @@ define internal fastcc i32 @find_track_end(ptr noundef %0, ptr noundef nonnull c
   %82 = load i32, ptr %32, align 8, !tbaa !59
   %83 = add i32 %82, -1
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw %struct.grow_dsc_t, ptr %72, i64 %84
+  %85 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i32 %81, ptr %86, align 8, !tbaa !62
   %87 = load i8, ptr %10, align 4
@@ -668,7 +667,7 @@ define internal fastcc i32 @find_track_end(ptr noundef %0, ptr noundef nonnull c
   %91 = load i32, ptr %32, align 8, !tbaa !59
   %92 = add i32 %91, -1
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw %struct.grow_dsc_t, ptr %72, i64 %93
+  %94 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 12
   store i32 %90, ptr %95, align 4, !tbaa !63
   %96 = trunc i64 %44 to i32
@@ -761,7 +760,7 @@ get_next_item.exit:                               ; preds = %132
   %136 = load ptr, ptr %135, align 8, !tbaa !45
   %137 = load ptr, ptr %136, align 8, !tbaa !69
   %138 = zext nneg i32 %2 to i64
-  %139 = getelementptr inbounds nuw ptr, ptr %137, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !70
   %141 = load i8, ptr %10, align 4
   %142 = and i8 %141, 4
@@ -826,7 +825,7 @@ define internal fastcc void @children_repos(ptr noundef %0, ptr noundef nonnull 
   %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %46 ]
   %.0199270 = phi i32 [ 0, %27 ], [ %.1200, %46 ]
   %.0204269 = phi i32 [ %30, %27 ], [ %.1205, %46 ]
-  %33 = getelementptr inbounds nuw %struct.grow_dsc_t, ptr %31, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load i8, ptr %34, align 8
   %36 = and i8 %35, 1
@@ -861,7 +860,7 @@ define internal fastcc void @children_repos(ptr noundef %0, ptr noundef nonnull 
   %.1193274 = phi i1 [ %.3, %75 ], [ false, %46 ]
   %.2201273 = phi i32 [ %.3202, %75 ], [ %.1200, %46 ]
   %.2206272 = phi i32 [ %.3207, %75 ], [ %.1205, %46 ]
-  %50 = getelementptr inbounds nuw %struct.grow_dsc_t, ptr %49, i64 %indvars.iv291
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %indvars.iv291
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load i8, ptr %51, align 8
   %53 = and i8 %52, 1
@@ -900,7 +899,7 @@ define internal fastcc void @children_repos(ptr noundef %0, ptr noundef nonnull 
   %.pre299 = phi i32 [ %.pre299.pre, %65 ], [ %.pre299303, %56 ]
   %68 = phi ptr [ %.pre298, %65 ], [ %48, %56 ]
   %.2194 = phi i1 [ true, %65 ], [ %.1193274, %56 ]
-  %69 = getelementptr inbounds nuw %struct.grow_dsc_t, ptr %68, i64 %indvars.iv291
+  %69 = getelementptr inbounds nuw [32 x i8], ptr %68, i64 %indvars.iv291
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i32 %spec.select, ptr %70, align 8, !tbaa !72
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 20
@@ -1032,7 +1031,7 @@ place_content.exit:                               ; preds = %.critedge, %90, %93
   %134 = load ptr, ptr %119, align 8, !tbaa !45
   %135 = load ptr, ptr %134, align 8, !tbaa !69
   %136 = zext nneg i32 %133 to i64
-  %137 = getelementptr inbounds nuw ptr, ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %136
   br label %get_next_item.exit
 
 138:                                              ; preds = %127
@@ -1047,7 +1046,7 @@ place_content.exit:                               ; preds = %.critedge, %90, %93
 145:                                              ; preds = %138
   %146 = load ptr, ptr %140, align 8, !tbaa !69
   %147 = sext i32 %139 to i64
-  %148 = getelementptr inbounds ptr, ptr %146, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %146, i64 %147
   br label %get_next_item.exit
 
 get_next_item.exit:                               ; preds = %132, %145
@@ -1083,7 +1082,7 @@ get_next_item.exit:                               ; preds = %132, %145
 
 159:                                              ; preds = %.lr.ph280, %158
   %indvars.iv293 = phi i64 [ 0, %.lr.ph280 ], [ %indvars.iv.next294, %158 ]
-  %160 = getelementptr inbounds nuw %struct.grow_dsc_t, ptr %157, i64 %indvars.iv293
+  %160 = getelementptr inbounds nuw [32 x i8], ptr %157, i64 %indvars.iv293
   %161 = load ptr, ptr %160, align 8, !tbaa !60
   %162 = icmp eq ptr %161, %.0203277
   br i1 %162, label %163, label %158
@@ -1331,7 +1330,7 @@ get_next_item.exit:                               ; preds = %132, %145
   %306 = load ptr, ptr %119, align 8, !tbaa !45
   %307 = load ptr, ptr %306, align 8, !tbaa !69
   %308 = zext nneg i32 %305 to i64
-  %309 = getelementptr inbounds nuw ptr, ptr %307, i64 %308
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %307, i64 %308
   br label %get_next_item.exit230
 
 310:                                              ; preds = %299
@@ -1346,7 +1345,7 @@ get_next_item.exit:                               ; preds = %132, %145
 317:                                              ; preds = %310
   %318 = load ptr, ptr %312, align 8, !tbaa !69
   %319 = sext i32 %311 to i64
-  %320 = getelementptr inbounds ptr, ptr %318, i64 %319
+  %320 = getelementptr inbounds [8 x i8], ptr %318, i64 %319
   br label %get_next_item.exit230
 
 get_next_item.exit230:                            ; preds = %304, %317

@@ -552,26 +552,26 @@ define internal fastcc range(i32 -12, 1) i32 @filter_frame(ptr noundef %0, ptr n
   %56 = shl nuw i32 1, %55
   %57 = and i32 %54, %56
   %.not73 = icmp eq i32 %57, 0
-  %58 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !40
   br i1 %.not73, label %60, label %77
 
 60:                                               ; preds = %53
   %61 = load ptr, ptr %1, align 8, !tbaa !37
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !73
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 64
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !40
-  %67 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8, !tbaa !73
-  %69 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !40
   %71 = load i32, ptr %23, align 4, !tbaa !74
   %72 = add nsw i32 %71, 7
   %73 = sdiv i32 %72, 8
   %74 = mul nsw i32 %73, %59
-  %75 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %76 = load i32, ptr %75, align 4, !tbaa !40
   call void @av_image_copy_plane(ptr noundef %63, i32 noundef %66, ptr noundef %68, i32 noundef %70, i32 noundef %74, i32 noundef %76) #9
   br label %339
@@ -579,25 +579,25 @@ define internal fastcc range(i32 -12, 1) i32 @filter_frame(ptr noundef %0, ptr n
 77:                                               ; preds = %53
   %78 = load i32, ptr %23, align 4, !tbaa !74
   %79 = icmp slt i32 %78, 9
-  %80 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %81 = load ptr, ptr %80, align 8, !tbaa !73
-  %82 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %83 = load ptr, ptr %82, align 8, !tbaa !73
   %84 = load ptr, ptr %1, align 8, !tbaa !37
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8, !tbaa !73
   %87 = load float, ptr %24, align 4, !tbaa !75
-  %88 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4, !tbaa !40
-  %90 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %91 = load i32, ptr %90, align 4, !tbaa !40
   br i1 %79, label %92, label %214
 
 92:                                               ; preds = %77
-  %93 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %94 = load i32, ptr %93, align 4, !tbaa !40
   %95 = getelementptr inbounds nuw i8, ptr %84, i64 64
-  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv
   %97 = load i32, ptr %96, align 4, !tbaa !40
   %98 = shl nuw nsw i32 1, %78
   %99 = uitofp nneg i32 %98 to float
@@ -656,10 +656,10 @@ define internal fastcc range(i32 -12, 1) i32 @filter_frame(ptr noundef %0, ptr n
   %139 = load i8, ptr %138, align 1, !tbaa !77
   %140 = uitofp i8 %139 to float
   %141 = fdiv nsz float %140, %100
-  %142 = getelementptr inbounds nuw float, ptr %113, i64 %135
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %135
   store float %141, ptr %142, align 4, !tbaa !78
   %143 = fmul nsz float %141, %141
-  %144 = getelementptr inbounds nuw float, ptr %114, i64 %135
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %135
   store float %143, ptr %144, align 4, !tbaa !78
   %145 = add nsw i64 %indvars.iv.i, %133
   %146 = mul nsw i64 %145, %127
@@ -667,11 +667,11 @@ define internal fastcc range(i32 -12, 1) i32 @filter_frame(ptr noundef %0, ptr n
   %148 = load i8, ptr %147, align 1, !tbaa !77
   %149 = uitofp i8 %148 to float
   %150 = fdiv nsz float %149, %100
-  %151 = getelementptr inbounds nuw float, ptr %115, i64 %135
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %135
   store float %150, ptr %151, align 4, !tbaa !78
   %152 = load float, ptr %142, align 4, !tbaa !78
   %153 = fmul nsz float %152, %150
-  %154 = getelementptr inbounds nuw float, ptr %116, i64 %135
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %135
   store float %153, ptr %154, align 4, !tbaa !78
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %128
@@ -719,26 +719,26 @@ define internal fastcc range(i32 -12, 1) i32 @filter_frame(ptr noundef %0, ptr n
 166:                                              ; preds = %166, %.preheader183.us.i
   %indvars.iv205.i = phi i64 [ 0, %.preheader183.us.i ], [ %indvars.iv.next206.i, %166 ]
   %167 = add nuw nsw i64 %indvars.iv205.i, %165
-  %168 = getelementptr inbounds nuw float, ptr %118, i64 %167
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %167
   %169 = load float, ptr %168, align 4, !tbaa !78
-  %170 = getelementptr inbounds nuw float, ptr %117, i64 %167
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %167
   %171 = load float, ptr %170, align 4, !tbaa !78
   %172 = fneg nsz float %171
   %173 = call nsz float @llvm.fmuladd.f32(float %172, float %171, float %169)
-  %174 = getelementptr inbounds nuw float, ptr %120, i64 %167
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %167
   %175 = load float, ptr %174, align 4, !tbaa !78
-  %176 = getelementptr inbounds nuw float, ptr %119, i64 %167
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %167
   %177 = load float, ptr %176, align 4, !tbaa !78
   %178 = call nsz float @llvm.fmuladd.f32(float %172, float %177, float %175)
   %179 = fadd nsz float %87, %173
   %180 = fdiv nsz float %178, %179
-  %181 = getelementptr inbounds nuw float, ptr %121, i64 %167
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %167
   store float %180, ptr %181, align 4, !tbaa !78
   %182 = load float, ptr %176, align 4, !tbaa !78
   %183 = load float, ptr %170, align 4, !tbaa !78
   %184 = fneg nsz float %180
   %185 = call nsz float @llvm.fmuladd.f32(float %184, float %183, float %182)
-  %186 = getelementptr inbounds nuw float, ptr %122, i64 %167
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %167
   store float %185, ptr %186, align 4, !tbaa !78
   %indvars.iv.next206.i = add nuw nsw i64 %indvars.iv205.i, 1
   %exitcond209.not.i = icmp eq i64 %indvars.iv.next206.i, %164
@@ -787,12 +787,12 @@ define internal fastcc range(i32 -12, 1) i32 @filter_frame(ptr noundef %0, ptr n
   %202 = sdiv i32 %201, %101
   %203 = add nsw i32 %202, %197
   %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds float, ptr %123, i64 %204
+  %205 = getelementptr inbounds [4 x i8], ptr %123, i64 %204
   %206 = load float, ptr %205, align 4, !tbaa !78
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv215.i
   %207 = load i8, ptr %gep.i, align 1, !tbaa !77
   %208 = uitofp i8 %207 to float
-  %209 = getelementptr inbounds float, ptr %124, i64 %204
+  %209 = getelementptr inbounds [4 x i8], ptr %124, i64 %204
   %210 = load float, ptr %209, align 4, !tbaa !78
   %211 = fmul nsz float %100, %210
   %212 = call nsz float @llvm.fmuladd.f32(float %206, float %208, float %211)
@@ -814,10 +814,10 @@ guided_byte.exit:                                 ; preds = %._crit_edge.us195.i
 
 214:                                              ; preds = %77
   %215 = sdiv i32 %91, 2
-  %216 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %217 = load i32, ptr %216, align 4, !tbaa !40
   %218 = getelementptr inbounds nuw i8, ptr %84, i64 64
-  %219 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %indvars.iv
   %220 = load i32, ptr %219, align 4, !tbaa !40
   %221 = sdiv i32 %220, 2
   %222 = shl nuw i32 1, %78
@@ -874,26 +874,26 @@ guided_byte.exit:                                 ; preds = %._crit_edge.us195.i
   %260 = add nuw nsw i64 %indvars.iv.i109, %256
   %261 = add nsw i64 %indvars.iv.i109, %257
   %262 = mul nsw i64 %261, %252
-  %263 = getelementptr inbounds i16, ptr %81, i64 %262
+  %263 = getelementptr inbounds [2 x i8], ptr %81, i64 %262
   %264 = load i16, ptr %263, align 2, !tbaa !94
   %265 = uitofp i16 %264 to float
   %266 = fdiv nsz float %265, %224
-  %267 = getelementptr inbounds nuw float, ptr %237, i64 %260
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %237, i64 %260
   store float %266, ptr %267, align 4, !tbaa !78
   %268 = fmul nsz float %266, %266
-  %269 = getelementptr inbounds nuw float, ptr %238, i64 %260
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %238, i64 %260
   store float %268, ptr %269, align 4, !tbaa !78
   %270 = add nsw i64 %indvars.iv.i109, %258
   %271 = mul nsw i64 %270, %252
-  %272 = getelementptr inbounds i16, ptr %83, i64 %271
+  %272 = getelementptr inbounds [2 x i8], ptr %83, i64 %271
   %273 = load i16, ptr %272, align 2, !tbaa !94
   %274 = uitofp i16 %273 to float
   %275 = fdiv nsz float %274, %224
-  %276 = getelementptr inbounds nuw float, ptr %239, i64 %260
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %239, i64 %260
   store float %275, ptr %276, align 4, !tbaa !78
   %277 = load float, ptr %267, align 4, !tbaa !78
   %278 = fmul nsz float %277, %275
-  %279 = getelementptr inbounds nuw float, ptr %240, i64 %260
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %240, i64 %260
   store float %278, ptr %279, align 4, !tbaa !78
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i109, 1
   %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i110, %253
@@ -941,26 +941,26 @@ guided_byte.exit:                                 ; preds = %._crit_edge.us195.i
 291:                                              ; preds = %291, %.preheader183.us.i96
   %indvars.iv205.i98 = phi i64 [ 0, %.preheader183.us.i96 ], [ %indvars.iv.next206.i99, %291 ]
   %292 = add nuw nsw i64 %indvars.iv205.i98, %290
-  %293 = getelementptr inbounds nuw float, ptr %242, i64 %292
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %292
   %294 = load float, ptr %293, align 4, !tbaa !78
-  %295 = getelementptr inbounds nuw float, ptr %241, i64 %292
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %241, i64 %292
   %296 = load float, ptr %295, align 4, !tbaa !78
   %297 = fneg nsz float %296
   %298 = call nsz float @llvm.fmuladd.f32(float %297, float %296, float %294)
-  %299 = getelementptr inbounds nuw float, ptr %244, i64 %292
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %244, i64 %292
   %300 = load float, ptr %299, align 4, !tbaa !78
-  %301 = getelementptr inbounds nuw float, ptr %243, i64 %292
+  %301 = getelementptr inbounds nuw [4 x i8], ptr %243, i64 %292
   %302 = load float, ptr %301, align 4, !tbaa !78
   %303 = call nsz float @llvm.fmuladd.f32(float %297, float %302, float %300)
   %304 = fadd nsz float %87, %298
   %305 = fdiv nsz float %303, %304
-  %306 = getelementptr inbounds nuw float, ptr %245, i64 %292
+  %306 = getelementptr inbounds nuw [4 x i8], ptr %245, i64 %292
   store float %305, ptr %306, align 4, !tbaa !78
   %307 = load float, ptr %301, align 4, !tbaa !78
   %308 = load float, ptr %295, align 4, !tbaa !78
   %309 = fneg nsz float %305
   %310 = call nsz float @llvm.fmuladd.f32(float %309, float %308, float %307)
-  %311 = getelementptr inbounds nuw float, ptr %246, i64 %292
+  %311 = getelementptr inbounds nuw [4 x i8], ptr %246, i64 %292
   store float %310, ptr %311, align 4, !tbaa !78
   %indvars.iv.next206.i99 = add nuw nsw i64 %indvars.iv205.i98, 1
   %exitcond209.not.i100 = icmp eq i64 %indvars.iv.next206.i99, %289
@@ -999,8 +999,8 @@ guided_byte.exit:                                 ; preds = %._crit_edge.us195.i
   %322 = mul nsw i32 %321, %235
   %323 = mul nsw i64 %indvars.iv220.i83, %318
   %324 = mul nsw i64 %indvars.iv220.i83, %319
-  %invariant.gep.i84 = getelementptr i16, ptr %81, i64 %323
-  %invariant.gep229.i85 = getelementptr i16, ptr %86, i64 %324
+  %invariant.gep.i84 = getelementptr [2 x i8], ptr %81, i64 %323
+  %invariant.gep229.i85 = getelementptr [2 x i8], ptr %86, i64 %324
   br label %325
 
 325:                                              ; preds = %325, %.preheader.us.i82
@@ -1009,17 +1009,17 @@ guided_byte.exit:                                 ; preds = %._crit_edge.us195.i
   %327 = sdiv i32 %326, %225
   %328 = add nsw i32 %327, %322
   %329 = sext i32 %328 to i64
-  %330 = getelementptr inbounds float, ptr %247, i64 %329
+  %330 = getelementptr inbounds [4 x i8], ptr %247, i64 %329
   %331 = load float, ptr %330, align 4, !tbaa !78
-  %gep.i87 = getelementptr i16, ptr %invariant.gep.i84, i64 %indvars.iv215.i86
+  %gep.i87 = getelementptr [2 x i8], ptr %invariant.gep.i84, i64 %indvars.iv215.i86
   %332 = load i16, ptr %gep.i87, align 2, !tbaa !94
   %333 = uitofp i16 %332 to float
-  %334 = getelementptr inbounds float, ptr %248, i64 %329
+  %334 = getelementptr inbounds [4 x i8], ptr %248, i64 %329
   %335 = load float, ptr %334, align 4, !tbaa !78
   %336 = fmul nsz float %224, %335
   %337 = call nsz float @llvm.fmuladd.f32(float %331, float %333, float %336)
   %338 = fptoui float %337 to i16
-  %gep230.i88 = getelementptr i16, ptr %invariant.gep229.i85, i64 %indvars.iv215.i86
+  %gep230.i88 = getelementptr [2 x i8], ptr %invariant.gep229.i85, i64 %indvars.iv215.i86
   store i16 %338, ptr %gep230.i88, align 2, !tbaa !94
   %indvars.iv.next216.i89 = add nuw nsw i64 %indvars.iv215.i86, 1
   %exitcond219.not.i90 = icmp eq i64 %indvars.iv.next216.i89, %wide.trip.count218.i81
@@ -1220,12 +1220,12 @@ define internal noundef i32 @box_slice(ptr noundef readonly captures(none) %0, p
 .preheader68.us.us:                               ; preds = %.preheader68.lr.ph.split.us, %._crit_edge79.split.us.us.us
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %._crit_edge79.split.us.us.us ], [ %35, %.preheader68.lr.ph.split.us ]
   %37 = mul nsw i64 %indvars.iv111, %36
-  %invariant.gep123 = getelementptr float, ptr %24, i64 %37
+  %invariant.gep123 = getelementptr [4 x i8], ptr %24, i64 %37
   br label %38
 
 38:                                               ; preds = %38, %.preheader68.us.us
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %38 ], [ 0, %.preheader68.us.us ]
-  %gep124 = getelementptr float, ptr %invariant.gep123, i64 %indvars.iv106
+  %gep124 = getelementptr [4 x i8], ptr %invariant.gep123, i64 %indvars.iv106
   store float %34, ptr %gep124, align 4, !tbaa !78
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
@@ -1240,7 +1240,7 @@ define internal noundef i32 @box_slice(ptr noundef readonly captures(none) %0, p
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %._crit_edge79.split.us91 ], [ %35, %.preheader68.lr.ph.split.us ]
   %39 = mul nsw i64 %indvars.iv101, %36
   %40 = trunc nsw i64 %indvars.iv101 to i32
-  %invariant.gep = getelementptr float, ptr %24, i64 %39
+  %invariant.gep = getelementptr [4 x i8], ptr %24, i64 %39
   br label %.preheader.lr.ph.us
 
 .preheader.lr.ph.us:                              ; preds = %.preheader68.us, %._crit_edge75.split.us
@@ -1258,7 +1258,7 @@ define internal noundef i32 @box_slice(ptr noundef readonly captures(none) %0, p
   %46 = select i1 %44, i32 0, i32 %45
   %47 = add nsw i32 %56, %46
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds float, ptr %22, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %22, i64 %48
   %50 = load float, ptr %49, align 4, !tbaa !78
   %51 = fadd nsz float %.170.us86, %50
   %52 = add i32 %.071.us85, 1
@@ -1288,7 +1288,7 @@ define internal noundef i32 @box_slice(ptr noundef readonly captures(none) %0, p
   %60 = tail call i32 @llvm.smin.i32(i32 %58, i32 %32)
   %61 = select i1 %59, i32 0, i32 %60
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds float, ptr %22, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %22, i64 %62
   %64 = load float, ptr %63, align 4, !tbaa !78
   %65 = fadd nsz float %.170.us.us, %64
   %66 = add i32 %.071.us.us, 1
@@ -1297,7 +1297,7 @@ define internal noundef i32 @box_slice(ptr noundef readonly captures(none) %0, p
 
 ._crit_edge75.split.us:                           ; preds = %._crit_edge.us
   %67 = fdiv nsz float %.us-phi.us, %33
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %67, ptr %gep, align 4, !tbaa !78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next, %wide.trip.count109

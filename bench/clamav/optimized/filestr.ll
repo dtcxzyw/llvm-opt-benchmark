@@ -441,7 +441,7 @@ _ZN5ArrayIwE5AllocEm.exit173:                     ; preds = %152, %163, %154
 ._crit_edge:                                      ; preds = %173, %_ZN5ArrayIwE5AllocEm.exit173
   %168 = sub nsw i64 %.sroa.30.1323350, %spec.select138358
   %169 = lshr i64 %168, 1
-  %170 = getelementptr inbounds nuw i32, ptr %.sroa.0.6, i64 %169
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.6, i64 %169
   store i32 0, ptr %170, align 4, !tbaa !3
   br label %208
 
@@ -462,7 +462,7 @@ _ZN5ArrayIwE5AllocEm.exit173:                     ; preds = %152, %163, %154
   %179 = or disjoint i32 %178, %175
   %180 = sub nuw nsw i64 %.099371, %spec.select138358
   %181 = lshr exact i64 %180, 1
-  %182 = getelementptr inbounds nuw i32, ptr %.sroa.0.6, i64 %181
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.6, i64 %181
   store i32 %179, ptr %182, align 4, !tbaa !3
   %183 = add nuw nsw i64 %.099371, 2
   %184 = icmp samesign ult i64 %183, %165
@@ -613,7 +613,7 @@ _ZN5ArrayIwE5AllocEm.exit196:                     ; preds = %195, %205, %198
 
 229:                                              ; preds = %226
   %230 = call i64 @wcslen(ptr noundef nonnull %.094383) #10
-  %231 = getelementptr i32, ptr %.094383, i64 %230
+  %231 = getelementptr [4 x i8], ptr %.094383, i64 %230
   %232 = getelementptr i8, ptr %231, i64 -4
   %233 = load i32, ptr %232, align 4, !tbaa !3
   %234 = icmp eq i32 %233, 34

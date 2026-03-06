@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5G_link_table_t = type { i64, ptr }
-%struct.H5O_link_t = type { i32, i8, i64, i32, ptr, %union.anon }
-%union.anon = type { %struct.H5O_link_ud_t }
-%struct.H5O_link_ud_t = type { ptr, i64 }
 %struct.H5G_iter_bt_t = type { ptr, i64 }
 %struct.H5O_mesg_operator_t = type { i32, %union.anon.0 }
 %union.anon.0 = type { ptr }
@@ -121,7 +118,7 @@ define range(i32 -1, 1) i32 @H5G__compact_get_name_by_idx(ptr noundef %0, ptr no
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !16
-  %32 = getelementptr inbounds nuw %struct.H5O_link_t, ptr %31, i64 %4
+  %32 = getelementptr inbounds nuw [48 x i8], ptr %31, i64 %4
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !17
   %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #9
@@ -376,7 +373,7 @@ define range(i32 -1, 1) i32 @H5G__compact_remove_by_idx(ptr noundef %0, ptr noun
   store ptr %2, ptr %30, align 8, !tbaa !35
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !16
-  %33 = getelementptr inbounds nuw %struct.H5O_link_t, ptr %32, i64 %5
+  %33 = getelementptr inbounds nuw [48 x i8], ptr %32, i64 %5
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !17
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -603,7 +600,7 @@ define range(i32 -1, 1) i32 @H5G__compact_lookup_by_idx(ptr noundef %0, ptr noun
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !16
-  %30 = getelementptr inbounds nuw %struct.H5O_link_t, ptr %29, i64 %4
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %29, i64 %4
   %31 = call ptr @H5O_msg_copy(i32 noundef 6, ptr noundef %30, ptr noundef %5) #8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %37
@@ -659,7 +656,7 @@ define internal range(i32 -1, 1) i32 @H5G__compact_build_table_cb(ptr noundef %0
   %13 = load ptr, ptr %12, align 8, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !26
-  %16 = getelementptr inbounds nuw %struct.H5O_link_t, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %15
   %17 = tail call ptr @H5O_msg_copy(i32 noundef 6, ptr noundef %0, ptr noundef %16) #8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %23

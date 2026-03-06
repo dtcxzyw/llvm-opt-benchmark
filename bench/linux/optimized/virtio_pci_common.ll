@@ -26,7 +26,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.attribute = type { ptr, i16 }
 %struct.pci_device_id = type { i32, i32, i32, i32, i32, i32, i64, i32 }
 %struct.dev_pm_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.cpumask = type { [1 x i64] }
 
 @__param_str_force_legacy = internal constant [24 x i8] c"virtio_pci.force_legacy\00", align 16
 @param_ops_bool = external dso_local constant %struct.kernel_param_ops, align 8
@@ -147,7 +146,7 @@ define dso_local void @vp_del_vqs(ptr noundef %0) local_unnamed_addr #0 align 16
 20:                                               ; preds = %17
   %21 = load ptr, ptr %8, align 8
   %22 = zext i32 %.pre5 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i32, ptr %25, align 8
@@ -169,7 +168,7 @@ define dso_local void @vp_del_vqs(ptr noundef %0) local_unnamed_addr #0 align 16
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 960
   %38 = load ptr, ptr %37, align 8
   %39 = zext i32 %34 to i64
-  %40 = getelementptr ptr, ptr %38, i64 %39
+  %40 = getelementptr [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %43 = load i8, ptr %42, align 4, !range !8, !noundef !9
@@ -350,14 +349,14 @@ define dso_local i32 @vp_find_vqs(ptr noundef initializes((960, 968)) %0, i32 no
   %49 = phi i32 [ 0, %43 ], [ %91, %90 ]
   %50 = phi i32 [ 0, %43 ], [ %93, %90 ]
   %51 = sext i32 %50 to i64
-  %52 = getelementptr ptr, ptr %4, i64 %51
+  %52 = getelementptr [8 x i8], ptr %4, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %90, label %55
 
 55:                                               ; preds = %48
   %56 = add i32 %49, 1
-  %57 = getelementptr ptr, ptr %3, i64 %51
+  %57 = getelementptr [8 x i8], ptr %3, i64 %51
   %58 = load ptr, ptr %57, align 8
   br i1 %44, label %63, label %59
 
@@ -375,7 +374,7 @@ define dso_local i32 @vp_find_vqs(ptr noundef initializes((960, 968)) %0, i32 no
   br i1 %67, label %vp_setup_vq.exit.thread, label %69
 
 vp_setup_vq.exit.thread:                          ; preds = %63
-  %68 = getelementptr ptr, ptr %2, i64 %51
+  %68 = getelementptr [8 x i8], ptr %2, i64 %51
   store ptr inttoptr (i64 -12 to ptr), ptr %68, align 8
   br label %.loopexit
 
@@ -413,13 +412,13 @@ vp_setup_vq.exit.thread:                          ; preds = %63
 vp_setup_vq.exit:                                 ; preds = %75, %81
   %84 = load ptr, ptr %23, align 8
   %85 = zext i32 %49 to i64
-  %86 = getelementptr ptr, ptr %84, i64 %85
+  %86 = getelementptr [8 x i8], ptr %84, i64 %85
   store ptr %66, ptr %86, align 8
   br label %90
 
 .loopexit.loopexit:                               ; preds = %69
   tail call void @kfree(ptr noundef nonnull %66) #10
-  %87 = getelementptr ptr, ptr %2, i64 %51
+  %87 = getelementptr [8 x i8], ptr %2, i64 %51
   store ptr %71, ptr %87, align 8
   %88 = ptrtoint ptr %71 to i64
   %89 = trunc i64 %88 to i32
@@ -428,7 +427,7 @@ vp_setup_vq.exit:                                 ; preds = %75, %81
 90:                                               ; preds = %48, %vp_setup_vq.exit
   %.sink = phi ptr [ %71, %vp_setup_vq.exit ], [ null, %48 ]
   %91 = phi i32 [ %56, %vp_setup_vq.exit ], [ %49, %48 ]
-  %92 = getelementptr ptr, ptr %2, i64 %51
+  %92 = getelementptr [8 x i8], ptr %2, i64 %51
   store ptr %.sink, ptr %92, align 8
   %93 = add nuw i32 %50, 1
   %94 = icmp eq i32 %93, %1
@@ -466,13 +465,13 @@ define internal fastcc i32 @vp_find_vqs_msix(ptr noundef initializes((960, 968))
   %18 = phi i32 [ %31, %30 ], [ 1, %16 ]
   %19 = phi i32 [ %32, %30 ], [ 0, %16 ]
   %20 = sext i32 %19 to i64
-  %21 = getelementptr ptr, ptr %4, i64 %20
+  %21 = getelementptr [8 x i8], ptr %4, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %30, label %24
 
 24:                                               ; preds = %.preheader
-  %25 = getelementptr ptr, ptr %3, i64 %20
+  %25 = getelementptr [8 x i8], ptr %3, i64 %20
   %26 = load ptr, ptr %25, align 8
   %27 = icmp ne ptr %26, null
   %28 = zext i1 %27 to i32
@@ -617,18 +616,18 @@ define internal fastcc i32 @vp_find_vqs_msix(ptr noundef initializes((960, 968))
   %119 = phi i32 [ %111, %110 ], [ %198, %197 ]
   %120 = phi i32 [ 0, %110 ], [ %200, %197 ]
   %121 = sext i32 %120 to i64
-  %122 = getelementptr ptr, ptr %4, i64 %121
+  %122 = getelementptr [8 x i8], ptr %4, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %123, null
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %117
-  %126 = getelementptr ptr, ptr %2, i64 %121
+  %126 = getelementptr [8 x i8], ptr %2, i64 %121
   store ptr null, ptr %126, align 8
   br label %197
 
 127:                                              ; preds = %117
-  %128 = getelementptr ptr, ptr %3, i64 %121
+  %128 = getelementptr [8 x i8], ptr %3, i64 %121
   %129 = load ptr, ptr %128, align 8
   %130 = icmp eq ptr %129, null
   br i1 %130, label %137, label %131
@@ -663,7 +662,7 @@ define internal fastcc i32 @vp_find_vqs_msix(ptr noundef initializes((960, 968))
   br i1 %149, label %vp_setup_vq.exit.thread, label %151
 
 vp_setup_vq.exit.thread:                          ; preds = %145
-  %150 = getelementptr ptr, ptr %2, i64 %121
+  %150 = getelementptr [8 x i8], ptr %2, i64 %121
   store ptr inttoptr (i64 -12 to ptr), ptr %150, align 8
   br label %.thread16
 
@@ -699,7 +698,7 @@ vp_setup_vq.exit.thread:                          ; preds = %145
 
 .loopexit.loopexit:                               ; preds = %151
   tail call void @kfree(ptr noundef nonnull %148) #10
-  %165 = getelementptr ptr, ptr %2, i64 %121
+  %165 = getelementptr [8 x i8], ptr %2, i64 %121
   store ptr %153, ptr %165, align 8
   %166 = ptrtoint ptr %153 to i64
   %167 = trunc i64 %166 to i32
@@ -708,9 +707,9 @@ vp_setup_vq.exit.thread:                          ; preds = %145
 168:                                              ; preds = %162, %156
   %169 = load ptr, ptr %13, align 8
   %170 = zext i32 %118 to i64
-  %171 = getelementptr ptr, ptr %169, i64 %170
+  %171 = getelementptr [8 x i8], ptr %169, i64 %170
   store ptr %148, ptr %171, align 8
-  %172 = getelementptr ptr, ptr %2, i64 %121
+  %172 = getelementptr [8 x i8], ptr %2, i64 %121
   store ptr %153, ptr %172, align 8
   %173 = load i8, ptr %108, align 8, !range !8, !noundef !9
   %174 = icmp eq i8 %173, 0
@@ -789,7 +788,7 @@ define dso_local noundef range(i32 -22, 1) i32 @vp_set_vq_affinity(ptr noundef r
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr ptr, ptr %6, i64 %9
+  %10 = getelementptr [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -819,7 +818,7 @@ define dso_local noundef range(i32 -22, 1) i32 @vp_set_vq_affinity(ptr noundef r
 
 30:                                               ; preds = %19
   %31 = zext i32 %23 to i64
-  %32 = getelementptr [1 x %struct.cpumask], ptr %21, i64 %31
+  %32 = getelementptr [8 x i8], ptr %21, i64 %31
   %33 = load i64, ptr %1, align 8
   store i64 %33, ptr %32, align 8
   %34 = tail call i32 @__irq_apply_affinity_hint(i32 noundef %26, ptr noundef %32, i1 noundef zeroext true) #10
@@ -841,7 +840,7 @@ define dso_local ptr @vp_get_vq_affinity(ptr noundef readonly captures(none) %0,
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %1 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8

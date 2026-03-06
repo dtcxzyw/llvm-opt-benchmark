@@ -22,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.7" = type { %"struct.std::_Head_base.8" }
 %"struct.std::_Head_base.8" = type { i64 }
 %"struct.std::_Head_base.24" = type { i64 }
-%"struct.llvm::DWARFDebugArangeSet::Descriptor" = type { i64, i64 }
 %"class.llvm::format_object.19" = type { %"class.llvm::format_object_base", %"class.std::tuple.20" }
 %"class.std::tuple.20" = type { %"struct.std::_Tuple_impl.21" }
 %"struct.std::_Tuple_impl.21" = type { %"struct.std::_Tuple_impl.22", %"struct.std::_Head_base.24" }
@@ -536,7 +535,7 @@ _ZNSt6vectorIN4llvm19DWARFDebugArangeSet10DescriptorESaIS2_EE11_S_relocateEPS2_S
 _ZNSt6vectorIN4llvm19DWARFDebugArangeSet10DescriptorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %157, %_ZNSt6vectorIN4llvm19DWARFDebugArangeSet10DescriptorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %152, ptr %16, align 8, !tbaa !28
   store ptr %156, ptr %18, align 8, !tbaa !29
-  %158 = getelementptr inbounds nuw %"struct.llvm::DWARFDebugArangeSet::Descriptor", ptr %152, i64 %150
+  %158 = getelementptr inbounds nuw [16 x i8], ptr %152, i64 %150
   store ptr %158, ptr %106, align 8, !tbaa !78
   br label %_ZNSt6vectorIN4llvm19DWARFDebugArangeSet10DescriptorESaIS2_EE9push_backERKS2_.exit
 

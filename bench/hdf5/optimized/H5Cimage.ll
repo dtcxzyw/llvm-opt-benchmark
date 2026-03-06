@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5C_class_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.H5C_image_entry_t = type { i64, i64, i32, i32, i32, i32, i8, i32, i64, ptr, i64, i64, ptr }
 %struct.H5O_mdci_t = type { i64, i64 }
 
 @.str = private unnamed_addr constant [18 x i8] c"H5C_cache_entry_t\00", align 1
@@ -321,7 +320,7 @@ H5C__encode_cache_image_header.exit.preheader.i:  ; preds = %H5C__cache_image_bl
 
 82:                                               ; preds = %74
   %83 = load ptr, ptr %66, align 8, !tbaa !60
-  %84 = getelementptr inbounds nuw %struct.H5C_image_entry_t, ptr %83, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw [80 x i8], ptr %83, i64 %indvars.iv.i
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %86 = load i32, ptr %85, align 8, !tbaa !61
   %or.cond.i.i = icmp ugt i32 %86, 255
@@ -577,7 +576,7 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %229, %218
   %243 = phi i64 [ 0, %.lr.ph.i.i ], [ %248, %242 ]
   %.06982.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %247, %242 ]
   %244 = load ptr, ptr %237, align 8, !tbaa !75
-  %245 = getelementptr inbounds nuw i64, ptr %244, i64 %243
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %243
   %246 = load i64, ptr %245, align 8, !tbaa !53
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %246) #15
   %247 = add i32 %.06982.i.i, 1
@@ -655,7 +654,7 @@ H5C__encode_cache_image_header.exit.i:            ; preds = %._crit_edge.i.i, %7
 .lr.ph.i12:                                       ; preds = %.preheader.i, %293
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i14, %293 ], [ 0, %.preheader.i ]
   %287 = load ptr, ptr %284, align 8, !tbaa !60
-  %288 = getelementptr inbounds nuw %struct.H5C_image_entry_t, ptr %287, i64 %indvars.iv.i13
+  %288 = getelementptr inbounds nuw [80 x i8], ptr %287, i64 %indvars.iv.i13
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 48
   %290 = load ptr, ptr %289, align 8, !tbaa !75
   %.not13.i = icmp eq ptr %290, null
@@ -1355,10 +1354,10 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %334, %323
   %364 = phi ptr [ %367, %359 ], [ %351, %.preheader.i.i ]
   %365 = phi i64 [ %361, %359 ], [ 0, %.preheader.i.i ]
   %.082105.i.i = phi i32 [ %360, %359 ], [ 0, %.preheader.i.i ]
-  %366 = getelementptr inbounds nuw i64, ptr %364, i64 %365
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %364, i64 %365
   call void @H5F_addr_decode(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %366) #15
   %367 = load ptr, ptr %352, align 8, !tbaa !100
-  %368 = getelementptr inbounds nuw i64, ptr %367, i64 %365
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %367, i64 %365
   %369 = load i64, ptr %368, align 8, !tbaa !53
   %.not96.i.i = icmp eq i64 %369, -1
   br i1 %.not96.i.i, label %370, label %359
@@ -1413,7 +1412,7 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %334, %323
   %395 = load i64, ptr %260, align 8, !tbaa !97
   %396 = lshr i64 %395, 3
   %397 = and i64 %396, 65535
-  %398 = getelementptr inbounds nuw ptr, ptr %166, i64 %397
+  %398 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %397
   %399 = load ptr, ptr %398, align 8, !tbaa !108
   %.not282.i = icmp eq ptr %399, null
   br i1 %.not282.i, label %403, label %400
@@ -1435,11 +1434,11 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %334, %323
   store i64 %407, ptr %168, align 8, !tbaa !112
   %408 = load i32, ptr %233, align 8, !tbaa !91
   %409 = sext i32 %408 to i64
-  %410 = getelementptr inbounds i32, ptr %169, i64 %409
+  %410 = getelementptr inbounds [4 x i8], ptr %169, i64 %409
   %411 = load i32, ptr %410, align 4, !tbaa !83
   %412 = add i32 %411, 1
   store i32 %412, ptr %410, align 4, !tbaa !83
-  %413 = getelementptr inbounds i64, ptr %170, i64 %409
+  %413 = getelementptr inbounds [8 x i8], ptr %170, i64 %409
   %414 = load i64, ptr %413, align 8, !tbaa !53
   %415 = add i64 %414, %374
   store i64 %415, ptr %413, align 8, !tbaa !53
@@ -1462,7 +1461,7 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %334, %323
 424:                                              ; preds = %421, %418
   %425 = phi i64 [ 176, %421 ], [ 232, %418 ]
   %426 = getelementptr inbounds nuw i8, ptr %14, i64 %425
-  %427 = getelementptr inbounds i64, ptr %426, i64 %409
+  %427 = getelementptr inbounds [8 x i8], ptr %426, i64 %409
   %428 = load i64, ptr %427, align 8, !tbaa !53
   %429 = add i64 %428, %374
   store i64 %429, ptr %427, align 8, !tbaa !53
@@ -1534,11 +1533,11 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %334, %323
   store i64 %466, ptr %182, align 8, !tbaa !128
   %467 = load i32, ptr %233, align 8, !tbaa !91
   %468 = sext i32 %467 to i64
-  %469 = getelementptr inbounds i32, ptr %183, i64 %468
+  %469 = getelementptr inbounds [4 x i8], ptr %183, i64 %468
   %470 = load i32, ptr %469, align 4, !tbaa !83
   %471 = add i32 %470, 1
   store i32 %471, ptr %469, align 4, !tbaa !83
-  %472 = getelementptr inbounds i64, ptr %184, i64 %468
+  %472 = getelementptr inbounds [8 x i8], ptr %184, i64 %468
   %473 = load i64, ptr %472, align 8, !tbaa !53
   %474 = add i64 %473, %464
   store i64 %474, ptr %472, align 8, !tbaa !53
@@ -1617,11 +1616,11 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %334, %323
   %509 = phi i64 [ 0, %.lr.ph330.i ], [ %672, %670 ]
   %.0264328.i = phi i32 [ 0, %.lr.ph330.i ], [ %671, %670 ]
   %510 = load ptr, ptr %507, align 8, !tbaa !100
-  %511 = getelementptr inbounds nuw i64, ptr %510, i64 %509
+  %511 = getelementptr inbounds nuw [8 x i8], ptr %510, i64 %509
   %512 = load i64, ptr %511, align 8, !tbaa !53
   %513 = lshr i64 %512, 3
   %514 = and i64 %513, 65535
-  %515 = getelementptr inbounds nuw ptr, ptr %166, i64 %514
+  %515 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %514
   %.0262321.i = load ptr, ptr %515, align 8, !tbaa !108
   %cond322.i = icmp eq ptr %.0262321.i, null
   %.not284.i = icmp eq i64 %512, -1
@@ -2348,11 +2347,11 @@ H5C__cache_image_block_entry_header_size.exit.i:  ; preds = %97, %H5C__cache_ima
 
 141:                                              ; preds = %141, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %141 ]
-  %142 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv.i
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %indvars.iv.i
   %143 = load ptr, ptr %142, align 8, !tbaa !108
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load i64, ptr %144, align 8, !tbaa !97
-  %146 = getelementptr inbounds nuw i64, ptr %137, i64 %indvars.iv.i
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %indvars.iv.i
   store i64 %145, ptr %146, align 8, !tbaa !53
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %147 = load i64, ptr %120, align 8, !tbaa !95
@@ -2457,7 +2456,7 @@ H5C__cache_image_block_entry_header_size.exit.i:  ; preds = %97, %H5C__cache_ima
 196:                                              ; preds = %208, %.lr.ph.i.i
   %197 = phi i1 [ true, %.lr.ph.i.i ], [ %209, %208 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %208 ]
-  %198 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv.i.i
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %indvars.iv.i.i
   %199 = load ptr, ptr %198, align 8, !tbaa !108
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 48
   %201 = load i8, ptr %200, align 8, !tbaa !90, !range !7, !noundef !8
@@ -2516,7 +2515,7 @@ H5C__cache_image_block_entry_header_size.exit.i:  ; preds = %97, %H5C__cache_ima
 
 220:                                              ; preds = %236, %.preheader107.i.i
   %indvars.iv138.i.i = phi i64 [ 0, %.preheader107.i.i ], [ %indvars.iv.next139.i.i, %236 ]
-  %221 = getelementptr inbounds nuw ptr, ptr %218, i64 %indvars.iv138.i.i
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %indvars.iv138.i.i
   %222 = load ptr, ptr %221, align 8, !tbaa !108
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 152
   %224 = load i8, ptr %223, align 8, !tbaa !159, !range !7, !noundef !8
@@ -2556,7 +2555,7 @@ H5C__cache_image_block_entry_header_size.exit.i:  ; preds = %97, %H5C__cache_ima
 
 241:                                              ; preds = %253, %.preheader106.i.i
   %indvars.iv143.i.i = phi i64 [ 0, %.preheader106.i.i ], [ %indvars.iv.next144.i.i, %253 ]
-  %242 = getelementptr inbounds nuw ptr, ptr %239, i64 %indvars.iv143.i.i
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %indvars.iv143.i.i
   %243 = load ptr, ptr %242, align 8, !tbaa !108
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 152
   %245 = load i8, ptr %244, align 8, !tbaa !159, !range !7, !noundef !8
@@ -2569,7 +2568,7 @@ H5C__cache_image_block_entry_header_size.exit.i:  ; preds = %97, %H5C__cache_ima
   %250 = add i64 %249, -1
   store i64 %250, ptr %248, align 8, !tbaa !93
   %251 = load ptr, ptr %240, align 8, !tbaa !100
-  %252 = getelementptr inbounds nuw i64, ptr %251, i64 %indvars.iv143.i.i
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %indvars.iv143.i.i
   store i64 -1, ptr %252, align 8, !tbaa !53
   br label %253
 
@@ -2606,14 +2605,14 @@ H5C__cache_image_block_entry_header_size.exit.i:  ; preds = %97, %H5C__cache_ima
 .preheader105.i.i:                                ; preds = %263, %275
   %indvars.iv148.i.i = phi i64 [ %indvars.iv.next149.i.i, %275 ], [ 0, %263 ]
   %.076122.i.i = phi i32 [ %.1.i.i, %275 ], [ 0, %263 ]
-  %269 = getelementptr inbounds nuw i64, ptr %264, i64 %indvars.iv148.i.i
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %indvars.iv148.i.i
   %270 = load i64, ptr %269, align 8, !tbaa !53
   %.not96.i.i = icmp eq i64 %270, -1
   br i1 %.not96.i.i, label %275, label %271
 
 271:                                              ; preds = %.preheader105.i.i
   %272 = zext i32 %.076122.i.i to i64
-  %273 = getelementptr inbounds nuw i64, ptr %267, i64 %272
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %267, i64 %272
   store i64 %270, ptr %273, align 8, !tbaa !53
   %274 = add i32 %.076122.i.i, 1
   br label %275
@@ -2658,7 +2657,7 @@ H5C__cache_image_block_entry_header_size.exit.i:  ; preds = %97, %H5C__cache_ima
   %290 = phi i64 [ 0, %.lr.ph128.i.i ], [ %305, %302 ]
   %.4127.i.i = phi i32 [ 0, %.lr.ph128.i.i ], [ %304, %302 ]
   %291 = load ptr, ptr %287, align 8, !tbaa !163
-  %292 = getelementptr inbounds nuw ptr, ptr %291, i64 %290
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %291, i64 %290
   %293 = load ptr, ptr %292, align 8, !tbaa !108
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 152
   %295 = load i8, ptr %294, align 8, !tbaa !159, !range !7, !noundef !8
@@ -2916,7 +2915,7 @@ H5C__write_cache_image_superblock_msg.exit46.thread: ; preds = %392, %385
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv.i48 = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i49, %.preheader.i ]
-  %425 = getelementptr inbounds nuw %struct.H5C_image_entry_t, ptr %423, i64 %indvars.iv.i48
+  %425 = getelementptr inbounds nuw [80 x i8], ptr %423, i64 %indvars.iv.i48
   store i64 -1, ptr %425, align 8, !tbaa !72
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 16
   store i32 0, ptr %426, align 8, !tbaa !68
@@ -2944,7 +2943,7 @@ H5C__write_cache_image_superblock_msg.exit46.thread: ; preds = %392, %385
   %434 = getelementptr inbounds nuw i8, ptr %.06978.i, i64 8
   %435 = load i64, ptr %434, align 8, !tbaa !97
   %436 = zext i32 %.177.i to i64
-  %437 = getelementptr inbounds nuw %struct.H5C_image_entry_t, ptr %423, i64 %436
+  %437 = getelementptr inbounds nuw [80 x i8], ptr %423, i64 %436
   store i64 %435, ptr %437, align 8, !tbaa !72
   %438 = getelementptr inbounds nuw i8, ptr %.06978.i, i64 16
   %439 = load i64, ptr %438, align 8, !tbaa !98
@@ -3314,7 +3313,7 @@ define internal fastcc void @H5C__prep_for_file_close__compute_fd_heights_real(p
   %19 = phi i64 [ 0, %.lr.ph ], [ %33, %30 ]
   %.015 = phi i32 [ 0, %.lr.ph ], [ %32, %30 ]
   %20 = load ptr, ptr %15, align 8, !tbaa !163
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !108
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 152
   %24 = load i8, ptr %23, align 8, !tbaa !159, !range !7, !noundef !8

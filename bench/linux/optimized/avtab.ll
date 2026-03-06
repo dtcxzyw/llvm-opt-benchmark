@@ -99,7 +99,7 @@ define dso_local ptr @avtab_insert_nonunique(ptr noundef captures(address_is_nul
   %60 = and i32 %59, %15
   %61 = load ptr, ptr %0, align 8
   %62 = zext i32 %60 to i64
-  %63 = getelementptr ptr, ptr %61, i64 %62
+  %63 = getelementptr [8 x i8], ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.loopexit, label %66
@@ -279,7 +279,7 @@ define dso_local noundef ptr @avtab_search_node(ptr noundef readonly captures(ad
   %55 = and i32 %54, %10
   %56 = load ptr, ptr %0, align 8
   %57 = zext i32 %55 to i64
-  %58 = getelementptr ptr, ptr %56, i64 %57
+  %58 = getelementptr [8 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.thread6, label %61
@@ -437,7 +437,7 @@ define dso_local void @avtab_destroy(ptr noundef captures(address_is_null) %0) l
   %7 = phi i32 [ %27, %.loopexit ], [ %5, %3 ]
   %8 = phi i64 [ %28, %.loopexit ], [ 0, %3 ]
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr ptr, ptr %9, i64 %8
+  %10 = getelementptr [8 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %.preheader
@@ -706,7 +706,7 @@ define dso_local i32 @avtab_read_item(ptr noundef %0, ptr noundef captures(none)
 82:                                               ; preds = %98, %76
   %83 = phi i64 [ 0, %76 ], [ %100, %98 ]
   %84 = phi i32 [ 4, %76 ], [ %99, %98 ]
-  %85 = getelementptr i16, ptr @spec_order, i64 %83
+  %85 = getelementptr [2 x i8], ptr @spec_order, i64 %83
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = and i32 %59, %87
@@ -718,7 +718,7 @@ define dso_local i32 @avtab_read_item(ptr noundef %0, ptr noundef captures(none)
   store i16 %91, ptr %79, align 2
   %92 = add i32 %84, 1
   %93 = zext i32 %84 to i64
-  %94 = getelementptr i32, ptr %9, i64 %93
+  %94 = getelementptr [4 x i8], ptr %9, i64 %93
   %95 = load i32, ptr %94, align 4
   store i32 %95, ptr %7, align 8
   %96 = call i32 %3(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %4) #13
@@ -1016,7 +1016,7 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr noundef captures(no
   %49 = phi i32 [ %69, %.loopexit ], [ %47, %45 ]
   %50 = phi i64 [ %70, %.loopexit ], [ 0, %45 ]
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr ptr, ptr %51, i64 %50
+  %52 = getelementptr [8 x i8], ptr %51, i64 %50
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.loopexit, label %.preheader
@@ -1129,7 +1129,7 @@ define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef capture
   %61 = and i32 %60, %16
   %62 = load ptr, ptr %0, align 8
   %63 = zext i32 %61 to i64
-  %64 = getelementptr ptr, ptr %62, i64 %63
+  %64 = getelementptr [8 x i8], ptr %62, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.thread9, label %67
@@ -1387,7 +1387,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avtab_write(ptr noundef readnone
   %.pr = phi i64 [ %.pr5, %.loopexit ], [ %15, %8 ]
   %21 = phi i64 [ %91, %.loopexit ], [ 0, %8 ]
   %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr ptr, ptr %22, i64 %21
+  %23 = getelementptr [8 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.loopexit, label %thread-pre-split

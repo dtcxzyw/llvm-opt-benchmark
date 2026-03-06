@@ -51,35 +51,18 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::once_flag" = type { i32 }
 %class.anon.629 = type { ptr, ptr }
 %"class.std::reference_wrapper" = type { ptr }
-%"struct.llvm::RAGreedy::ExtraRegInfo::RegInfo" = type { i32, i32 }
 %"struct.llvm::EvictionCost" = type { i32, float }
-%"struct.llvm::MCRegisterDesc" = type { i32, i32, i32, i32, i32, i16, i8, i8 }
-%"class.llvm::Register" = type { i32 }
-%"struct.std::pair" = type { %"class.llvm::PointerUnion", ptr }
-%"class.llvm::PointerUnion" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.284" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.284" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.285" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.285" = type { %"class.llvm::PointerIntPair.286" }
-%"class.llvm::PointerIntPair.286" = type { %"struct.llvm::detail::PunnedPointer.287" }
-%"struct.llvm::detail::PunnedPointer.287" = type { [8 x i8] }
-%"struct.llvm::RegisterClassInfo::RCInfo" = type { i32, i32, i8, i8, i16, %"class.std::unique_ptr.602" }
-%"class.std::unique_ptr.602" = type { %"struct.std::__uniq_ptr_data.603" }
-%"struct.std::__uniq_ptr_data.603" = type { %"class.std::__uniq_ptr_impl.604" }
-%"class.std::__uniq_ptr_impl.604" = type { %"class.std::tuple.605" }
-%"class.std::tuple.605" = type { %"struct.std::_Tuple_impl.606" }
-%"struct.std::_Tuple_impl.606" = type { %"struct.std::_Head_base.609" }
-%"struct.std::_Head_base.609" = type { ptr }
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"class.llvm::cl::parser<llvm::RegAllocEvictionAdvisorAnalysis::AdvisorMode>::OptionInfo" = type { %"class.llvm::cl::generic_parser_base::GenericOptionInfo", %"struct.llvm::cl::OptionValue" }
-%"class.llvm::cl::generic_parser_base::GenericOptionInfo" = type { %"class.llvm::StringRef", %"class.llvm::StringRef" }
 %"class.std::unique_ptr.186" = type { %"struct.std::__uniq_ptr_data.187" }
 %"struct.std::__uniq_ptr_data.187" = type { %"class.std::__uniq_ptr_impl.188" }
 %"class.std::__uniq_ptr_impl.188" = type { %"class.std::tuple.189" }
 %"class.std::tuple.189" = type { %"struct.std::_Tuple_impl.190" }
 %"struct.std::_Tuple_impl.190" = type { %"struct.std::_Head_base.193" }
 %"struct.std::_Head_base.193" = type { ptr }
+%"class.llvm::cl::parser<llvm::RegAllocEvictionAdvisorAnalysis::AdvisorMode>::OptionInfo" = type { %"class.llvm::cl::generic_parser_base::GenericOptionInfo", %"struct.llvm::cl::OptionValue" }
+%"class.llvm::cl::generic_parser_base::GenericOptionInfo" = type { %"class.llvm::StringRef", %"class.llvm::StringRef" }
 %"struct.llvm::cl::desc" = type { %"class.llvm::StringRef" }
 %"struct.llvm::cl::initializer.36" = type { ptr }
 %"struct.llvm::cl::initializer.22" = type { ptr }
@@ -287,7 +270,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %28 = phi i32 [ %23, %6 ], [ %.pre.i.i, %25 ]
   %29 = load ptr, ptr %12, align 8, !tbaa !25
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = ptrtoint ptr %22 to i64
   store i64 %32, ptr %31, align 1
   %33 = load i32, ptr %14, align 8, !tbaa !26
@@ -448,7 +431,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !25
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !26
@@ -584,7 +567,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !25
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !26
@@ -773,10 +756,10 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %2 = load i32, ptr %1, align 4, !tbaa !98
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm31RegAllocEvictionAdvisorAnalysis11getPassNameEv, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvm31RegAllocEvictionAdvisorAnalysis11getPassNameEv, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i32 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm31RegAllocEvictionAdvisorAnalysis11getPassNameEv.2, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvm31RegAllocEvictionAdvisorAnalysis11getPassNameEv.2, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -867,7 +850,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm22DefaultEvictionAdvisor11shouldEv
   %10 = and i32 %.sroa.0.0.copyload.i.i, 2147483647
   %11 = zext nneg i32 %10 to i64
   %12 = load ptr, ptr %8, align 8, !tbaa !25
-  %13 = getelementptr inbounds nuw %"struct.llvm::RAGreedy::ExtraRegInfo::RegInfo", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load i32, ptr %13, align 4, !tbaa !424
   %15 = icmp slt i32 %14, 4
   %or.cond = and i1 %2, %15
@@ -931,7 +914,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm22DefaultEvictionAdvisor31canEvict
   %25 = and i32 %.sroa.0.0.copyload.i, 2147483647
   %26 = zext nneg i32 %25 to i64
   %27 = load ptr, ptr %23, align 8, !tbaa !25
-  %28 = getelementptr inbounds nuw %"struct.llvm::RAGreedy::ExtraRegInfo::RegInfo", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !452
   %.not.i = icmp eq i32 %30, 0
@@ -949,12 +932,12 @@ define dso_local noundef zeroext i1 @_ZNK4llvm22DefaultEvictionAdvisor31canEvict
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !457, !noalias !454
   %39 = zext i32 %2 to i64
-  %40 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i32, ptr %41, align 4, !tbaa !458, !noalias !454
   %43 = lshr i32 %42, 12
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw i16, ptr %36, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %44
   %46 = and i32 %42, 4095
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 96
@@ -1045,7 +1028,7 @@ _ZN4llvm17LiveIntervalUnion5Query16interferingVRegsEj.exit: ; preds = %59, %69
 
 _ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i: ; preds = %90, %.lr.ph.i.i.i, %83
   %.1.i.i.i = phi ptr [ %87, %83 ], [ %.0912.i.i.i, %.lr.ph.i.i.i ], [ %87, %90 ]
-  %92 = getelementptr inbounds nuw %"class.llvm::Register", ptr %84, i64 %86
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %86
   %.not214 = icmp eq ptr %.1.i.i.i, %92
   br i1 %.not214, label %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5countERKS1_.exit.thread, label %.thread126
 
@@ -1083,7 +1066,7 @@ _ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5countERKS1_.exit.thread: ; pr
   %103 = and i32 %.sroa.0.0.copyload.i76, 2147483647
   %104 = zext nneg i32 %103 to i64
   %105 = load ptr, ptr %102, align 8, !tbaa !25
-  %106 = getelementptr inbounds nuw %"struct.llvm::RAGreedy::ExtraRegInfo::RegInfo", ptr %105, i64 %104
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %104
   %107 = load i32, ptr %106, align 4, !tbaa !424
   %108 = icmp eq i32 %107, 6
   br i1 %108, label %.thread126, label %109
@@ -1107,7 +1090,7 @@ _ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5countERKS1_.exit.thread: ; pr
   %120 = and i32 %.sroa.0.0.copyload.i77, 2147483647
   %121 = zext nneg i32 %120 to i64
   %122 = load ptr, ptr %119, align 8, !tbaa !25
-  %123 = getelementptr inbounds nuw %"struct.std::pair", ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %122, i64 %121
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %123, align 8
   %124 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %125 = inttoptr i64 %124 to ptr
@@ -1116,7 +1099,7 @@ _ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5countERKS1_.exit.thread: ; pr
   %128 = load i16, ptr %127, align 8, !tbaa !505
   %129 = zext i16 %128 to i64
   %130 = load ptr, ptr %117, align 8, !tbaa !507
-  %131 = getelementptr inbounds nuw %"struct.llvm::RegisterClassInfo::RCInfo", ptr %130, i64 %129
+  %131 = getelementptr inbounds nuw [24 x i8], ptr %130, i64 %129
   %132 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %133 = load i32, ptr %132, align 8, !tbaa !508
   %134 = load i32, ptr %131, align 8, !tbaa !509
@@ -1146,7 +1129,7 @@ _ZNK4llvm17RegisterClassInfo21getNumAllocatableRegsEPKNS_19TargetRegisterClassE.
   %139 = phi ptr [ %117, %116 ], [ %.pre175, %135 ]
   %140 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %141 = load i32, ptr %140, align 4, !tbaa !517
-  %142 = getelementptr inbounds nuw %"struct.std::pair", ptr %138, i64 %.pre-phi193
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %138, i64 %.pre-phi193
   %.0.copyload.i.i.i.i.i.i.i.i80 = load i64, ptr %142, align 8
   %143 = and i64 %.0.copyload.i.i.i.i.i.i.i.i80, -8
   %144 = inttoptr i64 %143 to ptr
@@ -1154,7 +1137,7 @@ _ZNK4llvm17RegisterClassInfo21getNumAllocatableRegsEPKNS_19TargetRegisterClassE.
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %147 = load i16, ptr %146, align 8, !tbaa !505
   %148 = zext i16 %147 to i64
-  %149 = getelementptr inbounds nuw %"struct.llvm::RegisterClassInfo::RCInfo", ptr %137, i64 %148
+  %149 = getelementptr inbounds nuw [24 x i8], ptr %137, i64 %148
   %150 = load i32, ptr %149, align 8, !tbaa !509
   %.not.i.i81 = icmp eq i32 %136, %150
   br i1 %.not.i.i81, label %_ZNK4llvm17RegisterClassInfo21getNumAllocatableRegsEPKNS_19TargetRegisterClassE.exit82, label %151
@@ -1182,7 +1165,7 @@ _ZNK4llvm17RegisterClassInfo21getNumAllocatableRegsEPKNS_19TargetRegisterClassE.
   %156 = phi ptr [ %105, %112 ], [ %.pre185, %_ZNK4llvm17RegisterClassInfo21getNumAllocatableRegsEPKNS_19TargetRegisterClassE.exit82 ], [ %105, %109 ]
   %.sroa.0.0.copyload.i83 = phi i32 [ %.sroa.0.0.copyload.i76, %112 ], [ %.sroa.0.0.copyload.i83.pre, %_ZNK4llvm17RegisterClassInfo21getNumAllocatableRegsEPKNS_19TargetRegisterClassE.exit82 ], [ %.sroa.0.0.copyload.i76, %109 ]
   %157 = phi i1 [ true, %112 ], [ %154, %_ZNK4llvm17RegisterClassInfo21getNumAllocatableRegsEPKNS_19TargetRegisterClassE.exit82 ], [ false, %109 ]
-  %158 = getelementptr inbounds nuw %"struct.llvm::RAGreedy::ExtraRegInfo::RegInfo", ptr %156, i64 %.pre-phi189
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %.pre-phi189
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %160 = load i32, ptr %159, align 4, !tbaa !452
   %161 = icmp eq i32 %.0.i, %160
@@ -1233,7 +1216,7 @@ _ZNK4llvm12EvictionCostltERKS0_.exit.thread:      ; preds = %167
   %184 = and i32 %.sroa.0.0.copyload.i.i.i, 2147483647
   %185 = zext nneg i32 %184 to i64
   %186 = load ptr, ptr %183, align 8, !tbaa !25
-  %187 = getelementptr inbounds nuw %"struct.llvm::RAGreedy::ExtraRegInfo::RegInfo", ptr %186, i64 %185
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %185
   %188 = load i32, ptr %187, align 4, !tbaa !424
   %189 = icmp slt i32 %188, 4
   %or.cond.i = and i1 %3, %189
@@ -1353,12 +1336,12 @@ _ZNK4llvm15AllocationOrder8IteratordeEv.exit:     ; preds = %_ZNK4llvm15Allocati
   %23 = icmp slt i32 %.sroa.522.061, 0
   %24 = load ptr, ptr %2, align 8
   %25 = load i64, ptr %16, align 8
-  %26 = getelementptr inbounds nuw i16, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %25
   %27 = sext i32 %.sroa.522.061 to i64
-  %28 = getelementptr inbounds i16, ptr %26, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr %26, i64 %27
   %29 = zext nneg i32 %.sroa.522.061 to i64
   %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds nuw i16, ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %29
   %.sroa.0.0.in.in.i = select i1 %23, ptr %28, ptr %31
   %.sroa.0.0.in.i = load i16, ptr %.sroa.0.0.in.in.i, align 2, !tbaa !519
   %.sroa.0.0.i = zext i16 %.sroa.0.0.in.i to i32
@@ -1385,7 +1368,7 @@ _ZNK4llvm15AllocationOrder8IteratordeEv.exit:     ; preds = %_ZNK4llvm15Allocati
 .lr.ph.i:                                         ; preds = %35
   %41 = load ptr, ptr %21, align 8, !tbaa !524
   %42 = zext nneg i32 %spec.select to i64
-  %43 = getelementptr inbounds nuw i16, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !519
   %.not.i47 = icmp eq i16 %44, 0
   br i1 %.not.i47, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, label %.lr.ph
@@ -1417,7 +1400,7 @@ _ZNK4llvm15AllocationOrder8IteratordeEv.exit:     ; preds = %_ZNK4llvm15Allocati
   ]
 
 53:                                               ; preds = %65
-  %54 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv.next.i.us
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv.next.i.us
   %55 = load i16, ptr %54, align 2, !tbaa !519
   %.not.i.us = icmp eq i16 %55, 0
   br i1 %.not.i.us, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, label %._crit_edge.i.i.i.i.i.i.us, !llvm.loop !526
@@ -1459,7 +1442,7 @@ _ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us: ; preds = %._crit_edg
   br label %.lr.ph.i.i.i.i.i.i
 
 69:                                               ; preds = %104
-  %70 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv.next.i
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv.next.i
   %71 = load i16, ptr %70, align 2, !tbaa !519
   %.not.i = icmp eq i16 %71, 0
   br i1 %.not.i, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !526
@@ -1599,7 +1582,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK4llvm15AllocationOrder16getOrderLim
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8, !tbaa !524
   %16 = zext nneg i32 %spec.select to i64
-  %17 = getelementptr inbounds nuw i16, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !519
   %.not.i16 = icmp eq i16 %18, 0
   br i1 %.not.i16, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, label %.lr.ph
@@ -1638,7 +1621,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNK4llvm15AllocationOrder16getOrderLim
   br i1 %30, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us, label %._crit_edge._crit_edge.i.i.i.i.i.i.us.us
 
 31:                                               ; preds = %38
-  %32 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv.next.i.us.us
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv.next.i.us.us
   %33 = load i16, ptr %32, align 2, !tbaa !519
   %.not.i.us.us = icmp eq i16 %33, 0
   br i1 %.not.i.us.us, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, label %._crit_edge.i.i.i.i.i.i.us.us, !llvm.loop !526
@@ -1676,7 +1659,7 @@ _ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us: ; preds = %._crit_
   br i1 %43, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us42, label %._crit_edge._crit_edge52.i.i.i.i.i.i.us.us40
 
 44:                                               ; preds = %49
-  %45 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv.next.i.us.us45
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv.next.i.us.us45
   %46 = load i16, ptr %45, align 2, !tbaa !519
   %.not.i.us.us37 = icmp eq i16 %46, 0
   br i1 %.not.i.us.us37, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, label %._crit_edge.i.i.i.i.i.i.us.us34, !llvm.loop !526
@@ -1703,7 +1686,7 @@ _ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us42: ; preds = %._cri
   br i1 %53, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us63, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit
 
 54:                                               ; preds = %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us63
-  %55 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv.next.i.us.us66
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv.next.i.us.us66
   %56 = load i16, ptr %55, align 2, !tbaa !519
   %57 = icmp eq i16 %56, %18
   br i1 %57, label %_ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us63, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, !llvm.loop !526
@@ -1720,7 +1703,7 @@ _ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit.i.us.us63: ; preds = %.lr.p
   br label %.lr.ph.i.i.i.i.i.i
 
 61:                                               ; preds = %96
-  %62 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv.next.i
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv.next.i
   %63 = load i16, ptr %62, align 2, !tbaa !519
   %.not.i = icmp eq i16 %63, 0
   br i1 %.not.i, label %_ZN4llvm15AllocationOrder8IteratorppEv.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !526
@@ -1963,7 +1946,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_31RegAllocEvic
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us
   %.01525.i.us = phi i64 [ %21, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us ], [ 0, %.lr.ph.i ]
-  %20 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::RegAllocEvictionAdvisorAnalysis::AdvisorMode>::OptionInfo", ptr %18, i64 %.01525.i.us
+  %20 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %.01525.i.us
   %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !55
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
@@ -1976,7 +1959,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread20.i.us:  ; preds = %.lr.ph.i.split.us
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i
   %.01525.i = phi i64 [ %28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread20.i ], [ 0, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::RegAllocEvictionAdvisorAnalysis::AdvisorMode>::OptionInfo", ptr %18, i64 %.01525.i
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %.01525.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !55
   %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select.i.fr
@@ -1990,7 +1973,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
 
 _ZN4llvm2cl6parserINS_31RegAllocEvictionAdvisorAnalysis11AdvisorModeEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split.us
   %24 = phi i64 [ %.01525.i.us, %.lr.ph.i.split.us ], [ %.01525.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %25 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::RegAllocEvictionAdvisorAnalysis::AdvisorMode>::OptionInfo", ptr %18, i64 %24
+  %25 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load i32, ptr %26, align 4, !tbaa !51
   store i32 %27, ptr %9, align 4, !tbaa !51
@@ -2232,7 +2215,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit.i: ; pr
   %28 = phi i32 [ %23, %16 ], [ %.pre.i.i, %25 ]
   %29 = load ptr, ptr %1, align 8, !tbaa !25
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %30
   store ptr %21, ptr %31, align 1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %22, ptr %.sroa.2.0..sroa_idx.i.i, align 1
@@ -2279,7 +2262,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm2cl6parserINS_31RegAllocEvicti
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !25
-  %6 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::RegAllocEvictionAdvisorAnalysis::AdvisorMode>::OptionInfo", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %4
   %.sroa.0.0.copyload = load ptr, ptr %6, align 8, !tbaa !54
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !55
@@ -2293,7 +2276,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm2cl6parserINS_31RegAllocEvicti
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !25
-  %6 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::RegAllocEvictionAdvisorAnalysis::AdvisorMode>::OptionInfo", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.0.0.copyload = load ptr, ptr %7, align 8, !tbaa !54
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -2310,7 +2293,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !25
-  %6 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::RegAllocEvictionAdvisorAnalysis::AdvisorMode>::OptionInfo", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   ret ptr %7
 }
@@ -2563,7 +2546,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_31R
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm2cl6parserINS_31RegAllocEvictionAdvisorAnalysis11AdvisorModeEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.exit, label %26, !prof !33
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::RegAllocEvictionAdvisorAnalysis::AdvisorMode>::OptionInfo", ptr %.pre3.i.i, i64 %23
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %.pre3.i.i, i64 %23
   %28 = icmp uge ptr %3, %.pre3.i.i
   %29 = icmp ult ptr %3, %27
   %spec.select.i.i.i.i.i.i = and i1 %28, %29
@@ -2587,7 +2570,7 @@ _ZN4llvm2cl6parserINS_31RegAllocEvictionAdvisorAnalysis11AdvisorModeEE16addLiter
   %.016.i.i.i.i = phi ptr [ %3, %18 ], [ %34, %30 ], [ %3, %.critedge.i.i.i.i ]
   %36 = load i32, ptr %14, align 8, !tbaa !26
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::RegAllocEvictionAdvisorAnalysis::AdvisorMode>::OptionInfo", ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [48 x i8], ptr %35, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i.i, i64 32, i1 false), !tbaa.struct !621
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl15OptionValueCopyINS_31RegAllocEvictionAdvisorAnalysis11AdvisorModeEEE, i64 16), ptr %39, align 8, !tbaa !3

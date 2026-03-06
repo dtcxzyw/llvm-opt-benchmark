@@ -2194,7 +2194,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %2, %16
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = zext nneg i32 %24 to i64
-  %32 = getelementptr i16, ptr %30, i64 %31
+  %32 = getelementptr [2 x i8], ptr %30, i64 %31
   %33 = getelementptr i8, ptr %32, i64 -2
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
@@ -2332,7 +2332,7 @@ _ZN7QString7prependEPKc.exit:                     ; preds = %_ZN7QString7prepend
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr i16, ptr %79, i64 %77
+  %80 = getelementptr [2 x i8], ptr %79, i64 %77
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
   %switch.tableidx75 = add i16 %81, -9
@@ -3682,7 +3682,7 @@ define noundef zeroext i1 @_ZN14SyntaxLineEdit15isComplexFilterERK7QString(ptr n
   %16 = phi i64 [ 0, %.lr.ph ], [ %12, %10 ]
   %.02442 = phi i32 [ 0, %.lr.ph ], [ %11, %10 ]
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr i16, ptr %17, i64 %16
+  %18 = getelementptr [2 x i8], ptr %17, i64 %16
   %19 = load i16, ptr %18, align 2
   %20 = tail call noundef i64 @_ZNK7QString7indexOfE5QCharxN2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable_or_null(24) %8, i16 %19, i64 noundef 0, i32 noundef 1)
   %.not = icmp eq i64 %20, -1
@@ -4361,7 +4361,7 @@ _ZN7QStringC2ERKS_.exit23:                        ; preds = %_ZN7QStringC2ERKS_.
 .lr.ph.i.i:                                       ; preds = %_ZN7QStringC2ERKS_.exit23, %_ZN7QStringC2ERKS_.exit.i.i
   %51 = phi i64 [ %64, %_ZN7QStringC2ERKS_.exit.i.i ], [ 0, %_ZN7QStringC2ERKS_.exit23 ]
   %.010.i.i = phi ptr [ %63, %_ZN7QStringC2ERKS_.exit.i.i ], [ %8, %_ZN7QStringC2ERKS_.exit23 ]
-  %52 = getelementptr %class.QString, ptr %47, i64 %51
+  %52 = getelementptr [24 x i8], ptr %47, i64 %51
   %53 = load ptr, ptr %.010.i.i, align 8
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -5336,7 +5336,7 @@ define i64 @_ZN14SyntaxLineEdit19getTokenUnderCursorEv(ptr noundef align 8 deref
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, ptr noundef align 8 dereferenceable_or_null(40) %0)
   %18 = load ptr, ptr %11, align 8
-  %19 = getelementptr i16, ptr %18, i64 %indvars.iv
+  %19 = getelementptr [2 x i8], ptr %18, i64 %indvars.iv
   %20 = getelementptr i8, ptr %19, i64 -2
   %21 = load i16, ptr %20, align 2
   %22 = invoke noundef i64 @_ZNK7QString7indexOfE5QCharxN2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable_or_null(24) %10, i16 %21, i64 noundef 0, i32 noundef 1)
@@ -5406,7 +5406,7 @@ _ZN7QStringD2Ev.exit40:                           ; preds = %30, %_ZN17QArrayDat
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr %16, align 8
-  %42 = getelementptr i16, ptr %41, i64 %36
+  %42 = getelementptr [2 x i8], ptr %41, i64 %36
   %43 = load i16, ptr %42, align 2
   %44 = invoke noundef i64 @_ZNK7QString7indexOfE5QCharxN2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable_or_null(24) %15, i16 %43, i64 noundef 0, i32 noundef 1)
           to label %45 unwind label %61
@@ -5812,7 +5812,7 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30.thread: ; preds = %38, %
 49:                                               ; preds = %_ZN7QStringC2ERKS_.exit.i, %.lr.ph.i
   %50 = phi i64 [ %.pre.i, %.lr.ph.i ], [ %63, %_ZN7QStringC2ERKS_.exit.i ]
   %.010.i = phi ptr [ %44, %.lr.ph.i ], [ %61, %_ZN7QStringC2ERKS_.exit.i ]
-  %51 = getelementptr %class.QString, ptr %30, i64 %50
+  %51 = getelementptr [24 x i8], ptr %30, i64 %50
   %52 = load ptr, ptr %.010.i, align 8
   store ptr %52, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -5856,7 +5856,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
 72:                                               ; preds = %72, %.lr.ph.i31
   %73 = phi i64 [ %.pre.i32, %.lr.ph.i31 ], [ %86, %72 ]
   %.010.i33 = phi ptr [ %67, %.lr.ph.i31 ], [ %84, %72 ]
-  %74 = getelementptr %class.QString, ptr %30, i64 %73
+  %74 = getelementptr [24 x i8], ptr %30, i64 %73
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(24) %74, i8 0, i64 24, i1 false)
   %75 = load ptr, ptr %.010.i33, align 8
   store ptr %75, ptr %74, align 8
@@ -6060,8 +6060,8 @@ _ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv.exit33: ; preds = %36
   %54 = sdiv i64 %53, 2
   %55 = call noundef i64 @llvm.smax.i64(i64 %54, i64 0)
   %.pr.pre = load ptr, ptr %1, align 8
-  %56 = getelementptr %class.QString, ptr %32, i64 %55
-  %57 = getelementptr %class.QString, ptr %56, i64 %2
+  %56 = getelementptr [24 x i8], ptr %32, i64 %55
+  %57 = getelementptr [24 x i8], ptr %56, i64 %2
   %.not.i34 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i34, label %_ZNK17QArrayDataPointerI7QStringE5flagsEv.exit, label %58
 

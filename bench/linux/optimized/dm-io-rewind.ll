@@ -3,8 +3,6 @@ source_filename = "bench/linux/original/dm-io-rewind.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bio_vec = type { ptr, i32, i32 }
-
 @dm_bvec_iter_rewind.__already_done = internal unnamed_addr global i1 false, section ".data.once", align 1
 @.str = private unnamed_addr constant [51 x i8] c"Attempted to rewind iter beyond bvec's boundaries\0A\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"drivers/md/dm-io-rewind.c\00", align 1
@@ -71,14 +69,14 @@ define dso_local void @dm_io_rewind(ptr noundef captures(none) %0, ptr noundef %
 
 43:                                               ; preds = %37
   %44 = zext nneg i32 %41 to i64
-  %.split = getelementptr %struct.bio_vec, ptr %24, i64 %44
+  %.split = getelementptr [16 x i8], ptr %24, i64 %44
   %45 = getelementptr i8, ptr %.split, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = icmp ugt i32 %38, %46
   br i1 %47, label %.preheader, label %.thread
 
 48:                                               ; preds = %.preheader
-  %.split8 = getelementptr %struct.bio_vec, ptr %24, i64 %56
+  %.split8 = getelementptr [16 x i8], ptr %24, i64 %56
   %49 = getelementptr i8, ptr %.split8, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = icmp ugt i32 %55, %50
@@ -138,7 +136,7 @@ define dso_local void @dm_io_rewind(ptr noundef captures(none) %0, ptr noundef %
   %77 = phi i32 [ %41, %43 ], [ %65, %72 ]
   store i32 %77, ptr %39, align 1
   %78 = sext i32 %77 to i64
-  %.split9 = getelementptr %struct.bio_vec, ptr %24, i64 %78
+  %.split9 = getelementptr [16 x i8], ptr %24, i64 %78
   %79 = getelementptr i8, ptr %.split9, i64 8
   %80 = load i32, ptr %79, align 8
   %81 = sub i32 %80, %76

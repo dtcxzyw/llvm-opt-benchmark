@@ -4783,7 +4783,7 @@ if.then:                                          ; preds = %entry
 _ZNK4absl12lts_2023080213cord_internal18CordRepBtreeReadercvbEv.exit: ; preds = %if.then
   %node_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %idxprom.i.i = zext nneg i32 %2 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %node_.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %node_.i.i, i64 %idxprom.i.i
   %3 = load ptr, ptr %arrayidx.i.i, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %if.end, label %if.then4
@@ -4817,7 +4817,7 @@ do.body.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %co
 
 if.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %arrayidx.i2.i.i.i = getelementptr inbounds nuw ptr, ptr %node_.i.i, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx.i2.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %node_.i.i, i64 %indvars.iv.next.i.i.i.i
   %8 = load ptr, ptr %arrayidx.i2.i.i.i, align 8
   %arrayidx3.i.i.i.i = getelementptr inbounds nuw i8, ptr %index_.i.i.i, i64 %indvars.iv.next.i.i.i.i
   %9 = load i8, ptr %arrayidx3.i.i.i.i, align 1
@@ -4842,10 +4842,10 @@ do.body10.i.i.i.i:                                ; preds = %do.body10.i.i.i.i, 
   %edge.0.i.i.i.i = phi ptr [ %12, %do.body10.i.i.i.i ], [ %8, %do.end.i.i.i.i ]
   %index.0.i.i.i.i = phi i64 [ %conv.i15.i.i.i.i, %do.body10.i.i.i.i ], [ %add.i.i.i.i, %do.end.i.i.i.i ]
   %edges_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %edge.0.i.i.i.i, i64 16
-  %arrayidx.i13.i.i.i.i = getelementptr inbounds nuw ptr, ptr %edges_.i.i.i.i.i, i64 %index.0.i.i.i.i
+  %arrayidx.i13.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %edges_.i.i.i.i.i, i64 %index.0.i.i.i.i
   %12 = load ptr, ptr %arrayidx.i13.i.i.i.i, align 8
   %indvars.iv.next27.i.i.i.i = add nsw i64 %indvars.iv26.i.i.i.i, -1
-  %arrayidx15.i.i.i.i = getelementptr inbounds ptr, ptr %node_.i.i, i64 %indvars.iv.next27.i.i.i.i
+  %arrayidx15.i.i.i.i = getelementptr inbounds [8 x i8], ptr %node_.i.i, i64 %indvars.iv.next27.i.i.i.i
   store ptr %12, ptr %arrayidx15.i.i.i.i, align 8
   %arrayidx.i14.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 14
   %13 = load i8, ptr %arrayidx.i14.i.i.i.i, align 1
@@ -4870,7 +4870,7 @@ cond.end.sink.split.i.i.i:                        ; preds = %cond.end.sink.split
   %.lcssa.sink.i.i.i = phi ptr [ %5, %cond.false.i.i.i ], [ %12, %cond.end.sink.split.i.loopexit.i.i ]
   %conv.i15.i.lcssa.sink.i.i.i = phi i64 [ %conv6.i.i.i, %cond.false.i.i.i ], [ %conv.i15.i.i.i.i, %cond.end.sink.split.i.loopexit.i.i ]
   %edges_.i16.i.i.i.i = getelementptr inbounds nuw i8, ptr %.lcssa.sink.i.i.i, i64 16
-  %arrayidx.i17.i.i.i.i = getelementptr inbounds nuw ptr, ptr %edges_.i16.i.i.i.i, i64 %conv.i15.i.lcssa.sink.i.i.i
+  %arrayidx.i17.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %edges_.i16.i.i.i.i, i64 %conv.i15.i.lcssa.sink.i.i.i
   %14 = load ptr, ptr %arrayidx.i17.i.i.i.i, align 8
   br label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i
 
@@ -4983,7 +4983,7 @@ if.then.i:                                        ; preds = %_ZN4absl12lts_20230
   %7 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
   %node_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %idxprom.i.i.i.i = zext i8 %6 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %node_.i.i.i.i, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %node_.i.i.i.i, i64 %idxprom.i.i.i.i
   store ptr %retval.0.i.i, ptr %arrayidx.i.i.i.i, align 8
   %index_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 44
   %arrayidx4.i.i.i.i = getelementptr inbounds nuw i8, ptr %index_.i.i.i.i, i64 %idxprom.i.i.i.i
@@ -4998,9 +4998,9 @@ while.body.i.i.i.i:                               ; preds = %if.then.i, %while.b
   %tree.addr.022.i.i.i.i = phi ptr [ %8, %while.body.i.i.i.i ], [ %retval.0.i.i, %if.then.i ]
   %indvars.iv.next.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i, -1
   %edges_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree.addr.022.i.i.i.i, i64 16
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %edges_.i.i.i.i.i, i64 %index.024.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %edges_.i.i.i.i.i, i64 %index.024.i.i.i.i
   %8 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
-  %arrayidx9.i.i.i.i = getelementptr inbounds nuw ptr, ptr %node_.i.i.i.i, i64 %indvars.iv.next.i.i.i.i
+  %arrayidx9.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %node_.i.i.i.i, i64 %indvars.iv.next.i.i.i.i
   store ptr %8, ptr %arrayidx9.i.i.i.i, align 8
   %arrayidx.i.i13.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 14
   %9 = load i8, ptr %arrayidx.i.i13.i.i.i.i, align 1
@@ -5014,7 +5014,7 @@ _ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12Co
   %index.0.lcssa.i.i.i.i = phi i64 [ %index.020.i.i.i.i, %if.then.i ], [ %index.0.i.i.i.i, %while.body.i.i.i.i ]
   %10 = load ptr, ptr %node_.i.i.i.i, align 8
   %edges_.i18.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %arrayidx.i19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %edges_.i18.i.i.i.i, i64 %index.0.lcssa.i.i.i.i
+  %arrayidx.i19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %edges_.i18.i.i.i.i, i64 %index.0.lcssa.i.i.i.i
   %11 = load ptr, ptr %arrayidx.i19.i.i.i.i, align 8
   %12 = load i64, ptr %retval.0.i.i, align 8
   %13 = load i64, ptr %11, align 8

@@ -539,7 +539,7 @@ define dso_local range(i32 0, 17) i32 @get_official_database_lists(ptr noundef c
 13:                                               ; preds = %12, %29
   %14 = phi i32 [ %.pre, %12 ], [ %17, %29 ]
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %29 ]
-  %15 = getelementptr inbounds nuw ptr, ptr @__const.get_official_database_lists.hardcodedStandardDatabaseList, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @__const.get_official_database_lists.hardcodedStandardDatabaseList, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !15
   %17 = add i32 %14, 1
   %18 = load ptr, ptr %0, align 8, !tbaa !12
@@ -553,7 +553,7 @@ define dso_local range(i32 0, 17) i32 @get_official_database_lists(ptr noundef c
   store ptr %21, ptr %0, align 8, !tbaa !12
   %24 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %16) #18
   %25 = zext i32 %14 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %21, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %25
   store ptr %24, ptr %26, align 8, !tbaa !15
   %27 = icmp eq ptr %24, null
   br i1 %27, label %.thread89, label %29
@@ -577,7 +577,7 @@ define dso_local range(i32 0, 17) i32 @get_official_database_lists(ptr noundef c
 .preheader:                                       ; preds = %.preheader.preheader, %46
   %30 = phi i32 [ %.pre108, %.preheader.preheader ], [ %33, %46 ]
   %indvars.iv104 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next105, %46 ]
-  %31 = getelementptr inbounds nuw ptr, ptr @__const.get_official_database_lists.hardcodedOptionalDatabaseList, i64 %indvars.iv104
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @__const.get_official_database_lists.hardcodedOptionalDatabaseList, i64 %indvars.iv104
   %32 = load ptr, ptr %31, align 8, !tbaa !15
   %33 = add i32 %30, 1
   %34 = load ptr, ptr %2, align 8, !tbaa !12
@@ -591,7 +591,7 @@ define dso_local range(i32 0, 17) i32 @get_official_database_lists(ptr noundef c
   store ptr %37, ptr %2, align 8, !tbaa !12
   %40 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %32) #18
   %41 = zext i32 %30 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %37, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %41
   store ptr %40, ptr %42, align 8, !tbaa !15
   %43 = icmp eq ptr %40, null
   br i1 %43, label %44, label %46
@@ -635,7 +635,7 @@ define dso_local range(i32 0, 17) i32 @get_official_database_lists(ptr noundef c
 
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %58 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv.i
   %56 = load ptr, ptr %55, align 8, !tbaa !15
   %.not12.i = icmp eq ptr %56, null
   br i1 %.not12.i, label %58, label %57
@@ -678,7 +678,7 @@ free_string_list.exit:                            ; preds = %58, %.preheader.i
 
 .lr.ph.i72:                                       ; preds = %68, %.lr.ph.preheader.i70
   %indvars.iv.i73 = phi i64 [ 0, %.lr.ph.preheader.i70 ], [ %indvars.iv.next.i75, %68 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i73
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i73
   %66 = load ptr, ptr %65, align 8, !tbaa !15
   %.not12.i74 = icmp eq ptr %66, null
   br i1 %.not12.i74, label %68, label %67
@@ -733,7 +733,7 @@ define internal fastcc range(i32 0, 17) i32 @string_list_add(ptr noundef %0, ptr
   store ptr %12, ptr %1, align 8, !tbaa !12
   %16 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %0) #18
   %17 = zext i32 %7 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %12, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %17
   store ptr %16, ptr %18, align 8, !tbaa !15
   %19 = icmp eq ptr %16, null
   br i1 %19, label %20, label %21
@@ -766,7 +766,7 @@ define internal fastcc void @free_string_list(ptr noundef captures(address_is_nu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %.not12 = icmp eq ptr %4, null
   br i1 %.not12, label %6, label %5
@@ -866,7 +866,7 @@ define dso_local range(i32 0, 17) i32 @select_from_official_databases(ptr nounde
 
 .lr.ph:                                           ; preds = %.preheader169
   %33 = load ptr, ptr %7, align 8, !tbaa !12
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv242
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv242
   %35 = load ptr, ptr %34, align 8, !tbaa !15
   br label %36
 
@@ -883,7 +883,7 @@ define dso_local range(i32 0, 17) i32 @select_from_official_databases(ptr nounde
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %.057194 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %36 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !15
   %39 = call i32 @strcasecmp(ptr noundef %35, ptr noundef %38) #22
   %40 = icmp eq i32 %39, 0
@@ -898,14 +898,14 @@ define dso_local range(i32 0, 17) i32 @select_from_official_databases(ptr nounde
 
 42:                                               ; preds = %._crit_edge
   %43 = load ptr, ptr %7, align 8, !tbaa !12
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv242
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv242
   %45 = load ptr, ptr %44, align 8, !tbaa !15
   %46 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.35, ptr noundef %45) #18
   br label %68
 
 ._crit_edge.thread:                               ; preds = %.preheader169, %._crit_edge
   %47 = load ptr, ptr %7, align 8, !tbaa !12
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv242
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv242
   %49 = load ptr, ptr %48, align 8, !tbaa !15
   %50 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.36, ptr noundef %49) #18
   %51 = load ptr, ptr %48, align 8, !tbaa !15
@@ -923,7 +923,7 @@ define dso_local range(i32 0, 17) i32 @select_from_official_databases(ptr nounde
 59:                                               ; preds = %53
   %60 = call ptr @cli_safer_strdup(ptr noundef nonnull %51) #18
   %61 = zext i32 %.1196 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %57, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %61
   store ptr %60, ptr %62, align 8, !tbaa !15
   %63 = icmp eq ptr %60, null
   br i1 %63, label %.thread, label %._crit_edge255
@@ -938,7 +938,7 @@ define dso_local range(i32 0, 17) i32 @select_from_official_databases(ptr nounde
   %.0.i.ph = phi i32 [ 15, %53 ], [ 16, %._crit_edge.thread ], [ 15, %59 ]
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull %.str.107.sink) #18
   %64 = load ptr, ptr %7, align 8, !tbaa !12
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv242
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv242
   %66 = load ptr, ptr %65, align 8, !tbaa !15
   %67 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.37, ptr noundef %66) #18
   br label %.preheader.i
@@ -961,7 +961,7 @@ define dso_local range(i32 0, 17) i32 @select_from_official_databases(ptr nounde
   br i1 %.not217, label %._crit_edge203.thread, label %.lr.ph202
 
 .lr.ph202:                                        ; preds = %.preheader
-  %73 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv250
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv250
   %74 = load ptr, ptr %73, align 8, !tbaa !15
   %75 = load ptr, ptr %9, align 8, !tbaa !12
   %wide.trip.count248 = zext i32 %72 to i64
@@ -970,7 +970,7 @@ define dso_local range(i32 0, 17) i32 @select_from_official_databases(ptr nounde
 76:                                               ; preds = %.lr.ph202, %76
   %indvars.iv245 = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next246, %76 ]
   %.0201 = phi i32 [ 0, %.lr.ph202 ], [ %spec.select80, %76 ]
-  %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv245
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv245
   %78 = load ptr, ptr %77, align 8, !tbaa !15
   %79 = call i32 @strcasecmp(ptr noundef %74, ptr noundef %78) #22
   %80 = icmp eq i32 %79, 0
@@ -984,13 +984,13 @@ define dso_local range(i32 0, 17) i32 @select_from_official_databases(ptr nounde
   br i1 %81, label %._crit_edge203.thread, label %85
 
 ._crit_edge203.thread:                            ; preds = %.preheader, %._crit_edge203
-  %82 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv250
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv250
   %83 = load ptr, ptr %82, align 8, !tbaa !15
   %84 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.38, ptr noundef %83) #18
   br label %105
 
 85:                                               ; preds = %._crit_edge203
-  %86 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv250
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv250
   %87 = load ptr, ptr %86, align 8, !tbaa !15
   %88 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.39, ptr noundef %87) #18
   %89 = load ptr, ptr %86, align 8, !tbaa !15
@@ -1008,7 +1008,7 @@ define dso_local range(i32 0, 17) i32 @select_from_official_databases(ptr nounde
 97:                                               ; preds = %91
   %98 = call ptr @cli_safer_strdup(ptr noundef nonnull %89) #18
   %99 = zext i32 %.3117209 to i64
-  %100 = getelementptr inbounds nuw ptr, ptr %95, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %99
   store ptr %98, ptr %100, align 8, !tbaa !15
   %101 = icmp eq ptr %98, null
   br i1 %101, label %string_list_add.exit84, label %105
@@ -1017,7 +1017,7 @@ string_list_add.exit84:                           ; preds = %97, %91, %85
   %.str.109.sink = phi ptr [ @.str.108, %91 ], [ @.str.107, %85 ], [ @.str.109, %97 ]
   %.6125.ph = phi ptr [ %.3122208, %91 ], [ %.3122208, %85 ], [ %95, %97 ]
   %.0.i83.ph = phi i32 [ 15, %91 ], [ 16, %85 ], [ 15, %97 ]
-  %102 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv250
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv250
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull %.str.109.sink) #18
   %103 = load ptr, ptr %102, align 8, !tbaa !15
   %104 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.40, ptr noundef %103) #18
@@ -1060,7 +1060,7 @@ string_list_add.exit84:                           ; preds = %97, %91, %85
 
 .lr.ph.i:                                         ; preds = %112, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %112 ]
-  %109 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv.i
   %110 = load ptr, ptr %109, align 8, !tbaa !15
   %.not12.i = icmp eq ptr %110, null
   br i1 %.not12.i, label %112, label %111
@@ -1098,7 +1098,7 @@ free_string_list.exit:                            ; preds = %112, %.preheader.i
 
 .lr.ph.i90:                                       ; preds = %119, %.lr.ph.preheader.i88
   %indvars.iv.i91 = phi i64 [ 0, %.lr.ph.preheader.i88 ], [ %indvars.iv.next.i93, %119 ]
-  %116 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv.i91
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv.i91
   %117 = load ptr, ptr %116, align 8, !tbaa !15
   %.not12.i92 = icmp eq ptr %117, null
   br i1 %.not12.i92, label %119, label %118
@@ -1133,7 +1133,7 @@ free_string_list.exit96:                          ; preds = %119, %.preheader.i8
 
 .lr.ph.i102:                                      ; preds = %126, %.lr.ph.preheader.i100
   %indvars.iv.i103 = phi i64 [ 0, %.lr.ph.preheader.i100 ], [ %indvars.iv.next.i105, %126 ]
-  %123 = getelementptr inbounds nuw ptr, ptr %.0119163, i64 %indvars.iv.i103
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %.0119163, i64 %indvars.iv.i103
   %124 = load ptr, ptr %123, align 8, !tbaa !15
   %.not12.i104 = icmp eq ptr %124, null
   br i1 %.not12.i104, label %126, label %125
@@ -1213,7 +1213,7 @@ define dso_local range(i32 0, 17) i32 @select_specific_databases(ptr noundef rea
   %indvars.iv236 = phi i64 [ %indvars.iv.next237, %.critedge75 ], [ 0, %16 ]
   %.1184 = phi i32 [ %.2110, %.critedge75 ], [ 0, %16 ]
   %.1112183 = phi ptr [ %.2113, %.critedge75 ], [ %18, %16 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv236
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv236
   %23 = load ptr, ptr %22, align 8, !tbaa !15
   %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(7) @.str.41) #22
   %25 = icmp eq i32 %24, 0
@@ -1250,7 +1250,7 @@ define dso_local range(i32 0, 17) i32 @select_specific_databases(ptr noundef rea
 
 32:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !15
   %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %34) #22
   %36 = icmp eq i32 %35, 0
@@ -1267,7 +1267,7 @@ define dso_local range(i32 0, 17) i32 @select_specific_databases(ptr noundef rea
 43:                                               ; preds = %37
   %44 = call ptr @cli_safer_strdup(ptr noundef nonnull %34) #18
   %45 = zext i32 %.1184 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %41, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %45
   store ptr %44, ptr %46, align 8, !tbaa !15
   %47 = icmp eq ptr %44, null
   br i1 %47, label %.critedge75.thread.thread, label %.critedge75
@@ -1277,7 +1277,7 @@ define dso_local range(i32 0, 17) i32 @select_specific_databases(ptr noundef rea
   %.4115.ph = phi ptr [ %.1112183, %37 ], [ %41, %43 ]
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull %.str.108.sink) #18
   %48 = load ptr, ptr %6, align 8, !tbaa !12
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !15
   %51 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.37, ptr noundef %50) #18
   br label %.preheader.i
@@ -1289,7 +1289,7 @@ define dso_local range(i32 0, 17) i32 @select_specific_databases(ptr noundef rea
 
 52:                                               ; preds = %.lr.ph177, %.critedge
   %indvars.iv231 = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next232, %.critedge ]
-  %53 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv231
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv231
   %54 = load ptr, ptr %53, align 8, !tbaa !15
   %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %54) #22
   %56 = icmp eq i32 %55, 0
@@ -1306,7 +1306,7 @@ define dso_local range(i32 0, 17) i32 @select_specific_databases(ptr noundef rea
 63:                                               ; preds = %57
   %64 = call ptr @cli_safer_strdup(ptr noundef nonnull %54) #18
   %65 = zext i32 %.1184 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %61, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %65
   store ptr %64, ptr %66, align 8, !tbaa !15
   %67 = icmp eq ptr %64, null
   br i1 %67, label %68, label %.critedge75
@@ -1316,7 +1316,7 @@ define dso_local range(i32 0, 17) i32 @select_specific_databases(ptr noundef rea
   %.5116.ph = phi ptr [ %.1112183, %57 ], [ %61, %63 ]
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull %.str.109.sink) #18
   %69 = load ptr, ptr %8, align 8, !tbaa !12
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv231
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv231
   %71 = load ptr, ptr %70, align 8, !tbaa !15
   %72 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.40, ptr noundef %71) #18
   br label %.critedge75.thread
@@ -1360,7 +1360,7 @@ define dso_local range(i32 0, 17) i32 @select_specific_databases(ptr noundef rea
 
 .lr.ph.i:                                         ; preds = %79, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %79 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv.i
   %77 = load ptr, ptr %76, align 8, !tbaa !15
   %.not12.i = icmp eq ptr %77, null
   br i1 %.not12.i, label %79, label %78
@@ -1398,7 +1398,7 @@ free_string_list.exit:                            ; preds = %79, %.preheader.i
 
 .lr.ph.i84:                                       ; preds = %86, %.lr.ph.preheader.i82
   %indvars.iv.i85 = phi i64 [ 0, %.lr.ph.preheader.i82 ], [ %indvars.iv.next.i87, %86 ]
-  %83 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv.i85
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv.i85
   %84 = load ptr, ptr %83, align 8, !tbaa !15
   %.not12.i86 = icmp eq ptr %84, null
   br i1 %.not12.i86, label %86, label %85
@@ -1433,7 +1433,7 @@ free_string_list.exit90:                          ; preds = %86, %.preheader.i80
 
 .lr.ph.i96:                                       ; preds = %93, %.lr.ph.preheader.i94
   %indvars.iv.i97 = phi i64 [ 0, %.lr.ph.preheader.i94 ], [ %indvars.iv.next.i99, %93 ]
-  %90 = getelementptr inbounds nuw ptr, ptr %.0111140, i64 %indvars.iv.i97
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %.0111140, i64 %indvars.iv.i97
   %91 = load ptr, ptr %90, align 8, !tbaa !15
   %.not12.i98 = icmp eq ptr %91, null
   br i1 %.not12.i98, label %93, label %92
@@ -1542,10 +1542,10 @@ define dso_local i32 @perform_database_update(ptr noundef %0, i32 noundef %1, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !15
   %45 = call noalias ptr @strdup(ptr noundef %44) #18
-  %46 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   store ptr %45, ptr %46, align 8, !tbaa !15
   %47 = icmp eq ptr %45, null
   br i1 %47, label %.preheader.thread, label %42
@@ -1557,7 +1557,7 @@ define dso_local i32 @perform_database_update(ptr noundef %0, i32 noundef %1, pt
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %67
   %indvars.iv148 = phi i64 [ 0, %.lr.ph140.preheader ], [ %indvars.iv.next149, %67 ]
   %.2139 = phi i32 [ %1, %.lr.ph140.preheader ], [ %.4, %67 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv148
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv148
   %50 = load ptr, ptr %49, align 8, !tbaa !15
   %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #22
   %52 = icmp ugt i64 %51, 4
@@ -1577,7 +1577,7 @@ define dso_local i32 @perform_database_update(ptr noundef %0, i32 noundef %1, pt
   %62 = add i64 %61, -4
   %63 = call noalias ptr @strndup(ptr noundef nonnull %60, i64 noundef %62) #18
   %64 = zext i32 %.2139 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %38, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %64
   store ptr %63, ptr %65, align 8, !tbaa !15
   %66 = add i32 %.2139, 1
   br label %67
@@ -1684,7 +1684,7 @@ define dso_local i32 @perform_database_update(ptr noundef %0, i32 noundef %1, pt
 
 .lr.ph142:                                        ; preds = %.lr.ph142.preheader, %.lr.ph142
   %indvars.iv153 = phi i64 [ 0, %.lr.ph142.preheader ], [ %indvars.iv.next154, %.lr.ph142 ]
-  %109 = getelementptr inbounds nuw ptr, ptr %.197, i64 %indvars.iv153
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %.197, i64 %indvars.iv153
   %110 = load ptr, ptr %109, align 8, !tbaa !15
   call void @free(ptr noundef %110) #18
   store ptr null, ptr %109, align 8, !tbaa !15
@@ -2005,7 +2005,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !15
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %41, ptr noundef nonnull dereferenceable(12) @.str.56, i64 12)
   %42 = icmp eq i32 %bcmp, 0
@@ -2114,7 +2114,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 93:                                               ; preds = %87
   %94 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %85) #18
   %95 = zext i32 %.168.i to i64
-  %96 = getelementptr inbounds nuw ptr, ptr %91, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %95
   store ptr %94, ptr %96, align 8, !tbaa !15
   %97 = icmp eq ptr %94, null
   br i1 %97, label %98, label %99
@@ -2187,7 +2187,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 122:                                              ; preds = %116
   %123 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %114) #18
   %124 = zext i32 %.471.i to i64
-  %125 = getelementptr inbounds nuw ptr, ptr %120, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %124
   store ptr %123, ptr %125, align 8, !tbaa !15
   %126 = icmp eq ptr %123, null
   br i1 %126, label %127, label %128
@@ -2232,7 +2232,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 .lr.ph.i.i:                                       ; preds = %135, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %135 ]
-  %132 = getelementptr inbounds nuw ptr, ptr %.072.ph.i, i64 %indvars.iv.i.i
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %.072.ph.i, i64 %indvars.iv.i.i
   %133 = load ptr, ptr %132, align 8, !tbaa !15
   %.not12.i.i = icmp eq ptr %133, null
   br i1 %.not12.i.i, label %135, label %134
@@ -2968,7 +2968,7 @@ get_database_server_list.exit:                    ; preds = %99, %128
 
 .lr.ph.i:                                         ; preds = %485, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %485 ]
-  %482 = getelementptr inbounds nuw ptr, ptr %480, i64 %indvars.iv.i
+  %482 = getelementptr inbounds nuw [8 x i8], ptr %480, i64 %indvars.iv.i
   %483 = load ptr, ptr %482, align 8, !tbaa !15
   %.not12.i = icmp eq ptr %483, null
   br i1 %.not12.i, label %485, label %484
@@ -3003,7 +3003,7 @@ free_string_list.exit:                            ; preds = %485, %.preheader.i2
 
 .lr.ph.i230:                                      ; preds = %492, %.lr.ph.preheader.i228
   %indvars.iv.i231 = phi i64 [ 0, %.lr.ph.preheader.i228 ], [ %indvars.iv.next.i233, %492 ]
-  %489 = getelementptr inbounds nuw ptr, ptr %487, i64 %indvars.iv.i231
+  %489 = getelementptr inbounds nuw [8 x i8], ptr %487, i64 %indvars.iv.i231
   %490 = load ptr, ptr %489, align 8, !tbaa !15
   %.not12.i232 = icmp eq ptr %490, null
   br i1 %.not12.i232, label %492, label %491
@@ -3036,7 +3036,7 @@ free_string_list.exit236:                         ; preds = %492, %.preheader.i2
 
 .lr.ph.i242:                                      ; preds = %497, %.lr.ph.preheader.i240
   %indvars.iv.i243 = phi i64 [ 0, %.lr.ph.preheader.i240 ], [ %indvars.iv.next.i245, %497 ]
-  %494 = getelementptr inbounds nuw ptr, ptr %.0259300, i64 %indvars.iv.i243
+  %494 = getelementptr inbounds nuw [8 x i8], ptr %.0259300, i64 %indvars.iv.i243
   %495 = load ptr, ptr %494, align 8, !tbaa !15
   %.not12.i244 = icmp eq ptr %495, null
   br i1 %.not12.i244, label %497, label %496
@@ -3146,7 +3146,7 @@ define internal fastcc range(i32 0, 17) i32 @get_string_list(ptr noundef readonl
   store ptr %17, ptr %1, align 8, !tbaa !12
   %20 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %10) #18
   %21 = zext i32 %8 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %17, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %21
   store ptr %20, ptr %22, align 8, !tbaa !15
   %23 = icmp eq ptr %20, null
   br i1 %23, label %24, label %25

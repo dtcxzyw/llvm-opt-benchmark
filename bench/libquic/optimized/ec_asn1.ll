@@ -754,7 +754,7 @@ integers_equal.exit106:                           ; preds = %.lr.ph15.i99, %174,
 180:                                              ; preds = %integers_equal.exit106, %integers_equal.exit92, %integers_equal.exit78, %integers_equal.exit64, %integers_equal.exit50, %integers_equal.exit
   %181 = add i32 %.027117, 1
   %182 = zext i32 %181 to i64
-  %183 = getelementptr inbounds nuw %struct.built_in_curve, ptr @OPENSSL_built_in_curves, i64 %182
+  %183 = getelementptr inbounds nuw [32 x i8], ptr @OPENSSL_built_in_curves, i64 %182
   %184 = load i32, ptr %183, align 8, !tbaa !22
   %.not29 = icmp eq i32 %184, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !34
@@ -1000,7 +1000,7 @@ define hidden range(i32 0, 2) i32 @EC_KEY_marshal_curve_name(ptr noundef %0, ptr
   %.0122230 = phi i32 [ %8, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %8 = add i32 %.0122230, 1
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %struct.built_in_curve, ptr @OPENSSL_built_in_curves, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr @OPENSSL_built_in_curves, i64 %9
   %11 = load i32, ptr %10, align 8, !tbaa !22
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
@@ -1093,7 +1093,7 @@ define hidden ptr @EC_KEY_parse_curve_name(ptr noundef %0) local_unnamed_addr #0
 19:                                               ; preds = %13, %.lr.ph
   %20 = add i32 %.0917, 1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %struct.built_in_curve, ptr @OPENSSL_built_in_curves, i64 %21
+  %22 = getelementptr inbounds nuw [32 x i8], ptr @OPENSSL_built_in_curves, i64 %21
   %23 = load i32, ptr %22, align 8, !tbaa !22
   %.not11 = icmp eq i32 %23, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !38

@@ -53,7 +53,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit: ; preds = %for.cond, 
   %1 = phi i64 [ %.pre.i, %if.then.i ], [ %0, %for.cond ]
   %inc.i = add i64 %1, 1
   store i64 %inc.i, ptr %mti.i, align 8, !tbaa !3
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %this, i64 %1
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %this, i64 %1
   %2 = load i64, ptr %arrayidx.i, align 8, !tbaa !8
   %shr.i = lshr i64 %2, 11
   %xor.i = xor i64 %shr.i, %2
@@ -69,15 +69,15 @@ _ZNK8QuantLib25MersenneTwisterUniformRng9nextInt32Ev.exit: ; preds = %for.cond, 
   %shr = lshr i64 %xor8.i, 1
   %and2 = and i64 %shr, 127
   %shr3 = lshr i64 %xor8.i, 8
-  %arrayidx = getelementptr inbounds nuw i32, ptr @_ZZNK8QuantLib11ZigguratRng12nextGaussianEvE1c, i64 %conv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr @_ZZNK8QuantLib11ZigguratRng12nextGaussianEvE1c, i64 %conv
   %3 = load i32, ptr %arrayidx, align 4, !tbaa !9
   %conv4 = sext i32 %3 to i64
   %mul = mul nsw i64 %shr3, %conv4
   %conv5 = sitofp i64 %mul to double
-  %arrayidx6 = getelementptr inbounds nuw double, ptr @_ZN8QuantLib12_GLOBAL__N_12w_E, i64 %and2
+  %arrayidx6 = getelementptr inbounds nuw [8 x i8], ptr @_ZN8QuantLib12_GLOBAL__N_12w_E, i64 %and2
   %4 = load double, ptr %arrayidx6, align 8, !tbaa !11
   %mul7 = fmul double %4, %conv5
-  %arrayidx8 = getelementptr inbounds nuw i64, ptr @_ZN8QuantLib12_GLOBAL__N_12k_E, i64 %and2
+  %arrayidx8 = getelementptr inbounds nuw [8 x i8], ptr @_ZN8QuantLib12_GLOBAL__N_12k_E, i64 %and2
   %5 = load i64, ptr %arrayidx8, align 8, !tbaa !8
   %cmp = icmp ult i64 %shr3, %5
   br i1 %cmp, label %for.end, label %if.end
@@ -87,7 +87,7 @@ if.end:                                           ; preds = %_ZNK8QuantLib25Mers
   br i1 %cmp9.not, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  %6 = getelementptr double, ptr @_ZN8QuantLib12_GLOBAL__N_12f_E, i64 %and2
+  %6 = getelementptr [8 x i8], ptr @_ZN8QuantLib12_GLOBAL__N_12f_E, i64 %and2
   %arrayidx11 = getelementptr i8, ptr %6, i64 -8
   %7 = load double, ptr %arrayidx11, align 8, !tbaa !11
   %8 = load double, ptr %6, align 8, !tbaa !11
@@ -104,7 +104,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %if.then10, 
   %9 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %inc.i, %if.then10 ]
   %inc.i.i = add i64 %9, 1
   store i64 %inc.i.i, ptr %mti.i, align 8, !tbaa !3
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %this, i64 %9
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %this, i64 %9
   %10 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !8
   %shr.i.i = lshr i64 %10, 11
   %xor.i.i = xor i64 %shr.i.i, %10
@@ -140,7 +140,7 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit33: ; preds = %if.else, 
   %12 = phi i64 [ %.pre.i.i32, %if.then.i.i31 ], [ %inc.i, %if.else ]
   %inc.i.i16 = add i64 %12, 1
   store i64 %inc.i.i16, ptr %mti.i, align 8, !tbaa !3
-  %arrayidx.i.i17 = getelementptr inbounds nuw i64, ptr %this, i64 %12
+  %arrayidx.i.i17 = getelementptr inbounds nuw [8 x i8], ptr %this, i64 %12
   %13 = load i64, ptr %arrayidx.i.i17, align 8, !tbaa !8
   %shr.i.i18 = lshr i64 %13, 11
   %xor.i.i19 = xor i64 %shr.i.i18, %13

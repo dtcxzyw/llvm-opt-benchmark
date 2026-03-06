@@ -3,7 +3,6 @@ source_filename = "bench/icu/original/selfmt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.icu_77::MessagePattern::Part" = type { i32, i32, i16, i16, i32 }
 %"class.icu_77::UnicodeString" = type { %"class.icu_77::Replaceable", %"union.icu_77::UnicodeString::StackBufferOrFields" }
 %"class.icu_77::Replaceable" = type { %"class.icu_77::UObject" }
 %"class.icu_77::UObject" = type { ptr }
@@ -705,7 +704,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %14, %16
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %39 = load ptr, ptr %38, align 8, !tbaa !29
   %40 = sext i32 %34 to i64
-  %41 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %39, i64 %40
+  %41 = getelementptr inbounds [16 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !30
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -717,7 +716,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %14, %16
   %..i = tail call noundef i32 @llvm.smax.i32(i32 %49, i32 %34)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %51 = sext i32 %..i to i64
-  %52 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %39, i64 %51
+  %52 = getelementptr inbounds [16 x i8], ptr %39, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4, !tbaa !30
   %55 = sub nsw i32 %54, %47
@@ -776,7 +775,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712SelectFormat
   %.023 = phi i32 [ %1, %10 ], [ %91, %85 ]
   %27 = add nsw i32 %.023, 1
   %28 = sext i32 %.023 to i64
-  %29 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %26, i64 %28
+  %29 = getelementptr inbounds [16 x i8], ptr %26, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !40
   %31 = icmp eq i32 %30, 6
   br i1 %31, label %.thread, label %37
@@ -879,7 +878,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712SelectFormat
   %.227 = phi i32 [ %.025, %60 ], [ %spec.select, %84 ]
   %86 = load ptr, ptr %14, align 8, !tbaa !29
   %87 = sext i32 %27 to i64
-  %88 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %86, i64 %87
+  %88 = getelementptr inbounds [16 x i8], ptr %86, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 12
   %90 = load i32, ptr %89, align 4, !tbaa !35
   %..i = call noundef i32 @llvm.smax.i32(i32 %90, i32 %27)

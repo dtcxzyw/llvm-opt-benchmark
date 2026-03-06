@@ -976,7 +976,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %77, %80
 127:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %128 = load ptr, ptr %12, align 8, !tbaa !93
-  %129 = getelementptr inbounds nuw %"class.cv::Mat", ptr %128, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [96 x i8], ptr %128, i64 %indvars.iv
   invoke void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %16, ptr noundef nonnull align 8 dereferenceable(96) %129)
           to label %130 unwind label %135
 
@@ -1592,22 +1592,22 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl22HorizontalPa
   %indvars.iv.i.us.lver.orig = phi i64 [ %indvars.iv.next.i.us.lver.orig, %.lr.ph.i.us.lver.orig ], [ 1, %.lr.ph.i.us.lver.check ]
   %.04446.i.us.lver.orig = phi float [ %75, %.lr.ph.i.us.lver.orig ], [ %67, %.lr.ph.i.us.lver.check ]
   %72 = load float, ptr %36, align 8, !tbaa !24
-  %73 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv.i.us.lver.orig
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv.i.us.lver.orig
   %74 = load float, ptr %73, align 4, !tbaa !115
   %75 = fmul float %72, %74
   %76 = fsub float 1.000000e+00, %.04446.i.us.lver.orig
   %77 = fsub float %76, %75
   %78 = add nsw i64 %indvars.iv.i.us.lver.orig, -1
-  %79 = getelementptr inbounds float, ptr %62, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %62, i64 %78
   %80 = load float, ptr %79, align 4, !tbaa !115
   %81 = fneg float %80
   %82 = tail call float @llvm.fmuladd.f32(float %81, float %.04446.i.us.lver.orig, float %77)
   %83 = fdiv float %75, %82
-  %84 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv.i.us.lver.orig
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i.us.lver.orig
   store float %83, ptr %84, align 4, !tbaa !115
-  %85 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv.i.us.lver.orig
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv.i.us.lver.orig
   %86 = load float, ptr %85, align 4, !tbaa !115
-  %87 = getelementptr inbounds float, ptr %64, i64 %78
+  %87 = getelementptr inbounds [4 x i8], ptr %64, i64 %78
   %88 = load float, ptr %87, align 4, !tbaa !115
   %89 = fneg float %88
   %90 = tail call float @llvm.fmuladd.f32(float %89, float %.04446.i.us.lver.orig, float %86)
@@ -1634,7 +1634,7 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl22HorizontalPa
   %indvars.iv.i.us = phi i64 [ 1, %.lr.ph.i.us.ph ], [ %indvars.iv.next.i.us, %.lr.ph.i.us ]
   %.04446.i.us = phi float [ %67, %.lr.ph.i.us.ph ], [ %99, %.lr.ph.i.us ]
   %96 = load float, ptr %36, align 8, !tbaa !24
-  %97 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv.i.us
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv.i.us
   %98 = load float, ptr %97, align 4, !tbaa !115
   %99 = fmul float %96, %98
   %100 = fsub float 1.000000e+00, %.04446.i.us
@@ -1642,9 +1642,9 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl22HorizontalPa
   %102 = fneg float %store_forwarded
   %103 = tail call float @llvm.fmuladd.f32(float %102, float %.04446.i.us, float %101)
   %104 = fdiv float %99, %103
-  %105 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv.i.us
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i.us
   store float %104, ptr %105, align 4, !tbaa !115
-  %106 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv.i.us
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv.i.us
   %107 = load float, ptr %106, align 4, !tbaa !115
   %108 = fneg float %store_forwarded37
   %109 = tail call float @llvm.fmuladd.f32(float %108, float %.04446.i.us, float %107)
@@ -1661,9 +1661,9 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl22HorizontalPa
 .lr.ph50.i.us:                                    ; preds = %.lr.ph50.i.us.preheader, %.lr.ph50.i.us
   %store_forwarded40 = phi float [ %load_initial39, %.lr.ph50.i.us.preheader ], [ %116, %.lr.ph50.i.us ]
   %indvars.iv53.i.us = phi i64 [ %41, %.lr.ph50.i.us.preheader ], [ %indvars.iv.next54.i.us, %.lr.ph50.i.us ]
-  %111 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv53.i.us
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv53.i.us
   %112 = load float, ptr %111, align 4, !tbaa !115
-  %113 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv53.i.us
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv53.i.us
   %114 = load float, ptr %113, align 4, !tbaa !115
   %115 = fneg float %114
   %116 = tail call float @llvm.fmuladd.f32(float %115, float %store_forwarded40, float %112)
@@ -1807,93 +1807,93 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl18
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %79 = load float, ptr %50, align 8, !tbaa !24
   %80 = add nsw i64 %indvars.iv, -1
-  %81 = getelementptr inbounds float, ptr %11, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %11, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !115
   %83 = fmul float %79, %82
-  %84 = getelementptr inbounds float, ptr %29, i64 %80
+  %84 = getelementptr inbounds [4 x i8], ptr %29, i64 %80
   %85 = load float, ptr %84, align 4, !tbaa !115
   %86 = fmul float %79, %85
-  %87 = getelementptr inbounds float, ptr %37, i64 %80
+  %87 = getelementptr inbounds [4 x i8], ptr %37, i64 %80
   %88 = load float, ptr %87, align 4, !tbaa !115
   %89 = fmul float %79, %88
-  %90 = getelementptr inbounds float, ptr %45, i64 %80
+  %90 = getelementptr inbounds [4 x i8], ptr %45, i64 %80
   %91 = load float, ptr %90, align 4, !tbaa !115
   %92 = fmul float %79, %91
-  %93 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %94 = load float, ptr %93, align 4, !tbaa !115
   %95 = fmul float %79, %94
-  %96 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %97 = load float, ptr %96, align 4, !tbaa !115
   %98 = fmul float %79, %97
-  %99 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %100 = load float, ptr %99, align 4, !tbaa !115
   %101 = fmul float %79, %100
-  %102 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   %103 = load float, ptr %102, align 4, !tbaa !115
   %104 = fmul float %79, %103
   %105 = fsub float 1.000000e+00, %83
   %106 = fsub float %105, %95
-  %107 = getelementptr inbounds float, ptr %18, i64 %80
+  %107 = getelementptr inbounds [4 x i8], ptr %18, i64 %80
   %108 = load float, ptr %107, align 4, !tbaa !115
   %109 = fneg float %108
   %110 = tail call float @llvm.fmuladd.f32(float %109, float %83, float %106)
   %111 = fsub float 1.000000e+00, %86
   %112 = fsub float %111, %98
-  %113 = getelementptr inbounds float, ptr %31, i64 %80
+  %113 = getelementptr inbounds [4 x i8], ptr %31, i64 %80
   %114 = load float, ptr %113, align 4, !tbaa !115
   %115 = fneg float %114
   %116 = tail call float @llvm.fmuladd.f32(float %115, float %86, float %112)
   %117 = fsub float 1.000000e+00, %89
   %118 = fsub float %117, %101
-  %119 = getelementptr inbounds float, ptr %39, i64 %80
+  %119 = getelementptr inbounds [4 x i8], ptr %39, i64 %80
   %120 = load float, ptr %119, align 4, !tbaa !115
   %121 = fneg float %120
   %122 = tail call float @llvm.fmuladd.f32(float %121, float %89, float %118)
   %123 = fsub float 1.000000e+00, %92
   %124 = fsub float %123, %104
-  %125 = getelementptr inbounds float, ptr %47, i64 %80
+  %125 = getelementptr inbounds [4 x i8], ptr %47, i64 %80
   %126 = load float, ptr %125, align 4, !tbaa !115
   %127 = fneg float %126
   %128 = tail call float @llvm.fmuladd.f32(float %127, float %92, float %124)
   %129 = fdiv float %95, %110
-  %130 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   store float %129, ptr %130, align 4, !tbaa !115
   %131 = fdiv float %98, %116
-  %132 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   store float %131, ptr %132, align 4, !tbaa !115
   %133 = fdiv float %101, %122
-  %134 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   store float %133, ptr %134, align 4, !tbaa !115
   %135 = fdiv float %104, %128
-  %136 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv
   store float %135, ptr %136, align 4, !tbaa !115
-  %137 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %138 = load float, ptr %137, align 4, !tbaa !115
-  %139 = getelementptr inbounds float, ptr %25, i64 %80
+  %139 = getelementptr inbounds [4 x i8], ptr %25, i64 %80
   %140 = load float, ptr %139, align 4, !tbaa !115
   %141 = fneg float %140
   %142 = tail call float @llvm.fmuladd.f32(float %141, float %83, float %138)
   %143 = fdiv float %142, %110
   store float %143, ptr %137, align 4, !tbaa !115
-  %144 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %145 = load float, ptr %144, align 4, !tbaa !115
-  %146 = getelementptr inbounds float, ptr %33, i64 %80
+  %146 = getelementptr inbounds [4 x i8], ptr %33, i64 %80
   %147 = load float, ptr %146, align 4, !tbaa !115
   %148 = fneg float %147
   %149 = tail call float @llvm.fmuladd.f32(float %148, float %86, float %145)
   %150 = fdiv float %149, %116
   store float %150, ptr %144, align 4, !tbaa !115
-  %151 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   %152 = load float, ptr %151, align 4, !tbaa !115
-  %153 = getelementptr inbounds float, ptr %41, i64 %80
+  %153 = getelementptr inbounds [4 x i8], ptr %41, i64 %80
   %154 = load float, ptr %153, align 4, !tbaa !115
   %155 = fneg float %154
   %156 = tail call float @llvm.fmuladd.f32(float %155, float %89, float %152)
   %157 = fdiv float %156, %122
   store float %157, ptr %151, align 4, !tbaa !115
-  %158 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   %159 = load float, ptr %158, align 4, !tbaa !115
-  %160 = getelementptr inbounds float, ptr %49, i64 %80
+  %160 = getelementptr inbounds [4 x i8], ptr %49, i64 %80
   %161 = load float, ptr %160, align 4, !tbaa !115
   %162 = fneg float %161
   %163 = tail call float @llvm.fmuladd.f32(float %162, float %92, float %159)
@@ -1910,39 +1910,39 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc28FastGlobalSmootherFilterImpl18
 
 .lr.ph168:                                        ; preds = %.lr.ph168.preheader, %.lr.ph168
   %indvars.iv171 = phi i64 [ %166, %.lr.ph168.preheader ], [ %indvars.iv.next172, %.lr.ph168 ]
-  %167 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv171
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv171
   %168 = load float, ptr %167, align 4, !tbaa !115
-  %169 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv171
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv171
   %170 = load float, ptr %169, align 4, !tbaa !115
   %171 = add nuw nsw i64 %indvars.iv171, 1
-  %172 = getelementptr inbounds nuw float, ptr %25, i64 %171
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %171
   %173 = load float, ptr %172, align 4, !tbaa !115
   %174 = fneg float %170
   %175 = tail call float @llvm.fmuladd.f32(float %174, float %173, float %168)
   store float %175, ptr %167, align 4, !tbaa !115
-  %176 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv171
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv171
   %177 = load float, ptr %176, align 4, !tbaa !115
-  %178 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv171
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv171
   %179 = load float, ptr %178, align 4, !tbaa !115
-  %180 = getelementptr inbounds nuw float, ptr %33, i64 %171
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %171
   %181 = load float, ptr %180, align 4, !tbaa !115
   %182 = fneg float %179
   %183 = tail call float @llvm.fmuladd.f32(float %182, float %181, float %177)
   store float %183, ptr %176, align 4, !tbaa !115
-  %184 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv171
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv171
   %185 = load float, ptr %184, align 4, !tbaa !115
-  %186 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv171
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv171
   %187 = load float, ptr %186, align 4, !tbaa !115
-  %188 = getelementptr inbounds nuw float, ptr %41, i64 %171
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %171
   %189 = load float, ptr %188, align 4, !tbaa !115
   %190 = fneg float %187
   %191 = tail call float @llvm.fmuladd.f32(float %190, float %189, float %185)
   store float %191, ptr %184, align 4, !tbaa !115
-  %192 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv171
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv171
   %193 = load float, ptr %192, align 4, !tbaa !115
-  %194 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv171
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv171
   %195 = load float, ptr %194, align 4, !tbaa !115
-  %196 = getelementptr inbounds nuw float, ptr %49, i64 %171
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %171
   %197 = load float, ptr %196, align 4, !tbaa !115
   %198 = fneg float %195
   %199 = tail call float @llvm.fmuladd.f32(float %198, float %197, float %193)
@@ -2054,24 +2054,24 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl20VerticalPass
 56:                                               ; preds = %.lr.ph81.us, %56
   %indvars.iv95 = phi i64 [ %smin94, %.lr.ph81.us ], [ %indvars.iv.next96, %56 ]
   %57 = load float, ptr %39, align 8, !tbaa !24
-  %58 = getelementptr inbounds float, ptr %47, i64 %indvars.iv95
+  %58 = getelementptr inbounds [4 x i8], ptr %47, i64 %indvars.iv95
   %59 = load float, ptr %58, align 4, !tbaa !115
   %60 = fmul float %57, %59
-  %61 = getelementptr inbounds float, ptr %44, i64 %indvars.iv95
+  %61 = getelementptr inbounds [4 x i8], ptr %44, i64 %indvars.iv95
   %62 = load float, ptr %61, align 4, !tbaa !115
   %63 = fmul float %57, %62
   %64 = fsub float 1.000000e+00, %60
   %65 = fsub float %64, %63
-  %66 = getelementptr inbounds float, ptr %51, i64 %indvars.iv95
+  %66 = getelementptr inbounds [4 x i8], ptr %51, i64 %indvars.iv95
   %67 = load float, ptr %66, align 4, !tbaa !115
   %68 = fneg float %67
   %69 = tail call float @llvm.fmuladd.f32(float %68, float %60, float %65)
   %70 = fdiv float %63, %69
-  %71 = getelementptr inbounds float, ptr %49, i64 %indvars.iv95
+  %71 = getelementptr inbounds [4 x i8], ptr %49, i64 %indvars.iv95
   store float %70, ptr %71, align 4, !tbaa !115
-  %72 = getelementptr inbounds float, ptr %53, i64 %indvars.iv95
+  %72 = getelementptr inbounds [4 x i8], ptr %53, i64 %indvars.iv95
   %73 = load float, ptr %72, align 4, !tbaa !115
-  %74 = getelementptr inbounds float, ptr %55, i64 %indvars.iv95
+  %74 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv95
   %75 = load float, ptr %74, align 4, !tbaa !115
   %76 = fneg float %75
   %77 = tail call float @llvm.fmuladd.f32(float %76, float %60, float %73)
@@ -2090,14 +2090,14 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl20VerticalPass
 79:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ %smin, %.lr.ph ], [ %indvars.iv.next, %79 ]
   %80 = load float, ptr %29, align 8, !tbaa !24
-  %81 = getelementptr inbounds float, ptr %15, i64 %indvars.iv
+  %81 = getelementptr inbounds [4 x i8], ptr %15, i64 %indvars.iv
   %82 = load float, ptr %81, align 4, !tbaa !115
   %83 = fmul float %80, %82
   %84 = fsub float 1.000000e+00, %83
   %85 = fdiv float %83, %84
-  %86 = getelementptr inbounds float, ptr %19, i64 %indvars.iv
+  %86 = getelementptr inbounds [4 x i8], ptr %19, i64 %indvars.iv
   store float %85, ptr %86, align 4, !tbaa !115
-  %87 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
+  %87 = getelementptr inbounds [4 x i8], ptr %25, i64 %indvars.iv
   %88 = load float, ptr %87, align 4, !tbaa !115
   %89 = fdiv float %88, %84
   store float %89, ptr %87, align 4, !tbaa !115
@@ -2130,11 +2130,11 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl20VerticalPass
 
 104:                                              ; preds = %.lr.ph86.us, %104
   %indvars.iv104 = phi i64 [ %smin103, %.lr.ph86.us ], [ %indvars.iv.next105, %104 ]
-  %105 = getelementptr inbounds float, ptr %100, i64 %indvars.iv104
+  %105 = getelementptr inbounds [4 x i8], ptr %100, i64 %indvars.iv104
   %106 = load float, ptr %105, align 4, !tbaa !115
-  %107 = getelementptr inbounds float, ptr %98, i64 %indvars.iv104
+  %107 = getelementptr inbounds [4 x i8], ptr %98, i64 %indvars.iv104
   %108 = load float, ptr %107, align 4, !tbaa !115
-  %109 = getelementptr inbounds float, ptr %103, i64 %indvars.iv104
+  %109 = getelementptr inbounds [4 x i8], ptr %103, i64 %indvars.iv104
   %110 = load float, ptr %109, align 4, !tbaa !115
   %111 = fneg float %108
   %112 = tail call float @llvm.fmuladd.f32(float %111, float %110, float %106)
@@ -2218,7 +2218,7 @@ define hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl18ComputeLUT_P
   %27 = fdiv float %25, %26
   %28 = tail call noundef float @expf(float noundef %27) #25, !tbaa !112
   %29 = fneg float %28
-  %30 = getelementptr inbounds float, ptr %17, i64 %indvars.iv
+  %30 = getelementptr inbounds [4 x i8], ptr %17, i64 %indvars.iv
   store float %29, ptr %30, align 4, !tbaa !115
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -2589,7 +2589,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %46 = sub nsw i32 %43, %45
   %47 = mul nsw i32 %46, %46
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw float, ptr %15, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %48
   %50 = load float, ptr %49, align 4, !tbaa !115
   store float %50, ptr %40, align 4, !tbaa !115
   br label %51
@@ -2605,16 +2605,16 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %57 = sub nsw i32 %54, %56
   %58 = mul nsw i32 %57, %57
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw float, ptr %15, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %59
   %61 = load float, ptr %60, align 4, !tbaa !115
-  %62 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv38
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv38
   store float %61, ptr %62, align 4, !tbaa !115
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count
   br i1 %exitcond41.not, label %._crit_edge.us, label %51, !llvm.loop !136
 
 ._crit_edge.us:                                   ; preds = %51
-  %63 = getelementptr inbounds float, ptr %40, i64 %33
+  %63 = getelementptr inbounds [4 x i8], ptr %40, i64 %33
   store float 0.000000e+00, ptr %63, align 4, !tbaa !115
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %lftr.wideiv45 = trunc i64 %indvars.iv.next44 to i32
@@ -2638,10 +2638,10 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %73 = sub nsw i32 %70, %72
   %74 = mul nsw i32 %73, %73
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw float, ptr %15, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %75
   %77 = load float, ptr %76, align 4, !tbaa !115
   store float %77, ptr %67, align 4, !tbaa !115
-  %78 = getelementptr inbounds float, ptr %67, i64 %33
+  %78 = getelementptr inbounds [4 x i8], ptr %67, i64 %33
   store float 0.000000e+00, ptr %78, align 4, !tbaa !115
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -2728,9 +2728,9 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %45 = sub nsw i32 %42, %44
   %46 = mul nsw i32 %45, %45
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw float, ptr %15, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %47
   %49 = load float, ptr %48, align 4, !tbaa !115
-  %50 = getelementptr inbounds float, ptr %39, i64 %indvars.iv69
+  %50 = getelementptr inbounds [4 x i8], ptr %39, i64 %indvars.iv69
   store float %49, ptr %50, align 4, !tbaa !115
   %51 = getelementptr inbounds nuw i8, ptr %.14456.us, i64 1
   %52 = getelementptr inbounds nuw i8, ptr %.157.us, i64 1
@@ -2754,9 +2754,9 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %57 = sub nsw i32 %54, %56
   %58 = mul nsw i32 %57, %57
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw float, ptr %15, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %59
   %61 = load float, ptr %60, align 4, !tbaa !115
-  %62 = getelementptr inbounds float, ptr %17, i64 %indvars.iv
+  %62 = getelementptr inbounds [4 x i8], ptr %17, i64 %indvars.iv
   store float %61, ptr %62, align 4, !tbaa !115
   %63 = getelementptr inbounds nuw i8, ptr %.04353, i64 1
   %64 = getelementptr inbounds nuw i8, ptr %.04254, i64 1
@@ -2870,7 +2870,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %64 = mul nsw i32 %63, %63
   %65 = add nuw nsw i32 %56, %64
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw float, ptr %15, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %66
   %68 = load float, ptr %67, align 4, !tbaa !115
   store float %68, ptr %40, align 4, !tbaa !115
   br label %69
@@ -2904,16 +2904,16 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %93 = mul nsw i32 %92, %92
   %94 = add nuw nsw i32 %85, %93
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw float, ptr %15, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %95
   %97 = load float, ptr %96, align 4, !tbaa !115
-  %98 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv38
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv38
   store float %97, ptr %98, align 4, !tbaa !115
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count
   br i1 %exitcond41.not, label %._crit_edge.us, label %69, !llvm.loop !141
 
 ._crit_edge.us:                                   ; preds = %69
-  %99 = getelementptr inbounds float, ptr %40, i64 %33
+  %99 = getelementptr inbounds [4 x i8], ptr %40, i64 %33
   store float 0.000000e+00, ptr %99, align 4, !tbaa !115
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
   %lftr.wideiv45 = trunc i64 %indvars.iv.next44 to i32
@@ -2955,10 +2955,10 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %127 = mul nsw i32 %126, %126
   %128 = add nuw nsw i32 %119, %127
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw float, ptr %15, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %129
   %131 = load float, ptr %130, align 4, !tbaa !115
   store float %131, ptr %103, align 4, !tbaa !115
-  %132 = getelementptr inbounds float, ptr %103, i64 %33
+  %132 = getelementptr inbounds [4 x i8], ptr %103, i64 %33
   store float 0.000000e+00, ptr %132, align 4, !tbaa !115
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -3072,9 +3072,9 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %70 = mul nsw i32 %69, %69
   %71 = add nuw nsw i32 %62, %70
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw float, ptr %15, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %72
   %74 = load float, ptr %73, align 4, !tbaa !115
-  %75 = getelementptr inbounds float, ptr %46, i64 %indvars.iv70
+  %75 = getelementptr inbounds [4 x i8], ptr %46, i64 %indvars.iv70
   store float %74, ptr %75, align 4, !tbaa !115
   %76 = getelementptr inbounds nuw i8, ptr %.14456.us, i64 3
   %77 = getelementptr inbounds nuw i8, ptr %.157.us, i64 3
@@ -3116,9 +3116,9 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28FastGlobalSmootherFilterImpl3
   %100 = mul nsw i32 %99, %99
   %101 = add nuw nsw i32 %92, %100
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw float, ptr %15, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %102
   %104 = load float, ptr %103, align 4, !tbaa !115
-  %105 = getelementptr inbounds float, ptr %17, i64 %indvars.iv
+  %105 = getelementptr inbounds [4 x i8], ptr %17, i64 %indvars.iv
   store float %104, ptr %105, align 4, !tbaa !115
   %106 = getelementptr inbounds nuw i8, ptr %.04353, i64 3
   %107 = getelementptr inbounds nuw i8, ptr %.04254, i64 3
@@ -3263,7 +3263,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !93
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !89
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !91
   ret void
 }
@@ -3349,7 +3349,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !93
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !89
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !91
   ret void
 

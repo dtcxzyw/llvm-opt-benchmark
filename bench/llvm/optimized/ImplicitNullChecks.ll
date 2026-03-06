@@ -67,15 +67,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.197" = type { %"class.llvm::SmallVectorTemplateCommon.198" }
 %"class.llvm::SmallVectorTemplateCommon.198" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.199" = type { [768 x i8] }
-%"struct.llvm::MachineBasicBlock::RegisterMaskPair" = type { %"class.llvm::MCRegister", %"struct.llvm::LaneBitmask" }
-%"class.llvm::MCRegister" = type { i32 }
-%"struct.llvm::LaneBitmask" = type { i64 }
-%"class.(anonymous namespace)::ImplicitNullChecks::NullCheck" = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %"class.llvm::APInt" = type <{ %union.anon.329, i32, [4 x i8] }>
 %union.anon.329 = type { i64 }
 %"class.llvm::MemoryLocation" = type { ptr, %"class.llvm::LocationSize", %"struct.llvm::AAMDNodes" }
 %"class.llvm::LocationSize" = type { i64 }
 %"struct.llvm::AAMDNodes" = type { ptr, ptr, ptr, ptr }
+%"class.(anonymous namespace)::ImplicitNullChecks::NullCheck" = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %"struct.llvm::cl::desc" = type { %"class.llvm::StringRef" }
 %"struct.llvm::cl::initializer" = type { ptr }
 
@@ -191,7 +188,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !25
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !26
@@ -329,7 +326,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !25
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !26
@@ -1656,7 +1653,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ;
   %456 = phi i32 [ %451, %450 ], [ %.pre.i28, %453 ]
   %457 = load ptr, ptr %18, align 8, !tbaa !25
   %458 = zext i32 %456 to i64
-  %459 = getelementptr inbounds nuw ptr, ptr %457, i64 %458
+  %459 = getelementptr inbounds nuw [8 x i8], ptr %457, i64 %458
   %460 = ptrtoint ptr %.sroa.059.096.i to i64
   store i64 %460, ptr %459, align 1
   %461 = load i32, ptr %73, align 8, !tbaa !26
@@ -1941,12 +1938,12 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i:                   ; preds = %565, %_ZN4llvm10MIM
   %567 = load ptr, ptr %566, align 8, !tbaa !382
   %568 = call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %.0.val67.i) #20
   %569 = zext i32 %568 to i64
-  %570 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %567, i64 %569
+  %570 = getelementptr inbounds nuw [32 x i8], ptr %567, i64 %569
   %571 = load ptr, ptr %566, align 8, !tbaa !382
   %572 = getelementptr inbounds nuw i8, ptr %.0.val67.i, i64 40
   %573 = load i24, ptr %572, align 8
   %574 = zext i24 %573 to i64
-  %575 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %571, i64 %574
+  %575 = getelementptr inbounds nuw [32 x i8], ptr %571, i64 %574
   %.not2453.i.i = icmp eq ptr %570, %575
   br i1 %.not2453.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -2136,7 +2133,7 @@ _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEP
 _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %643, %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i.i
   store ptr %638, ptr %611, align 8, !tbaa !420
   store ptr %642, ptr %612, align 8, !tbaa !418
-  %644 = getelementptr inbounds nuw %"struct.llvm::MachineBasicBlock::RegisterMaskPair", ptr %638, i64 %636
+  %644 = getelementptr inbounds nuw [16 x i8], ptr %638, i64 %636
   store ptr %644, ptr %613, align 8, !tbaa !419
   br label %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit.i
 
@@ -2283,7 +2280,7 @@ _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEP
 _ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i101.i: ; preds = %701, %_ZNSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i98.i
   store ptr %696, ptr %675, align 8, !tbaa !420
   store ptr %700, ptr %677, align 8, !tbaa !418
-  %702 = getelementptr inbounds nuw %"struct.llvm::MachineBasicBlock::RegisterMaskPair", ptr %696, i64 %694
+  %702 = getelementptr inbounds nuw [16 x i8], ptr %696, i64 %694
   store ptr %702, ptr %679, align 8, !tbaa !419
   br label %.critedge.i
 
@@ -2394,7 +2391,7 @@ define internal fastcc void @_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_118Implicit
 8:                                                ; preds = %1
   %9 = zext i32 %3 to i64
   %.val = load ptr, ptr %0, align 8, !tbaa !25
-  %10 = getelementptr inbounds nuw %"class.(anonymous namespace)::ImplicitNullChecks::NullCheck", ptr %.val, i64 %9
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %.val, i64 %9
   store ptr %.0.val, ptr %10, align 8, !tbaa !394
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %.0.val1, ptr %11, align 8, !tbaa !438
@@ -3309,7 +3306,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm
   br i1 %.not.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckELb1EE9push_backERKS3_.exit, label %14, !prof !33
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds nuw %"class.(anonymous namespace)::ImplicitNullChecks::NullCheck", ptr %.val.pre4.i, i64 %10
+  %15 = getelementptr inbounds nuw [48 x i8], ptr %.val.pre4.i, i64 %10
   %16 = icmp uge ptr %2, %.val.pre4.i
   %17 = icmp ult ptr %2, %15
   %spec.select.i.i.i.i.i = and i1 %16, %17
@@ -3336,7 +3333,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckE
   %.016.i.i.i = phi ptr [ %2, %1 ], [ %23, %18 ], [ %2, %.critedge.i.i.i ]
   %.val3.i = load i32, ptr %8, align 8, !tbaa !26
   %25 = zext i32 %.val3.i to i64
-  %26 = getelementptr inbounds nuw %"class.(anonymous namespace)::ImplicitNullChecks::NullCheck", ptr %.val.i, i64 %25
+  %26 = getelementptr inbounds nuw [48 x i8], ptr %.val.i, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %26, ptr noundef nonnull align 8 dereferenceable(48) %.016.i.i.i, i64 48, i1 false)
   %27 = load i32, ptr %8, align 8, !tbaa !26
   %28 = add i32 %27, 1
@@ -3344,7 +3341,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_118ImplicitNullChecks9NullCheckE
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.val = load ptr, ptr %0, align 8, !tbaa !25
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.(anonymous namespace)::ImplicitNullChecks::NullCheck", ptr %.val, i64 %29
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %.val, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -48
   ret ptr %31
 }

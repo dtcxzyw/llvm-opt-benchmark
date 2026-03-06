@@ -51,7 +51,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_ctl_enum
 %struct.anon.33 = type { i32, i32 }
 %struct.lock_class_key = type {}
 %struct.snd_ctl_elem_id = type { i32, i32, i32, i32, [44 x i8], i32 }
-%struct.snd_kcontrol_volatile = type { ptr, i32 }
 %struct.snd_ctl_event = type { i32, %union.anon.26 }
 %union.anon.26 = type { %struct.anon.27 }
 %struct.anon.27 = type { i32, %struct.snd_ctl_elem_id }
@@ -330,7 +329,7 @@ define dso_local ptr @snd_ctl_new1(ptr noundef readonly captures(address_is_null
   %29 = getelementptr i8, ptr %26, i64 %.idx
   %30 = getelementptr i8, ptr %29, i64 8
   store i32 %16, ptr %30, align 8
-  %31 = getelementptr %struct.snd_kcontrol_volatile, ptr %26, i64 %28
+  %31 = getelementptr [16 x i8], ptr %26, i64 %28
   store ptr null, ptr %31, align 8
   %32 = add nuw nsw i64 %28, 1
   %33 = icmp eq i64 %32, %25
@@ -1362,7 +1361,7 @@ define dso_local i32 @snd_ctl_get_preferred_subdevice(ptr noundef %0, i32 nounde
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %21 = getelementptr i32, ptr %20, i64 %13
+  %21 = getelementptr [4 x i8], ptr %20, i64 %13
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %24, label %.loopexit
@@ -1696,7 +1695,7 @@ define dso_local noundef i32 @snd_ctl_enum_info(ptr noundef initializes((64, 68)
 15:                                               ; preds = %13, %9
   %16 = phi i32 [ %14, %13 ], [ %11, %9 ]
   %17 = zext i32 %16 to i64
-  %18 = getelementptr ptr, ptr %3, i64 %17
+  %18 = getelementptr [8 x i8], ptr %3, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @strlen(ptr noundef %19) #17
   %21 = icmp ugt i64 %20, 63
@@ -1706,7 +1705,7 @@ define dso_local noundef i32 @snd_ctl_enum_info(ptr noundef initializes((64, 68)
   tail call void asm sideeffect "376: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 376b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 376) #17, !srcloc !31
   %23 = load i32, ptr %10, align 4
   %24 = zext i32 %23 to i64
-  %25 = getelementptr ptr, ptr %3, i64 %24
+  %25 = getelementptr [8 x i8], ptr %3, i64 %24
   %26 = load ptr, ptr %25, align 8
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.4, ptr noundef %26) #17
   tail call void asm sideeffect "377: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 377b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 377) #17, !srcloc !32
@@ -1715,7 +1714,7 @@ define dso_local noundef i32 @snd_ctl_enum_info(ptr noundef initializes((64, 68)
   tail call void asm sideeffect "379: nop\0A\09.pushsection .discard.instr_end\0A\09.long 379b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 379) #17, !srcloc !35
   %.pre = load i32, ptr %10, align 4
   %.phi.trans.insert = zext i32 %.pre to i64
-  %.phi.trans.insert1 = getelementptr ptr, ptr %3, i64 %.phi.trans.insert
+  %.phi.trans.insert1 = getelementptr [8 x i8], ptr %3, i64 %.phi.trans.insert
   %.pre2 = load ptr, ptr %.phi.trans.insert1, align 8
   br label %27
 
@@ -2499,7 +2498,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_ctl_ioctl(ptr nounde
   %152 = trunc i64 %150 to i32
   %153 = and i32 %151, %152
   %154 = zext i32 %153 to i64
-  %155 = getelementptr %struct.snd_kcontrol_volatile, ptr %126, i64 %154
+  %155 = getelementptr [16 x i8], ptr %126, i64 %154
   %156 = load ptr, ptr %155, align 8
   %157 = icmp eq ptr %156, null
   br i1 %157, label %158, label %159
@@ -2568,7 +2567,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_ctl_ioctl(ptr nounde
   %197 = trunc i64 %195 to i32
   %198 = and i32 %196, %197
   %199 = zext i32 %198 to i64
-  %200 = getelementptr %struct.snd_kcontrol_volatile, ptr %171, i64 %199
+  %200 = getelementptr [16 x i8], ptr %171, i64 %199
   %201 = load ptr, ptr %200, align 8
   %202 = icmp eq ptr %201, null
   br i1 %202, label %206, label %203
@@ -2638,7 +2637,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_ctl_ioctl(ptr nounde
 .preheader:                                       ; preds = %230, %234
   %237 = phi i32 [ %235, %234 ], [ 0, %230 ]
   %238 = sext i32 %237 to i64
-  %239 = getelementptr %struct.snd_kcontrol_volatile, ptr %225, i64 %238
+  %239 = getelementptr [16 x i8], ptr %225, i64 %238
   %240 = load ptr, ptr %239, align 8
   %241 = icmp eq ptr %240, null
   %242 = icmp eq ptr %240, %11
@@ -3296,7 +3295,7 @@ define internal noundef i32 @snd_ctl_release(ptr readnone captures(none) %0, ptr
 25:                                               ; preds = %32, %23
   %26 = phi i32 [ %21, %23 ], [ %33, %32 ]
   %27 = phi i64 [ 0, %23 ], [ %34, %32 ]
-  %28 = getelementptr %struct.snd_kcontrol_volatile, ptr %24, i64 %27
+  %28 = getelementptr [16 x i8], ptr %24, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %4
   br i1 %30, label %31, label %32
@@ -3442,7 +3441,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add_user(ptr 
 .preheader:                                       ; preds = %25, %29
   %32 = phi i32 [ %30, %29 ], [ 0, %25 ]
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.snd_kcontrol_volatile, ptr %20, i64 %33
+  %34 = getelementptr [16 x i8], ptr %20, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   %37 = icmp eq ptr %35, %0
@@ -3553,13 +3552,13 @@ define internal fastcc i32 @snd_ctl_tlv_ioctl(ptr noundef readonly captures(addr
   %61 = trunc i64 %59 to i32
   %62 = and i32 %60, %61
   %63 = zext i32 %62 to i64
-  %64 = getelementptr %struct.snd_kcontrol_volatile, ptr %29, i64 %63
+  %64 = getelementptr [16 x i8], ptr %29, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   br label %66
 
 66:                                               ; preds = %77, %58
   %67 = phi i64 [ 0, %58 ], [ %78, %77 ]
-  %68 = getelementptr %struct.anon.33, ptr @call_tlv_handler.pairs, i64 %67
+  %68 = getelementptr [8 x i8], ptr @call_tlv_handler.pairs, i64 %67
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, %2
   br i1 %70, label %71, label %77
@@ -3701,7 +3700,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @snd_ctl_elem_list(ptr noun
   store i32 %43, ptr %3, align 4
   %44 = load ptr, ptr %19, align 8
   %45 = zext i32 %37 to i64
-  %46 = getelementptr %struct.snd_ctl_elem_id, ptr %44, i64 %45
+  %46 = getelementptr [64 x i8], ptr %44, i64 %45
   %47 = call i64 @_copy_to_user(ptr noundef %46, ptr noundef nonnull %3, i64 noundef 64) #17
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %49, label %.loopexit
@@ -3808,7 +3807,7 @@ define internal fastcc i32 @snd_ctl_elem_info(ptr noundef readonly captures(addr
   %54 = and i32 %52, %53
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %56 = zext i32 %54 to i64
-  %57 = getelementptr %struct.snd_kcontrol_volatile, ptr %55, i64 %56
+  %57 = getelementptr [16 x i8], ptr %55, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %58, i64 64, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -4011,7 +4010,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_write(ptr nou
   %36 = and i32 %34, %35
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %38 = zext i32 %36 to i64
-  %39 = getelementptr %struct.snd_kcontrol_volatile, ptr %37, i64 %38
+  %39 = getelementptr [16 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 2
@@ -4174,7 +4173,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add(ptr nound
 .preheader:                                       ; preds = %25, %29
   %32 = phi i32 [ %30, %29 ], [ 0, %25 ]
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.snd_kcontrol_volatile, ptr %20, i64 %33
+  %34 = getelementptr [16 x i8], ptr %20, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   %37 = icmp eq ptr %35, %0
@@ -4220,14 +4219,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add(ptr nound
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %66 = load i32, ptr %65, align 8
   %67 = zext nneg i32 %55 to i64
-  %68 = getelementptr i32, ptr @snd_ctl_check_elem_info.max_value_counts, i64 %67
+  %68 = getelementptr [4 x i8], ptr @snd_ctl_check_elem_info.max_value_counts, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %66, -1
   %or.cond.not = icmp ult i32 %70, %69
   br i1 %or.cond.not, label %71, label %.thread14
 
 71:                                               ; preds = %64
-  %72 = getelementptr i32, ptr @value_sizes, i64 %67
+  %72 = getelementptr [4 x i8], ptr @value_sizes, i64 %67
   %73 = load i32, ptr %72, align 4
   %74 = mul i32 %73, %66
   %75 = zext i32 %74 to i64
@@ -4266,7 +4265,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_ctl_elem_add(ptr nound
   %98 = getelementptr i8, ptr %95, i64 %.idx
   %99 = getelementptr i8, ptr %98, i64 8
   store i32 %53, ptr %99, align 8
-  %100 = getelementptr %struct.snd_kcontrol_volatile, ptr %95, i64 %97
+  %100 = getelementptr [16 x i8], ptr %95, i64 %97
   store ptr %0, ptr %100, align 8
   %101 = add nuw nsw i64 %97, 1
   %102 = icmp eq i64 %101, %76
@@ -5272,7 +5271,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @copy_ctl_value_from_user(p
 63:                                               ; preds = %73, %60
   %64 = phi i64 [ 0, %60 ], [ %77, %73 ]
   %65 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %66 = getelementptr i32, ptr %3, i64 %64
+  %66 = getelementptr [4 x i8], ptr %3, i64 %64
   %67 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %66, i64 4, i64 %65) #17, !srcloc !81
   %68 = extractvalue { ptr, i32, i64 } %67, 0
   %69 = extractvalue { ptr, i32, i64 } %67, 2
@@ -5285,7 +5284,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @copy_ctl_value_from_user(p
 73:                                               ; preds = %63
   %74 = extractvalue { ptr, i32, i64 } %67, 1
   %75 = sext i32 %74 to i64
-  %76 = getelementptr i64, ptr %61, i64 %64
+  %76 = getelementptr [8 x i8], ptr %61, i64 %64
   store i64 %75, ptr %76, align 8
   %77 = add nuw nsw i64 %64, 1
   %78 = icmp eq i64 %77, %62
@@ -5357,10 +5356,10 @@ define internal fastcc range(i32 -14, 1) i32 @copy_ctl_value_to_user(ptr noundef
 
 16:                                               ; preds = %13, %10
   %17 = phi i64 [ 0, %10 ], [ %14, %13 ]
-  %18 = getelementptr i64, ptr %11, i64 %17
+  %18 = getelementptr [8 x i8], ptr %11, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
-  %21 = getelementptr i32, ptr %1, i64 %17
+  %21 = getelementptr [4 x i8], ptr %1, i64 %17
   %22 = tail call i64 @llvm.read_register.i64(metadata !0)
   %23 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %21, i32 %20, i64 4, i64 %22) #17, !srcloc !84
   %24 = extractvalue { ptr, i64 } %23, 0

@@ -558,7 +558,7 @@ define internal fastcc void @"_ZN4core6option15Option$LT$T$GT$6filter17h98b4172d
   %8 = load ptr, ptr %7, align 8, !alias.scope !148, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !148, !noundef !4
-  %11 = getelementptr inbounds { i64, [18 x i64] }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [152 x i8], ptr %8, i64 %10
   br label %12
 
 12:                                               ; preds = %14, %5
@@ -919,7 +919,7 @@ define void @_ZN15actix_multipart6server9Multipart8boundary17h4a7f5a09292cb55eE(
   %33 = load ptr, ptr %32, align 8, !alias.scope !224, !noalias !225, !nonnull !4
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %35 = load i64, ptr %34, align 8, !alias.scope !224, !noalias !225
-  %36 = getelementptr inbounds { { i64, i64 }, { i64, i64 } }, ptr %33, i64 %35
+  %36 = getelementptr inbounds [32 x i8], ptr %33, i64 %35
   %.sroa.42.0.i.i = select i1 %30, ptr %31, ptr undef
   %.sroa.5.0.i.i = select i1 %30, ptr %33, ptr undef
   %.sroa.6.0.i.i = select i1 %30, ptr %36, ptr undef
@@ -2108,7 +2108,7 @@ _ZN15actix_multipart6server14InnerMultipart13read_boundary17h45c533dd8c15961dE.e
 
 352:                                              ; preds = %352, %351
   %353 = phi i64 [ 0, %351 ], [ %355, %352 ]
-  %354 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr %13, i64 %353
+  %354 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %353
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %354, ptr noundef nonnull align 8 dereferenceable(32) @anon.5007fb1ca41d1123f19426ceed96f3e3.29, i64 32, i1 false), !noalias !455
   %355 = add nuw nsw i64 %353, 1
   %exitcond.not.i.i = icmp eq i64 %355, 32

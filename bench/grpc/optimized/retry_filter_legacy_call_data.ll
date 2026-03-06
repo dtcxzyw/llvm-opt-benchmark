@@ -36,7 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
 %"class.absl::lts_20240722::Span.316" = type { ptr, i64 }
-%"struct.grpc_core::RetryFilter::LegacyCallData::CachedSendMessage" = type { ptr, i32 }
 %"class.grpc_core::RefCountedPtr.64" = type { ptr }
 %"class.grpc_core::metadata_detail::CopySink" = type { ptr }
 %struct.grpc_metadata_batch = type { %"class.grpc_core::MetadataMap" }
@@ -128,8 +127,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.95 = type { i64, [8 x i8] }
 %"class.absl::lts_20240722::Status" = type { i64 }
-%"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure" = type { ptr, %"class.absl::lts_20240722::Status", ptr }
-%"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch" = type <{ ptr, i8, [7 x i8] }>
+%"struct.grpc_core::RetryFilter::LegacyCallData::CachedSendMessage" = type { ptr, i32 }
 %"class.grpc_core::CallCombinerClosureList" = type { %"class.absl::lts_20240722::InlinedVector.96" }
 %"class.absl::lts_20240722::InlinedVector.96" = type { %"class.absl::lts_20240722::inlined_vector_internal::Storage.97" }
 %"class.absl::lts_20240722::inlined_vector_internal::Storage.97" = type { %"class.absl::lts_20240722::container_internal::CompressedTuple.98", %"union.absl::lts_20240722::inlined_vector_internal::Storage<grpc_core::CallCombinerClosureList::CallCombinerClosure, 6, std::allocator<grpc_core::CallCombinerClosureList::CallCombinerClosure>>::Data" }
@@ -139,13 +137,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.absl::lts_20240722::inlined_vector_internal::Storage<grpc_core::CallCombinerClosureList::CallCombinerClosure, 6, std::allocator<grpc_core::CallCombinerClosureList::CallCombinerClosure>>::Data" = type { %"struct.absl::lts_20240722::inlined_vector_internal::Storage<grpc_core::CallCombinerClosureList::CallCombinerClosure, 6, std::allocator<grpc_core::CallCombinerClosureList::CallCombinerClosure>>::Allocated", [128 x i8] }
 %"struct.absl::lts_20240722::inlined_vector_internal::Storage<grpc_core::CallCombinerClosureList::CallCombinerClosure, 6, std::allocator<grpc_core::CallCombinerClosureList::CallCombinerClosure>>::Allocated" = type { ptr, i64 }
 %"class.grpc_core::DebugLocation" = type { i8 }
-%"struct.grpc_core::RetryFilter::LegacyCallData::CallAttempt::OnCompleteDeferredBatch" = type { %"class.grpc_core::RefCountedPtr", %"class.absl::lts_20240722::Status" }
-%"class.grpc_core::RefCountedPtr" = type { ptr }
 %"class.std::vector.138" = type { %"struct.std::_Vector_base.139" }
 %"struct.std::_Vector_base.139" = type { %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl" }
 %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl" = type { %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::lts_20240722::log_internal::LogMessageFatal" = type { %"class.absl::lts_20240722::log_internal::LogMessage" }
+%"class.grpc_core::RefCountedPtr" = type { ptr }
 %"class.std::optional.82" = type { %"struct.std::_Optional_base.83" }
 %"struct.std::_Optional_base.83" = type { %"struct.std::_Optional_payload.85" }
 %"struct.std::_Optional_payload.85" = type { %"struct.std::_Optional_payload_base.base.87", [7 x i8] }
@@ -158,7 +155,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.grpc_core::slice_detail::BaseSlice" = type { %struct.grpc_slice }
 %"class.grpc_core::BackOff::Options" = type { %"class.grpc_core::Duration", double, double, %"class.grpc_core::Duration" }
 %"class.grpc_core::metadata_detail::TransportSizeEncoder" = type { i32 }
-%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
 %"class.grpc_core::ExecCtx" = type { ptr, %struct.grpc_closure_list, %"struct.grpc_core::ExecCtx::CombinerData", i64, %"class.std::optional.328", ptr }
 %struct.grpc_closure_list = type { ptr, ptr }
 %"struct.grpc_core::ExecCtx::CombinerData" = type { ptr, ptr }
@@ -176,6 +172,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.337" = type { %"struct.std::_Optional_payload_base.base.339", [7 x i8] }
 %"struct.std::_Optional_payload_base.base.339" = type <{ %"union.std::_Optional_payload_base<grpc_core::Timestamp>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<grpc_core::Timestamp>::_Storage" = type { %"class.grpc_core::Timestamp" }
+%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
 %"class.grpc_core::CompressionAlgorithmSet" = type { %"class.grpc_core::BitSet.286" }
 %"class.grpc_core::BitSet.286" = type { [1 x i8] }
 %"class.grpc_core::StaticSlice" = type { %"class.grpc_core::slice_detail::BaseSlice" }
@@ -1991,7 +1988,7 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData21FreeCachedSendMessageEm
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %10 = load ptr, ptr %9, align 8
   %11 = select i1 %8, ptr %10, ptr %9
-  %12 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::CachedSendMessage", ptr %11, i64 %1
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %1
   %13 = load ptr, ptr %12, align 8, !tbaa !252
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %_ZN9grpc_core11SliceBufferD2Ev.exit, label %14
@@ -2052,7 +2049,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi28EEERS2_RAT__Kc.exit: ; pr
 
 .critedge14:                                      ; preds = %24, %25
   %.pre-phi18 = phi ptr [ %11, %24 ], [ %.pre17, %25 ]
-  %26 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::CachedSendMessage", ptr %.pre-phi18, i64 %1
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %.pre-phi18, i64 %1
   %27 = load ptr, ptr %26, align 8, !tbaa !254
   store ptr null, ptr %26, align 8, !tbaa !254
   invoke void @grpc_slice_buffer_destroy(ptr noundef nonnull align 8 dereferenceable(232) %27)
@@ -3104,7 +3101,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi33EEERS2_RAT__Kc.exit: ; pr
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 1248
   %32 = load ptr, ptr %31, align 8
   %33 = select i1 %30, ptr %32, ptr %31
-  %34 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::CachedSendMessage", ptr %33, i64 %28
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %28
   %.sroa.0.0.copyload = load ptr, ptr %34, align 8, !tbaa !254
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !282
@@ -3425,7 +3422,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %46 = load ptr, ptr %45, align 8, !noalias !299
   %.sink2.i.i.i.i = select i1 %42, ptr %46, ptr %45
-  %47 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store ptr %37, ptr %47, align 8, !tbaa !302
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 1, ptr %48, align 8, !tbaa !154
@@ -3582,7 +3579,7 @@ define linkonce_odr void @_ZN9grpc_core23CallCombinerClosureList3AddEP12grpc_clo
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !noalias !305
   %.sink2.i.i.i = select i1 %8, ptr %13, ptr %12
-  %14 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i.i.i, i64 %.sink1.i.i.i
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %.sink2.i.i.i, i64 %.sink1.i.i.i
   %15 = load i64, ptr %2, align 8, !tbaa !154
   %16 = trunc i64 %15 to i1
   br i1 %16, label %.thread.i.i.i.i, label %19
@@ -4000,7 +3997,7 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt27AddBatches
   %.074 = phi i64 [ 0, %2 ], [ %196, %195 ]
   %18 = load ptr, ptr %5, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 472
-  %20 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %19, i64 %.074
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %.074
   %21 = load ptr, ptr %20, align 8, !tbaa !255
   %22 = icmp eq ptr %21, null
   br i1 %22, label %195, label %23
@@ -4666,7 +4663,7 @@ _ZN9grpc_core5Arena3NewINS_11SliceBufferEJS2_EEEPT_DpOT0_.exit: ; preds = %86
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %101 = load ptr, ptr %100, align 8, !noalias !329
   %.sink2.i.i.i.i = select i1 %96, ptr %101, ptr %100
-  %102 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::CachedSendMessage", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !332
   %103 = load i64, ptr %90, align 8, !tbaa !196
   %104 = add i64 %103, 2
@@ -5269,7 +5266,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %._crit_edge, %18
   %23 = trunc i64 %22 to i1
   %24 = load ptr, ptr %8, align 8
   %25 = select i1 %23, ptr %24, ptr %8
-  %26 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %25, i64 %.01117
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %.01117
   %27 = load ptr, ptr %26, align 8, !tbaa !302
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !154
@@ -5348,7 +5345,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit14:         ; preds = %50, %53
 .lr.ph.i.i:                                       ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit14, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i.i
   %.06.i.i = phi i64 [ %63, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i.i ], [ %62, %_ZN4absl12lts_202407226StatusD2Ev.exit14 ]
   %63 = add nsw i64 %.06.i.i, -1
-  %64 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %61, i64 %63
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i64, ptr %65, align 8, !tbaa !154
   %67 = trunc i64 %66 to i1
@@ -5728,7 +5725,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit19:         ; preds = %53, %51, %_ZN9grpc_
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %_ZNSt16allocator_traitsISaIN9grpc_core11RetryFilter14LegacyCallData11CallAttempt23OnCompleteDeferredBatchEEE7destroyIS4_EEvRS5_PT_.exit.i.i
   %.06.i.i = phi i64 [ %68, %_ZNSt16allocator_traitsISaIN9grpc_core11RetryFilter14LegacyCallData11CallAttempt23OnCompleteDeferredBatchEEE7destroyIS4_EEvRS5_PT_.exit.i.i ], [ %67, %._crit_edge ]
   %68 = add nsw i64 %.06.i.i, -1
-  %69 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::CallAttempt::OnCompleteDeferredBatch", ptr %.pre-phi36, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %.pre-phi36, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !154
   %72 = trunc i64 %71 to i1
@@ -7144,7 +7141,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi8EEERS2_RAT__Kc.exit: ; pre
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %28 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_21ServiceConfigCallDataEE3id_E, align 2, !tbaa !156
   %29 = zext i16 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !362
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
@@ -8202,7 +8199,7 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45
 
 16:                                               ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", %3
   %.02110.i = phi i64 [ 0, %3 ], [ %45, %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i" ]
-  %17 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %15, i64 %.02110.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.02110.i
   %18 = load ptr, ptr %17, align 8, !tbaa !255
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %19
@@ -8374,7 +8371,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %_ZN19grpc_metadata_
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %80 = load ptr, ptr %79, align 8, !noalias !365
   %.sink2.i.i.i.i = select i1 %75, ptr %80, ptr %79
-  %81 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %81 = getelementptr inbounds nuw [24 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   br i1 %70, label %.thread.i.i.i.i.i, label %84
 
 .thread.i.i.i.i.i:                                ; preds = %78
@@ -9143,7 +9140,7 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37
 
 16:                                               ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", %3
   %.02110.i = phi i64 [ 0, %3 ], [ %45, %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i" ]
-  %17 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %15, i64 %.02110.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.02110.i
   %18 = load ptr, ptr %17, align 8, !tbaa !255
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %19
@@ -9302,7 +9299,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %46, %66
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %75 = load ptr, ptr %74, align 8, !noalias !370
   %.sink2.i.i.i.i = select i1 %70, ptr %75, ptr %74
-  %76 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   br i1 %65, label %.thread.i.i.i.i.i, label %79
 
 .thread.i.i.i.i.i:                                ; preds = %73
@@ -9927,7 +9924,7 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43
 
 16:                                               ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", %3
   %.02110.i = phi i64 [ 0, %3 ], [ %45, %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i" ]
-  %17 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %15, i64 %.02110.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.02110.i
   %18 = load ptr, ptr %17, align 8, !tbaa !255
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %19
@@ -10122,7 +10119,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %_ZN19grpc_metadata_
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %93 = load ptr, ptr %92, align 8, !noalias !374
   %.sink2.i.i.i.i = select i1 %88, ptr %93, ptr %92
-  %94 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %94 = getelementptr inbounds nuw [24 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   br i1 %83, label %.thread.i.i.i.i.i, label %97
 
 .thread.i.i.i.i.i:                                ; preds = %91
@@ -10373,7 +10370,7 @@ _ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9Batch
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %_ZNSt16allocator_traitsISaIN9grpc_core11RetryFilter14LegacyCallData11CallAttempt23OnCompleteDeferredBatchEEE7destroyIS4_EEvRS5_PT_.exit.i.i
   %.06.i.i = phi i64 [ %77, %_ZNSt16allocator_traitsISaIN9grpc_core11RetryFilter14LegacyCallData11CallAttempt23OnCompleteDeferredBatchEEE7destroyIS4_EEvRS5_PT_.exit.i.i ], [ %76, %._crit_edge ]
   %77 = add nsw i64 %.06.i.i, -1
-  %78 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::CallAttempt::OnCompleteDeferredBatch", ptr %.pre-phi33, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %.pre-phi33, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i64, ptr %79, align 8, !tbaa !154
   %81 = trunc i64 %80 to i1
@@ -10462,7 +10459,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit20:     ; preds = %100, %106
 112:                                              ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit20
   %113 = load ptr, ptr %71, align 8, !noalias !383
   %.sink2.i.i.i.i = select i1 %110, ptr %113, ptr %71
-  %114 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   %115 = load i64, ptr %9, align 8, !tbaa !154
   %116 = trunc i64 %115 to i1
   br i1 %116, label %.thread.i.i.i.i.i, label %119
@@ -10560,7 +10557,7 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData40
 
 15:                                               ; preds = %3, %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt36PendingBatchContainsUnstartedSendOpsEPNS1_12PendingBatchE.exit.thread14
   %.016 = phi i64 [ 0, %3 ], [ %82, %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt36PendingBatchContainsUnstartedSendOpsEPNS1_12PendingBatchE.exit.thread14 ]
-  %16 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %11, i64 %.016
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %.016
   %17 = load ptr, ptr %16, align 8, !tbaa !255
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt36PendingBatchContainsUnstartedSendOpsEPNS1_12PendingBatchE.exit.thread14, label %19
@@ -10633,7 +10630,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %_ZN9grpc_core11Retr
 51:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %52 = load ptr, ptr %13, align 8, !noalias !386
   %.sink2.i.i.i.i = select i1 %49, ptr %52, ptr %13
-  %53 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   %54 = load i64, ptr %6, align 8, !tbaa !154
   %55 = trunc i64 %54 to i1
   br i1 %55, label %.thread.i.i.i.i.i, label %58
@@ -12050,7 +12047,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi8EEERS2_RAT__Kc.exit: ; pre
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !noalias !401
   %.sink2.i.i.i.i = select i1 %25, ptr %29, ptr %28
-  %30 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store ptr %20, ptr %30, align 8, !tbaa !302
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 1, ptr %31, align 8, !tbaa !154
@@ -12139,7 +12136,7 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35
 
 18:                                               ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", %3
   %.02111.i = phi i64 [ 0, %3 ], [ %46, %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i" ]
-  %19 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %15, i64 %.02111.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.02111.i
   %20 = load ptr, ptr %19, align 8, !tbaa !255
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %21
@@ -12292,7 +12289,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %58, %62
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %71 = load ptr, ptr %70, align 8, !noalias !406
   %.sink2.i.i.i.i = select i1 %66, ptr %71, ptr %70
-  %72 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   br i1 %61, label %.thread.i.i.i.i.i, label %75
 
 .thread.i.i.i.i.i:                                ; preds = %69
@@ -12408,7 +12405,7 @@ _ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt19HaveSendOpsToReplayEv.e
 
 23:                                               ; preds = %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt19HaveSendOpsToReplayEv.exit.thread27, %select.unfold
   %.01836 = phi i64 [ 0, %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt19HaveSendOpsToReplayEv.exit.thread27 ], [ %35, %select.unfold ]
-  %24 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %22, i64 %.01836
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %.01836
   %25 = load ptr, ptr %24, align 8, !tbaa !255
   %26 = icmp eq ptr %25, null
   br i1 %26, label %select.unfold, label %27
@@ -12515,7 +12512,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12l
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !410
   %.sink2.i.i = select i1 %5, ptr %10, ptr %9
-  %11 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::CallAttempt::OnCompleteDeferredBatch", ptr %.sink2.i.i, i64 %.sink1.i.i
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %.sink2.i.i, i64 %.sink1.i.i
   %12 = load ptr, ptr %1, align 8, !tbaa !160
   store ptr null, ptr %1, align 8, !tbaa !160
   %13 = load i64, ptr %2, align 8, !tbaa !154
@@ -13545,7 +13542,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi8EEERS2_RAT__Kc.exit126: ; 
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 56
   %220 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_21ServiceConfigCallDataEE3id_E, align 2, !tbaa !156
   %221 = zext i16 %220 to i64
-  %222 = getelementptr inbounds nuw ptr, ptr %219, i64 %221
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %221
   %223 = load ptr, ptr %222, align 8, !tbaa !362
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %224 = ptrtoint ptr %223 to i64
@@ -14156,7 +14153,7 @@ _ZN9grpc_core13RefCountedPtrINS_8internal23ServerRetryThrottleDataEED2Ev.exit: ;
 
 75:                                               ; preds = %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit, %27
   %.015 = phi i64 [ 0, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit ], [ %28, %27 ]
-  %76 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %26, i64 %.015
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %.015
   %77 = load ptr, ptr %76, align 8, !tbaa !441
   %78 = icmp eq ptr %77, null
   br i1 %78, label %27, label %79, !prof !315
@@ -14281,7 +14278,7 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData18PendingBatchesFailEN4ab
 19:                                               ; preds = %.preheader, %19
   %.02146 = phi i64 [ 0, %.preheader ], [ %23, %19 ]
   %.02245 = phi i64 [ 0, %.preheader ], [ %spec.select, %19 ]
-  %20 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %17, i64 %.02146
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %.02146
   %21 = load ptr, ptr %20, align 8, !tbaa !255
   %.not39 = icmp ne ptr %21, null
   %22 = zext i1 %.not39 to i64
@@ -14409,7 +14406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %44,
 
 61:                                               ; preds = %53, %127
   %.02047 = phi i64 [ 0, %53 ], [ %128, %127 ]
-  %62 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %54, i64 %.02047
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %.02047
   %63 = load ptr, ptr %62, align 8, !tbaa !255
   %.not = icmp eq ptr %63, null
   br i1 %.not, label %127, label %64
@@ -14450,7 +14447,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %72, %64
 78:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %79 = load ptr, ptr %56, align 8, !noalias !443
   %.sink2.i.i.i.i = select i1 %76, ptr %79, ptr %56
-  %80 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   %81 = load i64, ptr %11, align 8, !tbaa !154
   %82 = trunc i64 %81 to i1
   br i1 %82, label %.thread.i.i.i.i.i, label %85
@@ -14697,7 +14694,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi33EEERS2_RAT__Kc.exit: ; pr
 
 .critedge40:                                      ; preds = %32, %33
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %35 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %34, i64 %.0.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %.0.i
   %36 = load ptr, ptr %35, align 8, !tbaa !441
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %47, !prof !315
@@ -15056,7 +15053,7 @@ define linkonce_odr void @_ZN9grpc_core23CallCombinerClosureList26RunClosuresWit
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i.i
   %.06.i.i = phi i64 [ %10, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i.i ], [ %52, %._crit_edge ]
   %10 = add nsw i64 %.06.i.i, -1
-  %11 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !154
   %14 = trunc i64 %13 to i1
@@ -15106,7 +15103,7 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core23CallCombinerClosureList19Call
   %29 = trunc i64 %28 to i1
   %30 = load ptr, ptr %5, align 8
   %31 = select i1 %29, ptr %30, ptr %5
-  %32 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %31, i64 %.014
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %.014
   %33 = load ptr, ptr %32, align 8, !tbaa !302
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !154
@@ -15427,7 +15424,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !470
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !467
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !471
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -15965,7 +15962,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !291
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -16017,7 +16014,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !291
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11
@@ -16088,7 +16085,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN4absl12l
 _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEELb0EE8AllocateERS6_m.exit.i: ; preds = %4
   %16 = mul nuw nsw i64 %12, 24
   %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #40
-  %18 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %17, i64 %.sink1.i
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %.sink1.i
   %19 = load ptr, ptr %1, align 8, !tbaa !298
   %20 = load i64, ptr %2, align 8, !tbaa !154
   %21 = trunc i64 %20 to i1
@@ -16130,7 +16127,7 @@ _ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClo
 .lr.ph.i:                                         ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit, %.lr.ph.i
   %.012.i = phi i64 [ %45, %.lr.ph.i ], [ 0, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit ]
   %35 = phi ptr [ %44, %.lr.ph.i ], [ %.sink2.i, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit ]
-  %36 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %17, i64 %.012.i
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %.012.i
   %37 = load ptr, ptr %35, align 8, !tbaa !302
   store ptr %37, ptr %36, align 8, !tbaa !302
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -16150,7 +16147,7 @@ _ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClo
 .lr.ph.i17:                                       ; preds = %.lr.ph.i, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %46, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sink1.i, %.lr.ph.i ]
   %46 = add nsw i64 %.06.i, -1
-  %47 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %.sink2.i, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %.sink2.i, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !154
   %50 = trunc i64 %49 to i1
@@ -16222,7 +16219,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::CallCombinerClosureList::CallCombinerClosure", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !154
   %12 = trunc i64 %11 to i1
@@ -17649,7 +17646,7 @@ define linkonce_odr void @_ZN9grpc_core5TableIJNS_15metadata_detail5ValueINS_17L
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
   %.sroa.010.0.i.i.i = phi ptr [ %45, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i.i.i.i ], [ %27, %.lr.ph.i.preheader.i.i.i ]
   %.06.i.i.i.i = phi i64 [ %46, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i ]
-  %28 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %25, i64 %.06.i.i.i.i
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %.06.i.i.i.i
   %29 = load double, ptr %.sroa.010.0.i.i.i, align 8, !tbaa !531
   store double %29, ptr %28, align 8, !tbaa !531
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -17782,7 +17779,7 @@ define linkonce_odr void @_ZN9grpc_core5TableIJNS_15metadata_detail5ValueINS_17L
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
   %.sroa.010.0.i.i.i = phi ptr [ %42, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i.i.i.i ], [ %27, %.lr.ph.i.preheader.i.i.i ]
   %.06.i.i.i.i = phi i64 [ %43, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i ]
-  %28 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %25, i64 %.06.i.i.i.i
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %.06.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %29, ptr %28, align 8, !tbaa !396
   %30 = load ptr, ptr %.sroa.010.0.i.i.i, align 8, !tbaa !291
@@ -17880,7 +17877,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(48) ptr @_ZN9grpc_co
 .lr.ph.i.i.i.i:                                   ; preds = %6, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i
   %.06.i.i.i.i = phi i64 [ %13, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i.i.i.i ], [ %12, %6 ]
   %13 = add nsw i64 %.06.i.i.i.i, -1
-  %14 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !291
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -17981,12 +17978,12 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17L
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sink2.i, i64 %.sink1.i
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %.sink2.i, i64 %.sink1.i
   %22 = sub nuw i64 %2, %.sink1.i
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE8AllocateEm.exit
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sink2.i, i64 %2
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %.sink2.i, i64 %2
   %25 = sub nuw nsw i64 %.sink1.i, %2
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE8AllocateEm.exit
 
@@ -18002,7 +17999,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc
 .lr.ph.i:                                         ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE8AllocateEm.exit, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i
   %.sroa.063.0 = phi ptr [ %61, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i ], [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE8AllocateEm.exit ]
   %.05.i = phi i64 [ %62, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE10AssignNextES8_.exit.i ], [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE8AllocateEm.exit ]
-  %26 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sink2.i, i64 %.05.i
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %.sink2.i, i64 %.05.i
   %27 = load double, ptr %.sroa.063.0, align 8, !tbaa !531
   store double %27, ptr %26, align 8, !tbaa !531
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -18113,7 +18110,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaIN9grpc_core17
 .lr.ph.i25:                                       ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i, %.lr.ph.preheader.i23
   %.sroa.063.2 = phi ptr [ %.sroa.063.198, %.lr.ph.preheader.i23 ], [ %80, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i ]
   %.06.i = phi i64 [ 0, %.lr.ph.preheader.i23 ], [ %81, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i ]
-  %63 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sroa.044.07792, i64 %.06.i
+  %63 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.044.07792, i64 %.06.i
   %64 = load double, ptr %.sroa.063.2, align 8, !tbaa !531
   store double %64, ptr %63, align 8, !tbaa !531
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -18164,7 +18161,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_cor
 .lr.ph.i27:                                       ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISE_E7pointerERT0_NSJ_9size_typeE.exit, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i28 = phi i64 [ %82, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sroa.7.07497, %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEENS1_20IteratorValueAdapterIS6_St13move_iteratorIPS5_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISE_E7pointerERT0_NSJ_9size_typeE.exit ]
   %82 = add nsw i64 %.06.i28, -1
-  %83 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sroa.043.07595, i64 %82
+  %83 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.043.07595, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !291
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 24
@@ -18237,7 +18234,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN9grpc_co
 .lr.ph.i.i.i.i:                                   ; preds = %6, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i.i.i.i
   %.06.i.i.i.i = phi i64 [ %13, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i.i.i.i ], [ %12, %6 ]
   %13 = add nsw i64 %.06.i.i.i.i, -1
-  %14 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !291
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = icmp eq ptr %15, %16
@@ -18337,12 +18334,12 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112b
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i, i64 %.sink1.i
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i, i64 %.sink1.i
   %22 = sub nuw i64 %2, %.sink1.i
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i, i64 %2
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i, i64 %2
   %25 = sub nuw nsw i64 %.sink1.i, %2
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit
 
@@ -18358,7 +18355,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__
 .lr.ph.i:                                         ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE10AssignNextESB_.exit.i
   %.sroa.063.0 = phi ptr [ %58, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE10AssignNextESB_.exit.i ], [ %1, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit ]
   %.05.i = phi i64 [ %59, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE10AssignNextESB_.exit.i ], [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8AllocateEm.exit ]
-  %26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i, i64 %.05.i
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i, i64 %.05.i
   %27 = load ptr, ptr %26, align 8, !tbaa !291
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = icmp eq ptr %27, %28
@@ -18465,7 +18462,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal14AssignElementsISaINSt7__cxx1112
 .lr.ph.i25:                                       ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i, %.lr.ph.preheader.i23
   %.sroa.063.2 = phi ptr [ %.sroa.063.198, %.lr.ph.preheader.i23 ], [ %74, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i ]
   %.06.i = phi i64 [ 0, %.lr.ph.preheader.i23 ], [ %75, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i ]
-  %60 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.044.07792, i64 %.06.i
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.044.07792, i64 %.06.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %61, ptr %60, align 8, !tbaa !396
   %62 = load ptr, ptr %.sroa.063.2, align 8, !tbaa !291
@@ -18512,7 +18509,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaINSt7__cxx1
 .lr.ph.i27:                                       ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISH_E7pointerERT0_NSM_9size_typeE.exit, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i28 = phi i64 [ %76, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %.sroa.7.07497, %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS1_20IteratorValueAdapterIS9_St13move_iteratorIPS8_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISH_E7pointerERT0_NSM_9size_typeE.exit ]
   %76 = add nsw i64 %.06.i28, -1
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.043.07595, i64 %76
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.043.07595, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !291
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %80 = icmp eq ptr %78, %79
@@ -18876,7 +18873,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core11RetryFilter14LegacyCallData11CallAttempt23OnCompleteDeferredBatchEEE7destroyIS4_EEvRS5_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core11RetryFilter14LegacyCallData11CallAttempt23OnCompleteDeferredBatchEEE7destroyIS4_EEvRS5_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::CallAttempt::OnCompleteDeferredBatch", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !154
   %12 = trunc i64 %11 to i1
@@ -18954,7 +18951,7 @@ define internal void @"_ZN4absl12lts_2024072222internal_any_invocable12LocalInvo
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_21ServiceConfigCallDataEE3id_E, align 2, !tbaa !156
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !362
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
@@ -19360,7 +19357,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12l
 _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core11RetryFilter14LegacyCallData11CallAttempt23OnCompleteDeferredBatchEELb0EE8AllocateERS8_m.exit.i: ; preds = %3
   %15 = shl nuw nsw i64 %11, 4
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #40
-  %17 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::CallAttempt::OnCompleteDeferredBatch", ptr %16, i64 %.sink1.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %.sink1.i
   %18 = load ptr, ptr %1, align 8, !tbaa !160
   store ptr null, ptr %1, align 8, !tbaa !160
   %19 = load i64, ptr %2, align 8, !tbaa !154
@@ -19397,7 +19394,7 @@ _ZNSt16allocator_traitsISaIN9grpc_core11RetryFilter14LegacyCallData11CallAttempt
 .lr.ph.i:                                         ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core11RetryFilter14LegacyCallData11CallAttempt23OnCompleteDeferredBatchEEE9constructIS4_JNS0_13RefCountedPtrINS3_9BatchDataEEERN4absl12lts_202407226StatusEEEEvRS5_PT_DpOT0_.exit, %.lr.ph.i
   %.012.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %_ZNSt16allocator_traitsISaIN9grpc_core11RetryFilter14LegacyCallData11CallAttempt23OnCompleteDeferredBatchEEE9constructIS4_JNS0_13RefCountedPtrINS3_9BatchDataEEERN4absl12lts_202407226StatusEEEEvRS5_PT_DpOT0_.exit ]
   %30 = phi ptr [ %36, %.lr.ph.i ], [ %.sink2.i, %_ZNSt16allocator_traitsISaIN9grpc_core11RetryFilter14LegacyCallData11CallAttempt23OnCompleteDeferredBatchEEE9constructIS4_JNS0_13RefCountedPtrINS3_9BatchDataEEERN4absl12lts_202407226StatusEEEEvRS5_PT_DpOT0_.exit ]
-  %31 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::CallAttempt::OnCompleteDeferredBatch", ptr %16, i64 %.012.i
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %.012.i
   %32 = load ptr, ptr %30, align 8, !tbaa !160
   store ptr %32, ptr %31, align 8, !tbaa !160
   store ptr null, ptr %30, align 8, !tbaa !160
@@ -19414,7 +19411,7 @@ _ZNSt16allocator_traitsISaIN9grpc_core11RetryFilter14LegacyCallData11CallAttempt
 .lr.ph.i16:                                       ; preds = %.lr.ph.i, %_ZNSt16allocator_traitsISaIN9grpc_core11RetryFilter14LegacyCallData11CallAttempt23OnCompleteDeferredBatchEEE7destroyIS4_EEvRS5_PT_.exit.i
   %.06.i = phi i64 [ %38, %_ZNSt16allocator_traitsISaIN9grpc_core11RetryFilter14LegacyCallData11CallAttempt23OnCompleteDeferredBatchEEE7destroyIS4_EEvRS5_PT_.exit.i ], [ %.sink1.i, %.lr.ph.i ]
   %38 = add nsw i64 %.06.i, -1
-  %39 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::CallAttempt::OnCompleteDeferredBatch", ptr %.sink2.i, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %.sink2.i, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !154
   %42 = trunc i64 %41 to i1
@@ -20264,7 +20261,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %13 = load ptr, ptr %12, align 8, !noalias !615
   %.sink2.i.i.i = select i1 %10, ptr %13, ptr %12
-  %14 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sink2.i.i.i, i64 %.sink1.i.i.i
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %.sink2.i.i.i, i64 %.sink1.i.i.i
   %15 = load double, ptr %1, align 8, !tbaa !531
   store double %15, ptr %14, align 8, !tbaa !531
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -20354,7 +20351,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN4absl12l
 _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i: ; preds = %2
   %15 = mul nuw nsw i64 %11, 40
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #40
-  %17 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %16, i64 %.sink1.i
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %.sink1.i
   %18 = load double, ptr %1, align 8, !tbaa !531
   store double %18, ptr %17, align 8, !tbaa !531
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -20409,7 +20406,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core17L
 .lr.ph.i:                                         ; preds = %32, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i
   %.sroa.023.0 = phi ptr [ %54, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i ], [ %.sink2.i, %32 ]
   %.06.i = phi i64 [ %55, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i ], [ 0, %32 ]
-  %37 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %16, i64 %.06.i
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %.06.i
   %38 = load double, ptr %.sroa.023.0, align 8, !tbaa !531
   store double %38, ptr %37, align 8, !tbaa !531
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -20460,7 +20457,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_
 .lr.ph.i16:                                       ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i17 = phi i64 [ %57, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sink1.i, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEESt13move_iteratorIPS5_EE13ConstructNextERS6_S8_.exit.i ]
   %57 = add nsw i64 %.06.i17, -1
-  %58 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %.sink2.i, i64 %57
+  %58 = getelementptr inbounds nuw [40 x i8], ptr %.sink2.i, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !291
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 24
@@ -20635,7 +20632,7 @@ _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21Http
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %13 = load ptr, ptr %12, align 8, !noalias !621
   %.sink2.i.i.i = select i1 %10, ptr %13, ptr %12
-  %14 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i.i.i, i64 %.sink1.i.i.i
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i.i.i, i64 %.sink1.i.i.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %15, ptr %14, align 8, !tbaa !396
   %16 = load ptr, ptr %1, align 8, !tbaa !291
@@ -20721,7 +20718,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12l
 _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EE8AllocateERS9_m.exit.i: ; preds = %2
   %15 = shl nuw nsw i64 %11, 5
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #40
-  %17 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %16, i64 %.sink1.i
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %.sink1.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %18, ptr %17, align 8, !tbaa !396
   %19 = load ptr, ptr %1, align 8, !tbaa !291
@@ -20772,7 +20769,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaINSt7__cxx1112b
 .lr.ph.i:                                         ; preds = %29, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i
   %.sroa.023.0 = phi ptr [ %48, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i ], [ %.sink2.i, %29 ]
   %.06.i = phi i64 [ %49, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i ], [ 0, %29 ]
-  %34 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %16, i64 %.06.i
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %.06.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %35, ptr %34, align 8, !tbaa !396
   %36 = load ptr, ptr %.sroa.023.0, align 8, !tbaa !291
@@ -20819,7 +20816,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__c
 .lr.ph.i16:                                       ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i17 = phi i64 [ %51, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %.sink1.i, %_ZN4absl12lts_2024072223inlined_vector_internal20IteratorValueAdapterISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt13move_iteratorIPS8_EE13ConstructNextERS9_SB_.exit.i ]
   %51 = add nsw i64 %.06.i17, -1
-  %52 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sink2.i, i64 %51
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %.sink2.i, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !291
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %55 = icmp eq ptr %53, %54
@@ -22960,7 +22957,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12l
 _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core11RetryFilter14LegacyCallData17CachedSendMessageEELb0EE8AllocateERS7_m.exit.i: ; preds = %2
   %14 = shl nuw nsw i64 %10, 4
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #40
-  %16 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::CachedSendMessage", ptr %15, i64 %.sink1.i
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.sink1.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !332
   %.not.i = icmp eq i64 %.sink1.i, 0
   br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core11RetryFilter14LegacyCallData17CachedSendMessageEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit, label %.lr.ph.i.preheader
@@ -22972,7 +22969,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core11R
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.sroa.018.0 = phi ptr [ %18, %.lr.ph.i ], [ %.sink2.i, %.lr.ph.i.preheader ]
   %.012.i = phi i64 [ %19, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %17 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::CachedSendMessage", ptr %15, i64 %.012.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.012.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.018.0, i64 16, i1 false), !tbaa.struct !332
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.018.0, i64 16
   %19 = add nuw nsw i64 %.012.i, 1

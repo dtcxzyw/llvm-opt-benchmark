@@ -161,7 +161,7 @@ split.exit.i:                                     ; preds = %10, %7
 
 41:                                               ; preds = %38
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds ptr, ptr %1, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %1, i64 %42
   store ptr %43, ptr @Files, align 8, !tbaa !15
   br label %init.exit
 
@@ -513,7 +513,7 @@ define internal fastcc void @dfs(ptr noundef nonnull %0, ptr noundef %1, ptr nou
 
 54:                                               ; preds = %49
   %55 = load i64, ptr %15, align 8, !tbaa !58
-  %56 = getelementptr inbounds nuw ptr, ptr %52, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %55
   %57 = sub i64 %spec.select.i.i.i, %55
   %58 = shl i64 %57, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %56, i8 0, i64 %58, i1 false)
@@ -526,8 +526,8 @@ define internal fastcc void @dfs(ptr noundef nonnull %0, ptr noundef %1, ptr nou
 63:                                               ; preds = %54
   %64 = sub i64 %55, %59
   %65 = sub i64 %spec.select.i.i.i, %64
-  %66 = getelementptr inbounds nuw ptr, ptr %52, i64 %65
-  %67 = getelementptr inbounds nuw ptr, ptr %52, i64 %59
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %65
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %59
   %68 = shl i64 %64, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %66, ptr nonnull align 8 %67, i64 %68, i1 false)
   store i64 %65, ptr %.phi.trans.insert.i.i.i62, align 8, !tbaa !59
@@ -554,7 +554,7 @@ edge_stack_push_back.exit:                        ; preds = %._crit_edge.i.i.i, 
   %78 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %70, %69 ]
   %79 = add i64 %78, %77
   %80 = urem i64 %79, %76
-  %81 = getelementptr inbounds nuw ptr, ptr %75, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %80
   store ptr %.05470, ptr %81, align 8, !tbaa !60
   %82 = add i64 %77, 1
   store i64 %82, ptr %14, align 8, !tbaa !57
@@ -675,7 +675,7 @@ mkBlock.exit:                                     ; preds = %blockName.exit.i, %
   %131 = add i64 %130, %128
   %132 = load i64, ptr %15, align 8, !tbaa !58
   %133 = urem i64 %131, %132
-  %134 = getelementptr inbounds nuw ptr, ptr %129, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %133
   %135 = load ptr, ptr %134, align 8, !tbaa !60
   store i64 %128, ptr %14, align 8, !tbaa !57
   %136 = load i32, ptr %135, align 8
@@ -737,7 +737,7 @@ mkBlock.exit:                                     ; preds = %blockName.exit.i, %
 
 171:                                              ; preds = %166
   %172 = load i64, ptr %15, align 8, !tbaa !58
-  %173 = getelementptr inbounds nuw ptr, ptr %169, i64 %172
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %172
   %174 = sub i64 %spec.select.i.i.i65, %172
   %175 = shl i64 %174, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %173, i8 0, i64 %175, i1 false)
@@ -750,8 +750,8 @@ mkBlock.exit:                                     ; preds = %blockName.exit.i, %
 180:                                              ; preds = %171
   %181 = sub i64 %172, %176
   %182 = sub i64 %spec.select.i.i.i65, %181
-  %183 = getelementptr inbounds nuw ptr, ptr %169, i64 %182
-  %184 = getelementptr inbounds nuw ptr, ptr %169, i64 %176
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %182
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %176
   %185 = shl i64 %181, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %183, ptr nonnull align 8 %184, i64 %185, i1 false)
   store i64 %182, ptr %.phi.trans.insert.i.i.i62, align 8, !tbaa !59
@@ -778,7 +778,7 @@ edge_stack_push_back.exit68:                      ; preds = %._crit_edge.i.i.i61
   %195 = phi i64 [ %.pre.i.i.i63, %._crit_edge.i.i.i61 ], [ %187, %186 ]
   %196 = add i64 %195, %194
   %197 = urem i64 %196, %193
-  %198 = getelementptr inbounds nuw ptr, ptr %192, i64 %197
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %197
   store ptr %.05470, ptr %198, align 8, !tbaa !60
   %199 = add i64 %194, 1
   store i64 %199, ptr %14, align 8, !tbaa !57

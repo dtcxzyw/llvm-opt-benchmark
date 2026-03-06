@@ -11,8 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.FILEFORMAT = type { i32, ptr }
-%struct.SplashImage = type { ptr, i32, ptr, i32 }
-%struct.XRectangle = type { i16, i16, i16, i16 }
 %struct.SplashStream = type { ptr, ptr, ptr, %union.anon }
 %union.anon = type { %struct.anon.0 }
 %struct.anon.0 = type { ptr, ptr }
@@ -155,7 +153,7 @@ define hidden void @SplashCleanup(ptr noundef initializes((10628, 10632)) %0) lo
   %8 = phi i32 [ %16, %15 ], [ %6, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.preheader ]
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds nuw %struct.SplashImage, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not19 = icmp eq ptr %11, null
   br i1 %.not19, label %15, label %12
@@ -163,7 +161,7 @@ define hidden void @SplashCleanup(ptr noundef initializes((10628, 10632)) %0) lo
 12:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %11) #21
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds nuw %struct.SplashImage, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv
   store ptr null, ptr %14, align 8
   %.pre = load i32, ptr %5, align 8
   br label %15
@@ -293,7 +291,7 @@ define hidden void @SplashUpdateScreenData(ptr noundef %0) local_unnamed_addr #2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   %14 = load ptr, ptr %13, align 8
   %15 = zext nneg i32 %5 to i64
-  %16 = getelementptr inbounds nuw %struct.SplashImage, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 9320
   call void @initRect(ptr noundef nonnull %2, i32 noundef 0, i32 noundef 0, i32 noundef %9, i32 noundef %11, i32 noundef 1, i32 noundef %12, ptr noundef %17, ptr noundef nonnull %18) #21
@@ -393,7 +391,7 @@ thread-pre-split:                                 ; preds = %25
 SplashIsStillLooping.exit.thread16:               ; preds = %10
   %14 = load ptr, ptr %7, align 8
   %15 = zext nneg i32 %11 to i64
-  %16 = getelementptr inbounds nuw %struct.SplashImage, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = load i32, ptr %8, align 8
@@ -416,7 +414,7 @@ SplashIsStillLooping.exit.thread16:               ; preds = %10
 25:                                               ; preds = %SplashIsStillLooping.exit.thread16, %23, %21
   %26 = phi i32 [ %13, %SplashIsStillLooping.exit.thread16 ], [ 0, %23 ], [ 0, %21 ]
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.SplashImage, ptr %14, i64 %27
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = add i32 %30, %20
@@ -618,7 +616,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr noundef readonly captures(none
 
 97:                                               ; preds = %94
   %98 = zext i32 %.0.i to i64
-  %99 = getelementptr inbounds nuw i32, ptr %25, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %98
   %100 = load i32, ptr %99, align 4
   br label %getRGBA.exit
 
@@ -813,7 +811,7 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
 
 202:                                              ; preds = %199
   %203 = zext i32 %.0.i81 to i64
-  %204 = getelementptr inbounds nuw i32, ptr %25, i64 %203
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %203
   %205 = load i32, ptr %204, align 4
   br label %getRGBA.exit100
 
@@ -917,9 +915,9 @@ getRGBA.exit100:                                  ; preds = %202, %206
 
 .lr.ph125:                                        ; preds = %.lr.ph125.preheader, %277
   %indvars.iv = phi i64 [ 0, %.lr.ph125.preheader ], [ %indvars.iv.next, %277 ]
-  %266 = getelementptr inbounds nuw %struct.XRectangle, ptr %.0135, i64 %indvars.iv
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %.0135, i64 %indvars.iv
   %267 = load i16, ptr %266, align 2
-  %268 = getelementptr inbounds nuw %struct.XRectangle, ptr %.071134, i64 %indvars.iv
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %.071134, i64 %indvars.iv
   %269 = load i16, ptr %268, align 2
   %270 = icmp eq i16 %267, %269
   br i1 %270, label %271, label %.critedge4
@@ -957,7 +955,7 @@ getRGBA.exit100:                                  ; preds = %202, %206
 
 .lr.ph132:                                        ; preds = %.lr.ph132.preheader, %.lr.ph132
   %indvars.iv145 = phi i64 [ 0, %.lr.ph132.preheader ], [ %indvars.iv.next146, %.lr.ph132 ]
-  %280 = getelementptr inbounds nuw %struct.XRectangle, ptr %.0135, i64 %indvars.iv145
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %.0135, i64 %indvars.iv145
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 6
   %282 = load i16, ptr %281, align 2
   %283 = add i16 %282, 1
@@ -1061,7 +1059,7 @@ SplashGetInstance.exit:                           ; preds = %1
 
 .preheader:                                       ; preds = %6, %10
   %.02835 = phi i64 [ %11, %10 ], [ 0, %6 ]
-  %12 = getelementptr inbounds nuw %struct.FILEFORMAT, ptr @formats, i64 %.02835
+  %12 = getelementptr inbounds nuw [16 x i8], ptr @formats, i64 %.02835
   %13 = load i32, ptr %12, align 16
   %14 = icmp eq i32 %9, %13
   br i1 %14, label %17, label %10

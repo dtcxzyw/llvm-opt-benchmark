@@ -45,7 +45,7 @@ define void @ff_xvid_idct(ptr noundef captures(none) %0) #0 {
 
 .preheader37:                                     ; preds = %1, %.preheader37
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader37 ], [ 0, %1 ]
-  %22 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %24 = load i16, ptr %23, align 2, !tbaa !4
   %25 = sext i16 %24 to i32
@@ -148,7 +148,7 @@ define void @ff_xvid_idct(ptr noundef captures(none) %0) #0 {
 
 .preheader35:                                     ; preds = %106, %.preheader35
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %.preheader35 ], [ 0, %106 ]
-  %108 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv45
+  %108 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv45
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load i16, ptr %109, align 2, !tbaa !4
   %111 = sext i16 %110 to i32
@@ -224,7 +224,7 @@ define void @ff_xvid_idct(ptr noundef captures(none) %0) #0 {
 
 .preheader:                                       ; preds = %106, %.preheader
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.preheader ], [ 0, %106 ]
-  %170 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv49
+  %170 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv49
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load i16, ptr %171, align 2, !tbaa !4
   %173 = sext i16 %172 to i32

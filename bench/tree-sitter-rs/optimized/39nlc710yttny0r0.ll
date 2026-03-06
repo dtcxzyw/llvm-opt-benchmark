@@ -551,7 +551,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %93 = load ptr, ptr %72, align 8, !nonnull !4, !noundef !4
   %94 = load i64, ptr %73, align 8, !noundef !4
-  %95 = getelementptr inbounds { ptr, i64 }, ptr %93, i64 %94
+  %95 = getelementptr inbounds [16 x i8], ptr %93, i64 %94
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h7d0f7f2383f576abE.llvm.7642019239991580563"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %19, ptr noundef nonnull %93, ptr noundef nonnull %95)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h2fb3a2b776b215a0E.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -992,7 +992,7 @@ _ZN4core3str7pattern8Searcher11next_reject17h457c6773a69dcd14E.llvm.179485739290
 210:                                              ; preds = %._crit_edge.i.i.i, %.loopexit
   %211 = phi ptr [ %.pre, %._crit_edge.i.i.i ], [ %191, %.loopexit ]
   %212 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %192, %.loopexit ]
-  %213 = getelementptr inbounds { ptr, i64 }, ptr %211, i64 %212
+  %213 = getelementptr inbounds [16 x i8], ptr %211, i64 %212
   store ptr %.fca.0.extract36, ptr %213, align 8, !noalias !151
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
   store i64 %.fca.1.extract37, ptr %214, align 8, !noalias !157
@@ -1129,7 +1129,7 @@ define { ptr, i64 } @_ZN16tree_sitter_tags17TagsConfiguration16syntax_type_name1
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h87b62811498035e5E.exit": ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds nuw { ptr, i64 }, ptr %.val, i64 %5
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %.val, i64 %5
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !6, !noundef !4
   %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

@@ -8105,7 +8105,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17h5688c2bce37a5e44E(ptr noun
   br i1 %6, label %switch.lookup, label %"_ZN4core3ptr79drop_in_place$LT$gpui..element..ElementDrawPhase$LT$$LP$$RP$$C$$LP$$RP$$GT$$GT$17h371379a5c4f8d0c9E.llvm.8627063476570623420.exit.i"
 
 switch.lookup:                                    ; preds = %3
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE.106, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE.106, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.llvm.8627063476570623420"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %7)
@@ -8118,7 +8118,7 @@ switch.lookup:                                    ; preds = %3
   br i1 %9, label %switch.lookup2, label %"_ZN4core3ptr77drop_in_place$LT$gpui..element..Drawable$LT$gpui..element..AnyElement$GT$$GT$17hcaf58227f6164bdfE.exit"
 
 switch.lookup2:                                   ; preds = %"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17he1a0fff57663169eE.exit.i"
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE.106, i64 %switch.tableidx1
+  %switch.gep3 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE.106, i64 %switch.tableidx1
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load4
   tail call void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.llvm.8627063476570623420"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %10)
@@ -8475,7 +8475,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE(ptr noun
   br i1 %6, label %switch.lookup, label %"_ZN4core3ptr79drop_in_place$LT$gpui..element..ElementDrawPhase$LT$$LP$$RP$$C$$LP$$RP$$GT$$GT$17h371379a5c4f8d0c9E.llvm.8627063476570623420.exit.i"
 
 switch.lookup:                                    ; preds = %2
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE.106, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE.106, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 %switch.load
   invoke void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.llvm.8627063476570623420"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %7)
@@ -8489,7 +8489,7 @@ switch.lookup:                                    ; preds = %2
   br i1 %11, label %switch.lookup2, label %"_ZN4core3ptr84drop_in_place$LT$gpui..element..Drawable$LT$gpui..elements..text..StyledText$GT$$GT$17h70ba9a8e440e3eb3E.exit"
 
 switch.lookup2:                                   ; preds = %8
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE.106, i64 %switch.tableidx1
+  %switch.gep3 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4gpui5arena5Arena5alloc4drop17ha21afc4070ba7e4aE.106, i64 %switch.tableidx1
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %switch.load4
   tail call void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h96f2ad44c30aaa92E.llvm.8627063476570623420"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %12)
@@ -8969,7 +8969,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_ent
 45:                                               ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1982
   %46 = sub nsw i64 0, %32
-  %47 = getelementptr inbounds { { { { { [128 x i64] }, i64 } }, { { i64, i64 } } }, { { { { { ptr, ptr } }, {} }, {} } } }, ptr %23, i64 %46
+  %47 = getelementptr inbounds [1064 x i8], ptr %23, i64 %46
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1980
   %48 = load ptr, ptr %1, align 8, !alias.scope !1995, !noalias !2000, !nonnull !11, !noundef !11
   %49 = ptrtoint ptr %48 to i64
@@ -9062,7 +9062,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_ent
 40:                                               ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2024
   %41 = sub nsw i64 0, %28
-  %42 = getelementptr inbounds { { { i32, i32 } }, { { { i32, i32 } }, { { i64, i64 } } } }, ptr %19, i64 %41
+  %42 = getelementptr inbounds [32 x i8], ptr %19, i64 %41
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2022
   %43 = load ptr, ptr %1, align 8, !alias.scope !2037, !noalias !2042, !nonnull !11, !noundef !11
   %44 = ptrtoint ptr %43 to i64
@@ -9169,7 +9169,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %41 = and i64 %40, %.val6.i
   %42 = load ptr, ptr %0, align 8, !alias.scope !2084, !noalias !2100, !nonnull !11, !noundef !11
   %43 = sub nsw i64 0, %41
-  %44 = getelementptr inbounds { { { { { [128 x i64] }, i64 } }, { { i64, i64 } } }, { { { { { ptr, ptr } }, {} }, {} } } }, ptr %42, i64 %43
+  %44 = getelementptr inbounds [1064 x i8], ptr %42, i64 %43
   %45 = invoke { ptr, i64 } @"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha1176e6f2fad5df5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(1048) %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.186dbb956d37f1f030343507acf9b939.1.llvm.2269275415539677948)
           to label %.noexc10 unwind label %.loopexit
 
@@ -9255,7 +9255,7 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 
 87:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17ha57867eaefb956c2E.exit.i.i"
   %88 = load ptr, ptr %0, align 8, !alias.scope !2084, !noalias !2096, !nonnull !11
-  %89 = getelementptr inbounds { { { { { [128 x i64] }, i64 } }, { { i64, i64 } } }, { { { { { ptr, ptr } }, {} }, {} } } }, ptr %88, i64 %43
+  %89 = getelementptr inbounds [1064 x i8], ptr %88, i64 %43
   %90 = getelementptr inbounds i8, ptr %89, i64 -16
   %91 = load ptr, ptr %90, align 8, !nonnull !11, !align !542, !noundef !11
   %92 = getelementptr inbounds i8, ptr %89, i64 -8
@@ -9344,7 +9344,7 @@ common.resume:                                    ; preds = %135, %107
   %128 = add i64 %127, 1
   store i64 %128, ptr %126, align 8, !alias.scope !2146, !noalias !2149
   %129 = sub nsw i64 0, %.sroa.3.0.i.ph.i
-  %130 = getelementptr inbounds { { { { { [128 x i64] }, i64 } }, { { i64, i64 } } }, { { { { { ptr, ptr } }, {} }, {} } } }, ptr %114, i64 %129
+  %130 = getelementptr inbounds [1064 x i8], ptr %114, i64 %129
   %131 = getelementptr inbounds i8, ptr %130, i64 -1064
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1048) %131, ptr noundef nonnull align 8 dereferenceable(1048) %.sroa.0, i64 1048, i1 false), !noalias !2146
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %130, i64 -16
@@ -9457,7 +9457,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h1e
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17hd0003c9c322fe1f3E.llvm.7419272998852736646.exit": ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2177
   %39 = sub nsw i64 0, %28
-  %40 = getelementptr inbounds { { { i32, i32 } }, { { { i32, i32 } }, { { i64, i64 } } } }, ptr %19, i64 %39
+  %40 = getelementptr inbounds [32 x i8], ptr %19, i64 %39
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2174
   %41 = load ptr, ptr %1, align 8, !alias.scope !2189, !noalias !2194, !nonnull !11, !noundef !11
   %42 = ptrtoint ptr %41 to i64

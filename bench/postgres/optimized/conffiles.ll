@@ -196,7 +196,7 @@ AbsoluteConfigLocation.exit:                      ; preds = %20, %27
   %61 = call ptr @pstrdup(ptr noundef nonnull %7) #5
   %62 = load i32, ptr %3, align 4
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %.367, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %.367, i64 %63
   store ptr %61, ptr %64, align 8
   %65 = load i32, ptr %3, align 4
   %66 = add i32 %65, 1

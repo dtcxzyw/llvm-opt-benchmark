@@ -97,7 +97,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK1q7binding7dis
 
 12:                                               ; preds = %.lr.ph, %_ZN3euflsERSoRKNS_6egraph4b_ppE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3euflsERSoRKNS_6egraph4b_ppE.exit ]
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !97
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %23, label %15

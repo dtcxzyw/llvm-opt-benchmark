@@ -2009,7 +2009,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit575: ; preds = %60
   br label %698
 
 612:                                              ; preds = %524
-  %613 = getelementptr inbounds nuw %"class.std::vector.10", ptr %30, i64 %indvars.iv
+  %613 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %indvars.iv
   %614 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev19StringVecToFloatVecERSt6vectorIfSaIfEERKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(24) %613, ptr noundef nonnull align 8 dereferenceable(24) %36)
           to label %615 unwind label %567
 
@@ -2017,7 +2017,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit575: ; preds = %60
   br i1 %614, label %616, label %620
 
 616:                                              ; preds = %615
-  %617 = getelementptr inbounds nuw %"class.std::vector.10", ptr %31, i64 %indvars.iv
+  %617 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %indvars.iv
   %618 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev19StringVecToFloatVecERSt6vectorIfSaIfEERKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(24) %617, ptr noundef nonnull align 8 dereferenceable(24) %37)
           to label %619 unwind label %567
 
@@ -2234,7 +2234,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %804
 
 699:                                              ; preds = %403
-  %700 = getelementptr inbounds nuw %"class.std::vector.10", ptr %30, i64 %indvars.iv
+  %700 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %indvars.iv
   %701 = getelementptr inbounds nuw i8, ptr %700, i64 8
   %702 = load ptr, ptr %701, align 8, !tbaa !51
   %703 = getelementptr inbounds nuw i8, ptr %700, i64 16
@@ -2298,7 +2298,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i: ; preds = %723, %.n
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i: ; preds = %725, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i
   store ptr %720, ptr %700, align 8, !tbaa !48
   store ptr %724, ptr %701, align 8, !tbaa !51
-  %726 = getelementptr inbounds nuw float, ptr %720, i64 %718
+  %726 = getelementptr inbounds nuw [4 x i8], ptr %720, i64 %718
   store ptr %726, ptr %703, align 8, !tbaa !54
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit
 
@@ -2364,12 +2364,12 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i618: ; preds = %747, 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i620: ; preds = %749, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i618
   store ptr %744, ptr %700, align 8, !tbaa !48
   store ptr %748, ptr %701, align 8, !tbaa !51
-  %750 = getelementptr inbounds nuw float, ptr %744, i64 %742
+  %750 = getelementptr inbounds nuw [4 x i8], ptr %744, i64 %742
   store ptr %750, ptr %703, align 8, !tbaa !54
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit623
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit623:        ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i620, %729
-  %751 = getelementptr inbounds nuw %"class.std::vector.10", ptr %31, i64 %indvars.iv
+  %751 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %indvars.iv
   %752 = getelementptr inbounds nuw i8, ptr %751, i64 8
   %753 = load ptr, ptr %752, align 8, !tbaa !51
   %754 = getelementptr inbounds nuw i8, ptr %751, i64 16
@@ -2433,7 +2433,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i628: ; preds = %774, 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i630: ; preds = %776, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i628
   store ptr %771, ptr %751, align 8, !tbaa !48
   store ptr %775, ptr %752, align 8, !tbaa !51
-  %777 = getelementptr inbounds nuw float, ptr %771, i64 %769
+  %777 = getelementptr inbounds nuw [4 x i8], ptr %771, i64 %769
   store ptr %777, ptr %754, align 8, !tbaa !54
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit633
 
@@ -2499,7 +2499,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i638: ; preds = %798, 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i640: ; preds = %800, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i638
   store ptr %795, ptr %751, align 8, !tbaa !48
   store ptr %799, ptr %752, align 8, !tbaa !51
-  %801 = getelementptr inbounds nuw float, ptr %795, i64 %793
+  %801 = getelementptr inbounds nuw [4 x i8], ptr %795, i64 %793
   store ptr %801, ptr %754, align 8, !tbaa !54
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit643
 
@@ -3867,7 +3867,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit792: ; preds = %12
 1287:                                             ; preds = %1241
   %1288 = load float, ptr %1243, align 4, !tbaa !55
   %1289 = load ptr, ptr %1202, align 8, !tbaa !48
-  %1290 = getelementptr float, ptr %1289, i64 %1237
+  %1290 = getelementptr [4 x i8], ptr %1289, i64 %1237
   store float %1288, ptr %1290, align 4, !tbaa !55
   %1291 = getelementptr inbounds nuw i8, ptr %1243, i64 4
   %1292 = load float, ptr %1291, align 4, !tbaa !55
@@ -4126,7 +4126,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev11Lu
 
 1391:                                             ; preds = %1378, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126rsr_Interpolator1D_destroyEPNS0_19rsr_Interpolator1D_E.exit
   %indvars.iv1130 = phi i64 [ 0, %1378 ], [ %indvars.iv.next1131, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126rsr_Interpolator1D_destroyEPNS0_19rsr_Interpolator1D_E.exit ]
-  %1392 = getelementptr inbounds nuw %"class.std::vector.10", ptr %30, i64 %indvars.iv1130
+  %1392 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %indvars.iv1130
   %1393 = getelementptr inbounds nuw i8, ptr %1392, i64 8
   %1394 = load ptr, ptr %1393, align 8, !tbaa !51
   %1395 = load ptr, ptr %1392, align 8, !tbaa !48
@@ -4184,7 +4184,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_129rsr_Interpolator1D_Raw_createEj.exit: ; 
 
 .lr.ph1090:                                       ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_129rsr_Interpolator1D_Raw_createEj.exit
   %1419 = load ptr, ptr %.0.i, align 8, !tbaa !127
-  %1420 = getelementptr inbounds nuw %"class.std::vector.10", ptr %31, i64 %indvars.iv1130
+  %1420 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %indvars.iv1130
   %1421 = load ptr, ptr %1420, align 8, !tbaa !48
   %1422 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %1423 = load ptr, ptr %1422, align 8, !tbaa !129
@@ -4234,7 +4234,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_129rsr_Interpolator1D_Raw_createEj.exit: ; 
   %1447 = load float, ptr %1446, align 4, !tbaa !55
   %1448 = getelementptr inbounds nuw i8, ptr %1424, i64 24
   store float %1447, ptr %1448, align 8, !tbaa !135
-  %1449 = getelementptr inbounds nuw float, ptr %1446, i64 %1438
+  %1449 = getelementptr inbounds nuw [4 x i8], ptr %1446, i64 %1438
   %1450 = load float, ptr %1449, align 4, !tbaa !55
   %1451 = getelementptr inbounds nuw i8, ptr %1424, i64 28
   store float %1450, ptr %1451, align 4, !tbaa !136
@@ -4251,10 +4251,10 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_129rsr_Interpolator1D_Raw_createEj.exit: ; 
   %1455 = getelementptr inbounds nuw i8, ptr %1446, i64 8
   %1456 = zext i32 %1453 to i64
   %.pre.i = load float, ptr %1431, align 4, !tbaa !55
-  %1457 = getelementptr inbounds nuw float, ptr %1436, i64 %1456
+  %1457 = getelementptr inbounds nuw [4 x i8], ptr %1436, i64 %1456
   %1458 = add nsw i64 %1456, -1
-  %1459 = getelementptr inbounds nuw float, ptr %1436, i64 %1458
-  %1460 = getelementptr inbounds nuw float, ptr %1446, i64 %1458
+  %1459 = getelementptr inbounds nuw [4 x i8], ptr %1436, i64 %1458
+  %1460 = getelementptr inbounds nuw [4 x i8], ptr %1446, i64 %1458
   br label %1475
 
 1461:                                             ; preds = %1444
@@ -4282,12 +4282,12 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_129rsr_Interpolator1D_Raw_createEj.exit: ; 
   %1476 = phi float [ %.pre.i, %.lr.ph.i ], [ %1482, %1575 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %1575 ]
   %.0148151.i = phi ptr [ %1440, %.lr.ph.i ], [ %1577, %1575 ]
-  %1477 = getelementptr inbounds nuw float, ptr %1446, i64 %indvars.iv.i
+  %1477 = getelementptr inbounds nuw [4 x i8], ptr %1446, i64 %indvars.iv.i
   %1478 = load float, ptr %1477, align 4, !tbaa !55
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %1479 = getelementptr inbounds nuw float, ptr %1446, i64 %indvars.iv.next.i
+  %1479 = getelementptr inbounds nuw [4 x i8], ptr %1446, i64 %indvars.iv.next.i
   %1480 = load float, ptr %1479, align 4, !tbaa !55
-  %1481 = getelementptr inbounds nuw float, ptr %1431, i64 %indvars.iv.next.i
+  %1481 = getelementptr inbounds nuw [4 x i8], ptr %1431, i64 %indvars.iv.next.i
   %1482 = load float, ptr %1481, align 4, !tbaa !55
   %1483 = fsub float %1482, %1476
   %1484 = fdiv float 1.000000e+00, %1483
@@ -4296,7 +4296,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_129rsr_Interpolator1D_Raw_createEj.exit: ; 
   br i1 %1485, label %1486, label %1509
 
 1486:                                             ; preds = %1475
-  %1487 = getelementptr inbounds nuw float, ptr %1436, i64 %indvars.iv.next.i
+  %1487 = getelementptr inbounds nuw [4 x i8], ptr %1436, i64 %indvars.iv.next.i
   %1488 = load float, ptr %1487, align 4, !tbaa !55
   %1489 = load float, ptr %1436, align 4, !tbaa !55
   %1490 = fsub float %1488, %1489
@@ -4325,7 +4325,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_129rsr_Interpolator1D_Raw_createEj.exit: ; 
 
 1509:                                             ; preds = %1475
   %1510 = icmp eq i64 %indvars.iv.i, %1456
-  %1511 = getelementptr inbounds nuw float, ptr %1436, i64 %indvars.iv.next.i
+  %1511 = getelementptr inbounds nuw [4 x i8], ptr %1436, i64 %indvars.iv.next.i
   %1512 = load float, ptr %1511, align 4, !tbaa !55
   br i1 %1510, label %1513, label %1533
 
@@ -4355,21 +4355,21 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_129rsr_Interpolator1D_Raw_createEj.exit: ; 
   br label %1575
 
 1533:                                             ; preds = %1509
-  %1534 = getelementptr inbounds nuw float, ptr %1436, i64 %indvars.iv.i
+  %1534 = getelementptr inbounds nuw [4 x i8], ptr %1436, i64 %indvars.iv.i
   %1535 = load float, ptr %1534, align 4, !tbaa !55
   %1536 = fsub float %1512, %1535
   %1537 = add nsw i64 %indvars.iv.i, -1
-  %1538 = getelementptr inbounds nuw float, ptr %1446, i64 %1537
+  %1538 = getelementptr inbounds nuw [4 x i8], ptr %1446, i64 %1537
   %1539 = load float, ptr %1538, align 4, !tbaa !55
-  %1540 = getelementptr inbounds nuw float, ptr %1436, i64 %1537
+  %1540 = getelementptr inbounds nuw [4 x i8], ptr %1436, i64 %1537
   %1541 = load float, ptr %1540, align 4, !tbaa !55
   %1542 = fsub float %1535, %1541
   %1543 = fdiv float %1542, %1536
   %1544 = add nuw nsw i64 %indvars.iv.i, 2
   %1545 = and i64 %1544, 4294967295
-  %1546 = getelementptr inbounds nuw float, ptr %1446, i64 %1545
+  %1546 = getelementptr inbounds nuw [4 x i8], ptr %1446, i64 %1545
   %1547 = load float, ptr %1546, align 4, !tbaa !55
-  %1548 = getelementptr inbounds nuw float, ptr %1436, i64 %1545
+  %1548 = getelementptr inbounds nuw [4 x i8], ptr %1436, i64 %1545
   %1549 = load float, ptr %1548, align 4, !tbaa !55
   %1550 = fsub float %1549, %1512
   %1551 = fdiv float %1550, %1536
@@ -4412,10 +4412,10 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_129rsr_Interpolator1D_Raw_createEj.exit: ; 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_132rsr_Interpolator1D_createFromRawEPNS0_23rsr_Interpolator1D_Raw_E.exit: ; preds = %1575, %._crit_edge1091, %1434, %1443, %.preheader.i, %1461
   %.0.i820 = phi ptr [ null, %._crit_edge1091 ], [ null, %1434 ], [ null, %1443 ], [ %1424, %1461 ], [ %1424, %.preheader.i ], [ %1424, %1575 ]
   %1578 = fpext float %1400 to double
-  %1579 = getelementptr inbounds nuw double, ptr %1343, i64 %indvars.iv1130
+  %1579 = getelementptr inbounds nuw [8 x i8], ptr %1343, i64 %indvars.iv1130
   store double %1578, ptr %1579, align 8, !tbaa !138
   %1580 = fpext float %1403 to double
-  %1581 = getelementptr inbounds nuw double, ptr %1344, i64 %indvars.iv1130
+  %1581 = getelementptr inbounds nuw [8 x i8], ptr %1344, i64 %indvars.iv1130
   store double %1580, ptr %1581, align 8, !tbaa !138
   %1582 = fsub float %1403, %1400
   %1583 = load ptr, ptr %1381, align 8, !tbaa !48
@@ -4423,18 +4423,18 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_132rsr_Interpolator1D_createFromRawEPNS0_23
   %1585 = getelementptr inbounds nuw i8, ptr %.0.i820, i64 16
   %1586 = getelementptr inbounds nuw i8, ptr %.0.i820, i64 28
   %1587 = getelementptr inbounds nuw i8, ptr %.0.i820, i64 24
-  %invariant.gep = getelementptr inbounds nuw float, ptr %1583, i64 %indvars.iv1130
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %1583, i64 %indvars.iv1130
   br label %1606
 
 1588:                                             ; preds = %.lr.ph1090, %1588
   %.02111089 = phi i64 [ 0, %.lr.ph1090 ], [ %1595, %1588 ]
-  %1589 = getelementptr inbounds nuw float, ptr %1395, i64 %.02111089
+  %1589 = getelementptr inbounds nuw [4 x i8], ptr %1395, i64 %.02111089
   %1590 = load float, ptr %1589, align 4, !tbaa !55
-  %1591 = getelementptr inbounds nuw float, ptr %1419, i64 %.02111089
+  %1591 = getelementptr inbounds nuw [4 x i8], ptr %1419, i64 %.02111089
   store float %1590, ptr %1591, align 4, !tbaa !55
-  %1592 = getelementptr inbounds nuw float, ptr %1421, i64 %.02111089
+  %1592 = getelementptr inbounds nuw [4 x i8], ptr %1421, i64 %.02111089
   %1593 = load float, ptr %1592, align 4, !tbaa !55
-  %1594 = getelementptr inbounds nuw float, ptr %1423, i64 %.02111089
+  %1594 = getelementptr inbounds nuw [4 x i8], ptr %1423, i64 %.02111089
   store float %1593, ptr %1594, align 4, !tbaa !55
   %1595 = add nuw i64 %.02111089, 1
   %exitcond1125.not = icmp eq i64 %1595, %1399
@@ -4492,7 +4492,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_126rsr_Interpolator1D_destroyEPNS0_19rsr_In
 1618:                                             ; preds = %1612
   %1619 = load i32, ptr %.0.i820, align 8, !tbaa !134
   %1620 = sext i32 %1619 to i64
-  %1621 = getelementptr float, ptr %1613, i64 %1620
+  %1621 = getelementptr [4 x i8], ptr %1613, i64 %1620
   %1622 = getelementptr i8, ptr %1621, i64 -4
   %1623 = load float, ptr %1622, align 4, !tbaa !55
   %1624 = fcmp ogt float %1610, %1623
@@ -4513,7 +4513,7 @@ tailrecurse.i.i.i:                                ; preds = %1627, %tailrecurse.
   %1630 = add nsw i32 %.tr1820.i.i.i, %.tr1921.i.i.i
   %1631 = sdiv i32 %1630, 2
   %1632 = sext i32 %1631 to i64
-  %1633 = getelementptr inbounds float, ptr %1613, i64 %1632
+  %1633 = getelementptr inbounds [4 x i8], ptr %1613, i64 %1632
   %1634 = load float, ptr %1633, align 4, !tbaa !55
   %1635 = fcmp olt float %1610, %1634
   %.tr18..i.i.i = select i1 %1635, i32 %.tr1820.i.i.i, i32 %1631
@@ -4524,7 +4524,7 @@ tailrecurse.i.i.i:                                ; preds = %1627, %tailrecurse.
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_138rsr_internal_I1D_findSegmentContainingEfPfi.exit.loopexit.i: ; preds = %tailrecurse.i.i.i
   %.phi.trans.insert.i = sext i32 %.tr18..i.i.i to i64
-  %.phi.trans.insert31.i = getelementptr inbounds float, ptr %1613, i64 %.phi.trans.insert.i
+  %.phi.trans.insert31.i = getelementptr inbounds [4 x i8], ptr %1613, i64 %.phi.trans.insert.i
   %.pre.i821 = load float, ptr %.phi.trans.insert31.i, align 4, !tbaa !55
   %1638 = mul nsw i32 %.tr18..i.i.i, 5
   %1639 = sext i32 %1638 to i64
@@ -4534,7 +4534,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_138rsr_internal_I1D_findSegmentContainingEf
   %1640 = phi float [ %.pre.i821, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_138rsr_internal_I1D_findSegmentContainingEfPfi.exit.loopexit.i ], [ %1614, %1627 ]
   %.tr18.lcssa.i.i.i = phi i64 [ %1639, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_138rsr_internal_I1D_findSegmentContainingEfPfi.exit.loopexit.i ], [ 0, %1627 ]
   %1641 = load ptr, ptr %1585, align 8, !tbaa !133
-  %1642 = getelementptr inbounds float, ptr %1641, i64 %.tr18.lcssa.i.i.i
+  %1642 = getelementptr inbounds [4 x i8], ptr %1641, i64 %.tr18.lcssa.i.i.i
   %1643 = load float, ptr %1642, align 4, !tbaa !55
   %1644 = getelementptr inbounds nuw i8, ptr %1642, i64 4
   %1645 = load float, ptr %1644, align 4, !tbaa !55
@@ -5354,7 +5354,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i263: ; preds = %.noexc270
   br label %.split
 
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i278: ; preds = %.noexc270, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i263
-  %78 = getelementptr inbounds nuw float, ptr %66, i64 %61
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %61
   %79 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %65) #29
           to label %.noexc287 unwind label %76
 
@@ -5369,7 +5369,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i280: ; preds = %.noexc287
   br label %.noexc133
 
 .noexc133:                                        ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i280, %.noexc287
-  %81 = getelementptr inbounds nuw float, ptr %79, i64 %61
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %61
   invoke void @_ZN19OpenColorIO_v2_5dev21GenerateIdentityLut1DEPfii(ptr noundef nonnull %66, i32 noundef %spec.store.select1, i32 noundef 3)
           to label %82 unwind label %76
 
@@ -5688,7 +5688,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i312: ; preds = %_ZNKSt6vectorIfSa
   %202 = getelementptr i8, ptr %199, i64 4
   %.idx.i.i.i.i.i31.i298 = add nsw i64 %198, -4
   call void @llvm.memset.p0.i64(ptr align 4 %202, i8 0, i64 %.idx.i.i.i.i.i31.i298, i1 false), !tbaa !55
-  %203 = getelementptr inbounds nuw float, ptr %199, i64 %197
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %197
   %204 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %198) #29
           to label %205 unwind label %200
 
@@ -5696,7 +5696,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i312: ; preds = %_ZNKSt6vectorIfSa
   store float 0.000000e+00, ptr %204, align 4, !tbaa !55
   %206 = getelementptr i8, ptr %204, i64 4
   call void @llvm.memset.p0.i64(ptr align 4 %206, i8 0, i64 %.idx.i.i.i.i.i31.i298, i1 false), !tbaa !55
-  %207 = getelementptr inbounds nuw float, ptr %204, i64 %197
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %204, i64 %197
   invoke void @_ZN19OpenColorIO_v2_5dev21GenerateIdentityLut1DEPfii(ptr noundef nonnull %199, i32 noundef %spec.select, i32 noundef 3)
           to label %208 unwind label %200
 
@@ -6347,7 +6347,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit207.us: ; preds = %4
   %469 = mul i32 %.066454.us, 3
   %470 = add i32 %469, %.068456.us
   %471 = zext i32 %470 to i64
-  %472 = getelementptr inbounds nuw float, ptr %.sroa.0337.2, i64 %471
+  %472 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0337.2, i64 %471
   %473 = load float, ptr %472, align 4, !tbaa !55
   %474 = fpext float %473 to double
   %475 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %474)
@@ -6372,7 +6372,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit202.us: ; preds = %4
   %481 = mul i32 %.067452.us, 3
   %482 = add i32 %481, %.068456.us
   %483 = zext i32 %482 to i64
-  %484 = getelementptr inbounds nuw float, ptr %.sroa.0354.2, i64 %483
+  %484 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0354.2, i64 %483
   %485 = load float, ptr %484, align 4, !tbaa !55
   %486 = fpext float %485 to double
   %487 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %486)
@@ -7442,7 +7442,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40, %90
   store ptr %20, ptr %0, align 8, !tbaa !177
   store ptr %.0.lcssa.i.i.i.i39, ptr %4, align 8, !tbaa !20
-  %94 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::FormatInfo", ptr %20, i64 %16
+  %94 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %94, ptr %89, align 8, !tbaa !23
   ret void
 
@@ -9173,7 +9173,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !42
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !45
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !46
   ret void
 

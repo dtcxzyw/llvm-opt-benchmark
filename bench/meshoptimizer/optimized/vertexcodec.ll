@@ -129,7 +129,7 @@ define dso_local i64 @meshopt_encodeVertexBufferLevel(ptr noundef %0, i64 nounde
   %70 = select i1 %69, i64 0, i64 2
   %71 = select i1 %68, i64 %70, i64 4
   %72 = select i1 %67, i64 %71, i64 8
-  %73 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv67.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv67.i
   %74 = load i64, ptr %73, align 8, !tbaa !12
   %75 = lshr i32 %57, 16
   %76 = trunc i32 %75 to i8
@@ -157,10 +157,10 @@ define dso_local i64 @meshopt_encodeVertexBufferLevel(ptr noundef %0, i64 nounde
 .preheader.i:                                     ; preds = %51, %.preheader.i
   %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %.preheader.i ], [ 1, %51 ]
   %.04362.i = phi i32 [ %100, %.preheader.i ], [ 0, %51 ]
-  %93 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv71.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv71.i
   %94 = load i64, ptr %93, align 8, !tbaa !12
   %95 = zext nneg i32 %.04362.i to i64
-  %96 = getelementptr inbounds nuw i64, ptr %11, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %95
   %97 = load i64, ptr %96, align 8, !tbaa !12
   %98 = icmp ult i64 %94, %97
   %99 = trunc nuw nsw i64 %indvars.iv71.i to i32
@@ -216,7 +216,7 @@ _ZN7meshoptL14estimateRotateEPKhmmmm.exit:        ; preds = %.preheader.i
   %121 = trunc nuw nsw i64 %indvars.iv.i101 to i32
   %122 = or i32 %103, %121
   %123 = lshr i32 %122, 4
-  %124 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i101
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i101
   br label %129
 
 125:                                              ; preds = %128
@@ -440,10 +440,10 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit82.i: ; preds = %_ZN7meshoptL23en
 .preheader.i104:                                  ; preds = %125, %.preheader.i104
   %indvars.iv107.i = phi i64 [ %indvars.iv.next108.i, %.preheader.i104 ], [ 1, %125 ]
   %.06795.i = phi i32 [ %236, %.preheader.i104 ], [ 0, %125 ]
-  %229 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv107.i
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv107.i
   %230 = load i64, ptr %229, align 8, !tbaa !12
   %231 = zext nneg i32 %.06795.i to i64
-  %232 = getelementptr inbounds nuw i64, ptr %10, i64 %231
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %231
   %233 = load i64, ptr %232, align 8, !tbaa !12
   %234 = icmp ult i64 %230, %233
   %235 = trunc nuw nsw i64 %indvars.iv107.i to i32
@@ -807,7 +807,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit55.i.i: ; preds = %_ZN7meshoptL23
 
 .thread83.i:                                      ; preds = %409, %.thread89.i, %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.i126
   %.085.i = phi i64 [ 1, %.thread89.i ], [ %419, %409 ], [ 0, %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.i126 ]
-  %422 = getelementptr inbounds nuw i32, ptr @_ZN7meshoptL7kBitsV1E, i64 %.085.i
+  %422 = getelementptr inbounds nuw [4 x i8], ptr @_ZN7meshoptL7kBitsV1E, i64 %.085.i
   %423 = select i1 %245, ptr @_ZN7meshoptL7kBitsV0E, ptr %422
   %424 = ptrtoint ptr %.058131.i to i64
   %425 = sub i64 %16, %424
@@ -883,7 +883,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i74.i: ; preds = %.preheader.i11
   %463 = or i8 %461, %462
   store i8 %463, ptr %460, align 1, !tbaa !8
   %464 = zext nneg i32 %.157.i.i to i64
-  %465 = getelementptr inbounds nuw i32, ptr %423, i64 %464
+  %465 = getelementptr inbounds nuw [4 x i8], ptr %423, i64 %464
   %466 = load i32, ptr %465, align 4, !tbaa !4
   switch i32 %466, label %469 [
     i32 0, label %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i
@@ -1012,7 +1012,7 @@ _ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i:   ; preds = %.preheader.i.i.i, %
   %indvars.iv.i.i = phi i64 [ 0, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i74.i ], [ %indvars.iv.next.i.i, %546 ]
   %.05486.i.i = phi i64 [ %.012.i.i.i, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i74.i ], [ %.155.i.i, %546 ]
   %.05685.i.i = phi i32 [ 3, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i74.i ], [ %.157.i.i, %546 ]
-  %516 = getelementptr inbounds nuw i32, ptr %423, i64 %indvars.iv.i.i
+  %516 = getelementptr inbounds nuw [4 x i8], ptr %423, i64 %indvars.iv.i.i
   %517 = load i32, ptr %516, align 4, !tbaa !4
   switch i32 %517, label %522 [
     i32 0, label %518
@@ -1062,7 +1062,7 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit73.i.i: ; preds = %528, %518, %51
 
 540:                                              ; preds = %537
   %541 = zext nneg i32 %.05685.i.i to i64
-  %542 = getelementptr inbounds nuw i32, ptr %423, i64 %541
+  %542 = getelementptr inbounds nuw [4 x i8], ptr %423, i64 %541
   %543 = load i32, ptr %542, align 4, !tbaa !4
   %.not.i.i = icmp eq i32 %543, 8
   br i1 %.not.i.i, label %546, label %544
@@ -2855,7 +2855,7 @@ define internal noundef ptr @_ZN7meshoptL17decodeVertexBlockEPKhS1_PhmmS2_S1_i(p
   %50 = mul i64 %.082141, %3
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 %50
   %52 = zext nneg i32 %37 to i64
-  %53 = getelementptr inbounds nuw i32, ptr @_ZN7meshoptL7kBitsV1E, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr @_ZN7meshoptL7kBitsV1E, i64 %52
   %54 = select i1 %13, ptr @_ZN7meshoptL7kBitsV0E, ptr %53
   %55 = ptrtoint ptr %.278142 to i64
   %56 = sub i64 %16, %55
@@ -2884,7 +2884,7 @@ define internal noundef ptr @_ZN7meshoptL17decodeVertexBlockEPKhS1_PhmmS2_S1_i(p
   %71 = and i32 %70, 3
   %72 = getelementptr inbounds nuw i8, ptr %51, i64 %.02431.i
   %73 = zext nneg i32 %71 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %54, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !4
   switch i32 %75, label %_ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i [
     i32 0, label %76

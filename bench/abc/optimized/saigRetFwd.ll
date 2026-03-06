@@ -43,14 +43,14 @@ define noundef ptr @Aig_ManStaticFanoutStart(ptr noundef readonly captures(none)
   %.047 = phi i32 [ %.1, %29 ], [ 0, %1 ]
   %15 = getelementptr i8, ptr %14, i64 8
   %.val39 = load ptr, ptr %15, align 8, !tbaa !24
-  %16 = getelementptr inbounds nuw ptr, ptr %.val39, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val39, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !25
   %18 = icmp eq ptr %17, null
   br i1 %18, label %29, label %19
 
 19:                                               ; preds = %.lr.ph
   %20 = sext i32 %.047 to i64
-  %21 = getelementptr inbounds ptr, ptr %11, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %11, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %21, ptr %22, align 8, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -78,7 +78,7 @@ define noundef ptr @Aig_ManStaticFanoutStart(ptr noundef readonly captures(none)
   %34 = phi ptr [ %73, %.critedge ], [ %30, %.critedge.preheader ]
   %35 = getelementptr i8, ptr %34, i64 8
   %.val40 = load ptr, ptr %35, align 8, !tbaa !24
-  %36 = getelementptr inbounds nuw ptr, ptr %.val40, i64 %indvars.iv52
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.val40, i64 %indvars.iv52
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.critedge, label %39
@@ -104,7 +104,7 @@ define noundef ptr @Aig_ManStaticFanoutStart(ptr noundef readonly captures(none)
   %53 = or disjoint i64 %51, %52
   store i64 %53, ptr %47, align 8
   %54 = and i64 %49, 67108863
-  %55 = getelementptr inbounds nuw ptr, ptr %46, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %54
   store ptr %37, ptr %55, align 8, !tbaa !30
   br label %56
 
@@ -129,7 +129,7 @@ define noundef ptr @Aig_ManStaticFanoutStart(ptr noundef readonly captures(none)
   %70 = or disjoint i64 %68, %69
   store i64 %70, ptr %64, align 8
   %71 = and i64 %66, 67108863
-  %72 = getelementptr inbounds nuw ptr, ptr %63, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %71
   store ptr %37, ptr %72, align 8, !tbaa !30
   br label %.critedge
 
@@ -170,7 +170,7 @@ define void @Aig_ManMarkAutonomous_rec(ptr noundef readonly captures(none) %0, p
 .lr.ph:                                           ; preds = %5, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %5 ]
   %.val14 = load ptr, ptr %6, align 8, !tbaa !26
-  %10 = getelementptr inbounds nuw ptr, ptr %.val14, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val14, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !30
   %.not11 = icmp eq ptr %11, null
   br i1 %.not11, label %.critedge, label %12
@@ -210,7 +210,7 @@ define void @Saig_ManMarkAutonomous(ptr noundef %0) local_unnamed_addr #3 {
   %.val38.val = load ptr, ptr %8, align 8, !tbaa !24
   %9 = add nsw i32 %.val39, %.050
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %.val38.val, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %.val38.val, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !25
   %.val43 = load ptr, ptr %6, align 8, !tbaa !39
   %.val44 = load i32, ptr %7, align 4, !tbaa !40
@@ -218,7 +218,7 @@ define void @Saig_ManMarkAutonomous(ptr noundef %0) local_unnamed_addr #3 {
   %.val43.val = load ptr, ptr %13, align 8, !tbaa !24
   %14 = add nsw i32 %.val44, %.050
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %.val43.val, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %.val43.val, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !25
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %12, ptr %18, align 8, !tbaa !29
@@ -252,7 +252,7 @@ define void @Saig_ManMarkAutonomous(ptr noundef %0) local_unnamed_addr #3 {
   %31 = load ptr, ptr %29, align 8, !tbaa !39
   %32 = getelementptr i8, ptr %31, i64 8
   %.val = load ptr, ptr %32, align 8, !tbaa !24
-  %33 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !25
   tail call void @Aig_ManMarkAutonomous_rec(ptr noundef nonnull %0, ptr noundef %34)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -288,7 +288,7 @@ define void @Saig_ManMarkAutonomous(ptr noundef %0) local_unnamed_addr #3 {
   %.val40.val = load ptr, ptr %43, align 8, !tbaa !24
   %44 = add nsw i32 %.val41, %.255
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %.val40.val, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %.val40.val, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %.val45 = load ptr, ptr %42, align 8, !tbaa !39
   %.val46 = load i32, ptr %27, align 4, !tbaa !40
@@ -296,7 +296,7 @@ define void @Saig_ManMarkAutonomous(ptr noundef %0) local_unnamed_addr #3 {
   %.val45.val = load ptr, ptr %48, align 8, !tbaa !24
   %49 = add nsw i32 %.val46, %.255
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds ptr, ptr %.val45.val, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %.val45.val, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !25
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr null, ptr %53, align 8, !tbaa !29
@@ -343,7 +343,7 @@ define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr noundef captures(none) 
   %.val104 = load i32, ptr %8, align 4, !tbaa !40
   %12 = add nsw i32 %.val104, %.0128
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %.val87, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %.val87, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !25
   %.val105 = load i32, ptr %10, align 8, !tbaa !33
   %16 = getelementptr i8, ptr %15, i64 32
@@ -400,13 +400,13 @@ define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr noundef captures(none) 
   %.val98 = load i32, ptr %36, align 8, !tbaa !33
   %37 = sext i32 %.val103 to i64
   %wide.trip.count = zext nneg i32 %.val101 to i64
-  %invariant.gep = getelementptr ptr, ptr %.val85, i64 %37
+  %invariant.gep = getelementptr [8 x i8], ptr %.val85, i64 %37
   br label %.critedge2
 
 38:                                               ; preds = %.lr.ph131, %63
   %.val83146 = phi i32 [ %.val83129, %.lr.ph131 ], [ %.val83, %63 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next, %63 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %.val86, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.val86, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !25
   %41 = icmp eq ptr %40, null
   br i1 %41, label %63, label %42
@@ -461,7 +461,7 @@ define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr noundef captures(none) 
 
 .critedge2:                                       ; preds = %.lr.ph133, %.critedge2
   %indvars.iv138 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next139, %.critedge2 ]
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv138
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv138
   %66 = load ptr, ptr %gep, align 8, !tbaa !25
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   store i32 %.val98, ptr %67, align 8, !tbaa !34
@@ -496,7 +496,7 @@ define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr noundef captures(none) 
   %80 = phi ptr [ %72, %.lr.ph136 ], [ %165, %161 ]
   %81 = getelementptr i8, ptr %80, i64 8
   %.val84 = load ptr, ptr %81, align 8, !tbaa !24
-  %82 = getelementptr inbounds nuw ptr, ptr %.val84, i64 %indvars.iv141
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %.val84, i64 %indvars.iv141
   %83 = load ptr, ptr %82, align 8, !tbaa !25
   %84 = icmp eq ptr %83, null
   br i1 %84, label %161, label %85
@@ -584,7 +584,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %120 = add nsw i32 %79, 1
   store i32 %120, ptr %69, align 4, !tbaa !21
   %121 = sext i32 %79 to i64
-  %122 = getelementptr inbounds ptr, ptr %119, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %119, i64 %121
   store ptr %92, ptr %122, align 8, !tbaa !25
   %.val97 = load i32, ptr %75, align 8, !tbaa !33
   store i32 %.val97, ptr %94, align 8, !tbaa !34
@@ -669,7 +669,7 @@ Vec_PtrPush.exit120:                              ; preds = %.Vec_PtrGrow.exit11
   %158 = add nsw i32 %126, 1
   store i32 %158, ptr %69, align 4, !tbaa !21
   %159 = sext i32 %126 to i64
-  %160 = getelementptr inbounds ptr, ptr %157, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr %157, i64 %159
   store ptr %130, ptr %160, align 8, !tbaa !25
   %.val96 = load i32, ptr %75, align 8, !tbaa !33
   store i32 %.val96, ptr %132, align 8, !tbaa !34

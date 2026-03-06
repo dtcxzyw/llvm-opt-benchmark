@@ -30,7 +30,7 @@ define hidden noundef ptr @_ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev23AVX512GetLut1DApplyFuncENS_8BitDepthES0_, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120GetConvertInBitDepthILNS_8BitDepthE8EEEPFvPKfS4_S4_iPKvPvlES2_.exit
 

@@ -235,7 +235,7 @@ define hidden void @_ZN17ruff_python_index14fstring_ranges20FStringRangesBuilder
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h591cbbc2e9f7cab8E.exit": ; preds = %7, %14
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !66, !nonnull !3, !noundef !3
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %11
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %11
   store i32 %9, ptr %17, align 4
   %18 = add i64 %11, 1
   store i64 %18, ptr %10, align 8, !alias.scope !66
@@ -257,7 +257,7 @@ define hidden void @_ZN17ruff_python_index14fstring_ranges20FStringRangesBuilder
   %28 = load ptr, ptr %27, align 8, !nonnull !3, !noundef !3
   %29 = icmp ult i64 %21, 2305843009213693953
   tail call void @llvm.assume(i1 %29)
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %24
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %24
   %31 = load i32, ptr %30, align 4, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %32 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_parser..token..Token$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h6968fe5e7cf78ab6E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %1)

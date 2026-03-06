@@ -14,23 +14,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.76 }
 %union.anon.76 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
-%struct.drm_vblank_crtc = type { ptr, %struct.wait_queue_head, %struct.timer_list, %struct.seqlock_t, %struct.atomic64_t, i64, %struct.atomic_t, i32, i32, i32, i32, i32, i32, %struct.drm_display_mode, i8, ptr, %struct.list_head, %struct.wait_queue_head }
-%struct.timer_list = type { %struct.hlist_node, i64, ptr, i32 }
-%struct.hlist_node = type { ptr, ptr }
-%struct.seqlock_t = type { %struct.seqcount_spinlock, %struct.spinlock }
-%struct.seqcount_spinlock = type { %struct.seqcount }
-%struct.seqcount = type { i32 }
-%struct.spinlock = type { %union.anon }
-%union.anon = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.0 }
-%union.anon.0 = type { %struct.atomic_t }
-%struct.atomic64_t = type { i64 }
-%struct.drm_display_mode = type { i32, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i32, i32, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i8, i8, %struct.list_head, [32 x i8], i32, i32 }
-%struct.list_head = type { ptr, ptr }
-%struct.wait_queue_head = type { %struct.spinlock, %struct.list_head }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
+%struct.list_head = type { ptr, ptr }
 
 @g4x_crtc_funcs = internal constant %struct.drm_crtc_funcs { ptr null, ptr null, ptr null, ptr null, ptr null, ptr @intel_crtc_destroy, ptr @drm_atomic_helper_set_config, ptr @drm_atomic_helper_page_flip, ptr null, ptr null, ptr @intel_crtc_duplicate_state, ptr @intel_crtc_destroy_state, ptr null, ptr null, ptr @intel_crtc_late_register, ptr null, ptr @intel_crtc_set_crc_source, ptr @intel_crtc_verify_crc_source, ptr @intel_crtc_get_crc_sources, ptr null, ptr @g4x_get_vblank_counter, ptr @i965_enable_vblank, ptr @i965_disable_vblank, ptr @intel_crtc_get_vblank_timestamp }, align 8
 @i965_crtc_funcs = internal constant %struct.drm_crtc_funcs { ptr null, ptr null, ptr null, ptr null, ptr null, ptr @intel_crtc_destroy, ptr @drm_atomic_helper_set_config, ptr @drm_atomic_helper_page_flip, ptr null, ptr null, ptr @intel_crtc_duplicate_state, ptr @intel_crtc_destroy_state, ptr null, ptr null, ptr @intel_crtc_late_register, ptr null, ptr @intel_crtc_set_crc_source, ptr @intel_crtc_verify_crc_source, ptr @intel_crtc_get_crc_sources, ptr null, ptr @i915_get_vblank_counter, ptr @i965_enable_vblank, ptr @i965_disable_vblank, ptr @intel_crtc_get_vblank_timestamp }, align 8
@@ -178,7 +163,7 @@ define dso_local i32 @intel_crtc_get_vblank_counter(ptr noundef %0) local_unname
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 320
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %7 to i64
-  %.split = getelementptr %struct.drm_vblank_crtc, ptr %10, i64 %11
+  %.split = getelementptr [304 x i8], ptr %10, i64 %11
   %12 = getelementptr i8, ptr %.split, i64 104
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
@@ -824,7 +809,7 @@ define dso_local void @intel_wait_for_vblank_workers(ptr noundef readonly captur
 9:                                                ; preds = %42, %7
   %10 = phi i64 [ 0, %7 ], [ %43, %42 ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr %struct.__drm_crtcs_state, ptr %11, i64 %10
+  %12 = getelementptr [56 x i8], ptr %11, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %15 = load ptr, ptr %14, align 8
@@ -923,7 +908,7 @@ define dso_local void @intel_pipe_update_start(ptr noundef readonly captures(non
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %.split = getelementptr [56 x i8], ptr %6, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @drm_crtc_vblank_waitqueue(ptr noundef %1) #12
@@ -1021,7 +1006,7 @@ define dso_local void @intel_pipe_update_start(ptr noundef readonly captures(non
   %67 = load ptr, ptr %5, align 8
   %68 = load i32, ptr %7, align 8
   %69 = zext i32 %68 to i64
-  %.split10 = getelementptr %struct.__drm_crtcs_state, ptr %67, i64 %69
+  %.split10 = getelementptr [56 x i8], ptr %67, i64 %69
   %70 = getelementptr i8, ptr %.split10, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr i8, ptr %.split10, i64 24
@@ -1310,7 +1295,7 @@ define dso_local void @intel_pipe_update_start(ptr noundef readonly captures(non
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 320
   %246 = load ptr, ptr %245, align 8
   %247 = zext i32 %243 to i64
-  %.split12 = getelementptr %struct.drm_vblank_crtc, ptr %246, i64 %247
+  %.split12 = getelementptr [304 x i8], ptr %246, i64 %247
   %248 = getelementptr i8, ptr %.split12, i64 104
   %249 = load i32, ptr %248, align 8
   %250 = icmp eq i32 %249, 0
@@ -1423,7 +1408,7 @@ define dso_local void @intel_pipe_update_end(ptr noundef readonly captures(none)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 1648
@@ -1440,7 +1425,7 @@ define dso_local void @intel_pipe_update_end(ptr noundef readonly captures(none)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 320
   %20 = load ptr, ptr %19, align 8
   %21 = zext i32 %17 to i64
-  %.split5 = getelementptr %struct.drm_vblank_crtc, ptr %20, i64 %21
+  %.split5 = getelementptr [304 x i8], ptr %20, i64 %21
   %22 = getelementptr i8, ptr %.split5, i64 104
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0

@@ -16,8 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::pair.82" = type { %"class.std::basic_string_view", %"class.std::__cxx11::basic_string" }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
-%"union.absl::lts_20230802::container_internal::map_slot_type" = type { %"struct.std::pair.86" }
-%"struct.std::pair.86" = type { %"class.std::basic_string_view", %"class.std::__cxx11::basic_string" }
 %"class.std::vector.204" = type { %"struct.std::_Vector_base.205" }
 %"struct.std::_Vector_base.205" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
@@ -33,10 +31,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.std::_Optional_payload_base<google::protobuf::io::Printer::SourceLocation>::_Storage" = type { %"struct.std::_Optional_payload_base<google::protobuf::io::Printer::SourceLocation>::_Empty_byte" }
 %"struct.std::_Optional_payload_base<google::protobuf::io::Printer::SourceLocation>::_Empty_byte" = type { i8 }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.std::optional.177" = type { %"struct.std::_Optional_base.178" }
 %"struct.std::_Optional_base.178" = type { %"struct.std::_Optional_payload.180" }
 %"struct.std::_Optional_payload.180" = type { %"struct.std::_Optional_payload.base.188", [7 x i8] }
@@ -413,7 +407,7 @@ call.i.i.i.noexc.i:                               ; preds = %.noexc10
 
 if.then.i.i.i.i:                                  ; preds = %call.i.i.i.noexc.i
   %2 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !4
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %2, i64 %0
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [48 x i8], ptr %2, i64 %0
   store i64 4, ptr %add.ptr.i.i.i.i.i, align 8, !noalias !4
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   store ptr @.str.65, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !4
@@ -423,7 +417,7 @@ if.then.i.i.i.i:                                  ; preds = %call.i.i.i.noexc.i
 
 invoke.cont.i:                                    ; preds = %if.then.i.i.i.i, %call.i.i.i.noexc.i
   %3 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !4
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %3, i64 %0
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds [48 x i8], ptr %3, i64 %0
   %second.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i.i, i64 16
   %call3.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #23
@@ -485,7 +479,7 @@ call.i.i.i.noexc104.i:                            ; preds = %invoke.cont14.i
 
 if.then.i.i.i98.i:                                ; preds = %call.i.i.i.noexc104.i
   %8 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !9
-  %add.ptr.i.i.i.i100.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %8, i64 %6
+  %add.ptr.i.i.i.i100.i = getelementptr inbounds [48 x i8], ptr %8, i64 %6
   store i64 8, ptr %add.ptr.i.i.i.i100.i, align 8, !noalias !9
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i102.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i100.i, i64 8
   store ptr @.str.68, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i102.i, align 8, !noalias !9
@@ -495,7 +489,7 @@ if.then.i.i.i98.i:                                ; preds = %call.i.i.i.noexc104
 
 invoke.cont16.i:                                  ; preds = %if.then.i.i.i98.i, %call.i.i.i.noexc104.i
   %9 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !9
-  %add.ptr3.i.i.i.i96.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %9, i64 %6
+  %add.ptr3.i.i.i.i96.i = getelementptr inbounds [48 x i8], ptr %9, i64 %6
   %second.i.i97.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i96.i, i64 16
   %call18.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i97.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i) #23
@@ -514,7 +508,7 @@ call.i.i.i.noexc117.i:                            ; preds = %invoke.cont20.i
 
 if.then.i.i.i111.i:                               ; preds = %call.i.i.i.noexc117.i
   %12 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !14
-  %add.ptr.i.i.i.i113.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %12, i64 %10
+  %add.ptr.i.i.i.i113.i = getelementptr inbounds [48 x i8], ptr %12, i64 %10
   store i64 14, ptr %add.ptr.i.i.i.i113.i, align 8, !noalias !14
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i115.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i113.i, i64 8
   store ptr @.str.69, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i115.i, align 8, !noalias !14
@@ -524,7 +518,7 @@ if.then.i.i.i111.i:                               ; preds = %call.i.i.i.noexc117
 
 invoke.cont22.i:                                  ; preds = %if.then.i.i.i111.i, %call.i.i.i.noexc117.i
   %13 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !14
-  %add.ptr3.i.i.i.i109.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %13, i64 %10
+  %add.ptr3.i.i.i.i109.i = getelementptr inbounds [48 x i8], ptr %13, i64 %10
   %second.i.i110.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i109.i, i64 16
   %call24.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i110.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19.i) #23
@@ -543,7 +537,7 @@ call.i.i.i.noexc130.i:                            ; preds = %invoke.cont26.i
 
 if.then.i.i.i124.i:                               ; preds = %call.i.i.i.noexc130.i
   %16 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !19
-  %add.ptr.i.i.i.i126.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %16, i64 %14
+  %add.ptr.i.i.i.i126.i = getelementptr inbounds [48 x i8], ptr %16, i64 %14
   store i64 11, ptr %add.ptr.i.i.i.i126.i, align 8, !noalias !19
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i128.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i126.i, i64 8
   store ptr @.str.70, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i128.i, align 8, !noalias !19
@@ -553,7 +547,7 @@ if.then.i.i.i124.i:                               ; preds = %call.i.i.i.noexc130
 
 invoke.cont28.i:                                  ; preds = %if.then.i.i.i124.i, %call.i.i.i.noexc130.i
   %17 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !19
-  %add.ptr3.i.i.i.i122.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %17, i64 %14
+  %add.ptr3.i.i.i.i122.i = getelementptr inbounds [48 x i8], ptr %17, i64 %14
   %second.i.i123.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i122.i, i64 16
   %call30.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i123.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.i) #23
@@ -572,7 +566,7 @@ call.i.i.i.noexc143.i:                            ; preds = %invoke.cont32.i
 
 if.then.i.i.i137.i:                               ; preds = %call.i.i.i.noexc143.i
   %20 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !24
-  %add.ptr.i.i.i.i139.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %20, i64 %18
+  %add.ptr.i.i.i.i139.i = getelementptr inbounds [48 x i8], ptr %20, i64 %18
   store i64 13, ptr %add.ptr.i.i.i.i139.i, align 8, !noalias !24
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i141.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i139.i, i64 8
   store ptr @.str.71, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i141.i, align 8, !noalias !24
@@ -582,7 +576,7 @@ if.then.i.i.i137.i:                               ; preds = %call.i.i.i.noexc143
 
 invoke.cont34.i:                                  ; preds = %if.then.i.i.i137.i, %call.i.i.i.noexc143.i
   %21 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !24
-  %add.ptr3.i.i.i.i135.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %21, i64 %18
+  %add.ptr3.i.i.i.i135.i = getelementptr inbounds [48 x i8], ptr %21, i64 %18
   %second.i.i136.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i135.i, i64 16
   %call36.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i136.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31.i) #23
@@ -601,7 +595,7 @@ call.i.i.i.noexc156.i:                            ; preds = %invoke.cont38.i
 
 if.then.i.i.i150.i:                               ; preds = %call.i.i.i.noexc156.i
   %24 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !29
-  %add.ptr.i.i.i.i152.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %24, i64 %22
+  %add.ptr.i.i.i.i152.i = getelementptr inbounds [48 x i8], ptr %24, i64 %22
   store i64 13, ptr %add.ptr.i.i.i.i152.i, align 8, !noalias !29
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i154.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i152.i, i64 8
   store ptr @.str.72, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i154.i, align 8, !noalias !29
@@ -611,7 +605,7 @@ if.then.i.i.i150.i:                               ; preds = %call.i.i.i.noexc156
 
 invoke.cont40.i:                                  ; preds = %if.then.i.i.i150.i, %call.i.i.i.noexc156.i
   %25 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !29
-  %add.ptr3.i.i.i.i148.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %25, i64 %22
+  %add.ptr3.i.i.i.i148.i = getelementptr inbounds [48 x i8], ptr %25, i64 %22
   %second.i.i149.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i148.i, i64 16
   %call42.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i149.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37.i) #23
@@ -654,7 +648,7 @@ call.i.i.i.noexc174.i:                            ; preds = %invoke.cont48.i
 
 if.then.i.i.i168.i:                               ; preds = %call.i.i.i.noexc174.i
   %30 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !34
-  %add.ptr.i.i.i.i170.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %30, i64 %28
+  %add.ptr.i.i.i.i170.i = getelementptr inbounds [48 x i8], ptr %30, i64 %28
   store i64 17, ptr %add.ptr.i.i.i.i170.i, align 8, !noalias !34
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i172.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i170.i, i64 8
   store ptr @.str.73, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i172.i, align 8, !noalias !34
@@ -664,7 +658,7 @@ if.then.i.i.i168.i:                               ; preds = %call.i.i.i.noexc174
 
 invoke.cont50.i:                                  ; preds = %if.then.i.i.i168.i, %call.i.i.i.noexc174.i
   %31 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !34
-  %add.ptr3.i.i.i.i166.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %31, i64 %28
+  %add.ptr3.i.i.i.i166.i = getelementptr inbounds [48 x i8], ptr %31, i64 %28
   %second.i.i167.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i166.i, i64 16
   %call52.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i167.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i) #23
@@ -685,7 +679,7 @@ call.i.i.i.noexc189.i:                            ; preds = %invoke.cont53.i
 
 if.then.i.i.i183.i:                               ; preds = %call.i.i.i.noexc189.i
   %34 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !39
-  %add.ptr.i.i.i.i185.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %34, i64 %32
+  %add.ptr.i.i.i.i185.i = getelementptr inbounds [48 x i8], ptr %34, i64 %32
   store i64 14, ptr %add.ptr.i.i.i.i185.i, align 8, !noalias !39
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i187.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i185.i, i64 8
   store ptr @.str.76, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i187.i, align 8, !noalias !39
@@ -695,7 +689,7 @@ if.then.i.i.i183.i:                               ; preds = %call.i.i.i.noexc189
 
 invoke.cont56.i:                                  ; preds = %if.then.i.i.i183.i, %call.i.i.i.noexc189.i
   %35 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !39
-  %add.ptr3.i.i.i.i181.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %35, i64 %32
+  %add.ptr3.i.i.i.i181.i = getelementptr inbounds [48 x i8], ptr %35, i64 %32
   %second.i.i182.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i181.i, i64 16
   %cond55.i = select i1 %call54.i, ptr @.str.74, ptr @.str.75
   %call59.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i182.i, ptr noundef nonnull %cond55.i)
@@ -717,7 +711,7 @@ call.i.i.i.noexc203.i:                            ; preds = %invoke.cont60.i
 
 if.then.i.i.i197.i:                               ; preds = %call.i.i.i.noexc203.i
   %38 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !44
-  %add.ptr.i.i.i.i199.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %38, i64 %36
+  %add.ptr.i.i.i.i199.i = getelementptr inbounds [48 x i8], ptr %38, i64 %36
   store i64 16, ptr %add.ptr.i.i.i.i199.i, align 8, !noalias !44
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i201.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i199.i, i64 8
   store ptr @.str.78, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i201.i, align 8, !noalias !44
@@ -727,7 +721,7 @@ if.then.i.i.i197.i:                               ; preds = %call.i.i.i.noexc203
 
 invoke.cont63.i:                                  ; preds = %if.then.i.i.i197.i, %call.i.i.i.noexc203.i
   %39 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !44
-  %add.ptr3.i.i.i.i195.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %39, i64 %36
+  %add.ptr3.i.i.i.i195.i = getelementptr inbounds [48 x i8], ptr %39, i64 %36
   %second.i.i196.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i195.i, i64 16
   %cond62.i = select i1 %call61.i, ptr @.str.77, ptr @.str.75
   %call66.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i196.i, ptr noundef nonnull %cond62.i)
@@ -753,7 +747,7 @@ call.i.i.i.noexc216.i:                            ; preds = %if.then.i
 
 if.then.i.i.i210.i:                               ; preds = %call.i.i.i.noexc216.i
   %42 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !49
-  %add.ptr.i.i.i.i212.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %42, i64 %40
+  %add.ptr.i.i.i.i212.i = getelementptr inbounds [48 x i8], ptr %42, i64 %40
   store i64 10, ptr %add.ptr.i.i.i.i212.i, align 8, !noalias !49
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i214.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i212.i, i64 8
   store ptr @.str.80, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i214.i, align 8, !noalias !49
@@ -763,7 +757,7 @@ if.then.i.i.i210.i:                               ; preds = %call.i.i.i.noexc216
 
 invoke.cont69.i:                                  ; preds = %if.then.i.i.i210.i, %call.i.i.i.noexc216.i
   %43 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !49
-  %add.ptr3.i.i.i.i208.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %43, i64 %40
+  %add.ptr3.i.i.i.i208.i = getelementptr inbounds [48 x i8], ptr %43, i64 %40
   %second.i.i209.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i208.i, i64 16
   %call72.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i209.i, ptr noundef nonnull @.str.79)
           to label %invoke.cont71.i unwind label %lpad13.i
@@ -780,7 +774,7 @@ call.i.i.i.noexc229.i:                            ; preds = %invoke.cont71.i
 
 if.then.i.i.i223.i:                               ; preds = %call.i.i.i.noexc229.i
   %46 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !54
-  %add.ptr.i.i.i.i225.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %46, i64 %44
+  %add.ptr.i.i.i.i225.i = getelementptr inbounds [48 x i8], ptr %46, i64 %44
   store i64 32, ptr %add.ptr.i.i.i.i225.i, align 8, !noalias !54
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i227.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i225.i, i64 8
   store ptr @.str.81, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i227.i, align 8, !noalias !54
@@ -790,7 +784,7 @@ if.then.i.i.i223.i:                               ; preds = %call.i.i.i.noexc229
 
 invoke.cont73.i:                                  ; preds = %if.then.i.i.i223.i, %call.i.i.i.noexc229.i
   %47 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !54
-  %add.ptr3.i.i.i.i221.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %47, i64 %44
+  %add.ptr3.i.i.i.i221.i = getelementptr inbounds [48 x i8], ptr %47, i64 %44
   %second.i.i222.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i221.i, i64 16
   %call76.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i222.i, ptr noundef nonnull @.str.79)
           to label %invoke.cont75.i unwind label %lpad13.i
@@ -807,7 +801,7 @@ call.i.i.i.noexc242.i:                            ; preds = %invoke.cont75.i
 
 if.then.i.i.i236.i:                               ; preds = %call.i.i.i.noexc242.i
   %50 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !59
-  %add.ptr.i.i.i.i238.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %50, i64 %48
+  %add.ptr.i.i.i.i238.i = getelementptr inbounds [48 x i8], ptr %50, i64 %48
   store i64 16, ptr %add.ptr.i.i.i.i238.i, align 8, !noalias !59
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i240.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i238.i, i64 8
   store ptr @.str.83, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i240.i, align 8, !noalias !59
@@ -817,7 +811,7 @@ if.then.i.i.i236.i:                               ; preds = %call.i.i.i.noexc242
 
 invoke.cont77.i:                                  ; preds = %if.then.i.i.i236.i, %call.i.i.i.noexc242.i
   %51 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !59
-  %add.ptr3.i.i.i.i234.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %51, i64 %48
+  %add.ptr3.i.i.i.i234.i = getelementptr inbounds [48 x i8], ptr %51, i64 %48
   %second.i.i235.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i234.i, i64 16
   %call80.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i235.i, ptr noundef nonnull @.str.82)
           to label %invoke.cont79.i unwind label %lpad13.i
@@ -838,7 +832,7 @@ call.i.i.i.noexc256.i:                            ; preds = %invoke.cont82.i
 
 if.then.i.i.i250.i:                               ; preds = %call.i.i.i.noexc256.i
   %54 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !64
-  %add.ptr.i.i.i.i252.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %54, i64 %52
+  %add.ptr.i.i.i.i252.i = getelementptr inbounds [48 x i8], ptr %54, i64 %52
   store i64 15, ptr %add.ptr.i.i.i.i252.i, align 8, !noalias !64
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i254.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i252.i, i64 8
   store ptr @.str.84, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i254.i, align 8, !noalias !64
@@ -848,7 +842,7 @@ if.then.i.i.i250.i:                               ; preds = %call.i.i.i.noexc256
 
 invoke.cont84.i:                                  ; preds = %if.then.i.i.i250.i, %call.i.i.i.noexc256.i
   %55 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !64
-  %add.ptr3.i.i.i.i248.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %55, i64 %52
+  %add.ptr3.i.i.i.i248.i = getelementptr inbounds [48 x i8], ptr %55, i64 %52
   %second.i.i249.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i248.i, i64 16
   %call86.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i249.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81.i) #23
@@ -893,7 +887,7 @@ call.i.i.i.noexc284.i:                            ; preds = %invoke.cont97.i
 
 if.then.i.i.i278.i:                               ; preds = %call.i.i.i.noexc284.i
   %60 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !69
-  %add.ptr.i.i.i.i280.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %60, i64 %58
+  %add.ptr.i.i.i.i280.i = getelementptr inbounds [48 x i8], ptr %60, i64 %58
   store i64 19, ptr %add.ptr.i.i.i.i280.i, align 8, !noalias !69
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i282.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i280.i, i64 8
   store ptr @.str.86, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i282.i, align 8, !noalias !69
@@ -903,7 +897,7 @@ if.then.i.i.i278.i:                               ; preds = %call.i.i.i.noexc284
 
 invoke.cont99.i:                                  ; preds = %if.then.i.i.i278.i, %call.i.i.i.noexc284.i
   %61 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !69
-  %add.ptr3.i.i.i.i276.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %61, i64 %58
+  %add.ptr3.i.i.i.i276.i = getelementptr inbounds [48 x i8], ptr %61, i64 %58
   %second.i.i277.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i276.i, i64 16
   %call101.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i277.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88.i) #23
@@ -925,7 +919,7 @@ call.i.i.i.noexc299.i:                            ; preds = %invoke.cont106.i
 
 if.then.i.i.i293.i:                               ; preds = %call.i.i.i.noexc299.i
   %64 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !74
-  %add.ptr.i.i.i.i295.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %64, i64 %62
+  %add.ptr.i.i.i.i295.i = getelementptr inbounds [48 x i8], ptr %64, i64 %62
   store i64 15, ptr %add.ptr.i.i.i.i295.i, align 8, !noalias !74
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i297.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i295.i, i64 8
   store ptr @.str.87, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i297.i, align 8, !noalias !74
@@ -935,7 +929,7 @@ if.then.i.i.i293.i:                               ; preds = %call.i.i.i.noexc299
 
 invoke.cont108.i:                                 ; preds = %if.then.i.i.i293.i, %call.i.i.i.noexc299.i
   %65 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !74
-  %add.ptr3.i.i.i.i291.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %65, i64 %62
+  %add.ptr3.i.i.i.i291.i = getelementptr inbounds [48 x i8], ptr %65, i64 %62
   %second.i.i292.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i291.i, i64 16
   %call110.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i292.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp105.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp105.i) #23
@@ -956,7 +950,7 @@ call.i.i.i.noexc313.i:                            ; preds = %invoke.cont108.i
 
 if.then.i.i.i307.i:                               ; preds = %call.i.i.i.noexc313.i
   %71 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !79
-  %add.ptr.i.i.i.i309.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %71, i64 %69
+  %add.ptr.i.i.i.i309.i = getelementptr inbounds [48 x i8], ptr %71, i64 %69
   store i64 15, ptr %add.ptr.i.i.i.i309.i, align 8, !noalias !79
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i311.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i309.i, i64 8
   store ptr @.str.87, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i311.i, align 8, !noalias !79
@@ -966,7 +960,7 @@ if.then.i.i.i307.i:                               ; preds = %call.i.i.i.noexc313
 
 invoke.cont117.i:                                 ; preds = %if.then.i.i.i307.i, %call.i.i.i.noexc313.i
   %72 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !79
-  %add.ptr3.i.i.i.i305.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %72, i64 %69
+  %add.ptr3.i.i.i.i305.i = getelementptr inbounds [48 x i8], ptr %72, i64 %69
   %second.i.i306.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i305.i, i64 16
   %call.i316.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i306.i) #23
   %73 = extractvalue { i64, ptr } %call.i316.i, 0
@@ -994,7 +988,7 @@ call.i.i.i.i.i.i.i.noexc.i:                       ; preds = %invoke.cont120.i
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %call.i.i.i.i.i.i.i.noexc.i
   %77 = extractvalue { i64, i8 } %call.i.i.i.i.i.i.i317.i, 0
   %78 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !84
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %78, i64 %77
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds [48 x i8], ptr %78, i64 %77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp112.i, i64 16, i1 false), !noalias !84
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i) #23, !noalias !84
@@ -1048,7 +1042,7 @@ call.i.i.i325.noexc.i:                            ; preds = %if.then129.i
 
 if.then.i.i.i331.i:                               ; preds = %call.i.i.i325.noexc.i
   %86 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !99
-  %add.ptr.i.i.i.i333.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %86, i64 %84
+  %add.ptr.i.i.i.i333.i = getelementptr inbounds [48 x i8], ptr %86, i64 %84
   store i64 15, ptr %add.ptr.i.i.i.i333.i, align 8, !noalias !99
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i335.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i333.i, i64 8
   store ptr @.str.87, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i335.i, align 8, !noalias !99
@@ -1058,7 +1052,7 @@ if.then.i.i.i331.i:                               ; preds = %call.i.i.i325.noexc
 
 invoke.cont137.i:                                 ; preds = %if.then.i.i.i331.i, %call.i.i.i325.noexc.i
   %87 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !99
-  %add.ptr3.i.i.i.i329.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %87, i64 %84
+  %add.ptr3.i.i.i.i329.i = getelementptr inbounds [48 x i8], ptr %87, i64 %84
   %second.i.i330.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i329.i, i64 16
   %call.i339.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i330.i) #23
   %88 = extractvalue { i64, ptr } %call.i339.i, 0
@@ -1089,7 +1083,7 @@ call.i.i.i.i.i.i.i.noexc355.i:                    ; preds = %invoke.cont138.i
 if.then.i.i.i.i.i.i.i350.i:                       ; preds = %call.i.i.i.i.i.i.i.noexc355.i
   %93 = extractvalue { i64, i8 } %call.i.i.i.i.i.i.i356.i, 0
   %94 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !104
-  %add.ptr.i.i.i.i.i.i.i.i353.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %94, i64 %93
+  %add.ptr.i.i.i.i.i.i.i.i353.i = getelementptr inbounds [48 x i8], ptr %94, i64 %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i.i.i.i.i.i.i353.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp130.i, i64 16, i1 false), !noalias !104
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i354.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i353.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i354.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i342.i) #23, !noalias !104
@@ -1253,7 +1247,7 @@ call.i.i.i378.noexc.i:                            ; preds = %invoke.cont152.i
 
 if.then.i.i.i384.i:                               ; preds = %call.i.i.i378.noexc.i
   %116 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !119
-  %add.ptr.i.i.i.i386.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %116, i64 %114
+  %add.ptr.i.i.i.i386.i = getelementptr inbounds [48 x i8], ptr %116, i64 %114
   store i64 18, ptr %add.ptr.i.i.i.i386.i, align 8, !noalias !119
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i388.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i386.i, i64 8
   store ptr @.str.89, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i388.i, align 8, !noalias !119
@@ -1263,7 +1257,7 @@ if.then.i.i.i384.i:                               ; preds = %call.i.i.i378.noexc
 
 invoke.cont154.i:                                 ; preds = %if.then.i.i.i384.i, %call.i.i.i378.noexc.i
   %117 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !119
-  %add.ptr3.i.i.i.i382.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %117, i64 %114
+  %add.ptr3.i.i.i.i382.i = getelementptr inbounds [48 x i8], ptr %117, i64 %114
   %second.i.i383.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i382.i, i64 16
   %call156.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i383.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146.i) #23
@@ -1302,7 +1296,7 @@ call.i.i.i395.noexc.i:                            ; preds = %invoke.cont161.i
 
 if.then.i.i.i401.i:                               ; preds = %call.i.i.i395.noexc.i
   %122 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !124
-  %add.ptr.i.i.i.i403.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %122, i64 %120
+  %add.ptr.i.i.i.i403.i = getelementptr inbounds [48 x i8], ptr %122, i64 %120
   store i64 10, ptr %add.ptr.i.i.i.i403.i, align 8, !noalias !124
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i405.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i403.i, i64 8
   store ptr @.str.80, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i405.i, align 8, !noalias !124
@@ -1312,7 +1306,7 @@ if.then.i.i.i401.i:                               ; preds = %call.i.i.i395.noexc
 
 invoke.cont163.i:                                 ; preds = %if.then.i.i.i401.i, %call.i.i.i395.noexc.i
   %123 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !124
-  %add.ptr3.i.i.i.i399.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %123, i64 %120
+  %add.ptr3.i.i.i.i399.i = getelementptr inbounds [48 x i8], ptr %123, i64 %120
   %second.i.i400.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i399.i, i64 16
   %call165.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i400.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp160.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp160.i) #23
@@ -1387,7 +1381,7 @@ call.i.i.i419.noexc.i:                            ; preds = %cond.end.i
 
 if.then.i.i.i425.i:                               ; preds = %call.i.i.i419.noexc.i
   %132 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !129
-  %add.ptr.i.i.i.i427.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %132, i64 %130
+  %add.ptr.i.i.i.i427.i = getelementptr inbounds [48 x i8], ptr %132, i64 %130
   store i64 10, ptr %add.ptr.i.i.i.i427.i, align 8, !noalias !129
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i429.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i427.i, i64 8
   store ptr @.str.80, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i429.i, align 8, !noalias !129
@@ -1397,7 +1391,7 @@ if.then.i.i.i425.i:                               ; preds = %call.i.i.i419.noexc
 
 invoke.cont180.i:                                 ; preds = %if.then.i.i.i425.i, %call.i.i.i419.noexc.i
   %133 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !129
-  %add.ptr3.i.i.i.i423.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %133, i64 %130
+  %add.ptr3.i.i.i.i423.i = getelementptr inbounds [48 x i8], ptr %133, i64 %130
   %second.i.i424.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i423.i, i64 16
   %call.i433.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i424.i) #23
   %134 = extractvalue { i64, ptr } %call.i433.i, 0
@@ -1425,7 +1419,7 @@ call.i.i.i.i.i.i.i.noexc449.i:                    ; preds = %invoke.cont183.i
 if.then.i.i.i.i.i.i.i444.i:                       ; preds = %call.i.i.i.i.i.i.i.noexc449.i
   %138 = extractvalue { i64, i8 } %call.i.i.i.i.i.i.i450.i, 0
   %139 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !134
-  %add.ptr.i.i.i.i.i.i.i.i447.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %139, i64 %138
+  %add.ptr.i.i.i.i.i.i.i.i447.i = getelementptr inbounds [48 x i8], ptr %139, i64 %138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i.i.i.i.i.i.i447.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp167.i, i64 16, i1 false), !noalias !134
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i448.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i447.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i448.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i436.i) #23, !noalias !134
@@ -1457,7 +1451,7 @@ call.i.i.i453.noexc.i:                            ; preds = %invoke.cont197.i
 
 if.then.i.i.i459.i:                               ; preds = %call.i.i.i453.noexc.i
   %142 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !149
-  %add.ptr.i.i.i.i461.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %142, i64 %140
+  %add.ptr.i.i.i.i461.i = getelementptr inbounds [48 x i8], ptr %142, i64 %140
   store i64 16, ptr %add.ptr.i.i.i.i461.i, align 8, !noalias !149
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i463.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i461.i, i64 8
   store ptr @.str.83, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i463.i, align 8, !noalias !149
@@ -1467,7 +1461,7 @@ if.then.i.i.i459.i:                               ; preds = %call.i.i.i453.noexc
 
 invoke.cont199.i:                                 ; preds = %if.then.i.i.i459.i, %call.i.i.i453.noexc.i
   %143 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !149
-  %add.ptr3.i.i.i.i457.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %143, i64 %140
+  %add.ptr3.i.i.i.i457.i = getelementptr inbounds [48 x i8], ptr %143, i64 %140
   %second.i.i458.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i457.i, i64 16
   %call201.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i458.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp196.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp196.i) #23
@@ -1486,7 +1480,7 @@ call.i.i.i467.noexc.i:                            ; preds = %invoke.cont204.i
 
 if.then.i.i.i473.i:                               ; preds = %call.i.i.i467.noexc.i
   %146 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !154
-  %add.ptr.i.i.i.i475.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %146, i64 %144
+  %add.ptr.i.i.i.i475.i = getelementptr inbounds [48 x i8], ptr %146, i64 %144
   store i64 15, ptr %add.ptr.i.i.i.i475.i, align 8, !noalias !154
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i477.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i475.i, i64 8
   store ptr @.str.84, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i477.i, align 8, !noalias !154
@@ -1496,7 +1490,7 @@ if.then.i.i.i473.i:                               ; preds = %call.i.i.i467.noexc
 
 invoke.cont206.i:                                 ; preds = %if.then.i.i.i473.i, %call.i.i.i467.noexc.i
   %147 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !154
-  %add.ptr3.i.i.i.i471.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %147, i64 %144
+  %add.ptr3.i.i.i.i471.i = getelementptr inbounds [48 x i8], ptr %147, i64 %144
   %second.i.i472.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i471.i, i64 16
   %call208.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i472.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp203.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp203.i) #23
@@ -1536,7 +1530,7 @@ call.i.i.i494.noexc.i:                            ; preds = %invoke.cont216.i
 
 if.then.i.i.i500.i:                               ; preds = %call.i.i.i494.noexc.i
   %152 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !159
-  %add.ptr.i.i.i.i502.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %152, i64 %150
+  %add.ptr.i.i.i.i502.i = getelementptr inbounds [48 x i8], ptr %152, i64 %150
   store i64 19, ptr %add.ptr.i.i.i.i502.i, align 8, !noalias !159
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i504.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i502.i, i64 8
   store ptr @.str.86, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i504.i, align 8, !noalias !159
@@ -1546,7 +1540,7 @@ if.then.i.i.i500.i:                               ; preds = %call.i.i.i494.noexc
 
 invoke.cont218.i:                                 ; preds = %if.then.i.i.i500.i, %call.i.i.i494.noexc.i
   %153 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !159
-  %add.ptr3.i.i.i.i498.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %153, i64 %150
+  %add.ptr3.i.i.i.i498.i = getelementptr inbounds [48 x i8], ptr %153, i64 %150
   %second.i.i499.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i498.i, i64 16
   %call220.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i499.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp210.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp210.i) #23
@@ -1630,7 +1624,7 @@ call.i.i.i513.noexc.i:                            ; preds = %if.end223.i
 
 if.then.i.i.i519.i:                               ; preds = %call.i.i.i513.noexc.i
   %164 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !164
-  %add.ptr.i.i.i.i521.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %164, i64 %162
+  %add.ptr.i.i.i.i521.i = getelementptr inbounds [48 x i8], ptr %164, i64 %162
   store i64 14, ptr %add.ptr.i.i.i.i521.i, align 8, !noalias !164
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i523.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i521.i, i64 8
   store ptr @.str.69, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i523.i, align 8, !noalias !164
@@ -1640,7 +1634,7 @@ if.then.i.i.i519.i:                               ; preds = %call.i.i.i513.noexc
 
 invoke.cont231.i:                                 ; preds = %if.then.i.i.i519.i, %call.i.i.i513.noexc.i
   %165 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !164
-  %add.ptr3.i.i.i.i517.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %165, i64 %162
+  %add.ptr3.i.i.i.i517.i = getelementptr inbounds [48 x i8], ptr %165, i64 %162
   %second.i.i518.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i517.i, i64 16
   %call.i527.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i518.i) #23
   %166 = extractvalue { i64, ptr } %call.i527.i, 0
@@ -1662,7 +1656,7 @@ call.i.i.i529.noexc.i:                            ; preds = %invoke.cont231.i
 
 if.then.i.i.i535.i:                               ; preds = %call.i.i.i529.noexc.i
   %172 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !169
-  %add.ptr.i.i.i.i537.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %172, i64 %170
+  %add.ptr.i.i.i.i537.i = getelementptr inbounds [48 x i8], ptr %172, i64 %170
   store i64 16, ptr %add.ptr.i.i.i.i537.i, align 8, !noalias !169
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i539.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i537.i, i64 8
   store ptr @.str.83, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i539.i, align 8, !noalias !169
@@ -1672,7 +1666,7 @@ if.then.i.i.i535.i:                               ; preds = %call.i.i.i529.noexc
 
 invoke.cont233.i:                                 ; preds = %if.then.i.i.i535.i, %call.i.i.i529.noexc.i
   %173 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !169
-  %add.ptr3.i.i.i.i533.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %173, i64 %170
+  %add.ptr3.i.i.i.i533.i = getelementptr inbounds [48 x i8], ptr %173, i64 %170
   %second.i.i534.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i533.i, i64 16
   %call.i543.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i534.i) #23
   %174 = extractvalue { i64, ptr } %call.i543.i, 0
@@ -1700,7 +1694,7 @@ call.i.i.i.i.i.i.i.noexc559.i:                    ; preds = %invoke.cont236.i
 if.then.i.i.i.i.i.i.i554.i:                       ; preds = %call.i.i.i.i.i.i.i.noexc559.i
   %178 = extractvalue { i64, i8 } %call.i.i.i.i.i.i.i560.i, 0
   %179 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !174
-  %add.ptr.i.i.i.i.i.i.i.i557.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %179, i64 %178
+  %add.ptr.i.i.i.i.i.i.i.i557.i = getelementptr inbounds [48 x i8], ptr %179, i64 %178
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i.i.i.i.i.i.i557.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp224.i, i64 16, i1 false), !noalias !174
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i558.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i557.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i558.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i546.i) #23, !noalias !174
@@ -1725,7 +1719,7 @@ call.i.i.i564.noexc.i:                            ; preds = %invoke.cont246.i
 
 if.then.i.i.i570.i:                               ; preds = %call.i.i.i564.noexc.i
   %184 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !189
-  %add.ptr.i.i.i.i572.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %184, i64 %182
+  %add.ptr.i.i.i.i572.i = getelementptr inbounds [48 x i8], ptr %184, i64 %182
   store i64 11, ptr %add.ptr.i.i.i.i572.i, align 8, !noalias !189
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i574.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i572.i, i64 8
   store ptr @.str.94, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i574.i, align 8, !noalias !189
@@ -1735,7 +1729,7 @@ if.then.i.i.i570.i:                               ; preds = %call.i.i.i564.noexc
 
 invoke.cont249.i:                                 ; preds = %if.then.i.i.i570.i, %call.i.i.i564.noexc.i
   %185 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !189
-  %add.ptr3.i.i.i.i568.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %185, i64 %182
+  %add.ptr3.i.i.i.i568.i = getelementptr inbounds [48 x i8], ptr %185, i64 %182
   %second.i.i569.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i568.i, i64 16
   %cond248.i = select i1 %tobool.i.i.i, ptr @.str.93, ptr @.str.75
   %call252.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i569.i, ptr noundef nonnull %cond248.i)
@@ -1763,7 +1757,7 @@ call.i.i.i582.noexc.i:                            ; preds = %invoke.cont261.i
 
 if.then.i.i.i588.i:                               ; preds = %call.i.i.i582.noexc.i
   %191 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !194
-  %add.ptr.i.i.i.i590.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %191, i64 %189
+  %add.ptr.i.i.i.i590.i = getelementptr inbounds [48 x i8], ptr %191, i64 %189
   store i64 4, ptr %add.ptr.i.i.i.i590.i, align 8, !noalias !194
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i592.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i590.i, i64 8
   store ptr @.str.97, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i592.i, align 8, !noalias !194
@@ -1773,7 +1767,7 @@ if.then.i.i.i588.i:                               ; preds = %call.i.i.i582.noexc
 
 invoke.cont267.i:                                 ; preds = %if.then.i.i.i588.i, %call.i.i.i582.noexc.i
   %192 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !194
-  %add.ptr3.i.i.i.i586.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %192, i64 %189
+  %add.ptr3.i.i.i.i586.i = getelementptr inbounds [48 x i8], ptr %192, i64 %189
   %second.i.i587.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i586.i, i64 16
   %call.i596.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i587.i) #23
   %193 = extractvalue { i64, ptr } %call.i596.i, 0
@@ -1847,7 +1841,7 @@ call.i.i.i.i.i.i.i.noexc622.i:                    ; preds = %cond.end274.i
 if.then.i.i.i.i.i.i.i617.i:                       ; preds = %call.i.i.i.i.i.i.i.noexc622.i
   %201 = extractvalue { i64, i8 } %call.i.i.i.i.i.i.i623.i, 0
   %202 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !199
-  %add.ptr.i.i.i.i.i.i.i.i620.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %202, i64 %201
+  %add.ptr.i.i.i.i.i.i.i.i620.i = getelementptr inbounds [48 x i8], ptr %202, i64 %201
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i.i.i.i.i.i.i620.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp253.i, i64 16, i1 false), !noalias !199
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i621.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i620.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i621.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i609.i) #23, !noalias !199
@@ -1874,7 +1868,7 @@ call.i.i.i626.noexc.i:                            ; preds = %cleanup.done284.i
 
 if.then.i.i.i632.i:                               ; preds = %call.i.i.i626.noexc.i
   %205 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !214
-  %add.ptr.i.i.i.i634.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %205, i64 %203
+  %add.ptr.i.i.i.i634.i = getelementptr inbounds [48 x i8], ptr %205, i64 %203
   store i64 16, ptr %add.ptr.i.i.i.i634.i, align 8, !noalias !214
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i636.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i634.i, i64 8
   store ptr @.str.100, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i636.i, align 8, !noalias !214
@@ -1884,7 +1878,7 @@ if.then.i.i.i632.i:                               ; preds = %call.i.i.i626.noexc
 
 invoke.cont296.i:                                 ; preds = %if.then.i.i.i632.i, %call.i.i.i626.noexc.i
   %206 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !214
-  %add.ptr3.i.i.i.i630.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %206, i64 %203
+  %add.ptr3.i.i.i.i630.i = getelementptr inbounds [48 x i8], ptr %206, i64 %203
   %second.i.i631.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i630.i, i64 16
   %call.i640.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i631.i) #23
   %207 = extractvalue { i64, ptr } %call.i640.i, 0
@@ -1915,7 +1909,7 @@ call.i.i.i.i.i.i.i.noexc657.i:                    ; preds = %invoke.cont297.i
 if.then.i.i.i.i.i.i.i652.i:                       ; preds = %call.i.i.i.i.i.i.i.noexc657.i
   %212 = extractvalue { i64, i8 } %call.i.i.i.i.i.i.i658.i, 0
   %213 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !219
-  %add.ptr.i.i.i.i.i.i.i.i655.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %213, i64 %212
+  %add.ptr.i.i.i.i.i.i.i.i655.i = getelementptr inbounds [48 x i8], ptr %213, i64 %212
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i.i.i.i.i.i.i655.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp289.i, i64 16, i1 false), !noalias !219
   %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i656.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i655.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i656.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i644.i) #23, !noalias !219
@@ -1935,7 +1929,7 @@ call.i.i.i661.noexc.i:                            ; preds = %invoke.cont302.i
 
 if.then.i.i.i667.i:                               ; preds = %call.i.i.i661.noexc.i
   %216 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !234
-  %add.ptr.i.i.i.i669.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %216, i64 %214
+  %add.ptr.i.i.i.i669.i = getelementptr inbounds [48 x i8], ptr %216, i64 %214
   store i64 1, ptr %add.ptr.i.i.i.i669.i, align 8, !noalias !234
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i671.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i669.i, i64 8
   store ptr @.str.1, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i671.i, align 8, !noalias !234
@@ -1945,7 +1939,7 @@ if.then.i.i.i667.i:                               ; preds = %call.i.i.i661.noexc
 
 invoke.cont305.i:                                 ; preds = %if.then.i.i.i667.i, %call.i.i.i661.noexc.i
   %217 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !234
-  %add.ptr3.i.i.i.i665.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %217, i64 %214
+  %add.ptr3.i.i.i.i665.i = getelementptr inbounds [48 x i8], ptr %217, i64 %214
   %second.i.i666.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i665.i, i64 16
   %call308.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i666.i, ptr noundef nonnull @.str.75)
           to label %invoke.cont307.i unwind label %lpad13.i
@@ -1962,7 +1956,7 @@ call.i.i.i674.noexc.i:                            ; preds = %invoke.cont307.i
 
 if.then.i.i.i680.i:                               ; preds = %call.i.i.i674.noexc.i
   %220 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !239
-  %add.ptr.i.i.i.i682.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %220, i64 %218
+  %add.ptr.i.i.i.i682.i = getelementptr inbounds [48 x i8], ptr %220, i64 %218
   store i64 1, ptr %add.ptr.i.i.i.i682.i, align 8, !noalias !239
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i684.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i682.i, i64 8
   store ptr @.str.2, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i684.i, align 8, !noalias !239
@@ -1972,7 +1966,7 @@ if.then.i.i.i680.i:                               ; preds = %call.i.i.i674.noexc
 
 invoke.cont309.i:                                 ; preds = %if.then.i.i.i680.i, %call.i.i.i674.noexc.i
   %221 = load ptr, ptr %slots_.i.i.i.i.i.i.i, align 8, !noalias !239
-  %add.ptr3.i.i.i.i678.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %221, i64 %218
+  %add.ptr3.i.i.i.i678.i = getelementptr inbounds [48 x i8], ptr %221, i64 %218
   %second.i.i679.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i.i.i678.i, i64 16
   %call312.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i679.i, ptr noundef nonnull @.str.75)
           to label %invoke.cont7 unwind label %lpad13.i
@@ -2108,7 +2102,7 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %if.
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %2, i64 %i.05.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [48 x i8], ptr %2, i64 %i.05.i.i.i
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i) #23
   br label %for.inc.i.i.i
@@ -2155,7 +2149,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %for.inc.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %2, i64 %i.05.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [48 x i8], ptr %2, i64 %i.05.i.i.i.i
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i) #23
   br label %for.inc.i.i.i.i
@@ -2200,7 +2194,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, 
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %for.inc.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %2, i64 %i.05.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [48 x i8], ptr %2, i64 %i.05.i.i.i.i.i
   %second.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i) #23
   br label %for.inc.i.i.i.i.i
@@ -7293,7 +7287,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext nneg i32 %9 to i64
   %add.i = add i64 %seq.sroa.4.0, %conv
   %and.i = and i64 %add.i, %2
-  %add.ptr21 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %and.i
+  %add.ptr21 = getelementptr inbounds [48 x i8], ptr %5, i64 %and.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr21, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -7608,7 +7602,7 @@ for.body:                                         ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %add.ptr = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %1, i64 %i.021
+  %add.ptr = getelementptr inbounds [48 x i8], ptr %1, i64 %i.021
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -7633,7 +7627,7 @@ if.then:                                          ; preds = %for.body
   %12 = getelementptr i8, ptr %11, i64 %and.i.i
   %arrayidx7.i.i = getelementptr i8, ptr %12, i64 %and6.i.i
   store i8 %conv.i, ptr %arrayidx7.i.i, align 1
-  %add.ptr16 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %6, i64 %8
+  %add.ptr16 = getelementptr inbounds [48 x i8], ptr %6, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr16, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr, i64 16, i1 false)
   %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr16, i64 16
   %second3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
@@ -7879,7 +7873,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext nneg i32 %9 to i64
   %add.i = add i64 %seq.sroa.4.0, %conv
   %and.i = and i64 %add.i, %2
-  %add.ptr21 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %and.i
+  %add.ptr21 = getelementptr inbounds [48 x i8], ptr %5, i64 %and.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr21, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -7974,7 +7968,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext nneg i32 %9 to i64
   %add.i = add i64 %seq.sroa.4.0, %conv
   %and.i = and i64 %add.i, %2
-  %add.ptr21 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %and.i
+  %add.ptr21 = getelementptr inbounds [48 x i8], ptr %5, i64 %and.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr21, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -8071,7 +8065,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext nneg i32 %9 to i64
   %add.i = add i64 %seq.sroa.4.0, %conv
   %and.i = and i64 %add.i, %2
-  %add.ptr21 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %and.i
+  %add.ptr21 = getelementptr inbounds [48 x i8], ptr %5, i64 %and.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr21, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -8166,7 +8160,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext nneg i32 %9 to i64
   %add.i = add i64 %seq.sroa.4.0, %conv
   %and.i = and i64 %add.i, %2
-  %add.ptr21 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %and.i
+  %add.ptr21 = getelementptr inbounds [48 x i8], ptr %5, i64 %and.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr21, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -8269,7 +8263,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext nneg i32 %9 to i64
   %add.i = add i64 %seq.sroa.4.0, %conv
   %and.i = and i64 %add.i, %2
-  %add.ptr21 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %and.i
+  %add.ptr21 = getelementptr inbounds [48 x i8], ptr %5, i64 %and.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr21, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -8364,7 +8358,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext nneg i32 %9 to i64
   %add.i = add i64 %seq.sroa.4.0, %conv
   %and.i = and i64 %add.i, %2
-  %add.ptr21 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %and.i
+  %add.ptr21 = getelementptr inbounds [48 x i8], ptr %5, i64 %and.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr21, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -8459,7 +8453,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext nneg i32 %9 to i64
   %add.i = add i64 %seq.sroa.4.0, %conv
   %and.i = and i64 %add.i, %2
-  %add.ptr21 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %and.i
+  %add.ptr21 = getelementptr inbounds [48 x i8], ptr %5, i64 %and.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr21, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -8554,7 +8548,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext nneg i32 %9 to i64
   %add.i = add i64 %seq.sroa.4.0, %conv
   %and.i = and i64 %add.i, %2
-  %add.ptr21 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %and.i
+  %add.ptr21 = getelementptr inbounds [48 x i8], ptr %5, i64 %and.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr21, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -8649,7 +8643,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext nneg i32 %9 to i64
   %add.i = add i64 %seq.sroa.4.0, %conv
   %and.i = and i64 %add.i, %2
-  %add.ptr21 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %and.i
+  %add.ptr21 = getelementptr inbounds [48 x i8], ptr %5, i64 %and.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr21, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -8746,7 +8740,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext nneg i32 %9 to i64
   %add.i = add i64 %seq.sroa.4.0, %conv
   %and.i = and i64 %add.i, %2
-  %add.ptr21 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %and.i
+  %add.ptr21 = getelementptr inbounds [48 x i8], ptr %5, i64 %and.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr21, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -8844,7 +8838,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv = zext nneg i32 %9 to i64
   %add.i = add i64 %seq.sroa.4.0, %conv
   %and.i = and i64 %add.i, %2
-  %add.ptr21 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %and.i
+  %add.ptr21 = getelementptr inbounds [48 x i8], ptr %5, i64 %and.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr21, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -8942,7 +8936,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext nneg i32 %9 to i64
   %add.i = add i64 %seq.sroa.4.0, %conv
   %and.i = and i64 %add.i, %2
-  %add.ptr21 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %and.i
+  %add.ptr21 = getelementptr inbounds [48 x i8], ptr %5, i64 %and.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr21, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -9037,7 +9031,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = zext nneg i32 %9 to i64
   %add.i = add i64 %seq.sroa.4.0, %conv
   %and.i = and i64 %add.i, %2
-  %add.ptr21 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %5, i64 %and.i
+  %add.ptr21 = getelementptr inbounds [48 x i8], ptr %5, i64 %and.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %add.ptr21, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr21, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
@@ -9245,7 +9239,7 @@ _ZNSt12_Vector_baseISt8functionIFSt8optionalIN6google8protobuf2io7Printer9ValueI
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i25, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::function", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -9490,7 +9484,7 @@ for.body.i.us.us:                                 ; preds = %for.inc.i.us.us, %f
   %conv.i.us.us = zext nneg i32 %9 to i64
   %add.i.i.us.us = add i64 %seq.sroa.4.0.i.us, %conv.i.us.us
   %and.i.i.us.us = and i64 %add.i.i.us.us, %1
-  %add.ptr19.i.us.us = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %3, i64 %and.i.i.us.us
+  %add.ptr19.i.us.us = getelementptr inbounds [48 x i8], ptr %3, i64 %and.i.i.us.us
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.us.us = load i64, ptr %add.ptr19.i.us.us, align 8
   %cmp.i.i.i.i.i.i.i.i.us.us = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.us.us, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.us.us, label %if.then.i, label %for.inc.i.us.us
@@ -9522,7 +9516,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %conv.i = zext nneg i32 %13 to i64
   %add.i.i = add i64 %seq.sroa.4.0.i, %conv.i
   %and.i.i = and i64 %add.i.i, %1
-  %add.ptr19.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %3, i64 %and.i.i
+  %add.ptr19.i = getelementptr inbounds [48 x i8], ptr %3, i64 %and.i.i
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %add.ptr19.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, %agg.tmp4.sroa.0.0.copyload.i.i.i.i.i.i.fr
   br i1 %cmp.i.i.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i.i.i, label %for.inc.i

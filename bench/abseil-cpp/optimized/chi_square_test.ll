@@ -2176,9 +2176,9 @@ _ZN4absl15random_internal9ChiSquareIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorI
 125:                                              ; preds = %.lr.ph, %125
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %125 ]
   %.080161 = phi double [ 0.000000e+00, %.lr.ph ], [ %135, %125 ]
-  %126 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv
   %127 = load i32, ptr %126, align 4, !tbaa !39
-  %128 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %indvars.iv
   %129 = load i32, ptr %128, align 4, !tbaa !39
   %130 = sub nsw i32 %127, %129
   %131 = sitofp i32 %130 to double
@@ -2804,7 +2804,7 @@ define internal void @_ZN12_GLOBAL__N_128ChiSquareTest_TableData_Test8TestBodyEv
 43:                                               ; preds = %1, %_ZN7testing15AssertionResultD2Ev.exit220
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZN7testing15AssertionResultD2Ev.exit220 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %44 = getelementptr inbounds nuw [5 x double], ptr @__const._ZN12_GLOBAL__N_128ChiSquareTest_TableData_Test8TestBodyEv.data, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [40 x i8], ptr @__const._ZN12_GLOBAL__N_128ChiSquareTest_TableData_Test8TestBodyEv.data, i64 %indvars.iv
   %45 = load double, ptr %44, align 8, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = trunc nuw nsw i64 %indvars.iv.next to i32

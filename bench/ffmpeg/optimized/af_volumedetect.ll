@@ -35,7 +35,7 @@ define internal void @uninit(ptr noundef %0) #0 {
 5:                                                ; preds = %5, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %5 ]
   %.06178.i = phi i64 [ 0, %1 ], [ %8, %5 ]
-  %6 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %7 = load i64, ptr %6, align 8, !tbaa !20
   %8 = add i64 %7, %.06178.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -71,7 +71,7 @@ define internal void @uninit(ptr noundef %0) #0 {
   %indvars.iv91.i = phi i64 [ 0, %10 ], [ %indvars.iv.next92.i, %23 ]
   %.05981.i = phi i64 [ 0, %10 ], [ %27, %23 ]
   %.06080.i = phi i64 [ 0, %10 ], [ %31, %23 ]
-  %24 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv91.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv91.i
   %25 = load i64, ptr %24, align 8, !tbaa !20
   %26 = lshr i64 %25, %22
   %27 = add i64 %26, %.05981.i
@@ -118,7 +118,7 @@ logdb.exit.i:                                     ; preds = %40, %39
 
 46:                                               ; preds = %54, %logdb.exit.i
   %indvars.iv95.i = phi i64 [ 32768, %logdb.exit.i ], [ %indvars.iv.next96.i, %54 ]
-  %47 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv95.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv95.i
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 262144
   %49 = load i64, ptr %48, align 8, !tbaa !20
   %.not66.i = icmp eq i64 %49, 0
@@ -126,7 +126,7 @@ logdb.exit.i:                                     ; preds = %40, %39
 
 50:                                               ; preds = %46
   %51 = sub nuw nsw i64 32768, %indvars.iv95.i
-  %52 = getelementptr inbounds nuw i64, ptr %4, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !20
   %.not67.i = icmp eq i64 %53, 0
   br i1 %.not67.i, label %54, label %56
@@ -153,7 +153,7 @@ logdb.exit73.i:                                   ; preds = %54, %56
 
 64:                                               ; preds = %logdb.exit76.i, %logdb.exit73.i
   %indvars.iv98.i = phi i64 [ 0, %logdb.exit73.i ], [ %indvars.iv.next99.i, %logdb.exit76.i ]
-  %65 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv98.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv98.i
   %66 = load i64, ptr %65, align 8, !tbaa !20
   %67 = add nsw i64 %indvars.iv98.i, -32768
   %68 = icmp eq i64 %67, 0
@@ -172,7 +172,7 @@ logdb.exit73.i:                                   ; preds = %54, %56
 
 logdb.exit76.i:                                   ; preds = %69, %64
   %.0.i75.i = phi i64 [ %77, %69 ], [ 91, %64 ]
-  %78 = getelementptr inbounds i64, ptr %2, i64 %.0.i75.i
+  %78 = getelementptr inbounds [8 x i8], ptr %2, i64 %.0.i75.i
   %79 = load i64, ptr %78, align 8, !tbaa !20
   %80 = add i64 %79, %66
   store i64 %80, ptr %78, align 8, !tbaa !20
@@ -182,7 +182,7 @@ logdb.exit76.i:                                   ; preds = %69, %64
 
 .preheader.i:                                     ; preds = %logdb.exit76.i, %83
   %indvars.iv102.i = phi i64 [ %indvars.iv.next103.i, %83 ], [ 0, %logdb.exit76.i ]
-  %81 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv102.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv102.i
   %82 = load i64, ptr %81, align 8, !tbaa !20
   %.not68.i = icmp eq i64 %82, 0
   br i1 %.not68.i, label %83, label %.critedge2.i
@@ -200,7 +200,7 @@ logdb.exit76.i:                                   ; preds = %69, %64
 .lr.ph.i:                                         ; preds = %.critedge2.i, %.lr.ph.i
   %indvars.iv106.i = phi i64 [ %indvars.iv.next107.i, %.lr.ph.i ], [ %indvars.iv102.i, %.critedge2.i ]
   %.087.i = phi i64 [ %89, %.lr.ph.i ], [ 0, %.critedge2.i ]
-  %86 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv106.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv106.i
   %87 = load i64, ptr %86, align 8, !tbaa !20
   %88 = trunc nuw nsw i64 %indvars.iv106.i to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.9, i32 noundef %88, i64 noundef %87) #7
@@ -249,16 +249,16 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv31 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next32, %._crit_edge.us ]
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv31
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv31
   %20 = load ptr, ptr %19, align 8, !tbaa !47
   br label %21
 
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2, !tbaa !48
   %24 = sext i16 %23 to i64
-  %25 = getelementptr i64, ptr %6, i64 %24
+  %25 = getelementptr [8 x i8], ptr %6, i64 %24
   %26 = getelementptr i8, ptr %25, i64 262144
   %27 = load i64, ptr %26, align 8, !tbaa !20
   %28 = add i64 %27, 1

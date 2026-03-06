@@ -1431,7 +1431,7 @@ define void @_ZN7uu_head6uu_app17hd04ed54b2dffe9f3E(ptr noalias noundef writeonl
   %333 = phi i64 [ %.pre.i.i, %.noexc.i157 ], [ %324, %321 ]
   %334 = getelementptr inbounds nuw i8, ptr %35, i64 136
   %335 = load ptr, ptr %334, align 8, !alias.scope !461, !noalias !466, !nonnull !5, !noundef !5
-  %336 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %335, i64 %333
+  %336 = getelementptr inbounds [16 x i8], ptr %335, i64 %333
   store ptr @anon.ae392c40df82cab58f95e9738c8b86ea.29, ptr %336, align 8, !noalias !466
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
   store i64 4, ptr %337, align 8, !noalias !471

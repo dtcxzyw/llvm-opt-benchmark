@@ -55,7 +55,7 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef r
   %.sroa.0106.0461 = phi ptr [ null, %.preheader171 ], [ %.sroa.0106.3142, %.thread133 ]
   %.sroa.18.0460 = phi ptr [ null, %.preheader171 ], [ %.sroa.18.3141, %.thread133 ]
   %.sroa.24.0459 = phi ptr [ null, %.preheader171 ], [ %.sroa.24.3140, %.thread133 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %.fr471 = freeze ptr %23
   %24 = icmp eq ptr %.fr471, null
@@ -400,7 +400,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i: ; preds = %132, %.noe
   br label %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i: ; preds = %134, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i
-  %135 = getelementptr inbounds nuw float, ptr %129, i64 %127
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %127
   br label %.thread133
 
 136:                                              ; preds = %102
@@ -473,7 +473,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %140, %141
   %.048466 = phi float [ %159, %164 ], [ 0.000000e+00, %.lr.ph.preheader ]
   %.049465 = phi float [ %.1, %164 ], [ %150, %.lr.ph.preheader ]
   %.050464 = phi float [ %.151, %164 ], [ %150, %.lr.ph.preheader ]
-  %157 = getelementptr inbounds nuw float, ptr %.sroa.0106.3142, i64 %.0467
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0106.3142, i64 %.0467
   %158 = load float, ptr %157, align 4, !tbaa !23
   %159 = fadd float %.048466, %158
   %160 = fcmp olt float %158, %.050464

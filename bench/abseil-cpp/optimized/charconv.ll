@@ -459,7 +459,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatE
   %217 = sext i32 %216 to i64
   %218 = add nsw i32 %.val70.i, 342
   %219 = zext nneg i32 %218 to i64
-  %220 = getelementptr inbounds nuw i64, ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 %219
+  %220 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 %219
   %221 = load i64, ptr %220, align 8, !tbaa !21
   %.sroa.03.0.insert.ext.i.i.i = zext i64 %213 to i128
   %.sroa.01.0.insert.ext.i.i.i = zext i64 %221 to i128
@@ -475,7 +475,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatE
   br i1 %or.cond27.i.i, label %227, label %.critedge.i.i
 
 227:                                              ; preds = %210
-  %228 = getelementptr inbounds nuw i64, ptr @_ZN4absl12_GLOBAL__N_124kPower10MantissaLowTableE, i64 %219
+  %228 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl12_GLOBAL__N_124kPower10MantissaLowTableE, i64 %219
   %229 = load i64, ptr %228, align 8, !tbaa !21
   %.sroa.01.0.insert.ext.i69.i.i = zext i64 %229 to i128
   %230 = mul nuw i128 %.sroa.01.0.insert.ext.i69.i.i, %.sroa.03.0.insert.ext.i.i.i
@@ -554,7 +554,7 @@ _ZN4absl12_GLOBAL__N_111EiselLemireIdEEbRKNS_16strings_internal11ParsedFloatEbPT
   %.pre = mul nsw i32 %.val70.i, 217706
   %.pre5 = ashr i32 %.pre, 16
   %267 = sext i32 %.val70.i to i64
-  %268 = getelementptr i64, ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 %267
+  %268 = getelementptr [8 x i8], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 %267
   %269 = getelementptr i8, ptr %268, i64 2736
   %270 = load i64, ptr %269, align 8, !tbaa !21
   %.sroa.03.0.insert.ext.i.i.i.i = zext i64 %194 to i128
@@ -591,7 +591,7 @@ _ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i: ; preds = %2
 
 283:                                              ; preds = %250, %245, %235
   %284 = sext i32 %.val70.i to i64
-  %285 = getelementptr i64, ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 %284
+  %285 = getelementptr [8 x i8], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 %284
   %286 = getelementptr i8, ptr %285, i64 2736
   %287 = load i64, ptr %286, align 8, !tbaa !21
   %.sroa.03.0.insert.ext.i.i.i.i20 = zext i64 %194 to i128
@@ -1239,7 +1239,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatE
   %217 = sext i32 %216 to i64
   %218 = add nsw i32 %.val70.i, 342
   %219 = zext nneg i32 %218 to i64
-  %220 = getelementptr inbounds nuw i64, ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 %219
+  %220 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 %219
   %221 = load i64, ptr %220, align 8, !tbaa !21
   %.sroa.03.0.insert.ext.i.i.i = zext i64 %213 to i128
   %.sroa.01.0.insert.ext.i.i.i = zext i64 %221 to i128
@@ -1255,7 +1255,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatE
   br i1 %or.cond27.i.i, label %227, label %.critedge.i.i
 
 227:                                              ; preds = %210
-  %228 = getelementptr inbounds nuw i64, ptr @_ZN4absl12_GLOBAL__N_124kPower10MantissaLowTableE, i64 %219
+  %228 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl12_GLOBAL__N_124kPower10MantissaLowTableE, i64 %219
   %229 = load i64, ptr %228, align 8, !tbaa !21
   %.sroa.01.0.insert.ext.i69.i.i = zext i64 %229 to i128
   %230 = mul nuw i128 %.sroa.01.0.insert.ext.i69.i.i, %.sroa.03.0.insert.ext.i.i.i
@@ -1337,7 +1337,7 @@ _ZN4absl12_GLOBAL__N_111EiselLemireIfEEbRKNS_16strings_internal11ParsedFloatEbPT
   %.pre = mul nsw i32 %.val70.i, 217706
   %.pre5 = ashr i32 %.pre, 16
   %270 = sext i32 %.val70.i to i64
-  %271 = getelementptr i64, ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 %270
+  %271 = getelementptr [8 x i8], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 %270
   %272 = getelementptr i8, ptr %271, i64 2736
   %273 = load i64, ptr %272, align 8, !tbaa !21
   %.sroa.03.0.insert.ext.i.i.i.i = zext i64 %194 to i128
@@ -1374,7 +1374,7 @@ _ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i: ; preds = %2
 
 286:                                              ; preds = %250, %245, %235
   %287 = sext i32 %.val70.i to i64
-  %288 = getelementptr i64, ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 %287
+  %288 = getelementptr [8 x i8], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 %287
   %289 = getelementptr i8, ptr %288, i64 2736
   %290 = load i64, ptr %289, align 8, !tbaa !21
   %.sroa.03.0.insert.ext.i.i.i.i20 = zext i64 %194 to i128
@@ -1660,7 +1660,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i: ; preds = %_Z
   %38 = sub nsw i64 %.idx.i, %34
   %39 = ashr exact i64 %38, 2
   %40 = sub nsw i64 0, %39
-  %41 = getelementptr inbounds i32, ptr %37, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %37, i64 %40
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %41, ptr nonnull align 4 %36, i64 %38, i1 false)
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i
 
@@ -1684,7 +1684,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i: ; preds = %_Z
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !26
   %49 = shl i32 %48, %29
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %.pre-phi.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.pre-phi.i
   store i32 %49, ptr %50, align 4, !tbaa !26
   %51 = icmp slt i32 %28, 84
   br i1 %51, label %61, label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i
@@ -1692,12 +1692,12 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i: ; preds = %_Z
 52:                                               ; preds = %52, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %45, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
   %53 = sub nsw i64 %indvars.iv.i, %46
-  %54 = getelementptr inbounds nuw i32, ptr %44, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !26
   %56 = getelementptr i8, ptr %54, i64 -4
   %57 = load i32, ptr %56, align 4, !tbaa !26
   %58 = call i32 @llvm.fshl.i32(i32 %55, i32 %57, i32 %19)
-  %59 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.i
   store i32 %58, ptr %59, align 4, !tbaa !26
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %60 = icmp samesign ugt i64 %indvars.iv.next.i, %46
@@ -1705,7 +1705,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i: ; preds = %_Z
 
 61:                                               ; preds = %._crit_edge.i
   %62 = sext i32 %.sroa.speculated28.i to i64
-  %63 = getelementptr inbounds i32, ptr %47, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %47, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !26
   %.not.i34 = icmp eq i32 %64, 0
   br i1 %.not.i34, label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i, label %65
@@ -1764,7 +1764,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i52: ; preds = %
   %88 = sub nsw i64 %.idx.i48, %86
   %89 = ashr exact i64 %88, 2
   %90 = sub nsw i64 0, %89
-  %91 = getelementptr inbounds i32, ptr %87, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %87, i64 %90
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %91, ptr nonnull align 4 %15, i64 %88, i1 false)
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i41
 
@@ -1790,7 +1790,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i52: ; preds = %
   %97 = phi i32 [ %17, %.._crit_edge_crit_edge.i37 ], [ %.pre, %._crit_edge.i39.loopexit ]
   %.pre-phi.i40 = phi i64 [ %.pre.i38, %.._crit_edge_crit_edge.i37 ], [ %96, %._crit_edge.i39.loopexit ]
   %98 = shl i32 %97, %80
-  %99 = getelementptr inbounds nuw i32, ptr %15, i64 %.pre-phi.i40
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.pre-phi.i40
   store i32 %98, ptr %99, align 4, !tbaa !26
   %100 = icmp samesign ult i32 %78, 84
   br i1 %100, label %110, label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i41
@@ -1798,12 +1798,12 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i52: ; preds = %
 101:                                              ; preds = %101, %.lr.ph.i45
   %indvars.iv.i46 = phi i64 [ %95, %.lr.ph.i45 ], [ %indvars.iv.next.i47, %101 ]
   %102 = sub nsw i64 %indvars.iv.i46, %96
-  %103 = getelementptr inbounds nuw i32, ptr %15, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !26
   %105 = getelementptr i8, ptr %103, i64 -4
   %106 = load i32, ptr %105, align 4, !tbaa !26
   %107 = call i32 @llvm.fshl.i32(i32 %104, i32 %106, i32 %71)
-  %108 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i46
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i46
   store i32 %107, ptr %108, align 4, !tbaa !26
   %indvars.iv.next.i47 = add nsw i64 %indvars.iv.i46, -1
   %109 = icmp samesign ugt i64 %indvars.iv.next.i47, %96
@@ -1811,7 +1811,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i52: ; preds = %
 
 110:                                              ; preds = %._crit_edge.i39
   %111 = zext nneg i32 %79 to i64
-  %112 = getelementptr inbounds nuw i32, ptr %15, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !26
   %.not.i44 = icmp eq i32 %113, 0
   br i1 %.not.i44, label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i41, label %114
@@ -1850,7 +1850,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit: ; preds = %_ZSt
   br i1 %.not.i.not.i, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i, label %126
 
 126:                                              ; preds = %125
-  %127 = getelementptr i32, ptr %5, i64 %indvars.iv.i55
+  %127 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv.i55
   %128 = load i32, ptr %127, align 4, !tbaa !26
   br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i
 
@@ -1860,7 +1860,7 @@ _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i: ; preds = %126
   br i1 %.not.i21.not.i, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i, label %129
 
 129:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i
-  %130 = getelementptr i32, ptr %6, i64 %indvars.iv.i55
+  %130 = getelementptr [4 x i8], ptr %6, i64 %indvars.iv.i55
   %131 = load i32, ptr %130, align 4, !tbaa !26
   br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i
 
@@ -1908,7 +1908,7 @@ _ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_
 143:                                              ; preds = %143, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %143 ]
   %.01418.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %150, %143 ]
-  %144 = getelementptr inbounds nuw i32, ptr %141, i64 %indvars.iv.i.i
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %indvars.iv.i.i
   %145 = load i32, ptr %144, align 4, !tbaa !26
   %146 = zext i32 %145 to i64
   %147 = mul nuw i64 %10, %146
@@ -1922,7 +1922,7 @@ _ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_
 
 151:                                              ; preds = %._crit_edge.i.i
   %152 = trunc nuw i64 %150 to i32
-  %153 = getelementptr inbounds nuw i32, ptr %141, i64 %wide.trip.count.i.i
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %wide.trip.count.i.i
   store i32 %152, ptr %153, align 4, !tbaa !26
   %154 = add nuw nsw i32 %137, 1
   store i32 %154, ptr %7, align 4, !tbaa !24
@@ -1992,7 +1992,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i74: ; preds = %
   %179 = sub nsw i64 %.idx.i70, %175
   %180 = ashr exact i64 %179, 2
   %181 = sub nsw i64 0, %180
-  %182 = getelementptr inbounds i32, ptr %178, i64 %181
+  %182 = getelementptr inbounds [4 x i8], ptr %178, i64 %181
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %182, ptr nonnull align 4 %177, i64 %179, i1 false)
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i63
 
@@ -2016,7 +2016,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i74: ; preds = %
   %188 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %189 = load i32, ptr %188, align 4, !tbaa !26
   %190 = shl i32 %189, %170
-  %191 = getelementptr inbounds nuw i32, ptr %188, i64 %.pre-phi.i62
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %188, i64 %.pre-phi.i62
   store i32 %190, ptr %191, align 4, !tbaa !26
   %192 = icmp slt i32 %169, 84
   br i1 %192, label %202, label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i63
@@ -2024,12 +2024,12 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i74: ; preds = %
 193:                                              ; preds = %193, %.lr.ph.i67
   %indvars.iv.i68 = phi i64 [ %186, %.lr.ph.i67 ], [ %indvars.iv.next.i69, %193 ]
   %194 = sub nsw i64 %indvars.iv.i68, %187
-  %195 = getelementptr inbounds nuw i32, ptr %185, i64 %194
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %185, i64 %194
   %196 = load i32, ptr %195, align 4, !tbaa !26
   %197 = getelementptr i8, ptr %195, i64 -4
   %198 = load i32, ptr %197, align 4, !tbaa !26
   %199 = call i32 @llvm.fshl.i32(i32 %196, i32 %198, i32 %160)
-  %200 = getelementptr inbounds nuw i32, ptr %185, i64 %indvars.iv.i68
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %185, i64 %indvars.iv.i68
   store i32 %199, ptr %200, align 4, !tbaa !26
   %indvars.iv.next.i69 = add nsw i64 %indvars.iv.i68, -1
   %201 = icmp samesign ugt i64 %indvars.iv.next.i69, %187
@@ -2037,7 +2037,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i74: ; preds = %
 
 202:                                              ; preds = %._crit_edge.i61
   %203 = sext i32 %.sroa.speculated28.i57 to i64
-  %204 = getelementptr inbounds i32, ptr %188, i64 %203
+  %204 = getelementptr inbounds [4 x i8], ptr %188, i64 %203
   %205 = load i32, ptr %204, align 4, !tbaa !26
   %.not.i66 = icmp eq i32 %205, 0
   br i1 %.not.i66, label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i63, label %206
@@ -2106,7 +2106,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i93: ; preds = %
   %233 = sub nsw i64 %.idx.i89, %229
   %234 = ashr exact i64 %233, 2
   %235 = sub nsw i64 0, %234
-  %236 = getelementptr inbounds i32, ptr %232, i64 %235
+  %236 = getelementptr inbounds [4 x i8], ptr %232, i64 %235
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %236, ptr nonnull align 4 %231, i64 %233, i1 false)
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i82
 
@@ -2130,7 +2130,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i93: ; preds = %
   %242 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %243 = load i32, ptr %242, align 4, !tbaa !26
   %244 = shl i32 %243, %224
-  %245 = getelementptr inbounds nuw i32, ptr %242, i64 %.pre-phi.i81
+  %245 = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %.pre-phi.i81
   store i32 %244, ptr %245, align 4, !tbaa !26
   %246 = icmp slt i32 %223, 84
   br i1 %246, label %256, label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i82
@@ -2138,12 +2138,12 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i93: ; preds = %
 247:                                              ; preds = %247, %.lr.ph.i86
   %indvars.iv.i87 = phi i64 [ %240, %.lr.ph.i86 ], [ %indvars.iv.next.i88, %247 ]
   %248 = sub nsw i64 %indvars.iv.i87, %241
-  %249 = getelementptr inbounds nuw i32, ptr %239, i64 %248
+  %249 = getelementptr inbounds nuw [4 x i8], ptr %239, i64 %248
   %250 = load i32, ptr %249, align 4, !tbaa !26
   %251 = getelementptr i8, ptr %249, i64 -4
   %252 = load i32, ptr %251, align 4, !tbaa !26
   %253 = call i32 @llvm.fshl.i32(i32 %250, i32 %252, i32 %212)
-  %254 = getelementptr inbounds nuw i32, ptr %239, i64 %indvars.iv.i87
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %239, i64 %indvars.iv.i87
   store i32 %253, ptr %254, align 4, !tbaa !26
   %indvars.iv.next.i88 = add nsw i64 %indvars.iv.i87, -1
   %255 = icmp samesign ugt i64 %indvars.iv.next.i88, %241
@@ -2151,7 +2151,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i93: ; preds = %
 
 256:                                              ; preds = %._crit_edge.i80
   %257 = sext i32 %.sroa.speculated28.i76 to i64
-  %258 = getelementptr inbounds i32, ptr %242, i64 %257
+  %258 = getelementptr inbounds [4 x i8], ptr %242, i64 %257
   %259 = load i32, ptr %258, align 4, !tbaa !26
   %.not.i85 = icmp eq i32 %259, 0
   br i1 %.not.i85, label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i82, label %260
@@ -2191,7 +2191,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit75: ; preds = %_Z
   br i1 %.not.i.not.i97, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i98, label %273
 
 273:                                              ; preds = %272
-  %274 = getelementptr i32, ptr %5, i64 %indvars.iv.i96
+  %274 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv.i96
   %275 = load i32, ptr %274, align 4, !tbaa !26
   br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i98
 
@@ -2201,7 +2201,7 @@ _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i98: ; preds = %2
   br i1 %.not.i21.not.i100, label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i101, label %276
 
 276:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit.i98
-  %277 = getelementptr i32, ptr %7, i64 %indvars.iv.i96
+  %277 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv.i96
   %278 = load i32, ptr %277, align 4, !tbaa !26
   br label %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i101
 

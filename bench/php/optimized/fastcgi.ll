@@ -22,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.7 = type { i32 }
 %struct._fcgi_header = type { i8, i8, i8, i8, i8, i8, i8, i8 }
 %struct.pollfd = type { i32, i16, i16 }
-%struct._fcgi_hash_bucket = type { i32, i32, ptr, i32, ptr, ptr, ptr }
 
 @in_shutdown = internal unnamed_addr global i32 0, align 4
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -578,12 +577,12 @@ is_port_number.exit:                              ; preds = %12
   %.065 = phi ptr [ %101, %100 ], [ null, %.lr.ph ]
   %103 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
   %104 = sext i32 %.2121 to i64
-  %105 = getelementptr inbounds %union._sa_t, ptr %103, i64 %104
+  %105 = getelementptr inbounds [112 x i8], ptr %103, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.167120, ptr noundef nonnull %106) #35
   %108 = icmp sgt i32 %107, 0
   %109 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
-  %110 = getelementptr inbounds %union._sa_t, ptr %109, i64 %104
+  %110 = getelementptr inbounds [112 x i8], ptr %109, i64 %104
   br i1 %108, label %111, label %113
 
 111:                                              ; preds = %102
@@ -599,7 +598,7 @@ is_port_number.exit:                              ; preds = %12
 
 117:                                              ; preds = %113
   %118 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
-  %119 = getelementptr inbounds %union._sa_t, ptr %118, i64 %104
+  %119 = getelementptr inbounds [112 x i8], ptr %118, i64 %104
   store i16 10, ptr %119, align 4, !tbaa !22
   %120 = add nsw i32 %.2121, 1
   br label %122
@@ -621,7 +620,7 @@ is_port_number.exit:                              ; preds = %12
   %123 = phi ptr [ %98, %94 ], [ %.pre122, %._crit_edge.loopexit ]
   %.2.lcssa = phi i32 [ 0, %94 ], [ %.3, %._crit_edge.loopexit ]
   %124 = sext i32 %.2.lcssa to i64
-  %125 = getelementptr inbounds %union._sa_t, ptr %123, i64 %124
+  %125 = getelementptr inbounds [112 x i8], ptr %123, i64 %124
   store i16 0, ptr %125, align 4, !tbaa !22
   call void @free(ptr noundef %87) #35
   %.not102 = icmp eq i32 %.2.lcssa, 0
@@ -785,12 +784,12 @@ define hidden void @fcgi_set_allowed_clients(ptr noundef readonly captures(addre
   %.026 = phi ptr [ %20, %19 ], [ null, %.lr.ph ]
   %22 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
   %23 = sext i32 %.241 to i64
-  %24 = getelementptr inbounds %union._sa_t, ptr %22, i64 %23
+  %24 = getelementptr inbounds [112 x i8], ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = tail call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.12840, ptr noundef nonnull %25) #35
   %27 = icmp sgt i32 %26, 0
   %28 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
-  %29 = getelementptr inbounds %union._sa_t, ptr %28, i64 %23
+  %29 = getelementptr inbounds [112 x i8], ptr %28, i64 %23
   br i1 %27, label %30, label %32
 
 30:                                               ; preds = %21
@@ -806,7 +805,7 @@ define hidden void @fcgi_set_allowed_clients(ptr noundef readonly captures(addre
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr @allowed_clients, align 8, !tbaa !30
-  %38 = getelementptr inbounds %union._sa_t, ptr %37, i64 %23
+  %38 = getelementptr inbounds [112 x i8], ptr %37, i64 %23
   store i16 10, ptr %38, align 4, !tbaa !22
   %39 = add nsw i32 %.241, 1
   br label %41
@@ -828,7 +827,7 @@ define hidden void @fcgi_set_allowed_clients(ptr noundef readonly captures(addre
   %42 = phi ptr [ %17, %13 ], [ %.pre, %._crit_edge.loopexit ]
   %.2.lcssa = phi i32 [ 0, %13 ], [ %.3, %._crit_edge.loopexit ]
   %43 = sext i32 %.2.lcssa to i64
-  %44 = getelementptr inbounds %union._sa_t, ptr %42, i64 %43
+  %44 = getelementptr inbounds [112 x i8], ptr %42, i64 %43
   store i16 0, ptr %44, align 4, !tbaa !22
   tail call void @free(ptr noundef %3) #35
   %.not37 = icmp eq i32 %.2.lcssa, 0
@@ -1419,7 +1418,7 @@ fcgi_close.exit59:                                ; preds = %fcgi_close.exit59.b
 
 .preheader29.i:                                   ; preds = %53, %58
   %indvars.iv39.i = phi i64 [ %indvars.iv.next40.i, %58 ], [ 0, %53 ]
-  %54 = getelementptr inbounds nuw %union._sa_t, ptr %52, i64 %indvars.iv39.i
+  %54 = getelementptr inbounds nuw [112 x i8], ptr %52, i64 %indvars.iv39.i
   %55 = load i16, ptr %54, align 4, !tbaa !22
   switch i16 %55, label %58 [
     i16 0, label %fcgi_is_allowed.exit
@@ -1450,7 +1449,7 @@ fcgi_close.exit59:                                ; preds = %fcgi_close.exit59.b
 
 .preheader.split.us.i:                            ; preds = %.preheader.i, %.critedge.us.i
   %indvars.iv36.i = phi i64 [ %indvars.iv.next37.i, %.critedge.us.i ], [ 0, %.preheader.i ]
-  %65 = getelementptr inbounds nuw %union._sa_t, ptr %52, i64 %indvars.iv36.i
+  %65 = getelementptr inbounds nuw [112 x i8], ptr %52, i64 %indvars.iv36.i
   %66 = load i16, ptr %65, align 4, !tbaa !22
   switch i16 %66, label %.critedge.us.i [
     i16 0, label %fcgi_is_allowed.exit
@@ -1476,7 +1475,7 @@ fcgi_close.exit59:                                ; preds = %fcgi_close.exit59.b
 
 .preheader.split.i:                               ; preds = %.preheader.i, %.critedge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.critedge.i ], [ 0, %.preheader.i ]
-  %71 = getelementptr inbounds nuw %union._sa_t, ptr %52, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw [112 x i8], ptr %52, i64 %indvars.iv.i
   %72 = load i16, ptr %71, align 4, !tbaa !22
   switch i16 %72, label %.critedge.i [
     i16 0, label %fcgi_is_allowed.exit
@@ -3202,7 +3201,7 @@ define hidden ptr @fcgi_getenv(ptr noundef readonly captures(address_is_null) %0
   %25 = phi i32 [ %23, %7 ], [ %2, %4 ]
   %26 = and i32 %25, 127
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %5, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %27
   %.018.i = load ptr, ptr %28, align 8, !tbaa !79
   %.not19.i = icmp eq ptr %.018.i, null
   br i1 %.not19.i, label %fcgi_hash_get.exit, label %.lr.ph.i
@@ -3251,7 +3250,7 @@ define hidden ptr @fcgi_quick_getenv(ptr noundef readonly captures(none) %0, ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8296
   %6 = and i32 %3, 127
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %.018.i = load ptr, ptr %8, align 8, !tbaa !79
   %.not19.i = icmp eq ptr %.018.i, null
   br i1 %.not19.i, label %fcgi_hash_get.exit, label %.lr.ph.i
@@ -3332,7 +3331,7 @@ define hidden ptr @fcgi_putenv(ptr noundef captures(address_is_null) %0, ptr nou
   %28 = phi i32 [ %26, %10 ], [ %2, %9 ]
   %29 = and i32 %28, 127
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %7, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !79
   %.not19.i = icmp eq ptr %32, null
   br i1 %.not19.i, label %fcgi_hash_del.exit, label %.lr.ph.i
@@ -3415,7 +3414,7 @@ fcgi_hash_del.exit:                               ; preds = %51, %46, %27, %4, %
 define internal fastcc ptr @fcgi_hash_set(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #25 {
   %7 = and i32 %1, 127
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %8
   %.05359 = load ptr, ptr %9, align 8, !tbaa !79
   %.not60 = icmp eq ptr %.05359, null
   br i1 %.not60, label %._crit_edge, label %.lr.ph, !prof !90
@@ -3475,7 +3474,7 @@ define internal fastcc ptr @fcgi_hash_set(ptr noundef captures(none) %0, i32 nou
   %36 = phi ptr [ %32, %31 ], [ %28, %._crit_edge ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = zext nneg i32 %35 to i64
-  %39 = getelementptr inbounds nuw %struct._fcgi_hash_bucket, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [48 x i8], ptr %37, i64 %38
   %40 = add nuw nsw i32 %35, 1
   store i32 %40, ptr %36, align 8, !tbaa !47
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 32
@@ -3583,7 +3582,7 @@ define hidden ptr @fcgi_quick_putenv(ptr noundef captures(none) %0, ptr noundef 
 8:                                                ; preds = %5
   %9 = and i32 %3, 127
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !79
   %.not19.i = icmp eq ptr %12, null
   br i1 %.not19.i, label %fcgi_hash_del.exit, label %.lr.ph.i

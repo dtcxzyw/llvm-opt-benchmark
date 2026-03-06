@@ -290,7 +290,7 @@ invoke.cont18:                                    ; preds = %invoke.cont18.lr.ph
   %16 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i = add nsw i64 %16, 1
   store i64 %inc6.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %add.ptr.i60 = getelementptr inbounds %"struct.std::pair", ptr %call.i.i.i.i.i36, i64 %i.01480
+  %add.ptr.i60 = getelementptr inbounds [32 x i8], ptr %call.i.i.i.i.i36, i64 %i.01480
   %17 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %inc.i.i61 = add nsw i64 %17, 1
   store i64 %inc.i.i61, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
@@ -326,7 +326,7 @@ invoke.cont28:                                    ; preds = %invoke.cont18, %if.
   %24 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i87 = add nsw i64 %24, 1
   store i64 %inc6.i.i87, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %add.ptr.i90 = getelementptr inbounds %"struct.eastl::pair", ptr %call.i.i.i.i.i56, i64 %i.01480
+  %add.ptr.i90 = getelementptr inbounds [32 x i8], ptr %call.i.i.i.i.i56, i64 %i.01480
   %25 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %inc.i.i91 = add nsw i64 %25, 1
   store i64 %inc.i.i91, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8

@@ -28,7 +28,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %59
   %indvars.iv5 = phi i64 [ %indvars.iv.next6, %59 ], [ 0, %.lr.ph ]
   %.0491.us = phi float [ %.1.us, %59 ], [ %.56.val, %.lr.ph ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv5
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = trunc nuw nsw i64 %indvars.iv5 to i32
   %10 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %9) #2
@@ -50,7 +50,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   %20 = add nsw i32 %19, -1
   store i32 %20, ptr %18, align 8, !tbaa !18
   %21 = sext i32 %10 to i64
-  %22 = getelementptr inbounds i32, ptr %17, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %17, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !18
   %24 = add nsw i32 %23, -1
   store i32 %24, ptr %22, align 4, !tbaa !18
@@ -60,7 +60,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
 26:                                               ; preds = %13, %.lr.ph.split.us
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %28 = sext i32 %10 to i64
-  %29 = getelementptr inbounds i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !18
   %31 = add nsw i32 %30, -1
   store i32 %31, ptr %29, align 4, !tbaa !18
@@ -68,7 +68,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds ptr, ptr %11, i64 %28
+  %34 = getelementptr inbounds [8 x i8], ptr %11, i64 %28
   %35 = load ptr, ptr %34, align 8, !tbaa !17
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %41
@@ -91,7 +91,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
 46:                                               ; preds = %41, %16
   %.pre-phi8 = phi i64 [ %28, %41 ], [ %21, %16 ]
   %.3.us = phi float [ %.4.us, %41 ], [ %.0491.us, %16 ]
-  %47 = getelementptr inbounds ptr, ptr %11, i64 %.pre-phi8
+  %47 = getelementptr inbounds [8 x i8], ptr %11, i64 %.pre-phi8
   %48 = load ptr, ptr %47, align 8, !tbaa !17
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %55
@@ -100,7 +100,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   %.not57.us = icmp eq i32 %10, 0
   %51 = zext i1 %.not57.us to i32
   %52 = zext i1 %.not57.us to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %11, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !17
   br label %55
 
@@ -124,7 +124,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
 .lr.ph.split:                                     ; preds = %.lr.ph, %115
   %indvars.iv = phi i64 [ %indvars.iv.next, %115 ], [ 0, %.lr.ph ]
   %.0491 = phi float [ %.1, %115 ], [ %.56.val, %.lr.ph ]
-  %63 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !16
   %65 = trunc nuw nsw i64 %indvars.iv to i32
   %66 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %65) #2
@@ -146,7 +146,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   %76 = add nsw i32 %75, 1
   store i32 %76, ptr %74, align 8, !tbaa !18
   %77 = sext i32 %66 to i64
-  %78 = getelementptr inbounds i32, ptr %73, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %73, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !18
   %80 = add nsw i32 %79, 1
   store i32 %80, ptr %78, align 4, !tbaa !18
@@ -156,7 +156,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
 82:                                               ; preds = %69, %.lr.ph.split
   %83 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %84 = sext i32 %66 to i64
-  %85 = getelementptr inbounds i32, ptr %83, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr %83, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !18
   %87 = add nsw i32 %86, 1
   store i32 %87, ptr %85, align 4, !tbaa !18
@@ -164,7 +164,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   br i1 %88, label %89, label %97
 
 89:                                               ; preds = %82
-  %90 = getelementptr inbounds ptr, ptr %67, i64 %84
+  %90 = getelementptr inbounds [8 x i8], ptr %67, i64 %84
   %91 = load ptr, ptr %90, align 8, !tbaa !17
   %92 = icmp eq ptr %91, null
   br i1 %92, label %93, label %97
@@ -187,7 +187,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
 102:                                              ; preds = %72, %97
   %.pre-phi = phi i64 [ %77, %72 ], [ %84, %97 ]
   %.3 = phi float [ %.0491, %72 ], [ %.2, %97 ]
-  %103 = getelementptr inbounds ptr, ptr %67, i64 %.pre-phi
+  %103 = getelementptr inbounds [8 x i8], ptr %67, i64 %.pre-phi
   %104 = load ptr, ptr %103, align 8, !tbaa !17
   %105 = icmp eq ptr %104, null
   br i1 %105, label %106, label %111
@@ -196,7 +196,7 @@ define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef 
   %.not57 = icmp eq i32 %66, 0
   %107 = zext i1 %.not57 to i32
   %108 = zext i1 %.not57 to i64
-  %109 = getelementptr inbounds nuw ptr, ptr %67, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !17
   br label %111
 
@@ -263,7 +263,7 @@ define float @Map_MappingGetSwitching(ptr noundef readonly captures(none) %0) lo
   %11 = phi ptr [ %60, %59 ], [ %3, %1 ]
   %.03339 = phi float [ %.134, %59 ], [ 0.000000e+00, %1 ]
   %12 = load ptr, ptr %11, align 8, !tbaa !36
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
@@ -363,7 +363,7 @@ define float @Map_MappingGetSwitching(ptr noundef readonly captures(none) %0) lo
   %indvars.iv46 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next47, %80 ]
   %.441 = phi float [ %.033.lcssa, %.lr.ph43 ], [ %.5, %80 ]
   %66 = load ptr, ptr %10, align 8, !tbaa !38
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv46
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv46
   %68 = load ptr, ptr %67, align 8, !tbaa !16
   %69 = tail call i32 @Map_NodeIsVar(ptr noundef %68) #2
   %.not = icmp eq i32 %69, 0
@@ -371,7 +371,7 @@ define float @Map_MappingGetSwitching(ptr noundef readonly captures(none) %0) lo
 
 70:                                               ; preds = %65
   %71 = load ptr, ptr %10, align 8, !tbaa !38
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv46
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv46
   %73 = load ptr, ptr %72, align 8, !tbaa !16
   %74 = ptrtoint ptr %73 to i64
   %75 = and i64 %74, 1

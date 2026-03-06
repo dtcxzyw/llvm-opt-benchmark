@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._stat_tap_table_item_type = type { i32, %union.anon, %union.anon.0 }
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
-%struct._value_string = type { i32, ptr }
 %struct.nstime_t = type { i64, i32 }
 
 @proto_register_npm.ett = internal global [7 x ptr] [ptr @ett_npm, ptr @ett_addflow_flags, ptr @ett_identifyflow_flags, ptr @ett_start_flags, ptr @ett_data_flags, ptr @ett_results_flags, ptr @ett_onoffarray], align 16
@@ -332,7 +331,7 @@ define internal void @npm_stat_init(ptr noundef %0) #0 {
 
 29:                                               ; preds = %8, %29
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr %struct._value_string, ptr @message_type_values, i64 %indvars.iv
+  %30 = getelementptr [16 x i8], ptr @message_type_values, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 3, ptr %2, align 16
   %32 = load ptr, ptr %31, align 8

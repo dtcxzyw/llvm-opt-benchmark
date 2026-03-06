@@ -83,11 +83,6 @@ module asm ".popsection\09\09\09\09\09"
 %struct.static_key_false = type { %struct.static_key }
 %struct.cpumask = type { [1 x i64] }
 %struct.trace_event_buffer = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.pgd_t = type { i64 }
-%struct.p4d_t = type { i64 }
-%struct.pud_t = type { i64 }
-%struct.pmd_t = type { i64 }
-%struct.pte_t = type { i64 }
 %struct.desc_ptr = type <{ i16, i64 }>
 %struct.stack_info = type { i32, ptr, ptr, ptr }
 %struct.ldttss_desc = type { i16, i16, i32, i32, i32 }
@@ -373,7 +368,7 @@ define internal noundef range(i32 0, 2) i32 @spurious_kernel_fault(i64 noundef %
   %6 = zext nneg i32 %5 to i64
   %7 = lshr i64 %1, %6
   %8 = and i64 %7, 511
-  %9 = getelementptr %struct.pgd_t, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load i64, ptr %9, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #14
           to label %11 [label %11, label %14], !srcloc !14
@@ -398,7 +393,7 @@ define internal noundef range(i32 0, 2) i32 @spurious_kernel_fault(i64 noundef %
   %23 = add i32 %22, -1
   %24 = zext i32 %23 to i64
   %25 = and i64 %21, %24
-  %26 = getelementptr %struct.p4d_t, ptr %20, i64 %25
+  %26 = getelementptr [8 x i8], ptr %20, i64 %25
   br label %27
 
 27:                                               ; preds = %15, %14
@@ -415,7 +410,7 @@ define internal noundef range(i32 0, 2) i32 @spurious_kernel_fault(i64 noundef %
   %36 = inttoptr i64 %35 to ptr
   %37 = lshr i64 %1, 30
   %38 = and i64 %37, 511
-  %39 = getelementptr %struct.pud_t, ptr %36, i64 %38
+  %39 = getelementptr [8 x i8], ptr %36, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, 1
   %42 = icmp eq i64 %41, 0
@@ -465,7 +460,7 @@ define internal noundef range(i32 0, 2) i32 @spurious_kernel_fault(i64 noundef %
   %69 = inttoptr i64 %68 to ptr
   %70 = lshr i64 %1, 21
   %71 = and i64 %70, 511
-  %72 = getelementptr %struct.pmd_t, ptr %69, i64 %71
+  %72 = getelementptr [8 x i8], ptr %69, i64 %71
   %73 = load i64, ptr %72, align 8
   %74 = trunc i64 %73 to i32
   %75 = and i32 %74, 385
@@ -516,7 +511,7 @@ define internal noundef range(i32 0, 2) i32 @spurious_kernel_fault(i64 noundef %
   %103 = inttoptr i64 %102 to ptr
   %104 = lshr i64 %1, 12
   %105 = and i64 %104, 511
-  %106 = getelementptr %struct.pte_t, ptr %103, i64 %105
+  %106 = getelementptr [8 x i8], ptr %103, i64 %105
   %107 = load i64, ptr %106, align 8
   %108 = and i64 %107, 257
   %109 = icmp eq i64 %108, 0
@@ -1579,7 +1574,7 @@ define internal fastcc void @__bad_area_nosemaphore(ptr noundef %0, i64 noundef 
   %57 = load i64, ptr %50, align 8
   tail call void @print_vma_addr(ptr noundef nonnull @.str.44, i64 noundef %57) #14
   %58 = sext i32 %42 to i64
-  %59 = getelementptr i64, ptr @__per_cpu_offset, i64 %58
+  %59 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %58
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, ptrtoint (ptr @cpu_info to i64)
   %62 = inttoptr i64 %61 to ptr
@@ -1760,7 +1755,7 @@ define internal fastcc void @page_fault_oops(ptr noundef %0, i64 noundef %1, i64
   %44 = zext nneg i32 %43 to i64
   %45 = lshr i64 %2, %44
   %46 = and i64 %45, 511
-  %47 = getelementptr %struct.pgd_t, ptr %42, i64 %46
+  %47 = getelementptr [8 x i8], ptr %42, i64 %46
   %48 = call ptr @lookup_address_in_pgd(ptr noundef %47, i64 noundef %2, ptr noundef nonnull %4) #14
   %49 = icmp eq ptr %48, null
   br i1 %49, label %85, label %50
@@ -2227,7 +2222,7 @@ define internal fastcc void @dump_pagetable(i64 noundef %0) unnamed_addr #12 ali
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i64 %0, %13
   %15 = and i64 %14, 511
-  %16 = getelementptr %struct.pgd_t, ptr %11, i64 %15
+  %16 = getelementptr [8 x i8], ptr %11, i64 %15
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !annotation !12
   %17 = call i64 @copy_from_kernel_nofault(ptr noundef nonnull %6, ptr noundef %16, i64 noundef 8) #14
@@ -2263,7 +2258,7 @@ define internal fastcc void @dump_pagetable(i64 noundef %0) unnamed_addr #12 ali
   %36 = add i32 %35, -1
   %37 = zext i32 %36 to i64
   %38 = and i64 %34, %37
-  %39 = getelementptr %struct.p4d_t, ptr %33, i64 %38
+  %39 = getelementptr [8 x i8], ptr %33, i64 %38
   br label %40
 
 40:                                               ; preds = %28, %27
@@ -2291,7 +2286,7 @@ define internal fastcc void @dump_pagetable(i64 noundef %0) unnamed_addr #12 ali
   %55 = inttoptr i64 %54 to ptr
   %56 = lshr i64 %0, 30
   %57 = and i64 %56, 511
-  %58 = getelementptr %struct.pud_t, ptr %55, i64 %57
+  %58 = getelementptr [8 x i8], ptr %55, i64 %57
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !12
   %59 = call i64 @copy_from_kernel_nofault(ptr noundef nonnull %4, ptr noundef %58, i64 noundef 8) #14
@@ -2321,7 +2316,7 @@ define internal fastcc void @dump_pagetable(i64 noundef %0) unnamed_addr #12 ali
   %78 = inttoptr i64 %77 to ptr
   %79 = lshr i64 %0, 21
   %80 = and i64 %79, 511
-  %81 = getelementptr %struct.pmd_t, ptr %78, i64 %80
+  %81 = getelementptr [8 x i8], ptr %78, i64 %80
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !annotation !12
   %82 = call i64 @copy_from_kernel_nofault(ptr noundef nonnull %3, ptr noundef %81, i64 noundef 8) #14
@@ -2352,7 +2347,7 @@ define internal fastcc void @dump_pagetable(i64 noundef %0) unnamed_addr #12 ali
   %102 = inttoptr i64 %101 to ptr
   %103 = lshr i64 %0, 12
   %104 = and i64 %103, 511
-  %105 = getelementptr %struct.pte_t, ptr %102, i64 %104
+  %105 = getelementptr [8 x i8], ptr %102, i64 %104
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !annotation !12
   %106 = call i64 @copy_from_kernel_nofault(ptr noundef nonnull %2, ptr noundef %105, i64 noundef 8) #14

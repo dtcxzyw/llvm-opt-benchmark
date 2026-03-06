@@ -331,7 +331,7 @@ define dso_local ptr @gres_p_prep_build_env(ptr noundef readonly captures(none) 
   br i1 %.not, label %.thread, label %19
 
 19:                                               ; preds = %.lr.ph.split
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %.not26 = icmp eq ptr %21, null
   br i1 %.not26, label %.thread37, label %22
@@ -339,7 +339,7 @@ define dso_local ptr @gres_p_prep_build_env(ptr noundef readonly captures(none) 
 22:                                               ; preds = %19
   %23 = tail call ptr @slurm_bit_copy(ptr noundef nonnull %21) #8
   %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   store ptr %23, ptr %25, align 8
   %.pr.pre = load ptr, ptr %14, align 8
   %.not27 = icmp eq ptr %.pr.pre, null
@@ -347,17 +347,17 @@ define dso_local ptr @gres_p_prep_build_env(ptr noundef readonly captures(none) 
 
 .thread37:                                        ; preds = %19, %22
   %.pr40 = phi ptr [ %.pr.pre, %22 ], [ %18, %19 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.pr40, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.pr40, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %.not28 = icmp eq ptr %27, null
   br i1 %.not28, label %.thread, label %28
 
 28:                                               ; preds = %.thread37
   %29 = load ptr, ptr %15, align 8
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8
   %32 = load ptr, ptr %12, align 8
-  %33 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   store i64 %31, ptr %33, align 8
   br label %.thread
 
@@ -390,7 +390,7 @@ define dso_local void @gres_p_prep_set_env(ptr noundef %0, ptr noundef %1, i32 n
 
 9:                                                ; preds = %6
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   %.not38 = icmp eq ptr %12, null
   br i1 %.not38, label %.thread45, label %13
@@ -435,7 +435,7 @@ define dso_local void @gres_p_prep_set_env(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %.not40, label %.thread45, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i64, ptr %31, i64 %10
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %10
   %34 = load i64, ptr %33, align 8
   %.not41 = icmp eq i64 %34, 0
   br i1 %.not41, label %.thread45, label %35

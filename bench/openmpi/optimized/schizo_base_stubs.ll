@@ -216,7 +216,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
 
 .preheader:                                       ; preds = %27, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %27 ]
-  %38 = getelementptr inbounds nuw ptr, ptr @__const.check_multi.multi_dirs, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @__const.check_multi.multi_dirs, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %39) #20
   %41 = icmp eq i32 %40, 0
@@ -575,7 +575,7 @@ sub_0.lr.ph:                                      ; preds = %4
 sub_0:                                            ; preds = %sub_0.lr.ph, %153
   %.07593 = phi i32 [ 0, %sub_0.lr.ph ], [ %154, %153 ]
   %9 = sext i32 %.07593 to i64
-  %10 = getelementptr inbounds ptr, ptr %2, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !23
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
@@ -617,7 +617,7 @@ sub_2:                                            ; preds = %sub_1
 32:                                               ; preds = %28
   %33 = add nsw i32 %.07593, 2
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr %2, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %2, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !23
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.loopexit.sink.split, label %38
@@ -657,7 +657,7 @@ sub_2:                                            ; preds = %sub_1
 
 58:                                               ; preds = %55
   %59 = zext nneg i32 %57 to i64
-  %60 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %59
+  %60 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !47
   %63 = icmp sgt i32 %62, 0
@@ -696,7 +696,7 @@ sub_2:                                            ; preds = %sub_1
 82:                                               ; preds = %78
   %83 = add nsw i32 %.07593, 2
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr %2, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %2, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !23
   %87 = icmp eq ptr %86, null
   br i1 %87, label %.loopexit.sink.split, label %88
@@ -774,7 +774,7 @@ sub_2:                                            ; preds = %sub_1
 
 127:                                              ; preds = %124
   %128 = zext nneg i32 %126 to i64
-  %129 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %128
+  %129 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %131 = load i32, ptr %130, align 4, !tbaa !47
   %132 = icmp sgt i32 %131, 0
@@ -799,7 +799,7 @@ sub_2:                                            ; preds = %sub_1
 
 141:                                              ; preds = %139
   %142 = zext nneg i32 %140 to i64
-  %143 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %142
+  %143 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
   %145 = load i32, ptr %144, align 4, !tbaa !47
   %146 = icmp sgt i32 %145, 0
@@ -876,7 +876,7 @@ sub_0.lr.ph:                                      ; preds = %4
 sub_0:                                            ; preds = %sub_0.lr.ph, %169
   %.092109 = phi i32 [ 0, %sub_0.lr.ph ], [ %170, %169 ]
   %9 = sext i32 %.092109 to i64
-  %10 = getelementptr inbounds ptr, ptr %2, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !23
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
@@ -923,7 +923,7 @@ sub_2:                                            ; preds = %sub_1
 35:                                               ; preds = %31
   %36 = add nsw i32 %.092109, 2
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %2, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %2, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %43
@@ -967,7 +967,7 @@ sub_2:                                            ; preds = %sub_1
 
 63:                                               ; preds = %60
   %64 = zext nneg i32 %62 to i64
-  %65 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %64
+  %65 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !47
   %68 = icmp sgt i32 %67, 0
@@ -1011,7 +1011,7 @@ sub_2:                                            ; preds = %sub_1
 90:                                               ; preds = %86
   %91 = add nsw i32 %.092109, 2
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds ptr, ptr %2, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %2, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !23
   %95 = icmp eq ptr %94, null
   br i1 %95, label %.loopexit, label %96
@@ -1114,7 +1114,7 @@ sub_2:                                            ; preds = %sub_1
 
 152:                                              ; preds = %149
   %153 = zext nneg i32 %151 to i64
-  %154 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %153
+  %154 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %153
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
   %156 = load i32, ptr %155, align 4, !tbaa !47
   %157 = icmp sgt i32 %156, 0
@@ -1236,7 +1236,7 @@ define noundef i32 @prte_schizo_base_setup_fork(ptr noundef readonly captures(ad
   %34 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %33, i32 noundef 61) #20
   store i8 0, ptr %34, align 1, !tbaa !29
   %35 = load ptr, ptr %4, align 8, !tbaa !56
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv186
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv186
   %37 = load ptr, ptr %36, align 8, !tbaa !23
   %38 = load ptr, ptr %15, align 8, !tbaa !29
   %39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %38) #20
@@ -1263,7 +1263,7 @@ define noundef i32 @prte_schizo_base_setup_fork(ptr noundef readonly captures(ad
   store i8 61, ptr %34, align 1, !tbaa !29
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %54 = load ptr, ptr %4, align 8, !tbaa !56
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.next187
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv.next187
   %56 = load ptr, ptr %55, align 8, !tbaa !23
   %.not138.not = icmp eq ptr %56, null
   br i1 %.not138.not, label %.critedge, label %32, !llvm.loop !62
@@ -1282,7 +1282,7 @@ define noundef i32 @prte_schizo_base_setup_fork(ptr noundef readonly captures(ad
   %64 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %63, i32 noundef 61) #20
   store i8 0, ptr %64, align 1, !tbaa !29
   %65 = load ptr, ptr %4, align 8, !tbaa !56
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8, !tbaa !23
   %68 = load ptr, ptr %12, align 8, !tbaa !29
   %69 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %68) #20
@@ -1309,7 +1309,7 @@ define noundef i32 @prte_schizo_base_setup_fork(ptr noundef readonly captures(ad
   store i8 61, ptr %64, align 1, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = load ptr, ptr %4, align 8, !tbaa !56
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv.next
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv.next
   %86 = load ptr, ptr %85, align 8, !tbaa !23
   %.not137.not = icmp eq ptr %86, null
   br i1 %.not137.not, label %.critedge140, label %62, !llvm.loop !63
@@ -1395,7 +1395,7 @@ define noundef i32 @prte_schizo_base_setup_fork(ptr noundef readonly captures(ad
   %122 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %121, i32 noundef 61) #20
   store i8 0, ptr %122, align 1, !tbaa !29
   %123 = load ptr, ptr %4, align 8, !tbaa !56
-  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %indvars.iv192
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %indvars.iv192
   %125 = load ptr, ptr %124, align 8, !tbaa !23
   %126 = load ptr, ptr %103, align 8, !tbaa !29
   %127 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %125, ptr noundef nonnull dereferenceable(1) %126) #20
@@ -1422,7 +1422,7 @@ define noundef i32 @prte_schizo_base_setup_fork(ptr noundef readonly captures(ad
   store i8 61, ptr %122, align 1, !tbaa !29
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %142 = load ptr, ptr %4, align 8, !tbaa !56
-  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %indvars.iv.next193
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv.next193
   %144 = load ptr, ptr %143, align 8, !tbaa !23
   %.not136.not = icmp eq ptr %144, null
   br i1 %.not136.not, label %.critedge142, label %120, !llvm.loop !65
@@ -1441,7 +1441,7 @@ define noundef i32 @prte_schizo_base_setup_fork(ptr noundef readonly captures(ad
   %152 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %151, i32 noundef 61) #20
   store i8 0, ptr %152, align 1, !tbaa !29
   %153 = load ptr, ptr %4, align 8, !tbaa !56
-  %154 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv189
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %indvars.iv189
   %155 = load ptr, ptr %154, align 8, !tbaa !23
   %156 = load ptr, ptr %100, align 8, !tbaa !29
   %157 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %155, ptr noundef nonnull dereferenceable(1) %156) #20
@@ -1468,7 +1468,7 @@ define noundef i32 @prte_schizo_base_setup_fork(ptr noundef readonly captures(ad
   store i8 61, ptr %152, align 1, !tbaa !29
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %172 = load ptr, ptr %4, align 8, !tbaa !56
-  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv.next190
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %indvars.iv.next190
   %174 = load ptr, ptr %173, align 8, !tbaa !23
   %.not135.not = icmp eq ptr %174, null
   br i1 %.not135.not, label %.critedge144, label %150, !llvm.loop !66

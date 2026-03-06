@@ -39,7 +39,7 @@ define noalias noundef ptr @tree_map(i64 noundef %0, ptr noundef readonly captur
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.01621 = phi i64 [ %19, %.lr.ph ], [ 0, %3 ]
   %.01720 = phi double [ %18, %.lr.ph ], [ 0.000000e+00, %3 ]
-  %16 = getelementptr inbounds nuw double, ptr %1, i64 %.01621
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.01621
   %17 = load double, ptr %16, align 8, !tbaa !3
   %18 = fadd double %.01720, %17
   %19 = add nuw i64 %.01621, 1
@@ -146,7 +146,7 @@ tailrecurse.backedge.i:                           ; preds = %61, %53
   br i1 %60, label %61, label %.critedge.i
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw double, ptr %.tr125.ph157.i, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.tr125.ph157.i, i64 %indvars.iv.i
   %63 = load double, ptr %62, align 8, !tbaa !3
   %64 = tail call double @llvm.maxnum.f64(double %.tr128148.i, double %63)
   %65 = tail call double @llvm.minnum.f64(double %.tr129149.i, double %63)
@@ -197,11 +197,11 @@ tailrecurse.backedge.i:                           ; preds = %61, %53
 89:                                               ; preds = %89, %81
   %.0112153.i = phi i64 [ 0, %81 ], [ %100, %89 ]
   %.0114152.i = phi double [ %83, %81 ], [ %99, %89 ]
-  %90 = getelementptr inbounds nuw %struct.rectangle, ptr %.tr126.ph158.i, i64 %.0112153.i
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %.tr126.ph158.i, i64 %.0112153.i
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 24
   store double %.pre-phi, ptr %92, align 8, !tbaa !3
-  %93 = getelementptr inbounds nuw double, ptr %.tr125.ph157.i, i64 %.0112153.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %.tr125.ph157.i, i64 %.0112153.i
   %94 = load double, ptr %93, align 8, !tbaa !3
   %95 = fdiv double %94, %.pre-phi
   store double %95, ptr %91, align 8, !tbaa !3
@@ -230,10 +230,10 @@ tailrecurse.backedge.i:                           ; preds = %61, %53
 109:                                              ; preds = %109, %101
   %.0155.i = phi i64 [ 0, %101 ], [ %120, %109 ]
   %.0113154.i = phi double [ %103, %101 ], [ %119, %109 ]
-  %110 = getelementptr inbounds nuw %struct.rectangle, ptr %.tr126.ph158.i, i64 %.0155.i
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %.tr126.ph158.i, i64 %.0155.i
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store double %.pre-phi, ptr %111, align 8, !tbaa !3
-  %112 = getelementptr inbounds nuw double, ptr %.tr125.ph157.i, i64 %.0155.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %.tr125.ph157.i, i64 %.0155.i
   %113 = load double, ptr %112, align 8, !tbaa !3
   %114 = fdiv double %113, %.pre-phi
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 24
@@ -254,8 +254,8 @@ tailrecurse.outer.i:                              ; preds = %106, %86
   %123 = phi double [ %34, %106 ], [ %87, %86 ]
   %124 = phi double [ %107, %106 ], [ %35, %86 ]
   %125 = sub i64 %.tr.ph156.i, %indvars.iv.i
-  %126 = getelementptr inbounds nuw double, ptr %.tr125.ph157.i, i64 %indvars.iv.i
-  %127 = getelementptr inbounds nuw %struct.rectangle, ptr %.tr126.ph158.i, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %.tr125.ph157.i, i64 %indvars.iv.i
+  %127 = getelementptr inbounds nuw [32 x i8], ptr %.tr126.ph158.i, i64 %indvars.iv.i
   %128 = icmp eq i64 %125, 0
   %129 = tail call double @llvm.minnum.f64(double %122, double %121)
   br i1 %128, label %squarify.exit, label %.lr.ph.i

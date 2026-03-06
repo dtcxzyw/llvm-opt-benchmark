@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.TValue = type { %union.Value, i8 }
 %union.Value = type { ptr }
-%union.StackValue = type { %struct.TValue }
 
 @.str = private unnamed_addr constant [9 x i8] c"no value\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"nil\00", align 1
@@ -56,12 +55,12 @@ define hidden void @luaT_init(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @luaT_init.luaT_eventname, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @luaT_init.luaT_eventname, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = tail call ptr @luaS_new(ptr noundef %0, ptr noundef %5) #5
   %7 = load ptr, ptr %2, align 8, !tbaa !9
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 280
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %6, ptr %9, align 8, !tbaa !22
   tail call void @luaC_fix(ptr noundef %0, ptr noundef %6) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -126,7 +125,7 @@ define hidden ptr @luaT_gettmbyobj(ptr noundef readonly captures(none) %0, ptr n
   %15 = load ptr, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 480
   %17 = zext nneg i8 %6 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   br label %19
 
 19:                                               ; preds = %13, %10, %7
@@ -140,7 +139,7 @@ define hidden ptr @luaT_gettmbyobj(ptr noundef readonly captures(none) %0, ptr n
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 280
   %24 = zext i32 %2 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !22
   %27 = tail call ptr @luaH_Hgetshortstr(ptr noundef nonnull %.0, ptr noundef %26) #5
   br label %30
@@ -207,7 +206,7 @@ define hidden ptr @luaT_objtypename(ptr noundef %0, ptr noundef readonly capture
   %27 = phi i8 [ %.pre, %..thread_crit_edge ], [ %4, %2 ], [ 69, %5 ], [ 71, %9 ]
   %28 = and i8 %27, 15
   %29 = zext nneg i8 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr @luaT_typenames_, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @luaT_typenames_, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !4
   br label %.thread18
@@ -409,7 +408,7 @@ define internal fastcc range(i32 -1, 64) i32 @callbinTM(ptr noundef %0, ptr noun
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 480
   %19 = zext nneg i8 %8 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   br label %21
 
 21:                                               ; preds = %15, %12, %9
@@ -423,7 +422,7 @@ define internal fastcc range(i32 -1, 64) i32 @callbinTM(ptr noundef %0, ptr noun
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 280
   %26 = zext i32 %4 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !22
   %29 = tail call ptr @luaH_Hgetshortstr(ptr noundef nonnull %.0.i, ptr noundef %28) #5
   br label %luaT_gettmbyobj.exit
@@ -463,7 +462,7 @@ luaT_gettmbyobj.exit:                             ; preds = %24, %30
   %48 = load ptr, ptr %22, align 8, !tbaa !9
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 480
   %50 = zext nneg i8 %40 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   br label %52
 
 52:                                               ; preds = %47, %44, %41
@@ -476,7 +475,7 @@ luaT_gettmbyobj.exit:                             ; preds = %24, %30
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 280
   %56 = zext i32 %4 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !22
   %59 = tail call ptr @luaH_Hgetshortstr(ptr noundef nonnull %.0.i15, ptr noundef %58) #5
   br label %luaT_gettmbyobj.exit17
@@ -808,7 +807,7 @@ define hidden void @luaT_adjustvarargs(ptr noundef %0, i32 noundef %1, ptr nound
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %40, ptr %5, align 8, !tbaa !31
   %41 = load ptr, ptr %2, align 8, !tbaa !31
-  %42 = getelementptr inbounds nuw %union.StackValue, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %indvars.iv
   %43 = load i64, ptr %42, align 8, !tbaa !31
   store i64 %43, ptr %39, align 8, !tbaa !31
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -816,7 +815,7 @@ define hidden void @luaT_adjustvarargs(ptr noundef %0, i32 noundef %1, ptr nound
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i8 %45, ptr %46, align 8, !tbaa !24
   %47 = load ptr, ptr %2, align 8, !tbaa !31
-  %48 = getelementptr inbounds nuw %union.StackValue, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i8 0, ptr %49, align 8, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -827,11 +826,11 @@ define hidden void @luaT_adjustvarargs(ptr noundef %0, i32 noundef %1, ptr nound
   %50 = load ptr, ptr %2, align 8, !tbaa !31
   %sext = shl i64 %10, 28
   %51 = ashr i64 %sext, 32
-  %52 = getelementptr inbounds %union.StackValue, ptr %50, i64 %51
+  %52 = getelementptr inbounds [16 x i8], ptr %50, i64 %51
   store ptr %52, ptr %2, align 8, !tbaa !31
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !31
-  %55 = getelementptr inbounds %union.StackValue, ptr %54, i64 %51
+  %55 = getelementptr inbounds [16 x i8], ptr %54, i64 %51
   store ptr %55, ptr %53, align 8, !tbaa !31
   ret void
 }
@@ -872,7 +871,7 @@ define hidden void @luaT_getvarargs(ptr noundef %0, ptr noundef readonly capture
 
 27:                                               ; preds = %8, %18
   %.1 = phi ptr [ %26, %18 ], [ %2, %8 ]
-  %28 = getelementptr inbounds %union.StackValue, ptr %.1, i64 %17
+  %28 = getelementptr inbounds [16 x i8], ptr %.1, i64 %17
   store ptr %28, ptr %11, align 8, !tbaa !31
   br label %29
 
@@ -901,10 +900,10 @@ define hidden void @luaT_getvarargs(ptr noundef %0, ptr noundef readonly capture
 
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw %union.StackValue, ptr %.0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %.0, i64 %indvars.iv
   %37 = load ptr, ptr %1, align 8, !tbaa !31
-  %38 = getelementptr inbounds %union.StackValue, ptr %37, i64 %32
-  %39 = getelementptr inbounds nuw %union.StackValue, ptr %38, i64 %indvars.iv
+  %38 = getelementptr inbounds [16 x i8], ptr %37, i64 %32
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %indvars.iv
   %40 = load i64, ptr %39, align 8, !tbaa !31
   store i64 %40, ptr %36, align 8, !tbaa !31
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -917,7 +916,7 @@ define hidden void @luaT_getvarargs(ptr noundef %0, ptr noundef readonly capture
 
 .lr.ph40:                                         ; preds = %.lr.ph40.preheader, %.lr.ph40
   %indvars.iv42 = phi i64 [ %34, %.lr.ph40.preheader ], [ %indvars.iv.next43, %.lr.ph40 ]
-  %44 = getelementptr inbounds nuw %union.StackValue, ptr %.0, i64 %indvars.iv42
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %.0, i64 %indvars.iv42
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i8 0, ptr %45, align 8, !tbaa !31
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1

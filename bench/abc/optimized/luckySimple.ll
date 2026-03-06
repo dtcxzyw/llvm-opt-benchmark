@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/luckySimple.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.varInfo = type { i32, i32 }
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i32 0, 2) i32 @nextSwap(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21,20 +19,20 @@ define range(i32 0, 2) i32 @nextSwap(ptr noundef captures(none) %0) local_unname
 8:                                                ; preds = %.lr.ph, %47
   %.04958 = phi i32 [ %3, %.lr.ph ], [ %48, %47 ]
   %9 = zext nneg i32 %.04958 to i64
-  %10 = getelementptr inbounds nuw %struct.varInfo, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !12
   %13 = load i32, ptr %10, align 4, !tbaa !14
   %14 = add nsw i32 %13, %12
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %6, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %6, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !15
   %18 = icmp sgt i32 %.04958, %17
   br i1 %18, label %19, label %47
 
 19:                                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %21 = getelementptr inbounds i32, ptr %6, i64 %15
+  %21 = getelementptr inbounds [4 x i8], ptr %6, i64 %15
   store i32 %14, ptr %20, align 4, !tbaa !12
   %22 = load i32, ptr %21, align 4, !tbaa !15
   store i32 %.04958, ptr %21, align 4, !tbaa !15
@@ -42,13 +40,13 @@ define range(i32 0, 2) i32 @nextSwap(ptr noundef captures(none) %0) local_unname
   %24 = load i32, ptr %10, align 4, !tbaa !14
   %25 = sub nsw i32 %23, %24
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %6, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %6, i64 %26
   store i32 %22, ptr %27, align 4, !tbaa !15
   %28 = load i32, ptr %20, align 4, !tbaa !12
   %29 = load i32, ptr %10, align 4, !tbaa !14
   %30 = sub nsw i32 %28, %29
   %31 = sext i32 %22 to i64
-  %32 = getelementptr inbounds %struct.varInfo, ptr %7, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %7, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 %30, ptr %33, align 4, !tbaa !12
   %34 = load i32, ptr %2, align 8, !tbaa !3
@@ -58,7 +56,7 @@ define range(i32 0, 2) i32 @nextSwap(ptr noundef captures(none) %0) local_unname
 .lr.ph60:                                         ; preds = %19, %.lr.ph60
   %.04859 = phi i32 [ %40, %.lr.ph60 ], [ %34, %19 ]
   %36 = zext nneg i32 %.04859 to i64
-  %37 = getelementptr inbounds nuw %struct.varInfo, ptr %7, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !14
   %39 = sub nsw i32 0, %38
   store i32 %39, ptr %37, align 4, !tbaa !14
@@ -109,12 +107,12 @@ define void @fillInSwapArray(ptr noundef readonly captures(none) %0) local_unnam
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %13 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %15, ptr %14, align 4, !tbaa !12
   store i32 -1, ptr %13, align 4, !tbaa !14
-  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i
   store i32 %15, ptr %16, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -123,7 +121,7 @@ define void @fillInSwapArray(ptr noundef readonly captures(none) %0) local_unnam
 setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
   %17 = add nuw nsw i32 %4, 10
   %18 = zext nneg i32 %4 to i64
-  %19 = getelementptr i32, ptr %10, i64 %18
+  %19 = getelementptr [4 x i8], ptr %10, i64 %18
   %20 = getelementptr i8, ptr %19, i64 4
   store i32 %17, ptr %20, align 4, !tbaa !15
   %.not = icmp eq i32 %4, 1
@@ -143,13 +141,13 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
 .lr.ph.i13.us:                                    ; preds = %34, %.lr.ph.i13.preheader.us
   %.04958.i.us = phi i32 [ %35, %34 ], [ %4, %.lr.ph.i13.preheader.us ]
   %24 = zext nneg i32 %.04958.i.us to i64
-  %25 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !12
   %28 = load i32, ptr %25, align 4, !tbaa !14
   %29 = add nsw i32 %28, %27
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %10, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %10, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !15
   %33 = icmp sgt i32 %.04958.i.us, %32
   br i1 %33, label %37, label %34
@@ -161,14 +159,14 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
 
 37:                                               ; preds = %.lr.ph.i13.us
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %39 = getelementptr inbounds i32, ptr %10, i64 %30
+  %39 = getelementptr inbounds [4 x i8], ptr %10, i64 %30
   store i32 %29, ptr %38, align 4, !tbaa !12
   store i32 %.04958.i.us, ptr %39, align 4, !tbaa !15
   %40 = sext i32 %27 to i64
-  %41 = getelementptr inbounds i32, ptr %10, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %10, i64 %40
   store i32 %32, ptr %41, align 4, !tbaa !15
   %42 = sext i32 %32 to i64
-  %43 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %8, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 %27, ptr %44, align 4, !tbaa !12
   %45 = icmp sgt i32 %4, %.04958.i.us
@@ -176,7 +174,7 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
 
 .lr.ph60.i.us:                                    ; preds = %37, %.lr.ph60.i.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph60.i.us ], [ %22, %37 ]
-  %46 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4, !tbaa !14
   %48 = sub nsw i32 0, %47
   store i32 %48, ptr %46, align 4, !tbaa !14
@@ -188,7 +186,7 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
 .loopexit.us:                                     ; preds = %.lr.ph60.i.us, %37
   %50 = load i32, ptr %38, align 4, !tbaa !12
   %51 = load ptr, ptr %21, align 8, !tbaa !25
-  %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.next44
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %indvars.iv.next44
   %.lcssa55. = tail call i32 @llvm.smin.i32(i32 %27, i32 %50)
   %53 = add nsw i32 %.lcssa55., -1
   store i32 %53, ptr %52, align 4, !tbaa !15
@@ -261,7 +259,7 @@ oneBitPosition.exit:                              ; preds = %.lr.ph.i, %15, %6
   %.07.i = phi i32 [ -1, %6 ], [ %.08.i, %.lr.ph.i ], [ -1, %15 ]
   %17 = sub nsw i32 %7, %.014
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %5, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %5, i64 %18
   store i32 %.07.i, ptr %19, align 4, !tbaa !15
   %20 = add nuw nsw i32 %.014, 1
   %21 = load i32, ptr %2, align 4, !tbaa !27
@@ -364,7 +362,7 @@ factorial.exit:                                   ; preds = %factorial.exit.loop
 oneBitPosition.exit.i.loopexit.us:                ; preds = %34, %.lr.ph.i.i.us
   %.07.i.i.ph.us = phi i32 [ -1, %34 ], [ %.08.i.i.us, %.lr.ph.i.i.us ]
   %36 = sub nsw i64 %26, %indvars.iv
-  %37 = getelementptr inbounds i32, ptr %13, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %13, i64 %36
   store i32 %.07.i.i.ph.us, ptr %37, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -414,11 +412,11 @@ define void @simpleMinimal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %indvars.iv = phi i64 [ %12, %.lr.ph ], [ %indvars.iv.next, %minWord3.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %14 = load ptr, ptr %11, align 8, !tbaa !25
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.next
   %16 = load i32, ptr %15, align 4, !tbaa !15
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %4, i32 noundef %16) #12
   %17 = load ptr, ptr %11, align 8, !tbaa !25
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv.next
   %19 = load i32, ptr %18, align 4, !tbaa !15
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %1, i32 noundef %4, i32 noundef %19) #12
   %20 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %4) #12
@@ -469,11 +467,11 @@ minWord3.exit:                                    ; preds = %22, %26, %29
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %4, i32 noundef 0) #12
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %1, i32 noundef %4, i32 noundef 0) #12
   %39 = load ptr, ptr %34, align 8, !tbaa !28
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.next76
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv.next76
   %41 = load i32, ptr %40, align 4, !tbaa !15
   tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %4, i32 noundef %41) #12
   %42 = load ptr, ptr %34, align 8, !tbaa !28
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.next76
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.next76
   %44 = load i32, ptr %43, align 4, !tbaa !15
   tail call void @Kit_TruthChangePhase_64bit(ptr noundef %1, i32 noundef %4, i32 noundef %44) #12
   %45 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %4) #12
@@ -511,11 +509,11 @@ minWord3.exit61:                                  ; preds = %47, %51, %54
   %indvars.iv72 = phi i64 [ %57, %.lr.ph65.preheader ], [ %indvars.iv.next73, %minWord3.exit62 ]
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, -1
   %58 = load ptr, ptr %35, align 8, !tbaa !25
-  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv.next73
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv.next73
   %60 = load i32, ptr %59, align 4, !tbaa !15
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %4, i32 noundef %60) #12
   %61 = load ptr, ptr %35, align 8, !tbaa !25
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv.next73
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv.next73
   %63 = load i32, ptr %62, align 4, !tbaa !15
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %1, i32 noundef %4, i32 noundef %63) #12
   %64 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %4) #12
@@ -572,9 +570,9 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0153183 = phi i32 [ 0, %.lr.ph.preheader ], [ %17, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 %.0153183, ptr %14, align 4, !tbaa !15
-  %15 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = add nsw i32 %16, %.0153183
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -616,21 +614,21 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %30 = zext nneg i32 %4 to i64
   %31 = add nuw i32 %4, 1
   %wide.trip.count225 = zext i32 %31 to i64
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %28, i64 %30
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %30
   br label %.lr.ph191
 
 .lr.ph188:                                        ; preds = %.lr.ph188.preheader, %.lr.ph188
   %indvars.iv217 = phi i64 [ 1, %.lr.ph188.preheader ], [ %indvars.iv.next218, %.lr.ph188 ]
-  %32 = getelementptr i32, ptr %3, i64 %indvars.iv217
+  %32 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv217
   %33 = getelementptr i8, ptr %32, i64 -4
   %34 = load i32, ptr %33, align 4, !tbaa !15
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %5, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %5, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 36
   %39 = load i32, ptr %38, align 4, !tbaa !27
   %40 = add nsw i32 %39, 1
-  %41 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv217
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv217
   store i32 %40, ptr %41, align 4, !tbaa !15
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
   %exitcond221.not = icmp eq i64 %indvars.iv.next218, %wide.trip.count220
@@ -650,16 +648,16 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph191:                                        ; preds = %.lr.ph191.preheader, %.lr.ph191
   %indvars.iv222 = phi i64 [ 1, %.lr.ph191.preheader ], [ %indvars.iv.next223, %.lr.ph191 ]
-  %45 = getelementptr i32, ptr %3, i64 %indvars.iv222
+  %45 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv222
   %46 = getelementptr i8, ptr %45, i64 -4
   %47 = load i32, ptr %46, align 4, !tbaa !15
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds ptr, ptr %5, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %5, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !36
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %52 = load i32, ptr %51, align 4, !tbaa !21
   %53 = add nsw i32 %52, 1
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv222
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv222
   store i32 %53, ptr %gep, align 4, !tbaa !15
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond226.not = icmp eq i64 %indvars.iv.next223, %wide.trip.count225
@@ -668,8 +666,8 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 .preheader177:                                    ; preds = %.lr.ph194.preheader, %.preheader178
   %.not174 = icmp eq i32 %8, 0
   %54 = sext i32 %22 to i64
-  %55 = getelementptr inbounds i32, ptr %26, i64 %54
-  %56 = getelementptr inbounds i32, ptr %28, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %26, i64 %54
+  %56 = getelementptr inbounds [4 x i8], ptr %28, i64 %54
   %57 = add i32 %4, 1
   %wide.trip.count233 = zext i32 %57 to i64
   %wide.trip.count238 = zext i32 %57 to i64
@@ -680,7 +678,7 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph198:                                        ; preds = %58, %minWord3.exit
   %indvars.iv230 = phi i64 [ %indvars.iv.next231, %minWord3.exit ], [ 1, %58 ]
-  %59 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv230
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv230
   %60 = load i32, ptr %59, align 4, !tbaa !15
   %.not173 = icmp eq i32 %60, 0
   br i1 %.not173, label %minWord3.exit, label %61
@@ -689,7 +687,7 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not174, label %62, label %._crit_edge243
 
 62:                                               ; preds = %61
-  %63 = getelementptr i32, ptr %3, i64 %indvars.iv230
+  %63 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv230
   %64 = getelementptr i8, ptr %63, i64 -4
   %65 = load i32, ptr %64, align 4, !tbaa !15
   %66 = icmp eq i32 %65, 1
@@ -697,12 +695,12 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 ._crit_edge243:                                   ; preds = %61, %62
   %67 = add nsw i64 %indvars.iv230, -1
-  %68 = getelementptr inbounds i32, ptr %3, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %3, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !15
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds ptr, ptr %5, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %5, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !36
-  %73 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv230
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv230
   %74 = load i32, ptr %73, align 4, !tbaa !15
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %81, label %76
@@ -716,11 +714,11 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 81:                                               ; preds = %._crit_edge243, %76
   %82 = phi i64 [ %80, %76 ], [ 0, %._crit_edge243 ]
-  %83 = getelementptr inbounds i32, ptr %12, i64 %67
+  %83 = getelementptr inbounds [4 x i8], ptr %12, i64 %67
   %84 = load i32, ptr %83, align 4, !tbaa !15
   %85 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %86 = load ptr, ptr %85, align 8, !tbaa !28
-  %87 = getelementptr inbounds i32, ptr %86, i64 %82
+  %87 = getelementptr inbounds [4 x i8], ptr %86, i64 %82
   %88 = load i32, ptr %87, align 4, !tbaa !15
   %89 = add nsw i32 %88, %84
   tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %6, i32 noundef %89) #12
@@ -728,7 +726,7 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 90:                                               ; preds = %81
   %91 = load ptr, ptr %85, align 8, !tbaa !28
-  %92 = getelementptr inbounds i32, ptr %91, i64 %82
+  %92 = getelementptr inbounds [4 x i8], ptr %91, i64 %82
   %93 = load i32, ptr %92, align 4, !tbaa !15
   %94 = add nsw i32 %93, %84
   tail call void @Kit_TruthChangePhase_64bit(ptr noundef %1, i32 noundef %6, i32 noundef %94) #12
@@ -768,23 +766,23 @@ minWord3.exit:                                    ; preds = %minWord3.exit.sink.
 .lr.ph201:                                        ; preds = %minWord3.exit, %minWord3.exit175
   %indvars.iv235 = phi i64 [ %indvars.iv.next236, %minWord3.exit175 ], [ 1, %minWord3.exit ]
   %107 = add nuw nsw i64 %indvars.iv235, %10
-  %108 = getelementptr inbounds nuw i32, ptr %27, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !15
   %.not172 = icmp eq i32 %109, 0
   br i1 %.not172, label %minWord3.exit175, label %110
 
 110:                                              ; preds = %.lr.ph201
   %111 = add nsw i64 %indvars.iv235, -1
-  %112 = getelementptr inbounds i32, ptr %3, i64 %111
+  %112 = getelementptr inbounds [4 x i8], ptr %3, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !15
   %114 = icmp eq i32 %113, 1
   br i1 %114, label %minWord3.exit175, label %115
 
 115:                                              ; preds = %110
   %116 = sext i32 %113 to i64
-  %117 = getelementptr inbounds ptr, ptr %5, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %5, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !36
-  %119 = getelementptr inbounds nuw i32, ptr %26, i64 %107
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %107
   %120 = load i32, ptr %119, align 4, !tbaa !15
   %121 = getelementptr inbounds nuw i8, ptr %118, i64 20
   %122 = load i32, ptr %121, align 4, !tbaa !21
@@ -797,13 +795,13 @@ minWord3.exit:                                    ; preds = %minWord3.exit.sink.
   %127 = xor i32 %120, -1
   %128 = add i32 %122, %127
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds i32, ptr %126, i64 %129
+  %130 = getelementptr inbounds [4 x i8], ptr %126, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !15
   br label %132
 
 132:                                              ; preds = %115, %124
   %.1155 = phi i32 [ %131, %124 ], [ 0, %115 ]
-  %133 = getelementptr inbounds i32, ptr %12, i64 %111
+  %133 = getelementptr inbounds [4 x i8], ptr %12, i64 %111
   %134 = load i32, ptr %133, align 4, !tbaa !15
   %135 = add nsw i32 %134, %.1155
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %6, i32 noundef %135) #12
@@ -855,13 +853,13 @@ minWord3.exit175:                                 ; preds = %minWord3.exit175.si
 .lr.ph205:                                        ; preds = %._crit_edge202, %.lr.ph205
   %indvars.iv240 = phi i64 [ %indvars.iv.next241, %.lr.ph205 ], [ %54, %._crit_edge202 ]
   %153 = phi ptr [ %155, %.lr.ph205 ], [ %55, %._crit_edge202 ]
-  %154 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv240
+  %154 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv240
   store i32 1, ptr %154, align 4, !tbaa !15
   %indvars.iv.next241 = add nsw i64 %indvars.iv240, -1
   store i32 0, ptr %153, align 4, !tbaa !15
-  %155 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv.next241
+  %155 = getelementptr inbounds [4 x i8], ptr %26, i64 %indvars.iv.next241
   %156 = load i32, ptr %155, align 4, !tbaa !15
-  %157 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv.next241
+  %157 = getelementptr inbounds [4 x i8], ptr %28, i64 %indvars.iv.next241
   %158 = load i32, ptr %157, align 4, !tbaa !15
   %159 = add nsw i32 %158, -1
   %160 = icmp eq i32 %156, %159
@@ -880,7 +878,7 @@ minWord3.exit175:                                 ; preds = %minWord3.exit175.si
   br i1 %162, label %166, label %163
 
 163:                                              ; preds = %._crit_edge206
-  %164 = getelementptr inbounds i32, ptr %27, i64 %.lcssa181
+  %164 = getelementptr inbounds [4 x i8], ptr %27, i64 %.lcssa181
   store i32 1, ptr %164, align 4, !tbaa !15
   %165 = add nsw i32 %.lcssa, 1
   store i32 %165, ptr %.lcssa180, align 4, !tbaa !15

@@ -44,7 +44,7 @@ define noundef ptr @Extra_bddEncodingBinary(ptr noundef %0, ptr noundef readonly
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = tail call ptr @Extra_bddBitsToCube(ptr noundef nonnull %0, i32 noundef %12, i32 noundef %4, ptr noundef %3, i32 noundef 1) #11
   tail call void @Cudd_Ref(ptr noundef %13) #11
-  %14 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !24
   %16 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %15) #11
   tail call void @Cudd_Ref(ptr noundef %16) #11
@@ -93,7 +93,7 @@ Abc_Clock.exit:
   %17 = load ptr, ptr %4, align 8, !tbaa !24
   %18 = load i32, ptr %17, align 8, !tbaa !28
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !29
   store i32 %21, ptr @s_EncodingVarsLevel, align 4, !tbaa !29
   store i32 0, ptr @s_BackTracks, align 4, !tbaa !29
@@ -160,11 +160,11 @@ define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %
   store i32 %15, ptr @s_BackTracks, align 4, !tbaa !29
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %17 = zext nneg i32 %6 to i64
-  %18 = getelementptr inbounds nuw i32, ptr @s_VarOrderCur, i64 %17
-  %19 = getelementptr inbounds nuw [256 x ptr], ptr @s_Field, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @s_VarOrderCur, i64 %17
+  %19 = getelementptr inbounds nuw [2048 x i8], ptr @s_Field, i64 %17
   %20 = add nsw i32 %3, -1
   %21 = zext nneg i32 %4 to i64
-  %22 = getelementptr inbounds nuw [256 x ptr], ptr @s_Field, i64 %21
+  %22 = getelementptr inbounds nuw [2048 x i8], ptr @s_Field, i64 %21
   %23 = icmp sgt i32 %3, 1
   %24 = add nsw i32 %2, -1
   %25 = add nuw nsw i32 %4, 1
@@ -176,7 +176,7 @@ define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %
   %28 = load ptr, ptr %16, align 8, !tbaa !31
   %29 = load i32, ptr %.06989, align 8, !tbaa !28
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   store i32 %29, ptr %18, align 4, !tbaa !29
   %33 = ptrtoint ptr %32 to i64
@@ -186,7 +186,7 @@ define internal fastcc void @EvaluateEncodings_rec(ptr noundef %0, ptr noundef %
 
 36:                                               ; preds = %27, %60
   %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %60 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %38, ptr noundef %35) #11
   tail call void @Cudd_Ref(ptr noundef %39) #11
@@ -367,7 +367,7 @@ define internal fastcc noundef ptr @CreateTheCodes_rec(ptr noundef %0, ptr nound
 
 .outer:                                           ; preds = %.critedge
   %29 = load ptr, ptr @s_pbTemp, align 8, !tbaa !30
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   store ptr %25, ptr %30, align 8, !tbaa !24
   %31 = load ptr, ptr %6, align 8, !tbaa !24
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %31) #11
@@ -385,7 +385,7 @@ define internal fastcc noundef ptr @CreateTheCodes_rec(ptr noundef %0, ptr nound
   %37 = sub nsw i32 %17, %2
   %38 = load ptr, ptr @s_pbTemp, align 8, !tbaa !30
   %39 = zext nneg i32 %2 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %3, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %39
   %41 = call ptr @Extra_bddEncodingBinary(ptr noundef %0, ptr noundef %38, i32 noundef %.085.ph.lcssa, ptr noundef %40, i32 noundef %37)
   br label %42
 
@@ -402,7 +402,7 @@ define internal fastcc noundef ptr @CreateTheCodes_rec(ptr noundef %0, ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv100 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next101, %.lr.ph ]
   %44 = load ptr, ptr @s_pbTemp, align 8, !tbaa !30
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv100
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv100
   %46 = load ptr, ptr %45, align 8, !tbaa !24
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %46) #11
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
@@ -413,10 +413,10 @@ define internal fastcc noundef ptr @CreateTheCodes_rec(ptr noundef %0, ptr nound
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %49 = load ptr, ptr %48, align 8, !tbaa !31
   %50 = sext i32 %2 to i64
-  %51 = getelementptr inbounds i32, ptr @s_VarOrderBest, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr @s_VarOrderBest, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !29
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds ptr, ptr %49, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %49, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !24
   %56 = ptrtoint ptr %55 to i64
   %57 = xor i64 %56, 1
@@ -432,7 +432,7 @@ define internal fastcc noundef ptr @CreateTheCodes_rec(ptr noundef %0, ptr nound
   tail call void @Cudd_Ref(ptr noundef %63) #11
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %59) #11
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %60) #11
-  %64 = getelementptr inbounds ptr, ptr %3, i64 %50
+  %64 = getelementptr inbounds [8 x i8], ptr %3, i64 %50
   %65 = load ptr, ptr %64, align 8, !tbaa !24
   %66 = ptrtoint ptr %65 to i64
   %67 = xor i64 %66, 1
@@ -627,7 +627,7 @@ define internal fastcc void @CountNodeVisits_rec(ptr noundef %0, ptr noundef %1,
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %24 = load ptr, ptr %23, align 8, !tbaa !47
   %25 = zext i32 %20 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !29
   %28 = load i32, ptr @s_CutLevel, align 4, !tbaa !29
   %29 = icmp slt i32 %27, %28
@@ -679,7 +679,7 @@ define internal fastcc void @CollectNodesAndComputePaths_rec(ptr noundef %0, ptr
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = zext i32 %17 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !29
   %25 = load i32, ptr @s_CutLevel, align 4, !tbaa !29
   %26 = icmp slt i32 %24, %25
@@ -688,7 +688,7 @@ define internal fastcc void @CollectNodesAndComputePaths_rec(ptr noundef %0, ptr
 27:                                               ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %29 = load ptr, ptr %28, align 8, !tbaa !31
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %22
   %31 = load ptr, ptr %30, align 8, !tbaa !24
   %32 = load ptr, ptr %11, align 8, !tbaa !39
   %33 = ptrtoint ptr %31 to i64
@@ -792,7 +792,7 @@ define i32 @Extra_bddNodePathsUnderCutArray(ptr noundef %0, ptr noundef readonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %35 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !24
   tail call fastcc void @CountNodeVisits_rec(ptr noundef %0, ptr noundef %36, ptr noundef %33)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -801,9 +801,9 @@ define i32 @Extra_bddNodePathsUnderCutArray(ptr noundef %0, ptr noundef readonly
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %.lr.ph60
   %indvars.iv67 = phi i64 [ 0, %.lr.ph60.preheader ], [ %indvars.iv.next68, %.lr.ph60 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv67
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv67
   %38 = load ptr, ptr %37, align 8, !tbaa !24
-  %39 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv67
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv67
   %40 = load ptr, ptr %39, align 8, !tbaa !24
   tail call fastcc void @CollectNodesAndComputePaths_rec(ptr noundef %0, ptr noundef %38, ptr noundef %40, ptr noundef %33, ptr noundef %32)
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
@@ -864,11 +864,11 @@ define i32 @Extra_bddNodePathsUnderCutArray(ptr noundef %0, ptr noundef readonly
 .critedge2:                                       ; preds = %._crit_edge62, %.critedge2
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.critedge2 ], [ 0, %._crit_edge62 ]
   %53 = load ptr, ptr %10, align 8, !tbaa !24
-  %54 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv72
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv72
   store ptr %53, ptr %54, align 8, !tbaa !24
   call void @Cudd_Ref(ptr noundef %53) #11
   %55 = load ptr, ptr %11, align 8, !tbaa !24
-  %56 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv72
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv72
   store ptr %55, ptr %56, align 8, !tbaa !24
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %57 = call i32 @st__gen(ptr noundef %43, ptr noundef nonnull %10, ptr noundef nonnull %11) #11
@@ -1013,7 +1013,7 @@ extraProfileUpdateTopLevel.exit:                  ; preds = %13, %.sink.split.i
   %34 = load ptr, ptr %19, align 8, !tbaa !47
   %35 = load i32, ptr %27, align 8, !tbaa !28
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !29
   %39 = add nsw i32 %38, 1
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -1040,7 +1040,7 @@ extraProfileUpdateTopLevel.exit65:                ; preds = %45, %.sink.split.i6
   %49 = load ptr, ptr %8, align 8, !tbaa !24
   %50 = load i32, ptr %49, align 8, !tbaa !28
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %48, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !29
   %54 = add nsw i32 %53, 1
   %55 = load ptr, ptr %40, align 8, !tbaa !34
@@ -1107,7 +1107,7 @@ extraProfileUpdateTopLevel.exit68:                ; preds = %58, %.sink.split.i6
 74:                                               ; preds = %.critedge2
   %75 = load ptr, ptr %64, align 8, !tbaa !47
   %76 = zext i32 %72 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %76
   br label %78
 
 78:                                               ; preds = %.critedge2, %74
@@ -1124,7 +1124,7 @@ extraProfileUpdateTopLevel.exit68:                ; preds = %58, %.sink.split.i6
 
 .lr.ph77:                                         ; preds = %.lr.ph77.preheader, %.lr.ph77
   %indvars.iv = phi i64 [ %81, %.lr.ph77.preheader ], [ %indvars.iv.next, %.lr.ph77 ]
-  %83 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %83 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv
   %84 = load i32, ptr %83, align 4, !tbaa !29
   %85 = add nsw i32 %84, 1
   store i32 %85, ptr %83, align 4, !tbaa !29
@@ -1136,7 +1136,7 @@ extraProfileUpdateTopLevel.exit68:                ; preds = %58, %.sink.split.i6
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
   %indvars.iv87 = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next88, %.lr.ph83 ]
   %.081 = phi i32 [ 0, %.lr.ph83.preheader ], [ %spec.select62, %.lr.ph83 ]
-  %86 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv87
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv87
   %87 = load i32, ptr %86, align 4, !tbaa !29
   %spec.select62 = call i32 @llvm.smax.i32(i32 %.081, i32 %87)
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
@@ -1162,7 +1162,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   %11 = add i64 %10, %9
   %12 = urem i64 %11, 51113
   %13 = trunc nuw nsw i64 %12 to i32
-  %14 = getelementptr inbounds nuw %struct._HashEntry_cof, ptr @HHTable1, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @HHTable1, i64 %12
   %15 = load i32, ptr %14, align 16, !tbaa !46
   %16 = icmp eq i32 %15, %8
   br i1 %16, label %.lr.ph, label %._crit_edge
@@ -1170,7 +1170,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
 .lr.ph:                                           ; preds = %4, %22
   %17 = phi i64 [ %25, %22 ], [ %12, %4 ]
   %.083118 = phi i32 [ %24, %22 ], [ %13, %4 ]
-  %18 = getelementptr inbounds nuw %struct._HashEntry_cof, ptr @HHTable1, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @HHTable1, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !39
   %21 = icmp eq ptr %20, %1
@@ -1180,7 +1180,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   %23 = add nuw nsw i32 %.083118, 1
   %24 = urem i32 %23, 51113
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw %struct._HashEntry_cof, ptr @HHTable1, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr @HHTable1, i64 %25
   %27 = load i32, ptr %26, align 16, !tbaa !46
   %28 = icmp eq i32 %27, %8
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !60
@@ -1192,7 +1192,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   %30 = load ptr, ptr %29, align 8, !tbaa !47
   %31 = load i32, ptr %7, align 8, !tbaa !28
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !29
   %35 = load i32, ptr @s_EncodingVarsLevel, align 4, !tbaa !29
   %.not = icmp slt i32 %34, %35
@@ -1217,7 +1217,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
 
 47:                                               ; preds = %41
   %48 = zext i32 %45 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %30, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !29
   br label %51
 
@@ -1225,7 +1225,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   %52 = phi i32 [ %50, %47 ], [ 2147483647, %41 ]
   %53 = load i32, ptr %3, align 8, !tbaa !28
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %30, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !29
   %spec.select = tail call i32 @llvm.smin.i32(i32 %34, i32 %52)
   %.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %56)
@@ -1347,7 +1347,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   %.085 = phi i32 [ %99, %96 ], [ 0, %95 ], [ %104, %101 ], [ 0, %100 ], [ %120, %116 ], [ %.186, %115 ]
   %122 = load i32, ptr @s_Signature, align 4, !tbaa !29
   %123 = zext nneg i32 %.083.lcssa to i64
-  %124 = getelementptr inbounds nuw %struct._HashEntry_cof, ptr @HHTable1, i64 %123
+  %124 = getelementptr inbounds nuw [16 x i8], ptr @HHTable1, i64 %123
   %125 = load i32, ptr %124, align 16, !tbaa !46
   %126 = icmp eq i32 %125, %122
   br i1 %126, label %.lr.ph122, label %._crit_edge123
@@ -1357,7 +1357,7 @@ define i32 @Extra_CountCofactorMinterms(ptr noundef %0, ptr noundef %1, ptr noun
   %127 = add nuw nsw i32 %.184120, 1
   %128 = urem i32 %127, 51113
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw %struct._HashEntry_cof, ptr @HHTable1, i64 %129
+  %130 = getelementptr inbounds nuw [16 x i8], ptr @HHTable1, i64 %129
   %131 = load i32, ptr %130, align 16, !tbaa !46
   %132 = icmp eq i32 %131, %122
   br i1 %132, label %.lr.ph122, label %._crit_edge123, !llvm.loop !61
@@ -1408,7 +1408,7 @@ common.ret25:                                     ; preds = %29, %13, %32, %5
   %19 = mul nuw nsw i64 %18, 12582917
   %20 = add i64 %19, %3
   %21 = urem i64 %20, 15113
-  %22 = getelementptr inbounds nuw %struct._HashEntry_mint, ptr @HHTable2, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr @HHTable2, i64 %21
   %23 = load ptr, ptr %22, align 16, !tbaa !62
   %24 = icmp eq ptr %23, %0
   br i1 %24, label %25, label %32

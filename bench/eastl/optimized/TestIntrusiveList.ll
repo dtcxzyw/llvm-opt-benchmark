@@ -652,7 +652,7 @@ for.cond411.preheader:                            ; preds = %for.body406
 for.body406:                                      ; preds = %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.exit313, %for.body406
   %indvars.iv = phi i64 [ 4, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.exit313 ], [ %indvars.iv.next, %for.body406 ]
   %arrayidx40711411142 = phi ptr [ %ilist, %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS2_.exit313 ], [ %arrayidx407, %for.body406 ]
-  %arrayidx407 = getelementptr inbounds nuw %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 %indvars.iv
+  %arrayidx407 = getelementptr inbounds nuw [24 x i8], ptr %nodes, i64 %indvars.iv
   store ptr %arrayidx40711411142, ptr %arrayidx407, align 8
   %mpPrev.i351 = getelementptr inbounds nuw i8, ptr %arrayidx407, i64 8
   store ptr %ilist, ptr %mpPrev.i351, align 8
@@ -664,7 +664,7 @@ for.body406:                                      ; preds = %_ZN5eastl14intrusiv
 
 for.body413:                                      ; preds = %for.cond411.preheader, %for.body413
   %indvars.iv1148 = phi i64 [ 5, %for.cond411.preheader ], [ %indvars.iv.next1149, %for.body413 ]
-  %arrayidx415 = getelementptr inbounds nuw %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 %indvars.iv1148
+  %arrayidx415 = getelementptr inbounds nuw [24 x i8], ptr %nodes, i64 %indvars.iv1148
   %46 = load ptr, ptr %mpPrev.i.i201, align 8
   %mpPrev2.i354 = getelementptr inbounds nuw i8, ptr %arrayidx415, i64 8
   store ptr %46, ptr %mpPrev2.i354, align 8
@@ -728,7 +728,7 @@ for.end438:                                       ; preds = %for.body433
 
 for.body457:                                      ; preds = %for.end438, %for.body457
   %indvars.iv1151 = phi i64 [ 0, %for.end438 ], [ %indvars.iv.next1152, %for.body457 ]
-  %arrayidx459 = getelementptr inbounds nuw %"struct.(anonymous namespace)::IntNode", ptr %nodes, i64 %indvars.iv1151
+  %arrayidx459 = getelementptr inbounds nuw [24 x i8], ptr %nodes, i64 %indvars.iv1151
   %56 = load ptr, ptr %mpPrev.i.i, align 8
   %mpPrev2.i363 = getelementptr inbounds nuw i8, ptr %arrayidx459, i64 8
   store ptr %56, ptr %mpPrev2.i363, align 8

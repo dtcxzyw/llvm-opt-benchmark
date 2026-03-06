@@ -1646,7 +1646,7 @@ define void @_ZN14DragDropTabBar14dragEnterEventEP15QDragEnterEvent(ptr noundef 
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 -24
-  %19 = getelementptr %class.QString, ptr %17, i64 %13
+  %19 = getelementptr [24 x i8], ptr %17, i64 %13
   br label %20
 
 20:                                               ; preds = %22, %15

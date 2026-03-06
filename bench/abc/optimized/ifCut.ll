@@ -40,7 +40,7 @@ define noundef i32 @If_CutVerifyCuts(ptr noundef readonly captures(none) %0, i32
   %7 = phi i16 [ %4, %.lr.ph55 ], [ %70, %._crit_edge ]
   %indvars.iv62 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next63, %._crit_edge ]
   %8 = load ptr, ptr %6, align 8, !tbaa !11
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv62
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv62
   %10 = load ptr, ptr %9, align 8, !tbaa !12
   %11 = icmp sgt i16 %7, 0
   br i1 %11, label %.lr.ph52, label %._crit_edge
@@ -56,7 +56,7 @@ define noundef i32 @If_CutVerifyCuts(ptr noundef readonly captures(none) %0, i32
   %17 = phi i16 [ %7, %.lr.ph52 ], [ %67, %If_CutVerifyCut.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next, %If_CutVerifyCut.exit.thread ]
   %18 = load ptr, ptr %6, align 8, !tbaa !11
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !12
   %21 = icmp eq ptr %10, %20
   br i1 %21, label %If_CutVerifyCut.exit.thread, label %22
@@ -87,13 +87,13 @@ define noundef i32 @If_CutVerifyCuts(ptr noundef readonly captures(none) %0, i32
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv29.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next30.i, %._crit_edge.us.i ]
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv29.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv29.i
   %34 = load i32, ptr %33, align 4, !tbaa !14
   br label %35
 
 35:                                               ; preds = %39, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %39 ]
-  %36 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i
   %37 = load i32, ptr %36, align 4, !tbaa !14
   %38 = icmp eq i32 %34, %37
   br i1 %38, label %._crit_edge.us.i, label %39
@@ -123,7 +123,7 @@ If_CutVerifyCut.exit:                             ; preds = %._crit_edge.us.i, %
   %44 = and i32 %43, %.val.i
   %.not.i34 = icmp eq i32 %44, 0
   %45 = select i1 %.not.i34, ptr @.str.4, ptr @.str.3
-  %46 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i33
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i33
   %47 = load i32, ptr %46, align 4, !tbaa !14
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef nonnull %45, i32 noundef %47)
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i33, 1
@@ -153,7 +153,7 @@ If_CutPrint.exit:                                 ; preds = %.lr.ph.i, %If_CutVe
   %58 = and i32 %57, %.val.i39
   %.not.i40 = icmp eq i32 %58, 0
   %59 = select i1 %.not.i40, ptr @.str.4, ptr @.str.3
-  %60 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i38
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.i38
   %61 = load i32, ptr %60, align 4, !tbaa !14
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef nonnull %59, i32 noundef %61)
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i38, 1
@@ -209,7 +209,7 @@ define void @If_CutPrint(ptr noundef readonly captures(none) %0) local_unnamed_a
   %10 = and i32 %.val, %9
   %.not = icmp eq i32 %10, 0
   %11 = select i1 %.not, ptr @.str.4, ptr @.str.3
-  %12 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !14
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef nonnull %11, i32 noundef %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -247,7 +247,7 @@ define range(i32 0, 2) i32 @If_CutFilter(ptr noundef captures(none) %0, ptr noun
   %.03570 = phi i32 [ 0, %.lr.ph72 ], [ %80, %If_CutCheckDominance.exit.thread ]
   %15 = phi i16 [ %.promoted, %.lr.ph72 ], [ %79, %If_CutCheckDominance.exit.thread ]
   %16 = sext i32 %.03570 to i64
-  %17 = getelementptr inbounds ptr, ptr %8, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %8, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !12
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %20 = load i64, ptr %19, align 4
@@ -300,13 +300,13 @@ define range(i32 0, 2) i32 @If_CutFilter(ptr noundef captures(none) %0, ptr noun
 
 .preheader.us.i:                                  ; preds = %53, %.preheader.us.preheader.i
   %indvars.iv27.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next28.i, %53 ]
-  %44 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv27.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv27.i
   %45 = load i32, ptr %44, align 4, !tbaa !14
   br label %46
 
 46:                                               ; preds = %50, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %50 ]
-  %47 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv.i
   %48 = load i32, ptr %47, align 4, !tbaa !14
   %49 = icmp eq i32 %45, %48
   br i1 %49, label %._crit_edge.us.i, label %50
@@ -337,16 +337,16 @@ If_CutCheckDominance.exit:                        ; preds = %53, %42
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %16, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %55 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.next
+  %55 = getelementptr inbounds [8 x i8], ptr %8, i64 %indvars.iv.next
   %56 = load ptr, ptr %55, align 8, !tbaa !12
-  %57 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %57 = getelementptr inbounds [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %56, ptr %57, align 8, !tbaa !12
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %If_CutCheckDominance.exit
   %58 = sext i16 %15 to i64
-  %59 = getelementptr inbounds ptr, ptr %8, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %8, i64 %58
   store ptr %18, ptr %59, align 8, !tbaa !12
   %60 = add i16 %15, -1
   store i16 %60, ptr %4, align 2, !tbaa !3
@@ -373,13 +373,13 @@ If_CutCheckDominance.exit:                        ; preds = %53, %42
 
 .preheader.us.i49:                                ; preds = %78, %.preheader.lr.ph.i44
   %indvars.iv27.i50 = phi i64 [ 0, %.preheader.lr.ph.i44 ], [ %indvars.iv.next28.i56, %78 ]
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv27.i50
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv27.i50
   %70 = load i32, ptr %69, align 4, !tbaa !14
   br label %71
 
 71:                                               ; preds = %75, %.preheader.us.i49
   %indvars.iv.i51 = phi i64 [ 0, %.preheader.us.i49 ], [ %indvars.iv.next.i52, %75 ]
-  %72 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i51
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i51
   %73 = load i32, ptr %72, align 4, !tbaa !14
   %74 = icmp eq i32 %70, %73
   br i1 %74, label %._crit_edge.us.i55, label %75
@@ -445,23 +445,23 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered_(ptr noundef captures(none) %0, p
 
 23:                                               ; preds = %.lr.ph157, %28
   %indvars.iv182 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next183, %28 ]
-  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv182
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv182
   %25 = load i32, ptr %24, align 4, !tbaa !14
-  %26 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv182
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv182
   %27 = load i32, ptr %26, align 4, !tbaa !14
   %.not = icmp eq i32 %25, %27
   br i1 %.not, label %28, label %.loopexit
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv182
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv182
   %30 = trunc nuw nsw i64 %indvars.iv182 to i32
   store i32 %30, ptr %29, align 4, !tbaa !14
-  %31 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv182
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv182
   store i32 %30, ptr %31, align 4, !tbaa !14
-  %32 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv182
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv182
   store i32 %30, ptr %32, align 4, !tbaa !14
   %33 = load i32, ptr %24, align 4, !tbaa !14
-  %34 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv182
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv182
   store i32 %33, ptr %34, align 4, !tbaa !14
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count186
@@ -519,21 +519,21 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered_(ptr noundef captures(none) %0, p
   %.2125144 = phi i32 [ 0, %.lr.ph ], [ %.3126, %102 ]
   %indvars = trunc i64 %indvars.iv to i32
   %63 = sext i32 %.2125144 to i64
-  %64 = getelementptr inbounds i32, ptr %56, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %56, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !14
   %66 = sext i32 %.1120145 to i64
-  %67 = getelementptr inbounds i32, ptr %57, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %57, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !14
   %69 = icmp slt i32 %65, %68
   br i1 %69, label %70, label %77
 
 70:                                               ; preds = %62
-  %71 = getelementptr inbounds i32, ptr %58, i64 %63
+  %71 = getelementptr inbounds [4 x i8], ptr %58, i64 %63
   store i32 %indvars, ptr %71, align 4, !tbaa !14
   %72 = add nsw i32 %.2125144, 1
   %73 = load i32, ptr %64, align 4, !tbaa !14
   %74 = add nuw nsw i64 %indvars.iv, 1
-  %75 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv
+  %75 = getelementptr inbounds [4 x i8], ptr %61, i64 %indvars.iv
   store i32 %73, ptr %75, align 4, !tbaa !14
   %76 = icmp eq i32 %72, %8
   br i1 %76, label %.loopexit142.loopexit.split.loop.exit, label %102
@@ -543,12 +543,12 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered_(ptr noundef captures(none) %0, p
   br i1 %78, label %79, label %86
 
 79:                                               ; preds = %77
-  %80 = getelementptr inbounds i32, ptr %60, i64 %66
+  %80 = getelementptr inbounds [4 x i8], ptr %60, i64 %66
   store i32 %indvars, ptr %80, align 4, !tbaa !14
   %81 = add nsw i32 %.1120145, 1
   %82 = load i32, ptr %67, align 4, !tbaa !14
   %83 = add nuw nsw i64 %indvars.iv, 1
-  %84 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv
+  %84 = getelementptr inbounds [4 x i8], ptr %61, i64 %indvars.iv
   store i32 %82, ptr %84, align 4, !tbaa !14
   %85 = icmp eq i32 %81, %12
   br i1 %85, label %.loopexit143.loopexit.split.loop.exit, label %102
@@ -559,15 +559,15 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered_(ptr noundef captures(none) %0, p
   %89 = or i32 %88, %87
   store i32 %89, ptr %51, align 8, !tbaa !31
   %90 = sext i32 %.0147 to i64
-  %91 = getelementptr inbounds i32, ptr %59, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %59, i64 %90
   store i32 %indvars, ptr %91, align 4, !tbaa !14
-  %92 = getelementptr inbounds i32, ptr %60, i64 %66
+  %92 = getelementptr inbounds [4 x i8], ptr %60, i64 %66
   store i32 %indvars, ptr %92, align 4, !tbaa !14
-  %93 = getelementptr inbounds i32, ptr %58, i64 %63
+  %93 = getelementptr inbounds [4 x i8], ptr %58, i64 %63
   store i32 %indvars, ptr %93, align 4, !tbaa !14
   %94 = add nsw i32 %.2125144, 1
   %95 = load i32, ptr %64, align 4, !tbaa !14
-  %96 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv
+  %96 = getelementptr inbounds [4 x i8], ptr %61, i64 %indvars.iv
   store i32 %95, ptr %96, align 4, !tbaa !14
   %97 = add nsw i32 %.1120145, 1
   %98 = icmp eq i32 %94, %8
@@ -622,14 +622,14 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered_(ptr noundef captures(none) %0, p
 114:                                              ; preds = %.lr.ph150, %114
   %indvars.iv164 = phi i64 [ %113, %.lr.ph150 ], [ %indvars.iv.next165, %114 ]
   %indvars.iv162 = phi i64 [ %112, %.lr.ph150 ], [ %indvars.iv.next163, %114 ]
-  %115 = getelementptr inbounds i32, ptr %109, i64 %indvars.iv164
+  %115 = getelementptr inbounds [4 x i8], ptr %109, i64 %indvars.iv164
   %116 = trunc nuw nsw i64 %indvars.iv162 to i32
   store i32 %116, ptr %115, align 4, !tbaa !14
   %indvars.iv.next165 = add nsw i64 %indvars.iv164, 1
-  %117 = getelementptr inbounds i32, ptr %110, i64 %indvars.iv164
+  %117 = getelementptr inbounds [4 x i8], ptr %110, i64 %indvars.iv164
   %118 = load i32, ptr %117, align 4, !tbaa !14
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %119 = getelementptr inbounds nuw i32, ptr %111, i64 %indvars.iv162
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv162
   store i32 %118, ptr %119, align 4, !tbaa !14
   %exitcond171.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count170
   br i1 %exitcond171.not, label %._crit_edge.loopexit, label %114, !llvm.loop !46
@@ -688,14 +688,14 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered_(ptr noundef captures(none) %0, p
 144:                                              ; preds = %.lr.ph153, %144
   %indvars.iv174 = phi i64 [ %143, %.lr.ph153 ], [ %indvars.iv.next175, %144 ]
   %indvars.iv172 = phi i64 [ %142, %.lr.ph153 ], [ %indvars.iv.next173, %144 ]
-  %145 = getelementptr inbounds i32, ptr %139, i64 %indvars.iv174
+  %145 = getelementptr inbounds [4 x i8], ptr %139, i64 %indvars.iv174
   %146 = trunc nuw nsw i64 %indvars.iv172 to i32
   store i32 %146, ptr %145, align 4, !tbaa !14
   %indvars.iv.next175 = add nsw i64 %indvars.iv174, 1
-  %147 = getelementptr inbounds i32, ptr %140, i64 %indvars.iv174
+  %147 = getelementptr inbounds [4 x i8], ptr %140, i64 %indvars.iv174
   %148 = load i32, ptr %147, align 4, !tbaa !14
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %149 = getelementptr inbounds nuw i32, ptr %141, i64 %indvars.iv172
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %indvars.iv172
   store i32 %148, ptr %149, align 4, !tbaa !14
   %exitcond181.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count180
   br i1 %exitcond181.not, label %._crit_edge154.loopexit, label %144, !llvm.loop !47
@@ -757,15 +757,15 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered(ptr noundef readnone captures(non
 
 20:                                               ; preds = %.lr.ph125, %25
   %indvars.iv152 = phi i64 [ 0, %.lr.ph125 ], [ %indvars.iv.next153, %25 ]
-  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv152
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv152
   %22 = load i32, ptr %21, align 4, !tbaa !14
-  %23 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv152
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv152
   %24 = load i32, ptr %23, align 4, !tbaa !14
   %.not = icmp eq i32 %22, %24
   br i1 %.not, label %25, label %.loopexit
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv152
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv152
   store i32 %22, ptr %26, align 4, !tbaa !14
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count156
@@ -794,10 +794,10 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered(ptr noundef readnone captures(non
   %.188114 = phi i32 [ 0, %.lr.ph ], [ %.289, %61 ]
   %.293113 = phi i32 [ 0, %.lr.ph ], [ %.394, %61 ]
   %35 = sext i32 %.293113 to i64
-  %36 = getelementptr inbounds i32, ptr %31, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %31, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !14
   %38 = sext i32 %.188114 to i64
-  %39 = getelementptr inbounds i32, ptr %32, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %32, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !14
   %41 = icmp slt i32 %37, %40
   br i1 %41, label %42, label %47
@@ -805,7 +805,7 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered(ptr noundef readnone captures(non
 42:                                               ; preds = %34
   %43 = add nsw i32 %.293113, 1
   %44 = add nuw nsw i64 %indvars.iv, 1
-  %45 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv
+  %45 = getelementptr inbounds [4 x i8], ptr %33, i64 %indvars.iv
   store i32 %37, ptr %45, align 4, !tbaa !14
   %46 = icmp eq i32 %43, %8
   br i1 %46, label %.loopexit111.loopexit.split.loop.exit, label %61
@@ -817,14 +817,14 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered(ptr noundef readnone captures(non
 49:                                               ; preds = %47
   %50 = add nsw i32 %.188114, 1
   %51 = add nuw nsw i64 %indvars.iv, 1
-  %52 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv
+  %52 = getelementptr inbounds [4 x i8], ptr %33, i64 %indvars.iv
   store i32 %40, ptr %52, align 4, !tbaa !14
   %53 = icmp eq i32 %50, %12
   br i1 %53, label %.loopexit112.loopexit.split.loop.exit, label %61
 
 54:                                               ; preds = %47
   %55 = add nsw i32 %.293113, 1
-  %56 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv
+  %56 = getelementptr inbounds [4 x i8], ptr %33, i64 %indvars.iv
   store i32 %37, ptr %56, align 4, !tbaa !14
   %57 = add nsw i32 %.188114, 1
   %58 = icmp eq i32 %55, %8
@@ -878,10 +878,10 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered(ptr noundef readnone captures(non
   %indvars.iv133 = phi i64 [ %71, %.lr.ph118 ], [ %indvars.iv.next134, %72 ]
   %indvars.iv131 = phi i64 [ %70, %.lr.ph118 ], [ %indvars.iv.next132, %72 ]
   %indvars.iv.next134 = add nsw i64 %indvars.iv133, 1
-  %73 = getelementptr inbounds i32, ptr %68, i64 %indvars.iv133
+  %73 = getelementptr inbounds [4 x i8], ptr %68, i64 %indvars.iv133
   %74 = load i32, ptr %73, align 4, !tbaa !14
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %75 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv131
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv131
   store i32 %74, ptr %75, align 4, !tbaa !14
   %exitcond140.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count139
   br i1 %exitcond140.not, label %._crit_edge.loopexit, label %72, !llvm.loop !49
@@ -923,10 +923,10 @@ define range(i32 0, 2) i32 @If_CutMergeOrdered(ptr noundef readnone captures(non
   %indvars.iv144 = phi i64 [ %86, %.lr.ph121 ], [ %indvars.iv.next145, %87 ]
   %indvars.iv142 = phi i64 [ %85, %.lr.ph121 ], [ %indvars.iv.next143, %87 ]
   %indvars.iv.next145 = add nsw i64 %indvars.iv144, 1
-  %88 = getelementptr inbounds i32, ptr %83, i64 %indvars.iv144
+  %88 = getelementptr inbounds [4 x i8], ptr %83, i64 %indvars.iv144
   %89 = load i32, ptr %88, align 4, !tbaa !14
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %90 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv142
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv142
   store i32 %89, ptr %90, align 4, !tbaa !14
   %exitcond151.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count150
   br i1 %exitcond151.not, label %._crit_edge122.loopexit, label %87, !llvm.loop !50
@@ -996,23 +996,23 @@ define range(i32 0, 2) i32 @If_CutMerge(ptr noundef writeonly captures(none) %0,
 .preheader47.us:                                  ; preds = %.preheader47.us.preheader, %38
   %indvars.iv60 = phi i64 [ 0, %.preheader47.us.preheader ], [ %indvars.iv.next61, %38 ]
   %.052.us = phi i32 [ %10, %.preheader47.us.preheader ], [ %.1.us, %38 ]
-  %22 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv60
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv60
   %23 = load i32, ptr %22, align 4, !tbaa !14
   br label %30
 
 24:                                               ; preds = %..critedge_crit_edge.us
-  %25 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv60
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv60
   store i32 %.052.us, ptr %25, align 4, !tbaa !14
   %26 = load i32, ptr %22, align 4, !tbaa !14
   %27 = add nsw i32 %.052.us, 1
   %28 = sext i32 %.052.us to i64
-  %29 = getelementptr inbounds i32, ptr %17, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %17, i64 %28
   store i32 %26, ptr %29, align 4, !tbaa !14
   br label %38
 
 30:                                               ; preds = %.preheader47.us, %34
   %indvars.iv = phi i64 [ 0, %.preheader47.us ], [ %indvars.iv.next, %34 ]
-  %31 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !14
   %33 = icmp eq i32 %23, %32
   br i1 %33, label %35, label %34
@@ -1024,7 +1024,7 @@ define range(i32 0, 2) i32 @If_CutMerge(ptr noundef writeonly captures(none) %0,
 
 35:                                               ; preds = %30
   %36 = trunc nuw nsw i64 %indvars.iv to i32
-  %37 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv60
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv60
   store i32 %36, ptr %37, align 4, !tbaa !14
   br label %38
 
@@ -1058,13 +1058,13 @@ define range(i32 0, 2) i32 @If_CutMerge(ptr noundef writeonly captures(none) %0,
   br label %.lr.ph
 
 42:                                               ; preds = %.preheader47
-  %43 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv67
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv67
   %44 = trunc nuw nsw i64 %indvars.iv65 to i32
   store i32 %44, ptr %43, align 4, !tbaa !14
-  %45 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv67
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv67
   %46 = load i32, ptr %45, align 4, !tbaa !14
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %47 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv65
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv65
   store i32 %46, ptr %47, align 4, !tbaa !14
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
@@ -1072,9 +1072,9 @@ define range(i32 0, 2) i32 @If_CutMerge(ptr noundef writeonly captures(none) %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv72 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next73, %.lr.ph ]
-  %48 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv72
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv72
   %49 = load i32, ptr %48, align 4, !tbaa !14
-  %50 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv72
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv72
   store i32 %49, ptr %50, align 4, !tbaa !14
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
@@ -1401,7 +1401,7 @@ define void @If_CutSort(ptr noundef readonly captures(none) %0, ptr noundef capt
 
 .critedge:                                        ; preds = %70, %64
   store ptr %.tr7581100, ptr %65, align 8, !tbaa !12
-  %73 = getelementptr inbounds ptr, ptr %65, i64 %9
+  %73 = getelementptr inbounds [8 x i8], ptr %65, i64 %9
   store ptr %66, ptr %73, align 8, !tbaa !12
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 28
   %75 = load i64, ptr %74, align 4
@@ -1419,7 +1419,7 @@ define void @If_CutSort(ptr noundef readonly captures(none) %0, ptr noundef capt
   %79 = load ptr, ptr %8, align 8, !tbaa !11
   %80 = zext nneg i16 %5 to i64
   %indvars.iv.next107 = add nsw i64 %80, -1
-  %81 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv.next107
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv.next107
   %82 = load ptr, ptr %81, align 8, !tbaa !12
   %83 = tail call fastcc i32 @If_ManSortCompare(ptr noundef %0, ptr noundef %82, ptr noundef %.tr7581.lcssa)
   %84 = icmp slt i32 %83, 1
@@ -1448,17 +1448,17 @@ define void @If_CutSort(ptr noundef readonly captures(none) %0, ptr noundef capt
   br i1 %.not73, label %.thread, label %._crit_edge
 
 .thread:                                          ; preds = %93, %88
-  %96 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv108
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv108
   store ptr %85, ptr %96, align 8, !tbaa !12
   store ptr %.tr7581.lcssa, ptr %86, align 8, !tbaa !12
   br label %._crit_edge
 
 97:                                               ; preds = %.lr.ph110
-  %98 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv108
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv108
   store ptr %85, ptr %98, align 8, !tbaa !12
   store ptr %.tr7581.lcssa, ptr %86, align 8, !tbaa !12
   %indvars.iv.next = add nsw i64 %indvars.iv.next109, -1
-  %99 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv.next
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv.next
   %100 = load ptr, ptr %99, align 8, !tbaa !12
   %101 = tail call fastcc i32 @If_ManSortCompare(ptr noundef %0, ptr noundef %100, ptr noundef %.tr7581.lcssa)
   %102 = icmp slt i32 %101, 1
@@ -1994,13 +1994,13 @@ define void @If_CutOrder(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %14 ]
   %.021.us = phi i32 [ 0, %.lr.ph.us ], [ %.1.us, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.next
   %11 = load i32, ptr %10, align 4, !tbaa !14
   %.not19.us = icmp sgt i32 %9, %11
   br i1 %.not19.us, label %12, label %14
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %11, ptr %13, align 4, !tbaa !14
   store i32 %9, ptr %10, align 4, !tbaa !14
   br label %14
@@ -2040,7 +2040,7 @@ define range(i32 0, 2) i32 @If_CutCheck(ptr noundef readonly captures(none) %0) 
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr i32, ptr %7, i64 %indvars.iv
+  %10 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv
   %11 = getelementptr i8, ptr %10, i64 -4
   %12 = load i32, ptr %11, align 4, !tbaa !14
   %13 = load i32, ptr %10, align 4, !tbaa !14
@@ -2144,13 +2144,13 @@ define void @If_CutPrintTiming(ptr noundef readonly captures(none) %0, ptr nound
 
 8:                                                ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !14
   %.val = load ptr, ptr %7, align 8, !tbaa !92
   %11 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %11, align 8, !tbaa !93
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds ptr, ptr %.val.val, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !95
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %.critedge, label %15
@@ -2193,7 +2193,7 @@ define void @If_CutLift(ptr noundef captures(none) %0) local_unnamed_addr #2 {
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %10 = add nsw i32 %9, 1
   store i32 %10, ptr %8, align 4, !tbaa !14
@@ -2244,7 +2244,7 @@ define float @If_CutAreaFlow(ptr noundef readonly captures(none) %0, ptr noundef
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = lshr i64 %.val24, 24
   %25 = and i64 %24, 255
-  %26 = getelementptr inbounds nuw float, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %25
   %27 = load float, ptr %26, align 4, !tbaa !103
   br label %If_CutLutArea.exit
 
@@ -2267,10 +2267,10 @@ If_CutLutArea.exit:                               ; preds = %5, %13, %17, %22
 34:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
   %.02027 = phi float [ %28, %.lr.ph ], [ %.1, %62 ]
-  %35 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !14
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %.val.val, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !95
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %.critedge, label %40
@@ -2348,10 +2348,10 @@ define float @If_CutEdgeFlow(ptr noundef readonly captures(none) %0, ptr noundef
 11:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %.01925 = phi float [ %7, %.lr.ph ], [ %.1, %39 ]
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !14
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %.val.val, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !95
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %.critedge, label %17
@@ -2432,10 +2432,10 @@ define float @If_CutPowerFlow(ptr noundef readonly captures(none) %0, ptr nounde
 15:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %.01722 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %42 ]
-  %16 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !14
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %.val.val, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !95
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %.critedge, label %21
@@ -2444,7 +2444,7 @@ define float @If_CutPowerFlow(ptr noundef readonly captures(none) %0, ptr nounde
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !96
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds float, ptr %7, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %7, i64 %24
   %26 = load float, ptr %25, align 4, !tbaa !103
   %27 = fadd float %.01722, %26
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 12
@@ -2504,10 +2504,10 @@ define float @If_CutAverageRefs(ptr noundef readonly captures(none) %0, ptr noun
 10:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.0911 = phi i32 [ 0, %.lr.ph ], [ %19, %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !14
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %.val.val, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !95
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %.critedge.loopexit, label %16
@@ -2571,7 +2571,7 @@ define float @If_CutAreaDeref(ptr noundef readonly captures(none) %0, ptr nounde
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = lshr i64 %.val16, 24
   %25 = and i64 %24, 255
-  %26 = getelementptr inbounds nuw float, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %25
   %27 = load float, ptr %26, align 4, !tbaa !103
   br label %If_CutLutArea.exit
 
@@ -2589,13 +2589,13 @@ If_CutLutArea.exit:                               ; preds = %5, %13, %17, %22
 32:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %.01319 = phi float [ %28, %.lr.ph ], [ %.1, %50 ]
-  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !14
   %.val = load ptr, ptr %31, align 8, !tbaa !92
   %35 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %35, align 8, !tbaa !93
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds ptr, ptr %.val.val, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !95
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %.critedge, label %39
@@ -2673,7 +2673,7 @@ define float @If_CutAreaRef(ptr noundef readonly captures(none) %0, ptr noundef 
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = lshr i64 %.val16, 24
   %25 = and i64 %24, 255
-  %26 = getelementptr inbounds nuw float, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %25
   %27 = load float, ptr %26, align 4, !tbaa !103
   br label %If_CutLutArea.exit
 
@@ -2691,13 +2691,13 @@ If_CutLutArea.exit:                               ; preds = %5, %13, %17, %22
 32:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %.01319 = phi float [ %28, %.lr.ph ], [ %.1, %50 ]
-  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !14
   %.val = load ptr, ptr %31, align 8, !tbaa !92
   %35 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %35, align 8, !tbaa !93
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds ptr, ptr %.val.val, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !95
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %.critedge, label %39
@@ -2791,13 +2791,13 @@ define float @If_CutEdgeDeref(ptr noundef readonly captures(none) %0, ptr nounde
 11:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %.01217 = phi float [ %7, %.lr.ph ], [ %.1, %29 ]
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !14
   %.val = load ptr, ptr %10, align 8, !tbaa !92
   %14 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %14, align 8, !tbaa !93
   %15 = sext i32 %13 to i64
-  %16 = getelementptr inbounds ptr, ptr %.val.val, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !95
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %.critedge, label %18
@@ -2855,13 +2855,13 @@ define float @If_CutEdgeRef(ptr noundef readonly captures(none) %0, ptr noundef 
 11:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %.01217 = phi float [ %7, %.lr.ph ], [ %.1, %29 ]
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !14
   %.val = load ptr, ptr %10, align 8, !tbaa !92
   %14 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %14, align 8, !tbaa !93
   %15 = sext i32 %13 to i64
-  %16 = getelementptr inbounds ptr, ptr %.val.val, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !95
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %.critedge, label %18
@@ -2966,13 +2966,13 @@ define float @If_CutPowerDeref(ptr noundef readonly captures(none) %0, ptr nound
 13:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.01621 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %37 ]
-  %14 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !14
   %.val = load ptr, ptr %12, align 8, !tbaa !92
   %16 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %16, align 8, !tbaa !93
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds ptr, ptr %.val.val, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !95
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %.critedge, label %20
@@ -2981,7 +2981,7 @@ define float @If_CutPowerDeref(ptr noundef readonly captures(none) %0, ptr nound
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !96
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds float, ptr %7, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %7, i64 %23
   %25 = load float, ptr %24, align 4, !tbaa !103
   %26 = fadd float %.01621, %25
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 12
@@ -3037,13 +3037,13 @@ define float @If_CutPowerRef(ptr noundef readonly captures(none) %0, ptr noundef
 13:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.01621 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %37 ]
-  %14 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !14
   %.val = load ptr, ptr %12, align 8, !tbaa !92
   %16 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %16, align 8, !tbaa !93
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds ptr, ptr %.val.val, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !95
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %.critedge, label %20
@@ -3052,7 +3052,7 @@ define float @If_CutPowerRef(ptr noundef readonly captures(none) %0, ptr noundef
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !96
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds float, ptr %7, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %7, i64 %23
   %25 = load float, ptr %24, align 4, !tbaa !103
   %26 = fadd float %.01621, %25
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 12
@@ -3145,10 +3145,10 @@ define range(i32 0, 100000001) i32 @If_CutGetCutMinLevel(ptr noundef readonly ca
 10:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.014 = phi i32 [ 100000000, %.lr.ph ], [ %.0., %16 ]
-  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !14
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %.val.val, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !95
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %.critedge, label %16
@@ -3184,7 +3184,7 @@ define range(i32 0, 2) i32 @If_CutGetCone_rec(ptr noundef readnone %0, ptr nound
 
 11:                                               ; preds = %15, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !14
   %14 = icmp eq i32 %13, %10
   br i1 %14, label %.loopexit, label %15
@@ -3265,7 +3265,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 15:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %.01221 = phi i32 [ 0, %.lr.ph ], [ %.1, %27 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !95
   %.val15 = load i32, ptr %17, align 8
   %18 = and i32 %.val15, 15
@@ -3355,7 +3355,7 @@ define void @If_CutFoundFanins_rec(ptr noundef readonly captures(none) %0, ptr n
 
 14:                                               ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4, !tbaa !14
   %17 = icmp eq i32 %16, %7
   br i1 %17, label %Vec_IntPushUnique.exit, label %13
@@ -3423,7 +3423,7 @@ Vec_IntPush.exit.i:                               ; preds = %40, %Vec_IntGrow.ex
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %8, align 4, !tbaa !132
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds i32, ptr %42, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %42, i64 %45
   store i32 %7, ptr %46, align 4, !tbaa !14
   br label %Vec_IntPushUnique.exit
 
@@ -3483,7 +3483,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %.02033 = phi i32 [ %.121, %35 ], [ 0, %Abc_Clock.exit ]
   %19 = getelementptr i8, ptr %18, i64 8
   %.val = load ptr, ptr %19, align 8, !tbaa !93
-  %20 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !95
   %.val23 = load i32, ptr %21, align 8
   %22 = and i32 %.val23, 15
@@ -3649,7 +3649,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %17, align 4, !tbaa !132
   %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds i32, ptr %43, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %43, i64 %46
   store i32 %7, ptr %47, align 4, !tbaa !14
   %48 = load i32, ptr %1, align 8
   %49 = lshr i32 %48, 13
@@ -3709,13 +3709,13 @@ define noundef i32 @If_CutFilter2(ptr noundef %0, ptr noundef readnone captures(
 11:                                               ; preds = %.lr.ph72, %115
   %.04670 = phi i32 [ 0, %.lr.ph72 ], [ %117, %115 ]
   %12 = sext i32 %.04670 to i64
-  %13 = getelementptr inbounds i32, ptr %4, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !14
   %.val55 = load ptr, ptr %8, align 8, !tbaa !92
   %15 = getelementptr i8, ptr %.val55, i64 8
   %.val55.val = load ptr, ptr %15, align 8, !tbaa !93
   %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds ptr, ptr %.val55.val, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %.val55.val, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !95
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %.critedge, label %19
@@ -3733,13 +3733,13 @@ define noundef i32 @If_CutFilter2(ptr noundef %0, ptr noundef readnone captures(
   %24 = phi i64 [ %77, %76 ], [ %22, %19 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %76 ], [ 0, %19 ]
   %.061 = phi i32 [ %.1, %76 ], [ 1000000000, %19 ]
-  %25 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !14
   %.val = load ptr, ptr %8, align 8, !tbaa !92
   %27 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %27, align 8, !tbaa !93
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds ptr, ptr %.val.val, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !95
   %.not54 = icmp eq ptr %30, null
   br i1 %.not54, label %.critedge2, label %31
@@ -3826,7 +3826,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %73 = add nsw i32 %72, 1
   store i32 %73, ptr %45, align 4, !tbaa !132
   %74 = sext i32 %72 to i64
-  %75 = getelementptr inbounds i32, ptr %71, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %71, i64 %74
   store i32 %44, ptr %75, align 4, !tbaa !14
   %.pre = load i64, ptr %5, align 4
   br label %76
@@ -3854,7 +3854,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %85 = phi ptr [ %93, %.lr.ph66 ], [ %82, %.critedge2 ]
   %86 = getelementptr i8, ptr %85, i64 8
   %.val59 = load ptr, ptr %86, align 8, !tbaa !109
-  %87 = getelementptr inbounds nuw i32, ptr %.val59, i64 %indvars.iv77
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %.val59, i64 %indvars.iv77
   %88 = load i32, ptr %87, align 4, !tbaa !14
   %89 = load ptr, ptr %10, align 8, !tbaa !136
   %90 = getelementptr i8, ptr %89, i64 8
@@ -3889,9 +3889,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 .lr.ph68:                                         ; preds = %98, %.lr.ph68
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.lr.ph68 ], [ %12, %98 ]
   %indvars.iv.next81 = add nsw i64 %indvars.iv80, 1
-  %106 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next81
+  %106 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv.next81
   %107 = load i32, ptr %106, align 4, !tbaa !14
-  %108 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv80
+  %108 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv80
   store i32 %107, ptr %108, align 4, !tbaa !14
   %109 = load i64, ptr %5, align 4
   %110 = lshr i64 %109, 24

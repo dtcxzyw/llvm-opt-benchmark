@@ -59,7 +59,7 @@ define hidden void @rb_load_with_builtin_functions(ptr noundef %0, ptr noundef %
   %4 = add i32 %3, 1
   store i32 %4, ptr @builtin_lookup.index, align 4, !tbaa !7
   %5 = sext i32 %3 to i64
-  %6 = getelementptr %struct.builtin_binary, ptr @builtin_binary, i64 %5
+  %6 = getelementptr [24 x i8], ptr @builtin_binary, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !11
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %0) #6
   %.not.i.i = icmp eq i32 %8, 0

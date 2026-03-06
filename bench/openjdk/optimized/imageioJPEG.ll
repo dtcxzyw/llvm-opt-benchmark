@@ -3,8 +3,6 @@ source_filename = "bench/openjdk/original/imageioJPEG.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.jpeg_component_info = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr }
-
 @the_jvm = external local_unnamed_addr global ptr, align 8
 @JPEGImageReader_readInputDataID = internal unnamed_addr global ptr null, align 8
 @JPEGImageReader_warningOccurredID = internal unnamed_addr global ptr null, align 8
@@ -2741,7 +2739,7 @@ marker_is_icc.exit.i:                             ; preds = %272
 
 291:                                              ; preds = %285
   %292 = zext i8 %287 to i64
-  %293 = getelementptr inbounds nuw ptr, ptr %6, i64 %292
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %292
   %294 = load ptr, ptr %293, align 8
   %.not89.i = icmp eq ptr %294, null
   br i1 %.not89.i, label %296, label %295
@@ -2786,7 +2784,7 @@ marker_is_icc.exit.thread.i:                      ; preds = %296, %marker_is_icc
 .lr.ph110.i:                                      ; preds = %315, %.lr.ph110.preheader.i
   %indvars.iv.i = phi i64 [ %304, %.lr.ph110.preheader.i ], [ %indvars.iv.next.i, %315 ]
   %.077107.i = phi i32 [ 0, %.lr.ph110.preheader.i ], [ %317, %315 ]
-  %306 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   %307 = load ptr, ptr %306, align 8
   %308 = icmp eq ptr %307, null
   br i1 %308, label %309, label %310
@@ -2848,7 +2846,7 @@ marker_is_icc.exit.thread.i:                      ; preds = %296, %marker_is_icc
 .lr.ph115.i:                                      ; preds = %328, %.lr.ph115.i
   %indvars.iv119.i = phi i64 [ %indvars.iv.next120.i, %.lr.ph115.i ], [ %304, %328 ]
   %.078113.i = phi ptr [ %344, %.lr.ph115.i ], [ %332, %328 ]
-  %335 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv119.i
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv119.i
   %336 = load ptr, ptr %335, align 8
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 24
   %338 = load ptr, ptr %337, align 8
@@ -3083,7 +3081,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0289367 = phi i1 [ true, %.lr.ph.preheader ], [ %narrow, %.lr.ph ]
-  %67 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4
   %69 = zext i32 %68 to i64
   %.not354 = icmp eq i64 %indvars.iv, %69
@@ -3407,7 +3405,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
 .preheader.us:                                    ; preds = %.lr.ph380.split.us, %.preheader.us
   %indvars.iv392 = phi i64 [ %indvars.iv.next393, %.preheader.us ], [ 0, %.lr.ph380.split.us ]
   %.1301371.us = phi ptr [ %244, %.preheader.us ], [ %.0300377.us, %.lr.ph380.split.us ]
-  %239 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv392
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv392
   %240 = load i32, ptr %239, align 4
   %241 = sext i32 %240 to i64
   %242 = getelementptr inbounds i8, ptr %.0302376.us, i64 %241
@@ -3748,7 +3746,7 @@ define internal fastcc void @setQTables(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not, label %40, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv62
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv62
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %46
@@ -3759,7 +3757,7 @@ define internal fastcc void @setQTables(ptr noundef %0, ptr noundef %1, ptr noun
   br label %46
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv62
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv62
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %46
@@ -3775,10 +3773,10 @@ define internal fastcc void @setQTables(ptr noundef %0, ptr noundef %1, ptr noun
 
 47:                                               ; preds = %46, %47
   %indvars.iv = phi i64 [ 0, %46 ], [ %indvars.iv.next, %47 ]
-  %48 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4
   %50 = trunc i32 %49 to i16
-  %51 = getelementptr inbounds nuw i16, ptr %.051, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.051, i64 %indvars.iv
   store i16 %50, ptr %51, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -3825,7 +3823,7 @@ define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not77, label %24, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %30
@@ -3836,7 +3834,7 @@ define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noun
   br label %30
 
 24:                                               ; preds = %16
-  %25 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %30
@@ -3893,7 +3891,7 @@ define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not, label %58, label %52
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv91
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv91
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %64
@@ -3904,7 +3902,7 @@ define internal fastcc void @setHTables(ptr noundef %0, ptr noundef %1, ptr noun
   br label %64
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv91
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv91
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %64
@@ -5193,7 +5191,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %67 ]
-  %69 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, -9
   %or.cond425 = icmp ult i32 %71, -8
@@ -5211,7 +5209,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
   %indvars.iv490 = phi i32 [ 0, %.lr.ph441 ], [ %indvars.iv.next491, %.loopexit ]
   %indvars.iv481 = phi i64 [ 0, %.lr.ph441 ], [ %indvars.iv.next482, %.loopexit ]
   %.0370440 = phi ptr [ null, %.lr.ph441 ], [ %.2, %.loopexit ]
-  %77 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv481
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv481
   %78 = load i32, ptr %77, align 4
   %.not423 = icmp eq i32 %78, 8
   br i1 %.not423, label %.loopexit, label %79
@@ -5239,7 +5237,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
   %90 = add nsw i32 %89, -1
   %91 = sext i32 %89 to i64
   %92 = call noalias ptr @malloc(i64 noundef %91) #15
-  %93 = getelementptr inbounds nuw ptr, ptr %.1, i64 %indvars.iv481
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %.1, i64 %indvars.iv481
   store ptr %92, ptr %93, align 8
   %94 = icmp eq ptr %92, null
   br i1 %94, label %.preheader, label %100
@@ -5254,7 +5252,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
 
 .lr.ph468:                                        ; preds = %.lr.ph468.preheader, %.lr.ph468
   %indvars.iv487 = phi i64 [ 0, %.lr.ph468.preheader ], [ %indvars.iv.next488, %.lr.ph468 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %.1, i64 %indvars.iv487
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %.1, i64 %indvars.iv487
   %96 = load ptr, ptr %95, align 8
   call void @free(ptr noundef %96) #14
   %indvars.iv.next488 = add nuw nsw i64 %indvars.iv487, 1
@@ -5418,27 +5416,27 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
 
 177:                                              ; preds = %.lr.ph443, %177
   %indvars.iv496 = phi i64 [ 0, %.lr.ph443 ], [ %indvars.iv.next497, %177 ]
-  %178 = getelementptr inbounds nuw i32, ptr %159, i64 %indvars.iv496
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %159, i64 %indvars.iv496
   %179 = load i32, ptr %178, align 4
   %180 = load ptr, ptr %176, align 8
-  %181 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %180, i64 %indvars.iv496
+  %181 = getelementptr inbounds nuw [96 x i8], ptr %180, i64 %indvars.iv496
   store i32 %179, ptr %181, align 8
-  %182 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv496
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %indvars.iv496
   %183 = load i32, ptr %182, align 4
   %184 = load ptr, ptr %176, align 8
-  %185 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %184, i64 %indvars.iv496
+  %185 = getelementptr inbounds nuw [96 x i8], ptr %184, i64 %indvars.iv496
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   store i32 %183, ptr %186, align 8
-  %187 = getelementptr inbounds nuw i32, ptr %167, i64 %indvars.iv496
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %indvars.iv496
   %188 = load i32, ptr %187, align 4
   %189 = load ptr, ptr %176, align 8
-  %190 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %189, i64 %indvars.iv496
+  %190 = getelementptr inbounds nuw [96 x i8], ptr %189, i64 %indvars.iv496
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 12
   store i32 %188, ptr %191, align 4
-  %192 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv496
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %indvars.iv496
   %193 = load i32, ptr %192, align 4
   %194 = load ptr, ptr %176, align 8
-  %195 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %194, i64 %indvars.iv496
+  %195 = getelementptr inbounds nuw [96 x i8], ptr %194, i64 %indvars.iv496
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
   store i32 %193, ptr %196, align 8
   %indvars.iv.next497 = add nuw nsw i64 %indvars.iv496, 1
@@ -5600,9 +5598,9 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
 
 .lr.ph445:                                        ; preds = %.lr.ph445.preheader, %.lr.ph445
   %indvars.iv502 = phi i64 [ 0, %.lr.ph445.preheader ], [ %indvars.iv.next503, %.lr.ph445 ]
-  %273 = getelementptr inbounds nuw i32, ptr %264, i64 %indvars.iv502
+  %273 = getelementptr inbounds nuw [4 x i8], ptr %264, i64 %indvars.iv502
   %274 = load i32, ptr %273, align 4
-  %275 = getelementptr inbounds nuw i32, ptr %259, i64 %indvars.iv502
+  %275 = getelementptr inbounds nuw [4 x i8], ptr %259, i64 %indvars.iv502
   store i32 %274, ptr %275, align 4
   %indvars.iv.next503 = add nuw nsw i64 %indvars.iv502, 1
   %exitcond507.not = icmp eq i64 %indvars.iv.next503, %wide.trip.count506
@@ -5746,7 +5744,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
 340:                                              ; preds = %.preheader426.us, %348
   %indvars.iv508 = phi i64 [ 0, %.preheader426.us ], [ %indvars.iv.next509, %348 ]
   %.1380447.us457 = phi ptr [ %.0379452.us, %.preheader426.us ], [ %.2381.us458, %348 ]
-  %341 = getelementptr inbounds nuw ptr, ptr %.2, i64 %indvars.iv508
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %.2, i64 %indvars.iv508
   %342 = load ptr, ptr %341, align 8
   %.not421.us = icmp eq ptr %342, null
   %343 = getelementptr inbounds nuw i8, ptr %.0378453.us, i64 %indvars.iv508
@@ -5826,7 +5824,7 @@ define internal fastcc void @freeArray(ptr noundef captures(address_is_null) %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %.not10 = icmp eq ptr %5, null
   br i1 %.not10, label %7, label %6
@@ -5997,7 +5995,7 @@ define internal fastcc range(i32 0, 2) i32 @setHuffTable(ptr noundef %0, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %21 = getelementptr i16, ptr %16, i64 %indvars.iv
+  %21 = getelementptr [2 x i8], ptr %16, i64 %indvars.iv
   %22 = getelementptr i8, ptr %21, i64 -2
   %23 = load i16, ptr %22, align 2
   %24 = trunc i16 %23 to i8
@@ -6039,7 +6037,7 @@ define internal fastcc range(i32 0, 2) i32 @setHuffTable(ptr noundef %0, ptr nou
 
 45:                                               ; preds = %.lr.ph50, %45
   %indvars.iv53 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next54, %45 ]
-  %46 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv53
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv53
   %47 = load i16, ptr %46, align 2
   %48 = trunc i16 %47 to i8
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv53

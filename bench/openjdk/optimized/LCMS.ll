@@ -165,12 +165,12 @@ define i64 @Java_sun_java2d_cmm_lcms_LCMS_createNativeTransform(ptr noundef %0, 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next, %.lr.ph.split.us ]
-  %35 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %36 = load i64, ptr %35, align 8
   %37 = inttoptr i64 %36 to ptr
   %38 = load ptr, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %38, ptr %39, align 8
   %40 = tail call i32 @cmsGetColorSpace(ptr noundef %38) #8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -179,13 +179,13 @@ define i64 @Java_sun_java2d_cmm_lcms_LCMS_createNativeTransform(ptr noundef %0, 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %56
   %indvars.iv82 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next83, %56 ]
   %.06474 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1, %56 ]
-  %41 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv82
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv82
   %42 = load i64, ptr %41, align 8
   %43 = inttoptr i64 %42 to ptr
   %44 = load ptr, ptr %43, align 8
   %45 = add nsw i32 %.06474, 1
   %46 = sext i32 %.06474 to i64
-  %47 = getelementptr inbounds ptr, ptr %.0629194, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %.0629194, i64 %46
   store ptr %44, ptr %47, align 8
   %48 = tail call i32 @cmsGetColorSpace(ptr noundef %44) #8
   %.not77 = icmp eq i64 %indvars.iv82, 0
@@ -205,7 +205,7 @@ switch.early.test:                                ; preds = %49
 52:                                               ; preds = %switch.early.test
   %53 = add nsw i32 %.06474, 2
   %54 = sext i32 %45 to i64
-  %55 = getelementptr inbounds ptr, ptr %.0629194, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %.0629194, i64 %54
   store ptr %44, ptr %55, align 8
   br label %56
 
@@ -998,7 +998,7 @@ define void @Java_sun_java2d_cmm_lcms_LCMS_colorConvert(ptr noundef %0, ptr noun
 
 switch.lookup:                                    ; preds = %17
   %19 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.Java_sun_java2d_cmm_lcms_LCMS_colorConvert.1, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Java_sun_java2d_cmm_lcms_LCMS_colorConvert.1, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %switch.load
@@ -1017,7 +1017,7 @@ getILData.exit.thread:                            ; preds = %17, %switch.lookup
 
 switch.lookup51:                                  ; preds = %25
   %27 = zext nneg i32 %12 to i64
-  %switch.gep52 = getelementptr inbounds nuw i64, ptr @switch.table.Java_sun_java2d_cmm_lcms_LCMS_colorConvert.1, i64 %27
+  %switch.gep52 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Java_sun_java2d_cmm_lcms_LCMS_colorConvert.1, i64 %27
   %switch.load53 = load i64, ptr %switch.gep52, align 8
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %switch.load53
@@ -1028,7 +1028,7 @@ switch.lookup51:                                  ; preds = %25
 
 switch.lookup54:                                  ; preds = %switch.lookup51, %25
   %33 = zext nneg i32 %11 to i64
-  %switch.gep55 = getelementptr inbounds nuw i64, ptr @switch.table.Java_sun_java2d_cmm_lcms_LCMS_colorConvert.4, i64 %33
+  %switch.gep55 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Java_sun_java2d_cmm_lcms_LCMS_colorConvert.4, i64 %33
   %switch.load56 = load i64, ptr %switch.gep55, align 8
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %switch.load56
@@ -1043,14 +1043,14 @@ switch.lookup57:                                  ; preds = %switch.lookup51
   %40 = getelementptr inbounds i8, ptr %31, i64 %39
   tail call void @cmsDoTransformLineStride(ptr noundef nonnull %14, ptr noundef nonnull %38, ptr noundef nonnull %40, i32 noundef %3, i32 noundef %4, i32 noundef %6, i32 noundef %8, i32 noundef 0, i32 noundef 0) #8
   %41 = zext nneg i32 %11 to i64
-  %switch.gep58 = getelementptr inbounds nuw i64, ptr @switch.table.Java_sun_java2d_cmm_lcms_LCMS_colorConvert.4, i64 %41
+  %switch.gep58 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Java_sun_java2d_cmm_lcms_LCMS_colorConvert.4, i64 %41
   %switch.load59 = load i64, ptr %switch.gep58, align 8
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %switch.load59
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull %23, i32 noundef 2) #8
   %45 = zext nneg i32 %12 to i64
-  %switch.gep61 = getelementptr inbounds nuw i64, ptr @switch.table.Java_sun_java2d_cmm_lcms_LCMS_colorConvert.4, i64 %45
+  %switch.gep61 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Java_sun_java2d_cmm_lcms_LCMS_colorConvert.4, i64 %45
   %switch.load62 = load i64, ptr %switch.gep61, align 8
   %46 = load ptr, ptr %0, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %switch.load62

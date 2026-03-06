@@ -64,21 +64,21 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %46 = load i32, ptr %7, align 4, !tbaa !3
   %narrow = xor i32 %46, -1
   %47 = sext i32 %narrow to i64
-  %48 = getelementptr inbounds double, ptr %6, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %6, i64 %47
   %49 = load i32, ptr %11, align 4, !tbaa !3
   %narrow654 = xor i32 %49, -1
   %50 = sext i32 %narrow654 to i64
-  %51 = getelementptr inbounds double, ptr %10, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %10, i64 %50
   %52 = getelementptr inbounds i8, ptr %14, i64 -8
   %53 = getelementptr inbounds i8, ptr %15, i64 -8
   %54 = load i32, ptr %17, align 4, !tbaa !3
   %narrow656 = xor i32 %54, -1
   %55 = sext i32 %narrow656 to i64
-  %56 = getelementptr inbounds double, ptr %16, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %16, i64 %55
   %57 = load i32, ptr %20, align 4, !tbaa !3
   %narrow655 = xor i32 %57, -1
   %58 = sext i32 %narrow655 to i64
-  %59 = getelementptr inbounds double, ptr %19, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %19, i64 %58
   %60 = getelementptr inbounds i8, ptr %24, i64 -8
   %61 = load i32, ptr %5, align 4, !tbaa !3
   store i32 %61, ptr %27, align 4, !tbaa !3
@@ -165,7 +165,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %112 = mul nsw i32 %108, %46
   %113 = add nsw i32 %109, %112
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds double, ptr %48, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %48, i64 %114
   %116 = load double, ptr %115, align 8, !tbaa !7
   br label %117
 
@@ -178,12 +178,12 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %120 = add i32 %46, 1
   %121 = mul i32 %103, %120
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds double, ptr %48, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %48, i64 %122
   %124 = load double, ptr %123, align 8, !tbaa !7
   %125 = sext i32 %103 to i64
-  %126 = getelementptr inbounds double, ptr %52, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %52, i64 %125
   store double %124, ptr %126, align 8, !tbaa !7
-  %127 = getelementptr inbounds double, ptr %53, i64 %125
+  %127 = getelementptr inbounds [8 x i8], ptr %53, i64 %125
   store double 0.000000e+00, ptr %127, align 8, !tbaa !7
   store i32 1, ptr %12, align 4, !tbaa !3
   store i32 0, ptr %13, align 4, !tbaa !3
@@ -209,7 +209,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %140 = mul nsw i32 %108, %46
   %141 = add nsw i32 %103, %140
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds double, ptr %48, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %48, i64 %142
   store double 0.000000e+00, ptr %143, align 8, !tbaa !7
   br label %.sink.split
 
@@ -217,7 +217,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %145 = mul nsw i32 %109, %46
   %146 = add nsw i32 %145, %109
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds double, ptr %48, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %48, i64 %147
   call void @dlacpy_(ptr noundef nonnull @.str.4, ptr noundef nonnull %41, ptr noundef nonnull %41, ptr noundef %148, ptr noundef nonnull %7, ptr noundef %19, ptr noundef nonnull %20) #6
   %149 = load i32, ptr %41, align 4, !tbaa !3
   %150 = add nsw i32 %149, -1
@@ -231,9 +231,9 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %155 = add nsw i32 %108, 2
   %156 = add nsw i32 %155, %145
   %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds double, ptr %48, i64 %157
+  %158 = getelementptr inbounds [8 x i8], ptr %48, i64 %157
   %159 = sext i32 %57 to i64
-  %160 = getelementptr double, ptr %59, i64 %159
+  %160 = getelementptr [8 x i8], ptr %59, i64 %159
   %161 = getelementptr i8, ptr %160, i64 16
   call void @dcopy_(ptr noundef nonnull %27, ptr noundef %158, ptr noundef nonnull %28, ptr noundef %161, ptr noundef nonnull %29) #6
   call void @dlaset_(ptr noundef nonnull @.str.5, ptr noundef nonnull %41, ptr noundef nonnull %41, ptr noundef nonnull @c_b17, ptr noundef nonnull @c_b18, ptr noundef %16, ptr noundef nonnull %17) #6
@@ -241,8 +241,8 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %163 = load i32, ptr %41, align 4, !tbaa !3
   %164 = icmp sgt i32 %163, %162
   %165 = sext i32 %109 to i64
-  %166 = getelementptr inbounds double, ptr %52, i64 %165
-  %167 = getelementptr inbounds double, ptr %53, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr %52, i64 %165
+  %167 = getelementptr inbounds [8 x i8], ptr %53, i64 %165
   br i1 %164, label %168, label %169
 
 168:                                              ; preds = %144
@@ -268,13 +268,13 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %174 = mul nsw i64 %indvars.iv, %159
-  %175 = getelementptr double, ptr %59, i64 %indvars.iv
+  %175 = getelementptr [8 x i8], ptr %59, i64 %indvars.iv
   %176 = getelementptr i8, ptr %175, i64 16
-  %177 = getelementptr double, ptr %176, i64 %174
+  %177 = getelementptr [8 x i8], ptr %176, i64 %174
   store double 0.000000e+00, ptr %177, align 8, !tbaa !7
-  %178 = getelementptr double, ptr %59, i64 %indvars.iv
+  %178 = getelementptr [8 x i8], ptr %59, i64 %indvars.iv
   %179 = getelementptr i8, ptr %178, i64 24
-  %180 = getelementptr double, ptr %179, i64 %174
+  %180 = getelementptr [8 x i8], ptr %179, i64 %174
   store double 0.000000e+00, ptr %180, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -289,7 +289,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %183 = mul nsw i32 %182, %57
   %184 = add nsw i32 %183, %171
   %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds double, ptr %59, i64 %185
+  %186 = getelementptr inbounds [8 x i8], ptr %59, i64 %185
   store double 0.000000e+00, ptr %186, align 8, !tbaa !7
   br label %187
 
@@ -324,7 +324,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %201 = mul nsw i32 %200, %57
   %202 = add nsw i32 %201, %197
   %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds double, ptr %59, i64 %203
+  %204 = getelementptr inbounds [8 x i8], ptr %59, i64 %203
   %205 = load double, ptr %204, align 8, !tbaa !7
   %206 = fcmp oeq double %205, 0.000000e+00
   br i1 %206, label %.critedge, label %231
@@ -332,7 +332,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .critedge:                                        ; preds = %195, %199
   %207 = mul i32 %197, %191
   %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds double, ptr %59, i64 %208
+  %209 = getelementptr inbounds [8 x i8], ptr %59, i64 %208
   %210 = load double, ptr %209, align 8, !tbaa !7
   %211 = fcmp oge double %210, 0.000000e+00
   %212 = fneg double %210
@@ -342,7 +342,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %215 = fmul double %96, %.0
   %216 = mul nsw i32 %197, %54
   %217 = sext i32 %216 to i64
-  %218 = getelementptr double, ptr %56, i64 %217
+  %218 = getelementptr [8 x i8], ptr %56, i64 %217
   %219 = getelementptr i8, ptr %218, i64 8
   %220 = load double, ptr %219, align 8, !tbaa !7
   %221 = fmul double %.0625, %220
@@ -368,7 +368,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 231:                                              ; preds = %199
   %232 = mul i32 %197, %191
   %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds double, ptr %59, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr %59, i64 %233
   %235 = load double, ptr %234, align 8, !tbaa !7
   %236 = fcmp oge double %235, 0.000000e+00
   %237 = fneg double %235
@@ -382,7 +382,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %245 = mul nsw i32 %243, %57
   %246 = add nsw i32 %244, %245
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds double, ptr %59, i64 %247
+  %248 = getelementptr inbounds [8 x i8], ptr %59, i64 %247
   %249 = load double, ptr %248, align 8, !tbaa !7
   %250 = fcmp oge double %249, 0.000000e+00
   %251 = fneg double %249
@@ -394,7 +394,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %256 = load i32, ptr %12, align 4, !tbaa !3
   %257 = mul nsw i32 %256, %54
   %258 = sext i32 %257 to i64
-  %259 = getelementptr double, ptr %56, i64 %258
+  %259 = getelementptr [8 x i8], ptr %56, i64 %258
   %260 = getelementptr i8, ptr %259, i64 8
   %261 = load double, ptr %260, align 8, !tbaa !7
   %262 = fmul double %.0625, %261
@@ -404,7 +404,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %266 = add nsw i32 %256, -1
   %267 = mul nsw i32 %266, %54
   %268 = sext i32 %267 to i64
-  %269 = getelementptr double, ptr %56, i64 %268
+  %269 = getelementptr [8 x i8], ptr %56, i64 %268
   %270 = getelementptr i8, ptr %269, i64 8
   %271 = load double, ptr %270, align 8, !tbaa !7
   %272 = fmul double %.0625, %271
@@ -468,7 +468,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %303 = mul nsw i32 %298, %57
   %304 = add nsw i32 %303, %301
   %305 = sext i32 %304 to i64
-  %306 = getelementptr inbounds double, ptr %59, i64 %305
+  %306 = getelementptr inbounds [8 x i8], ptr %59, i64 %305
   %307 = load double, ptr %306, align 8, !tbaa !7
   %308 = fcmp oeq double %307, 0.000000e+00
   br i1 %308, label %311, label %309
@@ -485,7 +485,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph686.preheader:                              ; preds = %311
   %312 = mul i32 %296, %293
   %313 = sext i32 %312 to i64
-  %314 = getelementptr inbounds double, ptr %59, i64 %313
+  %314 = getelementptr inbounds [8 x i8], ptr %59, i64 %313
   br label %.lr.ph686
 
 .lr.ph686:                                        ; preds = %.lr.ph686.preheader, %397
@@ -499,7 +499,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 317:                                              ; preds = %.lr.ph686
   %318 = mul i32 %.1632682, %293
   %319 = sext i32 %318 to i64
-  %320 = getelementptr inbounds double, ptr %59, i64 %319
+  %320 = getelementptr inbounds [8 x i8], ptr %59, i64 %319
   %321 = load double, ptr %320, align 8, !tbaa !7
   %322 = fcmp oge double %321, 0.000000e+00
   %323 = fneg double %321
@@ -510,14 +510,14 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %326 = mul nsw i32 %.1632682, %57
   %327 = add nsw i32 %326, %.1632682
   %328 = sext i32 %327 to i64
-  %329 = getelementptr inbounds double, ptr %59, i64 %328
+  %329 = getelementptr inbounds [8 x i8], ptr %59, i64 %328
   %330 = load double, ptr %329, align 8, !tbaa !7
   %331 = fcmp oge double %330, 0.000000e+00
   %332 = fneg double %330
   %333 = select i1 %331, double %330, double %332
   %334 = add nsw i32 %315, %326
   %335 = sext i32 %334 to i64
-  %336 = getelementptr inbounds double, ptr %59, i64 %335
+  %336 = getelementptr inbounds [8 x i8], ptr %59, i64 %335
   %337 = load double, ptr %336, align 8, !tbaa !7
   %338 = fcmp oge double %337, 0.000000e+00
   %339 = fneg double %337
@@ -526,7 +526,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %342 = mul nsw i32 %315, %57
   %343 = add nsw i32 %342, %.1632682
   %344 = sext i32 %343 to i64
-  %345 = getelementptr inbounds double, ptr %59, i64 %344
+  %345 = getelementptr inbounds [8 x i8], ptr %59, i64 %344
   %346 = load double, ptr %345, align 8, !tbaa !7
   %347 = fcmp oge double %346, 0.000000e+00
   %348 = fneg double %346
@@ -552,12 +552,12 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %361 = mul nsw i32 %.1628683, %57
   %362 = add nsw i32 %360, %361
   %363 = sext i32 %362 to i64
-  %364 = getelementptr inbounds double, ptr %59, i64 %363
+  %364 = getelementptr inbounds [8 x i8], ptr %59, i64 %363
   %365 = load double, ptr %364, align 8, !tbaa !7
   %366 = fcmp oeq double %365, 0.000000e+00
   %367 = add nsw i32 %361, %.1628683
   %368 = sext i32 %367 to i64
-  %369 = getelementptr inbounds double, ptr %59, i64 %368
+  %369 = getelementptr inbounds [8 x i8], ptr %59, i64 %368
   %370 = load double, ptr %369, align 8, !tbaa !7
   %371 = fcmp oge double %370, 0.000000e+00
   %372 = fneg double %370
@@ -572,7 +572,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %379 = mul nsw i32 %360, %57
   %380 = add nsw i32 %379, %.1628683
   %381 = sext i32 %380 to i64
-  %382 = getelementptr inbounds double, ptr %59, i64 %381
+  %382 = getelementptr inbounds [8 x i8], ptr %59, i64 %381
   %383 = load double, ptr %382, align 8, !tbaa !7
   %384 = fcmp oge double %383, 0.000000e+00
   %385 = fneg double %383
@@ -607,7 +607,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %399 = mul nsw i32 %.2633, %57
   %400 = add nsw i32 %398, %399
   %401 = sext i32 %400 to i64
-  %402 = getelementptr inbounds double, ptr %59, i64 %401
+  %402 = getelementptr inbounds [8 x i8], ptr %59, i64 %401
   %403 = load double, ptr %402, align 8, !tbaa !7
   %404 = fcmp oeq double %403, 0.000000e+00
   %405 = add nsw i32 %.2633, 2
@@ -641,13 +641,13 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 414:                                              ; preds = %410
   %415 = mul i32 %.3691, %409
   %416 = sext i32 %415 to i64
-  %417 = getelementptr inbounds double, ptr %59, i64 %416
+  %417 = getelementptr inbounds [8 x i8], ptr %59, i64 %416
   %418 = load double, ptr %417, align 8, !tbaa !7
   %419 = add i32 %.3691, %108
   %420 = sext i32 %419 to i64
-  %421 = getelementptr inbounds double, ptr %52, i64 %420
+  %421 = getelementptr inbounds [8 x i8], ptr %52, i64 %420
   store double %418, ptr %421, align 8, !tbaa !7
-  %422 = getelementptr inbounds double, ptr %53, i64 %420
+  %422 = getelementptr inbounds [8 x i8], ptr %53, i64 %420
   store double 0.000000e+00, ptr %422, align 8, !tbaa !7
   %423 = add nsw i32 %.3691, -1
   br label %464
@@ -657,7 +657,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %426 = mul nsw i32 %425, %57
   %427 = add nsw i32 %426, %.3691
   %428 = sext i32 %427 to i64
-  %429 = getelementptr inbounds double, ptr %59, i64 %428
+  %429 = getelementptr inbounds [8 x i8], ptr %59, i64 %428
   %430 = load double, ptr %429, align 8, !tbaa !7
   %431 = fcmp oeq double %430, 0.000000e+00
   br i1 %431, label %432, label %441
@@ -665,42 +665,42 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 432:                                              ; preds = %424
   %433 = mul i32 %.3691, %409
   %434 = sext i32 %433 to i64
-  %435 = getelementptr inbounds double, ptr %59, i64 %434
+  %435 = getelementptr inbounds [8 x i8], ptr %59, i64 %434
   %436 = load double, ptr %435, align 8, !tbaa !7
   %437 = add i32 %.3691, %108
   %438 = sext i32 %437 to i64
-  %439 = getelementptr inbounds double, ptr %52, i64 %438
+  %439 = getelementptr inbounds [8 x i8], ptr %52, i64 %438
   store double %436, ptr %439, align 8, !tbaa !7
-  %440 = getelementptr inbounds double, ptr %53, i64 %438
+  %440 = getelementptr inbounds [8 x i8], ptr %53, i64 %438
   store double 0.000000e+00, ptr %440, align 8, !tbaa !7
   br label %464
 
 441:                                              ; preds = %424
   %442 = add nsw i32 %426, %425
   %443 = sext i32 %442 to i64
-  %444 = getelementptr inbounds double, ptr %59, i64 %443
+  %444 = getelementptr inbounds [8 x i8], ptr %59, i64 %443
   %445 = load double, ptr %444, align 8, !tbaa !7
   store double %445, ptr %35, align 8, !tbaa !7
   store double %430, ptr %37, align 8, !tbaa !7
   %446 = mul nsw i32 %.3691, %57
   %447 = add nsw i32 %425, %446
   %448 = sext i32 %447 to i64
-  %449 = getelementptr inbounds double, ptr %59, i64 %448
+  %449 = getelementptr inbounds [8 x i8], ptr %59, i64 %448
   %450 = load double, ptr %449, align 8, !tbaa !7
   store double %450, ptr %36, align 8, !tbaa !7
   %451 = add nsw i32 %446, %.3691
   %452 = sext i32 %451 to i64
-  %453 = getelementptr inbounds double, ptr %59, i64 %452
+  %453 = getelementptr inbounds [8 x i8], ptr %59, i64 %452
   %454 = load double, ptr %453, align 8, !tbaa !7
   store double %454, ptr %38, align 8, !tbaa !7
   %455 = add i32 %408, %.3691
   %456 = sext i32 %455 to i64
-  %457 = getelementptr inbounds double, ptr %52, i64 %456
-  %458 = getelementptr inbounds double, ptr %53, i64 %456
+  %457 = getelementptr inbounds [8 x i8], ptr %52, i64 %456
+  %458 = getelementptr inbounds [8 x i8], ptr %53, i64 %456
   %459 = add i32 %.3691, %108
   %460 = sext i32 %459 to i64
-  %461 = getelementptr inbounds double, ptr %52, i64 %460
-  %462 = getelementptr inbounds double, ptr %53, i64 %460
+  %461 = getelementptr inbounds [8 x i8], ptr %52, i64 %460
+  %462 = getelementptr inbounds [8 x i8], ptr %53, i64 %460
   call void @dlanv2_(ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %457, ptr noundef nonnull %458, ptr noundef nonnull %461, ptr noundef nonnull %462, ptr noundef nonnull %39, ptr noundef nonnull %40) #6
   %463 = add nsw i32 %.3691, -2
   %.pre711 = load i32, ptr %34, align 4, !tbaa !3
@@ -745,17 +745,17 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   call void @dlaset_(ptr noundef nonnull @.str.9, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull @c_b17, ptr noundef nonnull @c_b17, ptr noundef %478, ptr noundef nonnull %20) #6
   %479 = load i32, ptr %41, align 4, !tbaa !3
   %480 = sext i32 %479 to i64
-  %481 = getelementptr double, ptr %60, i64 %480
+  %481 = getelementptr [8 x i8], ptr %60, i64 %480
   %482 = getelementptr i8, ptr %481, i64 8
   call void @dlarf_(ptr noundef nonnull @.str.9, ptr noundef nonnull %12, ptr noundef nonnull %41, ptr noundef nonnull %24, ptr noundef nonnull @c__1, ptr noundef nonnull %45, ptr noundef %19, ptr noundef nonnull %20, ptr noundef %482) #6
   %483 = load i32, ptr %41, align 4, !tbaa !3
   %484 = sext i32 %483 to i64
-  %485 = getelementptr double, ptr %60, i64 %484
+  %485 = getelementptr [8 x i8], ptr %60, i64 %484
   %486 = getelementptr i8, ptr %485, i64 8
   call void @dlarf_(ptr noundef nonnull @.str, ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %24, ptr noundef nonnull @c__1, ptr noundef nonnull %45, ptr noundef %19, ptr noundef nonnull %20, ptr noundef %486) #6
   %487 = load i32, ptr %41, align 4, !tbaa !3
   %488 = sext i32 %487 to i64
-  %489 = getelementptr double, ptr %60, i64 %488
+  %489 = getelementptr [8 x i8], ptr %60, i64 %488
   %490 = getelementptr i8, ptr %489, i64 8
   call void @dlarf_(ptr noundef nonnull @.str, ptr noundef nonnull %41, ptr noundef nonnull %12, ptr noundef nonnull %24, ptr noundef nonnull @c__1, ptr noundef nonnull %45, ptr noundef %16, ptr noundef nonnull %17, ptr noundef %490) #6
   %491 = load i32, ptr %25, align 4, !tbaa !3
@@ -763,7 +763,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %493 = sub nsw i32 %491, %492
   store i32 %493, ptr %27, align 4, !tbaa !3
   %494 = sext i32 %492 to i64
-  %495 = getelementptr double, ptr %60, i64 %494
+  %495 = getelementptr [8 x i8], ptr %60, i64 %494
   %496 = getelementptr i8, ptr %495, i64 8
   call void @dgehrd_(ptr noundef nonnull %41, ptr noundef nonnull @c__1, ptr noundef nonnull %12, ptr noundef %19, ptr noundef nonnull %20, ptr noundef nonnull %24, ptr noundef %496, ptr noundef nonnull %27, ptr noundef nonnull %31) #6
   br label %497
@@ -778,7 +778,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %502 = mul nsw i32 %108, %46
   %503 = add nsw i32 %109, %502
   %504 = sext i32 %503 to i64
-  %505 = getelementptr inbounds double, ptr %48, i64 %504
+  %505 = getelementptr inbounds [8 x i8], ptr %48, i64 %504
   store double %501, ptr %505, align 8, !tbaa !7
   br label %506
 
@@ -805,7 +805,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %518 = sub nsw i32 %516, %517
   store i32 %518, ptr %27, align 4, !tbaa !3
   %519 = sext i32 %517 to i64
-  %520 = getelementptr double, ptr %60, i64 %519
+  %520 = getelementptr [8 x i8], ptr %60, i64 %519
   %521 = getelementptr i8, ptr %520, i64 8
   call void @dormhr_(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %41, ptr noundef nonnull %12, ptr noundef nonnull @c__1, ptr noundef nonnull %12, ptr noundef %19, ptr noundef nonnull %20, ptr noundef nonnull %24, ptr noundef %16, ptr noundef nonnull %17, ptr noundef %521, ptr noundef nonnull %27, ptr noundef nonnull %31) #6
   br label %522
@@ -839,7 +839,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store i32 %533, ptr %44, align 4, !tbaa !3
   %534 = add nsw i32 %.0634696, %145
   %535 = sext i32 %534 to i64
-  %536 = getelementptr inbounds double, ptr %48, i64 %535
+  %536 = getelementptr inbounds [8 x i8], ptr %48, i64 %535
   call void @dgemm_(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef nonnull %44, ptr noundef nonnull %41, ptr noundef nonnull %41, ptr noundef nonnull @c_b18, ptr noundef %536, ptr noundef nonnull %7, ptr noundef %16, ptr noundef nonnull %17, ptr noundef nonnull @c_b17, ptr noundef %22, ptr noundef %23) #6
   call void @dlacpy_(ptr noundef nonnull @.str.5, ptr noundef nonnull %44, ptr noundef nonnull %41, ptr noundef %22, ptr noundef %23, ptr noundef %536, ptr noundef nonnull %7) #6
   %537 = load i32, ptr %28, align 4, !tbaa !3
@@ -885,7 +885,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %556 = mul nsw i32 %.0637701, %46
   %557 = add nsw i32 %556, %109
   %558 = sext i32 %557 to i64
-  %559 = getelementptr inbounds double, ptr %48, i64 %558
+  %559 = getelementptr inbounds [8 x i8], ptr %48, i64 %558
   call void @dgemm_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, ptr noundef nonnull %41, ptr noundef nonnull %44, ptr noundef nonnull %41, ptr noundef nonnull @c_b18, ptr noundef %16, ptr noundef nonnull %17, ptr noundef %559, ptr noundef nonnull %7, ptr noundef nonnull @c_b17, ptr noundef %19, ptr noundef nonnull %20) #6
   call void @dlacpy_(ptr noundef nonnull @.str.5, ptr noundef nonnull %41, ptr noundef nonnull %44, ptr noundef %19, ptr noundef nonnull %20, ptr noundef %559, ptr noundef nonnull %7) #6
   %560 = load i32, ptr %27, align 4, !tbaa !3
@@ -929,7 +929,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store i32 %579, ptr %44, align 4, !tbaa !3
   %580 = add nsw i32 %.1635705, %574
   %581 = sext i32 %580 to i64
-  %582 = getelementptr inbounds double, ptr %51, i64 %581
+  %582 = getelementptr inbounds [8 x i8], ptr %51, i64 %581
   call void @dgemm_(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1, ptr noundef nonnull %44, ptr noundef nonnull %41, ptr noundef nonnull %41, ptr noundef nonnull @c_b18, ptr noundef %582, ptr noundef nonnull %11, ptr noundef %16, ptr noundef nonnull %17, ptr noundef nonnull @c_b17, ptr noundef %22, ptr noundef nonnull %23) #6
   call void @dlacpy_(ptr noundef nonnull @.str.5, ptr noundef nonnull %44, ptr noundef nonnull %41, ptr noundef %22, ptr noundef nonnull %23, ptr noundef %582, ptr noundef nonnull %11) #6
   %583 = load i32, ptr %28, align 4, !tbaa !3

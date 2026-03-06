@@ -127,20 +127,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
-%struct.Info = type { ptr, i64 }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8 }>
-%"union.std::__detail::__variant::_Variadic_union" = type { %"struct.std::__detail::__variant::_Uninitialized" }
-%"struct.std::__detail::__variant::_Uninitialized" = type { ptr }
-%"class.std::vector.326" = type { %"struct.std::_Vector_base.327" }
-%"struct.std::_Vector_base.327" = type { %"struct.std::_Vector_base<Info, std::allocator<Info>>::_Vector_impl" }
-%"struct.std::_Vector_base<Info, std::allocator<Info>>::_Vector_impl" = type { %"struct.std::_Vector_base<Info, std::allocator<Info>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Info, std::allocator<Info>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::hash_internal::SpyHashStateImpl.340" = type <{ %"class.std::vector.78", %"class.std::shared_ptr", i8, [7 x i8] }>
 %"class.absl::hash_internal::SpyHashStateImpl.343" = type <{ %"class.std::vector.78", %"class.std::shared_ptr", i8, [7 x i8] }>
 %"struct.absl::hash_internal::CombineRaw" = type { i8 }
@@ -3274,7 +3260,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKN4absl4SpanIiEEEES7_EvT_S9_RSaIT0_E.exit: ; p
 _ZNSt12_Vector_baseIN7testing7MatcherIRKN4absl4SpanIiEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl4SpanIiEEEES7_EvT_S9_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !107
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !103
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !106
   ret void
 }
@@ -4400,7 +4386,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !184
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !186
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !188
   ret void
 }
@@ -5141,7 +5127,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.111, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !107
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -5210,7 +5196,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.112, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !107
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -13056,7 +13042,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKN4absl4SpanIKiEEEES8_EvT_SA_RSaIT0_E.exit: ; 
 _ZNSt12_Vector_baseIN7testing7MatcherIRKN4absl4SpanIKiEEEESaIS8_EE13_M_deallocateEPS8_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl4SpanIKiEEEES8_EvT_SA_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !531
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !527
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.151", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !530
   ret void
 }
@@ -14151,7 +14137,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.111, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !531
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.151", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -14220,7 +14206,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.112, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !531
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.151", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -18681,7 +18667,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKN4absl4SpanIcEEEES7_EvT_S9_RSaIT0_E.exit: ; p
 _ZNSt12_Vector_baseIN7testing7MatcherIRKN4absl4SpanIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl4SpanIcEEEES7_EvT_S9_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !900
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !896
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.204", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !899
   ret void
 }
@@ -20162,7 +20148,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.111, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !900
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.204", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -20231,7 +20217,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.112, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !900
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.204", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -21809,7 +21795,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKN4absl4SpanIKcEEEES8_EvT_SA_RSaIT0_E.exit: ; 
 _ZNSt12_Vector_baseIN7testing7MatcherIRKN4absl4SpanIKcEEEESaIS8_EE13_M_deallocateEPS8_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKN4absl4SpanIKcEEEES8_EvT_SA_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !803
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !799
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.238", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !802
   ret void
 }
@@ -22904,7 +22890,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.111, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !803
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.238", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -22973,7 +22959,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKN4
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.112, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !803
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.238", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -41971,8 +41957,8 @@ define internal void @_ZN12_GLOBAL__N_144IntSpanOrderComparisonTest_CompareSpans
   %.sroa.067.0.copyload = load ptr, ptr %75, align 8, !tbaa !353
   %.sroa.268.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.sroa.268.0.copyload = load i64, ptr %.sroa.268.0..sroa_idx, align 8, !tbaa !220
-  %76 = getelementptr inbounds nuw i32, ptr %.sroa.069.0.copyload, i64 %.sroa.270.0.copyload
-  %77 = getelementptr inbounds nuw i32, ptr %.sroa.067.0.copyload, i64 %.sroa.268.0.copyload
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.069.0.copyload, i64 %.sroa.270.0.copyload
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.067.0.copyload, i64 %.sroa.268.0.copyload
   %.idx5.i.i = shl nuw nsw i64 %.sroa.268.0.copyload, 2
   %78 = icmp ult i64 %.sroa.268.0.copyload, %.sroa.270.0.copyload
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.069.0.copyload, i64 %.idx5.i.i
@@ -42152,8 +42138,8 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZN4abslltIKiEEbNS_
   %.sroa.266.0.copyload = load i64, ptr %.sroa.270.0..sroa_idx, align 8, !tbaa !220
   %.sroa.063.0.copyload = load ptr, ptr %75, align 8, !tbaa !353
   %.sroa.264.0.copyload = load i64, ptr %.sroa.268.0..sroa_idx, align 8, !tbaa !220
-  %136 = getelementptr inbounds nuw i32, ptr %.sroa.063.0.copyload, i64 %.sroa.264.0.copyload
-  %137 = getelementptr inbounds nuw i32, ptr %.sroa.065.0.copyload, i64 %.sroa.266.0.copyload
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.063.0.copyload, i64 %.sroa.264.0.copyload
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.065.0.copyload, i64 %.sroa.266.0.copyload
   %.idx5.i.i.i = shl nuw nsw i64 %.sroa.266.0.copyload, 2
   %138 = icmp ult i64 %.sroa.266.0.copyload, %.sroa.264.0.copyload
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.063.0.copyload, i64 %.idx5.i.i.i
@@ -42333,8 +42319,8 @@ _ZN7testing15AssertionResultD2Ev.exit222:         ; preds = %_ZN4abslleIKiEEbNS_
   %.sroa.262.0.copyload = load i64, ptr %.sroa.268.0..sroa_idx, align 8, !tbaa !220
   %.sroa.059.0.copyload = load ptr, ptr %74, align 8, !tbaa !353
   %.sroa.260.0.copyload = load i64, ptr %.sroa.270.0..sroa_idx, align 8, !tbaa !220
-  %195 = getelementptr inbounds nuw i32, ptr %.sroa.059.0.copyload, i64 %.sroa.260.0.copyload
-  %196 = getelementptr inbounds nuw i32, ptr %.sroa.061.0.copyload, i64 %.sroa.262.0.copyload
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.059.0.copyload, i64 %.sroa.260.0.copyload
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.061.0.copyload, i64 %.sroa.262.0.copyload
   %.idx5.i.i.i223 = shl nuw nsw i64 %.sroa.262.0.copyload, 2
   %197 = icmp ult i64 %.sroa.262.0.copyload, %.sroa.260.0.copyload
   %198 = getelementptr inbounds nuw i8, ptr %.sroa.059.0.copyload, i64 %.idx5.i.i.i223
@@ -42514,8 +42500,8 @@ _ZN7testing15AssertionResultD2Ev.exit248:         ; preds = %_ZN4abslgtIKiEEbNS_
   %.sroa.258.0.copyload = load i64, ptr %.sroa.268.0..sroa_idx, align 8, !tbaa !220
   %.sroa.055.0.copyload = load ptr, ptr %74, align 8, !tbaa !353
   %.sroa.256.0.copyload = load i64, ptr %.sroa.270.0..sroa_idx, align 8, !tbaa !220
-  %255 = getelementptr inbounds nuw i32, ptr %.sroa.057.0.copyload, i64 %.sroa.258.0.copyload
-  %256 = getelementptr inbounds nuw i32, ptr %.sroa.055.0.copyload, i64 %.sroa.256.0.copyload
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.057.0.copyload, i64 %.sroa.258.0.copyload
+  %256 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.055.0.copyload, i64 %.sroa.256.0.copyload
   %.idx5.i.i.i249 = shl nuw nsw i64 %.sroa.256.0.copyload, 2
   %257 = icmp ult i64 %.sroa.256.0.copyload, %.sroa.258.0.copyload
   %258 = getelementptr inbounds nuw i8, ptr %.sroa.057.0.copyload, i64 %.idx5.i.i.i249
@@ -42695,8 +42681,8 @@ _ZN7testing15AssertionResultD2Ev.exit275:         ; preds = %_ZN4abslgeIKiEEbNS_
   %.sroa.254.0.copyload = load i64, ptr %.sroa.270.0..sroa_idx, align 8, !tbaa !220
   %.sroa.051.0.copyload = load ptr, ptr %75, align 8, !tbaa !353
   %.sroa.252.0.copyload = load i64, ptr %.sroa.268.0..sroa_idx, align 8, !tbaa !220
-  %314 = getelementptr inbounds nuw i32, ptr %.sroa.051.0.copyload, i64 %.sroa.252.0.copyload
-  %315 = getelementptr inbounds nuw i32, ptr %.sroa.053.0.copyload, i64 %.sroa.254.0.copyload
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.051.0.copyload, i64 %.sroa.252.0.copyload
+  %315 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.053.0.copyload, i64 %.sroa.254.0.copyload
   %.idx5.i.i.i276 = shl nuw nsw i64 %.sroa.254.0.copyload, 2
   %316 = icmp ult i64 %.sroa.254.0.copyload, %.sroa.252.0.copyload
   %317 = getelementptr inbounds nuw i8, ptr %.sroa.051.0.copyload, i64 %.idx5.i.i.i276
@@ -42876,8 +42862,8 @@ _ZN7testing15AssertionResultD2Ev.exit302:         ; preds = %_ZN4abslgtIKiEEbNS_
   %.sroa.250.0.copyload = load i64, ptr %.sroa.268.0..sroa_idx, align 8, !tbaa !220
   %.sroa.047.0.copyload = load ptr, ptr %74, align 8, !tbaa !353
   %.sroa.248.0.copyload = load i64, ptr %.sroa.270.0..sroa_idx, align 8, !tbaa !220
-  %373 = getelementptr inbounds nuw i32, ptr %.sroa.049.0.copyload, i64 %.sroa.250.0.copyload
-  %374 = getelementptr inbounds nuw i32, ptr %.sroa.047.0.copyload, i64 %.sroa.248.0.copyload
+  %373 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.049.0.copyload, i64 %.sroa.250.0.copyload
+  %374 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.047.0.copyload, i64 %.sroa.248.0.copyload
   %.idx5.i.i303 = shl nuw nsw i64 %.sroa.248.0.copyload, 2
   %375 = icmp ult i64 %.sroa.248.0.copyload, %.sroa.250.0.copyload
   %376 = getelementptr inbounds nuw i8, ptr %.sroa.049.0.copyload, i64 %.idx5.i.i303
@@ -43061,8 +43047,8 @@ _ZN7testing15AssertionResultD2Ev.exit329:         ; preds = %_ZN4abslltIKiEEbNS_
   %.sroa.043.0.copyload = load ptr, ptr %433, align 8, !tbaa !353
   %.sroa.244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.sroa.244.0.copyload = load i64, ptr %.sroa.244.0..sroa_idx, align 8, !tbaa !220
-  %434 = getelementptr inbounds nuw i32, ptr %.sroa.045.0.copyload, i64 %.sroa.246.0.copyload
-  %435 = getelementptr inbounds nuw i32, ptr %.sroa.043.0.copyload, i64 %.sroa.244.0.copyload
+  %434 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.045.0.copyload, i64 %.sroa.246.0.copyload
+  %435 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.043.0.copyload, i64 %.sroa.244.0.copyload
   %.idx5.i.i330 = shl nuw nsw i64 %.sroa.244.0.copyload, 2
   %436 = icmp ult i64 %.sroa.244.0.copyload, %.sroa.246.0.copyload
   %437 = getelementptr inbounds nuw i8, ptr %.sroa.045.0.copyload, i64 %.idx5.i.i330
@@ -43242,8 +43228,8 @@ _ZN7testing15AssertionResultD2Ev.exit355:         ; preds = %_ZN4abslltIiEEbNS_4
   %.sroa.242.0.copyload = load i64, ptr %.sroa.246.0..sroa_idx, align 8, !tbaa !220
   %.sroa.039.0.copyload = load ptr, ptr %433, align 8, !tbaa !353
   %.sroa.240.0.copyload = load i64, ptr %.sroa.244.0..sroa_idx, align 8, !tbaa !220
-  %494 = getelementptr inbounds nuw i32, ptr %.sroa.039.0.copyload, i64 %.sroa.240.0.copyload
-  %495 = getelementptr inbounds nuw i32, ptr %.sroa.041.0.copyload, i64 %.sroa.242.0.copyload
+  %494 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.039.0.copyload, i64 %.sroa.240.0.copyload
+  %495 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.041.0.copyload, i64 %.sroa.242.0.copyload
   %.idx5.i.i.i356 = shl nuw nsw i64 %.sroa.242.0.copyload, 2
   %496 = icmp ult i64 %.sroa.242.0.copyload, %.sroa.240.0.copyload
   %497 = getelementptr inbounds nuw i8, ptr %.sroa.039.0.copyload, i64 %.idx5.i.i.i356
@@ -43423,8 +43409,8 @@ _ZN7testing15AssertionResultD2Ev.exit382:         ; preds = %_ZN4abslleIiEEbNS_4
   %.sroa.238.0.copyload = load i64, ptr %.sroa.244.0..sroa_idx, align 8, !tbaa !220
   %.sroa.035.0.copyload = load ptr, ptr %432, align 8, !tbaa !353
   %.sroa.236.0.copyload = load i64, ptr %.sroa.246.0..sroa_idx, align 8, !tbaa !220
-  %553 = getelementptr inbounds nuw i32, ptr %.sroa.035.0.copyload, i64 %.sroa.236.0.copyload
-  %554 = getelementptr inbounds nuw i32, ptr %.sroa.037.0.copyload, i64 %.sroa.238.0.copyload
+  %553 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.035.0.copyload, i64 %.sroa.236.0.copyload
+  %554 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.037.0.copyload, i64 %.sroa.238.0.copyload
   %.idx5.i.i.i383 = shl nuw nsw i64 %.sroa.238.0.copyload, 2
   %555 = icmp ult i64 %.sroa.238.0.copyload, %.sroa.236.0.copyload
   %556 = getelementptr inbounds nuw i8, ptr %.sroa.035.0.copyload, i64 %.idx5.i.i.i383
@@ -43604,8 +43590,8 @@ _ZN7testing15AssertionResultD2Ev.exit408:         ; preds = %_ZN4abslgtIiEEbNS_4
   %.sroa.234.0.copyload = load i64, ptr %.sroa.244.0..sroa_idx, align 8, !tbaa !220
   %.sroa.031.0.copyload = load ptr, ptr %432, align 8, !tbaa !353
   %.sroa.232.0.copyload = load i64, ptr %.sroa.246.0..sroa_idx, align 8, !tbaa !220
-  %613 = getelementptr inbounds nuw i32, ptr %.sroa.033.0.copyload, i64 %.sroa.234.0.copyload
-  %614 = getelementptr inbounds nuw i32, ptr %.sroa.031.0.copyload, i64 %.sroa.232.0.copyload
+  %613 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.033.0.copyload, i64 %.sroa.234.0.copyload
+  %614 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.031.0.copyload, i64 %.sroa.232.0.copyload
   %.idx5.i.i.i409 = shl nuw nsw i64 %.sroa.232.0.copyload, 2
   %615 = icmp ult i64 %.sroa.232.0.copyload, %.sroa.234.0.copyload
   %616 = getelementptr inbounds nuw i8, ptr %.sroa.033.0.copyload, i64 %.idx5.i.i.i409
@@ -43785,8 +43771,8 @@ _ZN7testing15AssertionResultD2Ev.exit435:         ; preds = %_ZN4abslgeIiEEbNS_4
   %.sroa.230.0.copyload = load i64, ptr %.sroa.246.0..sroa_idx, align 8, !tbaa !220
   %.sroa.027.0.copyload = load ptr, ptr %433, align 8, !tbaa !353
   %.sroa.228.0.copyload = load i64, ptr %.sroa.244.0..sroa_idx, align 8, !tbaa !220
-  %672 = getelementptr inbounds nuw i32, ptr %.sroa.027.0.copyload, i64 %.sroa.228.0.copyload
-  %673 = getelementptr inbounds nuw i32, ptr %.sroa.029.0.copyload, i64 %.sroa.230.0.copyload
+  %672 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.027.0.copyload, i64 %.sroa.228.0.copyload
+  %673 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.029.0.copyload, i64 %.sroa.230.0.copyload
   %.idx5.i.i.i436 = shl nuw nsw i64 %.sroa.230.0.copyload, 2
   %674 = icmp ult i64 %.sroa.230.0.copyload, %.sroa.228.0.copyload
   %675 = getelementptr inbounds nuw i8, ptr %.sroa.027.0.copyload, i64 %.idx5.i.i.i436
@@ -43966,8 +43952,8 @@ _ZN7testing15AssertionResultD2Ev.exit462:         ; preds = %_ZN4abslgtIiEEbNS_4
   %.sroa.226.0.copyload = load i64, ptr %.sroa.244.0..sroa_idx, align 8, !tbaa !220
   %.sroa.023.0.copyload = load ptr, ptr %432, align 8, !tbaa !353
   %.sroa.224.0.copyload = load i64, ptr %.sroa.246.0..sroa_idx, align 8, !tbaa !220
-  %731 = getelementptr inbounds nuw i32, ptr %.sroa.025.0.copyload, i64 %.sroa.226.0.copyload
-  %732 = getelementptr inbounds nuw i32, ptr %.sroa.023.0.copyload, i64 %.sroa.224.0.copyload
+  %731 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.025.0.copyload, i64 %.sroa.226.0.copyload
+  %732 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.023.0.copyload, i64 %.sroa.224.0.copyload
   %.idx5.i.i463 = shl nuw nsw i64 %.sroa.224.0.copyload, 2
   %733 = icmp ult i64 %.sroa.224.0.copyload, %.sroa.226.0.copyload
   %734 = getelementptr inbounds nuw i8, ptr %.sroa.025.0.copyload, i64 %.idx5.i.i463
@@ -44147,8 +44133,8 @@ _ZN7testing15AssertionResultD2Ev.exit489:         ; preds = %_ZN4abslltIiEEbNS_4
   %.sroa.222.0.copyload = load i64, ptr %.sroa.270.0..sroa_idx, align 8, !tbaa !220
   %.sroa.019.0.copyload = load ptr, ptr %433, align 8, !tbaa !353
   %.sroa.220.0.copyload = load i64, ptr %.sroa.244.0..sroa_idx, align 8, !tbaa !220
-  %790 = getelementptr inbounds nuw i32, ptr %.sroa.021.0.copyload, i64 %.sroa.222.0.copyload
-  %791 = getelementptr inbounds nuw i32, ptr %.sroa.019.0.copyload, i64 %.sroa.220.0.copyload
+  %790 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.021.0.copyload, i64 %.sroa.222.0.copyload
+  %791 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.019.0.copyload, i64 %.sroa.220.0.copyload
   %.idx5.i.i490 = shl nuw nsw i64 %.sroa.220.0.copyload, 2
   %792 = icmp ult i64 %.sroa.220.0.copyload, %.sroa.222.0.copyload
   %793 = getelementptr inbounds nuw i8, ptr %.sroa.021.0.copyload, i64 %.idx5.i.i490
@@ -44328,8 +44314,8 @@ _ZN7testing15AssertionResultD2Ev.exit515:         ; preds = %_ZN4abslltIiEEbNS_4
   %.sroa.218.0.copyload = load i64, ptr %.sroa.270.0..sroa_idx, align 8, !tbaa !220
   %.sroa.015.0.copyload = load ptr, ptr %433, align 8, !tbaa !353
   %.sroa.216.0.copyload = load i64, ptr %.sroa.244.0..sroa_idx, align 8, !tbaa !220
-  %850 = getelementptr inbounds nuw i32, ptr %.sroa.015.0.copyload, i64 %.sroa.216.0.copyload
-  %851 = getelementptr inbounds nuw i32, ptr %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload
+  %850 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.015.0.copyload, i64 %.sroa.216.0.copyload
+  %851 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload
   %.idx5.i.i.i516 = shl nuw nsw i64 %.sroa.218.0.copyload, 2
   %852 = icmp ult i64 %.sroa.218.0.copyload, %.sroa.216.0.copyload
   %853 = getelementptr inbounds nuw i8, ptr %.sroa.015.0.copyload, i64 %.idx5.i.i.i516
@@ -44509,8 +44495,8 @@ _ZN7testing15AssertionResultD2Ev.exit542:         ; preds = %_ZN4abslleIiEEbNS_4
   %.sroa.214.0.copyload = load i64, ptr %.sroa.244.0..sroa_idx, align 8, !tbaa !220
   %.sroa.011.0.copyload = load ptr, ptr %74, align 8, !tbaa !353
   %.sroa.212.0.copyload = load i64, ptr %.sroa.270.0..sroa_idx, align 8, !tbaa !220
-  %909 = getelementptr inbounds nuw i32, ptr %.sroa.011.0.copyload, i64 %.sroa.212.0.copyload
-  %910 = getelementptr inbounds nuw i32, ptr %.sroa.013.0.copyload, i64 %.sroa.214.0.copyload
+  %909 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.011.0.copyload, i64 %.sroa.212.0.copyload
+  %910 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.013.0.copyload, i64 %.sroa.214.0.copyload
   %.idx5.i.i.i543 = shl nuw nsw i64 %.sroa.214.0.copyload, 2
   %911 = icmp ult i64 %.sroa.214.0.copyload, %.sroa.212.0.copyload
   %912 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.copyload, i64 %.idx5.i.i.i543
@@ -44690,8 +44676,8 @@ _ZN7testing15AssertionResultD2Ev.exit568:         ; preds = %_ZN4abslgtIiEEbNS_4
   %.sroa.210.0.copyload = load i64, ptr %.sroa.244.0..sroa_idx, align 8, !tbaa !220
   %.sroa.07.0.copyload = load ptr, ptr %74, align 8, !tbaa !353
   %.sroa.28.0.copyload = load i64, ptr %.sroa.270.0..sroa_idx, align 8, !tbaa !220
-  %969 = getelementptr inbounds nuw i32, ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload
-  %970 = getelementptr inbounds nuw i32, ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload
+  %969 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload
+  %970 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload
   %.idx5.i.i.i569 = shl nuw nsw i64 %.sroa.28.0.copyload, 2
   %971 = icmp ult i64 %.sroa.28.0.copyload, %.sroa.210.0.copyload
   %972 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.copyload, i64 %.idx5.i.i.i569
@@ -44871,8 +44857,8 @@ _ZN7testing15AssertionResultD2Ev.exit595:         ; preds = %_ZN4abslgeIiEEbNS_4
   %.sroa.26.0.copyload = load i64, ptr %.sroa.270.0..sroa_idx, align 8, !tbaa !220
   %.sroa.03.0.copyload = load ptr, ptr %433, align 8, !tbaa !353
   %.sroa.24.0.copyload = load i64, ptr %.sroa.244.0..sroa_idx, align 8, !tbaa !220
-  %1028 = getelementptr inbounds nuw i32, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload
-  %1029 = getelementptr inbounds nuw i32, ptr %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload
+  %1028 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload
+  %1029 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload
   %.idx5.i.i.i596 = shl nuw nsw i64 %.sroa.26.0.copyload, 2
   %1030 = icmp ult i64 %.sroa.26.0.copyload, %.sroa.24.0.copyload
   %1031 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.copyload, i64 %.idx5.i.i.i596
@@ -45052,8 +45038,8 @@ _ZN7testing15AssertionResultD2Ev.exit621:         ; preds = %_ZN4abslgtIiEEbNS_4
   %.sroa.22.0.copyload = load i64, ptr %.sroa.244.0..sroa_idx, align 8, !tbaa !220
   %.sroa.0.0.copyload = load ptr, ptr %74, align 8, !tbaa !353
   %.sroa.2.0.copyload = load i64, ptr %.sroa.270.0..sroa_idx, align 8, !tbaa !220
-  %1087 = getelementptr inbounds nuw i32, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload
-  %1088 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
+  %1087 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload
+  %1088 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
   %.idx5.i.i622 = shl nuw nsw i64 %.sroa.2.0.copyload, 2
   %1089 = icmp ult i64 %.sroa.2.0.copyload, %.sroa.22.0.copyload
   %1090 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 %.idx5.i.i622
@@ -45365,7 +45351,7 @@ define internal void @_ZN12_GLOBAL__N_155IntSpanOrderComparisonTest_SpanOfConstA
   %56 = ptrtoint ptr %52 to i64
   %57 = sub i64 %55, %56
   %58 = ashr exact i64 %57, 2
-  %59 = getelementptr inbounds nuw i32, ptr %.sroa.021.0.copyload, i64 %.sroa.222.0.copyload
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.021.0.copyload, i64 %.sroa.222.0.copyload
   %60 = icmp ult i64 %58, %.sroa.222.0.copyload
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.021.0.copyload, i64 %57
   %62 = select i1 %60, ptr %61, ptr %59
@@ -45548,7 +45534,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZN4abslltIKiSt6vec
   %121 = ptrtoint ptr %118 to i64
   %122 = sub i64 %120, %121
   %123 = ashr exact i64 %122, 2
-  %124 = getelementptr inbounds nuw i32, ptr %.sroa.019.0.copyload, i64 %.sroa.220.0.copyload
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.019.0.copyload, i64 %.sroa.220.0.copyload
   %.idx5.i.i.i = shl nuw nsw i64 %.sroa.220.0.copyload, 2
   %125 = icmp ult i64 %.sroa.220.0.copyload, %123
   %.v.i.i = select i1 %125, i64 %.idx5.i.i.i, i64 %122
@@ -45732,7 +45718,7 @@ _ZN7testing15AssertionResultD2Ev.exit132:         ; preds = %_ZN4abslleIKiSt6vec
   %184 = ptrtoint ptr %181 to i64
   %185 = sub i64 %183, %184
   %186 = ashr exact i64 %185, 2
-  %187 = getelementptr inbounds nuw i32, ptr %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload
   %188 = icmp ult i64 %186, %.sroa.218.0.copyload
   %189 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload, i64 %185
   %190 = select i1 %188, ptr %189, ptr %187
@@ -45915,7 +45901,7 @@ _ZN7testing15AssertionResultD2Ev.exit157:         ; preds = %_ZN4abslgtIKiSt6vec
   %249 = ptrtoint ptr %246 to i64
   %250 = sub i64 %248, %249
   %251 = ashr exact i64 %250, 2
-  %252 = getelementptr inbounds nuw i32, ptr %.sroa.015.0.copyload, i64 %.sroa.216.0.copyload
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.015.0.copyload, i64 %.sroa.216.0.copyload
   %.idx5.i.i.i158 = shl nuw nsw i64 %.sroa.216.0.copyload, 2
   %253 = icmp ult i64 %.sroa.216.0.copyload, %251
   %.v.i.i159 = select i1 %253, i64 %.idx5.i.i.i158, i64 %250
@@ -46099,7 +46085,7 @@ _ZN7testing15AssertionResultD2Ev.exit185:         ; preds = %_ZN4abslgeIKiSt6vec
   %312 = ptrtoint ptr %309 to i64
   %313 = sub i64 %311, %312
   %314 = ashr exact i64 %313, 2
-  %315 = getelementptr inbounds nuw i32, ptr %.sroa.013.0.copyload, i64 %.sroa.214.0.copyload
+  %315 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.013.0.copyload, i64 %.sroa.214.0.copyload
   %.idx5.i.i.i186 = shl nuw nsw i64 %.sroa.214.0.copyload, 2
   %316 = icmp ult i64 %.sroa.214.0.copyload, %314
   %.v.i.i187 = select i1 %316, i64 %.idx5.i.i.i186, i64 %313
@@ -46283,7 +46269,7 @@ _ZN7testing15AssertionResultD2Ev.exit212:         ; preds = %_ZN4abslgtIKiSt6vec
   %375 = ptrtoint ptr %372 to i64
   %376 = sub i64 %374, %375
   %377 = ashr exact i64 %376, 2
-  %378 = getelementptr inbounds nuw i32, ptr %.sroa.011.0.copyload, i64 %.sroa.212.0.copyload
+  %378 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.011.0.copyload, i64 %.sroa.212.0.copyload
   %.idx5.i.i = shl nuw nsw i64 %.sroa.212.0.copyload, 2
   %379 = icmp ult i64 %.sroa.212.0.copyload, %377
   %.v.i = select i1 %379, i64 %.idx5.i.i, i64 %376
@@ -46464,7 +46450,7 @@ _ZN7testing15AssertionResultD2Ev.exit237:         ; preds = %_ZN4abslltIKiSt6vec
   %.sroa.09.0.copyload = load ptr, ptr %436, align 8, !tbaa !353
   %.sroa.210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.sroa.210.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !220
-  %437 = getelementptr inbounds nuw i32, ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload
+  %437 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload
   %438 = call i64 @llvm.umin.i64(i64 %.sroa.210.0.copyload, i64 3)
   %.v.i238 = shl nuw nsw i64 %438, 2
   %439 = getelementptr inbounds nuw i8, ptr %435, i64 %.v.i238
@@ -46645,7 +46631,7 @@ _ZN7testing15AssertionResultD2Ev.exit263:         ; preds = %_ZN4abslltIKiA3_ivE
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %.sroa.07.0.copyload = load ptr, ptr %436, align 8, !tbaa !353
   %.sroa.28.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !220
-  %495 = getelementptr inbounds nuw i32, ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload
+  %495 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload
   %496 = icmp ugt i64 %.sroa.28.0.copyload, 3
   %497 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.copyload, i64 12
   %498 = select i1 %496, ptr %497, ptr %495
@@ -46822,7 +46808,7 @@ _ZN7testing15AssertionResultD2Ev.exit286:         ; preds = %_ZN4abslleIKiA3_ivE
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %.sroa.05.0.copyload = load ptr, ptr %436, align 8, !tbaa !353
   %.sroa.26.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !220
-  %552 = getelementptr inbounds nuw i32, ptr %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload
+  %552 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload
   %553 = call i64 @llvm.umin.i64(i64 %.sroa.26.0.copyload, i64 3)
   %.v.i.i287 = shl nuw nsw i64 %553, 2
   %554 = getelementptr inbounds nuw i8, ptr %435, i64 %.v.i.i287
@@ -47003,7 +46989,7 @@ _ZN7testing15AssertionResultD2Ev.exit312:         ; preds = %_ZN4abslgtIKiA3_ivE
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %.sroa.03.0.copyload = load ptr, ptr %436, align 8, !tbaa !353
   %.sroa.24.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !220
-  %610 = getelementptr inbounds nuw i32, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload
+  %610 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload
   %611 = icmp ugt i64 %.sroa.24.0.copyload, 3
   %612 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.copyload, i64 12
   %613 = select i1 %611, ptr %612, ptr %610
@@ -47180,7 +47166,7 @@ _ZN7testing15AssertionResultD2Ev.exit339:         ; preds = %_ZN4abslgeIKiA3_ivE
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %.sroa.01.0.copyload = load ptr, ptr %436, align 8, !tbaa !353
   %.sroa.22.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !220
-  %667 = getelementptr inbounds nuw i32, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload
+  %667 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload
   %668 = icmp ugt i64 %.sroa.22.0.copyload, 3
   %669 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 12
   %670 = select i1 %668, ptr %669, ptr %667
@@ -47357,7 +47343,7 @@ _ZN7testing15AssertionResultD2Ev.exit365:         ; preds = %_ZN4abslgtIKiA3_ivE
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %.sroa.0.0.copyload = load ptr, ptr %436, align 8, !tbaa !353
   %.sroa.2.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !220
-  %724 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
+  %724 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
   %725 = icmp ugt i64 %.sroa.2.0.copyload, 3
   %726 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 12
   %727 = select i1 %725, ptr %726, ptr %724
@@ -47662,7 +47648,7 @@ define internal void @_ZN12_GLOBAL__N_157IntSpanOrderComparisonTest_SpanOfMutabl
   %56 = ptrtoint ptr %52 to i64
   %57 = sub i64 %55, %56
   %58 = ashr exact i64 %57, 2
-  %59 = getelementptr inbounds nuw i32, ptr %.sroa.021.0.copyload, i64 %.sroa.222.0.copyload
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.021.0.copyload, i64 %.sroa.222.0.copyload
   %.idx5.i.i = shl nuw nsw i64 %.sroa.222.0.copyload, 2
   %60 = icmp ult i64 %.sroa.222.0.copyload, %58
   %.v.i = select i1 %60, i64 %.idx5.i.i, i64 %57
@@ -47846,7 +47832,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZN4abslltIiSt6vect
   %120 = ptrtoint ptr %117 to i64
   %121 = sub i64 %119, %120
   %122 = ashr exact i64 %121, 2
-  %123 = getelementptr inbounds nuw i32, ptr %.sroa.019.0.copyload, i64 %.sroa.220.0.copyload
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.019.0.copyload, i64 %.sroa.220.0.copyload
   %124 = icmp ult i64 %122, %.sroa.220.0.copyload
   %125 = getelementptr inbounds nuw i8, ptr %.sroa.019.0.copyload, i64 %121
   %126 = select i1 %124, ptr %125, ptr %123
@@ -48029,7 +48015,7 @@ _ZN7testing15AssertionResultD2Ev.exit132:         ; preds = %_ZN4abslleIiSt6vect
   %184 = ptrtoint ptr %181 to i64
   %185 = sub i64 %183, %184
   %186 = ashr exact i64 %185, 2
-  %187 = getelementptr inbounds nuw i32, ptr %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload
   %.idx5.i.i.i = shl nuw nsw i64 %.sroa.218.0.copyload, 2
   %188 = icmp ult i64 %.sroa.218.0.copyload, %186
   %.v.i.i = select i1 %188, i64 %.idx5.i.i.i, i64 %185
@@ -48213,7 +48199,7 @@ _ZN7testing15AssertionResultD2Ev.exit157:         ; preds = %_ZN4abslgtIiSt6vect
   %248 = ptrtoint ptr %245 to i64
   %249 = sub i64 %247, %248
   %250 = ashr exact i64 %249, 2
-  %251 = getelementptr inbounds nuw i32, ptr %.sroa.015.0.copyload, i64 %.sroa.216.0.copyload
+  %251 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.015.0.copyload, i64 %.sroa.216.0.copyload
   %252 = icmp ult i64 %250, %.sroa.216.0.copyload
   %253 = getelementptr inbounds nuw i8, ptr %.sroa.015.0.copyload, i64 %249
   %254 = select i1 %252, ptr %253, ptr %251
@@ -48396,7 +48382,7 @@ _ZN7testing15AssertionResultD2Ev.exit183:         ; preds = %_ZN4abslgeIiSt6vect
   %312 = ptrtoint ptr %309 to i64
   %313 = sub i64 %311, %312
   %314 = ashr exact i64 %313, 2
-  %315 = getelementptr inbounds nuw i32, ptr %.sroa.013.0.copyload, i64 %.sroa.214.0.copyload
+  %315 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.013.0.copyload, i64 %.sroa.214.0.copyload
   %316 = icmp ult i64 %314, %.sroa.214.0.copyload
   %317 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.copyload, i64 %313
   %318 = select i1 %316, ptr %317, ptr %315
@@ -48579,7 +48565,7 @@ _ZN7testing15AssertionResultD2Ev.exit208:         ; preds = %_ZN4abslgtIiSt6vect
   %376 = ptrtoint ptr %373 to i64
   %377 = sub i64 %375, %376
   %378 = ashr exact i64 %377, 2
-  %379 = getelementptr inbounds nuw i32, ptr %.sroa.011.0.copyload, i64 %.sroa.212.0.copyload
+  %379 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.011.0.copyload, i64 %.sroa.212.0.copyload
   %380 = icmp ult i64 %378, %.sroa.212.0.copyload
   %381 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.copyload, i64 %377
   %382 = select i1 %380, ptr %381, ptr %379
@@ -48759,7 +48745,7 @@ _ZN7testing15AssertionResultD2Ev.exit233:         ; preds = %_ZN4abslltIiSt6vect
   %.sroa.210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.sroa.210.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !220
   %438 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %439 = getelementptr inbounds nuw i32, ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload
+  %439 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload
   %440 = icmp ugt i64 %.sroa.210.0.copyload, 3
   %441 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.copyload, i64 12
   %442 = select i1 %440, ptr %441, ptr %439
@@ -48936,7 +48922,7 @@ _ZN7testing15AssertionResultD2Ev.exit255:         ; preds = %_ZN4abslltIiA3_ivEE
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %.sroa.07.0.copyload = load ptr, ptr %437, align 8, !tbaa !353
   %.sroa.28.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !220
-  %497 = getelementptr inbounds nuw i32, ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload
+  %497 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.07.0.copyload, i64 %.sroa.28.0.copyload
   %498 = call i64 @llvm.umin.i64(i64 %.sroa.28.0.copyload, i64 3)
   %.v.i.i256 = shl nuw nsw i64 %498, 2
   %499 = getelementptr inbounds nuw i8, ptr %438, i64 %.v.i.i256
@@ -49117,7 +49103,7 @@ _ZN7testing15AssertionResultD2Ev.exit282:         ; preds = %_ZN4abslleIiA3_ivEE
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %.sroa.05.0.copyload = load ptr, ptr %437, align 8, !tbaa !353
   %.sroa.26.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !220
-  %554 = getelementptr inbounds nuw i32, ptr %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload
+  %554 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload
   %555 = icmp ugt i64 %.sroa.26.0.copyload, 3
   %556 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload, i64 12
   %557 = select i1 %555, ptr %556, ptr %554
@@ -49294,7 +49280,7 @@ _ZN7testing15AssertionResultD2Ev.exit304:         ; preds = %_ZN4abslgtIiA3_ivEE
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %.sroa.03.0.copyload = load ptr, ptr %437, align 8, !tbaa !353
   %.sroa.24.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !220
-  %612 = getelementptr inbounds nuw i32, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload
+  %612 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload
   %613 = call i64 @llvm.umin.i64(i64 %.sroa.24.0.copyload, i64 3)
   %.v.i.i305 = shl nuw nsw i64 %613, 2
   %614 = getelementptr inbounds nuw i8, ptr %438, i64 %.v.i.i305
@@ -49475,7 +49461,7 @@ _ZN7testing15AssertionResultD2Ev.exit333:         ; preds = %_ZN4abslgeIiA3_ivEE
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %.sroa.01.0.copyload = load ptr, ptr %437, align 8, !tbaa !353
   %.sroa.22.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !220
-  %669 = getelementptr inbounds nuw i32, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload
+  %669 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload
   %670 = call i64 @llvm.umin.i64(i64 %.sroa.22.0.copyload, i64 3)
   %.v.i.i334 = shl nuw nsw i64 %670, 2
   %671 = getelementptr inbounds nuw i8, ptr %438, i64 %.v.i.i334
@@ -49656,7 +49642,7 @@ _ZN7testing15AssertionResultD2Ev.exit361:         ; preds = %_ZN4abslgtIiA3_ivEE
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %.sroa.0.0.copyload = load ptr, ptr %437, align 8, !tbaa !353
   %.sroa.2.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !220
-  %726 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
+  %726 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
   %727 = call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload, i64 3)
   %.v.i362 = shl nuw nsw i64 %727, 2
   %728 = getelementptr inbounds nuw i8, ptr %438, i64 %.v.i362
@@ -50010,8 +49996,8 @@ _ZN4abslltIiEEbNS_4SpanIT_EES3_.exit:
   %29 = icmp ne i64 %27, 0
   %.sroa.speculated.i = zext i1 %29 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %.sroa.speculated.i
-  %31 = getelementptr inbounds nuw i32, ptr %28, i64 %27
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.sroa.speculated.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %27
   %.idx5.i.i = shl nuw nsw i64 %27, 2
   %32 = icmp ult i64 %27, %.sroa.speculated.i
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx5.i.i
@@ -50153,7 +50139,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZN4abslltIiEEbNS_4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.015.0.copyload = load ptr, ptr %25, align 8, !tbaa !353
   %.sroa.216.0.copyload = load i64, ptr %26, align 8, !tbaa !220
-  %78 = getelementptr inbounds nuw i32, ptr %.sroa.015.0.copyload, i64 %.sroa.216.0.copyload
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.015.0.copyload, i64 %.sroa.216.0.copyload
   %.idx5.i.i.i = select i1 %29, i64 4, i64 0
   %79 = icmp ugt i64 %.sroa.216.0.copyload, %.sroa.speculated.i
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.015.0.copyload, i64 %.idx5.i.i.i
@@ -50331,7 +50317,7 @@ _ZN7testing15AssertionResultD2Ev.exit96:          ; preds = %_ZN4abslleIiEEbNS_4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.sroa.013.0.copyload = load ptr, ptr %25, align 8, !tbaa !353
   %.sroa.214.0.copyload = load i64, ptr %26, align 8, !tbaa !220
-  %136 = getelementptr inbounds nuw i32, ptr %.sroa.013.0.copyload, i64 %.sroa.214.0.copyload
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.013.0.copyload, i64 %.sroa.214.0.copyload
   %.idx5.i.i.i97 = shl nuw nsw i64 %.sroa.214.0.copyload, 2
   %137 = icmp ult i64 %.sroa.214.0.copyload, %.sroa.speculated.i
   %138 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx5.i.i.i97
@@ -50509,7 +50495,7 @@ _ZN7testing15AssertionResultD2Ev.exit122:         ; preds = %_ZN4abslgtIiEEbNS_4
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.sroa.09.0.copyload = load ptr, ptr %25, align 8, !tbaa !353
   %.sroa.210.0.copyload = load i64, ptr %26, align 8, !tbaa !220
-  %195 = getelementptr inbounds nuw i32, ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.09.0.copyload, i64 %.sroa.210.0.copyload
   %196 = icmp ugt i64 %.sroa.210.0.copyload, %.sroa.speculated.i
   %197 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.copyload, i64 %.idx5.i.i.i
   %198 = select i1 %196, ptr %197, ptr %195
@@ -50686,7 +50672,7 @@ _ZN7testing15AssertionResultD2Ev.exit149:         ; preds = %_ZN4abslgeIiEEbNS_4
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.sroa.03.0.copyload = load ptr, ptr %25, align 8, !tbaa !353
   %.sroa.24.0.copyload = load i64, ptr %26, align 8, !tbaa !220
-  %253 = getelementptr inbounds nuw i32, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload
+  %253 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload
   %254 = icmp ugt i64 %.sroa.24.0.copyload, %.sroa.speculated.i
   %255 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.copyload, i64 %.idx5.i.i.i
   %256 = select i1 %254, ptr %255, ptr %253
@@ -50863,7 +50849,7 @@ _ZN7testing15AssertionResultD2Ev.exit176:         ; preds = %_ZN4abslgtIiEEbNS_4
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %.sroa.01.0.copyload = load ptr, ptr %25, align 8, !tbaa !353
   %.sroa.22.0.copyload = load i64, ptr %26, align 8, !tbaa !220
-  %311 = getelementptr inbounds nuw i32, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload
+  %311 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload
   %312 = icmp ugt i64 %.sroa.22.0.copyload, %.sroa.speculated.i
   %313 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 %.idx5.i.i.i
   %314 = select i1 %312, ptr %313, ptr %311
@@ -52544,7 +52530,7 @@ _ZNSt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt
 _ZNSt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_4SpanIKiEEEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EE17_M_realloc_insertIJSJ_EEEvN9__gnu_cxx17__normal_iteratorIPSJ_SL_EEDpOT_.exit.i.i: ; preds = %143, %_ZNSt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_4SpanIKiEEEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit16.i.i.i
   store ptr %138, ptr %.371, align 8, !tbaa !1287
   store ptr %142, ptr %119, align 8, !tbaa !1295
-  %144 = getelementptr inbounds nuw %struct.Info, ptr %138, i64 %136
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %138, i64 %136
   store ptr %144, ptr %121, align 8, !tbaa !1296
   br label %_ZNSt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_4SpanIKiEEEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EE9push_backEOSJ_.exit
 
@@ -56882,7 +56868,7 @@ _ZNSt6vectorISt7variantIJPKN4absl4SpanIKiEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8
 
 _ZNSt6vectorISt7variantIJPKN4absl4SpanIKiEEEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i: ; preds = %32, %_ZNSt6vectorISt7variantIJPKN4absl4SpanIKiEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i
   store ptr %31, ptr %7, align 8, !tbaa !1574
-  %33 = getelementptr inbounds nuw %"class.std::variant", ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %25
   store ptr %33, ptr %8, align 8, !tbaa !1281
   br label %_ZNSt6vectorISt7variantIJPKN4absl4SpanIKiEEEESaIS7_EE9push_backEOS7_.exit
 
@@ -57445,7 +57431,7 @@ _ZNSt6vectorIS_IZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_
 _ZNSt12_Vector_baseISt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS0_ISt7variantIJPKNS1_4SpanIKiEEEESaISA_EENS2_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISK_EESaISM_EE13_M_deallocateEPSM_m.exit: ; preds = %_ZNSt6vectorIS_IZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_4SpanIKiEEEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EESaISL_EE11_S_relocateEPSL_SO_SO_RSM_.exit21, %41
   store ptr %19, ptr %0, align 8, !tbaa !1332
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8, !tbaa !1294
-  %45 = getelementptr inbounds nuw %"class.std::vector.326", ptr %19, i64 %15
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %15
   store ptr %45, ptr %40, align 8, !tbaa !1292
   ret void
 }
@@ -61279,7 +61265,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit38, %76
   store ptr %24, ptr %0, align 8, !tbaa !184
   store ptr %.0.lcssa.i.i.i37, ptr %6, align 8, !tbaa !186
-  %80 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %24, i64 %18
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %18
   store ptr %80, ptr %75, align 8, !tbaa !188
   ret void
 

@@ -57,9 +57,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
 %"struct.cv::MatSize" = type { ptr }
 %"struct.cv::MatStep" = type { ptr, [2 x i64] }
-%"class.cv::Vec.19" = type { %"class.cv::Matx.20" }
-%"class.cv::Matx.20" = type { [6 x float] }
-%"class.cv::Point_.8" = type { i32, i32 }
 
 $_ZN2cv8Subdiv2DD2Ev = comdat any
 
@@ -536,7 +533,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit.i:  ; preds = %194, %166
 177:                                              ; preds = %194, %.lr.ph.i
   %178 = phi ptr [ %168, %.lr.ph.i ], [ %197, %194 ]
   %.01949.i = phi i64 [ 0, %.lr.ph.i ], [ %195, %194 ]
-  %179 = getelementptr inbounds nuw %"class.cv::Vec.19", ptr %178, i64 %.01949.i
+  %179 = getelementptr inbounds nuw [24 x i8], ptr %178, i64 %.01949.i
   %.sroa.0.0.copyload50.i = load float, ptr %179, align 4, !tbaa !47
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %179, i64 4
   %.sroa.5.0.copyload.i = load float, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !47
@@ -872,7 +869,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit52.i:                ; preds = %273, %270
 275:                                              ; preds = %369, %.lr.ph72.i
   %276 = phi ptr [ %235, %.lr.ph72.i ], [ %372, %369 ]
   %.02770.i = phi i64 [ 0, %.lr.ph72.i ], [ %370, %369 ]
-  %277 = getelementptr inbounds nuw %"class.std::vector.26", ptr %276, i64 %.02770.i
+  %277 = getelementptr inbounds nuw [24 x i8], ptr %276, i64 %.02770.i
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %279 = load ptr, ptr %278, align 8, !tbaa !70
   %280 = load ptr, ptr %277, align 8, !tbaa !66
@@ -960,11 +957,11 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i.i: ; p
 _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i.i: ; preds = %314, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i.i
   %.pre.i = phi ptr [ %.pre.pre.i, %314 ], [ %276, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i.i ]
   store ptr %308, ptr %5, align 8, !tbaa !62
-  %315 = getelementptr inbounds nuw %"class.cv::Point_.8", ptr %309, i64 %293
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %309, i64 %293
   store ptr %315, ptr %236, align 8, !tbaa !71
-  %316 = getelementptr inbounds nuw %"class.cv::Point_.8", ptr %308, i64 %306
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %308, i64 %306
   store ptr %316, ptr %237, align 8, !tbaa !72
-  %.phi.trans.insert.i = getelementptr inbounds nuw %"class.std::vector.26", ptr %.pre.i, i64 %.02770.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [24 x i8], ptr %.pre.i, i64 %.02770.i
   %.phi.trans.insert75.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.i, i64 8
   %.pre76.i = load ptr, ptr %.phi.trans.insert75.i, align 8, !tbaa !70
   %.pre77.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !66
@@ -1002,7 +999,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE6resizeEm.exit.i: ; preds = %321, %319, %317
 .lr.ph.i87:                                       ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE6resizeEm.exit.i, %.lr.ph.i87
   %324 = phi ptr [ %340, %.lr.ph.i87 ], [ %322, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE6resizeEm.exit.i ]
   %.02669.i = phi i64 [ %335, %.lr.ph.i87 ], [ 0, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE6resizeEm.exit.i ]
-  %325 = getelementptr inbounds nuw %"class.cv::Point_", ptr %324, i64 %.02669.i
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %324, i64 %.02669.i
   %326 = load float, ptr %325, align 4, !tbaa !37
   %327 = insertelement <4 x float> poison, float %326, i64 0
   %328 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %327)
@@ -1015,11 +1012,11 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE6resizeEm.exit.i: ; preds = %321, %319, %317
   %.sroa.0.0.insert.ext.i.i90 = zext i32 %328 to i64
   %.sroa.0.0.insert.insert.i.i91 = or disjoint i64 %.sroa.2.0.insert.shift.i.i89, %.sroa.0.0.insert.ext.i.i90
   %333 = load ptr, ptr %5, align 8, !tbaa !62
-  %334 = getelementptr inbounds nuw %"class.cv::Point_.8", ptr %333, i64 %.02669.i
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %.02669.i
   store i64 %.sroa.0.0.insert.insert.i.i91, ptr %334, align 4
   %335 = add nuw i64 %.02669.i, 1
   %336 = load ptr, ptr %2, align 8, !tbaa !61
-  %337 = getelementptr inbounds nuw %"class.std::vector.26", ptr %336, i64 %.02770.i
+  %337 = getelementptr inbounds nuw [24 x i8], ptr %336, i64 %.02770.i
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
   %339 = load ptr, ptr %338, align 8, !tbaa !70
   %340 = load ptr, ptr %337, align 8, !tbaa !66
@@ -1088,7 +1085,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE6resizeEm.exit.i: ; preds = %321, %319, %317
   store i32 50397184, ptr %13, align 8, !tbaa !31
   store ptr %30, ptr %250, align 8, !tbaa !33
   %360 = load ptr, ptr %3, align 8, !tbaa !66
-  %361 = getelementptr inbounds nuw %"class.cv::Point_", ptr %360, i64 %.02770.i
+  %361 = getelementptr inbounds nuw [8 x i8], ptr %360, i64 %.02770.i
   %362 = load float, ptr %361, align 4, !tbaa !37
   %363 = insertelement <4 x float> poison, float %362, i64 0
   %364 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %363)

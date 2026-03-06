@@ -161,7 +161,7 @@ define void @_ZNK4absl12lts_202407224Time2InENS0_8TimeZoneE(ptr dead_on_unwind n
   %.zext10.i = zext nneg i16 %56 to i64
   %sext = shl i64 %.sroa.553.0.copyload, 56
   %57 = ashr exact i64 %sext, 56
-  %58 = getelementptr inbounds i32, ptr @__const._ZN4absl12lts_2024072213time_internal4cctz6detail11get_weekdayERKNS3_10civil_timeINS3_10second_tagEEE.k_weekday_offsets, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr @__const._ZN4absl12lts_2024072213time_internal4cctz6detail11get_weekdayERKNS3_10civil_timeINS3_10second_tagEEE.k_weekday_offsets, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !3
   %60 = add nsw i32 %59, %42
   %61 = sext i32 %60 to i64
@@ -170,7 +170,7 @@ define void @_ZNK4absl12lts_202407224Time2InENS0_8TimeZoneE(ptr dead_on_unwind n
   %64 = add nuw nsw i64 %63, %.zext10.i
   %65 = add nsw i64 %64, %61
   %66 = srem i64 %65, 7
-  %67 = getelementptr i32, ptr @__const._ZN4absl12lts_2024072213time_internal4cctz6detail11get_weekdayERKNS3_10civil_timeINS3_10second_tagEEE.k_weekday_by_mon_off, i64 %66
+  %67 = getelementptr [4 x i8], ptr @__const._ZN4absl12lts_2024072213time_internal4cctz6detail11get_weekdayERKNS3_10civil_timeINS3_10second_tagEEE.k_weekday_by_mon_off, i64 %66
   %68 = getelementptr i8, ptr %67, i64 24
   %69 = load i32, ptr %68, align 4, !tbaa !32
   %switch.tableidx.i = add i32 %69, -1
@@ -197,7 +197,7 @@ define void @_ZNK4absl12lts_202407224Time2InENS0_8TimeZoneE(ptr dead_on_unwind n
 
 _ZN4absl12lts_2024072213time_internal4cctz6detail11get_yeardayERKNS3_10civil_timeINS3_10second_tagEEE.exit: ; preds = %37, %75, %77
   %80 = phi i32 [ 0, %37 ], [ %79, %77 ], [ 1, %75 ]
-  %81 = getelementptr inbounds i32, ptr @__const._ZN4absl12lts_2024072213time_internal4cctz6detail11get_yeardayERKNS3_10civil_timeINS3_10second_tagEEE.k_month_offsets, i64 %57
+  %81 = getelementptr inbounds [4 x i8], ptr @__const._ZN4absl12lts_2024072213time_internal4cctz6detail11get_yeardayERKNS3_10civil_timeINS3_10second_tagEEE.k_month_offsets, i64 %57
   %82 = load i32, ptr %81, align 4, !tbaa !3
   %83 = add nsw i32 %80, %42
   %84 = add i32 %83, %82
@@ -1279,7 +1279,7 @@ _ZNK4absl12lts_202407228TimeZone2AtENS0_4TimeE.exit: ; preds = %14, %11, %16
   %52 = add nuw nsw i64 %51, %.zext10.i.i
   %53 = add nsw i64 %52, %49
   %54 = srem i64 %53, 7
-  %55 = getelementptr i32, ptr @__const._ZN4absl12lts_2024072213time_internal4cctz6detail11get_weekdayERKNS3_10civil_timeINS3_10second_tagEEE.k_weekday_by_mon_off, i64 %54
+  %55 = getelementptr [4 x i8], ptr @__const._ZN4absl12lts_2024072213time_internal4cctz6detail11get_weekdayERKNS3_10civil_timeINS3_10second_tagEEE.k_weekday_by_mon_off, i64 %54
   %56 = getelementptr i8, ptr %55, i64 24
   %57 = load i32, ptr %56, align 4, !tbaa !32
   %58 = icmp ult i32 %57, 7
@@ -1287,7 +1287,7 @@ _ZNK4absl12lts_202407228TimeZone2AtENS0_4TimeE.exit: ; preds = %14, %11, %16
 
 switch.lookup:                                    ; preds = %36
   %59 = zext nneg i32 %57 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4absl12lts_202407224ToTMENS0_4TimeENS0_8TimeZoneE, i64 %59
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4absl12lts_202407224ToTMENS0_4TimeENS0_8TimeZoneE, i64 %59
   %switch.load = load i32, ptr %switch.gep, align 4
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %switch.load, ptr %60, align 8, !tbaa !106
@@ -1745,7 +1745,7 @@ _ZN4absl12lts_2024072213time_internal4cctz6detail4impl13days_per_yearEla.exit122
   %.9 = phi i64 [ %109, %108 ], [ %.173, %.loopexit ]
   %.1 = phi i8 [ %spec.select116, %108 ], [ %1, %.loopexit ]
   %93 = sext i8 %.1 to i64
-  %94 = getelementptr inbounds i32, ptr @__const._ZN4absl12lts_2024072213time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr @__const._ZN4absl12lts_2024072213time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !3
   %96 = icmp eq i8 %.1, 2
   %97 = and i64 %.1091, 3

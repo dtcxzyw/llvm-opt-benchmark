@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.utsname = type { [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8] }
-%struct.hwloc_info_s = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"OSName\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"OSRelease\00", align 1
@@ -35,7 +34,7 @@ define hidden void @hwloc_add_uname_info(ptr noundef %0, ptr noundef %1) local_u
 
 9:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
-  %10 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %7, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(7) @.str) #7
   %.not.not.i = icmp eq i32 %12, 0

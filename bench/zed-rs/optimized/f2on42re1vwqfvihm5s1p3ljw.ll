@@ -419,7 +419,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h7b709a114a38797cE.exit.thr
   %81 = add i64 %.sroa.5.2.lcssa, %78
   %82 = add i64 %.sroa.9.058, -1
   %83 = sub nsw i64 0, %81
-  %84 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { { { ptr, ptr } }, {} }, {} } }, ptr %69, i64 %83
+  %84 = getelementptr inbounds [32 x i8], ptr %69, i64 %83
   %85 = getelementptr inbounds i8, ptr %84, i64 -32
   %.val3.i = load ptr, ptr %85, align 8, !alias.scope !46, !noalias !51, !nonnull !7, !noundef !7
   %86 = getelementptr i8, ptr %84, i64 -24
@@ -443,8 +443,8 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h7b709a114a38797cE.exit.thr
 
 90:                                               ; preds = %90, %.thread37
   %.sroa.0.05.i.i = phi i64 [ 0, %.thread37 ], [ %95, %90 ]
-  %91 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.0.05.i.i
-  %92 = getelementptr inbounds nuw i64, ptr %.sroa.628.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.05.i.i
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.628.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i
   %93 = load i64, ptr %91, align 8
   %94 = load i64, ptr %92, align 8
   store i64 %94, ptr %91, align 8
@@ -632,7 +632,7 @@ _ZN4core3ptr19swap_nonoverlapping17ha9e6744a67e0d91dE.exit.loopexit.i: ; preds =
 _ZN4core3ptr19swap_nonoverlapping17ha9e6744a67e0d91dE.exit.i: ; preds = %_ZN4core3ptr19swap_nonoverlapping17ha9e6744a67e0d91dE.exit.loopexit.i, %166
   %171 = phi ptr [ %.pre.i, %_ZN4core3ptr19swap_nonoverlapping17ha9e6744a67e0d91dE.exit.loopexit.i ], [ %163, %166 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  %172 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { { { ptr, ptr } }, {} }, {} } }, ptr %171, i64 %170
+  %172 = getelementptr inbounds [32 x i8], ptr %171, i64 %170
   %173 = getelementptr inbounds i8, ptr %172, i64 -32
   %.val3.i.i8 = load ptr, ptr %173, align 8, !alias.scope !103, !noalias !108, !nonnull !7, !noundef !7
   %174 = getelementptr i8, ptr %172, i64 -24

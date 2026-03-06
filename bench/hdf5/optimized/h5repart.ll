@@ -75,7 +75,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   %.0166313 = phi i64 [ %.1167, %49 ], [ 1073741824, %2 ]
   %.0185312 = phi i32 [ %.1186, %49 ], [ 0, %2 ]
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %1, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %1, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !10
   %19 = load i8, ptr %18, align 1, !tbaa !13
   %.not460.not.not = icmp ne i8 %19, 45
@@ -210,7 +210,7 @@ sub_1244:                                         ; preds = %sub_1, %.tail
 66:                                               ; preds = %64
   %67 = add nsw i32 %.lcssa303, 1
   %68 = sext i32 %.lcssa303 to i64
-  %69 = getelementptr inbounds ptr, ptr %1, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %1, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !10
   %.not214 = icmp eq ptr %70, null
   br i1 %.not214, label %71, label %74
@@ -265,7 +265,7 @@ sub_1244:                                         ; preds = %sub_1, %.tail
 92:                                               ; preds = %90
   %93 = add nsw i32 %.lcssa303, 2
   %94 = sext i32 %67 to i64
-  %95 = getelementptr inbounds ptr, ptr %1, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %1, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !10
   %.not217 = icmp eq ptr %96, null
   br i1 %.not217, label %97, label %100
@@ -767,12 +767,12 @@ define internal fastcc i64 @get_size(ptr noundef %0, ptr noundef nonnull capture
   %7 = load ptr, ptr %6, align 8, !tbaa !29
   %8 = load i32, ptr %1, align 4, !tbaa !4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %3, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %3, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %13 = load i8, ptr %12, align 1, !tbaa !13
   %14 = sext i8 %13 to i64
-  %15 = getelementptr inbounds i16, ptr %7, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %7, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !31
   %17 = and i16 %16, 2048
   %.not = icmp eq i16 %17, 0
@@ -800,13 +800,13 @@ define internal fastcc i64 @get_size(ptr noundef %0, ptr noundef nonnull capture
 
 26:                                               ; preds = %23
   %27 = sext i32 %24 to i64
-  %28 = getelementptr inbounds ptr, ptr %3, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %3, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !10
   %30 = call i64 @strtol(ptr noundef %29, ptr noundef nonnull %5, i32 noundef 0) #23
   %31 = load ptr, ptr %5, align 8, !tbaa !10
   %32 = load i32, ptr %1, align 4, !tbaa !4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr ptr, ptr %3, i64 %33
+  %34 = getelementptr [8 x i8], ptr %3, i64 %33
   %35 = getelementptr i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !10
   %37 = icmp eq ptr %31, %36

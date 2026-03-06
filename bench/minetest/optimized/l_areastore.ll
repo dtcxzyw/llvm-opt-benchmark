@@ -299,7 +299,7 @@ for.body.preheader.i:                             ; preds = %.noexc
 for.body.i:                                       ; preds = %.noexc11, %for.body.preheader.i
   %i.015.i = phi i64 [ %inc.i, %.noexc11 ], [ 0, %for.body.preheader.i ]
   %4 = load ptr, ptr %res, align 8, !tbaa !22
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %4, i64 %i.015.i
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %4, i64 %i.015.i
   %5 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !4
   %6 = load i32, ptr %5, align 8, !tbaa !23
   %conv.i = uitofp i32 %6 to double
@@ -308,7 +308,7 @@ for.body.i:                                       ; preds = %.noexc11, %for.body
 
 .noexc9:                                          ; preds = %for.body.i
   %7 = load ptr, ptr %res, align 8, !tbaa !22
-  %add.ptr.i13.i = getelementptr inbounds ptr, ptr %7, i64 %i.015.i
+  %add.ptr.i13.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.015.i
   %8 = load ptr, ptr %add.ptr.i13.i, align 8, !tbaa !4
   invoke fastcc void @_ZL9push_areaP9lua_StatePK4Areabb(ptr noundef %L, ptr noundef %8, i1 noundef zeroext %include_corners.0.shrunk, i1 noundef zeroext %include_data.0)
           to label %.noexc10 unwind label %lpad.loopexit
@@ -467,7 +467,7 @@ for.body.preheader.i:                             ; preds = %.noexc
 for.body.i:                                       ; preds = %.noexc22, %for.body.preheader.i
   %i.015.i = phi i64 [ %inc.i, %.noexc22 ], [ 0, %for.body.preheader.i ]
   %5 = load ptr, ptr %res, align 8, !tbaa !22
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %5, i64 %i.015.i
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %i.015.i
   %6 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !4
   %7 = load i32, ptr %6, align 8, !tbaa !23
   %conv.i = uitofp i32 %7 to double
@@ -476,7 +476,7 @@ for.body.i:                                       ; preds = %.noexc22, %for.body
 
 .noexc20:                                         ; preds = %for.body.i
   %8 = load ptr, ptr %res, align 8, !tbaa !22
-  %add.ptr.i13.i = getelementptr inbounds ptr, ptr %8, i64 %i.015.i
+  %add.ptr.i13.i = getelementptr inbounds [8 x i8], ptr %8, i64 %i.015.i
   %9 = load ptr, ptr %add.ptr.i13.i, align 8, !tbaa !4
   invoke fastcc void @_ZL9push_areaP9lua_StatePK4Areabb(ptr noundef %L, ptr noundef %9, i1 noundef zeroext %include_corners.1.shrunk, i1 noundef zeroext %include_data.1)
           to label %.noexc21 unwind label %lpad.loopexit

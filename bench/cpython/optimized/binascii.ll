@@ -1440,7 +1440,7 @@ define internal ptr @binascii_crc_hqx(ptr readnone captures(none) %0, ptr nounde
   %25 = zext i8 %24 to i32
   %26 = xor i32 %22, %25
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr i16, ptr @crctab_hqx, i64 %27
+  %28 = getelementptr [2 x i8], ptr @crctab_hqx, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !31
   %30 = zext i16 %29 to i32
   %31 = xor i32 %21, %30
@@ -1475,7 +1475,7 @@ define internal ptr @binascii_crc_hqx(ptr readnone captures(none) %0, ptr nounde
   %43 = zext i8 %42 to i32
   %44 = xor i32 %40, %43
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr i16, ptr @crctab_hqx, i64 %45
+  %46 = getelementptr [2 x i8], ptr @crctab_hqx, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !31
   %48 = zext i16 %47 to i32
   %49 = xor i32 %39, %48

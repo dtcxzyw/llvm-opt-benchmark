@@ -2042,7 +2042,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIhLi3EEES3_SaIS2_EET0_T_S6_S5_
   br label %.noexc395
 
 .noexc395:                                        ; preds = %659, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIhLi3EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit38.i
-  %660 = getelementptr inbounds nuw %"class.cv::Vec.8", ptr %651, i64 %649
+  %660 = getelementptr inbounds nuw [3 x i8], ptr %651, i64 %649
   br label %_ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE9push_backEOS2_.exit: ; preds = %.preheader.i.i, %.noexc395
@@ -2205,7 +2205,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit398:              ; preds = %681
   %721 = load i64, ptr %720, align 8, !tbaa !10
   %722 = mul i64 %721, %indvars.iv501
   %723 = getelementptr inbounds nuw i8, ptr %719, i64 %722
-  %724 = getelementptr inbounds nuw i32, ptr %723, i64 %indvars.iv
+  %724 = getelementptr inbounds nuw [4 x i8], ptr %723, i64 %indvars.iv
   %725 = load i32, ptr %724, align 4, !tbaa !94
   %726 = icmp sgt i32 %725, 0
   br i1 %726, label %727, label %745
@@ -2223,14 +2223,14 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit398:              ; preds = %681
 
 735:                                              ; preds = %727
   %736 = zext nneg i32 %725 to i64
-  %737 = getelementptr %"class.cv::Vec.8", ptr %.sroa.0434.0.lcssa, i64 %736
+  %737 = getelementptr [3 x i8], ptr %.sroa.0434.0.lcssa, i64 %736
   %738 = getelementptr i8, ptr %737, i64 -3
   %739 = load ptr, ptr %696, align 8, !tbaa !116
   %740 = load ptr, ptr %697, align 8, !tbaa !117
   %741 = load i64, ptr %740, align 8, !tbaa !10
   %742 = mul i64 %741, %indvars.iv501
   %743 = getelementptr inbounds nuw i8, ptr %739, i64 %742
-  %744 = getelementptr inbounds nuw %"class.cv::Vec.8", ptr %743, i64 %indvars.iv
+  %744 = getelementptr inbounds nuw [3 x i8], ptr %743, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %744, ptr noundef nonnull align 1 dereferenceable(3) %738, i64 3, i1 false)
   %.pre519 = load i32, ptr %693, align 4, !tbaa !113
   br label %745
@@ -2649,7 +2649,7 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !117
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i64, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !10
   br label %16

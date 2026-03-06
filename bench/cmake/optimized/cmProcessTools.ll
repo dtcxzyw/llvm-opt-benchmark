@@ -398,7 +398,7 @@ _ZNSt6vectorIN16cmUVProcessChain6StatusESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
 _ZNSt6vectorIN16cmUVProcessChain6StatusESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i: ; preds = %128, %_ZNSt6vectorIN16cmUVProcessChain6StatusESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i.i.i
   store ptr %123, ptr %0, align 8, !tbaa !62
   store ptr %127, ptr %101, align 8, !tbaa !61
-  %129 = getelementptr inbounds nuw %"struct.cmUVProcessChain::Status", ptr %123, i64 %121
+  %129 = getelementptr inbounds nuw [24 x i8], ptr %123, i64 %121
   store ptr %129, ptr %102, align 8, !tbaa !59
   br label %_ZNSt20back_insert_iteratorISt6vectorIN16cmUVProcessChain6StatusESaIS2_EEEaSEOS2_.exit.i
 

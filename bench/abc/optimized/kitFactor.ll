@@ -245,7 +245,7 @@ common.ret20:                                     ; preds = %8, %common.ret
   %10 = sub nsw i32 %2, %9
   %11 = tail call i32 @Kit_SopFactorTrivial_rec(ptr noundef %0, ptr noundef %1, i32 noundef %9, i32 noundef %3)
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds i32, ptr %1, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %1, i64 %12
   %14 = tail call i32 @Kit_SopFactorTrivial_rec(ptr noundef %0, ptr noundef %13, i32 noundef %10, i32 noundef %3)
   %15 = tail call i32 @Kit_GraphAddNodeOr(ptr noundef %0, i32 %11, i32 %14) #8
   br label %common.ret20

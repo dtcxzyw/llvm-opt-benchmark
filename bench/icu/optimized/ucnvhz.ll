@@ -273,7 +273,7 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   %68 = ptrtoint ptr %66 to i64
   %69 = sub i64 %67, %68
   %70 = ashr exact i64 %69, 1
-  %71 = getelementptr inbounds i32, ptr %58, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %58, i64 %70
   store i32 %65, ptr %71, align 4, !tbaa !40
   br label %72
 
@@ -389,7 +389,7 @@ define internal void @_ZL37UConverter_toUnicode_HZ_OFFSETS_LOGICP23UConverterToU
   %124 = ptrtoint ptr %122 to i64
   %125 = sub i64 %123, %124
   %126 = ashr exact i64 %125, 1
-  %127 = getelementptr inbounds i32, ptr %111, i64 %126
+  %127 = getelementptr inbounds [4 x i8], ptr %111, i64 %126
   store i32 %121, ptr %127, align 4, !tbaa !40
   br label %128
 
@@ -517,7 +517,7 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
 
 39:                                               ; preds = %37
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %40 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv
+  %40 = getelementptr inbounds [2 x i8], ptr %5, i64 %indvars.iv
   %41 = load i16, ptr %40, align 2, !tbaa !41
   %42 = icmp eq i16 %41, 126
   %43 = trunc nsw i64 %indvars.iv to i32
@@ -882,7 +882,7 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
 224:                                              ; preds = %220
   %225 = load ptr, ptr %4, align 8, !tbaa !47
   %226 = sext i32 %.0137 to i64
-  %227 = getelementptr inbounds i16, ptr %225, i64 %226
+  %227 = getelementptr inbounds [2 x i8], ptr %225, i64 %226
   %228 = load i16, ptr %227, align 2, !tbaa !41
   %229 = zext i16 %228 to i32
   %230 = and i32 %229, 64512
@@ -936,7 +936,7 @@ define internal void @_ZL39UConverter_fromUnicode_HZ_OFFSETS_LOGICP25UConverterF
   store ptr %247, ptr %6, align 8, !tbaa !49
   %248 = load ptr, ptr %4, align 8, !tbaa !47
   %249 = sext i32 %.2139 to i64
-  %250 = getelementptr inbounds i16, ptr %248, i64 %249
+  %250 = getelementptr inbounds [2 x i8], ptr %248, i64 %249
   store ptr %250, ptr %4, align 8, !tbaa !47
   store i8 %.2162, ptr %27, align 2, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

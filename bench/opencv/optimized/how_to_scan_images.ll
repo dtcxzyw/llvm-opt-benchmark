@@ -31,8 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::MatIterator_.0" = type { %"class.cv::MatConstIterator_.1" }
 %"class.cv::MatConstIterator_.1" = type { %"class.cv::MatConstIterator" }
 %"class.cv::Mat_" = type { %"class.cv::Mat" }
-%"class.cv::Vec" = type { %"class.cv::Matx" }
-%"class.cv::Matx" = type { [3 x i8] }
 
 $_ZN2cv16MatConstIteratorC2EPKNS_3MatE = comdat any
 
@@ -2139,7 +2137,7 @@ _ZN2cv4Mat_INS_3VecIhLi3EEEEC2ERKNS_3MatE.exit:   ; preds = %_ZN2cv4Mat_INS_3Vec
   %75 = load i64, ptr %74, align 8, !tbaa !38
   %76 = mul i64 %75, %indvars.iv61
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 %76
-  %78 = getelementptr inbounds nuw %"class.cv::Vec", ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [3 x i8], ptr %77, i64 %indvars.iv
   %79 = load i8, ptr %78, align 1, !tbaa !33
   %80 = zext i8 %79 to i64
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 %80
@@ -2150,7 +2148,7 @@ _ZN2cv4Mat_INS_3VecIhLi3EEEEC2ERKNS_3MatE.exit:   ; preds = %_ZN2cv4Mat_INS_3Vec
   %85 = load i64, ptr %84, align 8, !tbaa !38
   %86 = mul i64 %85, %indvars.iv61
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 %86
-  %88 = getelementptr inbounds nuw %"class.cv::Vec", ptr %87, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [3 x i8], ptr %87, i64 %indvars.iv
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 1
   %90 = load i8, ptr %89, align 1, !tbaa !33
   %91 = zext i8 %90 to i64
@@ -2162,7 +2160,7 @@ _ZN2cv4Mat_INS_3VecIhLi3EEEEC2ERKNS_3MatE.exit:   ; preds = %_ZN2cv4Mat_INS_3Vec
   %96 = load i64, ptr %95, align 8, !tbaa !38
   %97 = mul i64 %96, %indvars.iv61
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 %97
-  %99 = getelementptr inbounds nuw %"class.cv::Vec", ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [3 x i8], ptr %98, i64 %indvars.iv
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 2
   %101 = load i8, ptr %100, align 1, !tbaa !33
   %102 = zext i8 %101 to i64
@@ -2254,7 +2252,7 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i64, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !38
   br label %16

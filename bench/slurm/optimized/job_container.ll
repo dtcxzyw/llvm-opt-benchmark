@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
-%struct.job_container_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [14 x i8] c"job_container\00", align 1
 @g_container_context_lock = internal global %union.pthread_mutex_t zeroinitializer, align 8
@@ -105,15 +104,15 @@ define dso_local range(i32 -1, 1) i32 @job_container_init() local_unnamed_addr #
   %33 = load ptr, ptr @ops, align 8
   %34 = load i32, ptr @g_container_context_num, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.job_container_ops, ptr %33, i64 %35
+  %36 = getelementptr inbounds [56 x i8], ptr %33, i64 %35
   %37 = call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef %32, ptr noundef %36, ptr noundef nonnull @syms, i64 noundef 56) #7
   %38 = load ptr, ptr @g_container_context, align 8
   %39 = load i32, ptr @g_container_context_num, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %38, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %38, i64 %40
   store ptr %37, ptr %41, align 8
   %42 = load ptr, ptr @g_container_context, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %40
+  %43 = getelementptr inbounds [8 x i8], ptr %42, i64 %40
   %44 = load ptr, ptr %43, align 8
   %.not15 = icmp eq ptr %44, null
   br i1 %.not15, label %45, label %48
@@ -218,7 +217,7 @@ define dso_local range(i32 -1, 1) i32 @job_container_fini() local_unnamed_addr #
   %9 = phi ptr [ %16, %14 ], [ %5, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.preheader ]
   %.0917 = phi i32 [ %.1, %14 ], [ 0, %.preheader ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not15 = icmp eq ptr %11, null
   br i1 %.not15, label %14, label %12
@@ -274,7 +273,7 @@ define dso_local i32 @container_g_join(ptr noundef %0, i32 noundef %1, i1 nounde
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %6 = load ptr, ptr @ops, align 8
-  %7 = getelementptr inbounds nuw %struct.job_container_ops, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [56 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -299,7 +298,7 @@ define dso_local i32 @container_g_join_external(i32 noundef %0) local_unnamed_ad
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @ops, align 8
-  %5 = getelementptr inbounds nuw %struct.job_container_ops, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [56 x i8], ptr %4, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(i32 noundef %0) #7
@@ -325,7 +324,7 @@ define dso_local i32 @container_g_restore(ptr noundef %0, i1 noundef zeroext %1)
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %5 = load ptr, ptr @ops, align 8
-  %6 = getelementptr inbounds nuw %struct.job_container_ops, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0, i1 noundef zeroext %1) #7
@@ -351,7 +350,7 @@ define dso_local i32 @container_g_stepd_create(i32 noundef %0, ptr noundef %1) l
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %5 = load ptr, ptr @ops, align 8
-  %6 = getelementptr inbounds nuw %struct.job_container_ops, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(i32 noundef %0, ptr noundef %1) #7
@@ -377,7 +376,7 @@ define dso_local i32 @container_g_stepd_delete(i32 noundef %0) local_unnamed_add
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @ops, align 8
-  %5 = getelementptr inbounds nuw %struct.job_container_ops, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [56 x i8], ptr %4, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(i32 noundef %0) #7
@@ -403,7 +402,7 @@ define dso_local i32 @container_g_send_stepd(i32 noundef %0) local_unnamed_addr 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @ops, align 8
-  %5 = getelementptr inbounds nuw %struct.job_container_ops, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [56 x i8], ptr %4, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(i32 noundef %0) #7
@@ -429,7 +428,7 @@ define dso_local i32 @container_g_recv_stepd(i32 noundef %0) local_unnamed_addr 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @ops, align 8
-  %5 = getelementptr inbounds nuw %struct.job_container_ops, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [56 x i8], ptr %4, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(i32 noundef %0) #7

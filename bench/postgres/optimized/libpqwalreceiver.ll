@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.WalReceiverFunctionsType = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.PQExpBufferData = type { ptr, i64, i64 }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
-%union.ListCell = type { ptr }
 
 @Pg_magic_func.Pg_magic_data = internal constant %struct.Pg_magic_struct { i32 56, i32 1800, i32 100, i32 32, i32 64, i32 1, [32 x i8] c"PostgreSQL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 4
 @WalReceiverFunctions = external local_unnamed_addr global ptr, align 8
@@ -186,15 +185,15 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
 20:                                               ; preds = %.sink.split, %6
   %.057 = phi i32 [ 1, %6 ], [ %.057.ph, %.sink.split ]
   %21 = zext nneg i32 %.057 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %7, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %21
   store ptr @.str.9, ptr %22, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %8, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %21
   store ptr %4, ptr %23, align 8
   %24 = add nuw nsw i32 %.057, 1
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %7, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %25
   store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %8, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %25
   store ptr null, ptr %27, align 8
   %28 = tail call ptr @palloc0(i64 noundef 24) #10
   %29 = call ptr @PQconnectStartParams(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 1) #10
@@ -811,7 +810,7 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr noundef readonly
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %61 ], [ 0, %.lr.ph.i ]
   %.0193234.i = phi i1 [ false, %61 ], [ true, %.lr.ph.i ]
   %52 = load ptr, ptr %49, align 8
-  %53 = getelementptr inbounds nuw %union.ListCell, ptr %52, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv.i
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
@@ -1282,7 +1281,7 @@ define internal ptr @libpqrcv_create_slot(ptr noundef readonly captures(none) %0
 
 switch.lookup:                                    ; preds = %.thread31
   %26 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.libpqrcv_create_slot, i64 %26
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.libpqrcv_create_slot, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef nonnull %switch.load) #10
   br label %27
@@ -1490,7 +1489,7 @@ define internal ptr @libpqrcv_exec(ptr noundef readonly captures(none) %0, ptr n
   %33 = trunc i64 %indvars.iv.i to i16
   %34 = add i16 %33, 1
   %35 = tail call ptr @PQfname(ptr noundef %15, i32 noundef %32) #10
-  %36 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   %37 = load i32, ptr %36, align 4
   tail call void @TupleDescInitEntry(ptr noundef %31, i16 noundef signext %34, ptr noundef %35, i32 noundef %37, i32 noundef -1, i32 noundef 0) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1543,7 +1542,7 @@ define internal ptr @libpqrcv_exec(ptr noundef readonly captures(none) %0, ptr n
 
 53:                                               ; preds = %51, %48
   %.sink.i = phi ptr [ %52, %51 ], [ null, %48 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv57.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv57.i
   store ptr %.sink.i, ptr %54, align 8
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count60.i

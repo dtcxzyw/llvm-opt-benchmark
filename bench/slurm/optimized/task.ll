@@ -71,7 +71,7 @@ define dso_local void @exec_task(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -107,7 +107,7 @@ define dso_local void @exec_task(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.not191 = icmp eq i64 %indvars.iv, 0
   %25 = select i1 %.not191, ptr @.str.2, ptr @.str.1
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 60
   %30 = load i32, ptr %29, align 4
@@ -387,7 +387,7 @@ define dso_local void @exec_task(ptr noundef %0, i32 noundef %1) local_unnamed_a
   store i32 %222, ptr %223, align 16
   %224 = load i32, ptr %17, align 8
   %225 = load ptr, ptr %6, align 8
-  %226 = getelementptr inbounds ptr, ptr %225, i64 %8
+  %226 = getelementptr inbounds [8 x i8], ptr %225, i64 %8
   %227 = load ptr, ptr %226, align 8
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 60
   %229 = load i32, ptr %228, align 4
@@ -407,7 +407,7 @@ define dso_local void @exec_task(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %238 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %237, ptr %238, align 16
   %239 = load ptr, ptr %6, align 8
-  %240 = getelementptr inbounds ptr, ptr %239, i64 %8
+  %240 = getelementptr inbounds [8 x i8], ptr %239, i64 %8
   %241 = load ptr, ptr %240, align 8
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 60
   %243 = load i32, ptr %242, align 4
@@ -878,7 +878,7 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   %.172.i = phi ptr [ %46, %45 ], [ %55, %49 ]
   %50 = load i8, ptr %.172.i, align 1
   %51 = sext i8 %50 to i64
-  %52 = getelementptr inbounds i16, ptr %48, i64 %51
+  %52 = getelementptr inbounds [2 x i8], ptr %48, i64 %51
   %53 = load i16, ptr %52, align 2
   %54 = and i16 %53, 8192
   %.not86.i = icmp eq i16 %54, 0
@@ -967,7 +967,7 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   %.076.i = phi ptr [ %84, %83 ], [ %93, %87 ]
   %88 = load i8, ptr %.076.i, align 1
   %89 = sext i8 %88 to i64
-  %90 = getelementptr inbounds i16, ptr %86, i64 %89
+  %90 = getelementptr inbounds [2 x i8], ptr %86, i64 %89
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 8192
   %.not91.i = icmp eq i16 %92, 0
@@ -986,7 +986,7 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   %97 = getelementptr inbounds i8, ptr %.073.i, i64 -1
   %98 = load i8, ptr %97, align 1
   %99 = sext i8 %98 to i64
-  %100 = getelementptr inbounds i16, ptr %86, i64 %99
+  %100 = getelementptr inbounds [2 x i8], ptr %86, i64 %99
   %101 = load i16, ptr %100, align 2
   %102 = and i16 %101, 8192
   %.not93.i = icmp eq i16 %102, 0
@@ -1032,7 +1032,7 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   %.177.i = phi ptr [ %116, %115 ], [ %125, %119 ]
   %120 = load i8, ptr %.177.i, align 1
   %121 = sext i8 %120 to i64
-  %122 = getelementptr inbounds i16, ptr %118, i64 %121
+  %122 = getelementptr inbounds [2 x i8], ptr %118, i64 %121
   %123 = load i16, ptr %122, align 2
   %124 = and i16 %123, 8192
   %.not96.i = icmp eq i16 %124, 0
@@ -1050,7 +1050,7 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   %127 = getelementptr inbounds i8, ptr %.2.i, i64 -1
   %128 = load i8, ptr %127, align 1
   %129 = sext i8 %128 to i64
-  %130 = getelementptr inbounds i16, ptr %118, i64 %129
+  %130 = getelementptr inbounds [2 x i8], ptr %118, i64 %129
   %131 = load i16, ptr %130, align 2
   %132 = and i16 %131, 8192
   %.not97.i = icmp eq i16 %132, 0

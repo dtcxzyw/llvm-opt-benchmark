@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
-%struct.slurm_bb_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
 
 @.str = private unnamed_addr constant [13 x i8] c"burst_buffer\00", align 1
@@ -139,15 +138,15 @@ define dso_local range(i32 -1, 1) i32 @bb_g_init() local_unnamed_addr #0 {
   %33 = load ptr, ptr @ops, align 8
   %34 = load i32, ptr @g_context_cnt, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.slurm_bb_ops, ptr %33, i64 %35
+  %36 = getelementptr inbounds [160 x i8], ptr %33, i64 %35
   %37 = call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef %32, ptr noundef %36, ptr noundef nonnull @syms, i64 noundef 160) #11
   %38 = load ptr, ptr @g_context, align 8
   %39 = load i32, ptr @g_context_cnt, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %38, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %38, i64 %40
   store ptr %37, ptr %41, align 8
   %42 = load ptr, ptr @g_context, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %40
+  %43 = getelementptr inbounds [8 x i8], ptr %42, i64 %40
   %44 = load ptr, ptr %43, align 8
   %.not14 = icmp eq ptr %44, null
   br i1 %.not14, label %45, label %48
@@ -267,7 +266,7 @@ define dso_local i32 @bb_g_fini() local_unnamed_addr #0 {
   %8 = phi ptr [ %.pre22, %.lr.ph.preheader ], [ %15, %13 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
   %.01119 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %13 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not16 = icmp eq ptr %10, null
   br i1 %.not16, label %13, label %11
@@ -345,7 +344,7 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_load_state(i1 noundef zeroe
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr @ops, align 8
-  %13 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [160 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(i1 noundef zeroext %0) #11
@@ -426,7 +425,7 @@ define dso_local ptr @bb_g_get_status(i32 noundef %0, ptr noundef %1, i32 nounde
 .lr.ph:                                           ; preds = %.preheader, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.preheader ]
   %17 = load ptr, ptr @ops, align 8
-  %18 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [160 x i8], ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr %20(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #11
@@ -517,7 +516,7 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_state_pack(i32 noundef %0, 
   %.02937 = phi i32 [ 0, %.lr.ph.preheader ], [ %24, %.lr.ph ]
   %.03036 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %17 = load ptr, ptr @ops, align 8
-  %18 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [160 x i8], ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 %20(i32 noundef %0, ptr noundef nonnull %1, i16 noundef zeroext %2) #11
@@ -603,7 +602,7 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_reconfig() local_unnamed_ad
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %11 = load ptr, ptr @ops, align 8
-  %12 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [160 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14() #11
@@ -669,7 +668,7 @@ define dso_local i64 @bb_g_get_system_size(ptr noundef %0) local_unnamed_addr #0
   %8 = phi i32 [ %4, %.lr.ph.preheader ], [ %24, %23 ]
   %9 = phi ptr [ %.pre24, %.lr.ph.preheader ], [ %25, %23 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not18 = icmp eq ptr %11, null
   br i1 %.not18, label %23, label %12
@@ -689,7 +688,7 @@ define dso_local i64 @bb_g_get_system_size(ptr noundef %0) local_unnamed_addr #0
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr @ops, align 8
-  %19 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [160 x i8], ptr %18, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i64 %21() #11
@@ -752,7 +751,7 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_job_validate(ptr noundef %0
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.01418 = phi i32 [ %19, %.lr.ph ], [ 0, %.preheader ]
   %14 = load ptr, ptr @ops, align 8
-  %15 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [160 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %0, i32 noundef %1, ptr noundef %2) #11
@@ -816,7 +815,7 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_job_validate2(ptr noundef %
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.01317 = phi i32 [ %18, %.lr.ph ], [ 0, %.preheader ]
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [160 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #11
@@ -946,7 +945,7 @@ define dso_local void @bb_g_job_set_tres_cnt(ptr noundef %0, ptr noundef %1, i1 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %14 = load ptr, ptr @ops, align 8
-  %15 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [160 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #11
@@ -1009,7 +1008,7 @@ define dso_local i64 @bb_g_job_get_est_start(ptr noundef %0) local_unnamed_addr 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.01216 = phi i64 [ %18, %.lr.ph ], [ %6, %.preheader ]
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [160 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 %16(ptr noundef %0) #11
@@ -1127,7 +1126,7 @@ define dso_local range(i32 1, -2147483648) i32 @bb_g_job_try_stage_in() local_un
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph39 ], [ 0, %.preheader ]
   %.02537 = phi i32 [ %42, %.lr.ph39 ], [ 1, %.preheader ]
   %37 = load ptr, ptr @ops, align 8
-  %38 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [160 x i8], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 80
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 %40(ptr noundef %7) #11
@@ -1225,7 +1224,7 @@ define dso_local range(i32 -2147483648, 2) i32 @bb_g_job_test_stage_in(ptr nound
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.01317 = phi i32 [ %18, %.lr.ph ], [ 1, %.preheader ]
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [160 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef %0, i1 noundef zeroext %1) #11
@@ -1289,7 +1288,7 @@ define dso_local i32 @bb_g_job_begin(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.01016 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr @ops, align 8
-  %13 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [160 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0) #11
@@ -1354,7 +1353,7 @@ define dso_local i32 @bb_g_job_revoke_alloc(ptr noundef %0) local_unnamed_addr #
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.01016 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr @ops, align 8
-  %13 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [160 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0) #11
@@ -1419,7 +1418,7 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_job_start_stage_out(ptr nou
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.01216 = phi i32 [ %17, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr @ops, align 8
-  %13 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [160 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0) #11
@@ -1494,7 +1493,7 @@ define dso_local range(i32 -2147483648, 2) i32 @bb_g_job_test_post_run(ptr nound
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.01722 = phi i32 [ %24, %.lr.ph ], [ 1, %.preheader ]
   %19 = load ptr, ptr @ops, align 8
-  %20 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [160 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 120
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %0) #11
@@ -1573,7 +1572,7 @@ define dso_local range(i32 -2147483648, 2) i32 @bb_g_job_test_stage_out(ptr noun
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.02128 = phi i32 [ %24, %.lr.ph ], [ 1, %.preheader ]
   %19 = load ptr, ptr @ops, align 8
-  %20 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [160 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %0) #11
@@ -1658,7 +1657,7 @@ define dso_local range(i32 0, -2147483648) i32 @bb_g_job_cancel(ptr noundef %0) 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.01216 = phi i32 [ %17, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr @ops, align 8
-  %13 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [160 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 136
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0) #11
@@ -1718,7 +1717,7 @@ define dso_local i32 @bb_g_run_script(ptr noundef %0, i32 noundef %1, i32 nounde
 .lr.ph:                                           ; preds = %.preheader, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %.preheader ]
   %16 = load ptr, ptr @ops, align 8
-  %17 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [160 x i8], ptr %16, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 144
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #11
@@ -1776,7 +1775,7 @@ define dso_local ptr @bb_g_xlate_bb_2_tres_str(ptr noundef %0) local_unnamed_add
 .lr.ph:                                           ; preds = %.preheader, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.preheader ]
   %14 = load ptr, ptr @ops, align 8
-  %15 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [160 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr %17(ptr noundef %0) #11

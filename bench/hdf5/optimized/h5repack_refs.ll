@@ -8,11 +8,8 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
 %union.anon.1 = type { ptr }
-%struct.trav_obj_t = type { %struct.H5O_token_t, [2 x i32], i8, ptr, i32, ptr, i64, i64 }
-%struct.trav_link_t = type { ptr }
 %struct.hdset_reg_ref_t = type { [12 x i8] }
 %union.anon.2 = type { ptr }
-%struct.hvl_t = type { i64, ptr }
 %union.anon.3 = type { ptr }
 
 @enable_error_stack = external local_unnamed_addr global i32, align 4
@@ -127,7 +124,7 @@ define dso_local range(i32 -1, 1) i32 @do_copy_refobjs(i64 noundef %0, i64 nound
   %.03161153 = phi i64 [ -1, %.lr.ph1164 ], [ %.2318, %.loopexit ]
   %.03191152 = phi i64 [ -1, %.lr.ph1164 ], [ %.6325, %.loopexit ]
   %28 = load ptr, ptr %22, align 8, !tbaa !13
-  %29 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [72 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load i32, ptr %30, align 8, !tbaa !14
   switch i32 %31, label %.loopexit [
@@ -173,7 +170,7 @@ define dso_local range(i32 -1, 1) i32 @do_copy_refobjs(i64 noundef %0, i64 nound
 
 53:                                               ; preds = %32
   %54 = load ptr, ptr %22, align 8, !tbaa !13
-  %55 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %54, i64 %27
+  %55 = getelementptr inbounds nuw [72 x i8], ptr %54, i64 %27
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = load ptr, ptr %56, align 8, !tbaa !21
   %58 = call i64 @H5Gopen2(i64 noundef %0, ptr noundef %57, i64 noundef 0) #9
@@ -301,7 +298,7 @@ define dso_local range(i32 -1, 1) i32 @do_copy_refobjs(i64 noundef %0, i64 nound
 
 133:                                              ; preds = %114
   %134 = load ptr, ptr %22, align 8, !tbaa !13
-  %135 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %134, i64 %27
+  %135 = getelementptr inbounds nuw [72 x i8], ptr %134, i64 %27
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 64
   %137 = load i64, ptr %136, align 8, !tbaa !26
   %.not503 = icmp eq i64 %137, 0
@@ -315,13 +312,13 @@ define dso_local range(i32 -1, 1) i32 @do_copy_refobjs(i64 noundef %0, i64 nound
   %141 = load ptr, ptr %140, align 8, !tbaa !21
   %142 = getelementptr inbounds nuw i8, ptr %138, i64 48
   %143 = load ptr, ptr %142, align 8, !tbaa !27
-  %144 = getelementptr inbounds nuw %struct.trav_link_t, ptr %143, i64 %139
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %139
   %145 = load ptr, ptr %144, align 8, !tbaa !28
   %146 = call i32 @H5Lcreate_hard(i64 noundef %1, ptr noundef %141, i64 noundef 0, ptr noundef %145, i64 noundef 0, i64 noundef 0) #9
   %147 = add i32 %.02941150, 1
   %148 = zext i32 %147 to i64
   %149 = load ptr, ptr %22, align 8, !tbaa !13
-  %150 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %149, i64 %27
+  %150 = getelementptr inbounds nuw [72 x i8], ptr %149, i64 %27
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 64
   %152 = load i64, ptr %151, align 8, !tbaa !26
   %153 = icmp ugt i64 %152, %148
@@ -526,7 +523,7 @@ define dso_local range(i32 -1, 1) i32 @do_copy_refobjs(i64 noundef %0, i64 nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03001142 = phi i64 [ 1, %.lr.ph.preheader ], [ %272, %.lr.ph ]
-  %270 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %271 = load i64, ptr %270, align 8, !tbaa !23
   %272 = mul i64 %271, %.03001142
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -732,7 +729,7 @@ define dso_local range(i32 -1, 1) i32 @do_copy_refobjs(i64 noundef %0, i64 nound
   br label %386
 
 386:                                              ; preds = %383, %380
-  %387 = getelementptr inbounds nuw i64, ptr %320, i64 %377
+  %387 = getelementptr inbounds nuw [8 x i8], ptr %320, i64 %377
   %388 = call i64 @H5Rdereference2(i64 noundef %157, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %387) #9
   %389 = icmp slt i64 %388, 0
   br i1 %389, label %398, label %390
@@ -771,7 +768,7 @@ define dso_local range(i32 -1, 1) i32 @do_copy_refobjs(i64 noundef %0, i64 nound
   %402 = phi i64 [ %421, %418 ], [ 0, %399 ]
   %.01829.i = phi i32 [ %420, %418 ], [ 0, %399 ]
   %403 = load ptr, ptr %22, align 8, !tbaa !13
-  %404 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %403, i64 %402
+  %404 = getelementptr inbounds nuw [72 x i8], ptr %403, i64 %402
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 40
   %406 = load i32, ptr %405, align 8, !tbaa !14
   %switch.i = icmp ult i32 %406, 3
@@ -786,7 +783,7 @@ define dso_local range(i32 -1, 1) i32 @do_copy_refobjs(i64 noundef %0, i64 nound
 
 410:                                              ; preds = %407
   %411 = load ptr, ptr %22, align 8, !tbaa !13
-  %412 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %411, i64 %402
+  %412 = getelementptr inbounds nuw [72 x i8], ptr %411, i64 %402
   %413 = call i32 @H5Otoken_cmp(i64 noundef %388, ptr noundef nonnull %23, ptr noundef %412, ptr noundef nonnull %8) #9
   %414 = icmp slt i32 %413, 0
   br i1 %414, label %MapIdToName.exit.thread530, label %415
@@ -816,7 +813,7 @@ MapIdToName.exit.thread530:                       ; preds = %410, %407
 
 MapIdToName.exit:                                 ; preds = %415
   %423 = load ptr, ptr %22, align 8, !tbaa !13
-  %424 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %423, i64 %402
+  %424 = getelementptr inbounds nuw [72 x i8], ptr %423, i64 %402
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 32
   %426 = load ptr, ptr %425, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -825,7 +822,7 @@ MapIdToName.exit:                                 ; preds = %415
   br i1 %.not479, label %MapIdToName.exit.thread, label %427
 
 427:                                              ; preds = %MapIdToName.exit
-  %428 = getelementptr inbounds nuw i64, ptr %359, i64 %377
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %359, i64 %377
   %429 = call i32 @H5Rcreate(ptr noundef nonnull %428, i64 noundef %1, ptr noundef nonnull %426, i32 noundef 0, i64 noundef -1) #9
   %430 = icmp slt i32 %429, 0
   br i1 %430, label %431, label %447
@@ -864,13 +861,13 @@ MapIdToName.exit:                                 ; preds = %415
 450:                                              ; preds = %447
   %451 = icmp eq i32 %448, 2
   %452 = load ptr, ptr %22, align 8, !tbaa !13
-  %453 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %452, i64 %27
+  %453 = getelementptr inbounds nuw [72 x i8], ptr %452, i64 %27
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 32
   %455 = load ptr, ptr %454, align 8, !tbaa !21
   %.str.19..str.21 = select i1 %451, ptr @.str.19, ptr @.str.21
   %456 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.19..str.21, ptr noundef nonnull @.str.20, ptr noundef %455)
   %457 = load ptr, ptr %22, align 8, !tbaa !13
-  %458 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %457, i64 %27
+  %458 = getelementptr inbounds nuw [72 x i8], ptr %457, i64 %27
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 32
   %460 = load ptr, ptr %459, align 8, !tbaa !21
   %461 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef %460, ptr noundef nonnull %426)
@@ -919,7 +916,7 @@ MapIdToName.exit.thread:                          ; preds = %418, %399, %MapIdTo
   %.0287 = phi ptr [ null, %316 ], [ %359, %480 ]
   %.0286 = phi ptr [ null, %316 ], [ %320, %480 ]
   %484 = load ptr, ptr %22, align 8, !tbaa !13
-  %485 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %484, i64 %27
+  %485 = getelementptr inbounds nuw [72 x i8], ptr %484, i64 %27
   %486 = getelementptr inbounds nuw i8, ptr %485, i64 32
   %487 = load ptr, ptr %486, align 8, !tbaa !21
   %488 = call i64 @H5Dcreate2(i64 noundef %1, ptr noundef %487, i64 noundef %273, i64 noundef %176, i64 noundef 0, i64 noundef %214, i64 noundef 0) #9
@@ -1162,7 +1159,7 @@ MapIdToName.exit.thread:                          ; preds = %418, %399, %MapIdTo
   br label %620
 
 620:                                              ; preds = %617, %614
-  %621 = getelementptr inbounds nuw %struct.hdset_reg_ref_t, ptr %555, i64 %611
+  %621 = getelementptr inbounds nuw [12 x i8], ptr %555, i64 %611
   %622 = call i64 @H5Rdereference2(i64 noundef %157, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %621) #9
   %623 = icmp slt i64 %622, 0
   br i1 %623, label %632, label %624
@@ -1201,7 +1198,7 @@ MapIdToName.exit.thread:                          ; preds = %418, %399, %MapIdTo
   %636 = phi i64 [ %655, %652 ], [ 0, %633 ]
   %.01829.i518 = phi i32 [ %654, %652 ], [ 0, %633 ]
   %637 = load ptr, ptr %22, align 8, !tbaa !13
-  %638 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %637, i64 %636
+  %638 = getelementptr inbounds nuw [72 x i8], ptr %637, i64 %636
   %639 = getelementptr inbounds nuw i8, ptr %638, i64 40
   %640 = load i32, ptr %639, align 8, !tbaa !14
   %switch.i519 = icmp ult i32 %640, 3
@@ -1216,7 +1213,7 @@ MapIdToName.exit.thread:                          ; preds = %418, %399, %MapIdTo
 
 644:                                              ; preds = %641
   %645 = load ptr, ptr %22, align 8, !tbaa !13
-  %646 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %645, i64 %636
+  %646 = getelementptr inbounds nuw [72 x i8], ptr %645, i64 %636
   %647 = call i32 @H5Otoken_cmp(i64 noundef %622, ptr noundef nonnull %25, ptr noundef %646, ptr noundef nonnull %6) #9
   %648 = icmp slt i32 %647, 0
   br i1 %648, label %MapIdToName.exit525.thread544, label %649
@@ -1246,7 +1243,7 @@ MapIdToName.exit525.thread544:                    ; preds = %644, %641
 
 MapIdToName.exit525:                              ; preds = %649
   %657 = load ptr, ptr %22, align 8, !tbaa !13
-  %658 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %657, i64 %636
+  %658 = getelementptr inbounds nuw [72 x i8], ptr %657, i64 %636
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 32
   %660 = load ptr, ptr %659, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1286,7 +1283,7 @@ MapIdToName.exit525:                              ; preds = %649
   br label %.thread534
 
 680:                                              ; preds = %661
-  %681 = getelementptr inbounds nuw %struct.hdset_reg_ref_t, ptr %593, i64 %611
+  %681 = getelementptr inbounds nuw [12 x i8], ptr %593, i64 %611
   %682 = call i32 @H5Rcreate(ptr noundef nonnull %681, i64 noundef %1, ptr noundef nonnull %660, i32 noundef 1, i64 noundef %662) #9
   %683 = icmp slt i32 %682, 0
   br i1 %683, label %684, label %700
@@ -1355,12 +1352,12 @@ MapIdToName.exit525:                              ; preds = %649
 
 722:                                              ; preds = %719
   %723 = load ptr, ptr %22, align 8, !tbaa !13
-  %724 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %723, i64 %27
+  %724 = getelementptr inbounds nuw [72 x i8], ptr %723, i64 %27
   %725 = getelementptr inbounds nuw i8, ptr %724, i64 32
   %726 = load ptr, ptr %725, align 8, !tbaa !21
   %727 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef nonnull @.str.20, ptr noundef %726)
   %728 = load ptr, ptr %22, align 8, !tbaa !13
-  %729 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %728, i64 %27
+  %729 = getelementptr inbounds nuw [72 x i8], ptr %728, i64 %27
   %730 = getelementptr inbounds nuw i8, ptr %729, i64 32
   %731 = load ptr, ptr %730, align 8, !tbaa !21
   %732 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %731, ptr noundef nonnull %660)
@@ -1409,7 +1406,7 @@ MapIdToName.exit525.thread:                       ; preds = %652, %633, %722, %7
   %.0280 = phi ptr [ null, %552 ], [ %593, %751 ]
   %.0279 = phi ptr [ null, %552 ], [ %555, %751 ]
   %755 = load ptr, ptr %22, align 8, !tbaa !13
-  %756 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %755, i64 %27
+  %756 = getelementptr inbounds nuw [72 x i8], ptr %755, i64 %27
   %757 = getelementptr inbounds nuw i8, ptr %756, i64 32
   %758 = load ptr, ptr %757, align 8, !tbaa !21
   %759 = call i64 @H5Dcreate2(i64 noundef %1, ptr noundef %758, i64 noundef %273, i64 noundef %176, i64 noundef 0, i64 noundef %214, i64 noundef 0) #9
@@ -1525,7 +1522,7 @@ MapIdToName.exit525.thread:                       ; preds = %652, %633, %722, %7
 
 820:                                              ; preds = %549
   %821 = load ptr, ptr %22, align 8, !tbaa !13
-  %822 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %821, i64 %27
+  %822 = getelementptr inbounds nuw [72 x i8], ptr %821, i64 %27
   %823 = getelementptr inbounds nuw i8, ptr %822, i64 32
   %824 = load ptr, ptr %823, align 8, !tbaa !21
   %825 = call i64 @H5Dopen2(i64 noundef %1, ptr noundef %824, i64 noundef 0) #9
@@ -1593,7 +1590,7 @@ MapIdToName.exit525.thread:                       ; preds = %652, %633, %722, %7
 
 862:                                              ; preds = %843
   %863 = load ptr, ptr %22, align 8, !tbaa !13
-  %864 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %863, i64 %27
+  %864 = getelementptr inbounds nuw [72 x i8], ptr %863, i64 %27
   %865 = getelementptr inbounds nuw i8, ptr %864, i64 64
   %866 = load i64, ptr %865, align 8, !tbaa !26
   %.not487 = icmp eq i64 %866, 0
@@ -1607,13 +1604,13 @@ MapIdToName.exit525.thread:                       ; preds = %652, %633, %722, %7
   %870 = load ptr, ptr %869, align 8, !tbaa !21
   %871 = getelementptr inbounds nuw i8, ptr %867, i64 48
   %872 = load ptr, ptr %871, align 8, !tbaa !27
-  %873 = getelementptr inbounds nuw %struct.trav_link_t, ptr %872, i64 %868
+  %873 = getelementptr inbounds nuw [8 x i8], ptr %872, i64 %868
   %874 = load ptr, ptr %873, align 8, !tbaa !28
   %875 = call i32 @H5Lcreate_hard(i64 noundef %1, ptr noundef %870, i64 noundef 0, ptr noundef %874, i64 noundef 0, i64 noundef 0) #9
   %876 = add i32 %.12951148, 1
   %877 = zext i32 %876 to i64
   %878 = load ptr, ptr %22, align 8, !tbaa !13
-  %879 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %878, i64 %27
+  %879 = getelementptr inbounds nuw [72 x i8], ptr %878, i64 %27
   %880 = getelementptr inbounds nuw i8, ptr %879, i64 64
   %881 = load i64, ptr %880, align 8, !tbaa !26
   %882 = icmp ugt i64 %881, %877
@@ -2343,10 +2340,10 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 
 191:                                              ; preds = %187
   %192 = sext i32 %.33531071 to i64
-  %193 = getelementptr inbounds i32, ptr %184, i64 %192
+  %193 = getelementptr inbounds [4 x i8], ptr %184, i64 %192
   store i32 %.03861070, ptr %193, align 4, !tbaa !22
   %194 = call i64 @H5Tget_size(i64 noundef %188) #9
-  %195 = getelementptr inbounds i64, ptr %186, i64 %192
+  %195 = getelementptr inbounds [8 x i8], ptr %186, i64 %192
   store i64 %194, ptr %195, align 8, !tbaa !23
   %196 = add nsw i32 %.33531071, 1
   br label %197
@@ -2628,7 +2625,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03441074 = phi i64 [ 1, %.lr.ph.preheader ], [ %342, %.lr.ph ]
-  %340 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %341 = load i64, ptr %340, align 8, !tbaa !23
   %342 = mul i64 %341, %.03441074
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2687,7 +2684,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 .lr.ph1078:                                       ; preds = %.lr.ph1078.preheader, %.lr.ph1078
   %indvars.iv1466 = phi i64 [ 0, %.lr.ph1078.preheader ], [ %indvars.iv.next1467, %.lr.ph1078 ]
   %.03371076 = phi i64 [ 1, %.lr.ph1078.preheader ], [ %369, %.lr.ph1078 ]
-  %367 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv1466
+  %367 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv1466
   %368 = load i64, ptr %367, align 8, !tbaa !23
   %369 = mul i64 %368, %.03371076
   %indvars.iv.next1467 = add nuw nsw i64 %indvars.iv1466, 1
@@ -2856,8 +2853,8 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 
 .lr.ph1104:                                       ; preds = %.lr.ph1104.preheader, %.lr.ph1104
   %indvars.iv1496 = phi i64 [ 0, %.lr.ph1104.preheader ], [ %indvars.iv.next1497, %.lr.ph1104 ]
-  %454 = getelementptr inbounds nuw i64, ptr %396, i64 %indvars.iv1496
-  %455 = getelementptr inbounds nuw i64, ptr %435, i64 %indvars.iv1496
+  %454 = getelementptr inbounds nuw [8 x i8], ptr %396, i64 %indvars.iv1496
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %435, i64 %indvars.iv1496
   %456 = call fastcc i32 @update_ref_value(i64 noundef %56, i32 noundef 0, ptr noundef nonnull %454, i64 noundef %3, ptr noundef %455, ptr noundef %2)
   %indvars.iv.next1497 = add nuw nsw i64 %indvars.iv1496, 1
   %exitcond1500.not = icmp eq i64 %indvars.iv.next1497, %wide.trip.count1499
@@ -2976,8 +2973,8 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 
 .lr.ph1102:                                       ; preds = %.lr.ph1102.preheader, %.lr.ph1102
   %indvars.iv1491 = phi i64 [ 0, %.lr.ph1102.preheader ], [ %indvars.iv.next1492, %.lr.ph1102 ]
-  %519 = getelementptr inbounds nuw %struct.hdset_reg_ref_t, ptr %462, i64 %indvars.iv1491
-  %520 = getelementptr inbounds nuw %struct.hdset_reg_ref_t, ptr %500, i64 %indvars.iv1491
+  %519 = getelementptr inbounds nuw [12 x i8], ptr %462, i64 %indvars.iv1491
+  %520 = getelementptr inbounds nuw [12 x i8], ptr %500, i64 %indvars.iv1491
   %521 = call fastcc i32 @update_ref_value(i64 noundef %56, i32 noundef 1, ptr noundef nonnull %519, i64 noundef %3, ptr noundef %520, ptr noundef %2)
   %indvars.iv.next1492 = add nuw nsw i64 %indvars.iv1491, 1
   %exitcond1495.not = icmp eq i64 %indvars.iv.next1492, %wide.trip.count1494
@@ -3066,7 +3063,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 
 .lr.ph1099:                                       ; preds = %.lr.ph1099.preheader, %._crit_edge1096
   %indvars.iv1486 = phi i64 [ 0, %.lr.ph1099.preheader ], [ %indvars.iv.next1487, %._crit_edge1096 ]
-  %566 = getelementptr inbounds nuw %struct.hvl_t, ptr %526, i64 %indvars.iv1486
+  %566 = getelementptr inbounds nuw [16 x i8], ptr %526, i64 %indvars.iv1486
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 8
   %568 = load ptr, ptr %567, align 8, !tbaa !52
   %569 = load i64, ptr %566, align 8, !tbaa !54
@@ -3076,7 +3073,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 .lr.ph1095:                                       ; preds = %.lr.ph1099, %576
   %570 = phi i64 [ %578, %576 ], [ 0, %.lr.ph1099 ]
   %.23941093 = phi i32 [ %577, %576 ], [ 0, %.lr.ph1099 ]
-  %571 = getelementptr inbounds nuw i64, ptr %568, i64 %570
+  %571 = getelementptr inbounds nuw [8 x i8], ptr %568, i64 %570
   %572 = call fastcc i32 @update_ref_value(i64 noundef %56, i32 noundef 0, ptr noundef %571, i64 noundef %3, ptr noundef %9, ptr noundef %2)
   %573 = icmp slt i32 %572, 0
   br i1 %573, label %576, label %574
@@ -3117,7 +3114,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 
 .lr.ph1091:                                       ; preds = %.lr.ph1091.preheader, %._crit_edge1088
   %indvars.iv1481 = phi i64 [ 0, %.lr.ph1091.preheader ], [ %indvars.iv.next1482, %._crit_edge1088 ]
-  %584 = getelementptr inbounds nuw %struct.hvl_t, ptr %526, i64 %indvars.iv1481
+  %584 = getelementptr inbounds nuw [16 x i8], ptr %526, i64 %indvars.iv1481
   %585 = getelementptr inbounds nuw i8, ptr %584, i64 8
   %586 = load ptr, ptr %585, align 8, !tbaa !52
   %587 = load i64, ptr %584, align 8, !tbaa !54
@@ -3127,7 +3124,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 .lr.ph1087:                                       ; preds = %.lr.ph1091, %593
   %588 = phi i64 [ %595, %593 ], [ 0, %.lr.ph1091 ]
   %.33951085 = phi i32 [ %594, %593 ], [ 0, %.lr.ph1091 ]
-  %589 = getelementptr inbounds nuw %struct.hdset_reg_ref_t, ptr %586, i64 %588
+  %589 = getelementptr inbounds nuw [12 x i8], ptr %586, i64 %588
   %590 = call fastcc i32 @update_ref_value(i64 noundef %56, i32 noundef 1, ptr noundef %589, i64 noundef %3, ptr noundef %10, ptr noundef %2)
   %591 = icmp slt i32 %590, 0
   br i1 %591, label %593, label %592
@@ -3214,7 +3211,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
 
 626:                                              ; preds = %.preheader.us, %649
   %indvars.iv1471 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next1472, %649 ]
-  %627 = getelementptr inbounds nuw i64, ptr %.2357, i64 %indvars.iv1471
+  %627 = getelementptr inbounds nuw [8 x i8], ptr %.2357, i64 %indvars.iv1471
   %628 = load i64, ptr %627, align 8, !tbaa !23
   switch i64 %628, label %649 [
     i64 8, label %639
@@ -3222,7 +3219,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
   ]
 
 629:                                              ; preds = %626
-  %630 = getelementptr inbounds nuw i32, ptr %.2364, i64 %indvars.iv1471
+  %630 = getelementptr inbounds nuw [4 x i8], ptr %.2364, i64 %indvars.iv1471
   %631 = load i32, ptr %630, align 4, !tbaa !22
   %632 = call i64 @H5Tget_member_offset(i64 noundef %77, i32 noundef %631) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -3241,7 +3238,7 @@ define internal fastcc range(i32 -1, 1) i32 @copy_refs_attr(i64 noundef range(i6
   br label %649
 
 639:                                              ; preds = %626
-  %640 = getelementptr inbounds nuw i32, ptr %.2364, i64 %indvars.iv1471
+  %640 = getelementptr inbounds nuw [4 x i8], ptr %.2364, i64 %indvars.iv1471
   %641 = load i32, ptr %640, align 4, !tbaa !22
   %642 = call i64 @H5Tget_member_offset(i64 noundef %77, i32 noundef %641) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -3796,7 +3793,7 @@ define internal fastcc range(i32 -1, 1) i32 @update_ref_value(i64 noundef range(
   %37 = phi i64 [ 0, %.lr.ph.i ], [ %56, %53 ]
   %.01829.i = phi i32 [ 0, %.lr.ph.i ], [ %55, %53 ]
   %38 = load ptr, ptr %33, align 8, !tbaa !13
-  %39 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [72 x i8], ptr %38, i64 %37
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %41 = load i32, ptr %40, align 8, !tbaa !14
   %switch.i = icmp ult i32 %41, 3
@@ -3811,7 +3808,7 @@ define internal fastcc range(i32 -1, 1) i32 @update_ref_value(i64 noundef range(
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %33, align 8, !tbaa !13
-  %47 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %46, i64 %37
+  %47 = getelementptr inbounds nuw [72 x i8], ptr %46, i64 %37
   %48 = call i32 @H5Otoken_cmp(i64 noundef %12, ptr noundef nonnull %34, ptr noundef %47, ptr noundef nonnull %8) #9
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %MapIdToName.exit.thread45, label %50
@@ -3841,7 +3838,7 @@ MapIdToName.exit.thread45:                        ; preds = %45, %42
 
 MapIdToName.exit:                                 ; preds = %50
   %58 = load ptr, ptr %33, align 8, !tbaa !13
-  %59 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %58, i64 %37
+  %59 = getelementptr inbounds nuw [72 x i8], ptr %58, i64 %37
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

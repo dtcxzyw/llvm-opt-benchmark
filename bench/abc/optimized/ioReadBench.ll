@@ -179,7 +179,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 .lr.ph.i:                                         ; preds = %60, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 2, %60 ]
   %.val225.i = load ptr, ptr %36, align 8, !tbaa !33
-  %64 = getelementptr inbounds nuw ptr, ptr %.val225.i, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.val225.i, i64 %indvars.iv.i
   %65 = load ptr, ptr %64, align 8, !tbaa !34
   %66 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %38, ptr noundef %65) #13
   %67 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %9, ptr noundef %65) #13
@@ -496,7 +496,7 @@ Vec_StrFree.exit242.i:                            ; preds = %189, %186
 
 198:                                              ; preds = %196
   %indvars.iv.next.i244.i = add nsw i64 %indvars.iv.i243.i, -1
-  %199 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i244.i
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next.i244.i
   %200 = load i32, ptr %199, align 4, !tbaa !30
   %.not.i245.i = icmp eq i32 %200, 0
   br i1 %.not.i245.i, label %196, label %.preheader.i, !llvm.loop !39
@@ -518,7 +518,7 @@ Extra_TruthIsConst0.exit.i:                       ; preds = %196
 
 208:                                              ; preds = %.preheader.i
   %indvars.iv.next.i248.i = add nsw i64 %indvars.iv.i246.i, -1
-  %209 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i248.i
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next.i248.i
   %210 = load i32, ptr %209, align 4, !tbaa !30
   %.not.i249.i = icmp eq i32 %210, -1
   br i1 %.not.i249.i, label %.preheader.i, label %217, !llvm.loop !41
@@ -1035,7 +1035,7 @@ define void @Io_ReadBenchInit(ptr noundef readonly captures(none) %0, ptr nounde
   %20 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %20, align 8, !tbaa !33
   %21 = zext nneg i32 %14 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !34
   %.val22 = load ptr, ptr %23, align 8, !tbaa !49
   %24 = getelementptr i8, ptr %23, i64 32
@@ -1046,7 +1046,7 @@ define void @Io_ReadBenchInit(ptr noundef readonly captures(none) %0, ptr nounde
   %26 = getelementptr i8, ptr %.val22.val, i64 8
   %.val22.val.val = load ptr, ptr %26, align 8, !tbaa !33
   %27 = sext i32 %.val23.val to i64
-  %28 = getelementptr inbounds ptr, ptr %.val22.val.val, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %.val22.val.val, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !34
   %30 = getelementptr i8, ptr %29, i64 20
   %.val24 = load i32, ptr %30, align 4
@@ -1092,7 +1092,7 @@ define void @Io_ReadBenchInit(ptr noundef readonly captures(none) %0, ptr nounde
   %46 = getelementptr i8, ptr %.val25.val, i64 8
   %.val25.val.val = load ptr, ptr %46, align 8, !tbaa !33
   %47 = sext i32 %.val26.val to i64
-  %48 = getelementptr inbounds ptr, ptr %.val25.val.val, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %.val25.val.val, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !34
   %50 = call ptr @Abc_ObjName(ptr noundef %49) #13
   %51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef %50, ptr noundef nonnull %35)

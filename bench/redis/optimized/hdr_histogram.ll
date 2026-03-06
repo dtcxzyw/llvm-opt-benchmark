@@ -179,7 +179,7 @@ define dso_local void @hdr_reset_internal_counters(ptr noundef captures(none) %0
   %.039 = phi i32 [ -1, %.lr.ph ], [ %.1, %16 ]
   %.02538 = phi i32 [ -1, %.lr.ph ], [ %.126, %16 ]
   %.02836 = phi i64 [ 0, %.lr.ph ], [ %.129, %16 ]
-  %8 = getelementptr inbounds nuw i64, ptr %.val, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !20
   %10 = icmp sgt i64 %9, 0
   br i1 %10, label %11, label %16
@@ -654,7 +654,7 @@ counts_inc_normalised.exit.i:                     ; preds = %33, %29
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %39 = load ptr, ptr %38, align 8, !tbaa !19
   %40 = sext i32 %.011.i.i.i to i64
-  %41 = getelementptr inbounds i64, ptr %39, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %39, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !20
   %43 = add nsw i64 %42, 1
   store i64 %43, ptr %41, align 8, !tbaa !20
@@ -737,7 +737,7 @@ counts_inc_normalised.exit:                       ; preds = %30, %34
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load ptr, ptr %39, align 8, !tbaa !19
   %41 = sext i32 %.011.i.i to i64
-  %42 = getelementptr inbounds i64, ptr %40, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %40, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !20
   %44 = add nsw i64 %43, %2
   store i64 %44, ptr %42, align 8, !tbaa !20
@@ -820,7 +820,7 @@ counts_inc_normalised_atomic.exit.i:              ; preds = %33, %29
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %39 = load ptr, ptr %38, align 8, !tbaa !19
   %40 = sext i32 %.011.i.i.i to i64
-  %41 = getelementptr inbounds i64, ptr %39, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %39, i64 %40
   %42 = atomicrmw add ptr %41, i64 1 seq_cst, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %44 = atomicrmw add ptr %43, i64 1 seq_cst, align 8
@@ -919,7 +919,7 @@ counts_inc_normalised_atomic.exit:                ; preds = %30, %34
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load ptr, ptr %39, align 8, !tbaa !19
   %41 = sext i32 %.011.i.i to i64
-  %42 = getelementptr inbounds i64, ptr %40, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %40, i64 %41
   %43 = atomicrmw add ptr %42, i64 %2 seq_cst, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %45 = atomicrmw add ptr %44, i64 %2 seq_cst, align 8
@@ -1024,7 +1024,7 @@ define dso_local noundef zeroext i1 @hdr_record_corrected_values(ptr noundef cap
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %42 = load ptr, ptr %41, align 8, !tbaa !19
   %43 = sext i32 %.011.i.i.i to i64
-  %44 = getelementptr inbounds i64, ptr %42, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %42, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !20
   %46 = add nsw i64 %45, %2
   store i64 %46, ptr %44, align 8, !tbaa !20
@@ -1091,7 +1091,7 @@ define dso_local noundef zeroext i1 @hdr_record_corrected_values(ptr noundef cap
 hdr_record_values.exit30:                         ; preds = %73, %74
   %.011.i.i.i27 = phi i32 [ %77, %74 ], [ %71, %73 ]
   %78 = sext i32 %.011.i.i.i27 to i64
-  %79 = getelementptr inbounds i64, ptr %42, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %42, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !20
   %81 = add nsw i64 %80, %2
   store i64 %81, ptr %79, align 8, !tbaa !20
@@ -1177,7 +1177,7 @@ counts_inc_normalised_atomic.exit.i:              ; preds = %35, %31
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sext i32 %.011.i.i.i to i64
-  %43 = getelementptr inbounds i64, ptr %41, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %41, i64 %42
   %44 = atomicrmw add ptr %43, i64 %2 seq_cst, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = atomicrmw add ptr %45, i64 %2 seq_cst, align 8
@@ -1269,7 +1269,7 @@ counts_inc_normalised_atomic.exit.i26:            ; preds = %82, %79
   %.011.i.i.i27 = phi i32 [ %86, %82 ], [ %75, %79 ]
   %87 = load ptr, ptr %40, align 8, !tbaa !19
   %88 = sext i32 %.011.i.i.i27 to i64
-  %89 = getelementptr inbounds i64, ptr %87, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %87, i64 %88
   %90 = atomicrmw add ptr %89, i64 %2 seq_cst, align 8
   %91 = atomicrmw add ptr %45, i64 %2 seq_cst, align 8
   br label %.split.i.i29
@@ -1398,7 +1398,7 @@ hdr_record_values.exit.thread:                    ; preds = %23, %45, %27
   %.011.i.i.i = phi i32 [ %54, %50 ], [ %43, %47 ]
   %57 = load ptr, ptr %19, align 8, !tbaa !19
   %58 = sext i32 %.011.i.i.i to i64
-  %59 = getelementptr inbounds i64, ptr %57, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %57, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !20
   %61 = add nsw i64 %60, %25
   store i64 %61, ptr %59, align 8, !tbaa !20
@@ -1559,7 +1559,7 @@ hdr_count_at_index.exit:                          ; preds = %1, %5
   %.011.i.i.i = phi i64 [ %12, %5 ], [ 0, %1 ]
   %13 = getelementptr i8, ptr %0, i64 96
   %.val.i.i = load ptr, ptr %13, align 8, !tbaa !19
-  %14 = getelementptr inbounds i64, ptr %.val.i.i, i64 %.011.i.i.i
+  %14 = getelementptr inbounds [8 x i8], ptr %.val.i.i, i64 %.011.i.i.i
   %15 = load i64, ptr %14, align 8, !tbaa !20
   %16 = icmp sgt i64 %15, 0
   br i1 %16, label %non_zero_min.exit, label %17
@@ -1616,7 +1616,7 @@ counts_get_normalised.exit:                       ; preds = %2, %6
   %13 = getelementptr i8, ptr %0, i64 96
   %.val.i = load ptr, ptr %13, align 8, !tbaa !19
   %14 = sext i32 %.011.i.i to i64
-  %15 = getelementptr inbounds i64, ptr %.val.i, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !20
   ret i64 %16
 }
@@ -1646,7 +1646,7 @@ define dso_local i64 @hdr_value_at_percentile(ptr noundef readonly captures(none
 16:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
   %.01420.i = phi i64 [ 0, %.lr.ph.i ], [ %19, %37 ]
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %18 = load i64, ptr %17, align 8, !tbaa !20
   %19 = add nsw i64 %18, %.01420.i
   %.not.i = icmp slt i64 %19, %11
@@ -1765,7 +1765,7 @@ define dso_local range(i32 0, 23) i32 @hdr_value_at_percentiles(ptr noundef %0, 
 
 25:                                               ; preds = %.lr.ph, %25
   %.03239 = phi i64 [ 0, %.lr.ph ], [ %35, %25 ]
-  %26 = getelementptr inbounds nuw double, ptr %1, i64 %.03239
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.03239
   %27 = load double, ptr %26, align 8, !tbaa !51
   %28 = fcmp olt double %27, 1.000000e+02
   %29 = select i1 %28, double %27, double 1.000000e+02
@@ -1773,7 +1773,7 @@ define dso_local range(i32 0, 23) i32 @hdr_value_at_percentiles(ptr noundef %0, 
   %31 = tail call double @llvm.fmuladd.f64(double %30, double %11, double 5.000000e-01)
   %32 = fptosi double %31 to i64
   %33 = tail call i64 @llvm.smax.i64(i64 %32, i64 1)
-  %34 = getelementptr inbounds nuw i64, ptr %2, i64 %.03239
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.03239
   store i64 %33, ptr %34, align 8, !tbaa !20
   %35 = add nuw i64 %.03239, 1
   %exitcond.not = icmp eq i64 %35, %3
@@ -1789,7 +1789,7 @@ define dso_local range(i32 0, 23) i32 @hdr_value_at_percentiles(ptr noundef %0, 
 
 40:                                               ; preds = %36, %43
   %.140 = phi i64 [ %.042, %36 ], [ %63, %43 ]
-  %41 = getelementptr inbounds nuw i64, ptr %2, i64 %.140
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.140
   %42 = load i64, ptr %41, align 8, !tbaa !20
   %.not = icmp slt i64 %38, %42
   br i1 %.not, label %.critedge, label %43
@@ -1978,7 +1978,7 @@ define dso_local double @hdr_stddev(ptr noundef %0) local_unnamed_addr #6 {
   %.011.i.i.i = phi i64 [ %22, %17 ], [ 0, %13 ]
   %23 = getelementptr i8, ptr %0, i64 96
   %.val.i.i = load ptr, ptr %23, align 8, !tbaa !19
-  %24 = getelementptr inbounds i64, ptr %.val.i.i, i64 %.011.i.i.i
+  %24 = getelementptr inbounds [8 x i8], ptr %.val.i.i, i64 %.011.i.i.i
   %25 = load i64, ptr %24, align 8, !tbaa !20
   store i64 %25, ptr %8, align 8, !tbaa !49
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2237,7 +2237,7 @@ counts_get_normalised.exit:                       ; preds = %2, %26
   %33 = getelementptr i8, ptr %0, i64 96
   %.val.i = load ptr, ptr %33, align 8, !tbaa !19
   %34 = sext i32 %.011.i.i to i64
-  %35 = getelementptr inbounds i64, ptr %.val.i, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !20
   ret i64 %36
 }
@@ -2892,7 +2892,7 @@ format_line_string.exit:                          ; preds = %11, %13, %15
   %.011.i.i.i = phi i64 [ %65, %60 ], [ 0, %56 ]
   %66 = getelementptr i8, ptr %0, i64 96
   %.val.i.i = load ptr, ptr %66, align 8, !tbaa !19
-  %67 = getelementptr inbounds i64, ptr %.val.i.i, i64 %.011.i.i.i
+  %67 = getelementptr inbounds [8 x i8], ptr %.val.i.i, i64 %.011.i.i.i
   %68 = load i64, ptr %67, align 8, !tbaa !20
   store i64 %68, ptr %51, align 8, !tbaa !49
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -3074,7 +3074,7 @@ counts_get_normalised.exit:                       ; preds = %7, %11
   %16 = getelementptr i8, ptr %.val, i64 96
   %.val.i = load ptr, ptr %16, align 8, !tbaa !19
   %17 = sext i32 %.011.i.i to i64
-  %18 = getelementptr inbounds i64, ptr %.val.i, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !20
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %19, ptr %20, align 8, !tbaa !49

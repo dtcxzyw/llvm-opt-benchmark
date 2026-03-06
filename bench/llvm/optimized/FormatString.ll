@@ -1882,7 +1882,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit357:            ; preds = %435
 
 switch.lookup:                                    ; preds = %85
   %448 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5clang21analyze_format_string7ArgType11matchesTypeERNS_10ASTContextENS_8QualTypeE, i64 %448
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK5clang21analyze_format_string7ArgType11matchesTypeERNS_10ASTContextENS_8QualTypeE, i64 %448
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge2
 
@@ -2649,7 +2649,7 @@ define dso_local noundef ptr @_ZNK5clang21analyze_format_string14LengthModifier8
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang21analyze_format_string14LengthModifier8toStringEv, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang21analyze_format_string14LengthModifier8toStringEv, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -2668,7 +2668,7 @@ define dso_local noundef ptr @_ZNK5clang21analyze_format_string19ConversionSpeci
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang21analyze_format_string19ConversionSpecifier8toStringEv, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang21analyze_format_string19ConversionSpecifier8toStringEv, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 

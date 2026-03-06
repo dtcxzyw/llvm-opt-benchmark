@@ -649,7 +649,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153: ; preds = %20
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %277 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %210 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %211 = load ptr, ptr %210, align 8, !tbaa !4
   store ptr %205, ptr %27, align 8, !tbaa !9
   %212 = icmp eq ptr %211, null
@@ -725,7 +725,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161: ; preds = %22
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit163 unwind label %.loopexit.split-lp250
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit163: ; preds = %231
-  %233 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %234 = load ptr, ptr %233, align 8, !tbaa !4
   %.not.i164 = icmp eq ptr %234, null
   br i1 %.not.i164, label %235, label %243
@@ -930,7 +930,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit172: ; preds = %26
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit177 unwind label %.loopexit
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit177: ; preds = %.lr.ph269
-  %306 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv277
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv277
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 16
   %308 = load ptr, ptr %307, align 8, !tbaa !4
   %.not.i178 = icmp eq ptr %308, null
@@ -958,7 +958,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit181: ; preds = %309,
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit183: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit181
   %321 = load ptr, ptr %25, align 8, !tbaa !73
-  %322 = getelementptr inbounds nuw float, ptr %321, i64 %indvars.iv277
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %321, i64 %indvars.iv277
   %323 = load float, ptr %322, align 4, !tbaa !74
   %324 = fpext float %323 to double
   %325 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %324)
@@ -1625,7 +1625,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !83
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !61
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !64
   ret void
 

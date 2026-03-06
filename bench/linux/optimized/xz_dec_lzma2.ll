@@ -138,7 +138,7 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
 
 79:                                               ; preds = %79, %78
   %80 = phi i64 [ 0, %78 ], [ %82, %79 ]
-  %81 = getelementptr i16, ptr %24, i64 %80
+  %81 = getelementptr [2 x i8], ptr %24, i64 %80
   store i16 1024, ptr %81, align 2
   %82 = add nuw nsw i64 %80, 1
   %83 = icmp eq i64 %82, 14134
@@ -271,7 +271,7 @@ define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, p
 
 158:                                              ; preds = %158, %155
   %159 = phi i64 [ 0, %155 ], [ %161, %158 ]
-  %160 = getelementptr i16, ptr %24, i64 %159
+  %160 = getelementptr [2 x i8], ptr %24, i64 %159
   store i16 1024, ptr %160, align 2
   %161 = add nuw nsw i64 %159, 1
   %162 = icmp eq i64 %161, 14134
@@ -970,8 +970,8 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %100 = load i32, ptr %69, align 4
   %101 = zext i32 %100 to i64
   %102 = zext i32 %99 to i64
-  %.split = getelementptr [16 x i16], ptr %68, i64 %101
-  %103 = getelementptr i16, ptr %.split, i64 %102
+  %.split = getelementptr [32 x i8], ptr %68, i64 %101
+  %103 = getelementptr [2 x i8], ptr %.split, i64 %102
   %104 = load i32, ptr %0, align 8
   %105 = icmp ult i32 %104, 16777216
   %.pre = load i32, ptr %70, align 4
@@ -1044,7 +1044,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %153 = trunc i64 %152 to i32
   %154 = add i32 %147, %153
   %155 = zext i32 %154 to i64
-  %156 = getelementptr [768 x i16], ptr %90, i64 %155
+  %156 = getelementptr [1536 x i8], ptr %90, i64 %155
   %157 = icmp ult i32 %100, 7
   br i1 %157, label %.preheader, label %200
 
@@ -1054,7 +1054,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %160 = phi i32 [ %.sink, %193 ], [ %122, %143 ]
   %161 = phi i32 [ %198, %193 ], [ 1, %143 ]
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr i16, ptr %156, i64 %162
+  %163 = getelementptr [2 x i8], ptr %156, i64 %162
   %164 = icmp ult i32 %160, 16777216
   br i1 %164, label %165, label %174
 
@@ -1150,7 +1150,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %225 = add i32 %222, %220
   %226 = add i32 %225, %224
   %227 = zext i32 %226 to i64
-  %228 = getelementptr i16, ptr %156, i64 %227
+  %228 = getelementptr [2 x i8], ptr %156, i64 %227
   %229 = icmp ult i32 %219, 16777216
   br i1 %229, label %230, label %239
 
@@ -1255,7 +1255,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %289 = lshr i16 %120, 5
   %290 = sub i16 %120, %289
   store i16 %290, ptr %103, align 2
-  %291 = getelementptr i16, ptr %72, i64 %101
+  %291 = getelementptr [2 x i8], ptr %72, i64 %101
   %292 = icmp ult i32 %287, 16777216
   br i1 %292, label %293, label %302
 
@@ -1292,7 +1292,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %314 = lshr i16 %307, 5
   %315 = sub i16 %307, %314
   store i16 %315, ptr %291, align 2
-  %316 = getelementptr i16, ptr %73, i64 %101
+  %316 = getelementptr [2 x i8], ptr %73, i64 %101
   %317 = icmp ult i32 %312, 16777216
   br i1 %317, label %318, label %327
 
@@ -1329,8 +1329,8 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %340 = add i16 %332, %339
   store i16 %340, ptr %316, align 2
   %341 = icmp ult i32 %334, 16777216
-  %.split75 = getelementptr [16 x i16], ptr %79, i64 %101
-  %342 = getelementptr i16, ptr %.split75, i64 %102
+  %.split75 = getelementptr [32 x i8], ptr %79, i64 %101
+  %342 = getelementptr [2 x i8], ptr %.split75, i64 %102
   br i1 %341, label %343, label %352
 
 343:                                              ; preds = %336
@@ -1388,7 +1388,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %376 = sub i16 %332, %375
   store i16 %376, ptr %316, align 2
   %377 = icmp ult i32 %373, 16777216
-  %378 = getelementptr i16, ptr %74, i64 %101
+  %378 = getelementptr [2 x i8], ptr %74, i64 %101
   br i1 %377, label %379, label %388
 
 379:                                              ; preds = %372
@@ -1433,7 +1433,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %406 = lshr i16 %393, 5
   %407 = sub i16 %393, %406
   store i16 %407, ptr %378, align 2
-  %408 = getelementptr i16, ptr %75, i64 %101
+  %408 = getelementptr [2 x i8], ptr %75, i64 %101
   %409 = icmp ult i32 %404, 16777216
   br i1 %409, label %410, label %419
 
@@ -1525,7 +1525,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %460 = tail call i32 @llvm.umin.i32(i32 %459, i32 5)
   %461 = add nsw i32 %460, -2
   %462 = zext i32 %461 to i64
-  %463 = getelementptr [64 x i16], ptr %83, i64 %462
+  %463 = getelementptr [128 x i8], ptr %83, i64 %462
   %464 = load i32, ptr %0, align 8
   %465 = load i32, ptr %70, align 4
   br label %466
@@ -1535,7 +1535,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %468 = phi i32 [ %464, %449 ], [ %502, %501 ]
   %469 = phi i32 [ 1, %449 ], [ %507, %501 ]
   %470 = zext nneg i32 %469 to i64
-  %471 = getelementptr i16, ptr %463, i64 %470
+  %471 = getelementptr [2 x i8], ptr %463, i64 %470
   %472 = icmp ult i32 %468, 16777216
   br i1 %472, label %473, label %483
 
@@ -1612,10 +1612,10 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %519 = shl i32 %515, %518
   store i32 %519, ptr %66, align 4
   %520 = zext i32 %519 to i64
-  %521 = getelementptr i16, ptr %0, i64 %520
+  %521 = getelementptr [2 x i8], ptr %0, i64 %520
   %522 = zext nneg i32 %510 to i64
   %523 = sub nsw i64 0, %522
-  %524 = getelementptr i16, ptr %521, i64 %523
+  %524 = getelementptr [2 x i8], ptr %521, i64 %523
   %525 = getelementptr i8, ptr %524, i64 1534
   %526 = tail call i32 @llvm.umax.i32(i32 %518, i32 1)
   br label %527
@@ -1624,7 +1624,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %528 = phi i32 [ 1, %517 ], [ %570, %569 ]
   %529 = phi i32 [ 0, %517 ], [ %571, %569 ]
   %530 = zext i32 %528 to i64
-  %531 = getelementptr i16, ptr %525, i64 %530
+  %531 = getelementptr [2 x i8], ptr %525, i64 %530
   %532 = load i32, ptr %0, align 8
   %533 = icmp ult i32 %532, 16777216
   %.pre108 = load i32, ptr %70, align 4
@@ -1745,7 +1745,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %610 = phi i32 [ 1, %604 ], [ %650, %647 ]
   %611 = phi i32 [ 0, %604 ], [ %651, %647 ]
   %612 = zext i32 %610 to i64
-  %613 = getelementptr i16, ptr %84, i64 %612
+  %613 = getelementptr [2 x i8], ptr %84, i64 %612
   %614 = icmp ult i32 %609, 16777216
   br i1 %614, label %615, label %625
 
@@ -1962,7 +1962,7 @@ define internal fastcc void @lzma_len(ptr noundef captures(none) initializes((14
   store i16 %35, ptr %1, align 2
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %37 = zext i32 %2 to i64
-  %38 = getelementptr [8 x i16], ptr %36, i64 %37
+  %38 = getelementptr [16 x i8], ptr %36, i64 %37
   br label %85
 
 39:                                               ; preds = %20
@@ -2018,7 +2018,7 @@ define internal fastcc void @lzma_len(ptr noundef captures(none) initializes((14
   store i16 %74, ptr %45, align 2
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 260
   %76 = zext i32 %2 to i64
-  %77 = getelementptr [8 x i16], ptr %75, i64 %76
+  %77 = getelementptr [16 x i8], ptr %75, i64 %76
   br label %85
 
 78:                                               ; preds = %60
@@ -2046,7 +2046,7 @@ define internal fastcc void @lzma_len(ptr noundef captures(none) initializes((14
 92:                                               ; preds = %129, %85
   %93 = phi i32 [ 1, %85 ], [ %133, %129 ]
   %94 = zext i32 %93 to i64
-  %95 = getelementptr i16, ptr %87, i64 %94
+  %95 = getelementptr [2 x i8], ptr %87, i64 %94
   %96 = load i32, ptr %0, align 8
   %97 = icmp ult i32 %96, 16777216
   %.pre16 = load i32, ptr %27, align 4

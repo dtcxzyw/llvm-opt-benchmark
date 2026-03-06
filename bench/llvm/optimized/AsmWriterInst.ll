@@ -1574,7 +1574,7 @@ _ZNSt6vectorIN4llvm16AsmWriterOperandESaIS1_EE12emplace_backIJRA13_KcjRNSt7__cxx
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %352 = zext i32 %351 to i64
   %353 = load ptr, ptr %66, align 8, !tbaa !146
-  %354 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %353, i64 %352
+  %354 = getelementptr inbounds nuw [264 x i8], ptr %353, i64 %352
   call void @_ZN4llvm14CGIOperandList11OperandInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(264) %37, ptr noundef nonnull align 8 dereferenceable(264) %354)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %355 = load i32, ptr %67, align 8, !tbaa !147
@@ -2393,8 +2393,8 @@ define dso_local noundef i32 @_ZNK4llvm13AsmWriterInst18MatchesAllButOneOpERKS0_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK4llvm16AsmWriterOperandneERKS0_.exit.thread19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK4llvm16AsmWriterOperandneERKS0_.exit.thread19 ]
   %.01423 = phi i32 [ -1, %.lr.ph.preheader ], [ %.115, %_ZNK4llvm16AsmWriterOperandneERKS0_.exit.thread19 ]
-  %19 = getelementptr inbounds nuw %"struct.llvm::AsmWriterOperand", ptr %5, i64 %indvars.iv
-  %20 = getelementptr inbounds nuw %"struct.llvm::AsmWriterOperand", ptr %11, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [80 x i8], ptr %11, i64 %indvars.iv
   %21 = load i32, ptr %19, align 8, !tbaa !3
   %22 = load i32, ptr %20, align 8, !tbaa !3
   %.not.i = icmp eq i32 %21, %22
@@ -2784,7 +2784,7 @@ _ZNSt6vectorIN4llvm16AsmWriterOperandESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit3
 _ZNSt12_Vector_baseIN4llvm16AsmWriterOperandESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN4llvm16AsmWriterOperandESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30, %130
   store ptr %20, ptr %0, align 8, !tbaa !188
   store ptr %.0.lcssa.i.i.i29, ptr %4, align 8, !tbaa !144
-  %134 = getelementptr inbounds nuw %"struct.llvm::AsmWriterOperand", ptr %20, i64 %16
+  %134 = getelementptr inbounds nuw [80 x i8], ptr %20, i64 %16
   store ptr %134, ptr %129, align 8, !tbaa !145
   ret void
 }
@@ -3136,7 +3136,7 @@ _ZNSt6vectorIN4llvm16AsmWriterOperandESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit3
 _ZNSt12_Vector_baseIN4llvm16AsmWriterOperandESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN4llvm16AsmWriterOperandESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, %100
   store ptr %24, ptr %0, align 8, !tbaa !188
   store ptr %.0.lcssa.i.i.i31, ptr %6, align 8, !tbaa !144
-  %104 = getelementptr inbounds nuw %"struct.llvm::AsmWriterOperand", ptr %24, i64 %18
+  %104 = getelementptr inbounds nuw [80 x i8], ptr %24, i64 %18
   store ptr %104, ptr %99, align 8, !tbaa !145
   ret void
 }
@@ -3529,7 +3529,7 @@ _ZNSt6vectorIN4llvm16AsmWriterOperandESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit3
 _ZNSt12_Vector_baseIN4llvm16AsmWriterOperandESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN4llvm16AsmWriterOperandESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34, %104
   store ptr %24, ptr %0, align 8, !tbaa !188
   store ptr %.0.lcssa.i.i.i33, ptr %8, align 8, !tbaa !144
-  %108 = getelementptr inbounds nuw %"struct.llvm::AsmWriterOperand", ptr %24, i64 %20
+  %108 = getelementptr inbounds nuw [80 x i8], ptr %24, i64 %20
   store ptr %108, ptr %103, align 8, !tbaa !145
   ret void
 }
@@ -3763,7 +3763,7 @@ _ZNSt6vectorIN4llvm16AsmWriterOperandESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit3
 _ZNSt12_Vector_baseIN4llvm16AsmWriterOperandESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN4llvm16AsmWriterOperandESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31, %99
   store ptr %23, ptr %0, align 8, !tbaa !188
   store ptr %.0.lcssa.i.i.i30, ptr %5, align 8, !tbaa !144
-  %103 = getelementptr inbounds nuw %"struct.llvm::AsmWriterOperand", ptr %23, i64 %17
+  %103 = getelementptr inbounds nuw [80 x i8], ptr %23, i64 %17
   store ptr %103, ptr %98, align 8, !tbaa !145
   ret void
 }

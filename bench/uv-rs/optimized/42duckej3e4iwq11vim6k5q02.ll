@@ -414,7 +414,7 @@ common.resume:                                    ; preds = %67, %.body, %20
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %28 = getelementptr inbounds nuw { { { { i32 } }, { { i8 } }, [3 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, [4 x i64] }, ptr %27, i64 %15
+  %28 = getelementptr inbounds nuw [64 x i8], ptr %27, i64 %15
   invoke void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$8try_lock17hc494513ff7f69234E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 %28)
           to label %30 unwind label %.loopexit
 
@@ -463,7 +463,7 @@ common.resume:                                    ; preds = %67, %.body, %20
 47:                                               ; preds = %42, %32
   %48 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %49 = load ptr, ptr %48, align 8, !alias.scope !62, !noalias !65, !nonnull !3, !noundef !3
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %39
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %39
   store ptr %1, ptr %50, align 8, !noalias !65
   %51 = add i64 %39, 1
   store i64 %51, ptr %38, align 8, !alias.scope !62, !noalias !65
@@ -2614,7 +2614,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i: ; 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7685675a36fb24a5E.exit.i": ; preds = %396, %390
   %397 = getelementptr inbounds nuw i8, ptr %389, i64 72
   %398 = load ptr, ptr %397, align 8, !alias.scope !509, !noalias !492, !nonnull !3, !noundef !3
-  %399 = getelementptr inbounds i64, ptr %398, i64 %393
+  %399 = getelementptr inbounds [8 x i8], ptr %398, i64 %393
   store i64 %.sroa.phi.sroa.speculated, ptr %399, align 8, !noalias !492
   %400 = add i64 %393, 1
   store i64 %400, ptr %392, align 8, !alias.scope !509, !noalias !492

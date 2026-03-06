@@ -4,9 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.lj_Debug = type { i32, ptr, ptr, ptr, ptr, i32, i32, i32, i32, [60 x i8], i32, i32, i32 }
-%union.TValue = type { i64 }
 %struct.lua_Debug = type { i32, ptr, ptr, ptr, ptr, i32, i32, i32, i32, [60 x i8], i32 }
-%struct.GCRef = type { i64 }
 
 @.str = private unnamed_addr constant [6 x i8] c"debug\00", align 1
 @lj_lib_init_debug = internal constant [160 x i8] c"\7F9\10\0Bgetregistry\0Cgetmetatable\0Csetmetatable\07getfenv\07setfenv\07getinfo\08getlocal\08setlocal\0Agetupvalue\0Asetupvalue\09upvalueid\0Bupvaluejoin\07sethook\07gethook\05debug\09traceback\FF", align 16
@@ -171,7 +169,7 @@ getthread.exit:                                   ; preds = %1, %8, %11
 25:                                               ; preds = %getthread.exit
   %26 = load ptr, ptr %3, align 8, !tbaa !16
   %27 = zext nneg i32 %.058 to i64
-  %28 = getelementptr inbounds nuw %union.TValue, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %5, align 8, !tbaa !4
   %30 = icmp ult ptr %28, %29
   br i1 %30, label %31, label %44
@@ -189,7 +187,7 @@ getthread.exit:                                   ; preds = %1, %8, %11
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %38, ptr %36, align 8, !tbaa !4
   %39 = load ptr, ptr %3, align 8, !tbaa !16
-  %40 = getelementptr inbounds nuw %union.TValue, ptr %39, i64 %27
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %27
   %41 = load i64, ptr %40, align 8, !tbaa !15
   %42 = and i64 %41, 140737488355327
   %43 = or disjoint i64 %42, -1266637395197952
@@ -377,7 +375,7 @@ getthread.exit:                                   ; preds = %1, %8, %11
   %15 = tail call i32 @lj_lib_checkint(ptr noundef nonnull %0, i32 noundef %14) #10
   %16 = load ptr, ptr %3, align 8, !tbaa !16
   %17 = zext nneg i32 %.024 to i64
-  %18 = getelementptr inbounds nuw %union.TValue, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !15
   %.mask = and i64 %19, -140737488355328
   %20 = icmp eq i64 %.mask, -1266637395197952
@@ -543,14 +541,14 @@ define internal noundef i32 @lj_cf_debug_upvalueid(ptr noundef %0) #0 {
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %16 = getelementptr inbounds nuw %struct.GCRef, ptr %15, i64 %13
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %13
   %17 = load i64, ptr %16, align 8, !tbaa !15
   %18 = inttoptr i64 %17 to ptr
   br label %22
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %21 = getelementptr inbounds nuw %union.TValue, ptr %20, i64 %13
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %13
   br label %22
 
 22:                                               ; preds = %19, %14
@@ -605,7 +603,7 @@ define internal noundef i32 @lj_cf_debug_upvaluejoin(ptr noundef %0) #0 {
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %20 = zext nneg i32 %13 to i64
-  %21 = getelementptr inbounds nuw %struct.GCRef, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   store ptr %21, ptr %indvars.iv.sroa.phi, align 8, !tbaa !33
   br i1 %3, label %2, label %22, !llvm.loop !35
 
@@ -865,7 +863,7 @@ getthread.exit:                                   ; preds = %1, %7, %10
   %17 = load ptr, ptr %4, align 8, !tbaa !4
   %18 = load ptr, ptr %2, align 8, !tbaa !16
   %19 = zext nneg i32 %.0 to i64
-  %20 = getelementptr inbounds nuw %union.TValue, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = icmp ugt ptr %17, %20
   br i1 %21, label %22, label %24
 
@@ -975,7 +973,7 @@ define internal void @hookf(ptr noundef %0, ptr noundef readonly captures(none) 
 8:                                                ; preds = %2
   %9 = load i32, ptr %1, align 8, !tbaa !39
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr @hookf.hooknames, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr @hookf.hooknames, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !41
   tail call void @lua_pushstring(ptr noundef nonnull %0, ptr noundef %12) #10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40

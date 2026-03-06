@@ -2070,7 +2070,7 @@ define internal range(i64 0, 21) i64 @file_s_fnmatch(i32 noundef %0, ptr noundef
   %exitcond.not = phi i1 [ true, %.preheader29 ], [ false, %3 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader29 ], [ %4, %3 ]
   %indvars.iv = phi i64 [ 1, %.preheader29 ], [ 0, %3 ]
-  %9 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %9 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8, !tbaa !7
   store i64 %10, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !7
   br i1 %exitcond.not, label %.preheader, label %.preheader29, !llvm.loop !101
@@ -3399,7 +3399,7 @@ glob_realloc_n.exit.i:                            ; preds = %237
   %245 = phi ptr [ %242, %243 ], [ %.pre.i, %._crit_edge17.i ]
   %.2.i = phi i64 [ %238, %243 ], [ %.04015.i, %._crit_edge17.i ]
   %246 = add i64 %.04214.i, 1
-  %247 = getelementptr ptr, ptr %245, i64 %.04214.i
+  %247 = getelementptr [8 x i8], ptr %245, i64 %.04214.i
   store ptr %227, ptr %247, align 8, !tbaa !160
   store i64 %246, ptr %24, align 8, !tbaa !19
   %248 = call ptr @rb_nogvl(ptr noundef nonnull @nogvl_readdir, ptr noundef nonnull %.0.i21.i, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null, i32 noundef 4) #22
@@ -3468,7 +3468,7 @@ glob_realloc_n.exit54.i:                          ; preds = %257
   %.013.i.i = phi i64 [ %268, %.lr.ph.i.i ], [ 0, %264 ]
   %267 = load ptr, ptr %221, align 8, !tbaa !19
   %268 = add nuw i64 %.013.i.i, 1
-  %269 = getelementptr ptr, ptr %267, i64 %.013.i.i
+  %269 = getelementptr [8 x i8], ptr %267, i64 %.013.i.i
   %270 = load ptr, ptr %269, align 8, !tbaa !160
   call void @free(ptr noundef %270) #22
   %exitcond.not.i.i = icmp eq i64 %268, %265
@@ -3507,7 +3507,7 @@ glob_dir_finish.exit.i:                           ; preds = %glob_realloc_n.exit
   %.013.i58.i = phi i64 [ %280, %.lr.ph.i57.i ], [ 0, %276 ]
   %279 = load ptr, ptr %221, align 8, !tbaa !19
   %280 = add nuw i64 %.013.i58.i, 1
-  %281 = getelementptr ptr, ptr %279, i64 %.013.i58.i
+  %281 = getelementptr [8 x i8], ptr %279, i64 %.013.i58.i
   %282 = load ptr, ptr %281, align 8, !tbaa !160
   call void @free(ptr noundef %282) #22
   %exitcond.not.i59.i = icmp eq i64 %280, %277
@@ -3614,7 +3614,7 @@ glob_getent.exit:                                 ; preds = %331
   %335 = load ptr, ptr %301, align 8, !tbaa !19
   %336 = add nuw i64 %332, 1
   store i64 %336, ptr %300, align 8, !tbaa !19
-  %337 = getelementptr ptr, ptr %335, i64 %332
+  %337 = getelementptr [8 x i8], ptr %335, i64 %332
   %338 = load ptr, ptr %337, align 8, !tbaa !160
   %.not350 = icmp eq ptr %338, null
   br i1 %.not350, label %.thread477, label %glob_getent.exit._crit_edge
@@ -3955,7 +3955,7 @@ glob_getent.exit.thread.thread500:                ; preds = %324, %glob_getent.e
   %.013.i = phi i64 [ %452, %.lr.ph.i397 ], [ 0, %448 ]
   %451 = load ptr, ptr %301, align 8, !tbaa !19
   %452 = add nuw i64 %.013.i, 1
-  %453 = getelementptr ptr, ptr %451, i64 %.013.i
+  %453 = getelementptr [8 x i8], ptr %451, i64 %.013.i
   %454 = load ptr, ptr %453, align 8, !tbaa !160
   call void @free(ptr noundef %454) #22
   %exitcond.not.i = icmp eq i64 %452, %449
@@ -6459,7 +6459,7 @@ rb_array_len.exit.thread:                         ; preds = %13
 
 RARRAY_AREF.exit:                                 ; preds = %21, %22
   %.0.i.i = phi ptr [ %10, %21 ], [ %23, %22 ]
-  %24 = getelementptr i64, ptr %.0.i.i, i64 %.0
+  %24 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.0
   %25 = load i64, ptr %24, align 8, !tbaa !7
   store i64 %25, ptr %5, align 8, !tbaa !7
   %26 = call i64 @rb_get_path(i64 noundef %25) #22

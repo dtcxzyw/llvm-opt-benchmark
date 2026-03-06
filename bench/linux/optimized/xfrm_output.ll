@@ -30,8 +30,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xfrm_local_e
 %struct.llist_node = type { ptr }
 %union.anon.93 = type { i32 }
 %struct.nf_hook_state = type { i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.xfrm_offload = type { %struct.anon.29, i32, i32, i8, i8 }
-%struct.anon.29 = type { i32, i32 }
 
 @__UNIQUE_ID___addressable_xfrm_output_resume866 = internal global ptr @xfrm_output_resume, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_xfrm_output869 = internal global ptr @xfrm_output, section ".discard.addressable", align 8
@@ -1095,7 +1093,7 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %725 = getelementptr inbounds nuw i8, ptr %715, i64 64
   %726 = add i32 %719, -1
   %727 = sext i32 %726 to i64
-  %728 = getelementptr %struct.xfrm_offload, ptr %725, i64 %727
+  %728 = getelementptr [20 x i8], ptr %725, i64 %727
   %729 = icmp eq ptr %728, null
   br i1 %729, label %.critedge, label %730
 

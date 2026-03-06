@@ -3,8 +3,6 @@ source_filename = "bench/darktable/original/nikon.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.libraw_afinfo_item_t = type { i32, i16, i32, i32, ptr }
-
 $_ZTI17LibRaw_exceptions = comdat any
 
 $_ZTS17LibRaw_exceptions = comdat any
@@ -531,7 +529,7 @@ define void @_ZN6LibRaw15Nikon_NRW_WBtagEii(ptr noundef nonnull align 8 derefere
   %16 = shl i32 %7, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 187092
   %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds [4 x i32], ptr %17, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %17, i64 %18
   store i32 %16, ptr %19, align 4, !tbaa !92
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %8, ptr %20, align 8, !tbaa !92
@@ -1478,7 +1476,7 @@ sub_1:                                            ; preds = %sub_0
   %542 = lshr i32 %.1208372, 1
   %543 = xor i32 %542, %.1208372
   %544 = zext nneg i32 %543 to i64
-  %545 = getelementptr inbounds nuw i32, ptr %79, i64 %544
+  %545 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %544
   store i32 %541, ptr %545, align 4, !tbaa !92
   %546 = add nuw nsw i32 %.1208372, 1
   %exitcond.not = icmp eq i32 %546, 4
@@ -1491,7 +1489,7 @@ sub_1:                                            ; preds = %sub_0
 549:                                              ; preds = %547, %549
   %indvars.iv = phi i64 [ 0, %547 ], [ %indvars.iv.next, %549 ]
   %.0209373 = phi i32 [ %548, %547 ], [ %spec.select, %549 ]
-  %550 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv
+  %550 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv
   %551 = load i32, ptr %550, align 4, !tbaa !92
   %spec.select = call i32 @llvm.umin.i32(i32 %.0209373, i32 %551)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1500,7 +1498,7 @@ sub_1:                                            ; preds = %sub_0
 
 .preheader367:                                    ; preds = %549, %.preheader367
   %indvars.iv437 = phi i64 [ %indvars.iv.next438, %.preheader367 ], [ 0, %549 ]
-  %552 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv437
+  %552 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv437
   %553 = load i32, ptr %552, align 4, !tbaa !92
   %554 = sub i32 %553, %spec.select
   store i32 %554, ptr %552, align 4, !tbaa !92
@@ -1584,7 +1582,7 @@ sub_1:                                            ; preds = %sub_0
   %599 = call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %598, i64 noundef 1)
   %600 = load i32, ptr %66, align 8, !tbaa !128
   %601 = sext i32 %600 to i64
-  %602 = getelementptr inbounds %struct.libraw_afinfo_item_t, ptr %67, i64 %601
+  %602 = getelementptr inbounds [24 x i8], ptr %67, i64 %601
   %603 = getelementptr inbounds nuw i8, ptr %602, i64 16
   store ptr %599, ptr %603, align 8, !tbaa !133
   %604 = load ptr, ptr %11, align 8, !tbaa !94
@@ -1748,7 +1746,7 @@ sub_1:                                            ; preds = %sub_0
   %687 = and i32 %686, 2
   %688 = or disjoint i32 %687, %685
   %689 = zext nneg i32 %688 to i64
-  %690 = getelementptr inbounds nuw float, ptr %104, i64 %689
+  %690 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %689
   store float %684, ptr %690, align 4, !tbaa !100
   %691 = add nuw nsw i32 %.6401, 1
   %exitcond465.not = icmp eq i32 %691, 4
@@ -1769,7 +1767,7 @@ sub_1:                                            ; preds = %sub_0
   %701 = lshr i32 %.7400, 1
   %702 = xor i32 %701, %.7400
   %703 = zext nneg i32 %702 to i64
-  %704 = getelementptr inbounds nuw float, ptr %104, i64 %703
+  %704 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %703
   store float %700, ptr %704, align 4, !tbaa !100
   %705 = add nuw nsw i32 %.7400, 1
   %exitcond464.not = icmp eq i32 %705, 4
@@ -1787,7 +1785,7 @@ sub_1:                                            ; preds = %sub_0
   %indvars.iv460 = phi i64 [ 0, %706 ], [ %indvars.iv.next461, %712 ]
   %713 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %714 = uitofp i16 %713 to float
-  %715 = getelementptr inbounds nuw float, ptr %104, i64 %indvars.iv460
+  %715 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv460
   store float %714, ptr %715, align 4, !tbaa !100
   %indvars.iv.next461 = add nuw nsw i64 %indvars.iv460, 1
   %exitcond463.not = icmp eq i64 %indvars.iv.next461, 4
@@ -2023,7 +2021,7 @@ thread-pre-split:                                 ; preds = %712, %698, %682
   %834 = xor i32 %826, %833
   %835 = xor i32 %834, %832
   %836 = zext nneg i32 %835 to i64
-  %837 = getelementptr inbounds nuw float, ptr %104, i64 %836
+  %837 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %836
   store float %831, ptr %837, align 4, !tbaa !100
   %indvars.iv.next448 = add nuw nsw i64 %indvars.iv447, 1
   %exitcond450.not = icmp eq i64 %indvars.iv.next448, 4
@@ -2492,7 +2490,7 @@ _Z11sget4_ordersPh.exit.thread:                   ; preds = %._crit_edge, %1058,
 1105:                                             ; preds = %1095
   %1106 = load i32, ptr %66, align 8, !tbaa !128
   %1107 = sext i32 %1106 to i64
-  %1108 = getelementptr inbounds %struct.libraw_afinfo_item_t, ptr %67, i64 %1107
+  %1108 = getelementptr inbounds [24 x i8], ptr %67, i64 %1107
   %1109 = getelementptr inbounds nuw i8, ptr %1108, i64 8
   store i32 %1103, ptr %1109, align 8, !tbaa !159
   %1110 = load i32, ptr %7, align 4, !tbaa !92
@@ -2503,7 +2501,7 @@ _Z11sget4_ordersPh.exit.thread:                   ; preds = %._crit_edge, %1058,
   %1114 = call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %1113, i64 noundef 1)
   %1115 = load i32, ptr %66, align 8, !tbaa !128
   %1116 = sext i32 %1115 to i64
-  %1117 = getelementptr inbounds %struct.libraw_afinfo_item_t, ptr %67, i64 %1116
+  %1117 = getelementptr inbounds [24 x i8], ptr %67, i64 %1116
   %1118 = getelementptr inbounds nuw i8, ptr %1117, i64 16
   store ptr %1114, ptr %1118, align 8, !tbaa !133
   %1119 = load ptr, ptr %11, align 8, !tbaa !94
@@ -2679,7 +2677,7 @@ _Z11sget4_ordersPh.exit.thread:                   ; preds = %._crit_edge, %1058,
 .preheader:                                       ; preds = %1156, %.preheader
   %indvars.iv466 = phi i64 [ %indvars.iv.next467, %.preheader ], [ 0, %1156 ]
   %1218 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %1219 = getelementptr inbounds nuw i16, ptr %164, i64 %indvars.iv466
+  %1219 = getelementptr inbounds nuw [2 x i8], ptr %164, i64 %indvars.iv466
   store i16 %1218, ptr %1219, align 2, !tbaa !169
   %indvars.iv.next467 = add nuw nsw i64 %indvars.iv466, 1
   %exitcond469.not = icmp eq i64 %indvars.iv.next467, 4

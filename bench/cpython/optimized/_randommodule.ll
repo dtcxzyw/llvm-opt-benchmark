@@ -373,7 +373,7 @@ define internal ptr @_random_Random_getstate(ptr noundef readonly captures(none)
 
 7:                                                ; preds = %13, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %13 ]
-  %8 = getelementptr i32, ptr %5, i64 %indvars.iv.i
+  %8 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4, !tbaa !29
   %10 = zext i32 %9 to i64
   %11 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %10) #8
@@ -381,7 +381,7 @@ define internal ptr @_random_Random_getstate(ptr noundef readonly captures(none)
   br i1 %12, label %.loopexit.i, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr ptr, ptr %6, i64 %indvars.iv.i
+  %14 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv.i
   store ptr %11, ptr %14, align 8, !tbaa !14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
@@ -453,7 +453,7 @@ define internal noundef ptr @_random_Random_setstate(ptr noundef writeonly captu
 
 14:                                               ; preds = %21, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %21 ]
-  %15 = getelementptr ptr, ptr %11, i64 %indvars.iv.i
+  %15 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %16) #8
   %18 = icmp eq i64 %17, -1
@@ -466,7 +466,7 @@ define internal noundef ptr @_random_Random_setstate(ptr noundef writeonly captu
 
 21:                                               ; preds = %19, %14
   %22 = trunc i64 %17 to i32
-  %23 = getelementptr i32, ptr %3, i64 %indvars.iv.i
+  %23 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv.i
   store i32 %22, ptr %23, align 4, !tbaa !29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
@@ -552,10 +552,10 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
 .preheader43:                                     ; preds = %.preheader43.preheader, %.preheader43
   %6 = phi i32 [ %.pre, %.preheader43.preheader ], [ %10, %.preheader43 ]
   %indvars.iv = phi i64 [ 0, %.preheader43.preheader ], [ %indvars.iv.next, %.preheader43 ]
-  %7 = getelementptr i32, ptr %2, i64 %indvars.iv
+  %7 = getelementptr [4 x i8], ptr %2, i64 %indvars.iv
   %8 = and i32 %6, -2147483648
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr i32, ptr %2, i64 %indvars.iv.next
+  %9 = getelementptr [4 x i8], ptr %2, i64 %indvars.iv.next
   %10 = load i32, ptr %9, align 4, !tbaa !29
   %11 = and i32 %10, 2147483646
   %12 = or disjoint i32 %11, %8
@@ -564,7 +564,7 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
   %15 = lshr exact i32 %12, 1
   %16 = and i32 %10, 1
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr i32, ptr @genrand_uint32.mag01, i64 %17
+  %18 = getelementptr [4 x i8], ptr @genrand_uint32.mag01, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !29
   %20 = xor i32 %19, %14
   %21 = xor i32 %20, %15
@@ -575,10 +575,10 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %22 = phi i32 [ %.pre51, %.lr.ph.preheader ], [ %26, %.lr.ph ]
   %indvars.iv47 = phi i64 [ 227, %.lr.ph.preheader ], [ %indvars.iv.next48, %.lr.ph ]
-  %23 = getelementptr i32, ptr %2, i64 %indvars.iv47
+  %23 = getelementptr [4 x i8], ptr %2, i64 %indvars.iv47
   %24 = and i32 %22, -2147483648
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %25 = getelementptr i32, ptr %2, i64 %indvars.iv.next48
+  %25 = getelementptr [4 x i8], ptr %2, i64 %indvars.iv.next48
   %26 = load i32, ptr %25, align 4, !tbaa !29
   %27 = and i32 %26, 2147483646
   %28 = or disjoint i32 %27, %24
@@ -587,7 +587,7 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
   %31 = lshr exact i32 %28, 1
   %32 = and i32 %26, 1
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr i32, ptr @genrand_uint32.mag01, i64 %33
+  %34 = getelementptr [4 x i8], ptr @genrand_uint32.mag01, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !29
   %36 = xor i32 %35, %30
   %37 = xor i32 %36, %31
@@ -607,7 +607,7 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
   %46 = lshr exact i32 %43, 1
   %47 = and i32 %41, 1
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr i32, ptr @genrand_uint32.mag01, i64 %48
+  %49 = getelementptr [4 x i8], ptr @genrand_uint32.mag01, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !29
   %51 = xor i32 %50, %45
   %52 = xor i32 %51, %46
@@ -619,7 +619,7 @@ define internal fastcc i32 @genrand_uint32(ptr noundef captures(none) %0) unname
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %3, align 8, !tbaa !32
   %56 = sext i32 %54 to i64
-  %57 = getelementptr i32, ptr %2, i64 %56
+  %57 = getelementptr [4 x i8], ptr %2, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !29
   %59 = lshr i32 %58, 11
   %60 = xor i32 %59, %58
@@ -665,7 +665,7 @@ define internal fastcc range(i32 -1, 1) i32 @random_seed(ptr noundef captures(no
 13:                                               ; preds = %13, %11
   %store_forwarded101 = phi i32 [ 19650218, %11 ], [ %19, %13 ]
   %indvars.iv.i.i.i = phi i64 [ 1, %11 ], [ %indvars.iv.next.i.i.i, %13 ]
-  %14 = getelementptr i32, ptr %12, i64 %indvars.iv.i.i.i
+  %14 = getelementptr [4 x i8], ptr %12, i64 %indvars.iv.i.i.i
   %15 = lshr i32 %store_forwarded101, 30
   %16 = xor i32 %15, %store_forwarded101
   %17 = mul i32 %16, 1812433253
@@ -686,7 +686,7 @@ init_genrand.exit.i.i:                            ; preds = %13
   %.048.i.i = phi i64 [ 1, %init_genrand.exit.i.i ], [ %.1.i.i, %41 ]
   %.03947.i.i = phi i64 [ 624, %init_genrand.exit.i.i ], [ %42, %41 ]
   %.04146.i.i = phi i64 [ 0, %init_genrand.exit.i.i ], [ %spec.store.select.i.i, %41 ]
-  %23 = getelementptr i32, ptr %12, i64 %.048.i.i
+  %23 = getelementptr [4 x i8], ptr %12, i64 %.048.i.i
   %24 = load i32, ptr %23, align 4, !tbaa !29
   %25 = getelementptr i8, ptr %23, i64 -4
   %26 = load i32, ptr %25, align 4, !tbaa !29
@@ -694,7 +694,7 @@ init_genrand.exit.i.i:                            ; preds = %13
   %28 = xor i32 %27, %26
   %29 = mul i32 %28, 1664525
   %30 = xor i32 %29, %24
-  %31 = getelementptr i32, ptr %5, i64 %.04146.i.i
+  %31 = getelementptr [4 x i8], ptr %5, i64 %.04146.i.i
   %32 = load i32, ptr %31, align 4, !tbaa !29
   %33 = trunc i64 %.04146.i.i to i32
   %34 = add i32 %32, %33
@@ -721,7 +721,7 @@ init_genrand.exit.i.i:                            ; preds = %13
 .preheader.i.i:                                   ; preds = %41, %57
   %.250.i.i = phi i64 [ %.3.i.i, %57 ], [ %.1.i.i, %41 ]
   %.14049.i.i = phi i64 [ %58, %57 ], [ 623, %41 ]
-  %43 = getelementptr i32, ptr %12, i64 %.250.i.i
+  %43 = getelementptr [4 x i8], ptr %12, i64 %.250.i.i
   %44 = load i32, ptr %43, align 4, !tbaa !29
   %45 = getelementptr i8, ptr %43, i64 -4
   %46 = load i32, ptr %45, align 4, !tbaa !29
@@ -791,7 +791,7 @@ random_seed_time_pid.exit.thread69:               ; preds = %62
 72:                                               ; preds = %72, %68
   %store_forwarded = phi i32 [ 19650218, %68 ], [ %78, %72 ]
   %indvars.iv.i.i.i46 = phi i64 [ 1, %68 ], [ %indvars.iv.next.i.i.i47, %72 ]
-  %73 = getelementptr i32, ptr %71, i64 %indvars.iv.i.i.i46
+  %73 = getelementptr [4 x i8], ptr %71, i64 %indvars.iv.i.i.i46
   %74 = lshr i32 %store_forwarded, 30
   %75 = xor i32 %74, %store_forwarded
   %76 = mul i32 %75, 1812433253
@@ -812,7 +812,7 @@ init_genrand.exit.i.i49:                          ; preds = %72
   %.048.i.i50 = phi i64 [ 1, %init_genrand.exit.i.i49 ], [ %.1.i.i53, %100 ]
   %.03947.i.i51 = phi i64 [ 624, %init_genrand.exit.i.i49 ], [ %101, %100 ]
   %.04146.i.i52 = phi i64 [ 0, %init_genrand.exit.i.i49 ], [ %spec.store.select.i.i55, %100 ]
-  %82 = getelementptr i32, ptr %71, i64 %.048.i.i50
+  %82 = getelementptr [4 x i8], ptr %71, i64 %.048.i.i50
   %83 = load i32, ptr %82, align 4, !tbaa !29
   %84 = getelementptr i8, ptr %82, i64 -4
   %85 = load i32, ptr %84, align 4, !tbaa !29
@@ -820,7 +820,7 @@ init_genrand.exit.i.i49:                          ; preds = %72
   %87 = xor i32 %86, %85
   %88 = mul i32 %87, 1664525
   %89 = xor i32 %88, %83
-  %90 = getelementptr i32, ptr %4, i64 %.04146.i.i52
+  %90 = getelementptr [4 x i8], ptr %4, i64 %.04146.i.i52
   %91 = load i32, ptr %90, align 4, !tbaa !29
   %92 = trunc i64 %.04146.i.i52 to i32
   %93 = add i32 %91, %92
@@ -847,7 +847,7 @@ init_genrand.exit.i.i49:                          ; preds = %72
 .preheader.i.i57:                                 ; preds = %100, %116
   %.250.i.i58 = phi i64 [ %.3.i.i60, %116 ], [ %.1.i.i53, %100 ]
   %.14049.i.i59 = phi i64 [ %117, %116 ], [ 623, %100 ]
-  %102 = getelementptr i32, ptr %71, i64 %.250.i.i58
+  %102 = getelementptr [4 x i8], ptr %71, i64 %.250.i.i58
   %103 = load i32, ptr %102, align 4, !tbaa !29
   %104 = getelementptr i8, ptr %102, i64 -4
   %105 = load i32, ptr %104, align 4, !tbaa !29
@@ -956,7 +956,7 @@ random_seed_time_pid.exit:                        ; preds = %116
 157:                                              ; preds = %157, %155
   %store_forwarded103 = phi i32 [ 19650218, %155 ], [ %163, %157 ]
   %indvars.iv.i.i = phi i64 [ 1, %155 ], [ %indvars.iv.next.i.i, %157 ]
-  %158 = getelementptr i32, ptr %156, i64 %indvars.iv.i.i
+  %158 = getelementptr [4 x i8], ptr %156, i64 %indvars.iv.i.i
   %159 = lshr i32 %store_forwarded103, 30
   %160 = xor i32 %159, %store_forwarded103
   %161 = mul i32 %160, 1812433253
@@ -978,7 +978,7 @@ init_genrand.exit.i:                              ; preds = %157
   %.048.i = phi i64 [ 1, %init_genrand.exit.i ], [ %.1.i64, %186 ]
   %.03947.i = phi i64 [ %165, %init_genrand.exit.i ], [ %187, %186 ]
   %.04146.i = phi i64 [ 0, %init_genrand.exit.i ], [ %spec.store.select.i, %186 ]
-  %168 = getelementptr i32, ptr %156, i64 %.048.i
+  %168 = getelementptr [4 x i8], ptr %156, i64 %.048.i
   %169 = load i32, ptr %168, align 4, !tbaa !29
   %170 = getelementptr i8, ptr %168, i64 -4
   %171 = load i32, ptr %170, align 4, !tbaa !29
@@ -986,7 +986,7 @@ init_genrand.exit.i:                              ; preds = %157
   %173 = xor i32 %172, %171
   %174 = mul i32 %173, 1664525
   %175 = xor i32 %174, %169
-  %176 = getelementptr i32, ptr %148, i64 %.04146.i
+  %176 = getelementptr [4 x i8], ptr %148, i64 %.04146.i
   %177 = load i32, ptr %176, align 4, !tbaa !29
   %178 = trunc i64 %.04146.i to i32
   %179 = add i32 %177, %178
@@ -1013,7 +1013,7 @@ init_genrand.exit.i:                              ; preds = %157
 .preheader.i:                                     ; preds = %186, %202
   %.250.i = phi i64 [ %.3.i, %202 ], [ %.1.i64, %186 ]
   %.14049.i = phi i64 [ %203, %202 ], [ 623, %186 ]
-  %188 = getelementptr i32, ptr %156, i64 %.250.i
+  %188 = getelementptr [4 x i8], ptr %156, i64 %.250.i
   %189 = load i32, ptr %188, align 4, !tbaa !29
   %190 = getelementptr i8, ptr %188, i64 -4
   %191 = load i32, ptr %190, align 4, !tbaa !29
@@ -1174,7 +1174,7 @@ define internal fastcc ptr @_random_Random_getrandbits_impl(ptr noundef captures
   %31 = sub i32 32, %.02329
   %32 = select i1 %30, i32 %31, i32 0
   %.024 = lshr i32 %29, %32
-  %33 = getelementptr i32, ptr %24, i64 %indvars.iv
+  %33 = getelementptr [4 x i8], ptr %24, i64 %indvars.iv
   store i32 %.024, ptr %33, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = add i32 %.02329, -32

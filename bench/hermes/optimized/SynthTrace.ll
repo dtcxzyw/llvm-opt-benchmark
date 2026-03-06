@@ -1012,7 +1012,7 @@ invoke.cont101:                                   ; preds = %_ZN6hermes2vm8GCCon
   %ShouldReleaseUnused_.i = getelementptr inbounds nuw i8, ptr %ref.tmp100, i64 52
   %65 = load i32, ptr %ShouldReleaseUnused_.i, align 4
   %66 = zext nneg i32 %65 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8facebook6hermes7tracing10SynthTrace21nameFromReleaseUnusedEN6hermes2vm13ReleaseUnusedE, i64 %66
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8facebook6hermes7tracing10SynthTrace21nameFromReleaseUnusedEN6hermes2vm13ReleaseUnusedE, i64 %66
   %switch.load = load ptr, ptr %switch.gep, align 8
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %64, ptr nonnull @.str.9, i64 19)
           to label %_ZN6hermes11JSONEmitter9emitValueEPKc.exit.i unwind label %lpad102
@@ -1668,7 +1668,7 @@ _ZN6hermes2vm16GCTripwireConfigD2Ev.exit:         ; preds = %_ZNSt8functionIFvRK
 define hidden noundef nonnull ptr @_ZN8facebook6hermes7tracing10SynthTrace21nameFromReleaseUnusedEN6hermes2vm13ReleaseUnusedE(i32 noundef %ru) local_unnamed_addr #4 align 2 {
 entry:
   %0 = zext nneg i32 %ru to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8facebook6hermes7tracing10SynthTrace21nameFromReleaseUnusedEN6hermes2vm13ReleaseUnusedE, i64 %0
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8facebook6hermes7tracing10SynthTrace21nameFromReleaseUnusedEN6hermes2vm13ReleaseUnusedE, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

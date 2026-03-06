@@ -135,11 +135,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%struct.Info = type { ptr, i64 }
-%"class.std::vector.137" = type { %"struct.std::_Vector_base.138" }
-%"struct.std::_Vector_base.138" = type { %"struct.std::_Vector_base<Info, std::allocator<Info>>::_Vector_impl" }
-%"struct.std::_Vector_base<Info, std::allocator<Info>>::_Vector_impl" = type { %"struct.std::_Vector_base<Info, std::allocator<Info>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Info, std::allocator<Info>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::hash_internal::SpyHashStateImpl.149" = type <{ %"class.std::vector", %"class.std::shared_ptr", i8, [7 x i8] }>
 %"class.absl::hash_internal::SpyHashStateImpl.152" = type <{ %"class.std::vector", %"class.std::shared_ptr", i8, [7 x i8] }>
 %"class.std::basic_string_view" = type { i64, ptr }
@@ -38104,8 +38099,8 @@ define linkonce_odr dso_local void @_ZN4absl13hash_internal37VerifyTypeImplement
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %109 = load i8, ptr %108, align 8, !tbaa !709
   %110 = zext i8 %109 to i64
-  %111 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Multi_array.146", ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultIbEEON4absl13hash_internal9EqVisitorINS5_13DefaultEqualsEEEJRKSt7variantIJPKNS4_7uint128EPKoEESI_EE9_S_vtableE, i64 %107
-  %112 = getelementptr inbounds nuw %"struct.std::__detail::__variant::_Multi_array.147", ptr %111, i64 %110
+  %111 = getelementptr inbounds nuw [16 x i8], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultIbEEON4absl13hash_internal9EqVisitorINS5_13DefaultEqualsEEEJRKSt7variantIJPKNS4_7uint128EPKoEESI_EE9_S_vtableE, i64 %107
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %110
   %113 = load ptr, ptr %112, align 8, !tbaa !711
   %114 = invoke noundef zeroext i1 %113(ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.0805.0831, ptr noundef nonnull align 8 dereferenceable(9) %105)
           to label %_ZSt5visitIN4absl13hash_internal9EqVisitorINS1_13DefaultEqualsEEEJRKSt7variantIJPKNS0_7uint128EPKoEESD_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISH_EEEEE4typeEE4typeEOSQ_EEEE4typeEOSF_DpOSH_.exit unwind label %115
@@ -38225,7 +38220,7 @@ _ZNSt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt
 _ZNSt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_7uint128EPKoEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EE17_M_realloc_insertIJSJ_EEEvN9__gnu_cxx17__normal_iteratorIPSJ_SL_EEDpOT_.exit.i.i: ; preds = %153, %_ZNSt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_7uint128EPKoEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit16.i.i.i
   store ptr %148, ptr %.371, align 8, !tbaa !704
   store ptr %152, ptr %129, align 8, !tbaa !715
-  %154 = getelementptr inbounds nuw %struct.Info, ptr %148, i64 %146
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %148, i64 %146
   store ptr %154, ptr %131, align 8, !tbaa !716
   br label %_ZNSt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_7uint128EPKoEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EE9push_backEOSJ_.exit
 
@@ -42856,7 +42851,7 @@ _ZNSt6vectorIS_IZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_
 _ZNSt12_Vector_baseISt6vectorIZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS0_ISt7variantIJPKNS1_7uint128EPKoEESaISA_EENS2_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISK_EESaISM_EE13_M_deallocateEPSM_m.exit: ; preds = %_ZNSt6vectorIS_IZN4absl13hash_internal37VerifyTypeImplementsAbslHashCorrectlyIS_ISt7variantIJPKNS0_7uint128EPKoEESaIS9_EENS1_13DefaultEqualsEEEN7testing15AssertionResultERKT_T0_E4InfoSaISJ_EESaISL_EE11_S_relocateEPSL_SO_SO_RSM_.exit21, %41
   store ptr %19, ptr %0, align 8, !tbaa !746
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8, !tbaa !712
-  %45 = getelementptr inbounds nuw %"class.std::vector.137", ptr %19, i64 %15
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %15
   store ptr %45, ptr %40, align 8, !tbaa !714
   ret void
 }
@@ -46249,7 +46244,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit38, %76
   store ptr %24, ptr %0, align 8, !tbaa !24
   store ptr %.0.lcssa.i.i.i37, ptr %6, align 8, !tbaa !110
-  %80 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %24, i64 %18
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %18
   store ptr %80, ptr %75, align 8, !tbaa !112
   ret void
 
@@ -87658,7 +87653,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !24
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !110
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !112
   ret void
 }

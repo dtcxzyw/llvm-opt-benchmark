@@ -662,7 +662,7 @@ define noundef ptr @_ZNK11OpenImageIO6v3_1_03pvt6TagMap4findEi(ptr noundef nonnu
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !19
   %.0813.i.i.i.i.i = and i64 %5, %4
-  %8 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %7, i64 %.0813.i.i.i.i.i
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.0813.i.i.i.i.i
   %9 = load i16, ptr %8, align 8, !tbaa !14
   %.not14.i.i.i.i.i = icmp slt i16 %9, 0
   br i1 %.not14.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -680,7 +680,7 @@ define noundef ptr @_ZNK11OpenImageIO6v3_1_03pvt6TagMap4findEi(ptr noundef nonnu
   %15 = add i64 %.0816.i.i.i.i.i, 1
   %16 = add i16 %.015.i.i.i.i.i, 1
   %.08.i.i.i.i.i = and i64 %15, %5
-  %17 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %7, i64 %.08.i.i.i.i.i
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.08.i.i.i.i.i
   %18 = load i16, ptr %17, align 8, !tbaa !14
   %.not.i.i.i.i.i = icmp sgt i16 %16, %18
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !75
@@ -688,7 +688,7 @@ define noundef ptr @_ZNK11OpenImageIO6v3_1_03pvt6TagMap4findEi(ptr noundef nonnu
 ._crit_edge.i.i.i.i.i:                            ; preds = %14, %2
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !77
-  %21 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %7, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %20
   br label %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit
 
 _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -699,7 +699,7 @@ _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt
 _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit: ; preds = %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit, %._crit_edge.i.i.i.i.i
   %22 = phi i64 [ %20, %._crit_edge.i.i.i.i.i ], [ %.pre, %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit ]
   %.sroa.09.0.i.i.i.i.i = phi ptr [ %21, %._crit_edge.i.i.i.i.i ], [ %10, %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit ]
-  %23 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %7, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %22
   %24 = icmp eq ptr %.sroa.09.0.i.i.i.i.i, %23
   br i1 %24, label %28, label %25
 
@@ -784,7 +784,7 @@ _ZN3tsl9robin_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenI
   %30 = load ptr, ptr %29, align 8, !tbaa !38
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %32 = load i64, ptr %31, align 8, !tbaa !80
-  %33 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [48 x i8], ptr %30, i64 %32
   %34 = icmp eq ptr %27, %33
   br i1 %34, label %38, label %35
 
@@ -846,7 +846,7 @@ define noundef ptr @_ZNK11OpenImageIO6v3_1_03pvt6TagMap4nameEi(ptr noundef nonnu
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !19
   %.0813.i.i.i.i.i = and i64 %5, %4
-  %8 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %7, i64 %.0813.i.i.i.i.i
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.0813.i.i.i.i.i
   %9 = load i16, ptr %8, align 8, !tbaa !14
   %.not14.i.i.i.i.i = icmp slt i16 %9, 0
   br i1 %.not14.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -864,7 +864,7 @@ define noundef ptr @_ZNK11OpenImageIO6v3_1_03pvt6TagMap4nameEi(ptr noundef nonnu
   %15 = add i64 %.0816.i.i.i.i.i, 1
   %16 = add i16 %.015.i.i.i.i.i, 1
   %.08.i.i.i.i.i = and i64 %15, %5
-  %17 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %7, i64 %.08.i.i.i.i.i
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.08.i.i.i.i.i
   %18 = load i16, ptr %17, align 8, !tbaa !14
   %.not.i.i.i.i.i = icmp sgt i16 %16, %18
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !75
@@ -872,7 +872,7 @@ define noundef ptr @_ZNK11OpenImageIO6v3_1_03pvt6TagMap4nameEi(ptr noundef nonnu
 ._crit_edge.i.i.i.i.i:                            ; preds = %14, %2
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !77
-  %21 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %7, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %20
   br label %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit
 
 _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -883,7 +883,7 @@ _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt
 _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit: ; preds = %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit, %._crit_edge.i.i.i.i.i
   %22 = phi i64 [ %20, %._crit_edge.i.i.i.i.i ], [ %.pre, %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit ]
   %.sroa.09.0.i.i.i.i.i = phi ptr [ %21, %._crit_edge.i.i.i.i.i ], [ %10, %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit ]
-  %23 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %7, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %22
   %24 = icmp eq ptr %.sroa.09.0.i.i.i.i.i, %23
   br i1 %24, label %30, label %25
 
@@ -907,7 +907,7 @@ define noundef i32 @_ZNK11OpenImageIO6v3_1_03pvt6TagMap8tifftypeEi(ptr noundef n
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !19
   %.0813.i.i.i.i.i = and i64 %5, %4
-  %8 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %7, i64 %.0813.i.i.i.i.i
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.0813.i.i.i.i.i
   %9 = load i16, ptr %8, align 8, !tbaa !14
   %.not14.i.i.i.i.i = icmp slt i16 %9, 0
   br i1 %.not14.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -925,7 +925,7 @@ define noundef i32 @_ZNK11OpenImageIO6v3_1_03pvt6TagMap8tifftypeEi(ptr noundef n
   %15 = add i64 %.0816.i.i.i.i.i, 1
   %16 = add i16 %.015.i.i.i.i.i, 1
   %.08.i.i.i.i.i = and i64 %15, %5
-  %17 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %7, i64 %.08.i.i.i.i.i
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.08.i.i.i.i.i
   %18 = load i16, ptr %17, align 8, !tbaa !14
   %.not.i.i.i.i.i = icmp sgt i16 %16, %18
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !75
@@ -933,7 +933,7 @@ define noundef i32 @_ZNK11OpenImageIO6v3_1_03pvt6TagMap8tifftypeEi(ptr noundef n
 ._crit_edge.i.i.i.i.i:                            ; preds = %14, %2
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !77
-  %21 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %7, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %20
   br label %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit
 
 _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -944,7 +944,7 @@ _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt
 _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit: ; preds = %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit, %._crit_edge.i.i.i.i.i
   %22 = phi i64 [ %20, %._crit_edge.i.i.i.i.i ], [ %.pre, %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit ]
   %.sroa.09.0.i.i.i.i.i = phi ptr [ %21, %._crit_edge.i.i.i.i.i ], [ %10, %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit ]
-  %23 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %7, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %22
   %24 = icmp eq ptr %.sroa.09.0.i.i.i.i.i, %23
   br i1 %24, label %30, label %25
 
@@ -968,7 +968,7 @@ define noundef i32 @_ZNK11OpenImageIO6v3_1_03pvt6TagMap9tiffcountEi(ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !19
   %.0813.i.i.i.i.i = and i64 %5, %4
-  %8 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %7, i64 %.0813.i.i.i.i.i
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.0813.i.i.i.i.i
   %9 = load i16, ptr %8, align 8, !tbaa !14
   %.not14.i.i.i.i.i = icmp slt i16 %9, 0
   br i1 %.not14.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -986,7 +986,7 @@ define noundef i32 @_ZNK11OpenImageIO6v3_1_03pvt6TagMap9tiffcountEi(ptr noundef 
   %15 = add i64 %.0816.i.i.i.i.i, 1
   %16 = add i16 %.015.i.i.i.i.i, 1
   %.08.i.i.i.i.i = and i64 %15, %5
-  %17 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %7, i64 %.08.i.i.i.i.i
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.08.i.i.i.i.i
   %18 = load i16, ptr %17, align 8, !tbaa !14
   %.not.i.i.i.i.i = icmp sgt i16 %16, %18
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !75
@@ -994,7 +994,7 @@ define noundef i32 @_ZNK11OpenImageIO6v3_1_03pvt6TagMap9tiffcountEi(ptr noundef 
 ._crit_edge.i.i.i.i.i:                            ; preds = %14, %2
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !77
-  %21 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %7, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %20
   br label %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit
 
 _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
@@ -1005,7 +1005,7 @@ _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt
 _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit: ; preds = %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit, %._crit_edge.i.i.i.i.i
   %22 = phi i64 [ %20, %._crit_edge.i.i.i.i.i ], [ %.pre, %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit ]
   %.sroa.09.0.i.i.i.i.i = phi ptr [ %21, %._crit_edge.i.i.i.i.i ], [ %10, %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit ]
-  %23 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %7, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %22
   %24 = icmp eq ptr %.sroa.09.0.i.i.i.i.i, %23
   br i1 %24, label %30, label %25
 
@@ -1092,7 +1092,7 @@ _ZN3tsl9robin_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenI
   %30 = load ptr, ptr %29, align 8, !tbaa !38
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %32 = load i64, ptr %31, align 8, !tbaa !80
-  %33 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [48 x i8], ptr %30, i64 %32
   %34 = icmp eq ptr %27, %33
   br i1 %34, label %39, label %35
 
@@ -1291,7 +1291,7 @@ _ZN11OpenImageIO6v3_1_03pvt15tiff_tagmap_refEv.exit: ; preds = %29, %32, %36
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %45 = load ptr, ptr %44, align 8, !tbaa !19
   %.0813.i.i.i.i.i.i = and i64 %43, %42
-  %46 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %45, i64 %.0813.i.i.i.i.i.i
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %.0813.i.i.i.i.i.i
   %47 = load i16, ptr %46, align 8, !tbaa !14
   %.not14.i.i.i.i.i.i = icmp slt i16 %47, 0
   br i1 %.not14.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -1309,7 +1309,7 @@ _ZN11OpenImageIO6v3_1_03pvt15tiff_tagmap_refEv.exit: ; preds = %29, %32, %36
   %53 = add i64 %.0816.i.i.i.i.i.i, 1
   %54 = add i16 %.015.i.i.i.i.i.i, 1
   %.08.i.i.i.i.i.i = and i64 %53, %43
-  %55 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %45, i64 %.08.i.i.i.i.i.i
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %.08.i.i.i.i.i.i
   %56 = load i16, ptr %55, align 8, !tbaa !14
   %.not.i.i.i.i.i.i = icmp sgt i16 %54, %56
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !75
@@ -1317,7 +1317,7 @@ _ZN11OpenImageIO6v3_1_03pvt15tiff_tagmap_refEv.exit: ; preds = %29, %32, %36
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %52, %40
   %57 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %58 = load i64, ptr %57, align 8, !tbaa !77
-  %59 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %45, i64 %58
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %58
   br label %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.i
 
 _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -1328,7 +1328,7 @@ _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt
 _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.i: ; preds = %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit.i, %._crit_edge.i.i.i.i.i.i
   %60 = phi i64 [ %58, %._crit_edge.i.i.i.i.i.i ], [ %.pre.i, %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit.i ]
   %.sroa.09.0.i.i.i.i.i.i = phi ptr [ %59, %._crit_edge.i.i.i.i.i.i ], [ %48, %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit.i ]
-  %61 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %45, i64 %60
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %60
   %62 = icmp eq ptr %.sroa.09.0.i.i.i.i.i.i, %61
   br i1 %62, label %_ZNK11OpenImageIO6v3_1_03pvt6TagMap4findEi.exit, label %63
 
@@ -1589,7 +1589,7 @@ define noundef i64 @_ZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataType(i32 n
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %3
   %5 = load i64, ptr %4, align 8, !tbaa !52
   br label %6
 
@@ -1607,7 +1607,7 @@ define noundef i64 @_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry(ptr
 
 4:                                                ; preds = %1
   %5 = zext nneg i16 %3 to i64
-  %6 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataType.exit
 
@@ -1698,7 +1698,7 @@ define { ptr, i64 } @_ZN11OpenImageIO6v3_1_013tiff_dir_dataERK12TIFFDirEntryNS0_
 
 6:                                                ; preds = %3
   %7 = zext nneg i16 %5 to i64
-  %8 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
 
@@ -1757,7 +1757,7 @@ define internal void @_ZN11OpenImageIO6v3_1_0L20version4char_handlerERKNS0_7TagI
 
 13:                                               ; preds = %7
   %14 = zext nneg i16 %12 to i64
-  %15 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i
 
@@ -1791,7 +1791,7 @@ _ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709
 
 32:                                               ; preds = %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit
   %33 = zext nneg i16 %12 to i64
-  %34 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
 
@@ -1884,7 +1884,7 @@ define internal void @_ZN11OpenImageIO6v3_1_0L17makernote_handlerERKNS0_7TagInfo
 
 16:                                               ; preds = %7
   %17 = zext nneg i16 %15 to i64
-  %18 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
 
@@ -2027,7 +2027,7 @@ define internal void @_ZN11OpenImageIO6v3_1_0L21version4uint8_handlerERKNS0_7Tag
 
 12:                                               ; preds = %7
   %13 = zext nneg i16 %11 to i64
-  %14 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i
 
@@ -2061,7 +2061,7 @@ _ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709
 
 31:                                               ; preds = %_ZN11OpenImageIO6v3_1_03pvt7dataptrERK12TIFFDirEntryNS0_4spanIKhLm18446744073709551615EEEi.exit
   %32 = zext nneg i16 %11 to i64
-  %33 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
 
@@ -2288,7 +2288,7 @@ _ZN11OpenImageIO6v3_1_03pvt14gps_tagmap_refEv.exit: ; preds = %_ZN11OpenImageIO6
 
 48:                                               ; preds = %.lr.ph.i.preheader
   %49 = zext nneg i16 %44 to i64
-  %50 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
 
@@ -2508,7 +2508,7 @@ _ZNSt3setImSt4lessImESaImEE4findERKm.exit128.thread: ; preds = %_ZNSt8_Rb_treeIm
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 32
   %131 = load ptr, ptr %130, align 8, !tbaa !19
   %.0813.i.i.i.i.i.i = and i64 %129, %128
-  %132 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %131, i64 %.0813.i.i.i.i.i.i
+  %132 = getelementptr inbounds nuw [24 x i8], ptr %131, i64 %.0813.i.i.i.i.i.i
   %133 = load i16, ptr %132, align 8, !tbaa !14
   %.not14.i.i.i.i.i.i = icmp slt i16 %133, 0
   br i1 %.not14.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -2526,7 +2526,7 @@ _ZNSt3setImSt4lessImESaImEE4findERKm.exit128.thread: ; preds = %_ZNSt8_Rb_treeIm
   %139 = add i64 %.0816.i.i.i.i.i.i, 1
   %140 = add i16 %.015.i.i.i.i.i.i, 1
   %.08.i.i.i.i.i.i = and i64 %139, %129
-  %141 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %131, i64 %.08.i.i.i.i.i.i
+  %141 = getelementptr inbounds nuw [24 x i8], ptr %131, i64 %.08.i.i.i.i.i.i
   %142 = load i16, ptr %141, align 8, !tbaa !14
   %.not.i.i.i.i.i.i = icmp sgt i16 %140, %142
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !75
@@ -2534,7 +2534,7 @@ _ZNSt3setImSt4lessImESaImEE4findERKm.exit128.thread: ; preds = %_ZNSt8_Rb_treeIm
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %138, %126
   %143 = getelementptr inbounds nuw i8, ptr %127, i64 40
   %144 = load i64, ptr %143, align 8, !tbaa !77
-  %145 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %131, i64 %144
+  %145 = getelementptr inbounds nuw [24 x i8], ptr %131, i64 %144
   br label %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.i
 
 _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -2545,7 +2545,7 @@ _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt
 _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.i: ; preds = %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit.i, %._crit_edge.i.i.i.i.i.i
   %146 = phi i64 [ %144, %._crit_edge.i.i.i.i.i.i ], [ %.pre.i, %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit.i ]
   %.sroa.09.0.i.i.i.i.i.i = phi ptr [ %145, %._crit_edge.i.i.i.i.i.i ], [ %134, %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit.i ]
-  %147 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %131, i64 %146
+  %147 = getelementptr inbounds nuw [24 x i8], ptr %131, i64 %146
   %148 = icmp eq ptr %.sroa.09.0.i.i.i.i.i.i, %147
   br i1 %148, label %_ZNK11OpenImageIO6v3_1_03pvt6TagMap4findEi.exit.thread, label %_ZNK11OpenImageIO6v3_1_03pvt6TagMap4findEi.exit
 
@@ -2621,7 +2621,7 @@ define hidden void @_ZN11OpenImageIO6v3_1_03pvt21append_tiff_dir_entryERSt6vecto
 16:                                               ; preds = %9
   %.mask = and i32 %3, 15
   %17 = zext nneg i32 %.mask to i64
-  %18 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !52
   br label %_ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit
 
@@ -2717,7 +2717,7 @@ _ZN11OpenImageIO6v3_1_011swap_endianIjEEvPT_i.exit91: ; preds = %.lr.ph.i87, %.l
 
 .lr.ph.i92:                                       ; preds = %52, %.lr.ph.i92
   %indvars.iv.i93 = phi i64 [ %indvars.iv.next.i94, %.lr.ph.i92 ], [ 0, %52 ]
-  %54 = getelementptr inbounds nuw i16, ptr %.0, i64 %indvars.iv.i93
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %.0, i64 %indvars.iv.i93
   %55 = load i16, ptr %54, align 2, !tbaa !100
   %56 = call noundef i16 @llvm.bswap.i16(i16 %55)
   store i16 %56, ptr %54, align 2, !tbaa !100
@@ -2737,7 +2737,7 @@ _ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit96: ; preds = %.lr.ph.i92, %52
 
 .lr.ph.i99:                                       ; preds = %57, %.lr.ph.i99
   %indvars.iv.i100 = phi i64 [ %indvars.iv.next.i101, %.lr.ph.i99 ], [ 0, %57 ]
-  %59 = getelementptr inbounds nuw i32, ptr %.0, i64 %indvars.iv.i100
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %indvars.iv.i100
   %60 = load i32, ptr %59, align 4, !tbaa !73
   %61 = call noundef i32 @llvm.bswap.i32(i32 %60)
   store i32 %61, ptr %59, align 4, !tbaa !73
@@ -2758,7 +2758,7 @@ _ZN11OpenImageIO6v3_1_011swap_endianIjEEvPT_i.exit103: ; preds = %.lr.ph.i99, %5
 
 .lr.ph.i106:                                      ; preds = %62, %.lr.ph.i106
   %indvars.iv.i107 = phi i64 [ %indvars.iv.next.i108, %.lr.ph.i106 ], [ 0, %62 ]
-  %64 = getelementptr inbounds nuw i64, ptr %.0, i64 %indvars.iv.i107
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %indvars.iv.i107
   %65 = load i64, ptr %64, align 8, !tbaa !52
   %66 = call noundef i64 @llvm.bswap.i64(i64 %65)
   store i64 %66, ptr %64, align 8, !tbaa !52
@@ -2777,7 +2777,7 @@ _ZN11OpenImageIO6v3_1_011swap_endianIjEEvPT_i.exit103: ; preds = %.lr.ph.i99, %5
 
 .lr.ph.i112:                                      ; preds = %.lr.ph.i112, %.lr.ph.preheader.i110
   %indvars.iv.i113 = phi i64 [ 0, %.lr.ph.preheader.i110 ], [ %indvars.iv.next.i114, %.lr.ph.i112 ]
-  %70 = getelementptr inbounds nuw i32, ptr %.0, i64 %indvars.iv.i113
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %indvars.iv.i113
   %71 = load i32, ptr %70, align 4, !tbaa !73
   %72 = call noundef i32 @llvm.bswap.i32(i32 %71)
   store i32 %72, ptr %70, align 4, !tbaa !73
@@ -2867,7 +2867,7 @@ _ZNSt6vectorI12TIFFDirEntrySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; pr
 _ZNSt6vectorI12TIFFDirEntrySaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %103, %_ZNSt6vectorI12TIFFDirEntrySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %98, ptr %0, align 8, !tbaa !121
   store ptr %102, ptr %74, align 8, !tbaa !120
-  %104 = getelementptr inbounds nuw %struct.TIFFDirEntry, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [12 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !118
   br label %_ZNSt6vectorI12TIFFDirEntrySaIS0_EE9push_backERKS0_.exit
 
@@ -4156,7 +4156,7 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_0L17encode_exif_entryERKNS0_1
   %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %.0813.i.i.i.i.i.i = and i64 %16, %15
-  %19 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %18, i64 %.0813.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %.0813.i.i.i.i.i.i
   %20 = load i16, ptr %19, align 8, !tbaa !14
   %.not14.i.i.i.i.i.i = icmp slt i16 %20, 0
   br i1 %.not14.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -4174,7 +4174,7 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_0L17encode_exif_entryERKNS0_1
   %26 = add i64 %.0816.i.i.i.i.i.i, 1
   %27 = add i16 %.015.i.i.i.i.i.i, 1
   %.08.i.i.i.i.i.i = and i64 %26, %16
-  %28 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %18, i64 %.08.i.i.i.i.i.i
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %.08.i.i.i.i.i.i
   %29 = load i16, ptr %28, align 8, !tbaa !14
   %.not.i.i.i.i.i.i = icmp sgt i16 %27, %29
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !75
@@ -4182,7 +4182,7 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_0L17encode_exif_entryERKNS0_1
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %25, %14
   %30 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
   %31 = load i64, ptr %30, align 8, !tbaa !77
-  %32 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %18, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %31
   br label %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.i
 
 _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i
@@ -4193,7 +4193,7 @@ _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt
 _ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.i: ; preds = %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit.i, %._crit_edge.i.i.i.i.i.i
   %33 = phi i64 [ %31, %._crit_edge.i.i.i.i.i.i ], [ %.pre.i, %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit.i ]
   %.sroa.09.0.i.i.i.i.i.i = phi ptr [ %32, %._crit_edge.i.i.i.i.i.i ], [ %21, %_ZN3tsl9robin_mapIiPKN11OpenImageIO6v3_1_07TagInfoESt4hashIiESt8equal_toIiESaISt4pairIiS5_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEE4findERKi.exit.loopexit.i ]
-  %34 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %18, i64 %33
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %33
   %35 = icmp eq ptr %.sroa.09.0.i.i.i.i.i.i, %34
   br i1 %35, label %_ZNK11OpenImageIO6v3_1_03pvt6TagMap8tifftypeEi.exit, label %36
 
@@ -4221,7 +4221,7 @@ _ZNK11OpenImageIO6v3_1_03pvt6TagMap8tifftypeEi.exit: ; preds = %_ZN3tsl9robin_ma
   %47 = add i64 %.0816.i.i.i.i.i.i88, 1
   %48 = add i16 %.015.i.i.i.i.i.i89, 1
   %.08.i.i.i.i.i.i90 = and i64 %47, %16
-  %49 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %18, i64 %.08.i.i.i.i.i.i90
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %.08.i.i.i.i.i.i90
   %50 = load i16, ptr %49, align 8, !tbaa !14
   %.not.i.i.i.i.i.i91 = icmp sgt i16 %48, %50
   br i1 %.not.i.i.i.i.i.i91, label %_ZNK11OpenImageIO6v3_1_03pvt6TagMap9tiffcountEi.exit, label %.lr.ph.i.i.i.i.i.i87, !llvm.loop !75
@@ -4312,7 +4312,7 @@ _ZNK11OpenImageIO6v3_1_07ustring4sizeEv.exit101:  ; preds = %_ZNK11OpenImageIO6v
 
 .lr.ph28:                                         ; preds = %.lr.ph28.preheader, %_ZN11OpenImageIO6v3_1_017float_to_rationalEfRjS1_.exit
   %.07626 = phi i64 [ %119, %_ZN11OpenImageIO6v3_1_017float_to_rationalEfRjS1_.exit ], [ 0, %.lr.ph28.preheader ]
-  %90 = getelementptr inbounds nuw float, ptr %88, i64 %.07626
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %.07626
   %91 = load float, ptr %90, align 4, !tbaa !146
   %.idx16 = shl i64 %.07626, 3
   %92 = getelementptr inbounds nuw i8, ptr %82, i64 %.idx16
@@ -4405,7 +4405,7 @@ _ZN11OpenImageIO6v3_1_017float_to_rationalEfRjS1_.exit: ; preds = %_ZN11OpenImag
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN11OpenImageIO6v3_1_017float_to_rationalEfRiS1_.exit
   %.022 = phi i64 [ %163, %_ZN11OpenImageIO6v3_1_017float_to_rationalEfRiS1_.exit ], [ 0, %.lr.ph.preheader ]
-  %134 = getelementptr inbounds nuw float, ptr %132, i64 %.022
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %.022
   %135 = load float, ptr %134, align 4, !tbaa !146
   %.idx = shl i64 %.022, 3
   %136 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx
@@ -4800,7 +4800,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_S
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.023.us.i.ptr.i.i, i64 12, i1 false), !tbaa.struct !117
   %20 = getelementptr inbounds nuw i8, ptr %.pn22.us.i.i.i, i64 24
   %.neg.i.i.i.i.i.us.i.i.i = sdiv exact i64 %.sroa.0.023.us.i.idx.i.i, -12
-  %21 = getelementptr inbounds %struct.TIFFDirEntry, ptr %20, i64 %.neg.i.i.i.i.i.us.i.i.i
+  %21 = getelementptr inbounds [12 x i8], ptr %20, i64 %.neg.i.i.i.i.i.us.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %21, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %.sroa.0.023.us.i.idx.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !tbaa.struct !117
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4827,7 +4827,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_S
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.023.i.ptr.i.i, i64 12, i1 false), !tbaa.struct !117
   %26 = getelementptr inbounds nuw i8, ptr %.pn22.i.i.i, i64 24
   %.neg.i.i.i.i.i.i.i.i = sdiv exact i64 %.sroa.0.023.i.idx.i.i, -12
-  %27 = getelementptr inbounds %struct.TIFFDirEntry, ptr %26, i64 %.neg.i.i.i.i.i.i.i.i
+  %27 = getelementptr inbounds [12 x i8], ptr %26, i64 %.neg.i.i.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %27, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %.sroa.0.023.i.idx.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !tbaa.struct !117
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4984,7 +4984,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_S
   %48 = ptrtoint ptr %.sroa.0.023.us.i66.i.i to i64
   %49 = sub i64 %48, %8
   %.neg.i.i.i.i.i.us.i83.i.i = sdiv exact i64 %49, -12
-  %50 = getelementptr inbounds %struct.TIFFDirEntry, ptr %47, i64 %.neg.i.i.i.i.i.us.i83.i.i
+  %50 = getelementptr inbounds [12 x i8], ptr %47, i64 %.neg.i.i.i.i.i.us.i83.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %50, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %49, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false), !tbaa.struct !117
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -5012,7 +5012,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_S
   %56 = ptrtoint ptr %.sroa.0.023.i47.i.i to i64
   %57 = sub i64 %56, %8
   %.neg.i.i.i.i.i.i64.i.i = sdiv exact i64 %57, -12
-  %58 = getelementptr inbounds %struct.TIFFDirEntry, ptr %55, i64 %.neg.i.i.i.i.i.i64.i.i
+  %58 = getelementptr inbounds [12 x i8], ptr %55, i64 %.neg.i.i.i.i.i.i64.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %58, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %57, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false), !tbaa.struct !117
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -5277,7 +5277,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIiPKN11OpenIma
   %28 = mul nuw nsw i64 %.012.i.i, 24
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #33
   store ptr %29, ptr %27, align 8, !tbaa !167
-  %30 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %29, i64 %.012.i.i
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %.012.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %30, ptr %31, align 8, !tbaa !170
   br label %.lr.ph.i.i.i.i.i
@@ -5466,7 +5466,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112
   %28 = mul nuw nsw i64 %.012.i.i, 48
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #33
   store ptr %29, ptr %27, align 8, !tbaa !163
-  %30 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %29, i64 %.012.i.i
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %29, i64 %.012.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %30, ptr %31, align 8, !tbaa !166
   br label %.lr.ph.i.i.i.i.i
@@ -5590,7 +5590,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   %.056 = and i64 %8, %7
-  %11 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %10, i64 %.056
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %.056
   %12 = load i16, ptr %11, align 8, !tbaa !14
   %.not57 = icmp slt i16 %12, 0
   br i1 %.not57, label %.preheader, label %.lr.ph
@@ -5614,7 +5614,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %19 = add i64 %.059, 1
   %20 = add i16 %.03458, 1
   %.0 = and i64 %19, %8
-  %21 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %10, i64 %.0
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %.0
   %22 = load i16, ptr %21, align 8, !tbaa !14
   %.not = icmp sgt i16 %20, %22
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !178
@@ -5629,7 +5629,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %24 = load i64, ptr %0, align 8, !tbaa !72
   %25 = load ptr, ptr %9, align 8, !tbaa !19
   %.261 = and i64 %24, %7
-  %26 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %25, i64 %.261
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %.261
   %27 = load i16, ptr %26, align 8, !tbaa !14
   %.not3762 = icmp slt i16 %27, 0
   br i1 %.not3762, label %.loopexit, label %.lr.ph65
@@ -5640,7 +5640,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %28 = add i64 %.264, 1
   %29 = add i16 %.23663, 1
   %.2 = and i64 %28, %24
-  %30 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %25, i64 %.2
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %.2
   %31 = load i16, ptr %30, align 8, !tbaa !14
   %.not37 = icmp sgt i16 %29, %31
   br i1 %.not37, label %.loopexit, label %.lr.ph65, !llvm.loop !180
@@ -5649,7 +5649,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %.135.lcssa = phi i16 [ %.034.lcssa, %.preheader ], [ %.236.lcssa, %.loopexit ]
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %.2.lcssa, %.loopexit ]
   %32 = load ptr, ptr %9, align 8, !tbaa !19
-  %33 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %32, i64 %.1.lcssa
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %.1.lcssa
   %34 = load i16, ptr %33, align 8, !tbaa !14
   %35 = icmp eq i16 %34, -1
   br i1 %35, label %36, label %42
@@ -5680,7 +5680,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %.pn17.i.i = add i64 %.1.lcssa, 1
   %.018.i.i = and i64 %50, %.pn17.i.i
   %storemerge19.i.i = add nuw i16 %34, 1
-  %51 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %32, i64 %.018.i.i
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %.018.i.i
   %52 = load i16, ptr %51, align 8, !tbaa !14
   %53 = icmp eq i16 %52, -1
   br i1 %53, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIiS7_St4hashIiESt8equal_toIiESaIS8_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKiEESQ_IJEEEEEvmsjDpOT_.exit, label %.lr.ph.i.i
@@ -5724,7 +5724,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN3tsl17detail_robin_hash10robin_hashIS
   %.pn.i.i = add i64 %.020.i.i, 1
   %.0.i.i = and i64 %.pn.i.i, %50
   %storemerge.i.i = add i16 %.1.i.i, 1
-  %68 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %32, i64 %.0.i.i
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %.0.i.i
   %69 = load i16, ptr %68, align 8, !tbaa !14
   %70 = icmp eq i16 %69, -1
   br i1 %70, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIiS7_St4hashIiESt8equal_toIiESaIS8_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESB_SD_SE_Lb0ESH_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKiEESQ_IJEEEEEvmsjDpOT_.exit, label %55, !llvm.loop !182
@@ -5748,7 +5748,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoE
   %75 = load i64, ptr %74, align 8, !tbaa !173
   %76 = add i64 %75, 1
   store i64 %76, ptr %74, align 8, !tbaa !173
-  %77 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %73, i64 %.1.lcssa
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %.1.lcssa
   br label %.loopexit49
 
 .loopexit49:                                      ; preds = %.lr.ph, %72
@@ -5993,7 +5993,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIiPKN11OpenImageIO6v3_1_07TagInfoE
   %.011.i = phi i16 [ 0, %65 ], [ %86, %85 ]
   %.pn = phi i64 [ %68, %65 ], [ %87, %85 ]
   %.0.i = and i64 %.pn, %69
-  %73 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %70, i64 %.0.i
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %.0.i
   %74 = load i16, ptr %73, align 8, !tbaa !14
   %75 = icmp sgt i16 %.011.i, %74
   br i1 %75, label %76, label %85
@@ -6067,7 +6067,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11c
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !38
   %.057 = and i64 %12, %16
-  %19 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %18, i64 %.057
+  %19 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %.057
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i16, ptr %20, align 4, !tbaa !33
   %.not58 = icmp slt i16 %21, 0
@@ -6108,7 +6108,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11c
   %35 = add i64 %.060, 1
   %36 = add i16 %.03459, 1
   %.0 = and i64 %35, %16
-  %37 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %18, i64 %.0
+  %37 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %.0
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i16, ptr %38, align 4, !tbaa !33
   %.not = icmp sgt i16 %36, %39
@@ -6124,7 +6124,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11c
   %41 = load i64, ptr %0, align 8, !tbaa !72
   %42 = load ptr, ptr %17, align 8, !tbaa !38
   %.262 = and i64 %12, %41
-  %43 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %42, i64 %.262
+  %43 = getelementptr inbounds nuw [48 x i8], ptr %42, i64 %.262
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i16, ptr %44, align 4, !tbaa !33
   %.not3763 = icmp slt i16 %45, 0
@@ -6136,7 +6136,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11c
   %46 = add i64 %.265, 1
   %47 = add i16 %.23664, 1
   %.2 = and i64 %46, %41
-  %48 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %42, i64 %.2
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %42, i64 %.2
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i16, ptr %49, align 4, !tbaa !33
   %.not37 = icmp sgt i16 %47, %50
@@ -6146,7 +6146,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11c
   %.135.lcssa = phi i16 [ %.034.lcssa, %.preheader ], [ %.236.lcssa, %.loopexit ]
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader ], [ %.2.lcssa, %.loopexit ]
   %51 = load ptr, ptr %17, align 8, !tbaa !38
-  %52 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %51, i64 %.1.lcssa
+  %52 = getelementptr inbounds nuw [48 x i8], ptr %51, i64 %.1.lcssa
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i16, ptr %53, align 4, !tbaa !33
   %55 = icmp eq i16 %54, -1
@@ -6272,7 +6272,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11ch
   %103 = add i64 %102, 1
   store i64 %103, ptr %101, align 8, !tbaa !176
   %104 = load ptr, ptr %17, align 8, !tbaa !38
-  %105 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %104, i64 %.1.lcssa
+  %105 = getelementptr inbounds nuw [48 x i8], ptr %104, i64 %.1.lcssa
   br label %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIS8_SD_St4hashIS8_ESt8equal_toIS8_ESaISE_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSO_11ValueSelectESH_SJ_SK_Lb0ESN_E12compare_keysIS8_S8_EEbRKT_RKT0_.exit.thread
 
 _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIS8_SD_St4hashIS8_ESt8equal_toIS8_ESaISE_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSO_11ValueSelectESH_SJ_SK_Lb0ESN_E12compare_keysIS8_S8_EEbRKT_RKT0_.exit.thread: ; preds = %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIS8_SD_St4hashIS8_ESt8equal_toIS8_ESaISE_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSO_11ValueSelectESH_SJ_SK_Lb0ESN_E12compare_keysIS8_S8_EEbRKT_RKT0_.exit, %32, %100
@@ -6568,7 +6568,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11c
   %.012.i = phi i32 [ %93, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIS8_SD_St4hashIS8_ESt8equal_toIS8_ESaISE_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSO_11ValueSelectESH_SJ_SK_Lb0ESN_E8hash_keyIS8_EEmRKT_.exit ], [ %.1.i, %123 ]
   %.0.i = phi i64 [ %92, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIS8_SD_St4hashIS8_ESt8equal_toIS8_ESaISE_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSO_11ValueSelectESH_SJ_SK_Lb0ESN_E8hash_keyIS8_EEmRKT_.exit ], [ %127, %123 ]
   %98 = load ptr, ptr %16, align 8, !tbaa !38
-  %99 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %98, i64 %.0.i
+  %99 = getelementptr inbounds nuw [48 x i8], ptr %98, i64 %.0.i
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = load i16, ptr %100, align 4, !tbaa !33
   %102 = icmp sgt i16 %.013.i, %101
@@ -6653,7 +6653,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(pt
 define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIS8_SD_St4hashIS8_ESt8equal_toIS8_ESaISE_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSO_11ValueSelectESH_SJ_SK_Lb0ESN_E17insert_value_implEmsjRSE_(ptr noundef nonnull align 8 dereferenceable(74) %0, i64 noundef %1, i16 noundef signext %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(40) %4) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !38
-  %8 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %1
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %9) #35
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -6672,7 +6672,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   %19 = and i64 %18, %17
   %storemerge22 = add i16 %15, 1
   %20 = load ptr, ptr %6, align 8, !tbaa !38
-  %21 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %19
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i16, ptr %22, align 4, !tbaa !33
   %24 = icmp eq i16 %23, -1
@@ -6726,7 +6726,7 @@ define linkonce_odr hidden void @_ZN3tsl17detail_robin_hash10robin_hashISt4pairI
   %46 = add i64 %.024, 1
   %47 = and i64 %45, %46
   %storemerge = add i16 %.120, 1
-  %48 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %44, i64 %47
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %44, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i16, ptr %49, align 4, !tbaa !33
   %51 = icmp eq i16 %50, -1
@@ -6949,7 +6949,7 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i: ; preds = %_ZN1
   %37 = phi i64 [ %33, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit.thread310 ], [ %36, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit ]
   %.sroa.0.0.insert.insert.i.i320 = phi i64 [ %.sroa.0.0.insert.insert.i.i319, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit.thread310 ], [ %.sroa.0.0.insert.insert.i.i, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit ]
   %38 = zext nneg i16 %27 to i64
-  %39 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !52
   %41 = mul i64 %40, %37
   %42 = icmp ult i64 %41, 5
@@ -6997,7 +6997,7 @@ _ZNSt6vectorItSaItEEC2IPKtvEET_S5_RKS0_.exit:     ; preds = %53
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %59 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %indvars.iv.i
   %60 = load i16, ptr %59, align 2, !tbaa !100
   %61 = tail call noundef i16 @llvm.bswap.i16(i16 %60)
   store i16 %61, ptr %59, align 2, !tbaa !100
@@ -7051,7 +7051,7 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i149: ; preds = %_
   %74 = phi i64 [ %34, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit.thread321 ], [ %36, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit ]
   %.sroa.0.0.insert.insert.i.i331 = phi i64 [ %.sroa.0.0.insert.insert.i.i330, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit.thread321 ], [ %.sroa.0.0.insert.insert.i.i, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit ]
   %75 = zext nneg i16 %27 to i64
-  %76 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %75
   %77 = load i64, ptr %76, align 8, !tbaa !52
   %78 = mul i64 %77, %74
   %79 = icmp ult i64 %78, 5
@@ -7099,7 +7099,7 @@ _ZNSt6vectorIjSaIjEEC2IPKjvEET_S5_RKS0_.exit:     ; preds = %90
 
 .lr.ph.i165:                                      ; preds = %.lr.ph.i165, %.lr.ph.preheader.i163
   %indvars.iv.i166 = phi i64 [ 0, %.lr.ph.preheader.i163 ], [ %indvars.iv.next.i167, %.lr.ph.i165 ]
-  %96 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv.i166
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.i166
   %97 = load i32, ptr %96, align 4, !tbaa !73
   %98 = tail call noundef i32 @llvm.bswap.i32(i32 %97)
   store i32 %98, ptr %96, align 4, !tbaa !73
@@ -7184,7 +7184,7 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i179: ; preds = %_
   %130 = uitofp i32 %128 to double
   %131 = fdiv double %129, %130
   %132 = fptrunc double %131 to float
-  %133 = getelementptr inbounds nuw float, ptr %123, i64 %.0122430.us
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %.0122430.us
   store float %132, ptr %133, align 4, !tbaa !146
   %134 = add nuw nsw i64 %.0122430.us, 1
   %exitcond440.not = icmp eq i64 %134, %36
@@ -7204,7 +7204,7 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i179: ; preds = %_
   %139 = uitofp i32 %.0.copyload19 to double
   %140 = fdiv double %138, %139
   %141 = fptrunc double %140 to float
-  %142 = getelementptr inbounds nuw float, ptr %123, i64 %.0122430
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %.0122430
   store float %141, ptr %142, align 4, !tbaa !146
   %143 = add nuw nsw i64 %.0122430, 1
   %exitcond439.not = icmp eq i64 %143, %36
@@ -7285,7 +7285,7 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i193: ; preds = %_
   %174 = sitofp i32 %172 to double
   %175 = fdiv double %173, %174
   %176 = fptrunc double %175 to float
-  %177 = getelementptr inbounds nuw float, ptr %167, i64 %.0125429.us
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %.0125429.us
   store float %176, ptr %177, align 4, !tbaa !146
   %178 = add nuw nsw i64 %.0125429.us, 1
   %exitcond438.not = icmp eq i64 %178, %36
@@ -7305,7 +7305,7 @@ _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i193: ; preds = %_
   %183 = sitofp i32 %.0.copyload to double
   %184 = fdiv double %182, %183
   %185 = fptrunc double %184 to float
-  %186 = getelementptr inbounds nuw float, ptr %167, i64 %.0125429
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %.0125429
   store float %185, ptr %186, align 4, !tbaa !146
   %187 = add nuw nsw i64 %.0125429, 1
   %exitcond.not = icmp eq i64 %187, %36
@@ -7354,7 +7354,7 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit204: ;
 _ZN11OpenImageIO6v3_1_014tiff_data_sizeERK12TIFFDirEntry.exit.i206: ; preds = %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit.thread332, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit
   %199 = phi i64 [ %32, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit.thread332 ], [ %36, %_ZN11OpenImageIO6v3_1_025tiff_datatype_to_typedescERK12TIFFDirEntry.exit ]
   %200 = zext nneg i16 %27 to i64
-  %201 = getelementptr inbounds nuw i64, ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %200
+  %201 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11OpenImageIO6v3_1_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 %200
   %202 = load i64, ptr %201, align 8, !tbaa !52
   %203 = mul i64 %202, %199
   %204 = icmp ult i64 %203, 5
@@ -7867,7 +7867,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11c
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !38
   %.0814.i.i.i = and i64 %10, %6
-  %13 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %12, i64 %.0814.i.i.i
+  %13 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %.0814.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i16, ptr %14, align 4, !tbaa !33
   %.not15.i.i.i = icmp slt i16 %15, 0
@@ -7893,7 +7893,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11c
   %23 = add i64 %.0817.i.us.i.i, 1
   %24 = add i16 %.016.i.us.i.i, 1
   %.08.i.us.i.i = and i64 %23, %10
-  %25 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %12, i64 %.08.i.us.i.i
+  %25 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %.08.i.us.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i16, ptr %26, align 4, !tbaa !33
   %.not.i.us.i.i = icmp sgt i16 %24, %27
@@ -7919,7 +7919,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11c
   %35 = add i64 %.0817.i.i.i, 1
   %36 = add i16 %.016.i.i.i, 1
   %.08.i.i.i = and i64 %35, %10
-  %37 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %12, i64 %.08.i.i.i
+  %37 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %.08.i.i.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i16, ptr %38, align 4, !tbaa !33
   %.not.i.i.i = icmp sgt i16 %36, %39
@@ -7928,7 +7928,7 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11c
 ._crit_edge.i.i.i:                                ; preds = %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIS8_SD_St4hashIS8_ESt8equal_toIS8_ESaISE_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSO_11ValueSelectESH_SJ_SK_Lb0ESN_E12compare_keysIS8_S8_EEbRKT_RKT0_.exit.thread10.i.i.i, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIS8_SD_St4hashIS8_ESt8equal_toIS8_ESaISE_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSO_11ValueSelectESH_SJ_SK_Lb0ESN_E12compare_keysIS8_S8_EEbRKT_RKT0_.exit.thread10.i.us.i.i, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIS8_SD_St4hashIS8_ESt8equal_toIS8_ESaISE_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSO_11ValueSelectESH_SJ_SK_Lb0ESN_E8hash_keyIS8_EEmRKT_.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load i64, ptr %40, align 8, !tbaa !80
-  %42 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry.58", ptr %12, i64 %41
+  %42 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %41
   br label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIS8_SD_St4hashIS8_ESt8equal_toIS8_ESaISE_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSO_11ValueSelectESH_SJ_SK_Lb0ESN_E9find_implIS8_EENSR_14robin_iteratorILb0EEERKT_m.exit
 
 _ZN3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIS8_SD_St4hashIS8_ESt8equal_toIS8_ESaISE_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSO_11ValueSelectESH_SJ_SK_Lb0ESN_E9find_implIS8_EENSR_14robin_iteratorILb0EEERKT_m.exit: ; preds = %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_07TagInfoEENS_9robin_mapIS8_SD_St4hashIS8_ESt8equal_toIS8_ESaISE_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSO_11ValueSelectESH_SJ_SK_Lb0ESN_E12compare_keysIS8_S8_EEbRKT_RKT0_.exit.i.i.i, %.lr.ph.i.split.us.i.i, %._crit_edge.i.i.i
@@ -8282,7 +8282,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 24:                                               ; preds = %24, %20
   %.012.i.i.i = phi i64 [ %23, %20 ], [ %26, %24 ]
-  %25 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %.012.i.i.i
+  %25 = getelementptr inbounds [12 x i8], ptr %0, i64 %.012.i.i.i
   %.sroa.05.0.copyload.i.i.i = load i64, ptr %25, align 4
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.4.0.copyload.i.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4, !tbaa !73
@@ -8308,7 +8308,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 32:                                               ; preds = %17
   %33 = add nsw i64 %.028, -1
   %34 = udiv i64 %18, 24
-  %35 = getelementptr inbounds nuw %struct.TIFFDirEntry, ptr %0, i64 %34
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %34
   %36 = getelementptr inbounds i8, ptr %storemerge27, i64 -12
   %.val1.i.i.i = load i16, ptr %16, align 4, !tbaa !104
   %.val2.i.i.i = load i16, ptr %35, align 4, !tbaa !104
@@ -8484,15 +8484,15 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.047.us = phi i64 [ %spec.select.us, %.lr.ph.split.us ], [ %1, %.lr.ph ]
   %10 = shl i64 %.047.us, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %11
+  %12 = getelementptr inbounds [12 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %13
+  %14 = getelementptr inbounds [12 x i8], ptr %0, i64 %13
   %.val1.i.us = load i16, ptr %12, align 4, !tbaa !104
   %.val2.i.us = load i16, ptr %14, align 4, !tbaa !104
   %15 = icmp ult i16 %.val1.i.us, %.val2.i.us
   %spec.select.us = select i1 %15, i64 %13, i64 %11
-  %16 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %spec.select.us
-  %17 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %.047.us
+  %16 = getelementptr inbounds [12 x i8], ptr %0, i64 %spec.select.us
+  %17 = getelementptr inbounds [12 x i8], ptr %0, i64 %.047.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %17, ptr noundef nonnull align 4 dereferenceable(12) %16, i64 12, i1 false), !tbaa.struct !117
   %18 = icmp slt i64 %spec.select.us, %8
   br i1 %18, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !207
@@ -8501,17 +8501,17 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.047 = phi i64 [ %spec.select, %.lr.ph.split ], [ %1, %.lr.ph ]
   %19 = shl i64 %.047, 1
   %20 = add i64 %19, 2
-  %21 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %0, i64 %20
   %22 = or disjoint i64 %19, 1
-  %23 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %0, i64 %22
   %.val1.i = load i16, ptr %21, align 4, !tbaa !104
   %.val2.i = load i16, ptr %23, align 4, !tbaa !104
   %24 = tail call i16 @llvm.bswap.i16(i16 %.val1.i)
   %25 = tail call i16 @llvm.bswap.i16(i16 %.val2.i)
   %26 = icmp ult i16 %24, %25
   %spec.select = select i1 %26, i64 %22, i64 %20
-  %27 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %spec.select
-  %28 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %.047
+  %27 = getelementptr inbounds [12 x i8], ptr %0, i64 %spec.select
+  %28 = getelementptr inbounds [12 x i8], ptr %0, i64 %.047
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %28, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !117
   %29 = icmp slt i64 %spec.select, %8
   br i1 %29, label %.lr.ph.split, label %._crit_edge, !llvm.loop !207
@@ -8531,8 +8531,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 36:                                               ; preds = %32
   %37 = shl nsw i64 %.0.lcssa, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %38
-  %40 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %.0.lcssa
+  %39 = getelementptr inbounds [12 x i8], ptr %0, i64 %38
+  %40 = getelementptr inbounds [12 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %40, ptr noundef nonnull align 4 dereferenceable(12) %39, i64 12, i1 false), !tbaa.struct !117
   br label %41
 
@@ -8553,13 +8553,13 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %46
   %.01012.us.i = phi i64 [ %.010.us.i, %46 ], [ %.0109.i, %.lr.ph.i ]
   %.011.us.i = phi i64 [ %.01012.us.i, %46 ], [ %.1, %.lr.ph.i ]
-  %44 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %.01012.us.i
+  %44 = getelementptr inbounds [12 x i8], ptr %0, i64 %.01012.us.i
   %.val2.i.us.i = load i16, ptr %44, align 4, !tbaa !104
   %45 = icmp ult i16 %.val2.i.us.i, %.0.i.i.i
   br i1 %45, label %46, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops14_Iter_comp_valIZN11OpenImageIO6v3_1_011encode_exifERKNSB_9ImageSpecERS4_IcSaIcEENSB_6endianEE3$_0EEEvT_T0_SM_T1_RT2_.exit"
 
 46:                                               ; preds = %.lr.ph.split.us.i
-  %47 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %.011.us.i
+  %47 = getelementptr inbounds [12 x i8], ptr %0, i64 %.011.us.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %47, ptr noundef nonnull align 4 dereferenceable(12) %44, i64 12, i1 false), !tbaa.struct !117
   %.010.in.us.i = add nsw i64 %.01012.us.i, -1
   %.010.us.i = sdiv i64 %.010.in.us.i, 2
@@ -8569,14 +8569,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %52
   %.01012.i = phi i64 [ %.010.i, %52 ], [ %.0109.i, %.lr.ph.i ]
   %.011.i = phi i64 [ %.01012.i, %52 ], [ %.1, %.lr.ph.i ]
-  %49 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %.01012.i
+  %49 = getelementptr inbounds [12 x i8], ptr %0, i64 %.01012.i
   %.val2.i.i = load i16, ptr %49, align 4, !tbaa !104
   %50 = tail call i16 @llvm.bswap.i16(i16 %.val2.i.i)
   %51 = icmp ult i16 %50, %.0.i.i.i
   br i1 %51, label %52, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops14_Iter_comp_valIZN11OpenImageIO6v3_1_011encode_exifERKNSB_9ImageSpecERS4_IcSaIcEENSB_6endianEE3$_0EEEvT_T0_SM_T1_RT2_.exit"
 
 52:                                               ; preds = %.lr.ph.split.i
-  %53 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %.011.i
+  %53 = getelementptr inbounds [12 x i8], ptr %0, i64 %.011.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %53, ptr noundef nonnull align 4 dereferenceable(12) %49, i64 12, i1 false), !tbaa.struct !117
   %.010.in.i = add nsw i64 %.01012.i, -1
   %.010.i = sdiv i64 %.010.in.i, 2
@@ -8585,7 +8585,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEElS2_NS0_5__ops14_Iter_comp_valIZN11OpenImageIO6v3_1_011encode_exifERKNSB_9ImageSpecERS4_IcSaIcEENSB_6endianEE3$_0EEEvT_T0_SM_T1_RT2_.exit": ; preds = %.lr.ph.split.i, %52, %.lr.ph.split.us.i, %46, %41
   %.0.lcssa.i = phi i64 [ %.1, %41 ], [ %.01012.us.i, %46 ], [ %.011.us.i, %.lr.ph.split.us.i ], [ %.011.i, %.lr.ph.split.i ], [ %.01012.i, %52 ]
-  %55 = getelementptr inbounds %struct.TIFFDirEntry, ptr %0, i64 %.0.lcssa.i
+  %55 = getelementptr inbounds [12 x i8], ptr %0, i64 %.0.lcssa.i
   store i64 %3, ptr %55, align 4
   %.sroa.3.0..sroa.0.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 %4, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i, align 4, !tbaa !73

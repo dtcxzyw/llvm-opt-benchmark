@@ -672,7 +672,7 @@ _ZSt11make_sharedIN19OpenColorIO_v2_5dev11Lut3DOpDataEJRKjEESt10shared_ptrINSt9e
           to label %.noexc unwind label %35
 
 .noexc:                                           ; preds = %22
-  %25 = getelementptr inbounds nuw float, ptr %24, i64 %21
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %21
   store float 0.000000e+00, ptr %24, align 4, !tbaa !45
   %26 = getelementptr i8, ptr %24, i64 4
   %.idx.i.i.i.i.i.i.i = add nsw i64 %23, -4
@@ -750,27 +750,27 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %.noexc, %_ZSt11make
   %51 = trunc nuw i64 %indvars.iv to i32
   %52 = shl i32 %51, 2
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw float, ptr %.sroa.037.0, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.037.0, i64 %53
   %55 = load float, ptr %54, align 4, !tbaa !45
   %56 = mul i32 %51, 3
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw float, ptr %34, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %57
   store float %55, ptr %58, align 4, !tbaa !45
   %59 = or disjoint i32 %52, 1
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw float, ptr %.sroa.037.0, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.037.0, i64 %60
   %62 = load float, ptr %61, align 4, !tbaa !45
   %63 = add i32 %56, 1
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw float, ptr %34, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %64
   store float %62, ptr %65, align 4, !tbaa !45
   %66 = or disjoint i32 %52, 2
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw float, ptr %.sroa.037.0, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.037.0, i64 %67
   %69 = load float, ptr %68, align 4, !tbaa !45
   %70 = add i32 %56, 2
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw float, ptr %34, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %71
   store float %69, ptr %72, align 4, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1037,7 +1037,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15PartitionGPUOpsERNS_10OpRcPtrVecES
   %.029.i = phi i32 [ %27, %.lr.ph.i ], [ 0, %4 ]
   %.01828.i = phi i32 [ %.1.i, %.lr.ph.i ], [ -1, %4 ]
   %.01927.i = phi i32 [ %.120.i, %.lr.ph.i ], [ -1, %4 ]
-  %19 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !11
   %21 = load ptr, ptr %20, align 8, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 136
@@ -1060,7 +1060,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15PartitionGPUOpsERNS_10OpRcPtrVecES
 
 36:                                               ; preds = %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120DefinesGpuAllocationERKSt10shared_ptrINS_2OpEE.exit.i, %.lr.ph33.i
   %indvars.iv.i = phi i64 [ %16, %.lr.ph33.i ], [ %indvars.iv.next.i, %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120DefinesGpuAllocationERKSt10shared_ptrINS_2OpEE.exit.i ]
-  %37 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %30, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %indvars.iv.i
   %.val.i = load ptr, ptr %37, align 8, !tbaa !11
   %38 = icmp eq ptr %.val.i, null
   br i1 %38, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_120DefinesGpuAllocationERKSt10shared_ptrINS_2OpEE.exit.i, label %39
@@ -1180,7 +1180,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_127GetGpuUnsupportedIndexRangeEPiS1_RKNS_10
   %83 = phi i64 [ 0, %.lr.ph112 ], [ %113, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %.043111 = phi i32 [ 0, %.lr.ph112 ], [ %112, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %84 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   %86 = load ptr, ptr %85, align 8, !tbaa !19
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
@@ -1270,7 +1270,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit63 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %126 = load ptr, ptr %3, align 8, !tbaa !39
-  %127 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %126, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %126, i64 %indvars.iv
   %128 = load ptr, ptr %127, align 8, !tbaa !11
   %129 = load ptr, ptr %128, align 8, !tbaa !19
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
@@ -1478,7 +1478,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %197
 
 207:                                              ; preds = %157
   %208 = zext nneg i32 %.226.i150153159 to i64
-  %209 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %160, i64 %208
+  %209 = getelementptr inbounds nuw [16 x i8], ptr %160, i64 %208
   %.val = load ptr, ptr %209, align 8, !tbaa !11
   %210 = getelementptr i8, ptr %209, i64 8
   %.val58 = load ptr, ptr %210, align 8
@@ -1715,7 +1715,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116GetGpuAllocationERNS_14AllocationDataERK
   %indvars.iv118 = phi i64 [ %208, %.lr.ph106 ], [ %indvars.iv.next119, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit74 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %305 = load ptr, ptr %3, align 8, !tbaa !39
-  %306 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %305, i64 %indvars.iv118
+  %306 = getelementptr inbounds nuw [16 x i8], ptr %305, i64 %indvars.iv118
   %307 = load ptr, ptr %306, align 8, !tbaa !11
   %308 = load ptr, ptr %307, align 8, !tbaa !19
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 16
@@ -1821,7 +1821,7 @@ _ZN19OpenColorIO_v2_5dev14AllocationDataD2Ev.exit: ; preds = %._crit_edge110, %3
   %indvars.iv121 = phi i64 [ %303, %.lr.ph109 ], [ %indvars.iv.next122, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit80 ]
   %349 = phi ptr [ %295, %.lr.ph109 ], [ %380, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit80 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %350 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %349, i64 %indvars.iv121
+  %350 = getelementptr inbounds nuw [16 x i8], ptr %349, i64 %indvars.iv121
   %351 = load ptr, ptr %350, align 8, !tbaa !11
   %352 = load ptr, ptr %351, align 8, !tbaa !19
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 16

@@ -3,8 +3,6 @@ source_filename = "bench/sdl/original/SDL_blit_A.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SDL_Color = type { i8, i8, i8, i8 }
-
 @SDL_expand_byte = external local_unnamed_addr global [9 x ptr], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -297,7 +295,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %48 = zext i8 %47 to i32
   %49 = load i8, ptr %27, align 4
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr %28, align 4
   %54 = and i32 %53, %48
@@ -309,7 +307,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %60 = load i8, ptr %59, align 1
   %61 = load i8, ptr %30, align 1
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = load i32, ptr %31, align 4
   %66 = and i32 %65, %48
@@ -321,7 +319,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %72 = load i8, ptr %71, align 1
   %73 = load i8, ptr %33, align 2
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = load i32, ptr %34, align 4
   %78 = and i32 %77, %48
@@ -333,7 +331,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %84 = load i8, ptr %83, align 1
   %85 = load i8, ptr %36, align 1
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %86
   %88 = load ptr, ptr %87, align 8
   %89 = load i32, ptr %37, align 4
   %90 = and i32 %89, %48
@@ -350,7 +348,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %99 = zext i16 %98 to i32
   %100 = load i8, ptr %27, align 4
   %101 = zext i8 %100 to i64
-  %102 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = load i32, ptr %28, align 4
   %105 = and i32 %104, %99
@@ -362,7 +360,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %111 = load i8, ptr %110, align 1
   %112 = load i8, ptr %30, align 1
   %113 = zext i8 %112 to i64
-  %114 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %113
   %115 = load ptr, ptr %114, align 8
   %116 = load i32, ptr %31, align 4
   %117 = and i32 %116, %99
@@ -374,7 +372,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %123 = load i8, ptr %122, align 1
   %124 = load i8, ptr %33, align 2
   %125 = zext i8 %124 to i64
-  %126 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %125
   %127 = load ptr, ptr %126, align 8
   %128 = load i32, ptr %34, align 4
   %129 = and i32 %128, %99
@@ -386,7 +384,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %135 = load i8, ptr %134, align 1
   %136 = load i8, ptr %36, align 1
   %137 = zext i8 %136 to i64
-  %138 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %137
   %139 = load ptr, ptr %138, align 8
   %140 = load i32, ptr %37, align 4
   %141 = and i32 %140, %99
@@ -420,7 +418,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %165 = load i32, ptr %.1, align 4
   %166 = load i8, ptr %27, align 4
   %167 = zext i8 %166 to i64
-  %168 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %167
   %169 = load ptr, ptr %168, align 8
   %170 = load i32, ptr %28, align 4
   %171 = and i32 %170, %165
@@ -432,7 +430,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %177 = load i8, ptr %176, align 1
   %178 = load i8, ptr %30, align 1
   %179 = zext i8 %178 to i64
-  %180 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %179
+  %180 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %179
   %181 = load ptr, ptr %180, align 8
   %182 = load i32, ptr %31, align 4
   %183 = and i32 %182, %165
@@ -444,7 +442,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %189 = load i8, ptr %188, align 1
   %190 = load i8, ptr %33, align 2
   %191 = zext i8 %190 to i64
-  %192 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %191
   %193 = load ptr, ptr %192, align 8
   %194 = load i32, ptr %34, align 4
   %195 = and i32 %194, %165
@@ -456,7 +454,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %201 = load i8, ptr %200, align 1
   %202 = load i8, ptr %36, align 1
   %203 = zext i8 %202 to i64
-  %204 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %203
+  %204 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %203
   %205 = load ptr, ptr %204, align 8
   %206 = load i32, ptr %37, align 4
   %207 = and i32 %206, %165
@@ -479,7 +477,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %.0463 = zext i8 %.0463.shrunk to i32
   %215 = load i8, ptr %.1447, align 1
   %216 = zext i8 %215 to i64
-  %217 = getelementptr inbounds nuw %struct.SDL_Color, ptr %11, i64 %216
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %216
   %218 = load i8, ptr %217, align 1
   %219 = zext i8 %218 to i32
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 1
@@ -555,7 +553,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %270 = zext i8 %269 to i32
   %271 = load i8, ptr %27, align 4
   %272 = zext i8 %271 to i64
-  %273 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %272
+  %273 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %272
   %274 = load ptr, ptr %273, align 8
   %275 = load i32, ptr %28, align 4
   %276 = and i32 %275, %270
@@ -567,7 +565,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %282 = load i8, ptr %281, align 1
   %283 = load i8, ptr %30, align 1
   %284 = zext i8 %283 to i64
-  %285 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %284
+  %285 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %284
   %286 = load ptr, ptr %285, align 8
   %287 = load i32, ptr %31, align 4
   %288 = and i32 %287, %270
@@ -579,7 +577,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %294 = load i8, ptr %293, align 1
   %295 = load i8, ptr %33, align 2
   %296 = zext i8 %295 to i64
-  %297 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %296
+  %297 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %296
   %298 = load ptr, ptr %297, align 8
   %299 = load i32, ptr %34, align 4
   %300 = and i32 %299, %270
@@ -591,7 +589,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %306 = load i8, ptr %305, align 1
   %307 = load i8, ptr %36, align 1
   %308 = zext i8 %307 to i64
-  %309 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %308
+  %309 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %308
   %310 = load ptr, ptr %309, align 8
   %311 = load i32, ptr %37, align 4
   %312 = and i32 %311, %270
@@ -608,7 +606,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %321 = zext i16 %320 to i32
   %322 = load i8, ptr %27, align 4
   %323 = zext i8 %322 to i64
-  %324 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %323
+  %324 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %323
   %325 = load ptr, ptr %324, align 8
   %326 = load i32, ptr %28, align 4
   %327 = and i32 %326, %321
@@ -620,7 +618,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %333 = load i8, ptr %332, align 1
   %334 = load i8, ptr %30, align 1
   %335 = zext i8 %334 to i64
-  %336 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %335
+  %336 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %335
   %337 = load ptr, ptr %336, align 8
   %338 = load i32, ptr %31, align 4
   %339 = and i32 %338, %321
@@ -632,7 +630,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %345 = load i8, ptr %344, align 1
   %346 = load i8, ptr %33, align 2
   %347 = zext i8 %346 to i64
-  %348 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %347
+  %348 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %347
   %349 = load ptr, ptr %348, align 8
   %350 = load i32, ptr %34, align 4
   %351 = and i32 %350, %321
@@ -644,7 +642,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %357 = load i8, ptr %356, align 1
   %358 = load i8, ptr %36, align 1
   %359 = zext i8 %358 to i64
-  %360 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %359
+  %360 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %359
   %361 = load ptr, ptr %360, align 8
   %362 = load i32, ptr %37, align 4
   %363 = and i32 %362, %321
@@ -678,7 +676,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %387 = load i32, ptr %.2, align 4
   %388 = load i8, ptr %27, align 4
   %389 = zext i8 %388 to i64
-  %390 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %389
+  %390 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %389
   %391 = load ptr, ptr %390, align 8
   %392 = load i32, ptr %28, align 4
   %393 = and i32 %392, %387
@@ -690,7 +688,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %399 = load i8, ptr %398, align 1
   %400 = load i8, ptr %30, align 1
   %401 = zext i8 %400 to i64
-  %402 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %401
+  %402 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %401
   %403 = load ptr, ptr %402, align 8
   %404 = load i32, ptr %31, align 4
   %405 = and i32 %404, %387
@@ -702,7 +700,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %411 = load i8, ptr %410, align 1
   %412 = load i8, ptr %33, align 2
   %413 = zext i8 %412 to i64
-  %414 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %413
+  %414 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %413
   %415 = load ptr, ptr %414, align 8
   %416 = load i32, ptr %34, align 4
   %417 = and i32 %416, %387
@@ -714,7 +712,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %423 = load i8, ptr %422, align 1
   %424 = load i8, ptr %36, align 1
   %425 = zext i8 %424 to i64
-  %426 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %425
+  %426 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %425
   %427 = load ptr, ptr %426, align 8
   %428 = load i32, ptr %37, align 4
   %429 = and i32 %428, %387
@@ -737,7 +735,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %.1464 = zext i8 %.1464.shrunk to i32
   %437 = load i8, ptr %.2448, align 1
   %438 = zext i8 %437 to i64
-  %439 = getelementptr inbounds nuw %struct.SDL_Color, ptr %11, i64 %438
+  %439 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %438
   %440 = load i8, ptr %439, align 1
   %441 = zext i8 %440 to i32
   %442 = getelementptr inbounds nuw i8, ptr %439, i64 1
@@ -813,7 +811,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %492 = zext i8 %491 to i32
   %493 = load i8, ptr %27, align 4
   %494 = zext i8 %493 to i64
-  %495 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %494
+  %495 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %494
   %496 = load ptr, ptr %495, align 8
   %497 = load i32, ptr %28, align 4
   %498 = and i32 %497, %492
@@ -825,7 +823,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %504 = load i8, ptr %503, align 1
   %505 = load i8, ptr %30, align 1
   %506 = zext i8 %505 to i64
-  %507 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %506
+  %507 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %506
   %508 = load ptr, ptr %507, align 8
   %509 = load i32, ptr %31, align 4
   %510 = and i32 %509, %492
@@ -837,7 +835,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %516 = load i8, ptr %515, align 1
   %517 = load i8, ptr %33, align 2
   %518 = zext i8 %517 to i64
-  %519 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %518
+  %519 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %518
   %520 = load ptr, ptr %519, align 8
   %521 = load i32, ptr %34, align 4
   %522 = and i32 %521, %492
@@ -849,7 +847,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %528 = load i8, ptr %527, align 1
   %529 = load i8, ptr %36, align 1
   %530 = zext i8 %529 to i64
-  %531 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %530
+  %531 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %530
   %532 = load ptr, ptr %531, align 8
   %533 = load i32, ptr %37, align 4
   %534 = and i32 %533, %492
@@ -866,7 +864,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %543 = zext i16 %542 to i32
   %544 = load i8, ptr %27, align 4
   %545 = zext i8 %544 to i64
-  %546 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %545
+  %546 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %545
   %547 = load ptr, ptr %546, align 8
   %548 = load i32, ptr %28, align 4
   %549 = and i32 %548, %543
@@ -878,7 +876,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %555 = load i8, ptr %554, align 1
   %556 = load i8, ptr %30, align 1
   %557 = zext i8 %556 to i64
-  %558 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %557
+  %558 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %557
   %559 = load ptr, ptr %558, align 8
   %560 = load i32, ptr %31, align 4
   %561 = and i32 %560, %543
@@ -890,7 +888,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %567 = load i8, ptr %566, align 1
   %568 = load i8, ptr %33, align 2
   %569 = zext i8 %568 to i64
-  %570 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %569
+  %570 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %569
   %571 = load ptr, ptr %570, align 8
   %572 = load i32, ptr %34, align 4
   %573 = and i32 %572, %543
@@ -902,7 +900,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %579 = load i8, ptr %578, align 1
   %580 = load i8, ptr %36, align 1
   %581 = zext i8 %580 to i64
-  %582 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %581
+  %582 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %581
   %583 = load ptr, ptr %582, align 8
   %584 = load i32, ptr %37, align 4
   %585 = and i32 %584, %543
@@ -936,7 +934,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %609 = load i32, ptr %.3, align 4
   %610 = load i8, ptr %27, align 4
   %611 = zext i8 %610 to i64
-  %612 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %611
+  %612 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %611
   %613 = load ptr, ptr %612, align 8
   %614 = load i32, ptr %28, align 4
   %615 = and i32 %614, %609
@@ -948,7 +946,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %621 = load i8, ptr %620, align 1
   %622 = load i8, ptr %30, align 1
   %623 = zext i8 %622 to i64
-  %624 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %623
+  %624 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %623
   %625 = load ptr, ptr %624, align 8
   %626 = load i32, ptr %31, align 4
   %627 = and i32 %626, %609
@@ -960,7 +958,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %633 = load i8, ptr %632, align 1
   %634 = load i8, ptr %33, align 2
   %635 = zext i8 %634 to i64
-  %636 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %635
+  %636 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %635
   %637 = load ptr, ptr %636, align 8
   %638 = load i32, ptr %34, align 4
   %639 = and i32 %638, %609
@@ -972,7 +970,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %645 = load i8, ptr %644, align 1
   %646 = load i8, ptr %36, align 1
   %647 = zext i8 %646 to i64
-  %648 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %647
+  %648 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %647
   %649 = load ptr, ptr %648, align 8
   %650 = load i32, ptr %37, align 4
   %651 = and i32 %650, %609
@@ -995,7 +993,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %.2465 = zext i8 %.2465.shrunk to i32
   %659 = load i8, ptr %.3449, align 1
   %660 = zext i8 %659 to i64
-  %661 = getelementptr inbounds nuw %struct.SDL_Color, ptr %11, i64 %660
+  %661 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %660
   %662 = load i8, ptr %661, align 1
   %663 = zext i8 %662 to i32
   %664 = getelementptr inbounds nuw i8, ptr %661, i64 1
@@ -1071,7 +1069,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %714 = zext i8 %713 to i32
   %715 = load i8, ptr %27, align 4
   %716 = zext i8 %715 to i64
-  %717 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %716
+  %717 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %716
   %718 = load ptr, ptr %717, align 8
   %719 = load i32, ptr %28, align 4
   %720 = and i32 %719, %714
@@ -1083,7 +1081,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %726 = load i8, ptr %725, align 1
   %727 = load i8, ptr %30, align 1
   %728 = zext i8 %727 to i64
-  %729 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %728
+  %729 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %728
   %730 = load ptr, ptr %729, align 8
   %731 = load i32, ptr %31, align 4
   %732 = and i32 %731, %714
@@ -1095,7 +1093,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %738 = load i8, ptr %737, align 1
   %739 = load i8, ptr %33, align 2
   %740 = zext i8 %739 to i64
-  %741 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %740
+  %741 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %740
   %742 = load ptr, ptr %741, align 8
   %743 = load i32, ptr %34, align 4
   %744 = and i32 %743, %714
@@ -1107,7 +1105,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %750 = load i8, ptr %749, align 1
   %751 = load i8, ptr %36, align 1
   %752 = zext i8 %751 to i64
-  %753 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %752
+  %753 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %752
   %754 = load ptr, ptr %753, align 8
   %755 = load i32, ptr %37, align 4
   %756 = and i32 %755, %714
@@ -1124,7 +1122,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %765 = zext i16 %764 to i32
   %766 = load i8, ptr %27, align 4
   %767 = zext i8 %766 to i64
-  %768 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %767
+  %768 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %767
   %769 = load ptr, ptr %768, align 8
   %770 = load i32, ptr %28, align 4
   %771 = and i32 %770, %765
@@ -1136,7 +1134,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %777 = load i8, ptr %776, align 1
   %778 = load i8, ptr %30, align 1
   %779 = zext i8 %778 to i64
-  %780 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %779
+  %780 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %779
   %781 = load ptr, ptr %780, align 8
   %782 = load i32, ptr %31, align 4
   %783 = and i32 %782, %765
@@ -1148,7 +1146,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %789 = load i8, ptr %788, align 1
   %790 = load i8, ptr %33, align 2
   %791 = zext i8 %790 to i64
-  %792 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %791
+  %792 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %791
   %793 = load ptr, ptr %792, align 8
   %794 = load i32, ptr %34, align 4
   %795 = and i32 %794, %765
@@ -1160,7 +1158,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %801 = load i8, ptr %800, align 1
   %802 = load i8, ptr %36, align 1
   %803 = zext i8 %802 to i64
-  %804 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %803
+  %804 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %803
   %805 = load ptr, ptr %804, align 8
   %806 = load i32, ptr %37, align 4
   %807 = and i32 %806, %765
@@ -1194,7 +1192,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %831 = load i32, ptr %.4, align 4
   %832 = load i8, ptr %27, align 4
   %833 = zext i8 %832 to i64
-  %834 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %833
+  %834 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %833
   %835 = load ptr, ptr %834, align 8
   %836 = load i32, ptr %28, align 4
   %837 = and i32 %836, %831
@@ -1206,7 +1204,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %843 = load i8, ptr %842, align 1
   %844 = load i8, ptr %30, align 1
   %845 = zext i8 %844 to i64
-  %846 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %845
+  %846 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %845
   %847 = load ptr, ptr %846, align 8
   %848 = load i32, ptr %31, align 4
   %849 = and i32 %848, %831
@@ -1218,7 +1216,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %855 = load i8, ptr %854, align 1
   %856 = load i8, ptr %33, align 2
   %857 = zext i8 %856 to i64
-  %858 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %857
+  %858 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %857
   %859 = load ptr, ptr %858, align 8
   %860 = load i32, ptr %34, align 4
   %861 = and i32 %860, %831
@@ -1230,7 +1228,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %867 = load i8, ptr %866, align 1
   %868 = load i8, ptr %36, align 1
   %869 = zext i8 %868 to i64
-  %870 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %869
+  %870 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %869
   %871 = load ptr, ptr %870, align 8
   %872 = load i32, ptr %37, align 4
   %873 = and i32 %872, %831
@@ -1253,7 +1251,7 @@ define internal void @BlitNto1PixelAlpha(ptr noundef readonly captures(none) %0)
   %.3466 = zext i8 %.3466.shrunk to i32
   %881 = load i8, ptr %.4450, align 1
   %882 = zext i8 %881 to i64
-  %883 = getelementptr inbounds nuw %struct.SDL_Color, ptr %11, i64 %882
+  %883 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %882
   %884 = load i8, ptr %883, align 1
   %885 = zext i8 %884 to i32
   %886 = getelementptr inbounds nuw i8, ptr %883, i64 1
@@ -1443,7 +1441,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %.sink1029 = phi i32 [ %75, %74 ], [ %61, %59 ], [ %58, %56 ]
   %77 = load i8, ptr %25, align 4
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = load i32, ptr %26, align 4
   %82 = and i32 %81, %.sink1029
@@ -1454,7 +1452,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 %86
   %88 = load i8, ptr %28, align 1
   %89 = zext i8 %88 to i64
-  %90 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = load i32, ptr %29, align 4
   %93 = and i32 %92, %.sink1029
@@ -1465,7 +1463,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %98 = getelementptr inbounds nuw i8, ptr %91, i64 %97
   %99 = load i8, ptr %31, align 2
   %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %100
   %102 = load ptr, ptr %101, align 8
   %103 = load i32, ptr %32, align 4
   %104 = and i32 %103, %.sink1029
@@ -1476,7 +1474,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %109 = getelementptr inbounds nuw i8, ptr %102, i64 %108
   %110 = load i8, ptr %34, align 1
   %111 = zext i8 %110 to i64
-  %112 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %111
   %113 = load ptr, ptr %112, align 8
   %114 = load i32, ptr %35, align 4
   %115 = and i32 %114, %.sink1029
@@ -1513,7 +1511,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %124 = zext i8 %123 to i32
   %125 = load i8, ptr %37, align 4
   %126 = zext i8 %125 to i64
-  %127 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %126
   %128 = load ptr, ptr %127, align 8
   %129 = load i32, ptr %38, align 4
   %130 = and i32 %129, %124
@@ -1525,7 +1523,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %136 = load i8, ptr %135, align 1
   %137 = load i8, ptr %40, align 1
   %138 = zext i8 %137 to i64
-  %139 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %138
   %140 = load ptr, ptr %139, align 8
   %141 = load i32, ptr %41, align 4
   %142 = and i32 %141, %124
@@ -1537,7 +1535,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %148 = load i8, ptr %147, align 1
   %149 = load i8, ptr %43, align 2
   %150 = zext i8 %149 to i64
-  %151 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %150
   %152 = load ptr, ptr %151, align 8
   %153 = load i32, ptr %44, align 4
   %154 = and i32 %153, %124
@@ -1549,7 +1547,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %160 = load i8, ptr %159, align 1
   %161 = load i8, ptr %46, align 1
   %162 = zext i8 %161 to i64
-  %163 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %162
+  %163 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %162
   %164 = load ptr, ptr %163, align 8
   %165 = load i32, ptr %47, align 4
   %166 = and i32 %165, %124
@@ -1566,7 +1564,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %175 = zext i16 %174 to i32
   %176 = load i8, ptr %37, align 4
   %177 = zext i8 %176 to i64
-  %178 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %177
+  %178 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %177
   %179 = load ptr, ptr %178, align 8
   %180 = load i32, ptr %38, align 4
   %181 = and i32 %180, %175
@@ -1578,7 +1576,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %187 = load i8, ptr %186, align 1
   %188 = load i8, ptr %40, align 1
   %189 = zext i8 %188 to i64
-  %190 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %189
+  %190 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %189
   %191 = load ptr, ptr %190, align 8
   %192 = load i32, ptr %41, align 4
   %193 = and i32 %192, %175
@@ -1590,7 +1588,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %199 = load i8, ptr %198, align 1
   %200 = load i8, ptr %43, align 2
   %201 = zext i8 %200 to i64
-  %202 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %201
+  %202 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %201
   %203 = load ptr, ptr %202, align 8
   %204 = load i32, ptr %44, align 4
   %205 = and i32 %204, %175
@@ -1602,7 +1600,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %211 = load i8, ptr %210, align 1
   %212 = load i8, ptr %46, align 1
   %213 = zext i8 %212 to i64
-  %214 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %213
+  %214 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %213
   %215 = load ptr, ptr %214, align 8
   %216 = load i32, ptr %47, align 4
   %217 = and i32 %216, %175
@@ -1636,7 +1634,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %241 = load i32, ptr %.1851, align 4
   %242 = load i8, ptr %37, align 4
   %243 = zext i8 %242 to i64
-  %244 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %243
+  %244 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %243
   %245 = load ptr, ptr %244, align 8
   %246 = load i32, ptr %38, align 4
   %247 = and i32 %246, %241
@@ -1648,7 +1646,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %253 = load i8, ptr %252, align 1
   %254 = load i8, ptr %40, align 1
   %255 = zext i8 %254 to i64
-  %256 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %255
+  %256 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %255
   %257 = load ptr, ptr %256, align 8
   %258 = load i32, ptr %41, align 4
   %259 = and i32 %258, %241
@@ -1660,7 +1658,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %265 = load i8, ptr %264, align 1
   %266 = load i8, ptr %43, align 2
   %267 = zext i8 %266 to i64
-  %268 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %267
+  %268 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %267
   %269 = load ptr, ptr %268, align 8
   %270 = load i32, ptr %44, align 4
   %271 = and i32 %270, %241
@@ -1672,7 +1670,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %277 = load i8, ptr %276, align 1
   %278 = load i8, ptr %46, align 1
   %279 = zext i8 %278 to i64
-  %280 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %279
+  %280 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %279
   %281 = load ptr, ptr %280, align 8
   %282 = load i32, ptr %47, align 4
   %283 = and i32 %282, %241
@@ -1917,7 +1915,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %.sink1065 = phi i32 [ %467, %466 ], [ %453, %451 ], [ %450, %448 ]
   %469 = load i8, ptr %25, align 4
   %470 = zext i8 %469 to i64
-  %471 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %470
+  %471 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %470
   %472 = load ptr, ptr %471, align 8
   %473 = load i32, ptr %26, align 4
   %474 = and i32 %473, %.sink1065
@@ -1928,7 +1926,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %479 = getelementptr inbounds nuw i8, ptr %472, i64 %478
   %480 = load i8, ptr %28, align 1
   %481 = zext i8 %480 to i64
-  %482 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %481
+  %482 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %481
   %483 = load ptr, ptr %482, align 8
   %484 = load i32, ptr %29, align 4
   %485 = and i32 %484, %.sink1065
@@ -1939,7 +1937,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %490 = getelementptr inbounds nuw i8, ptr %483, i64 %489
   %491 = load i8, ptr %31, align 2
   %492 = zext i8 %491 to i64
-  %493 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %492
+  %493 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %492
   %494 = load ptr, ptr %493, align 8
   %495 = load i32, ptr %32, align 4
   %496 = and i32 %495, %.sink1065
@@ -1950,7 +1948,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %501 = getelementptr inbounds nuw i8, ptr %494, i64 %500
   %502 = load i8, ptr %34, align 1
   %503 = zext i8 %502 to i64
-  %504 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %503
+  %504 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %503
   %505 = load ptr, ptr %504, align 8
   %506 = load i32, ptr %35, align 4
   %507 = and i32 %506, %.sink1065
@@ -1987,7 +1985,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %516 = zext i8 %515 to i32
   %517 = load i8, ptr %37, align 4
   %518 = zext i8 %517 to i64
-  %519 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %518
+  %519 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %518
   %520 = load ptr, ptr %519, align 8
   %521 = load i32, ptr %38, align 4
   %522 = and i32 %521, %516
@@ -1999,7 +1997,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %528 = load i8, ptr %527, align 1
   %529 = load i8, ptr %40, align 1
   %530 = zext i8 %529 to i64
-  %531 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %530
+  %531 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %530
   %532 = load ptr, ptr %531, align 8
   %533 = load i32, ptr %41, align 4
   %534 = and i32 %533, %516
@@ -2011,7 +2009,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %540 = load i8, ptr %539, align 1
   %541 = load i8, ptr %43, align 2
   %542 = zext i8 %541 to i64
-  %543 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %542
+  %543 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %542
   %544 = load ptr, ptr %543, align 8
   %545 = load i32, ptr %44, align 4
   %546 = and i32 %545, %516
@@ -2023,7 +2021,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %552 = load i8, ptr %551, align 1
   %553 = load i8, ptr %46, align 1
   %554 = zext i8 %553 to i64
-  %555 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %554
+  %555 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %554
   %556 = load ptr, ptr %555, align 8
   %557 = load i32, ptr %47, align 4
   %558 = and i32 %557, %516
@@ -2040,7 +2038,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %567 = zext i16 %566 to i32
   %568 = load i8, ptr %37, align 4
   %569 = zext i8 %568 to i64
-  %570 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %569
+  %570 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %569
   %571 = load ptr, ptr %570, align 8
   %572 = load i32, ptr %38, align 4
   %573 = and i32 %572, %567
@@ -2052,7 +2050,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %579 = load i8, ptr %578, align 1
   %580 = load i8, ptr %40, align 1
   %581 = zext i8 %580 to i64
-  %582 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %581
+  %582 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %581
   %583 = load ptr, ptr %582, align 8
   %584 = load i32, ptr %41, align 4
   %585 = and i32 %584, %567
@@ -2064,7 +2062,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %591 = load i8, ptr %590, align 1
   %592 = load i8, ptr %43, align 2
   %593 = zext i8 %592 to i64
-  %594 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %593
+  %594 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %593
   %595 = load ptr, ptr %594, align 8
   %596 = load i32, ptr %44, align 4
   %597 = and i32 %596, %567
@@ -2076,7 +2074,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %603 = load i8, ptr %602, align 1
   %604 = load i8, ptr %46, align 1
   %605 = zext i8 %604 to i64
-  %606 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %605
+  %606 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %605
   %607 = load ptr, ptr %606, align 8
   %608 = load i32, ptr %47, align 4
   %609 = and i32 %608, %567
@@ -2110,7 +2108,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %633 = load i32, ptr %.2852, align 4
   %634 = load i8, ptr %37, align 4
   %635 = zext i8 %634 to i64
-  %636 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %635
+  %636 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %635
   %637 = load ptr, ptr %636, align 8
   %638 = load i32, ptr %38, align 4
   %639 = and i32 %638, %633
@@ -2122,7 +2120,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %645 = load i8, ptr %644, align 1
   %646 = load i8, ptr %40, align 1
   %647 = zext i8 %646 to i64
-  %648 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %647
+  %648 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %647
   %649 = load ptr, ptr %648, align 8
   %650 = load i32, ptr %41, align 4
   %651 = and i32 %650, %633
@@ -2134,7 +2132,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %657 = load i8, ptr %656, align 1
   %658 = load i8, ptr %43, align 2
   %659 = zext i8 %658 to i64
-  %660 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %659
+  %660 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %659
   %661 = load ptr, ptr %660, align 8
   %662 = load i32, ptr %44, align 4
   %663 = and i32 %662, %633
@@ -2146,7 +2144,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %669 = load i8, ptr %668, align 1
   %670 = load i8, ptr %46, align 1
   %671 = zext i8 %670 to i64
-  %672 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %671
+  %672 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %671
   %673 = load ptr, ptr %672, align 8
   %674 = load i32, ptr %47, align 4
   %675 = and i32 %674, %633
@@ -2391,7 +2389,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %.sink1101 = phi i32 [ %859, %858 ], [ %845, %843 ], [ %842, %840 ]
   %861 = load i8, ptr %25, align 4
   %862 = zext i8 %861 to i64
-  %863 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %862
+  %863 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %862
   %864 = load ptr, ptr %863, align 8
   %865 = load i32, ptr %26, align 4
   %866 = and i32 %865, %.sink1101
@@ -2402,7 +2400,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %871 = getelementptr inbounds nuw i8, ptr %864, i64 %870
   %872 = load i8, ptr %28, align 1
   %873 = zext i8 %872 to i64
-  %874 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %873
+  %874 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %873
   %875 = load ptr, ptr %874, align 8
   %876 = load i32, ptr %29, align 4
   %877 = and i32 %876, %.sink1101
@@ -2413,7 +2411,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %882 = getelementptr inbounds nuw i8, ptr %875, i64 %881
   %883 = load i8, ptr %31, align 2
   %884 = zext i8 %883 to i64
-  %885 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %884
+  %885 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %884
   %886 = load ptr, ptr %885, align 8
   %887 = load i32, ptr %32, align 4
   %888 = and i32 %887, %.sink1101
@@ -2424,7 +2422,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %893 = getelementptr inbounds nuw i8, ptr %886, i64 %892
   %894 = load i8, ptr %34, align 1
   %895 = zext i8 %894 to i64
-  %896 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %895
+  %896 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %895
   %897 = load ptr, ptr %896, align 8
   %898 = load i32, ptr %35, align 4
   %899 = and i32 %898, %.sink1101
@@ -2461,7 +2459,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %908 = zext i8 %907 to i32
   %909 = load i8, ptr %37, align 4
   %910 = zext i8 %909 to i64
-  %911 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %910
+  %911 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %910
   %912 = load ptr, ptr %911, align 8
   %913 = load i32, ptr %38, align 4
   %914 = and i32 %913, %908
@@ -2473,7 +2471,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %920 = load i8, ptr %919, align 1
   %921 = load i8, ptr %40, align 1
   %922 = zext i8 %921 to i64
-  %923 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %922
+  %923 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %922
   %924 = load ptr, ptr %923, align 8
   %925 = load i32, ptr %41, align 4
   %926 = and i32 %925, %908
@@ -2485,7 +2483,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %932 = load i8, ptr %931, align 1
   %933 = load i8, ptr %43, align 2
   %934 = zext i8 %933 to i64
-  %935 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %934
+  %935 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %934
   %936 = load ptr, ptr %935, align 8
   %937 = load i32, ptr %44, align 4
   %938 = and i32 %937, %908
@@ -2497,7 +2495,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %944 = load i8, ptr %943, align 1
   %945 = load i8, ptr %46, align 1
   %946 = zext i8 %945 to i64
-  %947 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %946
+  %947 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %946
   %948 = load ptr, ptr %947, align 8
   %949 = load i32, ptr %47, align 4
   %950 = and i32 %949, %908
@@ -2514,7 +2512,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %959 = zext i16 %958 to i32
   %960 = load i8, ptr %37, align 4
   %961 = zext i8 %960 to i64
-  %962 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %961
+  %962 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %961
   %963 = load ptr, ptr %962, align 8
   %964 = load i32, ptr %38, align 4
   %965 = and i32 %964, %959
@@ -2526,7 +2524,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %971 = load i8, ptr %970, align 1
   %972 = load i8, ptr %40, align 1
   %973 = zext i8 %972 to i64
-  %974 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %973
+  %974 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %973
   %975 = load ptr, ptr %974, align 8
   %976 = load i32, ptr %41, align 4
   %977 = and i32 %976, %959
@@ -2538,7 +2536,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %983 = load i8, ptr %982, align 1
   %984 = load i8, ptr %43, align 2
   %985 = zext i8 %984 to i64
-  %986 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %985
+  %986 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %985
   %987 = load ptr, ptr %986, align 8
   %988 = load i32, ptr %44, align 4
   %989 = and i32 %988, %959
@@ -2550,7 +2548,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %995 = load i8, ptr %994, align 1
   %996 = load i8, ptr %46, align 1
   %997 = zext i8 %996 to i64
-  %998 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %997
+  %998 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %997
   %999 = load ptr, ptr %998, align 8
   %1000 = load i32, ptr %47, align 4
   %1001 = and i32 %1000, %959
@@ -2584,7 +2582,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1025 = load i32, ptr %.3853, align 4
   %1026 = load i8, ptr %37, align 4
   %1027 = zext i8 %1026 to i64
-  %1028 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1027
+  %1028 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1027
   %1029 = load ptr, ptr %1028, align 8
   %1030 = load i32, ptr %38, align 4
   %1031 = and i32 %1030, %1025
@@ -2596,7 +2594,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1037 = load i8, ptr %1036, align 1
   %1038 = load i8, ptr %40, align 1
   %1039 = zext i8 %1038 to i64
-  %1040 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1039
+  %1040 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1039
   %1041 = load ptr, ptr %1040, align 8
   %1042 = load i32, ptr %41, align 4
   %1043 = and i32 %1042, %1025
@@ -2608,7 +2606,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1049 = load i8, ptr %1048, align 1
   %1050 = load i8, ptr %43, align 2
   %1051 = zext i8 %1050 to i64
-  %1052 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1051
+  %1052 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1051
   %1053 = load ptr, ptr %1052, align 8
   %1054 = load i32, ptr %44, align 4
   %1055 = and i32 %1054, %1025
@@ -2620,7 +2618,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1061 = load i8, ptr %1060, align 1
   %1062 = load i8, ptr %46, align 1
   %1063 = zext i8 %1062 to i64
-  %1064 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1063
+  %1064 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1063
   %1065 = load ptr, ptr %1064, align 8
   %1066 = load i32, ptr %47, align 4
   %1067 = and i32 %1066, %1025
@@ -2865,7 +2863,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %.sink1137 = phi i32 [ %1251, %1250 ], [ %1237, %1235 ], [ %1234, %1232 ]
   %1253 = load i8, ptr %25, align 4
   %1254 = zext i8 %1253 to i64
-  %1255 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1254
+  %1255 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1254
   %1256 = load ptr, ptr %1255, align 8
   %1257 = load i32, ptr %26, align 4
   %1258 = and i32 %1257, %.sink1137
@@ -2876,7 +2874,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1263 = getelementptr inbounds nuw i8, ptr %1256, i64 %1262
   %1264 = load i8, ptr %28, align 1
   %1265 = zext i8 %1264 to i64
-  %1266 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1265
+  %1266 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1265
   %1267 = load ptr, ptr %1266, align 8
   %1268 = load i32, ptr %29, align 4
   %1269 = and i32 %1268, %.sink1137
@@ -2887,7 +2885,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1274 = getelementptr inbounds nuw i8, ptr %1267, i64 %1273
   %1275 = load i8, ptr %31, align 2
   %1276 = zext i8 %1275 to i64
-  %1277 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1276
+  %1277 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1276
   %1278 = load ptr, ptr %1277, align 8
   %1279 = load i32, ptr %32, align 4
   %1280 = and i32 %1279, %.sink1137
@@ -2898,7 +2896,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1285 = getelementptr inbounds nuw i8, ptr %1278, i64 %1284
   %1286 = load i8, ptr %34, align 1
   %1287 = zext i8 %1286 to i64
-  %1288 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1287
+  %1288 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1287
   %1289 = load ptr, ptr %1288, align 8
   %1290 = load i32, ptr %35, align 4
   %1291 = and i32 %1290, %.sink1137
@@ -2935,7 +2933,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1300 = zext i8 %1299 to i32
   %1301 = load i8, ptr %37, align 4
   %1302 = zext i8 %1301 to i64
-  %1303 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1302
+  %1303 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1302
   %1304 = load ptr, ptr %1303, align 8
   %1305 = load i32, ptr %38, align 4
   %1306 = and i32 %1305, %1300
@@ -2947,7 +2945,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1312 = load i8, ptr %1311, align 1
   %1313 = load i8, ptr %40, align 1
   %1314 = zext i8 %1313 to i64
-  %1315 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1314
+  %1315 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1314
   %1316 = load ptr, ptr %1315, align 8
   %1317 = load i32, ptr %41, align 4
   %1318 = and i32 %1317, %1300
@@ -2959,7 +2957,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1324 = load i8, ptr %1323, align 1
   %1325 = load i8, ptr %43, align 2
   %1326 = zext i8 %1325 to i64
-  %1327 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1326
+  %1327 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1326
   %1328 = load ptr, ptr %1327, align 8
   %1329 = load i32, ptr %44, align 4
   %1330 = and i32 %1329, %1300
@@ -2971,7 +2969,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1336 = load i8, ptr %1335, align 1
   %1337 = load i8, ptr %46, align 1
   %1338 = zext i8 %1337 to i64
-  %1339 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1338
+  %1339 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1338
   %1340 = load ptr, ptr %1339, align 8
   %1341 = load i32, ptr %47, align 4
   %1342 = and i32 %1341, %1300
@@ -2988,7 +2986,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1351 = zext i16 %1350 to i32
   %1352 = load i8, ptr %37, align 4
   %1353 = zext i8 %1352 to i64
-  %1354 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1353
+  %1354 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1353
   %1355 = load ptr, ptr %1354, align 8
   %1356 = load i32, ptr %38, align 4
   %1357 = and i32 %1356, %1351
@@ -3000,7 +2998,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1363 = load i8, ptr %1362, align 1
   %1364 = load i8, ptr %40, align 1
   %1365 = zext i8 %1364 to i64
-  %1366 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1365
+  %1366 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1365
   %1367 = load ptr, ptr %1366, align 8
   %1368 = load i32, ptr %41, align 4
   %1369 = and i32 %1368, %1351
@@ -3012,7 +3010,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1375 = load i8, ptr %1374, align 1
   %1376 = load i8, ptr %43, align 2
   %1377 = zext i8 %1376 to i64
-  %1378 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1377
+  %1378 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1377
   %1379 = load ptr, ptr %1378, align 8
   %1380 = load i32, ptr %44, align 4
   %1381 = and i32 %1380, %1351
@@ -3024,7 +3022,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1387 = load i8, ptr %1386, align 1
   %1388 = load i8, ptr %46, align 1
   %1389 = zext i8 %1388 to i64
-  %1390 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1389
+  %1390 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1389
   %1391 = load ptr, ptr %1390, align 8
   %1392 = load i32, ptr %47, align 4
   %1393 = and i32 %1392, %1351
@@ -3058,7 +3056,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1417 = load i32, ptr %.4854, align 4
   %1418 = load i8, ptr %37, align 4
   %1419 = zext i8 %1418 to i64
-  %1420 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1419
+  %1420 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1419
   %1421 = load ptr, ptr %1420, align 8
   %1422 = load i32, ptr %38, align 4
   %1423 = and i32 %1422, %1417
@@ -3070,7 +3068,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1429 = load i8, ptr %1428, align 1
   %1430 = load i8, ptr %40, align 1
   %1431 = zext i8 %1430 to i64
-  %1432 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1431
+  %1432 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1431
   %1433 = load ptr, ptr %1432, align 8
   %1434 = load i32, ptr %41, align 4
   %1435 = and i32 %1434, %1417
@@ -3082,7 +3080,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1441 = load i8, ptr %1440, align 1
   %1442 = load i8, ptr %43, align 2
   %1443 = zext i8 %1442 to i64
-  %1444 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1443
+  %1444 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1443
   %1445 = load ptr, ptr %1444, align 8
   %1446 = load i32, ptr %44, align 4
   %1447 = and i32 %1446, %1417
@@ -3094,7 +3092,7 @@ define internal void @BlitNtoNPixelAlpha(ptr noundef readonly captures(none) %0)
   %1453 = load i8, ptr %1452, align 1
   %1454 = load i8, ptr %46, align 1
   %1455 = zext i8 %1454 to i64
-  %1456 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1455
+  %1456 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1455
   %1457 = load ptr, ptr %1456, align 8
   %1458 = load i32, ptr %47, align 4
   %1459 = and i32 %1458, %1417
@@ -3579,8 +3577,8 @@ default.unreachable135:                           ; preds = %21
   unreachable
 
 173:                                              ; preds = %168
-  %174 = getelementptr inbounds i32, ptr %169, i64 %19
-  %175 = getelementptr inbounds i16, ptr %170, i64 %20
+  %174 = getelementptr inbounds [4 x i8], ptr %169, i64 %19
+  %175 = getelementptr inbounds [2 x i8], ptr %170, i64 %20
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !9
 
@@ -3857,8 +3855,8 @@ default.unreachable135:                           ; preds = %21
   unreachable
 
 173:                                              ; preds = %168
-  %174 = getelementptr inbounds i32, ptr %169, i64 %19
-  %175 = getelementptr inbounds i16, ptr %170, i64 %20
+  %174 = getelementptr inbounds [4 x i8], ptr %169, i64 %19
+  %175 = getelementptr inbounds [2 x i8], ptr %170, i64 %20
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !11
 
@@ -4159,7 +4157,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %48 = zext i8 %47 to i32
   %49 = load i8, ptr %30, align 4
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr %31, align 4
   %54 = and i32 %53, %48
@@ -4171,7 +4169,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %60 = load i8, ptr %59, align 1
   %61 = load i8, ptr %33, align 1
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = load i32, ptr %34, align 4
   %66 = and i32 %65, %48
@@ -4183,7 +4181,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %72 = load i8, ptr %71, align 1
   %73 = load i8, ptr %36, align 2
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = load i32, ptr %37, align 4
   %78 = and i32 %77, %48
@@ -4200,7 +4198,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %87 = zext i16 %86 to i32
   %88 = load i8, ptr %30, align 4
   %89 = zext i8 %88 to i64
-  %90 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = load i32, ptr %31, align 4
   %93 = and i32 %92, %87
@@ -4212,7 +4210,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %99 = load i8, ptr %98, align 1
   %100 = load i8, ptr %33, align 1
   %101 = zext i8 %100 to i64
-  %102 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = load i32, ptr %34, align 4
   %105 = and i32 %104, %87
@@ -4224,7 +4222,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %111 = load i8, ptr %110, align 1
   %112 = load i8, ptr %36, align 2
   %113 = zext i8 %112 to i64
-  %114 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %113
   %115 = load ptr, ptr %114, align 8
   %116 = load i32, ptr %37, align 4
   %117 = and i32 %116, %87
@@ -4258,7 +4256,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %141 = load i32, ptr %.1, align 4
   %142 = load i8, ptr %30, align 4
   %143 = zext i8 %142 to i64
-  %144 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %143
+  %144 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %143
   %145 = load ptr, ptr %144, align 8
   %146 = load i32, ptr %31, align 4
   %147 = and i32 %146, %141
@@ -4270,7 +4268,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %153 = load i8, ptr %152, align 1
   %154 = load i8, ptr %33, align 1
   %155 = zext i8 %154 to i64
-  %156 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %155
   %157 = load ptr, ptr %156, align 8
   %158 = load i32, ptr %34, align 4
   %159 = and i32 %158, %141
@@ -4282,7 +4280,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %165 = load i8, ptr %164, align 1
   %166 = load i8, ptr %36, align 2
   %167 = zext i8 %166 to i64
-  %168 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %167
   %169 = load ptr, ptr %168, align 8
   %170 = load i32, ptr %37, align 4
   %171 = and i32 %170, %141
@@ -4303,7 +4301,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %.0412 = zext i8 %.0412.shrunk to i32
   %179 = load i8, ptr %.1400, align 1
   %180 = zext i8 %179 to i64
-  %181 = getelementptr inbounds nuw %struct.SDL_Color, ptr %11, i64 %180
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %180
   %182 = load i8, ptr %181, align 1
   %183 = zext i8 %182 to i32
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 1
@@ -4379,7 +4377,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %234 = zext i8 %233 to i32
   %235 = load i8, ptr %30, align 4
   %236 = zext i8 %235 to i64
-  %237 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %236
+  %237 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %236
   %238 = load ptr, ptr %237, align 8
   %239 = load i32, ptr %31, align 4
   %240 = and i32 %239, %234
@@ -4391,7 +4389,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %246 = load i8, ptr %245, align 1
   %247 = load i8, ptr %33, align 1
   %248 = zext i8 %247 to i64
-  %249 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %248
+  %249 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %248
   %250 = load ptr, ptr %249, align 8
   %251 = load i32, ptr %34, align 4
   %252 = and i32 %251, %234
@@ -4403,7 +4401,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %258 = load i8, ptr %257, align 1
   %259 = load i8, ptr %36, align 2
   %260 = zext i8 %259 to i64
-  %261 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %260
+  %261 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %260
   %262 = load ptr, ptr %261, align 8
   %263 = load i32, ptr %37, align 4
   %264 = and i32 %263, %234
@@ -4420,7 +4418,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %273 = zext i16 %272 to i32
   %274 = load i8, ptr %30, align 4
   %275 = zext i8 %274 to i64
-  %276 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %275
+  %276 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %275
   %277 = load ptr, ptr %276, align 8
   %278 = load i32, ptr %31, align 4
   %279 = and i32 %278, %273
@@ -4432,7 +4430,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %285 = load i8, ptr %284, align 1
   %286 = load i8, ptr %33, align 1
   %287 = zext i8 %286 to i64
-  %288 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %287
+  %288 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %287
   %289 = load ptr, ptr %288, align 8
   %290 = load i32, ptr %34, align 4
   %291 = and i32 %290, %273
@@ -4444,7 +4442,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %297 = load i8, ptr %296, align 1
   %298 = load i8, ptr %36, align 2
   %299 = zext i8 %298 to i64
-  %300 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %299
+  %300 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %299
   %301 = load ptr, ptr %300, align 8
   %302 = load i32, ptr %37, align 4
   %303 = and i32 %302, %273
@@ -4478,7 +4476,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %327 = load i32, ptr %.2, align 4
   %328 = load i8, ptr %30, align 4
   %329 = zext i8 %328 to i64
-  %330 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %329
+  %330 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %329
   %331 = load ptr, ptr %330, align 8
   %332 = load i32, ptr %31, align 4
   %333 = and i32 %332, %327
@@ -4490,7 +4488,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %339 = load i8, ptr %338, align 1
   %340 = load i8, ptr %33, align 1
   %341 = zext i8 %340 to i64
-  %342 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %341
+  %342 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %341
   %343 = load ptr, ptr %342, align 8
   %344 = load i32, ptr %34, align 4
   %345 = and i32 %344, %327
@@ -4502,7 +4500,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %351 = load i8, ptr %350, align 1
   %352 = load i8, ptr %36, align 2
   %353 = zext i8 %352 to i64
-  %354 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %353
+  %354 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %353
   %355 = load ptr, ptr %354, align 8
   %356 = load i32, ptr %37, align 4
   %357 = and i32 %356, %327
@@ -4523,7 +4521,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %.1413 = zext i8 %.1413.shrunk to i32
   %365 = load i8, ptr %.2401, align 1
   %366 = zext i8 %365 to i64
-  %367 = getelementptr inbounds nuw %struct.SDL_Color, ptr %11, i64 %366
+  %367 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %366
   %368 = load i8, ptr %367, align 1
   %369 = zext i8 %368 to i32
   %370 = getelementptr inbounds nuw i8, ptr %367, i64 1
@@ -4599,7 +4597,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %420 = zext i8 %419 to i32
   %421 = load i8, ptr %30, align 4
   %422 = zext i8 %421 to i64
-  %423 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %422
+  %423 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %422
   %424 = load ptr, ptr %423, align 8
   %425 = load i32, ptr %31, align 4
   %426 = and i32 %425, %420
@@ -4611,7 +4609,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %432 = load i8, ptr %431, align 1
   %433 = load i8, ptr %33, align 1
   %434 = zext i8 %433 to i64
-  %435 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %434
+  %435 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %434
   %436 = load ptr, ptr %435, align 8
   %437 = load i32, ptr %34, align 4
   %438 = and i32 %437, %420
@@ -4623,7 +4621,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %444 = load i8, ptr %443, align 1
   %445 = load i8, ptr %36, align 2
   %446 = zext i8 %445 to i64
-  %447 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %446
+  %447 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %446
   %448 = load ptr, ptr %447, align 8
   %449 = load i32, ptr %37, align 4
   %450 = and i32 %449, %420
@@ -4640,7 +4638,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %459 = zext i16 %458 to i32
   %460 = load i8, ptr %30, align 4
   %461 = zext i8 %460 to i64
-  %462 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %461
+  %462 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %461
   %463 = load ptr, ptr %462, align 8
   %464 = load i32, ptr %31, align 4
   %465 = and i32 %464, %459
@@ -4652,7 +4650,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %471 = load i8, ptr %470, align 1
   %472 = load i8, ptr %33, align 1
   %473 = zext i8 %472 to i64
-  %474 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %473
+  %474 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %473
   %475 = load ptr, ptr %474, align 8
   %476 = load i32, ptr %34, align 4
   %477 = and i32 %476, %459
@@ -4664,7 +4662,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %483 = load i8, ptr %482, align 1
   %484 = load i8, ptr %36, align 2
   %485 = zext i8 %484 to i64
-  %486 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %485
+  %486 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %485
   %487 = load ptr, ptr %486, align 8
   %488 = load i32, ptr %37, align 4
   %489 = and i32 %488, %459
@@ -4698,7 +4696,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %513 = load i32, ptr %.3, align 4
   %514 = load i8, ptr %30, align 4
   %515 = zext i8 %514 to i64
-  %516 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %515
+  %516 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %515
   %517 = load ptr, ptr %516, align 8
   %518 = load i32, ptr %31, align 4
   %519 = and i32 %518, %513
@@ -4710,7 +4708,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %525 = load i8, ptr %524, align 1
   %526 = load i8, ptr %33, align 1
   %527 = zext i8 %526 to i64
-  %528 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %527
+  %528 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %527
   %529 = load ptr, ptr %528, align 8
   %530 = load i32, ptr %34, align 4
   %531 = and i32 %530, %513
@@ -4722,7 +4720,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %537 = load i8, ptr %536, align 1
   %538 = load i8, ptr %36, align 2
   %539 = zext i8 %538 to i64
-  %540 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %539
+  %540 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %539
   %541 = load ptr, ptr %540, align 8
   %542 = load i32, ptr %37, align 4
   %543 = and i32 %542, %513
@@ -4743,7 +4741,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %.2414 = zext i8 %.2414.shrunk to i32
   %551 = load i8, ptr %.3402, align 1
   %552 = zext i8 %551 to i64
-  %553 = getelementptr inbounds nuw %struct.SDL_Color, ptr %11, i64 %552
+  %553 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %552
   %554 = load i8, ptr %553, align 1
   %555 = zext i8 %554 to i32
   %556 = getelementptr inbounds nuw i8, ptr %553, i64 1
@@ -4819,7 +4817,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %606 = zext i8 %605 to i32
   %607 = load i8, ptr %30, align 4
   %608 = zext i8 %607 to i64
-  %609 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %608
+  %609 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %608
   %610 = load ptr, ptr %609, align 8
   %611 = load i32, ptr %31, align 4
   %612 = and i32 %611, %606
@@ -4831,7 +4829,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %618 = load i8, ptr %617, align 1
   %619 = load i8, ptr %33, align 1
   %620 = zext i8 %619 to i64
-  %621 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %620
+  %621 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %620
   %622 = load ptr, ptr %621, align 8
   %623 = load i32, ptr %34, align 4
   %624 = and i32 %623, %606
@@ -4843,7 +4841,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %630 = load i8, ptr %629, align 1
   %631 = load i8, ptr %36, align 2
   %632 = zext i8 %631 to i64
-  %633 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %632
+  %633 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %632
   %634 = load ptr, ptr %633, align 8
   %635 = load i32, ptr %37, align 4
   %636 = and i32 %635, %606
@@ -4860,7 +4858,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %645 = zext i16 %644 to i32
   %646 = load i8, ptr %30, align 4
   %647 = zext i8 %646 to i64
-  %648 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %647
+  %648 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %647
   %649 = load ptr, ptr %648, align 8
   %650 = load i32, ptr %31, align 4
   %651 = and i32 %650, %645
@@ -4872,7 +4870,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %657 = load i8, ptr %656, align 1
   %658 = load i8, ptr %33, align 1
   %659 = zext i8 %658 to i64
-  %660 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %659
+  %660 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %659
   %661 = load ptr, ptr %660, align 8
   %662 = load i32, ptr %34, align 4
   %663 = and i32 %662, %645
@@ -4884,7 +4882,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %669 = load i8, ptr %668, align 1
   %670 = load i8, ptr %36, align 2
   %671 = zext i8 %670 to i64
-  %672 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %671
+  %672 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %671
   %673 = load ptr, ptr %672, align 8
   %674 = load i32, ptr %37, align 4
   %675 = and i32 %674, %645
@@ -4918,7 +4916,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %699 = load i32, ptr %.4, align 4
   %700 = load i8, ptr %30, align 4
   %701 = zext i8 %700 to i64
-  %702 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %701
+  %702 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %701
   %703 = load ptr, ptr %702, align 8
   %704 = load i32, ptr %31, align 4
   %705 = and i32 %704, %699
@@ -4930,7 +4928,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %711 = load i8, ptr %710, align 1
   %712 = load i8, ptr %33, align 1
   %713 = zext i8 %712 to i64
-  %714 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %713
+  %714 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %713
   %715 = load ptr, ptr %714, align 8
   %716 = load i32, ptr %34, align 4
   %717 = and i32 %716, %699
@@ -4942,7 +4940,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %723 = load i8, ptr %722, align 1
   %724 = load i8, ptr %36, align 2
   %725 = zext i8 %724 to i64
-  %726 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %725
+  %726 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %725
   %727 = load ptr, ptr %726, align 8
   %728 = load i32, ptr %37, align 4
   %729 = and i32 %728, %699
@@ -4963,7 +4961,7 @@ define internal void @BlitNto1SurfaceAlpha(ptr noundef readonly captures(none) %
   %.3415 = zext i8 %.3415.shrunk to i32
   %737 = load i8, ptr %.4403, align 1
   %738 = zext i8 %737 to i64
-  %739 = getelementptr inbounds nuw %struct.SDL_Color, ptr %11, i64 %738
+  %739 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %738
   %740 = load i8, ptr %739, align 1
   %741 = zext i8 %740 to i32
   %742 = getelementptr inbounds nuw i8, ptr %739, i64 1
@@ -5129,7 +5127,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %58 = zext i8 %57 to i32
   %59 = load i8, ptr %28, align 4
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr %29, align 4
   %64 = and i32 %63, %58
@@ -5141,7 +5139,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %70 = load i8, ptr %69, align 1
   %71 = load i8, ptr %31, align 1
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = load i32, ptr %32, align 4
   %76 = and i32 %75, %58
@@ -5153,7 +5151,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %82 = load i8, ptr %81, align 1
   %83 = load i8, ptr %34, align 2
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = load i32, ptr %35, align 4
   %88 = and i32 %87, %58
@@ -5170,7 +5168,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %97 = zext i16 %96 to i32
   %98 = load i8, ptr %28, align 4
   %99 = zext i8 %98 to i64
-  %100 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %99
   %101 = load ptr, ptr %100, align 8
   %102 = load i32, ptr %29, align 4
   %103 = and i32 %102, %97
@@ -5182,7 +5180,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %109 = load i8, ptr %108, align 1
   %110 = load i8, ptr %31, align 1
   %111 = zext i8 %110 to i64
-  %112 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %111
   %113 = load ptr, ptr %112, align 8
   %114 = load i32, ptr %32, align 4
   %115 = and i32 %114, %97
@@ -5194,7 +5192,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %121 = load i8, ptr %120, align 1
   %122 = load i8, ptr %34, align 2
   %123 = zext i8 %122 to i64
-  %124 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %123
+  %124 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %123
   %125 = load ptr, ptr %124, align 8
   %126 = load i32, ptr %35, align 4
   %127 = and i32 %126, %97
@@ -5228,7 +5226,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %151 = load i32, ptr %.1, align 4
   %152 = load i8, ptr %28, align 4
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %153
   %155 = load ptr, ptr %154, align 8
   %156 = load i32, ptr %29, align 4
   %157 = and i32 %156, %151
@@ -5240,7 +5238,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %163 = load i8, ptr %162, align 1
   %164 = load i8, ptr %31, align 1
   %165 = zext i8 %164 to i64
-  %166 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %165
+  %166 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %165
   %167 = load ptr, ptr %166, align 8
   %168 = load i32, ptr %32, align 4
   %169 = and i32 %168, %151
@@ -5252,7 +5250,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %175 = load i8, ptr %174, align 1
   %176 = load i8, ptr %34, align 2
   %177 = zext i8 %176 to i64
-  %178 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %177
+  %178 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %177
   %179 = load ptr, ptr %178, align 8
   %180 = load i32, ptr %35, align 4
   %181 = and i32 %180, %151
@@ -5283,7 +5281,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %191 = zext i8 %190 to i32
   %192 = load i8, ptr %37, align 4
   %193 = zext i8 %192 to i64
-  %194 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %193
+  %194 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %193
   %195 = load ptr, ptr %194, align 8
   %196 = load i32, ptr %38, align 4
   %197 = and i32 %196, %191
@@ -5295,7 +5293,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %203 = load i8, ptr %202, align 1
   %204 = load i8, ptr %40, align 1
   %205 = zext i8 %204 to i64
-  %206 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %205
+  %206 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %205
   %207 = load ptr, ptr %206, align 8
   %208 = load i32, ptr %41, align 4
   %209 = and i32 %208, %191
@@ -5307,7 +5305,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %215 = load i8, ptr %214, align 1
   %216 = load i8, ptr %43, align 2
   %217 = zext i8 %216 to i64
-  %218 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %217
   %219 = load ptr, ptr %218, align 8
   %220 = load i32, ptr %44, align 4
   %221 = and i32 %220, %191
@@ -5319,7 +5317,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %227 = load i8, ptr %226, align 1
   %228 = load i8, ptr %46, align 1
   %229 = zext i8 %228 to i64
-  %230 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %229
+  %230 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %229
   %231 = load ptr, ptr %230, align 8
   %232 = load i32, ptr %47, align 4
   %233 = and i32 %232, %191
@@ -5336,7 +5334,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %242 = zext i16 %241 to i32
   %243 = load i8, ptr %37, align 4
   %244 = zext i8 %243 to i64
-  %245 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %244
+  %245 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %244
   %246 = load ptr, ptr %245, align 8
   %247 = load i32, ptr %38, align 4
   %248 = and i32 %247, %242
@@ -5348,7 +5346,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %254 = load i8, ptr %253, align 1
   %255 = load i8, ptr %40, align 1
   %256 = zext i8 %255 to i64
-  %257 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %256
+  %257 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %256
   %258 = load ptr, ptr %257, align 8
   %259 = load i32, ptr %41, align 4
   %260 = and i32 %259, %242
@@ -5360,7 +5358,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %266 = load i8, ptr %265, align 1
   %267 = load i8, ptr %43, align 2
   %268 = zext i8 %267 to i64
-  %269 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %268
+  %269 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %268
   %270 = load ptr, ptr %269, align 8
   %271 = load i32, ptr %44, align 4
   %272 = and i32 %271, %242
@@ -5372,7 +5370,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %278 = load i8, ptr %277, align 1
   %279 = load i8, ptr %46, align 1
   %280 = zext i8 %279 to i64
-  %281 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %280
+  %281 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %280
   %282 = load ptr, ptr %281, align 8
   %283 = load i32, ptr %47, align 4
   %284 = and i32 %283, %242
@@ -5406,7 +5404,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %308 = load i32, ptr %.1801, align 4
   %309 = load i8, ptr %37, align 4
   %310 = zext i8 %309 to i64
-  %311 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %310
+  %311 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %310
   %312 = load ptr, ptr %311, align 8
   %313 = load i32, ptr %38, align 4
   %314 = and i32 %313, %308
@@ -5418,7 +5416,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %320 = load i8, ptr %319, align 1
   %321 = load i8, ptr %40, align 1
   %322 = zext i8 %321 to i64
-  %323 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %322
+  %323 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %322
   %324 = load ptr, ptr %323, align 8
   %325 = load i32, ptr %41, align 4
   %326 = and i32 %325, %308
@@ -5430,7 +5428,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %332 = load i8, ptr %331, align 1
   %333 = load i8, ptr %43, align 2
   %334 = zext i8 %333 to i64
-  %335 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %334
+  %335 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %334
   %336 = load ptr, ptr %335, align 8
   %337 = load i32, ptr %44, align 4
   %338 = and i32 %337, %308
@@ -5442,7 +5440,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %344 = load i8, ptr %343, align 1
   %345 = load i8, ptr %46, align 1
   %346 = zext i8 %345 to i64
-  %347 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %346
+  %347 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %346
   %348 = load ptr, ptr %347, align 8
   %349 = load i32, ptr %47, align 4
   %350 = and i32 %349, %308
@@ -5659,7 +5657,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %518 = zext i8 %517 to i32
   %519 = load i8, ptr %28, align 4
   %520 = zext i8 %519 to i64
-  %521 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %520
+  %521 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %520
   %522 = load ptr, ptr %521, align 8
   %523 = load i32, ptr %29, align 4
   %524 = and i32 %523, %518
@@ -5671,7 +5669,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %530 = load i8, ptr %529, align 1
   %531 = load i8, ptr %31, align 1
   %532 = zext i8 %531 to i64
-  %533 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %532
+  %533 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %532
   %534 = load ptr, ptr %533, align 8
   %535 = load i32, ptr %32, align 4
   %536 = and i32 %535, %518
@@ -5683,7 +5681,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %542 = load i8, ptr %541, align 1
   %543 = load i8, ptr %34, align 2
   %544 = zext i8 %543 to i64
-  %545 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %544
+  %545 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %544
   %546 = load ptr, ptr %545, align 8
   %547 = load i32, ptr %35, align 4
   %548 = and i32 %547, %518
@@ -5700,7 +5698,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %557 = zext i16 %556 to i32
   %558 = load i8, ptr %28, align 4
   %559 = zext i8 %558 to i64
-  %560 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %559
+  %560 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %559
   %561 = load ptr, ptr %560, align 8
   %562 = load i32, ptr %29, align 4
   %563 = and i32 %562, %557
@@ -5712,7 +5710,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %569 = load i8, ptr %568, align 1
   %570 = load i8, ptr %31, align 1
   %571 = zext i8 %570 to i64
-  %572 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %571
+  %572 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %571
   %573 = load ptr, ptr %572, align 8
   %574 = load i32, ptr %32, align 4
   %575 = and i32 %574, %557
@@ -5724,7 +5722,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %581 = load i8, ptr %580, align 1
   %582 = load i8, ptr %34, align 2
   %583 = zext i8 %582 to i64
-  %584 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %583
+  %584 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %583
   %585 = load ptr, ptr %584, align 8
   %586 = load i32, ptr %35, align 4
   %587 = and i32 %586, %557
@@ -5758,7 +5756,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %611 = load i32, ptr %.2, align 4
   %612 = load i8, ptr %28, align 4
   %613 = zext i8 %612 to i64
-  %614 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %613
+  %614 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %613
   %615 = load ptr, ptr %614, align 8
   %616 = load i32, ptr %29, align 4
   %617 = and i32 %616, %611
@@ -5770,7 +5768,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %623 = load i8, ptr %622, align 1
   %624 = load i8, ptr %31, align 1
   %625 = zext i8 %624 to i64
-  %626 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %625
+  %626 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %625
   %627 = load ptr, ptr %626, align 8
   %628 = load i32, ptr %32, align 4
   %629 = and i32 %628, %611
@@ -5782,7 +5780,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %635 = load i8, ptr %634, align 1
   %636 = load i8, ptr %34, align 2
   %637 = zext i8 %636 to i64
-  %638 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %637
+  %638 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %637
   %639 = load ptr, ptr %638, align 8
   %640 = load i32, ptr %35, align 4
   %641 = and i32 %640, %611
@@ -5813,7 +5811,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %651 = zext i8 %650 to i32
   %652 = load i8, ptr %37, align 4
   %653 = zext i8 %652 to i64
-  %654 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %653
+  %654 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %653
   %655 = load ptr, ptr %654, align 8
   %656 = load i32, ptr %38, align 4
   %657 = and i32 %656, %651
@@ -5825,7 +5823,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %663 = load i8, ptr %662, align 1
   %664 = load i8, ptr %40, align 1
   %665 = zext i8 %664 to i64
-  %666 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %665
+  %666 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %665
   %667 = load ptr, ptr %666, align 8
   %668 = load i32, ptr %41, align 4
   %669 = and i32 %668, %651
@@ -5837,7 +5835,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %675 = load i8, ptr %674, align 1
   %676 = load i8, ptr %43, align 2
   %677 = zext i8 %676 to i64
-  %678 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %677
+  %678 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %677
   %679 = load ptr, ptr %678, align 8
   %680 = load i32, ptr %44, align 4
   %681 = and i32 %680, %651
@@ -5849,7 +5847,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %687 = load i8, ptr %686, align 1
   %688 = load i8, ptr %46, align 1
   %689 = zext i8 %688 to i64
-  %690 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %689
+  %690 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %689
   %691 = load ptr, ptr %690, align 8
   %692 = load i32, ptr %47, align 4
   %693 = and i32 %692, %651
@@ -5866,7 +5864,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %702 = zext i16 %701 to i32
   %703 = load i8, ptr %37, align 4
   %704 = zext i8 %703 to i64
-  %705 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %704
+  %705 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %704
   %706 = load ptr, ptr %705, align 8
   %707 = load i32, ptr %38, align 4
   %708 = and i32 %707, %702
@@ -5878,7 +5876,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %714 = load i8, ptr %713, align 1
   %715 = load i8, ptr %40, align 1
   %716 = zext i8 %715 to i64
-  %717 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %716
+  %717 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %716
   %718 = load ptr, ptr %717, align 8
   %719 = load i32, ptr %41, align 4
   %720 = and i32 %719, %702
@@ -5890,7 +5888,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %726 = load i8, ptr %725, align 1
   %727 = load i8, ptr %43, align 2
   %728 = zext i8 %727 to i64
-  %729 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %728
+  %729 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %728
   %730 = load ptr, ptr %729, align 8
   %731 = load i32, ptr %44, align 4
   %732 = and i32 %731, %702
@@ -5902,7 +5900,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %738 = load i8, ptr %737, align 1
   %739 = load i8, ptr %46, align 1
   %740 = zext i8 %739 to i64
-  %741 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %740
+  %741 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %740
   %742 = load ptr, ptr %741, align 8
   %743 = load i32, ptr %47, align 4
   %744 = and i32 %743, %702
@@ -5936,7 +5934,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %768 = load i32, ptr %.2802, align 4
   %769 = load i8, ptr %37, align 4
   %770 = zext i8 %769 to i64
-  %771 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %770
+  %771 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %770
   %772 = load ptr, ptr %771, align 8
   %773 = load i32, ptr %38, align 4
   %774 = and i32 %773, %768
@@ -5948,7 +5946,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %780 = load i8, ptr %779, align 1
   %781 = load i8, ptr %40, align 1
   %782 = zext i8 %781 to i64
-  %783 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %782
+  %783 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %782
   %784 = load ptr, ptr %783, align 8
   %785 = load i32, ptr %41, align 4
   %786 = and i32 %785, %768
@@ -5960,7 +5958,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %792 = load i8, ptr %791, align 1
   %793 = load i8, ptr %43, align 2
   %794 = zext i8 %793 to i64
-  %795 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %794
+  %795 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %794
   %796 = load ptr, ptr %795, align 8
   %797 = load i32, ptr %44, align 4
   %798 = and i32 %797, %768
@@ -5972,7 +5970,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %804 = load i8, ptr %803, align 1
   %805 = load i8, ptr %46, align 1
   %806 = zext i8 %805 to i64
-  %807 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %806
+  %807 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %806
   %808 = load ptr, ptr %807, align 8
   %809 = load i32, ptr %47, align 4
   %810 = and i32 %809, %768
@@ -6189,7 +6187,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %978 = zext i8 %977 to i32
   %979 = load i8, ptr %28, align 4
   %980 = zext i8 %979 to i64
-  %981 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %980
+  %981 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %980
   %982 = load ptr, ptr %981, align 8
   %983 = load i32, ptr %29, align 4
   %984 = and i32 %983, %978
@@ -6201,7 +6199,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %990 = load i8, ptr %989, align 1
   %991 = load i8, ptr %31, align 1
   %992 = zext i8 %991 to i64
-  %993 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %992
+  %993 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %992
   %994 = load ptr, ptr %993, align 8
   %995 = load i32, ptr %32, align 4
   %996 = and i32 %995, %978
@@ -6213,7 +6211,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1002 = load i8, ptr %1001, align 1
   %1003 = load i8, ptr %34, align 2
   %1004 = zext i8 %1003 to i64
-  %1005 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1004
+  %1005 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1004
   %1006 = load ptr, ptr %1005, align 8
   %1007 = load i32, ptr %35, align 4
   %1008 = and i32 %1007, %978
@@ -6230,7 +6228,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1017 = zext i16 %1016 to i32
   %1018 = load i8, ptr %28, align 4
   %1019 = zext i8 %1018 to i64
-  %1020 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1019
+  %1020 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1019
   %1021 = load ptr, ptr %1020, align 8
   %1022 = load i32, ptr %29, align 4
   %1023 = and i32 %1022, %1017
@@ -6242,7 +6240,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1029 = load i8, ptr %1028, align 1
   %1030 = load i8, ptr %31, align 1
   %1031 = zext i8 %1030 to i64
-  %1032 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1031
+  %1032 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1031
   %1033 = load ptr, ptr %1032, align 8
   %1034 = load i32, ptr %32, align 4
   %1035 = and i32 %1034, %1017
@@ -6254,7 +6252,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1041 = load i8, ptr %1040, align 1
   %1042 = load i8, ptr %34, align 2
   %1043 = zext i8 %1042 to i64
-  %1044 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1043
+  %1044 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1043
   %1045 = load ptr, ptr %1044, align 8
   %1046 = load i32, ptr %35, align 4
   %1047 = and i32 %1046, %1017
@@ -6288,7 +6286,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1071 = load i32, ptr %.3, align 4
   %1072 = load i8, ptr %28, align 4
   %1073 = zext i8 %1072 to i64
-  %1074 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1073
+  %1074 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1073
   %1075 = load ptr, ptr %1074, align 8
   %1076 = load i32, ptr %29, align 4
   %1077 = and i32 %1076, %1071
@@ -6300,7 +6298,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1083 = load i8, ptr %1082, align 1
   %1084 = load i8, ptr %31, align 1
   %1085 = zext i8 %1084 to i64
-  %1086 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1085
+  %1086 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1085
   %1087 = load ptr, ptr %1086, align 8
   %1088 = load i32, ptr %32, align 4
   %1089 = and i32 %1088, %1071
@@ -6312,7 +6310,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1095 = load i8, ptr %1094, align 1
   %1096 = load i8, ptr %34, align 2
   %1097 = zext i8 %1096 to i64
-  %1098 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1097
+  %1098 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1097
   %1099 = load ptr, ptr %1098, align 8
   %1100 = load i32, ptr %35, align 4
   %1101 = and i32 %1100, %1071
@@ -6343,7 +6341,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1111 = zext i8 %1110 to i32
   %1112 = load i8, ptr %37, align 4
   %1113 = zext i8 %1112 to i64
-  %1114 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1113
+  %1114 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1113
   %1115 = load ptr, ptr %1114, align 8
   %1116 = load i32, ptr %38, align 4
   %1117 = and i32 %1116, %1111
@@ -6355,7 +6353,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1123 = load i8, ptr %1122, align 1
   %1124 = load i8, ptr %40, align 1
   %1125 = zext i8 %1124 to i64
-  %1126 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1125
+  %1126 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1125
   %1127 = load ptr, ptr %1126, align 8
   %1128 = load i32, ptr %41, align 4
   %1129 = and i32 %1128, %1111
@@ -6367,7 +6365,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1135 = load i8, ptr %1134, align 1
   %1136 = load i8, ptr %43, align 2
   %1137 = zext i8 %1136 to i64
-  %1138 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1137
+  %1138 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1137
   %1139 = load ptr, ptr %1138, align 8
   %1140 = load i32, ptr %44, align 4
   %1141 = and i32 %1140, %1111
@@ -6379,7 +6377,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1147 = load i8, ptr %1146, align 1
   %1148 = load i8, ptr %46, align 1
   %1149 = zext i8 %1148 to i64
-  %1150 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1149
+  %1150 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1149
   %1151 = load ptr, ptr %1150, align 8
   %1152 = load i32, ptr %47, align 4
   %1153 = and i32 %1152, %1111
@@ -6396,7 +6394,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1162 = zext i16 %1161 to i32
   %1163 = load i8, ptr %37, align 4
   %1164 = zext i8 %1163 to i64
-  %1165 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1164
+  %1165 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1164
   %1166 = load ptr, ptr %1165, align 8
   %1167 = load i32, ptr %38, align 4
   %1168 = and i32 %1167, %1162
@@ -6408,7 +6406,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1174 = load i8, ptr %1173, align 1
   %1175 = load i8, ptr %40, align 1
   %1176 = zext i8 %1175 to i64
-  %1177 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1176
+  %1177 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1176
   %1178 = load ptr, ptr %1177, align 8
   %1179 = load i32, ptr %41, align 4
   %1180 = and i32 %1179, %1162
@@ -6420,7 +6418,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1186 = load i8, ptr %1185, align 1
   %1187 = load i8, ptr %43, align 2
   %1188 = zext i8 %1187 to i64
-  %1189 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1188
+  %1189 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1188
   %1190 = load ptr, ptr %1189, align 8
   %1191 = load i32, ptr %44, align 4
   %1192 = and i32 %1191, %1162
@@ -6432,7 +6430,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1198 = load i8, ptr %1197, align 1
   %1199 = load i8, ptr %46, align 1
   %1200 = zext i8 %1199 to i64
-  %1201 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1200
+  %1201 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1200
   %1202 = load ptr, ptr %1201, align 8
   %1203 = load i32, ptr %47, align 4
   %1204 = and i32 %1203, %1162
@@ -6466,7 +6464,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1228 = load i32, ptr %.3803, align 4
   %1229 = load i8, ptr %37, align 4
   %1230 = zext i8 %1229 to i64
-  %1231 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1230
+  %1231 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1230
   %1232 = load ptr, ptr %1231, align 8
   %1233 = load i32, ptr %38, align 4
   %1234 = and i32 %1233, %1228
@@ -6478,7 +6476,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1240 = load i8, ptr %1239, align 1
   %1241 = load i8, ptr %40, align 1
   %1242 = zext i8 %1241 to i64
-  %1243 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1242
+  %1243 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1242
   %1244 = load ptr, ptr %1243, align 8
   %1245 = load i32, ptr %41, align 4
   %1246 = and i32 %1245, %1228
@@ -6490,7 +6488,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1252 = load i8, ptr %1251, align 1
   %1253 = load i8, ptr %43, align 2
   %1254 = zext i8 %1253 to i64
-  %1255 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1254
+  %1255 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1254
   %1256 = load ptr, ptr %1255, align 8
   %1257 = load i32, ptr %44, align 4
   %1258 = and i32 %1257, %1228
@@ -6502,7 +6500,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1264 = load i8, ptr %1263, align 1
   %1265 = load i8, ptr %46, align 1
   %1266 = zext i8 %1265 to i64
-  %1267 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1266
+  %1267 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1266
   %1268 = load ptr, ptr %1267, align 8
   %1269 = load i32, ptr %47, align 4
   %1270 = and i32 %1269, %1228
@@ -6719,7 +6717,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1438 = zext i8 %1437 to i32
   %1439 = load i8, ptr %28, align 4
   %1440 = zext i8 %1439 to i64
-  %1441 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1440
+  %1441 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1440
   %1442 = load ptr, ptr %1441, align 8
   %1443 = load i32, ptr %29, align 4
   %1444 = and i32 %1443, %1438
@@ -6731,7 +6729,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1450 = load i8, ptr %1449, align 1
   %1451 = load i8, ptr %31, align 1
   %1452 = zext i8 %1451 to i64
-  %1453 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1452
+  %1453 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1452
   %1454 = load ptr, ptr %1453, align 8
   %1455 = load i32, ptr %32, align 4
   %1456 = and i32 %1455, %1438
@@ -6743,7 +6741,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1462 = load i8, ptr %1461, align 1
   %1463 = load i8, ptr %34, align 2
   %1464 = zext i8 %1463 to i64
-  %1465 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1464
+  %1465 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1464
   %1466 = load ptr, ptr %1465, align 8
   %1467 = load i32, ptr %35, align 4
   %1468 = and i32 %1467, %1438
@@ -6760,7 +6758,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1477 = zext i16 %1476 to i32
   %1478 = load i8, ptr %28, align 4
   %1479 = zext i8 %1478 to i64
-  %1480 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1479
+  %1480 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1479
   %1481 = load ptr, ptr %1480, align 8
   %1482 = load i32, ptr %29, align 4
   %1483 = and i32 %1482, %1477
@@ -6772,7 +6770,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1489 = load i8, ptr %1488, align 1
   %1490 = load i8, ptr %31, align 1
   %1491 = zext i8 %1490 to i64
-  %1492 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1491
+  %1492 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1491
   %1493 = load ptr, ptr %1492, align 8
   %1494 = load i32, ptr %32, align 4
   %1495 = and i32 %1494, %1477
@@ -6784,7 +6782,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1501 = load i8, ptr %1500, align 1
   %1502 = load i8, ptr %34, align 2
   %1503 = zext i8 %1502 to i64
-  %1504 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1503
+  %1504 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1503
   %1505 = load ptr, ptr %1504, align 8
   %1506 = load i32, ptr %35, align 4
   %1507 = and i32 %1506, %1477
@@ -6818,7 +6816,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1531 = load i32, ptr %.4, align 4
   %1532 = load i8, ptr %28, align 4
   %1533 = zext i8 %1532 to i64
-  %1534 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1533
+  %1534 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1533
   %1535 = load ptr, ptr %1534, align 8
   %1536 = load i32, ptr %29, align 4
   %1537 = and i32 %1536, %1531
@@ -6830,7 +6828,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1543 = load i8, ptr %1542, align 1
   %1544 = load i8, ptr %31, align 1
   %1545 = zext i8 %1544 to i64
-  %1546 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1545
+  %1546 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1545
   %1547 = load ptr, ptr %1546, align 8
   %1548 = load i32, ptr %32, align 4
   %1549 = and i32 %1548, %1531
@@ -6842,7 +6840,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1555 = load i8, ptr %1554, align 1
   %1556 = load i8, ptr %34, align 2
   %1557 = zext i8 %1556 to i64
-  %1558 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1557
+  %1558 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1557
   %1559 = load ptr, ptr %1558, align 8
   %1560 = load i32, ptr %35, align 4
   %1561 = and i32 %1560, %1531
@@ -6873,7 +6871,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1571 = zext i8 %1570 to i32
   %1572 = load i8, ptr %37, align 4
   %1573 = zext i8 %1572 to i64
-  %1574 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1573
+  %1574 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1573
   %1575 = load ptr, ptr %1574, align 8
   %1576 = load i32, ptr %38, align 4
   %1577 = and i32 %1576, %1571
@@ -6885,7 +6883,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1583 = load i8, ptr %1582, align 1
   %1584 = load i8, ptr %40, align 1
   %1585 = zext i8 %1584 to i64
-  %1586 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1585
+  %1586 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1585
   %1587 = load ptr, ptr %1586, align 8
   %1588 = load i32, ptr %41, align 4
   %1589 = and i32 %1588, %1571
@@ -6897,7 +6895,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1595 = load i8, ptr %1594, align 1
   %1596 = load i8, ptr %43, align 2
   %1597 = zext i8 %1596 to i64
-  %1598 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1597
+  %1598 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1597
   %1599 = load ptr, ptr %1598, align 8
   %1600 = load i32, ptr %44, align 4
   %1601 = and i32 %1600, %1571
@@ -6909,7 +6907,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1607 = load i8, ptr %1606, align 1
   %1608 = load i8, ptr %46, align 1
   %1609 = zext i8 %1608 to i64
-  %1610 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1609
+  %1610 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1609
   %1611 = load ptr, ptr %1610, align 8
   %1612 = load i32, ptr %47, align 4
   %1613 = and i32 %1612, %1571
@@ -6926,7 +6924,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1622 = zext i16 %1621 to i32
   %1623 = load i8, ptr %37, align 4
   %1624 = zext i8 %1623 to i64
-  %1625 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1624
+  %1625 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1624
   %1626 = load ptr, ptr %1625, align 8
   %1627 = load i32, ptr %38, align 4
   %1628 = and i32 %1627, %1622
@@ -6938,7 +6936,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1634 = load i8, ptr %1633, align 1
   %1635 = load i8, ptr %40, align 1
   %1636 = zext i8 %1635 to i64
-  %1637 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1636
+  %1637 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1636
   %1638 = load ptr, ptr %1637, align 8
   %1639 = load i32, ptr %41, align 4
   %1640 = and i32 %1639, %1622
@@ -6950,7 +6948,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1646 = load i8, ptr %1645, align 1
   %1647 = load i8, ptr %43, align 2
   %1648 = zext i8 %1647 to i64
-  %1649 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1648
+  %1649 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1648
   %1650 = load ptr, ptr %1649, align 8
   %1651 = load i32, ptr %44, align 4
   %1652 = and i32 %1651, %1622
@@ -6962,7 +6960,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1658 = load i8, ptr %1657, align 1
   %1659 = load i8, ptr %46, align 1
   %1660 = zext i8 %1659 to i64
-  %1661 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1660
+  %1661 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1660
   %1662 = load ptr, ptr %1661, align 8
   %1663 = load i32, ptr %47, align 4
   %1664 = and i32 %1663, %1622
@@ -6996,7 +6994,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1688 = load i32, ptr %.4804, align 4
   %1689 = load i8, ptr %37, align 4
   %1690 = zext i8 %1689 to i64
-  %1691 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1690
+  %1691 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1690
   %1692 = load ptr, ptr %1691, align 8
   %1693 = load i32, ptr %38, align 4
   %1694 = and i32 %1693, %1688
@@ -7008,7 +7006,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1700 = load i8, ptr %1699, align 1
   %1701 = load i8, ptr %40, align 1
   %1702 = zext i8 %1701 to i64
-  %1703 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1702
+  %1703 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1702
   %1704 = load ptr, ptr %1703, align 8
   %1705 = load i32, ptr %41, align 4
   %1706 = and i32 %1705, %1688
@@ -7020,7 +7018,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1712 = load i8, ptr %1711, align 1
   %1713 = load i8, ptr %43, align 2
   %1714 = zext i8 %1713 to i64
-  %1715 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1714
+  %1715 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1714
   %1716 = load ptr, ptr %1715, align 8
   %1717 = load i32, ptr %44, align 4
   %1718 = and i32 %1717, %1688
@@ -7032,7 +7030,7 @@ define internal void @BlitNtoNSurfaceAlpha(ptr noundef readonly captures(none) %
   %1724 = load i8, ptr %1723, align 1
   %1725 = load i8, ptr %46, align 1
   %1726 = zext i8 %1725 to i64
-  %1727 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1726
+  %1727 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1726
   %1728 = load ptr, ptr %1727, align 8
   %1729 = load i32, ptr %47, align 4
   %1730 = and i32 %1729, %1688
@@ -7413,8 +7411,8 @@ default.unreachable90:                            ; preds = %28
   unreachable
 
 116:                                              ; preds = %93
-  %117 = getelementptr inbounds i16, ptr %94, i64 %26
-  %118 = getelementptr inbounds i16, ptr %113, i64 %27
+  %117 = getelementptr inbounds [2 x i8], ptr %94, i64 %26
+  %118 = getelementptr inbounds [2 x i8], ptr %113, i64 %27
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %.loopexit, label %28, !llvm.loop !21
 
@@ -7587,8 +7585,8 @@ default.unreachable90:                            ; preds = %28
   unreachable
 
 116:                                              ; preds = %93
-  %117 = getelementptr inbounds i16, ptr %94, i64 %26
-  %118 = getelementptr inbounds i16, ptr %113, i64 %27
+  %117 = getelementptr inbounds [2 x i8], ptr %94, i64 %26
+  %118 = getelementptr inbounds [2 x i8], ptr %113, i64 %27
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %.loopexit, label %28, !llvm.loop !23
 
@@ -7726,8 +7724,8 @@ default.unreachable135:                           ; preds = %103
   unreachable
 
 81:                                               ; preds = %66
-  %82 = getelementptr inbounds i32, ptr %67, i64 %23
-  %83 = getelementptr inbounds i32, ptr %78, i64 %24
+  %82 = getelementptr inbounds [4 x i8], ptr %67, i64 %23
+  %83 = getelementptr inbounds [4 x i8], ptr %78, i64 %24
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %BlitRGBtoRGBSurfaceAlpha128.exit, label %25, !llvm.loop !25
 
@@ -7902,8 +7900,8 @@ default.unreachable135:                           ; preds = %103
   br i1 %210, label %105, label %211, !llvm.loop !26
 
 211:                                              ; preds = %183
-  %212 = getelementptr inbounds i32, ptr %207, i64 %101
-  %213 = getelementptr inbounds i32, ptr %208, i64 %102
+  %212 = getelementptr inbounds [4 x i8], ptr %207, i64 %101
+  %213 = getelementptr inbounds [4 x i8], ptr %208, i64 %102
   %.not = icmp eq i32 %104, 0
   br i1 %.not, label %BlitRGBtoRGBSurfaceAlpha128.exit, label %103, !llvm.loop !27
 
@@ -7990,7 +7988,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %50 = zext i8 %49 to i32
   %51 = load i8, ptr %32, align 4
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %33, align 4
   %56 = and i32 %55, %50
@@ -8002,7 +8000,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %62 = load i8, ptr %61, align 1
   %63 = load i8, ptr %35, align 1
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %64
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr %36, align 4
   %68 = and i32 %67, %50
@@ -8014,7 +8012,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %74 = load i8, ptr %73, align 1
   %75 = load i8, ptr %38, align 2
   %76 = zext i8 %75 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %76
   %78 = load ptr, ptr %77, align 8
   %79 = load i32, ptr %39, align 4
   %80 = and i32 %79, %50
@@ -8031,7 +8029,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %89 = zext i16 %88 to i32
   %90 = load i8, ptr %32, align 4
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %91
   %93 = load ptr, ptr %92, align 8
   %94 = load i32, ptr %33, align 4
   %95 = and i32 %94, %89
@@ -8043,7 +8041,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %101 = load i8, ptr %100, align 1
   %102 = load i8, ptr %35, align 1
   %103 = zext i8 %102 to i64
-  %104 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %103
   %105 = load ptr, ptr %104, align 8
   %106 = load i32, ptr %36, align 4
   %107 = and i32 %106, %89
@@ -8055,7 +8053,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %113 = load i8, ptr %112, align 1
   %114 = load i8, ptr %38, align 2
   %115 = zext i8 %114 to i64
-  %116 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %115
   %117 = load ptr, ptr %116, align 8
   %118 = load i32, ptr %39, align 4
   %119 = and i32 %118, %89
@@ -8089,7 +8087,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %143 = load i32, ptr %.1, align 4
   %144 = load i8, ptr %32, align 4
   %145 = zext i8 %144 to i64
-  %146 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %145
   %147 = load ptr, ptr %146, align 8
   %148 = load i32, ptr %33, align 4
   %149 = and i32 %148, %143
@@ -8101,7 +8099,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %155 = load i8, ptr %154, align 1
   %156 = load i8, ptr %35, align 1
   %157 = zext i8 %156 to i64
-  %158 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %157
   %159 = load ptr, ptr %158, align 8
   %160 = load i32, ptr %36, align 4
   %161 = and i32 %160, %143
@@ -8113,7 +8111,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %167 = load i8, ptr %166, align 1
   %168 = load i8, ptr %38, align 2
   %169 = zext i8 %168 to i64
-  %170 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %169
   %171 = load ptr, ptr %170, align 8
   %172 = load i32, ptr %39, align 4
   %173 = and i32 %172, %143
@@ -8139,7 +8137,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %.0425 = zext i8 %.0425.shrunk to i32
   %182 = load i8, ptr %.1409, align 1
   %183 = zext i8 %182 to i64
-  %184 = getelementptr inbounds nuw %struct.SDL_Color, ptr %11, i64 %183
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %183
   %185 = load i8, ptr %184, align 1
   %186 = zext i8 %185 to i32
   %187 = getelementptr inbounds nuw i8, ptr %184, i64 1
@@ -8218,7 +8216,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %237 = zext i8 %236 to i32
   %238 = load i8, ptr %32, align 4
   %239 = zext i8 %238 to i64
-  %240 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %239
+  %240 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %239
   %241 = load ptr, ptr %240, align 8
   %242 = load i32, ptr %33, align 4
   %243 = and i32 %242, %237
@@ -8230,7 +8228,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %249 = load i8, ptr %248, align 1
   %250 = load i8, ptr %35, align 1
   %251 = zext i8 %250 to i64
-  %252 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %251
+  %252 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %251
   %253 = load ptr, ptr %252, align 8
   %254 = load i32, ptr %36, align 4
   %255 = and i32 %254, %237
@@ -8242,7 +8240,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %261 = load i8, ptr %260, align 1
   %262 = load i8, ptr %38, align 2
   %263 = zext i8 %262 to i64
-  %264 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %263
+  %264 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %263
   %265 = load ptr, ptr %264, align 8
   %266 = load i32, ptr %39, align 4
   %267 = and i32 %266, %237
@@ -8259,7 +8257,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %276 = zext i16 %275 to i32
   %277 = load i8, ptr %32, align 4
   %278 = zext i8 %277 to i64
-  %279 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %278
+  %279 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %278
   %280 = load ptr, ptr %279, align 8
   %281 = load i32, ptr %33, align 4
   %282 = and i32 %281, %276
@@ -8271,7 +8269,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %288 = load i8, ptr %287, align 1
   %289 = load i8, ptr %35, align 1
   %290 = zext i8 %289 to i64
-  %291 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %290
+  %291 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %290
   %292 = load ptr, ptr %291, align 8
   %293 = load i32, ptr %36, align 4
   %294 = and i32 %293, %276
@@ -8283,7 +8281,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %300 = load i8, ptr %299, align 1
   %301 = load i8, ptr %38, align 2
   %302 = zext i8 %301 to i64
-  %303 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %302
+  %303 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %302
   %304 = load ptr, ptr %303, align 8
   %305 = load i32, ptr %39, align 4
   %306 = and i32 %305, %276
@@ -8317,7 +8315,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %330 = load i32, ptr %.2, align 4
   %331 = load i8, ptr %32, align 4
   %332 = zext i8 %331 to i64
-  %333 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %332
+  %333 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %332
   %334 = load ptr, ptr %333, align 8
   %335 = load i32, ptr %33, align 4
   %336 = and i32 %335, %330
@@ -8329,7 +8327,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %342 = load i8, ptr %341, align 1
   %343 = load i8, ptr %35, align 1
   %344 = zext i8 %343 to i64
-  %345 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %344
+  %345 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %344
   %346 = load ptr, ptr %345, align 8
   %347 = load i32, ptr %36, align 4
   %348 = and i32 %347, %330
@@ -8341,7 +8339,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %354 = load i8, ptr %353, align 1
   %355 = load i8, ptr %38, align 2
   %356 = zext i8 %355 to i64
-  %357 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %356
+  %357 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %356
   %358 = load ptr, ptr %357, align 8
   %359 = load i32, ptr %39, align 4
   %360 = and i32 %359, %330
@@ -8367,7 +8365,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %.1426 = zext i8 %.1426.shrunk to i32
   %369 = load i8, ptr %.2410, align 1
   %370 = zext i8 %369 to i64
-  %371 = getelementptr inbounds nuw %struct.SDL_Color, ptr %11, i64 %370
+  %371 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %370
   %372 = load i8, ptr %371, align 1
   %373 = zext i8 %372 to i32
   %374 = getelementptr inbounds nuw i8, ptr %371, i64 1
@@ -8446,7 +8444,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %424 = zext i8 %423 to i32
   %425 = load i8, ptr %32, align 4
   %426 = zext i8 %425 to i64
-  %427 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %426
+  %427 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %426
   %428 = load ptr, ptr %427, align 8
   %429 = load i32, ptr %33, align 4
   %430 = and i32 %429, %424
@@ -8458,7 +8456,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %436 = load i8, ptr %435, align 1
   %437 = load i8, ptr %35, align 1
   %438 = zext i8 %437 to i64
-  %439 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %438
+  %439 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %438
   %440 = load ptr, ptr %439, align 8
   %441 = load i32, ptr %36, align 4
   %442 = and i32 %441, %424
@@ -8470,7 +8468,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %448 = load i8, ptr %447, align 1
   %449 = load i8, ptr %38, align 2
   %450 = zext i8 %449 to i64
-  %451 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %450
+  %451 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %450
   %452 = load ptr, ptr %451, align 8
   %453 = load i32, ptr %39, align 4
   %454 = and i32 %453, %424
@@ -8487,7 +8485,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %463 = zext i16 %462 to i32
   %464 = load i8, ptr %32, align 4
   %465 = zext i8 %464 to i64
-  %466 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %465
+  %466 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %465
   %467 = load ptr, ptr %466, align 8
   %468 = load i32, ptr %33, align 4
   %469 = and i32 %468, %463
@@ -8499,7 +8497,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %475 = load i8, ptr %474, align 1
   %476 = load i8, ptr %35, align 1
   %477 = zext i8 %476 to i64
-  %478 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %477
+  %478 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %477
   %479 = load ptr, ptr %478, align 8
   %480 = load i32, ptr %36, align 4
   %481 = and i32 %480, %463
@@ -8511,7 +8509,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %487 = load i8, ptr %486, align 1
   %488 = load i8, ptr %38, align 2
   %489 = zext i8 %488 to i64
-  %490 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %489
+  %490 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %489
   %491 = load ptr, ptr %490, align 8
   %492 = load i32, ptr %39, align 4
   %493 = and i32 %492, %463
@@ -8545,7 +8543,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %517 = load i32, ptr %.3, align 4
   %518 = load i8, ptr %32, align 4
   %519 = zext i8 %518 to i64
-  %520 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %519
+  %520 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %519
   %521 = load ptr, ptr %520, align 8
   %522 = load i32, ptr %33, align 4
   %523 = and i32 %522, %517
@@ -8557,7 +8555,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %529 = load i8, ptr %528, align 1
   %530 = load i8, ptr %35, align 1
   %531 = zext i8 %530 to i64
-  %532 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %531
+  %532 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %531
   %533 = load ptr, ptr %532, align 8
   %534 = load i32, ptr %36, align 4
   %535 = and i32 %534, %517
@@ -8569,7 +8567,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %541 = load i8, ptr %540, align 1
   %542 = load i8, ptr %38, align 2
   %543 = zext i8 %542 to i64
-  %544 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %543
+  %544 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %543
   %545 = load ptr, ptr %544, align 8
   %546 = load i32, ptr %39, align 4
   %547 = and i32 %546, %517
@@ -8595,7 +8593,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %.2427 = zext i8 %.2427.shrunk to i32
   %556 = load i8, ptr %.3411, align 1
   %557 = zext i8 %556 to i64
-  %558 = getelementptr inbounds nuw %struct.SDL_Color, ptr %11, i64 %557
+  %558 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %557
   %559 = load i8, ptr %558, align 1
   %560 = zext i8 %559 to i32
   %561 = getelementptr inbounds nuw i8, ptr %558, i64 1
@@ -8674,7 +8672,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %611 = zext i8 %610 to i32
   %612 = load i8, ptr %32, align 4
   %613 = zext i8 %612 to i64
-  %614 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %613
+  %614 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %613
   %615 = load ptr, ptr %614, align 8
   %616 = load i32, ptr %33, align 4
   %617 = and i32 %616, %611
@@ -8686,7 +8684,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %623 = load i8, ptr %622, align 1
   %624 = load i8, ptr %35, align 1
   %625 = zext i8 %624 to i64
-  %626 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %625
+  %626 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %625
   %627 = load ptr, ptr %626, align 8
   %628 = load i32, ptr %36, align 4
   %629 = and i32 %628, %611
@@ -8698,7 +8696,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %635 = load i8, ptr %634, align 1
   %636 = load i8, ptr %38, align 2
   %637 = zext i8 %636 to i64
-  %638 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %637
+  %638 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %637
   %639 = load ptr, ptr %638, align 8
   %640 = load i32, ptr %39, align 4
   %641 = and i32 %640, %611
@@ -8715,7 +8713,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %650 = zext i16 %649 to i32
   %651 = load i8, ptr %32, align 4
   %652 = zext i8 %651 to i64
-  %653 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %652
+  %653 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %652
   %654 = load ptr, ptr %653, align 8
   %655 = load i32, ptr %33, align 4
   %656 = and i32 %655, %650
@@ -8727,7 +8725,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %662 = load i8, ptr %661, align 1
   %663 = load i8, ptr %35, align 1
   %664 = zext i8 %663 to i64
-  %665 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %664
+  %665 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %664
   %666 = load ptr, ptr %665, align 8
   %667 = load i32, ptr %36, align 4
   %668 = and i32 %667, %650
@@ -8739,7 +8737,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %674 = load i8, ptr %673, align 1
   %675 = load i8, ptr %38, align 2
   %676 = zext i8 %675 to i64
-  %677 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %676
+  %677 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %676
   %678 = load ptr, ptr %677, align 8
   %679 = load i32, ptr %39, align 4
   %680 = and i32 %679, %650
@@ -8773,7 +8771,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %704 = load i32, ptr %.4, align 4
   %705 = load i8, ptr %32, align 4
   %706 = zext i8 %705 to i64
-  %707 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %706
+  %707 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %706
   %708 = load ptr, ptr %707, align 8
   %709 = load i32, ptr %33, align 4
   %710 = and i32 %709, %704
@@ -8785,7 +8783,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %716 = load i8, ptr %715, align 1
   %717 = load i8, ptr %35, align 1
   %718 = zext i8 %717 to i64
-  %719 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %718
+  %719 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %718
   %720 = load ptr, ptr %719, align 8
   %721 = load i32, ptr %36, align 4
   %722 = and i32 %721, %704
@@ -8797,7 +8795,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %728 = load i8, ptr %727, align 1
   %729 = load i8, ptr %38, align 2
   %730 = zext i8 %729 to i64
-  %731 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %730
+  %731 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %730
   %732 = load ptr, ptr %731, align 8
   %733 = load i32, ptr %39, align 4
   %734 = and i32 %733, %704
@@ -8823,7 +8821,7 @@ define internal void @BlitNto1SurfaceAlphaKey(ptr noundef readonly captures(none
   %.3428 = zext i8 %.3428.shrunk to i32
   %743 = load i8, ptr %.4412, align 1
   %744 = zext i8 %743 to i64
-  %745 = getelementptr inbounds nuw %struct.SDL_Color, ptr %11, i64 %744
+  %745 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %744
   %746 = load i8, ptr %745, align 1
   %747 = zext i8 %746 to i32
   %748 = getelementptr inbounds nuw i8, ptr %745, i64 1
@@ -9019,7 +9017,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
 75:                                               ; preds = %74
   %76 = load i8, ptr %30, align 4
   %77 = zext i8 %76 to i64
-  %78 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %77
   %79 = load ptr, ptr %78, align 8
   %80 = load i32, ptr %31, align 4
   %81 = and i32 %80, %.0713
@@ -9032,7 +9030,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %88 = zext i8 %87 to i32
   %89 = load i8, ptr %33, align 1
   %90 = zext i8 %89 to i64
-  %91 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %90
   %92 = load ptr, ptr %91, align 8
   %93 = load i32, ptr %34, align 4
   %94 = and i32 %93, %.0713
@@ -9045,7 +9043,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %101 = zext i8 %100 to i32
   %102 = load i8, ptr %36, align 2
   %103 = zext i8 %102 to i64
-  %104 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %103
   %105 = load ptr, ptr %104, align 8
   %106 = load i32, ptr %37, align 4
   %107 = and i32 %106, %.0713
@@ -9068,7 +9066,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %117 = zext i8 %116 to i32
   %118 = load i8, ptr %39, align 4
   %119 = zext i8 %118 to i64
-  %120 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %119
   %121 = load ptr, ptr %120, align 8
   %122 = load i32, ptr %40, align 4
   %123 = and i32 %122, %117
@@ -9080,7 +9078,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %129 = load i8, ptr %128, align 1
   %130 = load i8, ptr %42, align 1
   %131 = zext i8 %130 to i64
-  %132 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %131
+  %132 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %131
   %133 = load ptr, ptr %132, align 8
   %134 = load i32, ptr %43, align 4
   %135 = and i32 %134, %117
@@ -9092,7 +9090,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %141 = load i8, ptr %140, align 1
   %142 = load i8, ptr %45, align 2
   %143 = zext i8 %142 to i64
-  %144 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %143
+  %144 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %143
   %145 = load ptr, ptr %144, align 8
   %146 = load i32, ptr %46, align 4
   %147 = and i32 %146, %117
@@ -9104,7 +9102,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %153 = load i8, ptr %152, align 1
   %154 = load i8, ptr %48, align 1
   %155 = zext i8 %154 to i64
-  %156 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %155
   %157 = load ptr, ptr %156, align 8
   %158 = load i32, ptr %49, align 4
   %159 = and i32 %158, %117
@@ -9121,7 +9119,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %168 = zext i16 %167 to i32
   %169 = load i8, ptr %39, align 4
   %170 = zext i8 %169 to i64
-  %171 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %170
+  %171 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %170
   %172 = load ptr, ptr %171, align 8
   %173 = load i32, ptr %40, align 4
   %174 = and i32 %173, %168
@@ -9133,7 +9131,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %180 = load i8, ptr %179, align 1
   %181 = load i8, ptr %42, align 1
   %182 = zext i8 %181 to i64
-  %183 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %182
+  %183 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %182
   %184 = load ptr, ptr %183, align 8
   %185 = load i32, ptr %43, align 4
   %186 = and i32 %185, %168
@@ -9145,7 +9143,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %192 = load i8, ptr %191, align 1
   %193 = load i8, ptr %45, align 2
   %194 = zext i8 %193 to i64
-  %195 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %194
+  %195 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %194
   %196 = load ptr, ptr %195, align 8
   %197 = load i32, ptr %46, align 4
   %198 = and i32 %197, %168
@@ -9157,7 +9155,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %204 = load i8, ptr %203, align 1
   %205 = load i8, ptr %48, align 1
   %206 = zext i8 %205 to i64
-  %207 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %206
+  %207 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %206
   %208 = load ptr, ptr %207, align 8
   %209 = load i32, ptr %49, align 4
   %210 = and i32 %209, %168
@@ -9191,7 +9189,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %234 = load i32, ptr %.1709, align 4
   %235 = load i8, ptr %39, align 4
   %236 = zext i8 %235 to i64
-  %237 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %236
+  %237 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %236
   %238 = load ptr, ptr %237, align 8
   %239 = load i32, ptr %40, align 4
   %240 = and i32 %239, %234
@@ -9203,7 +9201,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %246 = load i8, ptr %245, align 1
   %247 = load i8, ptr %42, align 1
   %248 = zext i8 %247 to i64
-  %249 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %248
+  %249 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %248
   %250 = load ptr, ptr %249, align 8
   %251 = load i32, ptr %43, align 4
   %252 = and i32 %251, %234
@@ -9215,7 +9213,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %258 = load i8, ptr %257, align 1
   %259 = load i8, ptr %45, align 2
   %260 = zext i8 %259 to i64
-  %261 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %260
+  %261 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %260
   %262 = load ptr, ptr %261, align 8
   %263 = load i32, ptr %46, align 4
   %264 = and i32 %263, %234
@@ -9227,7 +9225,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %270 = load i8, ptr %269, align 1
   %271 = load i8, ptr %48, align 1
   %272 = zext i8 %271 to i64
-  %273 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %272
+  %273 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %272
   %274 = load ptr, ptr %273, align 8
   %275 = load i32, ptr %49, align 4
   %276 = and i32 %275, %234
@@ -9472,7 +9470,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
 459:                                              ; preds = %458
   %460 = load i8, ptr %30, align 4
   %461 = zext i8 %460 to i64
-  %462 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %461
+  %462 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %461
   %463 = load ptr, ptr %462, align 8
   %464 = load i32, ptr %31, align 4
   %465 = and i32 %464, %.1714
@@ -9485,7 +9483,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %472 = zext i8 %471 to i32
   %473 = load i8, ptr %33, align 1
   %474 = zext i8 %473 to i64
-  %475 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %474
+  %475 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %474
   %476 = load ptr, ptr %475, align 8
   %477 = load i32, ptr %34, align 4
   %478 = and i32 %477, %.1714
@@ -9498,7 +9496,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %485 = zext i8 %484 to i32
   %486 = load i8, ptr %36, align 2
   %487 = zext i8 %486 to i64
-  %488 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %487
+  %488 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %487
   %489 = load ptr, ptr %488, align 8
   %490 = load i32, ptr %37, align 4
   %491 = and i32 %490, %.1714
@@ -9521,7 +9519,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %501 = zext i8 %500 to i32
   %502 = load i8, ptr %39, align 4
   %503 = zext i8 %502 to i64
-  %504 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %503
+  %504 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %503
   %505 = load ptr, ptr %504, align 8
   %506 = load i32, ptr %40, align 4
   %507 = and i32 %506, %501
@@ -9533,7 +9531,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %513 = load i8, ptr %512, align 1
   %514 = load i8, ptr %42, align 1
   %515 = zext i8 %514 to i64
-  %516 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %515
+  %516 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %515
   %517 = load ptr, ptr %516, align 8
   %518 = load i32, ptr %43, align 4
   %519 = and i32 %518, %501
@@ -9545,7 +9543,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %525 = load i8, ptr %524, align 1
   %526 = load i8, ptr %45, align 2
   %527 = zext i8 %526 to i64
-  %528 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %527
+  %528 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %527
   %529 = load ptr, ptr %528, align 8
   %530 = load i32, ptr %46, align 4
   %531 = and i32 %530, %501
@@ -9557,7 +9555,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %537 = load i8, ptr %536, align 1
   %538 = load i8, ptr %48, align 1
   %539 = zext i8 %538 to i64
-  %540 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %539
+  %540 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %539
   %541 = load ptr, ptr %540, align 8
   %542 = load i32, ptr %49, align 4
   %543 = and i32 %542, %501
@@ -9574,7 +9572,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %552 = zext i16 %551 to i32
   %553 = load i8, ptr %39, align 4
   %554 = zext i8 %553 to i64
-  %555 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %554
+  %555 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %554
   %556 = load ptr, ptr %555, align 8
   %557 = load i32, ptr %40, align 4
   %558 = and i32 %557, %552
@@ -9586,7 +9584,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %564 = load i8, ptr %563, align 1
   %565 = load i8, ptr %42, align 1
   %566 = zext i8 %565 to i64
-  %567 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %566
+  %567 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %566
   %568 = load ptr, ptr %567, align 8
   %569 = load i32, ptr %43, align 4
   %570 = and i32 %569, %552
@@ -9598,7 +9596,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %576 = load i8, ptr %575, align 1
   %577 = load i8, ptr %45, align 2
   %578 = zext i8 %577 to i64
-  %579 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %578
+  %579 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %578
   %580 = load ptr, ptr %579, align 8
   %581 = load i32, ptr %46, align 4
   %582 = and i32 %581, %552
@@ -9610,7 +9608,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %588 = load i8, ptr %587, align 1
   %589 = load i8, ptr %48, align 1
   %590 = zext i8 %589 to i64
-  %591 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %590
+  %591 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %590
   %592 = load ptr, ptr %591, align 8
   %593 = load i32, ptr %49, align 4
   %594 = and i32 %593, %552
@@ -9644,7 +9642,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %618 = load i32, ptr %.2710, align 4
   %619 = load i8, ptr %39, align 4
   %620 = zext i8 %619 to i64
-  %621 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %620
+  %621 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %620
   %622 = load ptr, ptr %621, align 8
   %623 = load i32, ptr %40, align 4
   %624 = and i32 %623, %618
@@ -9656,7 +9654,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %630 = load i8, ptr %629, align 1
   %631 = load i8, ptr %42, align 1
   %632 = zext i8 %631 to i64
-  %633 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %632
+  %633 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %632
   %634 = load ptr, ptr %633, align 8
   %635 = load i32, ptr %43, align 4
   %636 = and i32 %635, %618
@@ -9668,7 +9666,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %642 = load i8, ptr %641, align 1
   %643 = load i8, ptr %45, align 2
   %644 = zext i8 %643 to i64
-  %645 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %644
+  %645 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %644
   %646 = load ptr, ptr %645, align 8
   %647 = load i32, ptr %46, align 4
   %648 = and i32 %647, %618
@@ -9680,7 +9678,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %654 = load i8, ptr %653, align 1
   %655 = load i8, ptr %48, align 1
   %656 = zext i8 %655 to i64
-  %657 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %656
+  %657 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %656
   %658 = load ptr, ptr %657, align 8
   %659 = load i32, ptr %49, align 4
   %660 = and i32 %659, %618
@@ -9925,7 +9923,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
 843:                                              ; preds = %842
   %844 = load i8, ptr %30, align 4
   %845 = zext i8 %844 to i64
-  %846 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %845
+  %846 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %845
   %847 = load ptr, ptr %846, align 8
   %848 = load i32, ptr %31, align 4
   %849 = and i32 %848, %.2715
@@ -9938,7 +9936,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %856 = zext i8 %855 to i32
   %857 = load i8, ptr %33, align 1
   %858 = zext i8 %857 to i64
-  %859 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %858
+  %859 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %858
   %860 = load ptr, ptr %859, align 8
   %861 = load i32, ptr %34, align 4
   %862 = and i32 %861, %.2715
@@ -9951,7 +9949,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %869 = zext i8 %868 to i32
   %870 = load i8, ptr %36, align 2
   %871 = zext i8 %870 to i64
-  %872 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %871
+  %872 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %871
   %873 = load ptr, ptr %872, align 8
   %874 = load i32, ptr %37, align 4
   %875 = and i32 %874, %.2715
@@ -9974,7 +9972,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %885 = zext i8 %884 to i32
   %886 = load i8, ptr %39, align 4
   %887 = zext i8 %886 to i64
-  %888 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %887
+  %888 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %887
   %889 = load ptr, ptr %888, align 8
   %890 = load i32, ptr %40, align 4
   %891 = and i32 %890, %885
@@ -9986,7 +9984,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %897 = load i8, ptr %896, align 1
   %898 = load i8, ptr %42, align 1
   %899 = zext i8 %898 to i64
-  %900 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %899
+  %900 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %899
   %901 = load ptr, ptr %900, align 8
   %902 = load i32, ptr %43, align 4
   %903 = and i32 %902, %885
@@ -9998,7 +9996,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %909 = load i8, ptr %908, align 1
   %910 = load i8, ptr %45, align 2
   %911 = zext i8 %910 to i64
-  %912 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %911
+  %912 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %911
   %913 = load ptr, ptr %912, align 8
   %914 = load i32, ptr %46, align 4
   %915 = and i32 %914, %885
@@ -10010,7 +10008,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %921 = load i8, ptr %920, align 1
   %922 = load i8, ptr %48, align 1
   %923 = zext i8 %922 to i64
-  %924 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %923
+  %924 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %923
   %925 = load ptr, ptr %924, align 8
   %926 = load i32, ptr %49, align 4
   %927 = and i32 %926, %885
@@ -10027,7 +10025,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %936 = zext i16 %935 to i32
   %937 = load i8, ptr %39, align 4
   %938 = zext i8 %937 to i64
-  %939 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %938
+  %939 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %938
   %940 = load ptr, ptr %939, align 8
   %941 = load i32, ptr %40, align 4
   %942 = and i32 %941, %936
@@ -10039,7 +10037,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %948 = load i8, ptr %947, align 1
   %949 = load i8, ptr %42, align 1
   %950 = zext i8 %949 to i64
-  %951 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %950
+  %951 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %950
   %952 = load ptr, ptr %951, align 8
   %953 = load i32, ptr %43, align 4
   %954 = and i32 %953, %936
@@ -10051,7 +10049,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %960 = load i8, ptr %959, align 1
   %961 = load i8, ptr %45, align 2
   %962 = zext i8 %961 to i64
-  %963 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %962
+  %963 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %962
   %964 = load ptr, ptr %963, align 8
   %965 = load i32, ptr %46, align 4
   %966 = and i32 %965, %936
@@ -10063,7 +10061,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %972 = load i8, ptr %971, align 1
   %973 = load i8, ptr %48, align 1
   %974 = zext i8 %973 to i64
-  %975 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %974
+  %975 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %974
   %976 = load ptr, ptr %975, align 8
   %977 = load i32, ptr %49, align 4
   %978 = and i32 %977, %936
@@ -10097,7 +10095,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1002 = load i32, ptr %.3711, align 4
   %1003 = load i8, ptr %39, align 4
   %1004 = zext i8 %1003 to i64
-  %1005 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1004
+  %1005 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1004
   %1006 = load ptr, ptr %1005, align 8
   %1007 = load i32, ptr %40, align 4
   %1008 = and i32 %1007, %1002
@@ -10109,7 +10107,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1014 = load i8, ptr %1013, align 1
   %1015 = load i8, ptr %42, align 1
   %1016 = zext i8 %1015 to i64
-  %1017 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1016
+  %1017 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1016
   %1018 = load ptr, ptr %1017, align 8
   %1019 = load i32, ptr %43, align 4
   %1020 = and i32 %1019, %1002
@@ -10121,7 +10119,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1026 = load i8, ptr %1025, align 1
   %1027 = load i8, ptr %45, align 2
   %1028 = zext i8 %1027 to i64
-  %1029 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1028
+  %1029 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1028
   %1030 = load ptr, ptr %1029, align 8
   %1031 = load i32, ptr %46, align 4
   %1032 = and i32 %1031, %1002
@@ -10133,7 +10131,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1038 = load i8, ptr %1037, align 1
   %1039 = load i8, ptr %48, align 1
   %1040 = zext i8 %1039 to i64
-  %1041 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1040
+  %1041 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1040
   %1042 = load ptr, ptr %1041, align 8
   %1043 = load i32, ptr %49, align 4
   %1044 = and i32 %1043, %1002
@@ -10378,7 +10376,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
 1227:                                             ; preds = %1226
   %1228 = load i8, ptr %30, align 4
   %1229 = zext i8 %1228 to i64
-  %1230 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1229
+  %1230 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1229
   %1231 = load ptr, ptr %1230, align 8
   %1232 = load i32, ptr %31, align 4
   %1233 = and i32 %1232, %.3716
@@ -10391,7 +10389,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1240 = zext i8 %1239 to i32
   %1241 = load i8, ptr %33, align 1
   %1242 = zext i8 %1241 to i64
-  %1243 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1242
+  %1243 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1242
   %1244 = load ptr, ptr %1243, align 8
   %1245 = load i32, ptr %34, align 4
   %1246 = and i32 %1245, %.3716
@@ -10404,7 +10402,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1253 = zext i8 %1252 to i32
   %1254 = load i8, ptr %36, align 2
   %1255 = zext i8 %1254 to i64
-  %1256 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1255
+  %1256 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1255
   %1257 = load ptr, ptr %1256, align 8
   %1258 = load i32, ptr %37, align 4
   %1259 = and i32 %1258, %.3716
@@ -10427,7 +10425,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1269 = zext i8 %1268 to i32
   %1270 = load i8, ptr %39, align 4
   %1271 = zext i8 %1270 to i64
-  %1272 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1271
+  %1272 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1271
   %1273 = load ptr, ptr %1272, align 8
   %1274 = load i32, ptr %40, align 4
   %1275 = and i32 %1274, %1269
@@ -10439,7 +10437,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1281 = load i8, ptr %1280, align 1
   %1282 = load i8, ptr %42, align 1
   %1283 = zext i8 %1282 to i64
-  %1284 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1283
+  %1284 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1283
   %1285 = load ptr, ptr %1284, align 8
   %1286 = load i32, ptr %43, align 4
   %1287 = and i32 %1286, %1269
@@ -10451,7 +10449,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1293 = load i8, ptr %1292, align 1
   %1294 = load i8, ptr %45, align 2
   %1295 = zext i8 %1294 to i64
-  %1296 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1295
+  %1296 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1295
   %1297 = load ptr, ptr %1296, align 8
   %1298 = load i32, ptr %46, align 4
   %1299 = and i32 %1298, %1269
@@ -10463,7 +10461,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1305 = load i8, ptr %1304, align 1
   %1306 = load i8, ptr %48, align 1
   %1307 = zext i8 %1306 to i64
-  %1308 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1307
+  %1308 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1307
   %1309 = load ptr, ptr %1308, align 8
   %1310 = load i32, ptr %49, align 4
   %1311 = and i32 %1310, %1269
@@ -10480,7 +10478,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1320 = zext i16 %1319 to i32
   %1321 = load i8, ptr %39, align 4
   %1322 = zext i8 %1321 to i64
-  %1323 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1322
+  %1323 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1322
   %1324 = load ptr, ptr %1323, align 8
   %1325 = load i32, ptr %40, align 4
   %1326 = and i32 %1325, %1320
@@ -10492,7 +10490,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1332 = load i8, ptr %1331, align 1
   %1333 = load i8, ptr %42, align 1
   %1334 = zext i8 %1333 to i64
-  %1335 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1334
+  %1335 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1334
   %1336 = load ptr, ptr %1335, align 8
   %1337 = load i32, ptr %43, align 4
   %1338 = and i32 %1337, %1320
@@ -10504,7 +10502,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1344 = load i8, ptr %1343, align 1
   %1345 = load i8, ptr %45, align 2
   %1346 = zext i8 %1345 to i64
-  %1347 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1346
+  %1347 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1346
   %1348 = load ptr, ptr %1347, align 8
   %1349 = load i32, ptr %46, align 4
   %1350 = and i32 %1349, %1320
@@ -10516,7 +10514,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1356 = load i8, ptr %1355, align 1
   %1357 = load i8, ptr %48, align 1
   %1358 = zext i8 %1357 to i64
-  %1359 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1358
+  %1359 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1358
   %1360 = load ptr, ptr %1359, align 8
   %1361 = load i32, ptr %49, align 4
   %1362 = and i32 %1361, %1320
@@ -10550,7 +10548,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1386 = load i32, ptr %.4712, align 4
   %1387 = load i8, ptr %39, align 4
   %1388 = zext i8 %1387 to i64
-  %1389 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1388
+  %1389 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1388
   %1390 = load ptr, ptr %1389, align 8
   %1391 = load i32, ptr %40, align 4
   %1392 = and i32 %1391, %1386
@@ -10562,7 +10560,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1398 = load i8, ptr %1397, align 1
   %1399 = load i8, ptr %42, align 1
   %1400 = zext i8 %1399 to i64
-  %1401 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1400
+  %1401 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1400
   %1402 = load ptr, ptr %1401, align 8
   %1403 = load i32, ptr %43, align 4
   %1404 = and i32 %1403, %1386
@@ -10574,7 +10572,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1410 = load i8, ptr %1409, align 1
   %1411 = load i8, ptr %45, align 2
   %1412 = zext i8 %1411 to i64
-  %1413 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1412
+  %1413 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1412
   %1414 = load ptr, ptr %1413, align 8
   %1415 = load i32, ptr %46, align 4
   %1416 = and i32 %1415, %1386
@@ -10586,7 +10584,7 @@ define internal void @BlitNtoNSurfaceAlphaKey(ptr noundef readonly captures(none
   %1422 = load i8, ptr %1421, align 1
   %1423 = load i8, ptr %48, align 1
   %1424 = zext i8 %1423 to i64
-  %1425 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1424
+  %1425 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1424
   %1426 = load ptr, ptr %1425, align 8
   %1427 = load i32, ptr %49, align 4
   %1428 = and i32 %1427, %1386
@@ -10930,7 +10928,7 @@ define internal fastcc void @Blit16to16SurfaceAlpha128(ptr noundef readonly capt
 82:                                               ; preds = %68, %._crit_edge
   %.3115 = phi ptr [ %81, %68 ], [ %.2114.lcssa, %._crit_edge ]
   %.3 = phi ptr [ %80, %68 ], [ %.2.lcssa, %._crit_edge ]
-  %83 = getelementptr i16, ptr %.3, i64 %23
+  %83 = getelementptr [2 x i8], ptr %.3, i64 %23
   %84 = getelementptr i8, ptr %83, i64 -2
   br label %135
 
@@ -11013,13 +11011,13 @@ define internal fastcc void @Blit16to16SurfaceAlpha128(ptr noundef readonly capt
 133:                                              ; preds = %118, %._crit_edge142
   %.7119 = phi ptr [ %132, %118 ], [ %.6118.lcssa, %._crit_edge142 ]
   %.7 = phi ptr [ %131, %118 ], [ %.6.lcssa, %._crit_edge142 ]
-  %134 = getelementptr inbounds i16, ptr %.7, i64 %23
+  %134 = getelementptr inbounds [2 x i8], ptr %.7, i64 %23
   br label %135
 
 135:                                              ; preds = %133, %82
   %.3115.pn = phi ptr [ %.3115, %82 ], [ %.7119, %133 ]
   %.4 = phi ptr [ %84, %82 ], [ %134, %133 ]
-  %.4116 = getelementptr inbounds i16, ptr %.3115.pn, i64 %24
+  %.4116 = getelementptr inbounds [2 x i8], ptr %.3115.pn, i64 %24
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %._crit_edge151, label %25, !llvm.loop !34
 

@@ -745,9 +745,9 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread: ; preds = %38, %_ZNK6ic
 
 .preheader.i:                                     ; preds = %45, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %45 ]
-  %48 = getelementptr inbounds nuw i32, ptr @_ZL8JAPANESE, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr @_ZL8JAPANESE, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4, !tbaa !15
-  %50 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   store i32 %49, ptr %50, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -791,9 +791,9 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit39.thread: ; preds = %57, %_ZNK6
 
 .preheader.i42:                                   ; preds = %64, %.preheader.i42
   %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i44, %.preheader.i42 ], [ 0, %64 ]
-  %67 = getelementptr inbounds nuw i32, ptr @_ZL6KOREAN, i64 %indvars.iv.i43
+  %67 = getelementptr inbounds nuw [4 x i8], ptr @_ZL6KOREAN, i64 %indvars.iv.i43
   %68 = load i32, ptr %67, align 4, !tbaa !15
-  %69 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i43
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i43
   store i32 %68, ptr %69, align 4, !tbaa !15
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, 2
@@ -860,9 +860,9 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit50.thread: ; preds = %87, %_ZNK6
 
 .preheader.i53:                                   ; preds = %94, %.preheader.i53
   %indvars.iv.i54 = phi i64 [ %indvars.iv.next.i55, %.preheader.i53 ], [ 0, %94 ]
-  %97 = getelementptr inbounds nuw i32, ptr @_ZL8HAN_BOPO, i64 %indvars.iv.i54
+  %97 = getelementptr inbounds nuw [4 x i8], ptr @_ZL8HAN_BOPO, i64 %indvars.iv.i54
   %98 = load i32, ptr %97, align 4, !tbaa !15
-  %99 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i54
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i54
   store i32 %98, ptr %99, align 4, !tbaa !15
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, 2

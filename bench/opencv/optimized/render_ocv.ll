@@ -248,9 +248,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
 
 85:                                               ; preds = %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i ], [ %indvars.iv.next.i.i.i.i, %85 ]
-  %86 = getelementptr inbounds nuw double, ptr %84, i64 %indvars.iv.i.i.i.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv.i.i.i.i
   %87 = load double, ptr %86, align 8, !tbaa !11
-  %88 = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv.i.i.i.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i.i.i.i
   store double %87, ptr %88, align 8, !tbaa !11
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 4
@@ -626,9 +626,9 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2ERKS4_.exit.i: ; preds = %.lr.ph.i.i.i.i.i
 
 212:                                              ; preds = %212, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2ERKS4_.exit.i
   %indvars.iv.i.i.i.i103 = phi i64 [ 0, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2ERKS4_.exit.i ], [ %indvars.iv.next.i.i.i.i104, %212 ]
-  %213 = getelementptr inbounds nuw double, ptr %211, i64 %indvars.iv.i.i.i.i103
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %indvars.iv.i.i.i.i103
   %214 = load double, ptr %213, align 8, !tbaa !11
-  %215 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv.i.i.i.i103
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i.i.i.i103
   store double %214, ptr %215, align 8, !tbaa !11
   %indvars.iv.next.i.i.i.i104 = add nuw nsw i64 %indvars.iv.i.i.i.i103, 1
   %exitcond.not.i.i.i.i105 = icmp eq i64 %indvars.iv.next.i.i.i.i104, 4
@@ -897,9 +897,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
 
 126:                                              ; preds = %126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i ], [ %indvars.iv.next.i.i.i.i, %126 ]
-  %127 = getelementptr inbounds nuw double, ptr %125, i64 %indvars.iv.i.i.i.i
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %indvars.iv.i.i.i.i
   %128 = load double, ptr %127, align 8, !tbaa !11
-  %129 = getelementptr inbounds nuw double, ptr %68, i64 %indvars.iv.i.i.i.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i.i.i.i
   store double %128, ptr %129, align 8, !tbaa !11
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 4
@@ -1364,9 +1364,9 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2ERKS4_.exit.i: ; preds = %.lr.ph.i.i.i.i.i
 
 314:                                              ; preds = %314, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2ERKS4_.exit.i
   %indvars.iv.i.i.i.i103 = phi i64 [ 0, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2ERKS4_.exit.i ], [ %indvars.iv.next.i.i.i.i104, %314 ]
-  %315 = getelementptr inbounds nuw double, ptr %313, i64 %indvars.iv.i.i.i.i103
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %indvars.iv.i.i.i.i103
   %316 = load double, ptr %315, align 8, !tbaa !11
-  %317 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv.i.i.i.i103
+  %317 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i.i.i.i103
   store double %316, ptr %317, align 8, !tbaa !11
   %indvars.iv.next.i.i.i.i104 = add nuw nsw i64 %indvars.iv.i.i.i.i103, 1
   %exitcond.not.i.i.i.i105 = icmp eq i64 %indvars.iv.next.i.i.i.i104, 4
@@ -2978,7 +2978,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6vectorIN2c
   store ptr %9, ptr %0, align 8, !tbaa !110
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8, !tbaa !113
-  %11 = getelementptr inbounds nuw %"class.cv::Mat", ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw [96 x i8], ptr %9, i64 %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8, !tbaa !142
   br label %.lr.ph.i.i.i.i.i

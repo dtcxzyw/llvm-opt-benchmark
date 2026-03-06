@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
-%struct.anon = type { ptr, ptr, ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.object_id = type { [32 x i8], i32 }
 %struct.tree_desc = type { ptr, ptr, %struct.name_entry, i32, i32 }
@@ -198,7 +197,7 @@ define dso_local void @list_config_fsck_msg_ids(ptr noundef %0, ptr noundef %1) 
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [32 x i8], ptr @msg_id_info, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !4
   %7 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.34, ptr noundef %1, ptr noundef %6) #16
@@ -219,7 +218,7 @@ define internal fastcc void @prepare_msg_ids() unnamed_addr #0 {
 
 .preheader:                                       ; preds = %0, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %0 ]
-  %2 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [32 x i8], ptr @msg_id_info, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 16, !tbaa !14
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
   %sext = shl i64 %4, 32
@@ -319,7 +318,7 @@ define dso_local range(i32 0, 2) i32 @is_valid_msg_type(ptr noundef readonly cap
 
 3:                                                ; preds = %8, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %8 ]
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [32 x i8], ptr @msg_id_info, i64 %indvars.iv.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #17
@@ -371,7 +370,7 @@ define dso_local void @fsck_set_msg_type_from_ids(ptr noundef captures(none) %0,
 
 fsck_msg_type.exit.us:                            ; preds = %6, %fsck_msg_type.exit.us
   %indvars.iv16 = phi i64 [ %indvars.iv.next17, %fsck_msg_type.exit.us ], [ 0, %6 ]
-  %10 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv16
+  %10 = getelementptr inbounds nuw [32 x i8], ptr @msg_id_info, i64 %indvars.iv16
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i32, ptr %11, align 8, !tbaa !27
   %13 = load i32, ptr %9, align 8, !tbaa !28
@@ -379,7 +378,7 @@ fsck_msg_type.exit.us:                            ; preds = %6, %fsck_msg_type.e
   %15 = icmp eq i32 %12, 4
   %or.cond.i.us = select i1 %14, i1 %15, i1 false
   %spec.store.select.i.us = select i1 %or.cond.i.us, i32 3, i32 %12
-  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv16
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv16
   store i32 %spec.store.select.i.us, ptr %16, align 4, !tbaa !29
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 66
@@ -387,9 +386,9 @@ fsck_msg_type.exit.us:                            ; preds = %6, %fsck_msg_type.e
 
 fsck_msg_type.exit:                               ; preds = %6, %fsck_msg_type.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %fsck_msg_type.exit ], [ 0, %6 ]
-  %17 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !29
-  %19 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %18, ptr %19, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 66
@@ -402,7 +401,7 @@ fsck_msg_type.exit:                               ; preds = %6, %fsck_msg_type.e
 20:                                               ; preds = %.split13.us, %3
   %21 = phi ptr [ %7, %.split13.us ], [ %5, %3 ]
   %22 = zext i32 %1 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 %2, ptr %23, align 4, !tbaa !29
   ret void
 }
@@ -416,7 +415,7 @@ define dso_local void @fsck_set_msg_type(ptr noundef captures(none) %0, ptr noun
 
 4:                                                ; preds = %9, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %9 ]
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [32 x i8], ptr @msg_id_info, i64 %indvars.iv.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !13
   %8 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %7) #17
@@ -491,7 +490,7 @@ parse_msg_id.exit:                                ; preds = %4
 
 fsck_msg_type.exit.us.i:                          ; preds = %30, %fsck_msg_type.exit.us.i
   %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %fsck_msg_type.exit.us.i ], [ 0, %30 ]
-  %34 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv16.i
+  %34 = getelementptr inbounds nuw [32 x i8], ptr @msg_id_info, i64 %indvars.iv16.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load i32, ptr %35, align 8, !tbaa !27
   %37 = load i32, ptr %33, align 8, !tbaa !28
@@ -499,7 +498,7 @@ fsck_msg_type.exit.us.i:                          ; preds = %30, %fsck_msg_type.
   %39 = icmp eq i32 %36, 4
   %or.cond.i.us.i = select i1 %38, i1 %39, i1 false
   %spec.store.select.i.us.i = select i1 %or.cond.i.us.i, i32 3, i32 %36
-  %40 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv16.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv16.i
   store i32 %spec.store.select.i.us.i, ptr %40, align 4, !tbaa !29
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next17.i, 66
@@ -507,9 +506,9 @@ fsck_msg_type.exit.us.i:                          ; preds = %30, %fsck_msg_type.
 
 fsck_msg_type.exit.i:                             ; preds = %30, %fsck_msg_type.exit.i
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %fsck_msg_type.exit.i ], [ 0, %30 ]
-  %41 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i30
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.i30
   %42 = load i32, ptr %41, align 4, !tbaa !29
-  %43 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i30
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i30
   store i32 %42, ptr %43, align 4, !tbaa !29
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, 66
@@ -522,14 +521,14 @@ fsck_msg_type.exit.i:                             ; preds = %30, %fsck_msg_type.
 fsck_set_msg_type_from_ids.exit:                  ; preds = %.split, %.split13.us.i
   %44 = phi ptr [ %31, %.split13.us.i ], [ %29, %.split ]
   %45 = and i64 %indvars.iv.i, 4294967295
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   store i32 3, ptr %46, align 4, !tbaa !29
   br label %72
 
 47:                                               ; preds = %23, %25
   %.0.i.ph = phi i32 [ 0, %25 ], [ 4, %23 ]
   %48 = and i64 %indvars.iv.i, 4294967295
-  %49 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %48
+  %49 = getelementptr inbounds nuw [32 x i8], ptr @msg_id_info, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load i32, ptr %50, align 8, !tbaa !27
   %52 = icmp eq i32 %51, 2
@@ -550,7 +549,7 @@ fsck_set_msg_type_from_ids.exit:                  ; preds = %.split, %.split13.u
 
 fsck_msg_type.exit.us.i40:                        ; preds = %55, %fsck_msg_type.exit.us.i40
   %indvars.iv16.i41 = phi i64 [ %indvars.iv.next17.i44, %fsck_msg_type.exit.us.i40 ], [ 0, %55 ]
-  %59 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %indvars.iv16.i41
+  %59 = getelementptr inbounds nuw [32 x i8], ptr @msg_id_info, i64 %indvars.iv16.i41
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load i32, ptr %60, align 8, !tbaa !27
   %62 = load i32, ptr %58, align 8, !tbaa !28
@@ -558,7 +557,7 @@ fsck_msg_type.exit.us.i40:                        ; preds = %55, %fsck_msg_type.
   %64 = icmp eq i32 %61, 4
   %or.cond.i.us.i42 = select i1 %63, i1 %64, i1 false
   %spec.store.select.i.us.i43 = select i1 %or.cond.i.us.i42, i32 3, i32 %61
-  %65 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv16.i41
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv16.i41
   store i32 %spec.store.select.i.us.i43, ptr %65, align 4, !tbaa !29
   %indvars.iv.next17.i44 = add nuw nsw i64 %indvars.iv16.i41, 1
   %exitcond19.not.i45 = icmp eq i64 %indvars.iv.next17.i44, 66
@@ -566,9 +565,9 @@ fsck_msg_type.exit.us.i40:                        ; preds = %55, %fsck_msg_type.
 
 fsck_msg_type.exit.i35:                           ; preds = %55, %fsck_msg_type.exit.i35
   %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i37, %fsck_msg_type.exit.i35 ], [ 0, %55 ]
-  %66 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i36
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.i36
   %67 = load i32, ptr %66, align 4, !tbaa !29
-  %68 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i36
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.i36
   store i32 %67, ptr %68, align 4, !tbaa !29
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, 66
@@ -580,7 +579,7 @@ fsck_msg_type.exit.i35:                           ; preds = %55, %fsck_msg_type.
 
 fsck_set_msg_type_from_ids.exit46:                ; preds = %.split22, %.split13.us.i39
   %69 = phi ptr [ %56, %.split13.us.i39 ], [ %54, %.split22 ]
-  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %48
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %48
   store i32 %.0.i.ph, ptr %70, align 4, !tbaa !29
   br label %72
 
@@ -745,7 +744,7 @@ define internal fastcc i32 @fsck_vreport(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not.i, label %10, label %18
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %9
+  %11 = getelementptr inbounds nuw [32 x i8], ptr @msg_id_info, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -756,7 +755,7 @@ define internal fastcc i32 @fsck_vreport(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %or.cond.i, label %fsck_msg_type.exit.thread, label %fsck_msg_type.exit
 
 18:                                               ; preds = %5
-  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %9
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %9
   %20 = load i32, ptr %19, align 4, !tbaa !29
   br label %fsck_msg_type.exit
 
@@ -777,7 +776,7 @@ switch.edge:                                      ; preds = %fsck_msg_type.exit
 fsck_msg_type.exit.thread:                        ; preds = %10, %switch.edge, %fsck_msg_type.exit, %21
   %.014 = phi i32 [ 4, %switch.edge ], [ 3, %fsck_msg_type.exit ], [ %.0.i, %21 ], [ 3, %10 ]
   tail call fastcc void @prepare_msg_ids()
-  %22 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %9
+  %22 = getelementptr inbounds nuw [32 x i8], ptr @msg_id_info, i64 %9
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 16, !tbaa !4
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %6, ptr noundef nonnull @.str.107, ptr noundef %24) #16
@@ -845,7 +844,7 @@ define dso_local ptr @fsck_get_object_name(ptr noundef readonly captures(none) %
   %.0.i = phi i32 [ 0, %9 ], [ %30, %.critedge2.i ]
   %16 = lshr i32 %.027.i, 4
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %13, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !29
   %20 = shl i32 %.027.i, 1
   %21 = and i32 %20, 30
@@ -862,7 +861,7 @@ define dso_local ptr @fsck_get_object_name(ptr noundef readonly captures(none) %
 26:                                               ; preds = %24
   %27 = load ptr, ptr %14, align 8, !tbaa !61
   %28 = zext i32 %.027.i to i64
-  %29 = getelementptr inbounds nuw %struct.object_id, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [36 x i8], ptr %27, i64 %28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 4 dereferenceable(36) %29, i64 36, i1 false), !tbaa.struct !62
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32)
@@ -898,7 +897,7 @@ kh_get_oid_map.exit:                              ; preds = %7, %.critedge.i
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !64
   %39 = zext i32 %.1.i to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !65
   br label %42
 
@@ -1005,7 +1004,7 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   %60 = load ptr, ptr %54, align 8, !tbaa !60
   %61 = lshr i32 %.1146.i, 4
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %60, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !29
   %65 = shl i32 %.1146.i, 1
   %66 = and i32 %65, 30
@@ -1018,12 +1017,12 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   %71 = load ptr, ptr %55, align 8, !tbaa !61
   %72 = zext i32 %.1146.i to i64
-  %73 = getelementptr inbounds nuw %struct.object_id, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [36 x i8], ptr %71, i64 %72
   %.sroa.0.0.copyload.i = load i32, ptr %73, align 4
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %73, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.0..sroa_idx.i, i64 32, i1 false), !tbaa.struct !69
   %74 = load ptr, ptr %57, align 8, !tbaa !64
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %72
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %72
   %76 = load ptr, ptr %75, align 8, !tbaa !65
   %77 = shl nuw nsw i32 1, %66
   %78 = or i32 %77, %64
@@ -1037,7 +1036,7 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   %.095136.i = and i32 %.sroa.0.0.i, %56
   %81 = lshr i32 %.095136.i, 4
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %40, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !29
   %85 = shl i32 %.095136.i, 1
   %86 = and i32 %85, 30
@@ -1054,7 +1053,7 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   %.095.i = and i32 %90, %56
   %91 = lshr i32 %.095.i, 4
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw i32, ptr %40, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !29
   %95 = shl i32 %.095.i, 1
   %96 = and i32 %95, 30
@@ -1069,7 +1068,7 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   %.lcssa131.i = phi i32 [ %84, %79 ], [ %94, %.lr.ph.i ]
   %.lcssa130.i = phi i32 [ %86, %79 ], [ %96, %.lr.ph.i ]
   %.lcssa.i = phi i32 [ %87, %79 ], [ %97, %.lr.ph.i ]
-  %99 = getelementptr inbounds nuw i32, ptr %40, i64 %.lcssa135.i
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %.lcssa135.i
   %100 = xor i32 %.lcssa.i, -1
   %101 = and i32 %.lcssa131.i, %100
   store i32 %101, ptr %99, align 4, !tbaa !29
@@ -1082,7 +1081,7 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   br label %split.i
 
 104:                                              ; preds = %._crit_edge.i
-  %105 = getelementptr inbounds nuw i32, ptr %80, i64 %.lcssa135.i
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %.lcssa135.i
   %106 = load i32, ptr %105, align 4, !tbaa !29
   %107 = shl nuw i32 3, %.lcssa130.i
   %108 = and i32 %106, %107
@@ -1093,7 +1092,7 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
 110:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
   %111 = zext i32 %.095.lcssa.i to i64
-  %112 = getelementptr inbounds nuw %struct.object_id, ptr %.pre158.i, i64 %111
+  %112 = getelementptr inbounds nuw [36 x i8], ptr %.pre158.i, i64 %111
   %.sroa.0121.0.copyload.i = load i32, ptr %112, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %112, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.0..sroa_idx.i, i64 32, i1 false), !tbaa.struct !69
@@ -1102,12 +1101,12 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.i, i64 32, i1 false), !tbaa.struct !69
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   %113 = load ptr, ptr %57, align 8, !tbaa !64
-  %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %111
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %111
   %115 = load ptr, ptr %114, align 8, !tbaa !65
   store ptr %.098.i, ptr %114, align 8, !tbaa !65
   %116 = shl nuw nsw i32 1, %.lcssa130.i
   %117 = load ptr, ptr %54, align 8, !tbaa !60
-  %118 = getelementptr inbounds nuw i32, ptr %117, i64 %.lcssa135.i
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %.lcssa135.i
   %119 = load i32, ptr %118, align 4, !tbaa !29
   %120 = or i32 %119, %116
   store i32 %120, ptr %118, align 4, !tbaa !29
@@ -1116,12 +1115,12 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
 split.i:                                          ; preds = %104, %._crit_edge._crit_edge.i
   %121 = phi ptr [ %.pre157.i, %._crit_edge._crit_edge.i ], [ %.pre158.i, %104 ]
   %122 = zext i32 %.095.lcssa.i to i64
-  %123 = getelementptr inbounds nuw %struct.object_id, ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [36 x i8], ptr %121, i64 %122
   store i32 %.sroa.0.0.i, ptr %123, align 4
   %.sroa.7.0..sroa_idx120.i = getelementptr inbounds nuw i8, ptr %123, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.0..sroa_idx120.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !tbaa.struct !69
   %124 = load ptr, ptr %57, align 8, !tbaa !64
-  %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %122
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %.098.i, ptr %125, align 8, !tbaa !65
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   %.pre159.i = load i32, ptr %9, align 8, !tbaa !58
@@ -1169,7 +1168,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge149.thre
   %144 = load ptr, ptr %143, align 8, !tbaa !60
   %145 = lshr i32 %142, 4
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw i32, ptr %144, i64 %146
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !29
   %149 = shl i32 %142, 1
   %150 = and i32 %149, 30
@@ -1188,7 +1187,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge149.thre
   %.0.i = phi i32 [ %171, %.critedge2.i ], [ 0, %.preheader.i ]
   %155 = lshr i32 %.069.i, 4
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw i32, ptr %144, i64 %156
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !29
   %159 = shl i32 %.069.i, 1
   %160 = and i32 %159, 30
@@ -1205,7 +1204,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge149.thre
 165:                                              ; preds = %163
   %166 = load ptr, ptr %153, align 8, !tbaa !61
   %167 = zext i32 %.069.i to i64
-  %168 = getelementptr inbounds nuw %struct.object_id, ptr %166, i64 %167
+  %168 = getelementptr inbounds nuw [36 x i8], ptr %166, i64 %167
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 4 dereferenceable(36) %168, i64 36, i1 false), !tbaa.struct !62
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32)
@@ -1247,7 +1246,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge149.thre
   %.068.i = phi i32 [ %spec.select.i, %.critedge.i ], [ %142, %kh_resize_oid_map.exit ], [ %spec.select87.i, %.critedge.thread.i ]
   %178 = lshr i32 %.068.i, 4
   %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds nuw i32, ptr %144, i64 %179
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %179
   %181 = load i32, ptr %180, align 4, !tbaa !29
   %182 = shl i32 %.068.i, 1
   %183 = and i32 %182, 30
@@ -1260,12 +1259,12 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge149.thre
   %187 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %188 = load ptr, ptr %187, align 8, !tbaa !61
   %189 = zext i32 %.068.i to i64
-  %190 = getelementptr inbounds nuw %struct.object_id, ptr %188, i64 %189
+  %190 = getelementptr inbounds nuw [36 x i8], ptr %188, i64 %189
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %190, ptr noundef nonnull readonly align 8 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !62
   %191 = shl nuw i32 3, %183
   %192 = xor i32 %191, -1
   %193 = load ptr, ptr %143, align 8, !tbaa !60
-  %194 = getelementptr inbounds nuw i32, ptr %193, i64 %179
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %179
   %195 = load i32, ptr %194, align 4, !tbaa !29
   %196 = and i32 %195, %192
   store i32 %196, ptr %194, align 4, !tbaa !29
@@ -1287,12 +1286,12 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge149.thre
   %205 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %206 = load ptr, ptr %205, align 8, !tbaa !61
   %207 = zext i32 %.068.i to i64
-  %208 = getelementptr inbounds nuw %struct.object_id, ptr %206, i64 %207
+  %208 = getelementptr inbounds nuw [36 x i8], ptr %206, i64 %207
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %208, ptr noundef nonnull readonly align 8 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !62
   %209 = shl nuw i32 3, %183
   %210 = xor i32 %209, -1
   %211 = load ptr, ptr %143, align 8, !tbaa !60
-  %212 = getelementptr inbounds nuw i32, ptr %211, i64 %179
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %179
   %213 = load i32, ptr %212, align 4, !tbaa !29
   %214 = and i32 %213, %210
   store i32 %214, ptr %212, align 4, !tbaa !29
@@ -1315,7 +1314,7 @@ kh_put_oid_map.exit:                              ; preds = %202
   %220 = load ptr, ptr %8, align 8, !tbaa !57
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 32
   %222 = load ptr, ptr %221, align 8, !tbaa !64
-  %223 = getelementptr inbounds nuw ptr, ptr %222, i64 %.pre-phi
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %.pre-phi
   store ptr %219, ptr %223, align 8, !tbaa !65
   call void @llvm.va_end.p0(ptr nonnull %6)
   br label %224
@@ -1360,7 +1359,7 @@ define dso_local ptr @fsck_describe_object(ptr noundef readonly captures(none) %
   %.0.i.i = phi i32 [ 0, %9 ], [ %30, %.critedge2.i.i ]
   %16 = lshr i32 %.027.i.i, 4
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %13, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !29
   %20 = shl i32 %.027.i.i, 1
   %21 = and i32 %20, 30
@@ -1377,7 +1376,7 @@ define dso_local ptr @fsck_describe_object(ptr noundef readonly captures(none) %
 26:                                               ; preds = %24
   %27 = load ptr, ptr %14, align 8, !tbaa !61
   %28 = zext i32 %.027.i.i to i64
-  %29 = getelementptr inbounds nuw %struct.object_id, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [36 x i8], ptr %27, i64 %28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 4 dereferenceable(36) %29, i64 36, i1 false), !tbaa.struct !62
   %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32)
@@ -1413,7 +1412,7 @@ kh_get_oid_map.exit.i:                            ; preds = %.critedge.i.i, %7
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !64
   %39 = zext i32 %.1.i.i to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !65
   br label %fsck_get_object_name.exit
 
@@ -1421,7 +1420,7 @@ fsck_get_object_name.exit:                        ; preds = %2, %kh_get_oid_map.
   %.0.i = phi ptr [ null, %2 ], [ %41, %36 ], [ null, %kh_get_oid_map.exit.i ], [ null, %kh_get_oid_map.exit.thread.i ]
   %42 = load i32, ptr @fsck_describe_object.b, align 4, !tbaa !29
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw %struct.strbuf, ptr @fsck_describe_object.bufs, i64 %43
+  %44 = getelementptr inbounds nuw [24 x i8], ptr @fsck_describe_object.bufs, i64 %43
   %45 = add nuw nsw i32 %42, 1
   %46 = and i32 %45, 3
   store i32 %46, ptr @fsck_describe_object.b, align 4, !tbaa !29
@@ -1528,7 +1527,7 @@ define dso_local i32 @fsck_walk(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %.0.i.i.i = phi i32 [ 0, %32 ], [ %53, %.critedge2.i.i.i ]
   %39 = lshr i32 %.027.i.i.i, 4
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %36, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !29
   %43 = shl i32 %.027.i.i.i, 1
   %44 = and i32 %43, 30
@@ -1545,7 +1544,7 @@ define dso_local i32 @fsck_walk(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 49:                                               ; preds = %47
   %50 = load ptr, ptr %37, align 8, !tbaa !61
   %51 = zext i32 %.027.i.i.i to i64
-  %52 = getelementptr inbounds nuw %struct.object_id, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [36 x i8], ptr %50, i64 %51
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 4 dereferenceable(36) %52, i64 36, i1 false), !tbaa.struct !62
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noundef nonnull readonly align 8 dereferenceable(32) %9, i64 32)
@@ -1581,7 +1580,7 @@ kh_get_oid_map.exit.i.i:                          ; preds = %.critedge.i.i.i, %3
   %60 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !64
   %62 = zext i32 %.1.i.i.i to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !65
   %65 = freeze ptr %64
   br label %fsck_get_object_name.exit.i
@@ -1758,7 +1757,7 @@ fsck_walk_tree.exit:                              ; preds = %116, %119, %87, %90
   %.0.i.i.i22 = phi i32 [ 0, %130 ], [ %151, %.critedge2.i.i.i35 ]
   %137 = lshr i32 %.027.i.i.i21, 4
   %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw i32, ptr %134, i64 %138
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !29
   %141 = shl i32 %.027.i.i.i21, 1
   %142 = and i32 %141, 30
@@ -1775,7 +1774,7 @@ fsck_walk_tree.exit:                              ; preds = %116, %119, %87, %90
 147:                                              ; preds = %145
   %148 = load ptr, ptr %135, align 8, !tbaa !61
   %149 = zext i32 %.027.i.i.i21 to i64
-  %150 = getelementptr inbounds nuw %struct.object_id, ptr %148, i64 %149
+  %150 = getelementptr inbounds nuw [36 x i8], ptr %148, i64 %149
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 4 dereferenceable(36) %150, i64 36, i1 false), !tbaa.struct !62
   %bcmp.i.i.i.i.i37 = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %7, i64 32)
@@ -1811,7 +1810,7 @@ fsck_get_object_name.exit.i33:                    ; preds = %kh_get_oid_map.exit
   %157 = getelementptr inbounds nuw i8, ptr %126, i64 32
   %158 = load ptr, ptr %157, align 8, !tbaa !64
   %159 = zext i32 %.1.i.i.i28 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr %158, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !65
   %.not93.i = icmp eq ptr %161, null
   br i1 %.not93.i, label %fsck_get_object_name.exit.thread.i, label %162
@@ -2038,7 +2037,7 @@ fsck_get_object_name.exit.thread.i:               ; preds = %162, %fsck_get_obje
   %.0.i.i.i43 = phi i32 [ 0, %248 ], [ %269, %.critedge2.i.i.i56 ]
   %255 = lshr i32 %.027.i.i.i42, 4
   %256 = zext nneg i32 %255 to i64
-  %257 = getelementptr inbounds nuw i32, ptr %252, i64 %256
+  %257 = getelementptr inbounds nuw [4 x i8], ptr %252, i64 %256
   %258 = load i32, ptr %257, align 4, !tbaa !29
   %259 = shl i32 %.027.i.i.i42, 1
   %260 = and i32 %259, 30
@@ -2055,7 +2054,7 @@ fsck_get_object_name.exit.thread.i:               ; preds = %162, %fsck_get_obje
 265:                                              ; preds = %263
   %266 = load ptr, ptr %253, align 8, !tbaa !61
   %267 = zext i32 %.027.i.i.i42 to i64
-  %268 = getelementptr inbounds nuw %struct.object_id, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw [36 x i8], ptr %266, i64 %267
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 4 dereferenceable(36) %268, i64 36, i1 false), !tbaa.struct !62
   %bcmp.i.i.i.i.i58 = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32)
@@ -2091,7 +2090,7 @@ kh_get_oid_map.exit.i.i48:                        ; preds = %.critedge.i.i.i45, 
   %276 = getelementptr inbounds nuw i8, ptr %244, i64 32
   %277 = load ptr, ptr %276, align 8, !tbaa !64
   %278 = zext i32 %.1.i.i.i49 to i64
-  %279 = getelementptr inbounds nuw ptr, ptr %277, i64 %278
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %278
   %280 = load ptr, ptr %279, align 8, !tbaa !65
   br label %fsck_get_object_name.exit.i51
 
@@ -3054,7 +3053,7 @@ st_mult.exit.i.i.i:                               ; preds = %162
 name_stack_push.exit.i.i:                         ; preds = %st_mult.exit.i.i.i, %159
   %.sroa.17.3.i = phi i64 [ %..i.i.i, %st_mult.exit.i.i.i ], [ %.sroa.17.0307.i, %159 ]
   %.sroa.0.4.i = phi ptr [ %168, %st_mult.exit.i.i.i ], [ %.sroa.0.0309.i, %159 ]
-  %169 = getelementptr inbounds nuw ptr, ptr %.sroa.0.4.i, i64 %.sroa.10.0308.i
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.4.i, i64 %.sroa.10.0308.i
   store ptr %.099324.i, ptr %169, align 8, !tbaa !98
   br label %verify_ordered.exit.i
 
@@ -3072,7 +3071,7 @@ name_stack_push.exit.i.i:                         ; preds = %st_mult.exit.i.i.i,
 name_stack_pop.exit.i.i:                          ; preds = %.preheader78.i.i, %skip_prefix.exit.i.i
   %174 = phi i64 [ %175, %skip_prefix.exit.i.i ], [ %.sroa.10.0308.i, %.preheader78.i.i ]
   %175 = add i64 %174, -1
-  %176 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0309.i, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0309.i, i64 %175
   %177 = load ptr, ptr %176, align 8, !tbaa !98
   %.not50.i.i = icmp eq ptr %177, null
   br i1 %.not50.i.i, label %verify_ordered.exit.i, label %.preheader.i.i
@@ -3124,7 +3123,7 @@ st_mult.exit.i60.i.i:                             ; preds = %190
 name_stack_push.exit63.i.i:                       ; preds = %st_mult.exit.i60.i.i, %188
   %.sroa.17.5.i = phi i64 [ %..i58.i.i, %st_mult.exit.i60.i.i ], [ %.sroa.17.0307.i, %188 ]
   %.sroa.0.6.i = phi ptr [ %196, %st_mult.exit.i60.i.i ], [ %.sroa.0.0309.i, %188 ]
-  %197 = getelementptr inbounds nuw ptr, ptr %.sroa.0.6.i, i64 %175
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.6.i, i64 %175
   store ptr %177, ptr %197, align 8, !tbaa !98
   br label %verify_ordered.exit.i
 
@@ -3776,7 +3775,7 @@ define internal fastcc i32 @fsck_blobs(ptr noundef %0, ptr noundef %1, i32 nound
   %15 = phi i32 [ %.sroa.4.037, %.lr.ph.i ], [ %25, %24 ]
   %16 = lshr i32 %15, 4
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %13, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !29
   %20 = shl i32 %15, 1
   %21 = and i32 %20, 30
@@ -3794,7 +3793,7 @@ oidset_iter_next.exit:                            ; preds = %14
   %26 = load ptr, ptr %11, align 8, !tbaa !126
   %27 = add i32 %15, 1
   %28 = zext i32 %15 to i64
-  %29 = getelementptr inbounds nuw %struct.object_id, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [36 x i8], ptr %26, i64 %28
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %oidset_iter_next.exit.thread, label %30
 

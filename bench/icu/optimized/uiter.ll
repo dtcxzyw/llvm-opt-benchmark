@@ -540,7 +540,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL21stringIteratorCurrentP13U
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8, !tbaa !10
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds i16, ptr %8, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %8, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !29
   %12 = zext i16 %11 to i32
   br label %13
@@ -564,7 +564,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL18stringIteratorNextP13UCha
   %9 = add nsw i32 %3, 1
   store i32 %9, ptr %2, align 8, !tbaa !28
   %10 = sext i32 %3 to i64
-  %11 = getelementptr inbounds i16, ptr %8, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %8, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !29
   %13 = zext i16 %12 to i32
   br label %14
@@ -588,7 +588,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL22stringIteratorPreviousP13
   %9 = add nsw i32 %3, -1
   store i32 %9, ptr %2, align 8, !tbaa !28
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i16, ptr %8, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %8, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !29
   %13 = zext i16 %12 to i32
   br label %14

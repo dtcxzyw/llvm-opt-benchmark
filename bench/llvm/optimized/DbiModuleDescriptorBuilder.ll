@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.llvm::pdb::SymbolListWrapper" = type <{ ptr, i32, i8, [3 x i8] }>
 %"class.llvm::Error" = type { ptr }
 %"class.llvm::Expected" = type { %union.anon.35, i8, [7 x i8] }
 %union.anon.35 = type { %"struct.llvm::AlignedCharArrayUnion.36" }
@@ -540,7 +539,7 @@ _ZNSt6vectorIN4llvm3pdb17SymbolListWrapperESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIN4llvm3pdb17SymbolListWrapperESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %33, %_ZNSt6vectorIN4llvm3pdb17SymbolListWrapperESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %28, ptr %6, align 8, !tbaa !54
   store ptr %32, ptr %8, align 8, !tbaa !63
-  %34 = getelementptr inbounds nuw %"struct.llvm::pdb::SymbolListWrapper", ptr %28, i64 %26
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %26
   store ptr %34, ptr %10, align 8, !tbaa !55
   br label %_ZNSt6vectorIN4llvm3pdb17SymbolListWrapperESaIS2_EE9push_backEOS2_.exit
 
@@ -630,7 +629,7 @@ _ZNSt6vectorIN4llvm3pdb17SymbolListWrapperESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIN4llvm3pdb17SymbolListWrapperESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorIN4llvm3pdb17SymbolListWrapperESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %25, ptr %4, align 8, !tbaa !54
   store ptr %29, ptr %5, align 8, !tbaa !63
-  %31 = getelementptr inbounds nuw %"struct.llvm::pdb::SymbolListWrapper", ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %23
   store ptr %31, ptr %7, align 8, !tbaa !55
   br label %_ZNSt6vectorIN4llvm3pdb17SymbolListWrapperESaIS2_EE9push_backEOS2_.exit
 
@@ -2319,7 +2318,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !56
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !57
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !60
   ret void
 }
@@ -2580,7 +2579,7 @@ _ZNSt6vectorIN4llvm8codeview28DebugSubsectionRecordBuilderESaIS2_EE11_S_relocate
 _ZNSt12_Vector_baseIN4llvm8codeview28DebugSubsectionRecordBuilderESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4llvm8codeview28DebugSubsectionRecordBuilderESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %73
   store ptr %20, ptr %0, align 8, !tbaa !49
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !50
-  %77 = getelementptr inbounds nuw %"class.llvm::codeview::DebugSubsectionRecordBuilder", ptr %20, i64 %16
+  %77 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %77, ptr %72, align 8, !tbaa !51
   ret void
 }

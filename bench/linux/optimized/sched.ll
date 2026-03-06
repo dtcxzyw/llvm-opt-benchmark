@@ -18475,7 +18475,7 @@ define dso_local void @rpc_init_priority_wait_queue(ptr noundef initializes((0, 
 
 4:                                                ; preds = %4, %2
   %5 = phi i64 [ 0, %2 ], [ %8, %4 ]
-  %6 = getelementptr %struct.list_head, ptr %3, i64 %5
+  %6 = getelementptr [16 x i8], ptr %3, i64 %5
   store volatile ptr %6, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store volatile ptr %6, ptr %7, align 8
@@ -18529,7 +18529,7 @@ define dso_local void @rpc_init_wait_queue(ptr noundef initializes((0, 4)) %0, p
 
 4:                                                ; preds = %4, %2
   %5 = phi i64 [ 0, %2 ], [ %8, %4 ]
-  %6 = getelementptr %struct.list_head, ptr %3, i64 %5
+  %6 = getelementptr [16 x i8], ptr %3, i64 %5
   store volatile ptr %6, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store volatile ptr %6, ptr %7, align 8
@@ -19049,7 +19049,7 @@ define dso_local noundef ptr @rpc_wake_up_first_on_wq(ptr noundef %0, ptr nounde
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 73
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr %struct.list_head, ptr %8, i64 %20
+  %21 = getelementptr [16 x i8], ptr %8, i64 %20
   %22 = load volatile ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %21
   br i1 %23, label %32, label %24
@@ -19069,7 +19069,7 @@ define dso_local noundef ptr @rpc_wake_up_first_on_wq(ptr noundef %0, ptr nounde
 
 32:                                               ; preds = %24, %17
   %33 = zext i8 %6 to i64
-  %34 = getelementptr %struct.list_head, ptr %8, i64 %33
+  %34 = getelementptr [16 x i8], ptr %8, i64 %33
   br label %35
 
 35:                                               ; preds = %56, %32
@@ -19395,7 +19395,7 @@ define dso_local void @rpc_wake_up(ptr noundef %0) #1 align 16 {
 18:                                               ; preds = %13, %11
   %19 = load i8, ptr %5, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr %struct.list_head, ptr %3, i64 %20
+  %21 = getelementptr [16 x i8], ptr %3, i64 %20
   %22 = load volatile ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %21
   br i1 %23, label %31, label %24
@@ -19414,7 +19414,7 @@ define dso_local void @rpc_wake_up(ptr noundef %0) #1 align 16 {
 
 31:                                               ; preds = %24, %18
   %32 = zext i8 %9 to i64
-  %33 = getelementptr %struct.list_head, ptr %3, i64 %32
+  %33 = getelementptr [16 x i8], ptr %3, i64 %32
   br label %34
 
 34:                                               ; preds = %53, %31
@@ -19514,7 +19514,7 @@ define dso_local void @rpc_wake_up_status(ptr noundef %0, i32 noundef %1) #1 ali
 20:                                               ; preds = %15, %13
   %21 = load i8, ptr %7, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr %struct.list_head, ptr %5, i64 %22
+  %23 = getelementptr [16 x i8], ptr %5, i64 %22
   %24 = load volatile ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %23
   br i1 %25, label %33, label %26
@@ -19533,7 +19533,7 @@ define dso_local void @rpc_wake_up_status(ptr noundef %0, i32 noundef %1) #1 ali
 
 33:                                               ; preds = %26, %20
   %34 = zext i8 %11 to i64
-  %35 = getelementptr %struct.list_head, ptr %5, i64 %34
+  %35 = getelementptr [16 x i8], ptr %5, i64 %34
   br label %36
 
 36:                                               ; preds = %55, %33
@@ -20947,7 +20947,7 @@ define dso_local noundef range(i32 -12, 1) i32 @rpc_init_mempool() local_unnamed
 
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 0, %0 ], [ %5, %1 ]
-  %3 = getelementptr %struct.list_head, ptr getelementptr inbounds nuw (i8, ptr @delay_queue, i64 8), i64 %2
+  %3 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @delay_queue, i64 8), i64 %2
   store volatile ptr %3, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store volatile ptr %3, ptr %4, align 8
@@ -23300,7 +23300,7 @@ define internal fastcc void @__rpc_do_sleep_on_priority(ptr noundef %0, ptr noun
   %34 = phi i8 [ %28, %32 ], [ %2, %30 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = zext i8 %34 to i64
-  %37 = getelementptr %struct.list_head, ptr %35, i64 %36
+  %37 = getelementptr [16 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %39
 

@@ -75,7 +75,7 @@ define hidden void @"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as
   %18 = load ptr, ptr %17, align 8, !alias.scope !34, !noalias !35, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i64, ptr %19, align 8, !alias.scope !34, !noalias !35, !noundef !4
-  %21 = getelementptr inbounds { i8, [15 x i8] }, ptr %18, i64 %20
+  %21 = getelementptr inbounds [16 x i8], ptr %18, i64 %20
   store i8 7, ptr %21, align 8, !noalias !34
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 1
   store i8 9, ptr %.sroa.43.0..sroa_idx.i.i, align 1, !noalias !34
@@ -104,7 +104,7 @@ define hidden void @"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  %29 = getelementptr inbounds { i8, [15 x i8] }, ptr %12, i64 %26
+  %29 = getelementptr inbounds [16 x i8], ptr %12, i64 %26
   store i8 7, ptr %29, align 8, !noalias !10
   %.sroa.43.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store i8 9, ptr %.sroa.43.0..sroa_idx.i.i13, align 1, !noalias !10
@@ -137,10 +137,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !47
   %6 = load i8, ptr %5, align 1, !range !49, !alias.scope !50, !noalias !53, !noundef !4
   %7 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h7fa6fe22c17106a3E", i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h7fa6fe22c17106a3E", i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = zext nneg i8 %6 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h7fa6fe22c17106a3E.10", i64 %8
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h7fa6fe22c17106a3E.10", i64 %8
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   store ptr %switch.load2, ptr %2, align 8, !noalias !47
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -216,7 +216,7 @@ define hidden void @"_ZN4core4iter5range125_$LT$impl$u20$core..iter..traits..dou
 
 .thread.i:                                        ; preds = %.lr.ph.i, %.preheader.i
   %.sroa.5.0 = phi i64 [ %.sroa.5.0.copyload, %.preheader.i ], [ %11, %.lr.ph.i ]
-  %5 = getelementptr inbounds { i8, [15 x i8] }, ptr %.sroa.11.0.copyload, i64 %.sroa.5.0
+  %5 = getelementptr inbounds [16 x i8], ptr %.sroa.11.0.copyload, i64 %.sroa.5.0
   store i8 7, ptr %5, align 8, !noalias !54
   %.sroa.43.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 9, ptr %.sroa.43.0..sroa_idx.i.i.i, align 1, !noalias !54
@@ -231,7 +231,7 @@ define hidden void @"_ZN4core4iter5range125_$LT$impl$u20$core..iter..traits..dou
   %7 = phi i64 [ %11, %.lr.ph.i ], [ %.sroa.5.0.copyload, %.preheader.i ]
   %8 = phi i16 [ %9, %.lr.ph.i ], [ %.sroa.2.0.extract.trunc, %.preheader.i ]
   %9 = add i16 %8, -1
-  %10 = getelementptr inbounds { i8, [15 x i8] }, ptr %.sroa.11.0.copyload, i64 %7
+  %10 = getelementptr inbounds [16 x i8], ptr %.sroa.11.0.copyload, i64 %7
   store i8 7, ptr %10, align 8, !noalias !66
   %.sroa.43.0..sroa_idx.i.i13.i = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 9, ptr %.sroa.43.0..sroa_idx.i.i13.i, align 1, !noalias !66
@@ -553,7 +553,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
 
 .thread.i.i:                                      ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.sroa.5.0.i = phi i64 [ %.sroa.5.0.copyload.i, %.preheader.i.i ], [ %11, %.lr.ph.i.i ]
-  %5 = getelementptr inbounds { i8, [15 x i8] }, ptr %.sroa.11.0.copyload.i, i64 %.sroa.5.0.i
+  %5 = getelementptr inbounds [16 x i8], ptr %.sroa.11.0.copyload.i, i64 %.sroa.5.0.i
   store i8 7, ptr %5, align 8, !noalias !105
   %.sroa.43.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 9, ptr %.sroa.43.0..sroa_idx.i.i.i.i, align 1, !noalias !105
@@ -568,7 +568,7 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
   %7 = phi i64 [ %11, %.lr.ph.i.i ], [ %.sroa.5.0.copyload.i, %.preheader.i.i ]
   %8 = phi i16 [ %9, %.lr.ph.i.i ], [ %.sroa.2.0.extract.trunc.i, %.preheader.i.i ]
   %9 = add i16 %8, -1
-  %10 = getelementptr inbounds { i8, [15 x i8] }, ptr %.sroa.11.0.copyload.i, i64 %7
+  %10 = getelementptr inbounds [16 x i8], ptr %.sroa.11.0.copyload.i, i64 %7
   store i8 7, ptr %10, align 8, !noalias !117
   %.sroa.43.0..sroa_idx.i.i13.i.i = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 9, ptr %.sroa.43.0..sroa_idx.i.i13.i.i, align 1, !noalias !117

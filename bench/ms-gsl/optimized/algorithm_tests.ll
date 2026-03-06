@@ -484,9 +484,9 @@ _ZNK3gsl4spanIiLm18446744073709551615EE7subspanEmm.exit134: ; preds = %_ZN7testi
 45:                                               ; preds = %_ZNK3gsl4spanIiLm18446744073709551615EE7subspanEmm.exit, %_ZN7testing15AssertionResultD2Ev.exit161
   %.049323 = phi i64 [ 0, %_ZNK3gsl4spanIiLm18446744073709551615EE7subspanEmm.exit ], [ %132, %_ZN7testing15AssertionResultD2Ev.exit161 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %46 = getelementptr inbounds nuw i32, ptr %1, i64 %.049323
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.049323
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds nuw i32, ptr @__const._ZN30algorithm_tests_same_type_Test8TestBodyEv.src.10, i64 %.049323
+  %48 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN30algorithm_tests_same_type_Test8TestBodyEv.src.10, i64 %.049323
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %47, %49
   %51 = zext i1 %50 to i8
@@ -777,9 +777,9 @@ _ZNK3gsl4spanIiLm10EE7subspanEmm.exit:            ; preds = %_ZN7testing15Assert
 138:                                              ; preds = %_ZNK3gsl4spanIiLm18446744073709551615EE7subspanEmm.exit134, %_ZN7testing15AssertionResultD2Ev.exit202
   %.080324 = phi i64 [ 0, %_ZNK3gsl4spanIiLm18446744073709551615EE7subspanEmm.exit134 ], [ %225, %_ZN7testing15AssertionResultD2Ev.exit202 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %139 = getelementptr inbounds nuw i32, ptr %10, i64 %.080324
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.080324
   %140 = load i32, ptr %139, align 4
-  %141 = getelementptr inbounds nuw i32, ptr @__const._ZN30algorithm_tests_same_type_Test8TestBodyEv.src.10, i64 %.080324
+  %141 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN30algorithm_tests_same_type_Test8TestBodyEv.src.10, i64 %.080324
   %142 = load i32, ptr %141, align 4
   %143 = icmp eq i32 %140, %142
   %144 = zext i1 %143 to i8
@@ -1070,9 +1070,9 @@ _ZNK3gsl4spanIiLm10EE7subspanEmm.exit208:         ; preds = %_ZN7testing15Assert
 231:                                              ; preds = %_ZNK3gsl4spanIiLm10EE7subspanEmm.exit, %_ZN7testing15AssertionResultD2Ev.exit244
   %.081325 = phi i64 [ 0, %_ZNK3gsl4spanIiLm10EE7subspanEmm.exit ], [ %318, %_ZN7testing15AssertionResultD2Ev.exit244 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %232 = getelementptr inbounds nuw i32, ptr %19, i64 %.081325
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.081325
   %233 = load i32, ptr %232, align 4
-  %234 = getelementptr inbounds nuw i32, ptr @__const._ZN30algorithm_tests_same_type_Test8TestBodyEv.src.10, i64 %.081325
+  %234 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN30algorithm_tests_same_type_Test8TestBodyEv.src.10, i64 %.081325
   %235 = load i32, ptr %234, align 4
   %236 = icmp eq i32 %233, %235
   %237 = zext i1 %236 to i8
@@ -1355,9 +1355,9 @@ _ZN7testing15AssertionResultD2Ev.exit244:         ; preds = %_ZN7testing15Assert
 321:                                              ; preds = %_ZNK3gsl4spanIiLm10EE7subspanEmm.exit208, %_ZN7testing15AssertionResultD2Ev.exit278
   %.0326 = phi i64 [ 0, %_ZNK3gsl4spanIiLm10EE7subspanEmm.exit208 ], [ %408, %_ZN7testing15AssertionResultD2Ev.exit278 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %322 = getelementptr inbounds nuw i32, ptr %28, i64 %.0326
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.0326
   %323 = load i32, ptr %322, align 4
-  %324 = getelementptr inbounds nuw i32, ptr @__const._ZN30algorithm_tests_same_type_Test8TestBodyEv.src.10, i64 %.0326
+  %324 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN30algorithm_tests_same_type_Test8TestBodyEv.src.10, i64 %.0326
   %325 = load i32, ptr %324, align 4
   %326 = icmp eq i32 %323, %325
   %327 = zext i1 %326 to i8
@@ -1808,9 +1808,9 @@ _ZN3gsl4copyIsLm5EiLm18446744073709551615EEEvNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.e
 71:                                               ; preds = %_ZN3gsl4copyIsLm18446744073709551615EiLm18446744073709551615EEEvNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit127.preheader, %_ZN7testing15AssertionResultD2Ev.exit171
   %.049345 = phi i64 [ 0, %_ZN3gsl4copyIsLm18446744073709551615EiLm18446744073709551615EEEvNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit127.preheader ], [ %159, %_ZN7testing15AssertionResultD2Ev.exit171 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %72 = getelementptr inbounds nuw i32, ptr %2, i64 %.049345
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.049345
   %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds nuw i16, ptr @__const._ZN36algorithm_tests_compatible_type_Test8TestBodyEv.src.15, i64 %.049345
+  %74 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZN36algorithm_tests_compatible_type_Test8TestBodyEv.src.15, i64 %.049345
   %75 = load i16, ptr %74, align 2
   %76 = sext i16 %75 to i32
   %77 = icmp eq i32 %73, %76
@@ -2133,9 +2133,9 @@ _ZN3gsl4copyIsLm18446744073709551615EiLm18446744073709551615EEEvNS_4spanIT_XT0_E
 178:                                              ; preds = %_ZN3gsl4copyIsLm5EiLm18446744073709551615EEEvNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit146.preheader, %_ZN7testing15AssertionResultD2Ev.exit216
   %.080346 = phi i64 [ 0, %_ZN3gsl4copyIsLm5EiLm18446744073709551615EEEvNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit146.preheader ], [ %266, %_ZN7testing15AssertionResultD2Ev.exit216 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %179 = getelementptr inbounds nuw i32, ptr %11, i64 %.080346
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.080346
   %180 = load i32, ptr %179, align 4
-  %181 = getelementptr inbounds nuw i16, ptr @__const._ZN36algorithm_tests_compatible_type_Test8TestBodyEv.src.15, i64 %.080346
+  %181 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZN36algorithm_tests_compatible_type_Test8TestBodyEv.src.15, i64 %.080346
   %182 = load i16, ptr %181, align 2
   %183 = sext i16 %182 to i32
   %184 = icmp eq i32 %180, %183
@@ -2458,9 +2458,9 @@ _ZN3gsl4copyIsLm5EiLm18446744073709551615EEEvNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.e
 285:                                              ; preds = %_ZN3gsl4copyIsLm18446744073709551615EiLm18446744073709551615EEEvNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit182.preheader, %_ZN7testing15AssertionResultD2Ev.exit266
   %.081347 = phi i64 [ 0, %_ZN3gsl4copyIsLm18446744073709551615EiLm18446744073709551615EEEvNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit182.preheader ], [ %373, %_ZN7testing15AssertionResultD2Ev.exit266 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %286 = getelementptr inbounds nuw i32, ptr %20, i64 %.081347
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.081347
   %287 = load i32, ptr %286, align 4
-  %288 = getelementptr inbounds nuw i16, ptr @__const._ZN36algorithm_tests_compatible_type_Test8TestBodyEv.src.15, i64 %.081347
+  %288 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZN36algorithm_tests_compatible_type_Test8TestBodyEv.src.15, i64 %.081347
   %289 = load i16, ptr %288, align 2
   %290 = sext i16 %289 to i32
   %291 = icmp eq i32 %287, %290
@@ -2744,9 +2744,9 @@ _ZN7testing15AssertionResultD2Ev.exit266:         ; preds = %_ZN7testing15Assert
 376:                                              ; preds = %_ZN3gsl4copyIsLm5EiLm18446744073709551615EEEvNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit232.preheader, %_ZN7testing15AssertionResultD2Ev.exit300
   %.0348 = phi i64 [ 0, %_ZN3gsl4copyIsLm5EiLm18446744073709551615EEEvNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit232.preheader ], [ %464, %_ZN7testing15AssertionResultD2Ev.exit300 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %377 = getelementptr inbounds nuw i32, ptr %29, i64 %.0348
+  %377 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.0348
   %378 = load i32, ptr %377, align 4
-  %379 = getelementptr inbounds nuw i16, ptr @__const._ZN36algorithm_tests_compatible_type_Test8TestBodyEv.src.15, i64 %.0348
+  %379 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZN36algorithm_tests_compatible_type_Test8TestBodyEv.src.15, i64 %.0348
   %380 = load i16, ptr %379, align 2
   %381 = sext i16 %380 to i32
   %382 = icmp eq i32 %378, %381

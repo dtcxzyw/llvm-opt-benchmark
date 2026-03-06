@@ -1610,7 +1610,7 @@ define hidden { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h96
   %.not.i.i.i = icmp ugt i64 %17, %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load ptr, ptr %18, align 8, !noalias !227, !nonnull !10
-  %20 = getelementptr inbounds { ptr, i64 }, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds [16 x i8], ptr %19, i64 %indvars.iv
   br i1 %.not.i.i.i, label %21, label %.backedge
 
 21:                                               ; preds = %13
@@ -4278,7 +4278,7 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
   %30 = zext i32 %27 to i64
   %.sroa.3.0.i.i = select i1 %29, i64 0, i64 %30
   %.sroa.0.0.i.i = select i1 %29, ptr @anon.90c1904676608adc7b7fc776e0ff2b83.11.llvm.3868854263495710559, ptr %28
-  %31 = getelementptr inbounds nuw { { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [1 x i32], ptr }, {} }, ptr %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i
+  %31 = getelementptr inbounds nuw [128 x i8], ptr %.sroa.0.0.i.i, i64 %.sroa.3.0.i.i
   %32 = getelementptr inbounds i8, ptr %2, i64 %3
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i, i8 0, i64 24, i1 false), !noalias !620
@@ -5142,7 +5142,7 @@ define { ptr, i64 } @"_ZN129_$LT$diesel..mysql..connection..stmt..iterator..Mysq
 
 15:                                               ; preds = %1
   %.sroa.0.0.i = select i1 %10, ptr @anon.90c1904676608adc7b7fc776e0ff2b83.11.llvm.3868854263495710559, ptr %9
-  %16 = getelementptr inbounds nuw { { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [1 x i32], ptr }, {} }, ptr %.sroa.0.0.i, i64 %13
+  %16 = getelementptr inbounds nuw [128 x i8], ptr %.sroa.0.0.i, i64 %13
   %.val = load ptr, ptr %16, align 8, !noundef !10
   %17 = icmp eq ptr %.val, null
   br i1 %17, label %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata10field_name17h9cc4d80927ed6ee9E.exit, label %18
@@ -5203,7 +5203,7 @@ define noundef zeroext i1 @"_ZN129_$LT$diesel..mysql..connection..stmt..iterator
 "_ZN101_$LT$diesel..mysql..connection..bind..OutputBinds$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h667f4de3bf8bd3b5E.exit": ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !alias.scope !819, !noalias !820, !nonnull !10, !noundef !10
-  %11 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %10, i64 %4
+  %11 = getelementptr inbounds [40 x i8], ptr %10, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 34
   %13 = load i8, ptr %12, align 2, !alias.scope !826, !noundef !10
   %14 = icmp ne i8 %13, 0
@@ -5229,7 +5229,7 @@ define void @"_ZN129_$LT$diesel..mysql..connection..stmt..iterator..MysqlField$u
 "_ZN101_$LT$diesel..mysql..connection..bind..OutputBinds$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h667f4de3bf8bd3b5E.exit": ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8, !alias.scope !835, !noalias !836, !nonnull !10, !noundef !10
-  %12 = getelementptr inbounds { ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }, ptr %11, i64 %5
+  %12 = getelementptr inbounds [40 x i8], ptr %11, i64 %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !842)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !845)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 34
@@ -7514,7 +7514,7 @@ define void @_ZN6diesel6sqlite10connection4stmt14BoundStatement12bind_buffers17h
 48:                                               ; preds = %.noexc53, %42
   %49 = phi i64 [ %.pre.i, %.noexc53 ], [ %43, %42 ]
   %50 = load ptr, ptr %25, align 8, !alias.scope !1064, !noalias !1067, !nonnull !10, !noundef !10
-  %51 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %50, i64 %49
+  %51 = getelementptr inbounds [24 x i8], ptr %50, i64 %49
   store i32 %27, ptr %51, align 8
   %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %39, ptr %.sroa.467.0..sroa_idx, align 8
@@ -7554,7 +7554,7 @@ define void @_ZN6diesel6sqlite10connection4stmt14BoundStatement12bind_buffers17h
 65:                                               ; preds = %.noexc55, %60
   %66 = phi i64 [ %.pre.i54, %.noexc55 ], [ %61, %60 ]
   %67 = load ptr, ptr %25, align 8, !alias.scope !1076, !noalias !1079, !nonnull !10, !noundef !10
-  %68 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %67, i64 %66
+  %68 = getelementptr inbounds [24 x i8], ptr %67, i64 %66
   store i32 %27, ptr %68, align 8
   %.sroa.471.0..sroa_idx = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr null, ptr %.sroa.471.0..sroa_idx, align 8
@@ -8030,7 +8030,7 @@ define hidden { i64, i64 } @_ZN6diesel6sqlite10connection4stmt12StatementUse21in
   %.not.i.i.i.i = icmp ugt i64 %14, %indvars.iv.i
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8, !noalias !1155, !nonnull !10
-  %17 = getelementptr inbounds nuw { ptr, i64 }, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv.i
   br i1 %.not.i.i.i.i, label %18, label %.backedge.i
 
 18:                                               ; preds = %11
@@ -8077,7 +8077,7 @@ define hidden { ptr, i64 } @_ZN6diesel6sqlite10connection4stmt12StatementUse10fi
   %.not = icmp ugt i64 %6, %7
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !10
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %9, i64 %7
+  %10 = getelementptr inbounds [16 x i8], ptr %9, i64 %7
   br i1 %.not, label %11, label %14
 
 11:                                               ; preds = %2
@@ -8947,10 +8947,10 @@ define internal noundef zeroext i1 @"_ZN70_$LT$diesel..result..DatabaseErrorKind
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !1274, !noundef !10
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E.37", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E.37", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -8961,10 +8961,10 @@ define internal noundef zeroext i1 @"_ZN72_$LT$diesel..sqlite..backend..SqliteTy
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !1275, !noundef !10
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN72_$LT$diesel..sqlite..backend..SqliteType$u20$as$u20$core..fmt..Debug$GT$3fmt17hc730294746908b40E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN72_$LT$diesel..sqlite..backend..SqliteType$u20$as$u20$core..fmt..Debug$GT$3fmt17hc730294746908b40E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN72_$LT$diesel..sqlite..backend..SqliteType$u20$as$u20$core..fmt..Debug$GT$3fmt17hc730294746908b40E.38", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN72_$LT$diesel..sqlite..backend..SqliteType$u20$as$u20$core..fmt..Debug$GT$3fmt17hc730294746908b40E.38", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

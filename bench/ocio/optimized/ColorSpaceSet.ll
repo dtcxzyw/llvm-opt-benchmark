@@ -664,7 +664,7 @@ define noundef ptr @_ZNK19OpenColorIO_v2_5dev13ColorSpaceSet24getColorSpaceNameB
 
 14:                                               ; preds = %4
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw %"class.std::shared_ptr.6", ptr %8, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !36
   %18 = tail call noundef ptr @_ZNK19OpenColorIO_v2_5dev10ColorSpace7getNameEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #23
   br label %_ZNK19OpenColorIO_v2_5dev13ColorSpaceSet4Impl7getNameEi.exit
@@ -699,7 +699,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev10ColorSpaceELN9__gnu_cxx12_Lock_polic
 
 15:                                               ; preds = %6
   %16 = zext nneg i32 %2 to i64
-  %17 = getelementptr inbounds nuw %"class.std::shared_ptr.6", ptr %9, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !36, !noalias !39
   store ptr %18, ptr %0, align 8, !tbaa !42, !alias.scope !39
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -756,7 +756,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev10ColorSpaceELN9__gnu_cxx12_Lock_polic
 
 16:                                               ; preds = %7
   %17 = zext nneg i32 %5 to i64
-  %18 = getelementptr inbounds nuw %"class.std::shared_ptr.6", ptr %10, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !36, !noalias !50
   store ptr %19, ptr %0, align 8, !tbaa !42, !alias.scope !50
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -828,7 +828,7 @@ define linkonce_odr hidden noundef i32 @_ZNK19OpenColorIO_v2_5dev13ColorSpaceSet
   %19 = phi ptr [ %13, %.lr.ph117 ], [ %93, %._crit_edge ]
   %.033114 = phi i64 [ 0, %.lr.ph117 ], [ %91, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %20 = getelementptr inbounds nuw %"class.std::shared_ptr.6", ptr %19, i64 %.033114
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %.033114
   %21 = load ptr, ptr %20, align 8, !tbaa !36
   %22 = call noundef ptr @_ZNK19OpenColorIO_v2_5dev10ColorSpace7getNameEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #23
   store ptr %14, ptr %6, align 8, !tbaa !51
@@ -934,7 +934,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %46,
 
 52:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %53 = load ptr, ptr %0, align 8, !tbaa !25
-  %54 = getelementptr inbounds nuw %"class.std::shared_ptr.6", ptr %53, i64 %.033114
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %.033114
   %55 = load ptr, ptr %54, align 8, !tbaa !36
   %56 = call noundef i64 @_ZNK19OpenColorIO_v2_5dev10ColorSpace13getNumAliasesEv(ptr noundef nonnull align 8 dereferenceable(8) %55) #23
   %.not40111.not = icmp eq i64 %56, 0
@@ -949,7 +949,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %46,
   %.0112 = phi i64 [ %58, %57 ], [ 0, %52 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %59 = load ptr, ptr %0, align 8, !tbaa !25
-  %60 = getelementptr inbounds nuw %"class.std::shared_ptr.6", ptr %59, i64 %.033114
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %.033114
   %61 = load ptr, ptr %60, align 8, !tbaa !36
   %62 = call noundef ptr @_ZNK19OpenColorIO_v2_5dev10ColorSpace8getAliasEm(ptr noundef nonnull align 8 dereferenceable(8) %61, i64 noundef %.0112) #23
   store ptr %16, ptr %7, align 8, !tbaa !51
@@ -1164,7 +1164,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev13ColorSpaceSet4Impl3ad
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = sext i32 %22 to i64
   %25 = load ptr, ptr %0, align 8, !tbaa !25
-  %26 = getelementptr inbounds nuw %"class.std::shared_ptr.6", ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8, !tbaa !36
   %28 = tail call noundef ptr @_ZNK19OpenColorIO_v2_5dev10ColorSpace7getNameEv(ptr noundef nonnull align 8 dereferenceable(8) %27) #23
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1310,7 +1310,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit74: ; preds = %_ZStl
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit76: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit74
   %75 = load ptr, ptr %0, align 8, !tbaa !25
-  %76 = getelementptr inbounds nuw %"class.std::shared_ptr.6", ptr %75, i64 %24
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %75, i64 %24
   %77 = load ptr, ptr %76, align 8, !tbaa !36
   %78 = call noundef ptr @_ZNK19OpenColorIO_v2_5dev10ColorSpace7getNameEv(ptr noundef nonnull align 8 dereferenceable(8) %77) #23
   %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %78)
@@ -1474,7 +1474,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit95: ; preds = %_ZStl
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit97: ; preds = %128
   %130 = sext i32 %121 to i64
   %131 = load ptr, ptr %0, align 8, !tbaa !25
-  %132 = getelementptr inbounds nuw %"class.std::shared_ptr.6", ptr %131, i64 %130
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %131, i64 %130
   %133 = load ptr, ptr %132, align 8, !tbaa !36
   %134 = call noundef ptr @_ZNK19OpenColorIO_v2_5dev10ColorSpace7getNameEv(ptr noundef nonnull align 8 dereferenceable(8) %133) #23
   %135 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %134)
@@ -1546,7 +1546,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %14
   %155 = load ptr, ptr %1, align 8, !tbaa !42
   call void @_ZNK19OpenColorIO_v2_5dev10ColorSpace18createEditableCopyEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.6") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %155)
   %156 = load ptr, ptr %0, align 8, !tbaa !25
-  %157 = getelementptr inbounds nuw %"class.std::shared_ptr.6", ptr %156, i64 %.044
+  %157 = getelementptr inbounds nuw [16 x i8], ptr %156, i64 %.044
   %158 = load ptr, ptr %11, align 8, !tbaa !36
   %159 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %160 = load ptr, ptr %159, align 8, !tbaa !11
@@ -2207,7 +2207,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev13ColorSpaceSetELN9__gnu_cxx12_Lock_po
   %28 = ashr i64 %sext, 32
   %.not.i.i12 = icmp slt i64 %indvars.iv, %28
   call void @llvm.assume(i1 %.not.i.i12)
-  %29 = getelementptr inbounds nuw %"class.std::shared_ptr.6", ptr %23, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !36, !noalias !75
   store ptr %30, ptr %5, align 8, !tbaa !42, !alias.scope !75
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -2431,7 +2431,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev13ColorSpaceSetELN9__gnu_cxx12_Lock_po
   %28 = ashr i64 %sext, 32
   %.not.i.i12 = icmp slt i64 %indvars.iv, %28
   call void @llvm.assume(i1 %.not.i.i12)
-  %29 = getelementptr inbounds nuw %"class.std::shared_ptr.6", ptr %23, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !36, !noalias !83
   store ptr %30, ptr %5, align 8, !tbaa !42, !alias.scope !83
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -2699,7 +2699,7 @@ _ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev10ColorSpaceEESaIS3_EE11_S_rel
 _ZNSt12_Vector_baseISt10shared_ptrIN19OpenColorIO_v2_5dev10ColorSpaceEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev10ColorSpaceEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !25
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !28
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.6", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !34
   ret void
 }

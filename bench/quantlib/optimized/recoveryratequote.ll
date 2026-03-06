@@ -401,7 +401,7 @@ for.body.i:                                       ; preds = %invoke.cont.i, %ent
   call void @llvm.lifetime.start.p0(ptr nonnull %isdaType.i), !noalias !23
   %conv.i = trunc nuw nsw i64 %i.04.i to i32
   store i32 %conv.i, ptr %isdaType.i, align 4, !tbaa !34, !noalias !23
-  %arrayidx.i = getelementptr inbounds nuw double, ptr @_ZN8QuantLib17RecoveryRateQuote18IsdaConvRecoveriesE, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8QuantLib17RecoveryRateQuote18IsdaConvRecoveriesE, i64 %i.04.i
   %1 = load double, ptr %arrayidx.i, align 8, !tbaa !35, !noalias !23
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN8QuantLib9SeniorityEdSt4lessIS1_ESaISt4pairIKS1_dEEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %isdaType.i)
           to label %invoke.cont.i unwind label %lpad.i

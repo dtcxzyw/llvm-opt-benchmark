@@ -194,7 +194,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm8toStringENS_10TensorTypeE(i32 noundef %0) local_unnamed_addr #3 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZN4llvmL15TensorTypeNamesB5cxx11E, i64 %2
+  %3 = getelementptr inbounds nuw [32 x i8], ptr @_ZN4llvmL15TensorTypeNamesB5cxx11E, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !12
@@ -333,7 +333,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %55 = load i32, ptr %54, align 4, !tbaa !20
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZN4llvmL15TensorTypeNamesB5cxx11E, i64 %56
+  %57 = getelementptr inbounds nuw [32 x i8], ptr @_ZN4llvmL15TensorTypeNamesB5cxx11E, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !3
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %60 = load i64, ptr %59, align 8, !tbaa !12
@@ -5575,8 +5575,8 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIlSaIlE
 
 29:                                               ; preds = %.lr.ph, %49
   %.01528 = phi i64 [ 0, %.lr.ph ], [ %50, %49 ]
-  %30 = getelementptr inbounds nuw %"class.llvm::json::Value", ptr %22, i64 %.01528
-  %31 = getelementptr inbounds nuw i64, ptr %28, i64 %.01528
+  %30 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %.01528
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.01528
   %32 = trunc i64 %.01528 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8
@@ -5735,9 +5735,9 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit: ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !32
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !31
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !34
   br label %41
 

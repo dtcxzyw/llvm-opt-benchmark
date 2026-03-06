@@ -45,8 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::lts_20240722::Span" = type { ptr, i64 }
 %"class.grpc_core::RefCountedPtr.14" = type { ptr }
 %"class.grpc_core::RefCountedPtr.15" = type { ptr }
-%struct.grpc_ssl_pem_key_cert_pair = type { ptr, ptr }
-%struct.tsi_ssl_pem_key_cert_pair = type { ptr, ptr }
 %"class.absl::lts_20240722::log_internal::CheckOpMessageBuilder" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -1980,7 +1978,7 @@ define noundef ptr @_Z35grpc_convert_grpc_to_tsi_cert_pairsPK26grpc_ssl_pem_key_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %.02347 = phi i64 [ %30, %24 ], [ 0, %.lr.ph.preheader ]
-  %14 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %0, i64 %.02347
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.02347
   %15 = load ptr, ptr %14, align 8, !tbaa !30
   %.not.i31 = icmp eq ptr %15, null
   br i1 %.not.i31, label %19, label %16, !prof !31
@@ -2003,7 +2001,7 @@ define noundef ptr @_Z35grpc_convert_grpc_to_tsi_cert_pairsPK26grpc_ssl_pem_key_
 
 24:                                               ; preds = %16
   %25 = tail call ptr @gpr_strdup(ptr noundef nonnull %18)
-  %26 = getelementptr inbounds nuw %struct.tsi_ssl_pem_key_cert_pair, ptr %13, i64 %.02347
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.02347
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %25, ptr %27, align 8, !tbaa !39
   %28 = load ptr, ptr %14, align 8, !tbaa !41
@@ -2082,7 +2080,7 @@ define ptr @grpc_ssl_server_certificate_config_create(ptr noundef %0, ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %.051 = phi i64 [ %39, %30 ], [ 0, %.lr.ph.preheader ]
-  %20 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %1, i64 %.051
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.051
   %21 = load ptr, ptr %20, align 8, !tbaa !30
   %.not.i35 = icmp eq ptr %21, null
   br i1 %.not.i35, label %25, label %22, !prof !31
@@ -2106,13 +2104,13 @@ define ptr @grpc_ssl_server_certificate_config_create(ptr noundef %0, ptr nounde
 30:                                               ; preds = %22
   %31 = tail call ptr @gpr_strdup(ptr noundef nonnull %24)
   %32 = load ptr, ptr %7, align 8, !tbaa !126
-  %33 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %32, i64 %.051
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %.051
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %31, ptr %34, align 8, !tbaa !37
   %35 = load ptr, ptr %20, align 8, !tbaa !41
   %36 = tail call ptr @gpr_strdup(ptr noundef %35)
   %37 = load ptr, ptr %7, align 8, !tbaa !126
-  %38 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %37, i64 %.051
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %.051
   store ptr %36, ptr %38, align 8, !tbaa !41
   %39 = add nuw i64 %.051, 1
   %exitcond.not = icmp eq i64 %39, %2
@@ -2152,11 +2150,11 @@ define void @grpc_ssl_server_certificate_config_destroy(ptr noundef %0) local_un
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.011 = phi i64 [ %15, %.lr.ph ], [ 0, %.preheader ]
   %8 = load ptr, ptr %0, align 8, !tbaa !126
-  %9 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %8, i64 %.011
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %.011
   %10 = load ptr, ptr %9, align 8, !tbaa !41
   tail call void @gpr_free(ptr noundef %10)
   %11 = load ptr, ptr %0, align 8, !tbaa !126
-  %12 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %11, i64 %.011
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %.011
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !37
   tail call void @gpr_free(ptr noundef %14)
@@ -2554,11 +2552,11 @@ define void @grpc_ssl_server_credentials_options_destroy(ptr noundef %0) local_u
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.011.i = phi i64 [ %21, %.lr.ph.i ], [ 0, %.preheader.i ]
   %14 = load ptr, ptr %7, align 8, !tbaa !126
-  %15 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %14, i64 %.011.i
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %.011.i
   %16 = load ptr, ptr %15, align 8, !tbaa !41
   tail call void @gpr_free(ptr noundef %16)
   %17 = load ptr, ptr %7, align 8, !tbaa !126
-  %18 = getelementptr inbounds nuw %struct.grpc_ssl_pem_key_cert_pair, ptr %17, i64 %.011.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %.011.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !37
   tail call void @gpr_free(ptr noundef %20)
@@ -2790,7 +2788,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !154
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !152
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !155
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 

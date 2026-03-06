@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.b3KernelArgData = type { i32, i32, i32, i32, %union.anon }
 %union.anon = type { ptr, [8 x i8] }
-%struct.b3BufferInfoCL = type <{ ptr, i8, [7 x i8] }>
 
 $__clang_call_terminate = comdat any
 
@@ -135,7 +134,7 @@ define dso_local void @_ZN12b3LauncherCLD2Ev(ptr noundef nonnull align 8 capture
   %13 = phi i32 [ %3, %.lr.ph ], [ %23, %22 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %14 = load ptr, ptr %5, align 8, !tbaa !31
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !39
   %17 = icmp eq ptr %16, null
   br i1 %17, label %22, label %18
@@ -348,9 +347,9 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i: ; preds = %12
 
 20:                                               ; preds = %20, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %20 ]
-  %21 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %15, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %19, align 8, !tbaa !25
-  %23 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %22, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %21, ptr noundef nonnull align 16 dereferenceable(32) %23, i64 32, i1 false), !tbaa.struct !53
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -390,7 +389,7 @@ _ZN20b3AlignedObjectArrayI15b3KernelArgDataE7reserveEi.exit: ; preds = %_ZN20b3A
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %33 = sext i32 %30 to i64
-  %34 = getelementptr inbounds %struct.b3KernelArgData, ptr %32, i64 %33
+  %34 = getelementptr inbounds [32 x i8], ptr %32, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %34, ptr noundef nonnull align 16 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !53
   %35 = load i32, ptr %3, align 4, !tbaa !26
   %36 = add nsw i32 %35, 1
@@ -432,7 +431,7 @@ define dso_local void @_ZN12b3LauncherCL10setBuffersEP14b3BufferInfoCLi(ptr noun
   %20 = load i32, ptr %9, align 8, !tbaa !23
   store i32 %20, ptr %10, align 4, !tbaa !45
   store i32 1, ptr %4, align 16, !tbaa !47
-  %21 = getelementptr inbounds nuw %struct.b3BufferInfoCL, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !55
   store ptr %22, ptr %11, align 16, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -460,7 +459,7 @@ define dso_local void @_ZN12b3LauncherCL10setBuffersEP14b3BufferInfoCLi(ptr noun
   %35 = load i32, ptr %9, align 8, !tbaa !23
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr %9, align 8, !tbaa !23
-  %37 = getelementptr inbounds nuw %struct.b3BufferInfoCL, ptr %1, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %38 = call i32 %33(ptr noundef %34, i32 noundef %35, i64 noundef 8, ptr noundef %37)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -676,8 +675,8 @@ _ZN20b3AlignedObjectArrayIP13b3OpenCLArrayIhEE8allocateEi.exit.i.i: ; preds = %1
 
 109:                                              ; preds = %109, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %109 ]
-  %110 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv.i.i.i
-  %111 = getelementptr inbounds nuw ptr, ptr %.pre35, i64 %indvars.iv.i.i.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv.i.i.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.pre35, i64 %indvars.iv.i.i.i
   %112 = load ptr, ptr %111, align 8, !tbaa !39
   store ptr %112, ptr %110, align 8, !tbaa !39
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -718,7 +717,7 @@ _ZN20b3AlignedObjectArrayIP13b3OpenCLArrayIhEE9push_backERKS2_.exit: ; preds = %
   %117 = phi i32 [ %.pre.i, %_ZN20b3AlignedObjectArrayIP13b3OpenCLArrayIhEE10deallocateEv.exit.i.i ], [ %95, %98 ], [ %95, %_ZN13b3OpenCLArrayIhE19copyFromHostPointerEPKhmmb.exit ]
   %118 = load ptr, ptr %12, align 8, !tbaa !31
   %119 = sext i32 %117 to i64
-  %120 = getelementptr inbounds ptr, ptr %118, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr %118, i64 %119
   store ptr %24, ptr %120, align 8, !tbaa !39
   %121 = add nsw i32 %117, 1
   store i32 %121, ptr %10, align 4, !tbaa !32
@@ -870,7 +869,7 @@ define dso_local noundef i32 @_ZN12b3LauncherCL18serializeArgumentsEPhi(ptr noun
   %12 = sext i32 %.02529 to i64
   %13 = getelementptr inbounds i8, ptr %1, i64 %12
   %14 = load ptr, ptr %9, align 8, !tbaa !25
-  %15 = getelementptr inbounds nuw %struct.b3KernelArgData, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, ptr noundef nonnull align 16 dereferenceable(32) %15, i64 32, i1 false), !tbaa.struct !53
   %16 = add i32 %.02529, 32
   %17 = load i32, ptr %13, align 16, !tbaa !47

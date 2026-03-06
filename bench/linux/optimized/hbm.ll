@@ -25,7 +25,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mei_hbm_pg_r
 %struct.hbm_capability_request = type { i8, [3 x i8] }
 %struct.hbm_dma_setup_request = type { i8, [3 x i8], [3 x %struct.hbm_dma_mem_dscr] }
 %struct.hbm_dma_mem_dscr = type { i32, i32, i32 }
-%struct.mei_dma_dscr = type { ptr, i64, i64 }
 %struct.hbm_host_enum_request = type { i8, i8, [2 x i8] }
 %struct.hbm_props_request = type { i8, i8, [2 x i8] }
 
@@ -1968,12 +1967,12 @@ define internal fastcc i32 @mei_hbm_dma_setup_req(ptr noundef %0) unnamed_addr #
 
 7:                                                ; preds = %7, %1
   %8 = phi i64 [ 0, %1 ], [ %21, %7 ]
-  %9 = getelementptr %struct.mei_dma_dscr, ptr %5, i64 %8
+  %9 = getelementptr [24 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = lshr i64 %11, 32
   %13 = trunc nuw i64 %12 to i32
-  %14 = getelementptr %struct.hbm_dma_mem_dscr, ptr %6, i64 %8
+  %14 = getelementptr [12 x i8], ptr %6, i64 %8
   store i32 %13, ptr %14, align 1
   %15 = trunc i64 %11 to i32
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4

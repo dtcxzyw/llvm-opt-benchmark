@@ -8720,7 +8720,7 @@ common.resume.i.i.i:                              ; preds = %283, %258, %238, %2
 
 194:                                              ; preds = %189, %185
   %195 = load ptr, ptr %165, align 8, !alias.scope !2954, !noalias !2957, !nonnull !5, !noundef !5
-  %196 = getelementptr inbounds { i64, [8 x i64] }, ptr %195, i64 %186
+  %196 = getelementptr inbounds [72 x i8], ptr %195, i64 %186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %196, ptr noundef nonnull align 8 dereferenceable(72) %9, i64 72, i1 false), !noalias !2921
   %197 = add i64 %186, 1
   store i64 %197, ptr %166, align 8, !alias.scope !2954, !noalias !2957
@@ -9944,7 +9944,7 @@ common.resume.i.i.i:                              ; preds = %283, %258, %238, %2
 
 194:                                              ; preds = %189, %185
   %195 = load ptr, ptr %165, align 8, !alias.scope !3351, !noalias !3354, !nonnull !5, !noundef !5
-  %196 = getelementptr inbounds { i64, [8 x i64] }, ptr %195, i64 %186
+  %196 = getelementptr inbounds [72 x i8], ptr %195, i64 %186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %196, ptr noundef nonnull align 8 dereferenceable(72) %9, i64 72, i1 false), !noalias !3319
   %197 = add i64 %186, 1
   store i64 %197, ptr %166, align 8, !alias.scope !3351, !noalias !3354

@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogOutputList = type <{ [6 x ptr], i32, [4 x i8] }>
 %class.LogDecorators = type { i32 }
 %"class.os::PageSizes" = type { i64 }
-%struct.JavaVMOption = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %class.fileStream = type <{ %class.outputStream, ptr, i8, [7 x i8] }>
 %class.outputStream = type { ptr, i32, i8, i32, i64, %class.TimeStamp, ptr, i64 }
@@ -1016,7 +1015,7 @@ define hidden void @_ZN9Arguments36process_sun_java_launcher_propertiesEP14JavaV
   %7 = phi i32 [ %3, %.lr.ph ], [ %24, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit8 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit8 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %.val = load ptr, ptr %9, align 8
   %10 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(21) @.str.18, i64 noundef 20) #31
   %11 = icmp eq i32 %10, 0
@@ -1696,7 +1695,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments16is_obsolete_flagEPKcP11JDK_Vers
 
 7:                                                ; preds = %.lr.ph.i
   %8 = add i64 %.012.i, 1
-  %9 = getelementptr inbounds %struct.SpecialFlag, ptr @_ZL17special_jvm_flags, i64 %8
+  %9 = getelementptr inbounds [72 x i8], ptr @_ZL17special_jvm_flags, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not.not.i = icmp eq ptr %10, null
   br i1 %.not.not.i, label %_ZL19lookup_special_flagPKcR11SpecialFlag.exit.thread, label %.lr.ph.i, !llvm.loop !9
@@ -1709,7 +1708,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments16is_obsolete_flagEPKcP11JDK_Vers
   br i1 %13, label %14, label %7
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds %struct.SpecialFlag, ptr @_ZL17special_jvm_flags, i64 %.012.i
+  %15 = getelementptr inbounds [72 x i8], ptr @_ZL17special_jvm_flags, i64 %.012.i
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 28
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -1770,7 +1769,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN9Arguments18is_deprecated_flagEPK
 
 8:                                                ; preds = %.lr.ph.i
   %9 = add i64 %.012.i, 1
-  %10 = getelementptr inbounds %struct.SpecialFlag, ptr @_ZL17special_jvm_flags, i64 %9
+  %10 = getelementptr inbounds [72 x i8], ptr @_ZL17special_jvm_flags, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not.not.i = icmp eq ptr %11, null
   br i1 %.not.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !9
@@ -1783,7 +1782,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN9Arguments18is_deprecated_flagEPK
   br i1 %14, label %15, label %8
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds %struct.SpecialFlag, ptr @_ZL17special_jvm_flags, i64 %.012.i
+  %16 = getelementptr inbounds [72 x i8], ptr @_ZL17special_jvm_flags, i64 %.012.i
   %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 12
@@ -2762,7 +2761,7 @@ define hidden void @_ZN9Arguments10add_stringEPPPcPiPKc(ptr noundef captures(non
   %18 = load ptr, ptr %0, align 8
   %19 = load i32, ptr %1, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %18, i64 %20
   store ptr %17, ptr %21, align 8
   store i32 %7, ptr %1, align 4
   br label %22
@@ -2804,7 +2803,7 @@ define hidden void @_ZN9Arguments14build_jvm_argsEPKc(ptr noundef %0) local_unna
   %16 = load ptr, ptr @_ZN9Arguments15_jvm_args_arrayE, align 8
   %17 = load i32, ptr @_ZN9Arguments13_num_jvm_argsE, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %16, i64 %18
   store ptr %15, ptr %19, align 8
   store i32 %5, ptr @_ZN9Arguments13_num_jvm_argsE, align 4
   br label %_ZN9Arguments10add_stringEPPPcPiPKc.exit
@@ -2842,7 +2841,7 @@ define hidden void @_ZN9Arguments15build_jvm_flagsEPKc(ptr noundef %0) local_unn
   %16 = load ptr, ptr @_ZN9Arguments16_jvm_flags_arrayE, align 8
   %17 = load i32, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %16, i64 %18
   store ptr %15, ptr %19, align 8
   store i32 %5, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
   br label %_ZN9Arguments10add_stringEPPPcPiPKc.exit
@@ -2869,7 +2868,7 @@ define hidden noundef ptr @_ZN9Arguments21build_resource_stringEPPci(ptr noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02732 = phi i64 [ 0, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #31
   %9 = add i64 %.02732, 1
@@ -2891,7 +2890,7 @@ define hidden noundef ptr @_ZN9Arguments21build_resource_stringEPPci(ptr noundef
   %indvars.iv39 = phi i64 [ 0, %.lr.ph37.preheader ], [ %indvars.iv.next40, %.lr.ph37 ]
   %.02634 = phi ptr [ %12, %.lr.ph37.preheader ], [ %18, %.lr.ph37 ]
   %.133 = phi i64 [ %10, %.lr.ph37.preheader ], [ %19, %.lr.ph37 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv39
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv39
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #31
   %16 = add i64 %15, 1
@@ -2925,7 +2924,7 @@ define hidden void @_ZN9Arguments8print_onEP12outputStream(ptr noundef nonnull %
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %4 ]
   %7 = load ptr, ptr @_ZN9Arguments16_jvm_flags_arrayE, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.64, ptr noundef %9) #32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2952,7 +2951,7 @@ _ZN9Arguments18print_jvm_flags_onEP12outputStream.exit: ; preds = %.lr.ph.i, %4
 .lr.ph.i17:                                       ; preds = %16, %.lr.ph.i17
   %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i19, %.lr.ph.i17 ], [ 0, %16 ]
   %19 = load ptr, ptr @_ZN9Arguments15_jvm_args_arrayE, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i18
   %21 = load ptr, ptr %20, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.64, ptr noundef %21) #32
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
@@ -3012,7 +3011,7 @@ define hidden void @_ZN9Arguments18print_jvm_flags_onEP12outputStream(ptr nounde
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @_ZN9Arguments16_jvm_flags_arrayE, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.64, ptr noundef %6) #32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3036,7 +3035,7 @@ define hidden void @_ZN9Arguments17print_jvm_args_onEP12outputStream(ptr noundef
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @_ZN9Arguments15_jvm_args_arrayE, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.64, ptr noundef %6) #32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3064,7 +3063,7 @@ define hidden void @_ZN9Arguments16print_summary_onEP12outputStream(ptr noundef 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %4 ]
   %7 = load ptr, ptr @_ZN9Arguments16_jvm_flags_arrayE, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.64, ptr noundef %9) #32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3086,7 +3085,7 @@ _ZN9Arguments18print_jvm_flags_onEP12outputStream.exit: ; preds = %.lr.ph.i, %4
 .lr.ph.i7:                                        ; preds = %13, %.lr.ph.i7
   %indvars.iv.i8 = phi i64 [ %indvars.iv.next.i9, %.lr.ph.i7 ], [ 0, %13 ]
   %16 = load ptr, ptr @_ZN9Arguments15_jvm_args_arrayE, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i8
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i8
   %18 = load ptr, ptr %17, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.64, ptr noundef %18) #32
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
@@ -3390,7 +3389,7 @@ _ZN9Arguments15build_jvm_flagsEPKc.exit:          ; preds = %56, %58
   %61 = load ptr, ptr @_ZN9Arguments16_jvm_flags_arrayE, align 8
   %62 = load i32, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %61, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %61, i64 %63
   store ptr %60, ptr %64, align 8
   store i32 %51, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
   br label %70
@@ -3459,7 +3458,7 @@ _ZN9Arguments15build_jvm_flagsEPKc.exit53:        ; preds = %87, %89
   %92 = load ptr, ptr @_ZN9Arguments16_jvm_flags_arrayE, align 8
   %93 = load i32, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds ptr, ptr %92, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %92, i64 %94
   store ptr %91, ptr %95, align 8
   store i32 %82, ptr @_ZN9Arguments14_num_jvm_flagsE, align 4
   br label %._crit_edge.thread
@@ -5210,7 +5209,7 @@ define hidden noundef range(i32 -6, 1) i32 @_ZN9Arguments22parse_each_vm_init_ar
 65:                                               ; preds = %.lr.ph, %.critedge159
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge159 ]
   %66 = load ptr, ptr %61, align 8
-  %67 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %indvars.iv
   store ptr %67, ptr %44, align 8
   %.val200 = load ptr, ptr %67, align 8
   %68 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.val200, ptr noundef nonnull dereferenceable(18) @.str.119, i64 noundef 17) #31
@@ -5266,7 +5265,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit232: ; preds = %_ZL12match_optionPK
   %89 = load ptr, ptr @_ZN9Arguments15_jvm_args_arrayE, align 8
   %90 = load i32, ptr @_ZN9Arguments13_num_jvm_argsE, align 4
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr %89, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %89, i64 %91
   store ptr %88, ptr %92, align 8
   store i32 %78, ptr @_ZN9Arguments13_num_jvm_argsE, align 4
   %.pre = load ptr, ptr %44, align 8
@@ -7204,7 +7203,7 @@ _ZN26GrowableArrayWithAllocatorIP15ModulePatchPath13GrowableArrayIS1_EE4pushERKS
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %38 to i64
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %41, i64 %42
   store ptr %25, ptr %43, align 8
   ret void
 }
@@ -7674,8 +7673,8 @@ define hidden noundef range(i32 -4, 1) i32 @_ZN9Arguments20parse_options_bufferE
 
 .lr.ph.i.i.i:                                     ; preds = %39, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %39 ]
-  %56 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %46, i64 %indvars.iv.i.i.i
-  %57 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %.sroa.17.0104, i64 %indvars.iv.i.i.i
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %indvars.iv.i.i.i
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.17.0104, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i.i, %indvars.iv
@@ -7692,7 +7691,7 @@ define hidden noundef range(i32 -4, 1) i32 @_ZN9Arguments20parse_options_bufferE
 _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS19EEE6appendERKS0_.exit: ; preds = %.critedge2, %.preheader.i.i.i, %58
   %.sroa.10.1 = phi i32 [ %.0.i.i.i.i, %58 ], [ %.0.i.i.i.i, %.preheader.i.i.i ], [ %.sroa.10.0103, %.critedge2 ]
   %.sroa.17.1 = phi ptr [ %46, %58 ], [ %46, %.preheader.i.i.i ], [ %.sroa.17.0104, %.critedge2 ]
-  %59 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %.sroa.17.1, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.17.1, i64 %indvars.iv
   store ptr %.042105, ptr %59, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr null, ptr %.sroa.2.0..sroa_idx, align 8
@@ -7728,8 +7727,8 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
 
 .lr.ph.i:                                         ; preds = %69, %79
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %79 ], [ 0, %69 ]
-  %71 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %.sroa.17.079, i64 %indvars.iv.i
-  %72 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %67, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.17.079, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false)
   %73 = load ptr, ptr %72, align 8
   %74 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %73, i8 noundef zeroext 9) #32
@@ -7895,7 +7894,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.lr.ph: ; preds = %1
 
 _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit:    ; preds = %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.lr.ph
   %indvars.iv = phi i64 [ 0, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.lr.ph ], [ %indvars.iv.next, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit ]
-  %7 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %7, align 8
   %8 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(19) @.str.264, i64 noundef 18) #31
   %9 = icmp eq i32 %8, 0
@@ -7934,7 +7933,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.lr.ph.i: ; preds = %7
 
 _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.i:  ; preds = %13, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
-  %14 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %12, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv.i
   %.val.i = load ptr, ptr %14, align 8
   %15 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.val.i, ptr noundef nonnull dereferenceable(19) @.str.264, i64 noundef 18) #31
   %16 = icmp eq i32 %15, 0
@@ -8022,7 +8021,7 @@ _ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EEC2Ei.exit: ; preds = %4, %_Z
   %27 = and i64 %indvars.iv93, 4294967295
   %umax = tail call i64 @llvm.umax.i64(i64 %27, i64 1)
   %28 = load ptr, ptr %19, align 8
-  %29 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %indvars.iv
   %30 = icmp eq i32 %.sroa.16.176, %26
   %31 = add nsw i64 %indvars.iv93, 1
   br i1 %30, label %32, label %_ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS19EEE6appendERKS0_.exit
@@ -8064,8 +8063,8 @@ _ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EEC2Ei.exit: ; preds = %4, %_Z
 
 .lr.ph.i.i.i:                                     ; preds = %32, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %32 ]
-  %51 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %40, i64 %indvars.iv.i.i.i
-  %52 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %.sroa.27.177, i64 %indvars.iv.i.i.i
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %indvars.iv.i.i.i
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.27.177, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next.i.i.i, %umax
@@ -8082,7 +8081,7 @@ _ZN18GrowableArrayCHeapI12JavaVMOptionL8MEMFLAGS19EEC2Ei.exit: ; preds = %4, %_Z
 _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS19EEE6appendERKS0_.exit: ; preds = %.lr.ph, %.preheader.i.i.i, %53
   %.sroa.16.4 = phi i32 [ %.0.i.i.i.i, %53 ], [ %.0.i.i.i.i, %.preheader.i.i.i ], [ %.sroa.16.176, %.lr.ph ]
   %.sroa.27.4 = phi ptr [ %40, %53 ], [ %40, %.preheader.i.i.i ], [ %.sroa.27.177, %.lr.ph ]
-  %54 = getelementptr inbounds %struct.JavaVMOption, ptr %.sroa.27.4, i64 %indvars.iv93
+  %54 = getelementptr inbounds [16 x i8], ptr %.sroa.27.4, i64 %indvars.iv93
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %7, align 4
@@ -8092,7 +8091,7 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
 
 58:                                               ; preds = %21
   %59 = load ptr, ptr %18, align 8
-  %60 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %59, i64 %indvars.iv98
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %indvars.iv98
   %61 = icmp eq i32 %.sroa.0.081, %.sroa.16.083
   br i1 %61, label %62, label %_ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS19EEE6appendERKS0_.exit37
 
@@ -8133,8 +8132,8 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
 
 .lr.ph.i.i.i33:                                   ; preds = %.lr.ph.i.i.i33.preheader, %.lr.ph.i.i.i33
   %indvars.iv.i.i.i34 = phi i64 [ %indvars.iv.next.i.i.i35, %.lr.ph.i.i.i33 ], [ 0, %.lr.ph.i.i.i33.preheader ]
-  %81 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %70, i64 %indvars.iv.i.i.i34
-  %82 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %.sroa.27.084, i64 %indvars.iv.i.i.i34
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv.i.i.i34
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.27.084, i64 %indvars.iv.i.i.i34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false)
   %indvars.iv.next.i.i.i35 = add nuw nsw i64 %indvars.iv.i.i.i34, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i.i35, %72
@@ -8153,7 +8152,7 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   %.sroa.27.5 = phi ptr [ %.sroa.27.084, %58 ], [ %70, %83 ], [ %70, %.preheader.i.i.i25 ]
   %84 = add nsw i32 %.sroa.0.081, 1
   %85 = sext i32 %.sroa.0.081 to i64
-  %86 = getelementptr inbounds %struct.JavaVMOption, ptr %.sroa.27.5, i64 %85
+  %86 = getelementptr inbounds [16 x i8], ptr %.sroa.27.5, i64 %85
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false)
   br label %.loopexit
 
@@ -8191,8 +8190,8 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
 
 .lr.ph.i:                                         ; preds = %96, %107
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %107 ], [ 0, %96 ]
-  %99 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %.sroa.27.0.lcssa, i64 %indvars.iv.i
-  %100 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %94, i64 %indvars.iv.i
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.27.0.lcssa, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(16) %99, i64 16, i1 false)
   %101 = load ptr, ptr %100, align 8
   %102 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %101, i8 noundef zeroext 9) #32
@@ -8287,7 +8286,7 @@ define hidden noundef i32 @_ZN9Arguments28match_special_option_and_actEPK14JavaV
   %18 = getelementptr inbounds nuw i8, ptr %.02489, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %.02588 to i64
-  %21 = getelementptr inbounds %struct.JavaVMOption, ptr %19, i64 %20
+  %21 = getelementptr inbounds [16 x i8], ptr %19, i64 %20
   %.val28 = load ptr, ptr %21, align 8
   %22 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.val28, ptr noundef nonnull dereferenceable(11) @.str.266, i64 noundef 10) #31
   %23 = icmp eq i32 %22, 0
@@ -8353,7 +8352,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.lr.ph.i.i: ; preds = %44
 
 _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.i.i: ; preds = %48, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %48 ]
-  %49 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %47, i64 %indvars.iv.i.i
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %indvars.iv.i.i
   %.val.i.i = load ptr, ptr %49, align 8
   %50 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.val.i.i, ptr noundef nonnull dereferenceable(19) @.str.264, i64 noundef 18) #31
   %51 = icmp eq i32 %50, 0
@@ -8505,7 +8504,7 @@ _ZN9Arguments22insert_vm_options_fileEPK14JavaVMInitArgsPKciP16ScopedVMInitArgsS
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %109 = load ptr, ptr %7, align 8
-  %110 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %109, i64 %indvars.iv.i
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %indvars.iv.i
   %111 = load ptr, ptr %110, align 8
   call void @_ZN2os4freeEPv(ptr noundef %111) #32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -8964,7 +8963,7 @@ _ZN9Arguments27expand_vm_options_as_neededEPK14JavaVMInitArgsP16ScopedVMInitArgs
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %162 = load ptr, ptr %48, align 8
-  %163 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %162, i64 %indvars.iv.i
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %162, i64 %indvars.iv.i
   %164 = load ptr, ptr %163, align 8
   call void @_ZN2os4freeEPv(ptr noundef %164) #32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -9004,7 +9003,7 @@ _ZN16ScopedVMInitArgsD2Ev.exit:                   ; preds = %157, %._crit_edge.i
 .lr.ph.i71:                                       ; preds = %.preheader.i69, %.lr.ph.i71
   %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i73, %.lr.ph.i71 ], [ 0, %.preheader.i69 ]
   %176 = load ptr, ptr %42, align 8
-  %177 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %176, i64 %indvars.iv.i72
+  %177 = getelementptr inbounds nuw [16 x i8], ptr %176, i64 %indvars.iv.i72
   %178 = load ptr, ptr %177, align 8
   call void @_ZN2os4freeEPv(ptr noundef %178) #32
   %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i72, 1
@@ -9044,7 +9043,7 @@ _ZN16ScopedVMInitArgsD2Ev.exit76:                 ; preds = %171, %._crit_edge.i
 .lr.ph.i80:                                       ; preds = %.preheader.i78, %.lr.ph.i80
   %indvars.iv.i81 = phi i64 [ %indvars.iv.next.i82, %.lr.ph.i80 ], [ 0, %.preheader.i78 ]
   %190 = load ptr, ptr %36, align 8
-  %191 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %190, i64 %indvars.iv.i81
+  %191 = getelementptr inbounds nuw [16 x i8], ptr %190, i64 %indvars.iv.i81
   %192 = load ptr, ptr %191, align 8
   call void @_ZN2os4freeEPv(ptr noundef %192) #32
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
@@ -9084,7 +9083,7 @@ _ZN16ScopedVMInitArgsD2Ev.exit85:                 ; preds = %185, %._crit_edge.i
 .lr.ph.i89:                                       ; preds = %.preheader.i87, %.lr.ph.i89
   %indvars.iv.i90 = phi i64 [ %indvars.iv.next.i91, %.lr.ph.i89 ], [ 0, %.preheader.i87 ]
   %204 = load ptr, ptr %30, align 8
-  %205 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %204, i64 %indvars.iv.i90
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %204, i64 %indvars.iv.i90
   %206 = load ptr, ptr %205, align 8
   call void @_ZN2os4freeEPv(ptr noundef %206) #32
   %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i90, 1
@@ -9124,7 +9123,7 @@ _ZN16ScopedVMInitArgsD2Ev.exit94:                 ; preds = %199, %._crit_edge.i
 .lr.ph.i98:                                       ; preds = %.preheader.i96, %.lr.ph.i98
   %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i100, %.lr.ph.i98 ], [ 0, %.preheader.i96 ]
   %218 = load ptr, ptr %24, align 8
-  %219 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %218, i64 %indvars.iv.i99
+  %219 = getelementptr inbounds nuw [16 x i8], ptr %218, i64 %indvars.iv.i99
   %220 = load ptr, ptr %219, align 8
   call void @_ZN2os4freeEPv(ptr noundef %220) #32
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
@@ -9164,7 +9163,7 @@ _ZN16ScopedVMInitArgsD2Ev.exit103:                ; preds = %213, %._crit_edge.i
 .lr.ph.i107:                                      ; preds = %.preheader.i105, %.lr.ph.i107
   %indvars.iv.i108 = phi i64 [ %indvars.iv.next.i109, %.lr.ph.i107 ], [ 0, %.preheader.i105 ]
   %232 = load ptr, ptr %18, align 8
-  %233 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %232, i64 %indvars.iv.i108
+  %233 = getelementptr inbounds nuw [16 x i8], ptr %232, i64 %indvars.iv.i108
   %234 = load ptr, ptr %233, align 8
   call void @_ZN2os4freeEPv(ptr noundef %234) #32
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
@@ -9204,7 +9203,7 @@ _ZN16ScopedVMInitArgsD2Ev.exit112:                ; preds = %227, %._crit_edge.i
 .lr.ph.i116:                                      ; preds = %.preheader.i114, %.lr.ph.i116
   %indvars.iv.i117 = phi i64 [ %indvars.iv.next.i118, %.lr.ph.i116 ], [ 0, %.preheader.i114 ]
   %246 = load ptr, ptr %12, align 8
-  %247 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %246, i64 %indvars.iv.i117
+  %247 = getelementptr inbounds nuw [16 x i8], ptr %246, i64 %indvars.iv.i117
   %248 = load ptr, ptr %247, align 8
   call void @_ZN2os4freeEPv(ptr noundef %248) #32
   %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i117, 1
@@ -9245,7 +9244,7 @@ define internal fastcc void @_ZL13print_optionsPK14JavaVMInitArgs(ptr noundef re
   %8 = phi i8 [ %.pre12, %.lr.ph ], [ %23, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit ]
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds nuw %struct.JavaVMOption, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %.val = load ptr, ptr %10, align 8
   %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(5) @.str.247, i64 noundef 4) #31
   %12 = icmp eq i32 %11, 0
@@ -10184,9 +10183,9 @@ _ZN13GrowableArrayIP15ModulePatchPathE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10203,7 +10202,7 @@ _ZN13GrowableArrayIP15ModulePatchPathE8allocateEv.exit: ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

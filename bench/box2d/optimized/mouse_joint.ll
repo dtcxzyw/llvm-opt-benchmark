@@ -3,19 +3,6 @@ source_filename = "bench/box2d/original/mouse_joint.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.b2Body = type { [32 x i8], ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, float, float, float, float, i32, i32, i32, i16, i8, i8, i8, i8 }
-%struct.b2SolverSet = type { %struct.b2BodySimArray, %struct.b2BodyStateArray, %struct.b2JointSimArray, %struct.b2ContactSimArray, %struct.b2IslandSimArray, i32 }
-%struct.b2BodySimArray = type { ptr, i32, i32 }
-%struct.b2BodyStateArray = type { ptr, i32, i32 }
-%struct.b2JointSimArray = type { ptr, i32, i32 }
-%struct.b2ContactSimArray = type { ptr, i32, i32 }
-%struct.b2IslandSimArray = type { ptr, i32, i32 }
-%struct.b2BodySim = type { %struct.b2Transform, %struct.b2Vec2, %struct.b2Rot, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, float, float, float, i32, i8, i8, i8, i8, i8 }
-%struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
-%struct.b2Rot = type { float, float }
-%struct.b2Vec2 = type { float, float }
-%struct.b2BodyState = type { %struct.b2Vec2, float, i32, %struct.b2Vec2, %struct.b2Rot }
-
 ; Function Attrs: nounwind uwtable
 define void @b2MouseJoint_SetTarget(i64 %0, <2 x float> %1) local_unnamed_addr #0 {
   %3 = tail call ptr @b2GetJointSimCheckType(i64 %0, i32 noundef 2) #8
@@ -116,18 +103,18 @@ define hidden void @b2PrepareMouseJoint(ptr noundef captures(none) initializes((
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1032
   %.val = load ptr, ptr %7, align 8, !tbaa !74
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds %struct.b2Body, ptr %.val, i64 %8
+  %9 = getelementptr inbounds [128 x i8], ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 1072
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %12 = load i32, ptr %11, align 8, !tbaa !75
   %.val65 = load ptr, ptr %10, align 8, !tbaa !77
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.b2SolverSet, ptr %.val65, i64 %13
+  %14 = getelementptr inbounds [88 x i8], ptr %.val65, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %16 = load i32, ptr %15, align 4, !tbaa !78
   %.val66 = load ptr, ptr %14, align 8, !tbaa !79
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.b2BodySim, ptr %.val66, i64 %17
+  %18 = getelementptr inbounds [100 x i8], ptr %.val66, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 60
   %20 = load float, ptr %19, align 4, !tbaa !81
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -270,7 +257,7 @@ define hidden void @b2WarmStartMouseJoint(ptr noundef readonly captures(none) %0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load i32, ptr %9, align 4, !tbaa !88
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.b2BodyState, ptr %8, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %8, i64 %11
   %.sroa.04.0.copyload = load <2 x float>, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load float, ptr %13, align 4, !tbaa !100
@@ -325,7 +312,7 @@ define hidden void @b2SolveMouseJoint(ptr noundef captures(none) %0, ptr noundef
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load i32, ptr %9, align 4, !tbaa !88
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.b2BodyState, ptr %8, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %8, i64 %11
   %.sroa.040.0.copyload = load <2 x float>, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load float, ptr %13, align 4, !tbaa !100

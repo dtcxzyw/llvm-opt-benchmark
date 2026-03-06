@@ -977,7 +977,7 @@ ehcleanup241:                                     ; preds = %ehcleanup240, %lpad
 sw.epilog244:                                     ; preds = %sw.bb195, %sw.bb193, %sw.epilog
   %retVal.1 = phi double [ %mul194, %sw.bb193 ], [ %retVal.0, %sw.epilog ], [ %mul202, %sw.bb195 ]
   %116 = load i64, ptr %__begin1, align 8, !tbaa !81
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %47, i64 %116
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %116
   store double %retVal.1, ptr %arrayidx.i, align 8, !tbaa !89
   %inc.i = add i64 %116, 1
   store i64 %inc.i, ptr %__begin1, align 8, !tbaa !81
@@ -996,11 +996,11 @@ for.body.lr.ph.i:                                 ; preds = %sw.epilog244
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.lr.ph.i
   %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc9.i, %if.then.i ]
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %119, i64 %i.08.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %i.08.i
   %120 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !91
   %inc3.i = add i64 %120, 1
   store i64 %inc3.i, ptr %add.ptr.i.i, align 8, !tbaa !91
-  %add.ptr.i5.i = getelementptr inbounds nuw i64, ptr %118, i64 %i.08.i
+  %add.ptr.i5.i = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %i.08.i
   %121 = load i64, ptr %add.ptr.i5.i, align 8, !tbaa !91
   %cmp6.i = icmp eq i64 %inc3.i, %121
   br i1 %cmp6.i, label %if.then.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit

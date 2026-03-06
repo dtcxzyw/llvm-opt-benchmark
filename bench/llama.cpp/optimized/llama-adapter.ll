@@ -10,18 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<ggml_backend_buffer_type *, std::pair<ggml_backend_buffer_type *const, ggml_context *>, std::_Select1st<std::pair<ggml_backend_buffer_type *const, ggml_context *>>, std::less<ggml_backend_buffer_type *>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::unique_ptr.72" = type { %"struct.std::__uniq_ptr_data.73" }
-%"struct.std::__uniq_ptr_data.73" = type { %"class.std::__uniq_ptr_impl.74" }
-%"class.std::__uniq_ptr_impl.74" = type { %"class.std::tuple.75" }
-%"class.std::tuple.75" = type { %"struct.std::_Tuple_impl.76" }
-%"struct.std::_Tuple_impl.76" = type { %"struct.std::_Head_base.79" }
-%"struct.std::_Head_base.79" = type { ptr }
-%"class.std::unique_ptr.47" = type { %"struct.std::__uniq_ptr_data.64" }
-%"struct.std::__uniq_ptr_data.64" = type { %"class.std::__uniq_ptr_impl.65" }
-%"class.std::__uniq_ptr_impl.65" = type { %"class.std::tuple.66" }
-%"class.std::tuple.66" = type { %"struct.std::_Tuple_impl.67" }
-%"struct.std::_Tuple_impl.67" = type { %"struct.std::_Head_base.70" }
-%"struct.std::_Head_base.70" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -32,10 +20,22 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.91" = type { %"struct.std::_Head_base.94" }
 %"struct.std::_Head_base.94" = type { ptr }
 %"class.std::allocator.10" = type { i8 }
+%"class.std::unique_ptr.72" = type { %"struct.std::__uniq_ptr_data.73" }
+%"struct.std::__uniq_ptr_data.73" = type { %"class.std::__uniq_ptr_impl.74" }
+%"class.std::__uniq_ptr_impl.74" = type { %"class.std::tuple.75" }
+%"class.std::tuple.75" = type { %"struct.std::_Tuple_impl.76" }
+%"struct.std::_Tuple_impl.76" = type { %"struct.std::_Head_base.79" }
+%"struct.std::_Head_base.79" = type { ptr }
 %struct.LLM_KV = type { i32, ptr }
 %"class.std::map.99" = type { %"class.std::_Rb_tree.100" }
 %"class.std::_Rb_tree.100" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, llama_adapter_lora_weight>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, llama_adapter_lora_weight>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, llama_adapter_lora_weight>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, llama_adapter_lora_weight>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
+%"class.std::unique_ptr.47" = type { %"struct.std::__uniq_ptr_data.64" }
+%"struct.std::__uniq_ptr_data.64" = type { %"class.std::__uniq_ptr_impl.65" }
+%"class.std::__uniq_ptr_impl.65" = type { %"class.std::tuple.66" }
+%"class.std::tuple.66" = type { %"struct.std::_Tuple_impl.67" }
+%"struct.std::_Tuple_impl.67" = type { %"struct.std::_Head_base.70" }
+%"struct.std::_Head_base.70" = type { ptr }
 %struct.llama_file = type { %"class.std::unique_ptr.107" }
 %"class.std::unique_ptr.107" = type { %"struct.std::__uniq_ptr_data.108" }
 %"struct.std::__uniq_ptr_data.108" = type { %"class.std::__uniq_ptr_impl.109" }
@@ -177,7 +177,7 @@ define noundef ptr @_ZNK18llama_adapter_cvec10tensor_forEi(ptr noundef nonnull r
   br i1 %.not, label %19, label %22
 
 19:                                               ; preds = %9
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   br label %22
 
@@ -212,7 +212,7 @@ define noundef ptr @_ZNK18llama_adapter_cvec8apply_toEP12ggml_contextP11ggml_ten
   br i1 %.not.i, label %_ZNK18llama_adapter_cvec10tensor_forEi.exit, label %_ZNK18llama_adapter_cvec10tensor_forEi.exit.thread
 
 _ZNK18llama_adapter_cvec10tensor_forEi.exit:      ; preds = %11
-  %21 = getelementptr inbounds nuw ptr, ptr %16, i64 %12
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %12
   %22 = load ptr, ptr %21, align 8, !tbaa !11
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %_ZNK18llama_adapter_cvec10tensor_forEi.exit.thread, label %23
@@ -308,7 +308,7 @@ _ZNSt6vectorIP11ggml_tensorSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds 
 _ZNSt12_Vector_baseIP11ggml_tensorSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %44, %_ZNSt6vectorIP11ggml_tensorSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
   store ptr %43, ptr %6, align 8, !tbaa !10
   store ptr %43, ptr %8, align 8, !tbaa !3
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %34
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %34
   store ptr %45, ptr %35, align 8, !tbaa !40
   br label %_ZNSt6vectorIP11ggml_tensorSaIS1_EE7reserveEm.exit
 
@@ -374,7 +374,7 @@ _ZNSt6vectorIP11ggml_tensorSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; 
 _ZNSt6vectorIP11ggml_tensorSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %68, %_ZNSt6vectorIP11ggml_tensorSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %63, ptr %6, align 8, !tbaa !10
   store ptr %67, ptr %8, align 8, !tbaa !3
-  %69 = getelementptr inbounds nuw ptr, ptr %63, i64 %61
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %61
   store ptr %69, ptr %35, align 8, !tbaa !40
   br label %_ZNSt6vectorIP11ggml_tensorSaIS1_EE9push_backEOS1_.exit
 
@@ -538,7 +538,7 @@ _ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE11_S_re
 _ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE17_M_realloc_insertIJRPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %118, %_ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %112, ptr %13, align 8, !tbaa !54
   store ptr %117, ptr %15, align 8, !tbaa !51
-  %119 = getelementptr inbounds nuw %"class.std::unique_ptr.72", ptr %112, i64 %110
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %110
   store ptr %119, ptr %71, align 8, !tbaa !53
   br label %.thread
 
@@ -644,7 +644,7 @@ _ZNSt6vectorIP11ggml_tensorSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; pr
 _ZNSt6vectorIP11ggml_tensorSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP11ggml_tensorSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i, %151
   store ptr %146, ptr %6, align 8, !tbaa !10
   store ptr %150, ptr %8, align 8, !tbaa !3
-  %152 = getelementptr inbounds nuw ptr, ptr %146, i64 %144
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %144
   store ptr %152, ptr %35, align 8, !tbaa !40
   br label %153
 
@@ -725,7 +725,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI19ggml_backend_buffer27ggml_backend_buffer_de
   store ptr %173, ptr %20, align 8, !tbaa !67
   %178 = getelementptr inbounds nuw i8, ptr %173, i64 %171
   store ptr %178, ptr %22, align 8, !tbaa !68
-  %179 = getelementptr inbounds nuw %"class.std::unique_ptr.47", ptr %173, i64 %157
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %157
   store ptr %179, ptr %161, align 8, !tbaa !65
   br label %_ZNSt6vectorISt10unique_ptrI19ggml_backend_buffer27ggml_backend_buffer_deleterESaIS3_EE7reserveEm.exit
 
@@ -837,7 +837,7 @@ _ZNSt6vectorISt10unique_ptrI19ggml_backend_buffer27ggml_backend_buffer_deleterES
 _ZNSt6vectorISt10unique_ptrI19ggml_backend_buffer27ggml_backend_buffer_deleterESaIS3_EE17_M_realloc_insertIJRPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %210, %_ZNSt6vectorISt10unique_ptrI19ggml_backend_buffer27ggml_backend_buffer_deleterESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %204, ptr %20, align 8, !tbaa !67
   store ptr %209, ptr %22, align 8, !tbaa !68
-  %211 = getelementptr inbounds nuw %"class.std::unique_ptr.47", ptr %204, i64 %202
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %202
   store ptr %211, ptr %161, align 8, !tbaa !65
   br label %212
 
@@ -963,9 +963,9 @@ define noundef range(i32 0, 2) i32 @_ZN18llama_adapter_cvec5applyERK11llama_mode
   %33 = add nsw i64 %.02125, -1
   %34 = mul nsw i64 %33, %28
   %35 = load ptr, ptr %16, align 8, !tbaa !10
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.02125
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02125
   %37 = load ptr, ptr %36, align 8, !tbaa !11
-  %38 = getelementptr inbounds nuw float, ptr %2, i64 %34
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %34
   %39 = tail call i64 @ggml_element_size(ptr noundef %37)
   %40 = mul i64 %39, %28
   tail call void @ggml_backend_tensor_set(ptr noundef %37, ptr noundef nonnull %38, i64 noundef 0, i64 noundef %40)
@@ -2790,7 +2790,7 @@ _ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE7reserv
   store ptr %544, ptr %527, align 8, !tbaa !54
   %548 = getelementptr inbounds nuw i8, ptr %544, i64 %542
   store ptr %548, ptr %539, align 8, !tbaa !51
-  %549 = getelementptr inbounds nuw %"class.std::unique_ptr.72", ptr %544, i64 %528
+  %549 = getelementptr inbounds nuw [8 x i8], ptr %544, i64 %528
   store ptr %549, ptr %531, align 8, !tbaa !53
   br label %_ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE7reserveEm.exit.thread.i
 
@@ -3197,7 +3197,7 @@ _ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE11_S_re
 _ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE17_M_realloc_insertIJRPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %676, %_ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i
   store ptr %670, ptr %308, align 8, !tbaa !54
   store ptr %675, ptr %309, align 8, !tbaa !51
-  %677 = getelementptr inbounds nuw %"class.std::unique_ptr.72", ptr %670, i64 %668
+  %677 = getelementptr inbounds nuw [8 x i8], ptr %670, i64 %668
   store ptr %677, ptr %310, align 8, !tbaa !53
   br label %680
 
@@ -3513,7 +3513,7 @@ _ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE7reserv
   store ptr %544, ptr %527, align 8, !tbaa !54
   %786 = getelementptr inbounds nuw i8, ptr %544, i64 %542
   store ptr %786, ptr %539, align 8, !tbaa !51
-  %787 = getelementptr inbounds nuw %"class.std::unique_ptr.72", ptr %544, i64 %528
+  %787 = getelementptr inbounds nuw [8 x i8], ptr %544, i64 %528
   store ptr %787, ptr %531, align 8, !tbaa !53
   %788 = icmp ugt i64 %.pre856.pre.i, 1152921504606846975
   br i1 %788, label %.invoke.i, label %_ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE7reserveEm.exit.thread.i
@@ -3576,7 +3576,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI19ggml_backend_buffer27ggml_backend_buffer_de
   store ptr %804, ptr %790, align 8, !tbaa !67
   %809 = getelementptr inbounds nuw i8, ptr %804, i64 %802
   store ptr %809, ptr %799, align 8, !tbaa !68
-  %810 = getelementptr inbounds nuw %"class.std::unique_ptr.47", ptr %804, i64 %789
+  %810 = getelementptr inbounds nuw [8 x i8], ptr %804, i64 %789
   store ptr %810, ptr %791, align 8, !tbaa !65
   br label %_ZNSt6vectorISt10unique_ptrI19ggml_backend_buffer27ggml_backend_buffer_deleterESaIS3_EE7reserveEm.exit.i
 
@@ -3737,7 +3737,7 @@ _ZNSt6vectorISt10unique_ptrI19ggml_backend_buffer27ggml_backend_buffer_deleterES
 _ZNSt6vectorISt10unique_ptrI19ggml_backend_buffer27ggml_backend_buffer_deleterESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit.i: ; preds = %861, %_ZNSt6vectorISt10unique_ptrI19ggml_backend_buffer27ggml_backend_buffer_deleterESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %855, ptr %790, align 8, !tbaa !67
   store ptr %860, ptr %812, align 8, !tbaa !68
-  %862 = getelementptr inbounds nuw %"class.std::unique_ptr.47", ptr %855, i64 %853
+  %862 = getelementptr inbounds nuw [8 x i8], ptr %855, i64 %853
   store ptr %862, ptr %791, align 8, !tbaa !65
   br label %_ZNSt10unique_ptrI19ggml_backend_buffer27ggml_backend_buffer_deleterED2Ev.exit.i
 
@@ -5700,7 +5700,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %14 = load i64, ptr %13, align 8, !tbaa !108
   %15 = urem i64 %9, %14
   %16 = load ptr, ptr %0, align 8, !tbaa !102
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !214
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %.loopexit26, label %19
@@ -5858,7 +5858,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %2, ptr %32, align 8, !tbaa !215
   %33 = load ptr, ptr %0, align 8, !tbaa !102
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !214
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -5884,7 +5884,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 56
   %46 = load i64, ptr %45, align 8, !tbaa !215
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !214
   br label %49
 
@@ -6063,7 +6063,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 56
   %16 = load i64, ptr %15, align 8, !tbaa !215
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !214
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -6078,7 +6078,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !214
   br label %28
 
@@ -6243,7 +6243,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !108
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !102
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !214
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_25llama_adapter_lora_weightESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %34

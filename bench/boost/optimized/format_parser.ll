@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.boost::log::v2_mt_posix::limitation_error" = type { %"class.boost::log::v2_mt_posix::logic_error" }
 %"class.boost::log::v2_mt_posix::logic_error" = type { %"class.std::logic_error" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
-%"struct.boost::log::v2_mt_posix::aux::format_element" = type { i32, i32, i32 }
 %"struct.boost::log::v2_mt_posix::aux::format_description.126" = type { %"class.std::__cxx11::basic_string.127", %"class.std::vector" }
 %"class.std::__cxx11::basic_string.127" = type { %"struct.std::__cxx11::basic_string<wchar_t>::_Alloc_hider", i64, %union.anon.131 }
 %"struct.std::__cxx11::basic_string<wchar_t>::_Alloc_hider" = type { ptr }
@@ -707,7 +706,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE11_S_relocateE
 _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %124, %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
   store ptr %119, ptr %21, align 8, !tbaa !22
   store ptr %123, ptr %23, align 8, !tbaa !17
-  %125 = getelementptr inbounds nuw %"struct.boost::log::v2_mt_posix::aux::format_element", ptr %119, i64 %117
+  %125 = getelementptr inbounds nuw [12 x i8], ptr %119, i64 %117
   store ptr %125, ptr %24, align 8, !tbaa !19
   br label %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE9push_backEOS4_.exit
 
@@ -1133,7 +1132,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE11_S_relocateE
 _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i127: ; preds = %280, %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i124
   store ptr %275, ptr %21, align 8, !tbaa !22
   store ptr %279, ptr %23, align 8, !tbaa !17
-  %281 = getelementptr inbounds nuw %"struct.boost::log::v2_mt_posix::aux::format_element", ptr %275, i64 %273
+  %281 = getelementptr inbounds nuw [12 x i8], ptr %275, i64 %273
   store ptr %281, ptr %24, align 8, !tbaa !19
   br label %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE9push_backEOS4_.exit130
 
@@ -1364,7 +1363,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE11_S_relocateE
 _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i157: ; preds = %355, %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i154
   store ptr %350, ptr %21, align 8, !tbaa !22
   store ptr %354, ptr %330, align 8, !tbaa !17
-  %356 = getelementptr inbounds nuw %"struct.boost::log::v2_mt_posix::aux::format_element", ptr %350, i64 %348
+  %356 = getelementptr inbounds nuw [12 x i8], ptr %350, i64 %348
   store ptr %356, ptr %332, align 8, !tbaa !19
   br label %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE9push_backEOS4_.exit160
 
@@ -1717,10 +1716,10 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i: ; pred
 
 88:                                               ; preds = %.noexc, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i
   %89 = phi ptr [ %.pre.i, %.noexc ], [ %80, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i ]
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %77
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %77
   store i32 37, ptr %90, align 4, !tbaa !63
   store i64 %79, ptr %20, align 8, !tbaa !61
-  %91 = getelementptr inbounds nuw i32, ptr %89, i64 %79
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %79
   store i32 0, ptr %91, align 4, !tbaa !63
   %92 = getelementptr inbounds nuw i8, ptr %.028.i.i.i, i64 8
   br label %313, !llvm.loop !67
@@ -1822,7 +1821,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE11_S_relocateE
 _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %123, %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
   store ptr %118, ptr %21, align 8, !tbaa !22
   store ptr %122, ptr %23, align 8, !tbaa !17
-  %124 = getelementptr inbounds nuw %"struct.boost::log::v2_mt_posix::aux::format_element", ptr %118, i64 %116
+  %124 = getelementptr inbounds nuw [12 x i8], ptr %118, i64 %116
   store ptr %124, ptr %24, align 8, !tbaa !19
   br label %125
 
@@ -2230,7 +2229,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE11_S_relocateE
 _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i126: ; preds = %268, %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i123
   store ptr %263, ptr %21, align 8, !tbaa !22
   store ptr %267, ptr %23, align 8, !tbaa !17
-  %269 = getelementptr inbounds nuw %"struct.boost::log::v2_mt_posix::aux::format_element", ptr %263, i64 %261
+  %269 = getelementptr inbounds nuw [12 x i8], ptr %263, i64 %261
   store ptr %269, ptr %24, align 8, !tbaa !19
   br label %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE9push_backEOS4_.exit129
 
@@ -2362,10 +2361,10 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i135: ; p
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit138: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i135, %.noexc137
   %310 = phi ptr [ %.pre.i136, %.noexc137 ], [ %302, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i135 ]
-  %311 = getelementptr inbounds nuw i32, ptr %310, i64 %300
+  %311 = getelementptr inbounds nuw [4 x i8], ptr %310, i64 %300
   store i32 37, ptr %311, align 4, !tbaa !63
   store i64 %301, ptr %20, align 8, !tbaa !61
-  %312 = getelementptr inbounds nuw i32, ptr %310, i64 %301
+  %312 = getelementptr inbounds nuw [4 x i8], ptr %310, i64 %301
   store i32 0, ptr %312, align 4, !tbaa !63
   br label %._crit_edge
 
@@ -2461,7 +2460,7 @@ _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE11_S_relocateE
 _ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i156: ; preds = %343, %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i153
   store ptr %338, ptr %21, align 8, !tbaa !22
   store ptr %342, ptr %318, align 8, !tbaa !17
-  %344 = getelementptr inbounds nuw %"struct.boost::log::v2_mt_posix::aux::format_element", ptr %338, i64 %336
+  %344 = getelementptr inbounds nuw [12 x i8], ptr %338, i64 %336
   store ptr %344, ptr %320, align 8, !tbaa !19
   br label %_ZNSt6vectorIN5boost3log11v2_mt_posix3aux14format_elementESaIS4_EE9push_backEOS4_.exit159
 

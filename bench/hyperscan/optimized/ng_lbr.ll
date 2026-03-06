@@ -172,7 +172,7 @@ _ZN3ue25depthC2Ej.exit:                           ; preds = %35
 
 58:                                               ; preds = %56, %53
   %.0811.i.i.i.i = phi i64 [ 0, %53 ], [ %57, %56 ]
-  %59 = getelementptr inbounds nuw i64, ptr %30, i64 %.0811.i.i.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.0811.i.i.i.i
   %60 = load i64, ptr %59, align 8, !noalias !22
   %.not.i.i.i.i = icmp eq i64 %60, -1
   br i1 %.not.i.i.i.i, label %56, label %_ZNK3ue29CharReach3allEv.exit.thread.i.i
@@ -594,7 +594,7 @@ _ZNK3ue29CharReachcoEv.exit.i.i:                  ; preds = %212
 
 232:                                              ; preds = %235, %.noexc37.i
   %.0712.i.i.i.i = phi i64 [ 0, %.noexc37.i ], [ %236, %235 ]
-  %233 = getelementptr inbounds nuw i64, ptr %12, i64 %.0712.i.i.i.i
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0712.i.i.i.i
   %234 = load i64, ptr %233, align 8, !noalias !34
   %.not.i.i.i35.i = icmp eq i64 %234, 0
   br i1 %.not.i.i.i35.i, label %235, label %237
@@ -730,7 +730,7 @@ _ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit.i:        ; preds = %250
 
 281:                                              ; preds = %284, %.noexc45.i
   %.0712.i.i.i40.i = phi i64 [ 0, %.noexc45.i ], [ %285, %284 ]
-  %282 = getelementptr inbounds nuw i64, ptr %11, i64 %.0712.i.i.i40.i
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0712.i.i.i40.i
   %283 = load i64, ptr %282, align 8, !noalias !42
   %.not.i.i.i41.i = icmp eq i64 %283, 0
   br i1 %.not.i.i.i41.i, label %284, label %286

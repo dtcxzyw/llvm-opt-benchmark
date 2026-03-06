@@ -21,7 +21,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr.6" = type { %"class.std::__shared_ptr.7" }
 %"class.std::__shared_ptr.7" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"struct.Imf_3_4::MultiPartInputFile::Data::Part" = type { %"struct.Imf_3_4::InputPartData", %"class.std::any" }
+%"class.std::any" = type { ptr, %"union.std::any::_Storage" }
+%"union.std::any::_Storage" = type { ptr }
+%"class.std::shared_ptr.15" = type { %"class.std::__shared_ptr.16" }
+%"class.std::__shared_ptr.16" = type { ptr, %"class.std::__shared_count" }
+%"class.std::shared_ptr.21" = type { %"class.std::__shared_ptr.22" }
+%"class.std::__shared_ptr.22" = type { ptr, %"class.std::__shared_count" }
+%"class.std::shared_ptr.27" = type { %"class.std::__shared_ptr.28" }
+%"class.std::__shared_ptr.28" = type { ptr, %"class.std::__shared_count" }
 %"struct.Imf_3_4::InputPartData" = type { %"class.Imf_3_4::Header", i32, i32, %"class.Imf_3_4::Context" }
 %"class.Imf_3_4::Header" = type <{ %"class.std::map", i8, [7 x i8] }>
 %"class.std::map" = type { %"class.std::_Rb_tree" }
@@ -32,14 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Imf_3_4::Context" = type { %"class.std::shared_ptr" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::any" = type { ptr, %"union.std::any::_Storage" }
-%"union.std::any::_Storage" = type { ptr }
-%"class.std::shared_ptr.15" = type { %"class.std::__shared_ptr.16" }
-%"class.std::__shared_ptr.16" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.21" = type { %"class.std::__shared_ptr.22" }
-%"class.std::__shared_ptr.22" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.27" = type { %"class.std::__shared_ptr.28" }
-%"class.std::__shared_ptr.28" = type { ptr, %"class.std::__shared_count" }
 %"class.Imf_3_4::ContextInitializer" = type { %struct._exr_context_initializer_v3, i32, ptr }
 %struct._exr_context_initializer_v3 = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, i32, [4 x i8] }
 %"class.Imath_3_2::Vec2" = type { float, float }
@@ -430,7 +429,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %44
   %47 = load ptr, ptr %9, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load ptr, ptr %48, align 8, !tbaa !14
-  %50 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %49, i64 %8
+  %50 = getelementptr inbounds nuw [96 x i8], ptr %49, i64 %8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 80
   %52 = load ptr, ptr %51, align 8, !tbaa !15
   %.not36 = icmp eq ptr %52, null
@@ -537,7 +536,7 @@ _ZNSt12__shared_ptrIN7Imf_3_49InputFileELN9__gnu_cxx12_Lock_policyE2EE5resetIS1_
   %94 = load ptr, ptr %9, align 8, !tbaa !3
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %96 = load ptr, ptr %95, align 8, !tbaa !14
-  %97 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %96, i64 %8
+  %97 = getelementptr inbounds nuw [96 x i8], ptr %96, i64 %8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 80
   %99 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3anyaSIRSt10shared_ptrIN7Imf_3_49InputFileEEEENSt9enable_ifIXsr21is_copy_constructibleINS6_IXnt9is_same_vINSt5decayIT_E4typeES_EESA_E4typeEEE5valueERS_E4typeEOS8_(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZNSt12__shared_ptrIN7Imf_3_49InputFileELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %100
@@ -1006,7 +1005,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %44
   %47 = load ptr, ptr %9, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load ptr, ptr %48, align 8, !tbaa !14
-  %50 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %49, i64 %8
+  %50 = getelementptr inbounds nuw [96 x i8], ptr %49, i64 %8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 80
   %52 = load ptr, ptr %51, align 8, !tbaa !15
   %.not36 = icmp eq ptr %52, null
@@ -1113,7 +1112,7 @@ _ZNSt12__shared_ptrIN7Imf_3_414TiledInputFileELN9__gnu_cxx12_Lock_policyE2EE5res
   %94 = load ptr, ptr %9, align 8, !tbaa !3
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %96 = load ptr, ptr %95, align 8, !tbaa !14
-  %97 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %96, i64 %8
+  %97 = getelementptr inbounds nuw [96 x i8], ptr %96, i64 %8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 80
   %99 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3anyaSIRSt10shared_ptrIN7Imf_3_414TiledInputFileEEEENSt9enable_ifIXsr21is_copy_constructibleINS6_IXnt9is_same_vINSt5decayIT_E4typeES_EESA_E4typeEEE5valueERS_E4typeEOS8_(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZNSt12__shared_ptrIN7Imf_3_414TiledInputFileELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %100
@@ -1554,7 +1553,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %44
   %47 = load ptr, ptr %9, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load ptr, ptr %48, align 8, !tbaa !14
-  %50 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %49, i64 %8
+  %50 = getelementptr inbounds nuw [96 x i8], ptr %49, i64 %8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 80
   %52 = load ptr, ptr %51, align 8, !tbaa !15
   %.not36 = icmp eq ptr %52, null
@@ -1661,7 +1660,7 @@ _ZNSt12__shared_ptrIN7Imf_3_421DeepScanLineInputFileELN9__gnu_cxx12_Lock_policyE
   %94 = load ptr, ptr %9, align 8, !tbaa !3
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %96 = load ptr, ptr %95, align 8, !tbaa !14
-  %97 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %96, i64 %8
+  %97 = getelementptr inbounds nuw [96 x i8], ptr %96, i64 %8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 80
   %99 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3anyaSIRSt10shared_ptrIN7Imf_3_421DeepScanLineInputFileEEEENSt9enable_ifIXsr21is_copy_constructibleINS6_IXnt9is_same_vINSt5decayIT_E4typeES_EESA_E4typeEEE5valueERS_E4typeEOS8_(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZNSt12__shared_ptrIN7Imf_3_421DeepScanLineInputFileELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %100
@@ -2102,7 +2101,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %44
   %47 = load ptr, ptr %9, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load ptr, ptr %48, align 8, !tbaa !14
-  %50 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %49, i64 %8
+  %50 = getelementptr inbounds nuw [96 x i8], ptr %49, i64 %8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 80
   %52 = load ptr, ptr %51, align 8, !tbaa !15
   %.not36 = icmp eq ptr %52, null
@@ -2209,7 +2208,7 @@ _ZNSt12__shared_ptrIN7Imf_3_418DeepTiledInputFileELN9__gnu_cxx12_Lock_policyE2EE
   %94 = load ptr, ptr %9, align 8, !tbaa !3
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %96 = load ptr, ptr %95, align 8, !tbaa !14
-  %97 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %96, i64 %8
+  %97 = getelementptr inbounds nuw [96 x i8], ptr %96, i64 %8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 80
   %99 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3anyaSIRSt10shared_ptrIN7Imf_3_418DeepTiledInputFileEEEENSt9enable_ifIXsr21is_copy_constructibleINS6_IXnt9is_same_vINSt5decayIT_E4typeES_EESA_E4typeEEE5valueERS_E4typeEOS8_(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZNSt12__shared_ptrIN7Imf_3_418DeepTiledInputFileELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %100
@@ -2603,7 +2602,7 @@ define void @_ZN7Imf_3_418MultiPartInputFileC2EPKcRKNS_18ContextInitializerEib(p
   br i1 %32, label %33, label %_ZNSt6vectorIN7Imf_3_418MultiPartInputFile4Data4PartESaIS3_EE6resizeEm.exit
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %23, i64 %20
+  %34 = getelementptr inbounds nuw [96 x i8], ptr %23, i64 %20
   %.not.i.i = icmp eq ptr %22, %34
   br i1 %.not.i.i, label %_ZNSt6vectorIN7Imf_3_418MultiPartInputFile4Data4PartESaIS3_EE6resizeEm.exit, label %35
 
@@ -2665,7 +2664,7 @@ _ZNSt6vectorIN7Imf_3_418MultiPartInputFile4Data4PartESaIS3_EE6resizeEm.exit: ; p
   %54 = load ptr, ptr %7, align 8, !tbaa !3
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %56 = load ptr, ptr %55, align 8, !tbaa !14
-  %57 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [96 x i8], ptr %56, i64 %indvars.iv
   %58 = invoke noundef nonnull align 8 dereferenceable(49) ptr @_ZN7Imf_3_46HeaderaSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %57, ptr noundef nonnull align 8 dereferenceable(80) %6)
           to label %.noexc28 unwind label %122
 
@@ -2786,7 +2785,7 @@ _ZN7Imf_3_413InputPartDataD2Ev.exit:              ; preds = %_ZN7Imf_3_413InputP
   %110 = load ptr, ptr %7, align 8, !tbaa !3
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
   %112 = load ptr, ptr %111, align 8, !tbaa !14
-  %113 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %112, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [96 x i8], ptr %112, i64 %indvars.iv
   %114 = invoke noundef zeroext i1 @_ZNK7Imf_3_46Header7hasTypeEv(ptr noundef nonnull align 8 dereferenceable(49) %113)
           to label %115 unwind label %125
 
@@ -2797,7 +2796,7 @@ _ZN7Imf_3_413InputPartDataD2Ev.exit:              ; preds = %_ZN7Imf_3_413InputP
   %116 = load ptr, ptr %7, align 8, !tbaa !3
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 40
   %118 = load ptr, ptr %117, align 8, !tbaa !14
-  %119 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %118, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [96 x i8], ptr %118, i64 %indvars.iv
   invoke void @_ZN7Imf_3_46Header7setTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(49) %119, ptr noundef nonnull align 8 dereferenceable(32) %44)
           to label %127 unwind label %125
 
@@ -3199,7 +3198,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11: ; preds = %_ZNSo
   resume { ptr, i32 } %.pn
 
 42:                                               ; preds = %5
-  %43 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %12, i64 %6
+  %43 = getelementptr inbounds nuw [96 x i8], ptr %12, i64 %6
   ret ptr %43
 
 44:                                               ; preds = %36
@@ -3557,7 +3556,7 @@ _ZSt27__uninitialized_default_n_aIPN7Imf_3_418MultiPartInputFile4Data4PartEmS3_E
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
   %37 = tail call ptr @__cxa_begin_catch(ptr %36) #23
-  %38 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %28, i64 %1
+  %38 = getelementptr inbounds nuw [96 x i8], ptr %28, i64 %1
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN7Imf_3_418MultiPartInputFile4Data4PartEEEvT_S7_(ptr noundef nonnull %28, ptr noundef nonnull %38)
           to label %_ZSt8_DestroyIPN7Imf_3_418MultiPartInputFile4Data4PartES3_EvT_S5_RSaIT0_E.exit unwind label %39
 
@@ -3589,9 +3588,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN7Imf_3_418MultiPartInputFile4Data4Par
 
 _ZNSt12_Vector_baseIN7Imf_3_418MultiPartInputFile4Data4PartESaIS3_EE13_M_deallocateEPS3_m.exit41: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7Imf_3_418MultiPartInputFile4Data4PartES4_SaIS3_EET0_T_S7_S6_RT1_.exit, %42
   store ptr %27, ptr %0, align 8, !tbaa !14
-  %46 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %28, i64 %1
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %28, i64 %1
   store ptr %46, ptr %4, align 8, !tbaa !11
-  %47 = getelementptr inbounds nuw %"struct.Imf_3_4::MultiPartInputFile::Data::Part", ptr %27, i64 %25
+  %47 = getelementptr inbounds nuw [96 x i8], ptr %27, i64 %25
   store ptr %47, ptr %11, align 8, !tbaa !90
   br label %48
 

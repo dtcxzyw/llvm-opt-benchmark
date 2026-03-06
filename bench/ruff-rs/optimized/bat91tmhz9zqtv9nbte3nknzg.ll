@@ -4123,10 +4123,10 @@ _ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit460: ; pr
   %1246 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %1247 = load i8, ptr %1246, align 8, !range !479, !noundef !12
   %1248 = zext nneg i8 %1247 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_stmt17hf73d4b2ae334572aE, i64 %1248
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_stmt17hf73d4b2ae334572aE, i64 %1248
   %switch.load = load i64, ptr %switch.gep, align 8
   %1249 = zext nneg i8 %1247 to i64
-  %switch.gep1374 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_stmt17hf73d4b2ae334572aE.18, i64 %1249
+  %switch.gep1374 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_stmt17hf73d4b2ae334572aE.18, i64 %1249
   %switch.load1375 = load ptr, ptr %switch.gep1374, align 8
   %1250 = load i64, ptr %215, align 8, !alias.scope !480, !noalias !483, !noundef !12
   %.not.i461 = icmp eq i64 %1250, 0
@@ -7456,7 +7456,7 @@ _ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit18: ; pre
   %75 = load ptr, ptr %74, align 8, !nonnull !12, !noundef !12
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %77 = load i64, ptr %76, align 8, !noundef !12
-  %78 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %75, i64 %77
+  %78 = getelementptr inbounds nuw [64 x i8], ptr %75, i64 %77
   %79 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h05a310ab1f2b028cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %63), !noalias !1003
   %80 = extractvalue { ptr, ptr } %79, 0
   %81 = extractvalue { ptr, ptr } %79, 1
@@ -7603,8 +7603,8 @@ _ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit28: ; pre
   %.sroa.094.0113 = phi i1 [ true, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hc9af9315f5a4e94eE.exit.lr.ph" ], [ false, %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit39 ]
   %.sroa.598.0112 = phi i64 [ %.sroa.598.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hc9af9315f5a4e94eE.exit.lr.ph" ], [ %127, %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit39 ]
   %127 = add i64 %.sroa.598.0112, 1
-  %128 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.sroa.096.0.copyload, i64 %.sroa.598.0112
-  %129 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %.sroa.497.0.copyload, i64 %.sroa.598.0112
+  %128 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.096.0.copyload, i64 %.sroa.598.0112
+  %129 = getelementptr inbounds nuw [88 x i8], ptr %.sroa.497.0.copyload, i64 %.sroa.598.0112
   br i1 %.sroa.094.0113, label %_ZN19ruff_python_codegen9generator9Generator7p_delim17h9af269dfbc7e71ceE.exit34, label %130
 
 130:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hc9af9315f5a4e94eE.exit"
@@ -8554,10 +8554,10 @@ switch.lookup:                                    ; preds = %tailrecurse
   %89 = load i8, ptr %88, align 8, !range !479, !noundef !12
   %90 = icmp eq i8 %89, 6
   %91 = zext nneg i8 %89 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_expr17h2e4f70ecf4555049E, i64 %91
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_expr17h2e4f70ecf4555049E, i64 %91
   %switch.load = load ptr, ptr %switch.gep, align 8
   %92 = zext nneg i8 %89 to i64
-  %switch.gep1249 = getelementptr inbounds nuw i64, ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_expr17h2e4f70ecf4555049E.19, i64 %92
+  %switch.gep1249 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_expr17h2e4f70ecf4555049E.19, i64 %92
   %switch.load1250 = load i64, ptr %switch.gep1249, align 8
   %93 = zext nneg i8 %89 to i64
   %switch.gep1251 = getelementptr inbounds nuw i8, ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_expr17h2e4f70ecf4555049E.20, i64 %93
@@ -8570,10 +8570,10 @@ switch.lookup1253:                                ; preds = %tailrecurse
   %96 = getelementptr inbounds nuw i8, ptr %.tr529, i64 24
   %97 = load i8, ptr %96, align 8, !range !1251, !noundef !12
   %98 = zext nneg i8 %97 to i64
-  %switch.gep1254 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_expr17h2e4f70ecf4555049E.21, i64 %98
+  %switch.gep1254 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_expr17h2e4f70ecf4555049E.21, i64 %98
   %switch.load1255 = load ptr, ptr %switch.gep1254, align 8
   %99 = zext nneg i8 %97 to i64
-  %switch.gep1256 = getelementptr inbounds nuw i64, ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_expr17h2e4f70ecf4555049E.22, i64 %99
+  %switch.gep1256 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_expr17h2e4f70ecf4555049E.22, i64 %99
   %switch.load1257 = load i64, ptr %switch.gep1256, align 8
   %100 = shl nuw nsw i8 %97, 3
   %switch.shiftamt = zext nneg i8 %100 to i32
@@ -9270,7 +9270,7 @@ _ZN19ruff_python_codegen9generator9Generator4p_if17hb616e9f1a73751a4E.exit262: ;
   %.val = load ptr, ptr %344, align 8, !nonnull !12, !align !72, !noundef !12
   %360 = getelementptr i8, ptr %.tr529, i64 40
   %.val116 = load i64, ptr %360, align 8, !noundef !12
-  %361 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.val, i64 %.val116
+  %361 = getelementptr inbounds nuw [64 x i8], ptr %.val, i64 %.val116
   call void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17hb51e217e64e321deE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %33, ptr noundef nonnull %356, ptr noundef nonnull %359, ptr noundef nonnull %.val, ptr noundef nonnull %361)
   %.sroa.0489.0.copyload = load ptr, ptr %33, align 8
   %.sroa.4490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -10366,14 +10366,14 @@ _ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit.i394: ; 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17heeb5cda1476180e3E.exit": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17heeb5cda1476180e3E.exit.lr.ph", %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit406
   %.sroa.5492.0619 = phi i64 [ %.sroa.5492.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17heeb5cda1476180e3E.exit.lr.ph" ], [ %750, %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit406 ]
   %750 = add i64 %.sroa.5492.0619, 1
-  %751 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.sroa.4490.0.copyload, i64 %.sroa.5492.0619
+  %751 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.4490.0.copyload, i64 %.sroa.5492.0619
   %752 = getelementptr inbounds nuw i8, ptr %.sroa.0489.0.copyload, i64 %.sroa.5492.0619
   %753 = load i8, ptr %752, align 1, !range !1652, !noundef !12
   %754 = zext nneg i8 %753 to i64
-  %switch.gep1259 = getelementptr inbounds nuw i64, ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_expr17h2e4f70ecf4555049E.23, i64 %754
+  %switch.gep1259 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_expr17h2e4f70ecf4555049E.23, i64 %754
   %switch.load1260 = load i64, ptr %switch.gep1259, align 8
   %755 = zext nneg i8 %753 to i64
-  %switch.gep1261 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_expr17h2e4f70ecf4555049E.24, i64 %755
+  %switch.gep1261 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19ruff_python_codegen9generator9Generator12unparse_expr17h2e4f70ecf4555049E.24, i64 %755
   %switch.load1262 = load ptr, ptr %switch.gep1261, align 8
   %756 = load i64, ptr %34, align 8, !alias.scope !1653, !noalias !1656, !noundef !12
   %.not.i402 = icmp eq i64 %756, 0
@@ -11268,7 +11268,7 @@ define internal fastcc void @_ZN19ruff_python_codegen9generator9Generator18unpar
   %4 = load ptr, ptr %3, align 8, !nonnull !12, !noundef !12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !12
-  %7 = getelementptr inbounds nuw { { i32, i32 }, ptr, { { i32, i32 }, ptr, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } } }, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf654a21a4d84b4c4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8), !noalias !1823
   %10 = extractvalue { ptr, ptr } %9, 0

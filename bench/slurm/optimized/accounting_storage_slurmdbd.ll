@@ -5181,7 +5181,7 @@ define dso_local i32 @jobacct_storage_p_job_heavy(ptr noundef %0, ptr noundef %1
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %27 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   call void (ptr, ptr, ptr, ...) @slurm_xstrfmtcatat(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull @.str.76, ptr noundef %30) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

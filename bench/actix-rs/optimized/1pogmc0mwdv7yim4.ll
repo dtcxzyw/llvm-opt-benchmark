@@ -707,7 +707,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h2fb71c2b
   %26 = load ptr, ptr %25, align 8, !alias.scope !144, !noalias !141, !nonnull !12, !noundef !12
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load i64, ptr %27, align 8, !alias.scope !144, !noalias !141, !noundef !12
-  %29 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %26, i64 %28
+  %29 = getelementptr inbounds [24 x i8], ptr %26, i64 %28
   store ptr %26, ptr %9, align 8, !noalias !146
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %29, ptr %30, align 8, !noalias !146
@@ -1042,7 +1042,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h2fb71c2b
 129:                                              ; preds = %._crit_edge.i, %117
   %130 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %121, %117 ]
   %131 = load ptr, ptr %73, align 8, !alias.scope !169, !noalias !172, !nonnull !12, !noundef !12
-  %132 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %131, i64 %130
+  %132 = getelementptr inbounds [24 x i8], ptr %131, i64 %130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   %133 = load i64, ptr %74, align 8, !alias.scope !169, !noalias !172, !noundef !12
   %134 = add i64 %133, 1
@@ -1079,7 +1079,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h2fb71c2b
 143:                                              ; preds = %._crit_edge.i64, %129
   %144 = phi i64 [ %.pre.i65, %._crit_edge.i64 ], [ %135, %129 ]
   %145 = load ptr, ptr %75, align 8, !alias.scope !174, !noalias !177, !nonnull !12, !noundef !12
-  %146 = getelementptr inbounds { { { ptr, ptr }, { { { ptr, i64 } }, {}, {} } }, { { i64, ptr, {} }, i64 } }, ptr %145, i64 %144
+  %146 = getelementptr inbounds [56 x i8], ptr %145, i64 %144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %146, ptr noundef nonnull align 8 dereferenceable(56) %12, i64 56, i1 false)
   %147 = add i64 %144, 1
   store i64 %147, ptr %76, align 8, !alias.scope !174, !noalias !177

@@ -508,7 +508,7 @@ define hidden void @_ZN3std2io5Write14write_vectored17hd0e762ba53a5b78cE(ptr noa
   %5 = alloca { ptr, ptr, {} }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !82
-  %6 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %2, i64 %3
+  %6 = getelementptr inbounds [16 x i8], ptr %2, i64 %3
   store ptr %2, ptr %5, align 8, !noalias !82
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %7, align 8, !noalias !82
@@ -604,7 +604,7 @@ define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17h870fe2ae78bfd1
   unreachable
 
 .lr.ph:                                           ; preds = %21
-  %24 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %1, i64 %.0.lcssa.i
+  %24 = getelementptr inbounds [16 x i8], ptr %1, i64 %.0.lcssa.i
   %25 = sub nuw i64 %2, %.0.lcssa.i
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -619,7 +619,7 @@ define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17h870fe2ae78bfd1
   call void @llvm.experimental.noalias.scope.decl(metadata !112)
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !118
-  %31 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %.sroa.0.044, i64 %.sroa.8.043
+  %31 = getelementptr inbounds [16 x i8], ptr %.sroa.0.044, i64 %.sroa.8.043
   store ptr %.sroa.0.044, ptr %7, align 8, !noalias !118
   store ptr %31, ptr %26, align 8, !noalias !118
   br label %32
@@ -737,7 +737,7 @@ default.unreachable:                              ; preds = %46
 
 71:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca0ebce053e237faE.exit.thread.i14"
   %72 = sub nuw i64 %.sroa.8.043, %.0.lcssa.i16
-  %73 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %.sroa.0.044, i64 %.0.lcssa.i16
+  %73 = getelementptr inbounds [16 x i8], ptr %.sroa.0.044, i64 %.0.lcssa.i16
   %74 = icmp eq i64 %.sroa.8.043, %.0.lcssa.i16
   br i1 %74, label %.thread.i18, label %78
 
@@ -1161,7 +1161,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 12:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc904325be743c411E.exit", %5
   %.0 = phi i64 [ 0, %5 ], [ %76, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc904325be743c411E.exit" ]
-  %13 = getelementptr inbounds i32, ptr %0, i64 %.0
+  %13 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0
   %.val15 = load i32, ptr %13, align 4, !range !217, !alias.scope !218, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
   %14 = icmp samesign ult i32 %.val15, 128

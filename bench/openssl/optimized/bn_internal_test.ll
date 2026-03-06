@@ -102,7 +102,7 @@ define internal range(i32 0, 2) i32 @test_is_composite_enhanced(i32 noundef %0) 
 
 5:                                                ; preds = %1
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds i32, ptr @composites, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr @composites, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !9
   %9 = sext i32 %8 to i64
   %10 = tail call i32 @BN_set_word(ptr noundef %3, i64 noundef %9) #3
@@ -153,7 +153,7 @@ define internal i32 @test_bn_small_factors() #0 {
 .preheader:                                       ; preds = %3, %.preheader.backedge
   %.01624 = phi i32 [ %.01624.be, %.preheader.backedge ], [ 1, %3 ]
   %8 = zext nneg i32 %.01624 to i64
-  %9 = getelementptr inbounds nuw i16, ptr @primes, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !11
   %11 = add i16 %10, -4
   %or.cond = icmp ult i16 %11, 748

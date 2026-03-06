@@ -513,7 +513,7 @@ define internal noundef i32 @cache_limit_revised_downward_test() #0 {
 .preheader:                                       ; preds = %0, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %4 ], [ 0, %0 ]
   %5 = tail call ptr @cache_alloc(ptr noundef nonnull %2) #21
-  %6 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %5, ptr %6, align 8, !tbaa !12
   %.not21 = icmp eq ptr %5, null
   br i1 %.not21, label %7, label %4
@@ -1083,7 +1083,7 @@ define internal range(i32 1, 3) i32 @test_issue_161() #0 {
 6:                                                ; preds = %10, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %10 ]
   %7 = tail call ptr @cache_alloc(ptr noundef nonnull %3) #21
-  %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   store ptr %7, ptr %8, align 8, !tbaa !27
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %9, label %10
@@ -1100,7 +1100,7 @@ define internal range(i32 1, 3) i32 @test_issue_161() #0 {
 
 .preheader.i:                                     ; preds = %10, %.preheader.i
   %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %.preheader.i ], [ 0, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv21.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv21.i
   %12 = load ptr, ptr %11, align 8, !tbaa !27
   tail call void @cache_free(ptr noundef nonnull %3, ptr noundef %12) #21
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
@@ -1121,7 +1121,7 @@ define internal range(i32 1, 3) i32 @test_issue_161() #0 {
 17:                                               ; preds = %21, %16
   %indvars.iv.i3 = phi i64 [ 0, %16 ], [ %indvars.iv.next.i5, %21 ]
   %18 = tail call ptr @cache_alloc(ptr noundef nonnull %14) #21
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i3
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i3
   store ptr %18, ptr %19, align 8, !tbaa !27
   %.not.i4 = icmp eq ptr %18, null
   br i1 %.not.i4, label %20, label %21
@@ -1143,7 +1143,7 @@ define internal range(i32 1, 3) i32 @test_issue_161() #0 {
 
 .preheader.i7:                                    ; preds = %21, %.preheader.i7
   %indvars.iv21.i8 = phi i64 [ %indvars.iv.next22.i9, %.preheader.i7 ], [ 0, %21 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv21.i8
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv21.i8
   %24 = load ptr, ptr %23, align 8, !tbaa !27
   tail call void @cache_free(ptr noundef nonnull %14, ptr noundef %24) #21
   %indvars.iv.next22.i9 = add nuw nsw i64 %indvars.iv21.i8, 1
@@ -3620,7 +3620,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone 
 
 3:                                                ; preds = %3, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw %struct.testcase, ptr @testcases, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @testcases, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16, !tbaa !57
   %.not = icmp eq ptr %5, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3636,7 +3636,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone 
 .lr.ph:                                           ; preds = %6, %23
   %indvars.iv23 = phi i64 [ %18, %23 ], [ 0, %6 ]
   %.021 = phi i32 [ %.1, %23 ], [ 0, %6 ]
-  %10 = getelementptr inbounds nuw %struct.testcase, ptr @testcases, i64 %indvars.iv23
+  %10 = getelementptr inbounds nuw [16 x i8], ptr @testcases, i64 %indvars.iv23
   %11 = load ptr, ptr @stdout, align 8, !tbaa !44
   %12 = tail call i32 @fflush(ptr noundef %11)
   %13 = tail call i32 @alarm(i32 noundef 600) #21
@@ -3664,7 +3664,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readnone 
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull %.str.58.sink, i32 noundef %20, ptr noundef %19) #21
   %25 = load ptr, ptr @stdout, align 8, !tbaa !44
   %26 = tail call i32 @fflush(ptr noundef %25)
-  %27 = getelementptr inbounds nuw %struct.testcase, ptr @testcases, i64 %18
+  %27 = getelementptr inbounds nuw [16 x i8], ptr @testcases, i64 %18
   %28 = load ptr, ptr %27, align 16, !tbaa !57
   %.not18 = icmp eq ptr %28, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !61
@@ -3798,7 +3798,7 @@ define internal fastcc i32 @start_server(ptr noundef writeonly captures(none) %0
 27:                                               ; preds = %25, %22
   %.044 = phi i32 [ 0, %22 ], [ 2, %25 ]
   %28 = zext nneg i32 %.044 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %6, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %28
   store ptr @.str.180, ptr %29, align 16, !tbaa !12
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @.str.181, ptr %30, align 8, !tbaa !12
@@ -3817,7 +3817,7 @@ define internal fastcc i32 @start_server(ptr noundef writeonly captures(none) %0
 
 38:                                               ; preds = %27
   %39 = zext nneg i32 %34 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %6, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %39
   store ptr @.str.185, ptr %40, align 16, !tbaa !12
   %41 = or disjoint i32 %.044, 8
   %42 = getelementptr inbounds nuw i8, ptr %29, i64 56
@@ -3830,7 +3830,7 @@ define internal fastcc i32 @start_server(ptr noundef writeonly captures(none) %0
 
 44:                                               ; preds = %43
   %45 = zext nneg i32 %.1 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %6, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %45
   store ptr @.str.187, ptr %46, align 8, !tbaa !12
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr @.str.188, ptr %47, align 8, !tbaa !12
@@ -3842,7 +3842,7 @@ define internal fastcc i32 @start_server(ptr noundef writeonly captures(none) %0
 50:                                               ; preds = %44, %43
   %.2 = phi i32 [ %48, %44 ], [ %.1, %43 ]
   %51 = zext nneg i32 %.2 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %6, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %51
   store ptr null, ptr %52, align 8, !tbaa !12
   %53 = load ptr, ptr %6, align 16, !tbaa !12
   %54 = call i32 @execv(ptr noundef %53, ptr noundef nonnull %6) #21

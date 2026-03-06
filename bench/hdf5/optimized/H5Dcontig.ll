@@ -158,9 +158,9 @@ define internal range(i32 -1, 1) i32 @H5D__contig_construct(ptr noundef %0, ptr 
 
 16:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !48
-  %19 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !48
   %21 = icmp ugt i64 %18, %20
   br i1 %21, label %22, label %15
@@ -475,7 +475,7 @@ define internal range(i32 -1, 1) i32 @H5D__contig_io_init(ptr noundef captures(n
 ._crit_edge:                                      ; preds = %65, %.lr.ph
   %.pre-phi = phi i64 [ %76, %.lr.ph ], [ 0, %65 ]
   %78 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %.pre-phi
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %.pre-phi
   store i64 0, ptr %79, align 8, !tbaa !48
   %80 = getelementptr inbounds nuw i8, ptr %58, i64 336
   store ptr %1, ptr %80, align 8, !tbaa !79
@@ -760,7 +760,7 @@ define internal noundef i32 @H5D__contig_mdio_init(ptr noundef captures(none) %0
   %14 = load ptr, ptr %13, align 8, !tbaa !105
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = load i64, ptr %15, align 8, !tbaa !106
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   store ptr %11, ptr %17, align 8, !tbaa !107
   %18 = add i64 %16, 1
   store i64 %18, ptr %15, align 8, !tbaa !106
@@ -844,34 +844,34 @@ define range(i32 -1, 1) i32 @H5D__contig_read(ptr noundef %0, ptr noundef %1) #0
   %50 = load ptr, ptr %49, align 8, !tbaa !110
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = load i64, ptr %51, align 8, !tbaa !106
-  %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %52
   store ptr %48, ptr %53, align 8, !tbaa !111
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %55 = load ptr, ptr %54, align 8, !tbaa !68
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %57 = load ptr, ptr %56, align 8, !tbaa !112
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %52
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %52
   store ptr %55, ptr %58, align 8, !tbaa !111
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !66
   %61 = load i64, ptr %60, align 8, !tbaa !51
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %63 = load ptr, ptr %62, align 8, !tbaa !113
-  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %52
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %52
   store i64 %61, ptr %64, align 8, !tbaa !48
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %66 = load i64, ptr %65, align 8, !tbaa !96
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %68 = load ptr, ptr %67, align 8, !tbaa !114
   %69 = load i64, ptr %51, align 8, !tbaa !106
-  %70 = getelementptr inbounds nuw i64, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %69
   store i64 %66, ptr %70, align 8, !tbaa !48
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %72 = load ptr, ptr %71, align 8, !tbaa !51
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %74 = load ptr, ptr %73, align 8, !tbaa !115
   %75 = load i64, ptr %51, align 8, !tbaa !106
-  %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %75
   store ptr %72, ptr %76, align 8, !tbaa !116
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %78 = load ptr, ptr %77, align 8, !tbaa !105
@@ -880,7 +880,7 @@ define range(i32 -1, 1) i32 @H5D__contig_read(ptr noundef %0, ptr noundef %1) #0
 
 79:                                               ; preds = %46
   %80 = load ptr, ptr %44, align 8, !tbaa !51
-  %81 = getelementptr inbounds nuw ptr, ptr %78, i64 %75
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %75
   store ptr %80, ptr %81, align 8, !tbaa !107
   br label %82
 
@@ -981,34 +981,34 @@ define range(i32 -1, 1) i32 @H5D__contig_write(ptr noundef %0, ptr noundef %1) #
   %50 = load ptr, ptr %49, align 8, !tbaa !110
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = load i64, ptr %51, align 8, !tbaa !106
-  %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %52
   store ptr %48, ptr %53, align 8, !tbaa !111
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %55 = load ptr, ptr %54, align 8, !tbaa !68
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %57 = load ptr, ptr %56, align 8, !tbaa !112
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %52
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %52
   store ptr %55, ptr %58, align 8, !tbaa !111
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !66
   %61 = load i64, ptr %60, align 8, !tbaa !51
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %63 = load ptr, ptr %62, align 8, !tbaa !113
-  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %52
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %52
   store i64 %61, ptr %64, align 8, !tbaa !48
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %66 = load i64, ptr %65, align 8, !tbaa !97
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %68 = load ptr, ptr %67, align 8, !tbaa !114
   %69 = load i64, ptr %51, align 8, !tbaa !106
-  %70 = getelementptr inbounds nuw i64, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %69
   store i64 %66, ptr %70, align 8, !tbaa !48
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %72 = load ptr, ptr %71, align 8, !tbaa !51
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %74 = load ptr, ptr %73, align 8, !tbaa !118
   %75 = load i64, ptr %51, align 8, !tbaa !106
-  %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %75
   store ptr %72, ptr %76, align 8, !tbaa !116
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %78 = load ptr, ptr %77, align 8, !tbaa !105
@@ -1017,7 +1017,7 @@ define range(i32 -1, 1) i32 @H5D__contig_write(ptr noundef %0, ptr noundef %1) #
 
 79:                                               ; preds = %46
   %80 = load ptr, ptr %44, align 8, !tbaa !51
-  %81 = getelementptr inbounds nuw ptr, ptr %78, i64 %75
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %75
   store ptr %80, ptr %81, align 8, !tbaa !107
   br label %82
 

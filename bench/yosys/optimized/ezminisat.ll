@@ -13,8 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sigaction = type { %union.anon.67, %struct.__sigset_t, i32, ptr }
 %union.anon.67 = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
-%"struct.Minisat::Lit" = type { i32 }
-%"class.Minisat::lbool" = type { i8 }
 
 $_ZNSt3setIiSt4lessIiESaIiEED2Ev = comdat any
 
@@ -368,7 +366,7 @@ define noundef zeroext i1 @_ZN9ezMiniSAT10eliminatedEi(ptr noundef nonnull reado
   unreachable
 
 _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %18
-  %22 = getelementptr inbounds nuw i32, ptr %12, i64 %20
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %20
   %23 = load i32, ptr %22, align 4, !tbaa !63
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 1160
   %25 = load ptr, ptr %24, align 8, !tbaa !73
@@ -539,7 +537,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %52, %.no
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %53, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
-  %54 = getelementptr inbounds nuw i32, ptr %49, i64 %47
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %47
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %36
@@ -634,7 +632,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i107: ; preds = %78, %
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i109
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i109: ; preds = %79, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i107
-  %80 = getelementptr inbounds nuw i32, ptr %75, i64 %73
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %73
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit112
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit112:        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i109, %62
@@ -775,7 +773,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i117: ; preds = %129, 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i119: ; preds = %131, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i117
   store ptr %126, ptr %92, align 8, !tbaa !64
   store ptr %130, ptr %93, align 8, !tbaa !66
-  %132 = getelementptr inbounds nuw i32, ptr %126, i64 %124
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %124
   store ptr %132, ptr %104, align 8, !tbaa !65
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit122
 
@@ -867,7 +865,7 @@ _ZNSt3setIiSt4lessIiESaIiEE5clearEv.exit:         ; preds = %._crit_edge476
 
 172:                                              ; preds = %.lr.ph475
   %173 = load ptr, ptr %56, align 8, !tbaa !21
-  %174 = getelementptr inbounds nuw i32, ptr %166, i64 %164
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %164
   %175 = load i32, ptr %174, align 4, !tbaa !63
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 1120
   %177 = load ptr, ptr %176, align 8, !tbaa !73
@@ -938,8 +936,8 @@ _ZN7Minisat3vecINS_3LitEiE5clearEb.exit.i.i:      ; preds = %.preheader.i.i.i, %
 
 197:                                              ; preds = %197, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %197 ]
-  %198 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.sroa.0224.0.lcssa, i64 %indvars.iv.i.i
-  %199 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %195, i64 %indvars.iv.i.i
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0224.0.lcssa, i64 %indvars.iv.i.i
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %195, i64 %indvars.iv.i.i
   %200 = load i32, ptr %198, align 4, !tbaa !63
   store i32 %200, ptr %199, align 4, !tbaa !63
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -979,7 +977,7 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i:   ; preds = %197, %.noexc126
   unreachable
 
 214:                                              ; preds = %210
-  %215 = getelementptr inbounds nuw i32, ptr %205, i64 %212
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %212
   %216 = load i32, ptr %215, align 4, !tbaa !63
   %217 = shl nsw i32 %216, 1
   %218 = zext i32 %.sroa.26236.0480 to i64
@@ -1031,7 +1029,7 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i:   ; preds = %197, %.noexc126
   unreachable
 
 239:                                              ; preds = %235
-  %240 = getelementptr inbounds nuw i32, ptr %205, i64 %237
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %237
   %241 = load i32, ptr %240, align 4, !tbaa !63
   %242 = shl nsw i32 %241, 1
   %243 = or disjoint i32 %242, 1
@@ -1075,7 +1073,7 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i:   ; preds = %197, %.noexc126
   %.sink = phi i32 [ %217, %214 ], [ %217, %227 ], [ %243, %253 ], [ %243, %239 ]
   %262 = phi i32 [ %211, %214 ], [ %211, %227 ], [ %236, %253 ], [ %236, %239 ]
   %.sroa.26236.1 = phi i32 [ %.sroa.26236.0480, %214 ], [ %228, %227 ], [ %254, %253 ], [ %.sroa.26236.0480, %239 ]
-  %263 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.sroa.0224.9.sink, i64 %indvars.iv
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0224.9.sink, i64 %indvars.iv
   store i32 %.sink, ptr %263, align 4, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %264 = sext i32 %262 to i64
@@ -1097,7 +1095,7 @@ _ZNK7Minisat3vecINS_3LitEiE6copyToERS2_.exit.i:   ; preds = %197, %.noexc126
 
 272:                                              ; preds = %261
   %273 = load ptr, ptr %56, align 8, !tbaa !21
-  %274 = getelementptr inbounds nuw i32, ptr %266, i64 %264
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %266, i64 %264
   %275 = load i32, ptr %274, align 4, !tbaa !63
   %276 = getelementptr inbounds nuw i8, ptr %273, i64 1160
   %277 = load ptr, ptr %276, align 8, !tbaa !73
@@ -1227,7 +1225,7 @@ _ZN7Minisat3vecINS_3LitEiED2Ev.exit:              ; preds = %_ZN7Minisat10SimpSo
   unreachable
 
 316:                                              ; preds = %312
-  %317 = getelementptr inbounds nuw i32, ptr %307, i64 %314
+  %317 = getelementptr inbounds nuw [4 x i8], ptr %307, i64 %314
   %318 = load i32, ptr %317, align 4, !tbaa !63
   %319 = shl nsw i32 %318, 1
   %320 = zext i32 %.sroa.26.0494 to i64
@@ -1279,7 +1277,7 @@ _ZN7Minisat3vecINS_3LitEiED2Ev.exit:              ; preds = %_ZN7Minisat10SimpSo
   unreachable
 
 341:                                              ; preds = %337
-  %342 = getelementptr inbounds nuw i32, ptr %307, i64 %339
+  %342 = getelementptr inbounds nuw [4 x i8], ptr %307, i64 %339
   %343 = load i32, ptr %342, align 4, !tbaa !63
   %344 = shl nsw i32 %343, 1
   %345 = or disjoint i32 %344, 1
@@ -1323,7 +1321,7 @@ _ZN7Minisat3vecINS_3LitEiED2Ev.exit:              ; preds = %_ZN7Minisat10SimpSo
   %.sink785 = phi i32 [ %319, %316 ], [ %319, %329 ], [ %345, %355 ], [ %345, %341 ]
   %364 = phi i32 [ %313, %316 ], [ %313, %329 ], [ %338, %355 ], [ %338, %341 ]
   %.sroa.26.1 = phi i32 [ %.sroa.26.0494, %316 ], [ %330, %329 ], [ %356, %355 ], [ %.sroa.26.0494, %341 ]
-  %365 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.sroa.0200.9.sink, i64 %indvars.iv596
+  %365 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0200.9.sink, i64 %indvars.iv596
   store i32 %.sink785, ptr %365, align 4, !tbaa !63
   %366 = sext i32 %364 to i64
   %367 = load ptr, ptr %93, align 8, !tbaa !66
@@ -1344,7 +1342,7 @@ _ZN7Minisat3vecINS_3LitEiED2Ev.exit:              ; preds = %_ZN7Minisat10SimpSo
 
 374:                                              ; preds = %363
   %375 = load ptr, ptr %56, align 8, !tbaa !21
-  %376 = getelementptr inbounds nuw i32, ptr %368, i64 %366
+  %376 = getelementptr inbounds nuw [4 x i8], ptr %368, i64 %366
   %377 = load i32, ptr %376, align 4, !tbaa !63
   %378 = getelementptr inbounds nuw i8, ptr %375, i64 1160
   %379 = load ptr, ptr %378, align 8, !tbaa !73
@@ -1427,8 +1425,8 @@ _ZN7Minisat3vecINS_3LitEiE5clearEb.exit.i.i165:   ; preds = %.preheader.i.i.i164
 
 412:                                              ; preds = %412, %.lr.ph.i.i167
   %indvars.iv.i.i168 = phi i64 [ 0, %.lr.ph.i.i167 ], [ %indvars.iv.next.i.i169, %412 ]
-  %413 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %.sroa.0200.0.lcssa, i64 %indvars.iv.i.i168
-  %414 = getelementptr inbounds nuw %"struct.Minisat::Lit", ptr %410, i64 %indvars.iv.i.i168
+  %413 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0200.0.lcssa, i64 %indvars.iv.i.i168
+  %414 = getelementptr inbounds nuw [4 x i8], ptr %410, i64 %indvars.iv.i.i168
   %415 = load i32, ptr %413, align 4, !tbaa !63
   store i32 %415, ptr %414, align 4, !tbaa !63
   %indvars.iv.next.i.i169 = add nuw nsw i64 %indvars.iv.i.i168, 1
@@ -1499,7 +1497,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit.preheader:    ; preds = %432
 
 448:                                              ; preds = %.lr.ph502, %_ZNSt14_Bit_referenceaSEb.exit
   %.058501 = phi i64 [ 0, %.lr.ph502 ], [ %475, %_ZNSt14_Bit_referenceaSEb.exit ]
-  %449 = getelementptr inbounds nuw i32, ptr %.sroa.0265.1.lcssa, i64 %.058501
+  %449 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0265.1.lcssa, i64 %.058501
   %450 = load i32, ptr %449, align 4, !tbaa !63
   %spec.select = call i32 @llvm.abs.i32(i32 %450, i1 true)
   %451 = add nsw i32 %spec.select, -1
@@ -1515,17 +1513,17 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit.preheader:    ; preds = %432
   unreachable
 
 454:                                              ; preds = %448
-  %455 = getelementptr inbounds nuw i32, ptr %440, i64 %452
+  %455 = getelementptr inbounds nuw [4 x i8], ptr %440, i64 %452
   %456 = load i32, ptr %455, align 4, !tbaa !63
   %457 = load ptr, ptr %446, align 8, !tbaa !143
   %458 = sext i32 %456 to i64
-  %459 = getelementptr inbounds %"class.Minisat::lbool", ptr %457, i64 %458
+  %459 = getelementptr inbounds i8, ptr %457, i64 %458
   %.sroa.0.0.copyload.i = load i8, ptr %459, align 1, !tbaa !76
   %.lobit = lshr i32 %450, 31
   %460 = trunc nuw nsw i32 %.lobit to i8
   %461 = icmp eq i8 %.sroa.0.0.copyload.i, %460
   %462 = sdiv i64 %.058501, 64
-  %463 = getelementptr inbounds i64, ptr %447, i64 %462
+  %463 = getelementptr inbounds [8 x i8], ptr %447, i64 %462
   %464 = and i64 %.058501, -9223372036854775745
   %465 = icmp ugt i64 %464, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %465, i64 -8, i64 0
@@ -1889,7 +1887,7 @@ _ZN7Minisat3vecINS_3LitEiE8capacityEi.exit:       ; preds = %5, %18, %24
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %32, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %33 = load ptr, ptr %0, align 8, !tbaa !126
-  %34 = getelementptr inbounds %"struct.Minisat::Lit", ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %indvars.iv
   store i32 0, ptr %34, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1967,7 +1965,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %25
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 63
   %36 = sdiv i64 %33, 64
-  %37 = getelementptr inbounds i64, ptr %16, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %16, i64 %36
   %38 = and i64 %33, -9223372036854775745
   %39 = icmp ugt i64 %38, -9223372036854775808
   %storemerge.idx.i.i.i = select i1 %39, i64 -8, i64 0
@@ -2122,7 +2120,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %77, %_ZSt14__fill_b
   %107 = add nsw i64 %3, %106
   %108 = sdiv i64 %107, 64
   %109 = load ptr, ptr %15, align 8, !tbaa !140
-  %110 = getelementptr inbounds i64, ptr %109, i64 %108
+  %110 = getelementptr inbounds [8 x i8], ptr %109, i64 %108
   %111 = and i64 %107, -9223372036854775745
   %112 = icmp ugt i64 %111, -9223372036854775808
   %storemerge.idx.i.i = select i1 %112, i64 -8, i64 0
@@ -2383,13 +2381,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
   %231 = sub i64 %229, %230
   %232 = ashr exact i64 %231, 3
   %233 = sub nsw i64 0, %232
-  %234 = getelementptr inbounds i64, ptr %228, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr %228, i64 %233
   tail call void @_ZdlPvm(ptr noundef %234, i64 noundef %231) #23
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %227
   %235 = lshr i64 %123, 6
-  %236 = getelementptr inbounds nuw i64, ptr %126, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %235
   store ptr %236, ptr %8, align 8, !tbaa !152
   store ptr %126, ptr %0, align 8
   %.sroa.5138.0..sroa_idx139 = getelementptr inbounds nuw i8, ptr %0, i64 8

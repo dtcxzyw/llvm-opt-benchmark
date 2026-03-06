@@ -29,7 +29,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dm_table_run
 %union.anon = type { %struct.atomic_t }
 %struct.optimistic_spin_queue = type { %struct.atomic_t }
 %struct.list_head = type { ptr, ptr }
-%struct.dm_target = type { ptr, ptr, i64, i64, i32, i32, i32, i32, i32, i32, ptr, ptr, i16 }
 %struct.queue_limits = type { i32, i64, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i16, i16, i16, i8, i8, i8, i8, i32 }
 
 @dm_table_create.__key = internal global %struct.lock_class_key zeroinitializer, align 1
@@ -125,7 +124,7 @@ define dso_local noundef range(i32 -75, 1) i32 @dm_table_create(ptr noundef writ
   br i1 %24, label %34, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr i64, ptr %23, i64 %21
+  %26 = getelementptr [8 x i8], ptr %23, i64 %21
   %27 = shl nuw nsw i64 %21, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %23, i8 -1, i64 %27, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 216
@@ -174,7 +173,7 @@ define dso_local void @dm_table_destroy(ptr noundef %0) local_unnamed_addr #0 al
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = add i32 %5, -2
   %10 = zext i32 %9 to i64
-  %11 = getelementptr ptr, ptr %8, i64 %10
+  %11 = getelementptr [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @kvfree(ptr noundef %12) #22
   br label %13
@@ -223,7 +222,7 @@ define dso_local void @dm_table_destroy(ptr noundef %0) local_unnamed_addr #0 al
 36:                                               ; preds = %46, %17
   %37 = phi i64 [ 0, %17 ], [ %48, %46 ]
   %38 = load ptr, ptr %18, align 8
-  %39 = getelementptr %struct.dm_target, ptr %38, i64 %37
+  %39 = getelementptr [80 x i8], ptr %38, i64 %37
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
@@ -650,7 +649,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dm_split_args(ptr noundef captur
   store i8 0, ptr %20, align 1
   %60 = load i32, ptr %0, align 4
   %61 = sext i32 %60 to i64
-  %62 = getelementptr ptr, ptr %56, i64 %61
+  %62 = getelementptr [8 x i8], ptr %56, i64 %61
   store ptr %14, ptr %62, align 8
   %63 = load i32, ptr %0, align 4
   %64 = add i32 %63, 1
@@ -714,7 +713,7 @@ define dso_local i32 @dm_table_add_target(ptr noundef %0, ptr noundef %1, i64 no
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %31 = load ptr, ptr %30, align 8
   %32 = zext i32 %24 to i64
-  %33 = getelementptr %struct.dm_target, ptr %31, i64 %32
+  %33 = getelementptr [80 x i8], ptr %31, i64 %32
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(80) %33, i8 0, i64 80, i1 false)
   %34 = icmp eq i64 %3, 0
   br i1 %34, label %35, label %39
@@ -845,7 +844,7 @@ define dso_local i32 @dm_table_add_target(ptr noundef %0, ptr noundef %1, i64 no
   %102 = load ptr, ptr %30, align 8
   %103 = add i32 %99, -1
   %104 = zext i32 %103 to i64
-  %105 = getelementptr %struct.dm_target, ptr %102, i64 %104
+  %105 = getelementptr [80 x i8], ptr %102, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load i64, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 24
@@ -894,7 +893,7 @@ define dso_local i32 @dm_table_add_target(ptr noundef %0, ptr noundef %1, i64 no
   %135 = add i32 %134, 1
   store i32 %135, ptr %23, align 8
   %136 = zext i32 %134 to i64
-  %137 = getelementptr i64, ptr %133, i64 %136
+  %137 = getelementptr [8 x i8], ptr %133, i64 %136
   store i64 %131, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %139 = load i32, ptr %138, align 8
@@ -1111,7 +1110,7 @@ define dso_local void @dm_consume_args(ptr noundef captures(none) %0, i32 nounde
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   store ptr %11, ptr %8, align 8
   ret void
 }
@@ -1180,7 +1179,7 @@ define dso_local ptr @dm_table_get_wildcard_target(ptr noundef readonly captures
 
 11:                                               ; preds = %9, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %5 ]
-  %12 = getelementptr %struct.dm_target, ptr %7, i64 %indvars.iv
+  %12 = getelementptr [80 x i8], ptr %7, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i64, ptr %14, align 8
@@ -1258,7 +1257,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
   %23 = phi i32 [ 0, %11 ], [ %37, %16 ]
   %24 = phi i32 [ 0, %11 ], [ %36, %16 ]
   %25 = phi i32 [ 0, %11 ], [ %33, %16 ]
-  %.split = getelementptr %struct.dm_target, ptr %13, i64 %21
+  %.split = getelementptr [80 x i8], ptr %13, i64 %21
   %26 = getelementptr i8, ptr %.split, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
@@ -1323,7 +1322,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
 
 70:                                               ; preds = %66
   %71 = load ptr, ptr %55, align 8
-  %72 = getelementptr %struct.dm_target, ptr %71, i64 %67
+  %72 = getelementptr [80 x i8], ptr %71, i64 %67
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 192
@@ -1490,12 +1489,12 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
   store i32 %167, ptr %168, align 4
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %170 = zext i32 %164 to i64
-  %171 = getelementptr i32, ptr %169, i64 %170
+  %171 = getelementptr [4 x i8], ptr %169, i64 %170
   store i32 %153, ptr %171, align 4
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %175 = getelementptr ptr, ptr %174, i64 %170
+  %175 = getelementptr [8 x i8], ptr %174, i64 %170
   store ptr %173, ptr %175, align 8
   %176 = icmp ult i32 %160, -2
   br i1 %176, label %177, label %.loopexit40
@@ -1520,7 +1519,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
   %190 = add nuw nsw i64 %189, 8
   %191 = udiv i64 %190, 9
   %192 = trunc nuw nsw i64 %191 to i32
-  %193 = getelementptr i32, ptr %169, i64 %182
+  %193 = getelementptr [4 x i8], ptr %169, i64 %182
   store i32 %192, ptr %193, align 4
   %194 = add i32 %183, %192
   %195 = add nsw i64 %182, -1
@@ -1551,9 +1550,9 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
 209:                                              ; preds = %.loopexit39, %207
   %210 = phi i64 [ %208, %207 ], [ %262, %.loopexit39 ]
   %211 = phi ptr [ %201, %207 ], [ %216, %.loopexit39 ]
-  %212 = getelementptr ptr, ptr %174, i64 %210
+  %212 = getelementptr [8 x i8], ptr %174, i64 %210
   store ptr %211, ptr %212, align 8
-  %213 = getelementptr i32, ptr %169, i64 %210
+  %213 = getelementptr [4 x i8], ptr %169, i64 %210
   %214 = load i32, ptr %213, align 4
   %215 = zext i32 %214 to i64
   %.idx = shl nuw nsw i64 %215, 6
@@ -1598,13 +1597,13 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
 .loopexit38:                                      ; preds = %.preheader37, %227
   %.pre-phi = phi i64 [ %.pre71, %227 ], [ %233, %.preheader37 ]
   %241 = phi i32 [ %230, %227 ], [ %238, %.preheader37 ]
-  %242 = getelementptr i32, ptr %169, i64 %.pre-phi
+  %242 = getelementptr [4 x i8], ptr %169, i64 %.pre-phi
   %243 = load i32, ptr %242, align 4
   %244 = icmp ult i32 %241, %243
   br i1 %244, label %245, label %252
 
 245:                                              ; preds = %.loopexit38
-  %246 = getelementptr ptr, ptr %174, i64 %.pre-phi
+  %246 = getelementptr [8 x i8], ptr %174, i64 %.pre-phi
   %247 = load ptr, ptr %246, align 8
   %248 = zext i32 %241 to i64
   %.idx28 = shl nuw nsw i64 %248, 6
@@ -1615,7 +1614,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
 
 252:                                              ; preds = %245, %.loopexit38
   %253 = phi i64 [ %251, %245 ], [ -1, %.loopexit38 ]
-  %254 = getelementptr i64, ptr %224, i64 %228
+  %254 = getelementptr [8 x i8], ptr %224, i64 %228
   store i64 %253, ptr %254, align 8
   %255 = add nuw nsw i64 %228, 1
   %256 = icmp eq i64 %255, 8
@@ -1706,7 +1705,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
 
 311:                                              ; preds = %307
   %312 = load ptr, ptr %297, align 8
-  %313 = getelementptr %struct.dm_target, ptr %312, i64 %308
+  %313 = getelementptr [80 x i8], ptr %312, i64 %308
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 176
@@ -1732,7 +1731,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
   %328 = phi i64 [ 0, %280 ], [ %338, %327 ]
   %329 = phi i32 [ 0, %280 ], [ %334, %327 ]
   %330 = phi i32 [ 0, %280 ], [ %337, %327 ]
-  %331 = getelementptr %struct.dm_target, ptr %282, i64 %328
+  %331 = getelementptr [80 x i8], ptr %282, i64 %328
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 52
   %333 = load i32, ptr %332, align 4
   %334 = call i32 @llvm.umax.i32(i32 %329, i32 %333)
@@ -1818,7 +1817,7 @@ define dso_local i64 @dm_table_get_size(ptr noundef readonly captures(none) %0) 
   %7 = load ptr, ptr %6, align 8
   %8 = add i32 %3, -1
   %9 = zext i32 %8 to i64
-  %10 = getelementptr i64, ptr %7, i64 %9
+  %10 = getelementptr [8 x i8], ptr %7, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 1
   br label %13
@@ -1840,7 +1839,7 @@ define dso_local ptr @dm_table_find_target(ptr noundef readonly captures(none) %
   %8 = load ptr, ptr %7, align 8
   %9 = add i32 %4, -1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr i64, ptr %8, i64 %10
+  %11 = getelementptr [8 x i8], ptr %8, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, 1
   %14 = icmp ugt i64 %13, %1
@@ -1863,16 +1862,16 @@ define dso_local ptr @dm_table_find_target(ptr noundef readonly captures(none) %
   %25 = phi i32 [ 0, %19 ], [ %27, %.loopexit ]
   %26 = mul i32 %25, 9
   %27 = add i32 %26, %24
-  %28 = getelementptr ptr, ptr %20, i64 %23
+  %28 = getelementptr [8 x i8], ptr %20, i64 %23
   %29 = load ptr, ptr %28, align 8
   %30 = zext i32 %27 to i64
   %31 = shl nuw nsw i64 %30, 3
-  %32 = getelementptr i64, ptr %29, i64 %31
+  %32 = getelementptr [8 x i8], ptr %29, i64 %31
   br label %33
 
 33:                                               ; preds = %38, %22
   %34 = phi i64 [ 0, %22 ], [ %39, %38 ]
-  %35 = getelementptr i64, ptr %32, i64 %34
+  %35 = getelementptr [8 x i8], ptr %32, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = icmp ult i64 %36, %1
   br i1 %37, label %38, label %41
@@ -1901,8 +1900,8 @@ define dso_local ptr @dm_table_find_target(ptr noundef readonly captures(none) %
   %50 = phi i64 [ 0, %15 ], [ %47, %46 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr %struct.dm_target, ptr %52, i64 %49
-  %54 = getelementptr %struct.dm_target, ptr %53, i64 %50
+  %53 = getelementptr [80 x i8], ptr %52, i64 %49
+  %54 = getelementptr [80 x i8], ptr %53, i64 %50
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %48, %6
@@ -1932,7 +1931,7 @@ define dso_local noundef zeroext i1 @dm_table_has_no_data_devices(ptr noundef re
 11:                                               ; preds = %8, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %6 ]
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr %struct.dm_target, ptr %12, i64 %indvars.iv
+  %13 = getelementptr [80 x i8], ptr %12, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -1996,7 +1995,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   %18 = phi i8 [ 0, %7 ], [ %54, %11 ]
   %19 = phi i32 [ 0, %7 ], [ %53, %11 ]
   %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr %struct.dm_target, ptr %20, i64 %17
+  %21 = getelementptr [80 x i8], ptr %20, i64 %17
   call void @blk_set_stacking_limits(ptr noundef nonnull %4) #22
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
@@ -2141,7 +2140,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   %107 = phi i16 [ 0, %99 ], [ %138, %130 ]
   %108 = phi i64 [ 0, %99 ], [ %132, %130 ]
   %109 = load ptr, ptr %100, align 8
-  %110 = getelementptr %struct.dm_target, ptr %109, i64 %105
+  %110 = getelementptr [80 x i8], ptr %109, i64 %105
   call void @blk_set_stacking_limits(ptr noundef nonnull %3) #22
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8
@@ -2368,7 +2367,7 @@ define dso_local noundef i32 @dm_table_set_restrictions(ptr noundef readonly cap
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr %struct.dm_target, ptr %25, i64 %21
+  %26 = getelementptr [80 x i8], ptr %25, i64 %21
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load i64, ptr %28, align 8
@@ -2412,7 +2411,7 @@ define dso_local noundef i32 @dm_table_set_restrictions(ptr noundef readonly cap
 
 49:                                               ; preds = %71
   %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr %struct.dm_target, ptr %50, i64 %73
+  %51 = getelementptr [80 x i8], ptr %50, i64 %73
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, 0
@@ -2495,7 +2494,7 @@ define dso_local noundef i32 @dm_table_set_restrictions(ptr noundef readonly cap
 
 97:                                               ; preds = %93
   %98 = load ptr, ptr %5, align 8
-  %99 = getelementptr %struct.dm_target, ptr %98, i64 %94
+  %99 = getelementptr [80 x i8], ptr %98, i64 %94
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 44
   %101 = load i32, ptr %100, align 4
   %102 = icmp eq i32 %101, 0
@@ -2532,7 +2531,7 @@ define dso_local noundef i32 @dm_table_set_restrictions(ptr noundef readonly cap
   %116 = phi i32 [ %138, %137 ], [ %115, %.critedge69 ]
   %117 = phi i64 [ %139, %137 ], [ 0, %.critedge69 ]
   %118 = load ptr, ptr %5, align 8
-  %119 = getelementptr %struct.dm_target, ptr %118, i64 %117
+  %119 = getelementptr [80 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 36
   %121 = load i32, ptr %120, align 4
   %122 = icmp eq i32 %121, 0
@@ -2575,7 +2574,7 @@ define dso_local noundef i32 @dm_table_set_restrictions(ptr noundef readonly cap
   %143 = phi i32 [ %165, %164 ], [ %142, %._crit_edge122 ]
   %144 = phi i64 [ %166, %164 ], [ 0, %._crit_edge122 ]
   %145 = load ptr, ptr %5, align 8
-  %146 = getelementptr %struct.dm_target, ptr %145, i64 %144
+  %146 = getelementptr [80 x i8], ptr %145, i64 %144
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 36
   %148 = load i32, ptr %147, align 4
   %149 = icmp eq i32 %148, 0
@@ -2644,7 +2643,7 @@ define dso_local noundef i32 @dm_table_set_restrictions(ptr noundef readonly cap
 
 188:                                              ; preds = %184
   %189 = load ptr, ptr %5, align 8
-  %190 = getelementptr %struct.dm_target, ptr %189, i64 %185
+  %190 = getelementptr [80 x i8], ptr %189, i64 %185
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 192
@@ -2688,7 +2687,7 @@ define dso_local noundef i32 @dm_table_set_restrictions(ptr noundef readonly cap
 .preheader101:                                    ; preds = %.critedge71, %211
   %216 = phi i64 [ %212, %211 ], [ 0, %.critedge71 ]
   %217 = load ptr, ptr %5, align 8
-  %218 = getelementptr %struct.dm_target, ptr %217, i64 %216
+  %218 = getelementptr [80 x i8], ptr %217, i64 %216
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %220 = load ptr, ptr %219, align 8
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 192
@@ -2730,7 +2729,7 @@ thread-pre-split:                                 ; preds = %.preheader101, %224
   %237 = phi i32 [ %249, %._crit_edge127 ], [ %235, %.loopexit102 ]
   %238 = phi i64 [ %250, %._crit_edge127 ], [ 0, %.loopexit102 ]
   %239 = load ptr, ptr %5, align 8
-  %240 = getelementptr %struct.dm_target, ptr %239, i64 %238
+  %240 = getelementptr [80 x i8], ptr %239, i64 %238
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %242 = load ptr, ptr %241, align 8
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 176
@@ -2760,7 +2759,7 @@ thread-pre-split:                                 ; preds = %.preheader101, %224
   %254 = phi i32 [ %267, %266 ], [ %253, %.loopexit100 ]
   %255 = phi i64 [ %268, %266 ], [ 0, %.loopexit100 ]
   %256 = load ptr, ptr %5, align 8
-  %257 = getelementptr %struct.dm_target, ptr %256, i64 %255
+  %257 = getelementptr [80 x i8], ptr %256, i64 %255
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %259 = load ptr, ptr %258, align 8
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 176
@@ -2821,7 +2820,7 @@ thread-pre-split:                                 ; preds = %.preheader101, %224
 
 290:                                              ; preds = %286
   %291 = load ptr, ptr %5, align 8
-  %292 = getelementptr %struct.dm_target, ptr %291, i64 %287
+  %292 = getelementptr [80 x i8], ptr %291, i64 %287
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 48
   %294 = load i32, ptr %293, align 8
   %295 = icmp eq i32 %294, 0
@@ -2869,7 +2868,7 @@ thread-pre-split:                                 ; preds = %.preheader101, %224
   %317 = phi i32 [ %330, %329 ], [ %316, %315 ]
   %318 = phi i64 [ %331, %329 ], [ 0, %315 ]
   %319 = load ptr, ptr %5, align 8
-  %320 = getelementptr %struct.dm_target, ptr %319, i64 %318
+  %320 = getelementptr [80 x i8], ptr %319, i64 %318
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 8
   %322 = load ptr, ptr %321, align 8
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 176
@@ -2917,7 +2916,7 @@ thread-pre-split:                                 ; preds = %.preheader101, %224
   %342 = phi i32 [ %355, %354 ], [ %341, %340 ]
   %343 = phi i64 [ %356, %354 ], [ 0, %340 ]
   %344 = load ptr, ptr %5, align 8
-  %345 = getelementptr %struct.dm_target, ptr %344, i64 %343
+  %345 = getelementptr [80 x i8], ptr %344, i64 %343
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
   %347 = load ptr, ptr %346, align 8
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 176
@@ -2985,7 +2984,7 @@ thread-pre-split:                                 ; preds = %.preheader101, %224
 
 384:                                              ; preds = %.preheader
   %385 = load ptr, ptr %5, align 8
-  %386 = getelementptr %struct.dm_target, ptr %385, i64 %381
+  %386 = getelementptr [80 x i8], ptr %385, i64 %381
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
   %388 = load ptr, ptr %387, align 8
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 176
@@ -3119,7 +3118,7 @@ define dso_local void @dm_table_presuspend_targets(ptr noundef readonly captures
   %10 = phi i32 [ %5, %7 ], [ %21, %20 ]
   %11 = phi i64 [ 0, %7 ], [ %22, %20 ]
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr %struct.dm_target, ptr %12, i64 %11
+  %13 = getelementptr [80 x i8], ptr %12, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
@@ -3162,7 +3161,7 @@ define dso_local void @dm_table_presuspend_undo_targets(ptr noundef readonly cap
   %10 = phi i32 [ %5, %7 ], [ %21, %20 ]
   %11 = phi i64 [ 0, %7 ], [ %22, %20 ]
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr %struct.dm_target, ptr %12, i64 %11
+  %13 = getelementptr [80 x i8], ptr %12, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 104
@@ -3205,7 +3204,7 @@ define dso_local void @dm_table_postsuspend_targets(ptr noundef readonly capture
   %10 = phi i32 [ %5, %7 ], [ %21, %20 ]
   %11 = phi i64 [ 0, %7 ], [ %22, %20 ]
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr %struct.dm_target, ptr %12, i64 %11
+  %13 = getelementptr [80 x i8], ptr %12, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
@@ -3248,7 +3247,7 @@ define dso_local i32 @dm_table_resume_targets(ptr noundef readonly captures(none
   %10 = phi i32 [ %3, %5 ], [ %31, %30 ]
   %11 = phi i64 [ 0, %5 ], [ %32, %30 ]
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr %struct.dm_target, ptr %12, i64 %11
+  %13 = getelementptr [80 x i8], ptr %12, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 120
@@ -3286,7 +3285,7 @@ define dso_local i32 @dm_table_resume_targets(ptr noundef readonly captures(none
   %35 = phi i32 [ %46, %45 ], [ %31, %7 ]
   %36 = phi i64 [ %47, %45 ], [ 0, %7 ]
   %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr %struct.dm_target, ptr %37, i64 %36
+  %38 = getelementptr [80 x i8], ptr %37, i64 %36
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 128

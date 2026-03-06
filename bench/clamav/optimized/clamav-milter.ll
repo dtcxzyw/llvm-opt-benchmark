@@ -186,7 +186,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %29 = load ptr, ptr @opts, align 8, !tbaa !21
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %31 = load ptr, ptr %30, align 8, !tbaa !28
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.next
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.next
   %33 = load ptr, ptr %32, align 8, !tbaa !27
   %.not121 = icmp eq ptr %33, null
   br i1 %.not121, label %.loopexit, label %.lr.ph

@@ -71,7 +71,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__mbstate_t = type { i32, %union.anon.81 }
 %union.anon.81 = type { i32 }
 %struct.cpu_set_t = type { [16 x i64] }
-%"struct.gmx::CpuInfo::LogicalProcessor" = type { i32, i32, i32, i32 }
 %"class.std::istream_iterator" = type <{ ptr, %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"class.std::allocator.86" = type { i8 }
 %"class.std::unordered_map" = type { %"class.std::_Hashtable" }
@@ -82,18 +81,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.52" = type { %"struct.std::_Vector_base<std::unordered_map<int, int>, std::allocator<std::unordered_map<int, int>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::unordered_map<int, int>, std::allocator<std::unordered_map<int, int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unordered_map<int, int>, std::allocator<std::unordered_map<int, int>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::unordered_map<int, int>, std::allocator<std::unordered_map<int, int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx::HardwareTopology::Package" = type { i32, %"class.std::vector.56" }
-%"class.std::vector.56" = type { %"struct.std::_Vector_base.57" }
-%"struct.std::_Vector_base.57" = type { %"struct.std::_Vector_base<gmx::HardwareTopology::Core, std::allocator<gmx::HardwareTopology::Core>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::HardwareTopology::Core, std::allocator<gmx::HardwareTopology::Core>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::HardwareTopology::Core, std::allocator<gmx::HardwareTopology::Core>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::HardwareTopology::Core, std::allocator<gmx::HardwareTopology::Core>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx::HardwareTopology::Core" = type { i32, i32, %"class.std::vector.61" }
-%"class.std::vector.61" = type { %"struct.std::_Vector_base.62" }
-%"struct.std::_Vector_base.62" = type { %"struct.std::_Vector_base<gmx::HardwareTopology::ProcessingUnit, std::allocator<gmx::HardwareTopology::ProcessingUnit>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::HardwareTopology::ProcessingUnit, std::allocator<gmx::HardwareTopology::ProcessingUnit>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::HardwareTopology::ProcessingUnit, std::allocator<gmx::HardwareTopology::ProcessingUnit>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::HardwareTopology::ProcessingUnit, std::allocator<gmx::HardwareTopology::ProcessingUnit>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx::HardwareTopology::ProcessingUnit" = type { i32, i32 }
-%"struct.gmx::HardwareTopology::LogicalProcessor" = type { i32, i32, i32, i32, i32, i32 }
 
 $_ZN3gmx7CpuInfoD2Ev = comdat any
 
@@ -928,7 +915,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %228, %.n
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %230, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
-  %231 = getelementptr inbounds nuw i32, ptr %225, i64 %223
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %225, i64 %223
   br label %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit.i
 
 .loopexit130.i:                                   ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
@@ -1138,7 +1125,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i66.i: ; preds = %308, %
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %309, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i66.i
-  %310 = getelementptr inbounds nuw i32, ptr %305, i64 %303
+  %310 = getelementptr inbounds nuw [4 x i8], ptr %305, i64 %303
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %292
@@ -1500,7 +1487,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i79
   %418 = and i64 %417, 63
   %419 = shl nuw i64 1, %418
   %420 = lshr i64 %417, 6
-  %421 = getelementptr inbounds nuw i64, ptr %25, i64 %420
+  %421 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %420
   %422 = load i64, ptr %421, align 8, !tbaa !87
   %423 = or i64 %422, %419
   store i64 %423, ptr %421, align 8, !tbaa !87
@@ -1567,7 +1554,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %445, %.noe
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %447, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  %448 = getelementptr inbounds nuw i32, ptr %442, i64 %440
+  %448 = getelementptr inbounds nuw [4 x i8], ptr %442, i64 %440
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 .loopexit334:                                     ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
@@ -1760,7 +1747,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i89: ; preds = %513, %.n
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i91
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i91: ; preds = %515, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i89
-  %516 = getelementptr inbounds nuw i32, ptr %510, i64 %508
+  %516 = getelementptr inbounds nuw [4 x i8], ptr %510, i64 %508
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit94
 
 .loopexit340:                                     ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i86
@@ -2856,7 +2843,7 @@ _ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
   br label %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %884, %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  %885 = getelementptr inbounds nuw %"struct.gmx::CpuInfo::LogicalProcessor", ptr %879, i64 %877
+  %885 = getelementptr inbounds nuw [16 x i8], ptr %879, i64 %877
   br label %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE9push_backEOS2_.exit: ; preds = %865, %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit177
@@ -5981,7 +5968,7 @@ define internal fastcc void @_ZN3gmx12_GLOBAL__N_142translateCpuInfoLogicalProce
   %32 = load i64, ptr %5, align 8, !tbaa !185
   %33 = urem i64 %31, %32
   %34 = load ptr, ptr %2, align 8, !tbaa !178
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !194
   %.not.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i, label %.loopexit55, label %37
@@ -6026,7 +6013,7 @@ define internal fastcc void @_ZN3gmx12_GLOBAL__N_142translateCpuInfoLogicalProce
   %.pre-phi = phi i64 [ %31, %30 ], [ %.pre153, %.loopexit55.loopexit ], [ %31, %..loopexit_crit_edge21.i.i.i.i ], [ %31, %.lr.ph.i.i.i.i ]
   %50 = phi ptr [ %34, %30 ], [ %.pre141, %.loopexit55.loopexit ], [ %34, %..loopexit_crit_edge21.i.i.i.i ], [ %34, %.lr.ph.i.i.i.i ]
   %51 = phi i64 [ %32, %30 ], [ %.pre, %.loopexit55.loopexit ], [ %32, %..loopexit_crit_edge21.i.i.i.i ], [ %32, %.lr.ph.i.i.i.i ]
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %.pre-phi155
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.pre-phi155
   %53 = load ptr, ptr %52, align 8, !tbaa !194
   %.not.i.i.i.i86 = icmp eq ptr %53, null
   br i1 %.not.i.i.i.i86, label %.loopexit.i.i, label %54
@@ -6099,7 +6086,7 @@ _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit:
   %75 = load i64, ptr %5, align 8, !tbaa !185
   %76 = urem i64 %.pre-phi157, %75
   %77 = load ptr, ptr %2, align 8, !tbaa !178
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %76
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %76
   %79 = load ptr, ptr %78, align 8, !tbaa !194
   %.not.i.i.i.i92 = icmp eq ptr %79, null
   br i1 %.not.i.i.i.i92, label %.loopexit.i.i98, label %80
@@ -6181,7 +6168,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %113, label %114, label %_ZNSt6vectorISt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEESaIS9_EE6resizeEm.exit
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %100, i64 %108
+  %115 = getelementptr inbounds nuw [56 x i8], ptr %100, i64 %108
   %.not.i.i106 = icmp eq ptr %99, %115
   br i1 %.not.i.i106, label %_ZNSt6vectorISt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEESaIS9_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -6257,7 +6244,7 @@ _ZNSt6vectorISt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEESaIS9_
   br i1 %145, label %146, label %_ZNSt6vectorIN3gmx16HardwareTopology7PackageESaIS2_EE6resizeEm.exit
 
 146:                                              ; preds = %144
-  %147 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::Package", ptr %133, i64 %140
+  %147 = getelementptr inbounds nuw [32 x i8], ptr %133, i64 %140
   %.not.i.i108 = icmp eq ptr %132, %147
   br i1 %.not.i.i108, label %_ZNSt6vectorIN3gmx16HardwareTopology7PackageESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i109
 
@@ -6320,13 +6307,13 @@ _ZSt8_DestroyIPN3gmx16HardwareTopology7PackageES2_EvT_S4_RSaIT0_E.exit.i.i: ; pr
 
 _ZNSt6vectorIN3gmx16HardwareTopology7PackageESaIS2_EE6resizeEm.exit: ; preds = %_ZSt8_DestroyIPN3gmx16HardwareTopology7PackageES2_EvT_S4_RSaIT0_E.exit.i.i, %146, %144, %142
   %169 = load ptr, ptr %11, align 8, !tbaa !188
-  %170 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::Package", ptr %169, i64 %105
+  %170 = getelementptr inbounds nuw [32 x i8], ptr %169, i64 %105
   store i32 %24, ptr %170, align 8, !tbaa !217
   br label %171
 
 171:                                              ; preds = %_ZNSt6vectorIN3gmx16HardwareTopology7PackageESaIS2_EE6resizeEm.exit, %_ZNSt6vectorISt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEESaIS9_EE6resizeEm.exit
   %172 = load ptr, ptr %3, align 8, !tbaa !202
-  %173 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %172, i64 %105
+  %173 = getelementptr inbounds nuw [56 x i8], ptr %172, i64 %105
   %174 = getelementptr inbounds nuw i8, ptr %.sroa.040.090, i64 4
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 24
   %176 = load i64, ptr %175, align 8, !tbaa !191
@@ -6357,7 +6344,7 @@ _ZNSt6vectorIN3gmx16HardwareTopology7PackageESaIS2_EE6resizeEm.exit: ; preds = %
   %189 = load i64, ptr %188, align 8, !tbaa !185
   %190 = urem i64 %187, %189
   %191 = load ptr, ptr %173, align 8, !tbaa !178
-  %192 = getelementptr inbounds nuw ptr, ptr %191, i64 %190
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %190
   %193 = load ptr, ptr %192, align 8, !tbaa !194
   %.not.i.i.i.i115 = icmp eq ptr %193, null
   br i1 %.not.i.i.i.i115, label %.loopexit49, label %194
@@ -6404,7 +6391,7 @@ _ZNSt6vectorIN3gmx16HardwareTopology7PackageESaIS2_EE6resizeEm.exit: ; preds = %
   %207 = phi ptr [ %191, %185 ], [ %.pre143, %.loopexit49.loopexit ], [ %191, %..loopexit_crit_edge21.i.i.i.i120 ], [ %191, %.lr.ph.i.i.i.i116 ]
   %208 = phi i64 [ %189, %185 ], [ %.pre142, %.loopexit49.loopexit ], [ %189, %..loopexit_crit_edge21.i.i.i.i120 ], [ %189, %.lr.ph.i.i.i.i116 ]
   %209 = phi i32 [ %186, %185 ], [ %179, %.loopexit49.loopexit ], [ %186, %..loopexit_crit_edge21.i.i.i.i120 ], [ %186, %.lr.ph.i.i.i.i116 ]
-  %210 = getelementptr inbounds nuw ptr, ptr %207, i64 %.pre-phi161
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %.pre-phi161
   %211 = load ptr, ptr %210, align 8, !tbaa !194
   %.not.i.i.i.i126 = icmp eq ptr %211, null
   br i1 %.not.i.i.i.i126, label %.loopexit.i.i132, label %212
@@ -6472,13 +6459,13 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit125: ; preds = %199, %181, %194, %.loopexit48
   %231 = phi i32 [ %179, %181 ], [ %.pre145, %.loopexit48 ], [ %186, %194 ], [ %186, %199 ]
   %232 = phi ptr [ %172, %181 ], [ %.pre144, %.loopexit48 ], [ %172, %194 ], [ %172, %199 ]
-  %233 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %232, i64 %105
+  %233 = getelementptr inbounds nuw [56 x i8], ptr %232, i64 %105
   %234 = sext i32 %231 to i64
   %235 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %236 = load i64, ptr %235, align 8, !tbaa !185
   %237 = urem i64 %234, %236
   %238 = load ptr, ptr %233, align 8, !tbaa !178
-  %239 = getelementptr inbounds nuw ptr, ptr %238, i64 %237
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %237
   %240 = load ptr, ptr %239, align 8, !tbaa !194
   %.not.i.i.i.i140 = icmp eq ptr %240, null
   br i1 %.not.i.i.i.i140, label %.loopexit.i.i146, label %241
@@ -6535,7 +6522,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %.1.i.i149 = getelementptr inbounds nuw i8, ptr %.pn.i.i148, i64 12
   %259 = load i32, ptr %.1.i.i149, align 4, !tbaa !121
   %260 = load ptr, ptr %11, align 8, !tbaa !188
-  %261 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::Package", ptr %260, i64 %105
+  %261 = getelementptr inbounds nuw [32 x i8], ptr %260, i64 %105
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 16
   %264 = load ptr, ptr %263, align 8, !tbaa !209
@@ -6564,7 +6551,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %278, label %279, label %_ZNSt6vectorIN3gmx16HardwareTopology4CoreESaIS2_EE6resizeEm.exit
 
 279:                                              ; preds = %277
-  %280 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::Core", ptr %265, i64 %273
+  %280 = getelementptr inbounds nuw [32 x i8], ptr %265, i64 %273
   %.not.i.i154 = icmp eq ptr %264, %280
   br i1 %.not.i.i154, label %_ZNSt6vectorIN3gmx16HardwareTopology4CoreESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i155
 
@@ -6595,10 +6582,10 @@ _ZSt8_DestroyIPN3gmx16HardwareTopology4CoreES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds
 
 _ZNSt6vectorIN3gmx16HardwareTopology4CoreESaIS2_EE6resizeEm.exit: ; preds = %_ZSt8_DestroyIPN3gmx16HardwareTopology4CoreES2_EvT_S4_RSaIT0_E.exit.i.i, %279, %277, %275
   %290 = load ptr, ptr %11, align 8, !tbaa !188
-  %291 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::Package", ptr %290, i64 %105
+  %291 = getelementptr inbounds nuw [32 x i8], ptr %290, i64 %105
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
   %293 = load ptr, ptr %292, align 8, !tbaa !206
-  %294 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::Core", ptr %293, i64 %270
+  %294 = getelementptr inbounds nuw [32 x i8], ptr %293, i64 %270
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 4
   store i32 -1, ptr %295, align 4, !tbaa !222
   br label %298
@@ -6610,7 +6597,7 @@ _ZNSt6vectorIN3gmx16HardwareTopology4CoreESaIS2_EE6resizeEm.exit: ; preds = %_ZS
 
 298:                                              ; preds = %_ZNSt6vectorIN3gmx16HardwareTopology4CoreESaIS2_EE6resizeEm.exit, %.loopexit47
   %299 = phi ptr [ %293, %_ZNSt6vectorIN3gmx16HardwareTopology4CoreESaIS2_EE6resizeEm.exit ], [ %265, %.loopexit47 ]
-  %300 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::Core", ptr %299, i64 %270
+  %300 = getelementptr inbounds nuw [32 x i8], ptr %299, i64 %270
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %302 = getelementptr inbounds nuw i8, ptr %.sroa.040.090, i64 12
   %303 = load i32, ptr %302, align 4, !tbaa !227
@@ -6684,7 +6671,7 @@ _ZNSt6vectorIN3gmx16HardwareTopology14ProcessingUnitESaIS2_EE11_S_relocateEPS2_S
 _ZNSt6vectorIN3gmx16HardwareTopology14ProcessingUnitESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %329, %_ZNSt6vectorIN3gmx16HardwareTopology14ProcessingUnitESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %324, ptr %301, align 8, !tbaa !210
   store ptr %328, ptr %304, align 8, !tbaa !228
-  %330 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::ProcessingUnit", ptr %324, i64 %322
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %324, i64 %322
   store ptr %330, ptr %306, align 8, !tbaa !213
   br label %_ZNSt6vectorIN3gmx16HardwareTopology14ProcessingUnitESaIS2_EE9push_backEOS2_.exit
 
@@ -6709,7 +6696,7 @@ _ZNSt6vectorIN3gmx16HardwareTopology14ProcessingUnitESaIS2_EE9push_backEOS2_.exi
   %indvars.iv138 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next139, %._crit_edge98 ]
   %.070103 = phi i32 [ 0, %.preheader.lr.ph ], [ %.171.lcssa, %._crit_edge98 ]
   %.0101 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1.lcssa, %._crit_edge98 ]
-  %334 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::Package", ptr %332, i64 %indvars.iv138
+  %334 = getelementptr inbounds nuw [32 x i8], ptr %332, i64 %indvars.iv138
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 8
   %336 = getelementptr inbounds nuw i8, ptr %334, i64 16
   %337 = load ptr, ptr %336, align 8, !tbaa !209
@@ -6842,7 +6829,7 @@ _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev.exit: ; pre
   %.17195 = phi i32 [ %.070103, %.lr.ph97.preheader ], [ %384, %._crit_edge ]
   %.194 = phi i32 [ %.0101, %.lr.ph97.preheader ], [ %.2.lcssa, %._crit_edge ]
   %384 = add nsw i32 %.17195, 1
-  %385 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::Core", ptr %.pre148, i64 %indvars.iv135
+  %385 = getelementptr inbounds nuw [32 x i8], ptr %.pre148, i64 %indvars.iv135
   store i32 %.17195, ptr %385, align 8, !tbaa !231
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
   %387 = getelementptr inbounds nuw i8, ptr %385, i64 16
@@ -6862,7 +6849,7 @@ _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev.exit: ; pre
   %393 = phi ptr [ %383, %.lr.ph97 ], [ %454, %452 ]
   %.2.lcssa = phi i32 [ %.194, %.lr.ph97 ], [ %453, %452 ]
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
-  %394 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::Package", ptr %393, i64 %indvars.iv138
+  %394 = getelementptr inbounds nuw [32 x i8], ptr %393, i64 %indvars.iv138
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %396 = load ptr, ptr %395, align 8, !tbaa !209
   %397 = ptrtoint ptr %396 to i64
@@ -6876,7 +6863,7 @@ _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEED2Ev.exit: ; pre
   %indvars.iv = phi i64 [ 0, %.lr.ph93.preheader ], [ %indvars.iv.next, %452 ]
   %402 = phi ptr [ %389, %.lr.ph93.preheader ], [ %460, %452 ]
   %.291 = phi i32 [ %.194, %.lr.ph93.preheader ], [ %453, %452 ]
-  %403 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::ProcessingUnit", ptr %402, i64 %indvars.iv
+  %403 = getelementptr inbounds nuw [8 x i8], ptr %402, i64 %indvars.iv
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 4
   %405 = load i32, ptr %404, align 4, !tbaa !233
   %406 = load ptr, ptr %17, align 8, !tbaa !81
@@ -6962,7 +6949,7 @@ _ZNSt6vectorIN3gmx16HardwareTopology16LogicalProcessorESaIS2_EE11_S_relocateEPS2
 _ZNSt6vectorIN3gmx16HardwareTopology16LogicalProcessorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %430, %_ZNSt6vectorIN3gmx16HardwareTopology16LogicalProcessorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %424, ptr %0, align 8, !tbaa !82
   store ptr %429, ptr %17, align 8, !tbaa !81
-  %431 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::LogicalProcessor", ptr %424, i64 %422
+  %431 = getelementptr inbounds nuw [24 x i8], ptr %424, i64 %422
   store ptr %431, ptr %18, align 8, !tbaa !235
   br label %_ZNSt6vectorIN3gmx16HardwareTopology16LogicalProcessorESaIS2_EE9push_backEOS2_.exit
 
@@ -7035,13 +7022,13 @@ _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_M_insert_IS2
 452:                                              ; preds = %.noexc175, %439
   %453 = add nsw i32 %.291, 1
   %454 = load ptr, ptr %13, align 8, !tbaa !188
-  %455 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::Package", ptr %454, i64 %indvars.iv138
+  %455 = getelementptr inbounds nuw [32 x i8], ptr %454, i64 %indvars.iv138
   %456 = getelementptr inbounds nuw i8, ptr %455, i64 8
   %457 = load ptr, ptr %456, align 8, !tbaa !206
-  %458 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::Core", ptr %457, i64 %indvars.iv135
+  %458 = getelementptr inbounds nuw [32 x i8], ptr %457, i64 %indvars.iv135
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 8
   %460 = load ptr, ptr %459, align 8, !tbaa !210
-  %461 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::ProcessingUnit", ptr %460, i64 %indvars.iv
+  %461 = getelementptr inbounds nuw [8 x i8], ptr %460, i64 %indvars.iv
   store i32 %.291, ptr %461, align 4, !tbaa !240
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %462 = getelementptr inbounds nuw i8, ptr %458, i64 16
@@ -7279,7 +7266,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 31:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !178
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !194
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -7306,7 +7293,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %45 = load i32, ptr %43, align 4, !tbaa !121
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !194
   br label %49
 
@@ -7390,7 +7377,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %16 = load i32, ptr %15, align 8, !tbaa !121
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !194
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -7405,7 +7392,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !194
   br label %29
 
@@ -7574,7 +7561,7 @@ _ZSt27__uninitialized_default_n_aIPSt13unordered_mapIiiSt4hashIiESt8equal_toIiES
   %62 = load i32, ptr %61, align 4, !tbaa !121, !noalias !250
   %63 = sext i32 %62 to i64
   %64 = urem i64 %63, %44
-  %65 = getelementptr inbounds nuw ptr, ptr %59, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %64
   store ptr %45, ptr %65, align 8, !tbaa !194, !noalias !250
   br label %_ZSt19__relocate_object_aISt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEES9_SaIS9_EEvPT_PT0_RT1_.exit.i.i.i
 
@@ -7603,9 +7590,9 @@ _ZNSt6vectorISt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEESaIS9_
 
 _ZNSt12_Vector_baseISt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEESaIS9_EE13_M_deallocateEPS9_m.exit41: ; preds = %_ZNSt6vectorISt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit, %69
   store ptr %32, ptr %0, align 8, !tbaa !202
-  %73 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %33, i64 %1
+  %73 = getelementptr inbounds nuw [56 x i8], ptr %33, i64 %1
   store ptr %73, ptr %4, align 8, !tbaa !199
-  %74 = getelementptr inbounds nuw %"class.std::unordered_map", ptr %32, i64 %30
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %32, i64 %30
   store ptr %74, ptr %11, align 8, !tbaa !229
   br label %75
 
@@ -7707,9 +7694,9 @@ _ZNSt6vectorIN3gmx16HardwareTopology7PackageESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 
 _ZNSt12_Vector_baseIN3gmx16HardwareTopology7PackageESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIN3gmx16HardwareTopology7PackageESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %41
   store ptr %26, ptr %0, align 8, !tbaa !188
-  %45 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::Package", ptr %27, i64 %1
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %1
   store ptr %45, ptr %4, align 8, !tbaa !187
-  %46 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::Package", ptr %26, i64 %24
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %24
   store ptr %46, ptr %11, align 8, !tbaa !256
   br label %47
 
@@ -7808,9 +7795,9 @@ _ZNSt6vectorIN3gmx16HardwareTopology4CoreESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 
 _ZNSt12_Vector_baseIN3gmx16HardwareTopology4CoreESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIN3gmx16HardwareTopology4CoreESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %41
   store ptr %26, ptr %0, align 8, !tbaa !206
-  %45 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::Core", ptr %27, i64 %1
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %1
   store ptr %45, ptr %4, align 8, !tbaa !209
-  %46 = getelementptr inbounds nuw %"struct.gmx::HardwareTopology::Core", ptr %26, i64 %24
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %24
   store ptr %46, ptr %11, align 8, !tbaa !215
   br label %47
 
@@ -8141,7 +8128,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !120
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !115
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !118
   ret void
 
@@ -8758,7 +8745,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !120
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !115
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !118
   ret void
 
@@ -9744,7 +9731,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %71
   store ptr %23, ptr %0, align 8, !tbaa !120
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !115
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %75, ptr %70, align 8, !tbaa !118
   ret void
 
@@ -10202,7 +10189,7 @@ _ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
   br label %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %42, %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  %43 = getelementptr inbounds nuw %"struct.gmx::CpuInfo::LogicalProcessor", ptr %38, i64 %36
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %36
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %25

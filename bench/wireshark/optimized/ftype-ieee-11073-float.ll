@@ -308,7 +308,7 @@ define internal noalias ptr @sfloat_ieee_11073_val_to_repr(ptr noundef %0, ptr n
 
 switch.lookup:                                    ; preds = %4
   %10 = zext nneg i16 %8 to i64
-  %11 = getelementptr ptr, ptr @switch.table.float_ieee_11073_val_to_repr, i64 %10
+  %11 = getelementptr [8 x i8], ptr @switch.table.float_ieee_11073_val_to_repr, i64 %10
   %switch.gep = getelementptr i8, ptr %11, i64 -16368
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %switch.load)
@@ -500,7 +500,7 @@ define internal noundef i32 @sfloat_ieee_11073_val_to_double(ptr noundef readonl
 
 switch.lookup:                                    ; preds = %2
   %20 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.float_ieee_11073_val_to_double, i64 %20
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.float_ieee_11073_val_to_double, i64 %20
   %switch.load = load double, ptr %switch.gep, align 8
   br label %21
 
@@ -1158,7 +1158,7 @@ define internal noalias ptr @float_ieee_11073_val_to_repr(ptr noundef %0, ptr no
 
 switch.lookup:                                    ; preds = %4
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr ptr, ptr @switch.table.float_ieee_11073_val_to_repr, i64 %10
+  %11 = getelementptr [8 x i8], ptr @switch.table.float_ieee_11073_val_to_repr, i64 %10
   %switch.gep = getelementptr i8, ptr %11, i64 -67108848
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %switch.load)
@@ -1334,7 +1334,7 @@ define internal noundef i32 @float_ieee_11073_val_to_double(ptr noundef readonly
 
 switch.lookup:                                    ; preds = %2
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.float_ieee_11073_val_to_double, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.float_ieee_11073_val_to_double, i64 %16
   %switch.load = load double, ptr %switch.gep, align 8
   br label %17
 

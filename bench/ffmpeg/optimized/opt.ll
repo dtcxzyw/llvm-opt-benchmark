@@ -241,11 +241,11 @@ define internal fastcc range(i32 -1414549496, 1) i32 @opt_set_init(ptr noundef %
 21:                                               ; preds = %18
   %22 = load ptr, ptr %9, align 8, !tbaa !14
   %23 = zext i32 %20 to i64
-  %24 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !22
   %27 = zext nneg i32 %3 to i64
-  %28 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !22
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.24, ptr noundef %22, ptr noundef %26, ptr noundef %30) #18
@@ -344,7 +344,7 @@ define internal range(i32 -2147483648, 1) i32 @opt_set_array(ptr noundef %0, ptr
   %11 = load i32, ptr %10, align 4, !tbaa !18
   %12 = and i32 %11, -65537
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %13
   %15 = load i64, ptr %14, align 16, !tbaa !30
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %opt_array_sep.exit, label %16
@@ -446,7 +446,7 @@ opt_array_sep.exit:                               ; preds = %5, %16
   %49 = zext i32 %.085.us176 to i64
   %50 = and i32 %.val76.us, -65537
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %51
+  %52 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %51
   %53 = load i64, ptr %52, align 16, !tbaa !30
   %54 = mul i64 %53, %49
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 %54
@@ -530,7 +530,7 @@ opt_array_sep.exit:                               ; preds = %5, %16
   %83 = zext i32 %.085 to i64
   %84 = and i32 %.val76, -65537
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %85
+  %86 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %85
   %87 = load i64, ptr %86, align 16, !tbaa !30
   %88 = mul i64 %87, %83
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 %88
@@ -584,7 +584,7 @@ opt_array_sep.exit:                               ; preds = %5, %16
   %105 = load i32, ptr %10, align 4, !tbaa !18
   %106 = and i32 %105, -65537
   %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %107
+  %108 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %107
   %109 = load i64, ptr %108, align 16, !tbaa !30
   %110 = mul i64 %109, %indvars.iv.i
   %111 = getelementptr inbounds nuw i8, ptr %103, i64 %110
@@ -1269,20 +1269,20 @@ av_opt_next.exit:                                 ; preds = %81, %78
 
 96:                                               ; preds = %93
   %97 = zext nneg i32 %.1116175.ph to i64
-  %98 = getelementptr inbounds nuw ptr, ptr %12, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %97
   store ptr %84, ptr %98, align 8, !tbaa !33
   %99 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %100 = load i64, ptr %99, align 8, !tbaa !29
   %101 = sitofp i64 %100 to double
   %102 = add nuw nsw i32 %.1116175.ph, 1
-  %103 = getelementptr inbounds nuw double, ptr %11, i64 %97
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %97
   store double %101, ptr %103, align 8, !tbaa !49
   br label %.outer
 
 av_opt_next.exit.thread:                          ; preds = %81, %80, %78, %76, %69
   %.0115 = phi i32 [ 0, %69 ], [ %.1116175.ph, %76 ], [ %.1116175.ph, %78 ], [ %.1116175.ph, %80 ], [ %.1116175.ph, %81 ]
   %104 = zext nneg i32 %.0115 to i64
-  %105 = getelementptr inbounds nuw ptr, ptr %12, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %104
   store ptr @.str.42, ptr %105, align 8, !tbaa !33
   %106 = load i32, ptr %13, align 4, !tbaa !18
   switch i32 %106, label %110 [
@@ -1306,38 +1306,38 @@ av_opt_next.exit.thread:                          ; preds = %81, %80, %78, %76, 
 112:                                              ; preds = %110, %107
   %113 = phi nsz double [ %109, %107 ], [ %111, %110 ]
   %114 = add nuw nsw i32 %.0115, 1
-  %115 = getelementptr inbounds nuw double, ptr %11, i64 %104
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %104
   store double %113, ptr %115, align 8, !tbaa !49
   %116 = zext nneg i32 %114 to i64
-  %117 = getelementptr inbounds nuw ptr, ptr %12, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %116
   store ptr @.str.43, ptr %117, align 8, !tbaa !33
   %118 = load double, ptr %32, align 8, !tbaa !40
   %119 = add nuw nsw i32 %.0115, 2
-  %120 = getelementptr inbounds nuw double, ptr %11, i64 %116
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %116
   store double %118, ptr %120, align 8, !tbaa !49
   %121 = zext nneg i32 %119 to i64
-  %122 = getelementptr inbounds nuw ptr, ptr %12, i64 %121
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %121
   store ptr @.str.44, ptr %122, align 8, !tbaa !33
   %123 = load double, ptr %33, align 8, !tbaa !39
   %124 = add nuw nsw i32 %.0115, 3
-  %125 = getelementptr inbounds nuw double, ptr %11, i64 %121
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %121
   store double %123, ptr %125, align 8, !tbaa !49
   %126 = zext nneg i32 %124 to i64
-  %127 = getelementptr inbounds nuw ptr, ptr %12, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %126
   store ptr @.str.21, ptr %127, align 8, !tbaa !33
   %128 = add nuw nsw i32 %.0115, 4
-  %129 = getelementptr inbounds nuw double, ptr %11, i64 %126
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %126
   store double 0.000000e+00, ptr %129, align 8, !tbaa !49
   %130 = zext nneg i32 %128 to i64
-  %131 = getelementptr inbounds nuw ptr, ptr %12, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %130
   store ptr @.str.45, ptr %131, align 8, !tbaa !33
   %132 = add nuw nsw i32 %.0115, 5
-  %133 = getelementptr inbounds nuw double, ptr %11, i64 %130
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %130
   store double -1.000000e+00, ptr %133, align 8, !tbaa !49
   %134 = zext nneg i32 %132 to i64
-  %135 = getelementptr inbounds nuw ptr, ptr %12, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %134
   store ptr null, ptr %135, align 8, !tbaa !33
-  %136 = getelementptr inbounds nuw double, ptr %11, i64 %134
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %134
   store double 0.000000e+00, ptr %136, align 8, !tbaa !49
   %137 = call i32 @av_expr_parse_and_eval(ptr noundef nonnull %10, ptr noundef %51, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %0) #18
   %138 = icmp slt i32 %137, 0
@@ -2253,7 +2253,7 @@ opt_array_sep.exit:                               ; preds = %3, %10
   %.val57 = load i32, ptr %14, align 4, !tbaa !18
   %17 = and i32 %.val57, -65537
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %18
   %20 = load i64, ptr %19, align 16, !tbaa !30
   %21 = mul i64 %20, %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 %21
@@ -3447,7 +3447,7 @@ define internal fastcc void @opt_list(ptr noundef nonnull %0, ptr noundef %1, pt
 
 52:                                               ; preds = %50
   %53 = zext nneg i32 %44 to i64
-  %54 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %53
+  %54 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !22
   switch i32 %43, label %57 [
@@ -3555,7 +3555,7 @@ log_type.exit:                                    ; preds = %47, %59, %60, %.thr
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 32, ptr noundef nonnull @.str.73) #18
   %100 = load ptr, ptr %10, align 8, !tbaa !71
   %101 = load ptr, ptr %100, align 8, !tbaa !77
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8, !tbaa !78
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load double, ptr %104, align 8, !tbaa !80
@@ -3563,7 +3563,7 @@ log_type.exit:                                    ; preds = %47, %59, %60, %.thr
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 32, ptr noundef nonnull @.str.74) #18
   %106 = load ptr, ptr %10, align 8, !tbaa !71
   %107 = load ptr, ptr %106, align 8, !tbaa !77
-  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv
   %109 = load ptr, ptr %108, align 8, !tbaa !78
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load double, ptr %110, align 8, !tbaa !82
@@ -3597,7 +3597,7 @@ log_type.exit:                                    ; preds = %47, %59, %60, %.thr
   %125 = phi i32 [ %134, %132 ], [ %118, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %132 ], [ 0, %.preheader.i ]
   %126 = load ptr, ptr %119, align 8, !tbaa !77
-  %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv.i
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv.i
   %128 = load ptr, ptr %127, align 8, !tbaa !78
   %.not15.i93 = icmp eq ptr %128, null
   br i1 %.not15.i93, label %132, label %129
@@ -3605,7 +3605,7 @@ log_type.exit:                                    ; preds = %47, %59, %60, %.thr
 129:                                              ; preds = %.lr.ph.i
   call void @av_freep(ptr noundef nonnull %128) #18
   %130 = load ptr, ptr %119, align 8, !tbaa !77
-  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv.i
   call void @av_freep(ptr noundef %131) #18
   %.pre.i = load i32, ptr %120, align 8, !tbaa !76
   %.pre18.i = load i32, ptr %121, align 4, !tbaa !73
@@ -5040,7 +5040,7 @@ define internal fastcc void @opt_free_array(ptr noundef readonly captures(none) 
   %8 = load ptr, ptr %1, align 8, !tbaa !19
   %9 = and i32 %7, -65537
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %10
   %12 = load i64, ptr %11, align 16, !tbaa !30
   %13 = mul i64 %12, %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 %13
@@ -5339,7 +5339,7 @@ define range(i32 -2147483648, 1) i32 @av_opt_copy(ptr noundef %0, ptr noundef %1
   %40 = load i32, ptr %26, align 4, !tbaa !18
   %41 = and i32 %40, -65537
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %42
   %44 = load i64, ptr %43, align 16, !tbaa !30
   %45 = call noalias ptr @av_calloc(i64 noundef %39, i64 noundef %44) #18
   store ptr %45, ptr %3, align 8, !tbaa !19
@@ -5360,7 +5360,7 @@ define range(i32 -2147483648, 1) i32 @av_opt_copy(ptr noundef %0, ptr noundef %1
   %47 = load i32, ptr %26, align 4, !tbaa !18
   %48 = and i32 %47, -65537
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %49
   %51 = load i64, ptr %50, align 16, !tbaa !30
   %52 = mul i64 %51, %indvars.iv.i
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 %52
@@ -5375,7 +5375,7 @@ define range(i32 -2147483648, 1) i32 @av_opt_copy(ptr noundef %0, ptr noundef %1
   %58 = load i32, ptr %26, align 4, !tbaa !18
   %59 = and i32 %58, -65537
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %60
+  %61 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %60
   %62 = load i64, ptr %61, align 16, !tbaa !30
   %63 = mul i64 %62, %indvars.iv.i.i
   %64 = getelementptr inbounds nuw i8, ptr %45, i64 %63
@@ -5538,7 +5538,7 @@ define internal fastcc i32 @opt_copy_elem(ptr noundef %0, i32 noundef %1, ptr no
 
 opt_is_pod.exit:                                  ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %33
   %35 = load i64, ptr %34, align 16, !tbaa !30
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %3, i64 %35, i1 false)
   br label %37
@@ -5593,7 +5593,7 @@ define range(i32 -2147483648, 1) i32 @av_opt_get_array(ptr noundef %0, ptr nound
   %10 = alloca ptr, align 8
   %11 = and i32 %5, -65537
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %12
   %14 = load i64, ptr %13, align 16, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %15 = call ptr @av_opt_find2(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef 0, i32 noundef %2, ptr noundef nonnull %8)
@@ -5645,7 +5645,7 @@ define range(i32 -2147483648, 1) i32 @av_opt_get_array(ptr noundef %0, ptr nound
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %34 = zext i32 %5 to i64
-  %35 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %34
+  %35 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %34
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %read_number.exit.us
@@ -5657,7 +5657,7 @@ define range(i32 -2147483648, 1) i32 @av_opt_get_array(ptr noundef %0, ptr nound
   %39 = zext i32 %38 to i64
   %40 = and i32 %.val.us, -65537
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %41
   %43 = load i64, ptr %42, align 16, !tbaa !30
   %44 = mul i64 %43, %39
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 %44
@@ -5710,7 +5710,7 @@ read_number.exit.us:                              ; preds = %59, %57
   %65 = zext i32 %64 to i64
   %66 = and i32 %.val.us148, -65537
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %67
   %69 = load i64, ptr %68, align 16, !tbaa !30
   %70 = mul i64 %69, %65
   %71 = getelementptr inbounds nuw i8, ptr %62, i64 %70
@@ -5968,7 +5968,7 @@ define i32 @av_opt_set_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   store i32 %4, ptr %8, align 4, !tbaa !26
   %13 = and i32 %5, -65537
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %14
   %16 = load i64, ptr %15, align 16, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -5996,7 +5996,7 @@ define i32 @av_opt_set_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = and i32 %22, -65537
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %31
   %33 = load i64, ptr %32, align 16, !tbaa !30
   %34 = load i32, ptr %29, align 4, !tbaa !26
   %35 = icmp ugt i32 %3, %34
@@ -6082,7 +6082,7 @@ define i32 @av_opt_set_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   %67 = zext i32 %66 to i64
   %68 = and i32 %64, -65537
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %69
   %71 = load i64, ptr %70, align 16, !tbaa !30
   %72 = mul i64 %71, %67
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 %72
@@ -6115,7 +6115,7 @@ opt_free_elem.exit:                               ; preds = %.lr.ph279, %74, %75
   %78 = zext i32 %3 to i64
   %79 = and i32 %.val193, -65537
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %80
   %82 = load i64, ptr %81, align 16, !tbaa !30
   %83 = mul i64 %82, %78
   %84 = getelementptr inbounds nuw i8, ptr %63, i64 %83
@@ -6169,7 +6169,7 @@ opt_free_elem.exit:                               ; preds = %.lr.ph279, %74, %75
   %.val191 = load i32, ptr %21, align 4, !tbaa !18
   %107 = and i32 %.val191, -65537
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %108
+  %109 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %108
   %110 = load i64, ptr %109, align 16, !tbaa !30
   %111 = mul i64 %110, %indvars.iv
   %112 = getelementptr inbounds nuw i8, ptr %106, i64 %111
@@ -6396,7 +6396,7 @@ read_number.exit:                                 ; preds = %119, %154, %169, %1
   %207 = load i32, ptr %21, align 4, !tbaa !18
   %208 = and i32 %207, -65537
   %209 = zext i32 %208 to i64
-  %210 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %209
+  %210 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %209
   %211 = load i64, ptr %210, align 16, !tbaa !30
   %212 = mul i64 %211, %indvars.iv289
   %213 = getelementptr inbounds nuw i8, ptr %200, i64 %212
@@ -6432,7 +6432,7 @@ opt_free_elem.exit195:                            ; preds = %.lr.ph276, %214, %2
   %221 = zext i32 %203 to i64
   %222 = and i32 %.val189, -65537
   %223 = zext i32 %222 to i64
-  %224 = getelementptr inbounds nuw %struct.anon, ptr @opt_type_desc, i64 %223
+  %224 = getelementptr inbounds nuw [16 x i8], ptr @opt_type_desc, i64 %223
   %225 = load i64, ptr %224, align 16, !tbaa !30
   %226 = mul i64 %225, %221
   %227 = getelementptr inbounds nuw i8, ptr %200, i64 %226
@@ -6632,7 +6632,7 @@ define void @av_opt_freep_ranges(ptr noundef %0) local_unnamed_addr #1 {
   %10 = phi i32 [ %19, %17 ], [ %5, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader ]
   %11 = load ptr, ptr %2, align 8, !tbaa !77
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !78
   %.not15 = icmp eq ptr %13, null
   br i1 %.not15, label %17, label %14
@@ -6640,7 +6640,7 @@ define void @av_opt_freep_ranges(ptr noundef %0) local_unnamed_addr #1 {
 14:                                               ; preds = %.lr.ph
   tail call void @av_freep(ptr noundef nonnull %13) #18
   %15 = load ptr, ptr %2, align 8, !tbaa !77
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   tail call void @av_freep(ptr noundef %16) #18
   %.pre = load i32, ptr %3, align 8, !tbaa !76
   %.pre18 = load i32, ptr %4, align 4, !tbaa !73

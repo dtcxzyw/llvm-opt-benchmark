@@ -867,7 +867,7 @@ _ZN5zxing8ArrayRefIcED2Ev.exit68:                 ; preds = %80, %83, %88
   %107 = load i8, ptr %106, align 1, !tbaa !43
   %108 = lshr i8 %107, 3
   %109 = zext nneg i8 %108 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %103, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !24
   %112 = add nsw i32 %111, 1
   store i32 %112, ptr %110, align 4, !tbaa !24
@@ -1097,7 +1097,7 @@ _ZN5zxing8ArrayRefIcED2Ev.exit77:                 ; preds = %_ZN5zxing3RefINS_9B
   %213 = load ptr, ptr %160, align 8, !tbaa !17
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %215 = load ptr, ptr %214, align 8, !tbaa !20
-  %216 = getelementptr inbounds nuw i32, ptr %215, i64 %indvars.iv106
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %indvars.iv106
   %217 = load i32, ptr %216, align 4, !tbaa !24
   %218 = trunc nuw nsw i64 %indvars.iv103 to i32
   %219 = add nsw i32 %217, %218
@@ -1261,7 +1261,7 @@ define hidden noundef range(i32 -1, -7) i32 @_ZN5zxing24GlobalHistogramBinarizer
   %.05891 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
   %.06490 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select87, %.lr.ph ]
   %.06689 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select86, %.lr.ph ]
-  %17 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !24
   %19 = icmp sgt i32 %18, %.06689
   %spec.select86 = tail call i32 @llvm.smax.i32(i32 %18, i32 %.06689)
@@ -1287,7 +1287,7 @@ define hidden noundef range(i32 -1, -7) i32 @_ZN5zxing24GlobalHistogramBinarizer
   %indvars.iv106 = phi i64 [ 0, %.lr.ph96.preheader ], [ %indvars.iv.next107, %.lr.ph96 ]
   %.06995 = phi i32 [ 0, %.lr.ph96.preheader ], [ %spec.select80, %.lr.ph96 ]
   %.07294 = phi i32 [ 0, %.lr.ph96.preheader ], [ %spec.select79, %.lr.ph96 ]
-  %23 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv106
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv106
   %24 = load i32, ptr %23, align 4, !tbaa !24
   %25 = trunc i64 %indvars.iv106 to i32
   %26 = sub i32 %25, %spec.select87
@@ -1375,7 +1375,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit85:               ; preds = %39, %_ZNKSt7__cxx11
   %60 = trunc i64 %indvars.iv111 to i32
   %61 = sub i32 %spec.select, %60
   %62 = mul nsw i32 %59, %61
-  %63 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv111
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv111
   %64 = load i32, ptr %63, align 4, !tbaa !24
   %65 = sub nsw i32 %.058.lcssa123, %64
   %66 = mul nsw i32 %62, %65
@@ -1442,9 +1442,9 @@ define hidden noundef range(i32 -2147483617, 256) i32 @_ZN5zxing24GlobalHistogra
   %.0114154 = phi i32 [ 0, %2 ], [ %.1115, %52 ]
   %.0116153 = phi i32 [ 0, %2 ], [ %.1117, %52 ]
   %.0123152 = phi i32 [ 0, %2 ], [ %.1124, %52 ]
-  %11 = getelementptr i32, ptr %8, i64 %indvars.iv
+  %11 = getelementptr [4 x i8], ptr %8, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.next
   %13 = load i32, ptr %12, align 4, !tbaa !24
   %14 = icmp slt i32 %10, %13
   br i1 %14, label %15, label %32
@@ -1470,7 +1470,7 @@ define hidden noundef range(i32 -2147483617, 256) i32 @_ZN5zxing24GlobalHistogra
 27:                                               ; preds = %23
   %28 = add nsw i32 %.0123152, 1
   %29 = sext i32 %.0123152 to i64
-  %30 = getelementptr inbounds i32, ptr %4, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %4, i64 %29
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %31, ptr %30, align 4, !tbaa !24
   br label %52
@@ -1500,7 +1500,7 @@ define hidden noundef range(i32 -2147483617, 256) i32 @_ZN5zxing24GlobalHistogra
 46:                                               ; preds = %42
   %47 = add nsw i32 %.0111155, 1
   %48 = sext i32 %.0111155 to i64
-  %49 = getelementptr inbounds i32, ptr %3, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %3, i64 %48
   %50 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %50, ptr %49, align 4, !tbaa !24
   %51 = icmp sgt i32 %10, %.0114154
@@ -1518,7 +1518,7 @@ define hidden noundef range(i32 -2147483617, 256) i32 @_ZN5zxing24GlobalHistogra
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv183 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next184, %.lr.ph ]
-  %53 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv183
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv183
   %54 = load i32, ptr %53, align 4, !tbaa !24
   %55 = icmp sgt i32 %54, 17
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
@@ -1537,7 +1537,7 @@ define hidden noundef range(i32 -2147483617, 256) i32 @_ZN5zxing24GlobalHistogra
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %56
   %indvars.iv188 = phi i64 [ 0, %.lr.ph164.preheader ], [ %indvars.iv.next189, %56 ]
-  %57 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv188
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv188
   %58 = load i32, ptr %57, align 4, !tbaa !24
   %59 = icmp slt i32 %58, 17
   br i1 %59, label %60, label %56
@@ -1564,7 +1564,7 @@ define hidden noundef range(i32 -2147483617, 256) i32 @_ZN5zxing24GlobalHistogra
 
 .lr.ph166:                                        ; preds = %.lr.ph166.preheader, %63
   %indvars.iv194 = phi i64 [ 0, %.lr.ph166.preheader ], [ %indvars.iv.next195, %63 ]
-  %64 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv194
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv194
   %65 = load i32, ptr %64, align 4, !tbaa !24
   %66 = icmp sgt i32 %65, %61
   %67 = icmp slt i32 %65, 17
@@ -1595,7 +1595,7 @@ define hidden noundef range(i32 -2147483617, 256) i32 @_ZN5zxing24GlobalHistogra
 
 .lr.ph173:                                        ; preds = %.lr.ph173.preheader, %74
   %indvars.iv200 = phi i64 [ 0, %.lr.ph173.preheader ], [ %indvars.iv.next201, %74 ]
-  %75 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv200
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv200
   %76 = load i32, ptr %75, align 4, !tbaa !24
   %77 = icmp sgt i32 %76, %73
   %78 = icmp slt i32 %76, 253

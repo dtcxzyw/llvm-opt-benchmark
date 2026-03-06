@@ -35,7 +35,7 @@ define dso_local noundef nonnull ptr @reftable_error_str(i32 noundef %0) local_u
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.reftable_error_str, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.reftable_error_str, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 

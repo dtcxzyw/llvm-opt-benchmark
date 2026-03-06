@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.plane_info = type { ptr, ptr, ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [11 x i8] c"edgedetect\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"Detect and draw edge.\00", align 1
@@ -86,7 +85,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #1 {
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw %struct.plane_info, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv
   tail call void @av_freep(ptr noundef nonnull %9) #7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   tail call void @av_freep(ptr noundef nonnull %10) #7
@@ -118,7 +117,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 switch.lookup:                                    ; preds = %3
   %10 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.query_formats, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.query_formats, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = tail call i32 @ff_set_common_formats_from_list2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %switch.load) #7
   ret i32 %11
@@ -180,7 +179,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 33:                                               ; preds = %.lr.ph, %color_mix.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %color_mix.exit ]
-  %34 = getelementptr inbounds nuw %struct.plane_info, ptr %28, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %indvars.iv
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load i32, ptr %35, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 28
@@ -196,15 +195,15 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not83, label %44, label %color_mix.exit
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds nuw ptr, ptr %.079, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.079, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !51
-  %47 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !52
   %49 = load ptr, ptr %3, align 8, !tbaa !30
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !51
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 64
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !52
   tail call void @av_image_copy_plane(ptr noundef %46, i32 noundef %48, ptr noundef %51, i32 noundef %54, i32 noundef %36, i32 noundef %38) #7
   br label %color_mix.exit
@@ -216,10 +215,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %59 = load ptr, ptr %58, align 8, !tbaa !54
   %60 = load ptr, ptr %34, align 8, !tbaa !55
   %61 = load ptr, ptr %3, align 8, !tbaa !30
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !51
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 64
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !52
   tail call void @ff_gaussian_blur_8(i32 noundef %36, i32 noundef %38, ptr noundef %60, i32 noundef %36, ptr noundef %63, i32 noundef %66, i32 noundef 1) #7
   tail call void @ff_sobel_8(i32 noundef %36, i32 noundef %38, ptr noundef %59, i32 noundef %36, ptr noundef %57, i32 noundef %36, ptr noundef %60, i32 noundef %36, i32 noundef 1) #7
@@ -231,9 +230,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %70 = zext i8 %69 to i32
   %71 = load i8, ptr %31, align 1, !tbaa !25
   %72 = zext i8 %71 to i32
-  %73 = getelementptr inbounds nuw ptr, ptr %.079, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.079, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8, !tbaa !51
-  %75 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %76 = load i32, ptr %75, align 4, !tbaa !52
   tail call void @ff_double_threshold(i32 noundef %70, i32 noundef %72, i32 noundef %36, i32 noundef %38, ptr noundef %74, i32 noundef %76, ptr noundef %60, i32 noundef %36) #7
   %77 = load i32, ptr %11, align 4, !tbaa !29
@@ -341,7 +340,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
 
 21:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %22 = getelementptr inbounds nuw %struct.plane_info, ptr %12, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %.thread, label %23
 

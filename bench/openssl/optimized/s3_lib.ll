@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ssl_cipher_st = type { i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.cert_pkey_st = type { ptr, ptr, ptr, ptr, i64 }
 
 @tls11downgrade = local_unnamed_addr constant [8 x i8] c"DOWNGRD\00", align 1
 @tls12downgrade = local_unnamed_addr constant [8 x i8] c"DOWNGRD\01", align 1
@@ -447,7 +446,7 @@ define ptr @ssl3_get_cipher(i32 noundef %0) local_unnamed_addr #5 {
   %2 = icmp ult i32 %0, 167
   %narrow = sub nuw nsw i32 166, %0
   %3 = zext nneg i32 %narrow to i64
-  %4 = getelementptr inbounds nuw %struct.ssl_cipher_st, ptr @ssl3_ciphers, i64 %3
+  %4 = getelementptr inbounds nuw [80 x i8], ptr @ssl3_ciphers, i64 %3
   %.0 = select i1 %2, ptr %4, ptr null
   ret ptr %.0
 }
@@ -544,7 +543,7 @@ define void @ssl3_free(ptr noundef %0) local_unnamed_addr #4 {
 19:                                               ; preds = %.lr.ph, %28
   %20 = phi i64 [ %16, %.lr.ph ], [ %29, %28 ]
   %.050 = phi i64 [ 0, %.lr.ph ], [ %30, %28 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %.050
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.050
   %22 = load ptr, ptr %21, align 8, !tbaa !77
   %.not48 = icmp eq ptr %22, null
   br i1 %.not48, label %28, label %23
@@ -721,7 +720,7 @@ define range(i32 0, 2) i32 @ssl3_clear(ptr noundef %0) local_unnamed_addr #4 {
 35:                                               ; preds = %.lr.ph, %44
   %36 = phi i64 [ %32, %.lr.ph ], [ %45, %44 ]
   %.055 = phi i64 [ 0, %.lr.ph ], [ %46, %44 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %.055
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.055
   %38 = load ptr, ptr %37, align 8, !tbaa !77
   %.not53 = icmp eq ptr %38, null
   br i1 %.not53, label %44, label %39
@@ -1160,7 +1159,7 @@ define i64 @ssl3_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr nounde
 158:                                              ; preds = %.lr.ph, %171
   %.0211261 = phi i64 [ 0, %.lr.ph ], [ %173, %171 ]
   %159 = load ptr, ptr %157, align 8, !tbaa !127
-  %160 = getelementptr inbounds nuw i16, ptr %153, i64 %.0211261
+  %160 = getelementptr inbounds nuw [2 x i8], ptr %153, i64 %.0211261
   %161 = load i16, ptr %160, align 2, !tbaa !128
   %162 = tail call ptr @tls1_group_id_lookup(ptr noundef %159, i16 noundef zeroext %161) #18
   %.not249 = icmp eq ptr %162, null
@@ -1180,7 +1179,7 @@ define i64 @ssl3_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr nounde
 
 171:                                              ; preds = %167, %163
   %.sink = phi i32 [ %170, %167 ], [ %166, %163 ]
-  %172 = getelementptr inbounds nuw i32, ptr %3, i64 %.0211261
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.0211261
   store i32 %.sink, ptr %172, align 4, !tbaa !131
   %173 = add nuw i64 %.0211261, 1
   %exitcond.not = icmp eq i64 %173, %155
@@ -2312,9 +2311,9 @@ define ptr @ssl3_get_cipher_by_std_name(ptr noundef readonly captures(none) %0) 
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge, %1
   %.019 = phi i64 [ 0, %1 ], [ %15, %._crit_edge ]
-  %2 = getelementptr inbounds nuw i64, ptr @__const.ssl3_get_cipher_by_std_name.tblsize, i64 %.019
+  %2 = getelementptr inbounds nuw [8 x i8], ptr @__const.ssl3_get_cipher_by_std_name.tblsize, i64 %.019
   %3 = load i64, ptr %2, align 8, !tbaa !198
-  %4 = getelementptr inbounds nuw ptr, ptr @__const.ssl3_get_cipher_by_std_name.alltabs, i64 %.019
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @__const.ssl3_get_cipher_by_std_name.alltabs, i64 %.019
   %5 = load ptr, ptr %4, align 8, !tbaa !199
   %umax = tail call i64 @llvm.umax.i64(i64 %3, i64 1)
   br label %.lr.ph
@@ -2581,7 +2580,7 @@ ssl_has_cert_type.exit.i:                         ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %.pre234, i64 32
   %76 = load ptr, ptr %75, align 8, !tbaa !212
   %77 = and i64 %.0126213, 2147483647
-  %78 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [40 x i8], ptr %76, i64 %77
   br label %ssl_has_cert.exit
 
 ssl_has_cert_type.exit.thread.i:                  ; preds = %.ssl_has_cert_type.exit.thread.i_crit_edge, %ssl_has_cert_type.exit.i
@@ -2589,7 +2588,7 @@ ssl_has_cert_type.exit.thread.i:                  ; preds = %.ssl_has_cert_type.
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %81 = load ptr, ptr %80, align 8, !tbaa !212
   %82 = and i64 %.0126213, 2147483647
-  %83 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [40 x i8], ptr %81, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !213
   %.not12.i = icmp eq ptr %84, null
   br i1 %.not12.i, label %ssl_has_cert.exit.thread, label %ssl_has_cert.exit

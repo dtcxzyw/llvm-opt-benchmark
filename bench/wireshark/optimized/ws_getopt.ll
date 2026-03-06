@@ -3,8 +3,6 @@ source_filename = "bench/wireshark/original/ws_getopt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ws_option = type { ptr, i32, ptr, i32 }
-
 @ws_optind = local_unnamed_addr global i32 1, align 4
 @ws_opterr = local_unnamed_addr global i32 1, align 4
 @ws_optreset = local_unnamed_addr global i32 0, align 4
@@ -43,7 +41,7 @@ define i32 @ws_getopt(i32 noundef %0, ptr noundef readonly captures(none) %1, pt
 
 13:                                               ; preds = %11
   %14 = sext i32 %12 to i64
-  %15 = getelementptr ptr, ptr %1, i64 %14
+  %15 = getelementptr [8 x i8], ptr %1, i64 %14
   %16 = load ptr, ptr %15, align 8
   %.not52 = icmp eq ptr %16, null
   br i1 %.not52, label %111, label %17
@@ -108,7 +106,7 @@ define i32 @ws_getopt(i32 noundef %0, ptr noundef readonly captures(none) %1, pt
   %.042 = phi i32 [ 1, %41 ], [ %39, %35 ]
   %43 = load i32, ptr @ws_optind, align 4
   %44 = sext i32 %43 to i64
-  %45 = getelementptr ptr, ptr %1, i64 %44
+  %45 = getelementptr [8 x i8], ptr %1, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr @ws_optpos, align 4
   %48 = sext i32 %47 to i64
@@ -201,7 +199,7 @@ define i32 @ws_getopt(i32 noundef %0, ptr noundef readonly captures(none) %1, pt
   %94 = add i32 %.pre, 1
   store i32 %94, ptr @ws_optind, align 4
   %95 = sext i32 %.pre to i64
-  %96 = getelementptr ptr, ptr %1, i64 %95
+  %96 = getelementptr [8 x i8], ptr %1, i64 %95
   %97 = load ptr, ptr %96, align 8
   %98 = sext i32 %91 to i64
   %99 = getelementptr i8, ptr %97, i64 %98
@@ -297,7 +295,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
 
 14:                                               ; preds = %12
   %15 = sext i32 %13 to i64
-  %16 = getelementptr ptr, ptr %1, i64 %15
+  %16 = getelementptr [8 x i8], ptr %1, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not42 = icmp eq ptr %17, null
   br i1 %.not42, label %.loopexit, label %18
@@ -311,7 +309,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
 
 .lr.ph:                                           ; preds = %18, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ %15, %18 ]
-  %20 = getelementptr ptr, ptr %1, i64 %indvars.iv
+  %20 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %.not46 = icmp eq ptr %21, null
   br i1 %.not46, label %.loopexit, label %22
@@ -346,7 +344,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
 
 32:                                               ; preds = %30
   %33 = sext i32 %31 to i64
-  %34 = getelementptr ptr, ptr %1, i64 %33
+  %34 = getelementptr [8 x i8], ptr %1, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 45
@@ -436,7 +434,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
   %.2115.ph.i = phi ptr [ %.1112.i, %.loopexit166.i ], [ %.0113175.i, %.critedge.i ]
   %71 = add i32 %.0109176.i, 1
   %72 = sext i32 %71 to i64
-  %73 = getelementptr %struct.ws_option, ptr %3, i64 %72
+  %73 = getelementptr [32 x i8], ptr %3, i64 %72
   %74 = load ptr, ptr %73, align 8
   %.not134.i = icmp eq ptr %74, null
   br i1 %.not134.i, label %._crit_edge.i, label %59, !llvm.loop !9
@@ -511,7 +509,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
   %.3.ph.i = phi i32 [ 0, %47 ], [ 2, %92 ], [ 2, %.preheader.lr.ph.split.i ], [ 2, %.critedge3.us.i ]
   %.pre203224.i = load i32, ptr @ws_optind, align 4
   %.pre = sext i32 %.pre203224.i to i64
-  %.phi.trans.insert = getelementptr ptr, ptr %1, i64 %.pre
+  %.phi.trans.insert = getelementptr [8 x i8], ptr %1, i64 %.pre
   %.pre75 = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert76 = getelementptr i8, ptr %.pre75, i64 1
   %.pre77 = load i8, ptr %.phi.trans.insert76, align 1
@@ -531,7 +529,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
   %102 = load i8, ptr %.1114.i, align 1
   %103 = icmp eq i8 %102, 61
   %104 = sext i32 %.1117.i to i64
-  %105 = getelementptr %struct.ws_option, ptr %3, i64 %104
+  %105 = getelementptr [32 x i8], ptr %3, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load i32, ptr %106, align 8
   br i1 %103, label %108, label %120
@@ -567,7 +565,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
 
 122:                                              ; preds = %120
   %123 = sext i32 %101 to i64
-  %124 = getelementptr ptr, ptr %1, i64 %123
+  %124 = getelementptr [8 x i8], ptr %1, i64 %123
   %125 = load ptr, ptr %124, align 8
   store ptr %125, ptr @ws_optarg, align 8
   %.not143.i = icmp eq ptr %125, null
@@ -636,7 +634,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
   %153 = select i1 %.not142.i, ptr @.str, ptr @.str.3
   %154 = load i32, ptr @ws_optind, align 4
   %155 = sext i32 %154 to i64
-  %156 = getelementptr ptr, ptr %1, i64 %155
+  %156 = getelementptr [8 x i8], ptr %1, i64 %155
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr i8, ptr %157, i64 2
   %159 = tail call i64 @strlen(ptr noundef %158) #10
@@ -668,7 +666,7 @@ __getopt_long_core.exit:                          ; preds = %109, %114, %126, %1
 .lr.ph62:                                         ; preds = %166
   %170 = add i32 %167, -1
   %171 = sext i32 %170 to i64
-  %172 = getelementptr ptr, ptr %1, i64 %171
+  %172 = getelementptr [8 x i8], ptr %1, i64 %171
   %173 = icmp sgt i32 %170, %13
   br i1 %173, label %.lr.ph.i49.preheader.us, label %permute.exit.preheader
 
@@ -685,9 +683,9 @@ permute.exit.preheader:                           ; preds = %.lr.ph62
 .lr.ph.i49.us:                                    ; preds = %.lr.ph.i49.preheader.us, %.lr.ph.i49.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.i49.us ], [ %171, %.lr.ph.i49.preheader.us ]
   %indvars.iv.next.i.us = add nsw i64 %indvars.iv.i.us, -1
-  %175 = getelementptr ptr, ptr %1, i64 %indvars.iv.next.i.us
+  %175 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv.next.i.us
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr ptr, ptr %1, i64 %indvars.iv.i.us
+  %177 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv.i.us
   store ptr %176, ptr %177, align 8
   %178 = icmp sgt i64 %indvars.iv.next.i.us, %15
   br i1 %178, label %.lr.ph.i49.us, label %permute.exit.loopexit.us, !llvm.loop !12

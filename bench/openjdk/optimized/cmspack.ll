@@ -169,7 +169,7 @@ define hidden ptr @_cmsGetFormatter(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 .preheader.i:                                     ; preds = %13, %14
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %14 ], [ 0, %13 ]
-  %15 = getelementptr inbounds nuw %struct.cmsFormatters16, ptr @InputFormatters16, i64 %indvars.iv26.i
+  %15 = getelementptr inbounds nuw [16 x i8], ptr @InputFormatters16, i64 %indvars.iv26.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = xor i32 %17, -1
@@ -185,7 +185,7 @@ define hidden ptr @_cmsGetFormatter(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 .preheader16.i:                                   ; preds = %13, %22
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %22 ], [ 0, %13 ]
-  %23 = getelementptr inbounds nuw %struct.cmsFormattersFloat, ptr @InputFormattersFloat, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @InputFormattersFloat, i64 %indvars.iv.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = xor i32 %25, -1
@@ -208,7 +208,7 @@ define hidden ptr @_cmsGetFormatter(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 .preheader.i21:                                   ; preds = %30, %32
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %32 ], [ 0, %30 ]
-  %33 = getelementptr inbounds nuw %struct.cmsFormatters16, ptr @OutputFormatters16, i64 %indvars.iv27.i
+  %33 = getelementptr inbounds nuw [16 x i8], ptr @OutputFormatters16, i64 %indvars.iv27.i
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = xor i32 %35, -1
@@ -224,7 +224,7 @@ define hidden ptr @_cmsGetFormatter(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 .preheader17.i:                                   ; preds = %30, %40
   %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i17, %40 ], [ 0, %30 ]
-  %41 = getelementptr inbounds nuw %struct.cmsFormattersFloat, ptr @OutputFormattersFloat, i64 %indvars.iv.i16
+  %41 = getelementptr inbounds nuw [16 x i8], ptr @OutputFormattersFloat, i64 %indvars.iv.i16
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = xor i32 %43, -1
@@ -561,7 +561,7 @@ define internal ptr @UnrollDoubleTo16(ptr noundef readonly captures(none) %0, pt
 
 switch.lookup:                                    ; preds = %4
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.PackFloatFrom16, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PackFloatFrom16, i64 %17
   %switch.load = load double, ptr %switch.gep, align 8
   br label %IsInkSpace.exit
 
@@ -593,7 +593,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %27 = add i32 %spec.select, %26
   %.pn.in.us = mul i32 %27, %23
   %.pn.us = zext i32 %.pn.in.us to i64
-  %.050.in.in.in.us = getelementptr inbounds nuw double, ptr %2, i64 %.pn.us
+  %.050.in.in.in.us = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.pn.us
   %.050.in.in.us = load double, ptr %.050.in.in.in.us, align 8
   %.050.in.us = fptrunc double %.050.in.in.us to float
   %.050.us = fpext float %.050.in.us to double
@@ -617,7 +617,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 _cmsQuickSaturateWord.exit.us:                    ; preds = %.lr.ph.split.us, %33, %31
   %.0.i60.us = phi i16 [ %38, %33 ], [ 0, %.lr.ph.split.us ], [ -1, %31 ]
   %.053.us = xor i16 %.0.i60.us, %25
-  %39 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv67
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv67
   store i16 %.053.us, ptr %39, align 2
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
@@ -632,7 +632,7 @@ _cmsQuickSaturateWord.exit.us:                    ; preds = %.lr.ph.split.us, %3
   %44 = add i32 %spec.select, %43
   %.pn.in = mul i32 %44, %23
   %.pn = zext i32 %.pn.in to i64
-  %.050.in.in.in = getelementptr inbounds nuw double, ptr %2, i64 %.pn
+  %.050.in.in.in = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.pn
   %.050.in.in = load double, ptr %.050.in.in.in, align 8
   %.050.in = fptrunc double %.050.in.in to float
   %.050 = fpext float %.050.in to double
@@ -657,7 +657,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split, %48, 
   %.0.i60 = phi i16 [ %55, %50 ], [ 0, %.lr.ph.split ], [ -1, %48 ]
   %.053 = xor i16 %.0.i60, %25
   %56 = zext i32 %42 to i64
-  %57 = getelementptr inbounds nuw i16, ptr %1, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %56
   store i16 %.053, ptr %57, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count70
@@ -676,7 +676,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split, %48, 
   %64 = zext i32 %63 to i64
   %65 = shl nuw nsw i64 %64, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %1, ptr nonnull align 2 %62, i64 %65, i1 false)
-  %66 = getelementptr inbounds nuw i16, ptr %1, i64 %64
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %64
   store i16 %61, ptr %66, align 2
   br label %67
 
@@ -712,7 +712,7 @@ define internal ptr @UnrollFloatTo16(ptr noundef readonly captures(none) %0, ptr
 
 switch.lookup:                                    ; preds = %4
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.PackFloatFrom16, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PackFloatFrom16, i64 %17
   %switch.load = load double, ptr %switch.gep, align 8
   br label %IsInkSpace.exit
 
@@ -744,7 +744,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %27 = add i32 %spec.select, %26
   %.pn.in.us = mul i32 %27, %23
   %.pn.us = zext i32 %.pn.in.us to i64
-  %.050.in.us = getelementptr inbounds nuw float, ptr %2, i64 %.pn.us
+  %.050.in.us = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.pn.us
   %.050.us = load float, ptr %.050.in.us, align 4
   %28 = fpext float %.050.us to double
   %29 = fmul double %18, %28
@@ -767,7 +767,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 _cmsQuickSaturateWord.exit.us:                    ; preds = %.lr.ph.split.us, %34, %32
   %.0.i60.us = phi i16 [ %39, %34 ], [ 0, %.lr.ph.split.us ], [ -1, %32 ]
   %.053.us = xor i16 %.0.i60.us, %25
-  %40 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv67
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv67
   store i16 %.053.us, ptr %40, align 2
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
@@ -782,7 +782,7 @@ _cmsQuickSaturateWord.exit.us:                    ; preds = %.lr.ph.split.us, %3
   %45 = add i32 %spec.select, %44
   %.pn.in = mul i32 %45, %23
   %.pn = zext i32 %.pn.in to i64
-  %.050.in = getelementptr inbounds nuw float, ptr %2, i64 %.pn
+  %.050.in = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.pn
   %.050 = load float, ptr %.050.in, align 4
   %46 = fpext float %.050 to double
   %47 = fmul double %18, %46
@@ -806,7 +806,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split, %50, 
   %.0.i60 = phi i16 [ %57, %52 ], [ 0, %.lr.ph.split ], [ -1, %50 ]
   %.053 = xor i16 %.0.i60, %25
   %58 = zext i32 %43 to i64
-  %59 = getelementptr inbounds nuw i16, ptr %1, i64 %58
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %58
   store i16 %.053, ptr %59, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count70
@@ -825,7 +825,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split, %50, 
   %66 = zext i32 %65 to i64
   %67 = shl nuw nsw i64 %66, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %1, ptr nonnull align 2 %64, i64 %67, i1 false)
-  %68 = getelementptr inbounds nuw i16, ptr %1, i64 %66
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %66
   store i16 %63, ptr %68, align 2
   br label %69
 
@@ -1369,7 +1369,7 @@ define internal nonnull ptr @UnrollPlanarBytes(ptr noundef readonly captures(non
   %53 = udiv i32 %52, %.154
   %spec.store.select.us.us = tail call i32 @llvm.umin.i32(i32 %53, i32 65535)
   %54 = trunc nuw i32 %spec.store.select.us.us to i16
-  %55 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv98
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv98
   store i16 %54, ptr %55, align 2
   %56 = getelementptr inbounds nuw i8, ptr %.162.us.us, i64 %45
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
@@ -1393,7 +1393,7 @@ define internal nonnull ptr @UnrollPlanarBytes(ptr noundef readonly captures(non
   %spec.store.select.us = tail call i32 @llvm.umin.i32(i32 %67, i32 65535)
   %68 = trunc nuw i32 %spec.store.select.us to i16
   %69 = zext i32 %59 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %1, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %69
   store i16 %68, ptr %70, align 2
   %71 = getelementptr inbounds nuw i8, ptr %.162.us, i64 %45
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
@@ -1413,7 +1413,7 @@ define internal nonnull ptr @UnrollPlanarBytes(ptr noundef readonly captures(non
   %73 = zext i8 %72 to i16
   %74 = shl nuw i16 %73, 8
   %75 = or disjoint i16 %74, %73
-  %76 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv88
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv88
   store i16 %75, ptr %76, align 2
   %77 = getelementptr inbounds nuw i8, ptr %.162.us63.us, i64 %45
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
@@ -1428,7 +1428,7 @@ define internal nonnull ptr @UnrollPlanarBytes(ptr noundef readonly captures(non
   %80 = shl nuw i16 %79, 8
   %81 = or disjoint i16 %80, %79
   %82 = xor i16 %81, -1
-  %83 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv83
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv83
   store i16 %82, ptr %83, align 2
   %84 = getelementptr inbounds nuw i8, ptr %.162.us63, i64 %45
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
@@ -1449,7 +1449,7 @@ define internal nonnull ptr @UnrollPlanarBytes(ptr noundef readonly captures(non
   %90 = shl nuw i16 %89, 8
   %91 = or disjoint i16 %90, %89
   %92 = zext i32 %87 to i64
-  %93 = getelementptr inbounds nuw i16, ptr %1, i64 %92
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %92
   store i16 %91, ptr %93, align 2
   %94 = getelementptr inbounds nuw i8, ptr %.162.us65, i64 %45
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
@@ -1468,7 +1468,7 @@ define internal nonnull ptr @UnrollPlanarBytes(ptr noundef readonly captures(non
   %101 = or disjoint i16 %100, %99
   %102 = xor i16 %101, -1
   %103 = zext i32 %97 to i64
-  %104 = getelementptr inbounds nuw i16, ptr %1, i64 %103
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %103
   store i16 %102, ptr %104, align 2
   %105 = getelementptr inbounds nuw i8, ptr %.162, i64 %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1565,7 +1565,7 @@ define internal ptr @UnrollChunkyBytes(ptr noundef readonly captures(none) %0, p
   %49 = udiv i32 %48, %.163
   %spec.store.select.us.us = tail call i32 @llvm.umin.i32(i32 %49, i32 65535)
   %50 = trunc nuw i32 %spec.store.select.us.us to i16
-  %51 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv119
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv119
   store i16 %50, ptr %51, align 2
   %52 = getelementptr inbounds nuw i8, ptr %.172.us.us, i64 1
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
@@ -1589,7 +1589,7 @@ define internal ptr @UnrollChunkyBytes(ptr noundef readonly captures(none) %0, p
   %spec.store.select.us = tail call i32 @llvm.umin.i32(i32 %63, i32 65535)
   %64 = trunc nuw i32 %spec.store.select.us to i16
   %65 = zext i32 %55 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %1, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %65
   store i16 %64, ptr %66, align 2
   %67 = getelementptr inbounds nuw i8, ptr %.172.us, i64 1
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
@@ -1609,7 +1609,7 @@ define internal ptr @UnrollChunkyBytes(ptr noundef readonly captures(none) %0, p
   %69 = zext i8 %68 to i16
   %70 = shl nuw i16 %69, 8
   %71 = or disjoint i16 %70, %69
-  %72 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv109
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv109
   store i16 %71, ptr %72, align 2
   %73 = getelementptr inbounds nuw i8, ptr %.172.us73.us, i64 1
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
@@ -1624,7 +1624,7 @@ define internal ptr @UnrollChunkyBytes(ptr noundef readonly captures(none) %0, p
   %76 = shl nuw i16 %75, 8
   %77 = or disjoint i16 %76, %75
   %78 = xor i16 %77, -1
-  %79 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv104
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv104
   store i16 %78, ptr %79, align 2
   %80 = getelementptr inbounds nuw i8, ptr %.172.us73, i64 1
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
@@ -1645,7 +1645,7 @@ define internal ptr @UnrollChunkyBytes(ptr noundef readonly captures(none) %0, p
   %86 = shl nuw i16 %85, 8
   %87 = or disjoint i16 %86, %85
   %88 = zext i32 %83 to i64
-  %89 = getelementptr inbounds nuw i16, ptr %1, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %88
   store i16 %87, ptr %89, align 2
   %90 = getelementptr inbounds nuw i8, ptr %.172.us77, i64 1
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
@@ -1664,7 +1664,7 @@ define internal ptr @UnrollChunkyBytes(ptr noundef readonly captures(none) %0, p
   %97 = or disjoint i16 %96, %95
   %98 = xor i16 %97, -1
   %99 = zext i32 %93 to i64
-  %100 = getelementptr inbounds nuw i16, ptr %1, i64 %99
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %99
   store i16 %98, ptr %100, align 2
   %101 = getelementptr inbounds nuw i8, ptr %.172, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1685,7 +1685,7 @@ define internal ptr @UnrollChunkyBytes(ptr noundef readonly captures(none) %0, p
   %108 = zext i32 %107 to i64
   %109 = shl nuw nsw i64 %108, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %1, ptr nonnull align 2 %106, i64 %109, i1 false)
-  %110 = getelementptr inbounds nuw i16, ptr %1, i64 %108
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %108
   store i16 %105, ptr %110, align 2
   br label %111
 
@@ -1950,7 +1950,7 @@ define internal nonnull ptr @UnrollPlanarWords(ptr noundef readonly captures(non
   %.133.us.us = phi ptr [ %18, %.lr.ph.split.us.split.us ], [ %.027, %.lr.ph.split.us ]
   %16 = load i16, ptr %.133.us.us, align 2
   %.v.us.us = xor i16 %16, %14
-  %17 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv56
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv56
   store i16 %.v.us.us, ptr %17, align 2
   %18 = getelementptr inbounds nuw i8, ptr %.133.us.us, i64 %15
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
@@ -1963,7 +1963,7 @@ define internal nonnull ptr @UnrollPlanarWords(ptr noundef readonly captures(non
   %19 = load i16, ptr %.133.us, align 2
   %rev.us = tail call i16 @llvm.bswap.i16(i16 %19)
   %.v.us = xor i16 %rev.us, %14
-  %20 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv51
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv51
   store i16 %.v.us, ptr %20, align 2
   %21 = getelementptr inbounds nuw i8, ptr %.133.us, i64 %15
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
@@ -1982,7 +1982,7 @@ define internal nonnull ptr @UnrollPlanarWords(ptr noundef readonly captures(non
   %25 = load i16, ptr %.133.us34, align 2
   %.v.us38 = xor i16 %25, %14
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw i16, ptr %1, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %26
   store i16 %.v.us38, ptr %27, align 2
   %28 = getelementptr inbounds nuw i8, ptr %.133.us34, i64 %15
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
@@ -1999,7 +1999,7 @@ define internal nonnull ptr @UnrollPlanarWords(ptr noundef readonly captures(non
   %rev = tail call i16 @llvm.bswap.i16(i16 %32)
   %.v = xor i16 %rev, %14
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw i16, ptr %1, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %33
   store i16 %.v, ptr %34, align 2
   %35 = getelementptr inbounds nuw i8, ptr %.133, i64 %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2049,7 +2049,7 @@ define internal ptr @UnrollAnyWords(ptr noundef readonly captures(none) %0, ptr 
   %.149.us.us = phi ptr [ %21, %.lr.ph.split.us.split.us ], [ %.0, %.lr.ph.split.us ]
   %19 = load i16, ptr %.149.us.us, align 2
   %.v.us.us = xor i16 %19, %18
-  %20 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv78
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv78
   store i16 %.v.us.us, ptr %20, align 2
   %21 = getelementptr inbounds nuw i8, ptr %.149.us.us, i64 2
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
@@ -2062,7 +2062,7 @@ define internal ptr @UnrollAnyWords(ptr noundef readonly captures(none) %0, ptr 
   %22 = load i16, ptr %.149.us, align 2
   %rev.us = tail call i16 @llvm.bswap.i16(i16 %22)
   %.v.us = xor i16 %rev.us, %18
-  %23 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv73
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv73
   store i16 %.v.us, ptr %23, align 2
   %24 = getelementptr inbounds nuw i8, ptr %.149.us, i64 2
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
@@ -2081,7 +2081,7 @@ define internal ptr @UnrollAnyWords(ptr noundef readonly captures(none) %0, ptr 
   %28 = load i16, ptr %.149.us50, align 2
   %.v.us54 = xor i16 %28, %18
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw i16, ptr %1, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %29
   store i16 %.v.us54, ptr %30, align 2
   %31 = getelementptr inbounds nuw i8, ptr %.149.us50, i64 2
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
@@ -2098,7 +2098,7 @@ define internal ptr @UnrollAnyWords(ptr noundef readonly captures(none) %0, ptr 
   %rev = tail call i16 @llvm.bswap.i16(i16 %35)
   %.v = xor i16 %rev, %18
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %1, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %36
   store i16 %.v, ptr %37, align 2
   %38 = getelementptr inbounds nuw i8, ptr %.149, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2119,7 +2119,7 @@ define internal ptr @UnrollAnyWords(ptr noundef readonly captures(none) %0, ptr 
   %45 = zext i32 %44 to i64
   %46 = shl nuw nsw i64 %45, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %1, ptr nonnull align 2 %43, i64 %46, i1 false)
-  %47 = getelementptr inbounds nuw i16, ptr %1, i64 %45
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %45
   store i16 %42, ptr %47, align 2
   br label %48
 
@@ -2182,7 +2182,7 @@ define internal nonnull ptr @UnrollPlanarWordsPremul(ptr noundef readonly captur
   %.14150.us.us.us = phi ptr [ %28, %.lr.ph.split.us.split.us.split.us ], [ %.040, %.lr.ph.split.us.split.us ]
   %25 = load i16, ptr %.14150.us.us.us, align 2
   %26 = xor i16 %25, %24
-  %27 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv111
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv111
   store i16 %26, ptr %27, align 2
   %28 = getelementptr inbounds nuw i8, ptr %.14150.us.us.us, i64 %20
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
@@ -2195,7 +2195,7 @@ define internal nonnull ptr @UnrollPlanarWordsPremul(ptr noundef readonly captur
   %29 = load i16, ptr %.14150.us.us, align 2
   %rev.us.us = tail call i16 @llvm.bswap.i16(i16 %29)
   %30 = xor i16 %rev.us.us, %24
-  %31 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv106
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv106
   store i16 %30, ptr %31, align 2
   %32 = getelementptr inbounds nuw i8, ptr %.14150.us.us, i64 %20
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
@@ -2214,7 +2214,7 @@ define internal nonnull ptr @UnrollPlanarWordsPremul(ptr noundef readonly captur
   %36 = load i16, ptr %.14150.us.us64, align 2
   %37 = xor i16 %36, %24
   %38 = zext i32 %35 to i64
-  %39 = getelementptr inbounds nuw i16, ptr %1, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %38
   store i16 %37, ptr %39, align 2
   %40 = getelementptr inbounds nuw i8, ptr %.14150.us.us64, i64 %20
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
@@ -2231,7 +2231,7 @@ define internal nonnull ptr @UnrollPlanarWordsPremul(ptr noundef readonly captur
   %rev.us = tail call i16 @llvm.bswap.i16(i16 %44)
   %45 = xor i16 %rev.us, %24
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw i16, ptr %1, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %46
   store i16 %45, ptr %47, align 2
   %48 = getelementptr inbounds nuw i8, ptr %.14150.us, i64 %20
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
@@ -2254,7 +2254,7 @@ define internal nonnull ptr @UnrollPlanarWordsPremul(ptr noundef readonly captur
   %spec.store.select.us.us = tail call i32 @llvm.umin.i32(i32 %51, i32 65535)
   %52 = xor i32 %spec.store.select.us.us, %sext
   %53 = trunc i32 %52 to i16
-  %54 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv91
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv91
   store i16 %53, ptr %54, align 2
   %55 = getelementptr inbounds nuw i8, ptr %.14150.us51.us, i64 %20
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
@@ -2272,7 +2272,7 @@ define internal nonnull ptr @UnrollPlanarWordsPremul(ptr noundef readonly captur
   %spec.store.select.us = tail call i32 @llvm.umin.i32(i32 %58, i32 65535)
   %59 = xor i32 %spec.store.select.us, %sext
   %60 = trunc i32 %59 to i16
-  %61 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv86
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv86
   store i16 %60, ptr %61, align 2
   %62 = getelementptr inbounds nuw i8, ptr %.14150.us51, i64 %20
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
@@ -2296,7 +2296,7 @@ define internal nonnull ptr @UnrollPlanarWordsPremul(ptr noundef readonly captur
   %69 = xor i32 %spec.store.select.us61, %sext
   %70 = trunc i32 %69 to i16
   %71 = zext i32 %65 to i64
-  %72 = getelementptr inbounds nuw i16, ptr %1, i64 %71
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %71
   store i16 %70, ptr %72, align 2
   %73 = getelementptr inbounds nuw i8, ptr %.14150.us56, i64 %20
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
@@ -2318,7 +2318,7 @@ define internal nonnull ptr @UnrollPlanarWordsPremul(ptr noundef readonly captur
   %80 = xor i32 %spec.store.select, %sext
   %81 = trunc i32 %80 to i16
   %82 = zext i32 %76 to i64
-  %83 = getelementptr inbounds nuw i16, ptr %1, i64 %82
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %82
   store i16 %81, ptr %83, align 2
   %84 = getelementptr inbounds nuw i8, ptr %.14150, i64 %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2381,7 +2381,7 @@ define internal ptr @UnrollAnyWordsPremul(ptr noundef readonly captures(none) %0
   %.13948.us.us.us = phi ptr [ %26, %.lr.ph.split.us.split.us.split.us ], [ %.038, %.lr.ph.split.us.split.us ]
   %23 = load i16, ptr %.13948.us.us.us, align 2
   %24 = xor i16 %23, %22
-  %25 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv125
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv125
   store i16 %24, ptr %25, align 2
   %26 = getelementptr inbounds nuw i8, ptr %.13948.us.us.us, i64 2
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
@@ -2394,7 +2394,7 @@ define internal ptr @UnrollAnyWordsPremul(ptr noundef readonly captures(none) %0
   %27 = load i16, ptr %.13948.us.us, align 2
   %rev.us.us = tail call i16 @llvm.bswap.i16(i16 %27)
   %28 = xor i16 %rev.us.us, %22
-  %29 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv120
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv120
   store i16 %28, ptr %29, align 2
   %30 = getelementptr inbounds nuw i8, ptr %.13948.us.us, i64 2
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
@@ -2413,7 +2413,7 @@ define internal ptr @UnrollAnyWordsPremul(ptr noundef readonly captures(none) %0
   %34 = load i16, ptr %.13948.us.us68, align 2
   %35 = xor i16 %34, %22
   %36 = zext i32 %33 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %1, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %36
   store i16 %35, ptr %37, align 2
   %38 = getelementptr inbounds nuw i8, ptr %.13948.us.us68, i64 2
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
@@ -2430,7 +2430,7 @@ define internal ptr @UnrollAnyWordsPremul(ptr noundef readonly captures(none) %0
   %rev.us = tail call i16 @llvm.bswap.i16(i16 %42)
   %43 = xor i16 %rev.us, %22
   %44 = zext i32 %41 to i64
-  %45 = getelementptr inbounds nuw i16, ptr %1, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %44
   store i16 %43, ptr %45, align 2
   %46 = getelementptr inbounds nuw i8, ptr %.13948.us, i64 2
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
@@ -2453,7 +2453,7 @@ define internal ptr @UnrollAnyWordsPremul(ptr noundef readonly captures(none) %0
   %spec.store.select.us.us = tail call i32 @llvm.umin.i32(i32 %49, i32 65535)
   %50 = xor i32 %spec.store.select.us.us, %sext
   %51 = trunc i32 %50 to i16
-  %52 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv105
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv105
   store i16 %51, ptr %52, align 2
   %53 = getelementptr inbounds nuw i8, ptr %.13948.us49.us, i64 2
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
@@ -2471,7 +2471,7 @@ define internal ptr @UnrollAnyWordsPremul(ptr noundef readonly captures(none) %0
   %spec.store.select.us = tail call i32 @llvm.umin.i32(i32 %56, i32 65535)
   %57 = xor i32 %spec.store.select.us, %sext
   %58 = trunc i32 %57 to i16
-  %59 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv100
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv100
   store i16 %58, ptr %59, align 2
   %60 = getelementptr inbounds nuw i8, ptr %.13948.us49, i64 2
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
@@ -2495,7 +2495,7 @@ define internal ptr @UnrollAnyWordsPremul(ptr noundef readonly captures(none) %0
   %67 = xor i32 %spec.store.select.us61, %sext
   %68 = trunc i32 %67 to i16
   %69 = zext i32 %63 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %1, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %69
   store i16 %68, ptr %70, align 2
   %71 = getelementptr inbounds nuw i8, ptr %.13948.us56, i64 2
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
@@ -2517,7 +2517,7 @@ define internal ptr @UnrollAnyWordsPremul(ptr noundef readonly captures(none) %0
   %78 = xor i32 %spec.store.select, %sext
   %79 = trunc i32 %78 to i16
   %80 = zext i32 %74 to i64
-  %81 = getelementptr inbounds nuw i16, ptr %1, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %80
   store i16 %79, ptr %81, align 2
   %82 = getelementptr inbounds nuw i8, ptr %.13948, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2558,7 +2558,7 @@ define internal nonnull ptr @UnrollLabDoubleToFloat(ptr noundef readonly capture
   %13 = fptrunc double %12 to float
   store float %13, ptr %1, align 4
   %14 = zext i32 %10 to i64
-  %15 = getelementptr inbounds nuw double, ptr %2, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %14
   %16 = load double, ptr %15, align 8
   %17 = fadd double %16, 1.280000e+02
   %18 = fdiv double %17, 2.550000e+02
@@ -2567,7 +2567,7 @@ define internal nonnull ptr @UnrollLabDoubleToFloat(ptr noundef readonly capture
   store float %19, ptr %20, align 4
   %21 = shl i32 %10, 1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw double, ptr %2, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %22
   %24 = load double, ptr %23, align 8
   %25 = fadd double %24, 1.280000e+02
   %26 = fdiv double %25, 2.550000e+02
@@ -2625,7 +2625,7 @@ define internal nonnull ptr @UnrollLabFloatToFloat(ptr noundef readonly captures
   %12 = fdiv float %11, 1.000000e+02
   store float %12, ptr %1, align 4
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw float, ptr %2, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %13
   %15 = load float, ptr %14, align 4
   %16 = fadd float %15, 1.280000e+02
   %17 = fdiv float %16, 2.550000e+02
@@ -2633,7 +2633,7 @@ define internal nonnull ptr @UnrollLabFloatToFloat(ptr noundef readonly captures
   store float %17, ptr %18, align 4
   %19 = shl i32 %10, 1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw float, ptr %2, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %20
   %22 = load float, ptr %21, align 4
   %23 = fadd float %22, 1.280000e+02
   %24 = fdiv float %23, 2.550000e+02
@@ -2688,7 +2688,7 @@ define internal nonnull ptr @UnrollXYZDoubleToFloat(ptr noundef readonly capture
   %13 = fptrunc double %12 to float
   store float %13, ptr %1, align 4
   %14 = zext i32 %10 to i64
-  %15 = getelementptr inbounds nuw double, ptr %2, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %14
   %16 = load double, ptr %15, align 8
   %17 = fdiv double %16, 0x3FFFFFE000000000
   %18 = fptrunc double %17 to float
@@ -2696,7 +2696,7 @@ define internal nonnull ptr @UnrollXYZDoubleToFloat(ptr noundef readonly capture
   store float %18, ptr %19, align 4
   %20 = shl i32 %10, 1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw double, ptr %2, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %21
   %23 = load double, ptr %22, align 8
   %24 = fdiv double %23, 0x3FFFFFE000000000
   %25 = fptrunc double %24 to float
@@ -2751,14 +2751,14 @@ define internal nonnull ptr @UnrollXYZFloatToFloat(ptr noundef readonly captures
   %12 = fdiv float %11, 0x3FFFFFE000000000
   store float %12, ptr %1, align 4
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw float, ptr %2, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %13
   %15 = load float, ptr %14, align 4
   %16 = fdiv float %15, 0x3FFFFFE000000000
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %16, ptr %17, align 4
   %18 = shl i32 %10, 1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw float, ptr %2, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %19
   %21 = load float, ptr %20, align 4
   %22 = fdiv float %21, 0x3FFFFFE000000000
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2815,7 +2815,7 @@ define internal ptr @UnrollFloatsToFloat(ptr noundef readonly captures(none) %0,
 
 switch.lookup:                                    ; preds = %4
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table.UnrollFloatsToFloat, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.UnrollFloatsToFloat, i64 %19
   %switch.load = load float, ptr %switch.gep, align 4
   br label %IsInkSpace.exit
 
@@ -2838,7 +2838,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %.sink = mul i32 %7, %27
   %narrow = select i1 %.not81, i32 %.sink, i32 0
   %.in83.idx = zext i32 %narrow to i64
-  %.in83 = getelementptr inbounds nuw float, ptr %2, i64 %.in83.idx
+  %.in83 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.in83.idx
   %28 = load float, ptr %.in83, align 4
   %.fr170 = freeze float %28
   %29 = fdiv float %.fr170, %20
@@ -2874,11 +2874,11 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %35 = add i32 %spec.select, %34
   %.pn.in.us.us.us = mul i32 %35, %31
   %.pn.us.us.us = zext i32 %.pn.in.us.us.us to i64
-  %.074.in.us.us.us = getelementptr inbounds nuw float, ptr %2, i64 %.pn.us.us.us
+  %.074.in.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.pn.us.us.us
   %.074.us.us.us = load float, ptr %.074.in.us.us.us, align 4
   %36 = fdiv float %.074.us.us.us, %.075
   %37 = fdiv float %36, %20
-  %38 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv157
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv157
   store float %37, ptr %38, align 4
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
@@ -2890,12 +2890,12 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %40 = add i32 %spec.select, %39
   %.pn.in.us.us = mul i32 %40, %31
   %.pn.us.us = zext i32 %.pn.in.us.us to i64
-  %.074.in.us.us = getelementptr inbounds nuw float, ptr %2, i64 %.pn.us.us
+  %.074.in.us.us = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.pn.us.us
   %.074.us.us = load float, ptr %.074.in.us.us, align 4
   %41 = fdiv float %.074.us.us, %.075
   %42 = fdiv float %41, %20
   %43 = fsub float 1.000000e+00, %42
-  %44 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv152
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv152
   store float %43, ptr %44, align 4
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count160
@@ -2910,10 +2910,10 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %46 = add i32 %spec.select, %45
   %.pn.in.us.us110 = mul i32 %46, %31
   %.pn.us.us111 = zext i32 %.pn.in.us.us110 to i64
-  %.074.in.us.us112 = getelementptr inbounds nuw float, ptr %2, i64 %.pn.us.us111
+  %.074.in.us.us112 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.pn.us.us111
   %.074.us.us113 = load float, ptr %.074.in.us.us112, align 4
   %47 = fdiv float %.074.us.us113, %20
-  %48 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv147
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv147
   store float %47, ptr %48, align 4
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count160
@@ -2925,11 +2925,11 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %50 = add i32 %spec.select, %49
   %.pn.in.us = mul i32 %50, %31
   %.pn.us = zext i32 %.pn.in.us to i64
-  %.074.in.us = getelementptr inbounds nuw float, ptr %2, i64 %.pn.us
+  %.074.in.us = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.pn.us
   %.074.us = load float, ptr %.074.in.us, align 4
   %51 = fdiv float %.074.us, %20
   %52 = fsub float 1.000000e+00, %51
-  %53 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv142
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv142
   store float %52, ptr %53, align 4
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count160
@@ -2950,12 +2950,12 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %58 = add i32 %spec.select, %57
   %.pn.in.us95.us = mul i32 %58, %31
   %.pn.us96.us = zext i32 %.pn.in.us95.us to i64
-  %.074.in.us97.us = getelementptr inbounds nuw float, ptr %2, i64 %.pn.us96.us
+  %.074.in.us97.us = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.pn.us96.us
   %.074.us98.us = load float, ptr %.074.in.us97.us, align 4
   %59 = fdiv float %.074.us98.us, %.075
   %60 = fdiv float %59, %20
   %61 = zext i32 %56 to i64
-  %62 = getelementptr inbounds nuw float, ptr %1, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %61
   store float %60, ptr %62, align 4
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count160
@@ -2970,13 +2970,13 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %67 = add i32 %spec.select, %66
   %.pn.in.us95 = mul i32 %67, %31
   %.pn.us96 = zext i32 %.pn.in.us95 to i64
-  %.074.in.us97 = getelementptr inbounds nuw float, ptr %2, i64 %.pn.us96
+  %.074.in.us97 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.pn.us96
   %.074.us98 = load float, ptr %.074.in.us97, align 4
   %68 = fdiv float %.074.us98, %.075
   %69 = fdiv float %68, %20
   %70 = fsub float 1.000000e+00, %69
   %71 = zext i32 %65 to i64
-  %72 = getelementptr inbounds nuw float, ptr %1, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %71
   store float %70, ptr %72, align 4
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count160
@@ -2994,11 +2994,11 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %77 = add i32 %spec.select, %76
   %.pn.in.us101 = mul i32 %77, %31
   %.pn.us102 = zext i32 %.pn.in.us101 to i64
-  %.074.in.us103 = getelementptr inbounds nuw float, ptr %2, i64 %.pn.us102
+  %.074.in.us103 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.pn.us102
   %.074.us104 = load float, ptr %.074.in.us103, align 4
   %78 = fdiv float %.074.us104, %20
   %79 = zext i32 %75 to i64
-  %80 = getelementptr inbounds nuw float, ptr %1, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %79
   store float %78, ptr %80, align 4
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count160
@@ -3013,12 +3013,12 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %85 = add i32 %spec.select, %84
   %.pn.in = mul i32 %85, %31
   %.pn = zext i32 %.pn.in to i64
-  %.074.in = getelementptr inbounds nuw float, ptr %2, i64 %.pn
+  %.074.in = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.pn
   %.074 = load float, ptr %.074.in, align 4
   %86 = fdiv float %.074, %20
   %87 = fsub float 1.000000e+00, %86
   %88 = zext i32 %83 to i64
-  %89 = getelementptr inbounds nuw float, ptr %1, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %88
   store float %87, ptr %89, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count160
@@ -3037,7 +3037,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %96 = zext i32 %95 to i64
   %97 = shl nuw nsw i64 %96, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1, ptr nonnull align 4 %94, i64 %97, i1 false)
-  %98 = getelementptr inbounds nuw float, ptr %1, i64 %96
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %96
   store float %93, ptr %98, align 4
   br label %99
 
@@ -3075,7 +3075,7 @@ define internal ptr @UnrollDoublesToFloat(ptr noundef readonly captures(none) %0
 
 switch.lookup:                                    ; preds = %4
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.PackDoublesFromFloat, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PackDoublesFromFloat, i64 %19
   %switch.load = load double, ptr %switch.gep, align 8
   br label %IsInkSpace.exit
 
@@ -3098,7 +3098,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %.sink = mul i32 %7, %27
   %narrow = select i1 %.not81, i32 %.sink, i32 0
   %.in83.idx = zext i32 %narrow to i64
-  %.in83 = getelementptr inbounds nuw double, ptr %2, i64 %.in83.idx
+  %.in83 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.in83.idx
   %28 = load double, ptr %.in83, align 8
   %.fr170 = freeze double %28
   %29 = fdiv double %.fr170, %20
@@ -3134,12 +3134,12 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %35 = add i32 %spec.select, %34
   %.pn.in.us.us.us = mul i32 %35, %31
   %.pn.us.us.us = zext i32 %.pn.in.us.us.us to i64
-  %.074.in.us.us.us = getelementptr inbounds nuw double, ptr %2, i64 %.pn.us.us.us
+  %.074.in.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.pn.us.us.us
   %.074.us.us.us = load double, ptr %.074.in.us.us.us, align 8
   %36 = fdiv double %.074.us.us.us, %.075
   %37 = fdiv double %36, %20
   %38 = fptrunc double %37 to float
-  %39 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv157
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv157
   store float %38, ptr %39, align 4
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
@@ -3151,13 +3151,13 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %41 = add i32 %spec.select, %40
   %.pn.in.us.us = mul i32 %41, %31
   %.pn.us.us = zext i32 %.pn.in.us.us to i64
-  %.074.in.us.us = getelementptr inbounds nuw double, ptr %2, i64 %.pn.us.us
+  %.074.in.us.us = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.pn.us.us
   %.074.us.us = load double, ptr %.074.in.us.us, align 8
   %42 = fdiv double %.074.us.us, %.075
   %43 = fdiv double %42, %20
   %44 = fsub double 1.000000e+00, %43
   %45 = fptrunc double %44 to float
-  %46 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv152
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv152
   store float %45, ptr %46, align 4
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count160
@@ -3172,11 +3172,11 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %48 = add i32 %spec.select, %47
   %.pn.in.us.us110 = mul i32 %48, %31
   %.pn.us.us111 = zext i32 %.pn.in.us.us110 to i64
-  %.074.in.us.us112 = getelementptr inbounds nuw double, ptr %2, i64 %.pn.us.us111
+  %.074.in.us.us112 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.pn.us.us111
   %.074.us.us113 = load double, ptr %.074.in.us.us112, align 8
   %49 = fdiv double %.074.us.us113, %20
   %50 = fptrunc double %49 to float
-  %51 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv147
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv147
   store float %50, ptr %51, align 4
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count160
@@ -3188,12 +3188,12 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %53 = add i32 %spec.select, %52
   %.pn.in.us = mul i32 %53, %31
   %.pn.us = zext i32 %.pn.in.us to i64
-  %.074.in.us = getelementptr inbounds nuw double, ptr %2, i64 %.pn.us
+  %.074.in.us = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.pn.us
   %.074.us = load double, ptr %.074.in.us, align 8
   %54 = fdiv double %.074.us, %20
   %55 = fsub double 1.000000e+00, %54
   %56 = fptrunc double %55 to float
-  %57 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv142
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv142
   store float %56, ptr %57, align 4
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count160
@@ -3214,13 +3214,13 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %62 = add i32 %spec.select, %61
   %.pn.in.us95.us = mul i32 %62, %31
   %.pn.us96.us = zext i32 %.pn.in.us95.us to i64
-  %.074.in.us97.us = getelementptr inbounds nuw double, ptr %2, i64 %.pn.us96.us
+  %.074.in.us97.us = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.pn.us96.us
   %.074.us98.us = load double, ptr %.074.in.us97.us, align 8
   %63 = fdiv double %.074.us98.us, %.075
   %64 = fdiv double %63, %20
   %65 = fptrunc double %64 to float
   %66 = zext i32 %60 to i64
-  %67 = getelementptr inbounds nuw float, ptr %1, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %66
   store float %65, ptr %67, align 4
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count160
@@ -3235,14 +3235,14 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %72 = add i32 %spec.select, %71
   %.pn.in.us95 = mul i32 %72, %31
   %.pn.us96 = zext i32 %.pn.in.us95 to i64
-  %.074.in.us97 = getelementptr inbounds nuw double, ptr %2, i64 %.pn.us96
+  %.074.in.us97 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.pn.us96
   %.074.us98 = load double, ptr %.074.in.us97, align 8
   %73 = fdiv double %.074.us98, %.075
   %74 = fdiv double %73, %20
   %75 = fsub double 1.000000e+00, %74
   %76 = fptrunc double %75 to float
   %77 = zext i32 %70 to i64
-  %78 = getelementptr inbounds nuw float, ptr %1, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %77
   store float %76, ptr %78, align 4
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count160
@@ -3260,12 +3260,12 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %83 = add i32 %spec.select, %82
   %.pn.in.us101 = mul i32 %83, %31
   %.pn.us102 = zext i32 %.pn.in.us101 to i64
-  %.074.in.us103 = getelementptr inbounds nuw double, ptr %2, i64 %.pn.us102
+  %.074.in.us103 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.pn.us102
   %.074.us104 = load double, ptr %.074.in.us103, align 8
   %84 = fdiv double %.074.us104, %20
   %85 = fptrunc double %84 to float
   %86 = zext i32 %81 to i64
-  %87 = getelementptr inbounds nuw float, ptr %1, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %86
   store float %85, ptr %87, align 4
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count160
@@ -3280,13 +3280,13 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %92 = add i32 %spec.select, %91
   %.pn.in = mul i32 %92, %31
   %.pn = zext i32 %.pn.in to i64
-  %.074.in = getelementptr inbounds nuw double, ptr %2, i64 %.pn
+  %.074.in = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.pn
   %.074 = load double, ptr %.074.in, align 8
   %93 = fdiv double %.074, %20
   %94 = fsub double 1.000000e+00, %93
   %95 = fptrunc double %94 to float
   %96 = zext i32 %90 to i64
-  %97 = getelementptr inbounds nuw float, ptr %1, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %96
   store float %95, ptr %97, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count160
@@ -3305,7 +3305,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %104 = zext i32 %103 to i64
   %105 = shl nuw nsw i64 %104, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1, ptr nonnull align 4 %102, i64 %105, i1 false)
-  %106 = getelementptr inbounds nuw float, ptr %1, i64 %104
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %104
   store float %101, ptr %106, align 4
   br label %107
 
@@ -3477,7 +3477,7 @@ define internal ptr @Unroll8ToFloat(ptr noundef readonly captures(none) %0, ptr 
   %.050.in.us.us = load i8, ptr %.050.in.in.us.us, align 1
   %.050.us.us = uitofp i8 %.050.in.us.us to float
   %22 = fdiv float %.050.us.us, 2.550000e+02
-  %23 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv81
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv81
   store float %22, ptr %23, align 4
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
@@ -3494,7 +3494,7 @@ define internal ptr @Unroll8ToFloat(ptr noundef readonly captures(none) %0, ptr 
   %.050.us = uitofp i8 %.050.in.us to float
   %26 = fdiv float %.050.us, 2.550000e+02
   %27 = fsub float 1.000000e+00, %26
-  %28 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv76
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv76
   store float %27, ptr %28, align 4
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count84
@@ -3517,7 +3517,7 @@ define internal ptr @Unroll8ToFloat(ptr noundef readonly captures(none) %0, ptr 
   %.050.us62 = uitofp i8 %.050.in.us61 to float
   %34 = fdiv float %.050.us62, 2.550000e+02
   %35 = zext i32 %31 to i64
-  %36 = getelementptr inbounds nuw float, ptr %1, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %35
   store float %34, ptr %36, align 4
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count84
@@ -3538,7 +3538,7 @@ define internal ptr @Unroll8ToFloat(ptr noundef readonly captures(none) %0, ptr 
   %42 = fdiv float %.050, 2.550000e+02
   %43 = fsub float 1.000000e+00, %42
   %44 = zext i32 %39 to i64
-  %45 = getelementptr inbounds nuw float, ptr %1, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %44
   store float %43, ptr %45, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count84
@@ -3557,7 +3557,7 @@ define internal ptr @Unroll8ToFloat(ptr noundef readonly captures(none) %0, ptr 
   %52 = zext i32 %51 to i64
   %53 = shl nuw nsw i64 %52, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1, ptr nonnull align 4 %50, i64 %53, i1 false)
-  %54 = getelementptr inbounds nuw float, ptr %1, i64 %52
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %52
   store float %49, ptr %54, align 4
   br label %55
 
@@ -3612,11 +3612,11 @@ define internal ptr @Unroll16ToFloat(ptr noundef readonly captures(none) %0, ptr
   %21 = add i32 %spec.select, %20
   %.pn.in.us.us = mul i32 %21, %18
   %.pn.us.us = zext i32 %.pn.in.us.us to i64
-  %.050.in.in.us.us = getelementptr inbounds nuw i16, ptr %2, i64 %.pn.us.us
+  %.050.in.in.us.us = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.pn.us.us
   %.050.in.us.us = load i16, ptr %.050.in.in.us.us, align 2
   %.050.us.us = uitofp i16 %.050.in.us.us to float
   %22 = fdiv float %.050.us.us, 6.553500e+04
-  %23 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv81
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv81
   store float %22, ptr %23, align 4
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
@@ -3628,12 +3628,12 @@ define internal ptr @Unroll16ToFloat(ptr noundef readonly captures(none) %0, ptr
   %25 = add i32 %spec.select, %24
   %.pn.in.us = mul i32 %25, %18
   %.pn.us = zext i32 %.pn.in.us to i64
-  %.050.in.in.us = getelementptr inbounds nuw i16, ptr %2, i64 %.pn.us
+  %.050.in.in.us = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.pn.us
   %.050.in.us = load i16, ptr %.050.in.in.us, align 2
   %.050.us = uitofp i16 %.050.in.us to float
   %26 = fdiv float %.050.us, 6.553500e+04
   %27 = fsub float 1.000000e+00, %26
-  %28 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv76
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv76
   store float %27, ptr %28, align 4
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count84
@@ -3651,12 +3651,12 @@ define internal ptr @Unroll16ToFloat(ptr noundef readonly captures(none) %0, ptr
   %33 = add i32 %spec.select, %32
   %.pn.in.us58 = mul i32 %33, %18
   %.pn.us59 = zext i32 %.pn.in.us58 to i64
-  %.050.in.in.us60 = getelementptr inbounds nuw i16, ptr %2, i64 %.pn.us59
+  %.050.in.in.us60 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.pn.us59
   %.050.in.us61 = load i16, ptr %.050.in.in.us60, align 2
   %.050.us62 = uitofp i16 %.050.in.us61 to float
   %34 = fdiv float %.050.us62, 6.553500e+04
   %35 = zext i32 %31 to i64
-  %36 = getelementptr inbounds nuw float, ptr %1, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %35
   store float %34, ptr %36, align 4
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count84
@@ -3671,13 +3671,13 @@ define internal ptr @Unroll16ToFloat(ptr noundef readonly captures(none) %0, ptr
   %41 = add i32 %spec.select, %40
   %.pn.in = mul i32 %41, %18
   %.pn = zext i32 %.pn.in to i64
-  %.050.in.in = getelementptr inbounds nuw i16, ptr %2, i64 %.pn
+  %.050.in.in = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.pn
   %.050.in = load i16, ptr %.050.in.in, align 2
   %.050 = uitofp i16 %.050.in to float
   %42 = fdiv float %.050, 6.553500e+04
   %43 = fsub float 1.000000e+00, %42
   %44 = zext i32 %39 to i64
-  %45 = getelementptr inbounds nuw float, ptr %1, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %44
   store float %43, ptr %45, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count84
@@ -3696,7 +3696,7 @@ define internal ptr @Unroll16ToFloat(ptr noundef readonly captures(none) %0, ptr
   %52 = zext i32 %51 to i64
   %53 = shl nuw nsw i64 %52, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %1, ptr nonnull align 4 %50, i64 %53, i1 false)
-  %54 = getelementptr inbounds nuw float, ptr %1, i64 %52
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %52
   store float %49, ptr %54, align 4
   br label %55
 
@@ -3728,13 +3728,13 @@ define internal nonnull ptr @PackLabDoubleFrom16(ptr noundef readonly captures(n
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load double, ptr %11, align 8
   %13 = zext i32 %3 to i64
-  %14 = getelementptr inbounds nuw double, ptr %2, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %13
   store double %12, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %16 = load double, ptr %15, align 8
   %17 = shl i32 %3, 1
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw double, ptr %2, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %18
   store double %16, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %28
@@ -3775,13 +3775,13 @@ define internal nonnull ptr @PackXYZDoubleFrom16(ptr noundef readonly captures(n
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load double, ptr %15, align 8
   %17 = zext i32 %13 to i64
-  %18 = getelementptr inbounds nuw double, ptr %2, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %17
   store double %16, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load double, ptr %19, align 8
   %21 = shl i32 %13, 1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw double, ptr %2, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %22
   store double %20, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %32
@@ -3823,14 +3823,14 @@ define internal nonnull ptr @PackLabFloatFrom16(ptr noundef readonly captures(no
   %16 = load double, ptr %15, align 8
   %17 = fptrunc double %16 to float
   %18 = zext i32 %12 to i64
-  %19 = getelementptr inbounds nuw float, ptr %2, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %18
   store float %17, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load double, ptr %20, align 8
   %22 = fptrunc double %21 to float
   %23 = shl i32 %12, 1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw float, ptr %2, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %24
   store float %22, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %44
@@ -3886,14 +3886,14 @@ define internal nonnull ptr @PackXYZFloatFrom16(ptr noundef readonly captures(no
   %18 = load double, ptr %17, align 8
   %19 = fptrunc double %18 to float
   %20 = zext i32 %14 to i64
-  %21 = getelementptr inbounds nuw float, ptr %2, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %20
   store float %19, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load double, ptr %22, align 8
   %24 = fptrunc double %23 to float
   %25 = shl i32 %14, 1
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw float, ptr %2, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %26
   store float %24, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %46
@@ -3947,7 +3947,7 @@ define internal ptr @PackDoubleFrom16(ptr noundef readonly captures(none) %0, pt
 
 switch.lookup:                                    ; preds = %4
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.PackFloatFrom16, i64 %18
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PackFloatFrom16, i64 %18
   %switch.load = load double, ptr %switch.gep, align 8
   br label %IsInkSpace.exit
 
@@ -3973,7 +3973,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %25 = zext nneg i32 %spec.select to i64
   %wide.trip.count131 = zext nneg i32 %8 to i64
-  %invariant.gep152 = getelementptr inbounds nuw double, ptr %2, i64 %25
+  %invariant.gep152 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %25
   br i1 %.not57, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
@@ -3981,11 +3981,11 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 .lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split.us
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %.lr.ph.split.us.split.us.split.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %26 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv128
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv128
   %27 = load i16, ptr %26, align 2
   %28 = uitofp i16 %27 to double
   %29 = fdiv double %28, %19
-  %gep153 = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %indvars.iv128
+  %gep153 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep152, i64 %indvars.iv128
   store double %29, ptr %gep153, align 8
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
@@ -3993,12 +3993,12 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.us ]
-  %30 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv123
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv123
   %31 = load i16, ptr %30, align 2
   %32 = uitofp i16 %31 to double
   %33 = fdiv double %32, %19
   %34 = fsub double %19, %33
-  %gep151 = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %indvars.iv123
+  %gep151 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep152, i64 %indvars.iv123
   store double %34, ptr %gep151, align 8
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count131
@@ -4013,11 +4013,11 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %36 = xor i32 %35, -1
   %37 = add nsw i32 %8, %36
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw i16, ptr %1, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = uitofp i16 %40 to double
   %42 = fdiv double %41, %19
-  %gep149 = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %indvars.iv118
+  %gep149 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep152, i64 %indvars.iv118
   store double %42, ptr %gep149, align 8
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count131
@@ -4029,12 +4029,12 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %44 = xor i32 %43, -1
   %45 = add nsw i32 %8, %44
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i16, ptr %1, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = uitofp i16 %48 to double
   %50 = fdiv double %49, %19
   %51 = fsub double %19, %50
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %indvars.iv113
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep152, i64 %indvars.iv113
   store double %51, ptr %gep, align 8
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count131
@@ -4049,7 +4049,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split.us
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.lr.ph.split.split.us.split.us ], [ 0, %.lr.ph.split.split.us ]
-  %52 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv108
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv108
   %53 = load i16, ptr %52, align 2
   %54 = uitofp i16 %53 to double
   %55 = fdiv double %54, %19
@@ -4057,7 +4057,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %57 = add i32 %spec.select, %56
   %58 = mul i32 %57, %22
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw double, ptr %2, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %59
   store double %55, ptr %60, align 8
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
@@ -4065,7 +4065,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
-  %61 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv103
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv103
   %62 = load i16, ptr %61, align 2
   %63 = uitofp i16 %62 to double
   %64 = fdiv double %63, %19
@@ -4074,7 +4074,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %67 = add i32 %spec.select, %66
   %68 = mul i32 %67, %22
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw double, ptr %2, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %69
   store double %65, ptr %70, align 8
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count111
@@ -4089,7 +4089,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %72 = xor i32 %71, -1
   %73 = add nsw i32 %8, %72
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw i16, ptr %1, i64 %74
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %74
   %76 = load i16, ptr %75, align 2
   %77 = uitofp i16 %76 to double
   %78 = fdiv double %77, %19
@@ -4097,7 +4097,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %80 = add i32 %spec.select, %79
   %81 = mul i32 %80, %22
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw double, ptr %2, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %82
   store double %78, ptr %83, align 8
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count111
@@ -4109,7 +4109,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %85 = xor i32 %84, -1
   %86 = add nsw i32 %8, %85
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw i16, ptr %1, i64 %87
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %87
   %89 = load i16, ptr %88, align 2
   %90 = uitofp i16 %89 to double
   %91 = fdiv double %90, %19
@@ -4118,7 +4118,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %94 = add i32 %spec.select, %93
   %95 = mul i32 %94, %22
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw double, ptr %2, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %96
   store double %92, ptr %97, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count111
@@ -4173,7 +4173,7 @@ define internal ptr @PackFloatFrom16(ptr noundef readonly captures(none) %0, ptr
 
 switch.lookup:                                    ; preds = %4
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.PackFloatFrom16, i64 %18
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PackFloatFrom16, i64 %18
   %switch.load = load double, ptr %switch.gep, align 8
   br label %IsInkSpace.exit
 
@@ -4199,7 +4199,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %25 = zext nneg i32 %spec.select to i64
   %wide.trip.count131 = zext nneg i32 %8 to i64
-  %invariant.gep152 = getelementptr inbounds nuw float, ptr %2, i64 %25
+  %invariant.gep152 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %25
   br i1 %.not57, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
@@ -4207,12 +4207,12 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 .lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split.us
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %.lr.ph.split.us.split.us.split.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %26 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv128
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv128
   %27 = load i16, ptr %26, align 2
   %28 = uitofp i16 %27 to double
   %29 = fdiv double %28, %19
   %30 = fptrunc double %29 to float
-  %gep153 = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %indvars.iv128
+  %gep153 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep152, i64 %indvars.iv128
   store float %30, ptr %gep153, align 4
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
@@ -4220,13 +4220,13 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.us ]
-  %31 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv123
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv123
   %32 = load i16, ptr %31, align 2
   %33 = uitofp i16 %32 to double
   %34 = fdiv double %33, %19
   %35 = fsub double %19, %34
   %36 = fptrunc double %35 to float
-  %gep151 = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %indvars.iv123
+  %gep151 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep152, i64 %indvars.iv123
   store float %36, ptr %gep151, align 4
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count131
@@ -4241,12 +4241,12 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %38 = xor i32 %37, -1
   %39 = add nsw i32 %8, %38
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i16, ptr %1, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %40
   %42 = load i16, ptr %41, align 2
   %43 = uitofp i16 %42 to double
   %44 = fdiv double %43, %19
   %45 = fptrunc double %44 to float
-  %gep149 = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %indvars.iv118
+  %gep149 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep152, i64 %indvars.iv118
   store float %45, ptr %gep149, align 4
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count131
@@ -4258,13 +4258,13 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %47 = xor i32 %46, -1
   %48 = add nsw i32 %8, %47
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw i16, ptr %1, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %49
   %51 = load i16, ptr %50, align 2
   %52 = uitofp i16 %51 to double
   %53 = fdiv double %52, %19
   %54 = fsub double %19, %53
   %55 = fptrunc double %54 to float
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %indvars.iv113
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep152, i64 %indvars.iv113
   store float %55, ptr %gep, align 4
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count131
@@ -4279,7 +4279,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split.us
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.lr.ph.split.split.us.split.us ], [ 0, %.lr.ph.split.split.us ]
-  %56 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv108
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv108
   %57 = load i16, ptr %56, align 2
   %58 = uitofp i16 %57 to double
   %59 = fdiv double %58, %19
@@ -4288,7 +4288,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %62 = add i32 %spec.select, %61
   %63 = mul i32 %62, %22
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw float, ptr %2, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %64
   store float %60, ptr %65, align 4
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
@@ -4296,7 +4296,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
-  %66 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv103
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv103
   %67 = load i16, ptr %66, align 2
   %68 = uitofp i16 %67 to double
   %69 = fdiv double %68, %19
@@ -4306,7 +4306,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %73 = add i32 %spec.select, %72
   %74 = mul i32 %73, %22
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw float, ptr %2, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %75
   store float %71, ptr %76, align 4
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count111
@@ -4321,7 +4321,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %78 = xor i32 %77, -1
   %79 = add nsw i32 %8, %78
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw i16, ptr %1, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %80
   %82 = load i16, ptr %81, align 2
   %83 = uitofp i16 %82 to double
   %84 = fdiv double %83, %19
@@ -4330,7 +4330,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %87 = add i32 %spec.select, %86
   %88 = mul i32 %87, %22
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw float, ptr %2, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %89
   store float %85, ptr %90, align 4
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count111
@@ -4342,7 +4342,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %92 = xor i32 %91, -1
   %93 = add nsw i32 %8, %92
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw i16, ptr %1, i64 %94
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %94
   %96 = load i16, ptr %95, align 2
   %97 = uitofp i16 %96 to double
   %98 = fdiv double %97, %19
@@ -4352,7 +4352,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %102 = add i32 %spec.select, %101
   %103 = mul i32 %102, %22
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw float, ptr %2, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %104
   store float %100, ptr %105, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count111
@@ -5249,7 +5249,7 @@ define internal ptr @PackChunkyBytes(ptr noundef readonly captures(none) %0, ptr
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
   %.167.us.us = phi ptr [ %50, %.lr.ph.split.us.split.us ], [ %.0, %.lr.ph.split.us ]
-  %43 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv102
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv102
   %44 = load i16, ptr %43, align 2
   %.157.us.us = xor i16 %44, %41
   %45 = zext i16 %.157.us.us to i32
@@ -5266,7 +5266,7 @@ define internal ptr @PackChunkyBytes(ptr noundef readonly captures(none) %0, ptr
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
   %.167.us = phi ptr [ %61, %.lr.ph.split.us.split ], [ %.0, %.lr.ph.split.us ]
-  %51 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv97
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv97
   %52 = load i16, ptr %51, align 2
   %.157.us = xor i16 %52, %41
   %53 = zext i16 %.157.us to i32
@@ -5293,7 +5293,7 @@ define internal ptr @PackChunkyBytes(ptr noundef readonly captures(none) %0, ptr
   %63 = xor i32 %62, -1
   %64 = add nsw i32 %8, %63
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %1, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %65
   %67 = load i16, ptr %66, align 2
   %.157.us72 = xor i16 %67, %41
   %68 = zext i16 %.157.us72 to i32
@@ -5314,7 +5314,7 @@ define internal ptr @PackChunkyBytes(ptr noundef readonly captures(none) %0, ptr
   %75 = xor i32 %74, -1
   %76 = add nsw i32 %8, %75
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw i16, ptr %1, i64 %77
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %77
   %79 = load i16, ptr %78, align 2
   %.157 = xor i16 %79, %41
   %80 = zext i16 %.157 to i32
@@ -5447,7 +5447,7 @@ define internal nonnull ptr @PackPlanarBytes(ptr noundef readonly captures(none)
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
   %.14758.us.us = phi ptr [ %54, %.lr.ph.split.us.split.us ], [ %.046, %.lr.ph.split.us ]
-  %47 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv80
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv80
   %48 = load i16, ptr %47, align 2
   %.0.us.us = xor i16 %48, %44
   %49 = zext i16 %.0.us.us to i32
@@ -5464,7 +5464,7 @@ define internal nonnull ptr @PackPlanarBytes(ptr noundef readonly captures(none)
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
   %.14758.us = phi ptr [ %65, %.lr.ph.split.us.split ], [ %.046, %.lr.ph.split.us ]
-  %55 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv75
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv75
   %56 = load i16, ptr %55, align 2
   %.0.us = xor i16 %56, %44
   %57 = zext i16 %.0.us to i32
@@ -5491,7 +5491,7 @@ define internal nonnull ptr @PackPlanarBytes(ptr noundef readonly captures(none)
   %67 = xor i32 %66, -1
   %68 = add nsw i32 %8, %67
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %1, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %69
   %71 = load i16, ptr %70, align 2
   %.0.us61 = xor i16 %71, %44
   %72 = zext i16 %.0.us61 to i32
@@ -5512,7 +5512,7 @@ define internal nonnull ptr @PackPlanarBytes(ptr noundef readonly captures(none)
   %79 = xor i32 %78, -1
   %80 = add nsw i32 %8, %79
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw i16, ptr %1, i64 %81
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %81
   %83 = load i16, ptr %82, align 2
   %.0 = xor i16 %83, %44
   %84 = zext i16 %.0 to i32
@@ -5881,7 +5881,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
 
 29:                                               ; preds = %28
   %30 = zext nneg i32 %8 to i64
-  %31 = getelementptr inbounds nuw i16, ptr %2, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %32 to i32
   %.lobit68 = lshr i16 %32, 15
@@ -5916,7 +5916,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
 .lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split.us
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.lr.ph.split.us.split.us.split.us ], [ 0, %.lr.ph.split.us.split.us ]
   %.170.us.us.us = phi ptr [ %43, %.lr.ph.split.us.split.us.split.us ], [ %.0, %.lr.ph.split.us.split.us ]
-  %41 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv163
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv163
   %42 = load i16, ptr %41, align 2
   %.260.us.us.us = xor i16 %42, %39
   store i16 %.260.us.us.us, ptr %.170.us.us.us, align 2
@@ -5928,7 +5928,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.us ]
   %.170.us.us = phi ptr [ %51, %.lr.ph.split.us.split.us.split ], [ %.0, %.lr.ph.split.us.split.us ]
-  %44 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv158
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv158
   %45 = load i16, ptr %44, align 2
   %.260.us.us = xor i16 %45, %39
   %46 = zext i16 %.260.us.us to i32
@@ -5948,7 +5948,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
 .lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split.us
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %.lr.ph.split.us.split.split.us ], [ 0, %.lr.ph.split.us.split ]
   %.170.us.us99 = phi ptr [ %54, %.lr.ph.split.us.split.split.us ], [ %.0, %.lr.ph.split.us.split ]
-  %52 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv153
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv153
   %53 = load i16, ptr %52, align 2
   %rev.us.us101 = tail call i16 @llvm.bswap.i16(i16 %53)
   %.260.us.us102 = xor i16 %rev.us.us101, %39
@@ -5961,7 +5961,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
   %.170.us = phi ptr [ %62, %.lr.ph.split.us.split.split ], [ %.0, %.lr.ph.split.us.split ]
-  %55 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv148
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv148
   %56 = load i16, ptr %55, align 2
   %rev.us = tail call i16 @llvm.bswap.i16(i16 %56)
   %.260.us = xor i16 %rev.us, %39
@@ -5989,7 +5989,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
   %64 = xor i32 %63, -1
   %65 = add nsw i32 %8, %64
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw i16, ptr %1, i64 %66
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %66
   %68 = load i16, ptr %67, align 2
   %.260.us77.us = xor i16 %68, %39
   store i16 %.260.us77.us, ptr %.170.us73.us, align 2
@@ -6005,7 +6005,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
   %71 = xor i32 %70, -1
   %72 = add nsw i32 %8, %71
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw i16, ptr %1, i64 %73
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %73
   %75 = load i16, ptr %74, align 2
   %.260.us77 = xor i16 %75, %39
   %76 = zext i16 %.260.us77 to i32
@@ -6029,7 +6029,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
   %83 = xor i32 %82, -1
   %84 = add nsw i32 %8, %83
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw i16, ptr %1, i64 %85
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %85
   %87 = load i16, ptr %86, align 2
   %rev.us85 = tail call i16 @llvm.bswap.i16(i16 %87)
   %.260.us86 = xor i16 %rev.us85, %39
@@ -6046,7 +6046,7 @@ define internal ptr @PackChunkyWords(ptr noundef readonly captures(none) %0, ptr
   %90 = xor i32 %89, -1
   %91 = add nsw i32 %8, %90
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw i16, ptr %1, i64 %92
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %92
   %94 = load i16, ptr %93, align 2
   %rev = tail call i16 @llvm.bswap.i16(i16 %94)
   %.260 = xor i16 %rev, %39
@@ -6130,7 +6130,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
 29:                                               ; preds = %28
   %30 = mul i32 %8, %3
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %2, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
   %.lobit57 = lshr i16 %33, 15
@@ -6167,7 +6167,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
 .lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split.us
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %.lr.ph.split.us.split.us.split.us ], [ 0, %.lr.ph.split.us.split.us ]
   %.159.us.us.us = phi ptr [ %46, %.lr.ph.split.us.split.us.split.us ], [ %.0, %.lr.ph.split.us.split.us ]
-  %44 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv121
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv121
   %45 = load i16, ptr %44, align 2
   %.149.us.us.us = xor i16 %45, %41
   store i16 %.149.us.us.us, ptr %.159.us.us.us, align 2
@@ -6179,7 +6179,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.us ]
   %.159.us.us = phi ptr [ %54, %.lr.ph.split.us.split.us.split ], [ %.0, %.lr.ph.split.us.split.us ]
-  %47 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv116
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv116
   %48 = load i16, ptr %47, align 2
   %.149.us.us = xor i16 %48, %41
   %49 = zext i16 %.149.us.us to i32
@@ -6199,7 +6199,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
 .lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split.us
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.lr.ph.split.us.split.split.us ], [ 0, %.lr.ph.split.us.split ]
   %.159.us.us74 = phi ptr [ %57, %.lr.ph.split.us.split.split.us ], [ %.0, %.lr.ph.split.us.split ]
-  %55 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv111
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv111
   %56 = load i16, ptr %55, align 2
   %rev.us.us76 = tail call i16 @llvm.bswap.i16(i16 %56)
   %.149.us.us77 = xor i16 %rev.us.us76, %41
@@ -6212,7 +6212,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
   %.159.us = phi ptr [ %65, %.lr.ph.split.us.split.split ], [ %.0, %.lr.ph.split.us.split ]
-  %58 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv106
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv106
   %59 = load i16, ptr %58, align 2
   %rev.us = tail call i16 @llvm.bswap.i16(i16 %59)
   %.149.us = xor i16 %rev.us, %41
@@ -6240,7 +6240,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
   %67 = xor i32 %66, -1
   %68 = add nsw i32 %8, %67
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %1, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %69
   %71 = load i16, ptr %70, align 2
   %.149.us64.us = xor i16 %71, %41
   store i16 %.149.us64.us, ptr %.159.us60.us, align 2
@@ -6256,7 +6256,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
   %74 = xor i32 %73, -1
   %75 = add nsw i32 %8, %74
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw i16, ptr %1, i64 %76
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %76
   %78 = load i16, ptr %77, align 2
   %.149.us64 = xor i16 %78, %41
   %79 = zext i16 %.149.us64 to i32
@@ -6280,7 +6280,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
   %86 = xor i32 %85, -1
   %87 = add nsw i32 %8, %86
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw i16, ptr %1, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %88
   %90 = load i16, ptr %89, align 2
   %rev.us68 = tail call i16 @llvm.bswap.i16(i16 %90)
   %.149.us69 = xor i16 %rev.us68, %41
@@ -6297,7 +6297,7 @@ define internal nonnull ptr @PackPlanarWords(ptr noundef readonly captures(none)
   %93 = xor i32 %92, -1
   %94 = add nsw i32 %8, %93
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw i16, ptr %1, i64 %95
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %95
   %97 = load i16, ptr %96, align 2
   %rev = tail call i16 @llvm.bswap.i16(i16 %97)
   %.149 = xor i16 %rev, %41
@@ -6343,7 +6343,7 @@ define internal nonnull ptr @PackLabFloatFromFloat(ptr noundef readonly captures
   %17 = tail call double @llvm.fmuladd.f64(double %16, double 2.550000e+02, double -1.280000e+02)
   %18 = fptrunc double %17 to float
   %19 = zext i32 %11 to i64
-  %20 = getelementptr inbounds nuw float, ptr %2, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %19
   store float %18, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load float, ptr %21, align 4
@@ -6352,7 +6352,7 @@ define internal nonnull ptr @PackLabFloatFromFloat(ptr noundef readonly captures
   %25 = fptrunc double %24 to float
   %26 = shl i32 %11, 1
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw float, ptr %2, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %27
   store float %25, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %51
@@ -6408,14 +6408,14 @@ define internal nonnull ptr @PackXYZFloatFromFloat(ptr noundef readonly captures
   %15 = load float, ptr %14, align 4
   %16 = fmul float %15, 0x3FFFFFE000000000
   %17 = zext i32 %11 to i64
-  %18 = getelementptr inbounds nuw float, ptr %2, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %17
   store float %16, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load float, ptr %19, align 4
   %21 = fmul float %20, 0x3FFFFFE000000000
   %22 = shl i32 %11, 1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw float, ptr %2, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %23
   store float %21, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %43
@@ -6469,7 +6469,7 @@ define internal nonnull ptr @PackLabDoubleFromFloat(ptr noundef readonly capture
   %17 = fpext float %16 to double
   %18 = tail call double @llvm.fmuladd.f64(double %17, double 2.550000e+02, double -1.280000e+02)
   %19 = zext i32 %11 to i64
-  %20 = getelementptr inbounds nuw double, ptr %2, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %19
   store double %18, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load float, ptr %21, align 4
@@ -6477,7 +6477,7 @@ define internal nonnull ptr @PackLabDoubleFromFloat(ptr noundef readonly capture
   %24 = tail call double @llvm.fmuladd.f64(double %23, double 2.550000e+02, double -1.280000e+02)
   %25 = shl i32 %11, 1
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw double, ptr %2, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %26
   store double %24, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %49
@@ -6534,7 +6534,7 @@ define internal nonnull ptr @PackXYZDoubleFromFloat(ptr noundef readonly capture
   %17 = fpext float %16 to double
   %18 = fmul double %17, 0x3FFFFFE000000000
   %19 = zext i32 %11 to i64
-  %20 = getelementptr inbounds nuw double, ptr %2, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %19
   store double %18, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load float, ptr %21, align 4
@@ -6542,7 +6542,7 @@ define internal nonnull ptr @PackXYZDoubleFromFloat(ptr noundef readonly capture
   %24 = fmul double %23, 0x3FFFFFE000000000
   %25 = shl i32 %11, 1
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw double, ptr %2, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %26
   store double %24, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %49
@@ -6698,13 +6698,13 @@ define internal nonnull ptr @PackEncodedWordsLabV2FromFloat(ptr noundef readonly
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %29 = load i16, ptr %28, align 2
   %30 = zext i32 %26 to i64
-  %31 = getelementptr inbounds nuw i16, ptr %2, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %30
   store i16 %29, ptr %31, align 2
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %33 = load i16, ptr %32, align 2
   %34 = shl i32 %26, 1
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw i16, ptr %2, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %35
   store i16 %33, ptr %36, align 2
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 2
   br label %52
@@ -6754,7 +6754,7 @@ define internal ptr @PackFloatsFromFloat(ptr noundef readonly captures(none) %0,
 
 switch.lookup:                                    ; preds = %4
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.PackDoublesFromFloat, i64 %18
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PackDoublesFromFloat, i64 %18
   %switch.load = load double, ptr %switch.gep, align 8
   br label %IsInkSpace.exit
 
@@ -6780,7 +6780,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %25 = zext nneg i32 %spec.select to i64
   %wide.trip.count131 = zext nneg i32 %8 to i64
-  %invariant.gep152 = getelementptr inbounds nuw float, ptr %2, i64 %25
+  %invariant.gep152 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %25
   br i1 %.not57, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
@@ -6788,12 +6788,12 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 .lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split.us
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %.lr.ph.split.us.split.us.split.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %26 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv128
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv128
   %27 = load float, ptr %26, align 4
   %28 = fpext float %27 to double
   %29 = fmul double %19, %28
   %30 = fptrunc double %29 to float
-  %gep153 = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %indvars.iv128
+  %gep153 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep152, i64 %indvars.iv128
   store float %30, ptr %gep153, align 4
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
@@ -6801,13 +6801,13 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.us ]
-  %31 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv123
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv123
   %32 = load float, ptr %31, align 4
   %33 = fpext float %32 to double
   %34 = fmul double %19, %33
   %35 = fsub double %19, %34
   %36 = fptrunc double %35 to float
-  %gep151 = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %indvars.iv123
+  %gep151 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep152, i64 %indvars.iv123
   store float %36, ptr %gep151, align 4
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count131
@@ -6822,12 +6822,12 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %38 = xor i32 %37, -1
   %39 = add nsw i32 %8, %38
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw float, ptr %1, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %40
   %42 = load float, ptr %41, align 4
   %43 = fpext float %42 to double
   %44 = fmul double %19, %43
   %45 = fptrunc double %44 to float
-  %gep149 = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %indvars.iv118
+  %gep149 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep152, i64 %indvars.iv118
   store float %45, ptr %gep149, align 4
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count131
@@ -6839,13 +6839,13 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %47 = xor i32 %46, -1
   %48 = add nsw i32 %8, %47
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw float, ptr %1, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %49
   %51 = load float, ptr %50, align 4
   %52 = fpext float %51 to double
   %53 = fmul double %19, %52
   %54 = fsub double %19, %53
   %55 = fptrunc double %54 to float
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep152, i64 %indvars.iv113
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep152, i64 %indvars.iv113
   store float %55, ptr %gep, align 4
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count131
@@ -6860,7 +6860,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split.us
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.lr.ph.split.split.us.split.us ], [ 0, %.lr.ph.split.split.us ]
-  %56 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv108
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv108
   %57 = load float, ptr %56, align 4
   %58 = fpext float %57 to double
   %59 = fmul double %19, %58
@@ -6869,7 +6869,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %62 = add i32 %spec.select, %61
   %63 = mul i32 %62, %22
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw float, ptr %2, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %64
   store float %60, ptr %65, align 4
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
@@ -6877,7 +6877,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
-  %66 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv103
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv103
   %67 = load float, ptr %66, align 4
   %68 = fpext float %67 to double
   %69 = fmul double %19, %68
@@ -6887,7 +6887,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %73 = add i32 %spec.select, %72
   %74 = mul i32 %73, %22
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw float, ptr %2, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %75
   store float %71, ptr %76, align 4
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count111
@@ -6902,7 +6902,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %78 = xor i32 %77, -1
   %79 = add nsw i32 %8, %78
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw float, ptr %1, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %80
   %82 = load float, ptr %81, align 4
   %83 = fpext float %82 to double
   %84 = fmul double %19, %83
@@ -6911,7 +6911,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %87 = add i32 %spec.select, %86
   %88 = mul i32 %87, %22
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw float, ptr %2, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %89
   store float %85, ptr %90, align 4
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count111
@@ -6923,7 +6923,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %92 = xor i32 %91, -1
   %93 = add nsw i32 %8, %92
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw float, ptr %1, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %94
   %96 = load float, ptr %95, align 4
   %97 = fpext float %96 to double
   %98 = fmul double %19, %97
@@ -6933,7 +6933,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %102 = add i32 %spec.select, %101
   %103 = mul i32 %102, %22
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw float, ptr %2, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %104
   store float %100, ptr %105, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count111
@@ -6989,7 +6989,7 @@ define internal ptr @PackDoublesFromFloat(ptr noundef readonly captures(none) %0
 
 switch.lookup:                                    ; preds = %4
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.PackDoublesFromFloat, i64 %18
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PackDoublesFromFloat, i64 %18
   %switch.load = load double, ptr %switch.gep, align 8
   br label %IsInkSpace.exit
 
@@ -7015,7 +7015,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %25 = zext nneg i32 %spec.select to i64
   %wide.trip.count131 = zext nneg i32 %8 to i64
-  %invariant.gep152 = getelementptr inbounds nuw double, ptr %2, i64 %25
+  %invariant.gep152 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %25
   br i1 %.not57, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
@@ -7023,11 +7023,11 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 .lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split.us
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %.lr.ph.split.us.split.us.split.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %26 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv128
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv128
   %27 = load float, ptr %26, align 4
   %28 = fpext float %27 to double
   %29 = fmul double %19, %28
-  %gep153 = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %indvars.iv128
+  %gep153 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep152, i64 %indvars.iv128
   store double %29, ptr %gep153, align 8
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
@@ -7035,12 +7035,12 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.us ]
-  %30 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv123
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv123
   %31 = load float, ptr %30, align 4
   %32 = fpext float %31 to double
   %33 = fmul double %19, %32
   %34 = fsub double %19, %33
-  %gep151 = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %indvars.iv123
+  %gep151 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep152, i64 %indvars.iv123
   store double %34, ptr %gep151, align 8
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count131
@@ -7055,11 +7055,11 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %36 = xor i32 %35, -1
   %37 = add nsw i32 %8, %36
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw float, ptr %1, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %38
   %40 = load float, ptr %39, align 4
   %41 = fpext float %40 to double
   %42 = fmul double %19, %41
-  %gep149 = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %indvars.iv118
+  %gep149 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep152, i64 %indvars.iv118
   store double %42, ptr %gep149, align 8
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count131
@@ -7071,12 +7071,12 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %44 = xor i32 %43, -1
   %45 = add nsw i32 %8, %44
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw float, ptr %1, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %46
   %48 = load float, ptr %47, align 4
   %49 = fpext float %48 to double
   %50 = fmul double %19, %49
   %51 = fsub double %19, %50
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep152, i64 %indvars.iv113
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep152, i64 %indvars.iv113
   store double %51, ptr %gep, align 8
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count131
@@ -7091,7 +7091,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split.us
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.lr.ph.split.split.us.split.us ], [ 0, %.lr.ph.split.split.us ]
-  %52 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv108
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv108
   %53 = load float, ptr %52, align 4
   %54 = fpext float %53 to double
   %55 = fmul double %19, %54
@@ -7099,7 +7099,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %57 = add i32 %spec.select, %56
   %58 = mul i32 %57, %22
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw double, ptr %2, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %59
   store double %55, ptr %60, align 8
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
@@ -7107,7 +7107,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
-  %61 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv103
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv103
   %62 = load float, ptr %61, align 4
   %63 = fpext float %62 to double
   %64 = fmul double %19, %63
@@ -7116,7 +7116,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %67 = add i32 %spec.select, %66
   %68 = mul i32 %67, %22
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw double, ptr %2, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %69
   store double %65, ptr %70, align 8
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count111
@@ -7131,7 +7131,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %72 = xor i32 %71, -1
   %73 = add nsw i32 %8, %72
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw float, ptr %1, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %74
   %76 = load float, ptr %75, align 4
   %77 = fpext float %76 to double
   %78 = fmul double %19, %77
@@ -7139,7 +7139,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %80 = add i32 %spec.select, %79
   %81 = mul i32 %80, %22
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw double, ptr %2, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %82
   store double %78, ptr %83, align 8
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count111
@@ -7151,7 +7151,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %85 = xor i32 %84, -1
   %86 = add nsw i32 %8, %85
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw float, ptr %1, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %87
   %89 = load float, ptr %88, align 4
   %90 = fpext float %89 to double
   %91 = fmul double %19, %90
@@ -7160,7 +7160,7 @@ IsInkSpace.exit:                                  ; preds = %4, %switch.lookup
   %94 = add i32 %spec.select, %93
   %95 = mul i32 %94, %22
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw double, ptr %2, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %96
   store double %92, ptr %97, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count111
@@ -7223,7 +7223,7 @@ define internal ptr @PackWordsFromFloat(ptr noundef readonly captures(none) %0, 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %17 = zext nneg i32 %spec.select to i64
   %wide.trip.count87 = zext nneg i32 %8 to i64
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %2, i64 %17
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %17
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %_cmsQuickSaturateWord.exit.us
@@ -7233,7 +7233,7 @@ define internal ptr @PackWordsFromFloat(ptr noundef readonly captures(none) %0, 
   %20 = add nsw i32 %8, %19
   %21 = select i1 %.not52, i32 %18, i32 %20
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw float, ptr %1, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %22
   %24 = load float, ptr %23, align 4
   %25 = fpext float %24 to double
   %26 = fmul double %25, 6.553500e+04
@@ -7257,7 +7257,7 @@ define internal ptr @PackWordsFromFloat(ptr noundef readonly captures(none) %0, 
 
 _cmsQuickSaturateWord.exit.us:                    ; preds = %32, %30, %.lr.ph.split.us
   %.0.i.us = phi i16 [ %37, %32 ], [ 0, %.lr.ph.split.us ], [ -1, %30 ]
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv84
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv84
   store i16 %.0.i.us, ptr %gep, align 2
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
@@ -7269,7 +7269,7 @@ _cmsQuickSaturateWord.exit.us:                    ; preds = %32, %30, %.lr.ph.sp
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_cmsQuickSaturateWord.exit.us57
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %_cmsQuickSaturateWord.exit.us57 ], [ 0, %.lr.ph.split ]
-  %38 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv79
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv79
   %39 = load float, ptr %38, align 4
   %40 = fpext float %39 to double
   %41 = fmul double %40, 6.553500e+04
@@ -7297,7 +7297,7 @@ _cmsQuickSaturateWord.exit.us57:                  ; preds = %.lr.ph.split.split.
   %54 = add i32 %spec.select, %53
   %55 = mul i32 %54, %3
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw i16, ptr %2, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %56
   store i16 %.0.i.us58, ptr %57, align 2
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
@@ -7312,7 +7312,7 @@ _cmsQuickSaturateWord.exit.us57:                  ; preds = %.lr.ph.split.split.
   %59 = xor i32 %58, -1
   %60 = add nsw i32 %8, %59
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw float, ptr %1, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %61
   %63 = load float, ptr %62, align 4
   %64 = fpext float %63 to double
   %65 = fmul double %64, 6.553500e+04
@@ -7338,7 +7338,7 @@ _cmsQuickSaturateWord.exit.us63:                  ; preds = %.lr.ph.split.split.
   %77 = add i32 %spec.select, %76
   %78 = mul i32 %77, %3
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw i16, ptr %2, i64 %79
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %79
   store i16 %.0.i.us64, ptr %80, align 2
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count82
@@ -7350,7 +7350,7 @@ _cmsQuickSaturateWord.exit.us63:                  ; preds = %.lr.ph.split.split.
   %82 = xor i32 %81, -1
   %83 = add nsw i32 %8, %82
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw float, ptr %1, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %84
   %86 = load float, ptr %85, align 4
   %87 = fpext float %86 to double
   %88 = fmul double %87, 6.553500e+04
@@ -7377,7 +7377,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split.split.
   %101 = add i32 %spec.select, %100
   %102 = mul i32 %101, %3
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw i16, ptr %2, i64 %103
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %103
   store i16 %.0.i, ptr %104, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count82
@@ -7450,7 +7450,7 @@ define internal ptr @PackBytesFromFloat(ptr noundef readonly captures(none) %0, 
   %20 = add nsw i32 %8, %19
   %21 = select i1 %.not52, i32 %18, i32 %20
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw float, ptr %1, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %22
   %24 = load float, ptr %23, align 4
   %25 = fpext float %24 to double
   %26 = fmul double %25, 6.553500e+04
@@ -7490,7 +7490,7 @@ _cmsQuickSaturateWord.exit.us:                    ; preds = %32, %30, %.lr.ph.sp
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_cmsQuickSaturateWord.exit.us57
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %_cmsQuickSaturateWord.exit.us57 ], [ 0, %.lr.ph.split ]
-  %42 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv79
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv79
   %43 = load float, ptr %42, align 4
   %44 = fpext float %43 to double
   %45 = fmul double %44, 6.553500e+04
@@ -7537,7 +7537,7 @@ _cmsQuickSaturateWord.exit.us57:                  ; preds = %.lr.ph.split.split.
   %67 = xor i32 %66, -1
   %68 = add nsw i32 %8, %67
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw float, ptr %1, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %69
   %71 = load float, ptr %70, align 4
   %72 = fpext float %71 to double
   %73 = fmul double %72, 6.553500e+04
@@ -7579,7 +7579,7 @@ _cmsQuickSaturateWord.exit.us63:                  ; preds = %.lr.ph.split.split.
   %94 = xor i32 %93, -1
   %95 = add nsw i32 %8, %94
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw float, ptr %1, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %96
   %98 = load float, ptr %97, align 4
   %99 = fpext float %98 to double
   %100 = fmul double %99, 6.553500e+04

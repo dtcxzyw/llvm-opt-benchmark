@@ -841,13 +841,13 @@ define hidden noundef ptr @_ZN13CodeInstaller15get_hotspot_regEiP8JVMCIEnv(i32 n
   %or.cond.i = icmp ult i32 %0, 32
   %spec.select.i = select i1 %or.cond.i, i32 %0, i32 -1
   %5 = sext i32 %spec.select.i to i64
-  %6 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
+  %6 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %5
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i32
   %9 = sub i32 %8, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
   %10 = shl i32 %9, 1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %11
+  %12 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %11
   br label %27
 
 13:                                               ; preds = %2
@@ -856,14 +856,14 @@ define hidden noundef ptr @_ZN13CodeInstaller15get_hotspot_regEiP8JVMCIEnv(i32 n
 
 15:                                               ; preds = %13
   %16 = zext nneg i32 %0 to i64
-  %17 = getelementptr %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %16
+  %17 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %16
   %18 = getelementptr i8, ptr %17, i64 -32
   %19 = ptrtoint ptr %18 to i64
   %20 = trunc i64 %19 to i32
   %21 = sub i32 %20, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1) to i32)
   %22 = shl i32 %21, 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %23
+  %24 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %23
   %25 = getelementptr i8, ptr %24, i64 80
   br label %27
 

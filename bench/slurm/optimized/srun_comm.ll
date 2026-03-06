@@ -790,7 +790,7 @@ define dso_local range(i32 0, 2038) i32 @srun_user_message(ptr noundef readonly 
 _find_first_node_record.exit:                     ; preds = %50
   %53 = load ptr, ptr @node_record_table_ptr, align 8
   %54 = and i64 %51, 2147483647
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %_find_first_node_record.exit.thread, label %58

@@ -3,9 +3,6 @@ source_filename = "bench/luajit/original/lib_bit.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.CType = type { i32, i32, i16, i16, %struct.GCRef }
-%struct.GCRef = type { i64 }
-
 @.str = private unnamed_addr constant [4 x i8] c"bit\00", align 1
 @lj_lib_init_bit = internal constant [71 x i8] c"@(\0CEtobitDbnotEbswapFlshift\86rshift\87arshift\83rol\83rorDband\83bor\84bxor\05tohex\FF", align 16
 @lj_lib_cf_bit = internal constant [6 x ptr] [ptr @lj_ffh_bit_tobit, ptr @lj_ffh_bit_bnot, ptr @lj_ffh_bit_bswap, ptr @lj_ffh_bit_lshift, ptr @lj_ffh_bit_band, ptr @lj_cf_bit_tohex], align 16
@@ -195,7 +192,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
   store ptr %0, ptr %22, align 8, !tbaa !36
   %23 = load ptr, ptr %21, align 8, !tbaa !45
   %24 = zext i32 %14 to i64
-  %25 = getelementptr inbounds nuw %struct.CType, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %4, align 8, !tbaa !8
   %27 = getelementptr inbounds i8, ptr %26, i64 -16
   %28 = load i64, ptr %27, align 8, !tbaa !15

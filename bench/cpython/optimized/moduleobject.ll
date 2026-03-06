@@ -2950,7 +2950,7 @@ define hidden range(i32 -1, 2) i32 @_PyModule_IsPossiblyShadowing(ptr noundef %0
   br i1 %11, label %36, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr i32, ptr %2, i64 %10
+  %13 = getelementptr [4 x i8], ptr %2, i64 %10
   store i32 0, ptr %13, align 4, !tbaa !216
   %14 = call ptr @wcsrchr(ptr noundef nonnull %2, i32 noundef 47) #9
   %15 = icmp eq ptr %14, null

@@ -12,24 +12,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.watcher_list = type { %struct.anon.13, %struct.uv__queue, i32, ptr, i32 }
 %struct.anon.13 = type { ptr, ptr, ptr, i32 }
 %struct.uv__queue = type { ptr, ptr }
-%struct.uv__io_uring_sqe = type { i8, i8, i16, i32, %union.anon.3, %union.anon.4, i32, %union.anon.5, i64, %union.anon.6 }
-%union.anon.3 = type { i64 }
-%union.anon.4 = type { i64 }
-%union.anon.5 = type { i32 }
-%union.anon.6 = type { [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.uv__invalidate = type { ptr, ptr, i32 }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.uv__io_uring_cqe = type { i64, i32, i32 }
 %struct.cpu = type { i64, i64, i64, i64, i64, i64, i32 }
-%struct.uv_cpu_info_s = type { ptr, i32, %struct.uv_cpu_times_s }
-%struct.uv_cpu_times_s = type { i64, i64, i64, i64, i64 }
-%struct.uv_interface_address_s = type { ptr, [6 x i8], i32, %union.anon.8, %union.anon.10 }
-%union.anon.8 = type { %struct.sockaddr_in6 }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon.9 }
-%union.anon.9 = type { [4 x i32] }
-%union.anon.10 = type { %struct.sockaddr_in6 }
 %struct.sysinfo = type { i64, [3 x i64], i64, i64, i64, i64, i64, i64, i16, i16, i64, i64, i32, [0 x i8] }
 
 @uv__kernel_version.cached_version = internal unnamed_addr global i32 0, align 4
@@ -452,7 +438,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %i.080 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %20 = load ptr, ptr %sqarray, align 8
   %idxprom = zext i32 %i.080 to i64
-  %arrayidx = getelementptr inbounds nuw i32, ptr %20, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %idxprom
   store i32 %i.080, ptr %arrayidx, align 4
   %inc = add i32 %i.080, 1
   %21 = load i32, ptr %sqmask, align 8
@@ -869,7 +855,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = phi i32 [ %2, %for.body.lr.ph ], [ %6, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %4 = load ptr, ptr %events, align 8
-  %arrayidx = getelementptr inbounds nuw %struct.epoll_event, ptr %4, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %indvars.iv
   %data = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %5 = load i32, ptr %data, align 1
   %cmp3 = icmp eq i32 %5, %fd
@@ -919,11 +905,11 @@ if.else.i:                                        ; preds = %if.else
   store i32 %inc.i, ptr %13, align 4
   %and.i = and i32 %14, %12
   %idxprom.i = zext i32 %and.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %struct.epoll_event, ptr %10, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [12 x i8], ptr %10, i64 %idxprom.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 1 dereferenceable(12) %dummy, i64 12, i1 false)
   %sqe16.i = getelementptr inbounds nuw i8, ptr %0, i64 280
   %15 = load ptr, ptr %sqe16.i, align 8
-  %arrayidx18.i = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %15, i64 %idxprom.i
+  %arrayidx18.i = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx18.i, i8 0, i64 64, i1 false)
   %16 = ptrtoint ptr %arrayidx.i to i64
   %17 = getelementptr inbounds nuw i8, ptr %arrayidx18.i, i64 16
@@ -1018,11 +1004,11 @@ if.else:                                          ; preds = %entry
   store i32 %inc, ptr %3, align 4
   %and = and i32 %4, %2
   %idxprom = zext i32 %and to i64
-  %arrayidx = getelementptr inbounds nuw %struct.epoll_event, ptr %events, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [12 x i8], ptr %events, i64 %idxprom
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %arrayidx, ptr noundef nonnull align 1 dereferenceable(12) %e, i64 12, i1 false)
   %sqe16 = getelementptr inbounds nuw i8, ptr %ctl, i64 80
   %5 = load ptr, ptr %sqe16, align 8
-  %arrayidx18 = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %5, i64 %idxprom
+  %arrayidx18 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %idxprom
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx18, i8 0, i64 64, i1 false)
   %6 = ptrtoint ptr %arrayidx to i64
   %7 = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 16
@@ -1136,7 +1122,7 @@ uv__iou_get_sqe.exit:                             ; preds = %if.end.i
   %sqe6.i = getelementptr inbounds nuw i8, ptr %0, i64 416
   %9 = load ptr, ptr %sqe6.i, align 8
   %idxprom.i = zext i32 %and5.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
   %10 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
@@ -1225,7 +1211,7 @@ uv__iou_get_sqe.exit:                             ; preds = %if.end.i
   %sqe6.i = getelementptr inbounds nuw i8, ptr %0, i64 416
   %9 = load ptr, ptr %sqe6.i, align 8
   %idxprom.i = zext i32 %and5.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
   %10 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
@@ -1323,7 +1309,7 @@ uv__iou_get_sqe.exit:                             ; preds = %if.end.i
   %sqe6.i = getelementptr inbounds nuw i8, ptr %0, i64 416
   %10 = load ptr, ptr %sqe6.i, align 8
   %idxprom.i = zext i32 %and5.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [64 x i8], ptr %10, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
   %11 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
@@ -1429,7 +1415,7 @@ uv__iou_get_sqe.exit:                             ; preds = %if.end.i
   %sqe6.i = getelementptr inbounds nuw i8, ptr %0, i64 416
   %10 = load ptr, ptr %sqe6.i, align 8
   %idxprom.i = zext i32 %and5.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [64 x i8], ptr %10, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
   %11 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
@@ -1525,7 +1511,7 @@ uv__iou_get_sqe.exit:                             ; preds = %if.end.i
   %sqe6.i = getelementptr inbounds nuw i8, ptr %0, i64 416
   %9 = load ptr, ptr %sqe6.i, align 8
   %idxprom.i = zext i32 %and5.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
   %10 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
@@ -1626,7 +1612,7 @@ uv__iou_get_sqe.exit:                             ; preds = %if.end.i
   %sqe6.i = getelementptr inbounds nuw i8, ptr %0, i64 416
   %9 = load ptr, ptr %sqe6.i, align 8
   %idxprom.i = zext i32 %and5.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
   %10 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
@@ -1732,7 +1718,7 @@ uv__iou_get_sqe.exit:                             ; preds = %if.end.i
   %sqe6.i = getelementptr inbounds nuw i8, ptr %0, i64 416
   %10 = load ptr, ptr %sqe6.i, align 8
   %idxprom.i = zext i32 %and5.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [64 x i8], ptr %10, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
   %11 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
@@ -1829,7 +1815,7 @@ uv__iou_get_sqe.exit:                             ; preds = %if.end.i
   %sqe6.i = getelementptr inbounds nuw i8, ptr %0, i64 416
   %9 = load ptr, ptr %sqe6.i, align 8
   %idxprom.i = zext i32 %and5.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
   %10 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
@@ -1935,7 +1921,7 @@ uv__iou_get_sqe.exit:                             ; preds = %if.end.i
   %sqe6.i = getelementptr inbounds nuw i8, ptr %1, i64 416
   %10 = load ptr, ptr %sqe6.i, align 8
   %idxprom.i = zext i32 %and5.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %10, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [64 x i8], ptr %10, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
   %11 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
@@ -2044,7 +2030,7 @@ uv__iou_get_sqe.exit:                             ; preds = %if.end.i
   %sqe6.i = getelementptr inbounds nuw i8, ptr %0, i64 416
   %9 = load ptr, ptr %sqe6.i, align 8
   %idxprom.i = zext i32 %and5.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %idxprom.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i8 0, i64 64, i1 false)
   %10 = ptrtoint ptr %req to i64
   %user_data.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
@@ -2461,7 +2447,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %have_iou_events.0119 = phi i32 [ 0, %for.body.preheader ], [ %have_iou_events.1, %for.inc ]
   %nevents.0118 = phi i32 [ 0, %for.body.preheader ], [ %nevents.1, %for.inc ]
   %have_signals.0117 = phi i32 [ 0, %for.body.preheader ], [ %have_signals.1, %for.inc ]
-  %add.ptr70 = getelementptr inbounds nuw %struct.epoll_event, ptr %events, i64 %indvars.iv
+  %add.ptr70 = getelementptr inbounds nuw [12 x i8], ptr %events, i64 %indvars.iv
   %data71 = getelementptr inbounds nuw i8, ptr %add.ptr70, i64 4
   %32 = load i32, ptr %data71, align 4
   %cmp72 = icmp eq i32 %32, -1
@@ -2486,7 +2472,7 @@ for.body.i:                                       ; preds = %if.then77, %sw.epil
   %i.027.i = phi i32 [ %inc3.i, %sw.epilog.i ], [ %35, %if.then77 ]
   %and.i = and i32 %i.027.i, %38
   %idxprom.i = zext i32 %and.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %struct.uv__io_uring_cqe, ptr %39, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %idxprom.i
   %40 = load i64, ptr %arrayidx.i, align 8
   %41 = inttoptr i64 %40 to ptr
   %42 = load i32, ptr %active_reqs.i, align 8
@@ -2676,7 +2662,7 @@ do.body26.i:                                      ; preds = %do.body18.i
 if.end78:                                         ; preds = %if.end74
   %80 = load ptr, ptr %watchers, align 8
   %idxprom = sext i32 %32 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %80, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %80, i64 %idxprom
   %81 = load ptr, ptr %arrayidx, align 8
   %cmp79 = icmp eq ptr %81, null
   br i1 %cmp79, label %if.then80, label %if.end81
@@ -2698,10 +2684,10 @@ if.else.i:                                        ; preds = %if.then80
   store i32 %inc.i, ptr %84, align 4
   %and.i96 = and i32 %85, %83
   %idxprom.i97 = zext i32 %and.i96 to i64
-  %arrayidx.i98 = getelementptr inbounds nuw %struct.epoll_event, ptr %prep, i64 %idxprom.i97
+  %arrayidx.i98 = getelementptr inbounds nuw [12 x i8], ptr %prep, i64 %idxprom.i97
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx.i98, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr70, i64 12, i1 false)
   %86 = load ptr, ptr %sqe16.i, align 8
-  %arrayidx18.i = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %86, i64 %idxprom.i97
+  %arrayidx18.i = getelementptr inbounds nuw [64 x i8], ptr %86, i64 %idxprom.i97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx18.i, i8 0, i64 64, i1 false)
   %87 = ptrtoint ptr %arrayidx.i98 to i64
   %88 = getelementptr inbounds nuw i8, ptr %arrayidx18.i, i64 16
@@ -2944,7 +2930,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %and = and i32 %12, %10
   %13 = load ptr, ptr %cqe10, align 8
   %idxprom = zext i32 %and to i64
-  %arrayidx = getelementptr inbounds nuw %struct.uv__io_uring_cqe, ptr %13, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %idxprom
   %res = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %14 = load i32, ptr %res, align 8
   %cmp11 = icmp eq i32 %14, 0
@@ -2976,7 +2962,7 @@ if.then32:                                        ; preds = %if.end28
   unreachable
 
 if.end33:                                         ; preds = %if.end28
-  %arrayidx35 = getelementptr inbounds nuw %struct.epoll_event, ptr %oldevents, i64 %conv20
+  %arrayidx35 = getelementptr inbounds nuw [12 x i8], ptr %oldevents, i64 %conv20
   %18 = load i32, ptr %ringfd, align 8
   %cmp.i = icmp eq i32 %18, -1
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -2998,10 +2984,10 @@ if.else.i:                                        ; preds = %if.end33
   store i32 %inc.i, ptr %20, align 4
   %and.i = and i32 %21, %19
   %idxprom.i = zext i32 %and.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %struct.epoll_event, ptr %events, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [12 x i8], ptr %events, i64 %idxprom.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx35, i64 12, i1 false)
   %22 = load ptr, ptr %sqe16.i, align 8
-  %arrayidx18.i = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %22, i64 %idxprom.i
+  %arrayidx18.i = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %idxprom.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx18.i, i8 0, i64 64, i1 false)
   %23 = ptrtoint ptr %arrayidx.i to i64
   %24 = getelementptr inbounds nuw i8, ptr %arrayidx18.i, i64 16
@@ -3311,7 +3297,7 @@ if.end23:                                         ; preds = %if.end18
 
 if.end27:                                         ; preds = %if.end23
   %conv = zext nneg i32 %1 to i64
-  %arrayidx = getelementptr inbounds nuw %struct.cpu, ptr %call4, i64 %conv
+  %arrayidx = getelementptr inbounds nuw [56 x i8], ptr %call4, i64 %conv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx, ptr noundef nonnull align 8 dereferenceable(56) %t, i64 56, i1 false)
   %and = and i32 %1, 7
   %shl = shl nuw nsw i32 1, %and
@@ -3401,7 +3387,7 @@ if.then91:                                        ; preds = %if.end88
   %sub.ptr.div = lshr exact i64 %model.0.add, 6
   %conv93 = trunc nuw nsw i64 %sub.ptr.div to i32
   %idxprom94 = zext nneg i32 %6 to i64
-  %arrayidx95 = getelementptr inbounds nuw %struct.cpu, ptr %call4, i64 %idxprom94
+  %arrayidx95 = getelementptr inbounds nuw [56 x i8], ptr %call4, i64 %idxprom94
   %model96 = getelementptr inbounds nuw i8, ptr %arrayidx95, i64 48
   store i32 %conv93, ptr %model96, align 8
   br label %while.cond98.preheader
@@ -3450,7 +3436,7 @@ if.end125:                                        ; preds = %for.body115
 
 if.end133:                                        ; preds = %if.end125
   %idxprom134 = zext i32 %.pre68 to i64
-  %arrayidx135 = getelementptr inbounds nuw %struct.cpu, ptr %call4, i64 %idxprom134
+  %arrayidx135 = getelementptr inbounds nuw [56 x i8], ptr %call4, i64 %idxprom134
   %call136 = call i32 (ptr, ptr, ...) @fscanf(ptr noundef nonnull %call129, ptr noundef nonnull @.str.17, ptr noundef nonnull %arrayidx135)
   %cmp137.not = icmp eq i32 %call136, 1
   br i1 %cmp137.not, label %if.end140, label %if.then139
@@ -3492,7 +3478,7 @@ if.end153:                                        ; preds = %for.end144
   %conv145 = sext i32 %n.0.lcssa to i64
   store i32 %n.0.lcssa, ptr %count, align 4
   %11 = load ptr, ptr %ci, align 8
-  %add.ptr154 = getelementptr inbounds %struct.uv_cpu_info_s, ptr %11, i64 %conv145
+  %add.ptr154 = getelementptr inbounds [56 x i8], ptr %11, i64 %conv145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %add.ptr154, ptr noundef nonnull align 16 dereferenceable(512) %models, i64 512, i1 false)
   store i32 0, ptr %cpu, align 4
   br i1 %cmp11361.not, label %for.end200, label %for.body159
@@ -3513,11 +3499,11 @@ for.body159:                                      ; preds = %if.end153, %for.inc
 
 if.end169:                                        ; preds = %for.body159
   %idx.ext171 = zext nneg i32 %storemerge5465 to i64
-  %add.ptr172 = getelementptr inbounds nuw %struct.cpu, ptr %call4, i64 %idx.ext171
+  %add.ptr172 = getelementptr inbounds nuw [56 x i8], ptr %call4, i64 %idx.ext171
   %13 = load ptr, ptr %ci, align 8
   %inc173 = add i32 %i.066, 1
   %idxprom174 = zext i32 %i.066 to i64
-  %arrayidx175 = getelementptr inbounds nuw %struct.uv_cpu_info_s, ptr %13, i64 %idxprom174
+  %arrayidx175 = getelementptr inbounds nuw [56 x i8], ptr %13, i64 %idxprom174
   %model177 = getelementptr inbounds nuw i8, ptr %add.ptr172, i64 48
   %14 = load i32, ptr %model177, align 8
   %conv178 = zext i32 %14 to i64
@@ -3851,7 +3837,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw %struct.uv_interface_address_s, ptr %addresses, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [80 x i8], ptr %addresses, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   tail call void @uv__free(ptr noundef %0) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -568,11 +568,11 @@ define void @"_ZN103_$LT$pyo3_macros_backend..pyfunction..signature..SignatureIt
   br i1 %.not, label %40, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i64, ptr @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.0, i64 %34
+  %36 = getelementptr inbounds [8 x i8], ptr @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.0, i64 %34
   %37 = load i64, ptr %36, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %4, i64 %37, i1 false)
   %.0..0..0..0. = load i64, ptr %5, align 8
-  %38 = getelementptr inbounds i64, ptr @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.0, i64 %.0..0..0..0.
+  %38 = getelementptr inbounds [8 x i8], ptr @anon.9bf37749d8a8b3f7c508f7a4bf7b2f35.0, i64 %.0..0..0..0.
   %39 = load i64, ptr %38, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr nonnull align 8 %5, i64 %39, i1 false)
   %.sroa.010.0.insert.ext = zext i32 %.sroa.024.0.copyload to i64
@@ -949,7 +949,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds { i64, [40 x i64] }, ptr %86, i64 %88
+  %89 = getelementptr inbounds [328 x i8], ptr %86, i64 %88
   store ptr %86, ptr %78, align 8
   %90 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %89, ptr %90, align 8
@@ -2227,7 +2227,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend10pyfunction9signature17Fun
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds { i64, [40 x i64] }, ptr %26, i64 %28
+  %29 = getelementptr inbounds [328 x i8], ptr %26, i64 %28
   store ptr %26, ptr %21, align 8
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %29, ptr %30, align 8
@@ -2529,7 +2529,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %16, i64 %18
+  %19 = getelementptr inbounds [24 x i8], ptr %16, i64 %18
   store ptr %16, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %19, ptr %.sroa.2.0..sroa_idx, align 8

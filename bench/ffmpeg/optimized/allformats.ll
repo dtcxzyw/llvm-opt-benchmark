@@ -557,7 +557,7 @@ define ptr @av_muxer_iterate(ptr noundef captures(none) %0) local_unnamed_addr #
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw ptr, ptr @muxer_list, i64 %3
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @muxer_list, i64 %3
   br label %13
 
 7:                                                ; preds = %1
@@ -567,7 +567,7 @@ define ptr @av_muxer_iterate(ptr noundef captures(none) %0) local_unnamed_addr #
 
 9:                                                ; preds = %7
   %10 = inttoptr i64 %8 to ptr
-  %11 = getelementptr ptr, ptr %10, i64 %3
+  %11 = getelementptr [8 x i8], ptr %10, i64 %3
   %12 = getelementptr i8, ptr %11, i64 -1448
   br label %13
 
@@ -596,7 +596,7 @@ define ptr @av_demuxer_iterate(ptr noundef captures(none) %0) local_unnamed_addr
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw ptr, ptr @demuxer_list, i64 %3
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @demuxer_list, i64 %3
   br label %13
 
 7:                                                ; preds = %1
@@ -606,7 +606,7 @@ define ptr @av_demuxer_iterate(ptr noundef captures(none) %0) local_unnamed_addr
 
 9:                                                ; preds = %7
   %10 = inttoptr i64 %8 to ptr
-  %11 = getelementptr ptr, ptr %10, i64 %3
+  %11 = getelementptr [8 x i8], ptr %10, i64 %3
   %12 = getelementptr i8, ptr %11, i64 -2840
   br label %13
 

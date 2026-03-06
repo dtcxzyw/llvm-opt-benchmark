@@ -313,7 +313,7 @@ define internal fastcc range(i32 -1, 36) i32 @codec_id_to_pcm_format(i32 noundef
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.codec_id_to_pcm_format, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.codec_id_to_pcm_format, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -400,7 +400,7 @@ define internal fastcc range(i32 -38, 1) i32 @find_reorder_func(ptr noundef capt
 
 switch.lookup:                                    ; preds = %22
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.find_reorder_func, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.find_reorder_func, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 1, ptr %7, align 8, !tbaa !40
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 4

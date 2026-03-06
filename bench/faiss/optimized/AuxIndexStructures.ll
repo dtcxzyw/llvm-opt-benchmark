@@ -10,8 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.faiss::BufferList::Buffer" = type { ptr, ptr }
-%"struct.faiss::RangeQueryResult" = type { i64, i64, ptr }
 %"class.std::allocator" = type { i8 }
 
 $_ZN5faiss17InterruptCallbackD2Ev = comdat any
@@ -144,7 +142,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27, %
   resume { ptr, i32 } %.pn
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw i64, ptr %.pre, i64 %44
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %44
   store i64 %43, ptr %32, align 8, !tbaa !15
   %33 = icmp ugt i64 %43, 2305843009213693951
   %34 = shl i64 %43, 3
@@ -166,7 +164,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27, %
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.01419 = phi i64 [ %43, %.lr.ph ], [ 0, %.preheader ]
-  %41 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %42 = load i64, ptr %41, align 8, !tbaa !15
   store i64 %.01419, ptr %41, align 8, !tbaa !15
   %.fr34 = freeze i64 %42
@@ -393,7 +391,7 @@ _ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EED2Ev.exit: ; preds = %._crit_edg
 .lr.ph:                                           ; preds = %1, %24
   %12 = phi ptr [ %25, %24 ], [ %5, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %1 ]
-  %13 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !45
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
@@ -405,7 +403,7 @@ _ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EED2Ev.exit: ; preds = %._crit_edg
 
 17:                                               ; preds = %16, %.lr.ph
   %18 = phi ptr [ %.pre, %16 ], [ %12, %.lr.ph ]
-  %19 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = icmp eq ptr %21, null
@@ -447,12 +445,12 @@ define void @_ZN5faiss10BufferList3addElf(ptr noundef nonnull align 8 captures(n
   %12 = load ptr, ptr %11, align 8, !tbaa !49
   %13 = getelementptr inbounds i8, ptr %12, i64 -16
   %14 = load ptr, ptr %13, align 8, !tbaa !45
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %10
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   store i64 %1, ptr %15, align 8, !tbaa !15
   %16 = getelementptr inbounds i8, ptr %12, i64 -8
   %17 = load ptr, ptr %16, align 8, !tbaa !47
   %18 = load i64, ptr %4, align 8, !tbaa !41
-  %19 = getelementptr inbounds nuw float, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   store float %2, ptr %19, align 4, !tbaa !50
   %20 = add i64 %18, 1
   store i64 %20, ptr %4, align 8, !tbaa !41
@@ -532,7 +530,7 @@ _ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %36, %_ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %31, ptr %11, align 8, !tbaa !43
   store ptr %35, ptr %12, align 8, !tbaa !42
-  %37 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %31, i64 %29
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %29
   store ptr %37, ptr %14, align 8, !tbaa !44
   br label %_ZNSt6vectorIN5faiss10BufferList6BufferESaIS2_EE9push_backERKS2_.exit
 
@@ -579,18 +577,18 @@ define void @_ZN5faiss10BufferList10copy_rangeEmmPlPf(ptr noundef nonnull readon
   %14 = sub i64 %12, %.032
   %15 = select i1 %13, i64 %.02231, i64 %14
   %16 = load ptr, ptr %9, align 8, !tbaa !43
-  %17 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %16, i64 %.02429
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %.02429
   %.sroa.0.0.copyload = load ptr, ptr %17, align 8, !tbaa !52
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !53
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload, i64 %.032
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload, i64 %.032
   %19 = shl i64 %15, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.02330, ptr align 8 %18, i64 %19, i1 false)
-  %20 = getelementptr inbounds nuw float, ptr %.sroa.4.0.copyload, i64 %.032
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.4.0.copyload, i64 %.032
   %21 = shl i64 %15, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02528, ptr align 4 %20, i64 %21, i1 false)
-  %22 = getelementptr inbounds nuw i64, ptr %.02330, i64 %15
-  %23 = getelementptr inbounds nuw float, ptr %.02528, i64 %15
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.02330, i64 %15
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.02528, i64 %15
   %24 = add i64 %.02429, 1
   %25 = sub i64 %.02231, %15
   %.not = icmp eq i64 %25, 0
@@ -625,12 +623,12 @@ _ZN5faiss10BufferList3addElf.exit:                ; preds = %3, %13
   %16 = load ptr, ptr %15, align 8, !tbaa !49
   %17 = getelementptr inbounds i8, ptr %16, i64 -16
   %18 = load ptr, ptr %17, align 8, !tbaa !45
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %14
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %14
   store i64 %2, ptr %19, align 8, !tbaa !15
   %20 = getelementptr inbounds i8, ptr %16, i64 -8
   %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = load i64, ptr %9, align 8, !tbaa !41
-  %23 = getelementptr inbounds nuw float, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store float %1, ptr %23, align 4, !tbaa !50
   %24 = add i64 %22, 1
   store i64 %24, ptr %9, align 8, !tbaa !41
@@ -721,7 +719,7 @@ _ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 _ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %23, ptr %3, align 8, !tbaa !70
   store ptr %27, ptr %4, align 8, !tbaa !67
-  %29 = getelementptr inbounds nuw %"struct.faiss::RangeQueryResult", ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %21
   store ptr %29, ptr %6, align 8, !tbaa !68
   br label %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EE9push_backERKS1_.exit
 
@@ -753,11 +751,11 @@ define void @_ZN5faiss24RangeSearchPartialResult8finalizeEv(ptr noundef nonnull 
 
 15:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds nuw %"struct.faiss::RangeQueryResult", ptr %6, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !55
   %19 = load i64, ptr %16, align 8, !tbaa !71
-  %20 = getelementptr inbounds i64, ptr %14, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %14, i64 %19
   store i64 %18, ptr %20, align 8, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %10
@@ -799,7 +797,7 @@ _ZN5faiss24RangeSearchPartialResult8set_limsEv.exit: ; preds = %15, %1
   %35 = phi ptr [ %29, %.lr.ph.i2 ], [ %71, %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i ]
   %indvars.iv.i3 = phi i64 [ 0, %.lr.ph.i2 ], [ %indvars.iv.next.i4, %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i ]
   %.015.i = phi i64 [ 0, %.lr.ph.i2 ], [ %72, %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i ]
-  %36 = getelementptr inbounds nuw %"struct.faiss::RangeQueryResult", ptr %34, i64 %indvars.iv.i3
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %indvars.iv.i3
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !55
   %.not27.i.i = icmp eq i64 %38, 0
@@ -812,12 +810,12 @@ _ZN5faiss24RangeSearchPartialResult8set_limsEv.exit: ; preds = %15, %1
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !14
   %44 = load i64, ptr %36, align 8, !tbaa !71
-  %45 = getelementptr inbounds i64, ptr %43, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %43, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !15
-  %47 = getelementptr inbounds nuw float, ptr %41, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !4
-  %50 = getelementptr inbounds nuw i64, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %46
   %51 = load i64, ptr %0, align 8, !tbaa !34
   %52 = udiv i64 %.015.i, %51
   %53 = mul i64 %52, %51
@@ -836,18 +834,18 @@ _ZN5faiss24RangeSearchPartialResult8set_limsEv.exit: ; preds = %15, %1
   %58 = sub i64 %56, %.032.i.i
   %59 = select i1 %57, i64 %.02231.i.i, i64 %58
   %60 = load ptr, ptr %32, align 8, !tbaa !43
-  %61 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %60, i64 %.02429.i.i
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %.02429.i.i
   %.sroa.0.0.copyload.i.i = load ptr, ptr %61, align 8, !tbaa !52
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %61, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !53
-  %62 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %.032.i.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.032.i.i
   %63 = shl i64 %59, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.02330.i.i, ptr align 8 %62, i64 %63, i1 false)
-  %64 = getelementptr inbounds nuw float, ptr %.sroa.4.0.copyload.i.i, i64 %.032.i.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.4.0.copyload.i.i, i64 %.032.i.i
   %65 = shl i64 %59, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02528.i.i, ptr align 4 %64, i64 %65, i1 false)
-  %66 = getelementptr inbounds nuw i64, ptr %.02330.i.i, i64 %59
-  %67 = getelementptr inbounds nuw float, ptr %.02528.i.i, i64 %59
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %.02330.i.i, i64 %59
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %.02528.i.i, i64 %59
   %68 = add i64 %.02429.i.i, 1
   %69 = sub i64 %.02231.i.i, %59
   %.not.i.i = icmp eq i64 %69, 0
@@ -908,11 +906,11 @@ define void @_ZN5faiss24RangeSearchPartialResult8set_limsEv(ptr noundef nonnull 
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw %"struct.faiss::RangeQueryResult", ptr %5, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !55
   %18 = load i64, ptr %15, align 8, !tbaa !71
-  %19 = getelementptr inbounds i64, ptr %13, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %13, i64 %18
   store i64 %17, ptr %19, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
@@ -952,7 +950,7 @@ define void @_ZN5faiss24RangeSearchPartialResult11copy_resultEb(ptr noundef nonn
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
   %10 = phi ptr [ %6, %.lr.ph ], [ %57, %53 ]
   %.015 = phi i64 [ 0, %.lr.ph ], [ %55, %53 ]
-  %11 = getelementptr inbounds nuw %"struct.faiss::RangeQueryResult", ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !55
   %.not27.i = icmp eq i64 %13, 0
@@ -965,12 +963,12 @@ define void @_ZN5faiss24RangeSearchPartialResult11copy_resultEb(ptr noundef nonn
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !14
   %19 = load i64, ptr %11, align 8, !tbaa !71
-  %20 = getelementptr inbounds i64, ptr %18, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %18, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !15
-  %22 = getelementptr inbounds nuw float, ptr %16, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !4
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %21
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %21
   %26 = load i64, ptr %0, align 8, !tbaa !34
   %27 = udiv i64 %.015, %26
   %28 = mul i64 %27, %26
@@ -989,18 +987,18 @@ define void @_ZN5faiss24RangeSearchPartialResult11copy_resultEb(ptr noundef nonn
   %33 = sub i64 %31, %.032.i
   %34 = select i1 %32, i64 %.02231.i, i64 %33
   %35 = load ptr, ptr %8, align 8, !tbaa !43
-  %36 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %35, i64 %.02429.i
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %.02429.i
   %.sroa.0.0.copyload.i = load ptr, ptr %36, align 8, !tbaa !52
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !53
-  %37 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i, i64 %.032.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i, i64 %.032.i
   %38 = shl i64 %34, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.02330.i, ptr align 8 %37, i64 %38, i1 false)
-  %39 = getelementptr inbounds nuw float, ptr %.sroa.4.0.copyload.i, i64 %.032.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.4.0.copyload.i, i64 %.032.i
   %40 = shl i64 %34, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02528.i, ptr align 4 %39, i64 %40, i1 false)
-  %41 = getelementptr inbounds nuw i64, ptr %.02330.i, i64 %34
-  %42 = getelementptr inbounds nuw float, ptr %.02528.i, i64 %34
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.02330.i, i64 %34
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.02528.i, i64 %34
   %43 = add i64 %.02429.i, 1
   %44 = sub i64 %.02231.i, %34
   %.not.i = icmp eq i64 %44, 0
@@ -1019,7 +1017,7 @@ _ZN5faiss10BufferList10copy_rangeEmmPlPf.exit:    ; preds = %_ZN5faiss10BufferLi
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !14
   %49 = load i64, ptr %11, align 8, !tbaa !71
-  %50 = getelementptr inbounds i64, ptr %48, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %48, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !15
   %52 = add i64 %51, %.pre17
   store i64 %52, ptr %50, align 8, !tbaa !15
@@ -1100,7 +1098,7 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.042.053, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !55
   %33 = load i64, ptr %.sroa.042.053, align 8, !tbaa !71
-  %34 = getelementptr inbounds i64, ptr %29, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %29, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !15
   %36 = add i64 %35, %32
   store i64 %36, ptr %34, align 8, !tbaa !15
@@ -1128,7 +1126,7 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %147
   %indvars.iv = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next, %147 ]
   %40 = load ptr, ptr %0, align 8, !tbaa !77
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !69
   %.not38 = icmp eq ptr %42, null
   br i1 %.not38, label %147, label %43
@@ -1153,7 +1151,7 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
   %52 = phi ptr [ %46, %.lr.ph.i ], [ %87, %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i ]
   %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %94, %_ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i ]
-  %53 = getelementptr inbounds nuw %"struct.faiss::RangeQueryResult", ptr %51, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %indvars.iv.i
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i64, ptr %54, align 8, !tbaa !55
   %.not27.i.i = icmp eq i64 %55, 0
@@ -1165,12 +1163,12 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
   %58 = getelementptr inbounds nuw i8, ptr %.pre66, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !14
   %60 = load i64, ptr %53, align 8, !tbaa !71
-  %61 = getelementptr inbounds i64, ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   %62 = load i64, ptr %61, align 8, !tbaa !15
-  %63 = getelementptr inbounds nuw float, ptr %57, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %.pre66, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !4
-  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %62
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %62
   %67 = load i64, ptr %42, align 8, !tbaa !34
   %68 = udiv i64 %.015.i, %67
   %69 = mul i64 %68, %67
@@ -1189,18 +1187,18 @@ define void @_ZN5faiss24RangeSearchPartialResult5mergeERSt6vectorIPS0_SaIS2_EEb(
   %74 = sub i64 %72, %.032.i.i
   %75 = select i1 %73, i64 %.02231.i.i, i64 %74
   %76 = load ptr, ptr %49, align 8, !tbaa !43
-  %77 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %76, i64 %.02429.i.i
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %.02429.i.i
   %.sroa.0.0.copyload.i.i = load ptr, ptr %77, align 8, !tbaa !52
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %77, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !53
-  %78 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %.032.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.032.i.i
   %79 = shl i64 %75, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.02330.i.i, ptr align 8 %78, i64 %79, i1 false)
-  %80 = getelementptr inbounds nuw float, ptr %.sroa.4.0.copyload.i.i, i64 %.032.i.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.4.0.copyload.i.i, i64 %.032.i.i
   %81 = shl i64 %75, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02528.i.i, ptr align 4 %80, i64 %81, i1 false)
-  %82 = getelementptr inbounds nuw i64, ptr %.02330.i.i, i64 %75
-  %83 = getelementptr inbounds nuw float, ptr %.02528.i.i, i64 %75
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %.02330.i.i, i64 %75
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %.02528.i.i, i64 %75
   %84 = add i64 %.02429.i.i, 1
   %85 = sub i64 %.02231.i.i, %75
   %.not.i.i = icmp eq i64 %85, 0
@@ -1221,7 +1219,7 @@ _ZN5faiss10BufferList10copy_rangeEmmPlPf.exit.i:  ; preds = %_ZN5faiss10BufferLi
   %88 = getelementptr inbounds nuw i8, ptr %.pre6671, i64 16
   %89 = load ptr, ptr %88, align 8, !tbaa !14
   %90 = load i64, ptr %53, align 8, !tbaa !71
-  %91 = getelementptr inbounds i64, ptr %89, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %89, i64 %90
   %92 = load i64, ptr %91, align 8, !tbaa !15
   %93 = add i64 %92, %.pre17.i
   store i64 %93, ptr %91, align 8, !tbaa !15
@@ -1240,7 +1238,7 @@ _ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit: ; preds = %_ZN5faiss10B
 
 100:                                              ; preds = %_ZN5faiss24RangeSearchPartialResult11copy_resultEb.exit
   %101 = load ptr, ptr %0, align 8, !tbaa !77
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8, !tbaa !69
   %104 = icmp eq ptr %103, null
   br i1 %104, label %144, label %105
@@ -1286,7 +1284,7 @@ _ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i: ; preds = %108, %105
 .lr.ph.i.i41:                                     ; preds = %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i, %136
   %124 = phi ptr [ %137, %136 ], [ %117, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %136 ], [ 0, %_ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i ]
-  %125 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %124, i64 %indvars.iv.i.i
+  %125 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %indvars.iv.i.i
   %126 = load ptr, ptr %125, align 8, !tbaa !45
   %127 = icmp eq ptr %126, null
   br i1 %127, label %129, label %128
@@ -1298,7 +1296,7 @@ _ZNSt6vectorIN5faiss16RangeQueryResultESaIS1_EED2Ev.exit.i: ; preds = %108, %105
 
 129:                                              ; preds = %128, %.lr.ph.i.i41
   %130 = phi ptr [ %.pre.i.i, %128 ], [ %124, %.lr.ph.i.i41 ]
-  %131 = getelementptr inbounds nuw %"struct.faiss::BufferList::Buffer", ptr %130, i64 %indvars.iv.i.i
+  %131 = getelementptr inbounds nuw [16 x i8], ptr %130, i64 %indvars.iv.i.i
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8, !tbaa !47
   %134 = icmp eq ptr %133, null
@@ -1327,7 +1325,7 @@ _ZN5faiss24RangeSearchPartialResultD2Ev.exit:     ; preds = %._crit_edge.i.i, %1
 
 144:                                              ; preds = %_ZN5faiss24RangeSearchPartialResultD2Ev.exit, %100
   %145 = phi ptr [ %.pre69, %_ZN5faiss24RangeSearchPartialResultD2Ev.exit ], [ %101, %100 ]
-  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %indvars.iv
   store ptr null, ptr %146, align 8, !tbaa !69
   br label %147
 

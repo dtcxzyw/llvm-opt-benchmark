@@ -170,7 +170,7 @@ define ptr @dt_pathlist_import_create(i32 noundef %0, ptr noundef readonly captu
 
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %37
   %indvars.iv = phi i64 [ 1, %.lr.ph50.preheader ], [ %indvars.iv.next, %37 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !20
   %15 = tail call ptr @dt_util_normalize_path(ptr noundef %14) #11
   %16 = tail call i32 @g_file_test(ptr noundef %15, i32 noundef 4) #11

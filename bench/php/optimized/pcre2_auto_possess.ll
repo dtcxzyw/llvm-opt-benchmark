@@ -690,17 +690,17 @@ get_repeat_base.exit:                             ; preds = %11, %13, %15
 243:                                              ; preds = %234
   %244 = lshr i32 %.1, 7
   %245 = zext nneg i32 %244 to i64
-  %246 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage1_8, i64 %245
+  %246 = getelementptr inbounds nuw [2 x i8], ptr @_pcre2_ucd_stage1_8, i64 %245
   %247 = load i16, ptr %246, align 2, !tbaa !20
   %248 = zext i16 %247 to i32
   %249 = shl nuw nsw i32 %248, 7
   %250 = and i32 %.1, 127
   %251 = or disjoint i32 %249, %250
   %252 = zext nneg i32 %251 to i64
-  %253 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage2_8, i64 %252
+  %253 = getelementptr inbounds nuw [2 x i8], ptr @_pcre2_ucd_stage2_8, i64 %252
   %254 = load i16, ptr %253, align 2, !tbaa !20
   %255 = zext i16 %254 to i64
-  %256 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %255
+  %256 = getelementptr inbounds nuw [12 x i8], ptr @_pcre2_ucd_records_8, i64 %255
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 4
   %258 = load i32, ptr %257, align 4, !tbaa !21
   %259 = add nsw i32 %258, %.1
@@ -744,7 +744,7 @@ get_repeat_base.exit:                             ; preds = %11, %13, %15
   %278 = getelementptr inbounds nuw i8, ptr %.0194, i64 1
   %279 = load i8, ptr %278, align 1, !tbaa !18
   %280 = zext i8 %279 to i64
-  %281 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_caseless_sets_8, i64 %280
+  %281 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucd_caseless_sets_8, i64 %280
   %.ptr203 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %282 = getelementptr inbounds nuw i8, ptr %.0194, i64 2
   br label %283
@@ -1838,17 +1838,17 @@ define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 
   %499 = zext i1 %498 to i32
   %500 = sdiv i32 %425, 128
   %501 = sext i32 %500 to i64
-  %502 = getelementptr inbounds i16, ptr @_pcre2_ucd_stage1_8, i64 %501
+  %502 = getelementptr inbounds [2 x i8], ptr @_pcre2_ucd_stage1_8, i64 %501
   %503 = load i16, ptr %502, align 2, !tbaa !20
   %504 = zext i16 %503 to i32
   %505 = shl nuw nsw i32 %504, 7
   %506 = srem i32 %425, 128
   %507 = add nsw i32 %505, %506
   %508 = sext i32 %507 to i64
-  %509 = getelementptr inbounds i16, ptr @_pcre2_ucd_stage2_8, i64 %508
+  %509 = getelementptr inbounds [2 x i8], ptr @_pcre2_ucd_stage2_8, i64 %508
   %510 = load i16, ptr %509, align 2, !tbaa !20
   %511 = zext i16 %510 to i64
-  %512 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %511
+  %512 = getelementptr inbounds nuw [12 x i8], ptr @_pcre2_ucd_records_8, i64 %511
   switch i32 %496, label %.thread386 [
     i32 0, label %513
     i32 1, label %519
@@ -1880,7 +1880,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 
   %520 = getelementptr inbounds nuw i8, ptr %512, i64 1
   %521 = load i8, ptr %520, align 1, !tbaa !26
   %522 = zext i8 %521 to i64
-  %523 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gentype_8, i64 %522
+  %523 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucp_gentype_8, i64 %522
   %524 = load i32, ptr %523, align 4, !tbaa !4
   %525 = icmp ne i32 %497, %524
   %526 = xor i1 %498, %525
@@ -1915,10 +1915,10 @@ define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 
   %547 = load i16, ptr %546, align 4, !tbaa !28
   %548 = and i16 %547, 1023
   %549 = zext nneg i16 %548 to i64
-  %550 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_script_sets_8, i64 %549
+  %550 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucd_script_sets_8, i64 %549
   %551 = lshr i32 %497, 5
   %552 = zext nneg i32 %551 to i64
-  %553 = getelementptr inbounds nuw i32, ptr %550, i64 %552
+  %553 = getelementptr inbounds nuw [4 x i8], ptr %550, i64 %552
   %554 = load i32, ptr %553, align 4, !tbaa !4
   %555 = and i32 %497, 31
   %556 = lshr i32 %554, %555
@@ -1932,7 +1932,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 
   %561 = getelementptr inbounds nuw i8, ptr %512, i64 1
   %562 = load i8, ptr %561, align 1, !tbaa !26
   %563 = zext i8 %562 to i64
-  %564 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gentype_8, i64 %563
+  %564 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucp_gentype_8, i64 %563
   %565 = load i32, ptr %564, align 4, !tbaa !4
   %566 = and i32 %565, -3
   %567 = icmp ne i32 %566, 1
@@ -1974,7 +1974,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 
   %572 = getelementptr inbounds nuw i8, ptr %512, i64 1
   %573 = load i8, ptr %572, align 1, !tbaa !26
   %574 = zext i8 %573 to i64
-  %575 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gentype_8, i64 %574
+  %575 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucp_gentype_8, i64 %574
   %576 = load i32, ptr %575, align 4, !tbaa !4
   %577 = icmp ne i32 %576, 6
   %578 = xor i1 %498, %577
@@ -1985,7 +1985,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 
   %581 = getelementptr inbounds nuw i8, ptr %512, i64 1
   %582 = load i8, ptr %581, align 1, !tbaa !26
   %583 = zext i8 %582 to i64
-  %584 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gentype_8, i64 %583
+  %584 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucp_gentype_8, i64 %583
   %585 = load i32, ptr %584, align 4, !tbaa !4
   switch i32 %585, label %586 [
     i32 1, label %check_char_prop.exit
@@ -2002,7 +2002,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 
   %590 = getelementptr inbounds nuw i8, ptr %512, i64 3
   %591 = load i8, ptr %590, align 1, !tbaa !29
   %592 = zext i8 %591 to i64
-  %593 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_caseless_sets_8, i64 %592
+  %593 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucd_caseless_sets_8, i64 %592
   br label %594
 
 594:                                              ; preds = %599, %589

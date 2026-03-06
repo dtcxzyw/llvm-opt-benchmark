@@ -346,7 +346,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt
   %41 = sub i64 %40, %9
   %42 = ashr exact i64 %41, 5
   %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %39, i64 %43
+  %44 = getelementptr inbounds [32 x i8], ptr %39, i64 %43
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %44, ptr noundef nonnull align 8 dereferenceable(1) %7, i64 %41, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -405,7 +405,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %56
   %.07 = phi i64 [ %57, %56 ], [ 0, %.lr.ph.preheader ]
-  %58 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %51, i64 %.07
+  %58 = getelementptr inbounds nuw [32 x i8], ptr %51, i64 %.07
   %59 = load i32, ptr %58, align 8, !tbaa !92
   %60 = sext i32 %59 to i64
   %.not5 = icmp eq i64 %.07, %60
@@ -549,7 +549,7 @@ _ZN8rawspeed16BitStreamerMSB32CI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequ
   %49 = icmp samesign ult i32 %44, %14
   %50 = mul nuw nsw i32 %44, %17
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i16, ptr %7, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %51
   %53 = zext nneg i32 %46 to i64
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %55
@@ -669,7 +669,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %93 = lshr i64 %.sroa.054.3145.us, 62
   %94 = add nsw i32 %.sroa.13.3146.us, -2
   %95 = shl i64 %.sroa.054.3145.us, 2
-  %96 = getelementptr inbounds nuw i32, ptr @_ZZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13PhaseOneStripEE6length, i64 %93
+  %96 = getelementptr inbounds nuw [4 x i8], ptr @_ZZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13PhaseOneStripEE6length, i64 %93
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %98 = load i32, ptr %97, align 4, !tbaa !109
   store i32 %98, ptr %.041.ptr151.us, align 4, !tbaa !109
@@ -720,7 +720,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %112 = shl i64 %.sroa.054.3145, 2
   %113 = or disjoint i32 %108, %110
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw i32, ptr @_ZZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13PhaseOneStripEE6length, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr @_ZZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13PhaseOneStripEE6length, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !109
   store i32 %116, ptr %.041.ptr151, align 4, !tbaa !109
   br label %117
@@ -736,7 +736,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %.sroa.054.1 = phi i64 [ %95, %.thread.loopexit.us ], [ %.sroa.054.7, %78 ], [ %.sroa.054.7, %79 ], [ %.sroa.054.5, %117 ]
   %.sroa.13.1 = phi i32 [ %94, %.thread.loopexit.us ], [ %.sroa.13.7, %78 ], [ %.sroa.13.7, %79 ], [ %.sroa.13.5, %117 ]
   %118 = and i64 %indvars.iv, 1
-  %119 = getelementptr inbounds nuw i32, ptr %4, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !109
   %121 = icmp eq i32 %120, 14
   %122 = icmp samesign ult i32 %.sroa.13.1, 65
@@ -754,7 +754,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %128 = lshr i64 %.sroa.054.1, 48
   %129 = trunc nuw nsw i64 %128 to i32
   %130 = add nsw i32 %.sroa.13.1, -16
-  %131 = getelementptr inbounds nuw i32, ptr %3, i64 %118
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %118
   store i32 %129, ptr %131, align 4, !tbaa !109
   %132 = trunc nuw i64 %128 to i16
   br label %150
@@ -774,7 +774,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %142 = zext nneg i32 %120 to i64
   %143 = add nsw i32 %120, -1
   %.neg = shl nsw i32 -1, %143
-  %144 = getelementptr inbounds nuw i32, ptr %3, i64 %118
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %118
   %145 = load i32, ptr %144, align 4, !tbaa !109
   %146 = add nsw i32 %.neg, 1
   %147 = add i32 %146, %140
@@ -790,7 +790,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %.sroa.054.6 = shl i64 %.sroa.054.1, %.pn
   tail call void @llvm.assume(i1 %48)
   tail call void @llvm.assume(i1 %49)
-  %151 = getelementptr inbounds nuw i16, ptr %52, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %indvars.iv
   store i16 %.sink, ptr %151, align 2, !tbaa !122
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond175.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1111,13 +1111,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %25 = and i64 %.fr.i25.lcssa, 32
   %26 = icmp eq i64 %25, 0
   %27 = or disjoint i64 %21, 1
-  %28 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %27
-  %29 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %22
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %.fr26, i64 %27
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %.fr26, i64 %22
   br label %30
 
 30:                                               ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", %._crit_edge
   %.08.i.i.i = phi i64 [ %22, %._crit_edge ], [ %52, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i" ]
-  %31 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %.08.i.i.i
+  %31 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %.08.i.i.i
   %.sroa.08.0.copyload.i.i.i = load i32, ptr %31, align 8
   %.sroa.49.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 4
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i.i)
@@ -1129,15 +1129,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.039.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.08.i.i.i, %30 ]
   %33 = shl i64 %.039.i.i.i.i, 1
   %34 = add i64 %33, 2
-  %35 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %34
+  %35 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %34
   %36 = or disjoint i64 %33, 1
-  %37 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %36
+  %37 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %36
   %.val.i.i.i.i.i = load i32, ptr %35, align 8, !tbaa !92
   %.val1.i.i.i.i.i = load i32, ptr %37, align 8, !tbaa !92
   %38 = icmp slt i32 %.val.i.i.i.i.i, %.val1.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %38, i64 %36, i64 %34
-  %39 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %spec.select.i.i.i.i
-  %40 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %.039.i.i.i.i
+  %39 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %spec.select.i.i.i.i
+  %40 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %.039.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false)
   %41 = icmp slt i64 %spec.select.i.i.i.i, %24
   br i1 %41, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !129
@@ -1161,20 +1161,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.010.i.i.i.i.i = phi i64 [ %.0911.i.i.i.i.i, %48 ], [ %.1.i.i.i.i, %44 ]
   %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
   %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
-  %46 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %.0911.i.i.i.i.i
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %.fr26, i64 %.0911.i.i.i.i.i
   %.val.i.i.i.i.i.i = load i32, ptr %46, align 8, !tbaa !92
   %47 = icmp slt i32 %.val.i.i.i.i.i.i, %.sroa.08.0.copyload.i.i.i
   br i1 %47, label %48, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
 
 48:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %49 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %.010.i.i.i.i.i
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %.fr26, i64 %.010.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %46, i64 32, i1 false)
   %50 = icmp sgt i64 %.0911.i.i.i.i.i, %.08.i.i.i
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", !llvm.loop !130
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i": ; preds = %48, %.lr.ph.i.i.i.i.i, %44
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %44 ], [ %.010.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %48 ]
-  %51 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %.0.lcssa.i.i.i.i.i
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %.fr26, i64 %.0.lcssa.i.i.i.i.i
   store i32 %.sroa.08.0.copyload.i.i.i, ptr %51, align 8
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %.sroa.4.i.i.i, i64 28, i1 false)
@@ -1207,15 +1207,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.039.i.i.i28.i = phi i64 [ %spec.select.i.i.i31.i, %.lr.ph.i.i.i27.i ], [ 0, %.lr.ph.i10.i ]
   %61 = shl i64 %.039.i.i.i28.i, 1
   %62 = add i64 %61, 2
-  %63 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %62
+  %63 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %62
   %64 = or disjoint i64 %61, 1
-  %65 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %64
+  %65 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %64
   %.val.i.i.i.i29.i = load i32, ptr %63, align 8, !tbaa !92
   %.val1.i.i.i.i30.i = load i32, ptr %65, align 8, !tbaa !92
   %66 = icmp slt i32 %.val.i.i.i.i29.i, %.val1.i.i.i.i30.i
   %spec.select.i.i.i31.i = select i1 %66, i64 %64, i64 %62
-  %67 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %spec.select.i.i.i31.i
-  %68 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %.039.i.i.i28.i
+  %67 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %spec.select.i.i.i31.i
+  %68 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %.039.i.i.i28.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %67, i64 32, i1 false)
   %69 = icmp slt i64 %spec.select.i.i.i31.i, %59
   br i1 %69, label %.lr.ph.i.i.i27.i, label %._crit_edge.i.i.i12.i, !llvm.loop !129
@@ -1235,8 +1235,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 .thread.i.i26.i:                                  ; preds = %72
   %76 = shl nuw nsw i64 %.0.lcssa.i.i.i13.i, 1
   %77 = or disjoint i64 %76, 1
-  %78 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %77
-  %79 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %.0.lcssa.i.i.i13.i
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %.fr26, i64 %77
+  %79 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %.0.lcssa.i.i.i13.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %78, i64 32, i1 false)
   br label %.lr.ph.i.i.i.i17.i.preheader
 
@@ -1252,20 +1252,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.010.i.i.i.i18.i = phi i64 [ %.0911.i.i910.i.i20.i, %83 ], [ %.010.i.i.i.i18.i.ph, %.lr.ph.i.i.i.i17.i.preheader ]
   %.0911.in.i.i.i.i19.i = add nsw i64 %.010.i.i.i.i18.i, -1
   %.0911.i.i910.i.i20.i = lshr i64 %.0911.in.i.i.i.i19.i, 1
-  %81 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %.0911.i.i910.i.i20.i
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %.fr26, i64 %.0911.i.i910.i.i20.i
   %.val.i.i.i.i.i21.i = load i32, ptr %81, align 8, !tbaa !92
   %82 = icmp slt i32 %.val.i.i.i.i.i21.i, %.sroa.07.0.copyload.i.i.i
   br i1 %82, label %83, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_SE_SE_RT0_.exit.i22.i"
 
 83:                                               ; preds = %.lr.ph.i.i.i.i17.i
-  %84 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %.010.i.i.i.i18.i
+  %84 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %.010.i.i.i.i18.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull align 8 dereferenceable(32) %81, i64 32, i1 false)
   %.not11.i.i25.i = icmp eq i64 %.0911.i.i910.i.i20.i, 0
   br i1 %.not11.i.i25.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_SE_SE_RT0_.exit.i22.i", label %.lr.ph.i.i.i.i17.i, !llvm.loop !130
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN8rawspeed13PhaseOneStripESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_20PhaseOneDecompressor13prepareStripsEvE3$_0EEEvT_SE_SE_RT0_.exit.i22.i": ; preds = %83, %.lr.ph.i.i.i.i17.i, %80
   %.0.lcssa.i.i.i.i23.i = phi i64 [ 0, %80 ], [ %.010.i.i.i.i18.i, %.lr.ph.i.i.i.i17.i ], [ 0, %83 ]
-  %85 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %.0.lcssa.i.i.i.i23.i
+  %85 = getelementptr inbounds [32 x i8], ptr %.fr26, i64 %.0.lcssa.i.i.i.i23.i
   store i32 %.sroa.07.0.copyload.i.i.i, ptr %85, align 8
   %.sroa.5.0..sroa_idx.i.i.i24.i = getelementptr inbounds nuw i8, ptr %85, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.5.0..sroa_idx.i.i.i24.i, ptr noundef nonnull align 8 dereferenceable(28) %.sroa.4.i.i9.i, i64 28, i1 false)
@@ -1279,7 +1279,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %87 = phi i64 [ %115, %18 ], [ %14, %.lr.ph ]
   %88 = add nsw i64 %.02440, -1
   %89 = lshr i64 %87, 1
-  %90 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %.fr26, i64 %89
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %.fr26, i64 %89
   %91 = getelementptr inbounds i8, ptr %storemerge2341, i64 -32
   %.val.i.i.i = load i32, ptr %16, align 8, !tbaa !92
   %.val1.i.i.i = load i32, ptr %90, align 8, !tbaa !92

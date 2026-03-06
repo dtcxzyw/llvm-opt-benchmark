@@ -566,7 +566,7 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %257
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %257 ]
-  %245 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %246 = load ptr, ptr %245, align 8, !tbaa !68
   %247 = load ptr, ptr @the_repository, align 8, !tbaa !45
   %248 = call i32 @repo_get_oid(ptr noundef %247, ptr noundef %246, ptr noundef nonnull %5) #11
@@ -600,7 +600,7 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
   %259 = add nsw i32 %258, 1
   store i32 %259, ptr @nr_trees, align 4, !tbaa !67
   %260 = sext i32 %258 to i64
-  %261 = getelementptr inbounds ptr, ptr @trees, i64 %260
+  %261 = getelementptr inbounds [8 x i8], ptr @trees, i64 %260
   store ptr %255, ptr %261, align 8, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -771,14 +771,14 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
 
 .lr.ph91:                                         ; preds = %329, %340
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %340 ], [ 0, %329 ]
-  %336 = getelementptr inbounds nuw ptr, ptr @trees, i64 %indvars.iv101
+  %336 = getelementptr inbounds nuw [8 x i8], ptr @trees, i64 %indvars.iv101
   %337 = load ptr, ptr %336, align 8, !tbaa !69
   %338 = call i32 @parse_tree_gently(ptr noundef %337, i32 noundef 0) #11
   %339 = icmp sgt i32 %338, -1
   br i1 %339, label %340, label %.critedge
 
 340:                                              ; preds = %.lr.ph91
-  %341 = getelementptr inbounds nuw %struct.tree_desc, ptr %6, i64 %indvars.iv101
+  %341 = getelementptr inbounds nuw [80 x i8], ptr %6, i64 %indvars.iv101
   %342 = getelementptr inbounds nuw i8, ptr %337, i64 4
   %343 = getelementptr inbounds nuw i8, ptr %337, i64 40
   %344 = load ptr, ptr %343, align 8, !tbaa !81
@@ -1013,7 +1013,7 @@ debug_stage.exit:                                 ; preds = %9, %14, %15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %3, i64 noundef 24, ptr noundef nonnull @.str.60, i32 noundef %29) #11
-  %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !87
   %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef nonnull %3)
   %.not.i9 = icmp eq ptr %32, null

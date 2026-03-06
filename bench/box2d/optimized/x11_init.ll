@@ -62,10 +62,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.XSetWindowAttributes = type { i64, i64, i64, i64, i32, i32, i32, i64, i64, i32, i64, i64, i32, i64, i64 }
 %struct._XkbStateRec = type { i8, i8, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16 }
 %struct.XrmValue = type { i32, ptr }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
-%struct._XkbKeyNameRec = type { [4 x i8] }
-%struct.anon.32 = type { i32, ptr }
-%struct._XkbKeyAliasRec = type { [4 x i8], [4 x i8] }
 %struct.XIMCallback = type { ptr, ptr }
 
 @_glfw = external global %struct._GLFWlibrary, align 8
@@ -976,7 +972,7 @@ define hidden range(i32 0, 2) i32 @_glfwInitX11() #0 {
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 232
   %221 = load ptr, ptr %220, align 8, !tbaa !221
   %222 = sext i32 %219 to i64
-  %223 = getelementptr inbounds %struct.Screen, ptr %221, i64 %222
+  %223 = getelementptr inbounds [128 x i8], ptr %221, i64 %222
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
   %225 = load i64, ptr %224, align 8, !tbaa !222
   store i64 %225, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !225
@@ -1042,7 +1038,7 @@ getSystemContentScale.exit:                       ; preds = %216, %231, %248
 .preheader.i:                                     ; preds = %getSystemContentScale.exit, %252
   %253 = phi i1 [ false, %252 ], [ true, %getSystemContentScale.exit ]
   %indvars.iv.i = phi i64 [ 1, %252 ], [ 0, %getSystemContentScale.exit ]
-  %254 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140920), i64 %indvars.iv.i
+  %254 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140920), i64 %indvars.iv.i
   %255 = load i32, ptr %254, align 4, !tbaa !114
   %256 = call i32 (i32, i32, ...) @fcntl(i32 noundef %255, i32 noundef 3, i32 noundef 0) #13
   %257 = load i32, ptr %254, align 4, !tbaa !114
@@ -1522,7 +1518,7 @@ thread-pre-split40.i:                             ; preds = %433
 
 .preheader50.us.i.i:                              ; preds = %.loopexit51.us.i.i, %.preheader50.us.preheader.i.i
   %indvars.iv90.i.i = phi i64 [ %500, %.preheader50.us.preheader.i.i ], [ %indvars.iv.next91.i.i, %.loopexit51.us.i.i ]
-  %502 = getelementptr inbounds nuw %struct._XkbKeyNameRec, ptr %493, i64 %indvars.iv90.i.i
+  %502 = getelementptr inbounds nuw [4 x i8], ptr %493, i64 %indvars.iv90.i.i
   br label %504
 
 503:                                              ; preds = %504
@@ -1532,7 +1528,7 @@ thread-pre-split40.i:                             ; preds = %433
 
 504:                                              ; preds = %503, %.preheader50.us.i.i
   %indvars.iv86.i.i = phi i64 [ %indvars.iv.next87.i.i, %503 ], [ 0, %.preheader50.us.i.i ]
-  %505 = getelementptr inbounds nuw %struct.anon.32, ptr @__const.createKeyTables.keymap, i64 %indvars.iv86.i.i
+  %505 = getelementptr inbounds nuw [16 x i8], ptr @__const.createKeyTables.keymap, i64 %indvars.iv86.i.i
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 8
   %507 = load ptr, ptr %506, align 8, !tbaa !228
   %508 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %502, ptr noundef nonnull dereferenceable(1) %507, i64 noundef 4) #14
@@ -1546,7 +1542,7 @@ thread-pre-split40.i:                             ; preds = %433
 
 .loopexit51.us.i.i:                               ; preds = %503, %510
   %.043.us.i.i = phi i16 [ %512, %510 ], [ -1, %503 ]
-  %513 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 %indvars.iv90.i.i
+  %513 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 %indvars.iv90.i.i
   store i16 %.043.us.i.i, ptr %513, align 2, !tbaa !318
   %indvars.iv.next91.i.i = add nuw nsw i64 %indvars.iv90.i.i, 1
   %exitcond94.not.i.i = icmp eq i64 %indvars.iv.next91.i.i, %wide.trip.count93.i.i
@@ -1554,7 +1550,7 @@ thread-pre-split40.i:                             ; preds = %433
 
 .preheader50.i.i:                                 ; preds = %._crit_edge.i.i, %.preheader50.preheader.i.i
   %indvars.iv82.i.i = phi i64 [ %498, %.preheader50.preheader.i.i ], [ %indvars.iv.next83.i.i, %._crit_edge.i.i ]
-  %514 = getelementptr inbounds nuw %struct._XkbKeyNameRec, ptr %493, i64 %indvars.iv82.i.i
+  %514 = getelementptr inbounds nuw [4 x i8], ptr %493, i64 %indvars.iv82.i.i
   br label %518
 
 ._crit_edge60.i.i:                                ; preds = %._crit_edge.i.i, %.loopexit51.us.i.i, %478
@@ -1571,7 +1567,7 @@ thread-pre-split40.i:                             ; preds = %433
 
 518:                                              ; preds = %517, %.preheader50.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader50.i.i ], [ %indvars.iv.next.i.i, %517 ]
-  %519 = getelementptr inbounds nuw %struct.anon.32, ptr @__const.createKeyTables.keymap, i64 %indvars.iv.i.i
+  %519 = getelementptr inbounds nuw [16 x i8], ptr @__const.createKeyTables.keymap, i64 %indvars.iv.i.i
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 8
   %521 = load ptr, ptr %520, align 8, !tbaa !228
   %522 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %514, ptr noundef nonnull dereferenceable(1) %521, i64 noundef 4) #14
@@ -1588,7 +1584,7 @@ thread-pre-split40.i:                             ; preds = %433
 
 526:                                              ; preds = %.loopexit.i.i, %.lr.ph.i.i
   %indvars.iv79.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next80.i.i, %.loopexit.i.i ]
-  %527 = getelementptr inbounds nuw %struct._XkbKeyAliasRec, ptr %525, i64 %indvars.iv79.i.i
+  %527 = getelementptr inbounds nuw [8 x i8], ptr %525, i64 %indvars.iv79.i.i
   %528 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %527, ptr noundef nonnull dereferenceable(1) %514, i64 noundef 4) #14
   %.not49.i.i = icmp eq i32 %528, 0
   br i1 %.not49.i.i, label %.preheader.i.i, label %.loopexit.i.i
@@ -1604,7 +1600,7 @@ thread-pre-split40.i:                             ; preds = %433
 
 531:                                              ; preds = %530, %.preheader.i.i
   %indvars.iv75.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next76.i.i, %530 ]
-  %532 = getelementptr inbounds nuw %struct.anon.32, ptr @__const.createKeyTables.keymap, i64 %indvars.iv75.i.i
+  %532 = getelementptr inbounds nuw [16 x i8], ptr @__const.createKeyTables.keymap, i64 %indvars.iv75.i.i
   %533 = getelementptr inbounds nuw i8, ptr %532, i64 8
   %534 = load ptr, ptr %533, align 8, !tbaa !228
   %535 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %529, ptr noundef nonnull dereferenceable(1) %534, i64 noundef 4) #14
@@ -1626,7 +1622,7 @@ thread-pre-split40.i:                             ; preds = %433
 ._crit_edge.i.i:                                  ; preds = %.loopexit.i.i, %.loopexit51.i.i
   %.1.lcssa.i.i = phi i32 [ %524, %.loopexit51.i.i ], [ %.2.i.i, %.loopexit.i.i ]
   %540 = trunc i32 %.1.lcssa.i.i to i16
-  %541 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 %indvars.iv82.i.i
+  %541 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 %indvars.iv82.i.i
   store i16 %540, ptr %541, align 2, !tbaa !318
   %indvars.iv.next83.i.i = add nuw nsw i64 %indvars.iv82.i.i, 1
   %exitcond85.not.i.i = icmp eq i64 %indvars.iv.next83.i.i, %wide.trip.count.i.i
@@ -1664,7 +1660,7 @@ thread-pre-split40.i:                             ; preds = %433
 
 560:                                              ; preds = %710, %.lr.ph64.i.i
   %indvars.iv95.i.i = phi i64 [ %557, %.lr.ph64.i.i ], [ %indvars.iv.next96.i.i, %710 ]
-  %561 = getelementptr inbounds i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 %indvars.iv95.i.i
+  %561 = getelementptr inbounds [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 %indvars.iv95.i.i
   %562 = load i16, ptr %561, align 2, !tbaa !318
   %563 = icmp slt i16 %562, 0
   br i1 %563, label %564, label %703
@@ -1672,7 +1668,7 @@ thread-pre-split40.i:                             ; preds = %433
 564:                                              ; preds = %560
   %565 = sub nsw i64 %indvars.iv95.i.i, %557
   %566 = mul nsw i64 %565, %558
-  %567 = getelementptr inbounds nuw i64, ptr %552, i64 %566
+  %567 = getelementptr inbounds nuw [8 x i8], ptr %552, i64 %566
   br i1 %556, label %568, label %583
 
 568:                                              ; preds = %564
@@ -2225,7 +2221,7 @@ translateKeySyms.exit.i.i:                        ; preds = %702, %701, %700, %6
 706:                                              ; preds = %703
   %707 = trunc i64 %indvars.iv95.i.i to i16
   %708 = zext nneg i16 %704 to i64
-  %709 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140194), i64 %708
+  %709 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140194), i64 %708
   store i16 %707, ptr %709, align 2, !tbaa !318
   br label %710
 
@@ -2453,7 +2449,7 @@ createKeyTables.exit.i:                           ; preds = %710, %545
 
 .lr.ph.i.i.i:                                     ; preds = %850, %858
   %.0913.i.i.i = phi i64 [ %859, %858 ], [ 0, %850 ]
-  %860 = getelementptr inbounds nuw i64, ptr %854, i64 %.0913.i.i.i
+  %860 = getelementptr inbounds nuw [8 x i8], ptr %854, i64 %.0913.i.i.i
   %861 = load i64, ptr %860, align 8, !tbaa !268
   %862 = icmp eq i64 %861, %857
   br i1 %862, label %.lr.ph.i18.preheader.i.i, label %858
@@ -2474,7 +2470,7 @@ createKeyTables.exit.i:                           ; preds = %710, %545
 
 .lr.ph.i18.i.i:                                   ; preds = %867, %.lr.ph.i18.preheader.i.i
   %.0913.i19.i.i = phi i64 [ %868, %867 ], [ 0, %.lr.ph.i18.preheader.i.i ]
-  %869 = getelementptr inbounds nuw i64, ptr %863, i64 %.0913.i19.i.i
+  %869 = getelementptr inbounds nuw [8 x i8], ptr %863, i64 %.0913.i19.i.i
   %870 = load i64, ptr %869, align 8, !tbaa !268
   %871 = icmp eq i64 %870, %866
   br i1 %871, label %getAtomIfSupported.exit22.i.i, label %867
@@ -2502,7 +2498,7 @@ getAtomIfSupported.exit22.i.i:                    ; preds = %.lr.ph.i18.i.i, %86
 
 .lr.ph.i24.i.i:                                   ; preds = %getAtomIfSupported.exit22.i.i, %879
   %.0913.i25.i.i = phi i64 [ %880, %879 ], [ 0, %getAtomIfSupported.exit22.i.i ]
-  %881 = getelementptr inbounds nuw i64, ptr %875, i64 %.0913.i25.i.i
+  %881 = getelementptr inbounds nuw [8 x i8], ptr %875, i64 %.0913.i25.i.i
   %882 = load i64, ptr %881, align 8, !tbaa !268
   %883 = icmp eq i64 %882, %878
   br i1 %883, label %.lr.ph.i30.preheader.i.i, label %879
@@ -2523,7 +2519,7 @@ getAtomIfSupported.exit22.i.i:                    ; preds = %.lr.ph.i18.i.i, %86
 
 .lr.ph.i30.i.i:                                   ; preds = %888, %.lr.ph.i30.preheader.i.i
   %.0913.i31.i.i = phi i64 [ %889, %888 ], [ 0, %.lr.ph.i30.preheader.i.i ]
-  %890 = getelementptr inbounds nuw i64, ptr %884, i64 %.0913.i31.i.i
+  %890 = getelementptr inbounds nuw [8 x i8], ptr %884, i64 %.0913.i31.i.i
   %891 = load i64, ptr %890, align 8, !tbaa !268
   %892 = icmp eq i64 %891, %887
   br i1 %892, label %getAtomIfSupported.exit34.i.i, label %888
@@ -2551,7 +2547,7 @@ getAtomIfSupported.exit34.i.i:                    ; preds = %.lr.ph.i30.i.i, %88
 
 .lr.ph.i36.i.i:                                   ; preds = %getAtomIfSupported.exit34.i.i, %900
   %.0913.i37.i.i = phi i64 [ %901, %900 ], [ 0, %getAtomIfSupported.exit34.i.i ]
-  %902 = getelementptr inbounds nuw i64, ptr %896, i64 %.0913.i37.i.i
+  %902 = getelementptr inbounds nuw [8 x i8], ptr %896, i64 %.0913.i37.i.i
   %903 = load i64, ptr %902, align 8, !tbaa !268
   %904 = icmp eq i64 %903, %899
   br i1 %904, label %getAtomIfSupported.exit40.i.i, label %900
@@ -2572,7 +2568,7 @@ getAtomIfSupported.exit40.i.i:                    ; preds = %.lr.ph.i36.i.i, %90
 
 .lr.ph.i42.i.i:                                   ; preds = %909, %getAtomIfSupported.exit40.i.i
   %.0913.i43.i.i = phi i64 [ %910, %909 ], [ 0, %getAtomIfSupported.exit40.i.i ]
-  %911 = getelementptr inbounds nuw i64, ptr %905, i64 %.0913.i43.i.i
+  %911 = getelementptr inbounds nuw [8 x i8], ptr %905, i64 %.0913.i43.i.i
   %912 = load i64, ptr %911, align 8, !tbaa !268
   %913 = icmp eq i64 %912, %908
   br i1 %913, label %getAtomIfSupported.exit46.i.i, label %909
@@ -2600,7 +2596,7 @@ getAtomIfSupported.exit46.i.i:                    ; preds = %.lr.ph.i42.i.i, %90
 
 .lr.ph.i48.i.i:                                   ; preds = %getAtomIfSupported.exit46.i.i, %921
   %.0913.i49.i.i = phi i64 [ %922, %921 ], [ 0, %getAtomIfSupported.exit46.i.i ]
-  %923 = getelementptr inbounds nuw i64, ptr %917, i64 %.0913.i49.i.i
+  %923 = getelementptr inbounds nuw [8 x i8], ptr %917, i64 %.0913.i49.i.i
   %924 = load i64, ptr %923, align 8, !tbaa !268
   %925 = icmp eq i64 %924, %920
   br i1 %925, label %getAtomIfSupported.exit52.i.i, label %921
@@ -2621,7 +2617,7 @@ getAtomIfSupported.exit52.i.i:                    ; preds = %.lr.ph.i48.i.i, %92
 
 .lr.ph.i54.i.i:                                   ; preds = %930, %getAtomIfSupported.exit52.i.i
   %.0913.i55.i.i = phi i64 [ %931, %930 ], [ 0, %getAtomIfSupported.exit52.i.i ]
-  %932 = getelementptr inbounds nuw i64, ptr %926, i64 %.0913.i55.i.i
+  %932 = getelementptr inbounds nuw [8 x i8], ptr %926, i64 %.0913.i55.i.i
   %933 = load i64, ptr %932, align 8, !tbaa !268
   %934 = icmp eq i64 %933, %929
   br i1 %934, label %getAtomIfSupported.exit58.i.i, label %930
@@ -2649,7 +2645,7 @@ getAtomIfSupported.exit58.i.i:                    ; preds = %.lr.ph.i54.i.i, %93
 
 .lr.ph.i60.i.i:                                   ; preds = %getAtomIfSupported.exit58.i.i, %942
   %.0913.i61.i.i = phi i64 [ %943, %942 ], [ 0, %getAtomIfSupported.exit58.i.i ]
-  %944 = getelementptr inbounds nuw i64, ptr %938, i64 %.0913.i61.i.i
+  %944 = getelementptr inbounds nuw [8 x i8], ptr %938, i64 %.0913.i61.i.i
   %945 = load i64, ptr %944, align 8, !tbaa !268
   %946 = icmp eq i64 %945, %941
   br i1 %946, label %getAtomIfSupported.exit64.i.i, label %942
@@ -2670,7 +2666,7 @@ getAtomIfSupported.exit64.i.i:                    ; preds = %.lr.ph.i60.i.i, %94
 
 .lr.ph.i66.i.i:                                   ; preds = %951, %getAtomIfSupported.exit64.i.i
   %.0913.i67.i.i = phi i64 [ %952, %951 ], [ 0, %getAtomIfSupported.exit64.i.i ]
-  %953 = getelementptr inbounds nuw i64, ptr %947, i64 %.0913.i67.i.i
+  %953 = getelementptr inbounds nuw [8 x i8], ptr %947, i64 %.0913.i67.i.i
   %954 = load i64, ptr %953, align 8, !tbaa !268
   %955 = icmp eq i64 %954, %950
   br i1 %955, label %getAtomIfSupported.exit70.i.i, label %951
@@ -2698,7 +2694,7 @@ getAtomIfSupported.exit70.i.i:                    ; preds = %.lr.ph.i66.i.i, %95
 
 .lr.ph.i72.i.i:                                   ; preds = %getAtomIfSupported.exit70.i.i, %963
   %.0913.i73.i.i = phi i64 [ %964, %963 ], [ 0, %getAtomIfSupported.exit70.i.i ]
-  %965 = getelementptr inbounds nuw i64, ptr %959, i64 %.0913.i73.i.i
+  %965 = getelementptr inbounds nuw [8 x i8], ptr %959, i64 %.0913.i73.i.i
   %966 = load i64, ptr %965, align 8, !tbaa !268
   %967 = icmp eq i64 %966, %962
   br i1 %967, label %.lr.ph.i78.i.preheader.i, label %963
@@ -2719,7 +2715,7 @@ getAtomIfSupported.exit70.i.i:                    ; preds = %.lr.ph.i66.i.i, %95
 
 .lr.ph.i78.i.i:                                   ; preds = %972, %.lr.ph.i78.i.preheader.i
   %.0913.i79.i.i = phi i64 [ %973, %972 ], [ 0, %.lr.ph.i78.i.preheader.i ]
-  %974 = getelementptr inbounds nuw i64, ptr %968, i64 %.0913.i79.i.i
+  %974 = getelementptr inbounds nuw [8 x i8], ptr %968, i64 %.0913.i79.i.i
   %975 = load i64, ptr %974, align 8, !tbaa !268
   %976 = icmp eq i64 %975, %971
   br i1 %976, label %getAtomIfSupported.exit82.i.i, label %972
@@ -2747,7 +2743,7 @@ getAtomIfSupported.exit82.i.i:                    ; preds = %.lr.ph.i78.i.i, %97
 
 .lr.ph.i84.i.i:                                   ; preds = %getAtomIfSupported.exit82.i.i, %984
   %.0913.i85.i.i = phi i64 [ %985, %984 ], [ 0, %getAtomIfSupported.exit82.i.i ]
-  %986 = getelementptr inbounds nuw i64, ptr %980, i64 %.0913.i85.i.i
+  %986 = getelementptr inbounds nuw [8 x i8], ptr %980, i64 %.0913.i85.i.i
   %987 = load i64, ptr %986, align 8, !tbaa !268
   %988 = icmp eq i64 %987, %983
   br i1 %988, label %.lr.ph.i90.i.preheader.i, label %984
@@ -2768,7 +2764,7 @@ getAtomIfSupported.exit82.i.i:                    ; preds = %.lr.ph.i78.i.i, %97
 
 .lr.ph.i90.i.i:                                   ; preds = %993, %.lr.ph.i90.i.preheader.i
   %.0913.i91.i.i = phi i64 [ %994, %993 ], [ 0, %.lr.ph.i90.i.preheader.i ]
-  %995 = getelementptr inbounds nuw i64, ptr %989, i64 %.0913.i91.i.i
+  %995 = getelementptr inbounds nuw [8 x i8], ptr %989, i64 %.0913.i91.i.i
   %996 = load i64, ptr %995, align 8, !tbaa !268
   %997 = icmp eq i64 %996, %992
   br i1 %997, label %getAtomIfSupported.exit94.i.i, label %993
@@ -2812,7 +2808,7 @@ initExtensions.exit:                              ; preds = %createKeyTables.exi
   %1012 = load ptr, ptr %1011, align 8, !tbaa !221
   %1013 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !220
   %1014 = sext i32 %1013 to i64
-  %1015 = getelementptr inbounds %struct.Screen, ptr %1012, i64 %1014
+  %1015 = getelementptr inbounds [128 x i8], ptr %1012, i64 %1014
   %1016 = getelementptr inbounds nuw i8, ptr %1015, i64 64
   %1017 = load ptr, ptr %1016, align 8, !tbaa !372
   %1018 = call i64 %1008(ptr noundef %1009, i64 noundef %1010, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef %1017, i64 noundef 2048, ptr noundef nonnull %2) #13
@@ -3287,7 +3283,7 @@ define internal void @inputMethodInstantiateCallback(ptr readnone captures(none)
 
 19:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
-  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i
   %21 = load i64, ptr %20, align 8, !tbaa !268
   %22 = icmp eq i64 %21, 1032
   br i1 %22, label %28, label %18

@@ -279,7 +279,7 @@ parse_timecode.exit136:                           ; preds = %75
   %141 = load i8, ptr %140, align 1, !tbaa !31
   %142 = zext i8 %141 to i32
   %143 = or disjoint i32 %139, %142
-  %144 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv
   store i32 %143, ptr %144, align 4, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -302,7 +302,7 @@ parse_timecode.exit136:                           ; preds = %75
 
 .lr.ph174:                                        ; preds = %.lr.ph174.preheader, %.lr.ph174
   %indvars.iv202 = phi i64 [ 1, %.lr.ph174.preheader ], [ %indvars.iv.next203, %.lr.ph174 ]
-  %145 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv202
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv202
   %146 = load i32, ptr %145, align 4, !tbaa !50
   %147 = or i32 %146, -16777216
   store i32 %147, ptr %145, align 4, !tbaa !50
@@ -317,7 +317,7 @@ parse_timecode.exit136:                           ; preds = %75
   %149 = load i8, ptr %.2161175, align 1, !tbaa !31
   %150 = zext i8 %149 to i32
   %151 = shl nuw i32 %150, 24
-  %152 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv207
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv207
   %153 = load i32, ptr %152, align 4, !tbaa !50
   %154 = or i32 %151, %153
   store i32 %154, ptr %152, align 4, !tbaa !50

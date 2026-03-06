@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.pcpu_hot = type { %union.anon.21 }
 %union.anon.21 = type { %struct.anon.22, [16 x i8] }
 %struct.anon.22 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.kgid_t = type { i32 }
 
 @.str = private unnamed_addr constant [3 x i8] c"\0A\\\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"%.64s\00", align 1
@@ -328,7 +327,7 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   %77 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %76, i32 -1) #8, !srcloc !10
   %78 = add i32 %77, 1
   %79 = zext i32 %78 to i64
-  %80 = getelementptr ptr, ptr @task_state_array, i64 %79
+  %80 = getelementptr [8 x i8], ptr @task_state_array, i64 %79
   %81 = load ptr, ptr %80, align 8
   tail call void @seq_puts(ptr noundef %0, ptr noundef %81) #7
   %82 = sext i32 %41 to i64
@@ -412,7 +411,7 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   %141 = phi i64 [ 0, %138 ], [ %150, %140 ]
   %142 = icmp eq i64 %141, 0
   %143 = select i1 %142, ptr @.str.3, ptr @.str.4
-  %144 = getelementptr %struct.kgid_t, ptr %139, i64 %141
+  %144 = getelementptr [4 x i8], ptr %139, i64 %141
   %145 = load i32, ptr %144, align 4
   %146 = icmp eq i32 %145, -1
   %147 = load i32, ptr @overflowgid, align 4
@@ -1012,7 +1011,7 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   %26 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %25, i32 -1) #8, !srcloc !10
   %27 = add i32 %26, 1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr ptr, ptr @task_state_array, i64 %28
+  %29 = getelementptr [8 x i8], ptr @task_state_array, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = load i8, ptr %30, align 1
   %32 = tail call zeroext i1 @ptrace_may_access(ptr noundef %3, i32 noundef 13) #7

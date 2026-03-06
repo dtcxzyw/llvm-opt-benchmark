@@ -69,7 +69,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %14
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %22 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !25
   %.not31 = icmp eq ptr %23, null
   br i1 %.not31, label %._crit_edge, label %.lr.ph
@@ -112,7 +112,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %14
   %52 = xor i64 %51, %49
   %53 = sext i32 %.val36 to i64
   %54 = urem i64 %52, %53
-  %55 = getelementptr inbounds nuw ptr, ptr %.val35, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %.val35, i64 %54
   br label %56
 
 56:                                               ; preds = %56, %.lr.ph
@@ -206,7 +206,7 @@ define ptr @Aig_TableLookup(ptr noundef readonly captures(none) %0, ptr noundef 
   %42 = xor i64 %41, %34
   %43 = sext i32 %22 to i64
   %44 = urem i64 %42, %43
-  %45 = getelementptr inbounds nuw ptr, ptr %4, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %44
   %.027 = load ptr, ptr %45, align 8, !tbaa !26
   %.not1828 = icmp eq ptr %.027, null
   br i1 %.not1828, label %.loopexit, label %.lr.ph
@@ -367,7 +367,7 @@ Aig_ObjCreateGhost.exit:                          ; preds = %36, %42
   %82 = xor i64 %81, %75
   %83 = sext i32 %67 to i64
   %84 = urem i64 %82, %83
-  %85 = getelementptr inbounds nuw ptr, ptr %51, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %84
   %.027.i = load ptr, ptr %85, align 8, !tbaa !26
   %.not1828.i = icmp eq ptr %.027.i, null
   br i1 %.not1828.i, label %Aig_TableLookup.exit, label %.lr.ph.i
@@ -464,7 +464,7 @@ define void @Aig_TableInsert(ptr noundef captures(none) %0, ptr noundef %1) loca
   %46 = xor i64 %45, %43
   %47 = sext i32 %.val10 to i64
   %48 = urem i64 %46, %47
-  %49 = getelementptr inbounds nuw ptr, ptr %.val9, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.val9, i64 %48
   br label %50
 
 50:                                               ; preds = %50, %16
@@ -519,7 +519,7 @@ define void @Aig_TableDelete(ptr noundef readonly captures(none) %0, ptr noundef
   %32 = xor i64 %31, %29
   %33 = sext i32 %.val5 to i64
   %34 = urem i64 %32, %33
-  %35 = getelementptr inbounds nuw ptr, ptr %.val, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %34
   br label %36
 
 36:                                               ; preds = %36, %2
@@ -553,7 +553,7 @@ define i32 @Aig_TableCountEntries(ptr noundef readonly captures(none) %0) local_
 7:                                                ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.011 = phi i32 [ 0, %.lr.ph ], [ %.1, %11 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   br label %9
 
 9:                                                ; preds = %9, %7
@@ -596,7 +596,7 @@ define void @Aig_TableProfile(ptr noundef readonly captures(none) %0) local_unna
   %12 = phi i32 [ %8, %.lr.ph ], [ %21, %20 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %13 = load ptr, ptr %10, align 8, !tbaa !3
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   br label %15
 
 15:                                               ; preds = %15, %11

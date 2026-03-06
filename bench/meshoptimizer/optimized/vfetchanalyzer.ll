@@ -53,7 +53,7 @@ define dso_local i64 @meshopt_analyzeVertexFetch(ptr noundef readonly captures(n
 13:                                               ; preds = %.lr.ph47, %._crit_edge
   %.sroa.0.045 = phi i32 [ 0, %.lr.ph47 ], [ %.sroa.0.1.lcssa, %._crit_edge ]
   %.04144 = phi i64 [ 0, %.lr.ph47 ], [ %23, %._crit_edge ]
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %.04144
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.04144
   %15 = load i32, ptr %14, align 4, !tbaa !8
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 %16
@@ -75,7 +75,7 @@ define dso_local i64 @meshopt_analyzeVertexFetch(ptr noundef readonly captures(n
   %.sroa.0.143 = phi i32 [ %29, %.lr.ph ], [ %.sroa.0.045, %13 ]
   %.04042 = phi i64 [ %27, %.lr.ph ], [ %19, %13 ]
   %24 = and i64 %.04042, 2047
-  %25 = getelementptr inbounds nuw i64, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !13
   %27 = add nuw nsw i64 %.04042, 1
   %.not = icmp eq i64 %26, %27
@@ -150,7 +150,7 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
 .lr.ph:                                           ; preds = %1, %8
   %.04 = phi i64 [ %9, %8 ], [ %3, %1 ]
   %4 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %5 = getelementptr ptr, ptr %0, i64 %.04
+  %5 = getelementptr [8 x i8], ptr %0, i64 %.04
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   invoke void %4(ptr noundef %7)

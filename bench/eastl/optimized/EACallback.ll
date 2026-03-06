@@ -589,7 +589,7 @@ if.end:                                           ; preds = %delete.notnull, %if
   store ptr %call, ptr %this, align 8
   %add.ptr17 = getelementptr inbounds i8, ptr %call, i64 %sub.ptr.sub
   store ptr %add.ptr17, ptr %mpEnd, align 8
-  %add.ptr19 = getelementptr inbounds ptr, ptr %call, i64 %cond
+  %add.ptr19 = getelementptr inbounds [8 x i8], ptr %call, i64 %cond
   store ptr %add.ptr19, ptr %mpCapacity, align 8
   br label %if.end21
 
@@ -806,7 +806,7 @@ for.body.preheader:                               ; preds = %_ZN2EA4StdC15Callba
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %i.010 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %5 = load ptr, ptr %mCallbackArray, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %i.010
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %5, i64 %i.010
   %6 = load ptr, ptr %arrayidx.i, align 8
   %tobool6.not = icmp eq ptr %6, null
   br i1 %tobool6.not, label %for.inc, label %if.then7
@@ -1113,7 +1113,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %sub.ptr.lhs.cast.i84 = phi i64 [ %sub.ptr.lhs.cast.i78, %for.body.lr.ph ], [ %sub.ptr.lhs.cast.i, %for.inc ]
   %8 = phi ptr [ %3, %for.body.lr.ph ], [ %37, %for.inc ]
   %i.083 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %8, i64 %i.083
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %8, i64 %i.083
   %9 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %if.else64, label %if.then14
@@ -1169,7 +1169,7 @@ _ZN2EA4StdC8Callback4CallEmm.exit:                ; preds = %if.then20, %if.then
   br i1 %cmp25, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %_ZN2EA4StdC8Callback4CallEmm.exit
-  %arrayidx.i71 = getelementptr inbounds ptr, ptr %16, i64 %i.083
+  %arrayidx.i71 = getelementptr inbounds [8 x i8], ptr %16, i64 %i.083
   %18 = load ptr, ptr %arrayidx.i71, align 8
   %cmp28 = icmp eq ptr %18, %9
   br i1 %cmp28, label %if.then29, label %for.inc
@@ -1424,7 +1424,7 @@ for.body.preheader:                               ; preds = %if.then
 for.body:                                         ; preds = %for.body.preheader, %if.else
   %found_empty.039 = phi i64 [ %spec.select, %if.else ], [ 4294967295, %for.body.preheader ]
   %i.038 = phi i64 [ %inc, %if.else ], [ 0, %for.body.preheader ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %i.038
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %2, i64 %i.038
   %3 = load ptr, ptr %arrayidx.i, align 8
   %cmp5 = icmp eq ptr %3, %pCallback
   br i1 %cmp5, label %if.then6, label %if.else
@@ -1486,7 +1486,7 @@ if.end.i:                                         ; preds = %delete.notnull.i, %
   store ptr %call.i, ptr %mCallbackArray, align 8
   %add.ptr17.i = getelementptr inbounds i8, ptr %call.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr17.i, ptr %mpEnd.i, align 8
-  %add.ptr19.i = getelementptr inbounds ptr, ptr %call.i, i64 %cond.i
+  %add.ptr19.i = getelementptr inbounds [8 x i8], ptr %call.i, i64 %cond.i
   store ptr %add.ptr19.i, ptr %mpCapacity.i, align 8
   br label %_ZN2EA4StdC15CallbackManager14CallbackVector9push_backEPNS0_8CallbackE.exit
 
@@ -1499,7 +1499,7 @@ _ZN2EA4StdC15CallbackManager14CallbackVector9push_backEPNS0_8CallbackE.exit: ; p
   br label %if.end20
 
 if.else17:                                        ; preds = %if.then12
-  %arrayidx.i31 = getelementptr inbounds ptr, ptr %2, i64 %found_empty.035
+  %arrayidx.i31 = getelementptr inbounds [8 x i8], ptr %2, i64 %found_empty.035
   store ptr %pCallback, ptr %arrayidx.i31, align 8
   br label %if.end20
 
@@ -1665,7 +1665,7 @@ for.body.preheader:                               ; preds = %if.then3
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %i.012 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %i.012
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %2, i64 %i.012
   %3 = load ptr, ptr %arrayidx.i, align 8
   %cmp7 = icmp eq ptr %3, %pCallback
   br i1 %cmp7, label %if.then16, label %for.inc
@@ -1680,7 +1680,7 @@ if.end12.thread:                                  ; preds = %for.inc, %if.then3,
   br label %if.end17
 
 if.then16:                                        ; preds = %for.body
-  %arrayidx.i.le = getelementptr inbounds ptr, ptr %2, i64 %i.012
+  %arrayidx.i.le = getelementptr inbounds [8 x i8], ptr %2, i64 %i.012
   store ptr null, ptr %arrayidx.i.le, align 8
   %call14 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mMutex)
   %mbStarted.i = getelementptr inbounds nuw i8, ptr %pCallback, i64 52

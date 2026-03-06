@@ -168,7 +168,7 @@ define internal fastcc void @_run_report(i32 noundef range(i32 0, 3) %0, i32 nou
 40:                                               ; preds = %.loopexit.i, %.lr.ph267.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph267.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.0195266.i = phi i32 [ %19, %.lr.ph267.i ], [ %.1196.i, %.loopexit.i ]
-  %41 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @parse_option_end(ptr noundef %42) #12
   %.not209.i = icmp eq i32 %43, 0
@@ -411,7 +411,7 @@ define internal fastcc void @_run_report(i32 noundef range(i32 0, 3) %0, i32 nou
   %.1.i = phi ptr [ %.0261.i, %161 ], [ %169, %163 ]
   %164 = load i8, ptr %.1.i, align 1
   %165 = sext i8 %164 to i64
-  %166 = getelementptr inbounds i16, ptr %162, i64 %165
+  %166 = getelementptr inbounds [2 x i8], ptr %162, i64 %165
   %167 = load i16, ptr %166, align 2
   %168 = and i16 %167, 8192
   %.not231.i = icmp eq i16 %168, 0

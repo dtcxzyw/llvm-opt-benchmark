@@ -222,7 +222,7 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
 42:                                               ; preds = %._crit_edge60, %40, %34
   %43 = phi ptr [ %.pre, %._crit_edge60 ], [ %41, %40 ], [ %.pre61, %34 ]
   %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %indvars.iv
   store ptr %43, ptr %45, align 8
   %46 = load i32, ptr %9, align 4
   %47 = sext i32 %46 to i64
@@ -258,7 +258,7 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
   %indvars.iv56 = phi i64 [ 1, %.lr.ph51.preheader ], [ %indvars.iv.next57, %.lr.ph51 ]
   %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv56
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv56
   call void @slurm_xfree(ptr noundef nonnull %56) #11
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
@@ -349,7 +349,7 @@ define internal void @_set_bsub_options(i32 noundef %0, ptr noundef %1) unnamed_
   %26 = getelementptr i8, ptr %25, i64 -1
   %27 = load i8, ptr %26, align 1
   %28 = sext i8 %27 to i64
-  %29 = getelementptr inbounds i16, ptr %22, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %22, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, 2048
   %.not21 = icmp eq i16 %31, 0
@@ -419,7 +419,7 @@ define internal void @_set_bsub_options(i32 noundef %0, ptr noundef %1) unnamed_
 
 56:                                               ; preds = %._crit_edge
   %57 = sext i32 %54 to i64
-  %58 = getelementptr inbounds ptr, ptr %1, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %1, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef %59) #11
   %61 = load i32, ptr @error_exit, align 4
@@ -724,7 +724,7 @@ _get_pbs_option_value.exit126.i:                  ; preds = %107, %.critedge.i12
   %118 = getelementptr inbounds i8, ptr %99, i64 %117
   %119 = load i8, ptr %118, align 1
   %120 = sext i8 %119 to i64
-  %121 = getelementptr inbounds i32, ptr %115, i64 %120
+  %121 = getelementptr inbounds [4 x i8], ptr %115, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = icmp eq i32 %122, 66
   br i1 %123, label %124, label %125
@@ -852,7 +852,7 @@ _get_pbs_option_value.exit144.i:                  ; preds = %166, %.critedge.i14
   %177 = getelementptr inbounds i8, ptr %158, i64 %176
   %178 = load i8, ptr %177, align 1
   %179 = sext i8 %178 to i64
-  %180 = getelementptr inbounds i32, ptr %174, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %174, i64 %179
   %181 = load i32, ptr %180, align 4
   %182 = icmp eq i32 %181, 66
   br i1 %182, label %183, label %184
@@ -1294,7 +1294,7 @@ _get_pbs_option_value.exit214.i:                  ; preds = %315, %.critedge.i21
   %360 = load ptr, ptr %359, align 8
   %361 = load i8, ptr %323, align 1
   %362 = sext i8 %361 to i64
-  %363 = getelementptr inbounds i16, ptr %360, i64 %362
+  %363 = getelementptr inbounds [2 x i8], ptr %360, i64 %362
   %364 = load i16, ptr %363, align 2
   %365 = zext i16 %364 to i32
   %366 = and i32 %365, 2048
@@ -2061,7 +2061,7 @@ _xlate_pbs_mail_type.exit:                        ; preds = %._crit_edge.i20, %6
 
 676:                                              ; preds = %._crit_edge
   %677 = sext i32 %674 to i64
-  %678 = getelementptr inbounds ptr, ptr %1, i64 %677
+  %678 = getelementptr inbounds [8 x i8], ptr %1, i64 %677
   %679 = load ptr, ptr %678, align 8
   %680 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22, ptr noundef %679) #11
   %681 = load i32, ptr @error_exit, align 4

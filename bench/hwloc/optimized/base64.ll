@@ -184,7 +184,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) 
   %10 = tail call ptr @__ctype_b_loc() #5
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %12 = sext i8 %7 to i64
-  %13 = getelementptr inbounds i16, ptr %11, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !12
   %15 = and i16 %14, 8192
   %.not73 = icmp eq i16 %15, 0
@@ -325,7 +325,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) 
   %.1120 = phi i32 [ %79, %76 ], [ %71, %.preheader ]
   %.262119 = phi ptr [ %77, %76 ], [ %69, %.preheader ]
   %72 = sext i32 %.1120 to i64
-  %73 = getelementptr inbounds i16, ptr %11, i64 %72
+  %73 = getelementptr inbounds [2 x i8], ptr %11, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !12
   %75 = and i16 %74, 8192
   %.not85 = icmp eq i16 %75, 0
@@ -358,7 +358,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) 
   %.2123 = phi i32 [ %93, %90 ], [ %.055, %85 ]
   %.3122 = phi ptr [ %91, %90 ], [ %.161, %85 ]
   %86 = sext i32 %.2123 to i64
-  %87 = getelementptr inbounds i16, ptr %11, i64 %86
+  %87 = getelementptr inbounds [2 x i8], ptr %11, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !12
   %89 = and i16 %88, 8192
   %.not90 = icmp eq i16 %89, 0

@@ -72,13 +72,13 @@ define range(i32 -1, 2) i32 @Abc_NtkMfsSolveSat_iter(ptr noundef captures(none) 
 31:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
   %.044 = phi i32 [ 0, %.lr.ph ], [ %.1, %44 ]
-  %32 = getelementptr inbounds nuw i32, ptr %.val38, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.val38, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !42
   %34 = shl nsw i32 %33, 1
-  %35 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %34, ptr %35, align 4, !tbaa !42
   %36 = sext i32 %33 to i64
-  %37 = getelementptr inbounds i32, ptr %.val39, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.val39, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !42
   %.not40 = icmp eq i32 %38, 1
   br i1 %.not40, label %39, label %44
@@ -104,13 +104,13 @@ define range(i32 -1, 2) i32 @Abc_NtkMfsSolveSat_iter(ptr noundef captures(none) 
   %48 = shl nuw i32 1, %47
   %49 = ashr i32 %.0.lcssa, 5
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i32, ptr %46, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %46, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !42
   %53 = or i32 %52, %48
   store i32 %53, ptr %51, align 4, !tbaa !42
   %.val37 = load i32, ptr %26, align 4, !tbaa !38
   %54 = sext i32 %.val37 to i64
-  %55 = getelementptr inbounds i32, ptr %2, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %2, i64 %54
   %56 = call i32 @sat_solver_addclause(ptr noundef %.pre47, ptr noundef nonnull %2, ptr noundef nonnull %55) #8
   %57 = icmp ne i32 %56, 0
   %. = zext i1 %57 to i32
@@ -161,7 +161,7 @@ define range(i32 0, 2) i32 @Abc_NtkMfsSolveSat(ptr noundef %0, ptr noundef reado
   %19 = phi ptr [ %12, %.lr.ph ], [ %65, %Vec_IntPush.exit ]
   %20 = getelementptr i8, ptr %19, i64 8
   %.val59 = load ptr, ptr %20, align 8, !tbaa !59
-  %21 = getelementptr inbounds ptr, ptr %.val59, i64 %indvars.iv
+  %21 = getelementptr inbounds [8 x i8], ptr %.val59, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !60
   %23 = load ptr, ptr %3, align 8, !tbaa !37
   %24 = load ptr, ptr %16, align 8, !tbaa !61
@@ -170,7 +170,7 @@ define range(i32 0, 2) i32 @Abc_NtkMfsSolveSat(ptr noundef %0, ptr noundef reado
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %28 = load i32, ptr %27, align 4, !tbaa !64
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %26, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %26, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !42
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !38
@@ -236,7 +236,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %32, align 4, !tbaa !38
   %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds i32, ptr %58, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %58, i64 %61
   store i32 %31, ptr %62, align 4, !tbaa !42
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %63 = load ptr, ptr %6, align 8, !tbaa !45
@@ -432,9 +432,9 @@ define range(i32 0, 2) i32 @Abc_NtkAddOneHotness(ptr noundef captures(none) %0) 
   %24 = phi ptr [ %20, %17 ], [ %.pre, %14 ]
   %25 = getelementptr i8, ptr %24, i64 8
   %.val21.val = load ptr, ptr %25, align 8, !tbaa !59
-  %26 = getelementptr inbounds nuw ptr, ptr %.val21.val, i64 %indvars.iv32
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.val21.val, i64 %indvars.iv32
   %27 = load ptr, ptr %26, align 8, !tbaa !60
-  %28 = getelementptr inbounds nuw ptr, ptr %.val21.val, i64 %indvars.iv29
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.val21.val, i64 %indvars.iv29
   %29 = load ptr, ptr %28, align 8, !tbaa !60
   %30 = load ptr, ptr %9, align 8, !tbaa !61
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -442,7 +442,7 @@ define range(i32 0, 2) i32 @Abc_NtkAddOneHotness(ptr noundef captures(none) %0) 
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 36
   %34 = load i32, ptr %33, align 4, !tbaa !64
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i32, ptr %32, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %32, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !42
   %38 = shl nsw i32 %37, 1
   %39 = or disjoint i32 %38, 1
@@ -450,7 +450,7 @@ define range(i32 0, 2) i32 @Abc_NtkAddOneHotness(ptr noundef captures(none) %0) 
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 36
   %41 = load i32, ptr %40, align 4, !tbaa !64
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %32, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %32, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !42
   %45 = shl nsw i32 %44, 1
   %46 = or disjoint i32 %45, 1

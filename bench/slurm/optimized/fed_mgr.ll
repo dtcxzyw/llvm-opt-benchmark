@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dep_update_origin_msg_t = type { ptr, i32 }
 %struct.timespec = type { i64, i64 }
 %struct.ctld_list_msg_t = type { ptr }
-%struct.job_info = type { ptr, i64, ptr, ptr, i32, ptr, i32, i32, i32, ptr, i32, ptr, i16, ptr, i64, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i16, i16, double, i16, i32, i32, i32, ptr, ptr, i64, i32, ptr, i32, i64, i64, ptr, ptr, i32, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i32, ptr, ptr, i32, i32, ptr, i32, i32, ptr, ptr, i32, i64, ptr, i16, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, i16, i16, i16, i16, i16, i32, i32, i32, i16, ptr, ptr, i64, i16, i32, i64, i64, i64, i32, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i16, i64, i16, ptr, ptr, ptr, ptr, i16, i32, i16, i16, i64, i16, ptr, i32, ptr, ptr, ptr, i16, i64, i64, ptr, i32, i32, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr }
 %struct.slurmdb_cluster_cond_t = type { i16, ptr, ptr, i32, ptr, ptr, i64, i64, i16, i16 }
 %struct.slurmdb_cluster_rec = type { ptr, i16, i64, %struct.sockaddr_storage, ptr, i32, i16, ptr, i16, %struct.slurmdb_cluster_fed_t, i32, %union.pthread_mutex_t, ptr, ptr, ptr, i16, ptr, ptr }
 %struct.slurmdb_cluster_fed_t = type { ptr, i32, ptr, ptr, ptr, i32, i8, i8 }
@@ -3676,7 +3675,7 @@ define dso_local i32 @fed_mgr_state_save() local_unnamed_addr #0 {
 
 30:                                               ; preds = %30, %.lr.ph.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i.i
   %32 = load i32, ptr %31, align 4
   tail call void @pack32(i32 noundef %32, ptr noundef %5) #16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -3685,7 +3684,7 @@ define dso_local i32 @fed_mgr_state_save() local_unnamed_addr #0 {
 
 33:                                               ; preds = %33, %.preheader.i.i
   %indvars.iv23.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next24.i.i, %33 ]
-  %34 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv23.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv23.i.i
   %35 = load i64, ptr %34, align 8
   tail call void @pack_time(i64 noundef %35, ptr noundef %5) #16
   %indvars.iv.next24.i.i = add nuw nsw i64 %indvars.iv23.i.i, 1
@@ -4219,14 +4218,14 @@ _persist_update_job.exit:                         ; preds = %51, %60
 66:                                               ; preds = %_persist_update_job.exit
   %67 = load i32, ptr %45, align 8
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %38, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, 1
   store i32 %71, ptr %69, align 4
   %72 = call i64 @time(ptr noundef null) #16
   %73 = load i32, ptr %45, align 8
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw i64, ptr %39, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %74
   store i64 %72, ptr %75, align 8
   br label %.backedge
 
@@ -5859,13 +5858,13 @@ _find_fed_job_info.exit:                          ; preds = %14
 
 25:                                               ; preds = %55, %19
   %indvars.iv.i = phi i64 [ 1, %19 ], [ %indvars.iv.next.i, %55 ]
-  %26 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4
   %.not.i32 = icmp eq i32 %27, 0
   br i1 %.not.i32, label %55, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i
   %30 = load i64, ptr %29, align 8
   %31 = icmp sgt i64 %30, %23
   br i1 %31, label %32, label %42
@@ -9111,7 +9110,7 @@ define dso_local noundef i32 @fed_mgr_q_sib_msg(ptr noundef readonly captures(no
 
 switch.lookup:                                    ; preds = %10
   %14 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._fed_job_update_thread, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._fed_job_update_thread, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_job_update_type_str.exit
 
@@ -10435,7 +10434,7 @@ define internal noalias noundef ptr @_fed_job_update_thread(ptr readnone capture
 
 switch.lookup:                                    ; preds = %86
   %92 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._fed_job_update_thread, i64 %92
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._fed_job_update_thread, i64 %92
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_job_update_type_str.exit.i
 
@@ -11223,7 +11222,7 @@ fed_mgr_is_origin_job.exit.thread.i.i.i.i:        ; preds = %440, %fed_mgr_is_or
 
 448:                                              ; preds = %447, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %447 ]
-  %449 = getelementptr inbounds nuw %struct.job_info, ptr %445, i64 %indvars.iv.i.i.i.i
+  %449 = getelementptr inbounds nuw [968 x i8], ptr %445, i64 %indvars.iv.i.i.i.i
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 412
   %451 = load i32, ptr %450, align 4
   %452 = icmp eq i32 %446, %451
@@ -11923,7 +11922,7 @@ fed_mgr_get_cluster_by_name.exit.thread.i52.i:    ; preds = %fed_mgr_get_cluster
   %772 = getelementptr inbounds nuw i8, ptr %765, i64 192
   %773 = load i32, ptr %772, align 8
   %774 = zext i32 %773 to i64
-  %775 = getelementptr inbounds nuw i32, ptr %771, i64 %774
+  %775 = getelementptr inbounds nuw [4 x i8], ptr %771, i64 %774
   %776 = load i32, ptr %775, align 4
   %.not24.i50.i = icmp eq i32 %776, 0
   br i1 %.not24.i50.i, label %779, label %777
@@ -13671,7 +13670,7 @@ define internal fastcc ptr @_load_fed_job_list(ptr noundef nonnull %0, i16 nound
 
 28:                                               ; preds = %26, %.preheader24.i
   %indvars.iv.i = phi i64 [ 0, %.preheader24.i ], [ %indvars.iv.next.i, %26 ]
-  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv.i
   %30 = call i32 @unpack32(ptr noundef nonnull %29, ptr noundef nonnull %0) #16
   %.not22.i = icmp eq i32 %30, 0
   br i1 %.not22.i, label %26, label %.loopexit
@@ -13683,7 +13682,7 @@ define internal fastcc ptr @_load_fed_job_list(ptr noundef nonnull %0, i16 nound
 
 32:                                               ; preds = %31, %.preheader.i
   %indvars.iv30.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next31.i, %31 ]
-  %33 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv30.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv30.i
   %34 = call i32 @unpack_time(ptr noundef nonnull %33, ptr noundef nonnull %0) #16
   %.not21.i = icmp eq i32 %34, 0
   br i1 %.not21.i, label %31, label %.loopexit

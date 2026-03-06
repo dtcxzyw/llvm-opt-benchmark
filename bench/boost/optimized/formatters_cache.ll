@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_70::UObject" = type { ptr }
 %"union.icu_70::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"class.boost::thread_specific_ptr" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.12 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.12 = type { i64, [8 x i8] }
@@ -141,13 +140,13 @@ define hidden void @_ZN5boost6locale8impl_icu16formatters_cacheC2ERKN6icu_706Loc
 
 .preheader146:                                    ; preds = %15, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit ], [ 0, %15 ]
-  %26 = getelementptr inbounds nuw i32, ptr @__const.formatters_cache.styles, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr @__const.formatters_cache.styles, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !16
   %28 = invoke noundef ptr @_ZN6icu_7010DateFormat18createDateInstanceENS0_6EStyleERKNS_6LocaleE(i32 noundef %27, ptr noundef nonnull align 8 dereferenceable(217) %1)
           to label %29 unwind label %61
 
 29:                                               ; preds = %.preheader146
-  %30 = getelementptr inbounds nuw %"class.icu_70::UnicodeString", ptr %.ptr51, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [64 x i8], ptr %.ptr51, i64 %indvars.iv
   %31 = icmp eq ptr %28, null
   br i1 %31, label %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternESt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS5_EERNS4_13UnicodeStringE.exit.thread9.i, label %36
 
@@ -227,13 +226,13 @@ _ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatER
 
 .preheader145:                                    ; preds = %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit118
   %indvars.iv159 = phi i64 [ %indvars.iv.next160, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit118 ], [ 0, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit ]
-  %63 = getelementptr inbounds nuw i32, ptr @__const.formatters_cache.styles, i64 %indvars.iv159
+  %63 = getelementptr inbounds nuw [4 x i8], ptr @__const.formatters_cache.styles, i64 %indvars.iv159
   %64 = load i32, ptr %63, align 4, !tbaa !16
   %65 = invoke noundef ptr @_ZN6icu_7010DateFormat18createTimeInstanceENS0_6EStyleERKNS_6LocaleE(i32 noundef %64, ptr noundef nonnull align 8 dereferenceable(217) %1)
           to label %66 unwind label %98
 
 66:                                               ; preds = %.preheader145
-  %67 = getelementptr inbounds nuw %"class.icu_70::UnicodeString", ptr %.ptr60, i64 %indvars.iv159
+  %67 = getelementptr inbounds nuw [64 x i8], ptr %.ptr60, i64 %indvars.iv159
   %68 = icmp eq ptr %65, null
   br i1 %68, label %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternESt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS5_EERNS4_13UnicodeStringE.exit.thread9.i113, label %73
 
@@ -313,9 +312,9 @@ _ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatER
 
 .preheader143:                                    ; preds = %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit118, %110
   %indvars.iv167 = phi i64 [ %indvars.iv.next168, %110 ], [ 0, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit118 ]
-  %100 = getelementptr inbounds nuw i32, ptr @__const.formatters_cache.styles, i64 %indvars.iv167
+  %100 = getelementptr inbounds nuw [4 x i8], ptr @__const.formatters_cache.styles, i64 %indvars.iv167
   %101 = load i32, ptr %100, align 4, !tbaa !16
-  %102 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %.ptr69, i64 %indvars.iv167
+  %102 = getelementptr inbounds nuw [256 x i8], ptr %.ptr69, i64 %indvars.iv167
   br label %111
 
 103:                                              ; preds = %110
@@ -341,13 +340,13 @@ _ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatER
 
 111:                                              ; preds = %.preheader143, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit134
   %indvars.iv163 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next164, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit134 ]
-  %112 = getelementptr inbounds nuw i32, ptr @__const.formatters_cache.styles, i64 %indvars.iv163
+  %112 = getelementptr inbounds nuw [4 x i8], ptr @__const.formatters_cache.styles, i64 %indvars.iv163
   %113 = load i32, ptr %112, align 4, !tbaa !16
   %114 = invoke noundef ptr @_ZN6icu_7010DateFormat22createDateTimeInstanceENS0_6EStyleES1_RKNS_6LocaleE(i32 noundef %101, i32 noundef %113, ptr noundef nonnull align 8 dereferenceable(217) %1)
           to label %115 unwind label %147
 
 115:                                              ; preds = %111
-  %116 = getelementptr inbounds nuw %"class.icu_70::UnicodeString", ptr %102, i64 %indvars.iv163
+  %116 = getelementptr inbounds nuw [64 x i8], ptr %102, i64 %indvars.iv163
   %117 = icmp eq ptr %114, null
   br i1 %117, label %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternESt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS5_EERNS4_13UnicodeStringE.exit.thread9.i129, label %122
 
@@ -714,7 +713,7 @@ define hidden noundef nonnull align 8 dereferenceable(356) ptr @_ZNK5boost6local
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %"class.boost::thread_specific_ptr", ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = tail call noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %18

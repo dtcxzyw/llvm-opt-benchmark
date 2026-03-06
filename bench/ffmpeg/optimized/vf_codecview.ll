@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVFilterPad = type { ptr, i32, i32, %union.anon, ptr, ptr, ptr }
 %union.anon = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.AVMotionVector = type { i32, i8, i8, i16, i16, i16, i16, i64, i32, i32, i16 }
 
 @.str = private unnamed_addr constant [10 x i8] c"codecview\00", align 1
 @.str.1 = private unnamed_addr constant [41 x i8] c"Visualize information about some codecs.\00", align 1
@@ -331,7 +330,7 @@ draw_block_rectangle.exit:                        ; preds = %111, %.preheader.i
 
 166:                                              ; preds = %.lr.ph, %230
   %indvars.iv163 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next164, %230 ]
-  %167 = getelementptr inbounds nuw %struct.AVMotionVector, ptr %130, i64 %indvars.iv163
+  %167 = getelementptr inbounds nuw [40 x i8], ptr %130, i64 %indvars.iv163
   %168 = load i32, ptr %167, align 8, !tbaa !70
   %169 = icmp sgt i32 %168, 0
   %170 = zext i1 %169 to i32

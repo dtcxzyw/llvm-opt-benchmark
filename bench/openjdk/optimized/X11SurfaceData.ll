@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.X11GraphicsConfigIDs = type { ptr, ptr }
 %struct.XWindowAttributes = type { i32, i32, i32, i32, i32, i32, ptr, i64, i32, i32, i32, i32, i64, i64, i32, i64, i32, i32, i64, i64, i64, i32, ptr }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 %struct.XRectangle = type { i16, i16, i16, i16 }
 
 @useMitShmExt = hidden global i32 0, align 4
@@ -1215,7 +1214,7 @@ X11SD_DisposeOrCacheXImage.exit.i:                ; preds = %137
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 32
   %179 = load i32, ptr %178, align 8
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds %struct.Screen, ptr %176, i64 %180
+  %181 = getelementptr inbounds [128 x i8], ptr %176, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 24
   %183 = load i32, ptr %182, align 8
   %184 = add nsw i32 %183, %173
@@ -2596,7 +2595,7 @@ define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load i32, ptr %197, align 8
   %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds %struct.Screen, ptr %195, i64 %199
+  %200 = getelementptr inbounds [128 x i8], ptr %195, i64 %199
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %202 = load i64, ptr %201, align 8
   %203 = tail call i64 @XCreatePixmap(ptr noundef %193, i64 noundef %202, i32 noundef %3, i32 noundef %4, i32 noundef %2) #18
@@ -2707,7 +2706,7 @@ define hidden i64 @X11SD_CreateSharedPixmap(ptr noundef captures(none) %0) local
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.Screen, ptr %21, i64 %26
+  %27 = getelementptr inbounds [128 x i8], ptr %21, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -3184,7 +3183,7 @@ define hidden void @X11SD_UnPuntPixmap(ptr noundef captures(none) %0) local_unna
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.Screen, ptr %21, i64 %26
+  %27 = getelementptr inbounds [128 x i8], ptr %21, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 152

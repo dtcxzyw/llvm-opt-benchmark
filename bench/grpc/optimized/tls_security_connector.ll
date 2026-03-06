@@ -80,19 +80,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%struct.tsi_peer_property = type { ptr, %struct.anon.154 }
-%struct.anon.154 = type { ptr, i64 }
 %"class.absl::lts_20240722::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::vector.105" = type { %"struct.std::_Vector_base.106" }
 %"struct.std::_Vector_base.106" = type { %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl" }
 %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl" = type { %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::PemKeyCertPair" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%struct.tsi_ssl_pem_key_cert_pair = type { ptr, ptr }
 %"class.grpc_core::RefCountedPtr.110" = type { ptr }
 %"class.grpc_core::RefCountedPtr.111" = type { ptr }
 %"class.grpc_core::RefCountedPtr.112" = type { ptr }
-%struct.grpc_auth_property = type { ptr, ptr, i64 }
 %"class.grpc_core::Poll" = type { i8, %union.anon.200 }
 %union.anon.200 = type { %"class.absl::lts_20240722::Status" }
 
@@ -4062,7 +4057,7 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_126PendingVerifierRequest
   %.sroa.0150.0426 = phi ptr [ null, %.lr.ph ], [ %.sroa.0150.1, %_ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit ]
   %.sroa.16171.0425 = phi ptr [ null, %.lr.ph ], [ %.sroa.16171.1, %_ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit ]
   %.sroa.11168.0424 = phi ptr [ null, %.lr.ph ], [ %.sroa.11168.1, %_ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit ]
-  %11 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %1, i64 %.058440
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %.058440
   %12 = load ptr, ptr %11, align 8, !tbaa !194
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit, label %14
@@ -4208,7 +4203,7 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %81, %
   br label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
 
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %83, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
-  %84 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   br label %_ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit
 
 .loopexit235:                                     ; preds = %55, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i
@@ -4295,7 +4290,7 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i87: ; preds = %114
   br label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i89
 
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i89: ; preds = %116, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i87
-  %117 = getelementptr inbounds nuw ptr, ptr %111, i64 %109
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %109
   br label %_ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit
 
 .loopexit230:                                     ; preds = %88, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i84
@@ -4381,7 +4376,7 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i99: ; preds = %147
   br label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i101
 
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i101: ; preds = %149, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i99
-  %150 = getelementptr inbounds nuw ptr, ptr %144, i64 %142
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %142
   br label %_ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit
 
 .loopexit225:                                     ; preds = %121, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i96
@@ -4467,7 +4462,7 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i111: ; preds = %18
   br label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i113
 
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i113: ; preds = %182, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i111
-  %183 = getelementptr inbounds nuw ptr, ptr %177, i64 %175
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %175
   br label %_ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit
 
 .loopexit224:                                     ; preds = %154, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit.i.i108
@@ -4603,9 +4598,9 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit: ; preds = %163, %_Z
 
 .lr.ph458:                                        ; preds = %.lr.ph458.preheader, %.lr.ph458
   %.056456 = phi i64 [ %224, %.lr.ph458 ], [ 0, %.lr.ph458.preheader ]
-  %221 = getelementptr inbounds nuw ptr, ptr %.sroa.0174.0.lcssa592604650654, i64 %.056456
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0174.0.lcssa592604650654, i64 %.056456
   %222 = load ptr, ptr %221, align 8, !tbaa !3
-  %223 = getelementptr inbounds nuw ptr, ptr %217, i64 %.056456
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %.056456
   store ptr %222, ptr %223, align 8, !tbaa !3
   %224 = add nuw i64 %.056456, 1
   %exitcond540.not = icmp eq i64 %224, %211
@@ -4639,9 +4634,9 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit: ; preds = %163, %_Z
 
 .lr.ph461:                                        ; preds = %.lr.ph461.preheader, %.lr.ph461
   %.055459 = phi i64 [ %241, %.lr.ph461 ], [ 0, %.lr.ph461.preheader ]
-  %238 = getelementptr inbounds nuw ptr, ptr %.sroa.0162.0.lcssa586610644660, i64 %.055459
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0162.0.lcssa586610644660, i64 %.055459
   %239 = load ptr, ptr %238, align 8, !tbaa !3
-  %240 = getelementptr inbounds nuw ptr, ptr %236, i64 %.055459
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %.055459
   store ptr %239, ptr %240, align 8, !tbaa !3
   %241 = add nuw i64 %.055459, 1
   %exitcond542.not = icmp eq i64 %241, %230
@@ -4675,9 +4670,9 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit: ; preds = %163, %_Z
 
 .lr.ph464:                                        ; preds = %.lr.ph464.preheader, %.lr.ph464
   %.054462 = phi i64 [ %258, %.lr.ph464 ], [ 0, %.lr.ph464.preheader ]
-  %255 = getelementptr inbounds nuw ptr, ptr %.sroa.0150.0.lcssa574622632672, i64 %.054462
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0150.0.lcssa574622632672, i64 %.054462
   %256 = load ptr, ptr %255, align 8, !tbaa !3
-  %257 = getelementptr inbounds nuw ptr, ptr %253, i64 %.054462
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %253, i64 %.054462
   store ptr %256, ptr %257, align 8, !tbaa !3
   %258 = add nuw i64 %.054462, 1
   %exitcond544.not = icmp eq i64 %258, %247
@@ -4711,9 +4706,9 @@ _ZNSt6vectorIPcSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_.exit: ; preds = %163, %_Z
 
 .lr.ph467:                                        ; preds = %.lr.ph467.preheader, %.lr.ph467
   %.0465 = phi i64 [ %275, %.lr.ph467 ], [ 0, %.lr.ph467.preheader ]
-  %272 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.lcssa580616638666, i64 %.0465
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.lcssa580616638666, i64 %.0465
   %273 = load ptr, ptr %272, align 8, !tbaa !3
-  %274 = getelementptr inbounds nuw ptr, ptr %270, i64 %.0465
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %.0465
   store ptr %273, ptr %274, align 8, !tbaa !3
   %275 = add nuw i64 %.0465, 1
   %exitcond546.not = icmp eq i64 %275, %264
@@ -4885,7 +4880,7 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_129PendingVerifierRequest
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.01548 = phi i64 [ %14, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %11 = load ptr, ptr %8, align 8, !tbaa !204
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.01548
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.01548
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   tail call void @gpr_free(ptr noundef %13)
   %14 = add nuw i64 %.01548, 1
@@ -4916,7 +4911,7 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_129PendingVerifierRequest
 25:                                               ; preds = %.lr.ph50, %25
   %.01449 = phi i64 [ 0, %.lr.ph50 ], [ %29, %25 ]
   %26 = load ptr, ptr %21, align 8, !tbaa !207
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %.01449
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.01449
   %28 = load ptr, ptr %27, align 8, !tbaa !3
   tail call void @gpr_free(ptr noundef %28)
   %29 = add nuw i64 %.01449, 1
@@ -4947,7 +4942,7 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_129PendingVerifierRequest
 40:                                               ; preds = %.lr.ph53, %40
   %.01352 = phi i64 [ 0, %.lr.ph53 ], [ %44, %40 ]
   %41 = load ptr, ptr %36, align 8, !tbaa !210
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %.01352
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.01352
   %43 = load ptr, ptr %42, align 8, !tbaa !3
   tail call void @gpr_free(ptr noundef %43)
   %44 = add nuw i64 %.01352, 1
@@ -4978,7 +4973,7 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_129PendingVerifierRequest
 55:                                               ; preds = %.lr.ph56, %55
   %.055 = phi i64 [ 0, %.lr.ph56 ], [ %59, %55 ]
   %56 = load ptr, ptr %51, align 8, !tbaa !213
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %.055
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.055
   %58 = load ptr, ptr %57, align 8, !tbaa !3
   tail call void @gpr_free(ptr noundef %58)
   %59 = add nuw i64 %.055, 1
@@ -5521,7 +5516,7 @@ define internal fastcc noundef ptr @_ZN9grpc_core12_GLOBAL__N_126ConvertToTsiPem
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge34
   %.02841 = phi i64 [ %39, %.critedge34 ], [ 0, %.lr.ph.preheader ]
   %20 = load ptr, ptr %0, align 8, !tbaa !116
-  %21 = getelementptr inbounds nuw %"class.grpc_core::PemKeyCertPair", ptr %20, i64 %.02841
+  %21 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %.02841
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !72
   %24 = icmp eq i64 %23, 0
@@ -5549,11 +5544,11 @@ define internal fastcc noundef ptr @_ZN9grpc_core12_GLOBAL__N_126ConvertToTsiPem
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !75
   %32 = tail call ptr @gpr_strdup(ptr noundef %31)
-  %33 = getelementptr inbounds nuw %struct.tsi_ssl_pem_key_cert_pair, ptr %19, i64 %.02841
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %.02841
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %32, ptr %34, align 8, !tbaa !228
   %35 = load ptr, ptr %0, align 8, !tbaa !116
-  %36 = getelementptr inbounds nuw %"class.grpc_core::PemKeyCertPair", ptr %35, i64 %.02841
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 %.02841
   %37 = load ptr, ptr %36, align 8, !tbaa !75
   %38 = tail call ptr @gpr_strdup(ptr noundef %37)
   store ptr %38, ptr %33, align 8, !tbaa !230
@@ -8915,7 +8910,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !281
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !279
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !282
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -9264,7 +9259,7 @@ _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextE5resetERKNS_13DebugLocationEPKc
 .lr.ph:                                           ; preds = %.preheader, %15
   %.06 = phi i64 [ %16, %15 ], [ 0, %.preheader ]
   %13 = load ptr, ptr %8, align 8, !tbaa !287
-  %14 = getelementptr inbounds nuw %struct.grpc_auth_property, ptr %13, i64 %.06
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.06
   invoke void @_Z24grpc_auth_property_resetP18grpc_auth_property(ptr noundef %14)
           to label %15 unwind label %.loopexit
 

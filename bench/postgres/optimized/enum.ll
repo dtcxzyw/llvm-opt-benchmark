@@ -684,7 +684,7 @@ define internal fastcc ptr @enum_range_internal(i32 noundef range(i32 1, 0) %0, 
   %29 = zext i32 %18 to i64
   %30 = add i32 %.034.us54, 1
   %31 = sext i32 %.034.us54 to i64
-  %32 = getelementptr inbounds i64, ptr %.3.us, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.3.us, i64 %31
   store i64 %29, ptr %32, align 8
   br label %33
 
@@ -738,7 +738,7 @@ define internal fastcc ptr @enum_range_internal(i32 noundef range(i32 1, 0) %0, 
   %53 = zext i32 %42 to i64
   %54 = add i32 %.034, 1
   %55 = sext i32 %.034 to i64
-  %56 = getelementptr inbounds i64, ptr %.3, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %.3, i64 %55
   store i64 %53, ptr %56, align 8
   br label %57
 

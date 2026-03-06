@@ -681,7 +681,7 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   %112 = shl nuw i64 1, %111
   %113 = lshr i32 %100, 6
   %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds nuw i64, ptr %15, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %114
   %116 = add nuw nsw i32 %100, 1
   br label %117
 

@@ -382,7 +382,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 .noexc62.i:                                       ; preds = %85, %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i.i
   store ptr %79, ptr %16, align 8
   store ptr %84, ptr %44, align 8
-  %99 = getelementptr inbounds nuw %"class.open_spiel::solitaire::Move", ptr %79, i64 %77
+  %99 = getelementptr inbounds nuw [40 x i8], ptr %79, i64 %77
   store ptr %99, ptr %45, align 8
   br label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJRNS1_4CardERKS6_EEERS2_DpOT_.exit.i
 
@@ -675,7 +675,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 .noexc83.i:                                       ; preds = %169, %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i124.i
   store ptr %163, ptr %16, align 8
   store ptr %168, ptr %44, align 8
-  %183 = getelementptr inbounds nuw %"class.open_spiel::solitaire::Move", ptr %163, i64 %161
+  %183 = getelementptr inbounds nuw [40 x i8], ptr %163, i64 %161
   store ptr %183, ptr %45, align 8
   br label %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE12emplace_backIJRNS1_4CardERKS6_EEERS2_DpOT_.exit84.i
 
@@ -1457,7 +1457,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt12_Vector_baseIN10open_spiel9solitaire4MoveESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, %35
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i34, ptr %7, align 8
-  %39 = getelementptr inbounds nuw %"class.open_spiel::solitaire::Move", ptr %23, i64 %19
+  %39 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %19
   store ptr %39, ptr %34, align 8
   ret void
 
@@ -1572,7 +1572,7 @@ _ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt12_Vector_baseIN10open_spiel9solitaire4MoveESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel9solitaire4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, %35
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i34, ptr %7, align 8
-  %39 = getelementptr inbounds nuw %"class.open_spiel::solitaire::Move", ptr %23, i64 %19
+  %39 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %19
   store ptr %39, ptr %34, align 8
   ret void
 

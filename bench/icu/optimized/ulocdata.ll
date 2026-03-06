@@ -585,7 +585,7 @@ define ptr @ulocdata_getExemplarSet_77(ptr noundef readonly captures(none) %0, p
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   %13 = zext i32 %3 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr @_ZZ26ulocdata_getExemplarSet_77E16exemplarSetTypes, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @_ZZ26ulocdata_getExemplarSet_77E16exemplarSetTypes, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = call ptr @ures_getStringByKey_77(ptr noundef %12, ptr noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %17 = load i32, ptr %7, align 4, !tbaa !13
@@ -695,7 +695,7 @@ define i32 @ulocdata_getDelimiter_77(ptr noundef readonly captures(none) %0, i32
 
 23:                                               ; preds = %19
   %24 = zext i32 %1 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr @_ZZ24ulocdata_getDelimiter_77E13delimiterKeys, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @_ZZ24ulocdata_getDelimiter_77E13delimiterKeys, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !20
   %27 = call ptr @ures_getStringByKeyWithFallback_77(ptr noundef %13, ptr noundef %26, ptr noundef nonnull %6, ptr noundef nonnull %7)
   call void @ures_close_77(ptr noundef %13)
@@ -1154,7 +1154,7 @@ define i32 @ulocdata_getLocaleSeparator_77(ptr noundef readonly captures(none) %
   %49 = call ptr @u_strncpy_77(ptr noundef %1, ptr noundef nonnull %41, i32 noundef %46)
   %50 = load i32, ptr %5, align 4, !tbaa !12
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i16, ptr %1, i64 %51
+  %52 = getelementptr inbounds [2 x i8], ptr %1, i64 %51
   store i16 0, ptr %52, align 2, !tbaa !21
   br label %56
 

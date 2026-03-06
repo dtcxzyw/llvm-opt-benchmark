@@ -1477,7 +1477,7 @@ define ptr @stbhw__choose_tile(ptr noundef readonly captures(none) %0, i32 nound
 .lr.ph.split.us82:                                ; preds = %.preheader.us, %64
   %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.preheader.us ]
   %.05170.us75 = phi i32 [ %.354.ph.us79, %64 ], [ 0, %.preheader.us ]
-  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !60
   %20 = load i8, ptr %19, align 1, !tbaa !61
   %21 = icmp eq i8 %12, %20
@@ -1543,7 +1543,7 @@ define ptr @stbhw__choose_tile(ptr noundef readonly captures(none) %0, i32 nound
 
 58:                                               ; preds = %57
   %59 = load ptr, ptr %8, align 8, !tbaa !68
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4, !tbaa !32
   br label %62
 
@@ -1572,7 +1572,7 @@ define ptr @stbhw__choose_tile(ptr noundef readonly captures(none) %0, i32 nound
 68:                                               ; preds = %110, %.lr.ph.split.us.us
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %110 ], [ 0, %.lr.ph.split.us.us ]
   %.05170.us.us = phi i32 [ %.354.ph.us.us, %110 ], [ 0, %.lr.ph.split.us.us ]
-  %69 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv94
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv94
   %70 = load ptr, ptr %69, align 8, !tbaa !60
   br i1 %67, label %75, label %71
 
@@ -1631,7 +1631,7 @@ define ptr @stbhw__choose_tile(ptr noundef readonly captures(none) %0, i32 nound
 
 104:                                              ; preds = %103
   %105 = load ptr, ptr %8, align 8, !tbaa !68
-  %106 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv94
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv94
   %107 = load i32, ptr %106, align 4, !tbaa !32
   br label %108
 
@@ -1710,7 +1710,7 @@ define i32 @stbhw__weighted(i32 noundef %0, ptr noundef readonly captures(none) 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01519 = phi i32 [ 0, %.lr.ph.preheader ], [ %6, %.lr.ph ]
-  %4 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !32
   %6 = add nsw i32 %5, %.01519
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1731,7 +1731,7 @@ define i32 @stbhw__weighted(i32 noundef %0, ptr noundef readonly captures(none) 
 .lr.ph24:                                         ; preds = %.lr.ph24.preheader, %15
   %indvars.iv30 = phi i64 [ 0, %.lr.ph24.preheader ], [ %indvars.iv.next31, %15 ]
   %.11621 = phi i32 [ 0, %.lr.ph24.preheader ], [ %13, %15 ]
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv30
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv30
   %12 = load i32, ptr %11, align 4, !tbaa !32
   %13 = add nsw i32 %12, %.11621
   %14 = icmp slt i32 %10, %13
@@ -1776,7 +1776,7 @@ define i32 @stbhw__change_color(i32 noundef %0, i32 noundef %1, ptr noundef read
   br i1 %.not32, label %11, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !32
   %10 = add nsw i32 %9, %.02633
   br label %11
@@ -1802,7 +1802,7 @@ define i32 @stbhw__change_color(i32 noundef %0, i32 noundef %1, ptr noundef read
   br i1 %.not31, label %21, label %16
 
 16:                                               ; preds = %.lr.ph38
-  %17 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv43
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv43
   %18 = load i32, ptr %17, align 4, !tbaa !32
   %19 = add nsw i32 %18, %.235
   %20 = icmp slt i32 %14, %19
@@ -1882,7 +1882,7 @@ define range(i32 0, 2) i32 @stbhw_generate_image(ptr noundef readonly captures(n
   %27 = and i64 %26, 3
   %28 = tail call i32 @rand() #16
   %29 = ashr i32 %28, 4
-  %30 = getelementptr inbounds nuw i32, ptr %19, i64 %27
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %27
   %31 = load i32, ptr %30, align 4, !tbaa !32
   %32 = srem i32 %29, %31
   %33 = trunc i32 %32 to i8
@@ -1907,13 +1907,13 @@ define range(i32 0, 2) i32 @stbhw_generate_image(ptr noundef readonly captures(n
   %37 = sub nsw i64 %indvars.iv, %indvars.iv497
   %38 = add i64 %37, 1
   %39 = and i64 %38, 3
-  %40 = getelementptr inbounds nuw ptr, ptr %1, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !68
   %42 = icmp eq ptr %41, null
   br i1 %42, label %62, label %43
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds nuw i32, ptr %19, i64 %39
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %39
   %45 = load i32, ptr %44, align 4, !tbaa !32
   %46 = icmp eq i32 %45, 1
   br i1 %46, label %62, label %47
@@ -1933,7 +1933,7 @@ define range(i32 0, 2) i32 @stbhw_generate_image(ptr noundef readonly captures(n
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.us, %.lr.ph.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %.lr.ph.i.us ]
   %.01519.i.us = phi i32 [ 0, %.lr.ph.preheader.i.us ], [ %52, %.lr.ph.i.us ]
-  %50 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv.i.us
   %51 = load i32, ptr %50, align 4, !tbaa !32
   %52 = add nsw i32 %51, %.01519.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
@@ -1949,7 +1949,7 @@ define range(i32 0, 2) i32 @stbhw_generate_image(ptr noundef readonly captures(n
 .lr.ph24.i.us:                                    ; preds = %60, %.lr.ph24.preheader.i.us
   %indvars.iv30.i.us = phi i64 [ 0, %.lr.ph24.preheader.i.us ], [ %indvars.iv.next31.i.us, %60 ]
   %.11621.i.us = phi i32 [ 0, %.lr.ph24.preheader.i.us ], [ %58, %60 ]
-  %56 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv30.i.us
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv30.i.us
   %57 = load i32, ptr %56, align 4, !tbaa !32
   %58 = add nsw i32 %57, %.11621.i.us
   %59 = icmp slt i32 %55, %58
@@ -1967,7 +1967,7 @@ define range(i32 0, 2) i32 @stbhw_generate_image(ptr noundef readonly captures(n
 62:                                               ; preds = %43, %36
   %63 = tail call i32 @rand() #16
   %64 = ashr i32 %63, 4
-  %65 = getelementptr inbounds nuw i32, ptr %19, i64 %39
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %39
   %66 = load i32, ptr %65, align 4, !tbaa !32
   %67 = srem i32 %64, %66
   br label %stbhw__weighted.exit.us
@@ -2062,7 +2062,7 @@ stbhw__weighted.exit.us:                          ; preds = %60, %._crit_edge.i.
   %106 = sub nsw i64 %indvars.iv513, %indvars.iv519
   %107 = add i64 %106, 1
   %108 = and i64 %107, 3
-  %109 = getelementptr inbounds nuw i32, ptr %19, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !32
   %111 = icmp sgt i32 %110, 1
   br i1 %111, label %112, label %.thread
@@ -2072,7 +2072,7 @@ stbhw__weighted.exit.us:                          ; preds = %60, %._crit_edge.i.
   br i1 %.not313, label %.thread.us, label %114
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds nuw ptr, ptr %1, i64 %108
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %108
   %116 = load ptr, ptr %115, align 8, !tbaa !68
   %.not.i.us = icmp eq ptr %116, null
   br i1 %.not.i.us, label %.thread.us, label %.lr.ph.preheader.i331.us
@@ -2089,7 +2089,7 @@ stbhw__weighted.exit.us:                          ; preds = %60, %._crit_edge.i.
   br i1 %.not32.i.us, label %122, label %118
 
 118:                                              ; preds = %.lr.ph.i333.us
-  %119 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv.i334.us
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv.i334.us
   %120 = load i32, ptr %119, align 4, !tbaa !32
   %121 = add nsw i32 %120, %.02633.i.us
   br label %122
@@ -2113,7 +2113,7 @@ stbhw__weighted.exit.us:                          ; preds = %60, %._crit_edge.i.
   br i1 %.not31.i.us, label %132, label %126
 
 126:                                              ; preds = %.lr.ph38.i.us
-  %127 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv43.i.us
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv43.i.us
   %128 = load i32, ptr %127, align 4, !tbaa !32
   %129 = add nsw i32 %128, %.235.i.us
   %130 = icmp slt i32 %125, %129
@@ -2195,7 +2195,7 @@ stbhw__weighted.exit.us:                          ; preds = %60, %._crit_edge.i.
 167:                                              ; preds = %163
   %168 = sub i64 %149, %indvars.iv519
   %169 = and i64 %168, 3
-  %170 = getelementptr inbounds nuw i32, ptr %19, i64 %169
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !32
   %172 = icmp sgt i32 %171, 1
   br i1 %172, label %173, label %202
@@ -2205,7 +2205,7 @@ stbhw__weighted.exit.us:                          ; preds = %60, %._crit_edge.i.
   br i1 %.not313, label %.thread418.us, label %175
 
 175:                                              ; preds = %173
-  %176 = getelementptr inbounds nuw ptr, ptr %1, i64 %169
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %169
   %177 = load ptr, ptr %176, align 8, !tbaa !68
   %.not.i338.us = icmp eq ptr %177, null
   br i1 %.not.i338.us, label %.thread418.us, label %.lr.ph.preheader.i342.us
@@ -2222,7 +2222,7 @@ stbhw__weighted.exit.us:                          ; preds = %60, %._crit_edge.i.
   br i1 %.not32.i347.us, label %183, label %179
 
 179:                                              ; preds = %.lr.ph.i344.us
-  %180 = getelementptr inbounds nuw i32, ptr %177, i64 %indvars.iv.i345.us
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %indvars.iv.i345.us
   %181 = load i32, ptr %180, align 4, !tbaa !32
   %182 = add nsw i32 %181, %.02633.i346.us
   br label %183
@@ -2246,7 +2246,7 @@ stbhw__weighted.exit.us:                          ; preds = %60, %._crit_edge.i.
   br i1 %.not31.i356.us, label %193, label %187
 
 187:                                              ; preds = %.lr.ph38.i353.us
-  %188 = getelementptr inbounds nuw i32, ptr %177, i64 %indvars.iv43.i354.us
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %indvars.iv43.i354.us
   %189 = load i32, ptr %188, align 4, !tbaa !32
   %190 = add nsw i32 %189, %.235.i355.us
   %191 = icmp slt i32 %186, %190
@@ -2795,7 +2795,7 @@ define void @stbhw__parse_h_rect(ptr noundef readonly captures(none) %0, i32 nou
   %59 = add nsw i32 %58, 1
   store i32 %59, ptr %57, align 8, !tbaa !83
   %60 = sext i32 %58 to i64
-  %61 = getelementptr inbounds ptr, ptr %56, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %56, i64 %60
   store ptr %18, ptr %61, align 8, !tbaa !60
   ret void
 }
@@ -2889,7 +2889,7 @@ define void @stbhw__parse_v_rect(ptr noundef readonly captures(none) %0, i32 nou
   %59 = add nsw i32 %58, 1
   store i32 %59, ptr %57, align 8, !tbaa !85
   %60 = sext i32 %58 to i64
-  %61 = getelementptr inbounds ptr, ptr %56, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %56, i64 %60
   store ptr %18, ptr %61, align 8, !tbaa !60
   ret void
 }
@@ -2942,7 +2942,7 @@ define range(i32 0, 2) i32 @stbhw_build_tileset_from_image(ptr noundef %0, ptr n
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv61
   %28 = load i8, ptr %27, align 1, !tbaa !58
   %29 = zext i8 %28 to i32
-  %30 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv61
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv61
   store i32 %29, ptr %30, align 4, !tbaa !32
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, 4
@@ -2967,7 +2967,7 @@ define range(i32 0, 2) i32 @stbhw_build_tileset_from_image(ptr noundef %0, ptr n
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv57
   %41 = load i8, ptr %40, align 1, !tbaa !58
   %42 = zext i8 %41 to i32
-  %43 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv57
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv57
   store i32 %42, ptr %43, align 4, !tbaa !32
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 6
@@ -3128,7 +3128,7 @@ define void @stbhw_free_tileset(ptr noundef captures(none) %0) local_unnamed_add
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %5, align 8, !tbaa !82
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !60
   tail call void @free(ptr noundef %13) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3140,7 +3140,7 @@ define void @stbhw_free_tileset(ptr noundef captures(none) %0) local_unnamed_add
 17:                                               ; preds = %.lr.ph20, %17
   %indvars.iv22 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next23, %17 ]
   %18 = load ptr, ptr %9, align 8, !tbaa !84
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv22
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv22
   %20 = load ptr, ptr %19, align 8, !tbaa !60
   tail call void @free(ptr noundef %20) #16
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
@@ -3257,7 +3257,7 @@ define void @stbhw__draw_hline(ptr noundef writeonly captures(none) %0, i32 noun
   %.044 = phi i32 [ %spec.select, %.thread ], [ %12, %27 ]
   %.02643 = phi i32 [ %25, %.thread ], [ %10, %27 ]
   %29 = sext i32 %6 to i64
-  %30 = getelementptr inbounds [8 x [3 x i8]], ptr @stbhw__color, i64 %29
+  %30 = getelementptr inbounds [24 x i8], ptr @stbhw__color, i64 %29
   %31 = sext i32 %4 to i64
   %32 = getelementptr inbounds [3 x i8], ptr %30, i64 %31
   %33 = mul nsw i32 %3, %1
@@ -3352,7 +3352,7 @@ define void @stbhw__draw_vline(ptr noundef writeonly captures(none) %0, i32 noun
   %.046 = phi i32 [ %spec.select, %.thread ], [ %12, %26 ]
   %.02645 = phi i32 [ %24, %.thread ], [ %10, %26 ]
   %28 = sext i32 %6 to i64
-  %29 = getelementptr inbounds [8 x [3 x i8]], ptr @stbhw__color, i64 %28
+  %29 = getelementptr inbounds [24 x i8], ptr @stbhw__color, i64 %28
   %30 = sext i32 %4 to i64
   %31 = getelementptr inbounds [3 x i8], ptr %29, i64 %30
   %32 = mul nsw i32 %2, 3
@@ -4483,9 +4483,9 @@ define void @stbhw__corner_process_h_rect(ptr noundef readonly captures(none) %0
   %23 = load i32, ptr %22, align 8, !tbaa !89
   %24 = add i32 %1, 1
   %25 = sext i32 %3 to i64
-  %26 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %25
+  %26 = getelementptr inbounds [16 x i8], ptr @stbhw__corner_colors_to_edge_color, i64 %25
   %27 = sext i32 %4 to i64
-  %28 = getelementptr inbounds i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !32
   %30 = mul nsw i32 %19, 6
   %31 = sdiv i32 %30, 16
@@ -4573,9 +4573,9 @@ stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_p
   %69 = load i32, ptr %22, align 8, !tbaa !89
   %70 = add nsw i32 %19, %1
   %71 = add nsw i32 %70, 1
-  %72 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %27
+  %72 = getelementptr inbounds [16 x i8], ptr @stbhw__corner_colors_to_edge_color, i64 %27
   %73 = sext i32 %5 to i64
-  %74 = getelementptr inbounds i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !32
   br i1 %34, label %.lr.ph.i159, label %._crit_edge.i144
 
@@ -4656,7 +4656,7 @@ stbhw__draw_hline.exit164:                        ; preds = %stbhw__stbhw__set_p
   %108 = load i32, ptr %22, align 8, !tbaa !89
   %109 = add nsw i32 %2, 1
   %110 = sext i32 %6 to i64
-  %111 = getelementptr inbounds i32, ptr %26, i64 %110
+  %111 = getelementptr inbounds [4 x i8], ptr %26, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !32
   br i1 %34, label %.lr.ph.i174, label %._crit_edge.i165
 
@@ -4739,9 +4739,9 @@ stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_p
   %143 = load i32, ptr %22, align 8, !tbaa !89
   %144 = shl nsw i32 %19, 1
   %145 = add i32 %24, %144
-  %146 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %73
+  %146 = getelementptr inbounds [16 x i8], ptr @stbhw__corner_colors_to_edge_color, i64 %73
   %147 = sext i32 %8 to i64
-  %148 = getelementptr inbounds i32, ptr %146, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %146, i64 %147
   %149 = load i32, ptr %148, align 4, !tbaa !32
   br i1 %34, label %.lr.ph.i196, label %._crit_edge.i179
 
@@ -4822,9 +4822,9 @@ stbhw__draw_vline.exit203:                        ; preds = %stbhw__stbhw__set_p
   %178 = load i32, ptr %22, align 8, !tbaa !89
   %179 = add i32 %19, 1
   %180 = add i32 %179, %2
-  %181 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %110
+  %181 = getelementptr inbounds [16 x i8], ptr @stbhw__corner_colors_to_edge_color, i64 %110
   %182 = sext i32 %7 to i64
-  %183 = getelementptr inbounds i32, ptr %181, i64 %182
+  %183 = getelementptr inbounds [4 x i8], ptr %181, i64 %182
   %184 = load i32, ptr %183, align 4, !tbaa !32
   br i1 %34, label %.lr.ph.i219, label %._crit_edge.i204
 
@@ -4901,8 +4901,8 @@ stbhw__stbhw__set_pixel_whiten.exit.i213:         ; preds = %202
 stbhw__draw_hline.exit224:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i213
   %214 = load ptr, ptr %20, align 8, !tbaa !88
   %215 = load i32, ptr %22, align 8, !tbaa !89
-  %216 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %182
-  %217 = getelementptr inbounds i32, ptr %216, i64 %147
+  %216 = getelementptr inbounds [16 x i8], ptr @stbhw__corner_colors_to_edge_color, i64 %182
+  %217 = getelementptr inbounds [4 x i8], ptr %216, i64 %147
   %218 = load i32, ptr %217, align 4, !tbaa !32
   br i1 %34, label %.lr.ph.i240, label %._crit_edge.i225
 
@@ -4979,7 +4979,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i234:         ; preds = %236
 stbhw__draw_hline.exit245:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i234
   %248 = load ptr, ptr %16, align 8, !tbaa !12
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 56
-  %250 = getelementptr inbounds i32, ptr %249, i64 %25
+  %250 = getelementptr inbounds [4 x i8], ptr %249, i64 %25
   %251 = load i32, ptr %250, align 4, !tbaa !32
   %.not = icmp eq i32 %251, 0
   %.pre361.pre364.pre368.pre372.pre376.pre380 = load ptr, ptr %20, align 8, !tbaa !88
@@ -5074,7 +5074,7 @@ stbhw__draw_clipped_corner.exit:                  ; preds = %stbhw__draw_clipped
   %.pre361.pre364.pre368.pre372.pre376 = phi ptr [ %.pre361.pre364.pre368.pre372.pre376.pre, %stbhw__draw_clipped_corner.exit.loopexit ], [ %.pre361.pre364.pre368.pre372.pre376.pre380, %stbhw__draw_hline.exit245 ]
   %280 = phi ptr [ %.pre, %stbhw__draw_clipped_corner.exit.loopexit ], [ %248, %stbhw__draw_hline.exit245 ]
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 72
-  %282 = getelementptr inbounds i32, ptr %281, i64 %27
+  %282 = getelementptr inbounds [4 x i8], ptr %281, i64 %27
   %283 = load i32, ptr %282, align 4, !tbaa !32
   %.not139 = icmp eq i32 %283, 0
   br i1 %.not139, label %stbhw__draw_clipped_corner.exit267, label %284
@@ -5172,7 +5172,7 @@ stbhw__draw_clipped_corner.exit267:               ; preds = %stbhw__draw_clipped
   %.pre361.pre364.pre368.pre372 = phi ptr [ %.pre361.pre364.pre368.pre372.pre, %stbhw__draw_clipped_corner.exit267.loopexit ], [ %.pre361.pre364.pre368.pre372.pre376, %stbhw__draw_clipped_corner.exit ]
   %316 = phi ptr [ %.pre356, %stbhw__draw_clipped_corner.exit267.loopexit ], [ %280, %stbhw__draw_clipped_corner.exit ]
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 88
-  %318 = getelementptr inbounds i32, ptr %317, i64 %73
+  %318 = getelementptr inbounds [4 x i8], ptr %317, i64 %73
   %319 = load i32, ptr %318, align 4, !tbaa !32
   %.not140 = icmp eq i32 %319, 0
   br i1 %.not140, label %stbhw__draw_clipped_corner.exit286, label %320
@@ -5271,7 +5271,7 @@ stbhw__draw_clipped_corner.exit286:               ; preds = %stbhw__draw_clipped
   %.pre361.pre364.pre368 = phi ptr [ %.pre361.pre364.pre368.pre, %stbhw__draw_clipped_corner.exit286.loopexit ], [ %.pre361.pre364.pre368.pre372, %stbhw__draw_clipped_corner.exit267 ]
   %353 = phi ptr [ %.pre357, %stbhw__draw_clipped_corner.exit286.loopexit ], [ %316, %stbhw__draw_clipped_corner.exit267 ]
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 40
-  %355 = getelementptr inbounds i32, ptr %354, i64 %110
+  %355 = getelementptr inbounds [4 x i8], ptr %354, i64 %110
   %356 = load i32, ptr %355, align 4, !tbaa !32
   %.not141 = icmp eq i32 %356, 0
   br i1 %.not141, label %stbhw__draw_clipped_corner.exit305, label %357
@@ -5367,7 +5367,7 @@ stbhw__draw_clipped_corner.exit305:               ; preds = %stbhw__draw_clipped
   %.pre361.pre364 = phi ptr [ %.pre361.pre364.pre, %stbhw__draw_clipped_corner.exit305.loopexit ], [ %.pre361.pre364.pre368, %stbhw__draw_clipped_corner.exit286 ]
   %387 = phi ptr [ %.pre358, %stbhw__draw_clipped_corner.exit305.loopexit ], [ %353, %stbhw__draw_clipped_corner.exit286 ]
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 56
-  %389 = getelementptr inbounds i32, ptr %388, i64 %182
+  %389 = getelementptr inbounds [4 x i8], ptr %388, i64 %182
   %390 = load i32, ptr %389, align 4, !tbaa !32
   %.not142 = icmp eq i32 %390, 0
   br i1 %.not142, label %stbhw__draw_clipped_corner.exit324, label %391
@@ -5467,7 +5467,7 @@ stbhw__draw_clipped_corner.exit324:               ; preds = %stbhw__draw_clipped
   %.pre361 = phi ptr [ %.pre361.pre, %stbhw__draw_clipped_corner.exit324.loopexit ], [ %.pre361.pre364, %stbhw__draw_clipped_corner.exit305 ]
   %424 = phi ptr [ %.pre359, %stbhw__draw_clipped_corner.exit324.loopexit ], [ %387, %stbhw__draw_clipped_corner.exit305 ]
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 72
-  %426 = getelementptr inbounds i32, ptr %425, i64 %147
+  %426 = getelementptr inbounds [4 x i8], ptr %425, i64 %147
   %427 = load i32, ptr %426, align 4, !tbaa !32
   %.not143 = icmp eq i32 %427, 0
   br i1 %.not143, label %stbhw__draw_clipped_corner.exit343, label %428
@@ -5635,9 +5635,9 @@ define void @stbhw__corner_process_v_rect(ptr noundef readonly captures(none) %0
   %23 = load i32, ptr %22, align 8, !tbaa !89
   %24 = add nsw i32 %1, 1
   %25 = sext i32 %3 to i64
-  %26 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %25
+  %26 = getelementptr inbounds [16 x i8], ptr @stbhw__corner_colors_to_edge_color, i64 %25
   %27 = sext i32 %6 to i64
-  %28 = getelementptr inbounds i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !32
   %30 = mul nsw i32 %19, 6
   %31 = sdiv i32 %30, 16
@@ -5725,7 +5725,7 @@ stbhw__draw_hline.exit:                           ; preds = %stbhw__stbhw__set_p
   %69 = load i32, ptr %22, align 8, !tbaa !89
   %70 = add i32 %2, 1
   %71 = sext i32 %4 to i64
-  %72 = getelementptr inbounds i32, ptr %26, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %26, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !32
   br i1 %34, label %.lr.ph.i153, label %._crit_edge.i144
 
@@ -5808,9 +5808,9 @@ stbhw__draw_vline.exit:                           ; preds = %stbhw__stbhw__set_p
   %104 = load i32, ptr %22, align 8, !tbaa !89
   %105 = add i32 %19, 1
   %106 = add i32 %105, %1
-  %107 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %27
+  %107 = getelementptr inbounds [16 x i8], ptr @stbhw__corner_colors_to_edge_color, i64 %27
   %108 = sext i32 %7 to i64
-  %109 = getelementptr inbounds i32, ptr %107, i64 %108
+  %109 = getelementptr inbounds [4 x i8], ptr %107, i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !32
   br i1 %34, label %.lr.ph.i175, label %._crit_edge.i158
 
@@ -5891,9 +5891,9 @@ stbhw__draw_vline.exit182:                        ; preds = %stbhw__stbhw__set_p
   %139 = load i32, ptr %22, align 8, !tbaa !89
   %140 = add nsw i32 %19, %2
   %141 = add nsw i32 %140, 1
-  %142 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %71
+  %142 = getelementptr inbounds [16 x i8], ptr @stbhw__corner_colors_to_edge_color, i64 %71
   %143 = sext i32 %5 to i64
-  %144 = getelementptr inbounds i32, ptr %142, i64 %143
+  %144 = getelementptr inbounds [4 x i8], ptr %142, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !32
   br i1 %34, label %.lr.ph.i200, label %._crit_edge.i183
 
@@ -5970,9 +5970,9 @@ stbhw__stbhw__set_pixel_whiten.exit.i193:         ; preds = %160
 stbhw__draw_vline.exit207:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i193
   %171 = load ptr, ptr %20, align 8, !tbaa !88
   %172 = load i32, ptr %22, align 8, !tbaa !89
-  %173 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %108
+  %173 = getelementptr inbounds [16 x i8], ptr @stbhw__corner_colors_to_edge_color, i64 %108
   %174 = sext i32 %8 to i64
-  %175 = getelementptr inbounds i32, ptr %173, i64 %174
+  %175 = getelementptr inbounds [4 x i8], ptr %173, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !32
   br i1 %34, label %.lr.ph.i225, label %._crit_edge.i208
 
@@ -6049,8 +6049,8 @@ stbhw__draw_vline.exit232:                        ; preds = %stbhw__stbhw__set_p
   %201 = load i32, ptr %22, align 8, !tbaa !89
   %202 = shl nsw i32 %19, 1
   %203 = add i32 %70, %202
-  %204 = getelementptr inbounds [4 x i32], ptr @stbhw__corner_colors_to_edge_color, i64 %143
-  %205 = getelementptr inbounds i32, ptr %204, i64 %174
+  %204 = getelementptr inbounds [16 x i8], ptr @stbhw__corner_colors_to_edge_color, i64 %143
+  %205 = getelementptr inbounds [4 x i8], ptr %204, i64 %174
   %206 = load i32, ptr %205, align 4, !tbaa !32
   br i1 %34, label %.lr.ph.i248, label %._crit_edge.i233
 
@@ -6127,7 +6127,7 @@ stbhw__stbhw__set_pixel_whiten.exit.i242:         ; preds = %224
 stbhw__draw_hline.exit253:                        ; preds = %stbhw__stbhw__set_pixel_whiten.exit.i242
   %236 = load ptr, ptr %16, align 8, !tbaa !12
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 40
-  %238 = getelementptr inbounds i32, ptr %237, i64 %25
+  %238 = getelementptr inbounds [4 x i8], ptr %237, i64 %25
   %239 = load i32, ptr %238, align 4, !tbaa !32
   %.not = icmp eq i32 %239, 0
   %.pre369.pre372.pre376.pre380.pre384.pre388 = load ptr, ptr %20, align 8, !tbaa !88
@@ -6222,7 +6222,7 @@ stbhw__draw_clipped_corner.exit:                  ; preds = %stbhw__draw_clipped
   %.pre369.pre372.pre376.pre380.pre384 = phi ptr [ %.pre369.pre372.pre376.pre380.pre384.pre, %stbhw__draw_clipped_corner.exit.loopexit ], [ %.pre369.pre372.pre376.pre380.pre384.pre388, %stbhw__draw_hline.exit253 ]
   %268 = phi ptr [ %.pre, %stbhw__draw_clipped_corner.exit.loopexit ], [ %236, %stbhw__draw_hline.exit253 ]
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 88
-  %270 = getelementptr inbounds i32, ptr %269, i64 %71
+  %270 = getelementptr inbounds [4 x i8], ptr %269, i64 %71
   %271 = load i32, ptr %270, align 4, !tbaa !32
   %.not139 = icmp eq i32 %271, 0
   br i1 %.not139, label %stbhw__draw_clipped_corner.exit275, label %272
@@ -6319,7 +6319,7 @@ stbhw__draw_clipped_corner.exit275:               ; preds = %stbhw__draw_clipped
   %.pre369.pre372.pre376.pre380 = phi ptr [ %.pre369.pre372.pre376.pre380.pre, %stbhw__draw_clipped_corner.exit275.loopexit ], [ %.pre369.pre372.pre376.pre380.pre384, %stbhw__draw_clipped_corner.exit ]
   %303 = phi ptr [ %.pre364, %stbhw__draw_clipped_corner.exit275.loopexit ], [ %268, %stbhw__draw_clipped_corner.exit ]
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 72
-  %305 = getelementptr inbounds i32, ptr %304, i64 %143
+  %305 = getelementptr inbounds [4 x i8], ptr %304, i64 %143
   %306 = load i32, ptr %305, align 4, !tbaa !32
   %.not140 = icmp eq i32 %306, 0
   br i1 %.not140, label %stbhw__draw_clipped_corner.exit294, label %307
@@ -6417,7 +6417,7 @@ stbhw__draw_clipped_corner.exit294:               ; preds = %stbhw__draw_clipped
   %.pre369.pre372.pre376 = phi ptr [ %.pre369.pre372.pre376.pre, %stbhw__draw_clipped_corner.exit294.loopexit ], [ %.pre369.pre372.pre376.pre380, %stbhw__draw_clipped_corner.exit275 ]
   %339 = phi ptr [ %.pre365, %stbhw__draw_clipped_corner.exit294.loopexit ], [ %303, %stbhw__draw_clipped_corner.exit275 ]
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 56
-  %341 = getelementptr inbounds i32, ptr %340, i64 %27
+  %341 = getelementptr inbounds [4 x i8], ptr %340, i64 %27
   %342 = load i32, ptr %341, align 4, !tbaa !32
   %.not141 = icmp eq i32 %342, 0
   br i1 %.not141, label %stbhw__draw_clipped_corner.exit313, label %343
@@ -6514,7 +6514,7 @@ stbhw__draw_clipped_corner.exit313:               ; preds = %stbhw__draw_clipped
   %.pre369.pre372 = phi ptr [ %.pre369.pre372.pre, %stbhw__draw_clipped_corner.exit313.loopexit ], [ %.pre369.pre372.pre376, %stbhw__draw_clipped_corner.exit294 ]
   %374 = phi ptr [ %.pre366, %stbhw__draw_clipped_corner.exit313.loopexit ], [ %339, %stbhw__draw_clipped_corner.exit294 ]
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 40
-  %376 = getelementptr inbounds i32, ptr %375, i64 %108
+  %376 = getelementptr inbounds [4 x i8], ptr %375, i64 %108
   %377 = load i32, ptr %376, align 4, !tbaa !32
   %.not142 = icmp eq i32 %377, 0
   br i1 %.not142, label %stbhw__draw_clipped_corner.exit332, label %378
@@ -6614,7 +6614,7 @@ stbhw__draw_clipped_corner.exit332:               ; preds = %stbhw__draw_clipped
   %.pre369 = phi ptr [ %.pre369.pre, %stbhw__draw_clipped_corner.exit332.loopexit ], [ %.pre369.pre372, %stbhw__draw_clipped_corner.exit313 ]
   %411 = phi ptr [ %.pre367, %stbhw__draw_clipped_corner.exit332.loopexit ], [ %374, %stbhw__draw_clipped_corner.exit313 ]
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 88
-  %413 = getelementptr inbounds i32, ptr %412, i64 %174
+  %413 = getelementptr inbounds [4 x i8], ptr %412, i64 %174
   %414 = load i32, ptr %413, align 4, !tbaa !32
   %.not143 = icmp eq i32 %414, 0
   br i1 %.not143, label %stbhw__draw_clipped_corner.exit351, label %415
@@ -6818,7 +6818,7 @@ define range(i32 0, 2) i32 @stbhw_make_template(ptr noundef %0, ptr noundef %1, 
 
 .preheader58:                                     ; preds = %23, %.preheader58
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.preheader58 ], [ 0, %23 ]
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv67
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv67
   %28 = load i32, ptr %27, align 4, !tbaa !32
   %29 = trunc i32 %28 to i8
   %30 = trunc i64 %indvars.iv67 to i32
@@ -6857,7 +6857,7 @@ define range(i32 0, 2) i32 @stbhw_make_template(ptr noundef %0, ptr noundef %1, 
 
 .preheader:                                       ; preds = %23, %.preheader
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.preheader ], [ 0, %23 ]
-  %54 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv71
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv71
   %55 = load i32, ptr %54, align 4, !tbaa !32
   %56 = trunc i32 %55 to i8
   %57 = trunc i64 %indvars.iv71 to i32

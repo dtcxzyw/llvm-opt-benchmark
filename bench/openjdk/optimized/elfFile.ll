@@ -1629,7 +1629,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile25open_valid_debuginfo_fileERKNS_13
   %.0.tr.i.i = trunc i32 %.011.i.i to i8
   %.narrow.i.i = xor i8 %18, %.0.tr.i.i
   %19 = zext i8 %.narrow.i.i to i64
-  %20 = getelementptr inbounds nuw i32, ptr @_ZL11crc32_table, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr @_ZL11crc32_table, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = lshr i32 %.011.i.i, 8
   %23 = xor i32 %21, %22
@@ -1782,7 +1782,7 @@ define hidden noundef i32 @_ZN7ElfFile12get_file_crcEP8_IO_FILE(ptr noundef capt
   %.0.tr.i = trunc i32 %.011.i to i8
   %.narrow.i = xor i8 %10, %.0.tr.i
   %11 = zext i8 %.narrow.i to i64
-  %12 = getelementptr inbounds nuw i32, ptr @_ZL11crc32_table, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @_ZL11crc32_table, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = lshr i32 %.011.i, 8
   %15 = xor i32 %13, %14
@@ -1830,7 +1830,7 @@ define hidden noundef i32 @_ZN7ElfFile19gnu_debuglink_crc32EjPhm(i32 noundef %0,
   %.0.tr = trunc i32 %.011 to i8
   %.narrow = xor i8 %7, %.0.tr
   %8 = zext i8 %.narrow to i64
-  %9 = getelementptr inbounds nuw i32, ptr @_ZL11crc32_table, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZL11crc32_table, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %.011, 8
   %12 = xor i32 %10, %11

@@ -205,7 +205,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !25
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !26
@@ -344,7 +344,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !25
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !26
@@ -1667,7 +1667,7 @@ _ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_E
   %.pre-phi = phi i64 [ %.pre82, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.loopexit ], [ %36, %37 ]
   %48 = phi ptr [ %.pre, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.loopexit ], [ %38, %37 ]
   %.0 = phi ptr [ %45, %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit.loopexit ], [ %38, %37 ]
-  %49 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %48, i64 %.pre-phi
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %49
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit, label %.lr.ph.i
 
@@ -1865,13 +1865,13 @@ _ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_E
   %106 = load ptr, ptr %1, align 8, !tbaa !25
   %107 = load i32, ptr %31, align 8, !tbaa !26
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %106, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %108
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %108
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12FunctionPassESt14default_deleteIS3_EELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i67.preheader
 
 .lr.ph.i.i.i.i.i67.preheader:                     ; preds = %_ZSt4moveIPSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_deleteIS3_EES7_ET0_T_S9_S8_.exit66
-  %110 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %105, i64 %.026
-  %111 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %106, i64 %.026
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %.026
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %.026
   br label %.lr.ph.i.i.i.i.i67
 
 .lr.ph.i.i.i.i.i67:                               ; preds = %.lr.ph.i.i.i.i.i67.preheader, %.lr.ph.i.i.i.i.i67
@@ -2232,7 +2232,7 @@ _ZNKSt8functionIFSt10unique_ptrIN4llvm9sandboxir12FunctionPassESt14default_delet
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir11PassManagerINS0_12FunctionPassES2_E7addPassESt10unique_ptrIS2_St14default_deleteIS2_EE.exit, label %39, !prof !33
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %.pre3.i.i, i64 %35
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i.i, i64 %35
   %41 = icmp uge ptr %9, %.pre3.i.i
   %42 = icmp ult ptr %9, %40
   %spec.select.i.i.i.i.i.i = and i1 %41, %42
@@ -2259,7 +2259,7 @@ _ZN4llvm9sandboxir11PassManagerINS0_12FunctionPassES2_E7addPassESt10unique_ptrIS
   %.016.i.i.i.i = phi ptr [ %9, %31 ], [ %48, %43 ], [ %9, %.critedge.i.i.i.i ]
   %51 = load i32, ptr %33, align 8, !tbaa !26
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %52
   store i64 %49, ptr %53, align 8, !tbaa !77
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !77
   %54 = add i32 %51, 1

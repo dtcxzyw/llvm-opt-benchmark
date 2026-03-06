@@ -431,7 +431,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123: ; preds = %11
   %143 = load i32, ptr %81, align 8, !tbaa !32
   %144 = sext i32 %143 to i64
   %145 = load ptr, ptr @colorSpace, align 8, !tbaa !4
-  %146 = getelementptr inbounds nuw i32, ptr %145, i64 %144
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %144
   %147 = load i32, ptr %146, align 4, !tbaa !21
   invoke void @_ZN2cv6xphoto11oilPaintingERKNS_11_InputArrayERKNS_12_OutputArrayEiii(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21, i32 noundef %141, i32 noundef %142, i32 noundef %147)
           to label %.noexc.i127 unwind label %162
@@ -1234,7 +1234,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %13
   %41 = load i32, ptr %40, align 8, !tbaa !32
   %42 = sext i32 %41 to i64
   %43 = load ptr, ptr @colorSpace, align 8, !tbaa !4
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %42
   %45 = load i32, ptr %44, align 4, !tbaa !21
   invoke void @_ZN2cv6xphoto11oilPaintingERKNS_11_InputArrayERKNS_12_OutputArrayEiii(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %38, i32 noundef %39, i32 noundef %45)
           to label %46 unwind label %64

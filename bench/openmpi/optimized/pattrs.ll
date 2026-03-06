@@ -22,10 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pmix_cli_result_t = type { %struct.pmix_object_t, %struct.pmix_list_t, ptr }
 %struct.myquery_data_t = type { %struct.pmix_lock_t, i32, ptr, i64 }
 %struct.pmix_query = type { ptr, ptr, i64 }
-%struct.pmix_info = type { [512 x i8], i32, %struct.pmix_value }
-%struct.pmix_value = type { i16, %union.anon }
-%union.anon = type { %struct.pmix_envar_t }
-%struct.pmix_envar_t = type { ptr, ptr, i8 }
 
 @.str = private unnamed_addr constant [7 x i8] c"pattrs\00", align 1
 @pmix_tool_basename = external local_unnamed_addr global ptr, align 8
@@ -247,7 +243,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %38
   call void @pmix_expose_param(ptr noundef nonnull %66) #13
   %67 = add i64 %.0153358, 1
   %68 = load ptr, ptr %63, align 8, !tbaa !34
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %67
   %70 = load ptr, ptr %69, align 8, !tbaa !9
   %.not210 = icmp eq ptr %70, null
   br i1 %.not210, label %.loopexit348, label %.lr.ph, !llvm.loop !35
@@ -590,7 +586,7 @@ pmix_cmd_line_is_taken.exit277:                   ; preds = %pmix_cmd_line_get_n
   %205 = load ptr, ptr @stderr, align 8, !tbaa !11
   %206 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.27, ptr noundef nonnull %204) #14
   %207 = add i64 %.1154382, 1
-  %208 = getelementptr inbounds nuw ptr, ptr %.0151, i64 %207
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %.0151, i64 %207
   %209 = load ptr, ptr %208, align 8, !tbaa !9
   %.not209 = icmp eq ptr %209, null
   br i1 %.not209, label %.thread, label %.lr.ph383, !llvm.loop !39
@@ -1054,7 +1050,7 @@ pmix_obj_run_destructors.exit320:                 ; preds = %.lr.ph.i317, %._cri
   %434 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %433, ptr noundef nonnull @.str.27, ptr noundef nonnull %432) #14
   %435 = add i64 %.0156376, 1
   %436 = load ptr, ptr %7, align 8, !tbaa !4
-  %437 = getelementptr inbounds nuw ptr, ptr %436, i64 %435
+  %437 = getelementptr inbounds nuw [8 x i8], ptr %436, i64 %435
   %438 = load ptr, ptr %437, align 8, !tbaa !9
   %.not205 = icmp eq ptr %438, null
   br i1 %.not205, label %._crit_edge379, label %.lr.ph378, !llvm.loop !66
@@ -1088,7 +1084,7 @@ pmix_obj_run_destructors.exit320:                 ; preds = %.lr.ph.i317, %._cri
 
 .lr.ph369:                                        ; preds = %447, %.lr.ph369
   %.1157367 = phi i64 [ %462, %.lr.ph369 ], [ 0, %447 ]
-  %452 = getelementptr inbounds nuw %struct.pmix_info, ptr %449, i64 %.1157367
+  %452 = getelementptr inbounds nuw [552 x i8], ptr %449, i64 %.1157367
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 528
   %454 = load ptr, ptr %453, align 8, !tbaa !63
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 16
@@ -1125,7 +1121,7 @@ pmix_obj_run_destructors.exit320:                 ; preds = %.lr.ph.i317, %._cri
   %474 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %473, ptr noundef nonnull @.str.27, ptr noundef nonnull %472) #14
   %475 = add i64 %.2158371, 1
   %476 = load ptr, ptr %7, align 8, !tbaa !4
-  %477 = getelementptr inbounds nuw ptr, ptr %476, i64 %475
+  %477 = getelementptr inbounds nuw [8 x i8], ptr %476, i64 %475
   %478 = load ptr, ptr %477, align 8, !tbaa !9
   %.not204 = icmp eq ptr %478, null
   br i1 %.not204, label %._crit_edge374, label %.lr.ph373, !llvm.loop !69
@@ -1337,8 +1333,8 @@ define internal void @querycbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2
 12:                                               ; preds = %8, %12
   %.024 = phi i64 [ 0, %8 ], [ %17, %12 ]
   %13 = load ptr, ptr %10, align 8, !tbaa !58
-  %14 = getelementptr inbounds nuw %struct.pmix_info, ptr %13, i64 %.024
-  %15 = getelementptr inbounds nuw %struct.pmix_info, ptr %1, i64 %.024
+  %14 = getelementptr inbounds nuw [552 x i8], ptr %13, i64 %.024
+  %15 = getelementptr inbounds nuw [552 x i8], ptr %1, i64 %.024
   %16 = tail call i32 @PMIx_Info_xfer(ptr noundef %14, ptr noundef %15) #13
   %17 = add nuw i64 %.024, 1
   %exitcond.not = icmp eq i64 %17, %2

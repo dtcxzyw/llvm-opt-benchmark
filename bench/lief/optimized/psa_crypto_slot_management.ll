@@ -4,12 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.psa_global_data_t = type { [23 x ptr], [22 x i64], i8 }
-%struct.psa_key_slot_t = type { %struct.psa_key_attributes_s, i32, i8, %union.anon, %struct.key_data }
-%struct.psa_key_attributes_s = type { i16, i16, i32, %struct.psa_key_policy_s, i32 }
-%struct.psa_key_policy_s = type { i32, i32, i32 }
-%union.anon = type { %struct.anon.0 }
-%struct.anon.0 = type { i64 }
-%struct.key_data = type { ptr, i64 }
 
 @global_data = internal unnamed_addr global %struct.psa_global_data_t zeroinitializer, align 8
 
@@ -50,7 +44,7 @@ define hidden void @psa_wipe_all_key_slots() local_unnamed_addr #3 {
 
 1:                                                ; preds = %0, %20
   %.01620 = phi i64 [ 0, %0 ], [ %21, %20 ]
-  %2 = getelementptr inbounds nuw ptr, ptr @global_data, i64 %.01620
+  %2 = getelementptr inbounds nuw [8 x i8], ptr @global_data, i64 %.01620
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = icmp eq ptr %3, null
   br i1 %4, label %20, label %.preheader18
@@ -77,7 +71,7 @@ define hidden void @psa_wipe_all_key_slots() local_unnamed_addr #3 {
 .lr.ph:                                           ; preds = %.preheader18, %18
   %.01719 = phi i64 [ %19, %18 ], [ 0, %.preheader18 ]
   %10 = load ptr, ptr %2, align 8, !tbaa !3
-  %11 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %10, i64 %.01719
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %.01719
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !9
   %14 = icmp eq i32 %13, 0
@@ -120,13 +114,13 @@ define hidden range(i32 -151, 1) i32 @psa_free_key_slot(i64 noundef %0, ptr noun
   br i1 %5, label %26, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw ptr, ptr @global_data, i64 %0
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @global_data, i64 %0
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = trunc nuw nsw i64 %0 to i32
   %10 = shl nuw nsw i32 16, %9
   %11 = zext nneg i32 %10 to i64
   %12 = icmp uge ptr %1, %8
-  %13 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %8, i64 %11
+  %13 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %11
   %.not = icmp ult ptr %1, %13
   %or.cond = select i1 %12, i1 %.not, i1 false
   br i1 %or.cond, label %14, label %26
@@ -136,7 +130,7 @@ define hidden range(i32 -151, 1) i32 @psa_free_key_slot(i64 noundef %0, ptr noun
   %16 = ptrtoint ptr %8 to i64
   %17 = sub i64 %15, %16
   %18 = sdiv exact i64 %17, 56
-  %19 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 184), i64 %0
+  %19 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 184), i64 %0
   %20 = load i64, ptr %19, align 8, !tbaa !22
   %spec.select = tail call i64 @llvm.umin.i64(i64 %20, i64 %11)
   store i64 %18, ptr %19, align 8, !tbaa !22
@@ -169,7 +163,7 @@ define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(addr
 
 .preheader68:                                     ; preds = %4, %8
   %.03041.i = phi i64 [ %9, %8 ], [ 0, %4 ]
-  %6 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 184), i64 %.03041.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 184), i64 %.03041.i
   %7 = load i64, ptr %6, align 8, !tbaa !22
   %.not.i = icmp eq i64 %7, -1
   br i1 %.not.i, label %8, label %.thread.i
@@ -180,8 +174,8 @@ define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(addr
   br i1 %exitcond.not.i, label %psa_allocate_volatile_key_slot.exit, label %.preheader68, !llvm.loop !23
 
 .thread.i:                                        ; preds = %.preheader68
-  %10 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 184), i64 %.03041.i
-  %11 = getelementptr inbounds nuw ptr, ptr @global_data, i64 %.03041.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 184), i64 %.03041.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @global_data, i64 %.03041.i
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = icmp eq ptr %12, null
   %14 = trunc i64 %.03041.i to i32
@@ -202,7 +196,7 @@ define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(addr
   %23 = trunc i64 %22 to i32
   %24 = or i32 %23, 1073741824
   store i32 %24, ptr %0, align 4, !tbaa !24
-  %25 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %20, i64 %7
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %7
   %26 = add nuw i64 %7, 1
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %28 = load i32, ptr %27, align 8, !tbaa !18
@@ -228,7 +222,7 @@ define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(addr
 36:                                               ; preds = %.preheader, %52
   %.03077 = phi ptr [ null, %.preheader ], [ %.2.ph, %52 ]
   %.03576 = phi i64 [ 0, %.preheader ], [ %53, %52 ]
-  %37 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %5, i64 %.03576
+  %37 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %.03576
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load i32, ptr %38, align 8, !tbaa !9
   %40 = icmp eq i32 %39, 0
@@ -341,9 +335,9 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef capture
 
 17:                                               ; preds = %14
   %18 = zext nneg i32 %15 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr @global_data, i64 %12
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @global_data, i64 %12
   %20 = load ptr, ptr %19, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %20, i64 %18
+  %21 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %18
   %.not30.i = icmp eq ptr %20, null
   br i1 %.not30.i, label %.loopexit48, label %22
 
@@ -369,7 +363,7 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef capture
 
 31:                                               ; preds = %39, %.preheader.i
   %.02142.i = phi i64 [ 0, %.preheader.i ], [ %40, %39 ]
-  %32 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %30, i64 %.02142.i
+  %32 = getelementptr inbounds nuw [56 x i8], ptr %30, i64 %.02142.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load i32, ptr %33, align 8, !tbaa !9
   %35 = icmp eq i32 %34, 2
@@ -406,7 +400,7 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef capture
 47:                                               ; preds = %63, %.loopexit48
   %.03077.i = phi ptr [ null, %.loopexit48 ], [ %.2.ph.i, %63 ]
   %.03576.i = phi i64 [ 0, %.loopexit48 ], [ %64, %63 ]
-  %48 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %46, i64 %.03576.i
+  %48 = getelementptr inbounds nuw [56 x i8], ptr %46, i64 %.03576.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i32, ptr %49, align 8, !tbaa !9
   %51 = icmp eq i32 %50, 0
@@ -734,9 +728,9 @@ define hidden i32 @psa_close_key(i32 noundef %0) local_unnamed_addr #3 {
 
 13:                                               ; preds = %10
   %14 = zext nneg i32 %11 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @global_data, i64 %8
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @global_data, i64 %8
   %16 = load ptr, ptr %15, align 8, !tbaa !3
-  %17 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %16, i64 %14
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %16, i64 %14
   %.not30.i = icmp eq ptr %16, null
   br i1 %.not30.i, label %psa_unregister_read.exit, label %18
 
@@ -762,7 +756,7 @@ define hidden i32 @psa_close_key(i32 noundef %0) local_unnamed_addr #3 {
 
 27:                                               ; preds = %35, %.preheader.i
   %.02142.i = phi i64 [ 0, %.preheader.i ], [ %36, %35 ]
-  %28 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %26, i64 %.02142.i
+  %28 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %.02142.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load i32, ptr %29, align 8, !tbaa !9
   %31 = icmp eq i32 %30, 2
@@ -826,9 +820,9 @@ define hidden i32 @psa_purge_key(i32 noundef %0) local_unnamed_addr #3 {
 
 12:                                               ; preds = %9
   %13 = zext nneg i32 %10 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr @global_data, i64 %7
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @global_data, i64 %7
   %15 = load ptr, ptr %14, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %15, i64 %13
+  %16 = getelementptr inbounds nuw [56 x i8], ptr %15, i64 %13
   %.not30.i = icmp eq ptr %15, null
   br i1 %.not30.i, label %psa_unregister_read.exit, label %17
 
@@ -854,7 +848,7 @@ define hidden i32 @psa_purge_key(i32 noundef %0) local_unnamed_addr #3 {
 
 26:                                               ; preds = %34, %.preheader.i
   %.02142.i = phi i64 [ 0, %.preheader.i ], [ %35, %34 ]
-  %27 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %25, i64 %.02142.i
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %.02142.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i32, ptr %28, align 8, !tbaa !9
   %30 = icmp eq i32 %29, 2
@@ -925,7 +919,7 @@ define hidden void @mbedtls_psa_get_stats(ptr noundef writeonly captures(none) i
   %15 = phi i64 [ 0, %1 ], [ %79, %.loopexit ]
   %16 = phi i64 [ 0, %1 ], [ %80, %.loopexit ]
   %.033 = phi i64 [ 0, %1 ], [ %81, %.loopexit ]
-  %17 = getelementptr inbounds nuw ptr, ptr @global_data, i64 %.033
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @global_data, i64 %.033
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.loopexit, label %.preheader
@@ -948,7 +942,7 @@ define hidden void @mbedtls_psa_get_stats(ptr noundef writeonly captures(none) i
   %29 = phi i64 [ %71, %65 ], [ %15, %.preheader ]
   %30 = phi i64 [ %72, %65 ], [ %16, %.preheader ]
   %.02732 = phi i64 [ %73, %65 ], [ 0, %.preheader ]
-  %31 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %18, i64 %.02732
+  %31 = getelementptr inbounds nuw [56 x i8], ptr %18, i64 %.02732
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i32, ptr %32, align 8, !tbaa !9
   %34 = icmp eq i32 %33, 0

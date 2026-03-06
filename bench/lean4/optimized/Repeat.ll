@@ -4059,7 +4059,7 @@ declare ptr @l_Lean_Elab_Tactic_SavedState_restore(ptr noundef, i8 noundef zeroe
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -8592,7 +8592,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Tactic_eval
   %.04484 = phi i64 [ %1, %.lr.ph ], [ %.2, %lean_dec.exit ]
   %.04683 = phi ptr [ %3, %.lr.ph ], [ %.248, %lean_dec.exit ]
   %.04982 = phi ptr [ %12, %.lr.ph ], [ %.251, %lean_dec.exit ]
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %.04484
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.04484
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = ptrtoint ptr %17 to i64
   %19 = trunc i64 %18 to i1

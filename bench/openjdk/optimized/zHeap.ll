@@ -69,10 +69,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_cond_t = type { %struct.__pthread_cond_s }
 %struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
 %union.__atomic_wide_counter = type { i64 }
-%class.ZMarkThreadLocalStacks = type { ptr, [16 x ptr] }
-%class.ZMarkStripe = type { %class.ZStackList.11, %class.ZStackList.11 }
-%class.ZStackList.11 = type { i64, ptr, [48 x i8] }
-%class.ZMarkStackEntry = type { i64 }
 
 $_ZN19GCLogPreciousHandle5writeEPKcz = comdat any
 
@@ -445,7 +441,7 @@ _Z8is_valid8zaddressb.exit:                       ; preds = %5
   %14 = lshr i64 %13, 21
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %16 = load ptr, ptr %15, align 16
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %14
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %14
   %18 = load volatile ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %_ZNK5ZHeap18is_in_page_relaxedEPK5ZPage8zaddress.exit, label %20
@@ -471,7 +467,7 @@ _ZNK5ZPage5is_inE8zaddress.exit.thread.i:         ; preds = %_ZNK5ZPage5is_inE8z
 29:                                               ; preds = %_ZNK5ZPage5is_inE8zaddress.exit.thread.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %14
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %14
   %33 = load volatile ptr, ptr %32, align 8
   %.not.i11 = icmp eq ptr %33, null
   br i1 %.not.i11, label %36, label %34
@@ -492,7 +488,7 @@ _ZNK5ZPage5is_inE8zaddress.exit.thread.i:         ; preds = %_ZNK5ZPage5is_inE8z
   %43 = lshr i64 %42, 21
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 9256
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %43
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %43
   %47 = load volatile ptr, ptr %46, align 8
   %.not13.i = icmp eq ptr %47, null
   br i1 %.not13.i, label %50, label %48
@@ -534,7 +530,7 @@ _ZNK5ZPage5is_inE8zaddress.exit.thread:           ; preds = %3, %_ZNK5ZPage5is_i
   %15 = lshr i64 %5, 21
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %15
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %15
   %19 = load volatile ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %22, label %20
@@ -555,7 +551,7 @@ _ZNK5ZPage5is_inE8zaddress.exit.thread:           ; preds = %3, %_ZNK5ZPage5is_i
   %29 = lshr i64 %28, 21
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 9256
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %29
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   %33 = load volatile ptr, ptr %32, align 8
   %.not13 = icmp eq ptr %33, null
   br i1 %.not13, label %36, label %34
@@ -765,7 +761,7 @@ define hidden noundef i64 @_ZN5ZHeap16free_empty_pagesEPK18GrowableArrayCHeapIP5
   %.014 = phi i64 [ 0, %.lr.ph ], [ %23, %17 ]
   %.sroa.0.013 = phi i64 [ 0, %.lr.ph ], [ %10, %17 ]
   %10 = add i64 %.sroa.0.013, 1
-  %11 = getelementptr inbounds ptr, ptr %6, i64 %.sroa.0.013
+  %11 = getelementptr inbounds [8 x i8], ptr %6, i64 %.sroa.0.013
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1
@@ -806,7 +802,7 @@ define hidden void @_ZN5ZHeap10keep_aliveEP7oopDesc(ptr noundef nonnull readnone
   %7 = lshr i64 %6, 21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 624
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1
@@ -855,7 +851,7 @@ define hidden noundef zeroext i1 @_ZNK5ZHeap13is_allocatingE8zaddress(ptr nounde
   %5 = lshr i64 %4, 21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %7 = load ptr, ptr %6, align 16
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %5
   %9 = load volatile ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
@@ -990,7 +986,7 @@ define hidden void @_ZNK5ZHeap17print_extended_onEP12outputStream(ptr noundef no
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %17
   %13 = phi i64 [ %14, %17 ], [ %.sroa.0.014, %.lr.ph.i.preheader ]
   %14 = add i64 %13, 1
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %13
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %13
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   %.not4.i = icmp eq ptr %16, %.sroa.7.013
@@ -1058,7 +1054,7 @@ define hidden noundef zeroext i1 @_ZNK5ZHeap14print_locationEP12outputStreamm(pt
 22:                                               ; preds = %16
   %23 = lshr i64 %2, 12
   %24 = and i64 %23, 15
-  %25 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = load i64, ptr @ZAddressHeapBase, align 8
   %28 = zext i32 %26 to i64
@@ -1142,7 +1138,7 @@ define hidden noundef zeroext i1 @_ZNK5ZHeap14print_locationEP12outputStream8zpo
   %11 = and i1 %6, %.not.i18
   %12 = lshr i64 %2, 12
   %13 = and i64 %12, 15
-  %14 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = zext nneg i32 %15 to i64
   %17 = lshr i64 %2, %16
@@ -1215,7 +1211,7 @@ define hidden noundef zeroext i1 @_ZNK5ZHeap14print_locationEP12outputStream8zad
   %16 = lshr i64 %15, 21
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %18 = load ptr, ptr %17, align 16
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %16
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
   %20 = load volatile ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
@@ -1547,7 +1543,7 @@ _ZNK5ZPage9bit_indexE8zaddress.exit.i:            ; preds = %_ZNK5ZPage22object_
   %36 = lshr i64 %27, %29
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %38 = lshr i64 %36, 6
-  %39 = getelementptr inbounds nuw i64, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = load volatile i64, ptr %39, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %41 = and i64 %36, 63
@@ -1560,7 +1556,7 @@ _ZNK5ZPage9bit_indexE8zaddress.exit.i:            ; preds = %_ZNK5ZPage22object_
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %46 = load ptr, ptr %45, align 8
   %47 = lshr i64 %23, 6
-  %48 = getelementptr inbounds nuw i64, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = load volatile i64, ptr %48, align 8
   %50 = and i64 %27, 63
   %51 = shl nuw i64 1, %50
@@ -1601,7 +1597,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZLiveMap13find_base_bitEm(ptr nounde
   %5 = lshr i64 %1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = lshr i64 %5, 6
-  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load volatile i64, ptr %8, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %10 = and i64 %5, 63
@@ -1623,7 +1619,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZLiveMap13find_base_bitEm(ptr nounde
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = lshr i64 %1, 6
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %1, 63
   %27 = shl nuw i64 1, %26
@@ -1652,7 +1648,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread32: ; preds = %20
 
 38:                                               ; preds = %36
   %39 = add nsw i64 %.1.i.i.i, -1
-  %40 = getelementptr inbounds nuw i64, ptr %23, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %39
   %41 = load i64, ptr %40, align 8
   %.not37.i.i.i = icmp eq i64 %41, 0
   br i1 %.not37.i.i.i, label %36, label %.loopexit45.i.i.i, !llvm.loop !11
@@ -1683,7 +1679,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread: ; preds = %36, %.loopexit
   %.01452 = phi i64 [ %5, %.lr.ph ], [ %51, %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread ]
   %51 = add i64 %.01452, -1
   %52 = lshr i64 %51, 6
-  %53 = getelementptr inbounds nuw i64, ptr %6, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %52
   %54 = load volatile i64, ptr %53, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %55 = and i64 %51, 63
@@ -1704,7 +1700,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread: ; preds = %36, %.loopexit
   %65 = add i64 %62, -1
   %66 = lshr i64 %65, 6
   %67 = load ptr, ptr %49, align 8
-  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %66
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %66
   %69 = load i64, ptr %68, align 8
   %70 = and i64 %65, 63
   %71 = shl nuw i64 1, %70
@@ -1733,7 +1729,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37: ; preds = %64
 
 82:                                               ; preds = %80
   %83 = add nsw i64 %.1.i.i.i27, -1
-  %84 = getelementptr inbounds nuw i64, ptr %67, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %83
   %85 = load i64, ptr %84, align 8
   %.not37.i.i.i28 = icmp eq i64 %85, 0
   br i1 %.not37.i.i.i28, label %80, label %.loopexit45.i.i.i23, !llvm.loop !11
@@ -1779,7 +1775,7 @@ define linkonce_odr hidden void @_ZN5ZMark11mark_objectILb1ELb0ELb1ELb0EEEv8zadd
   %7 = lshr i64 %6, 21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1818,20 +1814,20 @@ _ZN14ZMarkTerminate15set_resurrectedEb.exit:      ; preds = %20, %25, %.sink.spl
   %31 = load i8, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %33 = zext i8 %31 to i64
-  %34 = getelementptr inbounds nuw %class.ZMarkThreadLocalStacks, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [136 x i8], ptr %32, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %36 = lshr i64 %1, 21
   %37 = load volatile i64, ptr %35, align 64
   %38 = and i64 %37, %36
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %40 = getelementptr inbounds nuw %class.ZMarkStripe, ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [128 x i8], ptr %39, i64 %38
   %41 = load i64, ptr @ZAddressOffsetMask, align 8
   %42 = and i64 %41, %1
   %43 = shl i64 %42, 5
   %44 = or disjoint i64 %43, 20
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %38
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %38
   %48 = load ptr, ptr %47, align 8
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.i, label %49
@@ -1845,7 +1841,7 @@ _ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.thread.i: ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %52 = add i64 %50, 1
   store i64 %52, ptr %48, align 8
-  %53 = getelementptr inbounds %class.ZMarkStackEntry, ptr %51, i64 %50
+  %53 = getelementptr inbounds [8 x i8], ptr %51, i64 %50
   store i64 %44, ptr %53, align 8
   br label %_ZN22ZMarkThreadLocalStacks4pushEP19ZMarkStackAllocatorP14ZMarkStripeSetP11ZMarkStripeP14ZMarkTerminate15ZMarkStackEntryb.exit
 

@@ -3,10 +3,6 @@ source_filename = "bench/re2/original/set.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.9 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.9 = type { i64, [8 x i8] }
 %"class.std::allocator.6" = type { i8 }
 %class.LogMessage = type { i8, %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
@@ -14,11 +10,15 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.9 }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon.9 = type { i64, [8 x i8] }
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.re2::RegexpStatus" = type { i32, %"class.absl::debian2::string_view", ptr }
 %"class.absl::debian2::string_view" = type { ptr, i64 }
+%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", ptr }
 %"class.std::unique_ptr.18" = type { %"struct.std::__uniq_ptr_data.19" }
 %"struct.std::__uniq_ptr_data.19" = type { %"class.std::__uniq_ptr_impl.20" }
 %"class.std::__uniq_ptr_impl.20" = type { %"class.std::tuple.21" }
@@ -99,7 +99,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %2 = phi ptr [ %5, %for.inc ], [ %1, %entry ]
   %i.011 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %i.011
+  %add.ptr.i = getelementptr inbounds [40 x i8], ptr %2, i64 %i.011
   %second = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %3 = load ptr, ptr %second, align 8
   invoke void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
@@ -477,13 +477,13 @@ for.body:                                         ; preds = %for.body.preheader,
   %cmp.i = icmp ult i16 %14, 2
   %15 = load ptr, ptr %13, align 8
   %retval.0.i = select i1 %cmp.i, ptr %13, ptr %15
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %retval.0.i, i64 %indvars.iv
   %16 = load ptr, ptr %arrayidx, align 8
   %call53 = invoke noundef ptr @_ZN3re26Regexp6IncrefEv(ptr noundef nonnull align 8 dereferenceable(40) %16)
           to label %invoke.cont54 unwind label %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit.loopexit
 
 invoke.cont54:                                    ; preds = %for.body
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %call5.i3.i31, i64 %indvars.iv
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i3.i31, i64 %indvars.iv
   store ptr %call53, ptr %arrayidx.i.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -506,7 +506,7 @@ _ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit:          ; preds = %_ZN3re28PODArrayIPN
 
 invoke.cont56:                                    ; preds = %invoke.cont54, %for.cond.preheader
   %conv.i34 = zext i16 %11 to i64
-  %arrayidx.i.i36 = getelementptr inbounds nuw ptr, ptr %call5.i3.i31, i64 %conv.i34
+  %arrayidx.i.i36 = getelementptr inbounds nuw [8 x i8], ptr %call5.i3.i31, i64 %conv.i34
   store ptr %call40, ptr %arrayidx.i.i36, align 8
   invoke void @_ZN3re26Regexp6DecrefEv(ptr noundef nonnull align 8 dereferenceable(40) %call7)
           to label %invoke.cont58 unwind label %_ZN3re28PODArrayIPNS_6RegexpEED2Ev.exit.loopexit.split-lp
@@ -850,10 +850,10 @@ _ZN3re28PODArrayIPNS_6RegexpEEC2Ei.exit:          ; preds = %"_ZSt4sortIN9__gnu_
 
 invoke.cont21:                                    ; preds = %_ZN3re28PODArrayIPNS_6RegexpEEC2Ei.exit, %invoke.cont21
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont21 ], [ 0, %_ZN3re28PODArrayIPNS_6RegexpEEC2Ei.exit ]
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [40 x i8], ptr %.pre, i64 %indvars.iv
   %second = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %12 = load ptr, ptr %second, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %call5.i3.i, i64 %indvars.iv
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i3.i, i64 %indvars.iv
   store ptr %12, ptr %arrayidx.i.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv.i
@@ -1269,7 +1269,7 @@ invoke.cont93:                                    ; preds = %if.then74
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 32
   %28 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %idx.ext.i = sext i32 %25 to i64
-  %add.ptr.i = getelementptr inbounds i32, ptr %28, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %28, i64 %idx.ext.i
   invoke void @_ZNSt6vectorIiSaIiEE13_M_assign_auxIPiEEvT_S4_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %v, ptr noundef nonnull %28, ptr noundef nonnull %add.ptr.i)
           to label %if.end99 unwind label %lpad8
 
@@ -1598,7 +1598,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i27, ptr %_M_finish.i.i, align 8
-  %add.ptr28 = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr28 = getelementptr inbounds nuw [40 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr28, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -1641,7 +1641,7 @@ if.then:                                          ; preds = %while.body
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.then
   %__parent.0.i.i.i = phi i64 [ %div45.i.i.i, %if.then ], [ %dec.i.i.i, %while.body.i.i.i ]
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__parent.0.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [40 x i8], ptr %__first.coerce, i64 %__parent.0.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %__value.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i.i.i) #19
   %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 32
   %0 = load ptr, ptr %second3.i.i.i.i, align 8
@@ -1692,7 +1692,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %"_
 if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.041, -1
   %div.i = udiv i64 %sub.ptr.sub.i42, 80
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first.coerce, i64 %div.i
+  %add.ptr.i.i = getelementptr inbounds nuw [40 x i8], ptr %__first.coerce, i64 %div.i
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %storemerge40, i64 -40
   %call.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i2.i, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i)
           to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3re23RE23Set7CompileEvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_6RegexpEESt6vectorISI_SaISI_EEEESN_EEbT_T0_.exit.i.i" unwind label %terminate.lpad.i.i.i.i.i
@@ -1904,9 +1904,9 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %__holeIndex.addr.034 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3re23RE23Set7CompileEvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_6RegexpEESt6vectorISI_SaISI_EEEESN_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.034, 1
   %mul = add i64 %add, 2
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %mul
+  %add.ptr.i = getelementptr inbounds [40 x i8], ptr %__first.coerce, i64 %mul
   %sub3 = or disjoint i64 %add, 1
-  %add.ptr.i17 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %sub3
+  %add.ptr.i17 = getelementptr inbounds [40 x i8], ptr %__first.coerce, i64 %sub3
   %call.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i17)
           to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3re23RE23Set7CompileEvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_6RegexpEESt6vectorISI_SaISI_EEEESN_EEbT_T0_.exit" unwind label %terminate.lpad.i.i.i
 
@@ -1920,8 +1920,8 @@ terminate.lpad.i.i.i:                             ; preds = %while.body
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3re23RE23Set7CompileEvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_6RegexpEESt6vectorISI_SaISI_EEEESN_EEbT_T0_.exit": ; preds = %while.body
   %cmp.i.i.i = icmp slt i32 %call.i.i.i, 0
   %spec.select = select i1 %cmp.i.i.i, i64 %sub3, i64 %mul
-  %add.ptr.i18 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %spec.select
-  %add.ptr.i19 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__holeIndex.addr.034
+  %add.ptr.i18 = getelementptr inbounds [40 x i8], ptr %__first.coerce, i64 %spec.select
+  %add.ptr.i19 = getelementptr inbounds [40 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.034
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i19, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i18) #19
   %second.i = getelementptr inbounds nuw i8, ptr %add.ptr.i18, i64 32
   %2 = load ptr, ptr %second.i, align 8
@@ -1945,8 +1945,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then21:                                        ; preds = %land.lhs.true
   %add22 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub25 = or disjoint i64 %add22, 1
-  %add.ptr.i20 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %sub25
-  %add.ptr.i21 = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i20 = getelementptr inbounds [40 x i8], ptr %__first.coerce, i64 %sub25
+  %add.ptr.i21 = getelementptr inbounds [40 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   %call.i22 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i21, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i20) #19
   %second.i23 = getelementptr inbounds nuw i8, ptr %add.ptr.i20, i64 32
   %3 = load ptr, ptr %second.i23, align 8
@@ -1968,7 +1968,7 @@ land.rhs.i:                                       ; preds = %if.end35, %while.bo
   %__holeIndex.addr.08.i = phi i64 [ %__parent.09.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end35 ]
   %__parent.09.in.i = add nsw i64 %__holeIndex.addr.08.i, -1
   %__parent.09.i = sdiv i64 %__parent.09.in.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__parent.09.i
+  %add.ptr.i.i = getelementptr inbounds [40 x i8], ptr %__first.coerce, i64 %__parent.09.i
   %call.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp37)
           to label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3re23RE23Set7CompileEvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_6RegexpEESt6vectorISI_SaISI_EEEESI_EEbT_RT0_.exit.i" unwind label %terminate.lpad.i.i.i.i
 
@@ -1984,7 +1984,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %land.rhs.i
   br i1 %cmp.i.i.i.i, label %while.body.i, label %invoke.cont
 
 while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3re23RE23Set7CompileEvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_6RegexpEESt6vectorISI_SaISI_EEEESI_EEbT_RT0_.exit.i"
-  %add.ptr.i8.i = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__holeIndex.addr.08.i
+  %add.ptr.i8.i = getelementptr inbounds [40 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.08.i
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i8.i, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i.i) #19
   %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 32
   %7 = load ptr, ptr %second.i.i, align 8
@@ -1995,7 +1995,7 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
 
 invoke.cont:                                      ; preds = %while.body.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3re23RE23Set7CompileEvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_6RegexpEESt6vectorISI_SaISI_EEEESI_EEbT_RT0_.exit.i", %if.end35
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.08.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3re23RE23Set7CompileEvE3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS2_6RegexpEESt6vectorISI_SaISI_EEEESI_EEbT_RT0_.exit.i" ], [ %__parent.09.i, %while.body.i ]
-  %add.ptr.i9.i = getelementptr inbounds %"struct.std::pair", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr.i9.i = getelementptr inbounds [40 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   %call.i10.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i9.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp37) #19
   %8 = load ptr, ptr %second.i25, align 8
   %second3.i12.i = getelementptr inbounds nuw i8, ptr %add.ptr.i9.i, i64 32

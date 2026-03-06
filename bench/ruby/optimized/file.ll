@@ -24,7 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.7 = type { ptr }
 %struct.ftruncate_arg = type { i32, i64 }
 %struct.access_arg = type { ptr, i32 }
-%struct.apply_filename = type { ptr, i64 }
 %struct.timeval = type { i64, i64 }
 
 @rb_get_path_check_to_string.rbimpl_id = internal unnamed_addr global i64 0, align 8
@@ -2941,7 +2940,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %59
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %68 = getelementptr ptr, ptr %66, i64 %indvars.iv
+  %68 = getelementptr [8 x i8], ptr %66, i64 %indvars.iv
   store ptr %.0.lcssa.i, ptr %68, align 8, !tbaa !170
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2968,7 +2967,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %59
 .critedge.thread75:                               ; preds = %72
   %75 = add i32 %.188, 1
   %76 = sext i32 %.188 to i64
-  %77 = getelementptr ptr, ptr %66, i64 %76
+  %77 = getelementptr [8 x i8], ptr %66, i64 %76
   store ptr %.26387, ptr %77, align 8, !tbaa !170
   %78 = icmp eq i32 %75, %1
   %spec.store.select = select i1 %78, i32 0, i32 %75
@@ -2989,7 +2988,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %59
 .critedge:                                        ; preds = %83, %.preheader, %.preheader78
   %.183 = phi i32 [ %.188, %.preheader ], [ 0, %.preheader78 ], [ %.4, %83 ]
   %85 = sext i32 %.183 to i64
-  %86 = getelementptr ptr, ptr %66, i64 %85
+  %86 = getelementptr [8 x i8], ptr %66, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !170
   call void @rb_free_tmp_buffer(ptr noundef nonnull %5) #23
   br label %88
@@ -3549,7 +3548,7 @@ RSTRING_PTR.exit76:                               ; preds = %29, %34
 41:                                               ; preds = %RSTRING_PTR.exit76
   tail call void @rb_str_set_len(i64 noundef %.156, i64 noundef %26) #23
   %42 = add i64 %.06099, 1
-  %43 = getelementptr ptr, ptr %1, i64 %42
+  %43 = getelementptr [8 x i8], ptr %1, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !170
   %.not71 = icmp eq ptr %44, null
   br i1 %.not71, label %.loopexit, label %29, !llvm.loop !185
@@ -3625,7 +3624,7 @@ rb_array_len.exit.thread:                         ; preds = %63
 
 RARRAY_AREF.exit:                                 ; preds = %74, %76
   %.0.i.i = phi ptr [ %75, %74 ], [ %78, %76 ]
-  %79 = getelementptr i64, ptr %.0.i.i, i64 %.161
+  %79 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.161
   %80 = load i64, ptr %79, align 8, !tbaa !12
   store i64 %80, ptr %6, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3712,7 +3711,7 @@ RSTRING_PTR.exit83:                               ; preds = %100, %104
 113:                                              ; preds = %rb_array_len.exit.thread, %rb_array_len.exit
   call void @rb_str_set_len(i64 noundef %50, i64 noundef %54) #23
   %114 = add i64 %.05997, 1
-  %115 = getelementptr ptr, ptr %1, i64 %114
+  %115 = getelementptr [8 x i8], ptr %1, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !170
   %.not69 = icmp eq ptr %116, null
   br i1 %.not69, label %._crit_edge, label %60, !llvm.loop !192
@@ -3908,7 +3907,7 @@ rb_array_len.exit.thread:                         ; preds = %43
 
 RARRAY_AREF.exit:                                 ; preds = %54, %56
   %.0.i.i = phi ptr [ %55, %54 ], [ %58, %56 ]
-  %59 = getelementptr i64, ptr %.0.i.i, i64 %.021
+  %59 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.021
   %60 = load i64, ptr %59, align 8, !tbaa !12
   store i64 %60, ptr %6, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -5148,7 +5147,7 @@ rb_get_path.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
 switch.lookup:                                    ; preds = %32
   %37 = lshr exact i32 %35, 12
   %38 = zext nneg i32 %37 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.rb_stat_ftype, i64 %38
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.rb_stat_ftype, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %rb_file_ftype.exit
 
@@ -8830,7 +8829,7 @@ define internal i64 @rb_stat_inspect(i64 noundef %0) #0 {
   br label %18
 
 18:                                               ; preds = %16, %15
-  %19 = getelementptr %struct.anon.8, ptr @rb_stat_inspect.member, i64 %.02730
+  %19 = getelementptr [16 x i8], ptr @rb_stat_inspect.member, i64 %.02730
   %20 = load ptr, ptr %19, align 16, !tbaa !284
   %21 = tail call i64 @rb_str_cat_cstr(i64 noundef %11, ptr noundef %20) #23
   %22 = tail call i64 @rb_str_cat(i64 noundef %11, ptr noundef nonnull @.str.151, i64 noundef 1) #23
@@ -8920,7 +8919,7 @@ get_stat.exit:                                    ; preds = %1
 switch.lookup:                                    ; preds = %get_stat.exit
   %12 = lshr exact i32 %10, 12
   %13 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.rb_stat_ftype, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.rb_stat_ftype, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %rb_file_ftype.exit
 
@@ -10348,7 +10347,7 @@ rb_array_len.exit54.thread:                       ; preds = %18
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit54.thread, %25
   %.0.i.i = phi ptr [ %26, %25 ], [ %14, %rb_array_len.exit54.thread ]
-  %27 = getelementptr i64, ptr %.0.i.i, i64 %.042
+  %27 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.042
   %28 = load i64, ptr %27, align 8, !tbaa !12
   store i64 %28, ptr %3, align 8, !tbaa !12
   %29 = icmp eq i64 %28, 0
@@ -10434,7 +10433,7 @@ rb_array_len.exit58.thread:                       ; preds = %53
 
 RARRAY_AREF.exit61:                               ; preds = %rb_array_len.exit58.thread, %61
   %.0.i.i60 = phi ptr [ %62, %61 ], [ %14, %rb_array_len.exit58.thread ]
-  %63 = getelementptr i64, ptr %.0.i.i60, i64 %.143
+  %63 = getelementptr [8 x i8], ptr %.0.i.i60, i64 %.143
   %64 = load i64, ptr %63, align 8, !tbaa !12
   store i64 %64, ptr %3, align 8, !tbaa !12
   %65 = icmp eq i64 %64, 0
@@ -11408,7 +11407,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %15
 
 29:                                               ; preds = %26
   %30 = and i64 %indvars.iv.next, 2147483647
-  %31 = getelementptr i32, ptr %23, i64 %30
+  %31 = getelementptr [4 x i8], ptr %23, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !26
   %33 = icmp eq i32 %32, %0
   br i1 %33, label %34, label %26, !llvm.loop !332
@@ -11490,7 +11489,7 @@ define internal fastcc range(i64 1, 0) i64 @apply2files(ptr noundef %0, i32 noun
 26:                                               ; preds = %.lr.ph, %RSTRING_PTR.exit
   %storemerge32 = phi i32 [ 0, %.lr.ph ], [ %52, %RSTRING_PTR.exit ]
   %27 = sext i32 %storemerge32 to i64
-  %28 = getelementptr i64, ptr %2, i64 %27
+  %28 = getelementptr [8 x i8], ptr %2, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = icmp eq i64 %29, 0
@@ -11544,7 +11543,7 @@ RSTRING_PTR.exit:                                 ; preds = %rb_get_path.exit, %
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %47 ], [ %46, %rb_get_path.exit ]
   %48 = load i32, ptr %24, align 8, !tbaa !26
   %49 = sext i32 %48 to i64
-  %50 = getelementptr %struct.apply_filename, ptr %25, i64 %49
+  %50 = getelementptr [16 x i8], ptr %25, i64 %49
   store ptr %.sroa.2.0.i, ptr %50, align 8, !tbaa !337
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 %42, ptr %51, align 8, !tbaa !339
@@ -11564,7 +11563,7 @@ RSTRING_PTR.exit:                                 ; preds = %rb_get_path.exit, %
 58:                                               ; preds = %._crit_edge
   %59 = load i32, ptr %55, align 8, !tbaa !26
   %60 = sext i32 %59 to i64
-  %61 = getelementptr %struct.apply_filename, ptr %55, i64 %60
+  %61 = getelementptr [16 x i8], ptr %55, i64 %60
   %62 = getelementptr i8, ptr %61, i64 40
   %63 = load i64, ptr %62, align 8, !tbaa !339
   call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.apply2files, i32 noundef %57, i64 noundef %63) #25
@@ -11693,7 +11692,7 @@ define internal noalias noundef ptr @no_gvl_apply2files(ptr noundef captures(non
   %storemerge10 = phi i32 [ 0, %.lr.ph ], [ %22, %20 ]
   %9 = load ptr, ptr %5, align 8, !tbaa !333
   %10 = sext i32 %storemerge10 to i64
-  %11 = getelementptr %struct.apply_filename, ptr %6, i64 %10
+  %11 = getelementptr [16 x i8], ptr %6, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !337
   %13 = load ptr, ptr %7, align 8, !tbaa !333
   %14 = tail call i32 %9(ptr noundef %12, ptr noundef %13) #23
@@ -11954,7 +11953,7 @@ rb_check_arity.exit.preheader.preheader:          ; preds = %3
 
 rb_check_arity.exit.preheader:                    ; preds = %rb_check_arity.exit.preheader.preheader, %rb_check_arity.exit
   %indvars.iv = phi i64 [ 1, %rb_check_arity.exit.preheader.preheader ], [ %indvars.iv.next, %rb_check_arity.exit ]
-  %10 = getelementptr i64, ptr %2, i64 %indvars.iv
+  %10 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8, !tbaa !12
   %12 = icmp eq i64 %11, 0
   %13 = and i64 %11, 7

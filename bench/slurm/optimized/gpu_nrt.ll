@@ -349,7 +349,7 @@ _get_device_name.exit.i:                          ; preds = %58, %50
   %84 = call i64 @strtol(ptr noundef nonnull captures(none) %.02030.i.i, ptr noundef null, i32 noundef 10) #7
   %85 = trunc i64 %84 to i32
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %86 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i
   store i32 %85, ptr %86, align 4
   %87 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull %3) #7
   %.not23.i.i = icmp eq ptr %87, null
@@ -366,7 +366,7 @@ _get_device_name.exit.i:                          ; preds = %58, %50
 
 .lr.ph.i.i.i:                                     ; preds = %88, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %88 ]
-  %89 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i.i
   %90 = load i32, ptr %89, align 4
   %91 = icmp eq i32 %90, %.032.i.i
   br i1 %91, label %_is_link.exit.i.i, label %88

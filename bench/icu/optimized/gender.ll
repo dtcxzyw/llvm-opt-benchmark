@@ -6,14 +6,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::UMutex" = type { [40 x i8], %"struct.std::atomic.0", ptr }
 %"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
 %"struct.std::__atomic_base.1" = type { ptr }
-%"class.icu_77::GenderInfo" = type <{ %"class.icu_77::UObject", i32, [4 x i8] }>
-%"class.icu_77::UObject" = type { ptr }
 %"class.icu_77::internal::LocalOpenPointer" = type { %"class.icu_77::LocalPointerBase" }
 %"class.icu_77::LocalPointerBase" = type { ptr }
 %"class.icu_77::CharString" = type { %"class.icu_77::MaybeStackArray", i32, [4 x i8] }
 %"class.icu_77::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_77::StringPiece" = type <{ ptr, i32, [4 x i8] }>
 %"class.icu_77::Locale" = type <{ %"class.icu_77::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
+%"class.icu_77::UObject" = type { ptr }
 
 $_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ev = comdat any
 
@@ -554,7 +553,7 @@ define void @_ZN6icu_7720GenderInfo_initCacheER10UErrorCode(ptr noundef nonnull 
 
 21:                                               ; preds = %11, %21
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw %"class.icu_77::GenderInfo", ptr %.ptr20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %.ptr20, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %24, ptr %23, align 8, !tbaa !19
@@ -1161,7 +1160,7 @@ define noundef i32 @_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorC
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
   %.02340 = phi i8 [ 0, %.lr.ph.preheader ], [ %.124, %17 ]
   %.02539 = phi i8 [ 0, %.lr.ph.preheader ], [ %.126, %17 ]
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !39
   switch i32 %14, label %17 [
     i32 2, label %.loopexit
@@ -1196,7 +1195,7 @@ define noundef i32 @_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorC
 
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %20
   %indvars.iv49 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next50, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv49
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv49
   %22 = load i32, ptr %21, align 4, !tbaa !39
   %.not30 = icmp eq i32 %22, 1
   br i1 %.not30, label %20, label %.loopexit
@@ -1296,7 +1295,7 @@ define i32 @ugender_getListGender_77(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %17 ]
   %.02340.i = phi i8 [ 0, %.lr.ph.preheader.i ], [ %.124.i, %17 ]
   %.02539.i = phi i8 [ 0, %.lr.ph.preheader.i ], [ %.126.i, %17 ]
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4, !tbaa !39
   switch i32 %14, label %17 [
     i32 2, label %_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorCode.exit
@@ -1331,7 +1330,7 @@ define i32 @ugender_getListGender_77(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph45.i:                                       ; preds = %20, %.lr.ph45.preheader.i
   %indvars.iv49.i = phi i64 [ 0, %.lr.ph45.preheader.i ], [ %indvars.iv.next50.i, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv49.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv49.i
   %22 = load i32, ptr %21, align 4, !tbaa !39
   %.not30.i = icmp eq i32 %22, 1
   br i1 %.not30.i, label %20, label %_ZNK6icu_7710GenderInfo13getListGenderEPK7UGenderiR10UErrorCode.exit

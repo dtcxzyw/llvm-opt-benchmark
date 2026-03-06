@@ -185,9 +185,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.google::protobuf::internal::MapFieldLite.167" = type { %"class.google::protobuf::Map.168" }
 %"class.google::protobuf::Map.168" = type { ptr, i32, ptr }
 %"union.protobuf_test_messages::proto2::TestAllTypesProto2::OneofFieldUnion" = type { ptr }
-%"class.google::protobuf::FieldDescriptor" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, i8, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %union.anon.107 }
-%union.anon.107 = type { i64 }
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.std::vector.111" = type { %"struct.std::_Vector_base.112" }
 %"struct.std::_Vector_base.112" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
@@ -197,6 +194,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 
 $_ZN4absl6StrCatIA20_cJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA39_cEEES7_RKT_DpRKT0_ = comdat any
 
@@ -2952,16 +2950,16 @@ entry:
   %call = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_115GetFieldForTypeEN6google8protobuf15FieldDescriptor4TypeEbbNS_6PackedE(i32 noundef %type, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0)
   %call2 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_115GetFieldForTypeEN6google8protobuf15FieldDescriptor4TypeEbbNS_6PackedE(i32 noundef %type, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef 0)
   %idxprom.i = zext i32 %type to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_ZZN6google8protobuf29BinaryAndJsonConformanceSuite23TestPrematureEOFForTypeENS0_15FieldDescriptor4TypeEE11incompletesB5cxx11, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [32 x i8], ptr @_ZZN6google8protobuf29BinaryAndJsonConformanceSuite23TestPrematureEOFForTypeENS0_15FieldDescriptor4TypeEE11incompletesB5cxx11, i64 %idxprom
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #23
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %arrayidx.i72 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
+  %arrayidx.i72 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i72, align 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %1)
           to label %invoke.cont8 unwind label %lpad5
@@ -4261,7 +4259,7 @@ for.body.lr.ph:                                   ; preds = %cleanup.done13
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %6 = load ptr, ptr %fields_.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %6, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [152 x i8], ptr %6, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_once_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 48
@@ -4445,7 +4443,7 @@ invoke.cont72:                                    ; preds = %invoke.cont69
 
 invoke.cont75:                                    ; preds = %invoke.cont72
   %idxprom.i = zext i32 %type to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %25 = load ptr, ptr %arrayidx.i, align 8
   %call80 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %call76, ptr noundef %25)
           to label %invoke.cont79 unwind label %lpad68
@@ -5135,13 +5133,13 @@ entry:
   %text454 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp459 = alloca %"class.std::__cxx11::basic_string", align 8
   %idxprom.i = zext i32 %type to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %type_name, i64 16
   %1 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %_M_string_length.i13.i.i = getelementptr inbounds nuw i8, ptr %type_name, i64 8
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  %arrayidx.i133 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
+  %arrayidx.i133 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %values, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp21, i64 16
   %_M_string_length.i.i.i.i.i1420 = getelementptr inbounds nuw i8, ptr %ref.tmp21, i64 8
@@ -5500,7 +5498,7 @@ invoke.cont24:                                    ; preds = %if.then.i.i.i.i.i14
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1415)
   %112 = load i64, ptr %i, align 8
   %113 = load ptr, ptr %values, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %113, i64 %112
+  %add.ptr.i = getelementptr inbounds [64 x i8], ptr %113, i64 %112
   invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %proto, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont27 unwind label %lpad26
 
@@ -5574,7 +5572,7 @@ invoke.cont31:                                    ; preds = %_ZN6google8protobuf
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %117 = load i64, ptr %i, align 8
   %118 = load ptr, ptr %values, align 8
-  %add.ptr.i141 = getelementptr inbounds %"struct.std::pair", ptr %118, i64 %117
+  %add.ptr.i141 = getelementptr inbounds [64 x i8], ptr %118, i64 %117
   %second = getelementptr inbounds nuw i8, ptr %add.ptr.i141, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i142)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
@@ -6121,7 +6119,7 @@ invoke.cont43:                                    ; preds = %if.then.i.i.i.i.i15
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1511)
   %162 = load i64, ptr %i, align 8
   %163 = load ptr, ptr %values, align 8
-  %add.ptr.i165 = getelementptr inbounds %"struct.std::pair", ptr %163, i64 %162
+  %add.ptr.i165 = getelementptr inbounds [64 x i8], ptr %163, i64 %162
   %second46 = getelementptr inbounds nuw i8, ptr %add.ptr.i165, i64 32
   invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %expected_proto, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(32) %second46, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %cleanup.action unwind label %lpad47
@@ -8184,7 +8182,7 @@ invoke.cont100:                                   ; preds = %if.then.i.i.i.i.i17
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i1722)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1723)
   %316 = load ptr, ptr %values, align 8
-  %add.ptr.i273 = getelementptr inbounds %"struct.std::pair", ptr %316, i64 %i89.04279
+  %add.ptr.i273 = getelementptr inbounds [64 x i8], ptr %316, i64 %i89.04279
   invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp94, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i273, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont104 unwind label %lpad103
 
@@ -8771,7 +8769,7 @@ invoke.cont167:                                   ; preds = %if.then.i.i.i.i.i18
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i1779)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1780)
   %366 = load ptr, ptr %values, align 8
-  %add.ptr.i394 = getelementptr inbounds %"struct.std::pair", ptr %366, i64 %i156.04285
+  %add.ptr.i394 = getelementptr inbounds [64 x i8], ptr %366, i64 %i156.04285
   invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp161, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp162, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i394, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont171 unwind label %lpad170
 
@@ -9026,7 +9024,7 @@ invoke.cont182:                                   ; preds = %if.then.i.i.i.i.i18
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i1868)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1869)
   %383 = load ptr, ptr %values, align 8
-  %add.ptr.i441 = getelementptr inbounds %"struct.std::pair", ptr %383, i64 %i156.04285
+  %add.ptr.i441 = getelementptr inbounds [64 x i8], ptr %383, i64 %i156.04285
   %second184 = getelementptr inbounds nuw i8, ptr %add.ptr.i441, i64 32
   invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp177, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp178, ptr noundef nonnull align 8 dereferenceable(32) %second184, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont186 unwind label %lpad185
@@ -9185,7 +9183,7 @@ if.then.i.i475:                                   ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit480: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit473, %if.then.i.i475
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp178) #23
   %396 = load ptr, ptr %values, align 8
-  %add.ptr.i481 = getelementptr inbounds %"struct.std::pair", ptr %396, i64 %i156.04285
+  %add.ptr.i481 = getelementptr inbounds [64 x i8], ptr %396, i64 %i156.04285
   %397 = load ptr, ptr %add.ptr.i481, align 8
   %_M_string_length.i.i.i482 = getelementptr inbounds nuw i8, ptr %add.ptr.i481, i64 8
   %398 = load i64, ptr %_M_string_length.i.i.i482, align 8
@@ -9305,7 +9303,7 @@ invoke.cont194:                                   ; preds = %.noexc505, %if.end.
   %arrayidx.i.i.i.i.i498 = getelementptr inbounds i8, ptr %405, i64 %add.i.i.i.i487
   store i8 0, ptr %arrayidx.i.i.i.i.i498, align 1
   %406 = load ptr, ptr %values, align 8
-  %add.ptr.i507 = getelementptr inbounds %"struct.std::pair", ptr %406, i64 %i156.04285
+  %add.ptr.i507 = getelementptr inbounds [64 x i8], ptr %406, i64 %i156.04285
   %second197 = getelementptr inbounds nuw i8, ptr %add.ptr.i507, i64 32
   %407 = load ptr, ptr %second197, align 8
   %_M_string_length.i.i.i508 = getelementptr inbounds nuw i8, ptr %add.ptr.i507, i64 40
@@ -9523,7 +9521,7 @@ invoke.cont205:                                   ; preds = %if.then.i.i.i.i.i20
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i2063)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2064)
   %420 = load ptr, ptr %values, align 8
-  %add.ptr.i540 = getelementptr inbounds %"struct.std::pair", ptr %420, i64 %i156.04285
+  %add.ptr.i540 = getelementptr inbounds [64 x i8], ptr %420, i64 %i156.04285
   invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp200, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp201, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i540, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont209 unwind label %lpad208
 
@@ -9681,7 +9679,7 @@ if.then.i.i574:                                   ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit579: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit572, %if.then.i.i574
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp201) #23
   %433 = load ptr, ptr %values, align 8
-  %add.ptr.i580 = getelementptr inbounds %"struct.std::pair", ptr %433, i64 %i156.04285
+  %add.ptr.i580 = getelementptr inbounds [64 x i8], ptr %433, i64 %i156.04285
   %434 = load ptr, ptr %add.ptr.i580, align 8
   %_M_string_length.i.i.i581 = getelementptr inbounds nuw i8, ptr %add.ptr.i580, i64 8
   %435 = load i64, ptr %_M_string_length.i.i.i581, align 8
@@ -9801,7 +9799,7 @@ invoke.cont217:                                   ; preds = %.noexc604, %if.end.
   %arrayidx.i.i.i.i.i597 = getelementptr inbounds i8, ptr %442, i64 %add.i.i.i.i586
   store i8 0, ptr %arrayidx.i.i.i.i.i597, align 1
   %443 = load ptr, ptr %values, align 8
-  %add.ptr.i606 = getelementptr inbounds %"struct.std::pair", ptr %443, i64 %i156.04285
+  %add.ptr.i606 = getelementptr inbounds [64 x i8], ptr %443, i64 %i156.04285
   %second220 = getelementptr inbounds nuw i8, ptr %add.ptr.i606, i64 32
   %444 = load ptr, ptr %second220, align 8
   %_M_string_length.i.i.i607 = getelementptr inbounds nuw i8, ptr %add.ptr.i606, i64 40
@@ -10019,7 +10017,7 @@ invoke.cont228:                                   ; preds = %if.then.i.i.i.i.i22
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i2258)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2259)
   %457 = load ptr, ptr %values, align 8
-  %add.ptr.i639 = getelementptr inbounds %"struct.std::pair", ptr %457, i64 %i156.04285
+  %add.ptr.i639 = getelementptr inbounds [64 x i8], ptr %457, i64 %i156.04285
   invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp223, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i639, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont232 unwind label %lpad231
 
@@ -10177,7 +10175,7 @@ if.then.i.i673:                                   ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit678: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit671, %if.then.i.i673
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224) #23
   %470 = load ptr, ptr %values, align 8
-  %add.ptr.i679 = getelementptr inbounds %"struct.std::pair", ptr %470, i64 %i156.04285
+  %add.ptr.i679 = getelementptr inbounds [64 x i8], ptr %470, i64 %i156.04285
   %471 = load ptr, ptr %add.ptr.i679, align 8
   %_M_string_length.i.i.i680 = getelementptr inbounds nuw i8, ptr %add.ptr.i679, i64 8
   %472 = load i64, ptr %_M_string_length.i.i.i680, align 8
@@ -10409,7 +10407,7 @@ invoke.cont247:                                   ; preds = %if.then.i.i.i.i.i24
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i2400)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2401)
   %485 = load ptr, ptr %values, align 8
-  %add.ptr.i712 = getelementptr inbounds %"struct.std::pair", ptr %485, i64 %i156.04285
+  %add.ptr.i712 = getelementptr inbounds [64 x i8], ptr %485, i64 %i156.04285
   %second249 = getelementptr inbounds nuw i8, ptr %add.ptr.i712, i64 32
   invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp242, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp243, ptr noundef nonnull align 8 dereferenceable(32) %second249, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont251 unwind label %lpad250
@@ -12046,7 +12044,7 @@ invoke.cont419:                                   ; preds = %if.then.i.i.i.i.i25
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i2489)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2490)
   %655 = load ptr, ptr %values, align 8
-  %add.ptr.i1258 = getelementptr inbounds %"struct.std::pair", ptr %655, i64 %i408.04291
+  %add.ptr.i1258 = getelementptr inbounds [64 x i8], ptr %655, i64 %i408.04291
   invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp413, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp414, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1258, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont423 unwind label %lpad422
 
@@ -12301,7 +12299,7 @@ invoke.cont434:                                   ; preds = %if.then.i.i.i.i.i26
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i2578)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2579)
   %672 = load ptr, ptr %values, align 8
-  %add.ptr.i1305 = getelementptr inbounds %"struct.std::pair", ptr %672, i64 %i408.04291
+  %add.ptr.i1305 = getelementptr inbounds [64 x i8], ptr %672, i64 %i408.04291
   %second436 = getelementptr inbounds nuw i8, ptr %add.ptr.i1305, i64 32
   invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp429, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp430, ptr noundef nonnull align 8 dereferenceable(32) %second436, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont438 unwind label %lpad437
@@ -13995,7 +13993,7 @@ invoke.cont112:                                   ; preds = %if.then.i.i.i.i.i30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i297) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i297)
-  %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %72, i64 %i.0347
+  %add.ptr.i = getelementptr inbounds [32 x i8], ptr %72, i64 %i.0347
   invoke fastcc void @_ZN12_GLOBAL__N_13catERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_(ptr noalias align 8 %ref.tmp108, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_15emptyB5cxx11E)
           to label %invoke.cont115 unwind label %lpad114
 
@@ -14895,7 +14893,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %idxprom.i = zext i32 %key_type to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %0)
           to label %invoke.cont5 unwind label %lpad3
@@ -14971,7 +14969,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116: ; preds = %_Z
 
 invoke.cont13:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116
   %idxprom.i117 = zext i32 %value_type to i64
-  %arrayidx.i118 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i117
+  %arrayidx.i118 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i117
   %13 = load ptr, ptr %arrayidx.i118, align 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10, ptr noundef %13)
           to label %invoke.cont17 unwind label %lpad14
@@ -15041,9 +15039,9 @@ if.then.i.i145:                                   ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143, %if.then.i.i145
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #23
-  %arrayidx.i151 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
+  %arrayidx.i151 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
   %26 = load i32, ptr %arrayidx.i151, align 4
-  %arrayidx.i153 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i117
+  %arrayidx.i153 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i117
   %27 = load i32, ptr %arrayidx.i153, align 4
   %sext = shl i32 %26, 24
   %conv.i154 = ashr exact i32 %sext, 24
@@ -17816,7 +17814,7 @@ for.body.lr.ph:                                   ; preds = %cleanup.done12
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %8 = load ptr, ptr %fields_.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %8, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [152 x i8], ptr %8, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i.i)
   %type_once_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 48
@@ -18044,7 +18042,7 @@ invoke.cont38:                                    ; preds = %invoke.cont34
 
 invoke.cont40:                                    ; preds = %invoke.cont38
   %idxprom.i = zext i32 %key_type to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %20 = load ptr, ptr %arrayidx.i, align 8
   %call44 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %call41, ptr noundef %20)
           to label %invoke.cont43 unwind label %lpad39
@@ -19913,7 +19911,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %idxprom.i = zext i32 %type to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %0)
           to label %invoke.cont5 unwind label %lpad3
@@ -19983,7 +19981,7 @@ if.then.i.i60:                                    ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.then.i.i60
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #23
-  %arrayidx.i66 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
+  %arrayidx.i66 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
   %13 = load i32, ptr %arrayidx.i66, align 4
   %sext = shl i32 %13, 24
   %conv.i67 = ashr exact i32 %sext, 24
@@ -20532,7 +20530,7 @@ invoke.cont132:                                   ; preds = %_ZN6google8protobuf
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i232)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %idxprom.i235 = zext i32 %79 to i64
-  %arrayidx.i236 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i235
+  %arrayidx.i236 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i235
   %80 = load i32, ptr %arrayidx.i236, align 4
   %number_.i237 = getelementptr inbounds nuw i8, ptr %call131, i64 68
   %81 = load i32, ptr %number_.i237, align 4
@@ -21095,7 +21093,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %6 = phi i32 [ %2, %for.body.lr.ph ], [ %13, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %7 = load ptr, ptr %fields_.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %7, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [152 x i8], ptr %7, i64 %indvars.iv
   %containing_oneof_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 88
   %8 = load ptr, ptr %containing_oneof_.i, align 8
   %tobool20.not = icmp eq ptr %8, null
@@ -21206,7 +21204,7 @@ invoke.cont36:                                    ; preds = %invoke.cont32
 
 invoke.cont38:                                    ; preds = %invoke.cont36
   %idxprom.i = zext i32 %type to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %15 = load ptr, ptr %arrayidx.i, align 8
   %call42 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %call39, ptr noundef %15)
           to label %invoke.cont41 unwind label %lpad37
@@ -23154,7 +23152,7 @@ invoke.cont19:                                    ; preds = %for.body
   %5 = trunc i64 %indvars.iv to i8
   %conv21 = add i8 %4, %5
   store i8 %conv21, ptr %arrayidx.i.i, align 1
-  %arrayidx = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %nullfield, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [32 x i8], ptr %nullfield, i64 %indvars.iv
   invoke void @_ZN6google8protobuf29BinaryAndJsonConformanceSuite42ExpectParseFailureForProtoWithProtoVersionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_NS0_20ConformanceTestSuite16ConformanceLevelEb(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef 0, i1 noundef zeroext true)
           to label %.noexc unwind label %lpad22
 
@@ -23772,7 +23770,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %idxprom.i = zext i32 %type to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %0)
           to label %invoke.cont5 unwind label %lpad3
@@ -23842,7 +23840,7 @@ if.then.i.i19:                                    ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.then.i.i19
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #23
-  %arrayidx.i25 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
+  %arrayidx.i25 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
   %13 = getelementptr inbounds nuw i8, ptr %ref.tmp18, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %ref.tmp14, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %ref.tmp25, i64 16
@@ -24019,7 +24017,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %idxprom.i = zext i32 %type to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %0)
           to label %invoke.cont5 unwind label %lpad3
@@ -24089,7 +24087,7 @@ if.then.i.i17:                                    ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.then.i.i17
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #23
-  %arrayidx.i23 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
+  %arrayidx.i23 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 %idxprom.i
   %13 = load i32, ptr %arrayidx.i23, align 4
   %sext = shl i32 %13, 24
   %conv.i24 = ashr exact i32 %sext, 24
@@ -39337,7 +39335,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %idxprom.i = zext i32 %type to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %0)
           to label %invoke.cont5 unwind label %lpad3

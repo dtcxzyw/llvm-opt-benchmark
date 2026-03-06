@@ -10,12 +10,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pcmcia_parse
 %union.anon = type { ptr }
 %struct.bin_attribute = type { %struct.attribute, i64, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.attribute = type { ptr, i16 }
-%struct.anon.3 = type { i8, i8, i32, i32 }
-%struct.anon.4 = type { i8, i32 }
-%struct.anon.5 = type { i8, i8 }
-%struct.anon.6 = type { i32, i32 }
-%struct.anon.7 = type { i32, i32, i32 }
-%struct.anon.8 = type { i8, i32, i32, i32, i32, i32 }
 %struct.tuple_t = type { i32, i8, i32, i32, i32, i8, i8, i8, i8, i8, ptr }
 
 @__param_str_cis_width = internal constant [17 x i8] c"pcmcia.cis_width\00", align 16
@@ -1319,7 +1313,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
 
 22:                                               ; preds = %17
   %23 = lshr i8 %20, 4
-  %24 = getelementptr %struct.anon.3, ptr %16, i64 %18
+  %24 = getelementptr [12 x i8], ptr %16, i64 %18
   store i8 %23, ptr %24, align 4
   %25 = load i8, ptr %19, align 1
   %26 = lshr i8 %25, 3
@@ -1366,7 +1360,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %47 = zext i8 %46 to i32
   %48 = and i32 %40, 7
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr i32, ptr @exponent, i64 %49
+  %50 = getelementptr [4 x i8], ptr @exponent, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = mul i32 %51, %47
   %53 = udiv i32 %52, 10
@@ -1488,7 +1482,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %129 = phi i64 [ 0, %124 ], [ %137, %128 ]
   %130 = phi ptr [ %125, %124 ], [ %136, %128 ]
   %131 = load i8, ptr %130, align 1
-  %132 = getelementptr %struct.anon.4, ptr %126, i64 %129
+  %132 = getelementptr [8 x i8], ptr %126, i64 %129
   store i8 %131, ptr %132, align 4
   %133 = getelementptr i8, ptr %130, i64 1
   %134 = load i32, ptr %133, align 1
@@ -1681,7 +1675,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %247 = phi i64 [ 0, %244 ], [ %255, %246 ]
   %248 = phi ptr [ %239, %244 ], [ %254, %246 ]
   %249 = load i8, ptr %248, align 1
-  %250 = getelementptr %struct.anon.5, ptr %245, i64 %247
+  %250 = getelementptr [2 x i8], ptr %245, i64 %247
   store i8 %249, ptr %250, align 1
   %251 = getelementptr i8, ptr %248, i64 1
   %252 = load i8, ptr %251, align 1
@@ -1820,7 +1814,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %344 = shl nuw i32 %340, %343
   %345 = lshr i64 %337, 2
   %346 = and i64 %345, 1073741823
-  %347 = getelementptr i32, ptr %330, i64 %346
+  %347 = getelementptr [4 x i8], ptr %330, i64 %346
   %348 = load i32, ptr %347, align 4
   %349 = add i32 %344, %348
   store i32 %349, ptr %347, align 4
@@ -2010,13 +2004,13 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %460 = zext i8 %459 to i32
   %461 = and i32 %453, 7
   %462 = zext nneg i32 %461 to i64
-  %463 = getelementptr i32, ptr @exponent, i64 %462
+  %463 = getelementptr [4 x i8], ptr @exponent, i64 %462
   %464 = load i32, ptr %463, align 4
   %465 = mul i32 %464, %460
   %466 = udiv i32 %465, 10
   store i32 %466, ptr %441, align 4
   %467 = zext nneg i8 %446 to i64
-  %468 = getelementptr i32, ptr @exponent, i64 %467
+  %468 = getelementptr [4 x i8], ptr @exponent, i64 %467
   %469 = load i32, ptr %468, align 4
   %470 = getelementptr inbounds nuw i8, ptr %1, i64 108
   store i32 %469, ptr %470, align 4
@@ -2050,14 +2044,14 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %489 = zext i8 %488 to i32
   %490 = and i32 %482, 7
   %491 = zext nneg i32 %490 to i64
-  %492 = getelementptr i32, ptr @exponent, i64 %491
+  %492 = getelementptr [4 x i8], ptr @exponent, i64 %491
   %493 = load i32, ptr %492, align 4
   %494 = mul i32 %493, %489
   %495 = udiv i32 %494, 10
   %496 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 %495, ptr %496, align 4
   %497 = zext nneg i8 %475 to i64
-  %498 = getelementptr i32, ptr @exponent, i64 %497
+  %498 = getelementptr [4 x i8], ptr @exponent, i64 %497
   %499 = load i32, ptr %498, align 4
   br label %500
 
@@ -2088,14 +2082,14 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %519 = zext i8 %518 to i32
   %520 = and i32 %512, 7
   %521 = zext nneg i32 %520 to i64
-  %522 = getelementptr i32, ptr @exponent, i64 %521
+  %522 = getelementptr [4 x i8], ptr @exponent, i64 %521
   %523 = load i32, ptr %522, align 4
   %524 = mul i32 %523, %519
   %525 = udiv i32 %524, 10
   %526 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 %525, ptr %526, align 4
   %527 = zext nneg i8 %505 to i64
-  %528 = getelementptr i32, ptr @exponent, i64 %527
+  %528 = getelementptr [4 x i8], ptr @exponent, i64 %527
   %529 = load i32, ptr %528, align 4
   br label %530
 
@@ -2178,7 +2172,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
 581:                                              ; preds = %.loopexit95, %561
   %582 = phi i64 [ 0, %561 ], [ %614, %.loopexit95 ]
   %583 = phi ptr [ %576, %561 ], [ %613, %.loopexit95 ]
-  %584 = getelementptr %struct.anon.6, ptr %577, i64 %582
+  %584 = getelementptr [8 x i8], ptr %577, i64 %582
   store i32 0, ptr %584, align 4
   %585 = getelementptr inbounds nuw i8, ptr %584, i64 4
   store i32 1, ptr %585, align 4
@@ -2462,7 +2456,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %765 = phi i32 [ %746, %744 ], [ %746, %762 ], [ 0, %715 ]
   %766 = phi ptr [ %745, %744 ], [ %763, %762 ], [ %716, %715 ]
   %767 = phi i32 [ 0, %744 ], [ %764, %762 ], [ 0, %715 ]
-  %768 = getelementptr %struct.anon.7, ptr %696, i64 %705
+  %768 = getelementptr [12 x i8], ptr %696, i64 %705
   store i32 %717, ptr %768, align 4
   %769 = getelementptr inbounds nuw i8, ptr %768, i64 4
   store i32 %765, ptr %769, align 4
@@ -2535,7 +2529,7 @@ default.unreachable293:                           ; preds = %645
   %809 = phi i64 [ 0, %806 ], [ %844, %808 ]
   %810 = phi ptr [ %801, %806 ], [ %843, %808 ]
   %811 = load i8, ptr %810, align 1
-  %812 = getelementptr %struct.anon.8, ptr %807, i64 %809
+  %812 = getelementptr [24 x i8], ptr %807, i64 %809
   store i8 %811, ptr %812, align 4
   %813 = getelementptr i8, ptr %810, i64 1
   %814 = load i8, ptr %813, align 1
@@ -3262,16 +3256,16 @@ define internal fastcc ptr @parse_power(ptr noundef readonly captures(address, r
   %28 = zext i8 %27 to i32
   %29 = and i32 %22, 7
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr i32, ptr @exponent, i64 %30
+  %31 = getelementptr [4 x i8], ptr @exponent, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = mul i32 %32, %28
   %34 = udiv i32 %33, 10
-  %35 = getelementptr i32, ptr %10, i64 %12
+  %35 = getelementptr [4 x i8], ptr %10, i64 %12
   store i32 %34, ptr %35, align 4
   %36 = load i8, ptr %13, align 1
   %37 = and i8 %36, 7
   %38 = zext nneg i8 %37 to i64
-  %39 = getelementptr i32, ptr @exponent, i64 %38
+  %39 = getelementptr [4 x i8], ptr @exponent, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i8 %36, -1
   br i1 %41, label %.loopexit6, label %.preheader

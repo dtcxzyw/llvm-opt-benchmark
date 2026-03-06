@@ -7,13 +7,11 @@ target triple = "x86_64-pc-linux-gnu"
 %union._zend_value = type { i64 }
 %union.anon = type { i32 }
 %union.anon.2 = type { i32 }
-%struct.dom_deep_ns_redef_item = type { ptr, ptr }
 %struct._zend_array = type { %struct._zend_refcounted_h, %union.anon.4, i32, %union.anon.6, i32, i32, i32, i32, i64, ptr }
 %struct._zend_refcounted_h = type { i32, %union.anon.3 }
 %union.anon.3 = type { i32 }
 %union.anon.4 = type { i32 }
 %union.anon.6 = type { ptr }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @.str = private unnamed_addr constant [6 x i8] c"s|s!s\00", align 1
 @xmlFree = external local_unnamed_addr global ptr, align 8
@@ -1365,7 +1363,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
   %.089125.i = phi i64 [ 1, %.loopexit ], [ %.190.lcssa.i, %.loopexit.i ]
   %.092124.i = phi ptr [ %26, %.loopexit ], [ %.193.lcssa.i, %.loopexit.i ]
   %31 = add i64 %.089125.i, -1
-  %32 = getelementptr inbounds nuw %struct.dom_deep_ns_redef_item, ptr %.092124.i, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %.092124.i, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !86
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !88
@@ -1471,7 +1469,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef no
 77:                                               ; preds = %72, %68
   %.395.i = phi ptr [ %76, %72 ], [ %.193115.i, %68 ]
   %.388.i = phi i64 [ %74, %72 ], [ %.186117.i, %68 ]
-  %78 = getelementptr inbounds nuw %struct.dom_deep_ns_redef_item, ptr %.395.i, i64 %.190116.i
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %.395.i, i64 %.190116.i
   store ptr %.082118.i, ptr %78, align 8, !tbaa !86
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %.2.lcssa.i, ptr %79, align 8, !tbaa !88
@@ -5228,7 +5226,7 @@ define internal fastcc void @dom_element_get_in_scope_namespace_info(ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw %struct._Bucket, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %13
   br label %.lr.ph96
 
 15:                                               ; preds = %.lr.ph91, %.loopexit

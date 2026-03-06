@@ -356,7 +356,7 @@ init_tpncp_db.exit:                               ; preds = %38, %fgetline.exit.
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %90 ]
   %94 = load i32, ptr @proto_tpncp, align 4
   %95 = load ptr, ptr @hf, align 8
-  %96 = getelementptr %struct.hf_register_info, ptr %95, i64 %indvars.iv
+  %96 = getelementptr [80 x i8], ptr %95, i64 %indvars.iv
   call void @proto_register_field_array(i32 noundef %94, ptr noundef %96, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %97 = load i32, ptr @hf_size, align 4
@@ -601,7 +601,7 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
 57:                                               ; preds = %54
   %58 = load ptr, ptr @tpncp_events_info_db, align 8
   %59 = zext i32 %35 to i64
-  %60 = getelementptr ptr, ptr %58, i64 %59
+  %60 = getelementptr [8 x i8], ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp ne ptr %61, null
   %63 = load i32, ptr %7, align 4
@@ -633,7 +633,7 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
 78:                                               ; preds = %73
   %79 = load ptr, ptr @tpncp_commands_info_db, align 8
   %80 = zext i32 %35 to i64
-  %81 = getelementptr ptr, ptr %79, i64 %80
+  %81 = getelementptr [8 x i8], ptr %79, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = icmp ne ptr %82, null
   %84 = load i32, ptr %7, align 4
@@ -1043,8 +1043,8 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
   %118 = phi i32 [ %hf_size.promoted, %116 ], [ %124, %117 ]
   %119 = sext i32 %118 to i64
   %.idx = mul nsw i64 %119, 80
-  %120 = getelementptr %struct.hf_register_info, ptr %115, i64 %119
-  %121 = getelementptr %struct.hf_register_info, ptr %7, i64 %indvars.iv
+  %120 = getelementptr [80 x i8], ptr %115, i64 %119
+  %121 = getelementptr [80 x i8], ptr %7, i64 %indvars.iv
   %122 = tail call i64 @llvm.usub.sat.i64(i64 %114, i64 %.idx)
   %123 = call ptr @__memcpy_chk(ptr noundef %120, ptr noundef %121, i64 noundef 80, i64 noundef %122) #19, !alias.scope !10
   %124 = add i32 %118, 1
@@ -1124,7 +1124,7 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
 152:                                              ; preds = %146
   %153 = load i8, ptr %149, align 1
   %154 = zext i8 %153 to i64
-  %155 = getelementptr i16, ptr %130, i64 %154
+  %155 = getelementptr [2 x i8], ptr %130, i64 %154
   %156 = load i16, ptr %155, align 2
   %157 = and i16 %156, 8
   %.not140 = icmp eq i16 %157, 0
@@ -1392,7 +1392,7 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef writeonly c
 253:                                              ; preds = %.lr.ph.i
   %254 = add i32 %.09.i, 1
   %255 = sext i32 %254 to i64
-  %256 = getelementptr ptr, ptr %249, i64 %255
+  %256 = getelementptr [8 x i8], ptr %249, i64 %255
   %257 = load ptr, ptr %256, align 8
   %.not.i164 = icmp eq ptr %257, null
   br i1 %.not.i164, label %get_enum_name_val.exit.thread, label %.lr.ph.i, !llvm.loop !17
@@ -1408,7 +1408,7 @@ get_enum_name_val.exit.thread:                    ; preds = %253, %248, %get_enu
 259:                                              ; preds = %get_enum_name_val.exit
   %260 = load ptr, ptr @tpncp_enums_id_vals, align 8
   %261 = sext i32 %.09.i to i64
-  %262 = getelementptr ptr, ptr %260, i64 %261
+  %262 = getelementptr [8 x i8], ptr %260, i64 %261
   %263 = load ptr, ptr %262, align 8
   store ptr %263, ptr %101, align 8
   %264 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %212, ptr noundef nonnull dereferenceable(14) @.str.54) #18
@@ -1527,7 +1527,7 @@ get_enum_name_val.exit.thread:                    ; preds = %253, %248, %get_enu
   %299 = phi i32 [ %288, %._crit_edge.i ], [ %.pre8.i, %.thread.i ]
   %300 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %297, %.thread.i ]
   %301 = sext i32 %299 to i64
-  %302 = getelementptr %struct.hf_register_info, ptr %300, i64 %301
+  %302 = getelementptr [80 x i8], ptr %300, i64 %301
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(80) %302, ptr noundef nonnull readonly align 8 dereferenceable(80) %6, i64 noundef 80, i1 noundef false) #19
   %303 = add i32 %299, 1
   store i32 %303, ptr @hf_size, align 4
@@ -1676,7 +1676,7 @@ define internal fastcc noundef zeroext i1 @add_hf(ptr noundef readonly captures(
   %13 = phi i32 [ %2, %._crit_edge ], [ %.pre8, %.thread ]
   %14 = phi ptr [ %.pre, %._crit_edge ], [ %11, %.thread ]
   %15 = sext i32 %13 to i64
-  %16 = getelementptr %struct.hf_register_info, ptr %14, i64 %15
+  %16 = getelementptr [80 x i8], ptr %14, i64 %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(80) %16, ptr noundef align 1 dereferenceable(80) %0, i64 noundef 80, i1 noundef false) #19
   %17 = add i32 %13, 1
   store i32 %17, ptr @hf_size, align 4
@@ -1731,7 +1731,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   %9 = icmp eq i32 %7, -2147483648
   %10 = select i1 %9, i32 7, i32 0
   %11 = zext i32 %0 to i64
-  %12 = getelementptr ptr, ptr %5, i64 %11
+  %12 = getelementptr [8 x i8], ptr %5, i64 %11
   %invariant.smax = tail call i32 @llvm.smax.i32(i32 %6, i32 0)
   %.0183217 = load ptr, ptr %12, align 8
   %.not218 = icmp eq ptr %.0183217, null
@@ -1941,7 +1941,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   %.3181214 = phi i32 [ %101, %.lr.ph ], [ %.0178219, %.preheader ]
   %.0184213 = phi i32 [ %100, %.lr.ph ], [ 0, %.preheader ]
   %97 = sext i32 %.3181214 to i64
-  %98 = getelementptr i32, ptr @bits, i64 %97
+  %98 = getelementptr [4 x i8], ptr @bits, i64 %97
   %99 = load i32, ptr %98, align 4
   %100 = or i32 %99, %.0184213
   %101 = add i32 %.3181214, %14

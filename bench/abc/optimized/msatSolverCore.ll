@@ -35,7 +35,7 @@ define noundef i32 @Msat_SolverAddVar(ptr noundef %0, i32 noundef %1) local_unna
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = sext i32 %11 to i64
-  %15 = getelementptr inbounds i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %13, i64 %14
   store i32 %1, ptr %15, align 4, !tbaa !24
   %16 = load i32, ptr %3, align 8, !tbaa !3
   %17 = add nsw i32 %16, 1
@@ -88,14 +88,14 @@ define double @Msat_SolverProgressEstimate(ptr noundef readonly captures(none) %
   %11 = phi i32 [ %3, %.lr.ph ], [ %22, %21 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.01113 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %21 ]
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !24
   %.not = icmp eq i32 %13, -1
   br i1 %.not, label %21, label %14
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %9, align 8, !tbaa !23
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !24
   %18 = sitofp i32 %17 to double
   %19 = tail call double @pow(double noundef %5, double noundef %18) #8, !tbaa !24
@@ -208,7 +208,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !24
   %20 = call i32 @Msat_SolverAssume(ptr noundef %0, i32 noundef %19) #8
   %.not52 = icmp eq i32 %20, 0

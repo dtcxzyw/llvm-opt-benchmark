@@ -680,13 +680,13 @@ reftable_malloc.exit.i:                           ; preds = %30, %28
   br i1 %.not.i55, label %reftable_strdup.exit.thread, label %reftable_strdup.exit
 
 reftable_strdup.exit.thread:                      ; preds = %reftable_malloc.exit.i, %reftable_alloc_grow.exit.thread
-  %32 = getelementptr inbounds nuw ptr, ptr %.245, i64 %.041107
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.245, i64 %.041107
   store ptr null, ptr %32, align 8, !tbaa !18
   br label %.thread
 
 reftable_strdup.exit:                             ; preds = %reftable_malloc.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i54, ptr nonnull readonly align 1 %.040108, i64 %25, i1 false)
-  %33 = getelementptr inbounds nuw ptr, ptr %.245, i64 %.041107
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.245, i64 %.041107
   store ptr %.0.i.i54, ptr %33, align 8, !tbaa !18
   br label %34
 
@@ -738,7 +738,7 @@ reftable_realloc.exit.i62:                        ; preds = %47, %45
 
 reftable_alloc_grow.exit67.thread:                ; preds = %reftable_realloc.exit.i62, %._crit_edge
   %.5 = phi ptr [ %.0.i.i63, %reftable_realloc.exit.i62 ], [ %.043.lcssa, %._crit_edge ]
-  %49 = getelementptr inbounds nuw ptr, ptr %.5, i64 %.041.lcssa
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.5, i64 %.041.lcssa
   store ptr null, ptr %49, align 8, !tbaa !18
   br label %reftable_free.exit
 
@@ -763,7 +763,7 @@ reftable_alloc_grow.exit67.thread:                ; preds = %reftable_realloc.ex
 
 .lr.ph112:                                        ; preds = %.thread, %reftable_free.exit70
   %.0111 = phi i64 [ %58, %reftable_free.exit70 ], [ 0, %.thread ]
-  %53 = getelementptr inbounds nuw ptr, ptr %.4, i64 %.0111
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.4, i64 %.0111
   %54 = load ptr, ptr %53, align 8, !tbaa !18
   %55 = load ptr, ptr @reftable_free_ptr, align 8, !tbaa !4
   %.not.i69 = icmp eq ptr %55, null
@@ -799,7 +799,7 @@ define dso_local range(i32 0, 2) i32 @names_equal(ptr noundef readonly captures(
 .lr.ph:                                           ; preds = %2, %9
   %4 = phi ptr [ %12, %9 ], [ %3, %2 ]
   %.021 = phi i64 [ %10, %9 ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %.021
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.021
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %.not16 = icmp eq ptr %6, null
   br i1 %.not16, label %.critedge, label %7
@@ -811,7 +811,7 @@ define dso_local range(i32 0, 2) i32 @names_equal(ptr noundef readonly captures(
 
 9:                                                ; preds = %7
   %10 = add i64 %.021, 1
-  %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !18
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !24
@@ -819,7 +819,7 @@ define dso_local range(i32 0, 2) i32 @names_equal(ptr noundef readonly captures(
 .critedge:                                        ; preds = %.lr.ph, %9, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %10, %9 ], [ %.021, %.lr.ph ]
   %.lcssa = phi ptr [ null, %2 ], [ null, %9 ], [ %4, %.lr.ph ]
-  %13 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0.lcssa
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0.lcssa
   %14 = load ptr, ptr %13, align 8, !tbaa !18
   %15 = icmp eq ptr %.lcssa, %14
   %16 = zext i1 %15 to i32

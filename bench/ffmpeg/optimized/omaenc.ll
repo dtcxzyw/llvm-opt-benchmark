@@ -46,7 +46,7 @@ define internal range(i32 -22, 1) i32 @oma_write_header(ptr noundef %0) #0 {
 
 14:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds nuw i16, ptr @ff_oma_srate_tab, i64 %indvars.iv.next
+  %15 = getelementptr inbounds nuw [2 x i8], ptr @ff_oma_srate_tab, i64 %indvars.iv.next
   %16 = load i16, ptr %15, align 2, !tbaa !33
   %17 = icmp eq i16 %16, 0
   br i1 %17, label %._crit_edge, label %.lr.ph

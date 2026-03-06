@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/intra_utils.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ReconstructedArea = type { i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [30 x i8] c"Assertion %s failed at %s:%d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [66 x i8] c"mode < INTRA_LT_CCLM && !(mode > INTRA_HORZ && mode < INTRA_VERT)\00", align 1
 @.str.2 = private unnamed_addr constant [29 x i8] c"libavcodec/vvc/intra_utils.c\00", align 1
@@ -115,7 +113,7 @@ ff_vvc_intra_pred_angle_derive.exit:              ; preds = %30, %34, %36
   %.010.i = phi i32 [ %31, %30 ], [ %35, %34 ], [ %37, %36 ]
   %spec.select.i48 = tail call i32 @llvm.abs.i32(i32 %.010.i, i1 true)
   %38 = zext nneg i32 %spec.select.i48 to i64
-  %39 = getelementptr inbounds nuw i32, ptr @ff_vvc_intra_pred_angle_derive.angles, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @ff_vvc_intra_pred_angle_derive.angles, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !7
   %41 = sub nsw i32 0, %40
   %.inv14.i = icmp slt i32 %.010.i, 0
@@ -211,7 +209,7 @@ define i32 @ff_vvc_intra_pred_angle_derive(i32 noundef %0) local_unnamed_addr #0
   %.010 = phi i32 [ %4, %3 ], [ %8, %7 ], [ %10, %9 ]
   %spec.select = tail call i32 @llvm.abs.i32(i32 %.010, i1 true)
   %12 = zext nneg i32 %spec.select to i64
-  %13 = getelementptr inbounds nuw i32, ptr @ff_vvc_intra_pred_angle_derive.angles, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @ff_vvc_intra_pred_angle_derive.angles, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !7
   %15 = sub nsw i32 0, %14
   %.inv14 = icmp slt i32 %.010, 0
@@ -358,10 +356,10 @@ define i32 @ff_vvc_get_top_available(ptr noundef readonly captures(none) %0, i32
   %54 = icmp sgt i32 %4, 0
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 4580512
   %56 = zext i1 %54 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !7
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4547744
-  %60 = getelementptr inbounds nuw [1024 x %struct.ReconstructedArea], ptr %59, i64 %56
+  %60 = getelementptr inbounds nuw [16384 x i8], ptr %59, i64 %56
   %61 = zext i32 %58 to i64
   br label %62
 
@@ -378,7 +376,7 @@ define i32 @ff_vvc_get_top_available(ptr noundef readonly captures(none) %0, i32
   br i1 %66, label %67, label %.critedge
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw %struct.ReconstructedArea, ptr %60, i64 %64
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %64
   %69 = load i32, ptr %68, align 4, !tbaa !86
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load i32, ptr %70, align 4, !tbaa !88
@@ -480,10 +478,10 @@ define i32 @ff_vvc_get_left_available(ptr noundef readonly captures(none) %0, i3
   %45 = icmp sgt i32 %4, 0
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 4580512
   %47 = zext i1 %45 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !7
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 4547744
-  %51 = getelementptr inbounds nuw [1024 x %struct.ReconstructedArea], ptr %50, i64 %47
+  %51 = getelementptr inbounds nuw [16384 x i8], ptr %50, i64 %47
   %52 = zext i32 %49 to i64
   br label %53
 
@@ -500,7 +498,7 @@ define i32 @ff_vvc_get_left_available(ptr noundef readonly captures(none) %0, i3
   br i1 %57, label %58, label %.critedge
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw %struct.ReconstructedArea, ptr %51, i64 %55
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %55
   %60 = load i32, ptr %59, align 4, !tbaa !86
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load i32, ptr %61, align 4, !tbaa !88

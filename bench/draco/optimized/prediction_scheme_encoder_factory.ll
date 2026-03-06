@@ -8,12 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.14" = type { i8 }
-%"class.std::unique_ptr.45" = type { %"struct.std::__uniq_ptr_data.46" }
-%"struct.std::__uniq_ptr_data.46" = type { %"class.std::__uniq_ptr_impl.47" }
-%"class.std::__uniq_ptr_impl.47" = type { %"class.std::tuple.48" }
-%"class.std::tuple.48" = type { %"struct.std::_Tuple_impl.49" }
-%"struct.std::_Tuple_impl.49" = type { %"struct.std::_Head_base.52" }
-%"struct.std::_Head_base.52" = type { ptr }
 
 $_ZNK5draco18EncoderOptionsBaseIiE8GetSpeedEv = comdat any
 
@@ -112,7 +106,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %37 = sext i32 %35 to i64
   %38 = load ptr, ptr %36, align 8, !tbaa !35
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.45", ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %37
   %40 = load ptr, ptr %39, align 8, !tbaa !38
   %.not = icmp eq i32 %27, -1
   br i1 %.not, label %.critedge, label %41

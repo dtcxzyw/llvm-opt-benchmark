@@ -312,7 +312,7 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_vp8_write_quant_table
 
 20:                                               ; preds = %14, %20
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv
   store i16 %18, ptr %21, align 2, !tbaa !92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

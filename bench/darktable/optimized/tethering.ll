@@ -434,7 +434,7 @@ thread-pre-split.i:                               ; preds = %18
   %188 = fadd reassoc nnan nsz arcp contract afn float %176, -5.000000e-01
   %189 = fadd reassoc nnan nsz arcp contract afn float %188, %187
   %190 = fmul reassoc nnan nsz arcp contract afn float %189, 0x3F70101020000000
-  %191 = getelementptr inbounds nuw float, ptr %115, i64 %173
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %173
   store float %190, ptr %191, align 4, !tbaa !119
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3

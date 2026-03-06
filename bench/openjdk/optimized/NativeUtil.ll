@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.gss_buffer_desc_struct = type { i64, ptr }
-%struct.gss_OID_desc_struct = type { i32, ptr }
 
 @JAVA_DUPLICATE_TOKEN_CODE = hidden local_unnamed_addr constant i32 19, align 4
 @JAVA_OLD_TOKEN_CODE = hidden local_unnamed_addr constant i32 20, align 4
@@ -920,7 +919,7 @@ define hidden i32 @getJavaErrorCode(i32 noundef %0) local_unnamed_addr #2 {
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %6 = getelementptr i32, ptr @JAVA_ERROR_CODE, i64 %5
+  %6 = getelementptr [4 x i8], ptr @JAVA_ERROR_CODE, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = load i32, ptr %7, align 4
   br label %17
@@ -1158,7 +1157,7 @@ define hidden void @checkStatus(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 getJavaErrorCode.exit:                            ; preds = %.thread
   %34 = zext nneg i32 %25 to i64
-  %35 = getelementptr i32, ptr @JAVA_ERROR_CODE, i64 %34
+  %35 = getelementptr [4 x i8], ptr @JAVA_ERROR_CODE, i64 %34
   %36 = getelementptr i8, ptr %35, i64 -4
   %37 = load i32, ptr %36, align 4
   %.not52 = icmp eq i32 %37, 0
@@ -1636,7 +1635,7 @@ define hidden ptr @getJavaOIDArray(ptr noundef %0, ptr noundef readonly captures
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %33 ]
   %17 = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds nuw %struct.gss_OID_desc_struct, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv
   %19 = tail call ptr @getJavaOID(ptr noundef nonnull %0, ptr noundef %18)
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824

@@ -22,14 +22,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 %"class.absl::lts_20240722::log_internal::LogMessageFatal" = type { %"class.absl::lts_20240722::log_internal::LogMessage" }
-%struct.tsi_peer_property = type { ptr, %struct.anon }
-%struct.anon = type { ptr, i64 }
 %"class.grpc_core::RefCountedPtr.2" = type { ptr }
 %"class.grpc_core::RefCountedPtr.3" = type { ptr }
 %"class.grpc_core::RefCountedPtr.4" = type { ptr }
 %"class.grpc_core::RefCountedPtr.6" = type { ptr }
 %"class.grpc_core::RefCountedPtr.7" = type { ptr }
-%struct.grpc_auth_property = type { ptr, ptr, i64 }
 %"class.std::unique_ptr.20" = type { %"struct.std::__uniq_ptr_data.21" }
 %"struct.std::__uniq_ptr_data.21" = type { %"class.std::__uniq_ptr_impl.22" }
 %"class.std::__uniq_ptr_impl.22" = type { %"class.std::tuple.23" }
@@ -432,7 +429,7 @@ _ZN9grpc_core14MakeRefCountedI17grpc_auth_contextJDnEEENS_13RefCountedPtrIT_EEDp
   %89 = phi ptr [ %135, %133 ], [ %84, %.preheader ]
   %.03584 = phi i64 [ %136, %133 ], [ 0, %.preheader ]
   %90 = load ptr, ptr %1, align 8, !tbaa !29
-  %91 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %90, i64 %.03584
+  %91 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %.03584
   %92 = load ptr, ptr %91, align 8, !tbaa !30
   %93 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(16) @.str.15) #28
   %94 = icmp eq i32 %93, 0
@@ -1083,7 +1080,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !80
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !77
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !81
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -1177,7 +1174,7 @@ _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextE5resetERKNS_13DebugLocationEPKc
 .lr.ph:                                           ; preds = %.preheader, %15
   %.06 = phi i64 [ %16, %15 ], [ 0, %.preheader ]
   %13 = load ptr, ptr %8, align 8, !tbaa !83
-  %14 = getelementptr inbounds nuw %struct.grpc_auth_property, ptr %13, i64 %.06
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.06
   invoke void @_Z24grpc_auth_property_resetP18grpc_auth_property(ptr noundef %14)
           to label %15 unwind label %.loopexit
 

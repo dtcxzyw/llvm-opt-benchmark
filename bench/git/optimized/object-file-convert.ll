@@ -51,7 +51,7 @@ define dso_local range(i32 -1, 1) i32 @repo_oid_to_algop(ptr noundef %0, ptr nou
 
 7:                                                ; preds = %4
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %8
+  %9 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %8
   br label %13
 
 10:                                               ; preds = %4
@@ -220,7 +220,7 @@ _.exit155.i:                                      ; preds = %55, %53
 
 61:                                               ; preds = %58
   %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %62
+  %63 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %62
   br label %67
 
 64:                                               ; preds = %58
@@ -314,7 +314,7 @@ _.exit162.i:                                      ; preds = %94, %92
 
 100:                                              ; preds = %97
   %101 = sext i32 %99 to i64
-  %102 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %101
+  %102 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %101
   br label %106
 
 103:                                              ; preds = %97
@@ -661,7 +661,7 @@ convert_commit_object.exit:                       ; preds = %174, %177, %.crited
 
 239:                                              ; preds = %.preheader, %241
   %.0811.i.i.i.i = phi i64 [ %242, %241 ], [ 0, %.preheader ]
-  %240 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
+  %240 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %1, %240
   br i1 %.not.i.i.i.i, label %.loopexit.i, label %241
 
@@ -697,7 +697,7 @@ _.exit.i35:                                       ; preds = %245, %.loopexit39.i
   br i1 %.not.i24.i, label %252, label %250
 
 250:                                              ; preds = %.loopexit.i
-  %251 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
+  %251 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i.i
   br label %256
 
 252:                                              ; preds = %.loopexit.i, %.loopexit.thread.i
@@ -854,7 +854,7 @@ define internal fastcc range(i32 -1, 1) i32 @convert_tag_object(ptr noundef %0, 
 
 32:                                               ; preds = %28
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %33
+  %34 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %33
   br label %38
 
 35:                                               ; preds = %28

@@ -70,17 +70,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__1::basic_ios.base" = type <{ %"class.std::__1::ios_base", ptr, %"struct.std::__1::_SentinelValueFill" }>
 %"class.std::__1::ios_base" = type { ptr, i32, i64, i64, i32, i32, ptr, ptr, ptr, ptr, i64, i64, ptr, i64, i64, ptr, i64, i64 }
 %"struct.std::__1::_SentinelValueFill" = type { i32 }
-%struct.__entry = type { %"class.std::__1::chrono::time_point", %"class.std::__1::chrono::duration" }
-%"class.std::__1::chrono::time_point" = type { %"class.std::__1::chrono::duration" }
-%"class.std::__1::chrono::leap_second" = type { %"class.std::__1::chrono::time_point", %"class.std::__1::chrono::duration" }
 %"class.std::__1::__fs::filesystem::file_status" = type { i8, i32 }
 %"class.std::__1::basic_string_view" = type { ptr, i64 }
 %"struct.std::__1::__split_buffer" = type { ptr, ptr, ptr, ptr, ptr }
-%"struct.std::__1::pair" = type { %"class.std::__1::basic_string", %"class.std::__1::vector.19" }
-%"struct.std::__1::chrono::__tz::__rule" = type { %"class.std::__1::chrono::year", %"class.std::__1::chrono::year", %"class.std::__1::chrono::month", %"class.std::__1::variant", %"struct.std::__1::chrono::__tz::__at", %"struct.std::__1::chrono::__tz::__save", %"class.std::__1::basic_string" }
-%"struct.std::__1::chrono::__tz::__save" = type <{ %"class.std::__1::chrono::duration", i8, [7 x i8] }>
 %"struct.std::__1::__split_buffer.99" = type { ptr, ptr, ptr, ptr, ptr }
 %"class.std::__1::chrono::time_zone_link" = type { %"class.std::__1::basic_string", %"class.std::__1::basic_string" }
+%"struct.std::__1::pair" = type { %"class.std::__1::basic_string", %"class.std::__1::vector.19" }
+%struct.__entry = type { %"class.std::__1::chrono::time_point", %"class.std::__1::chrono::duration" }
+%"class.std::__1::chrono::time_point" = type { %"class.std::__1::chrono::duration" }
 %"class.std::__1::vector<std::__1::pair<std::__1::string, std::__1::vector<std::__1::chrono::__tz::__rule>>>::__destroy_vector" = type { ptr }
 %"class.std::__1::basic_istream<char>::sentry" = type { i8 }
 
@@ -539,7 +536,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit: ; pred
   %142 = tail call ptr @__ctype_tolower_loc() #31
   %143 = load ptr, ptr %142, align 8, !tbaa !11
   %144 = sext i32 %139 to i64
-  %145 = getelementptr inbounds i32, ptr %143, i64 %144
+  %145 = getelementptr inbounds [4 x i8], ptr %143, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !14
   br label %tolower.exit.i
 
@@ -586,7 +583,7 @@ tolower.exit.i:                                   ; preds = %141, %.noexc33
   %154 = tail call ptr @__ctype_tolower_loc() #31
   %155 = load ptr, ptr %154, align 8, !tbaa !11
   %156 = sext i32 %151 to i64
-  %157 = getelementptr inbounds i32, ptr %155, i64 %156
+  %157 = getelementptr inbounds [4 x i8], ptr %155, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !14
   br label %tolower.exit.i.i
 
@@ -1007,7 +1004,7 @@ tolower.exit.i.i.i:                               ; preds = %.noexc59.i.i
   %320 = tail call ptr @__ctype_tolower_loc() #31
   %321 = load ptr, ptr %320, align 8, !tbaa !11
   %322 = sext i32 %318 to i64
-  %323 = getelementptr inbounds i32, ptr %321, i64 %322
+  %323 = getelementptr inbounds [4 x i8], ptr %321, i64 %322
   %324 = load i32, ptr %323, align 4, !tbaa !14
   %.not.i.i.i = icmp eq i32 %324, 111
   br i1 %.not.i.i.i, label %326, label %tolower.exit.thread.i.i.i
@@ -1035,7 +1032,7 @@ tolower.exit.thread.i.i.i:                        ; preds = %tolower.exit.i.i.i,
 331:                                              ; preds = %.noexc62.i.i
   %332 = load ptr, ptr %320, align 8, !tbaa !11
   %333 = sext i32 %329 to i64
-  %334 = getelementptr inbounds i32, ptr %332, i64 %333
+  %334 = getelementptr inbounds [4 x i8], ptr %332, i64 %333
   %335 = load i32, ptr %334, align 4, !tbaa !14
   br label %tolower.exit.i.i.i.i
 
@@ -1572,7 +1569,7 @@ _ZNSt3__16chronoL12__parse_ruleB8ne210000ERNS0_4tzdbERNS_6vectorINS_4pairINS_12b
   %458 = tail call ptr @__ctype_tolower_loc() #31
   %459 = load ptr, ptr %458, align 8, !tbaa !11
   %460 = sext i32 %455 to i64
-  %461 = getelementptr inbounds i32, ptr %459, i64 %460
+  %461 = getelementptr inbounds [4 x i8], ptr %459, i64 %460
   %462 = load i32, ptr %461, align 4, !tbaa !14
   br label %tolower.exit.i18.i
 
@@ -1838,7 +1835,7 @@ _ZNSt3__16chronoL13__parse_rulesB8ne210000ERNS_13basic_istreamIcNS_11char_traits
   %513 = phi i64 [ 2, %.noexc42.i.i.i ], [ 1, %_ZNSt3__16chronoL12__parse_saveB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit17.i.i.i.i ], [ 1, %_ZNSt3__16chronoL12__parse_saveB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit.i.i.i.i ], [ 0, %493 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !54
   store ptr %122, ptr %19, align 8, !tbaa !92, !noalias !54
-  %514 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base14__visit_alt_atB8ne210000IZNS0_12__assignmentINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEE16__generic_assignB8ne210000INS0_17__move_assignmentISG_LNS0_6_TraitE1EEEEEvOT_EUlRSM_OT0_E_JRSH_SL_EEEDcmSN_DpOT0_.__fdiagonal, i64 %513
+  %514 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base14__visit_alt_atB8ne210000IZNS0_12__assignmentINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEE16__generic_assignB8ne210000INS0_17__move_assignmentISG_LNS0_6_TraitE1EEEEEvOT_EUlRSM_OT0_E_JRSH_SL_EEEDcmSN_DpOT0_.__fdiagonal, i64 %513
   %515 = load ptr, ptr %514, align 8, !tbaa !95, !noalias !54
   invoke void %515(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %_ZNSt3__17variantIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEaSB8ne210000EOSB_.exit.i.i.i unwind label %516
@@ -1859,7 +1856,7 @@ _ZNSt3__17variantIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11
 520:                                              ; preds = %_ZNSt3__17variantIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEaSB8ne210000EOSB_.exit.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !54
   %521 = zext i32 %.pr.pre.i.i.i to i64
-  %522 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %521
+  %522 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %521
   %523 = load ptr, ptr %522, align 8, !tbaa !95, !noalias !54
   invoke void %523(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i unwind label %524
@@ -2186,7 +2183,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i37.i.i
 599:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i37.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %600 = zext i32 %597 to i64
-  %601 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %600
+  %601 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %600
   %602 = load ptr, ptr %601, align 8, !tbaa !95
   invoke void %602(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(32) %122)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i38.i.i unwind label %603
@@ -2222,7 +2219,7 @@ _ZNSt3__16chronoL20__parse_continuationB8ne210000ERNS_6vectorINS_4pairINS_12basi
   %615 = zext i32 %612 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %610, ptr %17, align 8, !tbaa !100
-  %616 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base14__visit_alt_atB8ne210000IZNS0_6__ctorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEE19__generic_constructB8ne210000INS0_18__move_constructorISG_LNS0_6_TraitE1EEEEEvRSH_OT_EUlSO_E_JSL_EEEDcmSO_DpOT0_.__fdiagonal, i64 %615
+  %616 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base14__visit_alt_atB8ne210000IZNS0_6__ctorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEE19__generic_constructB8ne210000INS0_18__move_constructorISG_LNS0_6_TraitE1EEEEEvRSH_OT_EUlSO_E_JSL_EEEDcmSO_DpOT0_.__fdiagonal, i64 %615
   %617 = load ptr, ptr %616, align 8, !tbaa !95
   invoke void %617(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(32) %122)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %618
@@ -2296,7 +2293,7 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_6chrono4__tz14__contin
 _ZNSt3__114__split_bufferINS_6chrono4__tz14__continuationERNS_9allocatorIS3_EEEC2B8ne210000EmmS6_.exit.i.i: ; preds = %_ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_6chrono4__tz14__continuationEEEEEDaRT_m.exit.i.i.i, %_ZNKSt3__16vectorINS_6chrono4__tz14__continuationENS_9allocatorIS3_EEE11__recommendB8ne210000Em.exit.i.i
   %storemerge.i.i.i = phi ptr [ null, %_ZNKSt3__16vectorINS_6chrono4__tz14__continuationENS_9allocatorIS3_EEE11__recommendB8ne210000Em.exit.i.i ], [ %642, %_ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_6chrono4__tz14__continuationEEEEEDaRT_m.exit.i.i.i ]
   %643 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i, i64 %628
-  %644 = getelementptr inbounds nuw %"struct.std::__1::chrono::__tz::__continuation", ptr %storemerge.i.i.i, i64 %.0.i.i60.i
+  %644 = getelementptr inbounds nuw [112 x i8], ptr %storemerge.i.i.i, i64 %.0.i.i60.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %643, ptr noundef nonnull align 8 dereferenceable(112) %25, i64 16, i1 false)
   %645 = getelementptr inbounds nuw i8, ptr %643, i64 16
   store i8 0, ptr %645, align 8, !tbaa !4
@@ -2310,7 +2307,7 @@ _ZNSt3__114__split_bufferINS_6chrono4__tz14__continuationERNS_9allocatorIS3_EEEC
   %650 = zext i32 %647 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %645, ptr %10, align 8, !tbaa !100
-  %651 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base14__visit_alt_atB8ne210000IZNS0_6__ctorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEE19__generic_constructB8ne210000INS0_18__move_constructorISG_LNS0_6_TraitE1EEEEEvRSH_OT_EUlSO_E_JSL_EEEDcmSO_DpOT0_.__fdiagonal, i64 %650
+  %651 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base14__visit_alt_atB8ne210000IZNS0_6__ctorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEE19__generic_constructB8ne210000INS0_18__move_constructorISG_LNS0_6_TraitE1EEEEEvRSH_OT_EUlSO_E_JSL_EEEDcmSO_DpOT0_.__fdiagonal, i64 %650
   %652 = load ptr, ptr %651, align 8, !tbaa !95
   invoke void %652(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %122)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i.i unwind label %653
@@ -2343,7 +2340,7 @@ _ZNSt3__114__split_bufferINS_6chrono4__tz14__continuationERNS_9allocatorIS3_EEEC
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %660, ptr noundef nonnull align 8 dereferenceable(36) %114, i64 36, i1 false)
   %661 = getelementptr inbounds nuw i8, ptr %643, i64 112
   %.neg.i.i.i = sdiv exact i64 %.pre-phi242.i, -112
-  %662 = getelementptr inbounds %"struct.std::__1::chrono::__tz::__continuation", ptr %643, i64 %.neg.i.i.i
+  %662 = getelementptr inbounds [112 x i8], ptr %643, i64 %.neg.i.i.i
   %.not13.i.i = icmp eq ptr %657, %658
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferINS_6chrono4__tz14__continuationERNS_9allocatorIS3_EEE5clearB8ne210000Ev.exit.i.i.i, label %.lr.ph.i65.i
 
@@ -2365,7 +2362,7 @@ _ZNSt3__114__split_bufferINS_6chrono4__tz14__continuationERNS_9allocatorIS3_EEEC
   %670 = zext i32 %666 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %663, ptr %9, align 8, !tbaa !100
-  %671 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base14__visit_alt_atB8ne210000IZNS0_6__ctorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEE19__generic_constructB8ne210000INS0_18__move_constructorISG_LNS0_6_TraitE1EEEEEvRSH_OT_EUlSO_E_JSL_EEEDcmSO_DpOT0_.__fdiagonal, i64 %670
+  %671 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base14__visit_alt_atB8ne210000IZNS0_6__ctorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEE19__generic_constructB8ne210000INS0_18__move_constructorISG_LNS0_6_TraitE1EEEEEvRSH_OT_EUlSO_E_JSL_EEEDcmSO_DpOT0_.__fdiagonal, i64 %670
   %672 = load ptr, ptr %671, align 8, !tbaa !95
   invoke void %672(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %669)
           to label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i66.i unwind label %673
@@ -2420,7 +2417,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i.i.i.i
   %695 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %696 = zext i32 %692 to i64
-  %697 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %696
+  %697 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %696
   %698 = load ptr, ptr %697, align 8, !tbaa !95
   invoke void %698(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(32) %695)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i.i.i.i unwind label %699
@@ -2483,7 +2480,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i27.i.i
 717:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i27.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %718 = zext i32 %715 to i64
-  %719 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %718
+  %719 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %718
   %720 = load ptr, ptr %719, align 8, !tbaa !95
   invoke void %720(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(32) %122)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i28.i.i unwind label %721
@@ -2696,7 +2693,7 @@ _ZNSt3__16chronoL12__parse_zoneB8ne210000ERNS0_4tzdbERNS_6vectorINS_4pairINS_12b
   %762 = tail call ptr @__ctype_tolower_loc() #31
   %763 = load ptr, ptr %762, align 8, !tbaa !11
   %764 = sext i32 %759 to i64
-  %765 = getelementptr inbounds i32, ptr %763, i64 %764
+  %765 = getelementptr inbounds [4 x i8], ptr %763, i64 %764
   %766 = load i32, ptr %765, align 4, !tbaa !14
   br label %tolower.exit.i38.i
 
@@ -3218,13 +3215,13 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorIZNS_6chronoL20__parse_lea
 
 .noexc23.i:                                       ; preds = %_ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorIZNS_6chronoL20__parse_leap_secondsB8ne210000ERNS_6vectorINS2_11leap_secondENS1_IS4_EEEEONS_13basic_istreamIcNS_11char_traitsIcEEEEE7__entryEEEEDaRT_m.exit.i.i.i.i.i
   %935 = getelementptr inbounds nuw i8, ptr %934, i64 %922
-  %936 = getelementptr inbounds nuw %struct.__entry, ptr %934, i64 %.0.i.i.i.i.i85
+  %936 = getelementptr inbounds nuw [16 x i8], ptr %934, i64 %.0.i.i.i.i.i85
   store i64 %906, ptr %935, align 8, !tbaa !37
   %937 = getelementptr inbounds nuw i8, ptr %935, i64 8
   store i64 %912, ptr %937, align 8, !tbaa !37
   %938 = getelementptr inbounds nuw i8, ptr %935, i64 16
   %939 = sub nsw i64 0, %923
-  %940 = getelementptr inbounds %struct.__entry, ptr %935, i64 %939
+  %940 = getelementptr inbounds [16 x i8], ptr %935, i64 %939
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %940, ptr align 8 %.sroa.0.0.i, i64 %922, i1 false)
   %.not.i10.i.i.i.i = icmp eq ptr %.sroa.0.0.i, null
   br i1 %.not.i10.i.i.i.i, label %.backedge.i.i, label %941
@@ -3334,13 +3331,13 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_6chrono11leap_secondEE
 
 .noexc26.i:                                       ; preds = %_ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_6chrono11leap_secondEEEEEDaRT_m.exit.i.i.i.i.i.i.i.i
   %984 = getelementptr inbounds nuw i8, ptr %983, i64 %971
-  %985 = getelementptr inbounds nuw %"class.std::__1::chrono::leap_second", ptr %983, i64 %.0.i.i.i.i.i.i.i.i
+  %985 = getelementptr inbounds nuw [16 x i8], ptr %983, i64 %.0.i.i.i.i.i.i.i.i
   store i64 %.val12.i.i.i, ptr %984, align 8, !tbaa !37
   %986 = getelementptr inbounds nuw i8, ptr %984, i64 8
   store i64 %961, ptr %986, align 8, !tbaa !37
   %987 = getelementptr inbounds nuw i8, ptr %984, i64 16
   %988 = sub nsw i64 0, %972
-  %989 = getelementptr inbounds %"class.std::__1::chrono::leap_second", ptr %984, i64 %988
+  %989 = getelementptr inbounds [16 x i8], ptr %984, i64 %988
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %989, ptr align 8 %968, i64 %971, i1 false)
   store ptr %989, ptr %869, align 8, !tbaa !125
   store ptr %987, ptr %954, align 8, !tbaa !125
@@ -5470,7 +5467,7 @@ tolower.exit:
   %10 = tail call ptr @__ctype_tolower_loc() #31
   %11 = load ptr, ptr %10, align 8, !tbaa !11
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !14
   %15 = zext nneg i8 %1 to i32
   %.not = icmp eq i32 %14, %15
@@ -5648,7 +5645,7 @@ tolower.exit:                                     ; preds = %3, %15
   %20 = tail call ptr @__ctype_tolower_loc() #31
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = sext i32 %19 to i64
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !14
   %25 = sext i8 %17 to i32
   %.not20 = icmp eq i32 %24, %25
@@ -6273,7 +6270,7 @@ tolower.exit:                                     ; preds = %1
   %4 = tail call ptr @__ctype_tolower_loc() #31
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !14
   %.not = icmp eq i32 %8, 109
   br i1 %.not, label %22, label %tolower.exit.thread, !prof !167
@@ -6319,7 +6316,7 @@ _ZNSt3__16chronoL18__parse_year_valueB8ne210000ERNS_13basic_istreamIcNS_11char_t
 26:                                               ; preds = %22
   %27 = load ptr, ptr %4, align 8, !tbaa !11
   %28 = sext i32 %24 to i64
-  %29 = getelementptr inbounds i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !14
   br label %tolower.exit9
 
@@ -6361,7 +6358,7 @@ define internal fastcc range(i8 1, 13) i8 @_ZNSt3__16chronoL13__parse_monthB8ne2
   %5 = tail call ptr @__ctype_tolower_loc() #31
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !14
   br label %tolower.exit
 
@@ -6388,7 +6385,7 @@ tolower.exit:                                     ; preds = %1, %4
   %15 = tail call ptr @__ctype_tolower_loc() #31
   %16 = load ptr, ptr %15, align 8, !tbaa !11
   %17 = sext i32 %12 to i64
-  %18 = getelementptr inbounds i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !14
   br label %tolower.exit29
 
@@ -6412,7 +6409,7 @@ tolower.exit29:                                   ; preds = %11, %14
   %25 = tail call ptr @__ctype_tolower_loc() #31
   %26 = load ptr, ptr %25, align 8, !tbaa !11
   %27 = sext i32 %22 to i64
-  %28 = getelementptr inbounds i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !14
   br label %tolower.exit.i
 
@@ -6444,7 +6441,7 @@ tolower.exit.i:                                   ; preds = %24, %.lr.ph.i
   %40 = tail call ptr @__ctype_tolower_loc() #31
   %41 = load ptr, ptr %40, align 8, !tbaa !11
   %42 = sext i32 %37 to i64
-  %43 = getelementptr inbounds i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %41, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !14
   br label %tolower.exit.i34
 
@@ -6476,7 +6473,7 @@ tolower.exit.i34:                                 ; preds = %39, %.lr.ph.i31
   %55 = tail call ptr @__ctype_tolower_loc() #31
   %56 = load ptr, ptr %55, align 8, !tbaa !11
   %57 = sext i32 %52 to i64
-  %58 = getelementptr inbounds i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %56, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !14
   br label %tolower.exit.i41
 
@@ -6508,7 +6505,7 @@ tolower.exit.i41:                                 ; preds = %54, %.lr.ph.i38
   %70 = tail call ptr @__ctype_tolower_loc() #31
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = sext i32 %67 to i64
-  %73 = getelementptr inbounds i32, ptr %71, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %71, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !14
   br label %tolower.exit.i48
 
@@ -6537,7 +6534,7 @@ tolower.exit.i48:                                 ; preds = %69, %.lr.ph.i45
   %85 = tail call ptr @__ctype_tolower_loc() #31
   %86 = load ptr, ptr %85, align 8, !tbaa !11
   %87 = sext i32 %82 to i64
-  %88 = getelementptr inbounds i32, ptr %86, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %86, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !14
   br label %tolower.exit52
 
@@ -6561,7 +6558,7 @@ tolower.exit52:                                   ; preds = %81, %84
   %95 = tail call ptr @__ctype_tolower_loc() #31
   %96 = load ptr, ptr %95, align 8, !tbaa !11
   %97 = sext i32 %92 to i64
-  %98 = getelementptr inbounds i32, ptr %96, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %96, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !14
   br label %tolower.exit.i57
 
@@ -6590,7 +6587,7 @@ tolower.exit.i57:                                 ; preds = %94, %.lr.ph.i54
   %110 = tail call ptr @__ctype_tolower_loc() #31
   %111 = load ptr, ptr %110, align 8, !tbaa !11
   %112 = sext i32 %107 to i64
-  %113 = getelementptr inbounds i32, ptr %111, i64 %112
+  %113 = getelementptr inbounds [4 x i8], ptr %111, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !14
   br label %tolower.exit61
 
@@ -6611,7 +6608,7 @@ tolower.exit.i63:                                 ; preds = %116
   %119 = tail call ptr @__ctype_tolower_loc() #31
   %120 = load ptr, ptr %119, align 8, !tbaa !11
   %121 = sext i32 %117 to i64
-  %122 = getelementptr inbounds i32, ptr %120, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %120, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !14
   %124 = icmp eq i32 %123, 101
   br i1 %124, label %_ZNSt3__16chronoL6__skipB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEENS_17basic_string_viewIcS3_EE.exit.sink.split, label %_ZNSt3__16chronoL6__skipB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEENS_17basic_string_viewIcS3_EE.exit
@@ -6626,7 +6623,7 @@ tolower.exit.i65:                                 ; preds = %125
   %128 = tail call ptr @__ctype_tolower_loc() #31
   %129 = load ptr, ptr %128, align 8, !tbaa !11
   %130 = sext i32 %126 to i64
-  %131 = getelementptr inbounds i32, ptr %129, i64 %130
+  %131 = getelementptr inbounds [4 x i8], ptr %129, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !14
   %133 = icmp eq i32 %132, 121
   br i1 %133, label %_ZNSt3__16chronoL6__skipB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEENS_17basic_string_viewIcS3_EE.exit.sink.split, label %_ZNSt3__16chronoL6__skipB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEENS_17basic_string_viewIcS3_EE.exit
@@ -6641,7 +6638,7 @@ tolower.exit68:                                   ; preds = %134
   %137 = tail call ptr @__ctype_tolower_loc() #31
   %138 = load ptr, ptr %137, align 8, !tbaa !11
   %139 = sext i32 %135 to i64
-  %140 = getelementptr inbounds i32, ptr %138, i64 %139
+  %140 = getelementptr inbounds [4 x i8], ptr %138, i64 %139
   %141 = load i32, ptr %140, align 4, !tbaa !14
   %142 = icmp eq i32 %141, 97
   br i1 %142, label %143, label %tolower.exit68.thread
@@ -6655,7 +6652,7 @@ tolower.exit68:                                   ; preds = %134
 146:                                              ; preds = %143
   %147 = load ptr, ptr %137, align 8, !tbaa !11
   %148 = sext i32 %144 to i64
-  %149 = getelementptr inbounds i32, ptr %147, i64 %148
+  %149 = getelementptr inbounds [4 x i8], ptr %147, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !14
   br label %tolower.exit70
 
@@ -6679,7 +6676,7 @@ tolower.exit70:                                   ; preds = %143, %146
 155:                                              ; preds = %.lr.ph.i72
   %156 = load ptr, ptr %137, align 8, !tbaa !11
   %157 = sext i32 %153 to i64
-  %158 = getelementptr inbounds i32, ptr %156, i64 %157
+  %158 = getelementptr inbounds [4 x i8], ptr %156, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !14
   br label %tolower.exit.i75
 
@@ -6709,7 +6706,7 @@ tolower.exit.i75:                                 ; preds = %155, %.lr.ph.i72
   %170 = tail call ptr @__ctype_tolower_loc() #31
   %171 = load ptr, ptr %170, align 8, !tbaa !11
   %172 = sext i32 %167 to i64
-  %173 = getelementptr inbounds i32, ptr %171, i64 %172
+  %173 = getelementptr inbounds [4 x i8], ptr %171, i64 %172
   %174 = load i32, ptr %173, align 4, !tbaa !14
   br label %tolower.exit.i82
 
@@ -6741,7 +6738,7 @@ tolower.exit.i82:                                 ; preds = %169, %.lr.ph.i79
   %185 = tail call ptr @__ctype_tolower_loc() #31
   %186 = load ptr, ptr %185, align 8, !tbaa !11
   %187 = sext i32 %182 to i64
-  %188 = getelementptr inbounds i32, ptr %186, i64 %187
+  %188 = getelementptr inbounds [4 x i8], ptr %186, i64 %187
   %189 = load i32, ptr %188, align 4, !tbaa !14
   br label %tolower.exit.i89
 
@@ -6773,7 +6770,7 @@ tolower.exit.i89:                                 ; preds = %184, %.lr.ph.i86
   %200 = tail call ptr @__ctype_tolower_loc() #31
   %201 = load ptr, ptr %200, align 8, !tbaa !11
   %202 = sext i32 %197 to i64
-  %203 = getelementptr inbounds i32, ptr %201, i64 %202
+  %203 = getelementptr inbounds [4 x i8], ptr %201, i64 %202
   %204 = load i32, ptr %203, align 4, !tbaa !14
   br label %tolower.exit.i96
 
@@ -6837,7 +6834,7 @@ tolower.exit:                                     ; preds = %8
   %11 = tail call ptr @__ctype_tolower_loc() #31
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   %13 = sext i32 %9 to i64
-  %14 = getelementptr inbounds i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !14
   %16 = icmp eq i32 %15, 108
   br i1 %16, label %17, label %tolower.exit.thread
@@ -6997,7 +6994,7 @@ _ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   store ptr %29, ptr %30, align 8, !tbaa !173
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %31, align 8, !tbaa !174
-  %32 = getelementptr inbounds nuw %"struct.std::__1::pair", ptr %storemerge.i, i64 %.0.i
+  %32 = getelementptr inbounds nuw [48 x i8], ptr %storemerge.i, i64 %.0.i
   store ptr %32, ptr %21, align 8, !tbaa !175
   %33 = load i8, ptr %1, align 8
   %34 = trunc i8 %33 to i1
@@ -7044,7 +7041,7 @@ _ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   %57 = ptrtoint ptr %55 to i64
   %58 = sub i64 %56, %57
   %.neg.i = sdiv exact i64 %58, -48
-  %59 = getelementptr inbounds %"struct.std::__1::pair", ptr %43, i64 %.neg.i
+  %59 = getelementptr inbounds [48 x i8], ptr %43, i64 %.neg.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 8 %55, i64 %58, i1 false)
   %60 = load ptr, ptr %0, align 8, !tbaa !19
   store ptr %59, ptr %0, align 8, !tbaa !176
@@ -7273,11 +7270,11 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_6chrono4__tz6__ruleEEE
   %21 = mul nuw i64 %.0.i, 80
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #34
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %7
-  %24 = getelementptr inbounds nuw %"struct.std::__1::chrono::__tz::__rule", ptr %22, i64 %.0.i
+  %24 = getelementptr inbounds nuw [80 x i8], ptr %22, i64 %.0.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %23, i8 0, i64 80, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %.neg.i = sdiv exact i64 %7, -80
-  %26 = getelementptr inbounds %"struct.std::__1::chrono::__tz::__rule", ptr %23, i64 %.neg.i
+  %26 = getelementptr inbounds [80 x i8], ptr %23, i64 %.neg.i
   %.not13.i.i = icmp eq ptr %4, %3
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferINS_6chrono4__tz6__ruleERNS_9allocatorIS3_EEE5clearB8ne210000Ev.exit.i, label %.lr.ph.i.i
 
@@ -7356,7 +7353,7 @@ define internal fastcc void @_ZNSt3__16chronoL6__skipB8ne210000ERNS_13basic_istr
   %6 = tail call ptr @__ctype_tolower_loc() #31
   %7 = load ptr, ptr %6, align 8, !tbaa !11
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !14
   br label %tolower.exit
 
@@ -7443,7 +7440,7 @@ define internal fastcc range(i8 0, 7) i8 @_ZNSt3__16chronoL15__parse_weekdayB8ne
   %5 = tail call ptr @__ctype_tolower_loc() #31
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !14
   br label %tolower.exit
 
@@ -7470,7 +7467,7 @@ tolower.exit:                                     ; preds = %1, %4
   %15 = tail call ptr @__ctype_tolower_loc() #31
   %16 = load ptr, ptr %15, align 8, !tbaa !11
   %17 = sext i32 %12 to i64
-  %18 = getelementptr inbounds i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !14
   br label %tolower.exit.i
 
@@ -7502,7 +7499,7 @@ tolower.exit.i:                                   ; preds = %14, %.lr.ph.i
   %30 = tail call ptr @__ctype_tolower_loc() #31
   %31 = load ptr, ptr %30, align 8, !tbaa !11
   %32 = sext i32 %27 to i64
-  %33 = getelementptr inbounds i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !14
   br label %tolower.exit.i20
 
@@ -7531,7 +7528,7 @@ tolower.exit.i20:                                 ; preds = %29, %.lr.ph.i17
   %45 = tail call ptr @__ctype_tolower_loc() #31
   %46 = load ptr, ptr %45, align 8, !tbaa !11
   %47 = sext i32 %42 to i64
-  %48 = getelementptr inbounds i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %46, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !14
   br label %tolower.exit24
 
@@ -7555,7 +7552,7 @@ tolower.exit24:                                   ; preds = %41, %44
   %55 = tail call ptr @__ctype_tolower_loc() #31
   %56 = load ptr, ptr %55, align 8, !tbaa !11
   %57 = sext i32 %52 to i64
-  %58 = getelementptr inbounds i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %56, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !14
   br label %tolower.exit.i29
 
@@ -7587,7 +7584,7 @@ tolower.exit.i29:                                 ; preds = %54, %.lr.ph.i26
   %70 = tail call ptr @__ctype_tolower_loc() #31
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = sext i32 %67 to i64
-  %73 = getelementptr inbounds i32, ptr %71, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %71, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !14
   br label %tolower.exit.i36
 
@@ -7616,7 +7613,7 @@ tolower.exit.i36:                                 ; preds = %69, %.lr.ph.i33
   %85 = tail call ptr @__ctype_tolower_loc() #31
   %86 = load ptr, ptr %85, align 8, !tbaa !11
   %87 = sext i32 %82 to i64
-  %88 = getelementptr inbounds i32, ptr %86, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %86, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !14
   br label %tolower.exit40
 
@@ -7640,7 +7637,7 @@ tolower.exit40:                                   ; preds = %81, %84
   %95 = tail call ptr @__ctype_tolower_loc() #31
   %96 = load ptr, ptr %95, align 8, !tbaa !11
   %97 = sext i32 %92 to i64
-  %98 = getelementptr inbounds i32, ptr %96, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %96, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !14
   br label %tolower.exit.i45
 
@@ -7672,7 +7669,7 @@ tolower.exit.i45:                                 ; preds = %94, %.lr.ph.i42
   %110 = tail call ptr @__ctype_tolower_loc() #31
   %111 = load ptr, ptr %110, align 8, !tbaa !11
   %112 = sext i32 %107 to i64
-  %113 = getelementptr inbounds i32, ptr %111, i64 %112
+  %113 = getelementptr inbounds [4 x i8], ptr %111, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !14
   br label %tolower.exit.i52
 
@@ -7704,7 +7701,7 @@ tolower.exit.i52:                                 ; preds = %109, %.lr.ph.i49
   %125 = tail call ptr @__ctype_tolower_loc() #31
   %126 = load ptr, ptr %125, align 8, !tbaa !11
   %127 = sext i32 %122 to i64
-  %128 = getelementptr inbounds i32, ptr %126, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %126, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !14
   br label %tolower.exit.i59
 
@@ -7825,7 +7822,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit: ; pred
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %16 = zext i32 %12 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !95
   invoke void %18(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i unwind label %19
@@ -7896,13 +7893,13 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_6chrono9time_zoneEEEEE
   %26 = shl nuw i64 %.0.i.i, 3
   %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #34
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %15
-  %29 = getelementptr inbounds nuw %"class.std::__1::chrono::time_zone", ptr %27, i64 %.0.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.0.i.i
   %30 = load ptr, ptr %1, align 8, !tbaa !51
   store ptr null, ptr %1, align 8, !tbaa !51
   store ptr %30, ptr %28, align 8, !tbaa !51
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = sub nsw i64 0, %16
-  %33 = getelementptr inbounds %"class.std::__1::chrono::time_zone", ptr %28, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %28, i64 %32
   %.not30.i.i.i = icmp eq ptr %12, %4
   br i1 %.not30.i.i.i, label %_ZNSt3__114__split_bufferINS_6chrono9time_zoneERNS_9allocatorIS2_EEE5clearB8ne210000Ev.exit.i.i, label %.lr.ph.i.i.i
 
@@ -8025,7 +8022,7 @@ define linkonce_odr hidden void @_ZNSt3__116__variant_detail12__visitation6__bas
 8:                                                ; preds = %3
   %9 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %10 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !95
   invoke void %11(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(28) %5)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i unwind label %12
@@ -8067,7 +8064,7 @@ define linkonce_odr hidden void @_ZNSt3__116__variant_detail12__visitation6__bas
 9:                                                ; preds = %3
   %10 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %11 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !95
   invoke void %12(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(28) %5)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i unwind label %13
@@ -8127,7 +8124,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne210000EOS5_
 17:                                               ; preds = %3
   %18 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %19 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !95
   invoke void %20(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(28) %5)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i unwind label %21
@@ -8204,7 +8201,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i.i.i.i
   %24 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i, i64 -96
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = zext i32 %21 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !95
   invoke void %27(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i unwind label %28
@@ -8317,7 +8314,7 @@ _ZNSt3__114__split_bufferINS_6chrono14time_zone_linkERNS_9allocatorIS2_EEEC2B8ne
   store ptr %30, ptr %31, align 8, !tbaa !192
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %30, ptr %32, align 8, !tbaa !193
-  %33 = getelementptr inbounds nuw %"class.std::__1::chrono::time_zone_link", ptr %storemerge.i, i64 %.0.i
+  %33 = getelementptr inbounds nuw [48 x i8], ptr %storemerge.i, i64 %.0.i
   store ptr %33, ptr %22, align 8, !tbaa !194
   %34 = load i8, ptr %2, align 8
   %35 = trunc i8 %34 to i1
@@ -8352,7 +8349,7 @@ _ZNSt3__116allocator_traitsINS_9allocatorINS_6chrono14time_zone_linkEEEE9constru
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
   %.neg.i = sdiv exact i64 %61, -48
-  %62 = getelementptr inbounds %"class.std::__1::chrono::time_zone_link", ptr %30, i64 %.neg.i
+  %62 = getelementptr inbounds [48 x i8], ptr %30, i64 %.neg.i
   %.not13.i.i = icmp eq ptr %58, %57
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferINS_6chrono14time_zone_linkERNS_9allocatorIS2_EEE5clearB8ne210000Ev.exit.i, label %.lr.ph.i.i
 
@@ -8761,7 +8758,7 @@ _ZNKSt3__16ranges11__iter_swap4__fnclB8ne210000IRPNS_6chrono9time_zoneES7_Qaant2
 
 62:                                               ; preds = %62, %59
   %.012.i.i = phi i64 [ %61, %59 ], [ %64, %62 ]
-  %63 = getelementptr inbounds nuw %"class.std::__1::chrono::time_zone", ptr %.082, i64 %.012.i.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %.082, i64 %.012.i.i
   call void @_ZNSt3__111__sift_downB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6chrono9time_zoneEEEvT1_OT0_NS_15iterator_traitsIS8_E15difference_typeES8_(ptr noundef %.082, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 noundef %16, ptr noundef %63)
   %64 = add nsw i64 %.012.i.i, -1
   %.not.i.i = icmp eq i64 %.012.i.i, 0
@@ -8780,7 +8777,7 @@ _ZNKSt3__16ranges11__iter_swap4__fnclB8ne210000IRPNS_6chrono9time_zoneES7_Qaant2
   %69 = add nsw i64 %.0, -1
   %70 = lshr i64 %16, 1
   %71 = icmp samesign ugt i64 %16, 128
-  %72 = getelementptr %"class.std::__1::chrono::time_zone", ptr %.082, i64 %70
+  %72 = getelementptr [8 x i8], ptr %.082, i64 %70
   br i1 %71, label %73, label %88
 
 73:                                               ; preds = %68
@@ -9601,7 +9598,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i.i.i.i
   %41 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i, i64 -96
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %42 = zext i32 %38 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !95
   invoke void %44(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(32) %41)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i unwind label %45
@@ -9797,7 +9794,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i.i.i.i
   %41 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i, i64 -96
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %42 = zext i32 %38 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !95
   invoke void %44(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(32) %41)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i unwind label %45
@@ -10611,7 +10608,7 @@ define linkonce_odr hidden void @_ZNSt3__111__sift_downB8ne210000INS_15_RangeAlg
 15:                                               ; preds = %10
   %16 = ashr exact i64 %8, 2
   %17 = add nsw i64 %16, 1
-  %18 = getelementptr inbounds %"class.std::__1::chrono::time_zone", ptr %0, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %0, i64 %17
   %19 = add nsw i64 %16, 2
   %20 = icmp slt i64 %19, %2
   br i1 %20, label %21, label %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono9time_zoneES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit.thread
@@ -10691,7 +10688,7 @@ _ZNSt3__16chrono9time_zoneaSB8ne210000EOS1_.exit: ; preds = %46, %49
 51:                                               ; preds = %_ZNSt3__16chrono9time_zoneaSB8ne210000EOS1_.exit
   %52 = shl nsw i64 %.1, 1
   %53 = or disjoint i64 %52, 1
-  %54 = getelementptr inbounds %"class.std::__1::chrono::time_zone", ptr %0, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %0, i64 %53
   %55 = add nsw i64 %52, 2
   %56 = icmp slt i64 %55, %2
   br i1 %56, label %57, label %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono9time_zoneES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit31.thread
@@ -10786,7 +10783,7 @@ define linkonce_odr hidden void @_ZNSt3__110__pop_heapB8ne210000INS_15_RangeAlgP
 11:                                               ; preds = %_ZNSt3__16chrono9time_zoneaSB8ne210000EOS1_.exit.i, %7
   %.016.i = phi ptr [ %0, %7 ], [ %.117.i, %_ZNSt3__16chrono9time_zoneaSB8ne210000EOS1_.exit.i ]
   %.0.i = phi i64 [ 0, %7 ], [ %.1.i, %_ZNSt3__16chrono9time_zoneaSB8ne210000EOS1_.exit.i ]
-  %12 = getelementptr %"class.std::__1::chrono::time_zone", ptr %.016.i, i64 %.0.i
+  %12 = getelementptr [8 x i8], ptr %.016.i, i64 %.0.i
   %13 = getelementptr i8, ptr %12, i64 8
   %14 = shl nsw i64 %.0.i, 1
   %15 = or disjoint i64 %14, 1
@@ -10904,7 +10901,7 @@ define linkonce_odr hidden void @_ZNSt3__19__sift_upB8ne210000INS_15_RangeAlgPol
 7:                                                ; preds = %4
   %8 = add nsw i64 %3, -2
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw %"class.std::__1::chrono::time_zone", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %9
   %11 = getelementptr inbounds i8, ptr %1, i64 -8
   %12 = tail call { ptr, i64 } @_ZNKSt3__16chrono9time_zone6__nameB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #32
   %13 = extractvalue { ptr, i64 } %12, 0
@@ -10954,7 +10951,7 @@ _ZNSt3__16chrono9time_zoneaSB8ne210000EOS1_.exit: ; preds = %24, %27
 29:                                               ; preds = %_ZNSt3__16chrono9time_zoneaSB8ne210000EOS1_.exit
   %30 = add nsw i64 %.0, -1
   %31 = lshr i64 %30, 1
-  %32 = getelementptr inbounds nuw %"class.std::__1::chrono::time_zone", ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %31
   %33 = call { ptr, i64 } @_ZNKSt3__16chrono9time_zone6__nameB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #32
   %34 = extractvalue { ptr, i64 } %33, 0
   %35 = extractvalue { ptr, i64 } %33, 1
@@ -11127,7 +11124,7 @@ _ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ord
 
 70:                                               ; preds = %70, %67
   %.012.i.i = phi i64 [ %69, %67 ], [ %72, %70 ]
-  %71 = getelementptr inbounds nuw %"class.std::__1::chrono::time_zone_link", ptr %.078, i64 %.012.i.i
+  %71 = getelementptr inbounds nuw [48 x i8], ptr %.078, i64 %.012.i.i
   tail call void @_ZNSt3__111__sift_downB8ne210000INS_15_RangeAlgPolicyERNS_6ranges4lessEPNS_6chrono14time_zone_linkEEEvT1_OT0_NS_15iterator_traitsIS8_E15difference_typeES8_(ptr noundef %.078, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 noundef %14, ptr noundef %71)
   %72 = add nsw i64 %.012.i.i, -1
   %.not.i.i = icmp eq i64 %.012.i.i, 0
@@ -11150,7 +11147,7 @@ _ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ord
   %78 = add nsw i64 %.0, -1
   %79 = lshr i64 %14, 1
   %80 = icmp samesign ugt i64 %13, 6144
-  %81 = getelementptr %"class.std::__1::chrono::time_zone_link", ptr %.078, i64 %79
+  %81 = getelementptr [48 x i8], ptr %.078, i64 %79
   br i1 %80, label %82, label %91
 
 82:                                               ; preds = %77
@@ -13029,7 +13026,7 @@ define linkonce_odr hidden void @_ZNSt3__111__sift_downB8ne210000INS_15_RangeAlg
 15:                                               ; preds = %11
   %16 = shl nsw i64 %9, 1
   %17 = or disjoint i64 %16, 1
-  %18 = getelementptr inbounds %"class.std::__1::chrono::time_zone_link", ptr %0, i64 %17
+  %18 = getelementptr inbounds [48 x i8], ptr %0, i64 %17
   %19 = add nsw i64 %16, 2
   %20 = icmp slt i64 %19, %2
   br i1 %20, label %21, label %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit.thread
@@ -13171,7 +13168,7 @@ _ZNSt3__16chrono14time_zone_linkaSB8ne210000EOS1_.exit: ; preds = %_ZNSt3__112ba
 102:                                              ; preds = %_ZNSt3__16chrono14time_zone_linkaSB8ne210000EOS1_.exit
   %103 = shl nsw i64 %.1, 1
   %104 = or disjoint i64 %103, 1
-  %105 = getelementptr inbounds %"class.std::__1::chrono::time_zone_link", ptr %0, i64 %104
+  %105 = getelementptr inbounds [48 x i8], ptr %0, i64 %104
   %106 = add nsw i64 %103, 2
   %107 = icmp slt i64 %106, %2
   br i1 %107, label %108, label %_ZNKSt3__16ranges4lessclB8ne210000IRNS_6chrono14time_zone_linkES5_Q20totally_ordered_withIT_T0_EEEbOS6_OS7_.exit31.thread
@@ -13454,7 +13451,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__117__floyd_sift_downB8ne210000IN
 6:                                                ; preds = %_ZNSt3__16chrono14time_zone_linkaSB8ne210000EOS1_.exit, %3
   %.016 = phi ptr [ %0, %3 ], [ %.117, %_ZNSt3__16chrono14time_zone_linkaSB8ne210000EOS1_.exit ]
   %.0 = phi i64 [ 0, %3 ], [ %.1, %_ZNSt3__16chrono14time_zone_linkaSB8ne210000EOS1_.exit ]
-  %7 = getelementptr %"class.std::__1::chrono::time_zone_link", ptr %.016, i64 %.0
+  %7 = getelementptr [48 x i8], ptr %.016, i64 %.0
   %8 = getelementptr i8, ptr %7, i64 48
   %9 = shl nsw i64 %.0, 1
   %10 = or disjoint i64 %9, 1
@@ -13557,7 +13554,7 @@ define linkonce_odr hidden void @_ZNSt3__19__sift_upB8ne210000INS_15_RangeAlgPol
 7:                                                ; preds = %4
   %8 = add nsw i64 %3, -2
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw %"class.std::__1::chrono::time_zone_link", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %9
   %11 = getelementptr inbounds i8, ptr %1, i64 -48
   %12 = load i8, ptr %10, align 8
   %13 = trunc i8 %12 to i1
@@ -13661,7 +13658,7 @@ _ZNSt3__16chrono14time_zone_linkaSB8ne210000EOS1_.exit: ; preds = %_ZNSt3__112ba
 72:                                               ; preds = %_ZNSt3__16chrono14time_zone_linkaSB8ne210000EOS1_.exit
   %73 = add nsw i64 %.0, -1
   %74 = lshr i64 %73, 1
-  %75 = getelementptr inbounds nuw %"class.std::__1::chrono::time_zone_link", ptr %0, i64 %74
+  %75 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %74
   %76 = load i8, ptr %75, align 8
   %77 = trunc i8 %76 to i1
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
@@ -14576,14 +14573,14 @@ _ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_6vec
 
 423:                                              ; preds = %"_ZNSt3__111__sift_downB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEZNS_6chrono11__init_tzdbB8ne210000ERNS5_4tzdbERNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS8_INS5_4__tz6__ruleENSD_ISH_EEEEEENSD_ISK_EEEEE3$_0EEPSK_EEvT1_OT0_NS_15iterator_traitsISS_E15difference_typeESS_.exit", %417
   %.01.i.i.i = phi i64 [ %419, %417 ], [ %527, %"_ZNSt3__111__sift_downB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEZNS_6chrono11__init_tzdbB8ne210000ERNS5_4tzdbERNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS8_INS5_4__tz6__ruleENSD_ISH_EEEEEENSD_ISK_EEEEE3$_0EEPSK_EEvT1_OT0_NS_15iterator_traitsISS_E15difference_typeESS_.exit" ]
-  %424 = getelementptr inbounds nuw %"struct.std::__1::pair", ptr %.021, i64 %.01.i.i.i
+  %424 = getelementptr inbounds nuw [48 x i8], ptr %.021, i64 %.01.i.i.i
   %425 = icmp slt i64 %419, %.01.i.i.i
   br i1 %425, label %"_ZNSt3__111__sift_downB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEZNS_6chrono11__init_tzdbB8ne210000ERNS5_4tzdbERNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS8_INS5_4__tz6__ruleENSD_ISH_EEEEEENSD_ISK_EEEEE3$_0EEPSK_EEvT1_OT0_NS_15iterator_traitsISS_E15difference_typeESS_.exit", label %426
 
 426:                                              ; preds = %423
   %427 = shl nsw i64 %.01.i.i.i, 1
   %428 = or disjoint i64 %427, 1
-  %429 = getelementptr inbounds %"struct.std::__1::pair", ptr %.021, i64 %428
+  %429 = getelementptr inbounds [48 x i8], ptr %.021, i64 %428
   %430 = add nsw i64 %427, 2
   %431 = icmp slt i64 %430, %81
   br i1 %431, label %432, label %435
@@ -14704,7 +14701,7 @@ _ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_6vec
 482:                                              ; preds = %_ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_6vectorINS_6chrono4__tz6__ruleENS4_ISA_EEEEEaSB8ne210000EOSD_.exit.i161
   %483 = shl nsw i64 %.1.i150, 1
   %484 = or disjoint i64 %483, 1
-  %485 = getelementptr inbounds %"struct.std::__1::pair", ptr %.021, i64 %484
+  %485 = getelementptr inbounds [48 x i8], ptr %.021, i64 %484
   %486 = add nsw i64 %483, 2
   %487 = icmp slt i64 %486, %81
   br i1 %487, label %488, label %494
@@ -14859,7 +14856,7 @@ _ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_6vec
 559:                                              ; preds = %_ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_6vectorINS_6chrono4__tz6__ruleENS4_ISA_EEEEEaSB8ne210000EOSD_.exit.i.i.i.i.i, %553
   %.04.i.i.i.i.i = phi ptr [ %.021, %553 ], [ %.15.i.i.i.i.i, %_ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_6vectorINS_6chrono4__tz6__ruleENS4_ISA_EEEEEaSB8ne210000EOSD_.exit.i.i.i.i.i ]
   %.0.i.i.i.i.i = phi i64 [ 0, %553 ], [ %.1.i.i.i.i.i, %_ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_6vectorINS_6chrono4__tz6__ruleENS4_ISA_EEEEEaSB8ne210000EOSD_.exit.i.i.i.i.i ]
-  %560 = getelementptr %"struct.std::__1::pair", ptr %.04.i.i.i.i.i, i64 %.0.i.i.i.i.i
+  %560 = getelementptr [48 x i8], ptr %.04.i.i.i.i.i, i64 %.0.i.i.i.i.i
   %561 = getelementptr i8, ptr %560, i64 48
   %562 = shl nsw i64 %.0.i.i.i.i.i, 1
   %563 = or disjoint i64 %562, 1
@@ -15312,7 +15309,7 @@ _ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_6vec
   %753 = udiv exact i64 %750, 48
   %754 = add nsw i64 %753, -2
   %755 = lshr i64 %754, 1
-  %756 = getelementptr inbounds nuw %"struct.std::__1::pair", ptr %.021, i64 %755
+  %756 = getelementptr inbounds nuw [48 x i8], ptr %.021, i64 %755
   %757 = invoke fastcc noundef zeroext i1 @"_ZNKSt3__114_ProjectedPredINS_6ranges4lessEZNS_6chrono11__init_tzdbB8ne210000ERNS3_4tzdbERNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS6_INS3_4__tz6__ruleENSB_ISF_EEEEEENSB_ISI_EEEEE3$_0EclB8ne210000IRSI_SP_EENS_15__invoke_resultIRS2_JDTclsr3stdE8__invokeclL_ZNS_7declvalB8ne210000IRSM_EEDTclsr3stdE9__declvalIT_ELi0EEEvEEclsr3stdE7declvalISU_EEEEDTclsr3stdE8__invokeclL_ZNSS_IST_EESV_vEEclsr3stdE7declvalIT0_EEEEEE4typeEOSU_OSX_"(ptr noundef nonnull align 8 dereferenceable(48) %756, ptr noundef nonnull align 8 dereferenceable(48) %.15.i.i.i.i.i)
           to label %.noexc47.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i
 
@@ -15419,7 +15416,7 @@ _ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_6vec
 800:                                              ; preds = %_ZNSt3__14pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_6vectorINS_6chrono4__tz6__ruleENS4_ISA_EEEEEaSB8ne210000EOSD_.exit.i46.i.i.i.i
   %801 = add nsw i64 %.0.i35.i.i.i.i, -1
   %802 = lshr i64 %801, 1
-  %803 = getelementptr inbounds nuw %"struct.std::__1::pair", ptr %.021, i64 %802
+  %803 = getelementptr inbounds nuw [48 x i8], ptr %.021, i64 %802
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %804 = load i8, ptr %803, align 8, !noalias !337
   %805 = trunc i8 %804 to i1
@@ -15659,7 +15656,7 @@ _ZNSt3__16vectorINS_6chrono4__tz6__ruleENS_9allocatorIS3_EEE5clearB8ne210000Ev.e
   %910 = add nsw i64 %.0, -1
   %911 = lshr i64 %81, 1
   %912 = icmp samesign ugt i64 %80, 6144
-  %913 = getelementptr %"struct.std::__1::pair", ptr %.021, i64 %911
+  %913 = getelementptr [48 x i8], ptr %.021, i64 %911
   br i1 %912, label %914, label %931
 
 914:                                              ; preds = %909
@@ -18009,14 +18006,14 @@ _ZNSt3__17__sort3B8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges
 
 112:                                              ; preds = %_ZNSt3__111__sift_downB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEMZNS_6chronoL20__parse_leap_secondsB8ne210000ERNS_6vectorINS5_11leap_secondENS_9allocatorIS7_EEEEONS_13basic_istreamIcNS_11char_traitsIcEEEEE7__entryNS5_10time_pointINS5_12system_clockENS5_8durationIxNS_5ratioILl1ELl1EEEEEEEEEPSH_EEvT1_OT0_NS_15iterator_traitsIST_E15difference_typeEST_.exit.i.i.i, %109
   %.013.i.i.i = phi i64 [ %111, %109 ], [ %149, %_ZNSt3__111__sift_downB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEMZNS_6chronoL20__parse_leap_secondsB8ne210000ERNS_6vectorINS5_11leap_secondENS_9allocatorIS7_EEEEONS_13basic_istreamIcNS_11char_traitsIcEEEEE7__entryNS5_10time_pointINS5_12system_clockENS5_8durationIxNS_5ratioILl1ELl1EEEEEEEEEPSH_EEvT1_OT0_NS_15iterator_traitsIST_E15difference_typeEST_.exit.i.i.i ]
-  %113 = getelementptr inbounds nuw %struct.__entry, ptr %.0277, i64 %.013.i.i.i
+  %113 = getelementptr inbounds nuw [16 x i8], ptr %.0277, i64 %.013.i.i.i
   %114 = icmp samesign ult i64 %111, %.013.i.i.i
   br i1 %114, label %_ZNSt3__111__sift_downB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges4lessEMZNS_6chronoL20__parse_leap_secondsB8ne210000ERNS_6vectorINS5_11leap_secondENS_9allocatorIS7_EEEEONS_13basic_istreamIcNS_11char_traitsIcEEEEE7__entryNS5_10time_pointINS5_12system_clockENS5_8durationIxNS_5ratioILl1ELl1EEEEEEEEEPSH_EEvT1_OT0_NS_15iterator_traitsIST_E15difference_typeEST_.exit.i.i.i, label %115
 
 115:                                              ; preds = %112
   %116 = shl nuw nsw i64 %.013.i.i.i, 1
   %117 = or disjoint i64 %116, 1
-  %118 = getelementptr inbounds nuw %struct.__entry, ptr %.0277, i64 %117
+  %118 = getelementptr inbounds nuw [16 x i8], ptr %.0277, i64 %117
   %119 = add nuw nsw i64 %116, 2
   %120 = icmp slt i64 %119, %23
   br i1 %120, label %121, label %._crit_edge.i.i.i.i
@@ -18066,7 +18063,7 @@ _ZNSt3__17__sort3B8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6ranges
 133:                                              ; preds = %131
   %134 = shl nuw nsw i64 %.1.i.i.i.i, 1
   %135 = or disjoint i64 %134, 1
-  %136 = getelementptr inbounds nuw %struct.__entry, ptr %.0277, i64 %135
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %.0277, i64 %135
   %137 = add nuw nsw i64 %134, 2
   %138 = icmp slt i64 %137, %23
   %.val26.pre.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !424
@@ -18116,7 +18113,7 @@ _ZNSt3__111__sift_downB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPredINS_6r
 153:                                              ; preds = %165, %.lr.ph.i.i.i
   %.016.i.i.i.i.i = phi ptr [ %.0277, %.lr.ph.i.i.i ], [ %.117.i.i.i.i.i, %165 ]
   %.0.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %.1.i.i.i.i.i, %165 ]
-  %154 = getelementptr %struct.__entry, ptr %.016.i.i.i.i.i, i64 %.0.i.i.i.i.i
+  %154 = getelementptr [16 x i8], ptr %.016.i.i.i.i.i, i64 %.0.i.i.i.i.i
   %155 = getelementptr i8, ptr %154, i64 16
   %156 = shl nsw i64 %.0.i.i.i.i.i, 1
   %157 = or disjoint i64 %156, 1
@@ -18166,7 +18163,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPred
 176:                                              ; preds = %170
   %177 = add nsw i64 %174, -2
   %178 = lshr i64 %177, 1
-  %179 = getelementptr inbounds nuw %struct.__entry, ptr %.0277, i64 %178
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %.0277, i64 %178
   %.val12.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !424
   %.val12.val.i.i.i.i.i = load i64, ptr %.val12.i.i.i.i.i, align 8, !tbaa !4
   %180 = getelementptr inbounds i8, ptr %179, i64 %.val12.val.i.i.i.i.i
@@ -18192,7 +18189,7 @@ _ZNSt3__117__floyd_sift_downB8ne210000INS_15_RangeAlgPolicyERNS_14_ProjectedPred
 186:                                              ; preds = %184
   %187 = add nsw i64 %.0.i14.i.i.i.i, -1
   %188 = lshr i64 %187, 1
-  %189 = getelementptr inbounds nuw %struct.__entry, ptr %.0277, i64 %188
+  %189 = getelementptr inbounds nuw [16 x i8], ptr %.0277, i64 %188
   %.val10.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !424
   %.val10.val.i.i.i.i.i = load i64, ptr %.val10.i.i.i.i.i, align 8, !tbaa !4
   %190 = getelementptr inbounds i8, ptr %189, i64 %.val10.val.i.i.i.i.i
@@ -18217,7 +18214,7 @@ _ZNSt3__110__pop_heapB8ne210000INS_15_RangeAlgPolicyENS_14_ProjectedPredINS_6ran
   %197 = add nsw i64 %.0, -1
   %198 = lshr i64 %23, 1
   %199 = icmp samesign ugt i64 %23, 128
-  %200 = getelementptr %struct.__entry, ptr %.0277, i64 %198
+  %200 = getelementptr [16 x i8], ptr %.0277, i64 %198
   %.val14.i80 = load ptr, ptr %14, align 8, !tbaa !424
   %.val14.val.i81 = load i64, ptr %.val14.i80, align 8, !tbaa !4
   %201 = getelementptr inbounds i8, ptr %16, i64 %.val14.val.i81
@@ -19620,7 +19617,7 @@ _ZNSt3__18__invokeB8ne210000IRMNS_6chrono9time_zoneEKDoFNS_17basic_string_viewIc
   %.sroa.0.019.i.i.us.i.i = phi ptr [ %.sroa.0.1.i.i.us.i.i, %_ZNSt3__18__invokeB8ne210000IRNS_6ranges4lessEJNS_17basic_string_viewIcNS_11char_traitsIcEEEERKS7_EEEDTclclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSA_DpOSB_.exit.thread.i.i.us.i.i ], [ %5, %.lr.ph.i.i.i.i ]
   %.018.i.i.us.i.i = phi i64 [ %.1.i.i.us.i.i, %_ZNSt3__18__invokeB8ne210000IRNS_6ranges4lessEJNS_17basic_string_viewIcNS_11char_traitsIcEEEERKS7_EEEDTclclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSA_DpOSB_.exit.thread.i.i.us.i.i ], [ %11, %.lr.ph.i.i.i.i ]
   %12 = lshr i64 %.018.i.i.us.i.i, 1
-  %13 = getelementptr inbounds nuw %"class.std::__1::chrono::time_zone", ptr %.sroa.0.019.i.i.us.i.i, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.019.i.i.us.i.i, i64 %12
   %14 = tail call { ptr, i64 } @_ZNKSt3__16chrono9time_zone6__nameB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #32
   %15 = extractvalue { ptr, i64 } %14, 0
   %16 = extractvalue { ptr, i64 } %14, 1
@@ -19693,7 +19690,7 @@ _ZNSt3__18__invokeB8ne210000IRMNS_6chrono14time_zone_linkEKDoFNS_17basic_string_
   %.sroa.0.019.i.i.us.i = phi ptr [ %.sroa.0.1.i.i.us.i, %_ZNSt3__18__invokeB8ne210000IRNS_6ranges4lessEJNS_17basic_string_viewIcNS_11char_traitsIcEEEERKS7_EEEDTclclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSA_DpOSB_.exit.thread.i.i.us.i ], [ %33, %.lr.ph.i.i.i ]
   %.018.i.i.us.i = phi i64 [ %.1.i.i.us.i, %_ZNSt3__18__invokeB8ne210000IRNS_6ranges4lessEJNS_17basic_string_viewIcNS_11char_traitsIcEEEERKS7_EEEDTclclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSA_DpOSB_.exit.thread.i.i.us.i ], [ %39, %.lr.ph.i.i.i ]
   %40 = lshr i64 %.018.i.i.us.i, 1
-  %41 = getelementptr inbounds nuw %"class.std::__1::chrono::time_zone_link", ptr %.sroa.0.019.i.i.us.i, i64 %40
+  %41 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0.019.i.i.us.i, i64 %40
   %42 = load i8, ptr %41, align 8
   %43 = trunc i8 %42 to i1
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -19787,7 +19784,7 @@ _ZNSt3__18__invokeB8ne210000IRMNS_6chrono9time_zoneEKDoFNS_17basic_string_viewIc
   %.sroa.0.019.i.i.us.i.i26 = phi ptr [ %.sroa.0.1.i.i.us.i.i32, %_ZNSt3__18__invokeB8ne210000IRNS_6ranges4lessEJNS_17basic_string_viewIcNS_11char_traitsIcEEEERKS7_EEEDTclclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSA_DpOSB_.exit.thread.i.i.us.i.i30 ], [ %87, %.lr.ph.i.i.i.i24 ]
   %.018.i.i.us.i.i27 = phi i64 [ %.1.i.i.us.i.i31, %_ZNSt3__18__invokeB8ne210000IRNS_6ranges4lessEJNS_17basic_string_viewIcNS_11char_traitsIcEEEERKS7_EEEDTclclsr3stdE7declvalIT_EEspclsr3stdE7declvalIT0_EEEEOSA_DpOSB_.exit.thread.i.i.us.i.i30 ], [ %92, %.lr.ph.i.i.i.i24 ]
   %93 = lshr i64 %.018.i.i.us.i.i27, 1
-  %94 = getelementptr inbounds nuw %"class.std::__1::chrono::time_zone", ptr %.sroa.0.019.i.i.us.i.i26, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.019.i.i.us.i.i26, i64 %93
   %95 = tail call { ptr, i64 } @_ZNKSt3__16chrono9time_zone6__nameB8ne210000Ev(ptr noundef nonnull align 8 dereferenceable(8) %94) #32
   %96 = extractvalue { ptr, i64 } %95, 0
   %97 = extractvalue { ptr, i64 } %95, 1

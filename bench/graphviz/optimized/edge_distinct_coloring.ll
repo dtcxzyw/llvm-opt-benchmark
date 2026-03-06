@@ -61,20 +61,20 @@ define noundef ptr @edge_distinct_coloring(ptr noundef %0, ptr noundef %1, ptr n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %40 ]
   %.098168 = phi i32 [ 0, %.lr.ph.preheader ], [ %.199, %40 ]
-  %30 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4, !tbaa !8
-  %32 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !8
   %.not109 = icmp eq i32 %31, %33
   br i1 %.not109, label %40, label %34
 
 34:                                               ; preds = %.lr.ph
   %35 = sext i32 %.098168 to i64
-  %36 = getelementptr inbounds i32, ptr %24, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %24, i64 %35
   store i32 %31, ptr %36, align 4, !tbaa !8
   %37 = load i32, ptr %32, align 4, !tbaa !8
   %38 = add nsw i32 %.098168, 1
-  %39 = getelementptr inbounds i32, ptr %26, i64 %35
+  %39 = getelementptr inbounds [4 x i8], ptr %26, i64 %35
   store i32 %37, ptr %39, align 4, !tbaa !8
   br label %40
 
@@ -122,19 +122,19 @@ define noundef ptr @edge_distinct_coloring(ptr noundef %0, ptr noundef %1, ptr n
 52:                                               ; preds = %.lr.ph202.us, %73
   %indvars.iv279 = phi i64 [ %indvars.iv277, %.lr.ph202.us ], [ %indvars.iv.next280, %73 ]
   %.5200.us208 = phi ptr [ %.4205.us, %.lr.ph202.us ], [ %.6.us210, %73 ]
-  %53 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv279
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv279
   %54 = load i32, ptr %53, align 4, !tbaa !8
-  %55 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv279
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv279
   %56 = load i32, ptr %55, align 4, !tbaa !8
   %57 = load ptr, ptr %8, align 8, !tbaa !3
-  %58 = getelementptr inbounds double, ptr %57, i64 %79
-  %59 = getelementptr inbounds double, ptr %57, i64 %81
+  %58 = getelementptr inbounds [8 x i8], ptr %57, i64 %79
+  %59 = getelementptr inbounds [8 x i8], ptr %57, i64 %81
   %60 = shl nsw i32 %54, 1
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds double, ptr %57, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %57, i64 %61
   %63 = shl nsw i32 %56, 1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds double, ptr %57, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %57, i64 %64
   %66 = call double @intersection_angle(ptr noundef %58, ptr noundef %59, ptr noundef %62, ptr noundef %65) #15
   %67 = fcmp oge double %66, -1.000000e+00
   %68 = call double @llvm.fabs.f64(double %66)
@@ -161,9 +161,9 @@ define noundef ptr @edge_distinct_coloring(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %exitcond288.not, label %.loopexit111, label %.lr.ph206.split.us, !llvm.loop !27
 
 .lr.ph202.us:                                     ; preds = %.lr.ph206.split.us
-  %74 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv284
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv284
   %75 = load i32, ptr %74, align 4, !tbaa !8
-  %76 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv284
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv284
   %77 = load i32, ptr %76, align 4, !tbaa !8
   %78 = shl nsw i32 %77, 1
   %79 = sext i32 %78 to i64
@@ -205,9 +205,9 @@ define noundef ptr @edge_distinct_coloring(ptr noundef %0, ptr noundef %1, ptr n
   %indvars.iv255 = phi i64 [ %indvars.iv253, %.lr.ph192 ], [ %indvars.iv.next256, %319 ]
   %.1190 = phi ptr [ %.091195, %.lr.ph192 ], [ %.2, %319 ]
   %91 = load ptr, ptr %12, align 8, !tbaa !10
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv260
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv260
   %93 = load ptr, ptr %92, align 8, !tbaa !29
-  %94 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv255
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv255
   %95 = load ptr, ptr %94, align 8, !tbaa !29
   %96 = call noalias dereferenceable_or_null(800) ptr @calloc(i64 noundef 100, i64 noundef 8) #18
   %97 = icmp eq ptr %96, null
@@ -754,9 +754,9 @@ splines_intersect.exit:                           ; preds = %.critedge235.split.
   br i1 %320, label %.lr.ph202, label %.loopexit
 
 .lr.ph202:                                        ; preds = %.lr.ph206.split
-  %321 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv272
+  %321 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv272
   %322 = load i32, ptr %321, align 4, !tbaa !8
-  %323 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv272
+  %323 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv272
   %324 = load i32, ptr %323, align 4, !tbaa !8
   %325 = shl nsw i32 %324, 1
   %326 = sext i32 %325 to i64
@@ -768,19 +768,19 @@ splines_intersect.exit:                           ; preds = %.critedge235.split.
 330:                                              ; preds = %349, %.lr.ph202
   %indvars.iv267 = phi i64 [ %indvars.iv.next268, %349 ], [ %indvars.iv265, %.lr.ph202 ]
   %.5200.us = phi ptr [ %.6.us, %349 ], [ %.4205, %.lr.ph202 ]
-  %331 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv267
+  %331 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv267
   %332 = load i32, ptr %331, align 4, !tbaa !8
-  %333 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv267
+  %333 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv267
   %334 = load i32, ptr %333, align 4, !tbaa !8
   %335 = load ptr, ptr %8, align 8, !tbaa !3
-  %336 = getelementptr inbounds double, ptr %335, i64 %326
-  %337 = getelementptr inbounds double, ptr %335, i64 %328
+  %336 = getelementptr inbounds [8 x i8], ptr %335, i64 %326
+  %337 = getelementptr inbounds [8 x i8], ptr %335, i64 %328
   %338 = shl nsw i32 %332, 1
   %339 = sext i32 %338 to i64
-  %340 = getelementptr inbounds double, ptr %335, i64 %339
+  %340 = getelementptr inbounds [8 x i8], ptr %335, i64 %339
   %341 = shl nsw i32 %334, 1
   %342 = sext i32 %341 to i64
-  %343 = getelementptr inbounds double, ptr %335, i64 %342
+  %343 = getelementptr inbounds [8 x i8], ptr %335, i64 %342
   %344 = call double @intersection_angle(ptr noundef %336, ptr noundef %337, ptr noundef %340, ptr noundef %343) #15
   store double %344, ptr %9, align 8, !tbaa !24
   %345 = fcmp ogt double %344, %16
@@ -850,7 +850,7 @@ splines_intersect.exit:                           ; preds = %.critedge235.split.
 .lr.ph216:                                        ; preds = %.preheader, %.lr.ph216
   %indvars.iv289 = phi i64 [ %indvars.iv.next290, %.lr.ph216 ], [ 0, %.preheader ]
   %371 = load ptr, ptr %12, align 8, !tbaa !10
-  %372 = getelementptr inbounds nuw ptr, ptr %371, i64 %indvars.iv289
+  %372 = getelementptr inbounds nuw [8 x i8], ptr %371, i64 %indvars.iv289
   %373 = load ptr, ptr %372, align 8, !tbaa !29
   call void @free(ptr noundef %373) #15
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1

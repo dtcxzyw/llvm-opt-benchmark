@@ -17,10 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.cpumask = type { [1 x i64] }
 %struct.itimerspec64 = type { %struct.timespec64, %struct.timespec64 }
 %struct.timespec64 = type { i64, i64 }
-%struct.posix_cputimer_base = type { i64, %struct.timerqueue_head }
-%struct.timerqueue_head = type { %struct.rb_root_cached }
-%struct.rb_root_cached = type { %struct.rb_root, ptr }
-%struct.rb_root = type { ptr }
 %struct.list_head = type { ptr, ptr }
 %struct.task_cputime = type { i64, i64, i64 }
 %struct.k_itimer = type { %struct.list_head, %struct.hlist_node, %struct.spinlock, ptr, i32, i32, i32, i64, i64, i32, i32, i64, ptr, %union.anon.13, ptr, %union.anon.14, %struct.callback_head }
@@ -137,7 +133,7 @@ define dso_local void @set_process_cpu_timer(ptr noundef %0, i32 noundef %1, ptr
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 280
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr %struct.posix_cputimer_base, ptr %10, i64 %11
+  %12 = getelementptr [24 x i8], ptr %10, i64 %11
   %13 = tail call fastcc i64 @cpu_clock_sample_group(i32 noundef %1, ptr noundef %0)
   %14 = icmp eq ptr %3, null
   br i1 %14, label %._crit_edge, label %15
@@ -409,7 +405,7 @@ define internal void @posix_cpu_timers_work(ptr noundef %0) #1 align 16 {
 45:                                               ; preds = %.thread, %35
   %46 = phi i64 [ 0, %35 ], [ %76, %.thread ]
   %47 = phi ptr [ %14, %35 ], [ %77, %.thread ]
-  %48 = getelementptr i64, ptr %3, i64 %46
+  %48 = getelementptr [8 x i8], ptr %3, i64 %46
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %51 = load ptr, ptr %50, align 8
@@ -558,7 +554,7 @@ define internal void @posix_cpu_timers_work(ptr noundef %0) #1 align 16 {
 140:                                              ; preds = %.thread14, %130
   %141 = phi i64 [ 0, %130 ], [ %171, %.thread14 ]
   %142 = phi ptr [ %122, %130 ], [ %172, %.thread14 ]
-  %143 = getelementptr i64, ptr %2, i64 %141
+  %143 = getelementptr [8 x i8], ptr %2, i64 %141
   %144 = load i64, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %146 = load ptr, ptr %145, align 8
@@ -875,9 +871,9 @@ define dso_local void @run_posix_cpu_timers() local_unnamed_addr #1 align 16 {
   br label %40
 
 32:                                               ; preds = %.preheader3
-  %33 = getelementptr i64, ptr %1, i64 %30
+  %33 = getelementptr [8 x i8], ptr %1, i64 %30
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr %struct.posix_cputimer_base, ptr %9, i64 %30
+  %35 = getelementptr [24 x i8], ptr %9, i64 %30
   %36 = load i64, ptr %35, align 8
   %37 = icmp ult i64 %34, %36
   br i1 %37, label %.preheader3, label %38, !llvm.loop !23
@@ -931,9 +927,9 @@ define dso_local void @run_posix_cpu_timers() local_unnamed_addr #1 align 16 {
   br label %74
 
 66:                                               ; preds = %.preheader
-  %67 = getelementptr i64, ptr %2, i64 %64
+  %67 = getelementptr [8 x i8], ptr %2, i64 %64
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr %struct.posix_cputimer_base, ptr %43, i64 %64
+  %69 = getelementptr [24 x i8], ptr %43, i64 %64
   %70 = load i64, ptr %69, align 8
   %71 = icmp ult i64 %68, %70
   br i1 %71, label %.preheader, label %72, !llvm.loop !23
@@ -1078,7 +1074,7 @@ define internal fastcc i64 @cpu_clock_sample_group(i32 noundef range(i32 0, 4) %
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %57, ptr %60, align 16
   %61 = zext nneg i32 %0 to i64
-  %62 = getelementptr i64, ptr %4, i64 %61
+  %62 = getelementptr [8 x i8], ptr %4, i64 %61
   %63 = load i64, ptr %62, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %63
@@ -1408,7 +1404,7 @@ pid_for_clock.exit:                               ; preds = %2, %16, %19, %24, %
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sink, ptr %99, align 16
   %100 = zext nneg i32 %5 to i64
-  %101 = getelementptr i64, ptr %4, i64 %100
+  %101 = getelementptr [8 x i8], ptr %4, i64 %100
   %102 = load i64, ptr %101, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %103
@@ -1817,7 +1813,7 @@ define internal noundef range(i32 -3, 2) i32 @posix_cpu_timer_set(ptr noundef %0
 148:                                              ; preds = %144, %142
   %149 = phi ptr [ %147, %144 ], [ %143, %142 ]
   %150 = zext nneg i32 %139 to i64
-  %151 = getelementptr %struct.posix_cputimer_base, ptr %149, i64 %150
+  %151 = getelementptr [24 x i8], ptr %149, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %152, ptr %153, align 8
@@ -1938,7 +1934,7 @@ cpu_timer_fire.exit:                              ; preds = %199, %195, %193, %1
 219:                                              ; preds = %215, %213
   %220 = phi ptr [ %214, %213 ], [ %218, %215 ]
   %221 = zext nneg i32 %210 to i64
-  %222 = getelementptr %struct.posix_cputimer_base, ptr %220, i64 %221
+  %222 = getelementptr [24 x i8], ptr %220, i64 %221
   store i64 0, ptr %222, align 8
   br label %.sink.split
 
@@ -2035,7 +2031,7 @@ define internal noundef range(i32 0, 2) i32 @posix_cpu_timer_del(ptr noundef %0)
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 280
   %43 = zext nneg i32 %36 to i64
-  %44 = getelementptr %struct.posix_cputimer_base, ptr %42, i64 %43
+  %44 = getelementptr [24 x i8], ptr %42, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %46 = load i64, ptr %45, align 8
   %47 = load i64, ptr %44, align 8
@@ -2045,7 +2041,7 @@ define internal noundef range(i32 0, 2) i32 @posix_cpu_timer_del(ptr noundef %0)
 .thread:                                          ; preds = %33
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 1632
   %50 = zext nneg i32 %36 to i64
-  %51 = getelementptr %struct.posix_cputimer_base, ptr %49, i64 %50
+  %51 = getelementptr [24 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %53 = load i64, ptr %52, align 8
   %54 = load i64, ptr %51, align 8
@@ -2055,7 +2051,7 @@ define internal noundef range(i32 0, 2) i32 @posix_cpu_timer_del(ptr noundef %0)
 .thread2:                                         ; preds = %39, %.thread
   %56 = phi i64 [ %50, %.thread ], [ %43, %39 ]
   %57 = phi ptr [ %49, %.thread ], [ %42, %39 ]
-  %58 = getelementptr %struct.posix_cputimer_base, ptr %57, i64 %56
+  %58 = getelementptr [24 x i8], ptr %57, i64 %56
   store i64 0, ptr %58, align 8
   br label %59
 
@@ -2194,7 +2190,7 @@ define internal void @posix_cpu_timer_get(ptr noundef readonly captures(none) %0
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sink, ptr %65, align 16
   %66 = zext nneg i32 %7 to i64
-  %67 = getelementptr i64, ptr %4, i64 %66
+  %67 = getelementptr [8 x i8], ptr %4, i64 %66
   %68 = load i64, ptr %67, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %69
@@ -2372,7 +2368,7 @@ define internal void @posix_cpu_timer_rearm(ptr noundef %0) #1 align 16 {
 89:                                               ; preds = %85, %83
   %90 = phi ptr [ %88, %85 ], [ %84, %83 ]
   %91 = zext nneg i32 %80 to i64
-  %92 = getelementptr %struct.posix_cputimer_base, ptr %90, i64 %91
+  %92 = getelementptr [24 x i8], ptr %90, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 152

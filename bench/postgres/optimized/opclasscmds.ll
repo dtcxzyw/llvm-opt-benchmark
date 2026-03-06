@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.nameData = type { [64 x i8] }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [34 x i8] c"access method \22%s\22 does not exist\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"opclasscmds.c\00", align 1
@@ -412,7 +411,7 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
   %.0223290 = phi i32 [ %.1, %164 ], [ 0, %.lr.ph ]
   %indvars.iv289 = phi i64 [ %indvars.iv.next, %164 ], [ 0, %.lr.ph ]
   %89 = load ptr, ptr %86, align 8
-  %90 = getelementptr inbounds nuw %union.ListCell, ptr %89, i64 %indvars.iv289
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv289
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %93 = load i32, ptr %92, align 4
@@ -701,7 +700,7 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
 .lr.ph233:                                        ; preds = %.lr.ph230, %.lr.ph233
   %indvars.iv247 = phi i64 [ %indvars.iv.next248, %.lr.ph233 ], [ 0, %.lr.ph230 ]
   %246 = load ptr, ptr %243, align 8
-  %247 = getelementptr inbounds nuw %union.ListCell, ptr %246, i64 %indvars.iv247
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %indvars.iv247
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 24
   store i8 1, ptr %249, align 4
@@ -730,7 +729,7 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
 .lr.ph238:                                        ; preds = %.lr.ph235, %.lr.ph238
   %indvars.iv250 = phi i64 [ %indvars.iv.next251, %.lr.ph238 ], [ 0, %.lr.ph235 ]
   %260 = load ptr, ptr %257, align 8
-  %261 = getelementptr inbounds nuw %union.ListCell, ptr %260, i64 %indvars.iv250
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %indvars.iv250
   %262 = load ptr, ptr %261, align 8
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 24
   store i8 1, ptr %263, align 4
@@ -1070,7 +1069,7 @@ define internal fastcc void @addFamilyMember(ptr noundef nonnull captures(none) 
 
 13:                                               ; preds = %.lr.ph29, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next, %43 ]
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 4
@@ -1646,7 +1645,7 @@ define internal fastcc void @storeOperators(ptr noundef %0, i32 noundef %1, i32 
 .lr.ph92:                                         ; preds = %.lr.ph, %163
   %indvars.iv91 = phi i64 [ %indvars.iv.next, %163 ], [ 0, %.lr.ph ]
   %38 = load ptr, ptr %20, align 8
-  %39 = getelementptr inbounds nuw %union.ListCell, ptr %38, i64 %indvars.iv91
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv91
   %40 = load ptr, ptr %39, align 8
   br i1 %4, label %41, label %66
 
@@ -1782,7 +1781,7 @@ define internal fastcc void @storeOperators(ptr noundef %0, i32 noundef %1, i32 
 
 114:                                              ; preds = %113, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %113 ]
-  %115 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i, i64 %indvars.iv.i
   %116 = load i32, ptr %115, align 4
   %.not.i = icmp eq i32 %103, %116
   br i1 %.not.i, label %typeDepNeeded.exit, label %113
@@ -1860,7 +1859,7 @@ typeDepNeeded.exit.thread:                        ; preds = %66, %typeDepNeeded.
 
 141:                                              ; preds = %140, %.lr.ph.i60
   %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.i60 ], [ %indvars.iv.next.i64, %140 ]
-  %142 = getelementptr inbounds nuw i32, ptr %.pre.i59, i64 %indvars.iv.i62
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i59, i64 %indvars.iv.i62
   %143 = load i32, ptr %142, align 4
   %.not.i63 = icmp eq i32 %129, %143
   br i1 %.not.i63, label %typeDepNeeded.exit68, label %140
@@ -1977,7 +1976,7 @@ define internal fastcc void @storeProcedures(ptr noundef %0, i32 noundef %1, ptr
 .lr.ph2:                                          ; preds = %.lr.ph, %147
   %indvars.iv1 = phi i64 [ %indvars.iv.next, %147 ], [ 0, %.lr.ph ]
   %33 = load ptr, ptr %19, align 8
-  %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv1
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv1
   %35 = load ptr, ptr %34, align 8
   br i1 %3, label %36, label %61
 
@@ -2104,7 +2103,7 @@ define internal fastcc void @storeProcedures(ptr noundef %0, i32 noundef %1, ptr
 
 104:                                              ; preds = %103, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %103 ]
-  %105 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %indvars.iv.i
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i, i64 %indvars.iv.i
   %106 = load i32, ptr %105, align 4
   %.not.i = icmp eq i32 %93, %106
   br i1 %.not.i, label %typeDepNeeded.exit, label %103
@@ -2182,7 +2181,7 @@ typeDepNeeded.exit.thread:                        ; preds = %61, %typeDepNeeded.
 
 131:                                              ; preds = %130, %.lr.ph.i51
   %indvars.iv.i53 = phi i64 [ 0, %.lr.ph.i51 ], [ %indvars.iv.next.i55, %130 ]
-  %132 = getelementptr inbounds nuw i32, ptr %.pre.i50, i64 %indvars.iv.i53
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i50, i64 %indvars.iv.i53
   %133 = load i32, ptr %132, align 4
   %.not.i54 = icmp eq i32 %119, %133
   br i1 %.not.i54, label %typeDepNeeded.exit59, label %130
@@ -2376,7 +2375,7 @@ define dso_local i32 @AlterOpFamily(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph66:                                         ; preds = %.lr.ph.i, %203
   %indvars.iv.i65 = phi i64 [ %indvars.iv.next.i, %203 ], [ 0, %.lr.ph.i ]
   %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds nuw %union.ListCell, ptr %53, i64 %indvars.iv.i65
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv.i65
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i32, ptr %56, align 4
@@ -2404,7 +2403,7 @@ define dso_local i32 @AlterOpFamily(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph28.i.i:                                     ; preds = %.lr.ph.i.i, %92
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %92 ], [ 0, %.lr.ph.i.i ]
   %66 = load ptr, ptr %60, align 8
-  %67 = getelementptr inbounds nuw %union.ListCell, ptr %66, i64 %indvars.iv.i.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv.i.i
   %68 = load ptr, ptr %67, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 12
@@ -2475,7 +2474,7 @@ dropOperators.exit.i:                             ; preds = %dropOperators.exit.
 .lr.ph28.i46.i:                                   ; preds = %.lr.ph.i45.i, %130
   %indvars.iv.i47.i = phi i64 [ %indvars.iv.next.i50.i, %130 ], [ 0, %.lr.ph.i45.i ]
   %104 = load ptr, ptr %98, align 8
-  %105 = getelementptr inbounds nuw %union.ListCell, ptr %104, i64 %indvars.iv.i47.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv.i47.i
   %106 = load ptr, ptr %105, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 12
@@ -2679,7 +2678,7 @@ AlterOpFamilyDrop.exit:                           ; preds = %130, %48, %dropOper
 .lr.ph:                                           ; preds = %.lr.ph.i28, %292
   %indvars.iv.i2963 = phi i64 [ %indvars.iv.next.i32, %292 ], [ 0, %.lr.ph.i28 ]
   %215 = load ptr, ptr %212, align 8
-  %216 = getelementptr inbounds nuw %union.ListCell, ptr %215, i64 %indvars.iv.i2963
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %indvars.iv.i2963
   %217 = load ptr, ptr %216, align 8
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 4
   %219 = load i32, ptr %218, align 4

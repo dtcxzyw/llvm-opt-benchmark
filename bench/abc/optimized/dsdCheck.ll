@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/dsdCheck.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Dsd_Entry_t_ = type { [5 x ptr] }
-
 @pCache = internal unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nofree nounwind memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -182,7 +180,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %58 = urem i64 %53, %57
   %59 = load ptr, ptr %54, align 8, !tbaa !14
   %60 = and i64 %58, 4294967295
-  %61 = getelementptr inbounds nuw %struct.Dsd_Entry_t_, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [40 x i8], ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !15
   %63 = icmp eq ptr %62, %1
   br i1 %63, label %64, label %84
@@ -250,7 +248,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %103 = load ptr, ptr %102, align 8, !tbaa !35
   %104 = zext i32 %99 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !36
   br label %107
 
@@ -266,7 +264,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %114 = load ptr, ptr %113, align 8, !tbaa !35
   %115 = zext i32 %110 to i64
-  %116 = getelementptr inbounds nuw i32, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !36
   br label %118
 
@@ -282,7 +280,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %125 = load ptr, ptr %124, align 8, !tbaa !35
   %126 = zext i32 %121 to i64
-  %127 = getelementptr inbounds nuw i32, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !36
   br label %129
 
@@ -298,7 +296,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %136 = load ptr, ptr %135, align 8, !tbaa !35
   %137 = zext i32 %132 to i64
-  %138 = getelementptr inbounds nuw i32, ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %137
   %139 = load i32, ptr %138, align 4, !tbaa !36
   br label %140
 
@@ -316,7 +314,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
 145:                                              ; preds = %140, %145
   %indvars.iv = phi i64 [ 0, %140 ], [ %indvars.iv.next, %145 ]
   %.0121161 = phi i32 [ 2147483647, %140 ], [ %spec.select, %145 ]
-  %146 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %147 = load i32, ptr %146, align 4, !tbaa !36
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.0121161, i32 %147)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -325,15 +323,15 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
 
 .preheader:                                       ; preds = %145, %174
   %indvars.iv166 = phi i64 [ %indvars.iv.next167, %174 ], [ 0, %145 ]
-  %148 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv166
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv166
   %149 = load i32, ptr %148, align 4, !tbaa !36
   %150 = icmp eq i32 %spec.select, %149
-  %151 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv166
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv166
   %152 = load ptr, ptr %151, align 8, !tbaa !15
   br i1 %150, label %153, label %172
 
 153:                                              ; preds = %.preheader
-  %154 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv166
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv166
   %155 = load ptr, ptr %154, align 8, !tbaa !15
   %.not153 = icmp eq ptr %152, %155
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
@@ -344,7 +342,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %159 = ptrtoint ptr %157 to i64
   %160 = xor i64 %159, 1
   %161 = inttoptr i64 %160 to ptr
-  %162 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv166
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv166
   store ptr %161, ptr %162, align 8, !tbaa !15
   %163 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %164 = load ptr, ptr %163, align 8, !tbaa !39
@@ -354,21 +352,21 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   br label %174
 
 168:                                              ; preds = %153
-  %169 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv166
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv166
   store ptr %157, ptr %169, align 8, !tbaa !15
   %170 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %171 = load ptr, ptr %170, align 8, !tbaa !39
   br label %174
 
 172:                                              ; preds = %.preheader
-  %173 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv166
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv166
   store ptr %152, ptr %173, align 8, !tbaa !15
   br label %174
 
 174:                                              ; preds = %172, %168, %158
   %.sink187 = phi ptr [ %9, %172 ], [ %10, %168 ], [ %10, %158 ]
   %.sink = phi ptr [ %152, %172 ], [ %171, %168 ], [ %167, %158 ]
-  %175 = getelementptr inbounds nuw ptr, ptr %.sink187, i64 %indvars.iv166
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %.sink187, i64 %indvars.iv166
   store ptr %.sink, ptr %175, align 8, !tbaa !15
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next167, 4
@@ -493,7 +491,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %.0123 = phi i32 [ %192, %179 ], [ %210, %205 ], [ %203, %194 ], [ %230, %226 ], [ %224, %212 ], [ %249, %241 ], [ %239, %231 ]
   %251 = load ptr, ptr @pCache, align 8, !tbaa !3
   %252 = load ptr, ptr %251, align 8, !tbaa !14
-  %253 = getelementptr inbounds nuw %struct.Dsd_Entry_t_, ptr %252, i64 %60
+  %253 = getelementptr inbounds nuw [40 x i8], ptr %252, i64 %60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %253, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false), !tbaa !15
   %254 = sext i32 %.0123 to i64
   %255 = inttoptr i64 %254 to ptr

@@ -280,7 +280,7 @@ define dso_local void @_ZN5clang6format20AffectedRangeManager17markAllAsAffected
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !9
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %10
   tail call void @_ZN5clang6format20AffectedRangeManager17markAllAsAffectedEPKPNS0_13AnnotatedLineES5_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %7, ptr noundef %11)
   %12 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %.not = icmp eq ptr %12, %2
@@ -472,7 +472,7 @@ _ZN5clang6format20AffectedRangeManager17affectsTokenRangeERKNS0_11FormatTokenES4
 
 91:                                               ; preds = %88
   %92 = load ptr, ptr %3, align 8, !tbaa !3
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %90
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %90
   %94 = load ptr, ptr %93, align 8, !tbaa !10
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 72
   %96 = load i8, ptr %95, align 8, !tbaa !67, !range !61, !noundef !62

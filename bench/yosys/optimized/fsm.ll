@@ -238,7 +238,7 @@ define internal void @_ZN12_GLOBAL__N_17FsmPass7executeESt6vectorINSt7__cxx1112b
   %.069326 = phi i1 [ false, %.lr.ph ], [ %.271, %230 ]
   %.072325 = phi i1 [ false, %.lr.ph ], [ %.274, %230 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %52 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %51, i64 %.035331
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %51, i64 %.035331
   store ptr %42, ptr %9, align 8, !tbaa !6
   %53 = load ptr, ptr %52, align 8, !tbaa !20
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -301,7 +301,7 @@ define internal void @_ZN12_GLOBAL__N_17FsmPass7executeESt6vectorINSt7__cxx1112b
 
 80:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %81 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %72, i64 %70
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %70
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %81)
           to label %82 unwind label %112
 
@@ -427,7 +427,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 
 128:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %129 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %120, i64 %118
+  %129 = getelementptr inbounds nuw [32 x i8], ptr %120, i64 %118
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull @.str.34, ptr noundef nonnull align 8 dereferenceable(32) %129)
           to label %130 unwind label %156
 
@@ -543,7 +543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119: ; preds = %_Z
 
 172:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %173 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %164, i64 %162
+  %173 = getelementptr inbounds nuw [32 x i8], ptr %164, i64 %162
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull @.str.36, ptr noundef nonnull align 8 dereferenceable(32) %173)
           to label %174 unwind label %200
 

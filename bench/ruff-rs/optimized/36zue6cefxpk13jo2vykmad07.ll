@@ -55,7 +55,7 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8, !alias.scope !9, !noalias !12, !nonnull !8
   %.sink11.i.i = select i1 %20, ptr %22, ptr %21
-  %23 = getelementptr inbounds nuw { i32, { i32, i32 }, { i32, i32 } }, ptr %.sink11.i.i, i64 %13
+  %23 = getelementptr inbounds nuw [20 x i8], ptr %.sink11.i.i, i64 %13
   %.sroa.0.0.copyload2 = load i32, ptr %23, align 4
   %.not = icmp eq i32 %.sroa.0.0.copyload2, 0
   br i1 %.not, label %"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c4d7493b8830b32E.exit.thread", label %24
@@ -3643,7 +3643,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hcb77eaa38d6e5538E.exit.i.i.i": ; preds = %39, %.lr.ph.i.i.i
   %33 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !697, !noalias !698, !nonnull !8, !noundef !8
-  %34 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %33, i64 %29
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !682
   %35 = add nuw nsw i64 %29, 1
   store i64 %35, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !697, !noalias !698
@@ -3911,7 +3911,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hba7b47004e1fdd1aE.exit.i.i.i": ; preds = %53, %43
   %48 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !757, !noalias !758, !nonnull !8, !noundef !8
-  %49 = getelementptr inbounds nuw { { i64, [4 x i64] }, { i64, [4 x i64] }, { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, i64 }, { i64, i64 } } }, ptr %48, i64 %44
+  %49 = getelementptr inbounds nuw [136 x i8], ptr %48, i64 %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %49, ptr noundef nonnull align 8 dereferenceable(136) %4, i64 136, i1 false), !noalias !758
   %50 = add nuw nsw i64 %44, 1
   store i64 %50, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !757, !noalias !758

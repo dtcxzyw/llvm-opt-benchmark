@@ -148,7 +148,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 35:                                               ; preds = %33
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds ptr, ptr %1, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %1, i64 %36
   store ptr %37, ptr @Inputs, align 8, !tbaa !13
   br label %38
 
@@ -340,7 +340,7 @@ define internal fastcc range(i32 0, 2) i32 @eval(ptr noundef nonnull %0, i32 nou
 
 42:                                               ; preds = %37
   %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 24), align 8, !tbaa !36
-  %44 = getelementptr inbounds nuw ptr, ptr %40, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %43
   %45 = sub i64 %spec.select.i.i.i.i.i.i, %43
   %46 = shl i64 %45, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %44, i8 0, i64 %46, i1 false)
@@ -353,8 +353,8 @@ define internal fastcc range(i32 0, 2) i32 @eval(ptr noundef nonnull %0, i32 nou
 51:                                               ; preds = %42
   %52 = sub i64 %43, %47
   %53 = sub i64 %spec.select.i.i.i.i.i.i, %52
-  %54 = getelementptr inbounds nuw ptr, ptr %40, i64 %53
-  %55 = getelementptr inbounds nuw ptr, ptr %40, i64 %47
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %53
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %47
   %56 = shl i64 %52, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %54, ptr nonnull align 8 %55, i64 %56, i1 false)
   store i64 %53, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8, !tbaa !37
@@ -381,7 +381,7 @@ push.exit.i.i:                                    ; preds = %57, %._crit_edge.i.
   %66 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %58, %57 ]
   %67 = add i64 %66, %65
   %68 = urem i64 %67, %64
-  %69 = getelementptr inbounds nuw ptr, ptr %63, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %68
   store ptr %.123.i.i, ptr %69, align 8, !tbaa !39
   %70 = add i64 %65, 1
   store i64 %70, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 16), align 8, !tbaa !33
@@ -401,7 +401,7 @@ pop.exit.i.i.i:                                   ; preds = %push.exit.i.i, %.lo
   %78 = add i64 %77, %75
   %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 24), align 8, !tbaa !36
   %80 = urem i64 %78, %79
-  %81 = getelementptr inbounds nuw ptr, ptr %76, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !39
   store i64 %75, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 16), align 8, !tbaa !33
   %.not.i.i.i = icmp eq ptr %82, null
@@ -471,7 +471,7 @@ pop.exit.i.i.i:                                   ; preds = %push.exit.i.i, %.lo
 
 118:                                              ; preds = %113
   %119 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 24), align 8, !tbaa !36
-  %120 = getelementptr inbounds nuw ptr, ptr %116, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %119
   %121 = sub i64 %spec.select.i.i.i.i.i.i.i, %119
   %122 = shl i64 %121, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %120, i8 0, i64 %122, i1 false)
@@ -484,8 +484,8 @@ pop.exit.i.i.i:                                   ; preds = %push.exit.i.i, %.lo
 127:                                              ; preds = %118
   %128 = sub i64 %119, %123
   %129 = sub i64 %spec.select.i.i.i.i.i.i.i, %128
-  %130 = getelementptr inbounds nuw ptr, ptr %116, i64 %129
-  %131 = getelementptr inbounds nuw ptr, ptr %116, i64 %123
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %129
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %123
   %132 = shl i64 %128, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr nonnull align 8 %131, i64 %132, i1 false)
   store i64 %129, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8, !tbaa !37
@@ -512,7 +512,7 @@ push.exit.i.i.i:                                  ; preds = %133, %._crit_edge.i
   %142 = phi i64 [ %.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %134, %133 ]
   %143 = add i64 %142, %141
   %144 = urem i64 %143, %140
-  %145 = getelementptr inbounds nuw ptr, ptr %139, i64 %144
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %144
   store ptr %.0.i.i.i, ptr %145, align 8, !tbaa !39
   %146 = add i64 %141, 1
   store i64 %146, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 16), align 8, !tbaa !33

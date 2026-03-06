@@ -456,7 +456,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_intra(ptr noundef r
   %58 = shl i32 %56, %57
   %59 = lshr i32 %58, 26
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw %struct.VLCElem, ptr @cbplo_tab, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr @cbplo_tab, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 2
   %63 = load i16, ptr %62, align 2, !tbaa !47
   %64 = sext i16 %63 to i32
@@ -482,7 +482,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_intra(ptr noundef r
   %81 = shl i32 %79, %80
   %82 = lshr i32 %81, 26
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw %struct.VLCElem, ptr @cbphi_tab, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr @cbphi_tab, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 2
   %86 = load i16, ptr %85, align 2, !tbaa !47
   %87 = sext i16 %86 to i32
@@ -792,7 +792,7 @@ copy_block8.exit:                                 ; preds = %108
   %139 = shl i32 %137, %138
   %140 = lshr i32 %139, 23
   %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds nuw %struct.VLCElem, ptr @blktype_tab, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr @blktype_tab, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %144 = load i16, ptr %143, align 2, !tbaa !47
   %145 = sext i16 %144 to i32
@@ -838,7 +838,7 @@ copy_block8.exit:                                 ; preds = %108
   %174 = shl i32 %172, %173
   %175 = lshr i32 %174, 26
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw %struct.VLCElem, ptr @cbphi_tab, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr @cbphi_tab, i64 %176
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 2
   %179 = load i16, ptr %178, align 2, !tbaa !47
   %180 = sext i16 %179 to i32
@@ -1156,10 +1156,10 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_blocks(ptr noundef 
   %.tr = trunc nuw nsw i32 %29 to i16
   %33 = shl nuw nsw i16 %.tr, 3
   %34 = select i1 %32, i16 1024, i16 %33
-  %35 = getelementptr inbounds nuw [64 x i16], ptr %10, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [128 x i8], ptr %10, i64 %indvars.iv
   %36 = load i8, ptr %9, align 1, !tbaa !47
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i16, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %37
   store i16 %34, ptr %38, align 2, !tbaa !71
   br label %39
 
@@ -1178,7 +1178,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_blocks(ptr noundef 
   %47 = load ptr, ptr %1, align 8, !tbaa !38
   %48 = load i32, ptr %12, align 8, !tbaa !40
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 208
-  %50 = getelementptr inbounds nuw [64 x i16], ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [128 x i8], ptr %49, i64 %indvars.iv
   %.promoted.i = load i32, ptr %11, align 8, !tbaa !42
   br label %51
 
@@ -1194,7 +1194,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_blocks(ptr noundef 
   %58 = shl i32 %56, %57
   %59 = lshr i32 %58, 20
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw %struct.VLCElem, ptr @block_tab, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr @block_tab, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 2
   %63 = load i16, ptr %62, align 2, !tbaa !47
   %64 = sext i16 %63 to i32
@@ -1288,7 +1288,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_blocks(ptr noundef 
   %129 = getelementptr inbounds nuw i8, ptr %46, i64 %128
   %130 = load i8, ptr %129, align 1, !tbaa !47
   %131 = zext i8 %130 to i64
-  %132 = getelementptr inbounds nuw i16, ptr %50, i64 %131
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %131
   store i16 %127, ptr %132, align 2, !tbaa !71
   %.not60.i = icmp ne i32 %.051.i, 0
   %133 = add nuw nsw i32 %121, 1
@@ -1311,7 +1311,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_blocks(ptr noundef 
 139:                                              ; preds = %138
   %140 = load i8, ptr %46, align 1, !tbaa !47
   %141 = zext i8 %140 to i64
-  %142 = getelementptr inbounds nuw i16, ptr %50, i64 %141
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %141
   %143 = load i16, ptr %142, align 2, !tbaa !71
   %144 = shl i16 %143, 1
   store i16 %144, ptr %142, align 2, !tbaa !71
@@ -1321,21 +1321,21 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_blocks(ptr noundef 
   %145 = getelementptr inbounds nuw i8, ptr %.val, i64 129
   %146 = load i8, ptr %145, align 1, !tbaa !47
   %147 = zext i8 %146 to i64
-  %148 = getelementptr inbounds nuw i16, ptr %50, i64 %147
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !71
   %150 = shl i16 %149, 1
   store i16 %150, ptr %148, align 2, !tbaa !71
   %151 = getelementptr inbounds nuw i8, ptr %.val, i64 136
   %152 = load i8, ptr %151, align 1, !tbaa !47
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw i16, ptr %50, i64 %153
+  %154 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %153
   %155 = load i16, ptr %154, align 2, !tbaa !71
   %156 = shl i16 %155, 1
   store i16 %156, ptr %154, align 2, !tbaa !71
   %157 = getelementptr inbounds nuw i8, ptr %.val, i64 144
   %158 = load i8, ptr %157, align 1, !tbaa !47
   %159 = zext i8 %158 to i64
-  %160 = getelementptr inbounds nuw i16, ptr %50, i64 %159
+  %160 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %159
   %161 = load i16, ptr %160, align 2, !tbaa !71
   %162 = shl i16 %161, 1
   store i16 %162, ptr %160, align 2, !tbaa !71

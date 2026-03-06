@@ -709,7 +709,7 @@ define dso_local void @nfs_request_add_commit_list(ptr noundef %0, ptr noundef r
 50:                                               ; preds = %46, %40
   %51 = phi i64 [ %49, %46 ], [ 1, %40 ]
   %52 = lshr i64 %43, 58
-  %53 = getelementptr ptr, ptr @node_data, i64 %52
+  %53 = getelementptr [8 x i8], ptr @node_data, i64 %52
   %54 = load ptr, ptr %53, align 8
   tail call void @mod_node_page_state(ptr noundef %54, i32 noundef 21, i64 noundef %51) #16
   %55 = tail call ptr @inode_to_bdi(ptr noundef %42) #16
@@ -3052,7 +3052,7 @@ define internal fastcc void @nfs_folio_clear_commit(ptr noundef %0) unnamed_addr
   %12 = phi i64 [ %10, %7 ], [ 1, %3 ]
   %13 = sub nsw i64 0, %12
   %14 = lshr i64 %4, 58
-  %15 = getelementptr ptr, ptr @node_data, i64 %14
+  %15 = getelementptr [8 x i8], ptr @node_data, i64 %14
   %16 = load ptr, ptr %15, align 8
   tail call void @mod_node_page_state(ptr noundef %16, i32 noundef 21, i64 noundef %13) #16
   %17 = load volatile i64, ptr %0, align 8

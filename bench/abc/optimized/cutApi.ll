@@ -16,7 +16,7 @@ define ptr @Cut_NodeReadCutsNew(ptr noundef readonly captures(none) %0, i32 noun
   %8 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %8, align 8, !tbaa !17
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds ptr, ptr %.val, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %.val, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !18
   br label %12
 
@@ -32,7 +32,7 @@ define ptr @Cut_NodeReadCutsOld(ptr noundef readonly captures(none) %0, i32 noun
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8, !tbaa !17
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %.val, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %.val, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !18
   ret ptr %8
 }
@@ -44,7 +44,7 @@ define ptr @Cut_NodeReadCutsTemp(ptr noundef readonly captures(none) %0, i32 nou
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8, !tbaa !17
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %.val, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %.val, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !18
   ret ptr %8
 }
@@ -56,7 +56,7 @@ define void @Cut_NodeWriteCutsNew(ptr noundef readonly captures(none) %0, i32 no
   %6 = getelementptr i8, ptr %5, i64 8
   %.val = load ptr, ptr %6, align 8, !tbaa !17
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds ptr, ptr %.val, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %.val, i64 %7
   store ptr %2, ptr %8, align 8, !tbaa !18
   ret void
 }
@@ -68,7 +68,7 @@ define void @Cut_NodeWriteCutsOld(ptr noundef readonly captures(none) %0, i32 no
   %6 = getelementptr i8, ptr %5, i64 8
   %.val = load ptr, ptr %6, align 8, !tbaa !17
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds ptr, ptr %.val, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %.val, i64 %7
   store ptr %2, ptr %8, align 8, !tbaa !18
   ret void
 }
@@ -80,7 +80,7 @@ define void @Cut_NodeWriteCutsTemp(ptr noundef readonly captures(none) %0, i32 n
   %6 = getelementptr i8, ptr %5, i64 8
   %.val = load ptr, ptr %6, align 8, !tbaa !17
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds ptr, ptr %.val, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %.val, i64 %7
   store ptr %2, ptr %8, align 8, !tbaa !18
   ret void
 }
@@ -93,7 +93,7 @@ define void @Cut_NodeSetTriv(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %6 = getelementptr i8, ptr %5, i64 8
   %.val.i = load ptr, ptr %6, align 8, !tbaa !17
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds ptr, ptr %.val.i, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %7
   store ptr %3, ptr %8, align 8, !tbaa !18
   ret void
 }
@@ -107,7 +107,7 @@ define void @Cut_NodeTryDroppingCuts(ptr noundef %0, i32 noundef %1) local_unnam
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8, !tbaa !22
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds i32, ptr %.val, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %.val, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !25
   %9 = add nsw i32 %8, -1
   %10 = icmp eq i32 %9, 0
@@ -128,7 +128,7 @@ define void @Cut_NodeTryDroppingCuts(ptr noundef %0, i32 noundef %1) local_unnam
 Cut_NodeReadCutsNew.exit.i:                       ; preds = %.split8
   %15 = getelementptr i8, ptr %12, i64 8
   %.val.i.i = load ptr, ptr %15, align 8, !tbaa !17
-  %16 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %6
+  %16 = getelementptr inbounds [8 x i8], ptr %.val.i.i, i64 %6
   %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = icmp eq ptr %17, null
   br i1 %18, label %Cut_NodeFreeCuts.exit, label %.preheader
@@ -145,7 +145,7 @@ Cut_NodeReadCutsNew.exit.i:                       ; preds = %.split8
   %22 = load ptr, ptr %11, align 8, !tbaa !3
   %23 = getelementptr i8, ptr %22, i64 8
   %.val.i16.i = load ptr, ptr %23, align 8, !tbaa !17
-  %24 = getelementptr inbounds ptr, ptr %.val.i16.i, i64 %6
+  %24 = getelementptr inbounds [8 x i8], ptr %.val.i16.i, i64 %6
   store ptr null, ptr %24, align 8, !tbaa !18
   %.pre = load ptr, ptr %3, align 8, !tbaa !21
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 8
@@ -154,7 +154,7 @@ Cut_NodeReadCutsNew.exit.i:                       ; preds = %.split8
 
 Cut_NodeFreeCuts.exit:                            ; preds = %.split8, %Cut_NodeReadCutsNew.exit.i, %21
   %.val9 = phi ptr [ %.val, %.split8 ], [ %.val, %Cut_NodeReadCutsNew.exit.i ], [ %.val9.pre, %21 ]
-  %25 = getelementptr inbounds i32, ptr %.val9, i64 %6
+  %25 = getelementptr inbounds [4 x i8], ptr %.val9, i64 %6
   store i32 0, ptr %25, align 4, !tbaa !25
   br label %26
 
@@ -175,7 +175,7 @@ Cut_NodeReadCutsNew.exit:                         ; preds = %2
   %7 = getelementptr i8, ptr %4, i64 8
   %.val.i = load ptr, ptr %7, align 8, !tbaa !17
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %.val.i, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !18
   %11 = icmp eq ptr %10, null
   br i1 %11, label %Cut_NodeReadCutsNew.exit.thread, label %.preheader
@@ -192,7 +192,7 @@ Cut_NodeReadCutsNew.exit:                         ; preds = %2
   %15 = load ptr, ptr %3, align 8, !tbaa !3
   %16 = getelementptr i8, ptr %15, i64 8
   %.val.i16 = load ptr, ptr %16, align 8, !tbaa !17
-  %17 = getelementptr inbounds ptr, ptr %.val.i16, i64 %8
+  %17 = getelementptr inbounds [8 x i8], ptr %.val.i16, i64 %8
   store ptr null, ptr %17, align 8, !tbaa !18
   br label %Cut_NodeReadCutsNew.exit.thread
 

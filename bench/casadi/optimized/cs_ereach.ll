@@ -28,11 +28,11 @@ define i32 @cs_ereach(ptr noundef readonly captures(address_is_null) %0, i32 nou
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !13
   %20 = sext i32 %1 to i64
-  %21 = getelementptr inbounds i32, ptr %4, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %4, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !14
   %23 = sub i32 -2, %22
   store i32 %23, ptr %21, align 4, !tbaa !14
-  %24 = getelementptr inbounds i32, ptr %17, i64 %20
+  %24 = getelementptr inbounds [4 x i8], ptr %17, i64 %20
   %25 = load i32, ptr %24, align 4, !tbaa !14
   %26 = getelementptr i8, ptr %24, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !14
@@ -55,14 +55,14 @@ define i32 @cs_ereach(ptr noundef readonly captures(address_is_null) %0, i32 nou
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.loopexit
   %indvars.iv92 = phi i64 [ %29, %.lr.ph79.preheader ], [ %indvars.iv.next93, %.loopexit ]
   %.05978 = phi i32 [ %15, %.lr.ph79.preheader ], [ %.1, %.loopexit ]
-  %32 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv92
+  %32 = getelementptr inbounds [4 x i8], ptr %19, i64 %indvars.iv92
   %33 = load i32, ptr %32, align 4, !tbaa !14
   %34 = icmp sgt i32 %33, %1
   br i1 %34, label %.loopexit, label %.preheader70
 
 .preheader70:                                     ; preds = %.lr.ph79
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds i32, ptr %4, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %4, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !14
   %38 = icmp sgt i32 %37, -1
   br i1 %38, label %.lr.ph, label %.loopexit
@@ -82,15 +82,15 @@ define i32 @cs_ereach(ptr noundef readonly captures(address_is_null) %0, i32 nou
   %43 = phi i64 [ %49, %.lr.ph ], [ %35, %.preheader70 ]
   %.05872 = phi i32 [ %48, %.lr.ph ], [ %33, %.preheader70 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %.05872, ptr %44, align 4, !tbaa !14
   %45 = load i32, ptr %42, align 4, !tbaa !14
   %46 = sub i32 -2, %45
   store i32 %46, ptr %42, align 4, !tbaa !14
-  %47 = getelementptr inbounds i32, ptr %2, i64 %43
+  %47 = getelementptr inbounds [4 x i8], ptr %2, i64 %43
   %48 = load i32, ptr %47, align 4, !tbaa !14
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %4, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %4, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !14
   %52 = icmp sgt i32 %51, -1
   br i1 %52, label %.lr.ph, label %.preheader69, !llvm.loop !15
@@ -99,10 +99,10 @@ define i32 @cs_ereach(ptr noundef readonly captures(address_is_null) %0, i32 nou
   %indvars.iv87 = phi i64 [ %indvars.iv.next, %.lr.ph75.preheader ], [ %indvars.iv.next88, %.lr.ph75 ]
   %indvars.iv85 = phi i64 [ %41, %.lr.ph75.preheader ], [ %indvars.iv.next86, %.lr.ph75 ]
   %indvars.iv.next88 = add nsw i64 %indvars.iv87, -1
-  %53 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next88
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next88
   %54 = load i32, ptr %53, align 4, !tbaa !14
   %indvars.iv.next86 = add nsw i64 %indvars.iv85, -1
-  %55 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next86
+  %55 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv.next86
   store i32 %54, ptr %55, align 4, !tbaa !14
   %56 = icmp samesign ugt i64 %indvars.iv87, 1
   br i1 %56, label %.lr.ph75, label %.loopexit.loopexit, !llvm.loop !17
@@ -121,10 +121,10 @@ define i32 @cs_ereach(ptr noundef readonly captures(address_is_null) %0, i32 nou
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
   %indvars.iv95 = phi i64 [ %31, %.lr.ph82.preheader ], [ %indvars.iv.next96, %.lr.ph82 ]
-  %61 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv95
+  %61 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv95
   %62 = load i32, ptr %61, align 4, !tbaa !14
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i32, ptr %4, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %4, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !14
   %66 = sub i32 -2, %65
   store i32 %66, ptr %64, align 4, !tbaa !14

@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.tMPI_Thread_key_t = type { %struct.tMPI_Atomic, ptr }
 %struct.tMPI_Atomic = type { i32, [60 x i8] }
-%struct.tMPI_Atomic_ptr = type { ptr, [56 x i8] }
-%struct.coll_sync = type { i32, i32, ptr, i32 }
-%struct.tMPI_Event_t = type { %struct.tMPI_Atomic, i32 }
 
 @id_key = external local_unnamed_addr global %struct.tMPI_Thread_key_t, align 8
 @TMPI_COMM_WORLD = external local_unnamed_addr global ptr, align 8
@@ -25,7 +22,7 @@ define noundef i32 @_Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10t
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = zext i32 %5 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !12
   tail call void %16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %4)
   br label %17
@@ -75,7 +72,7 @@ define noundef i32 @_Z16tMPI_Reduce_fastPKvPviP14tmpi_datatype_7tMPI_OpiP10tmpi_
 
 27:                                               ; preds = %24
   %28 = zext i32 %4 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !12
   %.not108 = icmp eq ptr %30, null
   br i1 %.not108, label %31, label %33
@@ -90,11 +87,11 @@ define noundef i32 @_Z16tMPI_Reduce_fastPKvPviP14tmpi_datatype_7tMPI_OpiP10tmpi_
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %36 = load ptr, ptr %35, align 8, !tbaa !15
   %37 = sext i32 %11 to i64
-  %38 = getelementptr inbounds %struct.tMPI_Atomic_ptr, ptr %36, i64 %37
+  %38 = getelementptr inbounds [64 x i8], ptr %36, i64 %37
   store ptr %spec.select, ptr %38, align 8, !tbaa !34
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %40 = load ptr, ptr %39, align 8, !tbaa !36
-  %41 = getelementptr inbounds %struct.tMPI_Atomic_ptr, ptr %40, i64 %37
+  %41 = getelementptr inbounds [64 x i8], ptr %40, i64 %37
   store ptr %1, ptr %41, align 8, !tbaa !34
   %42 = icmp sgt i32 %12, 1
   br i1 %42, label %.lr.ph, label %.thread118
@@ -126,17 +123,17 @@ define noundef i32 @_Z16tMPI_Reduce_fastPKvPviP14tmpi_datatype_7tMPI_OpiP10tmpi_
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %44, align 8, !tbaa !37
-  %56 = getelementptr inbounds %struct.coll_sync, ptr %55, i64 %37
+  %56 = getelementptr inbounds [24 x i8], ptr %55, i64 %37
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !38
   %59 = sext i32 %50 to i64
-  %60 = getelementptr inbounds %struct.tMPI_Event_t, ptr %58, i64 %59
+  %60 = getelementptr inbounds [68 x i8], ptr %58, i64 %59
   %61 = tail call noundef i32 @_Z15tMPI_Event_waitP12tMPI_Event_t(ptr noundef %60)
   %62 = load ptr, ptr %44, align 8, !tbaa !37
-  %63 = getelementptr inbounds %struct.coll_sync, ptr %62, i64 %37
+  %63 = getelementptr inbounds [24 x i8], ptr %62, i64 %37
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !38
-  %66 = getelementptr inbounds %struct.tMPI_Event_t, ptr %65, i64 %59
+  %66 = getelementptr inbounds [68 x i8], ptr %65, i64 %59
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %68 = load i32, ptr %67, align 4, !tbaa !41
   %69 = add nsw i32 %68, 1
@@ -145,14 +142,14 @@ define noundef i32 @_Z16tMPI_Reduce_fastPKvPviP14tmpi_datatype_7tMPI_OpiP10tmpi_
   %spec.select. = select i1 %70, ptr %spec.select, ptr %1
   %. = select i1 %70, ptr %35, ptr %39
   %.pn110 = load ptr, ptr %., align 8, !tbaa !43
-  %.087.in = getelementptr inbounds %struct.tMPI_Atomic_ptr, ptr %.pn110, i64 %59
+  %.087.in = getelementptr inbounds [64 x i8], ptr %.pn110, i64 %59
   %.087 = load ptr, ptr %.087.in, align 8, !tbaa !34
   %71 = icmp eq ptr %spec.select., %.087
   br i1 %71, label %_Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit, label %_Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit.thread
 
 _Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit.thread: ; preds = %54
   %72 = load ptr, ptr %25, align 8, !tbaa !3
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %28
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %28
   %74 = load ptr, ptr %73, align 8, !tbaa !12
   tail call void %74(ptr noundef nonnull %1, ptr noundef nonnull %spec.select., ptr noundef %.087, i32 noundef %2)
   br label %76
@@ -165,10 +162,10 @@ _Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit: ; pr
 76:                                               ; preds = %_Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit.thread, %_Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit
   fence seq_cst
   %77 = load ptr, ptr %44, align 8, !tbaa !37
-  %78 = getelementptr inbounds %struct.coll_sync, ptr %77, i64 %59
+  %78 = getelementptr inbounds [24 x i8], ptr %77, i64 %59
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !38
-  %81 = getelementptr inbounds %struct.tMPI_Event_t, ptr %80, i64 %37
+  %81 = getelementptr inbounds [68 x i8], ptr %80, i64 %37
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store volatile i32 1, ptr %9, align 4, !tbaa !44
   %.0..0..0..0..0..0..i = load volatile i32, ptr %9, align 4, !tbaa !44
@@ -191,26 +188,26 @@ _Z18tMPI_Reduce_run_opPvPKvS1_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit: ; pr
   fence seq_cst
   %88 = load ptr, ptr %44, align 8, !tbaa !37
   %89 = sext i32 %50 to i64
-  %90 = getelementptr inbounds %struct.coll_sync, ptr %88, i64 %89
+  %90 = getelementptr inbounds [24 x i8], ptr %88, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !38
-  %93 = getelementptr inbounds %struct.tMPI_Event_t, ptr %92, i64 %37
+  %93 = getelementptr inbounds [68 x i8], ptr %92, i64 %37
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store volatile i32 1, ptr %8, align 4, !tbaa !44
   %.0..0..0..0..0..0..i112 = load volatile i32, ptr %8, align 4, !tbaa !44
   %94 = atomicrmw add ptr %93, i32 %.0..0..0..0..0..0..i112 seq_cst, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %95 = load ptr, ptr %44, align 8, !tbaa !37
-  %96 = getelementptr inbounds %struct.coll_sync, ptr %95, i64 %37
+  %96 = getelementptr inbounds [24 x i8], ptr %95, i64 %37
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !38
-  %99 = getelementptr inbounds %struct.tMPI_Event_t, ptr %98, i64 %89
+  %99 = getelementptr inbounds [68 x i8], ptr %98, i64 %89
   %100 = tail call noundef i32 @_Z15tMPI_Event_waitP12tMPI_Event_t(ptr noundef %99)
   %101 = load ptr, ptr %44, align 8, !tbaa !37
-  %102 = getelementptr inbounds %struct.coll_sync, ptr %101, i64 %37
+  %102 = getelementptr inbounds [24 x i8], ptr %101, i64 %37
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8, !tbaa !38
-  %105 = getelementptr inbounds %struct.tMPI_Event_t, ptr %104, i64 %89
+  %105 = getelementptr inbounds [68 x i8], ptr %104, i64 %89
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 64
   %107 = load i32, ptr %106, align 4, !tbaa !41
   %108 = add nsw i32 %107, 1

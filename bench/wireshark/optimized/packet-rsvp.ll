@@ -2606,8 +2606,8 @@ define hidden void @proto_register_rsvp() local_unnamed_addr #1 {
 
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr i32, ptr @ett_treelist, i64 %indvars.iv
-  %4 = getelementptr ptr, ptr %1, i64 %indvars.iv
+  %3 = getelementptr [4 x i8], ptr @ett_treelist, i64 %indvars.iv
+  %4 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %3, ptr %4, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 81
@@ -4046,7 +4046,7 @@ define internal fastcc void @dissect_rsvp_msg_tree(ptr noundef %0, ptr noundef %
 
 57:                                               ; preds = %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50, %50
   %58 = zext nneg i8 %25 to i64
-  %59 = getelementptr i32, ptr @hf_rsvp_filter, i64 %58
+  %59 = getelementptr [4 x i8], ptr @hf_rsvp_filter, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = call ptr @proto_tree_add_boolean(ptr noundef %47, i32 noundef %60, ptr noundef %0, i32 noundef 1, i32 noundef 1, i64 noundef 1)
   %.not.i = icmp eq ptr %61, null
@@ -4265,13 +4265,13 @@ proto_item_set_hidden.exit:                       ; preds = %65, %62, %57, %50
 rsvp_class_to_filter_num.exit:                    ; preds = %93, %101, %103, %105, %107, %108, %109, %110, %111, %112, %113, %114, %115, %116, %117, %118, %119, %120, %121, %122, %123, %124, %125, %126, %127
   %.0.i = phi i32 [ 78, %127 ], [ %102, %101 ], [ %104, %103 ], [ %106, %105 ], [ 107, %126 ], [ 58, %107 ], [ 52, %108 ], [ 53, %109 ], [ 62, %110 ], [ 63, %111 ], [ 72, %112 ], [ 73, %113 ], [ 74, %114 ], [ 59, %115 ], [ 75, %116 ], [ 76, %117 ], [ 77, %118 ], [ 60, %119 ], [ 61, %120 ], [ 105, %121 ], [ 106, %122 ], [ 109, %123 ], [ 110, %124 ], [ 111, %125 ], [ 57, %93 ]
   %128 = zext nneg i32 %.0.i to i64
-  %129 = getelementptr i32, ptr @hf_rsvp_filter, i64 %128
+  %129 = getelementptr [4 x i8], ptr @hf_rsvp_filter, i64 %128
   %130 = load i32, ptr %129, align 4
   %131 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %130, ptr noundef %0, i32 noundef %.0711, i32 noundef %95, i32 noundef 0)
   store ptr %131, ptr %19, align 8
   %132 = call fastcc i32 @rsvp_class_to_tree_type(i32 noundef %100)
   %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr i32, ptr @ett_treelist, i64 %133
+  %134 = getelementptr [4 x i8], ptr @ett_treelist, i64 %133
   %135 = load i32, ptr %134, align 4
   %136 = call ptr @proto_item_add_subtree(ptr noundef %131, i32 noundef %135)
   %137 = load i32, ptr @hf_rsvp_length, align 4
@@ -6076,7 +6076,7 @@ proto_item_set_hidden.exit.i502:                  ; preds = %1135, %1132, %1127
 
 switch.lookup:                                    ; preds = %1241
   %1244 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table.dissect_rsvp_msg_tree, i64 %1244
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_rsvp_msg_tree, i64 %1244
   %switch.load = load float, ptr %switch.gep, align 4
   br label %1245
 
@@ -7396,7 +7396,7 @@ proto_item_set_hidden.exit.i575:                  ; preds = %1949, %1946, %1941
   %2074 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2073)
   %2075 = call fastcc i32 @rsvp_class_to_tree_type(i32 noundef %2072)
   %2076 = zext nneg i32 %2075 to i64
-  %2077 = getelementptr i32, ptr @ett_treelist, i64 %2076
+  %2077 = getelementptr [4 x i8], ptr @ett_treelist, i64 %2076
   %2078 = load i32, ptr %2077, align 4
   %2079 = call ptr @proto_tree_add_subtree(ptr noundef %2057, ptr noundef %0, i32 noundef %2067, i32 noundef %2069, i32 noundef %2078, ptr noundef nonnull %14, ptr noundef nonnull @.str.1896)
   %2080 = load i32, ptr @hf_rsvp_length, align 4
@@ -7427,7 +7427,7 @@ proto_item_set_hidden.exit.i575:                  ; preds = %1949, %1946, %1941
   %2100 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2099)
   %2101 = call fastcc i32 @rsvp_class_to_tree_type(i32 noundef %2098)
   %2102 = zext nneg i32 %2101 to i64
-  %2103 = getelementptr i32, ptr @ett_treelist, i64 %2102
+  %2103 = getelementptr [4 x i8], ptr @ett_treelist, i64 %2102
   %2104 = load i32, ptr %2103, align 4
   %2105 = call ptr @proto_tree_add_subtree(ptr noundef %2057, ptr noundef %0, i32 noundef %2093, i32 noundef %2095, i32 noundef %2104, ptr noundef nonnull %14, ptr noundef nonnull @.str.1897)
   %2106 = load i32, ptr @hf_rsvp_length, align 4
@@ -9276,7 +9276,7 @@ proto_item_set_hidden.exit89.i:                   ; preds = %3186, %3183, %proto
 
 switch.lookup928:                                 ; preds = %.split.i
   %3218 = zext nneg i32 %3216 to i64
-  %switch.gep929 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_rsvp_msg_tree.11, i64 %3218
+  %switch.gep929 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_rsvp_msg_tree.11, i64 %3218
   %switch.load930 = load ptr, ptr %switch.gep929, align 8
   br label %3219
 

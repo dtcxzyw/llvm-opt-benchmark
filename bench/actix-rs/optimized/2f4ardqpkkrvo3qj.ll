@@ -931,7 +931,7 @@ define hidden { i64, ptr } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %23 = load ptr, ptr %22, align 8, !alias.scope !99, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %19
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %19
   %25 = load ptr, ptr %24, align 8, !noalias !99, !nonnull !4, !align !102, !noundef !4
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   store ptr null, ptr %26, align 8
@@ -3548,7 +3548,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %46 = icmp eq <16 x i8> %.0.copyload.i.i, %30
   %47 = icmp eq <16 x i8> %.0.copyload2.i.i, %31
   %48 = and <16 x i1> %46, %47
-  %49 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.022.0132.i
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.022.0132.i
   store <16 x i1> %48, ptr %49, align 2, !noalias !470
   %exitcond.not.i = icmp eq i64 %42, 4
   br i1 %exitcond.not.i, label %.preheader128.i, label %41
@@ -3566,7 +3566,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %.sroa.028.0134.i = phi i64 [ %55, %59 ], [ 0, %41 ]
   %.2133.i = phi i8 [ %.3.i, %59 ], [ 0, %41 ]
   %55 = add nuw nsw i64 %.sroa.028.0134.i, 1
-  %56 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.028.0134.i
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.028.0134.i
   %57 = load i16, ptr %56, align 2, !noalias !470, !noundef !4
   %58 = icmp eq i16 %57, 0
   br i1 %58, label %59, label %60
@@ -7948,7 +7948,7 @@ define noundef ptr @"_ZN100_$LT$actix_http..requests..head..RequestHeadType$u20$
 
 switch.lookup:                                    ; preds = %.thread
   %60 = zext nneg i8 %56 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN100_$LT$actix_http..requests..head..RequestHeadType$u20$as$u20$actix_http..h1..encoder..MessageType$GT$13encode_status17hd50ea35bf66e10b7E", i64 %60
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN100_$LT$actix_http..requests..head..RequestHeadType$u20$as$u20$actix_http..h1..encoder..MessageType$GT$13encode_status17hd50ea35bf66e10b7E", i64 %60
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %7, align 8
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -9623,7 +9623,7 @@ define void @_ZN10actix_http2ws5frame6Parser19parse_close_payload17hf13eae2c3bb7
 
 switch.lookup:                                    ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hace82f5207c773ecE.exit"
   %11 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN10actix_http2ws5frame6Parser19parse_close_payload17hf13eae2c3bb7b4a4E, i64 %11
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN10actix_http2ws5frame6Parser19parse_close_payload17hf13eae2c3bb7b4a4E, i64 %11
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %"_ZN83_$LT$actix_http..ws..proto..CloseCode$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb42c1f28800de142E.exit"
 
@@ -10128,10 +10128,10 @@ define internal noundef zeroext i1 @"_ZN60_$LT$actix_http..error..Kind$u20$as$u2
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !911, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN60_$LT$actix_http..error..Kind$u20$as$u20$core..fmt..Debug$GT$3fmt17hc06b078f59b7aec4E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$actix_http..error..Kind$u20$as$u20$core..fmt..Debug$GT$3fmt17hc06b078f59b7aec4E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN60_$LT$actix_http..error..Kind$u20$as$u20$core..fmt..Debug$GT$3fmt17hc06b078f59b7aec4E.55", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$actix_http..error..Kind$u20$as$u20$core..fmt..Debug$GT$3fmt17hc06b078f59b7aec4E.55", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

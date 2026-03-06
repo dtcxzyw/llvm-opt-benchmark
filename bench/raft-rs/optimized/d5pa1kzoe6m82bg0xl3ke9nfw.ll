@@ -753,7 +753,7 @@ _ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit: ; pr
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8, !nonnull !3, !noundef !3
-  %33 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %32, i64 %27
+  %33 = getelementptr inbounds nuw [104 x i8], ptr %32, i64 %27
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %35 = load i64, ptr %34, align 8, !noundef !3
   br label %_ZN4raft12log_unstable8Unstable16maybe_last_index17h45e3b1674066bd82E.exit.thread
@@ -817,7 +817,7 @@ define void @_ZN4raft12log_unstable8Unstable14stable_entries17hf3d13a9ac63835d8E
   %26 = load i64, ptr %25, align 8, !noundef !3
   %.not58 = icmp eq i64 %26, 0
   %27 = load ptr, ptr %24, align 8, !nonnull !3
-  %28 = getelementptr { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %27, i64 %26
+  %28 = getelementptr [104 x i8], ptr %27, i64 %26
   %29 = getelementptr i8, ptr %28, i64 -104
   %.not5963 = icmp eq ptr %29, null
   %.not59 = select i1 %.not58, i1 true, i1 %.not5963
@@ -860,7 +860,7 @@ define void @_ZN4raft12log_unstable8Unstable14stable_entries17hf3d13a9ac63835d8E
   br i1 %47, label %"_ZN4core3ptr65drop_in_place$LT$$u5b$raft_proto..protos..eraftpb..Entry$u5d$$GT$17heec60092ff53537aE.exit", label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %44, i64 %.sroa.0.0.i
+  %49 = getelementptr inbounds nuw [104 x i8], ptr %44, i64 %.sroa.0.0.i
   %50 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$raft_proto..protos..eraftpb..Entry$GT$17hb71c29d40ce85645E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %49)
           to label %46 unwind label %53
@@ -876,7 +876,7 @@ define void @_ZN4raft12log_unstable8Unstable14stable_entries17hf3d13a9ac63835d8E
   br label %51
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %44, i64 %.sroa.0.1.i
+  %56 = getelementptr inbounds nuw [104 x i8], ptr %44, i64 %.sroa.0.1.i
   %57 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$raft_proto..protos..eraftpb..Entry$GT$17hb71c29d40ce85645E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %56) #17
           to label %51 unwind label %58
@@ -1270,7 +1270,7 @@ define void @_ZN4raft12log_unstable8Unstable7restore17hf9c31bca39293f6aE(ptr noa
   br i1 %9, label %"_ZN4core3ptr65drop_in_place$LT$$u5b$raft_proto..protos..eraftpb..Entry$u5d$$GT$17heec60092ff53537aE.exit", label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %5, i64 %.sroa.0.0.i
+  %11 = getelementptr inbounds nuw [104 x i8], ptr %5, i64 %.sroa.0.0.i
   %12 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$raft_proto..protos..eraftpb..Entry$GT$17hb71c29d40ce85645E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %11)
           to label %8 unwind label %15
@@ -1286,7 +1286,7 @@ define void @_ZN4raft12log_unstable8Unstable7restore17hf9c31bca39293f6aE(ptr noa
   br label %13
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %5, i64 %.sroa.0.1.i
+  %18 = getelementptr inbounds nuw [104 x i8], ptr %5, i64 %.sroa.0.1.i
   %19 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$raft_proto..protos..eraftpb..Entry$GT$17hb71c29d40ce85645E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %18) #17
           to label %13 unwind label %20
@@ -1398,7 +1398,7 @@ define void @_ZN4raft12log_unstable8Unstable19truncate_and_append17h09944d4cd165
   br i1 %24, label %"_ZN4core3ptr65drop_in_place$LT$$u5b$raft_proto..protos..eraftpb..Entry$u5d$$GT$17heec60092ff53537aE.exit", label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %22, i64 %.sroa.0.0.i
+  %26 = getelementptr inbounds nuw [104 x i8], ptr %22, i64 %.sroa.0.0.i
   %27 = add nuw nsw i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$raft_proto..protos..eraftpb..Entry$GT$17hb71c29d40ce85645E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %26)
           to label %23 unwind label %30
@@ -1414,7 +1414,7 @@ define void @_ZN4raft12log_unstable8Unstable19truncate_and_append17h09944d4cd165
   br label %28
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %22, i64 %.sroa.0.1.i
+  %33 = getelementptr inbounds nuw [104 x i8], ptr %22, i64 %.sroa.0.1.i
   %34 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$raft_proto..protos..eraftpb..Entry$GT$17hb71c29d40ce85645E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %33) #17
           to label %28 unwind label %35
@@ -1437,8 +1437,8 @@ common.resume:                                    ; preds = %28, %62
 38:                                               ; preds = %16
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !nonnull !3, !noundef !3
-  %41 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %40, i64 %17
-  %42 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %40, i64 %18
+  %41 = getelementptr inbounds nuw [104 x i8], ptr %40, i64 %17
+  %42 = getelementptr inbounds nuw [104 x i8], ptr %40, i64 %18
   %43 = icmp samesign eq i64 %17, %18
   br i1 %43, label %._crit_edge, label %.lr.ph
 
@@ -1477,7 +1477,7 @@ common.resume:                                    ; preds = %28, %62
   br i1 %58, label %"_ZN4core3ptr65drop_in_place$LT$$u5b$raft_proto..protos..eraftpb..Entry$u5d$$GT$17heec60092ff53537aE.exit12", label %59
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %41, i64 %.sroa.0.0.i10
+  %60 = getelementptr inbounds nuw [104 x i8], ptr %41, i64 %.sroa.0.0.i10
   %61 = add i64 %.sroa.0.0.i10, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$raft_proto..protos..eraftpb..Entry$GT$17hb71c29d40ce85645E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %60)
           to label %57 unwind label %64
@@ -1493,7 +1493,7 @@ common.resume:                                    ; preds = %28, %62
   br label %62
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %41, i64 %.sroa.0.1.i11
+  %67 = getelementptr inbounds nuw [104 x i8], ptr %41, i64 %.sroa.0.1.i11
   %68 = add i64 %.sroa.0.1.i11, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$raft_proto..protos..eraftpb..Entry$GT$17hb71c29d40ce85645E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %67) #17
           to label %62 unwind label %69
@@ -1513,7 +1513,7 @@ common.resume:                                    ; preds = %28, %62
 72:                                               ; preds = %72, %"_ZN4core3ptr65drop_in_place$LT$$u5b$raft_proto..protos..eraftpb..Entry$u5d$$GT$17heec60092ff53537aE.exit12"
   %.sroa.07.0.i = phi i64 [ 0, %"_ZN4core3ptr65drop_in_place$LT$$u5b$raft_proto..protos..eraftpb..Entry$u5d$$GT$17heec60092ff53537aE.exit12" ], [ %78, %72 ]
   %.sroa.09.0.i = phi i64 [ 0, %"_ZN4core3ptr65drop_in_place$LT$$u5b$raft_proto..protos..eraftpb..Entry$u5d$$GT$17heec60092ff53537aE.exit12" ], [ %79, %72 ]
-  %73 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %1, i64 %.sroa.09.0.i
+  %73 = getelementptr inbounds nuw [104 x i8], ptr %1, i64 %.sroa.09.0.i
   %74 = getelementptr i8, ptr %73, i64 16
   %.val.i = load i64, ptr %74, align 8, !noundef !3
   %75 = getelementptr i8, ptr %73, i64 48
@@ -1561,7 +1561,7 @@ define { ptr, i64 } @_ZN4raft12log_unstable8Unstable5slice17haf040d6088b4b547E(p
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6f6eefeebc8a75c4E.exit": ; preds = %13
   %17 = sub nuw i64 %7, %6
-  %18 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %9, i64 %6
+  %18 = getelementptr inbounds nuw [104 x i8], ptr %9, i64 %6
   %19 = insertvalue { ptr, i64 } poison, ptr %18, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %17, 1
   ret { ptr, i64 } %20
@@ -1792,7 +1792,7 @@ define noundef zeroext i1 @_ZN4raft4util18is_continuous_ents17h6d4ac5b0cb7a57cbE
   ret i1 %.sroa.0.0
 
 15:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h6f6eefeebc8a75c4E.exit4"
-  %16 = getelementptr { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %7, i64 %5
+  %16 = getelementptr [104 x i8], ptr %7, i64 %5
   %17 = getelementptr i8, ptr %16, i64 -32
   %18 = load i64, ptr %17, align 8, !noundef !3
   %19 = add i64 %18, 1

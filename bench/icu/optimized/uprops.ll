@@ -52,7 +52,7 @@ define noundef signext i8 @u_hasBinaryProperty_77(i32 noundef %0, i32 noundef %1
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw %struct.BinaryProperty, ptr @_ZL8binProps, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @_ZL8binProps, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = tail call noundef signext i8 %7(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %0, i32 noundef %1)
@@ -106,7 +106,7 @@ define noundef signext i8 @u_stringHasBinaryProperty_77(ptr noundef %0, i32 noun
   %9 = load i16, ptr %0, align 2, !tbaa !9
   %10 = zext i16 %9 to i32
   %11 = zext nneg i32 %2 to i64
-  %12 = getelementptr inbounds nuw %struct.BinaryProperty, ptr @_ZL8binProps, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr @_ZL8binProps, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = tail call noundef signext i8 %14(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %10, i32 noundef %2)
@@ -153,7 +153,7 @@ define noundef signext i8 @u_stringHasBinaryProperty_77(ptr noundef %0, i32 noun
 
 38:                                               ; preds = %34
   %39 = zext nneg i32 %.138 to i64
-  %40 = getelementptr inbounds nuw i16, ptr %0, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !9
   %42 = icmp eq i16 %41, 0
   br i1 %42, label %43, label %u_hasBinaryProperty_77.exit43.thread
@@ -164,7 +164,7 @@ define noundef signext i8 @u_stringHasBinaryProperty_77(ptr noundef %0, i32 noun
 
 44:                                               ; preds = %43
   %45 = zext nneg i32 %2 to i64
-  %46 = getelementptr inbounds nuw %struct.BinaryProperty, ptr @_ZL8binProps, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr @_ZL8binProps, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !3
   %49 = tail call noundef signext i8 %48(ptr noundef nonnull align 8 dereferenceable(16) %46, i32 noundef %.136, i32 noundef %2)
@@ -199,7 +199,7 @@ define i32 @u_getIntPropertyValue_77(i32 noundef %0, i32 noundef %1) local_unnam
 
 5:                                                ; preds = %4
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.BinaryProperty, ptr @_ZL8binProps, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @_ZL8binProps, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = tail call noundef signext i8 %9(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %0, i32 noundef %1)
@@ -212,7 +212,7 @@ define i32 @u_getIntPropertyValue_77(i32 noundef %0, i32 noundef %1) local_unnam
 
 14:                                               ; preds = %12
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr %struct.IntProperty, ptr @_ZL8intProps, i64 %15
+  %16 = getelementptr [32 x i8], ptr @_ZL8intProps, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -131072
   %18 = getelementptr i8, ptr %16, i64 -131056
   %19 = load ptr, ptr %18, align 16, !tbaa !11
@@ -256,7 +256,7 @@ define noundef i32 @u_getIntPropertyMaxValue_77(i32 noundef %0) local_unnamed_ad
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr %struct.IntProperty, ptr @_ZL8intProps, i64 %7
+  %8 = getelementptr [32 x i8], ptr @_ZL8intProps, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -131072
   %10 = getelementptr i8, ptr %8, i64 -131048
   %11 = load ptr, ptr %10, align 8, !tbaa !13
@@ -282,7 +282,7 @@ define i32 @uprops_getSource_77(i32 noundef %0) local_unnamed_addr #2 {
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw %struct.BinaryProperty, ptr @_ZL8binProps, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @_ZL8binProps, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %.not16 = icmp eq i32 %9, 0
@@ -302,7 +302,7 @@ define i32 @uprops_getSource_77(i32 noundef %0) local_unnamed_addr #2 {
 
 16:                                               ; preds = %14
   %17 = zext nneg i32 %0 to i64
-  %18 = getelementptr %struct.IntProperty, ptr @_ZL8intProps, i64 %17
+  %18 = getelementptr [32 x i8], ptr @_ZL8intProps, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -131068
   %20 = load i32, ptr %19, align 4, !tbaa !16
   %.not = icmp eq i32 %20, 0
@@ -340,7 +340,7 @@ define i32 @uprops_getSource_77(i32 noundef %0) local_unnamed_addr #2 {
 
 switch.lookup:                                    ; preds = %31
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.uprops_getSource_77, i64 %35
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.uprops_getSource_77, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %36
 
@@ -418,7 +418,7 @@ define void @uprops_addPropertyStarts_77(i32 noundef %0, ptr noundef readonly ca
 
 switch.lookup:                                    ; preds = %25
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.uprops_addPropertyStarts_77, i64 %27
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uprops_addPropertyStarts_77, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.038 = load ptr, ptr %switch.load, align 8, !tbaa !25
   %28 = icmp eq ptr %.038, null
@@ -703,7 +703,7 @@ _ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit.thread: ; pre
 
 33:                                               ; preds = %31
   %34 = zext nneg i32 %.0 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %1, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %34
   store i32 5, ptr %35, align 4, !tbaa !36
   br label %.thread
 
@@ -729,7 +729,7 @@ _ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit44.thread: ; p
 
 41:                                               ; preds = %39
   %42 = zext nneg i32 %.1 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %1, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %42
   store i32 6, ptr %43, align 4, !tbaa !36
   br label %.thread68
 
@@ -755,7 +755,7 @@ _ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit46.thread: ; p
 
 49:                                               ; preds = %47
   %50 = zext nneg i32 %.2 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %1, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %50
   store i32 7, ptr %51, align 4, !tbaa !36
   br label %.thread74
 
@@ -781,7 +781,7 @@ _ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit48.thread: ; p
 
 57:                                               ; preds = %55
   %58 = zext nneg i32 %.3 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %1, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %58
   store i32 8, ptr %59, align 4, !tbaa !36
   br label %.thread80
 
@@ -806,7 +806,7 @@ _ZN12_GLOBAL__N_115maybeAppendTypeEjj15UIdentifierTypePS0_Rii.exit50.thread: ; p
 
 64:                                               ; preds = %62
   %65 = zext nneg i32 %.4 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %1, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %65
   store i32 9, ptr %66, align 4, !tbaa !36
   br label %.thread86
 
@@ -1112,7 +1112,7 @@ define linkonce_odr noundef zeroext i16 @_ZNK6icu_7715Normalizer2Impl9getNorm16E
   %12 = load ptr, ptr %7, align 8, !tbaa !62
   %13 = lshr i32 %1, 6
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i16, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !64
   %17 = zext i16 %16 to i32
   %18 = and i32 %1, 63
@@ -1148,7 +1148,7 @@ define linkonce_odr noundef zeroext i16 @_ZNK6icu_7715Normalizer2Impl9getNorm16E
 35:                                               ; preds = %31, %29, %25, %11
   %36 = phi i32 [ %19, %11 ], [ %34, %31 ], [ %28, %25 ], [ %30, %29 ]
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i16, ptr %9, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %9, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !64
   br label %40
 
@@ -1287,7 +1287,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL27hasFullCompositionExclus
   %18 = load ptr, ptr %13, align 8, !tbaa !62
   %19 = lshr i32 %1, 6
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !64
   %23 = zext i16 %22 to i32
   %24 = and i32 %1, 63
@@ -1323,7 +1323,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL27hasFullCompositionExclus
 41:                                               ; preds = %37, %35, %31, %17
   %42 = phi i32 [ %25, %17 ], [ %40, %37 ], [ %34, %31 ], [ %36, %35 ]
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i16, ptr %15, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %15, i64 %43
   %45 = load i16, ptr %44, align 2, !tbaa !64
   br label %_ZNK6icu_7715Normalizer2Impl9getNorm16Ei.exit
 
@@ -1701,7 +1701,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL26changesWhenNFKC_Casefold
   %33 = load i32, ptr %32, align 4
   %34 = select i1 %29, i32 %33, i32 %31
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i16, ptr %.0.i, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %35
   %37 = invoke noundef signext i8 @_ZNK6icu_7715Normalizer2Impl7composeEPKDsS2_aaRNS_16ReorderingBufferER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %.0.i, ptr noundef %36, i8 noundef signext 0, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %42 unwind label %40
 
@@ -1887,7 +1887,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL22isIDCompatMathContinueRK
 
 6:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
-  %7 = getelementptr inbounds nuw i32, ptr @_ZL23ID_COMPAT_MATH_CONTINUE, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @_ZL23ID_COMPAT_MATH_CONTINUE, i64 %indvars.iv
   %8 = load i32, ptr %7, align 8, !tbaa !20
   %9 = icmp slt i32 %1, %8
   br i1 %9, label %_ZL19isIDCompatMathStartRK14BinaryPropertyi9UProperty.exit, label %10
@@ -1930,7 +1930,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL23isModifierCombiningMarkR
 
 6:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
-  %7 = getelementptr inbounds nuw i32, ptr @_ZL23MODIFIER_COMBINING_MARK, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @_ZL23MODIFIER_COMBINING_MARK, i64 %indvars.iv
   %8 = load i32, ptr %7, align 8, !tbaa !20
   %9 = icmp slt i32 %1, %8
   br i1 %9, label %.thread, label %10
@@ -2162,7 +2162,7 @@ define internal noundef i32 @_ZL21getHangulSyllableTypeRK11IntPropertyi9UPropert
 
 10:                                               ; preds = %5
   %11 = zext nneg i32 %8 to i64
-  %12 = getelementptr inbounds nuw i32, ptr @_ZL8gcbToHst, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @_ZL8gcbToHst, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !78
   br label %14
 

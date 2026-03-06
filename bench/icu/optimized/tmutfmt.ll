@@ -710,14 +710,14 @@ define void @_ZN6icu_7714TimeUnitFormatC2ERKS0_(ptr noundef nonnull align 8 dere
           to label %12 unwind label %19
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store ptr %11, ptr %13, align 8, !tbaa !17
   %14 = load i32, ptr %3, align 4, !tbaa !13
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %21, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !17
   invoke void @_ZN6icu_7714TimeUnitFormat8copyHashEPKNS_9HashtableEPS1_R10UErrorCode(ptr nonnull align 8 poison, ptr noundef %18, ptr noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %30 unwind label %19
@@ -975,7 +975,7 @@ define void @_ZN6icu_7714TimeUnitFormatD2Ev(ptr noundef nonnull align 8 derefere
 
 4:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   invoke void @_ZN6icu_7714TimeUnitFormat10deleteHashEPNS_9HashtableE(ptr nonnull align 8 poison, ptr noundef %6)
           to label %7 unwind label %8
@@ -1115,7 +1115,7 @@ define noundef nonnull align 8 dereferenceable(124) ptr @_ZN6icu_7714TimeUnitFor
 
 9:                                                ; preds = %5, %9
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   tail call void @_ZN6icu_7714TimeUnitFormat10deleteHashEPNS_9HashtableE(ptr nonnull align 8 poison, ptr noundef %11)
   store ptr null, ptr %10, align 8, !tbaa !17
@@ -1135,14 +1135,14 @@ define noundef nonnull align 8 dereferenceable(124) ptr @_ZN6icu_7714TimeUnitFor
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !13
   %17 = call noundef ptr @_ZN6icu_7714TimeUnitFormat8initHashER10UErrorCode(ptr nonnull align 8 poison, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv24
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv24
   store ptr %17, ptr %18, align 8, !tbaa !17
   %19 = load i32, ptr %3, align 4, !tbaa !13
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv24
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv24
   %23 = load ptr, ptr %22, align 8, !tbaa !17
   call void @_ZN6icu_7714TimeUnitFormat8copyHashEPKNS_9HashtableEPS1_R10UErrorCode(ptr nonnull align 8 poison, ptr noundef %23, ptr noundef %17, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %33
@@ -1223,7 +1223,7 @@ define void @_ZNK6icu_7714TimeUnitFormat11parseObjectERKNS_13UnicodeStringERNS_1
   %.087287 = phi i32 [ -1, %4 ], [ %.188, %104 ]
   %.093286 = phi i32 [ 0, %4 ], [ %.194, %104 ]
   %.099285 = phi ptr [ null, %4 ], [ %.1100, %104 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv330
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv330
   %27 = load ptr, ptr %26, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 -1, ptr %6, align 4, !tbaa !12
@@ -1267,7 +1267,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit:       ; preds = %29
   %.289280 = phi i32 [ %.188, %32 ], [ %.390, %99 ]
   %.295279 = phi i32 [ %.194, %32 ], [ %.396, %99 ]
   %.2101278 = phi ptr [ %.1100, %32 ], [ %.3102, %99 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !40
   store i32 -1, ptr %19, align 4, !tbaa !50
   store i32 %17, ptr %16, align 8, !tbaa !47
@@ -1768,7 +1768,7 @@ define void @_ZN6icu_7714TimeUnitFormat5setupER10UErrorCode(ptr noundef nonnull 
 
 7:                                                ; preds = %7, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   tail call void @_ZN6icu_7714TimeUnitFormat10deleteHashEPNS_9HashtableE(ptr nonnull align 8 poison, ptr noundef %9)
   store ptr null, ptr %8, align 8, !tbaa !17
@@ -1890,7 +1890,7 @@ define void @_ZN6icu_7714TimeUnitFormat15initDataMembersER10UErrorCode(ptr nound
 
 6:                                                ; preds = %.preheader, %6
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   tail call void @_ZN6icu_7714TimeUnitFormat10deleteHashEPNS_9HashtableE(ptr nonnull align 8 poison, ptr noundef %8)
   store ptr null, ptr %7, align 8, !tbaa !17
@@ -2085,7 +2085,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit: ; pr
 
 .preheader:                                       ; preds = %25, %65
   %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 0, %25 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !17
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %38
@@ -2116,7 +2116,7 @@ _ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit: ; preds = %38
   br i1 %41, label %46, label %42
 
 42:                                               ; preds = %_ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %16
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %16
   %44 = load ptr, ptr %43, align 8, !tbaa !40
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %65
@@ -2293,7 +2293,7 @@ _ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit.preheader: ; preds 
   %34 = zext i32 %1 to i64
   %35 = icmp ult i32 %4, 7
   %36 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6icu_7714TimeUnitFormat15getTimeUnitNameENS_8TimeUnit15UTimeUnitFieldsER10UErrorCode, i64 %36
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6icu_7714TimeUnitFormat15getTimeUnitNameENS_8TimeUnit15UTimeUnitFieldsER10UErrorCode, i64 %36
   br label %_ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit
 
 common.resume:                                    ; preds = %_ZN6icu_7712LocalPointerINS_13MessageFormatEED2Ev.exit243, %37
@@ -2537,7 +2537,7 @@ _ZN6icu_7711LocalMemoryIPNS_13MessageFormatEED2Ev.exit: ; preds = %_ZN6icu_779Ha
 
 .thread269:                                       ; preds = %_ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit, %_ZN6icu_7711LocalMemoryIPNS_13MessageFormatEED2Ev.exit
   %.0129 = phi ptr [ %93, %_ZN6icu_7711LocalMemoryIPNS_13MessageFormatEED2Ev.exit ], [ %90, %_ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit ]
-  %117 = getelementptr inbounds nuw ptr, ptr %.0129, i64 %34
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %.0129, i64 %34
   store ptr %58, ptr %117, align 8, !tbaa !40
   br label %_ZN6icu_7712LocalPointerINS_13MessageFormatEED2Ev.exit228
 
@@ -2710,7 +2710,7 @@ _ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit236: ; preds = %165
   br i1 %.not192, label %173, label %168
 
 168:                                              ; preds = %_ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit236
-  %169 = getelementptr inbounds nuw ptr, ptr %167, i64 %34
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %34
   %170 = load ptr, ptr %169, align 8, !tbaa !40
   %.not193 = icmp eq ptr %170, null
   br i1 %.not193, label %173, label %.critedge215
@@ -2746,7 +2746,7 @@ _ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit236: ; preds = %165
 
 switch.lookup346:                                 ; preds = %178
   %180 = zext nneg i32 %4 to i64
-  %switch.gep347 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6icu_7714TimeUnitFormat19searchInLocaleChainE20UTimeUnitFormatStylePKcS3_NS_8TimeUnit15UTimeUnitFieldsERKNS_13UnicodeStringES3_PNS_9HashtableER10UErrorCode.1, i64 %180
+  %switch.gep347 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6icu_7714TimeUnitFormat19searchInLocaleChainE20UTimeUnitFormatStylePKcS3_NS_8TimeUnit15UTimeUnitFieldsERKNS_13UnicodeStringES3_PNS_9HashtableER10UErrorCode.1, i64 %180
   %switch.load348 = load ptr, ptr %switch.gep347, align 8
   %181 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 512) #16
   %.not198 = icmp eq ptr %181, null
@@ -2904,7 +2904,7 @@ _ZN6icu_7711LocalMemoryIPNS_13MessageFormatEED2Ev.exit241: ; preds = %224
   br i1 %230, label %232, label %.thread272
 
 .thread272:                                       ; preds = %228
-  %231 = getelementptr inbounds nuw ptr, ptr %.0, i64 %34
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %34
   store ptr %.sroa.0249.0.ph, ptr %231, align 8, !tbaa !40
   br label %_ZN6icu_7712LocalPointerINS_13MessageFormatEED2Ev.exit242
 
@@ -2991,7 +2991,7 @@ define noundef ptr @_ZN6icu_7714TimeUnitFormat15getTimeUnitNameENS_8TimeUnit15UT
 
 switch.lookup:                                    ; preds = %5
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6icu_7714TimeUnitFormat15getTimeUnitNameENS_8TimeUnit15UTimeUnitFieldsER10UErrorCode, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6icu_7714TimeUnitFormat15getTimeUnitNameENS_8TimeUnit15UTimeUnitFieldsER10UErrorCode, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %9
 
@@ -3197,7 +3197,7 @@ define linkonce_odr void @_ZN6icu_7722TimeUnitFormatReadSink3putEPKcRNS_13Resour
   store ptr null, ptr %10, align 8, !tbaa !76
   %52 = load ptr, ptr %24, align 8, !tbaa !59
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %.089
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.089
   %55 = load ptr, ptr %54, align 8, !tbaa !17
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %65
@@ -3462,7 +3462,7 @@ _ZN6icu_7711LocalMemoryIPNS_13MessageFormatEED2Ev.exit133: ; preds = %148
   %.0 = phi ptr [ %.1, %_ZN6icu_7711LocalMemoryIPNS_13MessageFormatEED2Ev.exit133 ], [ %121, %_ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit ]
   %152 = load i32, ptr %26, align 8, !tbaa !65
   %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw ptr, ptr %.0, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %153
   store ptr %105, ptr %154, align 8, !tbaa !40
   br label %159
 
@@ -3518,7 +3518,7 @@ _ZN6icu_7712LocalPointerINS_13MessageFormatEED2Ev.exit134: ; preds = %118, %_ZN6
 166:                                              ; preds = %75
   %167 = load ptr, ptr %24, align 8, !tbaa !59
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 64
-  %169 = getelementptr inbounds nuw ptr, ptr %168, i64 %.089
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %.089
   %170 = load ptr, ptr %169, align 8, !tbaa !17
   %171 = icmp eq ptr %170, null
   br i1 %171, label %172, label %174

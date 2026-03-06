@@ -147,7 +147,7 @@ define dso_local void @storeMapping(i32 noundef %0, ptr noundef readonly capture
   %.06478 = phi i16 [ %25, %.lr.ph ], [ 0, %17 ]
   %.06677 = phi i16 [ %24, %.lr.ph ], [ 0, %17 ]
   %19 = sext i16 %.06478 to i64
-  %20 = getelementptr inbounds i32, ptr %1, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %1, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !7
   %22 = icmp ult i32 %21, 65536
   %23 = select i1 %22, i16 1, i16 2
@@ -213,7 +213,7 @@ define dso_local void @storeMapping(i32 noundef %0, ptr noundef readonly capture
   %.06380 = phi i16 [ %69, %68 ], [ 0, %.lr.ph82.preheader ]
   %.16579 = phi i16 [ %72, %68 ], [ 0, %.lr.ph82.preheader ]
   %52 = sext i16 %.16579 to i64
-  %53 = getelementptr inbounds i32, ptr %1, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %1, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !7
   %55 = icmp ult i32 %54, 65536
   br i1 %55, label %56, label %58
@@ -228,7 +228,7 @@ define dso_local void @storeMapping(i32 noundef %0, ptr noundef readonly capture
   %61 = add i16 %60, -10304
   %62 = add i16 %.06380, 1
   %63 = sext i16 %.06380 to i64
-  %64 = getelementptr inbounds i16, ptr %51, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr %51, i64 %63
   store i16 %61, ptr %64, align 2, !tbaa !18
   %65 = trunc i32 %54 to i16
   %66 = and i16 %65, 1023
@@ -241,7 +241,7 @@ define dso_local void @storeMapping(i32 noundef %0, ptr noundef readonly capture
   %.sink = phi i16 [ %57, %56 ], [ %67, %58 ]
   %69 = add i16 %.06380, %.sink93
   %70 = sext i16 %.06380.sink to i64
-  %71 = getelementptr inbounds i16, ptr %51, i64 %70
+  %71 = getelementptr inbounds [2 x i8], ptr %51, i64 %70
   store i16 %.sink, ptr %71, align 2, !tbaa !18
   %72 = add i16 %.16579, 1
   %73 = sext i16 %72 to i32
@@ -469,7 +469,7 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not80.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %18 = getelementptr inbounds nuw i32, ptr @indexes, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @indexes, i64 %indvars.iv.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = icmp eq i64 %indvars.iv.i, 4
   %21 = icmp samesign ugt i64 %indvars.iv.i, 3
@@ -579,7 +579,7 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
   %76 = add i16 %65, 1
   store i16 %76, ptr @currentIndex, align 2, !tbaa !18
   %77 = sext i16 %65 to i64
-  %78 = getelementptr inbounds i16, ptr %.pre112.i, i64 %77
+  %78 = getelementptr inbounds [2 x i8], ptr %.pre112.i, i64 %77
   store i16 %23, ptr %78, align 2, !tbaa !18
   %.pre113.i = load i16, ptr %36, align 8, !tbaa !25
   %.pre114.i = sext i16 %.pre113.i to i32
@@ -589,7 +589,7 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
   %.pre-phi.i = phi i32 [ %.pre114.i, %75 ], [ %68, %74 ]
   %80 = phi i16 [ %76, %75 ], [ %65, %74 ]
   %81 = sext i16 %80 to i64
-  %82 = getelementptr inbounds i16, ptr %.pre112.i, i64 %81
+  %82 = getelementptr inbounds [2 x i8], ptr %.pre112.i, i64 %81
   %83 = load ptr, ptr %29, align 8, !tbaa !21
   %84 = call ptr @u_memmove_77(ptr noundef %82, ptr noundef %83, i32 noundef %.pre-phi.i) #13
   %85 = load i16, ptr %36, align 8, !tbaa !25
@@ -632,7 +632,7 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
   %99 = load i16, ptr @currentIndex, align 2, !tbaa !18
   %100 = sext i16 %99 to i32
   %101 = add nsw i32 %100, 1
-  %102 = getelementptr inbounds nuw i32, ptr @indexes, i64 %.038.lcssa125.i
+  %102 = getelementptr inbounds nuw [4 x i8], ptr @indexes, i64 %.038.lcssa125.i
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i32 %101, ptr %103, align 4, !tbaa !7
   br label %storeMappingData.exit

@@ -88,7 +88,7 @@ define range(i32 -1, 1) i32 @H5DOappend(i64 noundef %0, i64 noundef %1, i32 noun
 
 37:                                               ; preds = %34
   %38 = zext i32 %2 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %7, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !10
   %41 = add i64 %40, %3
   store i64 %41, ptr %39, align 8, !tbaa !10
@@ -111,15 +111,15 @@ define range(i32 -1, 1) i32 @H5DOappend(i64 noundef %0, i64 noundef %1, i32 noun
 
 .preheader:                                       ; preds = %.preheader.preheader, %57
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %57 ]
-  %49 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store i64 0, ptr %49, align 8, !tbaa !10
-  %50 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store i64 1, ptr %50, align 8, !tbaa !10
-  %51 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %52 = load i64, ptr %51, align 8, !tbaa !10
-  %53 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store i64 %52, ptr %53, align 8, !tbaa !10
-  %54 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store i64 1, ptr %54, align 8, !tbaa !10
   %55 = icmp eq i64 %indvars.iv, %38
   br i1 %55, label %56, label %57
@@ -168,13 +168,13 @@ define range(i32 -1, 1) i32 @H5DOappend(i64 noundef %0, i64 noundef %1, i32 noun
   br i1 %77, label %.thread, label %78
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds nuw i64, ptr %75, i64 %38
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %38
   %80 = load i64, ptr %79, align 8, !tbaa !10
   %.not91 = icmp eq i64 %80, 0
   br i1 %.not91, label %.critedge, label %81
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i64, ptr %9, i64 %38
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %38
   %83 = load i64, ptr %82, align 8, !tbaa !10
   %84 = load i64, ptr %39, align 8, !tbaa !10
   br label %85

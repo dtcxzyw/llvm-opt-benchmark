@@ -53,7 +53,7 @@ define void @u_UCharsToChars_77(ptr noundef readonly captures(none) %0, ptr noun
   %9 = zext nneg i16 %6 to i32
   %10 = lshr i32 %9, 5
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr @_ZL14invariantChars, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @_ZL14invariantChars, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !10
   %14 = and i32 %9, 31
   %15 = shl nuw i32 1, %14
@@ -120,7 +120,7 @@ define signext range(i8 0, 2) i8 @uprv_isInvariantString_77(ptr noundef readonly
   %18 = zext nneg i8 %.0 to i32
   %19 = lshr i32 %18, 5
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr @_ZL14invariantChars, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @_ZL14invariantChars, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !10
   %23 = and i32 %18, 31
   %24 = shl nuw i32 1, %23
@@ -168,7 +168,7 @@ define signext range(i8 0, 2) i8 @uprv_isInvariantUString_77(ptr noundef readonl
   %.111 = getelementptr inbounds nuw i8, ptr %.010, i64 2
   %17 = lshr i32 %16, 5
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr @_ZL14invariantChars, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @_ZL14invariantChars, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !10
   %21 = and i32 %16, 31
   %22 = shl nuw i32 1, %21
@@ -222,7 +222,7 @@ define range(i32 0, -2147483648) i32 @uprv_ebcdicFromAscii_77(ptr noundef %0, pt
   %21 = zext nneg i8 %18 to i32
   %22 = lshr i32 %21, 5
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr @_ZL14invariantChars, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @_ZL14invariantChars, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !10
   %26 = and i32 %21, 31
   %27 = shl nuw i32 1, %26
@@ -301,7 +301,7 @@ define range(i32 0, -2147483648) i32 @uprv_copyAscii_77(ptr noundef %0, ptr noun
   %22 = zext nneg i8 %19 to i32
   %23 = lshr i32 %22, 5
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr @_ZL14invariantChars, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @_ZL14invariantChars, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !10
   %27 = and i32 %22, 31
   %28 = shl nuw i32 1, %27
@@ -386,7 +386,7 @@ define range(i32 0, -2147483648) i32 @uprv_asciiFromEbcdic_77(ptr noundef %0, pt
   %24 = zext i8 %22 to i32
   %25 = lshr i32 %24, 5
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw i32, ptr @_ZL14invariantChars, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @_ZL14invariantChars, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !10
   %29 = and i32 %24, 31
   %30 = shl nuw i32 1, %29
@@ -468,7 +468,7 @@ define range(i32 0, -2147483648) i32 @uprv_copyEbcdic_77(ptr noundef %0, ptr nou
   %25 = zext i8 %23 to i32
   %26 = lshr i32 %25, 5
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr @_ZL14invariantChars, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @_ZL14invariantChars, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !10
   %30 = and i32 %25, 31
   %31 = shl nuw i32 1, %30
@@ -572,7 +572,7 @@ define i32 @uprv_compareInvAscii_77(ptr noundef readnone captures(none) %0, ptr 
   %29 = zext nneg i8 %26 to i32
   %30 = lshr i32 %29, 5
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw i32, ptr @_ZL14invariantChars, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @_ZL14invariantChars, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !10
   %34 = and i32 %29, 31
   %35 = shl nuw i32 1, %34
@@ -594,7 +594,7 @@ define i32 @uprv_compareInvAscii_77(ptr noundef readnone captures(none) %0, ptr 
   %43 = zext nneg i16 %40 to i32
   %44 = lshr i32 %43, 5
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr @_ZL14invariantChars, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr @_ZL14invariantChars, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !10
   %48 = and i32 %43, 31
   %49 = shl nuw i32 1, %48
@@ -685,7 +685,7 @@ define i32 @uprv_compareInvEbcdic_77(ptr noundef readnone captures(none) %0, ptr
   %33 = zext i8 %31 to i32
   %34 = lshr i32 %33, 5
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr @_ZL14invariantChars, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZL14invariantChars, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !10
   %38 = and i32 %33, 31
   %39 = shl nuw i32 1, %38
@@ -707,7 +707,7 @@ define i32 @uprv_compareInvEbcdic_77(ptr noundef readnone captures(none) %0, ptr
   %47 = zext nneg i16 %44 to i32
   %48 = lshr i32 %47, 5
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr @_ZL14invariantChars, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr @_ZL14invariantChars, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !10
   %52 = and i32 %47, 31
   %53 = shl nuw i32 1, %52
@@ -757,7 +757,7 @@ define range(i32 -382, 383) i32 @uprv_compareInvEbcdicAsAscii_77(ptr noundef rea
   %10 = zext i8 %8 to i32
   %11 = lshr i32 %10, 5
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr @_ZL14invariantChars, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @_ZL14invariantChars, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !10
   %15 = and i32 %10, 31
   %16 = shl nuw i32 1, %15
@@ -786,7 +786,7 @@ define range(i32 -382, 383) i32 @uprv_compareInvEbcdicAsAscii_77(ptr noundef rea
   %27 = zext i8 %25 to i32
   %28 = lshr i32 %27, 5
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr @_ZL14invariantChars, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @_ZL14invariantChars, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !10
   %32 = and i32 %27, 31
   %33 = shl nuw i32 1, %32

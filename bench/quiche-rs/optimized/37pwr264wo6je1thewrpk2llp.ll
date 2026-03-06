@@ -155,7 +155,7 @@ define hidden void @"_ZN11buffer_pool17Pool$LT$_$C$T$GT$10from_owned17h2ad19d37b
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 3072
   %5 = atomicrmw add ptr %4, i64 1 monotonic, align 8
   %6 = and i64 %5, 7
-  %7 = getelementptr inbounds nuw { { { { { i64 }, { ptr } }, [14 x i64] }, { { { i64 }, { ptr } }, [14 x i64] }, {} }, { i64 }, i64, i64, [13 x i64] }, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %8, align 8
@@ -173,7 +173,7 @@ define hidden void @"_ZN11buffer_pool17Pool$LT$_$C$T$GT$10with_slice17h6dc1ed445
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 3072
   %8 = atomicrmw add ptr %7, i64 1 monotonic, align 8, !noalias !3
   %9 = and i64 %8, 7
-  %10 = getelementptr inbounds nuw { { { { { i64 }, { ptr } }, [14 x i64] }, { { { i64 }, { ptr } }, [14 x i64] }, {} }, { i64 }, i64, i64, [13 x i64] }, ptr %1, i64 %9
+  %10 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3
   call void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$3pop17h9dd8d3d55aa4cd9cE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 128 %10), !noalias !3
   %11 = load i64, ptr %5, align 8, !range !6, !noalias !3, !noundef !7
@@ -240,7 +240,7 @@ define hidden void @"_ZN11buffer_pool17Pool$LT$_$C$T$GT$8get_with17h9f1ac1b8b9e9
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 3072
   %6 = atomicrmw add ptr %5, i64 1 monotonic, align 8, !noalias !11
   %7 = and i64 %6, 7
-  %8 = getelementptr inbounds nuw { { { { { i64 }, { ptr } }, [14 x i64] }, { { { i64 }, { ptr } }, [14 x i64] }, {} }, { i64 }, i64, i64, [13 x i64] }, ptr %1, i64 %7
+  %8 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !11
   call void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$3pop17h9dd8d3d55aa4cd9cE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull align 128 %8), !noalias !11
   %9 = load i64, ptr %3, align 8, !range !6, !noalias !11, !noundef !7
@@ -311,7 +311,7 @@ define hidden void @"_ZN11buffer_pool17Pool$LT$_$C$T$GT$8get_with17hcc80b7dc4f60
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 3072
   %6 = atomicrmw add ptr %5, i64 1 monotonic, align 8, !noalias !17
   %7 = and i64 %6, 7
-  %8 = getelementptr inbounds nuw { { { { { i64 }, { ptr } }, [14 x i64] }, { { { i64 }, { ptr } }, [14 x i64] }, {} }, { i64 }, i64, i64, [13 x i64] }, ptr %1, i64 %7
+  %8 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !17
   call void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$3pop17h9dd8d3d55aa4cd9cE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull align 128 %8), !noalias !17
   %9 = load i64, ptr %3, align 8, !range !6, !noalias !17, !noundef !7
@@ -372,7 +372,7 @@ define hidden void @"_ZN11buffer_pool17Pool$LT$_$C$T$GT$9get_empty17h04781b585fa
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3072
   %4 = load atomic i64, ptr %3 monotonic, align 128
   %5 = and i64 %4, 7
-  %6 = getelementptr inbounds nuw { { { { { i64 }, { ptr } }, [14 x i64] }, { { { i64 }, { ptr } }, [14 x i64] }, {} }, { i64 }, i64, i64, [13 x i64] }, ptr %1, i64 %5
+  %6 = getelementptr inbounds nuw [384 x i8], ptr %1, i64 %5
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i8 0, i64 16, i1 false)
   store i64 0, ptr %0, align 8
@@ -2897,7 +2897,7 @@ define hidden void @"_ZN6quiche6stream18StreamMap$LT$F$GT$13get_or_create17hab86
   %40 = add i64 %.sroa.01.0.i.i.i, %39
   %41 = and i64 %40, %32
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds i64, ptr %33, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %33, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -8
   %45 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h6315e9c4a63ed363E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %44), !noalias !67
   br i1 %45, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h28df9be3162e8425E.exit", label %49, !prof !45

@@ -1224,7 +1224,7 @@ define dso_local ptr @expand_stdio_fields(ptr noundef %0, ptr noundef readonly c
   %32 = tail call ptr @__ctype_b_loc() #13
   %33 = load ptr, ptr %32, align 8
   %34 = sext i8 %23 to i64
-  %35 = getelementptr inbounds i16, ptr %33, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %33, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 2048
   %.not41 = icmp eq i16 %37, 0

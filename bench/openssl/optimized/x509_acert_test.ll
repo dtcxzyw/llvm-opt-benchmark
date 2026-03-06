@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.ietf_type_test_data = type { ptr, i64, i32 }
 
 @test_get_options.options = internal constant [9 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -207,7 +206,7 @@ define internal range(i32 0, 2) i32 @test_object_group_attr(i32 noundef %0) #1 {
 
 6:                                                ; preds = %1
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.ietf_type_test_data, ptr @ietf_syntax_tests, i64 %7
+  %8 = getelementptr inbounds [24 x i8], ptr @ietf_syntax_tests, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   store ptr %9, ptr %2, align 8, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8

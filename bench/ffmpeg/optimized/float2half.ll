@@ -19,10 +19,10 @@ define void @ff_init_float2half_tables(ptr noundef writeonly captures(none) %0) 
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 0, ptr %8, align 2, !tbaa !4
   %9 = or disjoint i64 %indvars.iv, 256
-  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %9
   store i16 -32768, ptr %10, align 2, !tbaa !4
   br label %40
 
@@ -35,11 +35,11 @@ define void @ff_init_float2half_tables(ptr noundef writeonly captures(none) %0) 
   %15 = sub nuw nsw i32 113, %14
   %16 = lshr i32 1024, %15
   %17 = trunc nuw nsw i32 %16 to i16
-  %18 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %17, ptr %18, align 2, !tbaa !4
   %19 = or disjoint i16 %17, -32768
   %20 = or disjoint i64 %indvars.iv, 256
-  %21 = getelementptr inbounds nuw i16, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %20
   store i16 %19, ptr %21, align 2, !tbaa !4
   %22 = trunc nuw nsw i64 %indvars.iv to i8
   %23 = sub nuw nsw i8 126, %22
@@ -53,11 +53,11 @@ define void @ff_init_float2half_tables(ptr noundef writeonly captures(none) %0) 
   %.0.tr = trunc nuw nsw i64 %indvars.iv to i16
   %27 = shl i16 %.0.tr, 10
   %28 = add i16 %27, 16384
-  %29 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %28, ptr %29, align 2, !tbaa !4
   %30 = or i16 %28, -32768
   %31 = or disjoint i64 %indvars.iv, 256
-  %32 = getelementptr inbounds nuw i16, ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %31
   store i16 %30, ptr %32, align 2, !tbaa !4
   br label %40
 
@@ -66,10 +66,10 @@ define void @ff_init_float2half_tables(ptr noundef writeonly captures(none) %0) 
   br i1 %.not, label %.thread, label %34
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 31744, ptr %35, align 2, !tbaa !4
   %36 = or disjoint i64 %indvars.iv, 256
-  %37 = getelementptr inbounds nuw i16, ptr %0, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %36
   store i16 -1024, ptr %37, align 2, !tbaa !4
   br label %40
 

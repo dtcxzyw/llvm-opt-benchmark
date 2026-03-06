@@ -736,7 +736,7 @@ define internal zeroext i1 @dissect_waveagent_heur(ptr noundef %0, ptr noundef r
 135:                                              ; preds = %129
   %136 = load i32, ptr @hf_waveagent_ifwlanl2status, align 4
   %137 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.060.i, i32 noundef %136, ptr noundef %0, i32 noundef %132, i32 noundef 4, i32 noundef %133, ptr noundef nonnull @.str.343, i32 noundef %130)
-  %138 = getelementptr i32, ptr @ett_scindex, i64 %indvars.iv511.i.i
+  %138 = getelementptr [4 x i8], ptr @ett_scindex, i64 %indvars.iv511.i.i
   %139 = load i32, ptr %138, align 4
   %140 = tail call ptr @proto_item_add_subtree(ptr noundef %137, i32 noundef %139)
   %hf_waveagent_ifwlanl2status.val.i.i = load i32, ptr @hf_waveagent_ifwlanl2status, align 4
@@ -827,7 +827,7 @@ define internal zeroext i1 @dissect_waveagent_heur(ptr noundef %0, ptr noundef r
   %192 = add i32 %185, %191
   %193 = load i32, ptr @hf_waveagent_scanssid, align 4
   %194 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %193, ptr noundef %0, i32 noundef %192, i32 noundef 32, i32 noundef 0)
-  %195 = getelementptr i32, ptr @ett_bss, i64 %indvars.iv.i.i
+  %195 = getelementptr [4 x i8], ptr @ett_bss, i64 %indvars.iv.i.i
   %196 = load i32, ptr %195, align 4
   %197 = tail call ptr @proto_item_add_subtree(ptr noundef %194, i32 noundef %196)
   %198 = add i32 %192, 52

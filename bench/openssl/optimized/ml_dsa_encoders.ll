@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
-%struct.poly_st = type { [256 x i32] }
 %struct.PACKET = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [43 x i8] c"../openssl/crypto/ml_dsa/ml_dsa_encoders.c\00", align 1
@@ -46,7 +45,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_pk_encode(ptr noundef %0) local_unnamed_
 
 .lr.ph:                                           ; preds = %.preheader, %55
   %.02131 = phi i64 [ %56, %55 ], [ 0, %.preheader ]
-  %20 = getelementptr inbounds nuw %struct.poly_st, ptr %6, i64 %.02131
+  %20 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 %.02131
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %21 = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %4, i64 noundef 320, ptr noundef nonnull %2) #9
   %.not.i = icmp eq i32 %21, 0
@@ -205,7 +204,7 @@ PACKET_copy_bytes.exit:                           ; preds = %16
   %.02556 = phi i64 [ 0, %.lr.ph ], [ %49, %poly_decode_10_bits.exit ]
   %.sroa.0.055 = phi ptr [ %25, %.lr.ph ], [ %34, %poly_decode_10_bits.exit ]
   %.sroa.8.054 = phi i64 [ %24, %.lr.ph ], [ %35, %poly_decode_10_bits.exit ]
-  %29 = getelementptr inbounds nuw %struct.poly_st, ptr %27, i64 %.02556
+  %29 = getelementptr inbounds nuw [1024 x i8], ptr %27, i64 %.02556
   br label %30
 
 30:                                               ; preds = %33, %28
@@ -373,7 +372,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_encode(ptr noundef %0) local_unnamed_
 35:                                               ; preds = %.lr.ph, %32
   %.04161 = phi i64 [ 0, %.lr.ph ], [ %33, %32 ]
   %36 = load ptr, ptr %31, align 8, !tbaa !38
-  %37 = getelementptr inbounds nuw %struct.poly_st, ptr %36, i64 %.04161
+  %37 = getelementptr inbounds nuw [1024 x i8], ptr %36, i64 %.04161
   %38 = call i32 %poly_encode_signed_4.poly_encode_signed_2(ptr noundef %37, ptr noundef nonnull %4) #9, !callees !39
   %.not52 = icmp eq i32 %38, 0
   br i1 %.not52, label %.loopexit, label %32
@@ -386,7 +385,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_encode(ptr noundef %0) local_unnamed_
 41:                                               ; preds = %.lr.ph63, %39
   %.162 = phi i64 [ 0, %.lr.ph63 ], [ %40, %39 ]
   %42 = load ptr, ptr %34, align 8, !tbaa !41
-  %43 = getelementptr inbounds nuw %struct.poly_st, ptr %42, i64 %.162
+  %43 = getelementptr inbounds nuw [1024 x i8], ptr %42, i64 %.162
   %44 = call i32 %poly_encode_signed_4.poly_encode_signed_2(ptr noundef %43, ptr noundef nonnull %4) #9, !callees !39
   %.not51 = icmp eq i32 %44, 0
   br i1 %.not51, label %.loopexit, label %39
@@ -882,7 +881,7 @@ PACKET_copy_bytes.exit65:                         ; preds = %36
 47:                                               ; preds = %.lr.ph, %44
   %.04179 = phi i64 [ 0, %.lr.ph ], [ %45, %44 ]
   %48 = load ptr, ptr %43, align 8, !tbaa !38
-  %49 = getelementptr inbounds nuw %struct.poly_st, ptr %48, i64 %.04179
+  %49 = getelementptr inbounds nuw [1024 x i8], ptr %48, i64 %.04179
   %50 = call i32 %poly_decode_signed_4.poly_decode_signed_2(ptr noundef %49, ptr noundef nonnull %5) #9, !callees !52
   %.not58 = icmp eq i32 %50, 0
   br i1 %.not58, label %poly_decode_signed_two_to_power_12.exit.thread, label %44
@@ -901,7 +900,7 @@ PACKET_copy_bytes.exit65:                         ; preds = %36
 55:                                               ; preds = %.lr.ph81, %51
   %.180 = phi i64 [ 0, %.lr.ph81 ], [ %52, %51 ]
   %56 = load ptr, ptr %46, align 8, !tbaa !41
-  %57 = getelementptr inbounds nuw %struct.poly_st, ptr %56, i64 %.180
+  %57 = getelementptr inbounds nuw [1024 x i8], ptr %56, i64 %.180
   %58 = call i32 %poly_decode_signed_4.poly_decode_signed_2(ptr noundef %57, ptr noundef nonnull %5) #9, !callees !52
   %.not57 = icmp eq i32 %58, 0
   br i1 %.not57, label %poly_decode_signed_two_to_power_12.exit.thread, label %51
@@ -909,7 +908,7 @@ PACKET_copy_bytes.exit65:                         ; preds = %36
 59:                                               ; preds = %.lr.ph84, %poly_decode_signed_two_to_power_12.exit
   %.283 = phi i64 [ 0, %.lr.ph84 ], [ %166, %poly_decode_signed_two_to_power_12.exit ]
   %60 = phi i64 [ %.promoted82, %.lr.ph84 ], [ %68, %poly_decode_signed_two_to_power_12.exit ]
-  %61 = getelementptr inbounds nuw %struct.poly_st, ptr %54, i64 %.283
+  %61 = getelementptr inbounds nuw [1024 x i8], ptr %54, i64 %.283
   %.promoted = load ptr, ptr %5, align 8
   br label %62
 
@@ -1422,7 +1421,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sig_encode(ptr noundef readonly captures
 .lr.ph:                                           ; preds = %.preheader, %22
   %.01525 = phi i64 [ %23, %22 ], [ 0, %.preheader ]
   %26 = load ptr, ptr %0, align 8, !tbaa !65
-  %27 = getelementptr inbounds nuw %struct.poly_st, ptr %26, i64 %.01525
+  %27 = getelementptr inbounds nuw [1024 x i8], ptr %26, i64 %.01525
   %28 = call i32 %poly_encode_signed_two_to_power_19.poly_encode_signed_two_to_power_17(ptr noundef %27, ptr noundef nonnull %5) #9, !callees !66
   %.not21 = icmp eq i32 %28, 0
   br i1 %.not21, label %.loopexit, label %22
@@ -1461,7 +1460,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sig_encode(ptr noundef readonly captures
 40:                                               ; preds = %48, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %48 ]
   %.12.i = phi i64 [ %.0204.i, %.preheader.i ], [ %.2.i, %48 ]
-  %41 = getelementptr inbounds nuw i32, ptr %.05.i, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.05.i, i64 %indvars.iv.i
   %42 = load i32, ptr %41, align 4, !tbaa !21
   %.not24.i = icmp eq i32 %42, 0
   br i1 %.not24.i, label %48, label %43
@@ -1737,7 +1736,7 @@ PACKET_copy_bytes.exit:                           ; preds = %10
 .lr.ph:                                           ; preds = %PACKET_copy_bytes.exit, %21
   %.01332 = phi i64 [ %22, %21 ], [ 0, %PACKET_copy_bytes.exit ]
   %25 = load ptr, ptr %0, align 8, !tbaa !65
-  %26 = getelementptr inbounds nuw %struct.poly_st, ptr %25, i64 %.01332
+  %26 = getelementptr inbounds nuw [1024 x i8], ptr %25, i64 %.01332
   %27 = call i32 %poly_decode_signed_two_to_power_19.poly_decode_signed_two_to_power_17(ptr noundef %26, ptr noundef nonnull %5) #9, !callees !75
   %.not18 = icmp eq i32 %27, 0
   br i1 %.not18, label %PACKET_buf_init.exit.thread, label %21
@@ -1754,7 +1753,7 @@ PACKET_copy_bytes.exit:                           ; preds = %10
   %.val19 = load ptr, ptr %28, align 8, !tbaa !68
   %31 = getelementptr i8, ptr %0, i64 24
   %.val20 = load i64, ptr %31, align 8, !tbaa !69
-  %32 = getelementptr inbounds nuw %struct.poly_st, ptr %.val19, i64 %.val20
+  %32 = getelementptr inbounds nuw [1024 x i8], ptr %.val19, i64 %.val20
   %33 = zext i32 %30 to i64
   %34 = icmp ult i64 %.val.i.i.i, %33
   br i1 %34, label %PACKET_buf_init.exit.thread, label %35
@@ -1813,7 +1812,7 @@ vector_zero.exit.i:                               ; preds = %vector_zero.exit.i.
 56:                                               ; preds = %.lr.ph.i
   %57 = add i64 %.23515.i, 1
   %58 = zext i8 %53 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %.039.i, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.039.i, i64 %58
   store i32 1, ptr %59, align 4, !tbaa !21
   %exitcond.not.i = icmp eq i64 %57, %47
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !76
@@ -2076,7 +2075,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_w1_encode(ptr noundef readonly captures(
 .lr.ph:                                           ; preds = %7, %11
   %.014 = phi i64 [ %12, %11 ], [ 0, %7 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !68
-  %16 = getelementptr inbounds nuw %struct.poly_st, ptr %15, i64 %.014
+  %16 = getelementptr inbounds nuw [1024 x i8], ptr %15, i64 %.014
   %17 = call i32 %poly_encode_4_bits.poly_encode_6_bits(ptr noundef %16, ptr noundef nonnull %5) #9, !callees !82
   %.not13 = icmp eq i32 %17, 0
   br i1 %.not13, label %._crit_edge, label %11

@@ -57,7 +57,7 @@ define internal range(i32 0, -1) i32 @webvtt_encode_frame(ptr noundef %0, ptr no
 13:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %14 = load ptr, ptr %11, align 8, !tbaa !38
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !39
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 76
   %18 = load i32, ptr %17, align 4, !tbaa !41

@@ -3456,8 +3456,8 @@ define internal fastcc noundef zeroext i1 @"_ZN87_$LT$uv_distribution_filename..
 .lr.ph.i.i.i:                                     ; preds = %.critedge.preheader.split.i.i.i, %.critedge.backedge.i.i.i
   %.sroa.01.08.i.i.i = phi i64 [ %248, %.critedge.backedge.i.i.i ], [ 0, %.critedge.preheader.split.i.i.i ]
   %248 = add nuw i64 %.sroa.01.08.i.i.i, 1
-  %249 = getelementptr inbounds { i8, [2 x i8] }, ptr %242, i64 %.sroa.01.08.i.i.i
-  %250 = getelementptr inbounds { i8, [2 x i8] }, ptr %245, i64 %.sroa.01.08.i.i.i
+  %249 = getelementptr inbounds [3 x i8], ptr %242, i64 %.sroa.01.08.i.i.i
+  %250 = getelementptr inbounds [3 x i8], ptr %245, i64 %.sroa.01.08.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !632)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !635)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !637)
@@ -3616,8 +3616,8 @@ _ZN4core3cmp9PartialEq2ne17hf48af2c2fcc4893eE.exit.i.i.i: ; preds = %287
 .lr.ph.i8.i.i:                                    ; preds = %.critedge.preheader.split.i7.i.i, %.critedge.backedge.i10.i.i
   %.sroa.01.07.i.i.i = phi i64 [ %330, %.critedge.backedge.i10.i.i ], [ 0, %.critedge.preheader.split.i7.i.i ]
   %330 = add nuw i64 %.sroa.01.07.i.i.i, 1
-  %331 = getelementptr inbounds { i8, [4 x i8] }, ptr %324, i64 %.sroa.01.07.i.i.i
-  %332 = getelementptr inbounds { i8, [4 x i8] }, ptr %327, i64 %.sroa.01.07.i.i.i
+  %331 = getelementptr inbounds [5 x i8], ptr %324, i64 %.sroa.01.07.i.i.i
+  %332 = getelementptr inbounds [5 x i8], ptr %327, i64 %.sroa.01.07.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !693)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !696)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !698)
@@ -3797,8 +3797,8 @@ _ZN4core3cmp9PartialEq2ne17h3f72f782803cc6aaE.exit.i.i.i: ; preds = %347
 
 429:                                              ; preds = %.preheader.split.i.i.i
   %430 = add i64 %.sroa.01.0.i.i.i, 1
-  %431 = getelementptr inbounds { i8, [15 x i8] }, ptr %423, i64 %.sroa.01.0.i.i.i
-  %432 = getelementptr inbounds { i8, [15 x i8] }, ptr %426, i64 %.sroa.01.0.i.i.i
+  %431 = getelementptr inbounds [16 x i8], ptr %423, i64 %.sroa.01.0.i.i.i
+  %432 = getelementptr inbounds [16 x i8], ptr %426, i64 %.sroa.01.0.i.i.i
   %433 = tail call fastcc noundef zeroext i1 @"_ZN84_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6f8f0acbd9fa4874E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %431, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %432), !noalias !623
   br i1 %433, label %.preheader.split.i.i.i, label %"_ZN86_$LT$uv_distribution_filename..wheel_tag..WheelTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc15d542af46dbe66E.exit"
 
@@ -4004,7 +4004,7 @@ switch.lookup:                                    ; preds = %1
   %8 = add nsw i64 %7, -3
   %9 = icmp ult i64 %8, 5
   %10 = select i1 %9, i64 %8, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E", i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E", i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 %switch.load
   br label %12
@@ -4385,7 +4385,7 @@ switch.lookup:                                    ; preds = %2
   %9 = add nsw i64 %8, -3
   %10 = icmp ult i64 %9, 5
   %11 = select i1 %10, i64 %9, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E", i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E", i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 %switch.load
   br label %"_ZN93_$LT$uv_distribution_types..any..LocalDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h02f6afded6227f6fE.exit"
@@ -4408,7 +4408,7 @@ switch.lookup18:                                  ; preds = %"_ZN93_$LT$uv_distr
   %19 = add nsw i64 %18, -3
   %20 = icmp ult i64 %19, 5
   %21 = select i1 %20, i64 %19, i64 1
-  %switch.gep19 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E", i64 %21
+  %switch.gep19 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E", i64 %21
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 %switch.load20
   br label %"_ZN93_$LT$uv_distribution_types..any..LocalDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h02f6afded6227f6fE.exit6"
@@ -4728,7 +4728,7 @@ define void @_ZN21uv_distribution_types10dist_error15DerivationChain15from_resol
   unreachable
 
 "_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17haf0842612a3650d1E.exit.i.i.i": ; preds = %52
-  %58 = getelementptr inbounds nuw { { i64, [6 x i64] }, [2 x i32] }, ptr %39, i64 %55
+  %58 = getelementptr inbounds nuw [64 x i8], ptr %39, i64 %55
   %59 = load i64, ptr %58, align 8, !range !818, !noalias !921, !noundef !12
   %switch.not.i.i.i = icmp samesign ult i64 %59, 2
   br i1 %switch.not.i.i.i, label %60, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h533990fa326998f3E.exit.i"
@@ -4791,8 +4791,8 @@ _ZN4core3cmp9PartialEq2ne17hd6e4efd73bce21d3E.exit.preheader.split.i.i.i.i.i.i.i
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN4core3cmp9PartialEq2ne17hd6e4efd73bce21d3E.exit.preheader.split.i.i.i.i.i.i.i.i.i, %_ZN4core3cmp9PartialEq2ne17hd6e4efd73bce21d3E.exit.backedge.i.i.i.i.i.i.i.i.i
   %.sroa.01.07.i.i.i.i.i.i.i.i.i = phi i64 [ %82, %_ZN4core3cmp9PartialEq2ne17hd6e4efd73bce21d3E.exit.backedge.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN4core3cmp9PartialEq2ne17hd6e4efd73bce21d3E.exit.preheader.split.i.i.i.i.i.i.i.i.i ]
   %82 = add nuw i64 %.sroa.01.07.i.i.i.i.i.i.i.i.i, 1
-  %83 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %.val.i.i.i.i.i.i.i, i64 %.sroa.01.07.i.i.i.i.i.i.i.i.i
-  %84 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %.val2.i.i.i.i.i.i.i, i64 %.sroa.01.07.i.i.i.i.i.i.i.i.i
+  %83 = getelementptr inbounds [72 x i8], ptr %.val.i.i.i.i.i.i.i, i64 %.sroa.01.07.i.i.i.i.i.i.i.i.i
+  %84 = getelementptr inbounds [72 x i8], ptr %.val2.i.i.i.i.i.i.i, i64 %.sroa.01.07.i.i.i.i.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !948)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !951)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !953)
@@ -5478,7 +5478,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h8f7d794ae4820d6aE.exit: ; pred
   %394 = select i1 %.not.i, i64 0, i64 %.pre6.i
   %.sroa.0.0.i = sub nuw i64 %393, %394
   %395 = load ptr, ptr %381, align 8, !alias.scope !1129, !noalias !1131, !nonnull !12, !noundef !12
-  %396 = getelementptr inbounds { ptr, ptr, i32, [1 x i32], { { { i64, ptr, {} }, {} }, i64 } }, ptr %395, i64 %.sroa.0.0.i
+  %396 = getelementptr inbounds [48 x i8], ptr %395, i64 %.sroa.0.0.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %396, ptr noundef nonnull align 8 dereferenceable(48) %33, i64 48, i1 false)
   %397 = add i64 %.pre.i, 1
   store i64 %397, ptr %380, align 8, !alias.scope !1129, !noalias !1131
@@ -5560,7 +5560,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h8f7d794ae4820d6aE.exit: ; pred
   %425 = icmp ult i64 %424, %422
   call void @llvm.assume(i1 %425)
   %426 = load ptr, ptr %381, align 8, !alias.scope !1139, !noalias !1137, !nonnull !12, !noundef !12
-  %427 = getelementptr inbounds { ptr, ptr, i32, [1 x i32], { { { i64, ptr, {} }, {} }, i64 } }, ptr %426, i64 %420
+  %427 = getelementptr inbounds [48 x i8], ptr %426, i64 %420
   %.sroa.0.0.copyload = load ptr, ptr %427, align 8, !noalias !1139
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %427, i64 8
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !1139
@@ -5716,7 +5716,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h8f7d794ae4820d6aE.exit: ; pred
   unreachable
 
 461:                                              ; preds = %458
-  %462 = getelementptr inbounds nuw { { i64, [6 x i64] }, [2 x i32] }, ptr %400, i64 %430
+  %462 = getelementptr inbounds nuw [64 x i8], ptr %400, i64 %430
   %463 = load i64, ptr %462, align 8, !range !818, !noundef !12
   %464 = icmp eq i64 %463, 3
   br i1 %464, label %465, label %518
@@ -5731,20 +5731,20 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h8f7d794ae4820d6aE.exit: ; pred
   br i1 %.not15.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hd2771f8d34e078edE.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %465
-  %469 = getelementptr inbounds { { i64, [2 x i64] }, ptr, ptr, ptr, { { { [6 x i64] }, i64 } } }, ptr %466, i64 %467
+  %469 = getelementptr inbounds [104 x i8], ptr %466, i64 %467
   br label %470
 
 470:                                              ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h24c0561d82ce9877E.exit.i.i, %.lr.ph.preheader.i.i
   %.sroa.0.014.i.i = phi i64 [ %480, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h24c0561d82ce9877E.exit.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %471 = xor i64 %.sroa.0.014.i.i, -1
-  %472 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, ptr, ptr, { { { [6 x i64] }, i64 } } }, ptr %466, i64 %.sroa.0.014.i.i
-  %473 = getelementptr { { i64, [2 x i64] }, ptr, ptr, ptr, { { { [6 x i64] }, i64 } } }, ptr %469, i64 %471
+  %472 = getelementptr inbounds nuw [104 x i8], ptr %466, i64 %.sroa.0.014.i.i
+  %473 = getelementptr [104 x i8], ptr %469, i64 %471
   br label %474
 
 474:                                              ; preds = %474, %470
   %.sroa.0.05.i.i.i.i.i = phi i64 [ 0, %470 ], [ %479, %474 ]
-  %475 = getelementptr inbounds nuw i64, ptr %472, i64 %.sroa.0.05.i.i.i.i.i
-  %476 = getelementptr inbounds nuw i64, ptr %473, i64 %.sroa.0.05.i.i.i.i.i
+  %475 = getelementptr inbounds nuw [8 x i8], ptr %472, i64 %.sroa.0.05.i.i.i.i.i
+  %476 = getelementptr inbounds nuw [8 x i8], ptr %473, i64 %.sroa.0.05.i.i.i.i.i
   %477 = load i64, ptr %475, align 8, !alias.scope !1163, !noalias !1161
   %478 = load i64, ptr %476, align 8, !alias.scope !1166, !noalias !1158
   store i64 %478, ptr %475, align 8, !alias.scope !1163, !noalias !1161
@@ -5777,7 +5777,7 @@ _ZN4core10intrinsics25typed_swap_nonoverlapping17h24c0561d82ce9877E.exit.i.i: ; 
   %487 = load ptr, ptr %407, align 8, !nonnull !12, !noundef !12
   %488 = icmp ult i64 %481, 88686269585142077
   call void @llvm.assume(i1 %488)
-  %489 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, ptr, ptr, { { { [6 x i64] }, i64 } } }, ptr %487, i64 %484
+  %489 = getelementptr inbounds nuw [104 x i8], ptr %487, i64 %484
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %28, ptr noundef nonnull align 8 dereferenceable(104) %489, i64 104, i1 false)
   %.pr = load i64, ptr %28, align 8, !alias.scope !1167
   %490 = icmp eq i64 %.pr, 2
@@ -5799,7 +5799,7 @@ _ZN4core10intrinsics25typed_swap_nonoverlapping17h24c0561d82ce9877E.exit.i.i: ; 
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %492 = icmp ult i64 %.sroa.5.0.copyload, 88686269585142076
   call void @llvm.assume(i1 %492)
-  %493 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, ptr, ptr, { { { [6 x i64] }, i64 } } }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %493 = getelementptr inbounds nuw [104 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   %494 = icmp sgt i64 %.sroa.0126.0.copyload, -1
   call void @llvm.assume(i1 %494)
   store ptr %.sroa.4.0.copyload, ptr %18, align 8, !alias.scope !1170, !noalias !1173
@@ -5971,7 +5971,7 @@ switch.lookup:                                    ; preds = %"_ZN67_$LT$alloc..v
   %544 = add nsw i64 %543, -3
   %545 = icmp ult i64 %544, 5
   %546 = select i1 %545, i64 %544, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E", i64 %546
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E", i64 %546
   %switch.load = load i64, ptr %switch.gep, align 8
   %547 = getelementptr inbounds nuw i8, ptr %542, i64 %switch.load
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit"
@@ -6008,7 +6008,7 @@ switch.lookup:                                    ; preds = %"_ZN67_$LT$alloc..v
 "_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i.i": ; preds = %555
   %562 = getelementptr inbounds nuw i8, ptr %549, i64 112
   %563 = load ptr, ptr %562, align 8, !alias.scope !1216, !noalias !1207, !nonnull !12, !noundef !12
-  %564 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %563, i64 %557
+  %564 = getelementptr inbounds [72 x i8], ptr %563, i64 %557
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 32
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit"
 
@@ -6026,7 +6026,7 @@ switch.lookup675:                                 ; preds = %548
   %572 = add nsw i64 %571, -2
   %573 = icmp ult i64 %572, 5
   %574 = select i1 %573, i64 %572, i64 3
-  %switch.gep676 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.41", i64 %574
+  %switch.gep676 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.41", i64 %574
   %switch.load677 = load i64, ptr %switch.gep676, align 8
   %575 = getelementptr inbounds nuw i8, ptr %570, i64 %switch.load677
   br label %"_ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.exit"
@@ -6136,7 +6136,7 @@ switch.lookup678:                                 ; preds = %"_ZN62_$LT$arcstr..
   %626 = add nsw i64 %625, -3
   %627 = icmp ult i64 %626, 5
   %628 = select i1 %627, i64 %626, i64 1
-  %switch.gep679 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN117_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h4f4b83f020204068E", i64 %628
+  %switch.gep679 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN117_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h4f4b83f020204068E", i64 %628
   %switch.load680 = load i64, ptr %switch.gep679, align 8
   %629 = getelementptr inbounds nuw i8, ptr %624, i64 %switch.load680
   br label %659
@@ -6173,7 +6173,7 @@ switch.lookup678:                                 ; preds = %"_ZN62_$LT$arcstr..
 _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit.i.i.i: ; preds = %637
   %644 = getelementptr inbounds nuw i8, ptr %631, i64 112
   %645 = load ptr, ptr %644, align 8, !alias.scope !1244, !noalias !1235, !nonnull !12, !noundef !12
-  %646 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %645, i64 %639
+  %646 = getelementptr inbounds [72 x i8], ptr %645, i64 %639
   %647 = getelementptr inbounds nuw i8, ptr %646, i64 16
   br label %_ZN21uv_distribution_types8resolved12ResolvedDist7version17hcc528f5378827195E.exit
 
@@ -6274,7 +6274,7 @@ _ZN21uv_distribution_types8resolved12ResolvedDist7version17hcc528f5378827195E.ex
 
 686:                                              ; preds = %681, %675
   %687 = load ptr, ptr %412, align 8, !alias.scope !1262, !noalias !1265, !nonnull !12, !noundef !12
-  %688 = getelementptr inbounds { { i64, [2 x i64] }, ptr, ptr, ptr, { { { [6 x i64] }, i64 } } }, ptr %687, i64 %678
+  %688 = getelementptr inbounds [104 x i8], ptr %687, i64 %678
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %688, ptr noundef nonnull align 8 dereferenceable(104) %24, i64 104, i1 false)
   %689 = add i64 %678, 1
   store i64 %689, ptr %411, align 8, !alias.scope !1262, !noalias !1265
@@ -6387,7 +6387,7 @@ _ZN21uv_distribution_types8resolved12ResolvedDist7version17hcc528f5378827195E.ex
   %737 = select i1 %.not.i107, i64 0, i64 %733
   %.sroa.0.0.i108 = sub nuw i64 %736, %737
   %738 = load ptr, ptr %381, align 8, !alias.scope !1273, !noalias !1276, !nonnull !12, !noundef !12
-  %739 = getelementptr inbounds { ptr, ptr, i32, [1 x i32], { { { i64, ptr, {} }, {} }, i64 } }, ptr %738, i64 %.sroa.0.0.i108
+  %739 = getelementptr inbounds [48 x i8], ptr %738, i64 %.sroa.0.0.i108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %739, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false)
   %740 = add i64 %734, 1
   store i64 %740, ptr %380, align 8, !alias.scope !1273, !noalias !1276
@@ -6503,7 +6503,7 @@ define { ptr, ptr } @_ZN21uv_distribution_types10dist_error15DerivationChain4ite
   %3 = load ptr, ptr %2, align 8, !nonnull !12, !noundef !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !12
-  %6 = getelementptr inbounds { { i64, [2 x i64] }, ptr, ptr, ptr, { { { [6 x i64] }, i64 } } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [104 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -6515,7 +6515,7 @@ define { ptr, ptr } @"_ZN116_$LT$$RF$uv_distribution_types..dist_error..Derivati
   %3 = load ptr, ptr %2, align 8, !nonnull !12, !noundef !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !12
-  %6 = getelementptr inbounds { { i64, [2 x i64] }, ptr, ptr, ptr, { { { [6 x i64] }, i64 } } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [104 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -6530,7 +6530,7 @@ define void @"_ZN112_$LT$uv_distribution_types..dist_error..DerivationChain$u20$
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %3 = icmp ult i64 %.sroa.5.0.copyload, 88686269585142076
   tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr, ptr, ptr, { { { [6 x i64] }, i64 } } }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %4 = getelementptr inbounds nuw [104 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   %5 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %5)
   store ptr %.sroa.4.0.copyload, ptr %0, align 8, !alias.scope !1292, !noalias !1295
@@ -7473,10 +7473,10 @@ define hidden void @"_ZN21uv_distribution_types9index_url133_$LT$impl$u20$core..
 define { ptr, i64 } @_ZN21uv_distribution_types14known_platform13KnownPlatform12sys_platform17h9b764152b766f64aE(i8 noundef range(i8 0, 3) %0) unnamed_addr #7 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN21uv_distribution_types14known_platform13KnownPlatform12sys_platform17h9b764152b766f64aE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN21uv_distribution_types14known_platform13KnownPlatform12sys_platform17h9b764152b766f64aE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN21uv_distribution_types14known_platform13KnownPlatform12sys_platform17h9b764152b766f64aE.40, i64 %2
+  %switch.gep3 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN21uv_distribution_types14known_platform13KnownPlatform12sys_platform17h9b764152b766f64aE.40, i64 %2
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load4, 1
@@ -7489,7 +7489,7 @@ switch.lookup:
   %1 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN21uv_distribution_types14known_platform13KnownPlatform6marker17h6e0d574c387bcf16E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN21uv_distribution_types14known_platform13KnownPlatform6marker17h6e0d574c387bcf16E, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 12, ptr %3, align 1
@@ -7732,7 +7732,7 @@ define noundef align 8 dereferenceable_or_null(16) ptr @_ZN21uv_distribution_typ
 _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit.i.i: ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %20 = load ptr, ptr %19, align 8, !alias.scope !1454, !nonnull !12, !noundef !12
-  %21 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %20, i64 %14
+  %21 = getelementptr inbounds [72 x i8], ptr %20, i64 %14
   br label %_ZN21uv_distribution_types4Dist5index17h7478a4d1e5e30aa5E.exit
 
 22:                                               ; preds = %4
@@ -7797,7 +7797,7 @@ define noundef align 8 dereferenceable_or_null(16) ptr @_ZN21uv_distribution_typ
 _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit: ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %24 = load ptr, ptr %23, align 8, !alias.scope !1458, !nonnull !12, !noundef !12
-  %25 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %24, i64 %18
+  %25 = getelementptr inbounds [72 x i8], ptr %24, i64 %18
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   br label %.sink.split
 
@@ -7820,7 +7820,7 @@ switch.lookup:                                    ; preds = %1
   %8 = add nsw i64 %7, -3
   %9 = icmp ult i64 %8, 5
   %10 = select i1 %9, i64 %8, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN117_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h4f4b83f020204068E", i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN117_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h4f4b83f020204068E", i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 %switch.load
   br label %42
@@ -7858,7 +7858,7 @@ switch.lookup:                                    ; preds = %1
 _ZN21uv_distribution_types17RegistryBuiltDist10best_wheel17h1fc2dc2d0d617a40E.exit.i.i: ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %28 = load ptr, ptr %27, align 8, !alias.scope !1473, !nonnull !12, !noundef !12
-  %29 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %28, i64 %22
+  %29 = getelementptr inbounds [72 x i8], ptr %28, i64 %22
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   br label %_ZN21uv_distribution_types4Dist7version17hbc859c1f7d1bb088E.exit
 
@@ -9623,7 +9623,7 @@ common.resume:                                    ; preds = %660, %638, %616, %5
 642:                                              ; preds = %570
   %643 = getelementptr inbounds nuw i8, ptr %566, i64 128
   %644 = load ptr, ptr %643, align 8, !noalias !1658, !nonnull !12, !noundef !12
-  %645 = getelementptr inbounds { { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, { i64, [3 x i64] } }, ptr %644, i64 %569
+  %645 = getelementptr inbounds [104 x i8], ptr %644, i64 %569
   %646 = getelementptr inbounds nuw i8, ptr %645, i64 16
   store ptr %646, ptr %51, align 8
   %647 = tail call fastcc noundef zeroext i1 @"_ZN87_$LT$uv_distribution_filename..wheel..WheelFilename$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe163e47f574c8f3E"(ptr noalias noundef readonly align 8 dereferenceable(48) %563, ptr noalias noundef readonly align 8 dereferenceable(48) %646)
@@ -9935,7 +9935,7 @@ switch.lookup:                                    ; preds = %1
   %6 = add nsw i64 %5, -3
   %7 = icmp ult i64 %6, 5
   %8 = select i1 %7, i64 %6, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E", i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E", i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN103_$LT$uv_distribution_types..installed..InstalledDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h5181e6959bdc0577E.exit"
 
@@ -9967,7 +9967,7 @@ switch.lookup:                                    ; preds = %1
   %6 = add nsw i64 %5, -3
   %7 = icmp ult i64 %6, 5
   %8 = select i1 %7, i64 %6, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN117_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h4f4b83f020204068E", i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN117_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h4f4b83f020204068E", i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN21uv_distribution_types9installed13InstalledDist7version17hb5ab6eb37a833bdeE.exit
 
@@ -10255,7 +10255,7 @@ switch.lookup:                                    ; preds = %1
   %8 = add nsw i64 %7, -3
   %9 = icmp ult i64 %8, 5
   %10 = select i1 %9, i64 %8, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E", i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E", i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 %switch.load
   br label %"_ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE.exit"
@@ -10294,7 +10294,7 @@ switch.lookup:                                    ; preds = %1
 "_ZN96_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h7a393083804d4f18E.exit.i.i": ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %28 = load ptr, ptr %27, align 8, !alias.scope !1825, !nonnull !12, !noundef !12
-  %29 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %28, i64 %22
+  %29 = getelementptr inbounds [72 x i8], ptr %28, i64 %22
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   br label %"_ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE.exit"
 
@@ -10312,7 +10312,7 @@ switch.lookup3:                                   ; preds = %12
   %37 = add nsw i64 %36, -2
   %38 = icmp ult i64 %37, 5
   %39 = select i1 %38, i64 %37, i64 3
-  %switch.gep4 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.41", i64 %39
+  %switch.gep4 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN101_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h6cc1d9a83760b7f3E.41", i64 %39
   %switch.load5 = load i64, ptr %switch.gep4, align 8
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 %switch.load5
   br label %"_ZN83_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17ha3b4409357c441cdE.exit"
@@ -10336,7 +10336,7 @@ switch.lookup:                                    ; preds = %1
   %8 = add nsw i64 %7, -3
   %9 = icmp ult i64 %8, 5
   %10 = select i1 %9, i64 %8, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN117_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h4f4b83f020204068E", i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN117_$LT$uv_distribution_types..resolved..ResolvedDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h4f4b83f020204068E", i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 %switch.load
   br label %"_ZN99_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h68549a9ee928fd64E.exit"
@@ -10375,7 +10375,7 @@ switch.lookup:                                    ; preds = %1
 "_ZN112_$LT$uv_distribution_types..RegistryBuiltDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h2814c9704c78011eE.exit.i.i": ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %28 = load ptr, ptr %27, align 8, !alias.scope !1846, !nonnull !12, !noundef !12
-  %29 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %28, i64 %22
+  %29 = getelementptr inbounds [72 x i8], ptr %28, i64 %22
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   br label %"_ZN99_$LT$uv_distribution_types..Dist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h68549a9ee928fd64E.exit"
 
@@ -10826,8 +10826,8 @@ _ZN4core3cmp9PartialEq2ne17h2b726185f7e0e1e0E.exit.preheader.split.i: ; preds = 
 .lr.ph.i:                                         ; preds = %_ZN4core3cmp9PartialEq2ne17h2b726185f7e0e1e0E.exit.preheader.split.i, %_ZN4core3cmp9PartialEq2ne17h2b726185f7e0e1e0E.exit.backedge.i
   %.sroa.01.011.i = phi i64 [ %30, %_ZN4core3cmp9PartialEq2ne17h2b726185f7e0e1e0E.exit.backedge.i ], [ 0, %_ZN4core3cmp9PartialEq2ne17h2b726185f7e0e1e0E.exit.preheader.split.i ]
   %30 = add nuw i64 %.sroa.01.011.i, 1
-  %31 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %23, i64 %.sroa.01.011.i
-  %32 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %27, i64 %.sroa.01.011.i
+  %31 = getelementptr inbounds [16 x i8], ptr %23, i64 %.sroa.01.011.i
+  %32 = getelementptr inbounds [16 x i8], ptr %27, i64 %.sroa.01.011.i
   %.val.i = load ptr, ptr %31, align 8, !alias.scope !1975, !noalias !1978
   %33 = getelementptr i8, ptr %31, i64 8
   %.val5.i = load i8, ptr %33, align 8, !range !317, !alias.scope !1975, !noalias !1978, !noundef !12
@@ -10894,8 +10894,8 @@ _ZN4core3cmp9PartialEq2ne17h2b726185f7e0e1e0E.exit.backedge.i: ; preds = %43, %3
 .lr.ph:                                           ; preds = %.preheader.split.i.preheader, %.preheader.split.backedge.i
   %.sroa.01.0.i24 = phi i64 [ %59, %.preheader.split.backedge.i ], [ 0, %.preheader.split.i.preheader ]
   %59 = add nuw i64 %.sroa.01.0.i24, 1
-  %60 = getelementptr inbounds { { { [9 x i8], i8, [6 x i8] } }, i8, [7 x i8] }, ptr %47, i64 %.sroa.01.0.i24
-  %61 = getelementptr inbounds { { { [9 x i8], i8, [6 x i8] } }, i8, [7 x i8] }, ptr %50, i64 %.sroa.01.0.i24
+  %60 = getelementptr inbounds [24 x i8], ptr %47, i64 %.sroa.01.0.i24
+  %61 = getelementptr inbounds [24 x i8], ptr %50, i64 %.sroa.01.0.i24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1993)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1996)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1998)
@@ -11245,8 +11245,8 @@ _ZN4core3cmp9PartialEq2ne17hd6e4efd73bce21d3E.exit.preheader.split.i.i: ; preds 
 .lr.ph.i.i:                                       ; preds = %_ZN4core3cmp9PartialEq2ne17hd6e4efd73bce21d3E.exit.preheader.split.i.i, %_ZN4core3cmp9PartialEq2ne17hd6e4efd73bce21d3E.exit.backedge.i.i
   %.sroa.01.07.i.i = phi i64 [ %60, %_ZN4core3cmp9PartialEq2ne17hd6e4efd73bce21d3E.exit.backedge.i.i ], [ 0, %_ZN4core3cmp9PartialEq2ne17hd6e4efd73bce21d3E.exit.preheader.split.i.i ]
   %60 = add nuw i64 %.sroa.01.07.i.i, 1
-  %61 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %.val, i64 %.sroa.01.07.i.i
-  %62 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %.val6, i64 %.sroa.01.07.i.i
+  %61 = getelementptr inbounds [72 x i8], ptr %.val, i64 %.sroa.01.07.i.i
+  %62 = getelementptr inbounds [72 x i8], ptr %.val6, i64 %.sroa.01.07.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2053)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2056)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2058)

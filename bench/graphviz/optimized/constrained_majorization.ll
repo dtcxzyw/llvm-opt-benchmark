@@ -3,8 +3,6 @@ source_filename = "bench/graphviz/original/constrained_majorization.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.vtx_data = type { i64, ptr, ptr, ptr, ptr }
-
 @Epsilon = external local_unnamed_addr global double, align 8
 @Verbose = external local_unnamed_addr global i8, align 1
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -44,7 +42,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 .preheader600:                                    ; preds = %.preheader600.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader600.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %.1463605 = phi i1 [ false, %.preheader600.preheader ], [ %.2464.lcssa, %._crit_edge ]
-  %17 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !12
   %19 = icmp ugt i64 %18, 1
   br i1 %19, label %.lr.ph, label %._crit_edge
@@ -63,7 +61,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 22:                                               ; preds = %.lr.ph, %22
   %.2464604 = phi i1 [ %.1463605, %.lr.ph ], [ %26, %22 ]
   %.0466603 = phi i64 [ 1, %.lr.ph ], [ %27, %22 ]
-  %23 = getelementptr inbounds nuw float, ptr %21, i64 %.0466603
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.0466603
   %24 = load float, ptr %23, align 4, !tbaa !15
   %25 = fcmp une float %24, 0.000000e+00
   %26 = or i1 %.2464604, %25
@@ -96,15 +94,15 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 .lr.ph610:                                        ; preds = %32
   %37 = load ptr, ptr %33, align 8, !tbaa !18
   %38 = zext nneg i32 %34 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %2, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !18
   br label %41
 
 41:                                               ; preds = %.lr.ph610, %41
   %indvars.iv752 = phi i64 [ 0, %.lr.ph610 ], [ %indvars.iv.next753, %41 ]
-  %42 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv752
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv752
   %43 = load double, ptr %42, align 8, !tbaa !20
-  %44 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv752
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv752
   store double %43, ptr %44, align 8, !tbaa !20
   %indvars.iv.next753 = add nuw nsw i64 %indvars.iv752, 1
   %exitcond756.not = icmp eq i64 %indvars.iv.next753, %wide.trip.count
@@ -149,19 +147,19 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 63:                                               ; preds = %.lr.ph617, %._crit_edge614
   %indvars.iv762 = phi i64 [ 0, %.lr.ph617 ], [ %indvars.iv.next763, %._crit_edge614 ]
   %.0455615 = phi double [ 0.000000e+00, %.lr.ph617 ], [ %82, %._crit_edge614 ]
-  %64 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv762
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv762
   %65 = load i32, ptr %64, align 4, !tbaa !23
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i32, ptr %59, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %59, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !23
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds double, ptr %47, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %47, i64 %69
   %71 = load double, ptr %70, align 8, !tbaa !20
   %72 = fadd double %.0455615, %71
   %73 = getelementptr i8, ptr %67, i64 -4
   %74 = load i32, ptr %73, align 4, !tbaa !23
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds double, ptr %47, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %47, i64 %75
   %77 = load double, ptr %76, align 8, !tbaa !20
   %78 = fsub double %77, %72
   %79 = fadd double %8, %78
@@ -192,10 +190,10 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 
 .lr.ph613:                                        ; preds = %.lr.ph613.preheader, %.lr.ph613
   %indvars.iv757 = phi i64 [ %66, %.lr.ph613.preheader ], [ %indvars.iv.next758, %.lr.ph613 ]
-  %90 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv757
+  %90 = getelementptr inbounds [4 x i8], ptr %59, i64 %indvars.iv757
   %91 = load i32, ptr %90, align 4, !tbaa !23
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds double, ptr %47, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %47, i64 %92
   %94 = load double, ptr %93, align 8, !tbaa !20
   %95 = fadd double %82, %94
   store double %95, ptr %93, align 8, !tbaa !20
@@ -343,14 +341,14 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 .preheader594.us:                                 ; preds = %.preheader594.us.preheader, %._crit_edge626.us
   %indvars.iv775 = phi i64 [ 0, %.preheader594.us.preheader ], [ %indvars.iv.next776, %._crit_edge626.us ]
   %.0446629.us = phi double [ 1.000000e+00, %.preheader594.us.preheader ], [ %158, %._crit_edge626.us ]
-  %152 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv775
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv775
   %153 = load ptr, ptr %152, align 8, !tbaa !18
   br label %154
 
 154:                                              ; preds = %.preheader594.us, %154
   %indvars.iv770 = phi i64 [ 0, %.preheader594.us ], [ %indvars.iv.next771, %154 ]
   %.1447623.us = phi double [ %.0446629.us, %.preheader594.us ], [ %158, %154 ]
-  %155 = getelementptr inbounds nuw double, ptr %153, i64 %indvars.iv770
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %indvars.iv770
   %156 = load double, ptr %155, align 8, !tbaa !20
   %157 = call double @llvm.fabs.f64(double %156)
   %158 = call double @llvm.maxnum.f64(double %.1447623.us, double %157)
@@ -372,13 +370,13 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 
 .preheader591.us:                                 ; preds = %.preheader591.us.preheader, %._crit_edge633.us
   %indvars.iv786 = phi i64 [ 0, %.preheader591.us.preheader ], [ %indvars.iv.next787, %._crit_edge633.us ]
-  %160 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv786
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv786
   %161 = load ptr, ptr %160, align 8, !tbaa !18
   br label %162
 
 162:                                              ; preds = %.preheader591.us, %162
   %indvars.iv780 = phi i64 [ 0, %.preheader591.us ], [ %indvars.iv.next781, %162 ]
-  %163 = getelementptr inbounds nuw double, ptr %161, i64 %indvars.iv780
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %indvars.iv780
   %164 = load double, ptr %163, align 8, !tbaa !20
   %165 = fmul double %159, %164
   store double %165, ptr %163, align 8, !tbaa !20
@@ -425,7 +423,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   %.0433637 = phi i32 [ %173, %.lr.ph640.preheader ], [ %181, %.lr.ph640 ]
   %.1439636 = phi double [ %.0438644, %.lr.ph640.preheader ], [ %180, %.lr.ph640 ]
   %175 = call double @distance_kD(ptr noundef %2, i32 noundef %4, i32 noundef %.6643, i32 noundef %.0433637) #11
-  %176 = getelementptr inbounds float, ptr %.1477, i64 %indvars.iv791
+  %176 = getelementptr inbounds [4 x i8], ptr %.1477, i64 %indvars.iv791
   %177 = load float, ptr %176, align 4, !tbaa !15
   %178 = fpext float %177 to double
   %179 = fdiv double %175, %178
@@ -443,7 +441,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 
 184:                                              ; preds = %.lr.ph652, %184
   %indvars.iv798 = phi i64 [ 0, %.lr.ph652 ], [ %indvars.iv.next799, %184 ]
-  %185 = getelementptr inbounds nuw float, ptr %.1477, i64 %indvars.iv798
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %.1477, i64 %indvars.iv798
   %186 = load float, ptr %185, align 4, !tbaa !15
   %187 = fmul float %186, %183
   store float %187, ptr %185, align 4, !tbaa !15
@@ -461,7 +459,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 
 .lr.ph655:                                        ; preds = %.lr.ph655.preheader, %.lr.ph655
   %indvars.iv803 = phi i64 [ 0, %.lr.ph655.preheader ], [ %indvars.iv.next804, %.lr.ph655 ]
-  %189 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv803
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv803
   %190 = load ptr, ptr %189, align 8, !tbaa !18
   call void @orthog1(i32 noundef %1, ptr noundef %190) #11
   %indvars.iv.next804 = add nuw nsw i64 %indvars.iv803, 1
@@ -478,7 +476,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 
 .lr.ph659:                                        ; preds = %.lr.ph659.preheader, %.lr.ph659
   %indvars.iv808 = phi i64 [ 0, %.lr.ph659.preheader ], [ %indvars.iv.next809, %.lr.ph659 ]
-  %194 = getelementptr inbounds nuw double, ptr %192, i64 %indvars.iv808
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %indvars.iv808
   %195 = load double, ptr %194, align 8, !tbaa !20
   %196 = fsub double %195, %193
   store double %196, ptr %194, align 8, !tbaa !20
@@ -540,10 +538,10 @@ gv_calloc.exit520:                                ; preds = %._crit_edge660
 .lr.ph663:                                        ; preds = %._crit_edge664, %.lr.ph666
   %indvars.iv820 = phi i64 [ 0, %.lr.ph666 ], [ %indvars.iv.next821, %._crit_edge664 ]
   %219 = mul nuw nsw i64 %indvars.iv820, %wide.trip.count
-  %220 = getelementptr inbounds nuw float, ptr %212, i64 %219
-  %221 = getelementptr inbounds nuw ptr, ptr %203, i64 %indvars.iv820
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %212, i64 %219
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %indvars.iv820
   store ptr %220, ptr %221, align 8, !tbaa !39
-  %222 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv820
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv820
   %223 = load ptr, ptr %222, align 8, !tbaa !18
   br label %224
 
@@ -554,10 +552,10 @@ gv_calloc.exit520:                                ; preds = %._crit_edge660
 
 224:                                              ; preds = %.lr.ph663, %224
   %indvars.iv814 = phi i64 [ 0, %.lr.ph663 ], [ %indvars.iv.next815, %224 ]
-  %225 = getelementptr inbounds nuw double, ptr %223, i64 %indvars.iv814
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %indvars.iv814
   %226 = load double, ptr %225, align 8, !tbaa !20
   %227 = fptrunc double %226 to float
-  %228 = getelementptr inbounds nuw float, ptr %220, i64 %indvars.iv814
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %220, i64 %indvars.iv814
   store float %227, ptr %228, align 4, !tbaa !15
   %indvars.iv.next815 = add nuw nsw i64 %indvars.iv814, 1
   %exitcond819.not = icmp eq i64 %indvars.iv.next815, %wide.trip.count818
@@ -609,7 +607,7 @@ gv_calloc.exit520:                                ; preds = %._crit_edge660
 .lr.ph672.preheader:                              ; preds = %.preheader588
   %246 = sext i32 %.1668 to i64
   %wide.trip.count834 = zext i32 %indvars.iv832 to i64
-  %invariant.gep = getelementptr inbounds nuw double, ptr %238, i64 %indvars.iv836
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %indvars.iv836
   br label %.lr.ph672
 
 .lr.ph681.preheader:                              ; preds = %._crit_edge673
@@ -625,7 +623,7 @@ gv_calloc.exit520:                                ; preds = %._crit_edge660
 ._crit_edge673:                                   ; preds = %._crit_edge673.loopexit, %.preheader588
   %.0473.lcssa = phi double [ 0.000000e+00, %.preheader588 ], [ %255, %._crit_edge673.loopexit ]
   %.1.lcssa = phi i32 [ %.1668, %.preheader588 ], [ %248, %._crit_edge673.loopexit ]
-  %249 = getelementptr inbounds nuw double, ptr %238, i64 %indvars.iv836
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %indvars.iv836
   %250 = load double, ptr %249, align 8, !tbaa !20
   %251 = fsub double %250, %.0473.lcssa
   store double %251, ptr %249, align 8, !tbaa !20
@@ -638,11 +636,11 @@ gv_calloc.exit520:                                ; preds = %._crit_edge660
   %indvars.iv827 = phi i64 [ 1, %.lr.ph672.preheader ], [ %indvars.iv.next828, %.lr.ph672 ]
   %indvars.iv825 = phi i64 [ %246, %.lr.ph672.preheader ], [ %indvars.iv.next826, %.lr.ph672 ]
   %.0473669 = phi double [ 0.000000e+00, %.lr.ph672.preheader ], [ %255, %.lr.ph672 ]
-  %252 = getelementptr inbounds float, ptr %.1477, i64 %indvars.iv825
+  %252 = getelementptr inbounds [4 x i8], ptr %.1477, i64 %indvars.iv825
   %253 = load float, ptr %252, align 4, !tbaa !15
   %254 = fpext float %253 to double
   %255 = fadd double %.0473669, %254
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv827
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv827
   %256 = load double, ptr %gep, align 8, !tbaa !20
   %257 = fsub double %256, %254
   store double %257, ptr %gep, align 8, !tbaa !20
@@ -655,11 +653,11 @@ gv_calloc.exit520:                                ; preds = %._crit_edge660
   %indvars.iv843 = phi i64 [ %247, %.lr.ph681.preheader ], [ %indvars.iv.next844, %.lr.ph681 ]
   %indvars.iv841 = phi i64 [ 0, %.lr.ph681.preheader ], [ %indvars.iv.next842, %.lr.ph681 ]
   %.2680 = phi i32 [ 0, %.lr.ph681.preheader ], [ %264, %.lr.ph681 ]
-  %258 = getelementptr inbounds nuw double, ptr %238, i64 %indvars.iv841
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %indvars.iv841
   %259 = load double, ptr %258, align 8, !tbaa !20
   %260 = fptrunc double %259 to float
   %261 = sext i32 %.2680 to i64
-  %262 = getelementptr inbounds float, ptr %.1477, i64 %261
+  %262 = getelementptr inbounds [4 x i8], ptr %.1477, i64 %261
   store float %260, ptr %262, align 4, !tbaa !15
   %indvars.iv.next842 = add nuw nsw i64 %indvars.iv841, 1
   %263 = trunc nsw i64 %indvars.iv843 to i32
@@ -723,8 +721,8 @@ gv_calloc.exit535:                                ; preds = %gv_calloc.exit530
 .lr.ph684:                                        ; preds = %.lr.ph684.preheader, %.lr.ph684
   %indvars.iv851 = phi i64 [ 1, %.lr.ph684.preheader ], [ %indvars.iv.next852, %.lr.ph684 ]
   %284 = mul nuw nsw i64 %indvars.iv851, %wide.trip.count
-  %285 = getelementptr inbounds nuw float, ptr %278, i64 %284
-  %286 = getelementptr inbounds nuw ptr, ptr %270, i64 %indvars.iv851
+  %285 = getelementptr inbounds nuw [4 x i8], ptr %278, i64 %284
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %indvars.iv851
   store ptr %285, ptr %286, align 8, !tbaa !39
   %indvars.iv.next852 = add nuw nsw i64 %indvars.iv851, 1
   %exitcond855.not = icmp eq i64 %indvars.iv.next852, %wide.trip.count854
@@ -810,13 +808,13 @@ gv_calloc.exit550:                                ; preds = %300
 
 .lr.ph688:                                        ; preds = %.lr.ph704, %.lr.ph688
   %indvars.iv856 = phi i64 [ %indvars.iv.next857, %.lr.ph688 ], [ 0, %.lr.ph704 ]
-  %320 = getelementptr inbounds nuw ptr, ptr %229, i64 %indvars.iv856
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %indvars.iv856
   %321 = load ptr, ptr %320, align 8, !tbaa !39
-  %322 = getelementptr inbounds nuw float, ptr %321, i64 %indvars.iv877
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %321, i64 %indvars.iv877
   %323 = load float, ptr %322, align 4, !tbaa !15
   call void @set_vector_valf(i32 noundef %319, float noundef %323, ptr noundef nonnull %288) #11
   %324 = load ptr, ptr %320, align 8, !tbaa !39
-  %325 = getelementptr inbounds nuw float, ptr %324, i64 %indvars.iv877
+  %325 = getelementptr inbounds nuw [4 x i8], ptr %324, i64 %indvars.iv877
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 4
   call void @vectors_mult_additionf(i32 noundef %319, ptr noundef nonnull %288, float noundef -1.000000e+00, ptr noundef nonnull %326) #11
   call void @square_vec(i32 noundef %319, ptr noundef nonnull %288) #11
@@ -842,12 +840,12 @@ gv_calloc.exit550:                                ; preds = %300
   %.4693 = add i32 %.3702, 1
   %328 = sext i32 %.4693 to i64
   %wide.trip.count875 = zext i32 %indvars.iv864 to i64
-  %invariant.gep955 = getelementptr inbounds nuw double, ptr %238, i64 %indvars.iv877
+  %invariant.gep955 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %indvars.iv877
   br label %.lr.ph697
 
 .lr.ph692:                                        ; preds = %.lr.ph692.preheader, %334
   %indvars.iv861 = phi i64 [ 0, %.lr.ph692.preheader ], [ %indvars.iv.next862, %334 ]
-  %329 = getelementptr inbounds nuw float, ptr %294, i64 %indvars.iv861
+  %329 = getelementptr inbounds nuw [4 x i8], ptr %294, i64 %indvars.iv861
   %330 = load float, ptr %329, align 4, !tbaa !15
   %331 = fcmp oge float %330, 0x47EFFFFFE0000000
   %332 = fcmp olt float %330, 0.000000e+00
@@ -870,7 +868,7 @@ gv_calloc.exit550:                                ; preds = %300
 ._crit_edge698:                                   ; preds = %.preheader583.thread, %._crit_edge698.loopexit
   %.1474.lcssa = phi double [ 0.000000e+00, %.preheader583.thread ], [ %345, %._crit_edge698.loopexit ]
   %.4.lcssa = phi i32 [ %.4693945, %.preheader583.thread ], [ %335, %._crit_edge698.loopexit ]
-  %336 = getelementptr inbounds nuw double, ptr %238, i64 %indvars.iv877
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %indvars.iv877
   %337 = load double, ptr %336, align 8, !tbaa !20
   %338 = fsub double %337, %.1474.lcssa
   store double %338, ptr %336, align 8, !tbaa !20
@@ -883,15 +881,15 @@ gv_calloc.exit550:                                ; preds = %300
   %indvars.iv870 = phi i64 [ 0, %.lr.ph697.preheader ], [ %indvars.iv.next871, %.lr.ph697 ]
   %indvars.iv868 = phi i64 [ %328, %.lr.ph697.preheader ], [ %indvars.iv.next869, %.lr.ph697 ]
   %.1474694 = phi double [ 0.000000e+00, %.lr.ph697.preheader ], [ %345, %.lr.ph697 ]
-  %339 = getelementptr inbounds nuw float, ptr %294, i64 %indvars.iv870
+  %339 = getelementptr inbounds nuw [4 x i8], ptr %294, i64 %indvars.iv870
   %340 = load float, ptr %339, align 4, !tbaa !15
-  %341 = getelementptr inbounds float, ptr %302, i64 %indvars.iv868
+  %341 = getelementptr inbounds [4 x i8], ptr %302, i64 %indvars.iv868
   %342 = load float, ptr %341, align 4, !tbaa !15
   %343 = fmul float %340, %342
   store float %343, ptr %341, align 4, !tbaa !15
   %344 = fpext float %343 to double
   %345 = fadd double %.1474694, %344
-  %gep956 = getelementptr inbounds nuw double, ptr %invariant.gep955, i64 %indvars.iv870
+  %gep956 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep955, i64 %indvars.iv870
   %346 = getelementptr inbounds nuw i8, ptr %gep956, i64 8
   %347 = load double, ptr %346, align 8, !tbaa !20
   %348 = fsub double %347, %344
@@ -908,11 +906,11 @@ gv_calloc.exit550:                                ; preds = %300
   %indvars.iv884 = phi i64 [ %indvars.iv.next885, %.lr.ph708 ], [ %316, %._crit_edge698 ]
   %indvars.iv882 = phi i64 [ %indvars.iv.next883, %.lr.ph708 ], [ 0, %._crit_edge698 ]
   %.5707 = phi i32 [ %355, %.lr.ph708 ], [ 0, %._crit_edge698 ]
-  %349 = getelementptr inbounds nuw double, ptr %238, i64 %indvars.iv882
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %indvars.iv882
   %350 = load double, ptr %349, align 8, !tbaa !20
   %351 = fptrunc double %350 to float
   %352 = sext i32 %.5707 to i64
-  %353 = getelementptr inbounds float, ptr %302, i64 %352
+  %353 = getelementptr inbounds [4 x i8], ptr %302, i64 %352
   store float %351, ptr %353, align 4, !tbaa !15
   %indvars.iv.next883 = add nuw nsw i64 %indvars.iv882, 1
   %354 = trunc nsw i64 %indvars.iv884 to i32
@@ -923,9 +921,9 @@ gv_calloc.exit550:                                ; preds = %300
 
 .lr.ph710:                                        ; preds = %.preheader585, %.lr.ph710
   %indvars.iv892 = phi i64 [ %indvars.iv.next893, %.lr.ph710 ], [ 0, %.preheader585 ]
-  %356 = getelementptr inbounds nuw ptr, ptr %229, i64 %indvars.iv892
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %indvars.iv892
   %357 = load ptr, ptr %356, align 8, !tbaa !39
-  %358 = getelementptr inbounds nuw ptr, ptr %287, i64 %indvars.iv892
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %indvars.iv892
   %359 = load ptr, ptr %358, align 8, !tbaa !39
   call void @right_mult_with_vector_ff(ptr noundef nonnull %302, i32 noundef %1, ptr noundef %357, ptr noundef %359) #11
   %indvars.iv.next893 = add nuw nsw i64 %indvars.iv892, 1
@@ -935,9 +933,9 @@ gv_calloc.exit550:                                ; preds = %300
 .lr.ph713:                                        ; preds = %.lr.ph710, %.lr.ph713
   %indvars.iv897 = phi i64 [ %indvars.iv.next898, %.lr.ph713 ], [ 0, %.lr.ph710 ]
   %.0468711 = phi double [ %365, %.lr.ph713 ], [ 0.000000e+00, %.lr.ph710 ]
-  %360 = getelementptr inbounds nuw ptr, ptr %229, i64 %indvars.iv897
+  %360 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %indvars.iv897
   %361 = load ptr, ptr %360, align 8, !tbaa !39
-  %362 = getelementptr inbounds nuw ptr, ptr %287, i64 %indvars.iv897
+  %362 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %indvars.iv897
   %363 = load ptr, ptr %362, align 8, !tbaa !39
   %364 = call double @vectors_inner_productf(i32 noundef %1, ptr noundef %361, ptr noundef %363) #11
   %365 = fadd double %.0468711, %364
@@ -953,7 +951,7 @@ gv_calloc.exit550:                                ; preds = %300
 .lr.ph719:                                        ; preds = %.lr.ph719.preheader, %.lr.ph719
   %indvars.iv902 = phi i64 [ 0, %.lr.ph719.preheader ], [ %indvars.iv.next903, %.lr.ph719 ]
   %.1469716 = phi double [ %367, %.lr.ph719.preheader ], [ %372, %.lr.ph719 ]
-  %368 = getelementptr inbounds nuw ptr, ptr %229, i64 %indvars.iv902
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %indvars.iv902
   %369 = load ptr, ptr %368, align 8, !tbaa !39
   call void @right_mult_with_vector_ff(ptr noundef nonnull %.1477, i32 noundef %1, ptr noundef %369, ptr noundef nonnull %288) #11
   %370 = load ptr, ptr %368, align 8, !tbaa !39
@@ -988,9 +986,9 @@ gv_calloc.exit550:                                ; preds = %300
   br label %392
 
 386:                                              ; preds = %.lr.ph724
-  %387 = getelementptr inbounds nuw ptr, ptr %229, i64 %indvars.iv907
+  %387 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %indvars.iv907
   %388 = load ptr, ptr %387, align 8, !tbaa !39
-  %389 = getelementptr inbounds nuw ptr, ptr %287, i64 %indvars.iv907
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %indvars.iv907
   %390 = load ptr, ptr %389, align 8, !tbaa !39
   %391 = call i32 @conjugate_gradient_mkernel(ptr noundef nonnull %.1477, ptr noundef %388, ptr noundef %390, i32 noundef %1, double noundef 1.000000e-03, i32 noundef %1) #11
   %.not513 = icmp eq i32 %391, 0
@@ -1023,18 +1021,18 @@ gv_calloc.exit550:                                ; preds = %300
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge733.us
   %indvars.iv918 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next919, %._crit_edge733.us ]
-  %395 = getelementptr inbounds nuw ptr, ptr %229, i64 %indvars.iv918
+  %395 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %indvars.iv918
   %396 = load ptr, ptr %395, align 8, !tbaa !39
-  %397 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv918
+  %397 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv918
   %398 = load ptr, ptr %397, align 8, !tbaa !18
   br label %399
 
 399:                                              ; preds = %.preheader.us, %399
   %indvars.iv912 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next913, %399 ]
-  %400 = getelementptr inbounds nuw float, ptr %396, i64 %indvars.iv912
+  %400 = getelementptr inbounds nuw [4 x i8], ptr %396, i64 %indvars.iv912
   %401 = load float, ptr %400, align 4, !tbaa !15
   %402 = fpext float %401 to double
-  %403 = getelementptr inbounds nuw double, ptr %398, i64 %indvars.iv912
+  %403 = getelementptr inbounds nuw [8 x i8], ptr %398, i64 %indvars.iv912
   store double %402, ptr %403, align 8, !tbaa !20
   %indvars.iv.next913 = add nuw nsw i64 %indvars.iv912, 1
   %exitcond917.not = icmp eq i64 %indvars.iv.next913, %wide.trip.count916

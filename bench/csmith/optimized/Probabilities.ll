@@ -1230,7 +1230,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i53: ; preds = %70, %.
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i55: ; preds = %72, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i53
   store ptr %67, ptr %7, align 8, !tbaa !80
   store ptr %71, ptr %12, align 8, !tbaa !83
-  %73 = getelementptr inbounds nuw i32, ptr %67, i64 %65
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %65
   store ptr %73, ptr %13, align 8, !tbaa !84
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit58
 
@@ -1459,7 +1459,7 @@ _ZNSt6vectorIP14SingleProbElemSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ;
   br label %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %148, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  %149 = getelementptr inbounds nuw ptr, ptr %143, i64 %141
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %141
   br label %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit
 
 150:                                              ; preds = %.noexc.i.i
@@ -1709,7 +1709,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit91: ; preds = %225
 
 .thread:                                          ; preds = %232
   %234 = sext i32 %233 to i64
-  %235 = getelementptr inbounds nuw ptr, ptr %.sroa.0101.0.lcssa, i64 %234
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0101.0.lcssa, i64 %234
   %236 = load ptr, ptr %235, align 8, !tbaa !92
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 48
   store i32 100, ptr %237, align 8, !tbaa !39
@@ -2137,7 +2137,7 @@ _ZNSt6vectorIP14SingleProbElemSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ;
 _ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %34, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %28, ptr %1, align 8, !tbaa !107
   store ptr %33, ptr %6, align 8, !tbaa !103
-  %35 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   store ptr %35, ptr %7, align 8, !tbaa !106
   br label %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit
 
@@ -2279,7 +2279,7 @@ _ZNSt6vectorIP14SingleProbElemSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i:
   br label %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %62, %_ZNSt6vectorIP14SingleProbElemSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  %63 = getelementptr inbounds nuw ptr, ptr %57, i64 %55
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %55
   br label %_ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit.i
 
 _ZNSt6vectorIP14SingleProbElemSaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6vectorIP14SingleProbElemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %43
@@ -2309,7 +2309,7 @@ _ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit: ; 
 
 .lr.ph:                                           ; preds = %_ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit, %87
   %.058 = phi i64 [ %88, %87 ], [ 0, %_ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit ]
-  %71 = getelementptr inbounds nuw ptr, ptr %.sroa.0.3, i64 %.058
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.3, i64 %.058
   %72 = load ptr, ptr %71, align 8, !tbaa !92
   %73 = load ptr, ptr %72, align 8, !tbaa !4
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
@@ -2354,7 +2354,7 @@ _ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit: ; 
   br label %.thread
 
 ._crit_edge:                                      ; preds = %87, %_ZN13GroupProbElem14get_all_valuesERSt6vectorIP14SingleProbElemSaIS2_EE.exit
-  %89 = getelementptr inbounds nuw ptr, ptr %.sroa.0.3, i64 %70
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.3, i64 %70
   %90 = load ptr, ptr %89, align 8, !tbaa !92
   %91 = load ptr, ptr %90, align 8, !tbaa !4
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
@@ -7629,7 +7629,7 @@ _ZN13Probabilities9get_pnameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit.us
   %49 = phi ptr [ %54, %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit.us ], [ %44, %.lr.ph ]
   %.01225.us = phi i64 [ %52, %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit.us ], [ 1, %.lr.ph ]
-  %50 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %49, i64 %.01225.us
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %.01225.us
   %51 = invoke noundef i32 @_ZN13Probabilities17parse_single_elemEbP8ProbElemRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(288) %0, i1 zeroext poison, ptr noundef %36, ptr noundef nonnull align 8 dereferenceable(32) %50)
           to label %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit.us unwind label %.split.us
 
@@ -7669,7 +7669,7 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %._crit_edge
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit
   %65 = phi ptr [ %101, %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit ], [ %44, %.lr.ph ]
   %.01225 = phi i64 [ %99, %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit ], [ 1, %.lr.ph ]
-  %66 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %65, i64 %.01225
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %.01225
   %67 = invoke noundef i32 @_ZN13Probabilities17parse_single_elemEbP8ProbElemRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(288) %0, i1 zeroext poison, ptr noundef %36, ptr noundef nonnull align 8 dereferenceable(32) %66)
           to label %68 unwind label %.split
 
@@ -9365,7 +9365,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %27, %_ZNKS
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %24, ptr %4, align 8, !tbaa !168
   store ptr %28, ptr %5, align 8, !tbaa !165
-  %30 = getelementptr inbounds nuw i32, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %22
   store ptr %30, ptr %7, align 8, !tbaa !167
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -9428,7 +9428,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i5: ; preds = %54, %_ZNK
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i7: ; preds = %56, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i5
   store ptr %51, ptr %31, align 8, !tbaa !168
   store ptr %55, ptr %32, align 8, !tbaa !165
-  %57 = getelementptr inbounds nuw i32, ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %49
   store ptr %57, ptr %34, align 8, !tbaa !167
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit8
 
@@ -9457,7 +9457,7 @@ define dso_local noundef i32 @_ZNK17DistributionTable11key_to_probEi(ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %.0712 = phi i64 [ %15, %14 ], [ 0, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %.0712
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0712
   %12 = load i32, ptr %11, align 4, !tbaa !36
   %13 = icmp eq i32 %12, %1
   br i1 %13, label %16, label %14
@@ -9470,7 +9470,7 @@ define dso_local noundef i32 @_ZNK17DistributionTable11key_to_probEi(ptr noundef
 16:                                               ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !168
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %.0712
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.0712
   %20 = load i32, ptr %19, align 4, !tbaa !36
   br label %.loopexit
 
@@ -9498,7 +9498,7 @@ define dso_local noundef i32 @_ZNK17DistributionTable14rnd_num_to_keyEi(ptr noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %.0916 = phi i64 [ %16, %14 ], [ 0, %.lr.ph.preheader ]
   %.01015 = phi i32 [ %15, %14 ], [ %1, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %.0916
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0916
   %12 = load i32, ptr %11, align 4, !tbaa !36
   %13 = icmp slt i32 %.01015, %12
   br i1 %13, label %17, label %14
@@ -9512,7 +9512,7 @@ define dso_local noundef i32 @_ZNK17DistributionTable14rnd_num_to_keyEi(ptr noun
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !168
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %.0916
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.0916
   %21 = load i32, ptr %20, align 4, !tbaa !36
   br label %.loopexit
 
@@ -10415,7 +10415,7 @@ _ZNSt6vectorIP10TableEntryIj8ProbNameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit1
 _ZNSt6vectorIP10TableEntryIj8ProbNameESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i11: ; preds = %47, %_ZNSt6vectorIP10TableEntryIj8ProbNameESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i9
   store ptr %42, ptr %5, align 8, !tbaa !196
   store ptr %46, ptr %7, align 8, !tbaa !195
-  %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %40
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %48, ptr %26, align 8, !tbaa !193
   br label %_ZNSt6vectorIP10TableEntryIj8ProbNameESaIS3_EE9push_backERKS3_.exit12
 
@@ -10467,7 +10467,7 @@ define linkonce_odr dso_local ptr @_ZNSt6vectorIP10TableEntryIj8ProbNameESaIS3_E
   %25 = sub i64 %24, %5
   %26 = ashr exact i64 %25, 3
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds ptr, ptr %9, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %9, i64 %27
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %18, i64 %25, i1 false)
   %.pre.pre = load ptr, ptr %0, align 8, !tbaa !196
   br label %29
@@ -10531,7 +10531,7 @@ _ZNSt6vectorIP10TableEntryIj8ProbNameESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__
   %52 = getelementptr inbounds i8, ptr %47, i64 %48
   store ptr %42, ptr %0, align 8, !tbaa !196
   store ptr %52, ptr %8, align 8, !tbaa !195
-  %53 = getelementptr inbounds nuw ptr, ptr %42, i64 %40
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %53, ptr %10, align 8, !tbaa !193
   br label %54
 

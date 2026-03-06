@@ -18,7 +18,7 @@ define dso_local void @uriencode_init() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %14 ]
   %.023 = phi ptr [ @uriencode_str, %0 ], [ %.1, %14 ]
   %3 = load ptr, ptr %1, align 8, !tbaa !4
-  %4 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2, !tbaa !9
   %.fr20 = freeze i16 %5
   %6 = and i16 %.fr20, 8
@@ -35,14 +35,14 @@ switch.early.test:                                ; preds = %2
   ]
 
 7:                                                ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %2
-  %8 = getelementptr inbounds nuw ptr, ptr @uriencode_map, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @uriencode_map, i64 %indvars.iv
   store ptr null, ptr %8, align 8, !tbaa !11
   br label %14
 
 9:                                                ; preds = %switch.early.test
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.023, i64 noundef 4, ptr noundef nonnull @.str, i32 noundef %10) #15
-  %12 = getelementptr inbounds nuw ptr, ptr @uriencode_map, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @uriencode_map, i64 %indvars.iv
   store ptr %.023, ptr %12, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %.023, i64 3
   br label %14
@@ -79,7 +79,7 @@ define dso_local noundef zeroext i1 @uriencode(ptr noundef readonly captures(non
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1, !tbaa !15
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @uriencode_map, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @uriencode_map, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %.not = icmp eq ptr %13, null
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.026
@@ -136,7 +136,7 @@ define dso_local noundef zeroext i1 @safe_strtoull(ptr noundef %0, ptr noundef w
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = load i8, ptr %9, align 1, !tbaa !15
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !9
   %18 = and i16 %17, 8192
   %.not = icmp ne i16 %18, 0
@@ -197,7 +197,7 @@ define dso_local noundef zeroext i1 @safe_strtoull_hex(ptr noundef %0, ptr nound
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = load i8, ptr %9, align 1, !tbaa !15
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !9
   %18 = and i16 %17, 8192
   %.not = icmp ne i16 %18, 0
@@ -249,7 +249,7 @@ define dso_local noundef zeroext i1 @safe_strtoll(ptr noundef %0, ptr noundef wr
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = load i8, ptr %9, align 1, !tbaa !15
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !9
   %18 = and i16 %17, 8192
   %.not = icmp ne i16 %18, 0
@@ -293,7 +293,7 @@ define dso_local noundef zeroext i1 @safe_strtoul(ptr noundef %0, ptr noundef wr
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = load i8, ptr %9, align 1, !tbaa !15
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !9
   %18 = and i16 %17, 8192
   %.not = icmp ne i16 %18, 0
@@ -349,7 +349,7 @@ define dso_local noundef zeroext i1 @safe_strtol(ptr noundef %0, ptr noundef wri
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = load i8, ptr %9, align 1, !tbaa !15
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !9
   %18 = and i16 %17, 8192
   %.not = icmp ne i16 %18, 0
@@ -393,7 +393,7 @@ define dso_local noundef zeroext i1 @safe_strtod(ptr noundef %0, ptr noundef wri
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = load i8, ptr %9, align 1, !tbaa !15
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !9
   %18 = and i16 %17, 8192
   %.not = icmp ne i16 %18, 0

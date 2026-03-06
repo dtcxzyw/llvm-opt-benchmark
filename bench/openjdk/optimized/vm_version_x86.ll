@@ -1630,7 +1630,7 @@ _ZN10VM_Version13cores_per_cpuEv.exit:            ; preds = %231, %241, %.thread
 
 .preheader23.i:                                   ; preds = %507, %510
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %510 ], [ 0, %507 ]
-  %511 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 %indvars.iv.i
+  %511 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 %indvars.iv.i
   %512 = load i32, ptr %511, align 4
   %.not18.i = icmp eq i32 %512, -889275714
   br i1 %.not18.i, label %510, label %_ZN10VM_Version23os_supports_avx_vectorsEv.exit
@@ -1647,7 +1647,7 @@ _ZN10VM_Version13cores_per_cpuEv.exit:            ; preds = %231, %241, %.thread
 
 .preheader21.i:                                   ; preds = %513, %515
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %515 ], [ 0, %513 ]
-  %516 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 272), i64 %indvars.iv33.i
+  %516 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 272), i64 %indvars.iv33.i
   %517 = load i32, ptr %516, align 4
   %.not.i110 = icmp eq i32 %517, -889275714
   br i1 %.not.i110, label %515, label %.preheader.i
@@ -1659,7 +1659,7 @@ _ZN10VM_Version13cores_per_cpuEv.exit:            ; preds = %231, %241, %.thread
 
 .preheader.i:                                     ; preds = %.preheader21.i, %518
   %indvars.iv37.i = phi i64 [ %indvars.iv.next38.i, %518 ], [ 0, %.preheader21.i ]
-  %519 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 %indvars.iv37.i
+  %519 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 %indvars.iv37.i
   %520 = load i32, ptr %519, align 4
   %.not17.i = icmp eq i32 %520, -889275714
   br i1 %.not17.i, label %518, label %_ZN10VM_Version23os_supports_avx_vectorsEv.exit
@@ -3790,7 +3790,7 @@ define hidden noundef zeroext i1 @_ZN10VM_Version23os_supports_avx_vectorsEv() l
 
 .preheader23:                                     ; preds = %0, %.preheader23
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader23 ], [ 0, %0 ]
-  %3 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 %indvars.iv
   %4 = load i32, ptr %3, align 4
   %.not18 = icmp eq i32 %4, -889275714
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3810,14 +3810,14 @@ define hidden noundef zeroext i1 @_ZN10VM_Version23os_supports_avx_vectorsEv() l
 
 .preheader21:                                     ; preds = %5, %7
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %7 ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 272), i64 %indvars.iv33
+  %8 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 272), i64 %indvars.iv33
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, -889275714
   br i1 %.not, label %7, label %.preheader
 
 .preheader:                                       ; preds = %.preheader21, %.preheader
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.preheader ], [ 0, %.preheader21 ]
-  %10 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 %indvars.iv37
+  %10 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 400), i64 %indvars.iv37
   %11 = load i32, ptr %10, align 4
   %.not17 = icmp eq i32 %11, -889275714
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
@@ -7907,7 +7907,7 @@ define hidden noundef ptr @_ZN10VM_Version21cpu_model_descriptionEv() local_unna
 
 .loopexit.split.loop.exit10:                      ; preds = %.preheader.preheader
   %14 = zext nneg i32 %12 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @_ZL21_model_id_pentium_pro, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZL21_model_id_pentium_pro, i64 %14
   %16 = load ptr, ptr %15, align 8
   br label %.loopexit
 
@@ -8038,7 +8038,7 @@ define hidden noundef ptr @_ZN10VM_Version9cpu_brandEv() local_unnamed_addr #3 a
   br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZL9_brand_id, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9_brand_id, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   br label %.loopexit
 
@@ -8302,7 +8302,7 @@ define hidden noundef ptr @_ZN10VM_Version22cpu_family_descriptionEv() local_unn
 
 10:                                               ; preds = %0
   %11 = zext nneg i32 %6 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @_ZL14_family_id_amd, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZL14_family_id_amd, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %_ZN10VM_Version21cpu_model_descriptionEv.exit
 
@@ -8325,7 +8325,7 @@ define hidden noundef ptr @_ZN10VM_Version22cpu_family_descriptionEv() local_unn
 
 .loopexit.split.loop.exit10.i:                    ; preds = %.preheader.preheader.i
   %24 = zext nneg i32 %22 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr @_ZL21_model_id_pentium_pro, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @_ZL21_model_id_pentium_pro, i64 %24
   %26 = load ptr, ptr %25, align 8
   br label %_ZN10VM_Version21cpu_model_descriptionEv.exit
 
@@ -8335,7 +8335,7 @@ define hidden noundef ptr @_ZN10VM_Version22cpu_family_descriptionEv() local_unn
 
 29:                                               ; preds = %27
   %30 = zext nneg i32 %6 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr @_ZL16_family_id_intel, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @_ZL16_family_id_intel, i64 %30
   %32 = load ptr, ptr %31, align 8
   br label %_ZN10VM_Version21cpu_model_descriptionEv.exit
 
@@ -8385,7 +8385,7 @@ define hidden noundef i32 @_ZN10VM_Version20cpu_type_descriptionEPcm(ptr noundef
 
 18:                                               ; preds = %9
   %19 = zext nneg i32 %.fr to i64
-  %20 = getelementptr inbounds nuw ptr, ptr @_ZL14_family_id_amd, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZL14_family_id_amd, i64 %19
   %21 = load ptr, ptr %20, align 8
   br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
 
@@ -8407,7 +8407,7 @@ define hidden noundef i32 @_ZN10VM_Version20cpu_type_descriptionEPcm(ptr noundef
 
 .loopexit.split.loop.exit10.i.i:                  ; preds = %.preheader.preheader.i.i
   %31 = zext nneg i32 %29 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr @_ZL21_model_id_pentium_pro, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @_ZL21_model_id_pentium_pro, i64 %31
   %33 = load ptr, ptr %32, align 8
   br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
 
@@ -8417,7 +8417,7 @@ define hidden noundef i32 @_ZN10VM_Version20cpu_type_descriptionEPcm(ptr noundef
 
 36:                                               ; preds = %34
   %37 = zext nneg i32 %.fr to i64
-  %38 = getelementptr inbounds nuw ptr, ptr @_ZL16_family_id_intel, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @_ZL16_family_id_intel, i64 %37
   %39 = load ptr, ptr %38, align 8
   br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
 
@@ -8515,7 +8515,7 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
   br i1 %.not116, label %37, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw ptr, ptr @_ZL15_feature_edx_id, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @_ZL15_feature_edx_id, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %char0117 = load i8, ptr %24, align 1
   %.not118 = icmp eq i8 %char0117, 0
@@ -8563,7 +8563,7 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
   br i1 %.not113, label %56, label %41
 
 41:                                               ; preds = %.preheader121
-  %42 = getelementptr inbounds nuw ptr, ptr @_ZL15_feature_ecx_id, i64 %indvars.iv148
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZL15_feature_ecx_id, i64 %indvars.iv148
   %43 = load ptr, ptr %42, align 8
   %char0114 = load i8, ptr %43, align 1
   %.not115 = icmp eq i8 %char0114, 0
@@ -8613,7 +8613,7 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
   br i1 %.not110, label %76, label %61
 
 61:                                               ; preds = %.preheader120
-  %62 = getelementptr inbounds nuw ptr, ptr @_ZL24_feature_extended_ecx_id, i64 %indvars.iv152
+  %62 = getelementptr inbounds nuw [8 x i8], ptr @_ZL24_feature_extended_ecx_id, i64 %indvars.iv152
   %63 = load ptr, ptr %62, align 8
   %char0111 = load i8, ptr %63, align 1
   %.not112 = icmp eq i8 %char0111, 0
@@ -8663,7 +8663,7 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
   br i1 %.not108, label %96, label %81
 
 81:                                               ; preds = %.preheader
-  %82 = getelementptr inbounds nuw ptr, ptr @_ZL24_feature_extended_edx_id, i64 %indvars.iv156
+  %82 = getelementptr inbounds nuw [8 x i8], ptr @_ZL24_feature_extended_edx_id, i64 %indvars.iv156
   %83 = load ptr, ptr %82, align 8
   %char0 = load i8, ptr %83, align 1
   %.not109 = icmp eq i8 %char0, 0
@@ -8742,7 +8742,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN10VM_Version24cpu_detailed_descri
 
 13:                                               ; preds = %2
   %14 = zext nneg i32 %9 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @_ZL14_family_id_amd, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZL14_family_id_amd, i64 %14
   %16 = load ptr, ptr %15, align 8
   br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
 
@@ -8765,7 +8765,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN10VM_Version24cpu_detailed_descri
 
 .loopexit.split.loop.exit10.i.i:                  ; preds = %.preheader.preheader.i.i
   %27 = zext nneg i32 %25 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr @_ZL21_model_id_pentium_pro, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @_ZL21_model_id_pentium_pro, i64 %27
   %29 = load ptr, ptr %28, align 8
   br label %_ZN10VM_Version22cpu_family_descriptionEv.exit.thread
 
@@ -8775,7 +8775,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN10VM_Version24cpu_detailed_descri
 
 32:                                               ; preds = %30
   %33 = zext nneg i32 %9 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr @_ZL16_family_id_intel, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @_ZL16_family_id_intel, i64 %33
   %35 = load ptr, ptr %34, align 8
   br label %_ZN10VM_Version22cpu_family_descriptionEv.exit
 
@@ -8813,7 +8813,7 @@ _ZN10VM_Version22cpu_family_descriptionEv.exit..preheader.preheader.i_crit_edge:
 
 .loopexit.split.loop.exit10.i:                    ; preds = %.preheader.preheader.i
   %42 = zext nneg i32 %.pre-phi49 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr @_ZL21_model_id_pentium_pro, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZL21_model_id_pentium_pro, i64 %42
   %44 = load ptr, ptr %43, align 8
   br label %_ZN10VM_Version21cpu_model_descriptionEv.exit
 
@@ -8884,7 +8884,7 @@ _ZN10VM_Version16cpu_brand_stringEv.exit.thread:  ; preds = %48, %_ZN10VM_Versio
   %78 = and i32 %76, 255
   %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 9)
   %umin = zext nneg i32 %79 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr @_ZL9_brand_id, i64 %umin
+  %80 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9_brand_id, i64 %umin
   %81 = load ptr, ptr %80, align 8
   br label %_ZN10VM_Version9cpu_brandEv.exit
 

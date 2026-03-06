@@ -1288,7 +1288,7 @@ define internal fastcc i32 @dissect_ipv6_bvlc(ptr noundef %0, ptr noundef %1, pt
 
 switch.lookup:                                    ; preds = %3
   %11 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_ipv6_bvlc, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_ipv6_bvlc, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = zext i16 %6 to i32
   %13 = icmp samesign ugt i32 %switch.load, %12

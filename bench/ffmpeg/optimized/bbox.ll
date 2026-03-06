@@ -201,7 +201,7 @@ define range(i32 0, 2) i32 @ff_calculate_bounding_box(ptr noundef writeonly capt
 
 .preheader79.us.i71:                              ; preds = %._crit_edge.us.i78, %.preheader79.us.preheader.i68
   %indvars.iv134.i72 = phi i64 [ 0, %.preheader79.us.preheader.i68 ], [ %indvars.iv.next135.i79, %._crit_edge.us.i78 ]
-  %invariant.gep.i73 = getelementptr i16, ptr %1, i64 %indvars.iv134.i72
+  %invariant.gep.i73 = getelementptr [2 x i8], ptr %1, i64 %indvars.iv134.i72
   br label %65
 
 64:                                               ; preds = %65
@@ -212,7 +212,7 @@ define range(i32 0, 2) i32 @ff_calculate_bounding_box(ptr noundef writeonly capt
 65:                                               ; preds = %64, %.preheader79.us.i71
   %indvars.iv.i74 = phi i64 [ 0, %.preheader79.us.i71 ], [ %indvars.iv.next.i76, %64 ]
   %66 = mul nsw i64 %indvars.iv.i74, %63
-  %gep.i75 = getelementptr i16, ptr %invariant.gep.i73, i64 %66
+  %gep.i75 = getelementptr [2 x i8], ptr %invariant.gep.i73, i64 %66
   %67 = load i16, ptr %gep.i75, align 2, !tbaa !17
   %68 = zext i16 %67 to i32
   %69 = icmp slt i32 %5, %68
@@ -256,7 +256,7 @@ define range(i32 0, 2) i32 @ff_calculate_bounding_box(ptr noundef writeonly capt
 .preheader74.us.i55:                              ; preds = %..loopexit75_crit_edge.us.i62, %.preheader74.us.preheader.i53
   %indvars.iv144.i56.in = phi i64 [ %75, %.preheader74.us.preheader.i53 ], [ %indvars.iv144.i56, %..loopexit75_crit_edge.us.i62 ]
   %indvars.iv144.i56 = add nsw i64 %indvars.iv144.i56.in, -1
-  %invariant.gep174.i57 = getelementptr i16, ptr %1, i64 %indvars.iv144.i56
+  %invariant.gep174.i57 = getelementptr [2 x i8], ptr %1, i64 %indvars.iv144.i56
   br label %79
 
 78:                                               ; preds = %79
@@ -267,7 +267,7 @@ define range(i32 0, 2) i32 @ff_calculate_bounding_box(ptr noundef writeonly capt
 79:                                               ; preds = %78, %.preheader74.us.i55
   %indvars.iv139.i58 = phi i64 [ 0, %.preheader74.us.i55 ], [ %indvars.iv.next140.i60, %78 ]
   %80 = mul nsw i64 %indvars.iv139.i58, %74
-  %gep175.i59 = getelementptr i16, ptr %invariant.gep174.i57, i64 %80
+  %gep175.i59 = getelementptr [2 x i8], ptr %invariant.gep174.i57, i64 %80
   %81 = load i16, ptr %gep175.i59, align 2, !tbaa !17
   %82 = zext i16 %81 to i32
   %83 = icmp slt i32 %5, %82
@@ -306,14 +306,14 @@ define range(i32 0, 2) i32 @ff_calculate_bounding_box(ptr noundef writeonly capt
 
 88:                                               ; preds = %87, %.preheader71.us.i31
   %indvars.iv147.i34 = phi i64 [ 0, %.preheader71.us.i31 ], [ %indvars.iv.next148.i35, %87 ]
-  %89 = getelementptr inbounds nuw i16, ptr %.0102.us.i32, i64 %indvars.iv147.i34
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %.0102.us.i32, i64 %indvars.iv147.i34
   %90 = load i16, ptr %89, align 2, !tbaa !17
   %91 = zext i16 %90 to i32
   %92 = icmp slt i32 %5, %91
   br i1 %92, label %.loopexit72.i39, label %87
 
 ._crit_edge.us104.i37:                            ; preds = %87
-  %93 = getelementptr inbounds i16, ptr %.0102.us.i32, i64 %86
+  %93 = getelementptr inbounds [2 x i8], ptr %.0102.us.i32, i64 %86
   %94 = add nuw nsw i32 %.062101.us.i33, 1
   %exitcond152.not.i38 = icmp eq i32 %94, %4
   br i1 %exitcond152.not.i38, label %.loopexit72.thread.i20, label %.preheader71.us.i31, !llvm.loop !23
@@ -334,7 +334,7 @@ define range(i32 0, 2) i32 @ff_calculate_bounding_box(ptr noundef writeonly capt
   %97 = sext i32 %narrow.i to i64
   %98 = mul nsw i32 %96, %60
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i16, ptr %1, i64 %99
+  %100 = getelementptr inbounds [2 x i8], ptr %1, i64 %99
   %101 = add nsw i32 %.062101.us.i33, -1
   br label %.preheader.us.i43
 
@@ -350,14 +350,14 @@ define range(i32 0, 2) i32 @ff_calculate_bounding_box(ptr noundef writeonly capt
 
 103:                                              ; preds = %102, %.preheader.us.i43
   %indvars.iv153.i46 = phi i64 [ 0, %.preheader.us.i43 ], [ %indvars.iv.next154.i47, %102 ]
-  %104 = getelementptr inbounds nuw i16, ptr %.1110.us.i44, i64 %indvars.iv153.i46
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %.1110.us.i44, i64 %indvars.iv153.i46
   %105 = load i16, ptr %104, align 2, !tbaa !17
   %106 = zext i16 %105 to i32
   %107 = icmp slt i32 %5, %106
   br i1 %107, label %bbox_8.exit.sink.split, label %102
 
 ._crit_edge.us112.i49:                            ; preds = %102
-  %108 = getelementptr inbounds i16, ptr %.1110.us.i44, i64 %97
+  %108 = getelementptr inbounds [2 x i8], ptr %.1110.us.i44, i64 %97
   %109 = add nsw i32 %.060109.us.i45, -1
   %.not.us.not.i50 = icmp sgt i32 %.060109.us.i45, %.062101.us.i33
   br i1 %.not.us.not.i50, label %.preheader.us.i43, label %bbox_8.exit.sink.split, !llvm.loop !25

@@ -1072,21 +1072,21 @@ define internal fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingTon
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr inbounds nuw [6 x float], ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %20 = getelementptr inbounds nuw [6 x float], ptr %19, i64 %12
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %27 = getelementptr inbounds nuw [6 x float], ptr %26, i64 %12
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %12
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 12
@@ -1096,7 +1096,7 @@ define internal fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingTon
   br i1 %.not, label %108, label %33
 
 33:                                               ; preds = %10
-  %34 = getelementptr inbounds nuw float, ptr %3, i64 %12
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %12
   %35 = load float, ptr %34, align 4, !tbaa !80
   %36 = load float, ptr %13, align 8, !tbaa !80
   %37 = fsub float %35, %36
@@ -1415,19 +1415,19 @@ define internal fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingTon
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %14 = zext i1 %3 to i64
-  %15 = getelementptr inbounds nuw [4 x [3 x float]], ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %14
   %16 = zext nneg i32 %2 to i64
-  %17 = getelementptr inbounds nuw [3 x float], ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [12 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %21 = getelementptr inbounds nuw [4 x [3 x float]], ptr %20, i64 %14
-  %22 = getelementptr inbounds nuw [3 x float], ptr %21, i64 %16
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %14
+  %22 = getelementptr inbounds nuw [12 x i8], ptr %21, i64 %16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 544
-  %26 = getelementptr inbounds nuw [4 x [2 x float]], ptr %25, i64 %14
-  %27 = getelementptr inbounds nuw [2 x float], ptr %26, i64 %16
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %14
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %16
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = fcmp olt float %.0, 1.000000e+00
   %.not82 = icmp eq i32 %2, 3
@@ -1437,7 +1437,7 @@ define internal fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingTon
   br i1 %.not82, label %76, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds nuw float, ptr %4, i64 %16
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %16
   %33 = load float, ptr %32, align 4, !tbaa !80
   %34 = load float, ptr %17, align 4, !tbaa !80
   %35 = load float, ptr %18, align 4, !tbaa !80
@@ -1512,7 +1512,7 @@ define internal fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingTon
   br i1 %.not82, label %148, label %93
 
 93:                                               ; preds = %92
-  %94 = getelementptr inbounds nuw float, ptr %4, i64 %16
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %16
   %95 = load float, ptr %94, align 4, !tbaa !80
   %96 = load float, ptr %17, align 4, !tbaa !80
   %97 = load float, ptr %18, align 4, !tbaa !80
@@ -1604,26 +1604,26 @@ define internal fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingTon
   %6 = tail call noundef float @_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE(ptr noundef nonnull align 8 dereferenceable(48) %.sink, i32 noundef %2)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %8 = zext i1 %3 to i64
-  %9 = getelementptr inbounds nuw [4 x [2 x float]], ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %8
   %10 = zext nneg i32 %2 to i64
-  %11 = getelementptr inbounds nuw [2 x float], ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 672
-  %14 = getelementptr inbounds nuw [4 x [2 x float]], ptr %13, i64 %8
-  %15 = getelementptr inbounds nuw [2 x float], ptr %14, i64 %10
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %8
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 736
-  %18 = getelementptr inbounds nuw [4 x [2 x float]], ptr %17, i64 %8
-  %19 = getelementptr inbounds nuw [2 x float], ptr %18, i64 %10
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %8
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %10
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 800
-  %22 = getelementptr inbounds nuw [4 x float], ptr %21, i64 %8
-  %23 = getelementptr inbounds nuw float, ptr %22, i64 %10
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %8
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %10
   %.not = icmp eq i32 %2, 3
   br i1 %.not, label %118, label %24
 
 24:                                               ; preds = %5
-  %25 = getelementptr inbounds nuw float, ptr %4, i64 %10
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %10
   %26 = load float, ptr %25, align 4, !tbaa !80
   %27 = load float, ptr %11, align 8, !tbaa !80
   %28 = load float, ptr %12, align 4, !tbaa !80
@@ -3097,26 +3097,26 @@ define internal fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingTon
   %6 = tail call noundef float @_ZN19OpenColorIO_v2_5dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE(ptr noundef nonnull align 8 dereferenceable(48) %.sink, i32 noundef %2)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %8 = zext i1 %3 to i64
-  %9 = getelementptr inbounds nuw [4 x [2 x float]], ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %8
   %10 = zext nneg i32 %2 to i64
-  %11 = getelementptr inbounds nuw [2 x float], ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 672
-  %14 = getelementptr inbounds nuw [4 x [2 x float]], ptr %13, i64 %8
-  %15 = getelementptr inbounds nuw [2 x float], ptr %14, i64 %10
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %8
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 736
-  %18 = getelementptr inbounds nuw [4 x [2 x float]], ptr %17, i64 %8
-  %19 = getelementptr inbounds nuw [2 x float], ptr %18, i64 %10
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %8
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %10
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 800
-  %22 = getelementptr inbounds nuw [4 x float], ptr %21, i64 %8
-  %23 = getelementptr inbounds nuw float, ptr %22, i64 %10
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %8
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %10
   %.not = icmp eq i32 %2, 3
   br i1 %.not, label %126, label %24
 
 24:                                               ; preds = %5
-  %25 = getelementptr inbounds nuw float, ptr %4, i64 %10
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %10
   %26 = load float, ptr %25, align 4, !tbaa !80
   %27 = load float, ptr %11, align 8, !tbaa !80
   %28 = load float, ptr %12, align 4, !tbaa !80
@@ -3504,19 +3504,19 @@ define internal fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingTon
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %14 = zext i1 %3 to i64
-  %15 = getelementptr inbounds nuw [4 x [3 x float]], ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %14
   %16 = zext nneg i32 %2 to i64
-  %17 = getelementptr inbounds nuw [3 x float], ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [12 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %21 = getelementptr inbounds nuw [4 x [3 x float]], ptr %20, i64 %14
-  %22 = getelementptr inbounds nuw [3 x float], ptr %21, i64 %16
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %14
+  %22 = getelementptr inbounds nuw [12 x i8], ptr %21, i64 %16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 544
-  %26 = getelementptr inbounds nuw [4 x [2 x float]], ptr %25, i64 %14
-  %27 = getelementptr inbounds nuw [2 x float], ptr %26, i64 %16
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %14
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %16
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = fcmp olt float %.0, 1.000000e+00
   %.not82 = icmp eq i32 %2, 3
@@ -3526,7 +3526,7 @@ define internal fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingTon
   br i1 %.not82, label %86, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds nuw float, ptr %4, i64 %16
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %16
   %33 = load float, ptr %32, align 4, !tbaa !80
   %34 = load float, ptr %17, align 4, !tbaa !80
   %35 = load float, ptr %18, align 4, !tbaa !80
@@ -3611,7 +3611,7 @@ define internal fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingTon
   br i1 %.not82, label %148, label %103
 
 103:                                              ; preds = %102
-  %104 = getelementptr inbounds nuw float, ptr %4, i64 %16
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %16
   %105 = load float, ptr %104, align 4, !tbaa !80
   %106 = load float, ptr %17, align 4, !tbaa !80
   %107 = load float, ptr %18, align 4, !tbaa !80
@@ -3700,21 +3700,21 @@ define internal fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingTon
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr inbounds nuw [6 x float], ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %20 = getelementptr inbounds nuw [6 x float], ptr %19, i64 %12
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %27 = getelementptr inbounds nuw [6 x float], ptr %26, i64 %12
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %12
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 12
@@ -3724,7 +3724,7 @@ define internal fastcc void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_119GradingTon
   br i1 %.not, label %172, label %33
 
 33:                                               ; preds = %10
-  %34 = getelementptr inbounds nuw float, ptr %3, i64 %12
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %12
   %35 = load float, ptr %34, align 4, !tbaa !80
   %36 = load float, ptr %25, align 4, !tbaa !80
   %37 = fcmp ult float %35, %36

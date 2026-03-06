@@ -1135,7 +1135,7 @@ define dso_local noundef i32 @mempacket_test_inject(ptr noundef %0, ptr noundef 
 45:                                               ; preds = %35, %63
   %indvars.iv = phi i64 [ 0, %35 ], [ %indvars.iv.next, %63 ]
   %46 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str.1, i32 noundef 574) #14
-  %47 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %46, ptr %47, align 8, !tbaa !38
   %48 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 574, ptr noundef nonnull @.str.11, ptr noundef %46) #14
   %.not103 = icmp eq i32 %48, 0
@@ -1190,7 +1190,7 @@ define dso_local noundef i32 @mempacket_test_inject(ptr noundef %0, ptr noundef 
 
 .preheader.split.us:                              ; preds = %.preheader, %72
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %72 ], [ 0, %.preheader ]
-  %68 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv138
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv138
   %69 = load ptr, ptr %68, align 8, !tbaa !38
   %70 = load ptr, ptr %7, align 8, !tbaa !15
   %71 = tail call i32 @OPENSSL_sk_push(ptr noundef %70, ptr noundef %69) #14
@@ -1277,7 +1277,7 @@ define dso_local noundef i32 @mempacket_test_inject(ptr noundef %0, ptr noundef 
 
 .preheader.split:                                 ; preds = %.preheader, %117
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %117 ], [ 0, %.preheader ]
-  %113 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv133
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv133
   %114 = load ptr, ptr %113, align 8, !tbaa !38
   %115 = load ptr, ptr %7, align 8, !tbaa !15
   %116 = tail call i32 @OPENSSL_sk_push(ptr noundef %115, ptr noundef %114) #14
@@ -1295,7 +1295,7 @@ define dso_local noundef i32 @mempacket_test_inject(ptr noundef %0, ptr noundef 
 
 119:                                              ; preds = %.loopexit110, %mempacket_free.exit
   %indvars.iv143 = phi i64 [ 0, %.loopexit110 ], [ %indvars.iv.next144, %mempacket_free.exit ]
-  %120 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv143
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv143
   %121 = load ptr, ptr %120, align 8, !tbaa !38
   %122 = load ptr, ptr %121, align 8, !tbaa !28
   %.not.i = icmp eq ptr %122, null
@@ -1844,7 +1844,7 @@ define dso_local range(i32 0, 2) i32 @wait_until_sock_readable(i32 noundef %0) l
   %7 = shl nuw i64 1, %6
   %8 = sdiv i32 %0, 64
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i64, ptr %2, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %2, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !50
   %12 = or i64 %11, %7
   store i64 %12, ptr %10, align 8, !tbaa !50

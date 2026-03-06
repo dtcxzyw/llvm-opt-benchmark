@@ -3,8 +3,6 @@ source_filename = "bench/spike/original/fdt_rw.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.fdt_reserve_entry = type { i64, i64 }
-
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @fdt_add_mem_rsv(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #9
@@ -86,7 +84,7 @@ fdt_rw_probe_.exit:                               ; preds = %47, %46
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 %60
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %63
   %68 = sext i32 %48 to i64
-  %69 = getelementptr inbounds %struct.fdt_reserve_entry, ptr %67, i64 %68
+  %69 = getelementptr inbounds [16 x i8], ptr %67, i64 %68
   %70 = tail call fastcc i32 @fdt_splice_mem_rsv_(ptr noundef nonnull %0, ptr noundef nonnull %69, i32 noundef 0, i32 noundef 1)
   %.not15 = icmp eq i32 %70, 0
   br i1 %.not15, label %71, label %fdt_rw_probe_.exit.thread
@@ -261,7 +259,7 @@ define range(i32 -2147483648, 1) i32 @fdt_del_mem_rsv(ptr noundef %0, i32 nounde
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %14
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %17
   %22 = sext i32 %1 to i64
-  %23 = getelementptr inbounds %struct.fdt_reserve_entry, ptr %21, i64 %22
+  %23 = getelementptr inbounds [16 x i8], ptr %21, i64 %22
   %24 = tail call i32 @fdt_ro_probe_(ptr noundef %0) #9
   %25 = icmp sgt i32 %24, -1
   br i1 %25, label %26, label %fdt_rw_probe_.exit.thread

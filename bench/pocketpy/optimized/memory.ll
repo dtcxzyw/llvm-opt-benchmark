@@ -9,8 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.pkpy::LinkedListNode" = type { ptr, ptr }
 %"struct.pkpy::MemoryPool.0" = type { %"struct.pkpy::DoubleLinkedList.1", %"struct.pkpy::DoubleLinkedList.1" }
 %"struct.pkpy::DoubleLinkedList.1" = type { i32, %"struct.pkpy::LinkedListNode", %"struct.pkpy::LinkedListNode" }
-%"struct.pkpy::MemoryPool<64>::Block" = type { ptr, [64 x i8] }
-%"struct.pkpy::MemoryPool<>::Block" = type { ptr, [128 x i8] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -167,9 +165,9 @@ define linkonce_odr noundef ptr @_ZN4pkpy10MemoryPoolILi64EE5allocEm(ptr noundef
 
 15:                                               ; preds = %15, %10
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds nuw %"struct.pkpy::MemoryPool<64>::Block", ptr %13, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [72 x i8], ptr %13, i64 %indvars.iv.i
   store ptr %11, ptr %16, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i
   store ptr %16, ptr %17, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
@@ -197,7 +195,7 @@ _ZN4pkpy10MemoryPoolILi64EE5ArenaC2Ev.exit:       ; preds = %15
   store i32 %28, ptr %26, align 8
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 294928
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq i32 %28, 0
   br i1 %33, label %34, label %51
@@ -288,7 +286,7 @@ define void @_ZN4pkpy14pool64_deallocEPv(ptr noundef %0) local_unnamed_addr #7 p
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 294928
   %22 = load i32, ptr %7, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %21, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %21, i64 %23
   store ptr %2, ptr %24, align 8
   %25 = load i32, ptr %7, align 8
   %26 = add nsw i32 %25, 1
@@ -298,7 +296,7 @@ define void @_ZN4pkpy14pool64_deallocEPv(ptr noundef %0) local_unnamed_addr #7 p
 27:                                               ; preds = %6
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 294928
   %29 = sext i32 %8 to i64
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
   store ptr %2, ptr %30, align 8
   %31 = load i32, ptr %7, align 8
   %32 = add nsw i32 %31, 1
@@ -356,9 +354,9 @@ define linkonce_odr noundef ptr @_ZN4pkpy10MemoryPoolILi128EE5allocEm(ptr nounde
 
 15:                                               ; preds = %15, %10
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds nuw %"struct.pkpy::MemoryPool<>::Block", ptr %13, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [136 x i8], ptr %13, i64 %indvars.iv.i
   store ptr %11, ptr %16, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i
   store ptr %16, ptr %17, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2048
@@ -386,7 +384,7 @@ _ZN4pkpy10MemoryPoolILi128EE5ArenaC2Ev.exit:      ; preds = %15
   store i32 %28, ptr %26, align 8
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 278544
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq i32 %28, 0
   br i1 %33, label %34, label %51
@@ -463,7 +461,7 @@ define void @_ZN4pkpy15pool128_deallocEPv(ptr noundef %0) local_unnamed_addr #7 
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 278544
   %22 = load i32, ptr %7, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %21, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %21, i64 %23
   store ptr %2, ptr %24, align 8
   %25 = load i32, ptr %7, align 8
   %26 = add nsw i32 %25, 1
@@ -473,7 +471,7 @@ define void @_ZN4pkpy15pool128_deallocEPv(ptr noundef %0) local_unnamed_addr #7 
 27:                                               ; preds = %6
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 278544
   %29 = sext i32 %8 to i64
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
   store ptr %2, ptr %30, align 8
   %31 = load i32, ptr %7, align 8
   %32 = add nsw i32 %31, 1

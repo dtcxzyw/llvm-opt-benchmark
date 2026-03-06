@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/tasn_fre.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/asn1/tasn_fre.c\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"assertion failed: embed == 0\00", align 1
 
@@ -99,7 +97,7 @@ define void @ossl_asn1_item_embed_free(ptr noundef %0, ptr noundef %1, i32 nound
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !17
-  %39 = getelementptr inbounds nuw %struct.ASN1_TEMPLATE_st, ptr %38, i64 %32
+  %39 = getelementptr inbounds nuw [40 x i8], ptr %38, i64 %32
   %40 = tail call ptr @ossl_asn1_get_field_ptr(ptr noundef nonnull %0, ptr noundef %39) #4
   tail call void @ossl_asn1_template_free(ptr noundef %40, ptr noundef %39)
   br label %41
@@ -170,7 +168,7 @@ define void @ossl_asn1_item_embed_free(ptr noundef %0, ptr noundef %1, i32 nound
 .lr.ph.preheader:                                 ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %68 = load ptr, ptr %67, align 8, !tbaa !17
-  %69 = getelementptr inbounds nuw %struct.ASN1_TEMPLATE_st, ptr %68, i64 %65
+  %69 = getelementptr inbounds nuw [40 x i8], ptr %68, i64 %65
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %75

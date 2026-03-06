@@ -88,7 +88,7 @@ define hidden range(i32 0, 2) i32 @file_encoding(ptr noundef %0, ptr noundef rea
 30:                                               ; preds = %.lr.ph.i
   %31 = add i64 %24, 1
   store i64 %31, ptr %spec.store.select1, align 8, !tbaa !16
-  %32 = getelementptr inbounds nuw i64, ptr %20, i64 %24
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %24
   store i64 %27, ptr %32, align 8, !tbaa !16
   %33 = add nuw i64 %.01314.i, 1
   %exitcond.not.i = icmp eq i64 %33, %spec.select
@@ -261,10 +261,10 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   %118 = or disjoint i64 %113, %117
   %119 = add i64 %104, 1
   store i64 %119, ptr %spec.store.select1, align 8, !tbaa !16
-  %120 = getelementptr inbounds nuw i64, ptr %73, i64 %104
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %104
   store i64 %118, ptr %120, align 8, !tbaa !16
   %121 = load i64, ptr %spec.store.select1, align 8, !tbaa !16
-  %122 = getelementptr i64, ptr %73, i64 %121
+  %122 = getelementptr [8 x i8], ptr %73, i64 %121
   %123 = getelementptr i8, ptr %122, i64 -8
   %124 = load i64, ptr %123, align 8, !tbaa !16
   %125 = icmp eq i64 %124, 65534
@@ -310,10 +310,10 @@ looks_utf8_with_BOM.exit.thread:                  ; preds = %looks_utf8_with_BOM
   %154 = or disjoint i64 %150, %153
   %155 = add i64 %135, 1
   store i64 %155, ptr %spec.store.select1, align 8, !tbaa !16
-  %156 = getelementptr inbounds nuw i64, ptr %73, i64 %135
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %135
   store i64 %154, ptr %156, align 8, !tbaa !16
   %157 = load i64, ptr %spec.store.select1, align 8, !tbaa !16
-  %158 = getelementptr i64, ptr %73, i64 %157
+  %158 = getelementptr [8 x i8], ptr %73, i64 %157
   %159 = getelementptr i8, ptr %158, i64 -8
   %160 = load i64, ptr %159, align 8, !tbaa !16
   %161 = icmp eq i64 %160, 65534
@@ -383,7 +383,7 @@ looks_ucs32.exit:                                 ; preds = %131, %101
   %184 = load i64, ptr %spec.store.select1, align 8, !tbaa !16
   %185 = add i64 %184, 1
   store i64 %185, ptr %spec.store.select1, align 8, !tbaa !16
-  %186 = getelementptr inbounds nuw i64, ptr %175, i64 %184
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %184
   store i64 %178, ptr %186, align 8, !tbaa !16
   %187 = add nuw i64 %.01517.i, 1
   %exitcond.not.i152 = icmp eq i64 %187, %spec.select
@@ -415,7 +415,7 @@ looks_latin1.exit:                                ; preds = %.lr.ph.i150
   %198 = load i64, ptr %spec.store.select1, align 8, !tbaa !16
   %199 = add i64 %198, 1
   store i64 %199, ptr %spec.store.select1, align 8, !tbaa !16
-  %200 = getelementptr inbounds nuw i64, ptr %175, i64 %198
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %198
   store i64 %191, ptr %200, align 8, !tbaa !16
   %201 = add nuw i64 %.01820.i, 1
   %exitcond.not.i156 = icmp eq i64 %201, %spec.select
@@ -467,7 +467,7 @@ from_ebcdic.exit:                                 ; preds = %.lr.ph.i158
   %220 = load i64, ptr %spec.store.select1, align 8, !tbaa !16
   %221 = add i64 %220, 1
   store i64 %221, ptr %spec.store.select1, align 8, !tbaa !16
-  %222 = getelementptr inbounds nuw i64, ptr %213, i64 %220
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %220
   store i64 %216, ptr %222, align 8, !tbaa !16
   %223 = add nuw i64 %.01314.i162, 1
   %exitcond.not.i165 = icmp eq i64 %223, %spec.select
@@ -498,7 +498,7 @@ looks_ascii.exit166:                              ; preds = %.lr.ph.i161
   %233 = load i64, ptr %spec.store.select1, align 8, !tbaa !16
   %234 = add i64 %233, 1
   store i64 %234, ptr %spec.store.select1, align 8, !tbaa !16
-  %235 = getelementptr inbounds nuw i64, ptr %213, i64 %233
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %233
   store i64 %227, ptr %235, align 8, !tbaa !16
   %236 = add nuw i64 %.01517.i169, 1
   %exitcond.not.i172 = icmp eq i64 %236, %spec.select
@@ -581,7 +581,7 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly capture
   %21 = load i8, ptr %20, align 1, !tbaa !26
   %22 = lshr i8 %21, 4
   %23 = zext nneg i8 %22 to i64
-  %24 = getelementptr inbounds nuw %struct.accept_range, ptr @accept_ranges, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr @accept_ranges, i64 %23
   %25 = icmp eq i8 %21, -15
   br i1 %25, label %.thread, label %26
 
@@ -674,7 +674,7 @@ define hidden range(i32 -1, 3) i32 @file_looks_utf8(ptr noundef readonly capture
   %70 = load i64, ptr %3, align 8, !tbaa !16
   %71 = add i64 %70, 1
   store i64 %71, ptr %3, align 8, !tbaa !16
-  %72 = getelementptr inbounds nuw i64, ptr %2, i64 %70
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %70
   store i64 %.lcssa.sink, ptr %72, align 8, !tbaa !16
   br label %.thread98
 
@@ -786,7 +786,7 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly cap
   %43 = load i64, ptr %3, align 8, !tbaa !16
   %44 = add i64 %43, 1
   store i64 %44, ptr %3, align 8, !tbaa !16
-  %45 = getelementptr inbounds nuw i64, ptr %2, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %43
   store i64 %39, ptr %45, align 8, !tbaa !16
   %46 = and i32 %.1.us, -1024
   %or.cond7.us = icmp eq i32 %46, 56320
@@ -851,7 +851,7 @@ define internal fastcc range(i32 0, 3) i32 @looks_ucs16(ptr noundef readonly cap
   %76 = load i64, ptr %3, align 8, !tbaa !16
   %77 = add i64 %76, 1
   store i64 %77, ptr %3, align 8, !tbaa !16
-  %78 = getelementptr inbounds nuw i64, ptr %2, i64 %76
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %76
   store i64 %72, ptr %78, align 8, !tbaa !16
   %79 = and i32 %.1, -1024
   %or.cond7 = icmp eq i32 %79, 56320

@@ -1254,7 +1254,7 @@ define range(i32 -1, 2) i32 @evutil_inet_pton(i32 noundef %0, ptr noundef %1, pt
   %50 = zext i8 %49 to i32
   %51 = lshr i32 %50, 5
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw i32, ptr @EVUTIL_ISDIGIT_TABLE, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr @EVUTIL_ISDIGIT_TABLE, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %50, 31
   %56 = shl nuw i32 1, %55
@@ -1318,7 +1318,7 @@ define range(i32 -1, 2) i32 @evutil_inet_pton(i32 noundef %0, ptr noundef %1, pt
   %82 = zext i8 %81 to i32
   %83 = lshr i32 %82, 5
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw i32, ptr @EVUTIL_ISXDIGIT_TABLE, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr @EVUTIL_ISXDIGIT_TABLE, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = and i32 %82, 31
   %88 = shl nuw i32 1, %87
@@ -1341,7 +1341,7 @@ define range(i32 -1, 2) i32 @evutil_inet_pton(i32 noundef %0, ptr noundef %1, pt
 96:                                               ; preds = %90
   %97 = trunc i64 %91 to i16
   %98 = sext i32 %.0111148 to i64
-  %99 = getelementptr inbounds i16, ptr %9, i64 %98
+  %99 = getelementptr inbounds [2 x i8], ptr %9, i64 %98
   store i16 %97, ptr %99, align 2
   %100 = load i8, ptr %92, align 1
   %.not132 = icmp eq i8 %100, 58
@@ -1423,9 +1423,9 @@ define range(i32 -1, 2) i32 @evutil_inet_pton(i32 noundef %0, ptr noundef %1, pt
   %134 = sub nsw i32 8, %.4110
   %135 = add nuw nsw i32 %.1105, %134
   %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw i16, ptr %9, i64 %136
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %136
   %138 = zext nneg i32 %.1105 to i64
-  %139 = getelementptr inbounds nuw i16, ptr %9, i64 %138
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %138
   %140 = shl nuw i32 %132, 1
   %141 = zext i32 %140 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %137, ptr nonnull align 2 %139, i64 %141, i1 false)
@@ -1439,7 +1439,7 @@ define range(i32 -1, 2) i32 @evutil_inet_pton(i32 noundef %0, ptr noundef %1, pt
 
 144:                                              ; preds = %.preheader, %144
   %indvars.iv = phi i64 [ %indvars.iv.next, %144 ], [ 0, %.preheader ]
-  %145 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv
   %146 = load i16, ptr %145, align 2
   %147 = lshr i16 %146, 8
   %148 = trunc nuw i16 %147 to i8
@@ -2534,7 +2534,7 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i16
   %29 = or disjoint i16 %25, %28
-  %30 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv
   store i16 %29, ptr %30, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -2614,7 +2614,7 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
   %.0101132 = phi i32 [ %.1102, %93 ], [ -1, %.preheader165 ]
   %.0104131 = phi i32 [ %.1105, %93 ], [ 0, %.preheader165 ]
   %79 = sext i32 %.1133 to i64
-  %80 = getelementptr inbounds i16, ptr %6, i64 %79
+  %80 = getelementptr inbounds [2 x i8], ptr %6, i64 %79
   %81 = load i16, ptr %80, align 2
   %82 = icmp eq i16 %81, 0
   %.2124 = add nsw i32 %.1133, 1
@@ -2632,7 +2632,7 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %89
   %indvars.iv142 = phi i64 [ %84, %.lr.ph.preheader ], [ %indvars.iv.next143, %89 ]
   %.0125 = phi i32 [ 1, %.lr.ph.preheader ], [ %90, %89 ]
-  %86 = getelementptr inbounds i16, ptr %6, i64 %indvars.iv142
+  %86 = getelementptr inbounds [2 x i8], ptr %6, i64 %indvars.iv142
   %87 = load i16, ptr %86, align 2
   %88 = icmp eq i16 %87, 0
   br i1 %88, label %89, label %.critedge.loopexit.split.loop.exit156
@@ -2675,7 +2675,7 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
   %.4140 = phi i32 [ 0, %95 ], [ %.6, %.critedge29 ]
   %.0106139 = phi ptr [ %5, %95 ], [ %.2108, %.critedge29 ]
   %101 = sext i32 %.4140 to i64
-  %102 = getelementptr inbounds i16, ptr %6, i64 %101
+  %102 = getelementptr inbounds [2 x i8], ptr %6, i64 %101
   %103 = load i16, ptr %102, align 2
   %104 = icmp eq i16 %103, 0
   %105 = icmp eq i32 %spec.select120, %.4140
@@ -2698,7 +2698,7 @@ define ptr @evutil_inet_ntop(i32 noundef %0, ptr noundef readonly captures(none)
 
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %113
   %indvars.iv146 = phi i64 [ %99, %.lr.ph135.preheader ], [ %indvars.iv.next147, %113 ]
-  %110 = getelementptr inbounds i16, ptr %6, i64 %indvars.iv146
+  %110 = getelementptr inbounds [2 x i8], ptr %6, i64 %indvars.iv146
   %111 = load i16, ptr %110, align 2
   %112 = icmp eq i16 %111, 0
   br i1 %112, label %113, label %.critedge29.loopexit
@@ -2779,7 +2779,7 @@ define range(i32 0, 2) i32 @EVUTIL_ISDIGIT_(i8 noundef signext %0) local_unnamed
   %2 = zext i8 %0 to i32
   %3 = lshr i32 %2, 5
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @EVUTIL_ISDIGIT_TABLE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @EVUTIL_ISDIGIT_TABLE, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %2, 31
   %8 = lshr i32 %6, %7
@@ -2792,7 +2792,7 @@ define range(i32 0, 2) i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %0) local_unname
   %2 = zext i8 %0 to i32
   %3 = lshr i32 %2, 5
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @EVUTIL_ISXDIGIT_TABLE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @EVUTIL_ISXDIGIT_TABLE, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %2, 31
   %8 = lshr i32 %6, %7
@@ -3132,7 +3132,7 @@ define range(i32 0, 2) i32 @EVUTIL_ISALPHA_(i8 noundef signext %0) local_unnamed
   %2 = zext i8 %0 to i32
   %3 = lshr i32 %2, 5
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @EVUTIL_ISALPHA_TABLE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @EVUTIL_ISALPHA_TABLE, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %2, 31
   %8 = lshr i32 %6, %7
@@ -3145,7 +3145,7 @@ define range(i32 0, 2) i32 @EVUTIL_ISALNUM_(i8 noundef signext %0) local_unnamed
   %2 = zext i8 %0 to i32
   %3 = lshr i32 %2, 5
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @EVUTIL_ISALNUM_TABLE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @EVUTIL_ISALNUM_TABLE, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %2, 31
   %8 = lshr i32 %6, %7
@@ -3158,7 +3158,7 @@ define hidden range(i32 0, 2) i32 @EVUTIL_ISSPACE_(i8 noundef signext %0) local_
   %2 = zext i8 %0 to i32
   %3 = lshr i32 %2, 5
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @EVUTIL_ISSPACE_TABLE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @EVUTIL_ISSPACE_TABLE, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %2, 31
   %8 = lshr i32 %6, %7
@@ -3171,7 +3171,7 @@ define hidden range(i32 0, 2) i32 @EVUTIL_ISPRINT_(i8 noundef signext %0) local_
   %2 = zext i8 %0 to i32
   %3 = lshr i32 %2, 5
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @EVUTIL_ISPRINT_TABLE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @EVUTIL_ISPRINT_TABLE, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %2, 31
   %8 = lshr i32 %6, %7
@@ -3184,7 +3184,7 @@ define hidden range(i32 0, 2) i32 @EVUTIL_ISLOWER_(i8 noundef signext %0) local_
   %2 = zext i8 %0 to i32
   %3 = lshr i32 %2, 5
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @EVUTIL_ISLOWER_TABLE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @EVUTIL_ISLOWER_TABLE, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %2, 31
   %8 = lshr i32 %6, %7
@@ -3197,7 +3197,7 @@ define hidden range(i32 0, 2) i32 @EVUTIL_ISUPPER_(i8 noundef signext %0) local_
   %2 = zext i8 %0 to i32
   %3 = lshr i32 %2, 5
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @EVUTIL_ISUPPER_TABLE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @EVUTIL_ISUPPER_TABLE, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %2, 31
   %8 = lshr i32 %6, %7
@@ -3519,7 +3519,7 @@ define hidden range(i32 -1, 16) i32 @evutil_hex_char_to_int_(i8 noundef signext 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.evutil_hex_char_to_int_, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.evutil_hex_char_to_int_, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

@@ -3,8 +3,6 @@ source_filename = "bench/hdf5/original/H5Tdbg.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.H5T_cmemb_t = type { ptr, i64, i64, ptr }
-
 @H5T_init_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -164,7 +162,7 @@ define noundef range(i32 -1, 1) i32 @H5T_debug(ptr noundef readonly captures(non
 
 switch.lookup:                                    ; preds = %24
   %36 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.H5T_debug, i64 %36
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.H5T_debug, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %37
 
@@ -177,7 +175,7 @@ switch.lookup:                                    ; preds = %24
 
 switch.lookup168:                                 ; preds = %37
   %41 = zext nneg i32 %39 to i64
-  %switch.gep169 = getelementptr inbounds nuw ptr, ptr @switch.table.H5T_debug.1, i64 %41
+  %switch.gep169 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.H5T_debug.1, i64 %41
   %switch.load170 = load ptr, ptr %switch.gep169, align 8
   br label %42
 
@@ -368,7 +366,7 @@ switch.lookup168:                                 ; preds = %37
   %132 = phi ptr [ %147, %.lr.ph ], [ %46, %.preheader ]
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 64
   %134 = load ptr, ptr %133, align 8, !tbaa !26
-  %135 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %134, i64 %indvars.iv160
+  %135 = getelementptr inbounds nuw [32 x i8], ptr %134, i64 %indvars.iv160
   %136 = load ptr, ptr %135, align 8, !tbaa !29
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %138 = load i64, ptr %137, align 8, !tbaa !32
@@ -377,7 +375,7 @@ switch.lookup168:                                 ; preds = %37
   %140 = load ptr, ptr %10, align 8, !tbaa !10
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 64
   %142 = load ptr, ptr %141, align 8, !tbaa !26
-  %143 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %142, i64 %indvars.iv160
+  %143 = getelementptr inbounds nuw [32 x i8], ptr %142, i64 %indvars.iv160
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
   %145 = load ptr, ptr %144, align 8, !tbaa !33
   %146 = tail call i32 @H5T_debug(ptr noundef %145, ptr noundef %1)
@@ -474,7 +472,7 @@ switch.lookup168:                                 ; preds = %37
   %196 = phi ptr [ %213, %._crit_edge.us ], [ %187, %.lr.ph148 ]
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 72
   %198 = load ptr, ptr %197, align 8, !tbaa !26
-  %199 = getelementptr inbounds nuw ptr, ptr %198, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %indvars.iv
   %200 = load ptr, ptr %199, align 8, !tbaa !37
   %201 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.57, ptr noundef %200) #5
   %202 = mul i64 %.fr152, %indvars.iv
@@ -508,7 +506,7 @@ switch.lookup168:                                 ; preds = %37
   %218 = phi ptr [ %224, %.lr.ph148.split ], [ %187, %.lr.ph148 ]
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 72
   %220 = load ptr, ptr %219, align 8, !tbaa !26
-  %221 = getelementptr inbounds nuw ptr, ptr %220, i64 %indvars.iv157
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %indvars.iv157
   %222 = load ptr, ptr %221, align 8, !tbaa !37
   %223 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.57, ptr noundef %222) #5
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1

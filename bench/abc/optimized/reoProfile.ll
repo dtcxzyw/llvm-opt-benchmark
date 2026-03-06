@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/reoProfile.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._reo_plane = type { i32, i32, i32, double, double, double, double, ptr }
-
 @.str = private unnamed_addr constant [25 x i8] c"Level %2d: Width = %5d.\0A\00", align 1
 @.str.1 = private unnamed_addr constant [38 x i8] c"NODES: Total = %6d. Average = %6.2f.\0A\00", align 1
 @.str.2 = private unnamed_addr constant [37 x i8] c"APL: Total = %8.2f. Average =%6.2f.\0A\00", align 1
@@ -30,7 +28,7 @@ define void @reoProfileNodesStart(ptr noundef captures(none) %0) local_unnamed_a
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw %struct._reo_plane, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !19
   %11 = sitofp i32 %10 to double
@@ -75,7 +73,7 @@ define void @reoProfileAplStart(ptr noundef captures(none) %0) local_unnamed_add
 
 12:                                               ; preds = %.lr.ph50, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next, %._crit_edge ]
-  %13 = getelementptr inbounds nuw %struct._reo_plane, ptr %6, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [56 x i8], ptr %6, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %.03945 = load ptr, ptr %14, align 8, !tbaa !28
   %.not4346 = icmp eq ptr %.03945, null
@@ -106,7 +104,7 @@ define void @reoProfileAplStart(ptr noundef captures(none) %0) local_unnamed_add
 
 19:                                               ; preds = %.lr.ph52, %19
   %indvars.iv67 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next68, %19 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv67
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv67
   %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, -2
@@ -122,7 +120,7 @@ define void @reoProfileAplStart(ptr noundef captures(none) %0) local_unnamed_add
 28:                                               ; preds = %.lr.ph62, %55
   %indvars.iv72 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next73, %55 ]
   %.04160 = phi double [ 0.000000e+00, %.lr.ph62 ], [ %57, %55 ]
-  %29 = getelementptr inbounds nuw %struct._reo_plane, ptr %18, i64 %indvars.iv72
+  %29 = getelementptr inbounds nuw [56 x i8], ptr %18, i64 %indvars.iv72
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store double 0.000000e+00, ptr %30, align 8, !tbaa !21
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 48
@@ -175,7 +173,7 @@ define void @reoProfileAplStart(ptr noundef captures(none) %0) local_unnamed_add
 ._crit_edge63:                                    ; preds = %55, %.preheader
   %.041.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %57, %55 ]
   %58 = sext i32 %3 to i64
-  %59 = getelementptr inbounds %struct._reo_plane, ptr %18, i64 %58
+  %59 = getelementptr inbounds [56 x i8], ptr %18, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store double 0.000000e+00, ptr %60, align 8, !tbaa !21
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -217,7 +215,7 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
 
 14:                                               ; preds = %.lr.ph113, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next, %._crit_edge ]
-  %15 = getelementptr inbounds nuw %struct._reo_plane, ptr %8, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %.090107 = load ptr, ptr %16, align 8, !tbaa !28
   %.not104108 = icmp eq ptr %.090107, null
@@ -251,7 +249,7 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
 
 23:                                               ; preds = %.lr.ph115, %42
   %indvars.iv130 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next131, %42 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv130
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv130
   %25 = load ptr, ptr %24, align 8, !tbaa !28
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, -2
@@ -272,7 +270,7 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
 
 36:                                               ; preds = %32
   %37 = sext i16 %35 to i64
-  %38 = getelementptr i32, ptr %calloc152, i64 %37
+  %38 = getelementptr [4 x i8], ptr %calloc152, i64 %37
   %39 = getelementptr i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !45
   %41 = add nsw i32 %40, 1
@@ -291,7 +289,7 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
 
 44:                                               ; preds = %.lr.ph123, %._crit_edge121
   %indvars.iv135 = phi i64 [ 0, %.lr.ph123 ], [ %indvars.iv.next136, %._crit_edge121 ]
-  %45 = getelementptr inbounds nuw %struct._reo_plane, ptr %22, i64 %indvars.iv135
+  %45 = getelementptr inbounds nuw [56 x i8], ptr %22, i64 %indvars.iv135
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %.191116 = load ptr, ptr %46, align 8, !tbaa !28
   %.not100117 = icmp eq ptr %.191116, null
@@ -311,7 +309,7 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
   %54 = add i16 %53, 1
   store i16 %54, ptr %49, align 2, !tbaa !41
   %55 = sext i16 %54 to i64
-  %56 = getelementptr inbounds i32, ptr %calloc, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %calloc, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !45
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %56, align 4, !tbaa !45
@@ -321,7 +319,7 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
 
 60:                                               ; preds = %52
   %61 = sext i16 %59 to i64
-  %62 = getelementptr i32, ptr %calloc152, i64 %61
+  %62 = getelementptr [4 x i8], ptr %calloc152, i64 %61
   %63 = getelementptr i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !45
   %65 = add nsw i32 %64, 1
@@ -341,7 +339,7 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
   %74 = add i16 %73, 1
   store i16 %74, ptr %69, align 2, !tbaa !41
   %75 = sext i16 %74 to i64
-  %76 = getelementptr inbounds i32, ptr %calloc, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %calloc, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !45
   %78 = add nsw i32 %77, 1
   store i32 %78, ptr %76, align 4, !tbaa !45
@@ -351,7 +349,7 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
 
 80:                                               ; preds = %72
   %81 = sext i16 %79 to i64
-  %82 = getelementptr i32, ptr %calloc152, i64 %81
+  %82 = getelementptr [4 x i8], ptr %calloc152, i64 %81
   %83 = getelementptr i8, ptr %82, i64 4
   %84 = load i32, ptr %83, align 4, !tbaa !45
   %85 = add nsw i32 %84, 1
@@ -387,13 +385,13 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
 
 96:                                               ; preds = %89
   %97 = load ptr, ptr %88, align 8, !tbaa !18
-  %98 = getelementptr %struct._reo_plane, ptr %97, i64 %indvars.iv140
+  %98 = getelementptr [56 x i8], ptr %97, i64 %indvars.iv140
   %99 = getelementptr i8, ptr %98, i64 -48
   %100 = load i32, ptr %99, align 8, !tbaa !51
-  %101 = getelementptr inbounds nuw i32, ptr %calloc, i64 %indvars.iv140
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %calloc, i64 %indvars.iv140
   %102 = load i32, ptr %101, align 4, !tbaa !45
   %103 = add nsw i32 %102, %100
-  %104 = getelementptr inbounds nuw i32, ptr %calloc152, i64 %indvars.iv140
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %calloc152, i64 %indvars.iv140
   %105 = load i32, ptr %104, align 4, !tbaa !45
   %106 = sub i32 %103, %105
   br label %107
@@ -404,7 +402,7 @@ define void @reoProfileWidthStart(ptr noundef captures(none) %0) local_unnamed_a
   %108 = phi ptr [ %97, %96 ], [ %95, %91 ]
   %109 = getelementptr inbounds nuw i8, ptr %.sink154, i64 8
   store i32 %.sink, ptr %109, align 8, !tbaa !51
-  %110 = getelementptr inbounds nuw %struct._reo_plane, ptr %108, i64 %indvars.iv140
+  %110 = getelementptr inbounds nuw [56 x i8], ptr %108, i64 %indvars.iv140
   %111 = sitofp i32 %.sink to double
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 24
   store double %111, ptr %112, align 8, !tbaa !21
@@ -481,7 +479,7 @@ define void @reoProfileWidthStart2(ptr noundef captures(none) %0) local_unnamed_
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %struct._reo_plane, ptr %5, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %12, align 8, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -502,7 +500,7 @@ define void @reoProfileWidthStart2(ptr noundef captures(none) %0) local_unnamed_
 
 18:                                               ; preds = %.lr.ph105, %._crit_edge
   %indvars.iv148 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next149, %._crit_edge ]
-  %19 = getelementptr inbounds nuw %struct._reo_plane, ptr %8, i64 %indvars.iv148
+  %19 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %indvars.iv148
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %.07899 = load ptr, ptr %20, align 8, !tbaa !28
   %.not92100 = icmp eq ptr %.07899, null
@@ -536,7 +534,7 @@ define void @reoProfileWidthStart2(ptr noundef captures(none) %0) local_unnamed_
 
 27:                                               ; preds = %.lr.ph107, %27
   %indvars.iv153 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next154, %27 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv153
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv153
   %29 = load ptr, ptr %28, align 8, !tbaa !28
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %30, -2
@@ -549,7 +547,7 @@ define void @reoProfileWidthStart2(ptr noundef captures(none) %0) local_unnamed_
 
 34:                                               ; preds = %.lr.ph115, %._crit_edge113
   %indvars.iv158 = phi i64 [ 0, %.lr.ph115 ], [ %.pre182, %._crit_edge113 ]
-  %35 = getelementptr inbounds nuw %struct._reo_plane, ptr %26, i64 %indvars.iv158
+  %35 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %indvars.iv158
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %.179108 = load ptr, ptr %36, align 8, !tbaa !28
   %.not91109 = icmp eq ptr %.179108, null
@@ -605,7 +603,7 @@ define void @reoProfileWidthStart2(ptr noundef captures(none) %0) local_unnamed_
 
 58:                                               ; preds = %.lr.ph128, %._crit_edge126
   %indvars.iv168 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next169, %._crit_edge126 ]
-  %59 = getelementptr inbounds nuw %struct._reo_plane, ptr %57, i64 %indvars.iv168
+  %59 = getelementptr inbounds nuw [56 x i8], ptr %57, i64 %indvars.iv168
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %.280121 = load ptr, ptr %60, align 8, !tbaa !28
   %.not89122 = icmp eq ptr %.280121, null
@@ -626,7 +624,7 @@ define void @reoProfileWidthStart2(ptr noundef captures(none) %0) local_unnamed_
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %.lr.ph119
   %indvars.iv163 = phi i64 [ %65, %.lr.ph119.preheader ], [ %indvars.iv.next164, %.lr.ph119 ]
-  %66 = getelementptr inbounds %struct._reo_plane, ptr %57, i64 %indvars.iv163
+  %66 = getelementptr inbounds [56 x i8], ptr %57, i64 %indvars.iv163
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 8, !tbaa !51
   %69 = add nsw i32 %68, 1
@@ -649,7 +647,7 @@ define void @reoProfileWidthStart2(ptr noundef captures(none) %0) local_unnamed_
 ._crit_edge129:                                   ; preds = %._crit_edge126, %.preheader94
   %71 = phi ptr [ %26, %.preheader94 ], [ %57, %._crit_edge126 ]
   %72 = sext i32 %3 to i64
-  %73 = getelementptr inbounds %struct._reo_plane, ptr %71, i64 %72
+  %73 = getelementptr inbounds [56 x i8], ptr %71, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %.381135 = load ptr, ptr %74, align 8, !tbaa !28
   %.not86136 = icmp eq ptr %.381135, null
@@ -673,7 +671,7 @@ define void @reoProfileWidthStart2(ptr noundef captures(none) %0) local_unnamed_
 
 .lr.ph133:                                        ; preds = %.lr.ph133.preheader, %.lr.ph133
   %indvars.iv173 = phi i64 [ %79, %.lr.ph133.preheader ], [ %indvars.iv.next174, %.lr.ph133 ]
-  %80 = getelementptr inbounds %struct._reo_plane, ptr %71, i64 %indvars.iv173
+  %80 = getelementptr inbounds [56 x i8], ptr %71, i64 %indvars.iv173
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load i32, ptr %81, align 8, !tbaa !51
   %83 = add nsw i32 %82, 1
@@ -702,7 +700,7 @@ define void @reoProfileWidthStart2(ptr noundef captures(none) %0) local_unnamed_
 87:                                               ; preds = %.lr.ph144, %87
   %indvars.iv177 = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next178, %87 ]
   %88 = phi i32 [ 0, %.lr.ph144 ], [ %94, %87 ]
-  %89 = getelementptr inbounds nuw %struct._reo_plane, ptr %71, i64 %indvars.iv177
+  %89 = getelementptr inbounds nuw [56 x i8], ptr %71, i64 %indvars.iv177
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i32, ptr %90, align 8, !tbaa !51
   %92 = sitofp i32 %91 to double
@@ -768,13 +766,13 @@ define void @reoProfileWidthPrint(ptr noundef readonly captures(none) %0) local_
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %.01722 = phi i32 [ 0, %.lr.ph ], [ %16, %5 ]
   %.01821 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %5 ]
-  %7 = getelementptr inbounds nuw %struct._reo_plane, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [56 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !51
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %10, i32 noundef %9)
   %12 = load ptr, ptr %4, align 8, !tbaa !18
-  %13 = getelementptr inbounds nuw %struct._reo_plane, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !51
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.01821, i32 %15)

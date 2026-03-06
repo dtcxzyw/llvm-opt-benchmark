@@ -44,8 +44,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tcpv6_prot: 
 %struct.proto_ops = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
 %struct.tcp_sigpool = type { ptr, ptr }
-%struct.xfrm_offload = type { %struct.anon.104, i32, i32, i8, i8 }
-%struct.anon.104 = type { i32, i32 }
 %struct.flowi6 = type { %struct.flowi_common, %struct.in6_addr, %struct.in6_addr, i32, %union.flowi_uli, i32 }
 %struct.flowi_common = type { i32, i32, i32, i32, i8, i8, i8, i8, i32, %struct.kuid_t, i32, %struct.flowi_tunnel }
 %struct.kuid_t = type { i32 }
@@ -2301,13 +2299,13 @@ tcp_checksum_complete.exit.thread:                ; preds = %256, %251, %262, %t
   %445 = getelementptr inbounds nuw i8, ptr %435, i64 64
   %446 = add i32 %439, -1
   %447 = sext i32 %446 to i64
-  %448 = getelementptr %struct.xfrm_offload, ptr %445, i64 %447
+  %448 = getelementptr [20 x i8], ptr %445, i64 %447
   %449 = icmp eq ptr %448, null
   br i1 %449, label %.thread52, label %450
 
 450:                                              ; preds = %444
   %451 = getelementptr inbounds nuw i8, ptr %435, i64 16
-  %452 = getelementptr ptr, ptr %451, i64 %447
+  %452 = getelementptr [8 x i8], ptr %451, i64 %447
   %453 = load ptr, ptr %452, align 8
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 656
   %455 = load i8, ptr %454, align 8
@@ -2595,7 +2593,7 @@ define internal fastcc i32 @xfrm6_policy_check(ptr noundef %0, ptr noundef %1) u
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %28 = add i32 %21, -1
   %29 = sext i32 %28 to i64
-  %30 = getelementptr %struct.xfrm_offload, ptr %27, i64 %29
+  %30 = getelementptr [20 x i8], ptr %27, i64 %29
   br label %.thread
 
 .thread:                                          ; preds = %2, %26, %23, %19, %10
@@ -2636,7 +2634,7 @@ define internal fastcc i32 @xfrm6_policy_check(ptr noundef %0, ptr noundef %1) u
   %53 = load i32, ptr %51, align 8
   %54 = add i32 %53, -1
   %55 = sext i32 %54 to i64
-  %56 = getelementptr ptr, ptr %52, i64 %55
+  %56 = getelementptr [8 x i8], ptr %52, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 656
   %59 = load i8, ptr %58, align 8

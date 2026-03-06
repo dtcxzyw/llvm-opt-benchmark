@@ -1709,7 +1709,7 @@ define internal fastcc noundef zeroext i1 @_ZL14TestASN1Uint64v() unnamed_addr #
 
 10:                                               ; preds = %0, %8
   %.02045 = phi i64 [ 0, %0 ], [ %9, %8 ]
-  %11 = getelementptr inbounds nuw %struct.ASN1Uint64Test, ptr @_ZL16kASN1Uint64Tests, i64 %.02045
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @_ZL16kASN1Uint64Tests, i64 %.02045
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1788,7 +1788,7 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %32, %33
 
 .preheader:                                       ; preds = %8, %.preheader
   %.01946 = phi i64 [ %40, %.preheader ], [ 0, %8 ]
-  %35 = getelementptr inbounds nuw %struct.ASN1InvalidUint64Test, ptr @_ZL23kASN1InvalidUint64Tests, i64 %.01946
+  %35 = getelementptr inbounds nuw [16 x i8], ptr @_ZL23kASN1InvalidUint64Tests, i64 %.01946
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %36 = load ptr, ptr %35, align 16, !tbaa !33

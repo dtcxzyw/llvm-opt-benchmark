@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._smb2_sesid_info_t = type { i64, i32, ptr, ptr, ptr, i16, i32, i32, [32 x i8], [16 x i8], [16 x i8], [16 x i8], [32 x i8], [32 x i8], ptr, ptr, ptr, [64 x i8] }
 %struct._smb2_saved_info_t = type { i8, i8, i64, i32, i32, %struct.nstime_t, ptr, ptr, ptr, %struct._e_ctx_hnd, ptr, i64, i32, ptr, i32, i32, i16, ptr, %struct._e_guid_t, i32, i32, ptr }
 %struct._e_ctx_hnd = type { i32, %struct._e_guid_t }
-%struct._smb2_seskey_field_t = type { ptr, i32, ptr, i32, ptr, i32, ptr, i32 }
 %struct._smb2_fid_info_t = type { i64, i64, i64, i32, i32, i32, i32, ptr, i32, i32 }
 
 @eosmb2_take_name_as_fid = hidden global i8 0, align 1
@@ -5453,7 +5452,7 @@ define internal fastcc i32 @dissect_smb2(ptr noundef %0, ptr noundef %1, ptr nou
 
 switch.lookup:                                    ; preds = %4
   %39 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_smb2, i64 %39
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_smb2, i64 %39
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %40
 
@@ -5566,7 +5565,7 @@ switch.lookup:                                    ; preds = %4
 
 100:                                              ; preds = %95
   %101 = zext nneg i16 %96 to i64
-  %102 = getelementptr %struct._value_string, ptr @smb2_cmd_vals, i64 %101
+  %102 = getelementptr [16 x i8], ptr @smb2_cmd_vals, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
   br label %decode_smb2_name.exit
@@ -5949,7 +5948,7 @@ get_special_packet_title.exit.thread348:          ; preds = %dissect_smb2_signat
 289:                                              ; preds = %get_special_packet_title.exit.thread348.thread, %get_special_packet_title.exit.thread348
   %290 = phi ptr [ %286, %get_special_packet_title.exit.thread348.thread ], [ %287, %get_special_packet_title.exit.thread348 ]
   %291 = zext nneg i16 %274 to i64
-  %292 = getelementptr %struct._value_string, ptr @smb2_cmd_vals, i64 %291
+  %292 = getelementptr [16 x i8], ptr @smb2_cmd_vals, i64 %291
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 8
   %294 = load ptr, ptr %293, align 8
   br label %decode_smb2_name.exit319
@@ -6279,7 +6278,7 @@ get_special_packet_title.exit.thread45.i:         ; preds = %get_special_packet_
 
 449:                                              ; preds = %get_special_packet_title.exit.thread45.i
   %450 = zext nneg i16 %446 to i64
-  %451 = getelementptr %struct._value_string, ptr @smb2_cmd_vals, i64 %450
+  %451 = getelementptr [16 x i8], ptr @smb2_cmd_vals, i64 %450
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 8
   %453 = load ptr, ptr %452, align 8
   br label %decode_smb2_name.exit.i
@@ -6300,7 +6299,7 @@ decode_smb2_name.exit.i:                          ; preds = %449, %get_special_p
   %461 = load i16, ptr %35, align 8
   %462 = and i16 %461, 255
   %463 = zext nneg i16 %462 to i64
-  %464 = getelementptr %struct._smb2_function, ptr @smb2_dissector, i64 %463
+  %464 = getelementptr [16 x i8], ptr @smb2_dissector, i64 %463
   %465 = shl i32 %460, 3
   %466 = and i32 %465, 8
   %.in.idx.i = zext nneg i32 %466 to i64
@@ -7105,7 +7104,7 @@ define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonl
 
 .critedge.i:                                      ; preds = %31, %.critedge.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.critedge.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr %struct._smb2_seskey_field_t, ptr %30, i64 %indvars.iv.i
+  %32 = getelementptr [64 x i8], ptr %30, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %4, ptr noundef dereferenceable(8) %33, i64 8)
   %.not42.i = icmp eq i32 %bcmp.i, 0
@@ -15778,7 +15777,7 @@ define internal void @dissect_smb2_create_extra_info(ptr noundef %0, ptr noundef
 
 51:                                               ; preds = %49, %48
   %.06.i = phi i64 [ 0, %48 ], [ %50, %49 ]
-  %52 = getelementptr %struct.create_context_data_tag_dissectors, ptr @create_context_dissectors_array, i64 %.06.i
+  %52 = getelementptr [32 x i8], ptr @create_context_dissectors_array, i64 %.06.i
   %53 = load ptr, ptr %52, align 16
   %54 = call i32 @strcmp(ptr noundef readonly %.0, ptr noundef %53) #16
   %.not.i = icmp eq i32 %54, 0
@@ -17128,7 +17127,7 @@ define internal fastcc void @feed_eo_smb2(ptr noundef %0, ptr noundef %1, ptr no
   %37 = call i32 @g_strv_length(ptr noundef %35)
   %38 = add i32 %37, -1
   %39 = zext i32 %38 to i64
-  %40 = getelementptr ptr, ptr %35, i64 %39
+  %40 = getelementptr [8 x i8], ptr %35, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %36, ptr noundef nonnull @.str.2263, ptr noundef %41)
   %43 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -18387,10 +18386,10 @@ define internal fastcc noundef i32 @dissect_smb2_class_infolevel(ptr noundef rea
 
 switch.lookup:                                    ; preds = %25
   %28 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_smb2_class_infolevel, i64 %28
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_smb2_class_infolevel, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   %29 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep56 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_smb2_class_infolevel.68, i64 %29
+  %switch.gep56 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_smb2_class_infolevel.68, i64 %29
   %switch.load57 = load ptr, ptr %switch.gep56, align 8
   br label %30
 

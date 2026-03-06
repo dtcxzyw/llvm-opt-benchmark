@@ -13,10 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.btSoftBody::sRayCast" = type { ptr, i32, i32, float }
 %"struct.btCollisionWorld::LocalShapeInfo" = type { i32, i32 }
 %"struct.btCollisionWorld::LocalRayResult" = type <{ ptr, ptr, %class.btVector3, float, [4 x i8] }>
-%"struct.btSoftBody::Face" = type <{ %"struct.btSoftBody::Feature", [3 x ptr], %class.btVector3, float, [4 x i8], ptr, %class.btVector4, %class.btVector3, %class.btVector3, %class.btVector3, i32, [4 x i8] }>
-%"struct.btSoftBody::Feature" = type { %"struct.btSoftBody::Element", ptr }
-%"struct.btSoftBody::Element" = type { ptr }
-%class.btVector4 = type { %class.btVector3 }
 
 $_ZN11btSparseSdfILi3EE10InitializeEii = comdat any
 
@@ -167,7 +163,7 @@ define dso_local void @_ZN24btSoftRigidDynamicsWorldC2EP12btDispatcherP21btBroad
 42:                                               ; preds = %._crit_edge.i, %.lr.ph14.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph14.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %43 = load ptr, ptr %20, align 8, !tbaa !33
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i
   %45 = load ptr, ptr %44, align 8, !tbaa !72
   store ptr null, ptr %44, align 8, !tbaa !72
   %.not10.i = icmp eq ptr %45, null
@@ -281,8 +277,8 @@ _ZN20btAlignedObjectArrayIPN11btSparseSdfILi3EE4CellEE8allocateEi.exit.i.i: ; pr
 
 21:                                               ; preds = %21, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %21 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !72
   store ptr %24, ptr %22, align 8, !tbaa !72
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -340,7 +336,7 @@ _ZN20btAlignedObjectArrayIPN11btSparseSdfILi3EE4CellEE6resizeEiRKS3_.exit: ; pre
 38:                                               ; preds = %._crit_edge.i, %.lr.ph14.i
   %indvars.iv.i3 = phi i64 [ 0, %.lr.ph14.i ], [ %indvars.iv.next.i5, %._crit_edge.i ]
   %39 = load ptr, ptr %37, align 8, !tbaa !33
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.i3
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i3
   %41 = load ptr, ptr %40, align 8, !tbaa !72
   store ptr null, ptr %40, align 8, !tbaa !72
   %.not10.i = icmp eq ptr %41, null
@@ -396,7 +392,7 @@ define linkonce_odr dso_local void @_ZN19btSoftBodyWorldInfoD2Ev(ptr noundef non
 6:                                                ; preds = %._crit_edge.i.i, %.lr.ph14.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph14.i.i ], [ %indvars.iv.next.i.i, %._crit_edge.i.i ]
   %7 = load ptr, ptr %5, align 8, !tbaa !33
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   %9 = load ptr, ptr %8, align 8, !tbaa !72
   store ptr null, ptr %8, align 8, !tbaa !72
   %.not10.i.i = icmp eq ptr %9, null
@@ -524,7 +520,7 @@ define dso_local void @_ZN24btSoftRigidDynamicsWorldD2Ev(ptr noundef nonnull ali
 16:                                               ; preds = %._crit_edge.i.i.i, %.lr.ph14.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph14.i.i.i ], [ %indvars.iv.next.i.i.i, %._crit_edge.i.i.i ]
   %17 = load ptr, ptr %15, align 8, !tbaa !33
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i.i.i
   %19 = load ptr, ptr %18, align 8, !tbaa !72
   store ptr null, ptr %18, align 8, !tbaa !72
   %.not10.i.i.i = icmp eq ptr %19, null
@@ -752,7 +748,7 @@ _ZN24btSoftRigidDynamicsWorld26solveSoftBodiesConstraintsEf.exit: ; preds = %20
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %36 = load ptr, ptr %30, align 8, !tbaa !15
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !95
   call void @_ZN10btSoftBody23defaultCollisionHandlerEPS_(ptr noundef nonnull align 8 dereferenceable(2064) %38, ptr noundef %38)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -849,8 +845,8 @@ _ZN20btAlignedObjectArrayIP10btSoftBodyE8allocateEi.exit.i.i: ; preds = %15, %14
 
 23:                                               ; preds = %23, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !95
   store ptr %26, ptr %24, align 8, !tbaa !95
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -889,7 +885,7 @@ _ZN20btAlignedObjectArrayIP10btSoftBodyE9push_backERKS1_.exit: ; preds = %4, %10
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %34 = load ptr, ptr %33, align 8, !tbaa !15
   %35 = sext i32 %32 to i64
-  %36 = getelementptr inbounds ptr, ptr %34, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %34, i64 %35
   store ptr %1, ptr %36, align 8, !tbaa !95
   %37 = add nsw i32 %32, 1
   store i32 %37, ptr %5, align 4, !tbaa !16
@@ -918,7 +914,7 @@ define dso_local void @_ZN24btSoftRigidDynamicsWorld14removeSoftBodyEP10btSoftBo
 
 8:                                                ; preds = %12, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %12 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   %10 = load ptr, ptr %9, align 8, !tbaa !95
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %_ZNK20btAlignedObjectArrayIP10btSoftBodyE16findLinearSearchERKS1_.exit.i, label %12
@@ -940,7 +936,7 @@ _ZNK20btAlignedObjectArrayIP10btSoftBodyE16findLinearSearchERKS1_.exit.i: ; pred
   %18 = getelementptr inbounds i8, ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !95
   %20 = zext nneg i32 %16 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %7, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !95
   store ptr %22, ptr %18, align 8, !tbaa !95
   store ptr %19, ptr %21, align 8, !tbaa !95
@@ -977,7 +973,7 @@ define dso_local void @_ZN24btSoftRigidDynamicsWorld21removeCollisionObjectEP17b
 
 12:                                               ; preds = %16, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %16 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !95
   %15 = icmp eq ptr %14, %1
   br i1 %15, label %_ZNK20btAlignedObjectArrayIP10btSoftBodyE16findLinearSearchERKS1_.exit.i.i, label %16
@@ -999,7 +995,7 @@ _ZNK20btAlignedObjectArrayIP10btSoftBodyE16findLinearSearchERKS1_.exit.i.i: ; pr
   %22 = getelementptr inbounds i8, ptr %11, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !95
   %24 = zext nneg i32 %20 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %11, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !95
   store ptr %26, ptr %22, align 8, !tbaa !95
   store ptr %23, ptr %25, align 8, !tbaa !95
@@ -1048,7 +1044,7 @@ define dso_local void @_ZN24btSoftRigidDynamicsWorld14debugDrawWorldEv(ptr nound
 15:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
   %16 = load ptr, ptr %9, align 8, !tbaa !15
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !95
   %19 = load ptr, ptr %0, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -1369,7 +1365,7 @@ define dso_local void @_ZN24btSoftRigidDynamicsWorld13rayTestSingleERK11btTransf
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 1040
   %60 = load ptr, ptr %59, align 8, !tbaa !223
   %61 = sext i32 %29 to i64
-  %62 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %60, i64 %61
+  %62 = getelementptr inbounds [144 x i8], ptr %60, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %.sroa.0.0.copyload = load <2 x float>, ptr %63, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 48
@@ -1443,7 +1439,7 @@ define dso_local void @_ZN24btSoftRigidDynamicsWorld19serializeSoftBodiesEP12btS
   %8 = phi i32 [ %4, %.lr.ph ], [ %35, %34 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %9 = load ptr, ptr %6, align 8, !tbaa !230
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !231
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 272
   %13 = load i32, ptr %12, align 8, !tbaa !195
@@ -1505,7 +1501,7 @@ define dso_local void @_ZN24btSoftRigidDynamicsWorld9serializeEP12btSerializer(p
   %11 = phi i32 [ %7, %.lr.ph.i ], [ %38, %37 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
   %12 = load ptr, ptr %9, align 8, !tbaa !230
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !231
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 272
   %16 = load i32, ptr %15, align 8, !tbaa !195
@@ -1760,7 +1756,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN23btSoftSingleRayCallback7p
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 1040
   %72 = load ptr, ptr %71, align 8, !tbaa !223
   %73 = sext i32 %41 to i64
-  %74 = getelementptr inbounds %"struct.btSoftBody::Face", ptr %72, i64 %73
+  %74 = getelementptr inbounds [144 x i8], ptr %72, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %75, align 8
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %74, i64 48

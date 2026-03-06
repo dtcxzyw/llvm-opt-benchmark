@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.XColor = type { i64, i16, i16, i16, i8, i8 }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 %struct.XWindowAttributes = type { i32, i32, i32, i32, i32, i32, ptr, i64, i32, i32, i32, i32, i64, i64, i32, i64, i32, i32, i64, i64, i64, i32, ptr }
 
 @sys_cursors = internal unnamed_addr global [10 x ptr] zeroinitializer, align 16
@@ -60,9 +59,9 @@ define hidden void @X11_InitMouse(ptr noundef readnone captures(none) %0) local_
 
 switch.lookup:                                    ; preds = %1, %switch.lookup
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %switch.lookup ]
-  %11 = getelementptr inbounds nuw ptr, ptr @sys_cursors, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @sys_cursors, i64 %indvars.iv
   %12 = and i64 %indvars.iv, 4294967295
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.X11_InitMouse, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.X11_InitMouse, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = tail call ptr @X11_CreateSystemCursor(i32 noundef %switch.load)
   store ptr %13, ptr %11, align 8
@@ -335,7 +334,7 @@ X11_CreateXCursorCursor.exit.thread:              ; preds = %18, %3, %X11_Create
   %139 = getelementptr inbounds nuw i8, ptr %40, i64 224
   %140 = load i32, ptr %139, align 8
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds %struct.Screen, ptr %138, i64 %141
+  %142 = getelementptr inbounds [128 x i8], ptr %138, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load i64, ptr %143, align 8
   %145 = tail call i64 %136(ptr noundef %40, i64 noundef %144, ptr noundef nonnull %50, i32 noundef %.pre.pre, i32 noundef %56) #5
@@ -343,7 +342,7 @@ X11_CreateXCursorCursor.exit.thread:              ; preds = %18, %3, %X11_Create
   %147 = load ptr, ptr %137, align 8
   %148 = load i32, ptr %139, align 8
   %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds %struct.Screen, ptr %147, i64 %149
+  %150 = getelementptr inbounds [128 x i8], ptr %147, i64 %149
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %152 = load i64, ptr %151, align 8
   %153 = load i32, ptr %41, align 8
@@ -415,7 +414,7 @@ define internal noundef ptr @X11_CreateSystemCursor(i32 noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %.thread
   %14 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.X11_CreateSystemCursor, i64 %14
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.X11_CreateSystemCursor, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %15
 
@@ -489,7 +488,7 @@ define internal noundef zeroext i1 @X11_ShowCursor(ptr noundef readonly captures
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 224
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %struct.Screen, ptr %22, i64 %25
+  %26 = getelementptr inbounds [128 x i8], ptr %22, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = call i64 %20(ptr noundef %16, i64 noundef %28, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 1) #5
@@ -644,7 +643,7 @@ define internal noundef zeroext i1 @X11_WarpMouseGlobal(float noundef %0, float 
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 224
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.Screen, ptr %11, i64 %18
+  %19 = getelementptr inbounds [128 x i8], ptr %11, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8
   tail call fastcc void @X11_WarpMouseInternal(i64 noundef %21, float noundef %0, float noundef %1)
@@ -823,7 +822,7 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
   %31 = load ptr, ptr %25, align 8
   %32 = load i32, ptr %28, align 8
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %struct.Screen, ptr %31, i64 %33
+  %34 = getelementptr inbounds [128 x i8], ptr %31, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = call i32 %30(ptr noundef %17, i64 noundef %36, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
@@ -877,7 +876,7 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
 
 58:                                               ; preds = %.thread, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.next
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.next
   %60 = load i32, ptr %59, align 4
   %.not33 = icmp eq i32 %60, 0
   br i1 %.not33, label %.loopexit, label %26, !llvm.loop !10
@@ -910,7 +909,7 @@ define hidden void @X11_QuitMouse(ptr noundef readonly captures(none) %0) local_
 
 4:                                                ; preds = %1, %X11_FreeCursor.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %X11_FreeCursor.exit ]
-  %5 = getelementptr inbounds nuw ptr, ptr @sys_cursors, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @sys_cursors, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -985,7 +984,7 @@ define hidden void @X11_SetHitTestCursor(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @sys_cursors, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @sys_cursors, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @X11_ShowCursor(ptr noundef %6)
   br label %8

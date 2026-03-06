@@ -35,7 +35,7 @@ define hidden void @WebPMultARGBRow_C(ptr noundef captures(none) %0, i32 noundef
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %32
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %32 ], [ 0, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv28
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv28
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = icmp ult i32 %6, -16777216
   br i1 %7, label %8, label %32
@@ -81,7 +81,7 @@ GetScale.exit.us:                                 ; preds = %8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %.lr.ph ]
-  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !3
   %35 = icmp ult i32 %34, -16777216
   br i1 %35, label %36, label %60
@@ -413,7 +413,7 @@ define internal void @PackRGB_C(ptr noalias noundef readonly captures(none) %0, 
   %20 = or disjoint i32 %18, %19
   %21 = or disjoint i32 %20, %17
   %22 = or disjoint i32 %21, -16777216
-  %23 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv15
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv15
   store i32 %22, ptr %23, align 4, !tbaa !3
   %indvars.iv.next = add nsw i64 %indvars.iv, %8
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
@@ -577,7 +577,7 @@ define internal void @DispatchAlphaToGreen_C(ptr noalias noundef readonly captur
   %13 = load i8, ptr %12, align 1, !tbaa !9
   %14 = zext i8 %13 to i32
   %15 = shl nuw nsw i32 %14, 8
-  %16 = getelementptr inbounds nuw i32, ptr %.01517.us, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.01517.us, i64 %indvars.iv
   store i32 %15, ptr %16, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -585,7 +585,7 @@ define internal void @DispatchAlphaToGreen_C(ptr noalias noundef readonly captur
 
 ._crit_edge.us:                                   ; preds = %11
   %17 = getelementptr inbounds i8, ptr %.01418.us, i64 %9
-  %18 = getelementptr inbounds i32, ptr %.01517.us, i64 %10
+  %18 = getelementptr inbounds [4 x i8], ptr %.01517.us, i64 %10
   %19 = add nuw nsw i32 %.019.us, 1
   %exitcond23.not = icmp eq i32 %19, %3
   br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !23
@@ -657,7 +657,7 @@ define internal void @ExtractGreen_C(ptr noalias noundef readonly captures(none)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = lshr i32 %6, 8
   %8 = trunc i32 %7 to i8
@@ -728,7 +728,7 @@ define internal void @AlphaReplace_C(ptr noundef captures(none) %0, i32 noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = icmp ult i32 %6, 16777216
   br i1 %7, label %8, label %9

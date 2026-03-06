@@ -1366,7 +1366,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %38 = tail call signext i8 @g_ascii_toupper(i8 noundef signext %37) #12
   store i8 %38, ptr %36, align 1
   %39 = zext i8 %38 to i64
-  %40 = getelementptr i16, ptr %31, i64 %39
+  %40 = getelementptr [2 x i8], ptr %31, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = and i16 %41, 16
   %.not435.us = icmp eq i16 %42, 0

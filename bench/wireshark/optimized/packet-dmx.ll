@@ -334,7 +334,7 @@ define internal i32 @dissect_dmx_chan(ptr noundef %0, ptr noundef readonly captu
 
 51:                                               ; preds = %39
   %52 = sext i32 %41 to i64
-  %53 = getelementptr ptr, ptr @dissect_dmx_chan.chan_format, i64 %52
+  %53 = getelementptr [8 x i8], ptr @dissect_dmx_chan.chan_format, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = zext i8 %40 to i32
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %11, ptr noundef %54, i32 noundef %55)
@@ -354,7 +354,7 @@ define internal i32 @dissect_dmx_chan(ptr noundef %0, ptr noundef readonly captu
   %62 = mul i32 %.lcssa, %indvars.iv
   %63 = load i32, ptr @global_disp_chan_nr_type, align 4
   %64 = sext i32 %63 to i64
-  %65 = getelementptr ptr, ptr @dissect_dmx_chan.string_format, i64 %64
+  %65 = getelementptr [8 x i8], ptr @dissect_dmx_chan.string_format, i64 %64
   %66 = load ptr, ptr %65, align 8
   %67 = add i32 %62, 1
   %68 = tail call ptr @wmem_strbuf_get_str(ptr noundef %11)

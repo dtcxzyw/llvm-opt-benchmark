@@ -45,7 +45,7 @@ declare i32 @clock_getres(i32 noundef, ptr noundef) local_unnamed_addr #1
 define linkonce_odr hidden noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %0) local_unnamed_addr #0 comdat {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN8WasmEdge4Host4WASI6detail9fromErrNoEi, i64 %1
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN8WasmEdge4Host4WASI6detail9fromErrNoEi, i64 %1
   %switch.load = load i16, ptr %switch.gep, align 2
   ret i16 %switch.load
 }

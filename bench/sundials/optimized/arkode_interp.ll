@@ -1428,7 +1428,7 @@ define range(i32 -20, 1) i32 @arkInterpResize_Lagrange(ptr noundef %0, ptr nound
   %22 = phi ptr [ %17, %16 ], [ %10, %.preheader ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !55
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = tail call i32 @arkResizeVec(ptr noundef %0, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %25) #14
   %.not16 = icmp eq i32 %26, 0
   br i1 %.not16, label %.loopexit17, label %16
@@ -1471,7 +1471,7 @@ define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef captures(address
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.preheader ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !55
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !48
   %.not34 = icmp eq ptr %16, null
   br i1 %.not34, label %22, label %17
@@ -1481,7 +1481,7 @@ define void @arkInterpFree_Lagrange(ptr noundef %0, ptr noundef captures(address
   %18 = load ptr, ptr %1, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !55
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   store ptr null, ptr %21, align 8, !tbaa !48
   br label %22
 
@@ -1589,7 +1589,7 @@ define void @arkInterpPrintMem_Lagrange(ptr noundef readonly captures(address_is
   %19 = phi ptr [ %25, %.lr.ph ], [ %16, %14 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !58
-  %22 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load double, ptr %22, align 8, !tbaa !47
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.11, double noundef %23) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1623,7 +1623,7 @@ define void @arkInterpPrintMem_Lagrange(ptr noundef readonly captures(address_is
   %38 = phi ptr [ %44, %.lr.ph29 ], [ %35, %33 ]
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !55
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv32
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv32
   %42 = load ptr, ptr %41, align 8, !tbaa !48
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef %42) #14
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
@@ -1701,7 +1701,7 @@ define range(i32 -28, 1) i32 @arkInterpInit_Lagrange(ptr noundef %0, ptr noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.preheader67 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !55
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !48
   %.not64 = icmp eq ptr %26, null
   br i1 %.not64, label %32, label %27
@@ -1711,7 +1711,7 @@ define range(i32 -28, 1) i32 @arkInterpInit_Lagrange(ptr noundef %0, ptr noundef
   %28 = load ptr, ptr %1, align 8, !tbaa !17
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !55
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   store ptr null, ptr %31, align 8, !tbaa !48
   br label %32
 
@@ -1805,7 +1805,7 @@ arkInterpFree.exit65:                             ; preds = %61
   %78 = phi ptr [ %42, %.lr.ph71 ], [ %73, %72 ]
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !55
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv78
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv78
   store ptr null, ptr %81, align 8, !tbaa !48
   %82 = load ptr, ptr %67, align 8, !tbaa !40
   %83 = tail call i32 @arkAllocVec(ptr noundef %0, ptr noundef %82, ptr noundef nonnull %81) #14
@@ -1909,7 +1909,7 @@ define noundef i32 @arkInterpUpdate_Lagrange(ptr noundef readonly captures(none)
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.04850 = phi double [ %26, %.lr.ph.preheader ], [ %.048., %.lr.ph ]
-  %28 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %29 = load double, ptr %28, align 8, !tbaa !47
   %30 = fsub double %2, %29
   %31 = tail call double @llvm.fabs.f64(double %30)
@@ -1927,7 +1927,7 @@ define noundef i32 @arkInterpUpdate_Lagrange(ptr noundef readonly captures(none)
 34:                                               ; preds = %._crit_edge
   %35 = add nsw i32 %7, -1
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %11, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %11, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !48
   %39 = icmp sgt i32 %7, 1
   br i1 %39, label %.lr.ph54.preheader, label %._crit_edge55
@@ -1939,13 +1939,13 @@ define noundef i32 @arkInterpUpdate_Lagrange(ptr noundef readonly captures(none)
 .lr.ph54:                                         ; preds = %.lr.ph54.preheader, %.lr.ph54
   %indvars.iv57 = phi i64 [ %40, %.lr.ph54.preheader ], [ %indvars.iv.next58, %.lr.ph54 ]
   %indvars.iv.next58 = add nsw i64 %indvars.iv57, -1
-  %41 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.next58
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.next58
   %42 = load double, ptr %41, align 8, !tbaa !47
-  %43 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv57
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv57
   store double %42, ptr %43, align 8, !tbaa !47
-  %44 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.next58
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next58
   %45 = load ptr, ptr %44, align 8, !tbaa !48
-  %46 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv57
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv57
   store ptr %45, ptr %46, align 8, !tbaa !48
   %47 = icmp samesign ugt i64 %indvars.iv57, 1
   br i1 %47, label %.lr.ph54, label %._crit_edge55
@@ -2044,7 +2044,7 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Lagrange(ptr noundef %0, ptr nou
   br i1 %39, label %47, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %42 = load double, ptr %41, align 8, !tbaa !47
   %43 = fsub double %32, %42
   %44 = fsub double %28, %42
@@ -2065,7 +2065,7 @@ LBasis.exit:                                      ; preds = %47, %56
   br i1 %48, label %56, label %49
 
 49:                                               ; preds = %LBasis.exit
-  %50 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.i88
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i88
   %51 = load double, ptr %50, align 8, !tbaa !47
   %52 = fsub double %32, %51
   %53 = fsub double %30, %51
@@ -2101,7 +2101,7 @@ LBasis.exit:                                      ; preds = %47, %56
   br i1 %or.cond.us.i, label %68, label %61
 
 61:                                               ; preds = %.preheader.us.i
-  %62 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.i94
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i94
   %63 = load double, ptr %62, align 8, !tbaa !47
   %64 = fsub double %32, %63
   %65 = fsub double %28, %63
@@ -2122,7 +2122,7 @@ LBasis.exit:                                      ; preds = %47, %56
   br i1 %exitcond45.not.i, label %.lr.ph36.split.us.i100, label %.lr.ph36.split.us.i
 
 ._crit_edge.us.i:                                 ; preds = %68
-  %70 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv41.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv41.i
   %71 = load double, ptr %70, align 8, !tbaa !47
   %72 = fsub double %28, %71
   %73 = fdiv double %.1.us.i, %72
@@ -2144,7 +2144,7 @@ LBasis.exit:                                      ; preds = %47, %56
   br i1 %or.cond.us.i106, label %85, label %78
 
 78:                                               ; preds = %.preheader.us.i103
-  %79 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.i104
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i104
   %80 = load double, ptr %79, align 8, !tbaa !47
   %81 = fsub double %32, %80
   %82 = fsub double %30, %80
@@ -2165,7 +2165,7 @@ LBasis.exit:                                      ; preds = %47, %56
   br i1 %exitcond45.not.i113, label %LBasis.exit93, label %.lr.ph36.split.us.i100
 
 ._crit_edge.us.i110:                              ; preds = %85
-  %87 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv41.i101
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv41.i101
   %88 = load double, ptr %87, align 8, !tbaa !47
   %89 = fsub double %30, %88
   %90 = fdiv double %.1.us.i107, %89
@@ -2183,11 +2183,11 @@ LBasis.exit93:                                    ; preds = %86, %56, %57, %37
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %97 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store double 0.000000e+00, ptr %97, align 8, !tbaa !47
-  %98 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8, !tbaa !48
-  %100 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %99, ptr %100, align 8, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2218,7 +2218,7 @@ LBasis.exit93:                                    ; preds = %86, %56, %57, %37
 
 .lr.ph.split.us.preheader.i.us:                   ; preds = %.lr.ph.split.us.preheader.i.us.preheader, %LBasisD2.exit.loopexit.us
   %indvars.iv180 = phi i64 [ 0, %.lr.ph.split.us.preheader.i.us.preheader ], [ %indvars.iv.next181, %LBasisD2.exit.loopexit.us ]
-  %101 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv180
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv180
   br label %.lr.ph.split.us.i.us
 
 .lr.ph.split.us.i.us:                             ; preds = %130, %.lr.ph.split.us.preheader.i.us
@@ -2246,7 +2246,7 @@ LBasis.exit93:                                    ; preds = %86, %56, %57, %37
   br i1 %or.cond50.us.us.i.us, label %116, label %108
 
 108:                                              ; preds = %.preheader.us.us.i.us
-  %109 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.i142.us
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i142.us
   %110 = load double, ptr %109, align 8, !tbaa !47
   %111 = fsub double %32, %110
   %112 = load double, ptr %101, align 8, !tbaa !47
@@ -2263,7 +2263,7 @@ LBasis.exit93:                                    ; preds = %86, %56, %57, %37
 
 ._crit_edge.us.us.i.us:                           ; preds = %116
   %117 = load double, ptr %101, align 8, !tbaa !47
-  %118 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv64.i.us
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv64.i.us
   %119 = load double, ptr %118, align 8, !tbaa !47
   %120 = fsub double %117, %119
   %121 = fdiv double %.1.us.us.i.us, %120
@@ -2278,7 +2278,7 @@ LBasis.exit93:                                    ; preds = %86, %56, %57, %37
 
 ._crit_edge57.split.us.us.i.us:                   ; preds = %123
   %124 = load double, ptr %101, align 8, !tbaa !47
-  %125 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv69.i.us
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv69.i.us
   %126 = load double, ptr %125, align 8, !tbaa !47
   %127 = fsub double %124, %126
   %128 = fdiv double %.142.us.us.i.us, %127
@@ -2292,7 +2292,7 @@ LBasis.exit93:                                    ; preds = %86, %56, %57, %37
   br i1 %exitcond73.not.i.us, label %LBasisD2.exit.loopexit.us, label %.lr.ph.split.us.i.us
 
 LBasisD2.exit.loopexit.us:                        ; preds = %130
-  %131 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv180
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv180
   store double %.144.us.i.us, ptr %131, align 8, !tbaa !47
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
@@ -2308,7 +2308,7 @@ LBasisD2.exit.loopexit.us:                        ; preds = %130
 
 .lr.ph36.split.us.preheader.i125.us:              ; preds = %.lr.ph36.split.us.preheader.i125.us.preheader, %LBasisD.exit141.loopexit.us
   %indvars.iv185 = phi i64 [ 0, %.lr.ph36.split.us.preheader.i125.us.preheader ], [ %indvars.iv.next186, %LBasisD.exit141.loopexit.us ]
-  %132 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv185
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv185
   br label %.lr.ph36.split.us.i127.us
 
 .lr.ph36.split.us.i127.us:                        ; preds = %151, %.lr.ph36.split.us.preheader.i125.us
@@ -2326,7 +2326,7 @@ LBasisD2.exit.loopexit.us:                        ; preds = %130
   br i1 %or.cond.us.i133.us, label %144, label %136
 
 136:                                              ; preds = %.preheader.us.i130.us
-  %137 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.i131.us
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i131.us
   %138 = load double, ptr %137, align 8, !tbaa !47
   %139 = fsub double %32, %138
   %140 = load double, ptr %132, align 8, !tbaa !47
@@ -2343,7 +2343,7 @@ LBasisD2.exit.loopexit.us:                        ; preds = %130
 
 ._crit_edge.us.i137.us:                           ; preds = %144
   %145 = load double, ptr %132, align 8, !tbaa !47
-  %146 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv41.i128.us
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv41.i128.us
   %147 = load double, ptr %146, align 8, !tbaa !47
   %148 = fsub double %145, %147
   %149 = fdiv double %.1.us.i134.us, %148
@@ -2357,7 +2357,7 @@ LBasisD2.exit.loopexit.us:                        ; preds = %130
   br i1 %exitcond45.not.i140.us, label %LBasisD.exit141.loopexit.us, label %.lr.ph36.split.us.i127.us
 
 LBasisD.exit141.loopexit.us:                      ; preds = %151
-  %152 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv185
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv185
   store double %.127.us.i138.us, ptr %152, align 8, !tbaa !47
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count188
@@ -2373,7 +2373,7 @@ LBasisD.exit141.loopexit.us:                      ; preds = %151
 
 .lr.ph.i116.us:                                   ; preds = %.lr.ph.i116.us.preheader, %LBasis.exit123.loopexit.us
   %indvars.iv190 = phi i64 [ 0, %.lr.ph.i116.us.preheader ], [ %indvars.iv.next191, %LBasis.exit123.loopexit.us ]
-  %153 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv190
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv190
   br label %154
 
 154:                                              ; preds = %164, %.lr.ph.i116.us
@@ -2383,7 +2383,7 @@ LBasisD.exit141.loopexit.us:                      ; preds = %151
   br i1 %155, label %164, label %156
 
 156:                                              ; preds = %154
-  %157 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.i118.us
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i118.us
   %158 = load double, ptr %157, align 8, !tbaa !47
   %159 = fsub double %32, %158
   %160 = load double, ptr %153, align 8, !tbaa !47
@@ -2399,7 +2399,7 @@ LBasisD.exit141.loopexit.us:                      ; preds = %151
   br i1 %exitcond.not.i122.us, label %LBasis.exit123.loopexit.us, label %154
 
 LBasis.exit123.loopexit.us:                       ; preds = %164
-  %165 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv190
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv190
   store double %.1.i120.us, ptr %165, align 8, !tbaa !47
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
@@ -2409,7 +2409,7 @@ LBasis.exit123.loopexit.us:                       ; preds = %164
   %indvars.iv175 = phi i64 [ 0, %.lr.ph158.preheader ], [ %indvars.iv.next176, %.lr.ph158 ]
   %166 = trunc nuw nsw i64 %indvars.iv175 to i32
   %167 = tail call double @LBasisD3(ptr noundef nonnull %1, i32 noundef %166, double noundef %32)
-  %168 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv175
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv175
   store double %167, ptr %168, align 8, !tbaa !47
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
@@ -2459,10 +2459,10 @@ define double @LBasis(ptr noundef readonly captures(none) %0, i32 noundef %1, do
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %8, align 8, !tbaa !58
-  %15 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load double, ptr %15, align 8, !tbaa !47
   %17 = fsub double %2, %16
-  %18 = getelementptr inbounds double, ptr %14, i64 %9
+  %18 = getelementptr inbounds [8 x i8], ptr %14, i64 %9
   %19 = load double, ptr %18, align 8, !tbaa !47
   %20 = fsub double %19, %16
   %21 = fdiv double %17, %20
@@ -2511,10 +2511,10 @@ define double @LBasisD(ptr noundef readonly captures(none) %0, i32 noundef %1, d
 
 14:                                               ; preds = %.preheader.us
   %15 = load ptr, ptr %8, align 8, !tbaa !58
-  %16 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load double, ptr %16, align 8, !tbaa !47
   %18 = fsub double %2, %17
-  %19 = getelementptr inbounds double, ptr %15, i64 %9
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %9
   %20 = load double, ptr %19, align 8, !tbaa !47
   %21 = fsub double %20, %17
   %22 = fdiv double %18, %21
@@ -2535,9 +2535,9 @@ define double @LBasisD(ptr noundef readonly captures(none) %0, i32 noundef %1, d
 
 ._crit_edge.us:                                   ; preds = %24
   %26 = load ptr, ptr %8, align 8, !tbaa !58
-  %27 = getelementptr inbounds double, ptr %26, i64 %9
+  %27 = getelementptr inbounds [8 x i8], ptr %26, i64 %9
   %28 = load double, ptr %27, align 8, !tbaa !47
-  %29 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv41
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv41
   %30 = load double, ptr %29, align 8, !tbaa !47
   %31 = fsub double %28, %30
   %32 = fdiv double %.1.us, %31
@@ -2596,10 +2596,10 @@ define double @LBasisD2(ptr noundef readonly captures(none) %0, i32 noundef %1, 
 
 18:                                               ; preds = %.preheader.us.us
   %19 = load ptr, ptr %8, align 8, !tbaa !58
-  %20 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load double, ptr %20, align 8, !tbaa !47
   %22 = fsub double %2, %21
-  %23 = getelementptr inbounds double, ptr %19, i64 %9
+  %23 = getelementptr inbounds [8 x i8], ptr %19, i64 %9
   %24 = load double, ptr %23, align 8, !tbaa !47
   %25 = fsub double %24, %21
   %26 = fdiv double %22, %25
@@ -2620,9 +2620,9 @@ define double @LBasisD2(ptr noundef readonly captures(none) %0, i32 noundef %1, 
 
 ._crit_edge.us.us:                                ; preds = %28
   %30 = load ptr, ptr %8, align 8, !tbaa !58
-  %31 = getelementptr inbounds double, ptr %30, i64 %9
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %9
   %32 = load double, ptr %31, align 8, !tbaa !47
-  %33 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv64
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv64
   %34 = load double, ptr %33, align 8, !tbaa !47
   %35 = fsub double %32, %34
   %36 = fdiv double %.1.us.us, %35
@@ -2631,9 +2631,9 @@ define double @LBasisD2(ptr noundef readonly captures(none) %0, i32 noundef %1, 
 
 ._crit_edge57.split.us.us:                        ; preds = %29
   %38 = load ptr, ptr %8, align 8, !tbaa !58
-  %39 = getelementptr inbounds double, ptr %38, i64 %9
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %9
   %40 = load double, ptr %39, align 8, !tbaa !47
-  %41 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv69
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv69
   %42 = load double, ptr %41, align 8, !tbaa !47
   %43 = fsub double %40, %42
   %44 = fdiv double %.142.us.us, %43
@@ -2710,10 +2710,10 @@ define double @LBasisD3(ptr noundef readonly captures(none) %0, i32 noundef %1, 
 
 23:                                               ; preds = %.preheader.us.us.us
   %24 = load ptr, ptr %8, align 8, !tbaa !58
-  %25 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load double, ptr %25, align 8, !tbaa !47
   %27 = fsub double %2, %26
-  %28 = getelementptr inbounds double, ptr %24, i64 %9
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %9
   %29 = load double, ptr %28, align 8, !tbaa !47
   %30 = fsub double %29, %26
   %31 = fdiv double %27, %30
@@ -2734,9 +2734,9 @@ define double @LBasisD3(ptr noundef readonly captures(none) %0, i32 noundef %1, 
 
 ._crit_edge.us.us.us:                             ; preds = %33
   %35 = load ptr, ptr %8, align 8, !tbaa !58
-  %36 = getelementptr inbounds double, ptr %35, i64 %9
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %9
   %37 = load double, ptr %36, align 8, !tbaa !47
-  %38 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv92
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv92
   %39 = load double, ptr %38, align 8, !tbaa !47
   %40 = fsub double %37, %39
   %41 = fdiv double %.1.us.us.us, %40
@@ -2745,9 +2745,9 @@ define double @LBasisD3(ptr noundef readonly captures(none) %0, i32 noundef %1, 
 
 ._crit_edge81.split.us.us.us:                     ; preds = %34
   %43 = load ptr, ptr %8, align 8, !tbaa !58
-  %44 = getelementptr inbounds double, ptr %43, i64 %9
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %9
   %45 = load double, ptr %44, align 8, !tbaa !47
-  %46 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv97
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv97
   %47 = load double, ptr %46, align 8, !tbaa !47
   %48 = fsub double %45, %47
   %49 = fdiv double %.159.us.us.us, %48
@@ -2756,9 +2756,9 @@ define double @LBasisD3(ptr noundef readonly captures(none) %0, i32 noundef %1, 
 
 ._crit_edge.split.us.us:                          ; preds = %15
   %51 = load ptr, ptr %8, align 8, !tbaa !58
-  %52 = getelementptr inbounds double, ptr %51, i64 %9
+  %52 = getelementptr inbounds [8 x i8], ptr %51, i64 %9
   %53 = load double, ptr %52, align 8, !tbaa !47
-  %54 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv102
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv102
   %55 = load double, ptr %54, align 8, !tbaa !47
   %56 = fsub double %53, %55
   %57 = fdiv double %.161.us.us, %56

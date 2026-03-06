@@ -2853,7 +2853,7 @@ define internal fastcc range(i32 -37, 2) i32 @posix_lock_inode(ptr noundef %0, p
   %234 = ptrtoint ptr %232 to i64
   %235 = mul i64 %234, 7046029254386353131
   %236 = lshr i64 %235, 57
-  %237 = getelementptr %struct.hlist_head, ptr @blocked_hash, i64 %236
+  %237 = getelementptr [8 x i8], ptr @blocked_hash, i64 %236
   %238 = load ptr, ptr %237, align 8
   %239 = icmp eq ptr %238, null
   %240 = getelementptr i8, ptr %238, i64 -24
@@ -3007,7 +3007,7 @@ define internal fastcc range(i32 -37, 2) i32 @posix_lock_inode(ptr noundef %0, p
   %326 = getelementptr i8, ptr %277, i64 84
   %327 = load i32, ptr %326, align 4
   %328 = sext i32 %327 to i64
-  %329 = getelementptr i64, ptr @__per_cpu_offset, i64 %328
+  %329 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %328
   %330 = load i64, ptr %329, align 8
   %331 = add i64 %330, ptrtoint (ptr @file_lock_list to i64)
   %332 = inttoptr i64 %331 to ptr
@@ -3089,7 +3089,7 @@ define internal fastcc range(i32 -37, 2) i32 @posix_lock_inode(ptr noundef %0, p
   %371 = getelementptr i8, ptr %277, i64 84
   %372 = load i32, ptr %371, align 4
   %373 = sext i32 %372 to i64
-  %374 = getelementptr i64, ptr @__per_cpu_offset, i64 %373
+  %374 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %373
   %375 = load i64, ptr %374, align 8
   %376 = add i64 %375, ptrtoint (ptr @file_lock_list to i64)
   %377 = inttoptr i64 %376 to ptr
@@ -3300,7 +3300,7 @@ define internal fastcc range(i32 -37, 2) i32 @posix_lock_inode(ptr noundef %0, p
   %482 = getelementptr i8, ptr %277, i64 84
   %483 = load i32, ptr %482, align 4
   %484 = sext i32 %483 to i64
-  %485 = getelementptr i64, ptr @__per_cpu_offset, i64 %484
+  %485 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %484
   %486 = load i64, ptr %485, align 8
   %487 = add i64 %486, ptrtoint (ptr @file_lock_list to i64)
   %488 = inttoptr i64 %487 to ptr
@@ -3915,7 +3915,7 @@ define dso_local noundef range(i32 -22, 1) i32 @lease_modify(ptr noundef %0, i32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64
-  %38 = getelementptr i64, ptr @__per_cpu_offset, i64 %37
+  %38 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %37
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, ptrtoint (ptr @file_lock_list to i64)
   %41 = inttoptr i64 %40 to ptr
@@ -4261,7 +4261,7 @@ lease_alloc.exit.thread:                          ; preds = %3, %lease_alloc.exi
   %110 = getelementptr i8, ptr %82, i64 84
   %111 = load i32, ptr %110, align 4
   %112 = sext i32 %111 to i64
-  %113 = getelementptr i64, ptr @__per_cpu_offset, i64 %112
+  %113 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %112
   %114 = load i64, ptr %113, align 8
   %115 = add i64 %114, ptrtoint (ptr @file_lock_list to i64)
   %116 = inttoptr i64 %115 to ptr
@@ -6817,7 +6817,7 @@ define dso_local i32 @fcntl_setlk(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = and i64 %118, %115
-  %122 = getelementptr ptr, ptr %120, i64 %121
+  %122 = getelementptr [8 x i8], ptr %120, i64 %121
   %123 = load volatile ptr, ptr %122, align 8
   %124 = ptrtoint ptr %123 to i64
   %125 = and i64 %118, %124
@@ -7689,7 +7689,7 @@ define internal noundef i32 @filelock_init() #3 section ".init.text" align 16 {
 
 13:                                               ; preds = %9
   %14 = and i64 %10, 63
-  %15 = getelementptr i64, ptr @__per_cpu_offset, i64 %14
+  %15 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, ptrtoint (ptr @file_lock_list to i64)
   %18 = inttoptr i64 %17 to ptr
@@ -8181,7 +8181,7 @@ define internal fastcc void @__locks_insert_block(ptr noundef %0, ptr noundef %1
   %30 = ptrtoint ptr %29 to i64
   %31 = mul i64 %30, 7046029254386353131
   %32 = lshr i64 %31, 57
-  %33 = getelementptr %struct.hlist_head, ptr @blocked_hash, i64 %32
+  %33 = getelementptr [8 x i8], ptr @blocked_hash, i64 %32
   %34 = load ptr, ptr %33, align 8
   store volatile ptr %34, ptr %27, align 8
   %35 = icmp eq ptr %34, null
@@ -8325,7 +8325,7 @@ define internal fastcc void @locks_unlink_lock_ctx(ptr noundef %0) unnamed_addr 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr i64, ptr @__per_cpu_offset, i64 %9
+  %10 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, ptrtoint (ptr @file_lock_list to i64)
   %13 = inttoptr i64 %12 to ptr
@@ -8624,7 +8624,7 @@ define internal fastcc range(i32 -12, 2) i32 @flock_lock_inode(ptr noundef %0, p
   %83 = getelementptr i8, ptr %65, i64 84
   %84 = load i32, ptr %83, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr i64, ptr @__per_cpu_offset, i64 %85
+  %86 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %85
   %87 = load i64, ptr %86, align 8
   %88 = add i64 %87, ptrtoint (ptr @file_lock_list to i64)
   %89 = inttoptr i64 %88 to ptr

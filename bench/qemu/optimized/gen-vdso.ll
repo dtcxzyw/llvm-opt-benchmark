@@ -3,13 +3,6 @@ source_filename = "bench/qemu/original/gen-vdso.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Elf32_Shdr = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.Elf32_Phdr = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.Elf64_Shdr = type { i32, i32, i64, i64, i64, i64, i32, i32, i64, i64 }
-%struct.Elf64_Phdr = type { i32, i32, i64, i64, i64, i64, i64, i64 }
-%struct.Elf32_Sym = type { i32, i32, i32, i8, i8, i16 }
-%struct.Elf64_Sym = type { i32, i8, i8, i16, i64, i64 }
-
 @.str = private unnamed_addr constant [5 x i8] c"vdso\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"o:p:r:s:\00", align 1
 @optarg = external local_unnamed_addr global ptr, align 8
@@ -113,7 +106,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 22:                                               ; preds = %._crit_edge
   %23 = sext i32 %19 to i64
-  %24 = getelementptr inbounds ptr, ptr %1, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %1, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = tail call noalias ptr @fopen64(ptr noundef %25, ptr noundef nonnull @.str.3)
   %27 = icmp eq ptr %26, null
@@ -301,7 +294,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %137 ]
   %.0135178.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1136.i, %137 ]
   %.0149176.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1150.i, %137 ]
-  %130 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %125, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw [40 x i8], ptr %125, i64 %indvars.iv.i
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
   %132 = load i32, ptr %131, align 4, !tbaa !29
   switch i32 %132, label %137 [
@@ -328,7 +321,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %indvars.iv210.i = phi i64 [ 0, %.lr.ph183.i ], [ %indvars.iv.next211.i, %194 ]
   %.0144181.i = phi i32 [ 0, %.lr.ph183.i ], [ %.1145.i, %194 ]
   %.0147180.i = phi i32 [ 0, %.lr.ph183.i ], [ %.1148.i, %194 ]
-  %139 = getelementptr inbounds nuw %struct.Elf32_Phdr, ptr %119, i64 %indvars.iv210.i
+  %139 = getelementptr inbounds nuw [32 x i8], ptr %119, i64 %indvars.iv210.i
   %140 = load i32, ptr %139, align 4, !tbaa !33
   %.not161.i = icmp eq i32 %140, 1
   br i1 %.not161.i, label %141, label %194
@@ -451,7 +444,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.0131189.i = phi i32 [ %.2.i, %218 ], [ 0, %194 ]
   %.0132188.i = phi i32 [ %.2134.i, %218 ], [ 0, %194 ]
   %.8186.i = phi i32 [ %.9.i, %218 ], [ %.1145.i, %194 ]
-  %199 = getelementptr inbounds nuw %struct.Elf32_Phdr, ptr %119, i64 %indvars.iv215.i
+  %199 = getelementptr inbounds nuw [32 x i8], ptr %119, i64 %indvars.iv215.i
   %200 = load i32, ptr %199, align 4, !tbaa !33
   switch i32 %200, label %218 [
     i32 6, label %207
@@ -654,7 +647,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 271:                                              ; preds = %270
   %272 = zext nneg i32 %.0149.lcssa.i to i64
-  %273 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %125, i64 %272
+  %273 = getelementptr inbounds nuw [40 x i8], ptr %125, i64 %272
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 20
   %275 = load i32, ptr %274, align 4, !tbaa !45
   %276 = lshr i32 %275, 4
@@ -835,7 +828,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %indvars.iv.i93 = phi i64 [ 0, %.lr.ph.preheader.i90 ], [ %indvars.iv.next.i98, %382 ]
   %.0135178.i94 = phi i32 [ 0, %.lr.ph.preheader.i90 ], [ %.1136.i97, %382 ]
   %.0149176.i95 = phi i32 [ 0, %.lr.ph.preheader.i90 ], [ %.1150.i96, %382 ]
-  %375 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %370, i64 %indvars.iv.i93
+  %375 = getelementptr inbounds nuw [64 x i8], ptr %370, i64 %indvars.iv.i93
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 4
   %377 = load i32, ptr %376, align 4, !tbaa !63
   switch i32 %377, label %382 [
@@ -866,7 +859,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %indvars.iv210.i106 = phi i64 [ 0, %.lr.ph183.i104 ], [ %indvars.iv.next211.i112, %438 ]
   %.0144181.i107 = phi i32 [ 0, %.lr.ph183.i104 ], [ %.1145.i111, %438 ]
   %.0147180.i108 = phi i32 [ 0, %.lr.ph183.i104 ], [ %.1148.i110, %438 ]
-  %385 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %365, i64 %indvars.iv210.i106
+  %385 = getelementptr inbounds nuw [56 x i8], ptr %365, i64 %indvars.iv210.i106
   %386 = load i32, ptr %385, align 8, !tbaa !66
   %.not161.i109 = icmp eq i32 %386, 1
   br i1 %.not161.i109, label %387, label %438
@@ -987,7 +980,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.0131189.i118 = phi i32 [ 0, %.preheader174.i114 ], [ %.2.i126, %465 ]
   %.0132188.i119 = phi i32 [ 0, %.preheader174.i114 ], [ %.2134.i125, %465 ]
   %.8186.i120 = phi i32 [ %.1145.i111, %.preheader174.i114 ], [ %.9.i124, %465 ]
-  %444 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %365, i64 %indvars.iv215.i117
+  %444 = getelementptr inbounds nuw [56 x i8], ptr %365, i64 %indvars.iv215.i117
   %445 = load i32, ptr %444, align 8, !tbaa !66
   switch i32 %445, label %465 [
     i32 6, label %454
@@ -1189,7 +1182,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 515:                                              ; preds = %514
   %516 = zext nneg i32 %.0149.lcssa.i101 to i64
-  %517 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %370, i64 %516
+  %517 = getelementptr inbounds nuw [64 x i8], ptr %370, i64 %516
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 32
   %519 = load i64, ptr %518, align 8, !tbaa !78
   %520 = udiv i64 %519, 24
@@ -1404,7 +1397,7 @@ define internal fastcc void @elf32_bswap_ps_hdrs(ptr noundef nonnull captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = getelementptr inbounds nuw %struct.Elf32_Phdr, ptr %5, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !33
   %16 = tail call i32 @llvm.bswap.i32(i32 %15)
   store i32 %16, ptr %14, align 4, !tbaa !33
@@ -1442,7 +1435,7 @@ define internal fastcc void @elf32_bswap_ps_hdrs(ptr noundef nonnull captures(no
 
 .lr.ph15:                                         ; preds = %.lr.ph15.preheader, %.lr.ph15
   %indvars.iv18 = phi i64 [ 0, %.lr.ph15.preheader ], [ %indvars.iv.next19, %.lr.ph15 ]
-  %38 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %9, i64 %indvars.iv18
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %indvars.iv18
   %39 = load i32, ptr %38, align 4, !tbaa !86
   %40 = tail call i32 @llvm.bswap.i32(i32 %39)
   store i32 %40, ptr %38, align 4, !tbaa !86
@@ -1496,7 +1489,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #6
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @elf32_search_symtab(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 1, 65535) %1, ptr noundef nonnull readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #7 {
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i32, ptr %7, align 4, !tbaa !89
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1507,7 +1500,7 @@ define internal fastcc void @elf32_search_symtab(ptr noundef nonnull readonly ca
   %14 = load i32, ptr %13, align 4, !tbaa !45
   %15 = lshr i32 %14, 4
   %16 = zext i32 %8 to i64
-  %17 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 4, !tbaa !46
   %20 = zext i32 %19 to i64
@@ -1531,7 +1524,7 @@ define internal fastcc void @elf32_search_symtab(ptr noundef nonnull readonly ca
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %32
   %indvars.iv59 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next60, %32 ]
-  %24 = getelementptr inbounds nuw %struct.Elf32_Sym, ptr %12, i64 %indvars.iv59
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv59
   %.sroa.0.0.copyload.us = load i32, ptr %24, align 4
   %25 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.us)
   %.sroa.0.0.us = select i1 %3, i32 %25, i32 %.sroa.0.0.copyload.us
@@ -1563,7 +1556,7 @@ define internal fastcc void @elf32_search_symtab(ptr noundef nonnull readonly ca
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %41
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %41 ], [ 0, %.lr.ph.split.split.us ]
-  %33 = getelementptr inbounds nuw %struct.Elf32_Sym, ptr %12, i64 %indvars.iv54
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv54
   %.sroa.0.0.copyload.us27.us = load i32, ptr %33, align 4
   %34 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.us27.us)
   %35 = zext i32 %34 to i64
@@ -1586,7 +1579,7 @@ define internal fastcc void @elf32_search_symtab(ptr noundef nonnull readonly ca
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %48
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %48 ], [ 0, %.lr.ph.split.split.us ]
-  %42 = getelementptr inbounds nuw %struct.Elf32_Sym, ptr %12, i64 %indvars.iv49
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv49
   %.sroa.0.0.copyload.us27 = load i32, ptr %42, align 4
   %43 = zext i32 %.sroa.0.0.copyload.us27 to i64
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 %43
@@ -1610,7 +1603,7 @@ define internal fastcc void @elf32_search_symtab(ptr noundef nonnull readonly ca
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %61
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %61 ], [ 0, %.lr.ph.split.split ]
-  %49 = getelementptr inbounds nuw %struct.Elf32_Sym, ptr %12, i64 %indvars.iv44
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv44
   %.sroa.0.0.copyload.us33 = load i32, ptr %49, align 4
   %.sroa.6.0..sroa_idx.us34 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %.sroa.6.0.copyload.us35 = load i32, ptr %.sroa.6.0..sroa_idx.us34, align 4
@@ -1645,7 +1638,7 @@ define internal fastcc void @elf32_search_symtab(ptr noundef nonnull readonly ca
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %72
   %indvars.iv = phi i64 [ %indvars.iv.next, %72 ], [ 0, %.lr.ph.split.split ]
-  %62 = getelementptr inbounds nuw %struct.Elf32_Sym, ptr %12, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %62, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 4
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
@@ -1712,7 +1705,7 @@ define internal fastcc void @elf64_bswap_ps_hdrs(ptr noundef nonnull captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %4, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %4, i64 %indvars.iv
   %13 = load i32, ptr %12, align 8, !tbaa !66
   %14 = tail call i32 @llvm.bswap.i32(i32 %13)
   store i32 %14, ptr %12, align 8, !tbaa !66
@@ -1750,7 +1743,7 @@ define internal fastcc void @elf64_bswap_ps_hdrs(ptr noundef nonnull captures(no
 
 .lr.ph15:                                         ; preds = %.lr.ph15.preheader, %.lr.ph15
   %indvars.iv18 = phi i64 [ 0, %.lr.ph15.preheader ], [ %indvars.iv.next19, %.lr.ph15 ]
-  %36 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %7, i64 %indvars.iv18
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %indvars.iv18
   %37 = load i32, ptr %36, align 8, !tbaa !98
   %38 = tail call i32 @llvm.bswap.i32(i32 %37)
   store i32 %38, ptr %36, align 8, !tbaa !98
@@ -1801,7 +1794,7 @@ define internal fastcc void @elf64_bswap_ps_hdrs(ptr noundef nonnull captures(no
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @elf64_search_symtab(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 1, 65535) %1, ptr noundef nonnull readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #7 {
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i32, ptr %7, align 8, !tbaa !101
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1811,7 +1804,7 @@ define internal fastcc void @elf64_search_symtab(ptr noundef nonnull readonly ca
   %13 = load i64, ptr %12, align 8, !tbaa !78
   %14 = udiv i64 %13, 24
   %15 = zext i32 %8 to i64
-  %16 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i64, ptr %17, align 8, !tbaa !79
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 %18
@@ -1835,7 +1828,7 @@ define internal fastcc void @elf64_search_symtab(ptr noundef nonnull readonly ca
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %32
   %indvars.iv59 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next60, %32 ]
-  %23 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %11, i64 %indvars.iv59
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv59
   %.sroa.0.0.copyload.us = load i32, ptr %23, align 8
   %24 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.us)
   %.sroa.0.0.us = select i1 %3, i32 %24, i32 %.sroa.0.0.copyload.us
@@ -1868,7 +1861,7 @@ define internal fastcc void @elf64_search_symtab(ptr noundef nonnull readonly ca
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %42
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %42 ], [ 0, %.lr.ph.split.split.us ]
-  %33 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %11, i64 %indvars.iv54
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv54
   %.sroa.0.0.copyload.us27.us = load i32, ptr %33, align 8
   %34 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.us27.us)
   %35 = zext i32 %34 to i64
@@ -1892,7 +1885,7 @@ define internal fastcc void @elf64_search_symtab(ptr noundef nonnull readonly ca
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %50
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %50 ], [ 0, %.lr.ph.split.split.us ]
-  %43 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %11, i64 %indvars.iv49
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv49
   %.sroa.0.0.copyload.us27 = load i32, ptr %43, align 8
   %44 = zext i32 %.sroa.0.0.copyload.us27 to i64
   %45 = getelementptr inbounds nuw i8, ptr %19, i64 %44
@@ -1917,7 +1910,7 @@ define internal fastcc void @elf64_search_symtab(ptr noundef nonnull readonly ca
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %65
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %65 ], [ 0, %.lr.ph.split.split ]
-  %51 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %11, i64 %indvars.iv44
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv44
   %.sroa.0.0.copyload.us33 = load i32, ptr %51, align 8
   %.sroa.8.0..sroa_idx.us34 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.8.0.copyload.us35 = load i64, ptr %.sroa.8.0..sroa_idx.us34, align 8
@@ -1954,7 +1947,7 @@ define internal fastcc void @elf64_search_symtab(ptr noundef nonnull readonly ca
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %78
   %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %.lr.ph.split.split ]
-  %66 = getelementptr inbounds nuw %struct.Elf64_Sym, ptr %11, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %66, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8

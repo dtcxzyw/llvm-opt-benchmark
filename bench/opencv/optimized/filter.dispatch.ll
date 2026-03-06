@@ -132,7 +132,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.cv::Mat_" = type { %"class.cv::Mat" }
-%"class.cv::Point_" = type { i32, i32 }
 %"struct.cv::Ptr.221" = type { %"class.std::shared_ptr.222" }
 %"class.std::shared_ptr.222" = type { %"class.std::__shared_ptr.223" }
 %"class.std::__shared_ptr.223" = type { ptr, %"class.std::__shared_count" }
@@ -142,6 +141,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
+%"class.cv::Point_" = type { i32, i32 }
 
 $_ZNSt6vectorIhSaIhEE6resizeEm = comdat any
 
@@ -2572,7 +2572,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %37, %
   br i1 %104, label %105, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit
 
 105:                                              ; preds = %103
-  %106 = getelementptr inbounds nuw ptr, ptr %94, i64 %97
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %97
   %.not.i.i = icmp eq ptr %95, %106
   br i1 %.not.i.i, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit, label %107
 
@@ -2967,12 +2967,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232: ; preds = %25
   %315 = add nsw i32 %314, %303
   %316 = mul nsw i32 %315, %.fr309
   %317 = mul nuw nsw i64 %indvars.iv319, %309
-  %invariant.gep371 = getelementptr inbounds nuw i32, ptr %307, i64 %317
+  %invariant.gep371 = getelementptr inbounds nuw [4 x i8], ptr %307, i64 %317
   br label %318
 
 318:                                              ; preds = %.lr.ph291.us, %318
   %indvars.iv314 = phi i64 [ 0, %.lr.ph291.us ], [ %indvars.iv.next315, %318 ]
-  %gep372 = getelementptr inbounds nuw i32, ptr %invariant.gep371, i64 %indvars.iv314
+  %gep372 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep371, i64 %indvars.iv314
   %319 = trunc i64 %indvars.iv314 to i32
   %320 = add i32 %316, %319
   store i32 %320, ptr %gep372, align 4, !tbaa !12
@@ -3021,7 +3021,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232: ; preds = %25
   %337 = mul nsw i32 %336, %.fr309
   %338 = add nsw i32 %337, %.2179296.us
   %339 = sext i32 %338 to i64
-  %340 = getelementptr inbounds i32, ptr %307, i64 %339
+  %340 = getelementptr inbounds [4 x i8], ptr %307, i64 %339
   store i32 %334, ptr %340, align 4, !tbaa !12
   %341 = add nuw nsw i32 %.2179296.us, 1
   %exitcond322.not = icmp eq i32 %341, %.fr309
@@ -3428,10 +3428,10 @@ define hidden noundef i32 @_ZN2cv12cpu_baseline21FilterEngine__proceedERNS_12Fil
   %120 = sext i32 %108 to i64
   %wide.trip.count = zext nneg i32 %91 to i64
   %wide.trip.count319 = zext nneg i32 %101 to i64
-  %invariant.gep = getelementptr i32, ptr %15, i64 %92
+  %invariant.gep = getelementptr [4 x i8], ptr %15, i64 %92
   %wide.trip.count324 = zext nneg i32 %104 to i64
   %wide.trip.count329 = zext nneg i32 %106 to i64
-  %invariant.gep355 = getelementptr i32, ptr %15, i64 %119
+  %invariant.gep355 = getelementptr [4 x i8], ptr %15, i64 %119
   br label %131
 
 121:                                              ; preds = %68
@@ -3539,17 +3539,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %126, 
   br i1 %107, label %.lr.ph299.preheader, label %.loopexit
 
 .lr.ph299.preheader:                              ; preds = %.preheader
-  %invariant.gep357 = getelementptr i32, ptr %160, i64 %120
+  %invariant.gep357 = getelementptr [4 x i8], ptr %160, i64 %120
   br label %.lr.ph299
 
 .lr.ph297:                                        ; preds = %.preheader273, %.lr.ph297
   %indvars.iv321 = phi i64 [ %indvars.iv.next322, %.lr.ph297 ], [ 0, %.preheader273 ]
-  %167 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv321
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv321
   %168 = load i32, ptr %167, align 4, !tbaa !12
   %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds i32, ptr %.1300, i64 %169
+  %170 = getelementptr inbounds [4 x i8], ptr %.1300, i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !12
-  %172 = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv321
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %indvars.iv321
   store i32 %171, ptr %172, align 4, !tbaa !12
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
   %exitcond325.not = icmp eq i64 %indvars.iv.next322, %wide.trip.count324
@@ -3557,12 +3557,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %126, 
 
 .lr.ph299:                                        ; preds = %.lr.ph299.preheader, %.lr.ph299
   %indvars.iv326 = phi i64 [ 0, %.lr.ph299.preheader ], [ %indvars.iv.next327, %.lr.ph299 ]
-  %gep356 = getelementptr i32, ptr %invariant.gep355, i64 %indvars.iv326
+  %gep356 = getelementptr [4 x i8], ptr %invariant.gep355, i64 %indvars.iv326
   %173 = load i32, ptr %gep356, align 4, !tbaa !12
   %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds i32, ptr %.1300, i64 %174
+  %175 = getelementptr inbounds [4 x i8], ptr %.1300, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !12
-  %gep358 = getelementptr i32, ptr %invariant.gep357, i64 %indvars.iv326
+  %gep358 = getelementptr [4 x i8], ptr %invariant.gep357, i64 %indvars.iv326
   store i32 %176, ptr %gep358, align 4, !tbaa !12
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %exitcond330.not = icmp eq i64 %indvars.iv.next327, %wide.trip.count329
@@ -3577,7 +3577,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %126, 
 
 .lr.ph:                                           ; preds = %.preheader276, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader276 ]
-  %177 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %178 = load i32, ptr %177, align 4, !tbaa !12
   %179 = sext i32 %178 to i64
   %180 = getelementptr inbounds i8, ptr %.1300, i64 %179
@@ -3590,7 +3590,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %126, 
 
 .lr.ph295:                                        ; preds = %.lr.ph295.preheader, %.lr.ph295
   %indvars.iv316 = phi i64 [ 0, %.lr.ph295.preheader ], [ %indvars.iv.next317, %.lr.ph295 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv316
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv316
   %183 = load i32, ptr %gep, align 4, !tbaa !12
   %184 = sext i32 %183 to i64
   %185 = getelementptr inbounds i8, ptr %.1300, i64 %184
@@ -3736,7 +3736,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit224: ; preds = %23
 
 257:                                              ; preds = %244, %221
   %.sink = phi ptr [ %256, %244 ], [ %226, %221 ]
-  %258 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv331
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv331
   store ptr %.sink, ptr %258, align 8, !tbaa !52
   %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331, 1
   %exitcond334.not = icmp eq i64 %indvars.iv.next332, %208
@@ -7691,7 +7691,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %225
   br i1 %251, label %252, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 252:                                              ; preds = %250
-  %253 = getelementptr inbounds nuw i32, ptr %242, i64 %239
+  %253 = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %239
   %.not.i.i = icmp eq ptr %241, %253
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %254
 
@@ -8729,17 +8729,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %22, %
 .lr.ph.preheader:                                 ; preds = %51
   %53 = zext nneg i32 %32 to i64
   %wide.trip.count = zext nneg i32 %32 to i64
-  %54 = getelementptr double, ptr %37, i64 %53
+  %54 = getelementptr [8 x i8], ptr %37, i64 %53
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.13549 = phi i32 [ %.034, %.lr.ph.preheader ], [ %.5, %.lr.ph ]
   %.03848 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %72, %.lr.ph ]
-  %55 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %56 = load double, ptr %55, align 8, !tbaa !187
   %57 = xor i64 %indvars.iv, -1
-  %58 = getelementptr double, ptr %54, i64 %57
+  %58 = getelementptr [8 x i8], ptr %54, i64 %57
   %59 = load double, ptr %58, align 8, !tbaa !187
   %60 = fcmp une double %56, %59
   %61 = and i32 %.13549, -2
@@ -10017,7 +10017,7 @@ define internal fastcc noundef zeroext i1 @_ZN2cvL24createBitExactKernel_32SERKN
   %57 = mul i64 %55, %56
   %58 = getelementptr inbounds nuw i8, ptr %31, i64 %57
   %59 = sext i32 %.recomposed to i64
-  %60 = getelementptr inbounds i32, ptr %58, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %58, i64 %59
   br label %_ZN2cv3Mat2atIiEERT_i.exit.us
 
 61:                                               ; preds = %48
@@ -10027,7 +10027,7 @@ define internal fastcc noundef zeroext i1 @_ZN2cvL24createBitExactKernel_32SERKN
   br label %_ZN2cv3Mat2atIiEERT_i.exit.us
 
 65:                                               ; preds = %47
-  %66 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv98
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv98
   br label %_ZN2cv3Mat2atIiEERT_i.exit.us
 
 _ZN2cv3Mat2atIiEERT_i.exit.us:                    ; preds = %65, %61, %51
@@ -10055,7 +10055,7 @@ _ZN2cv3Mat2atIiEERT_i.exit.us:                    ; preds = %65, %61, %51
   %80 = mul i64 %78, %79
   %81 = getelementptr inbounds nuw i8, ptr %42, i64 %80
   %82 = sext i32 %.recomposed130 to i64
-  %83 = getelementptr inbounds double, ptr %81, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %81, i64 %82
   br label %_ZN2cv3Mat2atIdEERT_i.exit.us
 
 84:                                               ; preds = %71
@@ -10065,7 +10065,7 @@ _ZN2cv3Mat2atIiEERT_i.exit.us:                    ; preds = %65, %61, %51
   br label %_ZN2cv3Mat2atIdEERT_i.exit.us
 
 88:                                               ; preds = %68, %_ZN2cv3Mat2atIiEERT_i.exit.us
-  %89 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv98
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv98
   br label %_ZN2cv3Mat2atIdEERT_i.exit.us
 
 _ZN2cv3Mat2atIdEERT_i.exit.us:                    ; preds = %88, %84, %74
@@ -10102,9 +10102,9 @@ _ZN2cv3Mat2atIdEERT_i.exit.us:                    ; preds = %88, %84, %74
   br label %.lr.ph72
 
 _ZN2cv3Mat2atIiEERT_i.exit.us46.us:               ; preds = %.lr.ph72
-  %103 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv93
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv93
   %104 = load i32, ptr %103, align 4, !tbaa !12
-  %105 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv93
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv93
   %106 = load double, ptr %105, align 8, !tbaa !187
   %107 = sitofp i32 %104 to double
   %108 = fsub double %106, %107
@@ -10138,7 +10138,7 @@ _ZN2cv3Mat2atIiEERT_i.exit.us46.us:               ; preds = %.lr.ph72
   br label %.lr.ph70
 
 _ZN2cv3Mat2atIiEERT_i.exit.us46.us60:             ; preds = %.lr.ph70
-  %120 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv88
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv88
   %121 = load i32, ptr %120, align 4, !tbaa !12
   %122 = mul i64 %113, %indvars.iv88
   %123 = getelementptr inbounds nuw i8, ptr %42, i64 %122
@@ -10161,7 +10161,7 @@ _ZN2cv3Mat2atIiEERT_i.exit.us46.us60:             ; preds = %.lr.ph70
 
 _ZN2cv3Mat2atIiEERT_i.exit.us46:                  ; preds = %_ZN2cv3Mat2atIiEERT_i.exit.us46, %.lr.ph.split.split.us.split.split
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %_ZN2cv3Mat2atIiEERT_i.exit.us46 ], [ 0, %.lr.ph.split.split.us.split.split ]
-  %129 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv83
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv83
   %130 = load i32, ptr %129, align 4, !tbaa !12
   %131 = trunc nuw nsw i64 %indvars.iv83 to i32
   %132 = sdiv i32 %131, %40
@@ -10171,7 +10171,7 @@ _ZN2cv3Mat2atIiEERT_i.exit.us46:                  ; preds = %_ZN2cv3Mat2atIiEERT
   %135 = mul i64 %113, %134
   %136 = getelementptr inbounds nuw i8, ptr %42, i64 %135
   %137 = sext i32 %.recomposed131 to i64
-  %138 = getelementptr inbounds double, ptr %136, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %136, i64 %137
   %139 = load double, ptr %138, align 8, !tbaa !187
   %140 = sitofp i32 %130 to double
   %141 = fsub double %139, %140
@@ -10212,9 +10212,9 @@ _ZN2cv3Mat2atIiEERT_i.exit.us46:                  ; preds = %_ZN2cv3Mat2atIiEERT
   br label %162
 
 _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %.lr.ph56
-  %154 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %155 = load i32, ptr %154, align 4, !tbaa !12
-  %156 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %157 = load double, ptr %156, align 8, !tbaa !187
   %158 = sitofp i32 %155 to double
   %159 = fsub double %157, %158
@@ -10367,7 +10367,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
 56:                                               ; preds = %.lr.ph.split.us
   %57 = sext i32 %.187.us to i64
   %58 = load ptr, ptr %1, align 8, !tbaa !448
-  %59 = getelementptr inbounds nuw %"class.cv::Point_", ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %57
   %.sroa.085.0.insert.insert.us = or disjoint i64 %.sroa.482.0.insert.shift, %indvars.iv114
   store i64 %.sroa.085.0.insert.insert.us, ptr %59, align 4
   %60 = add nsw i32 %.187.us, 1
@@ -10391,7 +10391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
   %69 = phi i32 [ %82, %79 ], [ %42, %.lr.ph ]
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %79 ], [ 0, %.lr.ph ]
   %.187.us91 = phi i32 [ %.3.us92, %79 ], [ %.071101, %.lr.ph ]
-  %70 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv111
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv111
   %71 = load i32, ptr %70, align 4, !tbaa !12
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %79, label %73
@@ -10399,11 +10399,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
 73:                                               ; preds = %.lr.ph.split.us89
   %74 = sext i32 %.187.us91 to i64
   %75 = load ptr, ptr %1, align 8, !tbaa !448
-  %76 = getelementptr inbounds nuw %"class.cv::Point_", ptr %75, i64 %74
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %74
   %.sroa.083.0.insert.insert.us = or disjoint i64 %.sroa.482.0.insert.shift, %indvars.iv111
   store i64 %.sroa.083.0.insert.insert.us, ptr %76, align 4
   %77 = add nsw i32 %.187.us91, 1
-  %78 = getelementptr inbounds i32, ptr %31, i64 %74
+  %78 = getelementptr inbounds [4 x i8], ptr %31, i64 %74
   store i32 %71, ptr %78, align 4, !tbaa !12
   %.pre123 = load i32, ptr %37, align 4, !tbaa !116
   br label %79
@@ -10425,7 +10425,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
   %88 = phi i32 [ %102, %98 ], [ %43, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %98 ], [ 0, %.lr.ph ]
   %.187.us97 = phi i32 [ %.3.us98, %98 ], [ %.071101, %.lr.ph ]
-  %89 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   %90 = load float, ptr %89, align 4, !tbaa !452
   %91 = fcmp oeq float %90, 0.000000e+00
   br i1 %91, label %98, label %92
@@ -10433,11 +10433,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
 92:                                               ; preds = %.lr.ph.split.us95
   %93 = sext i32 %.187.us97 to i64
   %94 = load ptr, ptr %1, align 8, !tbaa !448
-  %95 = getelementptr inbounds nuw %"class.cv::Point_", ptr %94, i64 %93
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %93
   %.sroa.081.0.insert.insert.us = or disjoint i64 %.sroa.482.0.insert.shift, %indvars.iv
   store i64 %.sroa.081.0.insert.insert.us, ptr %95, align 4
   %96 = add nsw i32 %.187.us97, 1
-  %97 = getelementptr inbounds float, ptr %31, i64 %93
+  %97 = getelementptr inbounds [4 x i8], ptr %31, i64 %93
   store float %90, ptr %97, align 4, !tbaa !452
   %.pre = load i32, ptr %37, align 4, !tbaa !116
   br label %98
@@ -10457,7 +10457,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
   %105 = phi i32 [ %116, %115 ], [ %40, %.lr.ph ]
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %115 ], [ 0, %.lr.ph ]
   %.187 = phi i32 [ %.3, %115 ], [ %.071101, %.lr.ph ]
-  %106 = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv117
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv117
   %107 = load double, ptr %106, align 8, !tbaa !187
   %108 = fcmp oeq double %107, 0.000000e+00
   br i1 %108, label %115, label %109
@@ -10465,11 +10465,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
 109:                                              ; preds = %.lr.ph.split
   %110 = sext i32 %.187 to i64
   %111 = load ptr, ptr %1, align 8, !tbaa !448
-  %112 = getelementptr inbounds nuw %"class.cv::Point_", ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %110
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.482.0.insert.shift, %indvars.iv117
   store i64 %.sroa.0.0.insert.insert, ptr %112, align 4
   %113 = add nsw i32 %.187, 1
-  %114 = getelementptr inbounds double, ptr %31, i64 %110
+  %114 = getelementptr inbounds [8 x i8], ptr %31, i64 %110
   store double %107, ptr %114, align 8, !tbaa !187
   %.pre125 = load i32, ptr %37, align 4, !tbaa !116
   br label %115
@@ -10577,9 +10577,9 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds
 
 _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; preds = %34, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %28, ptr %0, align 8, !tbaa !448
-  %35 = getelementptr inbounds nuw %"class.cv::Point_", ptr %29, i64 %12
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %12
   store ptr %35, ptr %3, align 8, !tbaa !456
-  %36 = getelementptr inbounds nuw %"class.cv::Point_", ptr %28, i64 %26
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   store ptr %36, ptr %13, align 8, !tbaa !457
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_default_appendEm.exit
 
@@ -10588,7 +10588,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; pre
   br i1 %38, label %39, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw %"class.cv::Point_", ptr %5, i64 %1
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %40
   br i1 %.not.i4, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_default_appendEm.exit, label %41
 
@@ -12883,9 +12883,9 @@ _ZNSt6vectorIPhSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt27__uni
 
 _ZNSt12_Vector_baseIPhSaIS0_EE13_M_deallocateEPS0_m.exit36: ; preds = %_ZNSt6vectorIPhSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !57
-  %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !56
-  %39 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !497
   br label %40
 
@@ -13158,7 +13158,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %9 to i64
-  %14 = getelementptr inbounds i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %16 = load i32, ptr %15, align 4, !tbaa !500
   %17 = and i32 %16, 1
@@ -13198,9 +13198,9 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !63
   %33 = zext i8 %32 to i32
-  %34 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv448
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv448
   store i32 %29, ptr %34, align 4, !tbaa !12
-  %35 = getelementptr inbounds nuw i32, ptr %2, i64 %30
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %30
   store i32 %33, ptr %35, align 4, !tbaa !12
   %indvars.iv.next449 = add nuw nsw i64 %indvars.iv448, 2
   %.not310 = icmp samesign ugt i64 %indvars.iv.next449, %26
@@ -13269,7 +13269,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %71 = load i8, ptr %70, align 1, !tbaa !63
   %72 = zext i8 %71 to i32
   %73 = add nuw nsw i32 %69, %72
-  %74 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv442
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv442
   store i32 %61, ptr %74, align 4, !tbaa !12
   %75 = getelementptr i8, ptr %74, i64 4
   store i32 %73, ptr %75, align 4, !tbaa !12
@@ -13322,7 +13322,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %107 = load i8, ptr %106, align 1, !tbaa !63
   %108 = zext i8 %107 to i32
   %109 = add nsw i32 %105, %108
-  %110 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv439
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv439
   store i32 %97, ptr %110, align 4, !tbaa !12
   %111 = getelementptr i8, ptr %110, i64 4
   store i32 %109, ptr %111, align 4, !tbaa !12
@@ -13373,7 +13373,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %143 = add nuw nsw i32 %142, %139
   %144 = mul nsw i32 %143, %.pre
   %145 = add nsw i32 %144, %136
-  %146 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv445
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv445
   store i32 %132, ptr %146, align 4, !tbaa !12
   %147 = getelementptr i8, ptr %146, i64 4
   store i32 %145, ptr %147, align 4, !tbaa !12
@@ -13455,7 +13455,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %199 = load i8, ptr %198, align 1, !tbaa !63
   %200 = zext i8 %199 to i32
   %201 = add nsw i32 %197, %200
-  %202 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv436
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv436
   store i32 %189, ptr %202, align 4, !tbaa !12
   %203 = getelementptr i8, ptr %202, i64 4
   store i32 %201, ptr %203, align 4, !tbaa !12
@@ -13510,7 +13510,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %246 = add nuw nsw i32 %245, %242
   %247 = mul nsw i32 %246, %154
   %248 = add nsw i32 %239, %247
-  %249 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %249 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %226, ptr %249, align 4, !tbaa !12
   %250 = getelementptr i8, ptr %249, i64 4
   store i32 %248, ptr %250, align 4, !tbaa !12
@@ -13569,7 +13569,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %263 = load i8, ptr %.7292370.us, align 1, !tbaa !63
   %264 = zext i8 %263 to i32
   %265 = mul nsw i32 %262, %264
-  %266 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv463
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv463
   store i32 %265, ptr %266, align 4, !tbaa !12
   %indvars.iv.next464 = add nuw nsw i64 %indvars.iv463, 1
   %267 = getelementptr inbounds nuw i8, ptr %.7292370.us, i64 1
@@ -13589,7 +13589,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %indvars.iv453 = phi i64 [ 1, %.lr.ph367 ], [ %indvars.iv.next454, %272 ]
   %indvars.iv451 = phi i64 [ %258, %.lr.ph367 ], [ %indvars.iv.next452, %272 ]
   %.0298363 = phi i32 [ %271, %.lr.ph367 ], [ %284, %272 ]
-  %273 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv453
+  %273 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv453
   %274 = load i32, ptr %273, align 4, !tbaa !12
   %275 = getelementptr inbounds i8, ptr %.7292370, i64 %indvars.iv451
   %276 = load i8, ptr %275, align 1, !tbaa !63
@@ -13607,7 +13607,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   br i1 %exitcond.not, label %._crit_edge368, label %272, !llvm.loop !513
 
 ._crit_edge368:                                   ; preds = %272
-  %285 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv458
+  %285 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv458
   store i32 %284, ptr %285, align 4, !tbaa !12
   %indvars.iv.next459 = add nuw nsw i64 %indvars.iv458, 1
   %286 = getelementptr inbounds nuw i8, ptr %.7292370, i64 1
@@ -13660,7 +13660,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %313 = load i8, ptr %312, align 1, !tbaa !63
   %314 = zext i8 %313 to i32
   %315 = sub nsw i32 %311, %314
-  %316 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv474
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv474
   store i32 %308, ptr %316, align 4, !tbaa !12
   %317 = getelementptr i8, ptr %316, i64 4
   store i32 %315, ptr %317, align 4, !tbaa !12
@@ -13701,7 +13701,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %340 = zext i8 %339 to i32
   %341 = sub nsw i32 %337, %340
   %342 = mul nsw i32 %341, %292
-  %343 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv471
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv471
   store i32 %334, ptr %343, align 4, !tbaa !12
   %344 = getelementptr i8, ptr %343, i64 4
   store i32 %342, ptr %344, align 4, !tbaa !12
@@ -13771,7 +13771,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %396 = sub nsw i32 %392, %395
   %397 = mul nsw i32 %396, %350
   %398 = add nsw i32 %397, %389
-  %399 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv468
+  %399 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv468
   store i32 %381, ptr %399, align 4, !tbaa !12
   %400 = getelementptr i8, ptr %399, i64 4
   store i32 %398, ptr %400, align 4, !tbaa !12
@@ -13820,7 +13820,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
   %indvars.iv479 = phi i64 [ %indvars.iv.next480, %.lr.ph398 ], [ 1, %409 ]
   %indvars.iv477 = phi i64 [ %indvars.iv.next478, %.lr.ph398 ], [ %406, %409 ]
   %.0396 = phi i32 [ %425, %.lr.ph398 ], [ %413, %409 ]
-  %414 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv479
+  %414 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv479
   %415 = load i32, ptr %414, align 4, !tbaa !12
   %416 = getelementptr inbounds i8, ptr %.12297401, i64 %indvars.iv477
   %417 = load i8, ptr %416, align 1, !tbaa !63
@@ -13839,7 +13839,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIhiNS0_
 
 ._crit_edge399:                                   ; preds = %.lr.ph398, %409
   %.0.lcssa = phi i32 [ %413, %409 ], [ %425, %.lr.ph398 ]
-  %426 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv486
+  %426 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv486
   store i32 %.0.lcssa, ptr %426, align 4, !tbaa !12
   %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
   %427 = getelementptr inbounds nuw i8, ptr %.12297401, i64 1
@@ -13914,7 +13914,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowS
   %.031.us = phi i32 [ %19, %.lr.ph.us ], [ %27, %20 ]
   %.02829.us = phi ptr [ %15, %.lr.ph.us ], [ %21, %20 ]
   %21 = getelementptr inbounds i8, ptr %.02829.us, i64 %14
-  %22 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv38
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv38
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %24 = load i8, ptr %21, align 1, !tbaa !63
   %25 = zext i8 %24 to i32
@@ -13925,7 +13925,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowS
   br i1 %exitcond42.not, label %._crit_edge.us, label %20, !llvm.loop !519
 
 ._crit_edge.us:                                   ; preds = %20
-  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv43
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv43
   store i32 %27, ptr %28, align 4, !tbaa !12
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -13938,7 +13938,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_17SymmRowS
   %31 = load i8, ptr %29, align 1, !tbaa !63
   %32 = zext i8 %31 to i32
   %33 = mul nsw i32 %30, %32
-  %34 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %33, ptr %34, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
@@ -14221,13 +14221,13 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %9 to i64
-  %14 = getelementptr inbounds float, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %16 = load i32, ptr %15, align 4, !tbaa !521
   %17 = and i32 %16, 1
   %.not = icmp eq i32 %17, 0
   %18 = sext i32 %10 to i64
-  %19 = getelementptr inbounds float, ptr %1, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %1, i64 %18
   %20 = mul i32 %4, %3
   br i1 %.not, label %242, label %21
 
@@ -14254,14 +14254,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 
 .lr.ph355:                                        ; preds = %.lr.ph355.preheader, %.lr.ph355
   %indvars.iv439 = phi i64 [ 0, %.lr.ph355.preheader ], [ %indvars.iv.next440, %.lr.ph355 ]
-  %27 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv439
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv439
   %28 = load float, ptr %27, align 4, !tbaa !452
   %29 = or disjoint i64 %indvars.iv439, 1
-  %30 = getelementptr inbounds nuw float, ptr %19, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %29
   %31 = load float, ptr %30, align 4, !tbaa !452
-  %32 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv439
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv439
   store float %28, ptr %32, align 4, !tbaa !452
-  %33 = getelementptr inbounds nuw float, ptr %2, i64 %29
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %29
   store float %31, ptr %33, align 4, !tbaa !452
   %indvars.iv.next440 = add nuw nsw i64 %indvars.iv439, 2
   %.not310 = icmp samesign ugt i64 %indvars.iv.next440, %26
@@ -14274,7 +14274,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader316
   %.0280.lcssa = phi i32 [ 0, %.preheader316 ], [ %34, %._crit_edge.loopexit ]
   %35 = zext nneg i32 %.0280.lcssa to i64
-  %36 = getelementptr inbounds nuw float, ptr %19, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %35
   br label %.thread
 
 37:                                               ; preds = %21
@@ -14305,14 +14305,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 51:                                               ; preds = %.lr.ph350, %51
   %indvars.iv436 = phi i64 [ 0, %.lr.ph350 ], [ %indvars.iv.next437, %51 ]
   %.1286348 = phi ptr [ %19, %.lr.ph350 ], [ %69, %51 ]
-  %52 = getelementptr inbounds float, ptr %.1286348, i64 %46
+  %52 = getelementptr inbounds [4 x i8], ptr %.1286348, i64 %46
   %53 = load float, ptr %52, align 4, !tbaa !452
   %54 = load float, ptr %.1286348, align 4, !tbaa !452
   %55 = call float @llvm.fmuladd.f32(float %54, float 2.000000e+00, float %53)
-  %56 = getelementptr inbounds float, ptr %.1286348, i64 %47
+  %56 = getelementptr inbounds [4 x i8], ptr %.1286348, i64 %47
   %57 = load float, ptr %56, align 4, !tbaa !452
   %58 = fadd float %55, %57
-  %59 = getelementptr inbounds float, ptr %.1286348, i64 %49
+  %59 = getelementptr inbounds [4 x i8], ptr %.1286348, i64 %49
   %60 = load float, ptr %59, align 4, !tbaa !452
   %61 = getelementptr inbounds nuw i8, ptr %.1286348, i64 4
   %62 = load float, ptr %61, align 4, !tbaa !452
@@ -14320,7 +14320,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   %64 = getelementptr i8, ptr %56, i64 4
   %65 = load float, ptr %64, align 4, !tbaa !452
   %66 = fadd float %63, %65
-  %67 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv436
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv436
   store float %58, ptr %67, align 4, !tbaa !452
   %68 = getelementptr i8, ptr %67, i64 4
   store float %66, ptr %68, align 4, !tbaa !452
@@ -14354,15 +14354,15 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 82:                                               ; preds = %.lr.ph344, %82
   %indvars.iv433 = phi i64 [ 0, %.lr.ph344 ], [ %indvars.iv.next434, %82 ]
   %.2287342 = phi ptr [ %19, %.lr.ph344 ], [ %102, %82 ]
-  %83 = getelementptr inbounds float, ptr %.2287342, i64 %77
+  %83 = getelementptr inbounds [4 x i8], ptr %.2287342, i64 %77
   %84 = load float, ptr %83, align 4, !tbaa !452
   %85 = load float, ptr %.2287342, align 4, !tbaa !452
   %86 = fneg float %85
   %87 = call float @llvm.fmuladd.f32(float %86, float 2.000000e+00, float %84)
-  %88 = getelementptr inbounds float, ptr %.2287342, i64 %78
+  %88 = getelementptr inbounds [4 x i8], ptr %.2287342, i64 %78
   %89 = load float, ptr %88, align 4, !tbaa !452
   %90 = fadd float %87, %89
-  %91 = getelementptr inbounds float, ptr %.2287342, i64 %80
+  %91 = getelementptr inbounds [4 x i8], ptr %.2287342, i64 %80
   %92 = load float, ptr %91, align 4, !tbaa !452
   %93 = getelementptr inbounds nuw i8, ptr %.2287342, i64 4
   %94 = load float, ptr %93, align 4, !tbaa !452
@@ -14371,7 +14371,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   %97 = getelementptr i8, ptr %88, i64 4
   %98 = load float, ptr %97, align 4, !tbaa !452
   %99 = fadd float %96, %98
-  %100 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv433
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv433
   store float %90, ptr %100, align 4, !tbaa !452
   %101 = getelementptr i8, ptr %100, i64 4
   store float %99, ptr %101, align 4, !tbaa !452
@@ -14397,23 +14397,23 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   %indvars.iv430 = phi i64 [ 0, %.lr.ph338 ], [ %indvars.iv.next431, %110 ]
   %.3288336 = phi ptr [ %19, %.lr.ph338 ], [ %130, %110 ]
   %111 = load float, ptr %.3288336, align 4, !tbaa !452
-  %112 = getelementptr inbounds float, ptr %.3288336, i64 %105
+  %112 = getelementptr inbounds [4 x i8], ptr %.3288336, i64 %105
   %113 = load float, ptr %112, align 4, !tbaa !452
-  %114 = getelementptr inbounds float, ptr %.3288336, i64 %106
+  %114 = getelementptr inbounds [4 x i8], ptr %.3288336, i64 %106
   %115 = load float, ptr %114, align 4, !tbaa !452
   %116 = fadd float %113, %115
   %117 = fmul float %73, %116
   %118 = call float @llvm.fmuladd.f32(float %111, float %38, float %117)
   %119 = getelementptr inbounds nuw i8, ptr %.3288336, i64 4
   %120 = load float, ptr %119, align 4, !tbaa !452
-  %121 = getelementptr inbounds float, ptr %.3288336, i64 %108
+  %121 = getelementptr inbounds [4 x i8], ptr %.3288336, i64 %108
   %122 = load float, ptr %121, align 4, !tbaa !452
   %123 = getelementptr i8, ptr %114, i64 4
   %124 = load float, ptr %123, align 4, !tbaa !452
   %125 = fadd float %122, %124
   %126 = fmul float %73, %125
   %127 = call float @llvm.fmuladd.f32(float %120, float %38, float %126)
-  %128 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv430
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv430
   store float %118, ptr %128, align 4, !tbaa !452
   %129 = getelementptr i8, ptr %128, i64 4
   store float %127, ptr %129, align 4, !tbaa !452
@@ -14473,21 +14473,21 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   %indvars.iv427 = phi i64 [ 0, %.lr.ph332 ], [ %indvars.iv.next428, %160 ]
   %.4289330 = phi ptr [ %19, %.lr.ph332 ], [ %178, %160 ]
   %161 = load float, ptr %.4289330, align 4, !tbaa !452
-  %162 = getelementptr inbounds float, ptr %.4289330, i64 %154
+  %162 = getelementptr inbounds [4 x i8], ptr %.4289330, i64 %154
   %163 = load float, ptr %162, align 4, !tbaa !452
   %164 = call float @llvm.fmuladd.f32(float %161, float -2.000000e+00, float %163)
-  %165 = getelementptr inbounds float, ptr %.4289330, i64 %156
+  %165 = getelementptr inbounds [4 x i8], ptr %.4289330, i64 %156
   %166 = load float, ptr %165, align 4, !tbaa !452
   %167 = fadd float %164, %166
   %168 = getelementptr inbounds nuw i8, ptr %.4289330, i64 4
   %169 = load float, ptr %168, align 4, !tbaa !452
-  %170 = getelementptr inbounds float, ptr %.4289330, i64 %158
+  %170 = getelementptr inbounds [4 x i8], ptr %.4289330, i64 %158
   %171 = load float, ptr %170, align 4, !tbaa !452
   %172 = call float @llvm.fmuladd.f32(float %169, float -2.000000e+00, float %171)
   %173 = getelementptr i8, ptr %165, i64 4
   %174 = load float, ptr %173, align 4, !tbaa !452
   %175 = fadd float %172, %174
-  %176 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv427
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv427
   store float %167, ptr %176, align 4, !tbaa !452
   %177 = getelementptr i8, ptr %176, i64 4
   store float %175, ptr %177, align 4, !tbaa !452
@@ -14500,35 +14500,35 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %179 ]
   %.6291326 = phi ptr [ %19, %.lr.ph ], [ %211, %179 ]
   %180 = load float, ptr %.6291326, align 4, !tbaa !452
-  %181 = getelementptr inbounds float, ptr %.6291326, i64 %142
+  %181 = getelementptr inbounds [4 x i8], ptr %.6291326, i64 %142
   %182 = load float, ptr %181, align 4, !tbaa !452
-  %183 = getelementptr inbounds float, ptr %.6291326, i64 %143
+  %183 = getelementptr inbounds [4 x i8], ptr %.6291326, i64 %143
   %184 = load float, ptr %183, align 4, !tbaa !452
   %185 = fadd float %182, %184
   %186 = fmul float %134, %185
   %187 = call float @llvm.fmuladd.f32(float %180, float %132, float %186)
-  %188 = getelementptr inbounds float, ptr %.6291326, i64 %145
+  %188 = getelementptr inbounds [4 x i8], ptr %.6291326, i64 %145
   %189 = load float, ptr %188, align 4, !tbaa !452
-  %190 = getelementptr inbounds float, ptr %.6291326, i64 %147
+  %190 = getelementptr inbounds [4 x i8], ptr %.6291326, i64 %147
   %191 = load float, ptr %190, align 4, !tbaa !452
   %192 = fadd float %189, %191
   %193 = call float @llvm.fmuladd.f32(float %192, float %136, float %187)
   %194 = getelementptr inbounds nuw i8, ptr %.6291326, i64 4
   %195 = load float, ptr %194, align 4, !tbaa !452
-  %196 = getelementptr inbounds float, ptr %.6291326, i64 %149
+  %196 = getelementptr inbounds [4 x i8], ptr %.6291326, i64 %149
   %197 = load float, ptr %196, align 4, !tbaa !452
   %198 = getelementptr i8, ptr %183, i64 4
   %199 = load float, ptr %198, align 4, !tbaa !452
   %200 = fadd float %197, %199
   %201 = fmul float %134, %200
   %202 = call float @llvm.fmuladd.f32(float %195, float %132, float %201)
-  %203 = getelementptr inbounds float, ptr %.6291326, i64 %151
+  %203 = getelementptr inbounds [4 x i8], ptr %.6291326, i64 %151
   %204 = load float, ptr %203, align 4, !tbaa !452
   %205 = getelementptr i8, ptr %190, i64 4
   %206 = load float, ptr %205, align 4, !tbaa !452
   %207 = fadd float %204, %206
   %208 = call float @llvm.fmuladd.f32(float %207, float %136, float %202)
-  %209 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %193, ptr %209, align 4, !tbaa !452
   %210 = getelementptr i8, ptr %209, i64 4
   store float %208, ptr %210, align 4, !tbaa !452
@@ -14586,7 +14586,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   %222 = load float, ptr %14, align 4, !tbaa !452
   %223 = load float, ptr %.7292365.us, align 4, !tbaa !452
   %224 = fmul float %222, %223
-  %225 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv454
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv454
   store float %224, ptr %225, align 4, !tbaa !452
   %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
   %226 = getelementptr inbounds nuw i8, ptr %.7292365.us, i64 4
@@ -14605,12 +14605,12 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   %indvars.iv444 = phi i64 [ 1, %.lr.ph362 ], [ %indvars.iv.next445, %230 ]
   %indvars.iv442 = phi i64 [ %218, %.lr.ph362 ], [ %indvars.iv.next443, %230 ]
   %.0298358 = phi float [ %229, %.lr.ph362 ], [ %239, %230 ]
-  %231 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv444
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv444
   %232 = load float, ptr %231, align 4, !tbaa !452
-  %233 = getelementptr inbounds float, ptr %.7292365, i64 %indvars.iv442
+  %233 = getelementptr inbounds [4 x i8], ptr %.7292365, i64 %indvars.iv442
   %234 = load float, ptr %233, align 4, !tbaa !452
   %235 = sub nsw i64 0, %indvars.iv442
-  %236 = getelementptr inbounds float, ptr %.7292365, i64 %235
+  %236 = getelementptr inbounds [4 x i8], ptr %.7292365, i64 %235
   %237 = load float, ptr %236, align 4, !tbaa !452
   %238 = fadd float %234, %237
   %239 = call float @llvm.fmuladd.f32(float %232, float %238, float %.0298358)
@@ -14620,7 +14620,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   br i1 %exitcond.not, label %._crit_edge363, label %230, !llvm.loop !533
 
 ._crit_edge363:                                   ; preds = %230
-  %240 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv449
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv449
   store float %239, ptr %240, align 4, !tbaa !452
   %indvars.iv.next450 = add nuw nsw i64 %indvars.iv449, 1
   %241 = getelementptr inbounds nuw i8, ptr %.7292365, i64 4
@@ -14659,17 +14659,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 256:                                              ; preds = %.lr.ph385, %256
   %indvars.iv465 = phi i64 [ 0, %.lr.ph385 ], [ %indvars.iv.next466, %256 ]
   %.8293383 = phi ptr [ %19, %.lr.ph385 ], [ %269, %256 ]
-  %257 = getelementptr inbounds float, ptr %.8293383, i64 %250
+  %257 = getelementptr inbounds [4 x i8], ptr %.8293383, i64 %250
   %258 = load float, ptr %257, align 4, !tbaa !452
-  %259 = getelementptr inbounds float, ptr %.8293383, i64 %252
+  %259 = getelementptr inbounds [4 x i8], ptr %.8293383, i64 %252
   %260 = load float, ptr %259, align 4, !tbaa !452
   %261 = fsub float %258, %260
   %262 = getelementptr i8, ptr %257, i64 4
   %263 = load float, ptr %262, align 4, !tbaa !452
-  %264 = getelementptr inbounds float, ptr %.8293383, i64 %254
+  %264 = getelementptr inbounds [4 x i8], ptr %.8293383, i64 %254
   %265 = load float, ptr %264, align 4, !tbaa !452
   %266 = fsub float %263, %265
-  %267 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv465
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv465
   store float %261, ptr %267, align 4, !tbaa !452
   %268 = getelementptr i8, ptr %267, i64 4
   store float %266, ptr %268, align 4, !tbaa !452
@@ -14694,19 +14694,19 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 277:                                              ; preds = %.lr.ph379, %277
   %indvars.iv462 = phi i64 [ 0, %.lr.ph379 ], [ %indvars.iv.next463, %277 ]
   %.9294376 = phi ptr [ %19, %.lr.ph379 ], [ %292, %277 ]
-  %278 = getelementptr inbounds float, ptr %.9294376, i64 %271
+  %278 = getelementptr inbounds [4 x i8], ptr %.9294376, i64 %271
   %279 = load float, ptr %278, align 4, !tbaa !452
-  %280 = getelementptr inbounds float, ptr %.9294376, i64 %273
+  %280 = getelementptr inbounds [4 x i8], ptr %.9294376, i64 %273
   %281 = load float, ptr %280, align 4, !tbaa !452
   %282 = fsub float %279, %281
   %283 = fmul float %247, %282
   %284 = getelementptr i8, ptr %278, i64 4
   %285 = load float, ptr %284, align 4, !tbaa !452
-  %286 = getelementptr inbounds float, ptr %.9294376, i64 %275
+  %286 = getelementptr inbounds [4 x i8], ptr %.9294376, i64 %275
   %287 = load float, ptr %286, align 4, !tbaa !452
   %288 = fsub float %285, %287
   %289 = fmul float %247, %288
-  %290 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv462
+  %290 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv462
   store float %283, ptr %290, align 4, !tbaa !452
   %291 = getelementptr i8, ptr %290, i64 4
   store float %289, ptr %291, align 4, !tbaa !452
@@ -14742,31 +14742,31 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 311:                                              ; preds = %.lr.ph372, %311
   %indvars.iv459 = phi i64 [ 0, %.lr.ph372 ], [ %indvars.iv.next460, %311 ]
   %.11296369 = phi ptr [ %19, %.lr.ph372 ], [ %338, %311 ]
-  %312 = getelementptr inbounds float, ptr %.11296369, i64 %299
+  %312 = getelementptr inbounds [4 x i8], ptr %.11296369, i64 %299
   %313 = load float, ptr %312, align 4, !tbaa !452
-  %314 = getelementptr inbounds float, ptr %.11296369, i64 %301
+  %314 = getelementptr inbounds [4 x i8], ptr %.11296369, i64 %301
   %315 = load float, ptr %314, align 4, !tbaa !452
   %316 = fsub float %313, %315
-  %317 = getelementptr inbounds float, ptr %.11296369, i64 %303
+  %317 = getelementptr inbounds [4 x i8], ptr %.11296369, i64 %303
   %318 = load float, ptr %317, align 4, !tbaa !452
-  %319 = getelementptr inbounds float, ptr %.11296369, i64 %305
+  %319 = getelementptr inbounds [4 x i8], ptr %.11296369, i64 %305
   %320 = load float, ptr %319, align 4, !tbaa !452
   %321 = fsub float %318, %320
   %322 = fmul float %297, %321
   %323 = call float @llvm.fmuladd.f32(float %316, float %295, float %322)
   %324 = getelementptr i8, ptr %312, i64 4
   %325 = load float, ptr %324, align 4, !tbaa !452
-  %326 = getelementptr inbounds float, ptr %.11296369, i64 %307
+  %326 = getelementptr inbounds [4 x i8], ptr %.11296369, i64 %307
   %327 = load float, ptr %326, align 4, !tbaa !452
   %328 = fsub float %325, %327
   %329 = getelementptr i8, ptr %317, i64 4
   %330 = load float, ptr %329, align 4, !tbaa !452
-  %331 = getelementptr inbounds float, ptr %.11296369, i64 %309
+  %331 = getelementptr inbounds [4 x i8], ptr %.11296369, i64 %309
   %332 = load float, ptr %331, align 4, !tbaa !452
   %333 = fsub float %330, %332
   %334 = fmul float %297, %333
   %335 = call float @llvm.fmuladd.f32(float %328, float %295, float %334)
-  %336 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv459
+  %336 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv459
   store float %323, ptr %336, align 4, !tbaa !452
   %337 = getelementptr i8, ptr %336, i64 4
   store float %335, ptr %337, align 4, !tbaa !452
@@ -14814,12 +14814,12 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
   %indvars.iv470 = phi i64 [ %indvars.iv.next471, %.lr.ph393 ], [ 1, %346 ]
   %indvars.iv468 = phi i64 [ %indvars.iv.next469, %.lr.ph393 ], [ %343, %346 ]
   %.0391 = phi float [ %358, %.lr.ph393 ], [ %349, %346 ]
-  %350 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv470
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv470
   %351 = load float, ptr %350, align 4, !tbaa !452
-  %352 = getelementptr inbounds float, ptr %.12297396, i64 %indvars.iv468
+  %352 = getelementptr inbounds [4 x i8], ptr %.12297396, i64 %indvars.iv468
   %353 = load float, ptr %352, align 4, !tbaa !452
   %354 = sub nsw i64 0, %indvars.iv468
-  %355 = getelementptr inbounds float, ptr %.12297396, i64 %354
+  %355 = getelementptr inbounds [4 x i8], ptr %.12297396, i64 %354
   %356 = load float, ptr %355, align 4, !tbaa !452
   %357 = fsub float %353, %356
   %358 = call float @llvm.fmuladd.f32(float %351, float %357, float %.0391)
@@ -14830,7 +14830,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline18SymmRowSmallFilterIffNS0_
 
 ._crit_edge394:                                   ; preds = %.lr.ph393, %346
   %.0.lcssa = phi float [ %349, %346 ], [ %358, %.lr.ph393 ]
-  %359 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv477
+  %359 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv477
   store float %.0.lcssa, ptr %359, align 4, !tbaa !452
   %indvars.iv.next478 = add nuw nsw i64 %indvars.iv477, 1
   %360 = getelementptr inbounds nuw i8, ptr %.12297396, i64 4
@@ -14893,7 +14893,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowS
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv43 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next44, %._crit_edge.us ]
-  %15 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv43
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv43
   %16 = load float, ptr %10, align 4, !tbaa !452
   %17 = load float, ptr %15, align 4, !tbaa !452
   %18 = fmul float %16, %17
@@ -14903,8 +14903,8 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowS
   %indvars.iv38 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next39, %19 ]
   %.031.us = phi float [ %18, %.lr.ph.us ], [ %24, %19 ]
   %.02829.us = phi ptr [ %15, %.lr.ph.us ], [ %20, %19 ]
-  %20 = getelementptr inbounds float, ptr %.02829.us, i64 %14
-  %21 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv38
+  %20 = getelementptr inbounds [4 x i8], ptr %.02829.us, i64 %14
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv38
   %22 = load float, ptr %21, align 4, !tbaa !452
   %23 = load float, ptr %20, align 4, !tbaa !452
   %24 = call float @llvm.fmuladd.f32(float %22, float %23, float %.031.us)
@@ -14913,7 +14913,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowS
   br i1 %exitcond42.not, label %._crit_edge.us, label %19, !llvm.loop !539
 
 ._crit_edge.us:                                   ; preds = %19
-  %25 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv43
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv43
   store float %24, ptr %25, align 4, !tbaa !452
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -14921,11 +14921,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_17SymmRowS
 
 .lr.ph34.split:                                   ; preds = %.lr.ph34, %.lr.ph34.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph34.split ], [ 0, %.lr.ph34 ]
-  %26 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %27 = load float, ptr %10, align 4, !tbaa !452
   %28 = load float, ptr %26, align 4, !tbaa !452
   %29 = fmul float %27, %28
-  %30 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %29, ptr %30, align 4, !tbaa !452
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
@@ -15174,7 +15174,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_8RowNoVecE
   %.031.us = phi i32 [ %19, %.lr.ph.us ], [ %27, %20 ]
   %.02829.us = phi ptr [ %15, %.lr.ph.us ], [ %21, %20 ]
   %21 = getelementptr inbounds i8, ptr %.02829.us, i64 %14
-  %22 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv38
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv38
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %24 = load i8, ptr %21, align 1, !tbaa !63
   %25 = zext i8 %24 to i32
@@ -15185,7 +15185,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_8RowNoVecE
   br i1 %exitcond42.not, label %._crit_edge.us, label %20, !llvm.loop !545
 
 ._crit_edge.us:                                   ; preds = %20
-  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv43
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv43
   store i32 %27, ptr %28, align 4, !tbaa !12
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -15198,7 +15198,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhiNS0_8RowNoVecE
   %31 = load i8, ptr %29, align 1, !tbaa !63
   %32 = zext i8 %31 to i32
   %33 = mul nsw i32 %30, %32
-  %34 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %33, ptr %34, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
@@ -15444,7 +15444,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhfNS0_8RowNoVecE
   %.031.us = phi float [ %19, %.lr.ph.us ], [ %26, %20 ]
   %.02829.us = phi ptr [ %15, %.lr.ph.us ], [ %21, %20 ]
   %21 = getelementptr inbounds i8, ptr %.02829.us, i64 %14
-  %22 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv38
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv38
   %23 = load float, ptr %22, align 4, !tbaa !452
   %24 = load i8, ptr %21, align 1, !tbaa !63
   %25 = uitofp i8 %24 to float
@@ -15454,7 +15454,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhfNS0_8RowNoVecE
   br i1 %exitcond42.not, label %._crit_edge.us, label %20, !llvm.loop !550
 
 ._crit_edge.us:                                   ; preds = %20
-  %27 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv43
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv43
   store float %26, ptr %27, align 4, !tbaa !452
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -15467,7 +15467,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhfNS0_8RowNoVecE
   %30 = load i8, ptr %28, align 1, !tbaa !63
   %31 = uitofp i8 %30 to float
   %32 = fmul float %29, %31
-  %33 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %32, ptr %33, align 4, !tbaa !452
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
@@ -15713,7 +15713,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhdNS0_8RowNoVecE
   %.031.us = phi double [ %19, %.lr.ph.us ], [ %26, %20 ]
   %.02829.us = phi ptr [ %15, %.lr.ph.us ], [ %21, %20 ]
   %21 = getelementptr inbounds i8, ptr %.02829.us, i64 %14
-  %22 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv38
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv38
   %23 = load double, ptr %22, align 8, !tbaa !187
   %24 = load i8, ptr %21, align 1, !tbaa !63
   %25 = uitofp i8 %24 to double
@@ -15723,7 +15723,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhdNS0_8RowNoVecE
   br i1 %exitcond42.not, label %._crit_edge.us, label %20, !llvm.loop !555
 
 ._crit_edge.us:                                   ; preds = %20
-  %27 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv43
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv43
   store double %26, ptr %27, align 8, !tbaa !187
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -15736,7 +15736,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIhdNS0_8RowNoVecE
   %30 = load i8, ptr %28, align 1, !tbaa !63
   %31 = uitofp i8 %30 to double
   %32 = fmul double %29, %31
-  %33 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %32, ptr %33, align 8, !tbaa !187
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
@@ -15973,7 +15973,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItfNS0_8RowNoVecE
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv43 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next44, %._crit_edge.us ]
-  %15 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv43
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv43
   %16 = load float, ptr %10, align 4, !tbaa !452
   %17 = load i16, ptr %15, align 2, !tbaa !560
   %18 = uitofp i16 %17 to float
@@ -15984,8 +15984,8 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItfNS0_8RowNoVecE
   %indvars.iv38 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next39, %20 ]
   %.031.us = phi float [ %19, %.lr.ph.us ], [ %26, %20 ]
   %.02829.us = phi ptr [ %15, %.lr.ph.us ], [ %21, %20 ]
-  %21 = getelementptr inbounds i16, ptr %.02829.us, i64 %14
-  %22 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv38
+  %21 = getelementptr inbounds [2 x i8], ptr %.02829.us, i64 %14
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv38
   %23 = load float, ptr %22, align 4, !tbaa !452
   %24 = load i16, ptr %21, align 2, !tbaa !560
   %25 = uitofp i16 %24 to float
@@ -15995,7 +15995,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItfNS0_8RowNoVecE
   br i1 %exitcond42.not, label %._crit_edge.us, label %20, !llvm.loop !562
 
 ._crit_edge.us:                                   ; preds = %20
-  %27 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv43
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv43
   store float %26, ptr %27, align 4, !tbaa !452
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -16003,12 +16003,12 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItfNS0_8RowNoVecE
 
 .lr.ph34.split:                                   ; preds = %.lr.ph34, %.lr.ph34.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph34.split ], [ 0, %.lr.ph34 ]
-  %28 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %29 = load float, ptr %10, align 4, !tbaa !452
   %30 = load i16, ptr %28, align 2, !tbaa !560
   %31 = uitofp i16 %30 to float
   %32 = fmul float %29, %31
-  %33 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %32, ptr %33, align 4, !tbaa !452
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
@@ -16297,7 +16297,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItdNS0_8RowNoVecE
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv43 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next44, %._crit_edge.us ]
-  %15 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv43
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv43
   %16 = load double, ptr %10, align 8, !tbaa !187
   %17 = load i16, ptr %15, align 2, !tbaa !560
   %18 = uitofp i16 %17 to double
@@ -16308,8 +16308,8 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItdNS0_8RowNoVecE
   %indvars.iv38 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next39, %20 ]
   %.031.us = phi double [ %19, %.lr.ph.us ], [ %26, %20 ]
   %.02829.us = phi ptr [ %15, %.lr.ph.us ], [ %21, %20 ]
-  %21 = getelementptr inbounds i16, ptr %.02829.us, i64 %14
-  %22 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv38
+  %21 = getelementptr inbounds [2 x i8], ptr %.02829.us, i64 %14
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv38
   %23 = load double, ptr %22, align 8, !tbaa !187
   %24 = load i16, ptr %21, align 2, !tbaa !560
   %25 = uitofp i16 %24 to double
@@ -16319,7 +16319,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItdNS0_8RowNoVecE
   br i1 %exitcond42.not, label %._crit_edge.us, label %20, !llvm.loop !567
 
 ._crit_edge.us:                                   ; preds = %20
-  %27 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv43
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv43
   store double %26, ptr %27, align 8, !tbaa !187
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -16327,12 +16327,12 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterItdNS0_8RowNoVecE
 
 .lr.ph34.split:                                   ; preds = %.lr.ph34, %.lr.ph34.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph34.split ], [ 0, %.lr.ph34 ]
-  %28 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %29 = load double, ptr %10, align 8, !tbaa !187
   %30 = load i16, ptr %28, align 2, !tbaa !560
   %31 = uitofp i16 %30 to double
   %32 = fmul double %29, %31
-  %33 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %32, ptr %33, align 8, !tbaa !187
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
@@ -16621,7 +16621,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsfNS0_8RowNoVecE
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv43 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next44, %._crit_edge.us ]
-  %15 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv43
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv43
   %16 = load float, ptr %10, align 4, !tbaa !452
   %17 = load i16, ptr %15, align 2, !tbaa !560
   %18 = sitofp i16 %17 to float
@@ -16632,8 +16632,8 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsfNS0_8RowNoVecE
   %indvars.iv38 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next39, %20 ]
   %.031.us = phi float [ %19, %.lr.ph.us ], [ %26, %20 ]
   %.02829.us = phi ptr [ %15, %.lr.ph.us ], [ %21, %20 ]
-  %21 = getelementptr inbounds i16, ptr %.02829.us, i64 %14
-  %22 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv38
+  %21 = getelementptr inbounds [2 x i8], ptr %.02829.us, i64 %14
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv38
   %23 = load float, ptr %22, align 4, !tbaa !452
   %24 = load i16, ptr %21, align 2, !tbaa !560
   %25 = sitofp i16 %24 to float
@@ -16643,7 +16643,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsfNS0_8RowNoVecE
   br i1 %exitcond42.not, label %._crit_edge.us, label %20, !llvm.loop !572
 
 ._crit_edge.us:                                   ; preds = %20
-  %27 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv43
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv43
   store float %26, ptr %27, align 4, !tbaa !452
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -16651,12 +16651,12 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsfNS0_8RowNoVecE
 
 .lr.ph34.split:                                   ; preds = %.lr.ph34, %.lr.ph34.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph34.split ], [ 0, %.lr.ph34 ]
-  %28 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %29 = load float, ptr %10, align 4, !tbaa !452
   %30 = load i16, ptr %28, align 2, !tbaa !560
   %31 = sitofp i16 %30 to float
   %32 = fmul float %29, %31
-  %33 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %32, ptr %33, align 4, !tbaa !452
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
@@ -16945,7 +16945,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsdNS0_8RowNoVecE
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv43 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next44, %._crit_edge.us ]
-  %15 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv43
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv43
   %16 = load double, ptr %10, align 8, !tbaa !187
   %17 = load i16, ptr %15, align 2, !tbaa !560
   %18 = sitofp i16 %17 to double
@@ -16956,8 +16956,8 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsdNS0_8RowNoVecE
   %indvars.iv38 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next39, %20 ]
   %.031.us = phi double [ %19, %.lr.ph.us ], [ %26, %20 ]
   %.02829.us = phi ptr [ %15, %.lr.ph.us ], [ %21, %20 ]
-  %21 = getelementptr inbounds i16, ptr %.02829.us, i64 %14
-  %22 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv38
+  %21 = getelementptr inbounds [2 x i8], ptr %.02829.us, i64 %14
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv38
   %23 = load double, ptr %22, align 8, !tbaa !187
   %24 = load i16, ptr %21, align 2, !tbaa !560
   %25 = sitofp i16 %24 to double
@@ -16967,7 +16967,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsdNS0_8RowNoVecE
   br i1 %exitcond42.not, label %._crit_edge.us, label %20, !llvm.loop !577
 
 ._crit_edge.us:                                   ; preds = %20
-  %27 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv43
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv43
   store double %26, ptr %27, align 8, !tbaa !187
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -16975,12 +16975,12 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIsdNS0_8RowNoVecE
 
 .lr.ph34.split:                                   ; preds = %.lr.ph34, %.lr.ph34.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph34.split ], [ 0, %.lr.ph34 ]
-  %28 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %29 = load double, ptr %10, align 8, !tbaa !187
   %30 = load i16, ptr %28, align 2, !tbaa !560
   %31 = sitofp i16 %30 to double
   %32 = fmul double %29, %31
-  %33 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %32, ptr %33, align 8, !tbaa !187
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
@@ -17269,7 +17269,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_8RowNoVecE
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv43 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next44, %._crit_edge.us ]
-  %15 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv43
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv43
   %16 = load float, ptr %10, align 4, !tbaa !452
   %17 = load float, ptr %15, align 4, !tbaa !452
   %18 = fmul float %16, %17
@@ -17279,8 +17279,8 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_8RowNoVecE
   %indvars.iv38 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next39, %19 ]
   %.031.us = phi float [ %18, %.lr.ph.us ], [ %24, %19 ]
   %.02829.us = phi ptr [ %15, %.lr.ph.us ], [ %20, %19 ]
-  %20 = getelementptr inbounds float, ptr %.02829.us, i64 %14
-  %21 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv38
+  %20 = getelementptr inbounds [4 x i8], ptr %.02829.us, i64 %14
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv38
   %22 = load float, ptr %21, align 4, !tbaa !452
   %23 = load float, ptr %20, align 4, !tbaa !452
   %24 = call float @llvm.fmuladd.f32(float %22, float %23, float %.031.us)
@@ -17289,7 +17289,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_8RowNoVecE
   br i1 %exitcond42.not, label %._crit_edge.us, label %19, !llvm.loop !582
 
 ._crit_edge.us:                                   ; preds = %19
-  %25 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv43
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv43
   store float %24, ptr %25, align 4, !tbaa !452
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -17297,11 +17297,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIffNS0_8RowNoVecE
 
 .lr.ph34.split:                                   ; preds = %.lr.ph34, %.lr.ph34.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph34.split ], [ 0, %.lr.ph34 ]
-  %26 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %27 = load float, ptr %10, align 4, !tbaa !452
   %28 = load float, ptr %26, align 4, !tbaa !452
   %29 = fmul float %27, %28
-  %30 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %29, ptr %30, align 4, !tbaa !452
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
@@ -17590,7 +17590,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIfdNS0_8RowNoVecE
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv43 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next44, %._crit_edge.us ]
-  %15 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv43
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv43
   %16 = load double, ptr %10, align 8, !tbaa !187
   %17 = load float, ptr %15, align 4, !tbaa !452
   %18 = fpext float %17 to double
@@ -17601,8 +17601,8 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIfdNS0_8RowNoVecE
   %indvars.iv38 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next39, %20 ]
   %.031.us = phi double [ %19, %.lr.ph.us ], [ %26, %20 ]
   %.02829.us = phi ptr [ %15, %.lr.ph.us ], [ %21, %20 ]
-  %21 = getelementptr inbounds float, ptr %.02829.us, i64 %14
-  %22 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv38
+  %21 = getelementptr inbounds [4 x i8], ptr %.02829.us, i64 %14
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv38
   %23 = load double, ptr %22, align 8, !tbaa !187
   %24 = load float, ptr %21, align 4, !tbaa !452
   %25 = fpext float %24 to double
@@ -17612,7 +17612,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIfdNS0_8RowNoVecE
   br i1 %exitcond42.not, label %._crit_edge.us, label %20, !llvm.loop !587
 
 ._crit_edge.us:                                   ; preds = %20
-  %27 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv43
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv43
   store double %26, ptr %27, align 8, !tbaa !187
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -17620,12 +17620,12 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIfdNS0_8RowNoVecE
 
 .lr.ph34.split:                                   ; preds = %.lr.ph34, %.lr.ph34.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph34.split ], [ 0, %.lr.ph34 ]
-  %28 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %29 = load double, ptr %10, align 8, !tbaa !187
   %30 = load float, ptr %28, align 4, !tbaa !452
   %31 = fpext float %30 to double
   %32 = fmul double %29, %31
-  %33 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %32, ptr %33, align 8, !tbaa !187
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
@@ -17914,7 +17914,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIddNS0_8RowNoVecE
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv43 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next44, %._crit_edge.us ]
-  %15 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv43
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv43
   %16 = load double, ptr %10, align 8, !tbaa !187
   %17 = load double, ptr %15, align 8, !tbaa !187
   %18 = fmul double %16, %17
@@ -17924,8 +17924,8 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIddNS0_8RowNoVecE
   %indvars.iv38 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next39, %19 ]
   %.031.us = phi double [ %18, %.lr.ph.us ], [ %24, %19 ]
   %.02829.us = phi ptr [ %15, %.lr.ph.us ], [ %20, %19 ]
-  %20 = getelementptr inbounds double, ptr %.02829.us, i64 %14
-  %21 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv38
+  %20 = getelementptr inbounds [8 x i8], ptr %.02829.us, i64 %14
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv38
   %22 = load double, ptr %21, align 8, !tbaa !187
   %23 = load double, ptr %20, align 8, !tbaa !187
   %24 = call double @llvm.fmuladd.f64(double %22, double %23, double %.031.us)
@@ -17934,7 +17934,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIddNS0_8RowNoVecE
   br i1 %exitcond42.not, label %._crit_edge.us, label %19, !llvm.loop !592
 
 ._crit_edge.us:                                   ; preds = %19
-  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv43
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv43
   store double %24, ptr %25, align 8, !tbaa !187
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
@@ -17942,11 +17942,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline9RowFilterIddNS0_8RowNoVecE
 
 .lr.ph34.split:                                   ; preds = %.lr.ph34, %.lr.ph34.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph34.split ], [ 0, %.lr.ph34 ]
-  %26 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %27 = load double, ptr %10, align 8, !tbaa !187
   %28 = load double, ptr %26, align 8, !tbaa !187
   %29 = fmul double %27, %28
-  %30 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %29, ptr %30, align 8, !tbaa !187
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
@@ -18202,7 +18202,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_13FixedP
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
   %21 = load i32, ptr %9, align 4, !tbaa !12
   %22 = load ptr, ptr %.02942.us.us, align 8, !tbaa !52
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv55
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv55
   %24 = load i32, ptr %23, align 4, !tbaa !12
   %25 = mul nsw i32 %24, %21
   %26 = add nsw i32 %25, %11
@@ -18211,11 +18211,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_13FixedP
 27:                                               ; preds = %27, %.lr.ph.us.us.us
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %27 ], [ 1, %.lr.ph.us.us.us ]
   %.035.us.us.us = phi i32 [ %35, %27 ], [ %26, %.lr.ph.us.us.us ]
-  %28 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv50
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv50
   %29 = load i32, ptr %28, align 4, !tbaa !12
-  %30 = getelementptr inbounds nuw ptr, ptr %.02942.us.us, i64 %indvars.iv50
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.02942.us.us, i64 %indvars.iv50
   %31 = load ptr, ptr %30, align 8, !tbaa !52
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv55
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv55
   %33 = load i32, ptr %32, align 4, !tbaa !12
   %34 = mul nsw i32 %33, %29
   %35 = add nsw i32 %34, %.035.us.us.us
@@ -18252,7 +18252,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_13FixedP
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %46 ]
   %47 = load i32, ptr %9, align 4, !tbaa !12
   %48 = load ptr, ptr %.02942.us, align 8, !tbaa !52
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !12
   %51 = mul nsw i32 %50, %47
   %.reass.us = add i32 %51, %invariant.op
@@ -18510,7 +18510,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfh
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
   %19 = load float, ptr %9, align 4, !tbaa !452
   %20 = load ptr, ptr %.042.us.us, align 8, !tbaa !52
-  %21 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv55
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv55
   %22 = load float, ptr %21, align 4, !tbaa !452
   %23 = call float @llvm.fmuladd.f32(float %19, float %22, float %11)
   br label %24
@@ -18518,11 +18518,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfh
 24:                                               ; preds = %24, %.lr.ph.us.us.us
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %24 ], [ 1, %.lr.ph.us.us.us ]
   %.03035.us.us.us = phi float [ %31, %24 ], [ %23, %.lr.ph.us.us.us ]
-  %25 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv50
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv50
   %26 = load float, ptr %25, align 4, !tbaa !452
-  %27 = getelementptr inbounds nuw ptr, ptr %.042.us.us, i64 %indvars.iv50
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.042.us.us, i64 %indvars.iv50
   %28 = load ptr, ptr %27, align 8, !tbaa !52
-  %29 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv55
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv55
   %30 = load float, ptr %29, align 4, !tbaa !452
   %31 = call float @llvm.fmuladd.f32(float %26, float %30, float %.03035.us.us.us)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
@@ -18558,7 +18558,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfh
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %42 ]
   %43 = load float, ptr %9, align 4, !tbaa !452
   %44 = load ptr, ptr %.042.us, align 8, !tbaa !52
-  %45 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   %46 = load float, ptr %45, align 4, !tbaa !452
   %47 = call float @llvm.fmuladd.f32(float %43, float %46, float %11)
   %48 = insertelement <4 x float> poison, float %47, i64 0
@@ -18818,7 +18818,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdh
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
   %19 = load double, ptr %9, align 8, !tbaa !187
   %20 = load ptr, ptr %.02942.us.us, align 8, !tbaa !52
-  %21 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv55
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv55
   %22 = load double, ptr %21, align 8, !tbaa !187
   %23 = call double @llvm.fmuladd.f64(double %19, double %22, double %11)
   br label %24
@@ -18826,11 +18826,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdh
 24:                                               ; preds = %24, %.lr.ph.us.us.us
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %24 ], [ 1, %.lr.ph.us.us.us ]
   %.035.us.us.us = phi double [ %31, %24 ], [ %23, %.lr.ph.us.us.us ]
-  %25 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv50
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv50
   %26 = load double, ptr %25, align 8, !tbaa !187
-  %27 = getelementptr inbounds nuw ptr, ptr %.02942.us.us, i64 %indvars.iv50
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.02942.us.us, i64 %indvars.iv50
   %28 = load ptr, ptr %27, align 8, !tbaa !52
-  %29 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv55
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv55
   %30 = load double, ptr %29, align 8, !tbaa !187
   %31 = call double @llvm.fmuladd.f64(double %26, double %30, double %.035.us.us.us)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
@@ -18866,7 +18866,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdh
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %42 ]
   %43 = load double, ptr %9, align 8, !tbaa !187
   %44 = load ptr, ptr %.02942.us, align 8, !tbaa !52
-  %45 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   %46 = load double, ptr %45, align 8, !tbaa !187
   %47 = call double @llvm.fmuladd.f64(double %43, double %46, double %11)
   %48 = insertelement <2 x double> poison, double %47, i64 0
@@ -19124,7 +19124,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIft
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
-  %21 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv55
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv55
   %22 = load float, ptr %21, align 4, !tbaa !452
   %23 = call float @llvm.fmuladd.f32(float %18, float %22, float %11)
   br label %24
@@ -19132,11 +19132,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIft
 24:                                               ; preds = %24, %.lr.ph.us.us.us
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %24 ], [ 1, %.lr.ph.us.us.us ]
   %.03035.us.us.us = phi float [ %31, %24 ], [ %23, %.lr.ph.us.us.us ]
-  %25 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv50
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv50
   %26 = load float, ptr %25, align 4, !tbaa !452
-  %27 = getelementptr inbounds nuw ptr, ptr %.042.us.us, i64 %indvars.iv50
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.042.us.us, i64 %indvars.iv50
   %28 = load ptr, ptr %27, align 8, !tbaa !52
-  %29 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv55
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv55
   %30 = load float, ptr %29, align 4, !tbaa !452
   %31 = call float @llvm.fmuladd.f32(float %26, float %30, float %.03035.us.us.us)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
@@ -19149,7 +19149,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIft
   %34 = call i32 @llvm.smax.i32(i32 %33, i32 0)
   %35 = call i32 @llvm.umin.i32(i32 %34, i32 65535)
   %36 = trunc nuw i32 %35 to i16
-  %37 = getelementptr inbounds nuw i16, ptr %.02940.us.us, i64 %indvars.iv55
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %.02940.us.us, i64 %indvars.iv55
   store i16 %36, ptr %37, align 2, !tbaa !560
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
@@ -19171,7 +19171,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIft
 
 43:                                               ; preds = %.preheader.us, %43
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %43 ]
-  %44 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   %45 = load float, ptr %44, align 4, !tbaa !452
   %46 = call float @llvm.fmuladd.f32(float %18, float %45, float %11)
   %47 = insertelement <4 x float> poison, float %46, i64 0
@@ -19179,7 +19179,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIft
   %49 = call i32 @llvm.smax.i32(i32 %48, i32 0)
   %50 = call i32 @llvm.umin.i32(i32 %49, i32 65535)
   %51 = trunc nuw i32 %50 to i16
-  %52 = getelementptr inbounds nuw i16, ptr %.02940.us, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.02940.us, i64 %indvars.iv
   store i16 %51, ptr %52, align 2, !tbaa !560
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count58
@@ -19483,7 +19483,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdt
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
-  %21 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv55
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv55
   %22 = load double, ptr %21, align 8, !tbaa !187
   %23 = call double @llvm.fmuladd.f64(double %18, double %22, double %11)
   br label %24
@@ -19491,11 +19491,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdt
 24:                                               ; preds = %24, %.lr.ph.us.us.us
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %24 ], [ 1, %.lr.ph.us.us.us ]
   %.035.us.us.us = phi double [ %31, %24 ], [ %23, %.lr.ph.us.us.us ]
-  %25 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv50
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv50
   %26 = load double, ptr %25, align 8, !tbaa !187
-  %27 = getelementptr inbounds nuw ptr, ptr %.02942.us.us, i64 %indvars.iv50
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.02942.us.us, i64 %indvars.iv50
   %28 = load ptr, ptr %27, align 8, !tbaa !52
-  %29 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv55
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv55
   %30 = load double, ptr %29, align 8, !tbaa !187
   %31 = call double @llvm.fmuladd.f64(double %26, double %30, double %.035.us.us.us)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
@@ -19508,7 +19508,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdt
   %34 = call i32 @llvm.smax.i32(i32 %33, i32 0)
   %35 = call i32 @llvm.umin.i32(i32 %34, i32 65535)
   %36 = trunc nuw i32 %35 to i16
-  %37 = getelementptr inbounds nuw i16, ptr %.03240.us.us, i64 %indvars.iv55
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %.03240.us.us, i64 %indvars.iv55
   store i16 %36, ptr %37, align 2, !tbaa !560
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
@@ -19530,7 +19530,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdt
 
 43:                                               ; preds = %.preheader.us, %43
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %43 ]
-  %44 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %45 = load double, ptr %44, align 8, !tbaa !187
   %46 = call double @llvm.fmuladd.f64(double %18, double %45, double %11)
   %47 = insertelement <2 x double> poison, double %46, i64 0
@@ -19538,7 +19538,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdt
   %49 = call i32 @llvm.smax.i32(i32 %48, i32 0)
   %50 = call i32 @llvm.umin.i32(i32 %49, i32 65535)
   %51 = trunc nuw i32 %50 to i16
-  %52 = getelementptr inbounds nuw i16, ptr %.03240.us, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.03240.us, i64 %indvars.iv
   store i16 %51, ptr %52, align 2, !tbaa !560
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count58
@@ -19843,7 +19843,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfs
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
-  %21 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv55
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv55
   %22 = load float, ptr %21, align 4, !tbaa !452
   %23 = call float @llvm.fmuladd.f32(float %18, float %22, float %11)
   br label %24
@@ -19851,11 +19851,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfs
 24:                                               ; preds = %24, %.lr.ph.us.us.us
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %24 ], [ 1, %.lr.ph.us.us.us ]
   %.03035.us.us.us = phi float [ %31, %24 ], [ %23, %.lr.ph.us.us.us ]
-  %25 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv50
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv50
   %26 = load float, ptr %25, align 4, !tbaa !452
-  %27 = getelementptr inbounds nuw ptr, ptr %.042.us.us, i64 %indvars.iv50
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.042.us.us, i64 %indvars.iv50
   %28 = load ptr, ptr %27, align 8, !tbaa !52
-  %29 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv55
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv55
   %30 = load float, ptr %29, align 4, !tbaa !452
   %31 = call float @llvm.fmuladd.f32(float %26, float %30, float %.03035.us.us.us)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
@@ -19868,7 +19868,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfs
   %34 = call i32 @llvm.smax.i32(i32 %33, i32 -32768)
   %35 = call i32 @llvm.smin.i32(i32 %34, i32 32767)
   %36 = trunc nsw i32 %35 to i16
-  %37 = getelementptr inbounds nuw i16, ptr %.02940.us.us, i64 %indvars.iv55
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %.02940.us.us, i64 %indvars.iv55
   store i16 %36, ptr %37, align 2, !tbaa !560
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
@@ -19890,7 +19890,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfs
 
 43:                                               ; preds = %.preheader.us, %43
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %43 ]
-  %44 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   %45 = load float, ptr %44, align 4, !tbaa !452
   %46 = call float @llvm.fmuladd.f32(float %18, float %45, float %11)
   %47 = insertelement <4 x float> poison, float %46, i64 0
@@ -19898,7 +19898,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIfs
   %49 = call i32 @llvm.smax.i32(i32 %48, i32 -32768)
   %50 = call i32 @llvm.smin.i32(i32 %49, i32 32767)
   %51 = trunc nsw i32 %50 to i16
-  %52 = getelementptr inbounds nuw i16, ptr %.02940.us, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.02940.us, i64 %indvars.iv
   store i16 %51, ptr %52, align 2, !tbaa !560
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count58
@@ -20202,7 +20202,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIds
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
-  %21 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv55
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv55
   %22 = load double, ptr %21, align 8, !tbaa !187
   %23 = call double @llvm.fmuladd.f64(double %18, double %22, double %11)
   br label %24
@@ -20210,11 +20210,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIds
 24:                                               ; preds = %24, %.lr.ph.us.us.us
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %24 ], [ 1, %.lr.ph.us.us.us ]
   %.035.us.us.us = phi double [ %31, %24 ], [ %23, %.lr.ph.us.us.us ]
-  %25 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv50
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv50
   %26 = load double, ptr %25, align 8, !tbaa !187
-  %27 = getelementptr inbounds nuw ptr, ptr %.02942.us.us, i64 %indvars.iv50
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.02942.us.us, i64 %indvars.iv50
   %28 = load ptr, ptr %27, align 8, !tbaa !52
-  %29 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv55
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv55
   %30 = load double, ptr %29, align 8, !tbaa !187
   %31 = call double @llvm.fmuladd.f64(double %26, double %30, double %.035.us.us.us)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
@@ -20227,7 +20227,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIds
   %34 = call i32 @llvm.smax.i32(i32 %33, i32 -32768)
   %35 = call i32 @llvm.smin.i32(i32 %34, i32 32767)
   %36 = trunc nsw i32 %35 to i16
-  %37 = getelementptr inbounds nuw i16, ptr %.03240.us.us, i64 %indvars.iv55
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %.03240.us.us, i64 %indvars.iv55
   store i16 %36, ptr %37, align 2, !tbaa !560
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
@@ -20249,7 +20249,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIds
 
 43:                                               ; preds = %.preheader.us, %43
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %43 ]
-  %44 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %45 = load double, ptr %44, align 8, !tbaa !187
   %46 = call double @llvm.fmuladd.f64(double %18, double %45, double %11)
   %47 = insertelement <2 x double> poison, double %46, i64 0
@@ -20257,7 +20257,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIds
   %49 = call i32 @llvm.smax.i32(i32 %48, i32 -32768)
   %50 = call i32 @llvm.smin.i32(i32 %49, i32 32767)
   %51 = trunc nsw i32 %50 to i16
-  %52 = getelementptr inbounds nuw i16, ptr %.03240.us, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.03240.us, i64 %indvars.iv
   store i16 %51, ptr %52, align 2, !tbaa !560
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count58
@@ -20562,7 +20562,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIff
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
   %20 = load float, ptr %9, align 4, !tbaa !452
-  %21 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv55
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv55
   %22 = load float, ptr %21, align 4, !tbaa !452
   %23 = call float @llvm.fmuladd.f32(float %20, float %22, float %11)
   br label %24
@@ -20570,11 +20570,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIff
 24:                                               ; preds = %24, %.lr.ph.us.us.us
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %24 ], [ 1, %.lr.ph.us.us.us ]
   %.03035.us.us.us = phi float [ %31, %24 ], [ %23, %.lr.ph.us.us.us ]
-  %25 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv50
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv50
   %26 = load float, ptr %25, align 4, !tbaa !452
-  %27 = getelementptr inbounds nuw ptr, ptr %.042.us.us, i64 %indvars.iv50
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.042.us.us, i64 %indvars.iv50
   %28 = load ptr, ptr %27, align 8, !tbaa !52
-  %29 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv55
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv55
   %30 = load float, ptr %29, align 4, !tbaa !452
   %31 = call float @llvm.fmuladd.f32(float %26, float %30, float %.03035.us.us.us)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
@@ -20582,7 +20582,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIff
   br i1 %exitcond54.not, label %._crit_edge.us.us.us, label %24, !llvm.loop !655
 
 ._crit_edge.us.us.us:                             ; preds = %24
-  %32 = getelementptr inbounds nuw float, ptr %.02940.us.us, i64 %indvars.iv55
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.02940.us.us, i64 %indvars.iv55
   store float %31, ptr %32, align 4, !tbaa !452
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
@@ -20605,10 +20605,10 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIff
 38:                                               ; preds = %.preheader.us, %38
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %38 ]
   %39 = load float, ptr %9, align 4, !tbaa !452
-  %40 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !452
   %42 = call float @llvm.fmuladd.f32(float %39, float %41, float %11)
-  %43 = getelementptr inbounds nuw float, ptr %.02940.us, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %.02940.us, i64 %indvars.iv
   store float %42, ptr %43, align 4, !tbaa !452
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count58
@@ -20912,7 +20912,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdd
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
   %20 = load double, ptr %9, align 8, !tbaa !187
-  %21 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv53
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv53
   %22 = load double, ptr %21, align 8, !tbaa !187
   %23 = call double @llvm.fmuladd.f64(double %20, double %22, double %11)
   br label %24
@@ -20920,11 +20920,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdd
 24:                                               ; preds = %24, %.lr.ph.us.us.us
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %24 ], [ 1, %.lr.ph.us.us.us ]
   %.033.us.us.us = phi double [ %31, %24 ], [ %23, %.lr.ph.us.us.us ]
-  %25 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv48
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv48
   %26 = load double, ptr %25, align 8, !tbaa !187
-  %27 = getelementptr inbounds nuw ptr, ptr %.02740.us.us, i64 %indvars.iv48
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.02740.us.us, i64 %indvars.iv48
   %28 = load ptr, ptr %27, align 8, !tbaa !52
-  %29 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv53
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv53
   %30 = load double, ptr %29, align 8, !tbaa !187
   %31 = call double @llvm.fmuladd.f64(double %26, double %30, double %.033.us.us.us)
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
@@ -20932,7 +20932,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdd
   br i1 %exitcond52.not, label %._crit_edge.us.us.us, label %24, !llvm.loop !663
 
 ._crit_edge.us.us.us:                             ; preds = %24
-  %32 = getelementptr inbounds nuw double, ptr %.03038.us.us, i64 %indvars.iv53
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.03038.us.us, i64 %indvars.iv53
   store double %31, ptr %32, align 8, !tbaa !187
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
@@ -20955,10 +20955,10 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIdd
 38:                                               ; preds = %.preheader.us, %38
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %38 ]
   %39 = load double, ptr %9, align 8, !tbaa !187
-  %40 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %41 = load double, ptr %40, align 8, !tbaa !187
   %42 = call double @llvm.fmuladd.f64(double %39, double %41, double %11)
-  %43 = getelementptr inbounds nuw double, ptr %.03038.us, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.03038.us, i64 %indvars.iv
   store double %42, ptr %43, align 8, !tbaa !187
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count56
@@ -21178,7 +21178,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %16 = load i32, ptr %15, align 8, !tbaa !666
   %17 = and i32 %16, 1
@@ -21217,7 +21217,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
   br i1 %.not90136, label %._crit_edge, label %.lr.ph139
 
 .lr.ph139:                                        ; preds = %.thread116
-  %30 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %30 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %.sroa.9.0.extract.shift = lshr i64 %29, 32
   %.sroa.9.0.extract.trunc = trunc nuw i64 %.sroa.9.0.extract.shift to i32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -21253,12 +21253,12 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 .lr.ph131:                                        ; preds = %.preheader121, %.lr.ph131
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %.lr.ph131 ], [ 0, %.preheader121 ]
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv151
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv151
   %46 = load i32, ptr %45, align 4, !tbaa !12
-  %47 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv151
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv151
   %48 = load i32, ptr %47, align 4, !tbaa !12
   %49 = shl nsw i32 %48, 1
-  %50 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv151
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv151
   %51 = load i32, ptr %50, align 4, !tbaa !12
   %52 = add i32 %34, %46
   %53 = add i32 %52, %49
@@ -21284,11 +21284,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 .lr.ph129:                                        ; preds = %.preheader123, %.lr.ph129
   %indvars.iv146 = phi i64 [ %indvars.iv.next147, %.lr.ph129 ], [ 0, %.preheader123 ]
-  %61 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv146
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv146
   %62 = load i32, ptr %61, align 4, !tbaa !12
-  %63 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv146
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv146
   %64 = load i32, ptr %63, align 4, !tbaa !12
-  %65 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv146
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv146
   %66 = load i32, ptr %65, align 4, !tbaa !12
   %67 = add i32 %34, %62
   %68 = shl i32 %64, 1
@@ -21306,13 +21306,13 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 .lr.ph:                                           ; preds = %.preheader125, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader125 ]
-  %76 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %77 = load i32, ptr %76, align 4, !tbaa !12
-  %78 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4, !tbaa !12
   %80 = add nsw i32 %79, %77
   %81 = mul nsw i32 %80, %.pre
-  %82 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   %83 = load i32, ptr %82, align 4, !tbaa !12
   %84 = mul nsw i32 %83, %18
   %85 = add i32 %34, %84
@@ -21340,9 +21340,9 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 .lr.ph135:                                        ; preds = %93, %.lr.ph135
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %.lr.ph135 ], [ 0, %93 ]
-  %94 = getelementptr inbounds nuw i32, ptr %spec.select118, i64 %indvars.iv161
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %spec.select118, i64 %indvars.iv161
   %95 = load i32, ptr %94, align 4, !tbaa !12
-  %96 = getelementptr inbounds nuw i32, ptr %spec.select117, i64 %indvars.iv161
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %spec.select117, i64 %indvars.iv161
   %97 = load i32, ptr %96, align 4, !tbaa !12
   %98 = add i32 %34, %95
   %99 = sub i32 %98, %97
@@ -21358,9 +21358,9 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 .lr.ph133:                                        ; preds = %.preheader, %.lr.ph133
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.lr.ph133 ], [ 0, %.preheader ]
-  %105 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv156
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv156
   %106 = load i32, ptr %105, align 4, !tbaa !12
-  %107 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv156
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv156
   %108 = load i32, ptr %107, align 4, !tbaa !12
   %109 = sub nsw i32 %106, %108
   %110 = mul nsw i32 %109, %.pre
@@ -21422,7 +21422,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_13Fi
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %16 = load i32, ptr %15, align 8, !tbaa !666
   %17 = and i32 %16, 1
@@ -21434,7 +21434,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_13Fi
   %.sroa.0.0.extract.trunc = trunc i64 %21 to i32
   %.sroa.6.0.extract.shift = lshr i64 %21, 32
   %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
-  %22 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %22 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %23 = add nsw i32 %4, -1
   %.not75106 = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader83, label %.preheader85
@@ -21472,7 +21472,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_13Fi
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %28 ], [ 0, %.preheader84.us.us ]
   %29 = load i32, ptr %14, align 4, !tbaa !12
   %30 = load ptr, ptr %.06396.us.us, align 8, !tbaa !52
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv128
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv128
   %32 = load i32, ptr %31, align 4, !tbaa !12
   %33 = mul nsw i32 %32, %29
   %.reass.us.us = add i32 %33, %invariant.op
@@ -21503,7 +21503,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_13Fi
   %indvars.iv123 = phi i64 [ 0, %.preheader84.us ], [ %indvars.iv.next124, %._crit_edge.us ]
   %43 = load i32, ptr %14, align 4, !tbaa !12
   %44 = load ptr, ptr %.06396.us, align 8, !tbaa !52
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv123
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv123
   %46 = load i32, ptr %45, align 4, !tbaa !12
   %47 = mul nsw i32 %46, %43
   %48 = add nsw i32 %47, %19
@@ -21512,16 +21512,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_13Fi
 49:                                               ; preds = %49, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 1, %.lr.ph.us ]
   %.06689.us = phi i32 [ %63, %49 ], [ %48, %.lr.ph.us ]
-  %50 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !12
-  %52 = getelementptr inbounds nuw ptr, ptr %.06396.us, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.06396.us, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !52
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv123
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv123
   %55 = load i32, ptr %54, align 4, !tbaa !12
   %56 = sub nsw i64 0, %indvars.iv
-  %57 = getelementptr inbounds ptr, ptr %.06396.us, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %.06396.us, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !52
-  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv123
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv123
   %60 = load i32, ptr %59, align 4, !tbaa !12
   %61 = add nsw i32 %60, %55
   %62 = mul nsw i32 %61, %51
@@ -21594,16 +21594,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_13Fi
 86:                                               ; preds = %.preheader.us110, %86
   %indvars.iv133 = phi i64 [ 1, %.preheader.us110 ], [ %indvars.iv.next134, %86 ]
   %.0103.us = phi i32 [ %19, %.preheader.us110 ], [ %100, %86 ]
-  %87 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv133
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv133
   %88 = load i32, ptr %87, align 4, !tbaa !12
-  %89 = getelementptr inbounds nuw ptr, ptr %.1109.us, i64 %indvars.iv133
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %.1109.us, i64 %indvars.iv133
   %90 = load ptr, ptr %89, align 8, !tbaa !52
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv138
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv138
   %92 = load i32, ptr %91, align 4, !tbaa !12
   %93 = sub nsw i64 0, %indvars.iv133
-  %94 = getelementptr inbounds ptr, ptr %.1109.us, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %.1109.us, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !52
-  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv138
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv138
   %97 = load i32, ptr %96, align 4, !tbaa !12
   %98 = sub nsw i32 %92, %97
   %99 = mul nsw i32 %98, %88
@@ -21842,7 +21842,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load i32, ptr %15, align 8, !tbaa !680
   %17 = and i32 %16, 1
@@ -21880,7 +21880,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
   br i1 %.not86123, label %._crit_edge, label %.lr.ph126
 
 .lr.ph126:                                        ; preds = %.thread103
-  %30 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %30 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %31 = icmp sgt i32 %5, 0
   %32 = icmp slt i32 %.pre, 0
   %33 = sext i32 %3 to i64
@@ -21912,12 +21912,12 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 .lr.ph118:                                        ; preds = %.preheader108, %.lr.ph118
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %.lr.ph118 ], [ 0, %.preheader108 ]
-  %42 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv138
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv138
   %43 = load i32, ptr %42, align 4, !tbaa !12
-  %44 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv138
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv138
   %45 = load i32, ptr %44, align 4, !tbaa !12
   %46 = shl nsw i32 %45, 1
-  %47 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv138
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv138
   %48 = load i32, ptr %47, align 4, !tbaa !12
   %49 = add i32 %43, %29
   %50 = add i32 %49, %46
@@ -21925,7 +21925,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
   %52 = call i32 @llvm.smax.i32(i32 %51, i32 -32768)
   %53 = call i32 @llvm.smin.i32(i32 %52, i32 32767)
   %54 = trunc nsw i32 %53 to i16
-  %55 = getelementptr inbounds nuw i16, ptr %.082124, i64 %indvars.iv138
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.082124, i64 %indvars.iv138
   store i16 %54, ptr %55, align 2, !tbaa !560
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
@@ -21942,11 +21942,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 .lr.ph116:                                        ; preds = %.preheader110, %.lr.ph116
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %.lr.ph116 ], [ 0, %.preheader110 ]
-  %57 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv133
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv133
   %58 = load i32, ptr %57, align 4, !tbaa !12
-  %59 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv133
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv133
   %60 = load i32, ptr %59, align 4, !tbaa !12
-  %61 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv133
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv133
   %62 = load i32, ptr %61, align 4, !tbaa !12
   %63 = add i32 %58, %29
   %64 = shl i32 %60, 1
@@ -21955,7 +21955,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
   %67 = call i32 @llvm.smax.i32(i32 %66, i32 -32768)
   %68 = call i32 @llvm.smin.i32(i32 %67, i32 32767)
   %69 = trunc nsw i32 %68 to i16
-  %70 = getelementptr inbounds nuw i16, ptr %.082124, i64 %indvars.iv133
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %.082124, i64 %indvars.iv133
   store i16 %69, ptr %70, align 2, !tbaa !560
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
@@ -21963,13 +21963,13 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 .lr.ph:                                           ; preds = %.preheader112, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader112 ]
-  %71 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !12
-  %73 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4, !tbaa !12
   %75 = add nsw i32 %74, %72
   %76 = mul nsw i32 %75, %.pre
-  %77 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4, !tbaa !12
   %79 = mul nsw i32 %78, %18
   %80 = add i32 %79, %29
@@ -21977,7 +21977,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
   %82 = call i32 @llvm.smax.i32(i32 %81, i32 -32768)
   %83 = call i32 @llvm.smin.i32(i32 %82, i32 32767)
   %84 = trunc nsw i32 %83 to i16
-  %85 = getelementptr inbounds nuw i16, ptr %.082124, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %.082124, i64 %indvars.iv
   store i16 %84, ptr %85, align 2, !tbaa !560
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -21996,16 +21996,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 .lr.ph122:                                        ; preds = %87, %.lr.ph122
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %.lr.ph122 ], [ 0, %87 ]
-  %88 = getelementptr inbounds nuw i32, ptr %spec.select105, i64 %indvars.iv148
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %spec.select105, i64 %indvars.iv148
   %89 = load i32, ptr %88, align 4, !tbaa !12
-  %90 = getelementptr inbounds nuw i32, ptr %spec.select104, i64 %indvars.iv148
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %spec.select104, i64 %indvars.iv148
   %91 = load i32, ptr %90, align 4, !tbaa !12
   %92 = add i32 %89, %29
   %93 = sub i32 %92, %91
   %94 = call i32 @llvm.smax.i32(i32 %93, i32 -32768)
   %95 = call i32 @llvm.smin.i32(i32 %94, i32 32767)
   %96 = trunc nsw i32 %95 to i16
-  %97 = getelementptr inbounds nuw i16, ptr %.082124, i64 %indvars.iv148
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %.082124, i64 %indvars.iv148
   store i16 %96, ptr %97, align 2, !tbaa !560
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
@@ -22013,9 +22013,9 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 .lr.ph120:                                        ; preds = %.preheader, %.lr.ph120
   %indvars.iv143 = phi i64 [ %indvars.iv.next144, %.lr.ph120 ], [ 0, %.preheader ]
-  %98 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv143
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv143
   %99 = load i32, ptr %98, align 4, !tbaa !12
-  %100 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv143
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv143
   %101 = load i32, ptr %100, align 4, !tbaa !12
   %102 = sub nsw i32 %99, %101
   %103 = mul nsw i32 %102, %.pre
@@ -22023,7 +22023,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
   %105 = call i32 @llvm.smax.i32(i32 %104, i32 -32768)
   %106 = call i32 @llvm.smin.i32(i32 %105, i32 32767)
   %107 = trunc nsw i32 %106 to i16
-  %108 = getelementptr inbounds nuw i16, ptr %.082124, i64 %indvars.iv143
+  %108 = getelementptr inbounds nuw [2 x i8], ptr %.082124, i64 %indvars.iv143
   store i16 %107, ptr %108, align 2, !tbaa !560
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
@@ -22191,14 +22191,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load i32, ptr %15, align 8, !tbaa !680
   %17 = and i32 %16, 1
   %.not = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %19 = load i32, ptr %18, align 4, !tbaa !685
-  %20 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %21 = add nsw i32 %4, -1
   %.not7198 = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader76, label %.preheader78
@@ -22235,14 +22235,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 28:                                               ; preds = %28, %.preheader77.us.us
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %28 ], [ 0, %.preheader77.us.us ]
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv120
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv120
   %30 = load i32, ptr %29, align 4, !tbaa !12
   %31 = mul nsw i32 %30, %24
   %32 = add nsw i32 %31, %19
   %33 = call i32 @llvm.smax.i32(i32 %32, i32 -32768)
   %34 = call i32 @llvm.smin.i32(i32 %33, i32 32767)
   %35 = trunc nsw i32 %34 to i16
-  %36 = getelementptr inbounds nuw i16, ptr %.06387.us.us, i64 %indvars.iv120
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %.06387.us.us, i64 %indvars.iv120
   store i16 %35, ptr %36, align 2, !tbaa !560
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
@@ -22264,7 +22264,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 .lr.ph.us:                                        ; preds = %.preheader77.us, %._crit_edge.us
   %indvars.iv115 = phi i64 [ 0, %.preheader77.us ], [ %indvars.iv.next116, %._crit_edge.us ]
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv115
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv115
   %43 = load i32, ptr %42, align 4, !tbaa !12
   %44 = mul nsw i32 %43, %24
   %45 = add nsw i32 %44, %19
@@ -22273,16 +22273,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 46:                                               ; preds = %46, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 1, %.lr.ph.us ]
   %.06282.us = phi i32 [ %60, %46 ], [ %45, %.lr.ph.us ]
-  %47 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !12
-  %49 = getelementptr inbounds nuw ptr, ptr %.06189.us, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.06189.us, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !52
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv115
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv115
   %52 = load i32, ptr %51, align 4, !tbaa !12
   %53 = sub nsw i64 0, %indvars.iv
-  %54 = getelementptr inbounds ptr, ptr %.06189.us, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %.06189.us, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !52
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv115
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv115
   %57 = load i32, ptr %56, align 4, !tbaa !12
   %58 = add nsw i32 %57, %52
   %59 = mul nsw i32 %58, %48
@@ -22295,7 +22295,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %61 = call i32 @llvm.smax.i32(i32 %60, i32 -32768)
   %62 = call i32 @llvm.smin.i32(i32 %61, i32 32767)
   %63 = trunc nsw i32 %62 to i16
-  %64 = getelementptr inbounds nuw i16, ptr %.06387.us, i64 %indvars.iv115
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %.06387.us, i64 %indvars.iv115
   store i16 %63, ptr %64, align 2, !tbaa !560
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
@@ -22340,7 +22340,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 .preheader.us.us.us:                              ; preds = %.preheader.us.us.us, %.preheader75.us.us
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %.preheader.us.us.us ], [ 0, %.preheader75.us.us ]
-  %75 = getelementptr inbounds nuw i16, ptr %.16499.us.us, i64 %indvars.iv135
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %.16499.us.us, i64 %indvars.iv135
   store i16 %71, ptr %75, align 2, !tbaa !560
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
@@ -22361,16 +22361,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 79:                                               ; preds = %.preheader.us102, %79
   %indvars.iv125 = phi i64 [ 1, %.preheader.us102 ], [ %indvars.iv.next126, %79 ]
   %.095.us = phi i32 [ %19, %.preheader.us102 ], [ %93, %79 ]
-  %80 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv125
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv125
   %81 = load i32, ptr %80, align 4, !tbaa !12
-  %82 = getelementptr inbounds nuw ptr, ptr %.1101.us, i64 %indvars.iv125
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %.1101.us, i64 %indvars.iv125
   %83 = load ptr, ptr %82, align 8, !tbaa !52
-  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv130
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv130
   %85 = load i32, ptr %84, align 4, !tbaa !12
   %86 = sub nsw i64 0, %indvars.iv125
-  %87 = getelementptr inbounds ptr, ptr %.1101.us, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %.1101.us, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !52
-  %89 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv130
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv130
   %90 = load i32, ptr %89, align 4, !tbaa !12
   %91 = sub nsw i32 %85, %90
   %92 = mul nsw i32 %91, %81
@@ -22387,7 +22387,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %94 = call i32 @llvm.smax.i32(i32 %93, i32 -32768)
   %95 = call i32 @llvm.smin.i32(i32 %94, i32 32767)
   %96 = trunc nsw i32 %95 to i16
-  %97 = getelementptr inbounds nuw i16, ptr %.16499.us, i64 %indvars.iv130
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %.16499.us, i64 %indvars.iv130
   store i16 %96, ptr %97, align 2, !tbaa !560
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
@@ -22470,7 +22470,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIis
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv53
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv53
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = mul nsw i32 %22, %18
   %24 = add nsw i32 %23, %11
@@ -22479,11 +22479,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIis
 25:                                               ; preds = %25, %.lr.ph.us.us.us
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %25 ], [ 1, %.lr.ph.us.us.us ]
   %.033.us.us.us = phi i32 [ %33, %25 ], [ %24, %.lr.ph.us.us.us ]
-  %26 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv48
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv48
   %27 = load i32, ptr %26, align 4, !tbaa !12
-  %28 = getelementptr inbounds nuw ptr, ptr %.02740.us.us, i64 %indvars.iv48
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.02740.us.us, i64 %indvars.iv48
   %29 = load ptr, ptr %28, align 8, !tbaa !52
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv53
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv53
   %31 = load i32, ptr %30, align 4, !tbaa !12
   %32 = mul nsw i32 %31, %27
   %33 = add nsw i32 %32, %.033.us.us.us
@@ -22495,7 +22495,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIis
   %34 = call i32 @llvm.smax.i32(i32 %33, i32 -32768)
   %35 = call i32 @llvm.smin.i32(i32 %34, i32 32767)
   %36 = trunc nsw i32 %35 to i16
-  %37 = getelementptr inbounds nuw i16, ptr %.03038.us.us, i64 %indvars.iv53
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %.03038.us.us, i64 %indvars.iv53
   store i16 %36, ptr %37, align 2, !tbaa !560
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
@@ -22517,14 +22517,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIis
 
 43:                                               ; preds = %.preheader.us, %43
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %43 ]
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !12
   %46 = mul nsw i32 %45, %18
   %47 = add nsw i32 %46, %11
   %48 = call i32 @llvm.smax.i32(i32 %47, i32 -32768)
   %49 = call i32 @llvm.smin.i32(i32 %48, i32 32767)
   %50 = trunc nsw i32 %49 to i16
-  %51 = getelementptr inbounds nuw i16, ptr %.03038.us, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.03038.us, i64 %indvars.iv
   store i16 %50, ptr %51, align 2, !tbaa !560
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count56
@@ -22744,7 +22744,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds float, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load i32, ptr %15, align 8, !tbaa !703
   %17 = and i32 %16, 1
@@ -22794,7 +22794,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
   br i1 %.not90123, label %._crit_edge, label %.lr.ph126
 
 .lr.ph126:                                        ; preds = %._crit_edge152
-  %44 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %44 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %45 = icmp sgt i32 %5, 0
   %46 = fcmp olt float %40, 0.000000e+00
   %47 = sext i32 %3 to i64
@@ -22826,16 +22826,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 .lr.ph118:                                        ; preds = %.preheader108, %.lr.ph118
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.lr.ph118 ], [ 0, %.preheader108 ]
-  %56 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv137
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv137
   %57 = load float, ptr %56, align 4, !tbaa !452
-  %58 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv137
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv137
   %59 = load float, ptr %58, align 4, !tbaa !452
   %60 = call float @llvm.fmuladd.f32(float %59, float 2.000000e+00, float %57)
-  %61 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv137
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv137
   %62 = load float, ptr %61, align 4, !tbaa !452
   %63 = fadd float %60, %62
   %64 = fadd float %43, %63
-  %65 = getelementptr inbounds nuw float, ptr %.084124, i64 %indvars.iv137
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %.084124, i64 %indvars.iv137
   store float %64, ptr %65, align 4, !tbaa !452
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
@@ -22852,17 +22852,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 .lr.ph116:                                        ; preds = %.preheader110, %.lr.ph116
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %.lr.ph116 ], [ 0, %.preheader110 ]
-  %67 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv132
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv132
   %68 = load float, ptr %67, align 4, !tbaa !452
-  %69 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv132
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv132
   %70 = load float, ptr %69, align 4, !tbaa !452
   %71 = fneg float %70
   %72 = call float @llvm.fmuladd.f32(float %71, float 2.000000e+00, float %68)
-  %73 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv132
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv132
   %74 = load float, ptr %73, align 4, !tbaa !452
   %75 = fadd float %72, %74
   %76 = fadd float %43, %75
-  %77 = getelementptr inbounds nuw float, ptr %.084124, i64 %indvars.iv132
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.084124, i64 %indvars.iv132
   store float %76, ptr %77, align 4, !tbaa !452
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
@@ -22870,17 +22870,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 .lr.ph:                                           ; preds = %.preheader112, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader112 ]
-  %78 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   %79 = load float, ptr %78, align 4, !tbaa !452
-  %80 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   %81 = load float, ptr %80, align 4, !tbaa !452
   %82 = fadd float %79, %81
-  %83 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   %84 = load float, ptr %83, align 4, !tbaa !452
   %85 = fmul float %18, %84
   %86 = call float @llvm.fmuladd.f32(float %82, float %40, float %85)
   %87 = fadd float %43, %86
-  %88 = getelementptr inbounds nuw float, ptr %.084124, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.084124, i64 %indvars.iv
   store float %87, ptr %88, align 4, !tbaa !452
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -22899,13 +22899,13 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 .lr.ph122:                                        ; preds = %90, %.lr.ph122
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.lr.ph122 ], [ 0, %90 ]
-  %91 = getelementptr inbounds nuw float, ptr %.0105, i64 %indvars.iv147
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.0105, i64 %indvars.iv147
   %92 = load float, ptr %91, align 4, !tbaa !452
-  %93 = getelementptr inbounds nuw float, ptr %.0106, i64 %indvars.iv147
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.0106, i64 %indvars.iv147
   %94 = load float, ptr %93, align 4, !tbaa !452
   %95 = fsub float %92, %94
   %96 = fadd float %43, %95
-  %97 = getelementptr inbounds nuw float, ptr %.084124, i64 %indvars.iv147
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %.084124, i64 %indvars.iv147
   store float %96, ptr %97, align 4, !tbaa !452
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
@@ -22913,13 +22913,13 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline21SymmColumnSmallFilterINS0
 
 .lr.ph120:                                        ; preds = %.preheader, %.lr.ph120
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %.lr.ph120 ], [ 0, %.preheader ]
-  %98 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv142
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv142
   %99 = load float, ptr %98, align 4, !tbaa !452
-  %100 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv142
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv142
   %101 = load float, ptr %100, align 4, !tbaa !452
   %102 = fsub float %99, %101
   %103 = call float @llvm.fmuladd.f32(float %102, float %40, float %43)
-  %104 = getelementptr inbounds nuw float, ptr %.084124, i64 %indvars.iv142
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.084124, i64 %indvars.iv142
   store float %103, ptr %104, align 4, !tbaa !452
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
@@ -23086,14 +23086,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds float, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load i32, ptr %15, align 8, !tbaa !703
   %17 = and i32 %16, 1
   %.not = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %19 = load float, ptr %18, align 4, !tbaa !706
-  %20 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %21 = add nsw i32 %4, -1
   %.not75103 = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader81, label %.preheader83
@@ -23130,10 +23130,10 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 27:                                               ; preds = %27, %.preheader82.us.us
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %27 ], [ 0, %.preheader82.us.us ]
   %28 = load float, ptr %14, align 4, !tbaa !452
-  %29 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv125
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv125
   %30 = load float, ptr %29, align 4, !tbaa !452
   %31 = call float @llvm.fmuladd.f32(float %28, float %30, float %19)
-  %32 = getelementptr inbounds nuw float, ptr %.06792.us.us, i64 %indvars.iv125
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.06792.us.us, i64 %indvars.iv125
   store float %31, ptr %32, align 4, !tbaa !452
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
@@ -23156,7 +23156,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 .lr.ph.us:                                        ; preds = %.preheader82.us, %._crit_edge.us
   %indvars.iv120 = phi i64 [ 0, %.preheader82.us ], [ %indvars.iv.next121, %._crit_edge.us ]
   %38 = load float, ptr %14, align 4, !tbaa !452
-  %39 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv120
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv120
   %40 = load float, ptr %39, align 4, !tbaa !452
   %41 = call float @llvm.fmuladd.f32(float %38, float %40, float %19)
   br label %42
@@ -23164,16 +23164,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 42:                                               ; preds = %42, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 1, %.lr.ph.us ]
   %.06687.us = phi float [ %55, %42 ], [ %41, %.lr.ph.us ]
-  %43 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %44 = load float, ptr %43, align 4, !tbaa !452
-  %45 = getelementptr inbounds nuw ptr, ptr %.06394.us, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.06394.us, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !52
-  %47 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv120
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv120
   %48 = load float, ptr %47, align 4, !tbaa !452
   %49 = sub nsw i64 0, %indvars.iv
-  %50 = getelementptr inbounds ptr, ptr %.06394.us, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %.06394.us, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !52
-  %52 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv120
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv120
   %53 = load float, ptr %52, align 4, !tbaa !452
   %54 = fadd float %48, %53
   %55 = call float @llvm.fmuladd.f32(float %44, float %54, float %.06687.us)
@@ -23182,7 +23182,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   br i1 %exitcond.not, label %._crit_edge.us, label %42, !llvm.loop !717
 
 ._crit_edge.us:                                   ; preds = %42
-  %56 = getelementptr inbounds nuw float, ptr %.06792.us, i64 %indvars.iv120
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.06792.us, i64 %indvars.iv120
   store float %55, ptr %56, align 4, !tbaa !452
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
@@ -23224,7 +23224,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 .preheader.us.us.us:                              ; preds = %.preheader.us.us.us, %.preheader80.us.us
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.preheader.us.us.us ], [ 0, %.preheader80.us.us ]
-  %64 = getelementptr inbounds nuw float, ptr %.168104.us.us, i64 %indvars.iv140
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %.168104.us.us, i64 %indvars.iv140
   store float %19, ptr %64, align 4, !tbaa !452
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
@@ -23245,16 +23245,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 68:                                               ; preds = %.preheader.us107, %68
   %indvars.iv130 = phi i64 [ 1, %.preheader.us107 ], [ %indvars.iv.next131, %68 ]
   %.0100.us = phi float [ %19, %.preheader.us107 ], [ %81, %68 ]
-  %69 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv130
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv130
   %70 = load float, ptr %69, align 4, !tbaa !452
-  %71 = getelementptr inbounds nuw ptr, ptr %.1106.us, i64 %indvars.iv130
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.1106.us, i64 %indvars.iv130
   %72 = load ptr, ptr %71, align 8, !tbaa !52
-  %73 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv135
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv135
   %74 = load float, ptr %73, align 4, !tbaa !452
   %75 = sub nsw i64 0, %indvars.iv130
-  %76 = getelementptr inbounds ptr, ptr %.1106.us, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %.1106.us, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !52
-  %78 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv135
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv135
   %79 = load float, ptr %78, align 4, !tbaa !452
   %80 = fsub float %74, %79
   %81 = call float @llvm.fmuladd.f32(float %70, float %80, float %.0100.us)
@@ -23267,7 +23267,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   br label %68
 
 ._crit_edge.us109:                                ; preds = %68
-  %82 = getelementptr inbounds nuw float, ptr %.168104.us, i64 %indvars.iv135
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.168104.us, i64 %indvars.iv135
   store float %81, ptr %82, align 4, !tbaa !452
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
@@ -23350,7 +23350,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIff
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
   %20 = load float, ptr %9, align 4, !tbaa !452
-  %21 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv55
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv55
   %22 = load float, ptr %21, align 4, !tbaa !452
   %23 = call float @llvm.fmuladd.f32(float %20, float %22, float %11)
   br label %24
@@ -23358,11 +23358,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIff
 24:                                               ; preds = %24, %.lr.ph.us.us.us
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %24 ], [ 1, %.lr.ph.us.us.us ]
   %.03035.us.us.us = phi float [ %31, %24 ], [ %23, %.lr.ph.us.us.us ]
-  %25 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv50
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv50
   %26 = load float, ptr %25, align 4, !tbaa !452
-  %27 = getelementptr inbounds nuw ptr, ptr %.042.us.us, i64 %indvars.iv50
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.042.us.us, i64 %indvars.iv50
   %28 = load ptr, ptr %27, align 8, !tbaa !52
-  %29 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv55
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv55
   %30 = load float, ptr %29, align 4, !tbaa !452
   %31 = call float @llvm.fmuladd.f32(float %26, float %30, float %.03035.us.us.us)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
@@ -23370,7 +23370,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIff
   br i1 %exitcond54.not, label %._crit_edge.us.us.us, label %24, !llvm.loop !721
 
 ._crit_edge.us.us.us:                             ; preds = %24
-  %32 = getelementptr inbounds nuw float, ptr %.02940.us.us, i64 %indvars.iv55
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.02940.us.us, i64 %indvars.iv55
   store float %31, ptr %32, align 4, !tbaa !452
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
@@ -23393,10 +23393,10 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIff
 38:                                               ; preds = %.preheader.us, %38
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %38 ]
   %39 = load float, ptr %9, align 4, !tbaa !452
-  %40 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !452
   %42 = call float @llvm.fmuladd.f32(float %39, float %41, float %11)
-  %43 = getelementptr inbounds nuw float, ptr %.02940.us, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %.02940.us, i64 %indvars.iv
   store float %42, ptr %43, align 4, !tbaa !452
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count58
@@ -23695,14 +23695,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds float, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load i32, ptr %15, align 8, !tbaa !724
   %17 = and i32 %16, 1
   %.not = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %19 = load float, ptr %18, align 4, !tbaa !606
-  %20 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %21 = add nsw i32 %4, -1
   %.not75104 = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader81, label %.preheader83
@@ -23739,7 +23739,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %26 ], [ 0, %.preheader82.us.us ]
   %27 = load float, ptr %14, align 4, !tbaa !452
   %28 = load ptr, ptr %.06394.us.us, align 8, !tbaa !52
-  %29 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv126
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv126
   %30 = load float, ptr %29, align 4, !tbaa !452
   %31 = call float @llvm.fmuladd.f32(float %27, float %30, float %19)
   %32 = insertelement <4 x float> poison, float %31, i64 0
@@ -23770,7 +23770,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %indvars.iv121 = phi i64 [ 0, %.preheader82.us ], [ %indvars.iv.next122, %._crit_edge.us ]
   %42 = load float, ptr %14, align 4, !tbaa !452
   %43 = load ptr, ptr %.06394.us, align 8, !tbaa !52
-  %44 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv121
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv121
   %45 = load float, ptr %44, align 4, !tbaa !452
   %46 = call float @llvm.fmuladd.f32(float %42, float %45, float %19)
   br label %47
@@ -23778,16 +23778,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 47:                                               ; preds = %47, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 1, %.lr.ph.us ]
   %.06687.us = phi float [ %60, %47 ], [ %46, %.lr.ph.us ]
-  %48 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %49 = load float, ptr %48, align 4, !tbaa !452
-  %50 = getelementptr inbounds nuw ptr, ptr %.06394.us, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.06394.us, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !52
-  %52 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv121
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv121
   %53 = load float, ptr %52, align 4, !tbaa !452
   %54 = sub nsw i64 0, %indvars.iv
-  %55 = getelementptr inbounds ptr, ptr %.06394.us, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %.06394.us, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !52
-  %57 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv121
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv121
   %58 = load float, ptr %57, align 4, !tbaa !452
   %59 = fadd float %53, %58
   %60 = call float @llvm.fmuladd.f32(float %49, float %59, float %.06687.us)
@@ -23859,16 +23859,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 83:                                               ; preds = %.preheader.us108, %83
   %indvars.iv131 = phi i64 [ 1, %.preheader.us108 ], [ %indvars.iv.next132, %83 ]
   %.0101.us = phi float [ %19, %.preheader.us108 ], [ %96, %83 ]
-  %84 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv131
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv131
   %85 = load float, ptr %84, align 4, !tbaa !452
-  %86 = getelementptr inbounds nuw ptr, ptr %.1107.us, i64 %indvars.iv131
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %.1107.us, i64 %indvars.iv131
   %87 = load ptr, ptr %86, align 8, !tbaa !52
-  %88 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv136
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv136
   %89 = load float, ptr %88, align 4, !tbaa !452
   %90 = sub nsw i64 0, %indvars.iv131
-  %91 = getelementptr inbounds ptr, ptr %.1107.us, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %.1107.us, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !52
-  %93 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv136
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv136
   %94 = load float, ptr %93, align 4, !tbaa !452
   %95 = fsub float %89, %94
   %96 = call float @llvm.fmuladd.f32(float %85, float %95, float %.0101.us)
@@ -24066,14 +24066,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds double, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %16 = load i32, ptr %15, align 8, !tbaa !732
   %17 = and i32 %16, 1
   %.not = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %19 = load double, ptr %18, align 8, !tbaa !614
-  %20 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %21 = add nsw i32 %4, -1
   %.not75104 = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader81, label %.preheader83
@@ -24110,7 +24110,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %26 ], [ 0, %.preheader82.us.us ]
   %27 = load double, ptr %14, align 8, !tbaa !187
   %28 = load ptr, ptr %.06394.us.us, align 8, !tbaa !52
-  %29 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv126
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv126
   %30 = load double, ptr %29, align 8, !tbaa !187
   %31 = call double @llvm.fmuladd.f64(double %27, double %30, double %19)
   %32 = insertelement <2 x double> poison, double %31, i64 0
@@ -24141,7 +24141,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %indvars.iv121 = phi i64 [ 0, %.preheader82.us ], [ %indvars.iv.next122, %._crit_edge.us ]
   %42 = load double, ptr %14, align 8, !tbaa !187
   %43 = load ptr, ptr %.06394.us, align 8, !tbaa !52
-  %44 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv121
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv121
   %45 = load double, ptr %44, align 8, !tbaa !187
   %46 = call double @llvm.fmuladd.f64(double %42, double %45, double %19)
   br label %47
@@ -24149,16 +24149,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 47:                                               ; preds = %47, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 1, %.lr.ph.us ]
   %.06487.us = phi double [ %60, %47 ], [ %46, %.lr.ph.us ]
-  %48 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %49 = load double, ptr %48, align 8, !tbaa !187
-  %50 = getelementptr inbounds nuw ptr, ptr %.06394.us, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.06394.us, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !52
-  %52 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv121
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv121
   %53 = load double, ptr %52, align 8, !tbaa !187
   %54 = sub nsw i64 0, %indvars.iv
-  %55 = getelementptr inbounds ptr, ptr %.06394.us, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %.06394.us, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !52
-  %57 = getelementptr inbounds nuw double, ptr %56, i64 %indvars.iv121
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv121
   %58 = load double, ptr %57, align 8, !tbaa !187
   %59 = fadd double %53, %58
   %60 = call double @llvm.fmuladd.f64(double %49, double %59, double %.06487.us)
@@ -24230,16 +24230,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 83:                                               ; preds = %.preheader.us108, %83
   %indvars.iv131 = phi i64 [ 1, %.preheader.us108 ], [ %indvars.iv.next132, %83 ]
   %.0101.us = phi double [ %19, %.preheader.us108 ], [ %96, %83 ]
-  %84 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv131
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv131
   %85 = load double, ptr %84, align 8, !tbaa !187
-  %86 = getelementptr inbounds nuw ptr, ptr %.1107.us, i64 %indvars.iv131
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %.1107.us, i64 %indvars.iv131
   %87 = load ptr, ptr %86, align 8, !tbaa !52
-  %88 = getelementptr inbounds nuw double, ptr %87, i64 %indvars.iv136
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv136
   %89 = load double, ptr %88, align 8, !tbaa !187
   %90 = sub nsw i64 0, %indvars.iv131
-  %91 = getelementptr inbounds ptr, ptr %.1107.us, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %.1107.us, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !52
-  %93 = getelementptr inbounds nuw double, ptr %92, i64 %indvars.iv136
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv136
   %94 = load double, ptr %93, align 8, !tbaa !187
   %95 = fsub double %89, %94
   %96 = call double @llvm.fmuladd.f64(double %85, double %95, double %.0101.us)
@@ -24437,14 +24437,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds float, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load i32, ptr %15, align 8, !tbaa !740
   %17 = and i32 %16, 1
   %.not = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %19 = load float, ptr %18, align 4, !tbaa !622
-  %20 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %21 = add nsw i32 %4, -1
   %.not75103 = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader81, label %.preheader83
@@ -24481,7 +24481,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 28:                                               ; preds = %28, %.preheader82.us.us
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %28 ], [ 0, %.preheader82.us.us ]
-  %29 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv125
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv125
   %30 = load float, ptr %29, align 4, !tbaa !452
   %31 = call float @llvm.fmuladd.f32(float %24, float %30, float %19)
   %32 = insertelement <4 x float> poison, float %31, i64 0
@@ -24489,7 +24489,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %34 = call i32 @llvm.smax.i32(i32 %33, i32 0)
   %35 = call i32 @llvm.umin.i32(i32 %34, i32 65535)
   %36 = trunc nuw i32 %35 to i16
-  %37 = getelementptr inbounds nuw i16, ptr %.06792.us.us, i64 %indvars.iv125
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %.06792.us.us, i64 %indvars.iv125
   store i16 %36, ptr %37, align 2, !tbaa !560
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
@@ -24511,7 +24511,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 .lr.ph.us:                                        ; preds = %.preheader82.us, %._crit_edge.us
   %indvars.iv120 = phi i64 [ 0, %.preheader82.us ], [ %indvars.iv.next121, %._crit_edge.us ]
-  %43 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv120
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv120
   %44 = load float, ptr %43, align 4, !tbaa !452
   %45 = call float @llvm.fmuladd.f32(float %24, float %44, float %19)
   br label %46
@@ -24519,16 +24519,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 46:                                               ; preds = %46, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 1, %.lr.ph.us ]
   %.06687.us = phi float [ %59, %46 ], [ %45, %.lr.ph.us ]
-  %47 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %48 = load float, ptr %47, align 4, !tbaa !452
-  %49 = getelementptr inbounds nuw ptr, ptr %.06394.us, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.06394.us, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !52
-  %51 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv120
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv120
   %52 = load float, ptr %51, align 4, !tbaa !452
   %53 = sub nsw i64 0, %indvars.iv
-  %54 = getelementptr inbounds ptr, ptr %.06394.us, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %.06394.us, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !52
-  %56 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv120
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv120
   %57 = load float, ptr %56, align 4, !tbaa !452
   %58 = fadd float %52, %57
   %59 = call float @llvm.fmuladd.f32(float %48, float %58, float %.06687.us)
@@ -24542,7 +24542,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %62 = call i32 @llvm.smax.i32(i32 %61, i32 0)
   %63 = call i32 @llvm.umin.i32(i32 %62, i32 65535)
   %64 = trunc nuw i32 %63 to i16
-  %65 = getelementptr inbounds nuw i16, ptr %.06792.us, i64 %indvars.iv120
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %.06792.us, i64 %indvars.iv120
   store i16 %64, ptr %65, align 2, !tbaa !560
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
@@ -24589,7 +24589,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 .preheader.us.us.us:                              ; preds = %.preheader.us.us.us, %.preheader80.us.us
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.preheader.us.us.us ], [ 0, %.preheader80.us.us ]
-  %78 = getelementptr inbounds nuw i16, ptr %.168104.us.us, i64 %indvars.iv140
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %.168104.us.us, i64 %indvars.iv140
   store i16 %76, ptr %78, align 2, !tbaa !560
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
@@ -24610,16 +24610,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 82:                                               ; preds = %.preheader.us107, %82
   %indvars.iv130 = phi i64 [ 1, %.preheader.us107 ], [ %indvars.iv.next131, %82 ]
   %.0100.us = phi float [ %19, %.preheader.us107 ], [ %95, %82 ]
-  %83 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv130
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv130
   %84 = load float, ptr %83, align 4, !tbaa !452
-  %85 = getelementptr inbounds nuw ptr, ptr %.1106.us, i64 %indvars.iv130
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %.1106.us, i64 %indvars.iv130
   %86 = load ptr, ptr %85, align 8, !tbaa !52
-  %87 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv135
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv135
   %88 = load float, ptr %87, align 4, !tbaa !452
   %89 = sub nsw i64 0, %indvars.iv130
-  %90 = getelementptr inbounds ptr, ptr %.1106.us, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %.1106.us, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !52
-  %92 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv135
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv135
   %93 = load float, ptr %92, align 4, !tbaa !452
   %94 = fsub float %88, %93
   %95 = call float @llvm.fmuladd.f32(float %84, float %94, float %.0100.us)
@@ -24637,7 +24637,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %98 = call i32 @llvm.smax.i32(i32 %97, i32 0)
   %99 = call i32 @llvm.umin.i32(i32 %98, i32 65535)
   %100 = trunc nuw i32 %99 to i16
-  %101 = getelementptr inbounds nuw i16, ptr %.168104.us, i64 %indvars.iv135
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %.168104.us, i64 %indvars.iv135
   store i16 %100, ptr %101, align 2, !tbaa !560
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
@@ -24872,14 +24872,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds double, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %16 = load i32, ptr %15, align 8, !tbaa !748
   %17 = and i32 %16, 1
   %.not = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %19 = load double, ptr %18, align 8, !tbaa !630
-  %20 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %21 = add nsw i32 %4, -1
   %.not75103 = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader81, label %.preheader83
@@ -24916,7 +24916,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 28:                                               ; preds = %28, %.preheader82.us.us
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %28 ], [ 0, %.preheader82.us.us ]
-  %29 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv125
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv125
   %30 = load double, ptr %29, align 8, !tbaa !187
   %31 = call double @llvm.fmuladd.f64(double %24, double %30, double %19)
   %32 = insertelement <2 x double> poison, double %31, i64 0
@@ -24924,7 +24924,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %34 = call i32 @llvm.smax.i32(i32 %33, i32 0)
   %35 = call i32 @llvm.umin.i32(i32 %34, i32 65535)
   %36 = trunc nuw i32 %35 to i16
-  %37 = getelementptr inbounds nuw i16, ptr %.06592.us.us, i64 %indvars.iv125
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %.06592.us.us, i64 %indvars.iv125
   store i16 %36, ptr %37, align 2, !tbaa !560
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
@@ -24946,7 +24946,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 .lr.ph.us:                                        ; preds = %.preheader82.us, %._crit_edge.us
   %indvars.iv120 = phi i64 [ 0, %.preheader82.us ], [ %indvars.iv.next121, %._crit_edge.us ]
-  %43 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv120
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv120
   %44 = load double, ptr %43, align 8, !tbaa !187
   %45 = call double @llvm.fmuladd.f64(double %24, double %44, double %19)
   br label %46
@@ -24954,16 +24954,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 46:                                               ; preds = %46, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 1, %.lr.ph.us ]
   %.06487.us = phi double [ %59, %46 ], [ %45, %.lr.ph.us ]
-  %47 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %48 = load double, ptr %47, align 8, !tbaa !187
-  %49 = getelementptr inbounds nuw ptr, ptr %.06394.us, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.06394.us, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !52
-  %51 = getelementptr inbounds nuw double, ptr %50, i64 %indvars.iv120
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv120
   %52 = load double, ptr %51, align 8, !tbaa !187
   %53 = sub nsw i64 0, %indvars.iv
-  %54 = getelementptr inbounds ptr, ptr %.06394.us, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %.06394.us, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !52
-  %56 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv120
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv120
   %57 = load double, ptr %56, align 8, !tbaa !187
   %58 = fadd double %52, %57
   %59 = call double @llvm.fmuladd.f64(double %48, double %58, double %.06487.us)
@@ -24977,7 +24977,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %62 = call i32 @llvm.smax.i32(i32 %61, i32 0)
   %63 = call i32 @llvm.umin.i32(i32 %62, i32 65535)
   %64 = trunc nuw i32 %63 to i16
-  %65 = getelementptr inbounds nuw i16, ptr %.06592.us, i64 %indvars.iv120
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %.06592.us, i64 %indvars.iv120
   store i16 %64, ptr %65, align 2, !tbaa !560
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
@@ -25024,7 +25024,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 .preheader.us.us.us:                              ; preds = %.preheader.us.us.us, %.preheader80.us.us
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.preheader.us.us.us ], [ 0, %.preheader80.us.us ]
-  %78 = getelementptr inbounds nuw i16, ptr %.166104.us.us, i64 %indvars.iv140
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %.166104.us.us, i64 %indvars.iv140
   store i16 %76, ptr %78, align 2, !tbaa !560
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
@@ -25045,16 +25045,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 82:                                               ; preds = %.preheader.us107, %82
   %indvars.iv130 = phi i64 [ 1, %.preheader.us107 ], [ %indvars.iv.next131, %82 ]
   %.0100.us = phi double [ %19, %.preheader.us107 ], [ %95, %82 ]
-  %83 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv130
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv130
   %84 = load double, ptr %83, align 8, !tbaa !187
-  %85 = getelementptr inbounds nuw ptr, ptr %.1106.us, i64 %indvars.iv130
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %.1106.us, i64 %indvars.iv130
   %86 = load ptr, ptr %85, align 8, !tbaa !52
-  %87 = getelementptr inbounds nuw double, ptr %86, i64 %indvars.iv135
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv135
   %88 = load double, ptr %87, align 8, !tbaa !187
   %89 = sub nsw i64 0, %indvars.iv130
-  %90 = getelementptr inbounds ptr, ptr %.1106.us, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %.1106.us, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !52
-  %92 = getelementptr inbounds nuw double, ptr %91, i64 %indvars.iv135
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv135
   %93 = load double, ptr %92, align 8, !tbaa !187
   %94 = fsub double %88, %93
   %95 = call double @llvm.fmuladd.f64(double %84, double %94, double %.0100.us)
@@ -25072,7 +25072,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %98 = call i32 @llvm.smax.i32(i32 %97, i32 0)
   %99 = call i32 @llvm.umin.i32(i32 %98, i32 65535)
   %100 = trunc nuw i32 %99 to i16
-  %101 = getelementptr inbounds nuw i16, ptr %.166104.us, i64 %indvars.iv135
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %.166104.us, i64 %indvars.iv135
   store i16 %100, ptr %101, align 2, !tbaa !560
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
@@ -25422,14 +25422,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load i32, ptr %15, align 8, !tbaa !756
   %17 = and i32 %16, 1
   %.not = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %19 = load i32, ptr %18, align 4, !tbaa !761
-  %20 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %21 = add nsw i32 %4, -1
   %.not7198 = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader76, label %.preheader78
@@ -25466,14 +25466,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 28:                                               ; preds = %28, %.preheader77.us.us
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %28 ], [ 0, %.preheader77.us.us ]
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv120
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv120
   %30 = load i32, ptr %29, align 4, !tbaa !12
   %31 = mul nsw i32 %30, %24
   %32 = add nsw i32 %31, %19
   %33 = call i32 @llvm.smax.i32(i32 %32, i32 -32768)
   %34 = call i32 @llvm.smin.i32(i32 %33, i32 32767)
   %35 = trunc nsw i32 %34 to i16
-  %36 = getelementptr inbounds nuw i16, ptr %.06387.us.us, i64 %indvars.iv120
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %.06387.us.us, i64 %indvars.iv120
   store i16 %35, ptr %36, align 2, !tbaa !560
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
@@ -25495,7 +25495,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 .lr.ph.us:                                        ; preds = %.preheader77.us, %._crit_edge.us
   %indvars.iv115 = phi i64 [ 0, %.preheader77.us ], [ %indvars.iv.next116, %._crit_edge.us ]
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv115
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv115
   %43 = load i32, ptr %42, align 4, !tbaa !12
   %44 = mul nsw i32 %43, %24
   %45 = add nsw i32 %44, %19
@@ -25504,16 +25504,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 46:                                               ; preds = %46, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 1, %.lr.ph.us ]
   %.06282.us = phi i32 [ %60, %46 ], [ %45, %.lr.ph.us ]
-  %47 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !12
-  %49 = getelementptr inbounds nuw ptr, ptr %.06189.us, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.06189.us, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !52
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv115
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv115
   %52 = load i32, ptr %51, align 4, !tbaa !12
   %53 = sub nsw i64 0, %indvars.iv
-  %54 = getelementptr inbounds ptr, ptr %.06189.us, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %.06189.us, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !52
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv115
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv115
   %57 = load i32, ptr %56, align 4, !tbaa !12
   %58 = add nsw i32 %57, %52
   %59 = mul nsw i32 %58, %48
@@ -25526,7 +25526,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %61 = call i32 @llvm.smax.i32(i32 %60, i32 -32768)
   %62 = call i32 @llvm.smin.i32(i32 %61, i32 32767)
   %63 = trunc nsw i32 %62 to i16
-  %64 = getelementptr inbounds nuw i16, ptr %.06387.us, i64 %indvars.iv115
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %.06387.us, i64 %indvars.iv115
   store i16 %63, ptr %64, align 2, !tbaa !560
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
@@ -25571,7 +25571,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 .preheader.us.us.us:                              ; preds = %.preheader.us.us.us, %.preheader75.us.us
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %.preheader.us.us.us ], [ 0, %.preheader75.us.us ]
-  %75 = getelementptr inbounds nuw i16, ptr %.16499.us.us, i64 %indvars.iv135
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %.16499.us.us, i64 %indvars.iv135
   store i16 %71, ptr %75, align 2, !tbaa !560
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
@@ -25592,16 +25592,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 79:                                               ; preds = %.preheader.us102, %79
   %indvars.iv125 = phi i64 [ 1, %.preheader.us102 ], [ %indvars.iv.next126, %79 ]
   %.095.us = phi i32 [ %19, %.preheader.us102 ], [ %93, %79 ]
-  %80 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv125
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv125
   %81 = load i32, ptr %80, align 4, !tbaa !12
-  %82 = getelementptr inbounds nuw ptr, ptr %.1101.us, i64 %indvars.iv125
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %.1101.us, i64 %indvars.iv125
   %83 = load ptr, ptr %82, align 8, !tbaa !52
-  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv130
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv130
   %85 = load i32, ptr %84, align 4, !tbaa !12
   %86 = sub nsw i64 0, %indvars.iv125
-  %87 = getelementptr inbounds ptr, ptr %.1101.us, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %.1101.us, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !52
-  %89 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv130
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv130
   %90 = load i32, ptr %89, align 4, !tbaa !12
   %91 = sub nsw i32 %85, %90
   %92 = mul nsw i32 %91, %81
@@ -25618,7 +25618,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %94 = call i32 @llvm.smax.i32(i32 %93, i32 -32768)
   %95 = call i32 @llvm.smin.i32(i32 %94, i32 32767)
   %96 = trunc nsw i32 %95 to i16
-  %97 = getelementptr inbounds nuw i16, ptr %.16499.us, i64 %indvars.iv130
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %.16499.us, i64 %indvars.iv130
   store i16 %96, ptr %97, align 2, !tbaa !560
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
@@ -25701,7 +25701,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIis
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv53
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv53
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = mul nsw i32 %22, %18
   %24 = add nsw i32 %23, %11
@@ -25710,11 +25710,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIis
 25:                                               ; preds = %25, %.lr.ph.us.us.us
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %25 ], [ 1, %.lr.ph.us.us.us ]
   %.033.us.us.us = phi i32 [ %33, %25 ], [ %24, %.lr.ph.us.us.us ]
-  %26 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv48
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv48
   %27 = load i32, ptr %26, align 4, !tbaa !12
-  %28 = getelementptr inbounds nuw ptr, ptr %.02740.us.us, i64 %indvars.iv48
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.02740.us.us, i64 %indvars.iv48
   %29 = load ptr, ptr %28, align 8, !tbaa !52
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv53
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv53
   %31 = load i32, ptr %30, align 4, !tbaa !12
   %32 = mul nsw i32 %31, %27
   %33 = add nsw i32 %32, %.033.us.us.us
@@ -25726,7 +25726,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIis
   %34 = call i32 @llvm.smax.i32(i32 %33, i32 -32768)
   %35 = call i32 @llvm.smin.i32(i32 %34, i32 32767)
   %36 = trunc nsw i32 %35 to i16
-  %37 = getelementptr inbounds nuw i16, ptr %.03038.us.us, i64 %indvars.iv53
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %.03038.us.us, i64 %indvars.iv53
   store i16 %36, ptr %37, align 2, !tbaa !560
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
@@ -25748,14 +25748,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline12ColumnFilterINS0_4CastIis
 
 43:                                               ; preds = %.preheader.us, %43
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %43 ]
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !12
   %46 = mul nsw i32 %45, %18
   %47 = add nsw i32 %46, %11
   %48 = call i32 @llvm.smax.i32(i32 %47, i32 -32768)
   %49 = call i32 @llvm.smin.i32(i32 %48, i32 32767)
   %50 = trunc nsw i32 %49 to i16
-  %51 = getelementptr inbounds nuw i16, ptr %.03038.us, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.03038.us, i64 %indvars.iv
   store i16 %50, ptr %51, align 2, !tbaa !560
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count56
@@ -25991,14 +25991,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds float, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load i32, ptr %15, align 8, !tbaa !771
   %17 = and i32 %16, 1
   %.not = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %19 = load float, ptr %18, align 4, !tbaa !638
-  %20 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %21 = add nsw i32 %4, -1
   %.not75103 = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader81, label %.preheader83
@@ -26035,7 +26035,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 28:                                               ; preds = %28, %.preheader82.us.us
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %28 ], [ 0, %.preheader82.us.us ]
-  %29 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv125
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv125
   %30 = load float, ptr %29, align 4, !tbaa !452
   %31 = call float @llvm.fmuladd.f32(float %24, float %30, float %19)
   %32 = insertelement <4 x float> poison, float %31, i64 0
@@ -26043,7 +26043,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %34 = call i32 @llvm.smax.i32(i32 %33, i32 -32768)
   %35 = call i32 @llvm.smin.i32(i32 %34, i32 32767)
   %36 = trunc nsw i32 %35 to i16
-  %37 = getelementptr inbounds nuw i16, ptr %.06792.us.us, i64 %indvars.iv125
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %.06792.us.us, i64 %indvars.iv125
   store i16 %36, ptr %37, align 2, !tbaa !560
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
@@ -26065,7 +26065,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 .lr.ph.us:                                        ; preds = %.preheader82.us, %._crit_edge.us
   %indvars.iv120 = phi i64 [ 0, %.preheader82.us ], [ %indvars.iv.next121, %._crit_edge.us ]
-  %43 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv120
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv120
   %44 = load float, ptr %43, align 4, !tbaa !452
   %45 = call float @llvm.fmuladd.f32(float %24, float %44, float %19)
   br label %46
@@ -26073,16 +26073,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 46:                                               ; preds = %46, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 1, %.lr.ph.us ]
   %.06687.us = phi float [ %59, %46 ], [ %45, %.lr.ph.us ]
-  %47 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %48 = load float, ptr %47, align 4, !tbaa !452
-  %49 = getelementptr inbounds nuw ptr, ptr %.06394.us, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.06394.us, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !52
-  %51 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv120
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv120
   %52 = load float, ptr %51, align 4, !tbaa !452
   %53 = sub nsw i64 0, %indvars.iv
-  %54 = getelementptr inbounds ptr, ptr %.06394.us, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %.06394.us, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !52
-  %56 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv120
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv120
   %57 = load float, ptr %56, align 4, !tbaa !452
   %58 = fadd float %52, %57
   %59 = call float @llvm.fmuladd.f32(float %48, float %58, float %.06687.us)
@@ -26096,7 +26096,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %62 = call i32 @llvm.smax.i32(i32 %61, i32 -32768)
   %63 = call i32 @llvm.smin.i32(i32 %62, i32 32767)
   %64 = trunc nsw i32 %63 to i16
-  %65 = getelementptr inbounds nuw i16, ptr %.06792.us, i64 %indvars.iv120
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %.06792.us, i64 %indvars.iv120
   store i16 %64, ptr %65, align 2, !tbaa !560
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
@@ -26143,7 +26143,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 .preheader.us.us.us:                              ; preds = %.preheader.us.us.us, %.preheader80.us.us
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.preheader.us.us.us ], [ 0, %.preheader80.us.us ]
-  %78 = getelementptr inbounds nuw i16, ptr %.168104.us.us, i64 %indvars.iv140
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %.168104.us.us, i64 %indvars.iv140
   store i16 %76, ptr %78, align 2, !tbaa !560
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
@@ -26164,16 +26164,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 82:                                               ; preds = %.preheader.us107, %82
   %indvars.iv130 = phi i64 [ 1, %.preheader.us107 ], [ %indvars.iv.next131, %82 ]
   %.0100.us = phi float [ %19, %.preheader.us107 ], [ %95, %82 ]
-  %83 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv130
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv130
   %84 = load float, ptr %83, align 4, !tbaa !452
-  %85 = getelementptr inbounds nuw ptr, ptr %.1106.us, i64 %indvars.iv130
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %.1106.us, i64 %indvars.iv130
   %86 = load ptr, ptr %85, align 8, !tbaa !52
-  %87 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv135
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv135
   %88 = load float, ptr %87, align 4, !tbaa !452
   %89 = sub nsw i64 0, %indvars.iv130
-  %90 = getelementptr inbounds ptr, ptr %.1106.us, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %.1106.us, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !52
-  %92 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv135
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv135
   %93 = load float, ptr %92, align 4, !tbaa !452
   %94 = fsub float %88, %93
   %95 = call float @llvm.fmuladd.f32(float %84, float %94, float %.0100.us)
@@ -26191,7 +26191,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %98 = call i32 @llvm.smax.i32(i32 %97, i32 -32768)
   %99 = call i32 @llvm.smin.i32(i32 %98, i32 32767)
   %100 = trunc nsw i32 %99 to i16
-  %101 = getelementptr inbounds nuw i16, ptr %.168104.us, i64 %indvars.iv135
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %.168104.us, i64 %indvars.iv135
   store i16 %100, ptr %101, align 2, !tbaa !560
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
@@ -26426,14 +26426,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds double, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %16 = load i32, ptr %15, align 8, !tbaa !779
   %17 = and i32 %16, 1
   %.not = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %19 = load double, ptr %18, align 8, !tbaa !646
-  %20 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %21 = add nsw i32 %4, -1
   %.not75103 = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader81, label %.preheader83
@@ -26470,7 +26470,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 28:                                               ; preds = %28, %.preheader82.us.us
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %28 ], [ 0, %.preheader82.us.us ]
-  %29 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv125
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv125
   %30 = load double, ptr %29, align 8, !tbaa !187
   %31 = call double @llvm.fmuladd.f64(double %24, double %30, double %19)
   %32 = insertelement <2 x double> poison, double %31, i64 0
@@ -26478,7 +26478,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %34 = call i32 @llvm.smax.i32(i32 %33, i32 -32768)
   %35 = call i32 @llvm.smin.i32(i32 %34, i32 32767)
   %36 = trunc nsw i32 %35 to i16
-  %37 = getelementptr inbounds nuw i16, ptr %.06592.us.us, i64 %indvars.iv125
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %.06592.us.us, i64 %indvars.iv125
   store i16 %36, ptr %37, align 2, !tbaa !560
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
@@ -26500,7 +26500,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 .lr.ph.us:                                        ; preds = %.preheader82.us, %._crit_edge.us
   %indvars.iv120 = phi i64 [ 0, %.preheader82.us ], [ %indvars.iv.next121, %._crit_edge.us ]
-  %43 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv120
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv120
   %44 = load double, ptr %43, align 8, !tbaa !187
   %45 = call double @llvm.fmuladd.f64(double %24, double %44, double %19)
   br label %46
@@ -26508,16 +26508,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 46:                                               ; preds = %46, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 1, %.lr.ph.us ]
   %.06487.us = phi double [ %59, %46 ], [ %45, %.lr.ph.us ]
-  %47 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %48 = load double, ptr %47, align 8, !tbaa !187
-  %49 = getelementptr inbounds nuw ptr, ptr %.06394.us, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.06394.us, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !52
-  %51 = getelementptr inbounds nuw double, ptr %50, i64 %indvars.iv120
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv120
   %52 = load double, ptr %51, align 8, !tbaa !187
   %53 = sub nsw i64 0, %indvars.iv
-  %54 = getelementptr inbounds ptr, ptr %.06394.us, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %.06394.us, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !52
-  %56 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv120
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv120
   %57 = load double, ptr %56, align 8, !tbaa !187
   %58 = fadd double %52, %57
   %59 = call double @llvm.fmuladd.f64(double %48, double %58, double %.06487.us)
@@ -26531,7 +26531,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %62 = call i32 @llvm.smax.i32(i32 %61, i32 -32768)
   %63 = call i32 @llvm.smin.i32(i32 %62, i32 32767)
   %64 = trunc nsw i32 %63 to i16
-  %65 = getelementptr inbounds nuw i16, ptr %.06592.us, i64 %indvars.iv120
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %.06592.us, i64 %indvars.iv120
   store i16 %64, ptr %65, align 2, !tbaa !560
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
@@ -26578,7 +26578,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 .preheader.us.us.us:                              ; preds = %.preheader.us.us.us, %.preheader80.us.us
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.preheader.us.us.us ], [ 0, %.preheader80.us.us ]
-  %78 = getelementptr inbounds nuw i16, ptr %.166104.us.us, i64 %indvars.iv140
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %.166104.us.us, i64 %indvars.iv140
   store i16 %76, ptr %78, align 2, !tbaa !560
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
@@ -26599,16 +26599,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 82:                                               ; preds = %.preheader.us107, %82
   %indvars.iv130 = phi i64 [ 1, %.preheader.us107 ], [ %indvars.iv.next131, %82 ]
   %.0100.us = phi double [ %19, %.preheader.us107 ], [ %95, %82 ]
-  %83 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv130
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv130
   %84 = load double, ptr %83, align 8, !tbaa !187
-  %85 = getelementptr inbounds nuw ptr, ptr %.1106.us, i64 %indvars.iv130
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %.1106.us, i64 %indvars.iv130
   %86 = load ptr, ptr %85, align 8, !tbaa !52
-  %87 = getelementptr inbounds nuw double, ptr %86, i64 %indvars.iv135
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv135
   %88 = load double, ptr %87, align 8, !tbaa !187
   %89 = sub nsw i64 0, %indvars.iv130
-  %90 = getelementptr inbounds ptr, ptr %.1106.us, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %.1106.us, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !52
-  %92 = getelementptr inbounds nuw double, ptr %91, i64 %indvars.iv135
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv135
   %93 = load double, ptr %92, align 8, !tbaa !187
   %94 = fsub double %88, %93
   %95 = call double @llvm.fmuladd.f64(double %84, double %94, double %.0100.us)
@@ -26626,7 +26626,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %98 = call i32 @llvm.smax.i32(i32 %97, i32 -32768)
   %99 = call i32 @llvm.smin.i32(i32 %98, i32 32767)
   %100 = trunc nsw i32 %99 to i16
-  %101 = getelementptr inbounds nuw i16, ptr %.166104.us, i64 %indvars.iv135
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %.166104.us, i64 %indvars.iv135
   store i16 %100, ptr %101, align 2, !tbaa !560
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
@@ -26862,14 +26862,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds float, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load i32, ptr %15, align 8, !tbaa !787
   %17 = and i32 %16, 1
   %.not = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %19 = load float, ptr %18, align 4, !tbaa !654
-  %20 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %21 = add nsw i32 %4, -1
   %.not75103 = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader81, label %.preheader83
@@ -26906,10 +26906,10 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 27:                                               ; preds = %27, %.preheader82.us.us
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %27 ], [ 0, %.preheader82.us.us ]
   %28 = load float, ptr %14, align 4, !tbaa !452
-  %29 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv125
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv125
   %30 = load float, ptr %29, align 4, !tbaa !452
   %31 = call float @llvm.fmuladd.f32(float %28, float %30, float %19)
-  %32 = getelementptr inbounds nuw float, ptr %.06792.us.us, i64 %indvars.iv125
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.06792.us.us, i64 %indvars.iv125
   store float %31, ptr %32, align 4, !tbaa !452
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
@@ -26932,7 +26932,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 .lr.ph.us:                                        ; preds = %.preheader82.us, %._crit_edge.us
   %indvars.iv120 = phi i64 [ 0, %.preheader82.us ], [ %indvars.iv.next121, %._crit_edge.us ]
   %38 = load float, ptr %14, align 4, !tbaa !452
-  %39 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv120
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv120
   %40 = load float, ptr %39, align 4, !tbaa !452
   %41 = call float @llvm.fmuladd.f32(float %38, float %40, float %19)
   br label %42
@@ -26940,16 +26940,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 42:                                               ; preds = %42, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 1, %.lr.ph.us ]
   %.06687.us = phi float [ %55, %42 ], [ %41, %.lr.ph.us ]
-  %43 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %44 = load float, ptr %43, align 4, !tbaa !452
-  %45 = getelementptr inbounds nuw ptr, ptr %.06394.us, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.06394.us, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !52
-  %47 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv120
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv120
   %48 = load float, ptr %47, align 4, !tbaa !452
   %49 = sub nsw i64 0, %indvars.iv
-  %50 = getelementptr inbounds ptr, ptr %.06394.us, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %.06394.us, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !52
-  %52 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv120
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv120
   %53 = load float, ptr %52, align 4, !tbaa !452
   %54 = fadd float %48, %53
   %55 = call float @llvm.fmuladd.f32(float %44, float %54, float %.06687.us)
@@ -26958,7 +26958,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   br i1 %exitcond.not, label %._crit_edge.us, label %42, !llvm.loop !791
 
 ._crit_edge.us:                                   ; preds = %42
-  %56 = getelementptr inbounds nuw float, ptr %.06792.us, i64 %indvars.iv120
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.06792.us, i64 %indvars.iv120
   store float %55, ptr %56, align 4, !tbaa !452
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
@@ -27000,7 +27000,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 .preheader.us.us.us:                              ; preds = %.preheader.us.us.us, %.preheader80.us.us
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.preheader.us.us.us ], [ 0, %.preheader80.us.us ]
-  %64 = getelementptr inbounds nuw float, ptr %.168104.us.us, i64 %indvars.iv140
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %.168104.us.us, i64 %indvars.iv140
   store float %19, ptr %64, align 4, !tbaa !452
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
@@ -27021,16 +27021,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 68:                                               ; preds = %.preheader.us107, %68
   %indvars.iv130 = phi i64 [ 1, %.preheader.us107 ], [ %indvars.iv.next131, %68 ]
   %.0100.us = phi float [ %19, %.preheader.us107 ], [ %81, %68 ]
-  %69 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv130
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv130
   %70 = load float, ptr %69, align 4, !tbaa !452
-  %71 = getelementptr inbounds nuw ptr, ptr %.1106.us, i64 %indvars.iv130
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.1106.us, i64 %indvars.iv130
   %72 = load ptr, ptr %71, align 8, !tbaa !52
-  %73 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv135
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv135
   %74 = load float, ptr %73, align 4, !tbaa !452
   %75 = sub nsw i64 0, %indvars.iv130
-  %76 = getelementptr inbounds ptr, ptr %.1106.us, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %.1106.us, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !52
-  %78 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv135
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv135
   %79 = load float, ptr %78, align 4, !tbaa !452
   %80 = fsub float %74, %79
   %81 = call float @llvm.fmuladd.f32(float %70, float %80, float %.0100.us)
@@ -27043,7 +27043,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   br label %68
 
 ._crit_edge.us109:                                ; preds = %68
-  %82 = getelementptr inbounds nuw float, ptr %.168104.us, i64 %indvars.iv135
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.168104.us, i64 %indvars.iv135
   store float %81, ptr %82, align 4, !tbaa !452
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
@@ -27278,14 +27278,14 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !107
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds double, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %16 = load i32, ptr %15, align 8, !tbaa !795
   %17 = and i32 %16, 1
   %.not = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %19 = load double, ptr %18, align 8, !tbaa !662
-  %20 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %21 = add nsw i32 %4, -1
   %.not7198 = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader76, label %.preheader78
@@ -27322,10 +27322,10 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 27:                                               ; preds = %27, %.preheader77.us.us
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %27 ], [ 0, %.preheader77.us.us ]
   %28 = load double, ptr %14, align 8, !tbaa !187
-  %29 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv120
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv120
   %30 = load double, ptr %29, align 8, !tbaa !187
   %31 = call double @llvm.fmuladd.f64(double %28, double %30, double %19)
-  %32 = getelementptr inbounds nuw double, ptr %.06387.us.us, i64 %indvars.iv120
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.06387.us.us, i64 %indvars.iv120
   store double %31, ptr %32, align 8, !tbaa !187
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
@@ -27348,7 +27348,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 .lr.ph.us:                                        ; preds = %.preheader77.us, %._crit_edge.us
   %indvars.iv115 = phi i64 [ 0, %.preheader77.us ], [ %indvars.iv.next116, %._crit_edge.us ]
   %38 = load double, ptr %14, align 8, !tbaa !187
-  %39 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv115
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv115
   %40 = load double, ptr %39, align 8, !tbaa !187
   %41 = call double @llvm.fmuladd.f64(double %38, double %40, double %19)
   br label %42
@@ -27356,16 +27356,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 42:                                               ; preds = %42, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 1, %.lr.ph.us ]
   %.06282.us = phi double [ %55, %42 ], [ %41, %.lr.ph.us ]
-  %43 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %44 = load double, ptr %43, align 8, !tbaa !187
-  %45 = getelementptr inbounds nuw ptr, ptr %.06189.us, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.06189.us, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !52
-  %47 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv115
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv115
   %48 = load double, ptr %47, align 8, !tbaa !187
   %49 = sub nsw i64 0, %indvars.iv
-  %50 = getelementptr inbounds ptr, ptr %.06189.us, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %.06189.us, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !52
-  %52 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv115
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv115
   %53 = load double, ptr %52, align 8, !tbaa !187
   %54 = fadd double %48, %53
   %55 = call double @llvm.fmuladd.f64(double %44, double %54, double %.06282.us)
@@ -27374,7 +27374,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   br i1 %exitcond.not, label %._crit_edge.us, label %42, !llvm.loop !799
 
 ._crit_edge.us:                                   ; preds = %42
-  %56 = getelementptr inbounds nuw double, ptr %.06387.us, i64 %indvars.iv115
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %.06387.us, i64 %indvars.iv115
   store double %55, ptr %56, align 8, !tbaa !187
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
@@ -27416,7 +27416,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 
 .preheader.us.us.us:                              ; preds = %.preheader.us.us.us, %.preheader75.us.us
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %.preheader.us.us.us ], [ 0, %.preheader75.us.us ]
-  %64 = getelementptr inbounds nuw double, ptr %.16499.us.us, i64 %indvars.iv135
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.16499.us.us, i64 %indvars.iv135
   store double %19, ptr %64, align 8, !tbaa !187
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
@@ -27437,16 +27437,16 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
 68:                                               ; preds = %.preheader.us102, %68
   %indvars.iv125 = phi i64 [ 1, %.preheader.us102 ], [ %indvars.iv.next126, %68 ]
   %.095.us = phi double [ %19, %.preheader.us102 ], [ %81, %68 ]
-  %69 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv125
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv125
   %70 = load double, ptr %69, align 8, !tbaa !187
-  %71 = getelementptr inbounds nuw ptr, ptr %.1101.us, i64 %indvars.iv125
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.1101.us, i64 %indvars.iv125
   %72 = load ptr, ptr %71, align 8, !tbaa !52
-  %73 = getelementptr inbounds nuw double, ptr %72, i64 %indvars.iv130
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv130
   %74 = load double, ptr %73, align 8, !tbaa !187
   %75 = sub nsw i64 0, %indvars.iv125
-  %76 = getelementptr inbounds ptr, ptr %.1101.us, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %.1101.us, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !52
-  %78 = getelementptr inbounds nuw double, ptr %77, i64 %indvars.iv130
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv130
   %79 = load double, ptr %78, align 8, !tbaa !187
   %80 = fsub double %74, %79
   %81 = call double @llvm.fmuladd.f64(double %70, double %80, double %.095.us)
@@ -27459,7 +27459,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline16SymmColumnFilterINS0_4Cas
   br label %68
 
 ._crit_edge.us104:                                ; preds = %68
-  %82 = getelementptr inbounds nuw double, ptr %.16499.us, i64 %indvars.iv130
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %.16499.us, i64 %indvars.iv130
   store double %81, ptr %82, align 8, !tbaa !187
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
@@ -27812,17 +27812,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %.lr.ph.us.us
   %indvars.iv83 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next84, %.lr.ph.us.us ]
-  %29 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv83
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv83
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %.03855.us.us, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.03855.us.us, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   %35 = load i32, ptr %29, align 4, !tbaa !3
   %36 = mul nsw i32 %35, %6
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %34, i64 %37
-  %39 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv83
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv83
   store ptr %38, ptr %39, align 8, !tbaa !52
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
@@ -27835,9 +27835,9 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS
 40:                                               ; preds = %40, %.preheader.us.us.us
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %40 ], [ 0, %.preheader.us.us.us ]
   %.048.us.us.us = phi float [ %48, %40 ], [ %9, %.preheader.us.us.us ]
-  %41 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv88
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv88
   %42 = load float, ptr %41, align 4, !tbaa !452
-  %43 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv88
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv88
   %44 = load ptr, ptr %43, align 8, !tbaa !52
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv93
   %46 = load i8, ptr %45, align 1, !tbaa !63
@@ -27897,17 +27897,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfhEENS
 
 67:                                               ; preds = %.preheader45.us60, %67
   %indvars.iv = phi i64 [ 0, %.preheader45.us60 ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !8
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr %.03855.us61, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %.03855.us61, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !52
   %74 = load i32, ptr %68, align 4, !tbaa !3
   %75 = mul nsw i32 %74, %6
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds i8, ptr %73, i64 %76
-  %78 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %77, ptr %78, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -28241,17 +28241,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %.lr.ph.us.us
   %indvars.iv85 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next86, %.lr.ph.us.us ]
-  %29 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv85
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv85
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %.03855.us.us, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.03855.us.us, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   %35 = load i32, ptr %29, align 4, !tbaa !3
   %36 = mul nsw i32 %35, %6
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %34, i64 %37
-  %39 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv85
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv85
   store ptr %38, ptr %39, align 8, !tbaa !52
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -28264,9 +28264,9 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS
 40:                                               ; preds = %40, %.preheader.us.us.us
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %40 ], [ 0, %.preheader.us.us.us ]
   %.048.us.us.us = phi float [ %48, %40 ], [ %9, %.preheader.us.us.us ]
-  %41 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv90
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv90
   %42 = load float, ptr %41, align 4, !tbaa !452
-  %43 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv90
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv90
   %44 = load ptr, ptr %43, align 8, !tbaa !52
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv95
   %46 = load i8, ptr %45, align 1, !tbaa !63
@@ -28282,7 +28282,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS
   %51 = tail call i32 @llvm.smax.i32(i32 %50, i32 0)
   %52 = tail call i32 @llvm.umin.i32(i32 %51, i32 65535)
   %53 = trunc nuw i32 %52 to i16
-  %54 = getelementptr inbounds nuw i16, ptr %.03953.us.us, i64 %indvars.iv95
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %.03953.us.us, i64 %indvars.iv95
   store i16 %53, ptr %54, align 2, !tbaa !560
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
@@ -28310,7 +28310,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS
 
 .preheader.us56:                                  ; preds = %.preheader45.us, %.preheader.us56
   %indvars.iv80 = phi i64 [ 0, %.preheader45.us ], [ %indvars.iv.next81, %.preheader.us56 ]
-  %63 = getelementptr inbounds nuw i16, ptr %.03953.us, i64 %indvars.iv80
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %.03953.us, i64 %indvars.iv80
   store i16 %62, ptr %63, align 2, !tbaa !560
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -28336,17 +28336,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIftEENS
 
 67:                                               ; preds = %.preheader45.us60, %67
   %indvars.iv = phi i64 [ 0, %.preheader45.us60 ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !8
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr %.03855.us61, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %.03855.us61, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !52
   %74 = load i32, ptr %68, align 4, !tbaa !3
   %75 = mul nsw i32 %74, %6
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds i8, ptr %73, i64 %76
-  %78 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %77, ptr %78, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -28680,17 +28680,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %.lr.ph.us.us
   %indvars.iv85 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next86, %.lr.ph.us.us ]
-  %29 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv85
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv85
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %.03855.us.us, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.03855.us.us, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   %35 = load i32, ptr %29, align 4, !tbaa !3
   %36 = mul nsw i32 %35, %6
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %34, i64 %37
-  %39 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv85
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv85
   store ptr %38, ptr %39, align 8, !tbaa !52
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -28703,9 +28703,9 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS
 40:                                               ; preds = %40, %.preheader.us.us.us
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %40 ], [ 0, %.preheader.us.us.us ]
   %.048.us.us.us = phi float [ %48, %40 ], [ %9, %.preheader.us.us.us ]
-  %41 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv90
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv90
   %42 = load float, ptr %41, align 4, !tbaa !452
-  %43 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv90
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv90
   %44 = load ptr, ptr %43, align 8, !tbaa !52
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv95
   %46 = load i8, ptr %45, align 1, !tbaa !63
@@ -28721,7 +28721,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS
   %51 = tail call i32 @llvm.smax.i32(i32 %50, i32 -32768)
   %52 = tail call i32 @llvm.smin.i32(i32 %51, i32 32767)
   %53 = trunc nsw i32 %52 to i16
-  %54 = getelementptr inbounds nuw i16, ptr %.03953.us.us, i64 %indvars.iv95
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %.03953.us.us, i64 %indvars.iv95
   store i16 %53, ptr %54, align 2, !tbaa !560
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
@@ -28749,7 +28749,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS
 
 .preheader.us56:                                  ; preds = %.preheader45.us, %.preheader.us56
   %indvars.iv80 = phi i64 [ 0, %.preheader45.us ], [ %indvars.iv.next81, %.preheader.us56 ]
-  %63 = getelementptr inbounds nuw i16, ptr %.03953.us, i64 %indvars.iv80
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %.03953.us, i64 %indvars.iv80
   store i16 %62, ptr %63, align 2, !tbaa !560
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -28775,17 +28775,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIfsEENS
 
 67:                                               ; preds = %.preheader45.us60, %67
   %indvars.iv = phi i64 [ 0, %.preheader45.us60 ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !8
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr %.03855.us61, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %.03855.us61, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !52
   %74 = load i32, ptr %68, align 4, !tbaa !3
   %75 = mul nsw i32 %74, %6
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds i8, ptr %73, i64 %76
-  %78 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %77, ptr %78, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -29121,17 +29121,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS
 
 28:                                               ; preds = %.preheader45.us.us.us, %28
   %indvars.iv85 = phi i64 [ 0, %.preheader45.us.us.us ], [ %indvars.iv.next86, %28 ]
-  %29 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv85
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv85
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %.03855.us.us.us, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.03855.us.us.us, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   %35 = load i32, ptr %29, align 4, !tbaa !3
   %36 = mul nsw i32 %35, %6
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %34, i64 %37
-  %39 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv85
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv85
   store ptr %38, ptr %39, align 8, !tbaa !52
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -29144,9 +29144,9 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS
 40:                                               ; preds = %40, %.preheader.us.us.us.us
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %40 ], [ 0, %.preheader.us.us.us.us ]
   %.048.us.us.us.us = phi float [ %48, %40 ], [ %9, %.preheader.us.us.us.us ]
-  %41 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv90
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv90
   %42 = load float, ptr %41, align 4, !tbaa !452
-  %43 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv90
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv90
   %44 = load ptr, ptr %43, align 8, !tbaa !52
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv95
   %46 = load i8, ptr %45, align 1, !tbaa !63
@@ -29157,7 +29157,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS
   br i1 %exitcond94.not, label %._crit_edge.us.us.us.us, label %40, !llvm.loop !829
 
 ._crit_edge.us.us.us.us:                          ; preds = %40
-  %49 = getelementptr inbounds nuw float, ptr %.03953.us.us.us, i64 %indvars.iv95
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.03953.us.us.us, i64 %indvars.iv95
   store float %48, ptr %49, align 4, !tbaa !452
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
@@ -29177,7 +29177,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS
 
 .preheader.us56:                                  ; preds = %.preheader45.us, %.preheader.us56
   %indvars.iv80 = phi i64 [ 0, %.preheader45.us ], [ %indvars.iv.next81, %.preheader.us56 ]
-  %54 = getelementptr inbounds nuw float, ptr %.03953.us, i64 %indvars.iv80
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.03953.us, i64 %indvars.iv80
   store float %9, ptr %54, align 4, !tbaa !452
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -29203,17 +29203,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIffEENS
 
 58:                                               ; preds = %.preheader45.us60, %58
   %indvars.iv = phi i64 [ 0, %.preheader45.us60 ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds ptr, ptr %.03855.us61, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %.03855.us61, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !52
   %65 = load i32, ptr %59, align 4, !tbaa !3
   %66 = mul nsw i32 %65, %6
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i8, ptr %64, i64 %67
-  %69 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %68, ptr %69, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -29548,17 +29548,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS
 
 28:                                               ; preds = %.preheader45.us.us.us, %28
   %indvars.iv85 = phi i64 [ 0, %.preheader45.us.us.us ], [ %indvars.iv.next86, %28 ]
-  %29 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv85
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv85
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %.03855.us.us.us, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.03855.us.us.us, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   %35 = load i32, ptr %29, align 4, !tbaa !3
   %36 = mul nsw i32 %35, %6
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %34, i64 %37
-  %39 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv85
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv85
   store ptr %38, ptr %39, align 8, !tbaa !52
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -29571,9 +29571,9 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS
 40:                                               ; preds = %40, %.preheader.us.us.us.us
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %40 ], [ 0, %.preheader.us.us.us.us ]
   %.048.us.us.us.us = phi double [ %48, %40 ], [ %9, %.preheader.us.us.us.us ]
-  %41 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv90
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv90
   %42 = load double, ptr %41, align 8, !tbaa !187
-  %43 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv90
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv90
   %44 = load ptr, ptr %43, align 8, !tbaa !52
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv95
   %46 = load i8, ptr %45, align 1, !tbaa !63
@@ -29584,7 +29584,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS
   br i1 %exitcond94.not, label %._crit_edge.us.us.us.us, label %40, !llvm.loop !835
 
 ._crit_edge.us.us.us.us:                          ; preds = %40
-  %49 = getelementptr inbounds nuw double, ptr %.03953.us.us.us, i64 %indvars.iv95
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.03953.us.us.us, i64 %indvars.iv95
   store double %48, ptr %49, align 8, !tbaa !187
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
@@ -29604,7 +29604,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS
 
 .preheader.us56:                                  ; preds = %.preheader45.us, %.preheader.us56
   %indvars.iv80 = phi i64 [ 0, %.preheader45.us ], [ %indvars.iv.next81, %.preheader.us56 ]
-  %54 = getelementptr inbounds nuw double, ptr %.03953.us, i64 %indvars.iv80
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.03953.us, i64 %indvars.iv80
   store double %9, ptr %54, align 8, !tbaa !187
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -29630,17 +29630,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIhNS0_4CastIddEENS
 
 58:                                               ; preds = %.preheader45.us60, %58
   %indvars.iv = phi i64 [ 0, %.preheader45.us60 ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds ptr, ptr %.03855.us61, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %.03855.us61, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !52
   %65 = load i32, ptr %59, align 4, !tbaa !3
   %66 = mul nsw i32 %65, %6
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i8, ptr %64, i64 %67
-  %69 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %68, ptr %69, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -30029,17 +30029,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %.lr.ph.us.us
   %indvars.iv85 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next86, %.lr.ph.us.us ]
-  %29 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv85
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv85
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %.03855.us.us, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.03855.us.us, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   %35 = load i32, ptr %29, align 4, !tbaa !3
   %36 = mul nsw i32 %35, %6
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i16, ptr %34, i64 %37
-  %39 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv85
+  %38 = getelementptr inbounds [2 x i8], ptr %34, i64 %37
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv85
   store ptr %38, ptr %39, align 8, !tbaa !840
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -30052,11 +30052,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS
 40:                                               ; preds = %40, %.preheader.us.us.us
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %40 ], [ 0, %.preheader.us.us.us ]
   %.048.us.us.us = phi float [ %48, %40 ], [ %9, %.preheader.us.us.us ]
-  %41 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv90
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv90
   %42 = load float, ptr %41, align 4, !tbaa !452
-  %43 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv90
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv90
   %44 = load ptr, ptr %43, align 8, !tbaa !840
-  %45 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv95
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %indvars.iv95
   %46 = load i16, ptr %45, align 2, !tbaa !560
   %47 = uitofp i16 %46 to float
   %48 = tail call float @llvm.fmuladd.f32(float %42, float %47, float %.048.us.us.us)
@@ -30070,7 +30070,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS
   %51 = tail call i32 @llvm.smax.i32(i32 %50, i32 0)
   %52 = tail call i32 @llvm.umin.i32(i32 %51, i32 65535)
   %53 = trunc nuw i32 %52 to i16
-  %54 = getelementptr inbounds nuw i16, ptr %.03953.us.us, i64 %indvars.iv95
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %.03953.us.us, i64 %indvars.iv95
   store i16 %53, ptr %54, align 2, !tbaa !560
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
@@ -30098,7 +30098,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS
 
 .preheader.us56:                                  ; preds = %.preheader45.us, %.preheader.us56
   %indvars.iv80 = phi i64 [ 0, %.preheader45.us ], [ %indvars.iv.next81, %.preheader.us56 ]
-  %63 = getelementptr inbounds nuw i16, ptr %.03953.us, i64 %indvars.iv80
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %.03953.us, i64 %indvars.iv80
   store i16 %62, ptr %63, align 2, !tbaa !560
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -30124,17 +30124,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIftEENS
 
 67:                                               ; preds = %.preheader45.us60, %67
   %indvars.iv = phi i64 [ 0, %.preheader45.us60 ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !8
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr %.03855.us61, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %.03855.us61, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !52
   %74 = load i32, ptr %68, align 4, !tbaa !3
   %75 = mul nsw i32 %74, %6
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i16, ptr %73, i64 %76
-  %78 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %77 = getelementptr inbounds [2 x i8], ptr %73, i64 %76
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %77, ptr %78, align 8, !tbaa !840
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -30525,17 +30525,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS
 
 28:                                               ; preds = %.preheader45.us.us.us, %28
   %indvars.iv85 = phi i64 [ 0, %.preheader45.us.us.us ], [ %indvars.iv.next86, %28 ]
-  %29 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv85
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv85
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %.03855.us.us.us, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.03855.us.us.us, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   %35 = load i32, ptr %29, align 4, !tbaa !3
   %36 = mul nsw i32 %35, %6
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i16, ptr %34, i64 %37
-  %39 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv85
+  %38 = getelementptr inbounds [2 x i8], ptr %34, i64 %37
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv85
   store ptr %38, ptr %39, align 8, !tbaa !840
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -30548,11 +30548,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS
 40:                                               ; preds = %40, %.preheader.us.us.us.us
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %40 ], [ 0, %.preheader.us.us.us.us ]
   %.048.us.us.us.us = phi float [ %48, %40 ], [ %9, %.preheader.us.us.us.us ]
-  %41 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv90
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv90
   %42 = load float, ptr %41, align 4, !tbaa !452
-  %43 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv90
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv90
   %44 = load ptr, ptr %43, align 8, !tbaa !840
-  %45 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv95
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %indvars.iv95
   %46 = load i16, ptr %45, align 2, !tbaa !560
   %47 = uitofp i16 %46 to float
   %48 = tail call float @llvm.fmuladd.f32(float %42, float %47, float %.048.us.us.us.us)
@@ -30561,7 +30561,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS
   br i1 %exitcond94.not, label %._crit_edge.us.us.us.us, label %40, !llvm.loop !849
 
 ._crit_edge.us.us.us.us:                          ; preds = %40
-  %49 = getelementptr inbounds nuw float, ptr %.03953.us.us.us, i64 %indvars.iv95
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.03953.us.us.us, i64 %indvars.iv95
   store float %48, ptr %49, align 4, !tbaa !452
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
@@ -30581,7 +30581,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS
 
 .preheader.us56:                                  ; preds = %.preheader45.us, %.preheader.us56
   %indvars.iv80 = phi i64 [ 0, %.preheader45.us ], [ %indvars.iv.next81, %.preheader.us56 ]
-  %54 = getelementptr inbounds nuw float, ptr %.03953.us, i64 %indvars.iv80
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.03953.us, i64 %indvars.iv80
   store float %9, ptr %54, align 4, !tbaa !452
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -30607,17 +30607,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIffEENS
 
 58:                                               ; preds = %.preheader45.us60, %58
   %indvars.iv = phi i64 [ 0, %.preheader45.us60 ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds ptr, ptr %.03855.us61, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %.03855.us61, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !52
   %65 = load i32, ptr %59, align 4, !tbaa !3
   %66 = mul nsw i32 %65, %6
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i16, ptr %64, i64 %67
-  %69 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %68 = getelementptr inbounds [2 x i8], ptr %64, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %68, ptr %69, align 8, !tbaa !840
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -31007,17 +31007,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS
 
 28:                                               ; preds = %.preheader45.us.us.us, %28
   %indvars.iv85 = phi i64 [ 0, %.preheader45.us.us.us ], [ %indvars.iv.next86, %28 ]
-  %29 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv85
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv85
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %.03855.us.us.us, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.03855.us.us.us, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   %35 = load i32, ptr %29, align 4, !tbaa !3
   %36 = mul nsw i32 %35, %6
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i16, ptr %34, i64 %37
-  %39 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv85
+  %38 = getelementptr inbounds [2 x i8], ptr %34, i64 %37
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv85
   store ptr %38, ptr %39, align 8, !tbaa !840
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -31030,11 +31030,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS
 40:                                               ; preds = %40, %.preheader.us.us.us.us
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %40 ], [ 0, %.preheader.us.us.us.us ]
   %.048.us.us.us.us = phi double [ %48, %40 ], [ %9, %.preheader.us.us.us.us ]
-  %41 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv90
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv90
   %42 = load double, ptr %41, align 8, !tbaa !187
-  %43 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv90
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv90
   %44 = load ptr, ptr %43, align 8, !tbaa !840
-  %45 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv95
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %indvars.iv95
   %46 = load i16, ptr %45, align 2, !tbaa !560
   %47 = uitofp i16 %46 to double
   %48 = tail call double @llvm.fmuladd.f64(double %42, double %47, double %.048.us.us.us.us)
@@ -31043,7 +31043,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS
   br i1 %exitcond94.not, label %._crit_edge.us.us.us.us, label %40, !llvm.loop !855
 
 ._crit_edge.us.us.us.us:                          ; preds = %40
-  %49 = getelementptr inbounds nuw double, ptr %.03953.us.us.us, i64 %indvars.iv95
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.03953.us.us.us, i64 %indvars.iv95
   store double %48, ptr %49, align 8, !tbaa !187
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
@@ -31063,7 +31063,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS
 
 .preheader.us56:                                  ; preds = %.preheader45.us, %.preheader.us56
   %indvars.iv80 = phi i64 [ 0, %.preheader45.us ], [ %indvars.iv.next81, %.preheader.us56 ]
-  %54 = getelementptr inbounds nuw double, ptr %.03953.us, i64 %indvars.iv80
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.03953.us, i64 %indvars.iv80
   store double %9, ptr %54, align 8, !tbaa !187
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -31089,17 +31089,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DItNS0_4CastIddEENS
 
 58:                                               ; preds = %.preheader45.us60, %58
   %indvars.iv = phi i64 [ 0, %.preheader45.us60 ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds ptr, ptr %.03855.us61, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %.03855.us61, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !52
   %65 = load i32, ptr %59, align 4, !tbaa !3
   %66 = mul nsw i32 %65, %6
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i16, ptr %64, i64 %67
-  %69 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %68 = getelementptr inbounds [2 x i8], ptr %64, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %68, ptr %69, align 8, !tbaa !840
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -31488,17 +31488,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %.lr.ph.us.us
   %indvars.iv85 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next86, %.lr.ph.us.us ]
-  %29 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv85
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv85
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %.03855.us.us, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.03855.us.us, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   %35 = load i32, ptr %29, align 4, !tbaa !3
   %36 = mul nsw i32 %35, %6
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i16, ptr %34, i64 %37
-  %39 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv85
+  %38 = getelementptr inbounds [2 x i8], ptr %34, i64 %37
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv85
   store ptr %38, ptr %39, align 8, !tbaa !840
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -31511,11 +31511,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS
 40:                                               ; preds = %40, %.preheader.us.us.us
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %40 ], [ 0, %.preheader.us.us.us ]
   %.048.us.us.us = phi float [ %48, %40 ], [ %9, %.preheader.us.us.us ]
-  %41 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv90
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv90
   %42 = load float, ptr %41, align 4, !tbaa !452
-  %43 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv90
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv90
   %44 = load ptr, ptr %43, align 8, !tbaa !840
-  %45 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv95
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %indvars.iv95
   %46 = load i16, ptr %45, align 2, !tbaa !560
   %47 = sitofp i16 %46 to float
   %48 = tail call float @llvm.fmuladd.f32(float %42, float %47, float %.048.us.us.us)
@@ -31529,7 +31529,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS
   %51 = tail call i32 @llvm.smax.i32(i32 %50, i32 -32768)
   %52 = tail call i32 @llvm.smin.i32(i32 %51, i32 32767)
   %53 = trunc nsw i32 %52 to i16
-  %54 = getelementptr inbounds nuw i16, ptr %.03953.us.us, i64 %indvars.iv95
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %.03953.us.us, i64 %indvars.iv95
   store i16 %53, ptr %54, align 2, !tbaa !560
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
@@ -31557,7 +31557,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS
 
 .preheader.us56:                                  ; preds = %.preheader45.us, %.preheader.us56
   %indvars.iv80 = phi i64 [ 0, %.preheader45.us ], [ %indvars.iv.next81, %.preheader.us56 ]
-  %63 = getelementptr inbounds nuw i16, ptr %.03953.us, i64 %indvars.iv80
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %.03953.us, i64 %indvars.iv80
   store i16 %62, ptr %63, align 2, !tbaa !560
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -31583,17 +31583,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIfsEENS
 
 67:                                               ; preds = %.preheader45.us60, %67
   %indvars.iv = phi i64 [ 0, %.preheader45.us60 ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !8
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr %.03855.us61, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %.03855.us61, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !52
   %74 = load i32, ptr %68, align 4, !tbaa !3
   %75 = mul nsw i32 %74, %6
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i16, ptr %73, i64 %76
-  %78 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %77 = getelementptr inbounds [2 x i8], ptr %73, i64 %76
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %77, ptr %78, align 8, !tbaa !840
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -31984,17 +31984,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS
 
 28:                                               ; preds = %.preheader45.us.us.us, %28
   %indvars.iv85 = phi i64 [ 0, %.preheader45.us.us.us ], [ %indvars.iv.next86, %28 ]
-  %29 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv85
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv85
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %.03855.us.us.us, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.03855.us.us.us, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   %35 = load i32, ptr %29, align 4, !tbaa !3
   %36 = mul nsw i32 %35, %6
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i16, ptr %34, i64 %37
-  %39 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv85
+  %38 = getelementptr inbounds [2 x i8], ptr %34, i64 %37
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv85
   store ptr %38, ptr %39, align 8, !tbaa !840
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -32007,11 +32007,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS
 40:                                               ; preds = %40, %.preheader.us.us.us.us
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %40 ], [ 0, %.preheader.us.us.us.us ]
   %.048.us.us.us.us = phi float [ %48, %40 ], [ %9, %.preheader.us.us.us.us ]
-  %41 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv90
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv90
   %42 = load float, ptr %41, align 4, !tbaa !452
-  %43 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv90
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv90
   %44 = load ptr, ptr %43, align 8, !tbaa !840
-  %45 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv95
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %indvars.iv95
   %46 = load i16, ptr %45, align 2, !tbaa !560
   %47 = sitofp i16 %46 to float
   %48 = tail call float @llvm.fmuladd.f32(float %42, float %47, float %.048.us.us.us.us)
@@ -32020,7 +32020,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS
   br i1 %exitcond94.not, label %._crit_edge.us.us.us.us, label %40, !llvm.loop !867
 
 ._crit_edge.us.us.us.us:                          ; preds = %40
-  %49 = getelementptr inbounds nuw float, ptr %.03953.us.us.us, i64 %indvars.iv95
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.03953.us.us.us, i64 %indvars.iv95
   store float %48, ptr %49, align 4, !tbaa !452
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
@@ -32040,7 +32040,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS
 
 .preheader.us56:                                  ; preds = %.preheader45.us, %.preheader.us56
   %indvars.iv80 = phi i64 [ 0, %.preheader45.us ], [ %indvars.iv.next81, %.preheader.us56 ]
-  %54 = getelementptr inbounds nuw float, ptr %.03953.us, i64 %indvars.iv80
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.03953.us, i64 %indvars.iv80
   store float %9, ptr %54, align 4, !tbaa !452
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -32066,17 +32066,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIffEENS
 
 58:                                               ; preds = %.preheader45.us60, %58
   %indvars.iv = phi i64 [ 0, %.preheader45.us60 ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds ptr, ptr %.03855.us61, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %.03855.us61, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !52
   %65 = load i32, ptr %59, align 4, !tbaa !3
   %66 = mul nsw i32 %65, %6
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i16, ptr %64, i64 %67
-  %69 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %68 = getelementptr inbounds [2 x i8], ptr %64, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %68, ptr %69, align 8, !tbaa !840
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -32466,17 +32466,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS
 
 28:                                               ; preds = %.preheader45.us.us.us, %28
   %indvars.iv85 = phi i64 [ 0, %.preheader45.us.us.us ], [ %indvars.iv.next86, %28 ]
-  %29 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv85
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv85
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %.03855.us.us.us, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.03855.us.us.us, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   %35 = load i32, ptr %29, align 4, !tbaa !3
   %36 = mul nsw i32 %35, %6
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i16, ptr %34, i64 %37
-  %39 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv85
+  %38 = getelementptr inbounds [2 x i8], ptr %34, i64 %37
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv85
   store ptr %38, ptr %39, align 8, !tbaa !840
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -32489,11 +32489,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS
 40:                                               ; preds = %40, %.preheader.us.us.us.us
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %40 ], [ 0, %.preheader.us.us.us.us ]
   %.048.us.us.us.us = phi double [ %48, %40 ], [ %9, %.preheader.us.us.us.us ]
-  %41 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv90
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv90
   %42 = load double, ptr %41, align 8, !tbaa !187
-  %43 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv90
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv90
   %44 = load ptr, ptr %43, align 8, !tbaa !840
-  %45 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv95
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %indvars.iv95
   %46 = load i16, ptr %45, align 2, !tbaa !560
   %47 = sitofp i16 %46 to double
   %48 = tail call double @llvm.fmuladd.f64(double %42, double %47, double %.048.us.us.us.us)
@@ -32502,7 +32502,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS
   br i1 %exitcond94.not, label %._crit_edge.us.us.us.us, label %40, !llvm.loop !873
 
 ._crit_edge.us.us.us.us:                          ; preds = %40
-  %49 = getelementptr inbounds nuw double, ptr %.03953.us.us.us, i64 %indvars.iv95
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.03953.us.us.us, i64 %indvars.iv95
   store double %48, ptr %49, align 8, !tbaa !187
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
@@ -32522,7 +32522,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS
 
 .preheader.us56:                                  ; preds = %.preheader45.us, %.preheader.us56
   %indvars.iv80 = phi i64 [ 0, %.preheader45.us ], [ %indvars.iv.next81, %.preheader.us56 ]
-  %54 = getelementptr inbounds nuw double, ptr %.03953.us, i64 %indvars.iv80
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.03953.us, i64 %indvars.iv80
   store double %9, ptr %54, align 8, !tbaa !187
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -32548,17 +32548,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIsNS0_4CastIddEENS
 
 58:                                               ; preds = %.preheader45.us60, %58
   %indvars.iv = phi i64 [ 0, %.preheader45.us60 ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds ptr, ptr %.03855.us61, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %.03855.us61, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !52
   %65 = load i32, ptr %59, align 4, !tbaa !3
   %66 = mul nsw i32 %65, %6
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i16, ptr %64, i64 %67
-  %69 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %68 = getelementptr inbounds [2 x i8], ptr %64, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %68, ptr %69, align 8, !tbaa !840
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -32949,17 +32949,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS
 
 28:                                               ; preds = %.preheader45.us.us.us, %28
   %indvars.iv85 = phi i64 [ 0, %.preheader45.us.us.us ], [ %indvars.iv.next86, %28 ]
-  %29 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv85
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv85
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %.03855.us.us.us, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.03855.us.us.us, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   %35 = load i32, ptr %29, align 4, !tbaa !3
   %36 = mul nsw i32 %35, %6
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds float, ptr %34, i64 %37
-  %39 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv85
+  %38 = getelementptr inbounds [4 x i8], ptr %34, i64 %37
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv85
   store ptr %38, ptr %39, align 8, !tbaa !878
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -32972,11 +32972,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS
 40:                                               ; preds = %40, %.preheader.us.us.us.us
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %40 ], [ 0, %.preheader.us.us.us.us ]
   %.048.us.us.us.us = phi float [ %47, %40 ], [ %9, %.preheader.us.us.us.us ]
-  %41 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv90
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv90
   %42 = load float, ptr %41, align 4, !tbaa !452
-  %43 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv90
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv90
   %44 = load ptr, ptr %43, align 8, !tbaa !878
-  %45 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv95
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv95
   %46 = load float, ptr %45, align 4, !tbaa !452
   %47 = tail call float @llvm.fmuladd.f32(float %42, float %46, float %.048.us.us.us.us)
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
@@ -32984,7 +32984,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS
   br i1 %exitcond94.not, label %._crit_edge.us.us.us.us, label %40, !llvm.loop !881
 
 ._crit_edge.us.us.us.us:                          ; preds = %40
-  %48 = getelementptr inbounds nuw float, ptr %.03953.us.us.us, i64 %indvars.iv95
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %.03953.us.us.us, i64 %indvars.iv95
   store float %47, ptr %48, align 4, !tbaa !452
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
@@ -33004,7 +33004,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS
 
 .preheader.us56:                                  ; preds = %.preheader45.us, %.preheader.us56
   %indvars.iv80 = phi i64 [ 0, %.preheader45.us ], [ %indvars.iv.next81, %.preheader.us56 ]
-  %53 = getelementptr inbounds nuw float, ptr %.03953.us, i64 %indvars.iv80
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.03953.us, i64 %indvars.iv80
   store float %9, ptr %53, align 4, !tbaa !452
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -33030,17 +33030,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIfNS0_4CastIffEENS
 
 57:                                               ; preds = %.preheader45.us60, %57
   %indvars.iv = phi i64 [ 0, %.preheader45.us60 ], [ %indvars.iv.next, %57 ]
-  %58 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4, !tbaa !8
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds ptr, ptr %.03855.us61, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %.03855.us61, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !52
   %64 = load i32, ptr %58, align 4, !tbaa !3
   %65 = mul nsw i32 %64, %6
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds float, ptr %63, i64 %66
-  %68 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %67 = getelementptr inbounds [4 x i8], ptr %63, i64 %66
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %67, ptr %68, align 8, !tbaa !878
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -33430,17 +33430,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS
 
 28:                                               ; preds = %.preheader45.us.us.us, %28
   %indvars.iv85 = phi i64 [ 0, %.preheader45.us.us.us ], [ %indvars.iv.next86, %28 ]
-  %29 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv85
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv85
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %.03855.us.us.us, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.03855.us.us.us, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   %35 = load i32, ptr %29, align 4, !tbaa !3
   %36 = mul nsw i32 %35, %6
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds double, ptr %34, i64 %37
-  %39 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv85
+  %38 = getelementptr inbounds [8 x i8], ptr %34, i64 %37
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv85
   store ptr %38, ptr %39, align 8, !tbaa !886
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
@@ -33453,11 +33453,11 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS
 40:                                               ; preds = %40, %.preheader.us.us.us.us
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %40 ], [ 0, %.preheader.us.us.us.us ]
   %.048.us.us.us.us = phi double [ %47, %40 ], [ %9, %.preheader.us.us.us.us ]
-  %41 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv90
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv90
   %42 = load double, ptr %41, align 8, !tbaa !187
-  %43 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv90
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv90
   %44 = load ptr, ptr %43, align 8, !tbaa !886
-  %45 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv95
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv95
   %46 = load double, ptr %45, align 8, !tbaa !187
   %47 = tail call double @llvm.fmuladd.f64(double %42, double %46, double %.048.us.us.us.us)
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
@@ -33465,7 +33465,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS
   br i1 %exitcond94.not, label %._crit_edge.us.us.us.us, label %40, !llvm.loop !889
 
 ._crit_edge.us.us.us.us:                          ; preds = %40
-  %48 = getelementptr inbounds nuw double, ptr %.03953.us.us.us, i64 %indvars.iv95
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.03953.us.us.us, i64 %indvars.iv95
   store double %47, ptr %48, align 8, !tbaa !187
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
@@ -33485,7 +33485,7 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS
 
 .preheader.us56:                                  ; preds = %.preheader45.us, %.preheader.us56
   %indvars.iv80 = phi i64 [ 0, %.preheader45.us ], [ %indvars.iv.next81, %.preheader.us56 ]
-  %53 = getelementptr inbounds nuw double, ptr %.03953.us, i64 %indvars.iv80
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.03953.us, i64 %indvars.iv80
   store double %9, ptr %53, align 8, !tbaa !187
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
@@ -33511,17 +33511,17 @@ define linkonce_odr hidden void @_ZN2cv12cpu_baseline8Filter2DIdNS0_4CastIddEENS
 
 57:                                               ; preds = %.preheader45.us60, %57
   %indvars.iv = phi i64 [ 0, %.preheader45.us60 ], [ %indvars.iv.next, %57 ]
-  %58 = getelementptr inbounds nuw %"class.cv::Point_", ptr %11, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4, !tbaa !8
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds ptr, ptr %.03855.us61, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %.03855.us61, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !52
   %64 = load i32, ptr %58, align 4, !tbaa !3
   %65 = mul nsw i32 %64, %6
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds double, ptr %63, i64 %66
-  %68 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %67 = getelementptr inbounds [8 x i8], ptr %63, i64 %66
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %67, ptr %68, align 8, !tbaa !886
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -33625,9 +33625,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !80
-  %38 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !397
-  %39 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !892
   br label %40
 

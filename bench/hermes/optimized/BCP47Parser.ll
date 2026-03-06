@@ -224,7 +224,7 @@ entry:
   %tagEnd = alloca %"class.__gnu_cxx::__normal_iterator.32", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   store ptr %locale.0.val, ptr %s, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %locale.0.val, i64 %locale.8.val
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %locale.0.val, i64 %locale.8.val
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
@@ -925,7 +925,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit.i
   %_M_string_length.i.i16.i.i.i = getelementptr inbounds nuw i8, ptr %cond-lvalue, i64 8
   store i64 %1, ptr %_M_string_length.i.i16.i.i.i, align 8
   %8 = load ptr, ptr %cond-lvalue, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds i16, ptr %8, i64 %1
+  %arrayidx.i.i.i.i = getelementptr inbounds [2 x i8], ptr %8, i64 %1
   store i16 0, ptr %arrayidx.i.i.i.i, align 2
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEaSERKS4_.exit
 
@@ -1142,7 +1142,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit.i
   %_M_string_length.i.i16.i.i.i84 = getelementptr inbounds nuw i8, ptr %cond-lvalue, i64 72
   store i64 %call19.val7, ptr %_M_string_length.i.i16.i.i.i84, align 8
   %66 = load ptr, ptr %regionSubtag, align 8
-  %arrayidx.i.i.i.i85 = getelementptr inbounds i16, ptr %66, i64 %call19.val7
+  %arrayidx.i.i.i.i85 = getelementptr inbounds [2 x i8], ptr %66, i64 %call19.val7
   store i16 0, ptr %arrayidx.i.i.i.i85, align 2
   %.pre171 = load ptr, ptr %_M_finish.i.i.i9, align 8
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEaSERKS4_.exit108
@@ -1183,7 +1183,7 @@ while.cond:                                       ; preds = %_ZN6hermes13platfor
   br i1 %or.cond.i.i, label %lor.rhs.i, label %land.rhs.i.i122
 
 land.rhs.i.i122:                                  ; preds = %while.cond
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i16, ptr %call28.val, i64 %call28.val8
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %call28.val, i64 %call28.val8
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i to i64
   %shr.i.i.i.i.i.i.i = lshr i64 %call28.val8, 2
   br label %for.body.i.i.i.i.i.i.i
@@ -1476,7 +1476,7 @@ entry:
   br i1 %or.cond.i.not, label %land.rhs.i, label %lor.rhs
 
 land.rhs.i:                                       ; preds = %entry
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i16, ptr %subtag.0.val, i64 %subtag.8.val
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %subtag.0.val, i64 %subtag.8.val
   %1 = icmp eq i64 %subtag.8.val, 3
   br i1 %1, label %sw.bb.i.i.i.i.i.i, label %sw.bb31.i.i.i.i.i.i
 
@@ -1519,7 +1519,7 @@ lor.rhs:                                          ; preds = %entry
   br i1 %or.cond.i7, label %lor.end, label %land.rhs.i8
 
 land.rhs.i8:                                      ; preds = %lor.rhs
-  %add.ptr.i.i.i.i.i.i9 = getelementptr inbounds nuw i16, ptr %subtag.0.val, i64 %subtag.8.val
+  %add.ptr.i.i.i.i.i.i9 = getelementptr inbounds nuw [2 x i8], ptr %subtag.0.val, i64 %subtag.8.val
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i10 = ptrtoint ptr %add.ptr.i.i.i.i.i.i9 to i64
   %shr.i.i.i.i.i.i11 = lshr i64 %subtag.8.val, 2
   br label %for.body.i.i.i.i.i.i13
@@ -2045,11 +2045,11 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEpLEDs.exit.us: ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i.us, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.us, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.thread.i.i.us
   %96 = phi ptr [ %93, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.thread.i.i.us ], [ %call5.i.i.i.i.i.i.us, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i.us ], [ %93, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.us ]
-  %arrayidx.i.i.us = getelementptr inbounds i16, ptr %96, i64 %92
+  %arrayidx.i.i.us = getelementptr inbounds [2 x i8], ptr %96, i64 %92
   store i16 45, ptr %arrayidx.i.i.us, align 2
   store i64 %add.i.i.us, ptr %_M_string_length.i.i, align 8
   %97 = load ptr, ptr %second, align 8
-  %arrayidx.i.i.i36.us = getelementptr inbounds i16, ptr %97, i64 %add.i.i.us
+  %arrayidx.i.i.i36.us = getelementptr inbounds [2 x i8], ptr %97, i64 %add.i.i.us
   store i16 0, ptr %arrayidx.i.i.i36.us, align 2
   %.pre88 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre89 = load i64, ptr %_M_string_length.i.i, align 8
@@ -2088,7 +2088,7 @@ if.then.i3.i.i.us:                                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i.us, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit.us, label %if.then3.i.i.i.us
 
 if.then3.i.i.i.us:                                ; preds = %if.then.i3.i.i.us
-  %add.ptr.i.i.i46.us = getelementptr inbounds i16, ptr %102, i64 %98
+  %add.ptr.i.i.i46.us = getelementptr inbounds [2 x i8], ptr %102, i64 %98
   %cond.i.i.i.us = icmp eq i64 %101, 1
   br i1 %cond.i.i.i.us, label %if.then.i.i.i.i.us, label %if.end.i.i.i.i.i47.us
 
@@ -2109,7 +2109,7 @@ if.else.i.i.i.us:                                 ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit.us: ; preds = %if.else.i.i.i.us, %if.then.i.i.i.i.us, %if.end.i.i.i.i.i47.us, %if.then.i3.i.i.us
   store i64 %add.i.i.i.us, ptr %_M_string_length.i.i, align 8
   %105 = load ptr, ptr %second, align 8
-  %arrayidx.i.i.i.i.us = getelementptr inbounds i16, ptr %105, i64 %add.i.i.i.us
+  %arrayidx.i.i.i.i.us = getelementptr inbounds [2 x i8], ptr %105, i64 %add.i.i.i.us
   store i16 0, ptr %arrayidx.i.i.i.i.us, align 2
   br label %while.cond24.us, !llvm.loop !15
 
@@ -2380,11 +2380,11 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEpLEDs.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i
   %35 = phi ptr [ %32, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.thread.i.i ], [ %call5.i.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i ], [ %32, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %35, i64 %31
+  %arrayidx.i.i = getelementptr inbounds [2 x i8], ptr %35, i64 %31
   store i16 45, ptr %arrayidx.i.i, align 2
   store i64 %add.i.i, ptr %_M_string_length.i.i19, align 8
   %36 = load ptr, ptr %second29, align 8
-  %arrayidx.i.i.i23 = getelementptr inbounds i16, ptr %36, i64 %add.i.i
+  %arrayidx.i.i.i23 = getelementptr inbounds [2 x i8], ptr %36, i64 %add.i.i
   store i16 0, ptr %arrayidx.i.i.i23, align 2
   %.pre57 = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre58 = load i64, ptr %_M_string_length.i.i19, align 8
@@ -2427,7 +2427,7 @@ if.then.i3.i.i:                                   ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i3.i.i
-  %add.ptr.i.i.i32 = getelementptr inbounds i16, ptr %41, i64 %37
+  %add.ptr.i.i.i32 = getelementptr inbounds [2 x i8], ptr %41, i64 %37
   %cond.i.i.i = icmp eq i64 %40, 1
   br i1 %cond.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i.i33
 
@@ -2448,7 +2448,7 @@ if.else.i.i.i:                                    ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit: ; preds = %if.then.i3.i.i, %if.then.i.i.i.i, %if.end.i.i.i.i.i33, %if.else.i.i.i
   store i64 %add.i.i.i, ptr %_M_string_length.i.i19, align 8
   %44 = load ptr, ptr %second29, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds i16, ptr %44, i64 %add.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2 x i8], ptr %44, i64 %add.i.i.i
   store i16 0, ptr %arrayidx.i.i.i.i, align 2
   %45 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i37 = getelementptr inbounds i8, ptr %45, i64 -32
@@ -2573,11 +2573,11 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEpLEDs.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i
   %8 = phi ptr [ %5, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.thread.i.i ], [ %call5.i.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i ], [ %5, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %8, i64 %4
+  %arrayidx.i.i = getelementptr inbounds [2 x i8], ptr %8, i64 %4
   store i16 45, ptr %arrayidx.i.i, align 2
   store i64 %add.i.i, ptr %_M_string_length.i.i, align 8
   %9 = load ptr, ptr %puExtensions, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %9, i64 %add.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [2 x i8], ptr %9, i64 %add.i.i
   store i16 0, ptr %arrayidx.i.i.i, align 2
   %.pre = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre15 = load i64, ptr %_M_string_length.i.i, align 8
@@ -2620,7 +2620,7 @@ if.then.i3.i.i:                                   ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i3.i.i
-  %add.ptr.i.i.i9 = getelementptr inbounds i16, ptr %14, i64 %10
+  %add.ptr.i.i.i9 = getelementptr inbounds [2 x i8], ptr %14, i64 %10
   %cond.i.i.i = icmp eq i64 %13, 1
   br i1 %cond.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i.i10
 
@@ -2641,7 +2641,7 @@ if.else.i.i.i:                                    ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit: ; preds = %if.then.i3.i.i, %if.then.i.i.i.i, %if.end.i.i.i.i.i10, %if.else.i.i.i
   store i64 %add.i.i.i, ptr %_M_string_length.i.i, align 8
   %17 = load ptr, ptr %puExtensions, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds i16, ptr %17, i64 %add.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2 x i8], ptr %17, i64 %add.i.i.i
   store i16 0, ptr %arrayidx.i.i.i.i, align 2
   %18 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %18, i64 -32
@@ -2805,11 +2805,11 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEpLEDs.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i
   %14 = phi ptr [ %11, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.thread.i.i ], [ %call5.i.i.i.i.i.i14, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i ], [ %11, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %14, i64 %10
+  %arrayidx.i.i = getelementptr inbounds [2 x i8], ptr %14, i64 %10
   store i16 45, ptr %arrayidx.i.i, align 2
   store i64 %add.i.i, ptr %_M_string_length.i.i, align 8
   %15 = load ptr, ptr %second6, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %15, i64 %add.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [2 x i8], ptr %15, i64 %add.i.i
   store i16 0, ptr %arrayidx.i.i.i, align 2
   %.pre = load ptr, ptr %_M_finish.i.i.i, align 8
   %.pre32 = load i64, ptr %_M_string_length.i.i, align 8
@@ -2852,7 +2852,7 @@ if.then.i3.i.i:                                   ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i3.i.i
-  %add.ptr.i.i.i22 = getelementptr inbounds i16, ptr %20, i64 %16
+  %add.ptr.i.i.i22 = getelementptr inbounds [2 x i8], ptr %20, i64 %16
   %cond.i.i.i = icmp eq i64 %19, 1
   br i1 %cond.i.i.i, label %if.then.i.i.i.i26, label %if.end.i.i.i.i.i23
 
@@ -2873,7 +2873,7 @@ if.else.i.i.i:                                    ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit: ; preds = %if.then.i3.i.i, %if.then.i.i.i.i26, %if.end.i.i.i.i.i23, %if.else.i.i.i
   store i64 %add.i.i.i, ptr %_M_string_length.i.i, align 8
   %23 = load ptr, ptr %second6, align 8
-  %arrayidx.i.i.i.i25 = getelementptr inbounds i16, ptr %23, i64 %add.i.i.i
+  %arrayidx.i.i.i.i25 = getelementptr inbounds [2 x i8], ptr %23, i64 %add.i.i.i
   store i16 0, ptr %arrayidx.i.i.i.i25, align 2
   %24 = load ptr, ptr %_M_finish.i.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %24, i64 -32
@@ -3563,7 +3563,7 @@ if.else.i.i.i:                                    ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit: ; preds = %if.then.i3.i.i, %if.then.i.i.i.i, %if.end.i.i.i.i.i, %if.else.i.i.i
   %4 = phi ptr [ %0, %if.then.i3.i.i ], [ %0, %if.then.i.i.i.i ], [ %0, %if.end.i.i.i.i.i ], [ %.pre, %if.else.i.i.i ]
   store i64 %2, ptr %_M_string_length.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i16, ptr %4, i64 %2
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %2
   store i16 0, ptr %arrayidx.i.i.i.i, align 2
   %scriptSubtag3 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %_M_string_length.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -3605,7 +3605,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i2
   br i1 %cmp.not.i.i.i261120, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i, label %if.then.i3.i.i27
 
 if.then.i3.i.i27:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i24.thread, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i24
-  %add.ptr.i.i.i29 = getelementptr inbounds i16, ptr %11, i64 %9
+  %add.ptr.i.i.i29 = getelementptr inbounds [2 x i8], ptr %11, i64 %9
   store i16 45, ptr %add.ptr.i.i.i29, align 2
   %ref.tmp.sroa.3.0.add.ptr.i.i.i29.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i29, i64 2
   store i16 %conv6.i, ptr %ref.tmp.sroa.3.0.add.ptr.i.i.i29.sroa_idx, align 2
@@ -3645,7 +3645,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %land.lhs.true.i.i, %if.then.i18.i, %if.end.i.i.i
-  %add.ptr.i1005 = getelementptr inbounds i16, ptr %call5.i.i.i.i, i64 %9
+  %add.ptr.i1005 = getelementptr inbounds [2 x i8], ptr %call5.i.i.i.i, i64 %9
   store i16 45, ptr %add.ptr.i1005, align 2
   %ref.tmp.sroa.3.0.add.ptr.i1005.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i1005, i64 2
   store i16 %conv6.i, ptr %ref.tmp.sroa.3.0.add.ptr.i1005.sroa_idx, align 2
@@ -3668,7 +3668,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit:
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendESt16initializer_listIDsE.exit: ; preds = %if.then.i3.i.i27, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit
   %14 = phi ptr [ %.pre1164, %if.then.i3.i.i27 ], [ %call5.i.i.i.i, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit ]
   store i64 %add.i.i.i22, ptr %_M_string_length.i.i.i, align 8
-  %arrayidx.i.i.i.i31 = getelementptr inbounds i16, ptr %14, i64 %add.i.i.i22
+  %arrayidx.i.i.i.i31 = getelementptr inbounds [2 x i8], ptr %14, i64 %add.i.i.i22
   store i16 0, ptr %arrayidx.i.i.i.i31, align 2
   %15 = load i64, ptr %_M_string_length.i.i17, align 8
   %cmp1143 = icmp ugt i64 %15, 1
@@ -3677,7 +3677,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendESt16initializer_
 for.body:                                         ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendESt16initializer_listIDsE.exit, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEpLEDs.exit
   %i.01144 = phi i64 [ %inc, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEpLEDs.exit ], [ 1, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendESt16initializer_listIDsE.exit ]
   %16 = load ptr, ptr %scriptSubtag3, align 8
-  %arrayidx.i = getelementptr inbounds i16, ptr %16, i64 %i.01144
+  %arrayidx.i = getelementptr inbounds [2 x i8], ptr %16, i64 %i.01144
   %17 = load i16, ptr %arrayidx.i, align 2
   %18 = load i64, ptr %_M_string_length.i.i.i, align 8
   %add.i.i = add i64 %18, 1
@@ -3747,11 +3747,11 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEpLEDs.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i
   %22 = phi ptr [ %19, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.thread.i.i ], [ %call5.i.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i ], [ %19, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %22, i64 %18
+  %arrayidx.i.i = getelementptr inbounds [2 x i8], ptr %22, i64 %18
   store i16 %17, ptr %arrayidx.i.i, align 2
   store i64 %add.i.i, ptr %_M_string_length.i.i.i, align 8
   %23 = load ptr, ptr %agg.result, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %23, i64 %add.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [2 x i8], ptr %23, i64 %add.i.i
   store i16 0, ptr %arrayidx.i.i.i, align 2
   %inc = add nuw i64 %i.01144, 1
   %24 = load i64, ptr %_M_string_length.i.i17, align 8
@@ -3834,11 +3834,11 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEpLEDs.exit72: ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i69, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.thread.i.i45, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i63
   %30 = phi ptr [ %27, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.thread.i.i45 ], [ %call5.i.i.i.i.i.i59, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i63 ], [ %27, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i69 ]
-  %arrayidx.i.i47 = getelementptr inbounds i16, ptr %30, i64 %26
+  %arrayidx.i.i47 = getelementptr inbounds [2 x i8], ptr %30, i64 %26
   store i16 45, ptr %arrayidx.i.i47, align 2
   store i64 %add.i.i43, ptr %_M_string_length.i.i.i, align 8
   %31 = load ptr, ptr %agg.result, align 8
-  %arrayidx.i.i.i48 = getelementptr inbounds i16, ptr %31, i64 %add.i.i43
+  %arrayidx.i.i.i48 = getelementptr inbounds [2 x i8], ptr %31, i64 %add.i.i43
   store i16 0, ptr %arrayidx.i.i.i48, align 2
   %32 = load ptr, ptr %regionSubtag, align 8
   %33 = load i64, ptr %_M_string_length.i.i40, align 8
@@ -3922,11 +3922,11 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEpLEDs.exit108: ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i105, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.thread.i.i81, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i99
   %40 = phi ptr [ %37, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.thread.i.i81 ], [ %call5.i.i.i.i.i.i95, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit.i.i99 ], [ %37, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i105 ]
-  %arrayidx.i.i83 = getelementptr inbounds i16, ptr %40, i64 %36
+  %arrayidx.i.i83 = getelementptr inbounds [2 x i8], ptr %40, i64 %36
   store i16 %conv6.i77, ptr %arrayidx.i.i83, align 2
   store i64 %add.i.i79, ptr %_M_string_length.i.i.i, align 8
   %41 = load ptr, ptr %agg.result, align 8
-  %arrayidx.i.i.i84 = getelementptr inbounds i16, ptr %41, i64 %add.i.i79
+  %arrayidx.i.i.i84 = getelementptr inbounds [2 x i8], ptr %41, i64 %add.i.i79
   store i16 0, ptr %arrayidx.i.i.i84, align 2
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.01146, i64 2
   %cmp.i74.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i
@@ -3968,7 +3968,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i116
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i.i121
 
 if.then.i.i.i121:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i116
-  %add.ptr.i.i118 = getelementptr inbounds i16, ptr %44, i64 %43
+  %add.ptr.i.i118 = getelementptr inbounds [2 x i8], ptr %44, i64 %43
   store i16 45, ptr %add.ptr.i.i118, align 2
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit
 
@@ -3979,7 +3979,7 @@ if.else.i.i:                                      ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit: ; preds = %if.then.i.i.i121, %if.else.i.i
   store i64 %add.i.i114, ptr %_M_string_length.i.i.i, align 8
   %46 = load ptr, ptr %agg.result, align 8
-  %arrayidx.i.i.i120 = getelementptr inbounds i16, ptr %46, i64 %add.i.i114
+  %arrayidx.i.i.i120 = getelementptr inbounds [2 x i8], ptr %46, i64 %add.i.i114
   store i16 0, ptr %arrayidx.i.i.i120, align 2
   %47 = load ptr, ptr %_M_storage.i.i, align 8
   %_M_string_length.i.i124 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.01148, i64 40
@@ -4015,7 +4015,7 @@ if.then.i3.i.i134:                                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i135, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit147, label %if.then3.i.i.i136
 
 if.then3.i.i.i136:                                ; preds = %if.then.i3.i.i134
-  %add.ptr.i.i.i137 = getelementptr inbounds i16, ptr %50, i64 %49
+  %add.ptr.i.i.i137 = getelementptr inbounds [2 x i8], ptr %50, i64 %49
   %cond.i.i.i138 = icmp eq i64 %48, 1
   br i1 %cond.i.i.i138, label %if.then.i.i.i.i142, label %if.end.i.i.i.i.i139
 
@@ -4036,7 +4036,7 @@ if.else.i.i.i143:                                 ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit147: ; preds = %if.then.i3.i.i134, %if.then.i.i.i.i142, %if.end.i.i.i.i.i139, %if.else.i.i.i143
   store i64 %add.i.i.i129, ptr %_M_string_length.i.i.i, align 8
   %53 = load ptr, ptr %agg.result, align 8
-  %arrayidx.i.i.i.i141 = getelementptr inbounds i16, ptr %53, i64 %add.i.i.i129
+  %arrayidx.i.i.i.i141 = getelementptr inbounds [2 x i8], ptr %53, i64 %add.i.i.i129
   store i16 0, ptr %arrayidx.i.i.i.i141, align 2
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.01148) #18
   %cmp.i109.not = icmp eq ptr %call.i, %add.ptr.i.i
@@ -4084,7 +4084,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i1
   br i1 %cmp.not.i.i.i1611125, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i1013, label %if.then.i3.i.i162
 
 if.then.i3.i.i162:                                ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i159.thread, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i159
-  %add.ptr.i.i.i164 = getelementptr inbounds i16, ptr %58, i64 %56
+  %add.ptr.i.i.i164 = getelementptr inbounds [2 x i8], ptr %58, i64 %56
   store i16 45, ptr %add.ptr.i.i.i164, align 2
   %ref.tmp54.sroa.3.0.add.ptr.i.i.i164.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i164, i64 2
   store i16 %55, ptr %ref.tmp54.sroa.3.0.add.ptr.i.i.i164.sroa_idx, align 2
@@ -4124,7 +4124,7 @@ if.end.i.i.i1040:                                 ; preds = %land.lhs.true.i.i10
   br label %if.end19.i1034
 
 if.end19.i1034:                                   ; preds = %land.lhs.true.i.i1042, %if.then.i18.i1023, %if.end.i.i.i1040
-  %add.ptr.i1039 = getelementptr inbounds i16, ptr %call5.i.i.i.i1022, i64 %56
+  %add.ptr.i1039 = getelementptr inbounds [2 x i8], ptr %call5.i.i.i.i1022, i64 %56
   store i16 45, ptr %add.ptr.i1039, align 2
   %ref.tmp54.sroa.3.0.add.ptr.i1039.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i1039, i64 2
   store i16 %55, ptr %ref.tmp54.sroa.3.0.add.ptr.i1039.sroa_idx, align 2
@@ -4147,7 +4147,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit1
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendESt16initializer_listIDsE.exit171: ; preds = %if.then.i3.i.i162, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit1050
   %61 = phi ptr [ %.pre1165, %if.then.i3.i.i162 ], [ %call5.i.i.i.i1022, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit1050 ]
   store i64 %add.i.i.i157, ptr %_M_string_length.i.i.i, align 8
-  %arrayidx.i.i.i.i166 = getelementptr inbounds i16, ptr %61, i64 %add.i.i.i157
+  %arrayidx.i.i.i.i166 = getelementptr inbounds [2 x i8], ptr %61, i64 %add.i.i.i157
   store i16 0, ptr %arrayidx.i.i.i.i166, align 2
   %second = getelementptr inbounds nuw i8, ptr %oExtIt.sroa.0.01150, i64 40
   %_M_string_length.i.i173 = getelementptr inbounds nuw i8, ptr %oExtIt.sroa.0.01150, i64 48
@@ -4182,7 +4182,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i187
   br i1 %cmp.not.i.i189, label %if.else.i.i199, label %if.then.i.i.i198
 
 if.then.i.i.i198:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i187
-  %add.ptr.i.i193 = getelementptr inbounds i16, ptr %64, i64 %63
+  %add.ptr.i.i193 = getelementptr inbounds [2 x i8], ptr %64, i64 %63
   store i16 45, ptr %add.ptr.i.i193, align 2
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit203
 
@@ -4193,7 +4193,7 @@ if.else.i.i199:                                   ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit203: ; preds = %if.then.i.i.i198, %if.else.i.i199
   store i64 %add.i.i185, ptr %_M_string_length.i.i.i, align 8
   %66 = load ptr, ptr %agg.result, align 8
-  %arrayidx.i.i.i197 = getelementptr inbounds i16, ptr %66, i64 %add.i.i185
+  %arrayidx.i.i.i197 = getelementptr inbounds [2 x i8], ptr %66, i64 %add.i.i185
   store i16 0, ptr %arrayidx.i.i.i197, align 2
   %67 = load ptr, ptr %second, align 8
   %68 = load i64, ptr %_M_string_length.i.i173, align 8
@@ -4228,7 +4228,7 @@ if.then.i3.i.i215:                                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i216, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit228, label %if.then3.i.i.i217
 
 if.then3.i.i.i217:                                ; preds = %if.then.i3.i.i215
-  %add.ptr.i.i.i218 = getelementptr inbounds i16, ptr %70, i64 %69
+  %add.ptr.i.i.i218 = getelementptr inbounds [2 x i8], ptr %70, i64 %69
   %cond.i.i.i219 = icmp eq i64 %68, 1
   br i1 %cond.i.i.i219, label %if.then.i.i.i.i223, label %if.end.i.i.i.i.i220
 
@@ -4249,7 +4249,7 @@ if.else.i.i.i224:                                 ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit228: ; preds = %if.then.i3.i.i215, %if.then.i.i.i.i223, %if.end.i.i.i.i.i220, %if.else.i.i.i224
   store i64 %add.i.i.i210, ptr %_M_string_length.i.i.i, align 8
   %73 = load ptr, ptr %agg.result, align 8
-  %arrayidx.i.i.i.i222 = getelementptr inbounds i16, ptr %73, i64 %add.i.i.i210
+  %arrayidx.i.i.i.i222 = getelementptr inbounds [2 x i8], ptr %73, i64 %add.i.i.i210
   store i16 0, ptr %arrayidx.i.i.i.i222, align 2
   br label %if.end70
 
@@ -4311,7 +4311,7 @@ if.else.i.i.i281:                                 ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit285: ; preds = %if.then.i.i.i.i280, %if.end.i.i.i.i.i277, %if.else.i.i.i281
   %78 = phi ptr [ %.pre1166, %if.else.i.i.i281 ], [ %74, %if.then.i.i.i.i280 ], [ %74, %if.end.i.i.i.i.i277 ]
   store i64 %add.i.i.i267, ptr %_M_string_length.i.i.i230, align 8
-  %arrayidx.i.i.i.i279 = getelementptr inbounds nuw i16, ptr %78, i64 %add.i.i.i267
+  %arrayidx.i.i.i.i279 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %add.i.i.i267
   store i16 0, ptr %arrayidx.i.i.i.i279, align 2
   br label %if.end80
 
@@ -4349,7 +4349,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i300
   br i1 %cmp.not.i.i302, label %if.else.i.i312, label %if.then.i.i.i311
 
 if.then.i.i.i311:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i300
-  %add.ptr.i.i306 = getelementptr inbounds i16, ptr %81, i64 %80
+  %add.ptr.i.i306 = getelementptr inbounds [2 x i8], ptr %81, i64 %80
   store i16 45, ptr %add.ptr.i.i306, align 2
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit316
 
@@ -4360,7 +4360,7 @@ if.else.i.i312:                                   ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit316: ; preds = %if.then.i.i.i311, %if.else.i.i312
   store i64 %add.i.i298, ptr %_M_string_length.i.i.i230, align 8
   %83 = load ptr, ptr %transformedExtension, align 8
-  %arrayidx.i.i.i310 = getelementptr inbounds i16, ptr %83, i64 %add.i.i298
+  %arrayidx.i.i.i310 = getelementptr inbounds [2 x i8], ptr %83, i64 %add.i.i298
   store i16 0, ptr %arrayidx.i.i.i310, align 2
   %84 = load ptr, ptr %scriptSubtag82, align 8
   %85 = load i64, ptr %_M_string_length.i.i286, align 8
@@ -4395,7 +4395,7 @@ if.then.i3.i.i327:                                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i328, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit340, label %if.then3.i.i.i329
 
 if.then3.i.i.i329:                                ; preds = %if.then.i3.i.i327
-  %add.ptr.i.i.i330 = getelementptr inbounds i16, ptr %87, i64 %86
+  %add.ptr.i.i.i330 = getelementptr inbounds [2 x i8], ptr %87, i64 %86
   %cond.i.i.i331 = icmp eq i64 %85, 1
   br i1 %cond.i.i.i331, label %if.then.i.i.i.i335, label %if.end.i.i.i.i.i332
 
@@ -4416,7 +4416,7 @@ if.else.i.i.i336:                                 ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit340: ; preds = %if.then.i3.i.i327, %if.then.i.i.i.i335, %if.end.i.i.i.i.i332, %if.else.i.i.i336
   store i64 %add.i.i.i322, ptr %_M_string_length.i.i.i230, align 8
   %90 = load ptr, ptr %transformedExtension, align 8
-  %arrayidx.i.i.i.i334 = getelementptr inbounds i16, ptr %90, i64 %add.i.i.i322
+  %arrayidx.i.i.i.i334 = getelementptr inbounds [2 x i8], ptr %90, i64 %add.i.i.i322
   store i16 0, ptr %arrayidx.i.i.i.i334, align 2
   br label %if.end89
 
@@ -4454,7 +4454,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i355
   br i1 %cmp.not.i.i357, label %if.else.i.i367, label %if.then.i.i.i366
 
 if.then.i.i.i366:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i355
-  %add.ptr.i.i361 = getelementptr inbounds i16, ptr %93, i64 %92
+  %add.ptr.i.i361 = getelementptr inbounds [2 x i8], ptr %93, i64 %92
   store i16 45, ptr %add.ptr.i.i361, align 2
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit371
 
@@ -4465,7 +4465,7 @@ if.else.i.i367:                                   ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit371: ; preds = %if.then.i.i.i366, %if.else.i.i367
   store i64 %add.i.i353, ptr %_M_string_length.i.i.i230, align 8
   %95 = load ptr, ptr %transformedExtension, align 8
-  %arrayidx.i.i.i365 = getelementptr inbounds i16, ptr %95, i64 %add.i.i353
+  %arrayidx.i.i.i365 = getelementptr inbounds [2 x i8], ptr %95, i64 %add.i.i353
   store i16 0, ptr %arrayidx.i.i.i365, align 2
   %96 = load ptr, ptr %regionSubtag91, align 8
   %97 = load i64, ptr %_M_string_length.i.i341, align 8
@@ -4500,7 +4500,7 @@ if.then.i3.i.i382:                                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i383, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit395, label %if.then3.i.i.i384
 
 if.then3.i.i.i384:                                ; preds = %if.then.i3.i.i382
-  %add.ptr.i.i.i385 = getelementptr inbounds i16, ptr %99, i64 %98
+  %add.ptr.i.i.i385 = getelementptr inbounds [2 x i8], ptr %99, i64 %98
   %cond.i.i.i386 = icmp eq i64 %97, 1
   br i1 %cond.i.i.i386, label %if.then.i.i.i.i390, label %if.end.i.i.i.i.i387
 
@@ -4521,7 +4521,7 @@ if.else.i.i.i391:                                 ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit395: ; preds = %if.then.i3.i.i382, %if.then.i.i.i.i390, %if.end.i.i.i.i.i387, %if.else.i.i.i391
   store i64 %add.i.i.i377, ptr %_M_string_length.i.i.i230, align 8
   %102 = load ptr, ptr %transformedExtension, align 8
-  %arrayidx.i.i.i.i389 = getelementptr inbounds i16, ptr %102, i64 %add.i.i.i377
+  %arrayidx.i.i.i.i389 = getelementptr inbounds [2 x i8], ptr %102, i64 %add.i.i.i377
   store i16 0, ptr %arrayidx.i.i.i.i389, align 2
   br label %if.end98
 
@@ -4561,7 +4561,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i412
   br i1 %cmp.not.i.i414, label %if.else.i.i424, label %if.then.i.i.i423
 
 if.then.i.i.i423:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i412
-  %add.ptr.i.i418 = getelementptr inbounds i16, ptr %105, i64 %104
+  %add.ptr.i.i418 = getelementptr inbounds [2 x i8], ptr %105, i64 %104
   store i16 45, ptr %add.ptr.i.i418, align 2
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit428
 
@@ -4572,7 +4572,7 @@ if.else.i.i424:                                   ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit428: ; preds = %if.then.i.i.i423, %if.else.i.i424
   store i64 %add.i.i410, ptr %_M_string_length.i.i.i230, align 8
   %107 = load ptr, ptr %transformedExtension, align 8
-  %arrayidx.i.i.i422 = getelementptr inbounds i16, ptr %107, i64 %add.i.i410
+  %arrayidx.i.i.i422 = getelementptr inbounds [2 x i8], ptr %107, i64 %add.i.i410
   store i16 0, ptr %arrayidx.i.i.i422, align 2
   %108 = load ptr, ptr %_M_storage.i.i399, align 8
   %_M_string_length.i.i429 = getelementptr inbounds nuw i8, ptr %__begin2102.sroa.0.01155, i64 40
@@ -4608,7 +4608,7 @@ if.then.i3.i.i439:                                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i440, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit452, label %if.then3.i.i.i441
 
 if.then3.i.i.i441:                                ; preds = %if.then.i3.i.i439
-  %add.ptr.i.i.i442 = getelementptr inbounds i16, ptr %111, i64 %110
+  %add.ptr.i.i.i442 = getelementptr inbounds [2 x i8], ptr %111, i64 %110
   %cond.i.i.i443 = icmp eq i64 %109, 1
   br i1 %cond.i.i.i443, label %if.then.i.i.i.i447, label %if.end.i.i.i.i.i444
 
@@ -4629,7 +4629,7 @@ if.else.i.i.i448:                                 ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit452: ; preds = %if.then.i3.i.i439, %if.then.i.i.i.i447, %if.end.i.i.i.i.i444, %if.else.i.i.i448
   store i64 %add.i.i.i434, ptr %_M_string_length.i.i.i230, align 8
   %114 = load ptr, ptr %transformedExtension, align 8
-  %arrayidx.i.i.i.i446 = getelementptr inbounds i16, ptr %114, i64 %add.i.i.i434
+  %arrayidx.i.i.i.i446 = getelementptr inbounds [2 x i8], ptr %114, i64 %add.i.i.i434
   store i16 0, ptr %arrayidx.i.i.i.i446, align 2
   %call.i453 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2102.sroa.0.01155) #18
   %cmp.i398.not = icmp eq ptr %call.i453, %add.ptr.i.i397
@@ -4671,7 +4671,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i470
   br i1 %cmp.not.i.i472, label %if.else.i.i482, label %if.then.i.i.i481
 
 if.then.i.i.i481:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i470
-  %add.ptr.i.i476 = getelementptr inbounds i16, ptr %117, i64 %116
+  %add.ptr.i.i476 = getelementptr inbounds [2 x i8], ptr %117, i64 %116
   store i16 45, ptr %add.ptr.i.i476, align 2
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit486
 
@@ -4682,7 +4682,7 @@ if.else.i.i482:                                   ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit486: ; preds = %if.then.i.i.i481, %if.else.i.i482
   store i64 %add.i.i468, ptr %_M_string_length.i.i.i230, align 8
   %119 = load ptr, ptr %transformedExtension, align 8
-  %arrayidx.i.i.i480 = getelementptr inbounds i16, ptr %119, i64 %add.i.i468
+  %arrayidx.i.i.i480 = getelementptr inbounds [2 x i8], ptr %119, i64 %add.i.i468
   store i16 0, ptr %arrayidx.i.i.i480, align 2
   %120 = load ptr, ptr %_M_storage.i.i457, align 8
   %_M_string_length.i.i487 = getelementptr inbounds nuw i8, ptr %__begin2119.sroa.0.01157, i64 40
@@ -4718,7 +4718,7 @@ if.then.i3.i.i497:                                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i498, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit510, label %if.then3.i.i.i499
 
 if.then3.i.i.i499:                                ; preds = %if.then.i3.i.i497
-  %add.ptr.i.i.i500 = getelementptr inbounds i16, ptr %123, i64 %122
+  %add.ptr.i.i.i500 = getelementptr inbounds [2 x i8], ptr %123, i64 %122
   %cond.i.i.i501 = icmp eq i64 %121, 1
   br i1 %cond.i.i.i501, label %if.then.i.i.i.i505, label %if.end.i.i.i.i.i502
 
@@ -4739,7 +4739,7 @@ if.else.i.i.i506:                                 ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit510: ; preds = %if.then.i3.i.i497, %if.then.i.i.i.i505, %if.end.i.i.i.i.i502, %if.else.i.i.i506
   store i64 %add.i.i.i492, ptr %_M_string_length.i.i.i230, align 8
   %126 = load ptr, ptr %transformedExtension, align 8
-  %arrayidx.i.i.i.i504 = getelementptr inbounds i16, ptr %126, i64 %add.i.i.i492
+  %arrayidx.i.i.i.i504 = getelementptr inbounds [2 x i8], ptr %126, i64 %add.i.i.i492
   store i16 0, ptr %arrayidx.i.i.i.i504, align 2
   %second132 = getelementptr inbounds nuw i8, ptr %__begin2119.sroa.0.01157, i64 64
   %_M_string_length.i.i511 = getelementptr inbounds nuw i8, ptr %__begin2119.sroa.0.01157, i64 72
@@ -4774,7 +4774,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i525
   br i1 %cmp.not.i.i527, label %if.else.i.i537, label %if.then.i.i.i536
 
 if.then.i.i.i536:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i525
-  %add.ptr.i.i531 = getelementptr inbounds i16, ptr %129, i64 %128
+  %add.ptr.i.i531 = getelementptr inbounds [2 x i8], ptr %129, i64 %128
   store i16 45, ptr %add.ptr.i.i531, align 2
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit541
 
@@ -4785,7 +4785,7 @@ if.else.i.i537:                                   ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit541: ; preds = %if.then.i.i.i536, %if.else.i.i537
   store i64 %add.i.i523, ptr %_M_string_length.i.i.i230, align 8
   %131 = load ptr, ptr %transformedExtension, align 8
-  %arrayidx.i.i.i535 = getelementptr inbounds i16, ptr %131, i64 %add.i.i523
+  %arrayidx.i.i.i535 = getelementptr inbounds [2 x i8], ptr %131, i64 %add.i.i523
   store i16 0, ptr %arrayidx.i.i.i535, align 2
   %132 = load ptr, ptr %second132, align 8
   %133 = load i64, ptr %_M_string_length.i.i511, align 8
@@ -4820,7 +4820,7 @@ if.then.i3.i.i552:                                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i553, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit565, label %if.then3.i.i.i554
 
 if.then3.i.i.i554:                                ; preds = %if.then.i3.i.i552
-  %add.ptr.i.i.i555 = getelementptr inbounds i16, ptr %135, i64 %134
+  %add.ptr.i.i.i555 = getelementptr inbounds [2 x i8], ptr %135, i64 %134
   %cond.i.i.i556 = icmp eq i64 %133, 1
   br i1 %cond.i.i.i556, label %if.then.i.i.i.i560, label %if.end.i.i.i.i.i557
 
@@ -4841,7 +4841,7 @@ if.else.i.i.i561:                                 ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit565: ; preds = %if.then.i3.i.i552, %if.then.i.i.i.i560, %if.end.i.i.i.i.i557, %if.else.i.i.i561
   store i64 %add.i.i.i547, ptr %_M_string_length.i.i.i230, align 8
   %138 = load ptr, ptr %transformedExtension, align 8
-  %arrayidx.i.i.i.i559 = getelementptr inbounds i16, ptr %138, i64 %add.i.i.i547
+  %arrayidx.i.i.i.i559 = getelementptr inbounds [2 x i8], ptr %138, i64 %add.i.i.i547
   store i16 0, ptr %arrayidx.i.i.i.i559, align 2
   br label %for.inc139
 
@@ -4883,7 +4883,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i580
   br i1 %cmp.not.i.i582, label %if.else.i.i592, label %if.end.i.i.i.i588
 
 if.end.i.i.i.i588:                                ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i580
-  %add.ptr.i.i586 = getelementptr inbounds i16, ptr %142, i64 %140
+  %add.ptr.i.i586 = getelementptr inbounds [2 x i8], ptr %142, i64 %140
   store i32 7602221, ptr %add.ptr.i.i586, align 2
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit596
 
@@ -4894,7 +4894,7 @@ if.else.i.i592:                                   ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit596: ; preds = %if.end.i.i.i.i588, %if.else.i.i592
   store i64 %add.i.i578, ptr %_M_string_length.i.i.i, align 8
   %144 = load ptr, ptr %agg.result, align 8
-  %arrayidx.i.i.i590 = getelementptr inbounds i16, ptr %144, i64 %add.i.i578
+  %arrayidx.i.i.i590 = getelementptr inbounds [2 x i8], ptr %144, i64 %add.i.i578
   store i16 0, ptr %arrayidx.i.i.i590, align 2
   %145 = load ptr, ptr %transformedExtension, align 8
   %146 = load i64, ptr %_M_string_length.i.i.i230, align 8
@@ -4929,7 +4929,7 @@ if.then.i3.i.i607:                                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i608, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit620, label %if.then3.i.i.i609
 
 if.then3.i.i.i609:                                ; preds = %if.then.i3.i.i607
-  %add.ptr.i.i.i610 = getelementptr inbounds i16, ptr %148, i64 %147
+  %add.ptr.i.i.i610 = getelementptr inbounds [2 x i8], ptr %148, i64 %147
   %cond.i.i.i611 = icmp eq i64 %146, 1
   br i1 %cond.i.i.i611, label %if.then.i.i.i.i615, label %if.end.i.i.i.i.i612
 
@@ -4950,7 +4950,7 @@ if.else.i.i.i616:                                 ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit620: ; preds = %if.then.i3.i.i607, %if.then.i.i.i.i615, %if.end.i.i.i.i.i612, %if.else.i.i.i616
   store i64 %add.i.i.i602, ptr %_M_string_length.i.i.i, align 8
   %151 = load ptr, ptr %agg.result, align 8
-  %arrayidx.i.i.i.i614 = getelementptr inbounds i16, ptr %151, i64 %add.i.i.i602
+  %arrayidx.i.i.i.i614 = getelementptr inbounds [2 x i8], ptr %151, i64 %add.i.i.i602
   store i16 0, ptr %arrayidx.i.i.i.i614, align 2
   br label %if.end147
 
@@ -5004,7 +5004,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i641
   br i1 %cmp.not.i.i643, label %if.else.i.i653, label %if.then.i.i.i652
 
 if.then.i.i.i652:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i641
-  %add.ptr.i.i647 = getelementptr inbounds i16, ptr %156, i64 %155
+  %add.ptr.i.i647 = getelementptr inbounds [2 x i8], ptr %156, i64 %155
   store i16 45, ptr %add.ptr.i.i647, align 2
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit657
 
@@ -5015,7 +5015,7 @@ if.else.i.i653:                                   ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit657: ; preds = %if.then.i.i.i652, %if.else.i.i653
   store i64 %add.i.i639, ptr %_M_string_length.i.i.i624, align 8
   %158 = load ptr, ptr %unicodeExtension, align 8
-  %arrayidx.i.i.i651 = getelementptr inbounds i16, ptr %158, i64 %add.i.i639
+  %arrayidx.i.i.i651 = getelementptr inbounds [2 x i8], ptr %158, i64 %add.i.i639
   store i16 0, ptr %arrayidx.i.i.i651, align 2
   %159 = load ptr, ptr %_M_storage.i.i628, align 8
   %_M_string_length.i.i658 = getelementptr inbounds nuw i8, ptr %__begin2149.sroa.0.01159, i64 40
@@ -5051,7 +5051,7 @@ if.then.i3.i.i668:                                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i669, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit681, label %if.then3.i.i.i670
 
 if.then3.i.i.i670:                                ; preds = %if.then.i3.i.i668
-  %add.ptr.i.i.i671 = getelementptr inbounds i16, ptr %162, i64 %161
+  %add.ptr.i.i.i671 = getelementptr inbounds [2 x i8], ptr %162, i64 %161
   %cond.i.i.i672 = icmp eq i64 %160, 1
   br i1 %cond.i.i.i672, label %if.then.i.i.i.i676, label %if.end.i.i.i.i.i673
 
@@ -5072,7 +5072,7 @@ if.else.i.i.i677:                                 ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit681: ; preds = %if.then.i3.i.i668, %if.then.i.i.i.i676, %if.end.i.i.i.i.i673, %if.else.i.i.i677
   store i64 %add.i.i.i663, ptr %_M_string_length.i.i.i624, align 8
   %165 = load ptr, ptr %unicodeExtension, align 8
-  %arrayidx.i.i.i.i675 = getelementptr inbounds i16, ptr %165, i64 %add.i.i.i663
+  %arrayidx.i.i.i.i675 = getelementptr inbounds [2 x i8], ptr %165, i64 %add.i.i.i663
   store i16 0, ptr %arrayidx.i.i.i.i675, align 2
   %call.i682 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2149.sroa.0.01159) #18
   %cmp.i627.not = icmp eq ptr %call.i682, %add.ptr.i.i626
@@ -5114,7 +5114,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i699
   br i1 %cmp.not.i.i701, label %if.else.i.i711, label %if.then.i.i.i710
 
 if.then.i.i.i710:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i699
-  %add.ptr.i.i705 = getelementptr inbounds i16, ptr %168, i64 %167
+  %add.ptr.i.i705 = getelementptr inbounds [2 x i8], ptr %168, i64 %167
   store i16 45, ptr %add.ptr.i.i705, align 2
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit715
 
@@ -5125,7 +5125,7 @@ if.else.i.i711:                                   ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit715: ; preds = %if.then.i.i.i710, %if.else.i.i711
   store i64 %add.i.i697, ptr %_M_string_length.i.i.i624, align 8
   %170 = load ptr, ptr %unicodeExtension, align 8
-  %arrayidx.i.i.i709 = getelementptr inbounds i16, ptr %170, i64 %add.i.i697
+  %arrayidx.i.i.i709 = getelementptr inbounds [2 x i8], ptr %170, i64 %add.i.i697
   store i16 0, ptr %arrayidx.i.i.i709, align 2
   %171 = load ptr, ptr %_M_storage.i.i686, align 8
   %_M_string_length.i.i716 = getelementptr inbounds nuw i8, ptr %__begin2165.sroa.0.01161, i64 40
@@ -5161,7 +5161,7 @@ if.then.i3.i.i726:                                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i727, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit739, label %if.then3.i.i.i728
 
 if.then3.i.i.i728:                                ; preds = %if.then.i3.i.i726
-  %add.ptr.i.i.i729 = getelementptr inbounds i16, ptr %174, i64 %173
+  %add.ptr.i.i.i729 = getelementptr inbounds [2 x i8], ptr %174, i64 %173
   %cond.i.i.i730 = icmp eq i64 %172, 1
   br i1 %cond.i.i.i730, label %if.then.i.i.i.i734, label %if.end.i.i.i.i.i731
 
@@ -5182,7 +5182,7 @@ if.else.i.i.i735:                                 ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit739: ; preds = %if.then.i3.i.i726, %if.then.i.i.i.i734, %if.end.i.i.i.i.i731, %if.else.i.i.i735
   store i64 %add.i.i.i721, ptr %_M_string_length.i.i.i624, align 8
   %177 = load ptr, ptr %unicodeExtension, align 8
-  %arrayidx.i.i.i.i733 = getelementptr inbounds i16, ptr %177, i64 %add.i.i.i721
+  %arrayidx.i.i.i.i733 = getelementptr inbounds [2 x i8], ptr %177, i64 %add.i.i.i721
   store i16 0, ptr %arrayidx.i.i.i.i733, align 2
   %second179 = getelementptr inbounds nuw i8, ptr %__begin2165.sroa.0.01161, i64 64
   %_M_string_length.i.i740 = getelementptr inbounds nuw i8, ptr %__begin2165.sroa.0.01161, i64 72
@@ -5202,8 +5202,8 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i.preheader, %for.cond.i.i.i.i
   %__i.010.i.i.i.i = phi i64 [ %inc.i5.i.i.i, %for.cond.i.i.i.i ], [ 0, %while.cond.i.i.i.i.preheader ]
-  %arrayidx.i3.i.i.i = getelementptr inbounds nuw i16, ptr %179, i64 %__i.010.i.i.i.i
-  %arrayidx1.i.i.i.i = getelementptr inbounds nuw i16, ptr @.str.2, i64 %__i.010.i.i.i.i
+  %arrayidx.i3.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %179, i64 %__i.010.i.i.i.i
+  %arrayidx1.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @.str.2, i64 %__i.010.i.i.i.i
   %180 = load i16, ptr %arrayidx.i3.i.i.i, align 2
   %181 = load i16, ptr %arrayidx1.i.i.i.i, align 2
   %or.cond.not.i.i = icmp eq i16 %181, %180
@@ -5240,7 +5240,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i758
   br i1 %cmp.not.i.i760, label %if.else.i.i770, label %if.then.i.i.i769
 
 if.then.i.i.i769:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i758
-  %add.ptr.i.i764 = getelementptr inbounds i16, ptr %183, i64 %182
+  %add.ptr.i.i764 = getelementptr inbounds [2 x i8], ptr %183, i64 %182
   store i16 45, ptr %add.ptr.i.i764, align 2
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit774
 
@@ -5251,7 +5251,7 @@ if.else.i.i770:                                   ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit774: ; preds = %if.then.i.i.i769, %if.else.i.i770
   store i64 %add.i.i756, ptr %_M_string_length.i.i.i624, align 8
   %185 = load ptr, ptr %unicodeExtension, align 8
-  %arrayidx.i.i.i768 = getelementptr inbounds i16, ptr %185, i64 %add.i.i756
+  %arrayidx.i.i.i768 = getelementptr inbounds [2 x i8], ptr %185, i64 %add.i.i756
   store i16 0, ptr %arrayidx.i.i.i768, align 2
   %186 = load ptr, ptr %second179, align 8
   %187 = load i64, ptr %_M_string_length.i.i740, align 8
@@ -5286,7 +5286,7 @@ if.then.i3.i.i785:                                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i786, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit798, label %if.then3.i.i.i787
 
 if.then3.i.i.i787:                                ; preds = %if.then.i3.i.i785
-  %add.ptr.i.i.i788 = getelementptr inbounds i16, ptr %189, i64 %188
+  %add.ptr.i.i.i788 = getelementptr inbounds [2 x i8], ptr %189, i64 %188
   %cond.i.i.i789 = icmp eq i64 %187, 1
   br i1 %cond.i.i.i789, label %if.then.i.i.i.i793, label %if.end.i.i.i.i.i790
 
@@ -5307,7 +5307,7 @@ if.else.i.i.i794:                                 ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit798: ; preds = %if.then.i3.i.i785, %if.then.i.i.i.i793, %if.end.i.i.i.i.i790, %if.else.i.i.i794
   store i64 %add.i.i.i780, ptr %_M_string_length.i.i.i624, align 8
   %192 = load ptr, ptr %unicodeExtension, align 8
-  %arrayidx.i.i.i.i792 = getelementptr inbounds i16, ptr %192, i64 %add.i.i.i780
+  %arrayidx.i.i.i.i792 = getelementptr inbounds [2 x i8], ptr %192, i64 %add.i.i.i780
   store i16 0, ptr %arrayidx.i.i.i.i792, align 2
   br label %for.inc188
 
@@ -5349,7 +5349,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i814
   br i1 %cmp.not.i.i816, label %if.else.i.i826, label %if.end.i.i.i.i822
 
 if.end.i.i.i.i822:                                ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i814
-  %add.ptr.i.i820 = getelementptr inbounds i16, ptr %196, i64 %194
+  %add.ptr.i.i820 = getelementptr inbounds [2 x i8], ptr %196, i64 %194
   store i32 7667757, ptr %add.ptr.i.i820, align 2
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit830
 
@@ -5360,7 +5360,7 @@ if.else.i.i826:                                   ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit830: ; preds = %if.end.i.i.i.i822, %if.else.i.i826
   store i64 %add.i.i812, ptr %_M_string_length.i.i.i, align 8
   %198 = load ptr, ptr %agg.result, align 8
-  %arrayidx.i.i.i824 = getelementptr inbounds i16, ptr %198, i64 %add.i.i812
+  %arrayidx.i.i.i824 = getelementptr inbounds [2 x i8], ptr %198, i64 %add.i.i812
   store i16 0, ptr %arrayidx.i.i.i824, align 2
   %199 = load ptr, ptr %unicodeExtension, align 8
   %200 = load i64, ptr %_M_string_length.i.i.i624, align 8
@@ -5395,7 +5395,7 @@ if.then.i3.i.i841:                                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i842, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit854, label %if.then3.i.i.i843
 
 if.then3.i.i.i843:                                ; preds = %if.then.i3.i.i841
-  %add.ptr.i.i.i844 = getelementptr inbounds i16, ptr %202, i64 %201
+  %add.ptr.i.i.i844 = getelementptr inbounds [2 x i8], ptr %202, i64 %201
   %cond.i.i.i845 = icmp eq i64 %200, 1
   br i1 %cond.i.i.i845, label %if.then.i.i.i.i849, label %if.end.i.i.i.i.i846
 
@@ -5416,7 +5416,7 @@ if.else.i.i.i850:                                 ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit854: ; preds = %if.then.i3.i.i841, %if.then.i.i.i.i849, %if.end.i.i.i.i.i846, %if.else.i.i.i850
   store i64 %add.i.i.i836, ptr %_M_string_length.i.i.i, align 8
   %205 = load ptr, ptr %agg.result, align 8
-  %arrayidx.i.i.i.i848 = getelementptr inbounds i16, ptr %205, i64 %add.i.i.i836
+  %arrayidx.i.i.i.i848 = getelementptr inbounds [2 x i8], ptr %205, i64 %add.i.i.i836
   store i16 0, ptr %arrayidx.i.i.i.i848, align 2
   br label %if.end195
 
@@ -5464,7 +5464,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i8
   br i1 %cmp.not.i.i.i8721131, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i1055, label %if.then.i3.i.i873
 
 if.then.i3.i.i873:                                ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i870.thread, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i.i870
-  %add.ptr.i.i.i875 = getelementptr inbounds i16, ptr %210, i64 %208
+  %add.ptr.i.i.i875 = getelementptr inbounds [2 x i8], ptr %210, i64 %208
   store i16 45, ptr %add.ptr.i.i.i875, align 2
   %ref.tmp204.sroa.3.0.add.ptr.i.i.i875.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i875, i64 2
   store i16 %207, ptr %ref.tmp204.sroa.3.0.add.ptr.i.i.i875.sroa_idx, align 2
@@ -5504,7 +5504,7 @@ if.end.i.i.i1082:                                 ; preds = %land.lhs.true.i.i10
   br label %if.end19.i1076
 
 if.end19.i1076:                                   ; preds = %land.lhs.true.i.i1084, %if.then.i18.i1065, %if.end.i.i.i1082
-  %add.ptr.i1081 = getelementptr inbounds i16, ptr %call5.i.i.i.i1064, i64 %208
+  %add.ptr.i1081 = getelementptr inbounds [2 x i8], ptr %call5.i.i.i.i1064, i64 %208
   store i16 45, ptr %add.ptr.i1081, align 2
   %ref.tmp204.sroa.3.0.add.ptr.i1081.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i1081, i64 2
   store i16 %207, ptr %ref.tmp204.sroa.3.0.add.ptr.i1081.sroa_idx, align 2
@@ -5527,7 +5527,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit1
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendESt16initializer_listIDsE.exit882: ; preds = %if.then.i3.i.i873, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit1092
   %213 = phi ptr [ %.pre1167, %if.then.i3.i.i873 ], [ %call5.i.i.i.i1064, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE9_M_mutateEmmPKDsm.exit1092 ]
   store i64 %add.i.i.i868, ptr %_M_string_length.i.i.i, align 8
-  %arrayidx.i.i.i.i877 = getelementptr inbounds i16, ptr %213, i64 %add.i.i.i868
+  %arrayidx.i.i.i.i877 = getelementptr inbounds [2 x i8], ptr %213, i64 %add.i.i.i868
   store i16 0, ptr %arrayidx.i.i.i.i877, align 2
   %second214 = getelementptr inbounds nuw i8, ptr %oExtIt.sroa.0.11163, i64 40
   %_M_string_length.i.i884 = getelementptr inbounds nuw i8, ptr %oExtIt.sroa.0.11163, i64 48
@@ -5562,7 +5562,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i898
   br i1 %cmp.not.i.i900, label %if.else.i.i910, label %if.then.i.i.i909
 
 if.then.i.i.i909:                                 ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i898
-  %add.ptr.i.i904 = getelementptr inbounds i16, ptr %216, i64 %215
+  %add.ptr.i.i904 = getelementptr inbounds [2 x i8], ptr %216, i64 %215
   store i16 45, ptr %add.ptr.i.i904, align 2
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit914
 
@@ -5573,7 +5573,7 @@ if.else.i.i910:                                   ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit914: ; preds = %if.then.i.i.i909, %if.else.i.i910
   store i64 %add.i.i896, ptr %_M_string_length.i.i.i, align 8
   %218 = load ptr, ptr %agg.result, align 8
-  %arrayidx.i.i.i908 = getelementptr inbounds i16, ptr %218, i64 %add.i.i896
+  %arrayidx.i.i.i908 = getelementptr inbounds [2 x i8], ptr %218, i64 %add.i.i896
   store i16 0, ptr %arrayidx.i.i.i908, align 2
   %219 = load ptr, ptr %second214, align 8
   %220 = load i64, ptr %_M_string_length.i.i884, align 8
@@ -5608,7 +5608,7 @@ if.then.i3.i.i926:                                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i927, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit939, label %if.then3.i.i.i928
 
 if.then3.i.i.i928:                                ; preds = %if.then.i3.i.i926
-  %add.ptr.i.i.i929 = getelementptr inbounds i16, ptr %222, i64 %221
+  %add.ptr.i.i.i929 = getelementptr inbounds [2 x i8], ptr %222, i64 %221
   %cond.i.i.i930 = icmp eq i64 %220, 1
   br i1 %cond.i.i.i930, label %if.then.i.i.i.i934, label %if.end.i.i.i.i.i931
 
@@ -5629,7 +5629,7 @@ if.else.i.i.i935:                                 ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit939: ; preds = %if.then.i3.i.i926, %if.then.i.i.i.i934, %if.end.i.i.i.i.i931, %if.else.i.i.i935
   store i64 %add.i.i.i921, ptr %_M_string_length.i.i.i, align 8
   %225 = load ptr, ptr %agg.result, align 8
-  %arrayidx.i.i.i.i933 = getelementptr inbounds i16, ptr %225, i64 %add.i.i.i921
+  %arrayidx.i.i.i.i933 = getelementptr inbounds [2 x i8], ptr %225, i64 %add.i.i.i921
   store i16 0, ptr %arrayidx.i.i.i.i933, align 2
   br label %if.end221
 
@@ -5673,7 +5673,7 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i956
   br i1 %cmp.not.i.i958, label %if.else.i.i968, label %if.end.i.i.i.i964
 
 if.end.i.i.i.i964:                                ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i956
-  %add.ptr.i.i962 = getelementptr inbounds i16, ptr %229, i64 %227
+  %add.ptr.i.i962 = getelementptr inbounds [2 x i8], ptr %229, i64 %227
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %add.ptr.i.i962, ptr noundef nonnull align 2 dereferenceable(6) @.str.4, i64 6, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit972
 
@@ -5684,7 +5684,7 @@ if.else.i.i968:                                   ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendEPKDs.exit972: ; preds = %if.end.i.i.i.i964, %if.else.i.i968
   store i64 %add.i.i954, ptr %_M_string_length.i.i.i, align 8
   %231 = load ptr, ptr %agg.result, align 8
-  %arrayidx.i.i.i966 = getelementptr inbounds i16, ptr %231, i64 %add.i.i954
+  %arrayidx.i.i.i966 = getelementptr inbounds [2 x i8], ptr %231, i64 %add.i.i954
   store i16 0, ptr %arrayidx.i.i.i966, align 2
   %232 = load ptr, ptr %puExtensions, align 8
   %233 = load i64, ptr %_M_string_length.i.i942, align 8
@@ -5719,7 +5719,7 @@ if.then.i3.i.i983:                                ; preds = %_ZNKSt7__cxx1112bas
   br i1 %tobool.not.i.i.i984, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit996, label %if.then3.i.i.i985
 
 if.then3.i.i.i985:                                ; preds = %if.then.i3.i.i983
-  %add.ptr.i.i.i986 = getelementptr inbounds i16, ptr %235, i64 %234
+  %add.ptr.i.i.i986 = getelementptr inbounds [2 x i8], ptr %235, i64 %234
   %cond.i.i.i987 = icmp eq i64 %233, 1
   br i1 %cond.i.i.i987, label %if.then.i.i.i.i991, label %if.end.i.i.i.i.i988
 
@@ -5740,7 +5740,7 @@ if.else.i.i.i992:                                 ; preds = %_ZNKSt7__cxx1112bas
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6appendERKS4_.exit996: ; preds = %if.then.i3.i.i983, %if.then.i.i.i.i991, %if.end.i.i.i.i.i988, %if.else.i.i.i992
   store i64 %add.i.i.i978, ptr %_M_string_length.i.i.i, align 8
   %238 = load ptr, ptr %agg.result, align 8
-  %arrayidx.i.i.i.i990 = getelementptr inbounds i16, ptr %238, i64 %add.i.i.i978
+  %arrayidx.i.i.i.i990 = getelementptr inbounds [2 x i8], ptr %238, i64 %add.i.i.i978
   store i16 0, ptr %arrayidx.i.i.i.i990, align 2
   br label %nrvo.skipdtor
 
@@ -5943,7 +5943,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEESaIS5
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i26, ptr %_M_finish.i.i, align 8
-  %add.ptr21 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %cond.i
+  %add.ptr21 = getelementptr inbounds nuw [32 x i8], ptr %cond.i10, i64 %cond.i
   store ptr %add.ptr21, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -7264,8 +7264,8 @@ for.cond.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %while.body.i, %for.cond.i.i.i.i.i
   %__i.010.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i, %for.cond.i.i.i.i.i ], [ 0, %while.body.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i16, ptr %1, i64 %__i.010.i.i.i.i.i
-  %arrayidx1.i.i.i.i.i = getelementptr inbounds i16, ptr %3, i64 %__i.010.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [2 x i8], ptr %1, i64 %__i.010.i.i.i.i.i
+  %arrayidx1.i.i.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %__i.010.i.i.i.i.i
   %4 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
   %5 = load i16, ptr %arrayidx1.i.i.i.i.i, align 2
   %cmp.i.i.i.i.i.i = icmp ult i16 %4, %5
@@ -7333,8 +7333,8 @@ for.cond.i.i.i.i15.i:                             ; preds = %if.else.i.i.i.i13.i
 
 for.body.i.i.i.i8.i:                              ; preds = %if.end12.i, %for.cond.i.i.i.i15.i
   %__i.010.i.i.i.i9.i = phi i64 [ %inc.i.i.i.i16.i, %for.cond.i.i.i.i15.i ], [ 0, %if.end12.i ]
-  %arrayidx.i.i.i.i10.i = getelementptr inbounds i16, ptr %9, i64 %__i.010.i.i.i.i9.i
-  %arrayidx1.i.i.i.i11.i = getelementptr inbounds i16, ptr %8, i64 %__i.010.i.i.i.i9.i
+  %arrayidx.i.i.i.i10.i = getelementptr inbounds [2 x i8], ptr %9, i64 %__i.010.i.i.i.i9.i
+  %arrayidx1.i.i.i.i11.i = getelementptr inbounds [2 x i8], ptr %8, i64 %__i.010.i.i.i.i9.i
   %12 = load i16, ptr %arrayidx.i.i.i.i10.i, align 2
   %13 = load i16, ptr %arrayidx1.i.i.i.i11.i, align 2
   %cmp.i.i.i.i.i12.i = icmp ult i16 %12, %13
@@ -7396,8 +7396,8 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %lor.rhs, %for.cond.i.i.i.i
   %__i.010.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.cond.i.i.i.i ], [ 0, %lor.rhs ]
-  %arrayidx.i.i.i.i = getelementptr inbounds i16, ptr %.pre, i64 %__i.010.i.i.i.i
-  %arrayidx1.i.i.i.i = getelementptr inbounds i16, ptr %2, i64 %__i.010.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [2 x i8], ptr %.pre, i64 %__i.010.i.i.i.i
+  %arrayidx1.i.i.i.i = getelementptr inbounds [2 x i8], ptr %2, i64 %__i.010.i.i.i.i
   %3 = load i16, ptr %arrayidx.i.i.i.i, align 2
   %4 = load i16, ptr %arrayidx1.i.i.i.i, align 2
   %or.cond8.not = icmp eq i16 %4, %3
@@ -7505,8 +7505,8 @@ for.cond.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %while.body.i, %for.cond.i.i.i.i.i
   %__i.010.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i, %for.cond.i.i.i.i.i ], [ 0, %while.body.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i16, ptr %1, i64 %__i.010.i.i.i.i.i
-  %arrayidx1.i.i.i.i.i = getelementptr inbounds i16, ptr %3, i64 %__i.010.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [2 x i8], ptr %1, i64 %__i.010.i.i.i.i.i
+  %arrayidx1.i.i.i.i.i = getelementptr inbounds [2 x i8], ptr %3, i64 %__i.010.i.i.i.i.i
   %4 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
   %5 = load i16, ptr %arrayidx1.i.i.i.i.i, align 2
   %cmp.i.i.i.i.i.i = icmp ult i16 %4, %5
@@ -7574,8 +7574,8 @@ for.cond.i.i.i.i15.i:                             ; preds = %if.else.i.i.i.i13.i
 
 for.body.i.i.i.i8.i:                              ; preds = %if.end12.i, %for.cond.i.i.i.i15.i
   %__i.010.i.i.i.i9.i = phi i64 [ %inc.i.i.i.i16.i, %for.cond.i.i.i.i15.i ], [ 0, %if.end12.i ]
-  %arrayidx.i.i.i.i10.i = getelementptr inbounds i16, ptr %9, i64 %__i.010.i.i.i.i9.i
-  %arrayidx1.i.i.i.i11.i = getelementptr inbounds i16, ptr %8, i64 %__i.010.i.i.i.i9.i
+  %arrayidx.i.i.i.i10.i = getelementptr inbounds [2 x i8], ptr %9, i64 %__i.010.i.i.i.i9.i
+  %arrayidx1.i.i.i.i11.i = getelementptr inbounds [2 x i8], ptr %8, i64 %__i.010.i.i.i.i9.i
   %12 = load i16, ptr %arrayidx.i.i.i.i10.i, align 2
   %13 = load i16, ptr %arrayidx1.i.i.i.i11.i, align 2
   %cmp.i.i.i.i.i12.i = icmp ult i16 %12, %13
@@ -7614,8 +7614,8 @@ for.cond.i.i.i.i.i18:                             ; preds = %for.body.i.i.i.i.i1
 
 for.body.i.i.i.i.i11:                             ; preds = %lor.rhs.i, %for.cond.i.i.i.i.i18
   %__i.010.i.i.i.i.i12 = phi i64 [ %inc.i.i.i.i.i19, %for.cond.i.i.i.i.i18 ], [ 0, %lor.rhs.i ]
-  %arrayidx.i.i.i.i.i13 = getelementptr inbounds i16, ptr %17, i64 %__i.010.i.i.i.i.i12
-  %arrayidx1.i.i.i.i.i14 = getelementptr inbounds i16, ptr %18, i64 %__i.010.i.i.i.i.i12
+  %arrayidx.i.i.i.i.i13 = getelementptr inbounds [2 x i8], ptr %17, i64 %__i.010.i.i.i.i.i12
+  %arrayidx1.i.i.i.i.i14 = getelementptr inbounds [2 x i8], ptr %18, i64 %__i.010.i.i.i.i.i12
   %19 = load i16, ptr %arrayidx.i.i.i.i.i13, align 2
   %20 = load i16, ptr %arrayidx1.i.i.i.i.i14, align 2
   %or.cond.not = icmp eq i16 %20, %19
@@ -7805,7 +7805,7 @@ if.end:                                           ; preds = %_ZNSt7__cxx1112basi
   br i1 %or.cond, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.end
-  %add.ptr = getelementptr inbounds i16, ptr %call5.i.i.i, i64 %__pos
+  %add.ptr = getelementptr inbounds [2 x i8], ptr %call5.i.i.i, i64 %__pos
   %cond = icmp eq i64 %__len2, 1
   br i1 %cond, label %if.then.i20, label %if.end.i.i21
 
@@ -7824,10 +7824,10 @@ if.end11:                                         ; preds = %if.end.i.i21, %if.t
   br i1 %tobool12.not, label %if.end19, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
-  %add.ptr14 = getelementptr inbounds i16, ptr %call5.i.i.i, i64 %__pos
-  %add.ptr15 = getelementptr inbounds i16, ptr %add.ptr14, i64 %__len2
-  %add.ptr17 = getelementptr inbounds i16, ptr %2, i64 %__pos
-  %add.ptr18 = getelementptr inbounds i16, ptr %add.ptr17, i64 %__len1
+  %add.ptr14 = getelementptr inbounds [2 x i8], ptr %call5.i.i.i, i64 %__pos
+  %add.ptr15 = getelementptr inbounds [2 x i8], ptr %add.ptr14, i64 %__len2
+  %add.ptr17 = getelementptr inbounds [2 x i8], ptr %2, i64 %__pos
+  %add.ptr18 = getelementptr inbounds [2 x i8], ptr %add.ptr17, i64 %__len1
   %cond35 = icmp eq i64 %sub2, 1
   br i1 %cond35, label %if.then.i25, label %if.end.i.i26
 

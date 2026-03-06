@@ -339,7 +339,7 @@ define hidden i64 @crc32_sse42_pclmul_update(i32 noundef %0, ptr noundef capture
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds nuw %struct._crc32_pclmul_bit_consts, ptr @crc32_pclmul_consts_maps, i64 %7
+  %8 = getelementptr inbounds nuw [64 x i8], ptr @crc32_pclmul_consts_maps, i64 %7
   switch i32 %0, label %13 [
     i32 0, label %9
     i32 1, label %11

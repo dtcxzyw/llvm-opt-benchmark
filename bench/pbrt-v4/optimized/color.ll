@@ -299,29 +299,29 @@ _ZN4pbrt3RGBixEi.exit19:                          ; preds = %15, %17, %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !tbaa !26
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !30
-  %55 = getelementptr inbounds nuw [64 x [64 x [64 x [3 x float]]]], ptr %54, i64 %20
-  %56 = getelementptr inbounds nuw [64 x [64 x [3 x float]]], ptr %55, i64 %.0.i.i
+  %55 = getelementptr inbounds nuw [3145728 x i8], ptr %54, i64 %20
+  %56 = getelementptr inbounds nuw [49152 x i8], ptr %55, i64 %.0.i.i
   %57 = sext i32 %.sroa.speculated to i64
-  %58 = getelementptr inbounds [64 x [3 x float]], ptr %56, i64 %57
+  %58 = getelementptr inbounds [768 x i8], ptr %56, i64 %57
   %59 = sext i32 %.sroa.speculated67 to i64
-  %60 = getelementptr inbounds [3 x float], ptr %58, i64 %59
+  %60 = getelementptr inbounds [12 x i8], ptr %58, i64 %59
   %61 = add nsw i32 %.sroa.speculated67, 1
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds [3 x float], ptr %58, i64 %62
+  %63 = getelementptr inbounds [12 x i8], ptr %58, i64 %62
   %64 = fsub float 1.000000e+00, %41
   %65 = add nsw i32 %.sroa.speculated, 1
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [64 x [3 x float]], ptr %56, i64 %66
-  %68 = getelementptr inbounds [3 x float], ptr %67, i64 %59
-  %69 = getelementptr inbounds [3 x float], ptr %67, i64 %62
+  %67 = getelementptr inbounds [768 x i8], ptr %56, i64 %66
+  %68 = getelementptr inbounds [12 x i8], ptr %67, i64 %59
+  %69 = getelementptr inbounds [12 x i8], ptr %67, i64 %62
   %70 = fsub float 1.000000e+00, %43
   %71 = getelementptr inbounds nuw i8, ptr %56, i64 49152
-  %72 = getelementptr inbounds [64 x [3 x float]], ptr %71, i64 %57
-  %73 = getelementptr inbounds [3 x float], ptr %72, i64 %59
-  %74 = getelementptr inbounds [3 x float], ptr %72, i64 %62
-  %75 = getelementptr inbounds [64 x [3 x float]], ptr %71, i64 %66
-  %76 = getelementptr inbounds [3 x float], ptr %75, i64 %59
-  %77 = getelementptr inbounds [3 x float], ptr %75, i64 %62
+  %72 = getelementptr inbounds [768 x i8], ptr %71, i64 %57
+  %73 = getelementptr inbounds [12 x i8], ptr %72, i64 %59
+  %74 = getelementptr inbounds [12 x i8], ptr %72, i64 %62
+  %75 = getelementptr inbounds [768 x i8], ptr %71, i64 %66
+  %76 = getelementptr inbounds [12 x i8], ptr %75, i64 %59
+  %77 = getelementptr inbounds [12 x i8], ptr %75, i64 %62
   %78 = fsub float 1.000000e+00, %52
   br label %85
 
@@ -338,16 +338,16 @@ _ZN4pbrt3RGBixEi.exit19:                          ; preds = %15, %17, %19
 
 85:                                               ; preds = %"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit", %85
   %indvars.iv = phi i64 [ 0, %"_ZN4pbrt12FindIntervalIZNKS_18RGBToSpectrumTableclENS_3RGBEE3$_0EEmmRKT_.exit" ], [ %indvars.iv.next, %85 ]
-  %86 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv
   %87 = load float, ptr %86, align 4, !tbaa !26
-  %88 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv
   %89 = load float, ptr %88, align 4, !tbaa !26
   %90 = fmul float %64, %87
   %91 = fmul float %41, %89
   %92 = fadd float %90, %91
-  %93 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv
   %94 = load float, ptr %93, align 4, !tbaa !26
-  %95 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv
   %96 = load float, ptr %95, align 4, !tbaa !26
   %97 = fmul float %64, %94
   %98 = fmul float %41, %96
@@ -355,16 +355,16 @@ _ZN4pbrt3RGBixEi.exit19:                          ; preds = %15, %17, %19
   %100 = fmul float %70, %92
   %101 = fmul float %43, %99
   %102 = fadd float %100, %101
-  %103 = getelementptr inbounds nuw float, ptr %73, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv
   %104 = load float, ptr %103, align 4, !tbaa !26
-  %105 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv
   %106 = load float, ptr %105, align 4, !tbaa !26
   %107 = fmul float %64, %104
   %108 = fmul float %41, %106
   %109 = fadd float %107, %108
-  %110 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv
   %111 = load float, ptr %110, align 4, !tbaa !26
-  %112 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv
   %113 = load float, ptr %112, align 4, !tbaa !26
   %114 = fmul float %64, %111
   %115 = fmul float %41, %113
@@ -375,7 +375,7 @@ _ZN4pbrt3RGBixEi.exit19:                          ; preds = %15, %17, %19
   %120 = fmul float %78, %102
   %121 = fmul float %52, %119
   %122 = fadd float %120, %121
-  %123 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store float %122, ptr %123, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -633,7 +633,7 @@ define dso_local void @_ZNK4pbrt17sRGBColorEncoding10FromLinearEN4pstd4spanIKfEE
 
 .lr.ph:                                           ; preds = %5, %_ZN4pbrt13LinearToSRGB8Eff.exit
   %.06 = phi i64 [ %34, %_ZN4pbrt13LinearToSRGB8Eff.exit ], [ 0, %5 ]
-  %6 = getelementptr inbounds nuw float, ptr %1, i64 %.06
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.06
   %7 = load float, ptr %6, align 4, !tbaa !26
   %8 = fcmp ugt float %7, 0.000000e+00
   br i1 %8, label %9, label %_ZN4pbrt13LinearToSRGB8Eff.exit
@@ -698,9 +698,9 @@ define dso_local void @_ZNK4pbrt17sRGBColorEncoding8ToLinearEN4pstd4spanIKhEENS2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.06
   %7 = load i8, ptr %6, align 1, !tbaa !16
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw float, ptr @_ZN4pbrt15SRGBToLinearLUTE, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4pbrt15SRGBToLinearLUTE, i64 %8
   %10 = load float, ptr %9, align 4, !tbaa !26
-  %11 = getelementptr inbounds nuw float, ptr %3, i64 %.06
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.06
   store float %10, ptr %11, align 4, !tbaa !26
   %12 = add nuw i64 %.06, 1
   %exitcond.not = icmp eq i64 %12, %2
@@ -1032,7 +1032,7 @@ _ZNSt3mapIfN4pbrt13ColorEncodingESt4lessIfESaISt4pairIKfS1_EEE4findERS5_.exit: ;
   %81 = uitofp nneg i32 %80 to float
   %82 = fdiv float %81, 2.550000e+02
   %83 = call noundef float @powf(float noundef %82, float noundef %44) #29, !tbaa !21
-  %84 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv.i.i.i
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv.i.i.i
   store float %83, ptr %84, align 4, !tbaa !26
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 256
@@ -1050,7 +1050,7 @@ _ZNSt3mapIfN4pbrt13ColorEncodingESt4lessIfESaISt4pairIKfS1_EEE4findERS5_.exit: ;
   %93 = fcmp ogt float %91, 2.550000e+02
   %..i.i.i.i = select i1 %93, float 2.550000e+02, float %91
   %.0.i.i.i.i = select i1 %92, float 0.000000e+00, float %..i.i.i.i
-  %94 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv17.i.i.i
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv17.i.i.i
   store float %.0.i.i.i.i, ptr %94, align 4, !tbaa !26
   %indvars.iv.next18.i.i.i = add nuw nsw i64 %indvars.iv17.i.i.i, 1
   %exitcond20.not.i.i.i = icmp eq i64 %indvars.iv.next18.i.i.i, 1024
@@ -1483,7 +1483,7 @@ define dso_local void @_ZN4pbrt18GammaColorEncodingC2Ef(ptr noundef nonnull writ
   %8 = uitofp nneg i32 %7 to float
   %9 = fdiv float %8, 2.550000e+02
   %10 = tail call noundef float @powf(float noundef %9, float noundef %1) #29, !tbaa !21
-  %11 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store float %10, ptr %11, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -1504,7 +1504,7 @@ define dso_local void @_ZN4pbrt18GammaColorEncodingC2Ef(ptr noundef nonnull writ
   %21 = fcmp ogt float %19, 2.550000e+02
   %..i = select i1 %21, float 2.550000e+02, float %19
   %.0.i = select i1 %20, float 0.000000e+00, float %..i
-  %22 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv17
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv17
   store float %.0.i, ptr %22, align 4, !tbaa !26
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %exitcond20.not = icmp eq i64 %indvars.iv.next18, 1024
@@ -1528,9 +1528,9 @@ define dso_local void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.06
   %9 = load i8, ptr %8, align 1, !tbaa !16
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw float, ptr %6, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %10
   %12 = load float, ptr %11, align 4, !tbaa !26
-  %13 = getelementptr inbounds nuw float, ptr %3, i64 %.06
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.06
   store float %12, ptr %13, align 4, !tbaa !26
   %14 = add nuw i64 %.06, 1
   %exitcond.not = icmp eq i64 %14, %2
@@ -1558,7 +1558,7 @@ define dso_local void @_ZNK4pbrt18GammaColorEncoding10FromLinearEN4pstd4spanIKfE
 
 7:                                                ; preds = %.lr.ph, %7
   %.06 = phi i64 [ 0, %.lr.ph ], [ %18, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %1, i64 %.06
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.06
   %9 = load float, ptr %8, align 4, !tbaa !26
   %10 = fmul float %9, 1.023000e+03
   %11 = fcmp olt float %10, 0.000000e+00
@@ -1566,7 +1566,7 @@ define dso_local void @_ZNK4pbrt18GammaColorEncoding10FromLinearEN4pstd4spanIKfE
   %..i = select i1 %12, float 1.023000e+03, float %10
   %.0.i = select i1 %11, float 0.000000e+00, float %..i
   %13 = fptoui float %.0.i to i64
-  %14 = getelementptr inbounds nuw float, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %13
   %15 = load float, ptr %14, align 4, !tbaa !26
   %16 = fptoui float %15 to i8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 %.06

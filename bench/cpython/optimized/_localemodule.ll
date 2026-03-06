@@ -1991,7 +1991,7 @@ define internal fastcc ptr @copy_grouping(ptr noundef readonly captures(none) %0
 
 25:                                               ; preds = %11
   %.val = load ptr, ptr %10, align 8, !tbaa !46
-  %26 = getelementptr ptr, ptr %.val, i64 %13
+  %26 = getelementptr [8 x i8], ptr %.val, i64 %13
   store ptr %17, ptr %26, align 8, !tbaa !10
   %27 = load i8, ptr %14, align 1, !tbaa !11
   switch i8 %27, label %11 [
@@ -2075,7 +2075,7 @@ define internal fastcc ptr @_locale_nl_langinfo_impl(i32 noundef %0) unnamed_add
 
 2:                                                ; preds = %1, %49
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %49 ]
-  %3 = getelementptr %struct.langinfo_constant, ptr @langinfo_constants, i64 %indvars.iv
+  %3 = getelementptr [16 x i8], ptr @langinfo_constants, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !49
   %6 = icmp eq i32 %5, %0
@@ -2344,7 +2344,7 @@ define internal range(i32 -1, 1) i32 @_locale_exec(ptr noundef %0) #0 {
 
 .preheader:                                       ; preds = %25, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %25 ]
-  %31 = getelementptr %struct.langinfo_constant, ptr @langinfo_constants, i64 %indvars.iv
+  %31 = getelementptr [16 x i8], ptr @langinfo_constants, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 16, !tbaa !57
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !49

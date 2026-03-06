@@ -11,8 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
-%"class.cv::xobjdetect::CvLBPEvaluator::Feature" = type { %"class.cv::Rect_", [16 x i32], i32, i32, i32, i32, i32 }
-%"class.cv::Rect_" = type { i32, i32, i32, i32 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<cv::xobjdetect::CvLBPEvaluator::Feature, std::allocator<cv::xobjdetect::CvLBPEvaluator::Feature>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::xobjdetect::CvLBPEvaluator::Feature, std::allocator<cv::xobjdetect::CvLBPEvaluator::Feature>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::xobjdetect::CvLBPEvaluator::Feature, std::allocator<cv::xobjdetect::CvLBPEvaluator::Feature>>::_Vector_impl_data" }
@@ -225,10 +223,10 @@ define hidden void @_ZN2cv10xobjdetect14CvLBPEvaluator8setImageERKNS_3MatEhiRKSt
 
 31:                                               ; preds = %.lr.ph, %31
   %.015 = phi i64 [ 0, %.lr.ph ], [ %90, %31 ]
-  %32 = getelementptr inbounds nuw i32, ptr %24, i64 %.015
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.015
   %33 = load i32, ptr %32, align 4, !tbaa !46
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"class.cv::xobjdetect::CvLBPEvaluator::Feature", ptr %30, i64 %34
+  %35 = getelementptr inbounds nuw [100 x i8], ptr %30, i64 %34
   %36 = load i32, ptr %21, align 8, !tbaa !33
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %38 = load i32, ptr %37, align 4, !tbaa !47
@@ -629,7 +627,7 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit26:            ; preds = %44, %_ZNKSt7__cxx11
   %52 = phi i32 [ %31, %.lr.ph ], [ %76, %75 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
   %53 = load ptr, ptr %33, align 8, !tbaa !64
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !tbaa !46
   %56 = icmp sgt i32 %55, -1
   br i1 %56, label %._crit_edge.i.i.i27, label %75
@@ -670,7 +668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i29: ; preds = %
 _ZN2cvlsERNS_11FileStorageEPKc.exit34:            ; preds = %58, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = load ptr, ptr %0, align 8, !tbaa !45
-  %66 = getelementptr inbounds nuw %"class.cv::xobjdetect::CvLBPEvaluator::Feature", ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [100 x i8], ptr %65, i64 %indvars.iv
   call void @_ZNK2cv10xobjdetect14CvLBPEvaluator7Feature5writeERNS_11FileStorageE(ptr noundef nonnull align 4 dereferenceable(100) %66, ptr noundef nonnull align 8 dereferenceable(64) %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %36, ptr %3, align 8, !tbaa !62
@@ -1016,7 +1014,7 @@ _ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EE11_S_relocateEPS3_
 _ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %113, %_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %108, ptr %7, align 8, !tbaa !45
   store ptr %112, ptr %8, align 8, !tbaa !56
-  %114 = getelementptr inbounds nuw %"class.cv::xobjdetect::CvLBPEvaluator::Feature", ptr %108, i64 %106
+  %114 = getelementptr inbounds nuw [100 x i8], ptr %108, i64 %106
   store ptr %114, ptr %9, align 8, !tbaa !57
   br label %_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EE9push_backEOS3_.exit
 
@@ -1586,46 +1584,46 @@ define linkonce_odr hidden noundef float @_ZN2cv10xobjdetect14CvLBPEvaluatorclEi
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !45
-  %6 = getelementptr inbounds nuw %"class.cv::xobjdetect::CvLBPEvaluator::Feature", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [100 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %8 = load ptr, ptr %7, align 8, !tbaa !64
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %11 = load i32, ptr %10, align 4, !tbaa !46
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %8, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %8, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !46
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %16 = load i32, ptr %15, align 4, !tbaa !46
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %8, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %8, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !46
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %21 = load i32, ptr %20, align 4, !tbaa !46
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %8, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %8, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !46
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %26 = load i32, ptr %25, align 4, !tbaa !46
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %8, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %8, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !46
   %30 = add i32 %19, %24
   %31 = sub i32 %14, %30
   %32 = add nsw i32 %31, %29
   %33 = load i32, ptr %9, align 4, !tbaa !46
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i32, ptr %8, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %8, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %38 = load i32, ptr %37, align 4, !tbaa !46
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i32, ptr %8, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %8, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !46
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %43 = load i32, ptr %42, align 4, !tbaa !46
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %8, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %8, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !46
   %.neg5 = add i32 %36, %14
   %47 = add i32 %41, %46
@@ -1635,7 +1633,7 @@ define linkonce_odr hidden noundef float @_ZN2cv10xobjdetect14CvLBPEvaluatorclEi
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %51 = load i32, ptr %50, align 4, !tbaa !46
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %8, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %8, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !46
   %55 = add i32 %19, %41
   %56 = add i32 %14, %54
@@ -1646,12 +1644,12 @@ define linkonce_odr hidden noundef float @_ZN2cv10xobjdetect14CvLBPEvaluatorclEi
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %61 = load i32, ptr %60, align 4, !tbaa !46
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i32, ptr %8, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %8, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !46
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %66 = load i32, ptr %65, align 4, !tbaa !46
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i32, ptr %8, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %8, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !46
   %70 = add i32 %19, %64
   %71 = sub i32 %54, %70
@@ -1662,7 +1660,7 @@ define linkonce_odr hidden noundef float @_ZN2cv10xobjdetect14CvLBPEvaluatorclEi
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 60
   %76 = load i32, ptr %75, align 4, !tbaa !46
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i32, ptr %8, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %8, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !46
   %80 = add i32 %29, %69
   %81 = sub i32 %19, %80
@@ -1673,12 +1671,12 @@ define linkonce_odr hidden noundef float @_ZN2cv10xobjdetect14CvLBPEvaluatorclEi
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %86 = load i32, ptr %85, align 4, !tbaa !46
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i32, ptr %8, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %8, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !46
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 76
   %91 = load i32, ptr %90, align 4, !tbaa !46
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds i32, ptr %8, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %8, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !46
   %95 = add i32 %79, %89
   %96 = sub i32 %29, %95
@@ -1689,7 +1687,7 @@ define linkonce_odr hidden noundef float @_ZN2cv10xobjdetect14CvLBPEvaluatorclEi
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 68
   %101 = load i32, ptr %100, align 4, !tbaa !46
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i32, ptr %8, i64 %102
+  %103 = getelementptr inbounds [4 x i8], ptr %8, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !46
   %105 = add i32 %24, %89
   %106 = add i32 %29, %104
@@ -1700,12 +1698,12 @@ define linkonce_odr hidden noundef float @_ZN2cv10xobjdetect14CvLBPEvaluatorclEi
   %110 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %111 = load i32, ptr %110, align 4, !tbaa !46
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds i32, ptr %8, i64 %112
+  %113 = getelementptr inbounds [4 x i8], ptr %8, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !46
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %116 = load i32, ptr %115, align 4, !tbaa !46
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds i32, ptr %8, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr %8, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !46
   %120 = add i32 %104, %114
   %121 = add i32 %24, %119

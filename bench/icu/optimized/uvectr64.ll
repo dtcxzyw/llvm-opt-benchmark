@@ -348,9 +348,9 @@ _ZN6icu_779UVector647setSizeEi.exit:              ; preds = %39, %45, %49, %.loo
 
 73:                                               ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
-  %74 = getelementptr inbounds nuw i64, ptr %70, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %75 = load i64, ptr %74, align 8, !tbaa !18
-  %76 = getelementptr inbounds nuw i64, ptr %72, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv
   store i64 %75, ptr %76, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -465,9 +465,9 @@ define noundef zeroext i1 @_ZN6icu_779UVector64eqERKS0_(ptr noundef nonnull read
 
 12:                                               ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8, !tbaa !18
-  %15 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8, !tbaa !18
   %.not8 = icmp eq i64 %14, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -493,7 +493,7 @@ define void @_ZN6icu_779UVector6412setElementAtEli(ptr noundef nonnull readonly 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = zext nneg i32 %2 to i64
-  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   store i64 %1, ptr %12, align 8, !tbaa !18
   br label %13
 
@@ -589,7 +589,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit: ; preds = %38, %9
 
 ._crit_edge:                                      ; preds = %48, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit
   %45 = zext nneg i32 %2 to i64
-  %46 = getelementptr inbounds nuw i64, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %45
   store i64 %1, ptr %46, align 8, !tbaa !18
   %47 = add nsw i32 %39, 1
   store i32 %47, ptr %7, align 8, !tbaa !6
@@ -597,7 +597,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit: ; preds = %38, %9
 
 48:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ %43, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %49 = getelementptr i64, ptr %42, i64 %indvars.iv
+  %49 = getelementptr [8 x i8], ptr %42, i64 %indvars.iv
   %50 = getelementptr i8, ptr %49, i64 -8
   %51 = load i64, ptr %50, align 8, !tbaa !18
   store i64 %51, ptr %49, align 8, !tbaa !18

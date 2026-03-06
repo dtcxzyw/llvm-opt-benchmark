@@ -64,7 +64,7 @@ sub_1:                                            ; preds = %sub_0
 sub_030:                                          ; preds = %sub_1, %sub_0, %21, %.tail
   %.0 = phi i32 [ 1, %.tail ], [ 2, %21 ], [ 1, %sub_0 ], [ 1, %sub_1 ]
   %22 = zext nneg i32 %.0 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %1, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !30
   %25 = load i8, ptr %24, align 1
   %.not49 = icmp eq i8 %25, 45
@@ -86,7 +86,7 @@ sub_131:                                          ; preds = %sub_030
   store i1 true, ptr @quiet, align 4
   %32 = add nuw nsw i32 %.0, 1
   %.pre = zext nneg i32 %32 to i64
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %1, i64 %.pre
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.pre
   %.pre57 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !30
   br label %.tail29.thread
 
@@ -107,7 +107,7 @@ sub_131:                                          ; preds = %sub_030
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %merge_all.exit
   %indvars.iv = phi i64 [ %35, %.lr.ph.preheader ], [ %indvars.iv.next, %merge_all.exit ]
   %.02245 = phi i32 [ 0, %.lr.ph.preheader ], [ %.123, %merge_all.exit ]
-  %36 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !30
   %.not26 = icmp eq i32 %.02245, 0
   br i1 %.not26, label %38, label %82
@@ -160,7 +160,7 @@ sub_141:                                          ; preds = %sub_136, %.tail34
   %.06.i = phi i32 [ %76, %74 ], [ 0, %51 ]
   %62 = load ptr, ptr %61, align 8, !tbaa !44
   %63 = sext i32 %.06.i to i64
-  %64 = getelementptr inbounds ptr, ptr %62, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %62, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !45
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 56
   %67 = load i32, ptr %66, align 8, !tbaa !47
@@ -295,7 +295,7 @@ define internal fastcc range(i32 1, 0) i32 @merge_entry(i32 noundef %0, ptr noun
   %indvars.iv = phi i64 [ %21, %.preheader.preheader ], [ %indvars.iv.next, %29 ]
   %.021 = phi i32 [ 0, %.preheader.preheader ], [ %34, %29 ]
   %24 = load ptr, ptr %23, align 8, !tbaa !44
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !45
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 108
   %28 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %1) #10
@@ -316,7 +316,7 @@ define internal fastcc range(i32 1, 0) i32 @merge_entry(i32 noundef %0, ptr noun
   %40 = getelementptr inbounds nuw i8, ptr %26, i64 52
   %41 = load i32, ptr %40, align 4, !tbaa !47
   %42 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %39, i64 noundef 60, ptr noundef nonnull @.str.8, i32 noundef %41) #8
-  %43 = getelementptr inbounds nuw ptr, ptr %3, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %35
   store ptr %36, ptr %43, align 8, !tbaa !30
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr %39, ptr %44, align 8, !tbaa !30

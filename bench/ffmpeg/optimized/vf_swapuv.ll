@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVFilterPad = type { ptr, i32, i32, %union.anon, ptr, ptr, ptr }
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
-%struct.AVComponentDescriptor = type { i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [7 x i8] c"swapuv\00", align 1
 @.str.1 = private unnamed_addr constant [25 x i8] c"Swap U and V components.\00", align 1
@@ -60,7 +59,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 22:                                               ; preds = %21, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %21 ]
-  %23 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %16, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [20 x i8], ptr %16, i64 %indvars.iv.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 4, !tbaa !19
   %.not16.i = icmp eq i32 %25, 0

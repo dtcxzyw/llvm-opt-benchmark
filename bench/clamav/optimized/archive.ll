@@ -154,7 +154,7 @@ define noundef zeroext i1 @_ZN7Archive12DoGetCommentEP5ArrayIwE(ptr noundef nonn
 
 57:                                               ; preds = %57, %56
   %indvars.iv.i.i = phi i64 [ 0, %56 ], [ %indvars.iv.next.i.i, %57 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i
   store ptr @.str.2, ptr %58, align 8, !tbaa !65
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -311,7 +311,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %57
 
 127:                                              ; preds = %127, %126
   %indvars.iv.i.i82 = phi i64 [ 0, %126 ], [ %indvars.iv.next.i.i83, %127 ]
-  %128 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i82
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i82
   store ptr @.str.2, ptr %128, align 8, !tbaa !65
   %indvars.iv.next.i.i83 = add nuw nsw i64 %indvars.iv.i.i82, 1
   %exitcond.not.i.i84 = icmp eq i64 %indvars.iv.next.i.i83, 8
@@ -580,7 +580,7 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %_ZN5ArrayIhEC2Em.ex
 
 222:                                              ; preds = %222, %221
   %indvars.iv.i.i108 = phi i64 [ 0, %221 ], [ %indvars.iv.next.i.i109, %222 ]
-  %223 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i108
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i108
   store ptr @.str.2, ptr %223, align 8, !tbaa !65
   %indvars.iv.next.i.i109 = add nuw nsw i64 %indvars.iv.i.i108, 1
   %exitcond.not.i.i110 = icmp eq i64 %indvars.iv.next.i.i109, 8
@@ -930,7 +930,7 @@ _ZN5ArrayIwE5AllocEm.exit:                        ; preds = %_ZN5ArrayIwE3AddEm.
 
 74:                                               ; preds = %71
   %75 = load ptr, ptr %1, align 8, !tbaa !108
-  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %72
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %72
   store i32 0, ptr %76, align 4, !tbaa !116
   br label %80
 
@@ -1577,7 +1577,7 @@ define void @_ZN7Archive8CheckArcEb(ptr noundef nonnull align 8 dereferenceable(
 
 10:                                               ; preds = %10, %9
   %indvars.iv.i.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i.i, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i
   store ptr @.str.2, ptr %11, align 8, !tbaa !65
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -1622,7 +1622,7 @@ define noundef zeroext i1 @_ZN7Archive9IsArchiveEb(ptr noundef nonnull align 8 d
 
 10:                                               ; preds = %10, %9
   %indvars.iv.i.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i.i, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i
   store ptr @.str.2, ptr %11, align 8, !tbaa !65
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -1948,7 +1948,7 @@ _ZN5ArrayIcED2Ev.exit96:                          ; preds = %157, %.thread125
 
 163:                                              ; preds = %163, %162
   %indvars.iv.i.i97 = phi i64 [ 0, %162 ], [ %indvars.iv.next.i.i98, %163 ]
-  %164 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i97
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i97
   store ptr @.str.2, ptr %164, align 8, !tbaa !65
   %indvars.iv.next.i.i98 = add nuw nsw i64 %indvars.iv.i.i97, 1
   %exitcond.not.i.i99 = icmp eq i64 %indvars.iv.next.i.i98, 8
@@ -2053,7 +2053,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %163
 
 214:                                              ; preds = %214, %213
   %indvars.iv.i.i100 = phi i64 [ 0, %213 ], [ %indvars.iv.next.i.i101, %214 ]
-  %215 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i100
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i100
   store ptr @.str.2, ptr %215, align 8, !tbaa !65
   %indvars.iv.next.i.i101 = add nuw nsw i64 %indvars.iv.i.i100, 1
   %exitcond.not.i.i102 = icmp eq i64 %indvars.iv.next.i.i101, 8
@@ -2203,7 +2203,7 @@ define void @_ZN7Archive9CheckOpenEPKw(ptr noundef nonnull align 8 dereferenceab
 
 10:                                               ; preds = %10, %9
   %indvars.iv.i.i.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i.i.i, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i.i
   store ptr @.str.2, ptr %11, align 8, !tbaa !65
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
@@ -2248,7 +2248,7 @@ define noundef zeroext i1 @_ZN7Archive10WCheckOpenEPKw(ptr noundef nonnull align
 
 8:                                                ; preds = %8, %7
   %indvars.iv.i.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i.i, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i
   store ptr @.str.2, ptr %9, align 8, !tbaa !65
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8

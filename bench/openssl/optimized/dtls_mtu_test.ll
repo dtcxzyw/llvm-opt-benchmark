@@ -309,7 +309,7 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
   %42 = call i64 @SSL_ctrl(ptr noundef %40, i32 noundef 17, i64 noundef %41, ptr noundef null) #7
   %43 = load ptr, ptr %5, align 8, !tbaa !6
   %44 = call i64 @DTLS_get_data_mtu(ptr noundef %43) #7
-  %45 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store i64 %44, ptr %45, align 8, !tbaa !12
   %46 = call i32 @test_size_t_ne(ptr noundef nonnull @.str.2, i32 noundef 89, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.8, i64 noundef %44, i64 noundef 0) #7
   %.not63 = icmp eq i32 %46, 0
@@ -350,7 +350,7 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
 
 63:                                               ; preds = %59, %62
   %indvars.iv96 = phi i64 [ 0, %59 ], [ %indvars.iv.next97, %62 ]
-  %64 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv96
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv96
   %65 = load i64, ptr %64, align 8, !tbaa !12
   %.not60 = icmp ule i64 %.04881, %65
   %66 = add nuw nsw i64 %indvars.iv96, 500

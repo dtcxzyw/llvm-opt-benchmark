@@ -111,7 +111,7 @@ define dso_local i64 @range_in(ptr noundef captures(none) %0) local_unnamed_addr
   %23 = phi i8 [ %19, %.lr.ph.i ], [ %30, %28 ]
   %.06781.i = phi ptr [ %9, %.lr.ph.i ], [ %29, %28 ]
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw i16, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = and i16 %26, 8192
   %.not72.i = icmp eq i16 %27, 0
@@ -152,7 +152,7 @@ define dso_local i64 @range_in(ptr noundef captures(none) %0) local_unnamed_addr
   %42 = phi i8 [ %35, %.lr.ph86.i ], [ %40, %38 ]
   %.185.i = phi ptr [ %34, %.lr.ph86.i ], [ %39, %38 ]
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds nuw i16, ptr %37, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = and i16 %45, 8192
   %.not77.i = icmp eq i16 %46, 0
@@ -234,7 +234,7 @@ define dso_local i64 @range_in(ptr noundef captures(none) %0) local_unnamed_addr
   %79 = tail call ptr @__ctype_b_loc() #15
   %80 = load ptr, ptr %79, align 8
   %81 = zext i8 %77 to i64
-  %82 = getelementptr inbounds nuw i16, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %81
   %83 = load i16, ptr %82, align 2
   %84 = and i16 %83, 8192
   %.not74.i = icmp eq i16 %84, 0
@@ -8121,7 +8121,7 @@ define internal fastcc ptr @range_bound_escape(ptr noundef readonly captures(non
   %8 = tail call ptr @__ctype_b_loc() #15
   %9 = load ptr, ptr %8, align 8
   %10 = zext i8 %6 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 8192
   %.not48 = icmp eq i16 %13, 0

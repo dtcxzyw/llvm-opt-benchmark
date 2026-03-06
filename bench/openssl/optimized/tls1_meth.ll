@@ -4,11 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.record_functions_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
-%struct.tls_buffer_st = type { ptr, i64, i64, i64, i64, i32, i32 }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.tls_rl_record_st = type { i32, i32, i64, i64, i64, ptr, ptr, ptr, i16, [8 x i8] }
-%struct.ssl_mac_buf_st = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [42 x i8] c"../openssl/ssl/record/methods/tls1_meth.c\00", align 1
 @__func__.tls1_initialise_write_packets = private unnamed_addr constant [30 x i8] c"tls1_initialise_write_packets\00", align 1
@@ -103,8 +99,8 @@ define i32 @tls1_initialise_write_packets(ptr noundef %0, ptr noundef %1, i64 no
 
 .thread:                                          ; preds = %7, %28, %10
   %31 = phi i64 [ 0, %10 ], [ 1, %28 ], [ 0, %7 ]
-  %32 = getelementptr inbounds nuw %struct.wpacket_st, ptr %4, i64 %31
-  %33 = getelementptr inbounds nuw %struct.tls_buffer_st, ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw [56 x i8], ptr %4, i64 %31
+  %33 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %31
   %34 = tail call i32 @tls_initialise_write_packets_default(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %32, ptr noundef %33, ptr noundef %6) #4
   br label %35
 
@@ -466,7 +462,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 
 42:                                               ; preds = %.preheader331, %40
   %.0255335 = phi i64 [ 0, %.preheader331 ], [ %41, %40 ]
-  %43 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.0255335
+  %43 = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %.0255335
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %45 = load ptr, ptr %44, align 8, !tbaa !44
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 40
@@ -548,10 +544,10 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 77:                                               ; preds = %70, %147
   %.0252339 = phi i32 [ 0, %70 ], [ %.2254322, %147 ]
   %.1256337 = phi i64 [ 0, %70 ], [ %148, %147 ]
-  %78 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.1256337
+  %78 = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %.1256337
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i64, ptr %79, align 8, !tbaa !47
-  %81 = getelementptr inbounds nuw i64, ptr %7, i64 %.1256337
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.1256337
   store i64 %80, ptr %81, align 8, !tbaa !25
   %82 = call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %25) #4
   %83 = call i64 @EVP_CIPHER_get_flags(ptr noundef %82) #4
@@ -704,10 +700,10 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 
 .preheader329:                                    ; preds = %149, %.preheader329
   %.2257340 = phi i64 [ %154, %.preheader329 ], [ 0, %149 ]
-  %150 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.2257340
+  %150 = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %.2257340
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 32
   %152 = load ptr, ptr %151, align 8, !tbaa !44
-  %153 = getelementptr inbounds nuw ptr, ptr %9, i64 %.2257340
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.2257340
   store ptr %152, ptr %153, align 8, !tbaa !54
   %154 = add nuw i64 %.2257340, 1
   %exitcond347.not = icmp eq i64 %154, %2
@@ -727,10 +723,10 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 
 .preheader328:                                    ; preds = %155, %.preheader328
   %.3258341 = phi i64 [ %164, %.preheader328 ], [ 0, %155 ]
-  %160 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.3258341
+  %160 = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %.3258341
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 40
   %162 = load ptr, ptr %161, align 8, !tbaa !46
-  %163 = getelementptr inbounds nuw ptr, ptr %9, i64 %.3258341
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.3258341
   store ptr %162, ptr %163, align 8, !tbaa !54
   %164 = add nuw i64 %.3258341, 1
   %exitcond348.not = icmp eq i64 %164, %2
@@ -946,7 +942,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br i1 %254, label %255, label %266
 
 255:                                              ; preds = %252
-  %256 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.4259342
+  %256 = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %.4259342
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 32
   %258 = load ptr, ptr %257, align 8, !tbaa !44
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
@@ -967,7 +963,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br i1 %268, label %269, label %280
 
 269:                                              ; preds = %266
-  %270 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.4259342
+  %270 = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %.4259342
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 32
   %272 = load ptr, ptr %271, align 8, !tbaa !44
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
@@ -996,7 +992,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   ]
 
 283:                                              ; preds = %281, %281, %281, %281, %281
-  %284 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.4259342
+  %284 = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %.4259342
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %286 = load i64, ptr %285, align 8, !tbaa !47
   %287 = icmp ult i64 %286, %60
@@ -1020,13 +1016,13 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   br label %299
 
 299:                                              ; preds = %281, %269, %288, %280, %255
-  %300 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.4259342
+  %300 = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %.4259342
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %302 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %303 = load i64, ptr %302, align 8, !tbaa !60
   %304 = getelementptr inbounds nuw i8, ptr %300, i64 32
   %305 = load ptr, ptr %304, align 8, !tbaa !44
-  %306 = getelementptr inbounds nuw %struct.ssl_mac_buf_st, ptr %4, i64 %.4259342
+  %306 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.4259342
   %307 = select i1 %.not290, ptr null, ptr %306
   %308 = getelementptr inbounds nuw i8, ptr %306, i64 8
   %309 = select i1 %.not290, ptr null, ptr %308

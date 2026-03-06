@@ -6453,7 +6453,7 @@ _ZN19pyo3_macros_backend8pymethod20split_off_python_arg17hfc748f179cedd5d7E.exit
   %565 = load ptr, ptr %564, align 8
   %566 = getelementptr inbounds nuw i8, ptr %563, i64 240
   %567 = load i64, ptr %566, align 8
-  %568 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %565, i64 %567
+  %568 = getelementptr inbounds [256 x i8], ptr %565, i64 %567
   store ptr %565, ptr %51, align 8
   %569 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %568, ptr %569, align 8
@@ -7530,7 +7530,7 @@ define hidden void @_ZN19pyo3_macros_backend8pymethod18impl_py_getter_def17hec31
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 240
   %117 = load i64, ptr %116, align 8
-  %118 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %115, i64 %117
+  %118 = getelementptr inbounds [256 x i8], ptr %115, i64 %117
   store ptr %115, ptr %77, align 8
   %119 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store ptr %118, ptr %119, align 8
@@ -10158,7 +10158,7 @@ define hidden void @_ZN19pyo3_macros_backend8pymethod7SlotDef18generate_type_slo
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %166 = load i64, ptr %165, align 8
-  %167 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %164, i64 %166
+  %167 = getelementptr inbounds [24 x i8], ptr %164, i64 %166
   store ptr %164, ptr %30, align 8
   %168 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %167, ptr %168, align 8
@@ -10166,7 +10166,7 @@ define hidden void @_ZN19pyo3_macros_backend8pymethod7SlotDef18generate_type_slo
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %172 = load i64, ptr %171, align 8
-  %173 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %170, i64 %172
+  %173 = getelementptr inbounds [32 x i8], ptr %170, i64 %172
   store ptr %170, ptr %29, align 8
   %174 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %173, ptr %174, align 8
@@ -10418,13 +10418,13 @@ define hidden void @_ZN19pyo3_macros_backend8pymethod7SlotDef18generate_type_slo
 238:                                              ; preds = %237
   %239 = load ptr, ptr %163, align 8
   %240 = load i64, ptr %165, align 8
-  %241 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %239, i64 %240
+  %241 = getelementptr inbounds [24 x i8], ptr %239, i64 %240
   store ptr %239, ptr %21, align 8
   %242 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %241, ptr %242, align 8
   %243 = load ptr, ptr %169, align 8
   %244 = load i64, ptr %171, align 8
-  %245 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %243, i64 %244
+  %245 = getelementptr inbounds [32 x i8], ptr %243, i64 %244
   store ptr %243, ptr %20, align 8
   %246 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %245, ptr %246, align 8
@@ -10565,7 +10565,7 @@ define hidden void @_ZN19pyo3_macros_backend8pymethod7SlotDef18generate_type_slo
 282:                                              ; preds = %281
   %283 = load ptr, ptr %163, align 8
   %284 = load i64, ptr %165, align 8
-  %285 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %283, i64 %284
+  %285 = getelementptr inbounds [24 x i8], ptr %283, i64 %284
   store ptr %283, ptr %15, align 8
   %286 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %285, ptr %286, align 8
@@ -12769,7 +12769,7 @@ _ZN19pyo3_macros_backend8pymethod14extract_object17h9a5c5bce06d57120E.exit: ; pr
 541:                                              ; preds = %539
   %542 = load ptr, ptr %.sroa.268.0..sroa_idx, align 8
   %543 = load i64, ptr %.sroa.369.0..sroa_idx, align 8
-  %544 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %542, i64 %543
+  %544 = getelementptr inbounds [32 x i8], ptr %542, i64 %543
   store ptr %542, ptr %120, align 8
   %545 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store ptr %544, ptr %545, align 8
@@ -14085,7 +14085,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend8pymethod15SlotFragmentDef2
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %175 = load i64, ptr %174, align 8
-  %176 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %173, i64 %175
+  %176 = getelementptr inbounds [24 x i8], ptr %173, i64 %175
   store ptr %173, ptr %23, align 8
   %177 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %176, ptr %177, align 8
@@ -14093,7 +14093,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend8pymethod15SlotFragmentDef2
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %181 = load i64, ptr %180, align 8
-  %182 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %179, i64 %181
+  %182 = getelementptr inbounds [32 x i8], ptr %179, i64 %181
   store ptr %179, ptr %22, align 8
   %183 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %182, ptr %183, align 8
@@ -14432,13 +14432,13 @@ define internal fastcc void @_ZN19pyo3_macros_backend8pymethod15SlotFragmentDef2
 268:                                              ; preds = %267
   %269 = load ptr, ptr %172, align 8
   %270 = load i64, ptr %174, align 8
-  %271 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %269, i64 %270
+  %271 = getelementptr inbounds [24 x i8], ptr %269, i64 %270
   store ptr %269, ptr %13, align 8
   %272 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %271, ptr %272, align 8
   %273 = load ptr, ptr %178, align 8
   %274 = load i64, ptr %180, align 8
-  %275 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %273, i64 %274
+  %275 = getelementptr inbounds [32 x i8], ptr %273, i64 %274
   store ptr %273, ptr %12, align 8
   %276 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %275, ptr %276, align 8
@@ -14562,7 +14562,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend8pymethod15SlotFragmentDef2
 307:                                              ; preds = %306
   %308 = load ptr, ptr %172, align 8
   %309 = load i64, ptr %174, align 8
-  %310 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %308, i64 %309
+  %310 = getelementptr inbounds [24 x i8], ptr %308, i64 %309
   store ptr %308, ptr %7, align 8
   %311 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %310, ptr %311, align 8

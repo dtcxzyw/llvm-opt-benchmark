@@ -49,7 +49,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 6:                                                ; preds = %5, %6
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %"struct.(anonymous namespace)::functionMapEntry", ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 16, !tbaa !8
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %9, ptr noundef %8)
@@ -138,13 +138,13 @@ sub_1122:                                         ; preds = %sub_1, %sub_0121.th
 
 .split.us:                                        ; preds = %43, %58
   %indvars.iv156 = phi i64 [ %indvars.iv.next157.pre-phi, %58 ], [ 0, %43 ]
-  %47 = getelementptr inbounds nuw %"struct.(anonymous namespace)::functionMapEntry", ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 %indvars.iv156
+  %47 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 %indvars.iv156
   %48 = load ptr, ptr %47, align 16, !tbaa !8
   br label %49
 
 49:                                               ; preds = %54, %.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.split.us ], [ %indvars.iv.next.i.us, %54 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i.us
   %51 = load ptr, ptr %50, align 8, !tbaa !16
   %52 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %51) #11
   %53 = icmp eq i32 %52, 0
@@ -184,7 +184,7 @@ _ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread.loopexit.us: ; preds = %54
 
 _ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread: ; preds = %43, %_ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %_ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread ], [ 0, %43 ]
-  %72 = getelementptr inbounds nuw %"struct.(anonymous namespace)::functionMapEntry", ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 %indvars.iv152
+  %72 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 %indvars.iv152
   %73 = load ptr, ptr %72, align 16, !tbaa !8
   %74 = tail call i64 @clock() #12
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -213,7 +213,7 @@ _ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread: ; preds = %43, %_ZN12_GLOB
   %87 = phi i1 [ false, %sub_0 ], [ %37, %.tail120 ], [ false, %.thread ], [ %37, %sub_1122 ]
   %.079108112118 = phi i32 [ 0, %sub_0 ], [ %36, %.tail120 ], [ 0, %.thread ], [ %36, %sub_1122 ]
   %88 = zext nneg i32 %.079108112118 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %.073174, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %.073174, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %91) #11
@@ -237,7 +237,7 @@ tolower.exit.i:                                   ; preds = %tolower.exit.i, %to
   %.01115.i = phi ptr [ %94, %tolower.exit.lr.ph.i ], [ %106, %tolower.exit.i ]
   %101 = load ptr, ptr %99, align 8, !tbaa !21
   %102 = sext i8 %100 to i64
-  %103 = getelementptr inbounds i32, ptr %101, i64 %102
+  %103 = getelementptr inbounds [4 x i8], ptr %101, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !4
   %105 = trunc i32 %104 to i8
   store i8 %105, ptr %.01115.i, align 1, !tbaa !20
@@ -254,7 +254,7 @@ tolower.exit.i:                                   ; preds = %tolower.exit.i, %to
   %indvars.iv145 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next146, %141 ]
   %.172129 = phi i32 [ %.071178, %.lr.ph ], [ %.2, %141 ]
   %.174128 = phi ptr [ %.073174, %.lr.ph ], [ %.275, %141 ]
-  %110 = getelementptr inbounds nuw %"struct.(anonymous namespace)::functionMapEntry", ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 %indvars.iv145
+  %110 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 %indvars.iv145
   %111 = load ptr, ptr %110, align 16, !tbaa !8
   %112 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %111) #11
   %113 = add i64 %112, 1
@@ -277,7 +277,7 @@ tolower.exit.i100:                                ; preds = %tolower.exit.i100, 
   %.01115.i101 = phi ptr [ %114, %tolower.exit.lr.ph.i99 ], [ %126, %tolower.exit.i100 ]
   %121 = load ptr, ptr %119, align 8, !tbaa !21
   %122 = sext i8 %120 to i64
-  %123 = getelementptr inbounds i32, ptr %121, i64 %122
+  %123 = getelementptr inbounds [4 x i8], ptr %121, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !4
   %125 = trunc i32 %124 to i8
   store i8 %125, ptr %.01115.i101, align 1, !tbaa !20
@@ -342,7 +342,7 @@ _ZN12_GLOBAL__N_19lowercaseEPKc.exit103:          ; preds = %tolower.exit.i100, 
 
 149:                                              ; preds = %._crit_edge.thread
   %150 = zext nneg i32 %.181.lcssa198 to i64
-  %151 = getelementptr inbounds nuw %"struct.(anonymous namespace)::functionMapEntry", ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 %150
+  %151 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = load ptr, ptr %152, align 8, !tbaa !19
   %154 = call noundef i32 %153(i32 noundef %.172.lcssa200, ptr noundef %.174.lcssa199)
@@ -354,7 +354,7 @@ _ZN12_GLOBAL__N_19lowercaseEPKc.exit103:          ; preds = %tolower.exit.i100, 
 
 156:                                              ; preds = %155, %156
   %indvars.iv148 = phi i64 [ 0, %155 ], [ %indvars.iv.next149, %156 ]
-  %157 = getelementptr inbounds nuw %"struct.(anonymous namespace)::functionMapEntry", ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 %indvars.iv148
+  %157 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 %indvars.iv148
   %158 = load ptr, ptr %157, align 16, !tbaa !8
   %159 = trunc nuw nsw i64 %indvars.iv148 to i32
   %160 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %159, ptr noundef %158)

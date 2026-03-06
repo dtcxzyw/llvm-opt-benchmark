@@ -1048,7 +1048,7 @@ define dso_local range(i64 0, 2) i64 @tsq_mcontains(ptr noundef readonly capture
   store i8 0, ptr %33, align 1
   %34 = add i32 %.02225.i, 1
   %35 = sext i32 %.02225.i to i64
-  %36 = getelementptr inbounds ptr, ptr %15, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %15, i64 %35
   store ptr %27, ptr %36, align 8
   %.pre.i = load i32, ptr %9, align 4
   br label %37
@@ -1101,7 +1101,7 @@ collectTSQueryValues.exit:                        ; preds = %37, %1
   store i8 0, ptr %67, align 1
   %68 = add i32 %.02225.i23, 1
   %69 = sext i32 %.02225.i23 to i64
-  %70 = getelementptr inbounds ptr, ptr %49, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %49, i64 %69
   store ptr %61, ptr %70, align 8
   %.pre.i26 = load i32, ptr %43, align 4
   br label %71
@@ -1226,14 +1226,14 @@ qunique.exit37:                                   ; preds = %qunique.exit, %113
   br i1 %119, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %120 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv56
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv56
   %121 = load ptr, ptr %120, align 8
   %122 = sext i32 %.051 to i64
   br label %123
 
 123:                                              ; preds = %.lr.ph, %128
   %indvars.iv = phi i64 [ %122, %.lr.ph ], [ %indvars.iv.next, %128 ]
-  %124 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %124 = getelementptr inbounds [8 x i8], ptr %15, i64 %indvars.iv
   %125 = load ptr, ptr %124, align 8
   %126 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %121, ptr noundef nonnull dereferenceable(1) %125) #10
   %127 = icmp eq i32 %126, 0

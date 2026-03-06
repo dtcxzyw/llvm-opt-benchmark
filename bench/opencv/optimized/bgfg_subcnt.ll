@@ -21,8 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Range" = type { i32, i32 }
 %"class.cv::bgsegm::CNTInvoker" = type { %"class.cv::ParallelLoopBody", ptr, ptr, ptr, ptr, ptr }
 %"class.cv::ParallelLoopBody" = type { ptr }
-%"class.cv::Vec.1" = type { %"class.cv::Matx.2" }
-%"class.cv::Matx.2" = type { [4 x i32] }
 %"struct.cv::Ptr" = type { %"class.std::shared_ptr" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
@@ -961,7 +959,7 @@ _ZN2cv4Mat_INS_3VecIiLi4EEEEaSERKNS_7MatExprE.exit: ; preds = %_ZN2cv4Mat_INS_3V
 
 .lr.ph:                                           ; preds = %.lr.ph93.split, %233
   %indvars.iv = phi i64 [ %indvars.iv.next, %233 ], [ 0, %.lr.ph93.split ]
-  %225 = getelementptr inbounds nuw %"class.cv::Vec.1", ptr %204, i64 %indvars.iv
+  %225 = getelementptr inbounds nuw [16 x i8], ptr %204, i64 %indvars.iv
   %226 = getelementptr inbounds nuw i8, ptr %209, i64 %indvars.iv
   %227 = load i8, ptr %226, align 1, !tbaa !87
   %228 = getelementptr inbounds nuw i8, ptr %214, i64 %indvars.iv
@@ -1440,7 +1438,7 @@ define linkonce_odr hidden void @_ZNK2cv6bgsegm10CNTInvokerclERKNS_5RangeE(ptr n
 .lr.ph:                                           ; preds = %.lr.ph22.split, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph22.split ]
   %57 = load ptr, ptr %11, align 8, !tbaa !108
-  %58 = getelementptr inbounds nuw %"class.cv::Vec.1", ptr %25, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv
   %60 = load i8, ptr %59, align 1, !tbaa !87
   %61 = getelementptr inbounds nuw i8, ptr %41, i64 %indvars.iv

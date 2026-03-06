@@ -450,7 +450,7 @@ define hidden void @freeCKAttributeArray(ptr noundef captures(address_is_null) %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %4 = getelementptr inbounds nuw %struct.CK_ATTRIBUTE, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not10 = icmp eq ptr %6, null
@@ -1061,10 +1061,10 @@ define hidden void @jLongArrayToCKULongArray(ptr noundef %0, ptr noundef %1, ptr
 
 .lr.ph:                                           ; preds = %48, %.lr.ph
   %.037 = phi i64 [ %53, %.lr.ph ], [ 0, %48 ]
-  %49 = getelementptr inbounds i64, ptr %13, i64 %.037
+  %49 = getelementptr inbounds [8 x i8], ptr %13, i64 %.037
   %50 = load i64, ptr %49, align 8
   %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds i64, ptr %51, i64 %.037
+  %52 = getelementptr inbounds [8 x i8], ptr %51, i64 %.037
   store i64 %50, ptr %52, align 8
   %53 = add nuw i64 %.037, 1
   %54 = load i64, ptr %3, align 8
@@ -1165,7 +1165,7 @@ define hidden void @jCharArrayToCKCharArray(ptr noundef %0, ptr noundef %1, ptr 
 
 .lr.ph:                                           ; preds = %48, %.lr.ph
   %.037 = phi i64 [ %54, %.lr.ph ], [ 0, %48 ]
-  %49 = getelementptr inbounds i16, ptr %13, i64 %.037
+  %49 = getelementptr inbounds [2 x i8], ptr %13, i64 %.037
   %50 = load i16, ptr %49, align 2
   %51 = trunc i16 %50 to i8
   %52 = load ptr, ptr %2, align 8
@@ -1265,7 +1265,7 @@ define hidden void @jCharArrayToCKUTF8CharArray(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph:                                           ; preds = %47, %.lr.ph
   %.037 = phi i64 [ %53, %.lr.ph ], [ 0, %47 ]
-  %48 = getelementptr inbounds i16, ptr %13, i64 %.037
+  %48 = getelementptr inbounds [2 x i8], ptr %13, i64 %.037
   %49 = load i16, ptr %48, align 2
   %50 = trunc i16 %49 to i8
   %51 = load ptr, ptr %2, align 8
@@ -1424,7 +1424,7 @@ define hidden void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr nounde
 
 .lr.ph.i:                                         ; preds = %44, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %44 ]
-  %40 = getelementptr inbounds nuw %struct.CK_ATTRIBUTE, ptr %37, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %indvars.iv.i
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not10.i = icmp eq ptr %42, null
@@ -1444,7 +1444,7 @@ define hidden void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr nounde
   br label %p11ThrowOutOfMemoryError.exit
 
 45:                                               ; preds = %.lr.ph
-  %46 = getelementptr inbounds %struct.CK_ATTRIBUTE, ptr %37, i64 %.048
+  %46 = getelementptr inbounds [24 x i8], ptr %37, i64 %.048
   call void @jAttributeToCKAttribute(ptr dead_on_unwind nonnull writable sret(%struct.CK_ATTRIBUTE) align 8 %5, ptr noundef nonnull %0, ptr noundef %32) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %47 = load ptr, ptr %0, align 8
@@ -1469,7 +1469,7 @@ define hidden void @jAttributeArrayToCKAttributeArray(ptr noundef %0, ptr nounde
 
 .lr.ph.i39:                                       ; preds = %58, %.lr.ph.preheader.i37
   %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.preheader.i37 ], [ %indvars.iv.next.i42, %58 ]
-  %54 = getelementptr inbounds nuw %struct.CK_ATTRIBUTE, ptr %52, i64 %indvars.iv.i40
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %52, i64 %indvars.iv.i40
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   %.not10.i41 = icmp eq ptr %56, null
@@ -1613,7 +1613,7 @@ define hidden ptr @ckCharArrayToJCharArray(ptr noundef %0, ptr noundef readonly 
   %17 = getelementptr inbounds i8, ptr %1, i64 %.02326
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i16
-  %20 = getelementptr inbounds i16, ptr %4, i64 %.02326
+  %20 = getelementptr inbounds [2 x i8], ptr %4, i64 %.02326
   store i16 %19, ptr %20, align 2
   %21 = add nuw i64 %.02326, 1
   %exitcond.not = icmp eq i64 %21, %2
@@ -1676,7 +1676,7 @@ define hidden ptr @ckUTF8CharArrayToJCharArray(ptr noundef %0, ptr noundef reado
   %17 = getelementptr inbounds i8, ptr %1, i64 %.02326
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i16
-  %20 = getelementptr inbounds i16, ptr %4, i64 %.02326
+  %20 = getelementptr inbounds [2 x i8], ptr %4, i64 %.02326
   store i16 %19, ptr %20, align 2
   %21 = add nuw i64 %.02326, 1
   %exitcond.not = icmp eq i64 %21, %2

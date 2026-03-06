@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Curl_cftype = type { ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.curltime = type { i64, i32 }
 %struct.ip_quadruple = type { [46 x i8], [46 x i8], i32, i32 }
-%struct.transport_provider = type { i32, ptr }
 
 @.str = private unnamed_addr constant [3 x i8] c"h1\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"h2\00", align 1
@@ -193,7 +192,7 @@ define hidden void @Curl_shutdown_start(ptr noundef readonly captures(none) %0, 
   %11 = load ptr, ptr %10, align 8, !tbaa !78
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 624
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds %struct.curltime, ptr %12, i64 %13
+  %14 = getelementptr inbounds [16 x i8], ptr %12, i64 %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %.0, i64 16, i1 false), !tbaa.struct !79
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2544
   %16 = load i32, ptr %15, align 8, !tbaa !80
@@ -210,7 +209,7 @@ define hidden void @Curl_shutdown_start(ptr noundef readonly captures(none) %0, 
 define hidden range(i64 -9223372036854775807, -9223372036854775808) i64 @Curl_shutdown_timeleft(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.curltime, ptr %4, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %4, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !90
   %.not = icmp eq i64 %7, 0
   %.010.sroa.gep13 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -280,7 +279,7 @@ define hidden range(i64 -9223372036854775806, -9223372036854775808) i64 @Curl_co
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ 1, %Curl_shutdown_timeleft.exit.thread ]
   %.030 = phi ptr [ %1, %.lr.ph ], [ %.1, %Curl_shutdown_timeleft.exit.thread ]
   %.01429 = phi i64 [ 0, %.lr.ph ], [ %.115, %Curl_shutdown_timeleft.exit.thread ]
-  %10 = getelementptr inbounds nuw %struct.curltime, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8, !tbaa !90
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %Curl_shutdown_timeleft.exit.thread, label %12
@@ -349,7 +348,7 @@ define hidden void @Curl_shutdown_clear(ptr noundef readonly captures(none) %0, 
   %4 = load ptr, ptr %3, align 8, !tbaa !78
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 624
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.curltime, ptr %5, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %5, i64 %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   ret void
 }
@@ -363,7 +362,7 @@ define hidden zeroext i1 @Curl_shutdown_started(ptr noundef readonly captures(no
   %4 = load ptr, ptr %3, align 8, !tbaa !78
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 624
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.curltime, ptr %5, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %5, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !90
   %9 = icmp sgt i64 %8, 0
   br i1 %9, label %14, label %10
@@ -570,7 +569,7 @@ define internal void @cf_he_destroy(ptr noundef %0, ptr noundef %1) #0 {
 25:                                               ; preds = %baller_free.exit.i, %23
   %26 = phi i1 [ true, %23 ], [ false, %baller_free.exit.i ]
   %.01.i = phi i64 [ 0, %23 ], [ 1, %baller_free.exit.i ]
-  %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %.01.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.01.i
   %28 = load ptr, ptr %27, align 8, !tbaa !115
   %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %baller_free.exit.i, label %29
@@ -1056,7 +1055,7 @@ start_connect.exit:                               ; preds = %193, %145
   %.0184353.i = phi i64 [ 0, %214 ], [ 1, %382 ]
   %.0187352.i = phi i32 [ 0, %214 ], [ %.2189.ph.i, %382 ]
   %.0191351.i = phi i32 [ 0, %214 ], [ %.2193.ph.i, %382 ]
-  %220 = getelementptr inbounds nuw ptr, ptr %200, i64 %.0184353.i
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %.0184353.i
   %221 = load ptr, ptr %220, align 8, !tbaa !115
   %.not.i66 = icmp eq ptr %221, null
   br i1 %.not.i66, label %382, label %222
@@ -1394,7 +1393,7 @@ baller_start_next.exit.i:                         ; preds = %335, %332, %baller_
   br label %382
 
 .loopexit.i.thread:                               ; preds = %289
-  %381 = getelementptr inbounds nuw ptr, ptr %200, i64 %.0184353.i
+  %381 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %.0184353.i
   store ptr %221, ptr %211, align 8, !tbaa !122
   store ptr null, ptr %381, align 8, !tbaa !115
   br label %.loopexit199
@@ -1465,7 +1464,7 @@ baller_start_next.exit.i:                         ; preds = %335, %332, %baller_
   %408 = phi i1 [ false, %480 ], [ true, %406 ]
   %.1185355.i = phi i64 [ 1, %480 ], [ 0, %406 ]
   %.5354.i = phi i32 [ %.6.i, %480 ], [ %.2189.ph.i, %406 ]
-  %409 = getelementptr inbounds nuw ptr, ptr %200, i64 %.1185355.i
+  %409 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %.1185355.i
   %410 = load ptr, ptr %409, align 8, !tbaa !115
   %.not240.i = icmp eq ptr %410, null
   br i1 %.not240.i, label %480, label %411
@@ -1649,7 +1648,7 @@ baller_start_next.exit.i:                         ; preds = %335, %332, %baller_
 .split.us.i:                                      ; preds = %.thread322.i, %.split.us.i.backedge
   %500 = phi i1 [ false, %.split.us.i.backedge ], [ true, %.thread322.i ]
   %.2186357.us.i = phi i64 [ 1, %.split.us.i.backedge ], [ 0, %.thread322.i ]
-  %501 = getelementptr inbounds nuw ptr, ptr %200, i64 %.2186357.us.i
+  %501 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %.2186357.us.i
   %502 = load ptr, ptr %501, align 8, !tbaa !115
   %.not232.us.i = icmp eq ptr %502, null
   br i1 %.not232.us.i, label %510, label %503
@@ -1677,7 +1676,7 @@ baller_start_next.exit.i:                         ; preds = %335, %332, %baller_
 .split.split.i:                                   ; preds = %.split.split.i.backedge, %.split.split.i.preheader
   %511 = phi i1 [ true, %.split.split.i.preheader ], [ false, %.split.split.i.backedge ]
   %.2186357.i = phi i64 [ 0, %.split.split.i.preheader ], [ 1, %.split.split.i.backedge ]
-  %512 = getelementptr inbounds nuw ptr, ptr %200, i64 %.2186357.i
+  %512 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %.2186357.i
   %513 = load ptr, ptr %512, align 8, !tbaa !115
   %.not232.i = icmp eq ptr %513, null
   br i1 %.not232.i, label %544, label %514
@@ -1805,7 +1804,7 @@ baller_start_next.exit.i:                         ; preds = %335, %332, %baller_
 570:                                              ; preds = %baller_free.exit.i, %.loopexit199
   %571 = phi i1 [ true, %.loopexit199 ], [ false, %baller_free.exit.i ]
   %.01.i = phi i64 [ 0, %.loopexit199 ], [ 1, %baller_free.exit.i ]
-  %572 = getelementptr inbounds nuw ptr, ptr %569, i64 %.01.i
+  %572 = getelementptr inbounds nuw [8 x i8], ptr %569, i64 %.01.i
   %573 = load ptr, ptr %572, align 8, !tbaa !115
   %.not.i.i82 = icmp eq ptr %573, null
   br i1 %.not.i.i82, label %baller_free.exit.i, label %574
@@ -2012,7 +2011,7 @@ define internal void @cf_he_close(ptr noundef %0, ptr noundef %1) #0 {
 24:                                               ; preds = %baller_free.exit.i, %22
   %25 = phi i1 [ true, %22 ], [ false, %baller_free.exit.i ]
   %.01.i = phi i64 [ 0, %22 ], [ 1, %baller_free.exit.i ]
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %.01.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.01.i
   %27 = load ptr, ptr %26, align 8, !tbaa !115
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %baller_free.exit.i, label %28
@@ -2104,7 +2103,7 @@ define internal i32 @cf_he_shutdown(ptr noundef %0, ptr noundef %1, ptr noundef 
 12:                                               ; preds = %.preheader68, %35
   %13 = phi i1 [ true, %.preheader68 ], [ false, %35 ]
   %.04869 = phi i64 [ 0, %.preheader68 ], [ 1, %35 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %.04869
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.04869
   %15 = load ptr, ptr %14, align 8, !tbaa !115
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !124
@@ -2155,7 +2154,7 @@ define internal i32 @cf_he_shutdown(ptr noundef %0, ptr noundef %1, ptr noundef 
   %38 = phi i8 [ 1, %36 ], [ %48, %47 ]
   %39 = phi i1 [ true, %36 ], [ false, %47 ]
   %.14970 = phi i64 [ 0, %36 ], [ 1, %47 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %10, i64 %.14970
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.14970
   %41 = load ptr, ptr %40, align 8, !tbaa !115
   %.not63 = icmp eq ptr %41, null
   br i1 %.not63, label %47, label %42
@@ -2183,7 +2182,7 @@ define internal i32 @cf_he_shutdown(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.04772 = phi i32 [ %.1, %57 ], [ 0, %49 ]
   %51 = phi i1 [ false, %57 ], [ true, %49 ]
   %.25071 = phi i64 [ 1, %57 ], [ 0, %49 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %10, i64 %.25071
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.25071
   %53 = load ptr, ptr %52, align 8, !tbaa !115
   %.not61 = icmp eq ptr %53, null
   br i1 %.not61, label %57, label %54
@@ -2265,7 +2264,7 @@ define internal void @cf_he_adjust_pollset(ptr noundef %0, ptr noundef %1, ptr n
 10:                                               ; preds = %.preheader, %18
   %11 = phi i1 [ true, %.preheader ], [ false, %18 ]
   %.029 = phi i64 [ 0, %.preheader ], [ 1, %18 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %.029
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.029
   %13 = load ptr, ptr %12, align 8, !tbaa !115
   %.not27 = icmp eq ptr %13, null
   br i1 %.not27, label %18, label %14
@@ -2355,7 +2354,7 @@ define internal zeroext i1 @cf_he_data_pending(ptr noundef readonly captures(non
 16:                                               ; preds = %.backedge, %.preheader
   %17 = phi i1 [ true, %.preheader ], [ false, %.backedge ]
   %.01622 = phi i64 [ 0, %.preheader ], [ 1, %.backedge ]
-  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01622
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.01622
   %19 = load ptr, ptr %18, align 8, !tbaa !115
   %.not19 = icmp eq ptr %19, null
   br i1 %.not19, label %28, label %20
@@ -2424,7 +2423,7 @@ define internal i32 @cf_he_query(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %.04880 = phi i32 [ -1, %.preheader ], [ %.1, %34 ]
   %17 = phi i1 [ true, %.preheader ], [ false, %34 ]
   %.04979 = phi i64 [ 0, %.preheader ], [ 1, %34 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %.04979
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.04979
   %19 = load ptr, ptr %18, align 8, !tbaa !115
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not60 = icmp eq ptr %19, null
@@ -2510,7 +2509,7 @@ define internal i32 @cf_he_query(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %59 = phi i1 [ true, %55 ], [ false, %79 ]
   %.02.i = phi i64 [ 0, %55 ], [ 1, %79 ]
   %.sroa.4.01.i = phi i32 [ 0, %55 ], [ %.sroa.4.1.i, %79 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %56, i64 %.02.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.02.i
   %61 = load ptr, ptr %60, align 8, !tbaa !115
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %.not.i = icmp eq ptr %61, null
@@ -2571,7 +2570,7 @@ get_max_baller_time.exit:                         ; preds = %79
   %84 = phi i1 [ true, %80 ], [ false, %104 ]
   %.02.i66 = phi i64 [ 0, %80 ], [ 1, %104 ]
   %.sroa.4.01.i67 = phi i32 [ 0, %80 ], [ %.sroa.4.1.i71, %104 ]
-  %85 = getelementptr inbounds nuw ptr, ptr %81, i64 %.02.i66
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.02.i66
   %86 = load ptr, ptr %85, align 8, !tbaa !115
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %.not.i68 = icmp eq ptr %86, null
@@ -2750,7 +2749,7 @@ define internal i32 @cf_setup_connect(ptr noundef %0, ptr noundef %1, i1 noundef
 
 36:                                               ; preds = %34, %31
   %.06.i.i = phi i64 [ 0, %31 ], [ %35, %34 ]
-  %37 = getelementptr inbounds nuw %struct.transport_provider, ptr @transport_providers, i64 %.06.i.i
+  %37 = getelementptr inbounds nuw [16 x i8], ptr @transport_providers, i64 %.06.i.i
   %38 = load i32, ptr %37, align 16, !tbaa !184
   %39 = icmp eq i32 %33, %38
   br i1 %39, label %get_cf_create.exit.i, label %34
@@ -3147,7 +3146,7 @@ define hidden i32 @Curl_conn_setup(ptr noundef %0, ptr noundef %1, i32 noundef %
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !187
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %cf_setup_add.exit

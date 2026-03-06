@@ -1467,7 +1467,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(12) ptr @_ZSt9use_fa
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !56
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %2
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %2
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %.not8 = icmp eq ptr %10, null
   br i1 %.not8, label %11, label %12

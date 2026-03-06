@@ -24,15 +24,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_shash_regist
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_shash_free_singlespawn_instance: ; .asciz \22GPL\22 ; .asciz \22\22 ; .balign 8 ; .quad shash_free_singlespawn_instance ; .previous"
 
 %struct.crypto_type = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.shash_alg = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { i32, i32, %struct.crypto_alg }
-%struct.crypto_alg = type { %struct.list_head, %struct.list_head, i32, i32, i32, i32, i32, %struct.refcount_struct, [128 x i8], [128 x i8], ptr, %union.anon.0, ptr, ptr, ptr, ptr }
-%struct.list_head = type { ptr, ptr }
-%struct.refcount_struct = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%union.anon.0 = type { %struct.cipher_alg }
-%struct.cipher_alg = type { i32, i32, ptr, ptr, ptr }
 
 @__UNIQUE_ID___addressable_shash_no_setkey439 = internal global ptr @shash_no_setkey, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_crypto_shash_setkey440 = internal global ptr @crypto_shash_setkey, section ".discard.addressable", align 8
@@ -618,7 +609,7 @@ define dso_local i32 @crypto_register_shashes(ptr noundef %0, i32 noundef %1) #1
 6:                                                ; preds = %59, %4
   %indvars.iv = phi i32 [ %indvars.iv.next, %59 ], [ -1, %4 ]
   %7 = phi i64 [ %60, %59 ], [ 0, %4 ]
-  %8 = getelementptr %struct.shash_alg, ptr %0, i64 %7
+  %8 = getelementptr [488 x i8], ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %11 = load i32, ptr %10, align 8
@@ -721,7 +712,7 @@ define dso_local i32 @crypto_register_shashes(ptr noundef %0, i32 noundef %1) #1
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv16 = phi i64 [ %58, %.preheader.preheader ], [ %indvars.iv.next17, %.preheader ]
-  %.split = getelementptr %struct.shash_alg, ptr %0, i64 %indvars.iv16
+  %.split = getelementptr [488 x i8], ptr %0, i64 %indvars.iv16
   %62 = getelementptr i8, ptr %.split, i64 104
   tail call void @crypto_unregister_alg(ptr noundef %62) #8
   %indvars.iv.next17 = add nsw i64 %indvars.iv16, -1
@@ -745,7 +736,7 @@ define dso_local void @crypto_unregister_shashes(ptr noundef %0, i32 noundef %1)
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ %6, %5 ], [ %10, %7 ]
-  %.split = getelementptr %struct.shash_alg, ptr %0, i64 %8
+  %.split = getelementptr [488 x i8], ptr %0, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 104
   tail call void @crypto_unregister_alg(ptr noundef %9) #8
   %10 = add nsw i64 %8, -1

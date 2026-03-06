@@ -684,7 +684,7 @@ common.resume:                                    ; preds = %.thread265, %99, %.
   %135 = add i64 %.sroa.01.0.i.i.i, %132
   %136 = and i64 %135, %112
   %137 = sub nsw i64 0, %136
-  %138 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, { { i64, [2 x i64] }, ptr } }, ptr %113, i64 %137
+  %138 = getelementptr inbounds [80 x i8], ptr %113, i64 %137
   %139 = getelementptr inbounds i8, ptr %138, i64 -80
   call void @llvm.experimental.noalias.scope.decl(metadata !173), !noalias !163
   call void @llvm.experimental.noalias.scope.decl(metadata !176), !noalias !163

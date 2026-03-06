@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.strvec = type { ptr, i64, i64 }
 %struct.strbuf = type { i64, i64, ptr }
 %struct.hashmap_iter = type { ptr, ptr, i32 }
-%struct.anon = type { i32, ptr }
 %struct.config_options = type { i8, ptr, ptr, ptr, ptr, i32 }
 %struct.bundle_list = type { i32, i32, %struct.hashmap, ptr, i32 }
 %struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
@@ -19,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.list_objects_filter_options = type { %struct.strbuf, i32, i8, ptr, i64, i64, i32, i64, i64, ptr }
 %struct.unbundle_opts = type { i32, ptr }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"all\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"any\00", align 1
@@ -231,14 +229,14 @@ define dso_local void @print_bundle_list(ptr noundef captures(none) %0, ptr noun
 .preheader:                                       ; preds = %2, %12
   %13 = phi i1 [ false, %12 ], [ true, %2 ]
   %indvars.iv = phi i64 [ 1, %12 ], [ 0, %2 ]
-  %14 = getelementptr inbounds nuw %struct.anon, ptr @heuristics, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @heuristics, i64 %indvars.iv
   %15 = load i32, ptr %14, align 16, !tbaa !26
   %16 = icmp eq i32 %15, %11
   br i1 %16, label %17, label %12
 
 17:                                               ; preds = %.preheader
   %18 = zext i32 %11 to i64
-  %19 = getelementptr inbounds nuw %struct.anon, ptr @heuristics, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr @heuristics, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %21)
@@ -975,7 +973,7 @@ for_all_bundles_in_list.exit.thread:              ; preds = %hashmap_get_size.ex
   %.sroa.9.0 = phi i64 [ %18, %.preheader ], [ 0, %hashmap_get_size.exit ]
   %.0913.i = phi ptr [ %20, %.preheader ], [ %17, %hashmap_get_size.exit ]
   %18 = add i64 %.sroa.9.0, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %.sroa.9.0
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.sroa.9.0
   store ptr %.0913.i, ptr %19, align 8, !tbaa !49
   %20 = call ptr @hashmap_iter_next(ptr noundef nonnull %3) #16
   %.not.i88 = icmp eq ptr %20, null
@@ -1021,7 +1019,7 @@ sane_qsort.exit:                                  ; preds = %21, %22
   %.03168 = phi i32 [ %69, %68 ], [ 0, %.lr.ph.preheader ]
   %.03267 = phi i32 [ %.234, %68 ], [ 0, %.lr.ph.preheader ]
   %.03566 = phi i64 [ %.3, %68 ], [ 0, %.lr.ph.preheader ]
-  %34 = getelementptr inbounds nuw ptr, ptr %16, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !49
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %37 = load i64, ptr %36, align 8, !tbaa !29
@@ -1451,7 +1449,7 @@ define internal fastcc range(i32 -1, 1) i32 @bundle_list_update(ptr noundef %0, 
   br i1 %.not43, label %.preheader, label %34, !llvm.loop !57
 
 34:                                               ; preds = %.preheader
-  %35 = getelementptr inbounds nuw %struct.anon, ptr @heuristics, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [16 x i8], ptr @heuristics, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !28
   %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %37) #17
@@ -1636,7 +1634,7 @@ define internal fastcc range(i32 0, 2) i32 @unbundle_from_file(ptr noundef %0, p
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %22 = load ptr, ptr %18, align 8, !tbaa !62
   %23 = load i64, ptr %20, align 8, !tbaa !68
-  %24 = getelementptr inbounds nuw %struct.string_list_item, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %19, %24
   br i1 %25, label %.lr.ph33, label %.critedge
 
@@ -1705,7 +1703,7 @@ skip_prefix.exit:                                 ; preds = %30, %strbuf_setlen.
   %52 = getelementptr inbounds nuw i8, ptr %.0132532, i64 16
   %53 = load ptr, ptr %18, align 8, !tbaa !62
   %54 = load i64, ptr %20, align 8, !tbaa !68
-  %55 = getelementptr inbounds nuw %struct.string_list_item, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %54
   %56 = icmp ult ptr %52, %55
   br i1 %56, label %.lr.ph33, label %.critedge
 

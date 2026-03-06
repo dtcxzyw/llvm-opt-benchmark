@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.agxbuf = type { %union.anon }
 %union.anon = type { %struct.anon }
 %struct.anon = type { ptr, i64, i64, [7 x i8], i8 }
-%struct.parse_block = type { i32, ptr, %struct.case_infos_t, %struct.case_infos_t }
-%struct.case_info = type { i32, ptr, i32, ptr }
 
 @kwLine = internal unnamed_addr global i32 1, align 4
 @startLine = internal unnamed_addr global i32 1, align 4
@@ -366,7 +364,7 @@ bindAction.exit.backedge:                         ; preds = %98, %147, %145, %14
   br i1 %109, label %122, label %110
 
 110:                                              ; preds = %106
-  %111 = getelementptr inbounds nuw %struct.parse_block, ptr %108, i64 %.sroa.24.0170
+  %111 = getelementptr inbounds nuw [80 x i8], ptr %108, i64 %.sroa.24.0170
   %112 = sub i64 %spec.select.i.i.i, %.sroa.24.0170
   %113 = mul i64 %112, 80
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %111, i8 0, i64 %113, i1 false)
@@ -377,8 +375,8 @@ bindAction.exit.backedge:                         ; preds = %98, %147, %145, %14
 116:                                              ; preds = %110
   %117 = sub i64 %.sroa.24.0170, %.sroa.10.0168
   %118 = sub i64 %spec.select.i.i.i, %117
-  %119 = getelementptr inbounds nuw %struct.parse_block, ptr %108, i64 %118
-  %120 = getelementptr inbounds nuw %struct.parse_block, ptr %108, i64 %.sroa.10.0168
+  %119 = getelementptr inbounds nuw [80 x i8], ptr %108, i64 %118
+  %120 = getelementptr inbounds nuw [80 x i8], ptr %108, i64 %.sroa.10.0168
   %121 = mul i64 %117, 80
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %119, ptr nonnull align 8 %120, i64 %121, i1 false)
   br label %addBlock.exit
@@ -397,7 +395,7 @@ addBlock.exit:                                    ; preds = %110, %116, %101
   %.sroa.24.4 = phi i64 [ %.sroa.24.0170, %101 ], [ %spec.select.i.i.i, %116 ], [ %spec.select.i.i.i, %110 ]
   %126 = add i64 %.sroa.10.5, %.sroa.16.0169
   %127 = urem i64 %126, %.sroa.24.4
-  %128 = getelementptr inbounds nuw %struct.parse_block, ptr %.sroa.0.4, i64 %127
+  %128 = getelementptr inbounds nuw [80 x i8], ptr %.sroa.0.4, i64 %127
   store i32 %.0106173, ptr %128, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %128, i64 4
   store i32 0, ptr %.sroa.4.0..sroa_idx.i, align 4
@@ -510,7 +508,7 @@ default.unreachable187:                           ; preds = %parseCase.exit
   br i1 %161, label %174, label %162
 
 162:                                              ; preds = %158
-  %163 = getelementptr inbounds nuw %struct.parse_block, ptr %160, i64 %.sroa.16.0169
+  %163 = getelementptr inbounds nuw [80 x i8], ptr %160, i64 %.sroa.16.0169
   %164 = sub i64 %spec.select.i.i.i59, %.sroa.16.0169
   %165 = mul i64 %164, 80
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %163, i8 0, i64 %165, i1 false)
@@ -521,8 +519,8 @@ default.unreachable187:                           ; preds = %parseCase.exit
 168:                                              ; preds = %162
   %169 = sub i64 %.sroa.16.0169, %.sroa.10.0168
   %170 = sub i64 %spec.select.i.i.i59, %169
-  %171 = getelementptr inbounds nuw %struct.parse_block, ptr %160, i64 %170
-  %172 = getelementptr inbounds nuw %struct.parse_block, ptr %160, i64 %.sroa.10.0168
+  %171 = getelementptr inbounds nuw [80 x i8], ptr %160, i64 %170
+  %172 = getelementptr inbounds nuw [80 x i8], ptr %160, i64 %.sroa.10.0168
   %173 = mul i64 %169, 80
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %171, ptr nonnull align 8 %172, i64 %173, i1 false)
   br label %addBlock.exit62
@@ -541,7 +539,7 @@ addBlock.exit62:                                  ; preds = %162, %168, %153
   %.sroa.24.5 = phi i64 [ %.sroa.24.0170, %153 ], [ %spec.select.i.i.i59, %168 ], [ %spec.select.i.i.i59, %162 ]
   %178 = add i64 %.sroa.10.7, %.sroa.16.0169
   %179 = urem i64 %178, %.sroa.24.5
-  %180 = getelementptr inbounds nuw %struct.parse_block, ptr %.sroa.0.5, i64 %179
+  %180 = getelementptr inbounds nuw [80 x i8], ptr %.sroa.0.5, i64 %179
   store i32 %.0106173, ptr %180, align 8
   %.sroa.4.0..sroa_idx.i55 = getelementptr inbounds nuw i8, ptr %180, i64 4
   store i32 0, ptr %.sroa.4.0..sroa_idx.i55, align 4
@@ -655,7 +653,7 @@ define internal fastcc void @addCase(ptr noundef nonnull captures(none) %0, ptr 
 
 24:                                               ; preds = %19
   %25 = load i64, ptr %13, align 8, !tbaa !22
-  %26 = getelementptr inbounds nuw %struct.case_info, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %25
   %27 = sub i64 %spec.select.i.i, %25
   %28 = shl i64 %27, 5
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %26, i8 0, i64 %28, i1 false)
@@ -669,8 +667,8 @@ define internal fastcc void @addCase(ptr noundef nonnull captures(none) %0, ptr 
 34:                                               ; preds = %24
   %35 = sub i64 %25, %30
   %36 = sub i64 %spec.select.i.i, %35
-  %37 = getelementptr inbounds nuw %struct.case_info, ptr %22, i64 %36
-  %38 = getelementptr inbounds nuw %struct.case_info, ptr %22, i64 %30
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %36
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %30
   %39 = shl i64 %35, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull align 8 %38, i64 %39, i1 false)
   store i64 %36, ptr %29, align 8, !tbaa !23
@@ -697,7 +695,7 @@ case_infos_append.exit:                           ; preds = %._crit_edge.i.i, %4
   %49 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %41, %40 ]
   %50 = add i64 %49, %48
   %51 = urem i64 %50, %47
-  %52 = getelementptr inbounds nuw %struct.case_info, ptr %46, i64 %51
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %46, i64 %51
   store i32 %spec.select, ptr %52, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 0, ptr %.sroa.4.0..sroa_idx, align 4
@@ -753,7 +751,7 @@ define void @freeParseProg(ptr noundef captures(address_is_null) %0) local_unnam
   %12 = add i64 %11, %.020.i
   %13 = load i64, ptr %8, align 8, !tbaa !22, !noalias !26
   %14 = urem i64 %12, %13
-  %15 = getelementptr inbounds nuw %struct.parse_block, ptr %10, i64 %14
+  %15 = getelementptr inbounds nuw [80 x i8], ptr %10, i64 %14
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.3.0.copyload.i = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !14
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -780,7 +778,7 @@ define void @freeParseProg(ptr noundef captures(address_is_null) %0) local_unnam
   %.08.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i ], [ 0, %9 ]
   %16 = add i64 %.08.i.i.i, %.sroa.7.0.copyload.i
   %17 = urem i64 %16, %.sroa.11.0.copyload.i
-  %18 = getelementptr inbounds nuw %struct.case_info, ptr %.sroa.4.0.copyload.i, i64 %17
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.4.0.copyload.i, i64 %17
   %.sroa.1.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.1.0.copyload.i.i.i = load ptr, ptr %.sroa.1.0..sroa_idx.i.i.i, align 8, !tbaa !14
   %.sroa.27.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -800,7 +798,7 @@ case_infos_free.exit.i:                           ; preds = %.lr.ph.i.i.i, %9
   %.08.i.i7.i = phi i64 [ %23, %.lr.ph.i.i6.i ], [ 0, %case_infos_free.exit.i ]
   %20 = add i64 %.08.i.i7.i, %.sroa.15.0.copyload.i
   %21 = urem i64 %20, %.sroa.19.0.copyload.i
-  %22 = getelementptr inbounds nuw %struct.case_info, ptr %.sroa.12.0.copyload.i, i64 %21
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.12.0.copyload.i, i64 %21
   %.sroa.1.0..sroa_idx.i.i8.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.1.0.copyload.i.i9.i = load ptr, ptr %.sroa.1.0..sroa_idx.i.i8.i, align 8, !tbaa !14
   %.sroa.27.0..sroa_idx.i.i10.i = getelementptr inbounds nuw i8, ptr %22, i64 24

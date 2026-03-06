@@ -246,7 +246,7 @@ _ZNSt6vectorIPN4cvc58internal6theory11quantifiers12InstStrategyESaIS5_EE11_S_rel
 _ZNSt6vectorIPN4cvc58internal6theory11quantifiers12InstStrategyESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %85, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers12InstStrategyESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i
   store ptr %80, ptr %7, align 8, !tbaa !252
   store ptr %84, ptr %61, align 8, !tbaa !246
-  %86 = getelementptr inbounds nuw ptr, ptr %80, i64 %78
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %78
   store ptr %86, ptr %63, align 8, !tbaa !249
   br label %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers12InstStrategyESaIS5_EE9push_backEOS5_.exit
 
@@ -350,7 +350,7 @@ _ZNSt6vectorIPN4cvc58internal6theory11quantifiers12InstStrategyESaIS5_EE11_S_rel
 _ZNSt6vectorIPN4cvc58internal6theory11quantifiers12InstStrategyESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i34: ; preds = %125, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers12InstStrategyESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i32
   store ptr %120, ptr %7, align 8, !tbaa !252
   store ptr %124, ptr %101, align 8, !tbaa !246
-  %126 = getelementptr inbounds nuw ptr, ptr %120, i64 %118
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %118
   store ptr %126, ptr %103, align 8, !tbaa !249
   br label %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers12InstStrategyESaIS5_EE9push_backEOS5_.exit37
 
@@ -681,7 +681,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers19InstantiationEngine8p
   %6 = phi ptr [ %16, %.lr.ph ], [ %5, %1 ]
   %7 = phi i64 [ %14, %.lr.ph ], [ 0, %1 ]
   %.04 = phi i32 [ %13, %.lr.ph ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !250
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -738,7 +738,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers19InstantiationEngine20
   %26 = phi i64 [ %18, %16 ], [ 0, %.preheader ]
   %.1418 = phi i1 [ %.4.lcssa, %16 ], [ true, %.preheader ]
   %.066417 = phi i32 [ %17, %16 ], [ 0, %.preheader ]
-  %27 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !259
   %29 = load i64, ptr %28, align 8
   %30 = lshr i64 %29, 40
@@ -777,7 +777,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165: ; preds = %34, %40, %42
   %47 = phi i64 [ %96, %93 ], [ 0, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165 ]
   %.4410 = phi i1 [ %spec.select, %93 ], [ %.1418, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165 ]
   %.039409 = phi i32 [ %95, %93 ], [ 0, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit165 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !250
   store ptr %28, ptr %3, align 8, !tbaa !259
   %50 = load i64, ptr %28, align 8
@@ -1015,7 +1015,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers19InstantiationEngine11
   %7 = phi ptr [ %17, %.lr.ph ], [ %6, %2 ]
   %8 = phi i64 [ %15, %.lr.ph ], [ 0, %2 ]
   %.06 = phi i32 [ %14, %.lr.ph ], [ 0, %2 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !250
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -1938,7 +1938,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit30: ; preds = %78, %72, %68, %45
   %111 = icmp eq i32 %110, 2
   %spec.select.i.i = select i1 %111, i64 3, i64 2
   %112 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %spec.select.i.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %spec.select.i.i
   %114 = load ptr, ptr %113, align 8, !tbaa !293, !noalias !290
   store ptr %114, ptr %6, align 8, !tbaa !259, !alias.scope !290
   %115 = load i64, ptr %114, align 8, !noalias !290
@@ -2075,7 +2075,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit35: ; preds = %_ZN4cvc58internal12
   %186 = load i64, ptr %185, align 8
   %187 = lshr i64 %186, 32
   %188 = and i64 %187, 67108863
-  %189 = getelementptr inbounds nuw ptr, ptr %184, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %188
   %.not6263 = icmp eq ptr %spec.select.i.i36, %189
   br i1 %.not6263, label %._crit_edge, label %.lr.ph
 
@@ -3128,7 +3128,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !255
   store ptr %42, ptr %4, align 8, !tbaa !258
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !265
   ret void
 

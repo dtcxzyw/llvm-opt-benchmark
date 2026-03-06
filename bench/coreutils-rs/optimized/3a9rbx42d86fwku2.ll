@@ -754,7 +754,7 @@ define void @_ZN6uu_cut9cut_files17h68757c20467e9be9E(ptr noalias noundef align 
   %39 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %30, %27 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !51, !noalias !54, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %41, i64 %39
+  %42 = getelementptr inbounds [24 x i8], ptr %41, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   %43 = load i64, ptr %20, align 8, !alias.scope !51, !noalias !54, !noundef !5
   %44 = add i64 %43, 1

@@ -520,7 +520,7 @@ _ZNSt3mapIN4cvc58internal8TypeNodeEbSt4lessIS2_ESaISt4pairIKS2_bEEED2Ev.exit: ; 
   %118 = icmp eq i32 %117, 2
   %119 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %120 = zext i1 %118 to i64
-  %121 = getelementptr inbounds nuw ptr, ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %120
   %122 = load ptr, ptr %121, align 8, !tbaa !343, !noalias !340
   store ptr %122, ptr %11, align 8, !tbaa !327, !alias.scope !340
   %123 = load i64, ptr %122, align 8, !noalias !340
@@ -616,7 +616,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit44: ; preds = %145, %156, %162
   %175 = icmp eq i32 %174, 2
   %176 = getelementptr inbounds nuw i8, ptr %167, i64 24
   %177 = zext i1 %175 to i64
-  %178 = getelementptr inbounds nuw ptr, ptr %176, i64 %177
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %177
   %179 = load ptr, ptr %178, align 8, !tbaa !343, !noalias !345
   store ptr %179, ptr %14, align 8, !tbaa !327, !alias.scope !345
   %180 = load i64, ptr %179, align 8, !noalias !345
@@ -660,7 +660,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit47: ; preds = %191, %185, %193
   %202 = icmp eq i32 %201, 2
   %203 = getelementptr inbounds nuw i8, ptr %179, i64 24
   %204 = zext i1 %202 to i64
-  %205 = getelementptr inbounds nuw ptr, ptr %203, i64 %204
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %204
   %206 = load ptr, ptr %205, align 8, !tbaa !343, !noalias !348
   store ptr %206, ptr %13, align 8, !tbaa !327, !alias.scope !348
   %207 = load i64, ptr %206, align 8, !noalias !348
@@ -784,7 +784,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit54: ; preds = %_ZN4cvc58internal12
   %268 = load i64, ptr %267, align 8, !tbaa !419
   %269 = urem i64 %266, %268
   %270 = load ptr, ptr %264, align 8, !tbaa !420
-  %271 = getelementptr inbounds nuw ptr, ptr %270, i64 %269
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %269
   %272 = load ptr, ptr %271, align 8, !tbaa !421
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %272, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNK4cvc58internal8TypeNode12getAttributeINS0_4expr9AttributeINS0_6theory24AbsTypeFunDefAttributeIdEbEEEENT_10value_typeERKS8_.exit.thread, label %273

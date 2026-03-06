@@ -853,7 +853,7 @@ define internal void @hookf(ptr noundef %0, ptr noundef readonly captures(none) 
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 8, !tbaa !24
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr @hookf.hooknames, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr @hookf.hooknames, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !25
   tail call void @lua_pushstring(ptr noundef %0, ptr noundef %9) #8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40

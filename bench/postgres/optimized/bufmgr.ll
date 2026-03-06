@@ -14,24 +14,14 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PgStat_CheckpointerStats = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.CheckpointStatsData = type { i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, i64, i64 }
 %struct.SpinDelayStatus = type { i32, i32, i32, ptr, i32, ptr }
-%union.BufferDescPadded = type { %struct.BufferDesc, [12 x i8] }
-%struct.BufferDesc = type { %struct.buftag, i32, %struct.pg_atomic_uint32, i32, i32, %struct.LWLock }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.proclist_head = type { i32, i32 }
-%union.ConditionVariableMinimallyPadded = type { %struct.ConditionVariable, [4 x i8] }
-%struct.ConditionVariable = type { i8, %struct.proclist_head }
-%union.LWLockPadded = type { %struct.LWLock, [112 x i8] }
 %struct.ReadBuffersOperation = type { ptr, ptr, i8, i32, ptr, ptr, i32, i32, i16, i16 }
 %struct.BufferManagerRelation = type { ptr, ptr, i8 }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CkptSortItem = type { i32, i32, i32, i32, i32 }
-%struct.CkptTsStatus = type { i32, double, double, i32, i32, i32 }
-%struct.RelFileLocator = type { i32, i32, i32 }
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
-%struct.SMgrSortArray = type { %struct.RelFileLocator, ptr }
+%struct.RelFileLocator = type { i32, i32, i32 }
 %union.PGIOAlignedBlock = type { double, [8184 x i8] }
 %struct.BlockRangeReadStreamPrivate = type { i32, i32 }
+%struct.CkptSortItem = type { i32, i32, i32, i32, i32 }
 
 @zero_damaged_pages = dso_local local_unnamed_addr global i8 0, align 1
 @bgwriter_lru_maxpages = dso_local local_unnamed_addr global i32 100, align 4
@@ -140,7 +130,7 @@ define internal void @ResOwnerReleaseBufferIO(i64 noundef %0) #0 {
   %4 = add i64 %0, 4294967295
   %5 = load ptr, ptr @BufferDescriptors, align 8
   %6 = and i64 %4, 4294967295
-  %7 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -250,7 +240,7 @@ AbortBufferIO.exit:                               ; preds = %.lr.ph.i.i.i, %37
   %.val11.i.i = load i32, ptr %48, align 4
   %49 = load ptr, ptr @BufferIOCVArray, align 8
   %50 = sext i32 %.val11.i.i to i64
-  %51 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %49, i64 %50
+  %51 = getelementptr inbounds [16 x i8], ptr %49, i64 %50
   call void @ConditionVariableBroadcast(ptr noundef %51) #15
   ret void
 }
@@ -286,7 +276,7 @@ define internal void @ResOwnerReleaseBufferPin(i64 noundef %0) #0 {
   %10 = add i64 %0, 4294967295
   %11 = load ptr, ptr @BufferDescriptors, align 8
   %12 = and i64 %10, 4294967295
-  %13 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %12
   tail call fastcc void @UnpinBufferNoOwner(ptr noundef %13)
   br label %14
 
@@ -323,7 +313,7 @@ define dso_local range(i64 0, 4294967297) i64 @PrefetchSharedBuffer(ptr noundef 
   %15 = load ptr, ptr @MainLWLockArray, align 8
   %16 = and i32 %14, 127
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw %union.LWLockPadded, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [128 x i8], ptr %15, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 6784
   %20 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %19, i32 noundef 1) #15
   %21 = call i32 @BufTableLookup(ptr noundef nonnull %4, i32 noundef %14) #15
@@ -473,13 +463,13 @@ define dso_local noundef zeroext i1 @ReadRecentBuffer(i64 %0, i32 %1, i32 nounde
 
 .critedge.i:                                      ; preds = %5, %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %5 ]
-  %12 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 8
   %.not8.i = icmp eq i32 %13, 0
   br i1 %.not8.i, label %14, label %11
 
 14:                                               ; preds = %.critedge.i
-  %15 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %15, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -490,7 +480,7 @@ define dso_local noundef zeroext i1 @ReadRecentBuffer(i64 %0, i32 %1, i32 nounde
   store i32 %18, ptr @PrivateRefCountClock, align 4
   %19 = and i32 %17, 7
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %20
   store ptr %21, ptr @ReservedRefCountEntry, align 8
   %22 = load ptr, ptr @PrivateRefCountHash, align 8
   %23 = call ptr @hash_search(ptr noundef %22, ptr noundef nonnull %21, i32 noundef 1, ptr noundef nonnull %8) #15
@@ -515,7 +505,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %5, %14, %16
   %32 = xor i32 %4, -1
   %33 = load ptr, ptr @LocalBufferDescriptors, align 8
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds nuw %struct.BufferDesc, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [52 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load volatile i32, ptr %36, align 4
   %38 = and i32 %37, 16777216
@@ -562,7 +552,7 @@ BufferTagsEqual.exit:                             ; preds = %50
   %61 = add nsw i32 %4, -1
   %62 = load ptr, ptr @BufferDescriptors, align 8
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [64 x i8], ptr %62, i64 %63
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %4, ptr %7, align 4
   br label %66
@@ -574,13 +564,13 @@ BufferTagsEqual.exit:                             ; preds = %50
 
 66:                                               ; preds = %65, %60
   %indvars.iv.i.i = phi i64 [ 0, %60 ], [ %indvars.iv.next.i.i, %65 ]
-  %67 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %68, %4
   br i1 %69, label %GetPrivateRefCountEntry.exit.thread5.i, label %65
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %66
-  %70 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %GetPrivateRefCount.exit
 
@@ -747,13 +737,13 @@ define internal fastcc void @ReservePrivateRefCountEntry() unnamed_addr #0 {
 
 .critedge:                                        ; preds = %0, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %0 ]
-  %4 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8
   %.not8 = icmp eq i32 %5, 0
   br i1 %.not8, label %6, label %3
 
 6:                                                ; preds = %.critedge
-  %7 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv
   store ptr %7, ptr @ReservedRefCountEntry, align 8
   br label %22
 
@@ -764,7 +754,7 @@ define internal fastcc void @ReservePrivateRefCountEntry() unnamed_addr #0 {
   store i32 %10, ptr @PrivateRefCountClock, align 4
   %11 = and i32 %9, 7
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %12
   store ptr %13, ptr @ReservedRefCountEntry, align 8
   %14 = load ptr, ptr @PrivateRefCountHash, align 8
   %15 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %13, i32 noundef 1, ptr noundef nonnull %1) #15
@@ -801,13 +791,13 @@ define internal fastcc i32 @GetPrivateRefCount(i32 noundef %0) unnamed_addr #5 {
 
 4:                                                ; preds = %3, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %3 ]
-  %5 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %0
   br i1 %7, label %GetPrivateRefCountEntry.exit.thread5, label %3
 
 GetPrivateRefCountEntry.exit.thread5:             ; preds = %4
-  %8 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %15
 
@@ -1128,7 +1118,7 @@ RelationGetSmgr.exit:                             ; preds = %24, %28
   %66 = load ptr, ptr @MainLWLockArray, align 8
   %67 = and i32 %65, 127
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw %union.LWLockPadded, ptr %66, i64 %68
+  %69 = getelementptr inbounds nuw [128 x i8], ptr %66, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 6784
   %71 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %70, i32 noundef 1) #15
   %72 = call i32 @BufTableLookup(ptr noundef nonnull %6, i32 noundef %65) #15
@@ -1138,7 +1128,7 @@ RelationGetSmgr.exit:                             ; preds = %24, %28
 74:                                               ; preds = %53
   %75 = load ptr, ptr @BufferDescriptors, align 8
   %76 = zext nneg i32 %72 to i64
-  %77 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [64 x i8], ptr %75, i64 %76
   %78 = call fastcc zeroext i1 @PinBuffer(ptr noundef %77, ptr noundef %4)
   call void @LWLockRelease(ptr noundef nonnull %70) #15
   %spec.select.i12 = zext i1 %78 to i8
@@ -1152,7 +1142,7 @@ RelationGetSmgr.exit:                             ; preds = %24, %28
   %81 = add i32 %80, -1
   %82 = load ptr, ptr @BufferDescriptors, align 8
   %83 = zext i32 %81 to i64
-  %84 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [64 x i8], ptr %82, i64 %83
   %85 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %70, i32 noundef 0) #15
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 20
   %87 = load i32, ptr %86, align 4
@@ -1182,7 +1172,7 @@ BufferAlloc.exit:                                 ; preds = %79
   call void @StrategyFreeBuffer(ptr noundef nonnull %84) #15
   %95 = load ptr, ptr @BufferDescriptors, align 8
   %96 = zext nneg i32 %88 to i64
-  %97 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [64 x i8], ptr %95, i64 %96
   %98 = call fastcc zeroext i1 @PinBuffer(ptr noundef %97, ptr noundef %4)
   call void @LWLockRelease(ptr noundef nonnull %70) #15
   %spec.select49.i = zext i1 %98 to i8
@@ -1365,7 +1355,7 @@ define dso_local i32 @ReadBufferWithoutRelcache(i64 %0, i32 %1, i32 noundef %2, 
   %32 = load ptr, ptr @MainLWLockArray, align 8
   %33 = and i32 %31, 127
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw %union.LWLockPadded, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [128 x i8], ptr %32, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6784
   %37 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %36, i32 noundef 1) #15
   %38 = call i32 @BufTableLookup(ptr noundef nonnull %8, i32 noundef %31) #15
@@ -1375,7 +1365,7 @@ define dso_local i32 @ReadBufferWithoutRelcache(i64 %0, i32 %1, i32 noundef %2, 
 40:                                               ; preds = %19
   %41 = load ptr, ptr @BufferDescriptors, align 8
   %42 = zext nneg i32 %38 to i64
-  %43 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [64 x i8], ptr %41, i64 %42
   %44 = call fastcc zeroext i1 @PinBuffer(ptr noundef %43, ptr noundef %5)
   call void @LWLockRelease(ptr noundef nonnull %36) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1387,7 +1377,7 @@ define dso_local i32 @ReadBufferWithoutRelcache(i64 %0, i32 %1, i32 noundef %2, 
   %47 = add i32 %46, -1
   %48 = load ptr, ptr @BufferDescriptors, align 8
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [64 x i8], ptr %48, i64 %49
   %51 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %36, i32 noundef 0) #15
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %53 = load i32, ptr %52, align 4
@@ -1415,7 +1405,7 @@ BufferAlloc.exit:                                 ; preds = %45
   call void @StrategyFreeBuffer(ptr noundef nonnull %50) #15
   %60 = load ptr, ptr @BufferDescriptors, align 8
   %61 = zext nneg i32 %54 to i64
-  %62 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [64 x i8], ptr %60, i64 %61
   %63 = call fastcc zeroext i1 @PinBuffer(ptr noundef %62, ptr noundef %5)
   call void @LWLockRelease(ptr noundef nonnull %36) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1634,13 +1624,13 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %32 = tail call fastcc i32 @GetVictimBuffer(ptr noundef %2, i32 noundef %23)
-  %33 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   store i32 %32, ptr %33, align 4
   %34 = load ptr, ptr @BufferBlocks, align 8
   %35 = add i32 %32, -1
   %36 = load ptr, ptr @BufferDescriptors, align 8
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [64 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 20
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
@@ -1663,7 +1653,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.copyload, i64 20
   %49 = sext i32 %1 to i64
-  %50 = getelementptr inbounds i32, ptr %48, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %48, i64 %49
   store i32 -1, ptr %50, align 4
   br label %._crit_edge229.i
 
@@ -1699,12 +1689,12 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
 
 .lr.ph190.i:                                      ; preds = %.lr.ph190.i, %.lr.ph190.preheader.i
   %indvars.iv215.i = phi i64 [ %61, %.lr.ph190.preheader.i ], [ %indvars.iv.next216.i, %.lr.ph190.i ]
-  %62 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv215.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv215.i
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, -1
   %65 = load ptr, ptr @BufferDescriptors, align 8
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [64 x i8], ptr %65, i64 %66
   tail call void @StrategyFreeBuffer(ptr noundef %67) #15
   %68 = getelementptr i8, ptr %67, i64 20
   %.val.i.i = load i32, ptr %68, align 4
@@ -1794,12 +1784,12 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
 
 120:                                              ; preds = %237, %.lr.ph195.i
   %indvars.iv219.i = phi i64 [ 0, %.lr.ph195.i ], [ %indvars.iv.next220.i, %237 ]
-  %121 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv219.i
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv219.i
   %122 = load i32, ptr %121, align 4
   %123 = add i32 %122, -1
   %124 = load ptr, ptr @BufferDescriptors, align 8
   %125 = zext i32 %123 to i64
-  %126 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %124, i64 %125
+  %126 = getelementptr inbounds nuw [64 x i8], ptr %124, i64 %125
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %127 = load ptr, ptr @CurrentResourceOwner, align 8
   call void @ResourceOwnerEnlarge(ptr noundef %127) #15
@@ -1814,13 +1804,13 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
 
 .critedge.i.i:                                    ; preds = %120, %129
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %129 ], [ 0, %120 ]
-  %130 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
+  %130 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   %131 = load i32, ptr %130, align 8
   %.not8.i.i = icmp eq i32 %131, 0
   br i1 %.not8.i.i, label %132, label %129
 
 132:                                              ; preds = %.critedge.i.i
-  %133 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
+  %133 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   store ptr %133, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit.i
 
@@ -1831,7 +1821,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   store i32 %136, ptr @PrivateRefCountClock, align 4
   %137 = and i32 %135, 7
   %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %138
   store ptr %139, ptr @ReservedRefCountEntry, align 8
   %140 = load ptr, ptr @PrivateRefCountHash, align 8
   %141 = call ptr @hash_search(ptr noundef %140, ptr noundef nonnull %139, i32 noundef 1, ptr noundef nonnull %14) #15
@@ -1863,7 +1853,7 @@ ReservePrivateRefCountEntry.exit.i:               ; preds = %134, %132, %120
   %154 = load ptr, ptr @MainLWLockArray, align 8
   %155 = and i32 %153, 127
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw %union.LWLockPadded, ptr %154, i64 %156
+  %157 = getelementptr inbounds nuw [128 x i8], ptr %154, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 6784
   %159 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %158, i32 noundef 0) #15
   %160 = getelementptr inbounds nuw i8, ptr %126, i64 20
@@ -1875,7 +1865,7 @@ ReservePrivateRefCountEntry.exit.i:               ; preds = %134, %132, %120
 164:                                              ; preds = %ReservePrivateRefCountEntry.exit.i
   %165 = load ptr, ptr @BufferDescriptors, align 8
   %166 = zext nneg i32 %162 to i64
-  %167 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %165, i64 %166
+  %167 = getelementptr inbounds nuw [64 x i8], ptr %165, i64 %166
   %168 = call fastcc zeroext i1 @PinBuffer(ptr noundef %167, ptr noundef %2)
   call void @LWLockRelease(ptr noundef nonnull %158) #15
   call void @StrategyFreeBuffer(ptr noundef nonnull %126) #15
@@ -1987,7 +1977,7 @@ LockBufHdr.exit.i.i:                              ; preds = %.lr.ph.i.i.i, %.spl
   %.val.i155.i = load i32, ptr %172, align 4
   %210 = load ptr, ptr @BufferIOCVArray, align 8
   %211 = sext i32 %.val.i155.i to i64
-  %212 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %210, i64 %211
+  %212 = getelementptr inbounds [16 x i8], ptr %210, i64 %211
   call void @ConditionVariablePrepareToSleep(ptr noundef %212) #15
   br label %213
 
@@ -2123,12 +2113,12 @@ LockBufHdr.exit146.i:                             ; preds = %.lr.ph.i143.i, %229
 
 253:                                              ; preds = %TerminateBufferIO.exit.i, %.lr.ph200.i
   %indvars.iv224.i = phi i64 [ 0, %.lr.ph200.i ], [ %indvars.iv.next225.i, %TerminateBufferIO.exit.i ]
-  %254 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv224.i
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv224.i
   %255 = load i32, ptr %254, align 4
   %256 = add i32 %255, -1
   %257 = load ptr, ptr @BufferDescriptors, align 8
   %258 = zext i32 %256 to i64
-  %259 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %257, i64 %258
+  %259 = getelementptr inbounds nuw [64 x i8], ptr %257, i64 %258
   %260 = icmp eq i64 %indvars.iv224.i, 0
   %or.cond7.i = and i1 %243, %260
   br i1 %or.cond7.i, label %.critedge136.i, label %261
@@ -2183,7 +2173,7 @@ TerminateBufferIO.exit.i:                         ; preds = %.lr.ph.i.i148.i, %.
   %.val11.i.i = load i32, ptr %273, align 4
   %276 = load ptr, ptr @BufferIOCVArray, align 8
   %277 = sext i32 %.val11.i.i to i64
-  %278 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %276, i64 %277
+  %278 = getelementptr inbounds [16 x i8], ptr %276, i64 %277
   call void @ConditionVariableBroadcast(ptr noundef %278) #15
   %indvars.iv.next225.i = add nuw nsw i64 %indvars.iv224.i, 1
   %exitcond228.not.i = icmp eq i64 %indvars.iv.next225.i, %74
@@ -2252,7 +2242,7 @@ RelationGetSmgr.exit:                             ; preds = %17, %22
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 20
   %37 = sext i32 %1 to i64
-  %38 = getelementptr inbounds i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4
   %.off = add i32 %39, -1
   %switch = icmp ult i32 %.off, -2
@@ -2287,7 +2277,7 @@ RelationGetSmgr.exit:                             ; preds = %17, %22
 51:                                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %.pre, i64 20
   %53 = sext i32 %1 to i64
-  %54 = getelementptr inbounds i32, ptr %52, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %52, i64 %53
   store i32 -1, ptr %54, align 4
   br label %55
 
@@ -2334,7 +2324,7 @@ RelationGetSmgr.exit:                             ; preds = %17, %22
   %indvars70 = trunc i64 %indvars.iv to i32
   %71 = add i32 %68, %indvars70
   %.not47 = icmp eq i32 %71, %61
-  %72 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %73 = load i32, ptr %72, align 4
   br i1 %.not47, label %ReleaseBuffer.exit, label %74
 
@@ -2359,7 +2349,7 @@ RelationGetSmgr.exit:                             ; preds = %17, %22
 81:                                               ; preds = %78
   %82 = load ptr, ptr @BufferDescriptors, align 8
   %83 = zext nneg i32 %73 to i64
-  %84 = getelementptr %union.BufferDescPadded, ptr %82, i64 %83
+  %84 = getelementptr [64 x i8], ptr %82, i64 %83
   %85 = getelementptr i8, ptr %84, i64 -64
   %86 = getelementptr i8, ptr %84, i64 -44
   %.val.i.i = load i32, ptr %86, align 4
@@ -2455,7 +2445,7 @@ ReleaseBuffer.exit:                               ; preds = %.lr.ph, %81, %80
   %128 = load ptr, ptr @MainLWLockArray, align 8
   %129 = and i32 %127, 127
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw %union.LWLockPadded, ptr %128, i64 %130
+  %131 = getelementptr inbounds nuw [128 x i8], ptr %128, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 6784
   %133 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %132, i32 noundef 1) #15
   %134 = call i32 @BufTableLookup(ptr noundef nonnull %7, i32 noundef %127) #15
@@ -2465,7 +2455,7 @@ ReleaseBuffer.exit:                               ; preds = %.lr.ph, %81, %80
 136:                                              ; preds = %115
   %137 = load ptr, ptr @BufferDescriptors, align 8
   %138 = zext nneg i32 %134 to i64
-  %139 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %137, i64 %138
+  %139 = getelementptr inbounds nuw [64 x i8], ptr %137, i64 %138
   %140 = call fastcc zeroext i1 @PinBuffer(ptr noundef %139, ptr noundef %2)
   call void @LWLockRelease(ptr noundef nonnull %132) #15
   %spec.select.i53 = zext i1 %140 to i8
@@ -2479,7 +2469,7 @@ ReleaseBuffer.exit:                               ; preds = %.lr.ph, %81, %80
   %143 = add i32 %142, -1
   %144 = load ptr, ptr @BufferDescriptors, align 8
   %145 = zext i32 %143 to i64
-  %146 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %144, i64 %145
+  %146 = getelementptr inbounds nuw [64 x i8], ptr %144, i64 %145
   %147 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %132, i32 noundef 0) #15
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 20
   %149 = load i32, ptr %148, align 4
@@ -2509,7 +2499,7 @@ BufferAlloc.exit:                                 ; preds = %141
   call void @StrategyFreeBuffer(ptr noundef nonnull %146) #15
   %157 = load ptr, ptr @BufferDescriptors, align 8
   %158 = zext nneg i32 %150 to i64
-  %159 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %157, i64 %158
+  %159 = getelementptr inbounds nuw [64 x i8], ptr %157, i64 %158
   %160 = call fastcc zeroext i1 @PinBuffer(ptr noundef %159, ptr noundef %2)
   call void @LWLockRelease(ptr noundef nonnull %132) #15
   %spec.select49.i = zext i1 %160 to i8
@@ -2686,7 +2676,7 @@ define dso_local void @ReleaseBuffer(i32 noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %5
   %9 = load ptr, ptr @BufferDescriptors, align 8
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr %union.BufferDescPadded, ptr %9, i64 %10
+  %11 = getelementptr [64 x i8], ptr %9, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -64
   %13 = getelementptr i8, ptr %11, i64 -44
   %.val.i = load i32, ptr %13, align 4
@@ -2769,13 +2759,13 @@ define dso_local noundef zeroext i1 @StartReadBuffers(ptr noundef captures(none)
 
 .critedge.i:                                      ; preds = %40, %44
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %44 ], [ 0, %40 ]
-  %45 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %46 = load i32, ptr %45, align 8
   %.not8.i = icmp eq i32 %46, 0
   br i1 %.not8.i, label %47, label %44
 
 47:                                               ; preds = %.critedge.i
-  %48 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %48, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -2786,7 +2776,7 @@ define dso_local noundef zeroext i1 @StartReadBuffers(ptr noundef captures(none)
   store i32 %51, ptr @PrivateRefCountClock, align 4
   %52 = and i32 %50, 7
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %53
   store ptr %54, ptr @ReservedRefCountEntry, align 8
   %55 = load ptr, ptr @PrivateRefCountHash, align 8
   %56 = call ptr @hash_search(ptr noundef %55, ptr noundef nonnull %54, i32 noundef 1, ptr noundef nonnull %7) #15
@@ -2818,7 +2808,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %40, %47, %49
   %69 = load ptr, ptr @MainLWLockArray, align 8
   %70 = and i32 %68, 127
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw %union.LWLockPadded, ptr %69, i64 %71
+  %72 = getelementptr inbounds nuw [128 x i8], ptr %69, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6784
   %74 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %73, i32 noundef 1) #15
   %75 = call i32 @BufTableLookup(ptr noundef nonnull %8, i32 noundef %68) #15
@@ -2828,7 +2818,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %40, %47, %49
 77:                                               ; preds = %ReservePrivateRefCountEntry.exit
   %78 = load ptr, ptr @BufferDescriptors, align 8
   %79 = zext nneg i32 %75 to i64
-  %80 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [64 x i8], ptr %78, i64 %79
   %81 = call fastcc zeroext i1 @PinBuffer(ptr noundef %80, ptr noundef %31)
   call void @LWLockRelease(ptr noundef nonnull %73) #15
   %spec.select.i = zext i1 %81 to i8
@@ -2842,7 +2832,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %40, %47, %49
   %84 = add i32 %83, -1
   %85 = load ptr, ptr @BufferDescriptors, align 8
   %86 = zext i32 %84 to i64
-  %87 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [64 x i8], ptr %85, i64 %86
   %88 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %73, i32 noundef 0) #15
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 20
   %90 = load i32, ptr %89, align 4
@@ -2899,7 +2889,7 @@ BufferAlloc.exit:                                 ; preds = %82
   call void @StrategyFreeBuffer(ptr noundef nonnull %87) #15
   %105 = load ptr, ptr @BufferDescriptors, align 8
   %106 = zext nneg i32 %91 to i64
-  %107 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [64 x i8], ptr %105, i64 %106
   %108 = call fastcc zeroext i1 @PinBuffer(ptr noundef %107, ptr noundef %31)
   call void @LWLockRelease(ptr noundef nonnull %73) #15
   %spec.select49.i = zext i1 %108 to i8
@@ -3002,7 +2992,7 @@ PinBufferForBlock.exit:                           ; preds = %126, %140, %.thread
   %149 = getelementptr i8, ptr %.030.i, i64 20
   %.030.i.val = load i32, ptr %149, align 4
   %150 = add i32 %.030.i.val, 1
-  %151 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %150, ptr %151, align 4
   %152 = load i8, ptr %9, align 1, !range !5, !noundef !6
   %153 = trunc nuw i8 %152 to i1
@@ -3142,13 +3132,13 @@ define dso_local noundef zeroext i1 @StartReadBuffer(ptr noundef captures(none) 
 
 .critedge.i:                                      ; preds = %35, %39
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %39 ], [ 0, %35 ]
-  %40 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %41 = load i32, ptr %40, align 8
   %.not8.i = icmp eq i32 %41, 0
   br i1 %.not8.i, label %42, label %39
 
 42:                                               ; preds = %.critedge.i
-  %43 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %43, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -3159,7 +3149,7 @@ define dso_local noundef zeroext i1 @StartReadBuffer(ptr noundef captures(none) 
   store i32 %46, ptr @PrivateRefCountClock, align 4
   %47 = and i32 %45, 7
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %48
   store ptr %49, ptr @ReservedRefCountEntry, align 8
   %50 = load ptr, ptr @PrivateRefCountHash, align 8
   %51 = call ptr @hash_search(ptr noundef %50, ptr noundef nonnull %49, i32 noundef 1, ptr noundef nonnull %6) #15
@@ -3191,7 +3181,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %35, %42, %44
   %64 = load ptr, ptr @MainLWLockArray, align 8
   %65 = and i32 %63, 127
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw %union.LWLockPadded, ptr %64, i64 %66
+  %67 = getelementptr inbounds nuw [128 x i8], ptr %64, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 6784
   %69 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %68, i32 noundef 1) #15
   %70 = call i32 @BufTableLookup(ptr noundef nonnull %7, i32 noundef %63) #15
@@ -3201,7 +3191,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %35, %42, %44
 72:                                               ; preds = %ReservePrivateRefCountEntry.exit
   %73 = load ptr, ptr @BufferDescriptors, align 8
   %74 = zext nneg i32 %70 to i64
-  %75 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [64 x i8], ptr %73, i64 %74
   %76 = call fastcc zeroext i1 @PinBuffer(ptr noundef %75, ptr noundef %26)
   call void @LWLockRelease(ptr noundef nonnull %68) #15
   %spec.select.i = zext i1 %76 to i8
@@ -3215,7 +3205,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %35, %42, %44
   %79 = add i32 %78, -1
   %80 = load ptr, ptr @BufferDescriptors, align 8
   %81 = zext i32 %79 to i64
-  %82 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [64 x i8], ptr %80, i64 %81
   %83 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %68, i32 noundef 0) #15
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 20
   %85 = load i32, ptr %84, align 4
@@ -3272,7 +3262,7 @@ BufferAlloc.exit:                                 ; preds = %77
   call void @StrategyFreeBuffer(ptr noundef nonnull %82) #15
   %100 = load ptr, ptr @BufferDescriptors, align 8
   %101 = zext nneg i32 %86 to i64
-  %102 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %100, i64 %101
+  %102 = getelementptr inbounds nuw [64 x i8], ptr %100, i64 %101
   %103 = call fastcc zeroext i1 @PinBuffer(ptr noundef %102, ptr noundef %26)
   call void @LWLockRelease(ptr noundef nonnull %68) #15
   %spec.select49.i = zext i1 %103 to i8
@@ -3476,7 +3466,7 @@ define dso_local void @WaitReadBuffers(ptr noundef readonly captures(none) %0) l
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = sext i32 %.078118 to i64
-  %49 = getelementptr inbounds i32, ptr %12, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %12, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %52, label %WaitReadBuffersCanStartIO.exit
@@ -3485,7 +3475,7 @@ define dso_local void @WaitReadBuffers(ptr noundef readonly captures(none) %0) l
   %53 = xor i32 %50, -1
   %54 = load ptr, ptr @LocalBufferDescriptors, align 8
   %55 = zext nneg i32 %53 to i64
-  %56 = getelementptr inbounds nuw %struct.BufferDesc, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [52 x i8], ptr %54, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load volatile i32, ptr %57, align 4
   %59 = and i32 %58, 16777216
@@ -3500,7 +3490,7 @@ WaitReadBuffersCanStartIO.exit:                   ; preds = %47
   %61 = add nsw i32 %50, -1
   %62 = load ptr, ptr @BufferDescriptors, align 8
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [64 x i8], ptr %62, i64 %63
   %65 = call fastcc zeroext i1 @StartBufferIO(ptr noundef %64, i1 noundef zeroext true, i1 noundef zeroext false)
   br i1 %65, label %66, label %236
 
@@ -3515,7 +3505,7 @@ WaitReadBuffersCanStartIO.exit:                   ; preds = %47
   %70 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %71 = xor i32 %69, -1
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr %70, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %72
   %74 = load ptr, ptr %73, align 8
   br label %BufferGetBlock.exit
 
@@ -3543,7 +3533,7 @@ BufferGetBlock.exit:                              ; preds = %68, %75
   %indvars.iv = phi i64 [ %84, %.lr.ph.preheader ], [ %indvars.iv.next, %BufferGetBlock.exit86 ]
   %.2112 = phi i32 [ %.078118, %.lr.ph.preheader ], [ %138, %BufferGetBlock.exit86 ]
   %.079111 = phi i32 [ 1, %.lr.ph.preheader ], [ %136, %BufferGetBlock.exit86 ]
-  %85 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %85 = getelementptr inbounds [4 x i8], ptr %12, i64 %indvars.iv
   %86 = load i32, ptr %85, align 4
   %87 = icmp slt i32 %86, 0
   br i1 %87, label %WaitReadBuffersCanStartIO.exit84, label %88
@@ -3552,7 +3542,7 @@ BufferGetBlock.exit:                              ; preds = %68, %75
   %89 = add nsw i32 %86, -1
   %90 = load ptr, ptr @BufferDescriptors, align 8
   %91 = zext i32 %89 to i64
-  %92 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [64 x i8], ptr %90, i64 %91
   %93 = load ptr, ptr @CurrentResourceOwner, align 8
   call void @ResourceOwnerEnlarge(ptr noundef %93) #15
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 24
@@ -3597,7 +3587,7 @@ WaitReadBuffersCanStartIO.exit84:                 ; preds = %.lr.ph
   %101 = xor i32 %86, -1
   %102 = load ptr, ptr @LocalBufferDescriptors, align 8
   %103 = zext nneg i32 %101 to i64
-  %104 = getelementptr inbounds nuw %struct.BufferDesc, ptr %102, i64 %103
+  %104 = getelementptr inbounds nuw [52 x i8], ptr %102, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = load volatile i32, ptr %105, align 4
   %107 = and i32 %106, 16777216
@@ -3606,7 +3596,7 @@ WaitReadBuffersCanStartIO.exit84:                 ; preds = %.lr.ph
 
 .thread147:                                       ; preds = %WaitReadBuffersCanStartIO.exit84
   %109 = sext i32 %.079111 to i64
-  %110 = getelementptr inbounds i32, ptr %4, i64 %109
+  %110 = getelementptr inbounds [4 x i8], ptr %4, i64 %109
   store i32 %86, ptr %110, align 4
   br label %121
 
@@ -3622,7 +3612,7 @@ WaitReadBuffersCanStartIO.exit84:                 ; preds = %.lr.ph
   call void @ResourceOwnerRemember(ptr noundef %114, i64 noundef %117, ptr noundef nonnull @buffer_io_resowner_desc) #15
   %.pre136 = load i32, ptr %85, align 4
   %118 = sext i32 %.079111 to i64
-  %119 = getelementptr inbounds i32, ptr %4, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr %4, i64 %118
   store i32 %.pre136, ptr %119, align 4
   %120 = icmp slt i32 %.pre136, 0
   br i1 %120, label %121, label %129
@@ -3633,7 +3623,7 @@ WaitReadBuffersCanStartIO.exit84:                 ; preds = %.lr.ph
   %124 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %125 = xor i32 %123, -1
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw ptr, ptr %124, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %126
   %128 = load ptr, ptr %127, align 8
   br label %BufferGetBlock.exit86
 
@@ -3649,7 +3639,7 @@ BufferGetBlock.exit86:                            ; preds = %121, %129
   %135 = phi i64 [ %122, %121 ], [ %118, %129 ]
   %.0.i85 = phi ptr [ %128, %121 ], [ %134, %129 ]
   %136 = add nuw i32 %.079111, 1
-  %137 = getelementptr inbounds ptr, ptr %5, i64 %135
+  %137 = getelementptr inbounds [8 x i8], ptr %5, i64 %135
   store ptr %.0.i85, ptr %137, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %138 = trunc nsw i64 %indvars.iv to i32
@@ -3687,7 +3677,7 @@ BufferGetBlock.exit86:                            ; preds = %121, %129
 
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %230
   %indvars.iv132 = phi i64 [ 0, %.lr.ph117.preheader ], [ %indvars.iv.next133, %230 ]
-  %149 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv132
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv132
   %150 = load i32, ptr %149, align 4
   br i1 %19, label %151, label %163
 
@@ -3695,13 +3685,13 @@ BufferGetBlock.exit86:                            ; preds = %121, %129
   %152 = xor i32 %150, -1
   %153 = load ptr, ptr @LocalBufferDescriptors, align 8
   %154 = zext i32 %152 to i64
-  %155 = getelementptr inbounds nuw %struct.BufferDesc, ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [52 x i8], ptr %153, i64 %154
   %156 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 20
   %158 = load i32, ptr %157, align 4
   %159 = sub i32 -2, %158
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds ptr, ptr %156, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %156, i64 %160
   %162 = load ptr, ptr %161, align 8
   br label %174
 
@@ -3709,7 +3699,7 @@ BufferGetBlock.exit86:                            ; preds = %121, %129
   %164 = add i32 %150, -1
   %165 = load ptr, ptr @BufferDescriptors, align 8
   %166 = zext i32 %164 to i64
-  %167 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %165, i64 %166
+  %167 = getelementptr inbounds nuw [64 x i8], ptr %165, i64 %166
   %168 = load ptr, ptr @BufferBlocks, align 8
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 20
   %170 = load i32, ptr %169, align 4
@@ -3821,7 +3811,7 @@ TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %216
   %.val11.i = load i32, ptr %224, align 4
   %227 = load ptr, ptr @BufferIOCVArray, align 8
   %228 = sext i32 %.val11.i to i64
-  %229 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %227, i64 %228
+  %229 = getelementptr inbounds [16 x i8], ptr %227, i64 %228
   call void @ConditionVariableBroadcast(ptr noundef %229) #15
   br label %230
 
@@ -3897,7 +3887,7 @@ define dso_local zeroext i1 @BufferIsExclusiveLocked(i32 noundef %0) local_unnam
   %4 = add nsw i32 %0, -1
   %5 = load ptr, ptr @BufferDescriptors, align 8
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %9 = tail call zeroext i1 @LWLockHeldByMeInMode(ptr noundef nonnull %8, i32 noundef 0) #15
   br label %10
@@ -3918,14 +3908,14 @@ define dso_local zeroext i1 @BufferIsDirty(i32 noundef %0) local_unnamed_addr #7
   %4 = xor i32 %0, -1
   %5 = load ptr, ptr @LocalBufferDescriptors, align 8
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw %struct.BufferDesc, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [52 x i8], ptr %5, i64 %6
   br label %13
 
 8:                                                ; preds = %1
   %9 = add nsw i32 %0, -1
   %10 = load ptr, ptr @BufferDescriptors, align 8
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 %11
   br label %13
 
 13:                                               ; preds = %8, %3
@@ -3960,7 +3950,7 @@ define dso_local void @MarkBufferDirty(i32 noundef %0) local_unnamed_addr #0 {
 9:                                                ; preds = %6
   %10 = load ptr, ptr @BufferDescriptors, align 8
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr %union.BufferDescPadded, ptr %10, i64 %11
+  %12 = getelementptr [64 x i8], ptr %10, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -40
   %14 = load volatile i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -4052,7 +4042,7 @@ define dso_local i32 @ReleaseAndReadBuffer(i32 noundef %0, ptr noundef %1, i32 n
   %7 = xor i32 %0, -1
   %8 = load ptr, ptr @LocalBufferDescriptors, align 8
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw %struct.BufferDesc, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [52 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, %2
@@ -4093,7 +4083,7 @@ BufTagMatchesRelFileLocator.exit.thread:          ; preds = %14, %18, %28, %BufT
 31:                                               ; preds = %4
   %32 = load ptr, ptr @BufferDescriptors, align 8
   %33 = zext nneg i32 %0 to i64
-  %34 = getelementptr %union.BufferDescPadded, ptr %32, i64 %33
+  %34 = getelementptr [64 x i8], ptr %32, i64 %33
   %35 = getelementptr i8, ptr %34, i64 -64
   %36 = getelementptr i8, ptr %34, i64 -48
   %37 = load i32, ptr %36, align 4
@@ -4397,7 +4387,7 @@ define internal fastcc range(i32 0, 4) i32 @SyncOneBuffer(i32 noundef %0, i1 nou
   %6 = alloca %struct.buftag, align 4
   %7 = load ptr, ptr @BufferDescriptors, align 8
   %8 = zext i32 %0 to i64
-  %9 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = load ptr, ptr @ReservedRefCountEntry, align 8
   %.not.i = icmp eq ptr %10, null
@@ -4410,13 +4400,13 @@ define internal fastcc range(i32 0, 4) i32 @SyncOneBuffer(i32 noundef %0, i1 nou
 
 .critedge.i:                                      ; preds = %3, %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %3 ]
-  %12 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 8
   %.not8.i = icmp eq i32 %13, 0
   br i1 %.not8.i, label %14, label %11
 
 14:                                               ; preds = %.critedge.i
-  %15 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %15, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -4427,7 +4417,7 @@ define internal fastcc range(i32 0, 4) i32 @SyncOneBuffer(i32 noundef %0, i1 nou
   store i32 %18, ptr @PrivateRefCountClock, align 4
   %19 = and i32 %17, 7
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %20
   store ptr %21, ptr @ReservedRefCountEntry, align 8
   %22 = load ptr, ptr @PrivateRefCountHash, align 8
   %23 = call ptr @hash_search(ptr noundef %22, ptr noundef nonnull %21, i32 noundef 1, ptr noundef nonnull %5) #15
@@ -4548,7 +4538,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
   %76 = add i32 %75, 1
   store i32 %76, ptr %74, align 8
   %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds %struct.PendingWriteback, ptr %73, i64 %77
+  %78 = getelementptr inbounds [20 x i8], ptr %73, i64 %77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %78, ptr noundef nonnull readonly align 4 dereferenceable(20) %6, i64 20, i1 false)
   %.pre.i = load ptr, ptr %2, align 8
   %.pre9.i = load i32, ptr %.pre.i, align 4
@@ -4676,9 +4666,9 @@ define dso_local ptr @DebugPrintBufferRefcount(i32 noundef %0) local_unnamed_add
   %5 = xor i32 %0, -1
   %6 = load ptr, ptr @LocalBufferDescriptors, align 8
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw %struct.BufferDesc, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [52 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr @LocalRefCount, align 8
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %7
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr @MyProcNumber, align 4
   br label %GetPrivateRefCount.exit
@@ -4687,7 +4677,7 @@ define dso_local ptr @DebugPrintBufferRefcount(i32 noundef %0) local_unnamed_add
   %14 = add nsw i32 %0, -1
   %15 = load ptr, ptr @BufferDescriptors, align 8
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %0, ptr %2, align 4
   br label %19
@@ -4699,13 +4689,13 @@ define dso_local ptr @DebugPrintBufferRefcount(i32 noundef %0) local_unnamed_add
 
 19:                                               ; preds = %18, %13
   %indvars.iv.i.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i.i, %18 ]
-  %20 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, %0
   br i1 %22, label %GetPrivateRefCountEntry.exit.thread5.i, label %18
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %19
-  %23 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
@@ -4783,7 +4773,7 @@ define dso_local void @CheckPointBuffers(i32 noundef %0) local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %42 ]
   %.084105.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %42 ]
   %13 = load ptr, ptr @BufferDescriptors, align 8
-  %14 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   store i32 0, ptr %7, align 4
@@ -4817,7 +4807,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   %24 = load ptr, ptr @CkptBufferIds, align 8
   %25 = add i32 %.084105.i, 1
   %26 = sext i32 %.084105.i to i64
-  %27 = getelementptr inbounds %struct.CkptSortItem, ptr %24, i64 %26
+  %27 = getelementptr inbounds [20 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %29, ptr %28, align 4
@@ -4886,7 +4876,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   %.091109.i = phi ptr [ null, %.lr.ph112.preheader.i ], [ %.2.i, %81 ]
   %.096107.i = phi i32 [ 0, %.lr.ph112.preheader.i ], [ %.197.i, %81 ]
   %53 = load ptr, ptr @CkptBufferIds, align 8
-  %54 = getelementptr inbounds nuw %struct.CkptSortItem, ptr %53, i64 %indvars.iv128.i
+  %54 = getelementptr inbounds nuw [20 x i8], ptr %53, i64 %indvars.iv128.i
   %55 = load i32, ptr %54, align 4
   %56 = icmp ne i32 %.096107.i, 0
   %.not101.i = icmp eq i32 %.096107.i, %55
@@ -4911,7 +4901,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
 66:                                               ; preds = %64, %62
   %.192.i = phi ptr [ %63, %62 ], [ %65, %64 ]
   %67 = sext i32 %.085110.i to i64
-  %68 = getelementptr inbounds %struct.CkptTsStatus, ptr %.192.i, i64 %67
+  %68 = getelementptr inbounds [40 x i8], ptr %.192.i, i64 %67
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %68, i8 0, i64 40, i1 false)
   store i32 %55, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
@@ -4922,7 +4912,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
 71:                                               ; preds = %.lr.ph112.i
   %72 = add i32 %.085110.i, -1
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds %struct.CkptTsStatus, ptr %.091109.i, i64 %73
+  %74 = getelementptr inbounds [40 x i8], ptr %.091109.i, i64 %73
   br label %75
 
 75:                                               ; preds = %71, %66
@@ -4959,7 +4949,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
 
 85:                                               ; preds = %85, %.lr.ph118.i
   %indvars.iv131.i = phi i64 [ 0, %.lr.ph118.i ], [ %indvars.iv.next132.i, %85 ]
-  %86 = getelementptr inbounds nuw %struct.CkptTsStatus, ptr %.2.i, i64 %indvars.iv131.i
+  %86 = getelementptr inbounds nuw [40 x i8], ptr %.2.i, i64 %indvars.iv131.i
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %88 = load i32, ptr %87, align 8
   %89 = sitofp i32 %88 to double
@@ -4993,12 +4983,12 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %101 = load i32, ptr %100, align 8
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds %struct.CkptSortItem, ptr %99, i64 %102
+  %103 = getelementptr inbounds [20 x i8], ptr %99, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = load i32, ptr %104, align 4
   %106 = load ptr, ptr @BufferDescriptors, align 8
   %107 = zext i32 %105 to i64
-  %108 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [64 x i8], ptr %106, i64 %107
   %109 = add i32 %.087122.i, 1
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %111 = load volatile i32, ptr %110, align 4
@@ -5079,14 +5069,14 @@ define dso_local i32 @BufferGetBlockNumber(i32 noundef %0) local_unnamed_addr #8
   %4 = xor i32 %0, -1
   %5 = load ptr, ptr @LocalBufferDescriptors, align 8
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw %struct.BufferDesc, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [52 x i8], ptr %5, i64 %6
   br label %13
 
 8:                                                ; preds = %1
   %9 = add nsw i32 %0, -1
   %10 = load ptr, ptr @BufferDescriptors, align 8
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 %11
   br label %13
 
 13:                                               ; preds = %8, %3
@@ -5105,14 +5095,14 @@ define dso_local void @BufferGetTag(i32 noundef %0, ptr noundef writeonly captur
   %7 = xor i32 %0, -1
   %8 = load ptr, ptr @LocalBufferDescriptors, align 8
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw %struct.BufferDesc, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [52 x i8], ptr %8, i64 %9
   br label %16
 
 11:                                               ; preds = %4
   %12 = add nsw i32 %0, -1
   %13 = load ptr, ptr @BufferDescriptors, align 8
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %14
   br label %16
 
 16:                                               ; preds = %11, %6
@@ -5194,7 +5184,7 @@ define dso_local zeroext i1 @BufferIsPermanent(i32 noundef %0) local_unnamed_add
   %4 = add nsw i32 %0, -1
   %5 = load ptr, ptr @BufferDescriptors, align 8
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load volatile i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 0
@@ -5211,7 +5201,7 @@ define dso_local i64 @BufferGetLSNAtomic(i32 noundef %0) local_unnamed_addr #0 {
   %3 = add i32 %0, -1
   %4 = load ptr, ptr @BufferDescriptors, align 8
   %5 = zext i32 %3 to i64
-  %6 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %5
   %7 = icmp slt i32 %0, 0
   br i1 %7, label %8, label %14
 
@@ -5219,7 +5209,7 @@ define dso_local i64 @BufferGetLSNAtomic(i32 noundef %0) local_unnamed_addr #0 {
   %9 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %10 = xor i32 %0, -1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %BufferGetPage.exit
 
@@ -5326,9 +5316,9 @@ define dso_local void @DropRelationBuffers(ptr noundef %0, ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   tail call void @DropRelationLocalBuffers(i64 %.sroa.0.0.copyload62, i32 %.sroa.9.0.copyload, i32 noundef %13, i32 noundef %15) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5338,16 +5328,16 @@ define dso_local void @DropRelationBuffers(ptr noundef %0, ptr noundef readonly 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %21
   %indvars.iv99 = phi i64 [ 0, %.lr.ph84.preheader ], [ %indvars.iv.next100, %21 ]
   %.05382 = phi i64 [ 0, %.lr.ph84.preheader ], [ %26, %21 ]
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv99
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv99
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @smgrnblocks_cached(ptr noundef nonnull %0, i32 noundef %17) #15
-  %19 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv99
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv99
   store i32 %18, ptr %19, align 4
   %20 = icmp eq i32 %18, -1
   br i1 %20, label %.thread.loopexit, label %21
 
 21:                                               ; preds = %.lr.ph84
-  %22 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv99
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv99
   %23 = load i32, ptr %22, align 4
   %24 = sub i32 %18, %23
   %25 = zext i32 %24 to i64
@@ -5380,11 +5370,11 @@ define dso_local void @DropRelationBuffers(ptr noundef %0, ptr noundef readonly 
 
 .lr.ph86:                                         ; preds = %.lr.ph86.preheader, %.lr.ph86
   %indvars.iv104 = phi i64 [ 0, %.lr.ph86.preheader ], [ %indvars.iv.next105, %.lr.ph86 ]
-  %32 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv104
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv104
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv104
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv104
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv104
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv104
   %37 = load i32, ptr %36, align 4
   tail call fastcc void @FindAndDropRelationBuffers(i64 %.sroa.0.0.copyload62, i32 %.sroa.9.0.copyload, i32 noundef %33, i32 noundef %35, i32 noundef %37)
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
@@ -5412,7 +5402,7 @@ define dso_local void @DropRelationBuffers(ptr noundef %0, ptr noundef readonly 
 45:                                               ; preds = %.lr.ph91, %BufTagMatchesRelFileLocator.exit.thread
   %indvars.iv114 = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next115, %BufTagMatchesRelFileLocator.exit.thread ]
   %46 = load ptr, ptr @BufferDescriptors, align 8
-  %47 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %46, i64 %indvars.iv114
+  %47 = getelementptr inbounds nuw [64 x i8], ptr %46, i64 %indvars.iv114
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, %.sroa.0.sroa.0.0.extract.trunc
   br i1 %49, label %50, label %BufTagMatchesRelFileLocator.exit.thread
@@ -5479,14 +5469,14 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %56
 
 BufTagMatchesRelFileLocator.exit60.us.us.us:      ; preds = %BufTagMatchesRelFileLocator.exit60.thread.us.us.us, %.lr.ph88.split.us.split.us.split.us
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %BufTagMatchesRelFileLocator.exit60.thread.us.us.us ], [ 0, %.lr.ph88.split.us.split.us.split.us ]
-  %69 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv109
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv109
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %.val.us.us.us, %70
   br i1 %71, label %72, label %BufTagMatchesRelFileLocator.exit60.thread.us.us.us
 
 72:                                               ; preds = %BufTagMatchesRelFileLocator.exit60.us.us.us
   %73 = load i32, ptr %65, align 4
-  %74 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv109
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv109
   %75 = load i32, ptr %74, align 4
   %.not57.us.us.us = icmp ult i32 %73, %75
   br i1 %.not57.us.us.us, label %BufTagMatchesRelFileLocator.exit60.thread.us.us.us, label %.thread74.split.us.split.us.split.us
@@ -5554,7 +5544,7 @@ define internal fastcc void @FindAndDropRelationBuffers(i64 %0, i32 %1, i32 noun
   %19 = load ptr, ptr @MainLWLockArray, align 8
   %20 = and i32 %18, 127
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw %union.LWLockPadded, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [128 x i8], ptr %19, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6784
   %24 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %23, i32 noundef 1) #15
   %25 = call i32 @BufTableLookup(ptr noundef nonnull %7, i32 noundef %18) #15
@@ -5565,7 +5555,7 @@ define internal fastcc void @FindAndDropRelationBuffers(i64 %0, i32 %1, i32 noun
 27:                                               ; preds = %17
   %28 = load ptr, ptr @BufferDescriptors, align 8
   %29 = zext nneg i32 %25 to i64
-  %30 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [64 x i8], ptr %28, i64 %29
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8
   store i32 0, ptr %12, align 4
@@ -5654,7 +5644,7 @@ define internal fastcc void @InvalidateBuffer(ptr noundef %0) unnamed_addr #0 {
   %9 = load ptr, ptr @MainLWLockArray, align 8
   %10 = and i32 %8, 127
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw %union.LWLockPadded, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 6784
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5756,13 +5746,13 @@ BufferTagsEqual.exit.thread:                      ; preds = %LockBufHdr.exit, %3
 
 59:                                               ; preds = %58, %55
   %indvars.iv.i.i = phi i64 [ 0, %55 ], [ %indvars.iv.next.i.i, %58 ]
-  %60 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   %61 = load i32, ptr %60, align 8
   %62 = icmp eq i32 %61, %57
   br i1 %62, label %GetPrivateRefCountEntry.exit.thread5.i, label %58
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %59
-  %63 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %GetPrivateRefCount.exit
 
@@ -5845,7 +5835,7 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
   %.099136 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1100, %22 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i32, ptr %12, align 4
@@ -5867,7 +5857,7 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
 18:                                               ; preds = %.lr.ph
   %19 = add i32 %.099136, 1
   %20 = sext i32 %.099136 to i64
-  %21 = getelementptr inbounds ptr, ptr %8, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %8, i64 %20
   store ptr %11, ptr %21, align 8
   br label %22
 
@@ -5895,8 +5885,8 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
 .preheader132:                                    ; preds = %24, %44
   %indvars.iv170 = phi i64 [ %indvars.iv.next171, %44 ], [ 0, %24 ]
   %.0101141 = phi i64 [ %.2103, %44 ], [ 0, %24 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv170
-  %30 = getelementptr inbounds nuw [4 x i32], ptr %27, i64 %indvars.iv170
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv170
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %indvars.iv170
   br label %31
 
 31:                                               ; preds = %.preheader132, %43
@@ -5905,7 +5895,7 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
   %32 = load ptr, ptr %29, align 8
   %33 = trunc nuw nsw i64 %indvars.iv166 to i32
   %34 = tail call i32 @smgrnblocks_cached(ptr noundef %32, i32 noundef %33) #15
-  %35 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv166
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv166
   store i32 %34, ptr %35, align 4
   %36 = icmp eq i32 %34, -1
   br i1 %36, label %37, label %40
@@ -5950,8 +5940,8 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
 
 .preheader:                                       ; preds = %.preheader.preheader, %54
   %indvars.iv189 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next190, %54 ]
-  %52 = getelementptr inbounds nuw [4 x i32], ptr %27, i64 %indvars.iv189
-  %53 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv189
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %indvars.iv189
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv189
   br label %55
 
 54:                                               ; preds = %61
@@ -5961,7 +5951,7 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
 
 55:                                               ; preds = %.preheader, %61
   %indvars.iv185 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next186, %61 ]
-  %56 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv185
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv185
   %57 = load i32, ptr %56, align 4
   %.not127 = icmp eq i32 %57, -1
   br i1 %.not127, label %61, label %58
@@ -5997,8 +5987,8 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %.lr.ph148
   %indvars.iv172 = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvars.iv.next173, %.lr.ph148 ]
-  %64 = getelementptr inbounds nuw %struct.RelFileLocator, ptr %63, i64 %indvars.iv172
-  %65 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv172
+  %64 = getelementptr inbounds nuw [12 x i8], ptr %63, i64 %indvars.iv172
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv172
   %66 = load ptr, ptr %65, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %64, ptr noundef nonnull align 8 dereferenceable(12) %66, i64 12, i1 false)
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
@@ -6031,7 +6021,7 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
 77:                                               ; preds = %.lr.ph154, %bsearch.exit.thread
   %indvars.iv182 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next183, %bsearch.exit.thread ]
   %78 = load ptr, ptr @BufferDescriptors, align 8
-  %79 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %78, i64 %indvars.iv182
+  %79 = getelementptr inbounds nuw [64 x i8], ptr %78, i64 %indvars.iv182
   br i1 %69, label %95, label %.preheader129
 
 .preheader129:                                    ; preds = %77
@@ -6045,7 +6035,7 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
 
 83:                                               ; preds = %.lr.ph151, %BufTagMatchesRelFileLocator.exit.thread
   %indvars.iv177 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next178, %BufTagMatchesRelFileLocator.exit.thread ]
-  %84 = getelementptr inbounds nuw %struct.RelFileLocator, ptr %63, i64 %indvars.iv177
+  %84 = getelementptr inbounds nuw [12 x i8], ptr %63, i64 %indvars.iv177
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %80, %85
   br i1 %86, label %87, label %BufTagMatchesRelFileLocator.exit.thread
@@ -6261,7 +6251,7 @@ define dso_local void @DropDatabaseBuffers(i32 noundef %0) local_unnamed_addr #0
 10:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %11 = load ptr, ptr @BufferDescriptors, align 8
-  %12 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %.not = icmp eq i32 %14, %0
@@ -6381,7 +6371,7 @@ RelationGetSmgr.exit:                             ; preds = %1, %9
   %35 = phi i32 [ %28, %.lr.ph51 ], [ %74, %BufTagMatchesRelFileLocator.exit.thread ]
   %36 = phi ptr [ %.pre58, %.lr.ph51 ], [ %75, %BufTagMatchesRelFileLocator.exit.thread ]
   %indvars.iv55 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next56, %BufTagMatchesRelFileLocator.exit.thread ]
-  %37 = getelementptr inbounds nuw %struct.BufferDesc, ptr %36, i64 %indvars.iv55
+  %37 = getelementptr inbounds nuw [52 x i8], ptr %36, i64 %indvars.iv55
   %38 = load i32, ptr %37, align 4
   %39 = load i32, ptr %0, align 4
   %40 = icmp eq i32 %38, %39
@@ -6415,7 +6405,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %41
   %57 = load i32, ptr %56, align 4
   %58 = sub i32 -2, %57
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %55, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %55, i64 %59
   %61 = load ptr, ptr %60, align 8
   store ptr @local_buffer_write_error_callback, ptr %32, align 8
   store ptr %37, ptr %33, align 8
@@ -6459,7 +6449,7 @@ BufTagMatchesRelFileLocator.exit.thread:          ; preds = %34, %41, %54, %49, 
 78:                                               ; preds = %.lr.ph, %BufTagMatchesRelFileLocator.exit38.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %BufTagMatchesRelFileLocator.exit38.thread ]
   %79 = load ptr, ptr @BufferDescriptors, align 8
-  %80 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %79, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [64 x i8], ptr %79, i64 %indvars.iv
   %81 = load i32, ptr %80, align 4
   %82 = load i32, ptr %0, align 4
   %83 = icmp eq i32 %81, %82
@@ -6491,13 +6481,13 @@ BufTagMatchesRelFileLocator.exit38:               ; preds = %84
 
 .critedge.i:                                      ; preds = %92, %94
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %94 ], [ 0, %92 ]
-  %95 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %96 = load i32, ptr %95, align 8
   %.not8.i = icmp eq i32 %96, 0
   br i1 %.not8.i, label %97, label %94
 
 97:                                               ; preds = %.critedge.i
-  %98 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %98, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -6508,7 +6498,7 @@ BufTagMatchesRelFileLocator.exit38:               ; preds = %84
   store i32 %101, ptr @PrivateRefCountClock, align 4
   %102 = and i32 %100, 7
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %103
   store ptr %104, ptr @ReservedRefCountEntry, align 8
   %105 = load ptr, ptr @PrivateRefCountHash, align 8
   %106 = call ptr @hash_search(ptr noundef %105, ptr noundef nonnull %104, i32 noundef 1, ptr noundef nonnull %3) #15
@@ -6789,7 +6779,7 @@ TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %39
   %.val11.i = load i32, ptr %30, align 4
   %68 = load ptr, ptr @BufferIOCVArray, align 8
   %69 = sext i32 %.val11.i to i64
-  %70 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %68, i64 %69
+  %70 = getelementptr inbounds [16 x i8], ptr %68, i64 %69
   call void @ConditionVariableBroadcast(ptr noundef %70) #15
   %71 = load ptr, ptr %7, align 8
   store ptr %71, ptr @error_context_stack, align 8
@@ -6820,8 +6810,8 @@ define dso_local void @FlushRelationsAllBuffers(ptr noundef readonly captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw %struct.SMgrSortArray, ptr %9, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %13, i64 12, i1 false)
   %14 = load ptr, ptr %12, align 8
@@ -6857,7 +6847,7 @@ define dso_local void @FlushRelationsAllBuffers(ptr noundef readonly captures(no
 26:                                               ; preds = %.lr.ph79, %bsearch.exit.thread
   %indvars.iv94 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next95, %bsearch.exit.thread ]
   %27 = load ptr, ptr @BufferDescriptors, align 8
-  %28 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %27, i64 %indvars.iv94
+  %28 = getelementptr inbounds nuw [64 x i8], ptr %27, i64 %indvars.iv94
   br i1 %18, label %44, label %.preheader
 
 .preheader:                                       ; preds = %26
@@ -6871,7 +6861,7 @@ define dso_local void @FlushRelationsAllBuffers(ptr noundef readonly captures(no
 
 32:                                               ; preds = %.lr.ph76, %BufTagMatchesRelFileLocator.exit.thread
   %indvars.iv89 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next90, %BufTagMatchesRelFileLocator.exit.thread ]
-  %33 = getelementptr inbounds nuw %struct.SMgrSortArray, ptr %9, i64 %indvars.iv89
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv89
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %29, %34
   br i1 %35, label %36, label %BufTagMatchesRelFileLocator.exit.thread
@@ -6962,13 +6952,13 @@ bsearch.exit:                                     ; preds = %BufTagMatchesRelFil
 
 .critedge.i:                                      ; preds = %bsearch.exit, %63
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %63 ], [ 0, %bsearch.exit ]
-  %64 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %65 = load i32, ptr %64, align 8
   %.not8.i = icmp eq i32 %65, 0
   br i1 %.not8.i, label %66, label %63
 
 66:                                               ; preds = %.critedge.i
-  %67 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %67, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -6979,7 +6969,7 @@ bsearch.exit:                                     ; preds = %BufTagMatchesRelFil
   store i32 %70, ptr @PrivateRefCountClock, align 4
   %71 = and i32 %69, 7
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %72
   store ptr %73, ptr @ReservedRefCountEntry, align 8
   %74 = load ptr, ptr @PrivateRefCountHash, align 8
   %75 = call ptr @hash_search(ptr noundef %74, ptr noundef nonnull %73, i32 noundef 1, ptr noundef nonnull %4) #15
@@ -7217,17 +7207,17 @@ define internal fastcc void @RelationCopyStorageUsingBuffer(i64 %0, i32 %1, i64 
   %35 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %36 = xor i32 %32, -1
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr @LocalBufferDescriptors, align 8
-  %41 = getelementptr inbounds nuw %struct.BufferDesc, ptr %40, i64 %37
+  %41 = getelementptr inbounds nuw [52 x i8], ptr %40, i64 %37
   br label %BufferGetBlockNumber.exit
 
 42:                                               ; preds = %31
   %43 = add nsw i32 %32, -1
   %44 = load ptr, ptr @BufferDescriptors, align 8
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [64 x i8], ptr %44, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 36
   %48 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %47, i32 noundef 1) #15
   %49 = load ptr, ptr @BufferBlocks, align 8
@@ -7235,7 +7225,7 @@ define internal fastcc void @RelationCopyStorageUsingBuffer(i64 %0, i32 %1, i64 
   %51 = shl nsw i64 %50, 13
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 %51
   %53 = load ptr, ptr @BufferDescriptors, align 8
-  %54 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %53, i64 %45
+  %54 = getelementptr inbounds nuw [64 x i8], ptr %53, i64 %45
   br label %BufferGetBlockNumber.exit
 
 BufferGetBlockNumber.exit:                        ; preds = %34, %42
@@ -7251,7 +7241,7 @@ BufferGetBlockNumber.exit:                        ; preds = %34, %42
   %60 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %61 = xor i32 %57, -1
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %60, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %62
   %64 = load ptr, ptr %63, align 8
   br label %BufferGetPage.exit50
 
@@ -7286,7 +7276,7 @@ BufferGetPage.exit50:                             ; preds = %59, %65
   %79 = add nsw i32 %57, -1
   %80 = load ptr, ptr @BufferDescriptors, align 8
   %81 = zext i32 %79 to i64
-  %82 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [64 x i8], ptr %80, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 36
   call void @LWLockRelease(ptr noundef nonnull %83) #15
   br label %UnlockReleaseBuffer.exit
@@ -7299,7 +7289,7 @@ UnlockReleaseBuffer.exit:                         ; preds = %75, %78
   %85 = add nsw i32 %32, -1
   %86 = load ptr, ptr @BufferDescriptors, align 8
   %87 = zext i32 %85 to i64
-  %88 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [64 x i8], ptr %86, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 36
   call void @LWLockRelease(ptr noundef nonnull %89) #15
   br label %UnlockReleaseBuffer.exit51
@@ -7343,7 +7333,7 @@ define dso_local void @FlushDatabaseBuffers(i32 noundef %0) local_unnamed_addr #
 11:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
   %12 = load ptr, ptr @BufferDescriptors, align 8
-  %13 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %.not = icmp eq i32 %15, %0
@@ -7361,13 +7351,13 @@ define dso_local void @FlushDatabaseBuffers(i32 noundef %0) local_unnamed_addr #
 
 .critedge.i:                                      ; preds = %16, %18
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %18 ], [ 0, %16 ]
-  %19 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 8
   %.not8.i = icmp eq i32 %20, 0
   br i1 %.not8.i, label %21, label %18
 
 21:                                               ; preds = %.critedge.i
-  %22 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %22, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -7378,7 +7368,7 @@ define dso_local void @FlushDatabaseBuffers(i32 noundef %0) local_unnamed_addr #
   store i32 %25, ptr @PrivateRefCountClock, align 4
   %26 = and i32 %24, 7
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %27
   store ptr %28, ptr @ReservedRefCountEntry, align 8
   %29 = load ptr, ptr @PrivateRefCountHash, align 8
   %30 = call ptr @hash_search(ptr noundef %29, ptr noundef nonnull %28, i32 noundef 1, ptr noundef nonnull %3) #15
@@ -7480,7 +7470,7 @@ define dso_local void @FlushOneBuffer(i32 noundef %0) local_unnamed_addr #0 {
   %2 = add i32 %0, -1
   %3 = load ptr, ptr @BufferDescriptors, align 8
   %4 = zext i32 %2 to i64
-  %5 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 %4
   tail call fastcc void @FlushBuffer(ptr noundef %5, ptr noundef null, i32 noundef 3)
   ret void
 }
@@ -7494,7 +7484,7 @@ define dso_local void @UnlockReleaseBuffer(i32 noundef %0) local_unnamed_addr #0
   %4 = add nsw i32 %0, -1
   %5 = load ptr, ptr @BufferDescriptors, align 8
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
   tail call void @LWLockRelease(ptr noundef nonnull %8) #15
   br label %LockBuffer.exit
@@ -7513,7 +7503,7 @@ define dso_local void @LockBuffer(i32 noundef %0, i32 noundef %1) local_unnamed_
   %5 = add nsw i32 %0, -1
   %6 = load ptr, ptr @BufferDescriptors, align 8
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %7
   switch i32 %1, label %17 [
     i32 0, label %9
     i32 1, label %11
@@ -7556,7 +7546,7 @@ define dso_local void @IncrBufferRefCount(i32 noundef %0) local_unnamed_addr #0 
   %5 = load ptr, ptr @LocalRefCount, align 8
   %6 = xor i32 %0, -1
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, 1
   store i32 %10, ptr %8, align 4
@@ -7592,7 +7582,7 @@ define internal fastcc ptr @GetPrivateRefCountEntry(i32 noundef %0, i1 noundef z
 
 7:                                                ; preds = %2, %6
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %6 ]
-  %8 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, %0
   br i1 %10, label %.loopexit.loopexit, label %6
@@ -7622,13 +7612,13 @@ define internal fastcc ptr @GetPrivateRefCountEntry(i32 noundef %0, i1 noundef z
 
 .critedge.i:                                      ; preds = %18, %20
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %20 ], [ 0, %18 ]
-  %21 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 8
   %.not8.i = icmp eq i32 %22, 0
   br i1 %.not8.i, label %23, label %20
 
 23:                                               ; preds = %.critedge.i
-  %24 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   br label %ReservePrivateRefCountEntry.exit
 
 25:                                               ; preds = %20
@@ -7638,7 +7628,7 @@ define internal fastcc ptr @GetPrivateRefCountEntry(i32 noundef %0, i1 noundef z
   store i32 %27, ptr @PrivateRefCountClock, align 4
   %28 = and i32 %26, 7
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %29
   store ptr %30, ptr @ReservedRefCountEntry, align 8
   %31 = load ptr, ptr @PrivateRefCountHash, align 8
   %32 = call ptr @hash_search(ptr noundef %31, ptr noundef nonnull %30, i32 noundef 1, ptr noundef nonnull %3) #15
@@ -7673,7 +7663,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %18, %23, %25
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %7
-  %48 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %14, %11, %ReservePrivateRefCountEntry.exit
@@ -7709,7 +7699,7 @@ BufferGetPage.exit:                               ; preds = %2
 14:                                               ; preds = %BufferGetPage.exit
   %15 = load ptr, ptr @BufferDescriptors, align 8
   %16 = zext nneg i32 %0 to i64
-  %17 = getelementptr %union.BufferDescPadded, ptr %15, i64 %16
+  %17 = getelementptr [64 x i8], ptr %15, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -64
   %19 = getelementptr i8, ptr %17, i64 -40
   %20 = load volatile i32, ptr %19, align 4
@@ -7909,7 +7899,7 @@ define dso_local zeroext i1 @ConditionalLockBuffer(i32 noundef %0) local_unnamed
   %4 = add nsw i32 %0, -1
   %5 = load ptr, ptr @BufferDescriptors, align 8
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %9 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %8, i32 noundef 0) #15
   br label %10
@@ -7931,7 +7921,7 @@ define dso_local void @CheckBufferIsPinnedOnce(i32 noundef %0) local_unnamed_add
   %5 = load ptr, ptr @LocalRefCount, align 8
   %6 = xor i32 %0, -1
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %7
   %9 = load i32, ptr %8, align 4
   %.not5 = icmp eq i32 %9, 1
   br i1 %.not5, label %34, label %10
@@ -7939,7 +7929,7 @@ define dso_local void @CheckBufferIsPinnedOnce(i32 noundef %0) local_unnamed_add
 10:                                               ; preds = %4
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   %12 = load ptr, ptr @LocalRefCount, align 8
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %7
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %7
   %14 = load i32, ptr %13, align 4
   %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %14) #15
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5150, ptr noundef nonnull @__func__.CheckBufferIsPinnedOnce) #15
@@ -7957,13 +7947,13 @@ define dso_local void @CheckBufferIsPinnedOnce(i32 noundef %0) local_unnamed_add
 
 18:                                               ; preds = %17, %16
   %indvars.iv.i.i = phi i64 [ 0, %16 ], [ %indvars.iv.next.i.i, %17 ]
-  %19 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, %0
   br i1 %21, label %GetPrivateRefCountEntry.exit.thread5.i, label %17
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %18
-  %22 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %GetPrivateRefCount.exit
 
@@ -8013,7 +8003,7 @@ define dso_local void @LockBufferForCleanup(i32 noundef %0) local_unnamed_addr #
   %6 = add nsw i32 %0, -1
   %7 = load ptr, ptr @BufferDescriptors, align 8
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -8033,7 +8023,7 @@ LockBuffer.exit:                                  ; preds = %81, %5
   %.045 = phi i8 [ 0, %5 ], [ %.449, %81 ]
   %.041 = phi i8 [ 0, %5 ], [ %.4, %81 ]
   %.0 = phi i64 [ 0, %5 ], [ %.3, %81 ]
-  %23 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %22, i64 %8
+  %23 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 36
   %25 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %24, i32 noundef 0) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -8107,7 +8097,7 @@ LockBuffer.exit53:                                ; preds = %39
   %47 = or disjoint i32 %46, 536870912
   store volatile i32 %47, ptr %15, align 4
   %48 = load ptr, ptr @BufferDescriptors, align 8
-  %49 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %48, i64 %8
+  %49 = getelementptr inbounds nuw [64 x i8], ptr %48, i64 %8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 36
   call void @LWLockRelease(ptr noundef nonnull %50) #15
   %51 = load i32, ptr @standbyState, align 4
@@ -8248,13 +8238,13 @@ define dso_local zeroext i1 @HoldingBufferPinThatDelaysRecovery() local_unnamed_
 
 7:                                                ; preds = %6, %4
   %indvars.iv.i.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i.i, %6 ]
-  %8 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, %5
   br i1 %10, label %GetPrivateRefCountEntry.exit.thread5.i, label %6
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %7
-  %11 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %18
 
@@ -8299,7 +8289,7 @@ define dso_local zeroext i1 @ConditionalLockBufferForCleanup(i32 noundef %0) loc
   %6 = load ptr, ptr @LocalRefCount, align 8
   %7 = xor i32 %0, -1
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %8
   %10 = load i32, ptr %9, align 4
   %.not16 = icmp eq i32 %10, 1
   br label %GetPrivateRefCount.exit.thread
@@ -8316,13 +8306,13 @@ define dso_local zeroext i1 @ConditionalLockBufferForCleanup(i32 noundef %0) loc
 
 13:                                               ; preds = %12, %11
   %indvars.iv.i.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i.i, %12 ]
-  %14 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %0
   br i1 %16, label %GetPrivateRefCountEntry.exit.thread5.i, label %12
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %13
-  %17 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %GetPrivateRefCount.exit
 
@@ -8353,14 +8343,14 @@ ConditionalLockBuffer.exit:                       ; preds = %GetPrivateRefCount.
   %26 = add nsw i32 %0, -1
   %27 = load ptr, ptr @BufferDescriptors, align 8
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [64 x i8], ptr %27, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 36
   %31 = call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %30, i32 noundef 0) #15
   br i1 %31, label %32, label %GetPrivateRefCount.exit.thread
 
 32:                                               ; preds = %ConditionalLockBuffer.exit
   %33 = load ptr, ptr @BufferDescriptors, align 8
-  %34 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %33, i64 %28
+  %34 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 %28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -8404,7 +8394,7 @@ LockBuffer.exit:                                  ; preds = %LockBufHdr.exit
   %49 = and i32 %.lcssa.i, -4194305
   store volatile i32 %49, ptr %40, align 4
   %50 = load ptr, ptr @BufferDescriptors, align 8
-  %51 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %50, i64 %28
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %50, i64 %28
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 36
   call void @LWLockRelease(ptr noundef nonnull %52) #15
   br label %GetPrivateRefCount.exit.thread
@@ -8425,7 +8415,7 @@ define dso_local zeroext i1 @IsBufferCleanupOK(i32 noundef %0) local_unnamed_add
   %6 = load ptr, ptr @LocalRefCount, align 8
   %7 = xor i32 %0, -1
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %8
   %10 = load i32, ptr %9, align 4
   %.not11 = icmp eq i32 %10, 1
   br label %GetPrivateRefCount.exit.thread
@@ -8442,13 +8432,13 @@ define dso_local zeroext i1 @IsBufferCleanupOK(i32 noundef %0) local_unnamed_add
 
 13:                                               ; preds = %12, %11
   %indvars.iv.i.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i.i, %12 ]
-  %14 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %0
   br i1 %16, label %GetPrivateRefCountEntry.exit.thread5.i, label %12
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %13
-  %17 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %GetPrivateRefCount.exit
 
@@ -8479,7 +8469,7 @@ GetPrivateRefCount.exit:                          ; preds = %GetPrivateRefCountE
   %27 = add nsw i32 %0, -1
   %28 = load ptr, ptr @BufferDescriptors, align 8
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [64 x i8], ptr %28, i64 %29
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -8556,7 +8546,7 @@ define dso_local void @ScheduleBufferTagForWriteback(ptr noundef %0, i32 noundef
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 8
   %18 = sext i32 %16 to i64
-  %19 = getelementptr inbounds %struct.PendingWriteback, ptr %14, i64 %18
+  %19 = getelementptr inbounds [20 x i8], ptr %14, i64 %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %19, ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false)
   %.pre = load ptr, ptr %0, align 8
   %.pre9 = load i32, ptr %.pre, align 4
@@ -8599,7 +8589,7 @@ define dso_local void @IssuePendingWritebacks(ptr noundef %0, i32 noundef %1) lo
   %14 = phi i32 [ %44, %._crit_edge ], [ %12, %6 ]
   %.094 = phi i32 [ %.lcssa, %._crit_edge ], [ 0, %6 ]
   %15 = sext i32 %.094 to i64
-  %16 = getelementptr inbounds %struct.PendingWriteback, ptr %7, i64 %15
+  %16 = getelementptr inbounds [20 x i8], ptr %7, i64 %15
   %.sroa.0.0.copyload = load i64, ptr %16, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
@@ -8622,7 +8612,7 @@ define dso_local void @IssuePendingWritebacks(ptr noundef %0, i32 noundef %1) lo
   %.06181 = phi i32 [ %.162, %41 ], [ 1, %.lr.ph.preheader ]
   %21 = add i32 %.06082, %17
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.PendingWriteback, ptr %7, i64 %22
+  %23 = getelementptr inbounds [20 x i8], ptr %7, i64 %22
   %24 = load i64, ptr %23, align 4
   %25 = getelementptr i8, ptr %23, i64 8
   %.val.i70 = load i32, ptr %25, align 4
@@ -8852,7 +8842,7 @@ buffertag_comparator.exit168.thread:              ; preds = %53, %.lr.ph, %49, %
 
 buffertag_comparator.exit168.thread212:           ; preds = %61, %59, %47, %rlocator_comparator.exit.i162, %51
   %69 = lshr i64 %.0, 1
-  %70 = getelementptr inbounds nuw %struct.PendingWriteback, ptr %.0127.ph, i64 %69
+  %70 = getelementptr inbounds nuw [20 x i8], ptr %.0127.ph, i64 %69
   %.not = icmp eq i64 %.0, 7
   br i1 %.not, label %90, label %71
 
@@ -8863,17 +8853,17 @@ buffertag_comparator.exit168.thread212:           ; preds = %61, %59, %47, %rloc
 
 74:                                               ; preds = %71
   %75 = lshr i64 %.0, 3
-  %76 = getelementptr inbounds nuw %struct.PendingWriteback, ptr %.0127.ph, i64 %75
+  %76 = getelementptr inbounds nuw [20 x i8], ptr %.0127.ph, i64 %75
   %77 = shl nuw nsw i64 %75, 1
-  %78 = getelementptr inbounds nuw %struct.PendingWriteback, ptr %.0127.ph, i64 %77
+  %78 = getelementptr inbounds nuw [20 x i8], ptr %.0127.ph, i64 %77
   %79 = tail call fastcc ptr @sort_pending_writebacks_med3(ptr noundef %.0127.ph, ptr noundef %76, ptr noundef %78)
   %80 = sub nsw i64 0, %75
-  %81 = getelementptr inbounds %struct.PendingWriteback, ptr %70, i64 %80
-  %82 = getelementptr inbounds nuw %struct.PendingWriteback, ptr %70, i64 %75
+  %81 = getelementptr inbounds [20 x i8], ptr %70, i64 %80
+  %82 = getelementptr inbounds nuw [20 x i8], ptr %70, i64 %75
   %83 = tail call fastcc ptr @sort_pending_writebacks_med3(ptr noundef %81, ptr noundef %70, ptr noundef %82)
   %84 = sub nsw i64 0, %77
-  %85 = getelementptr inbounds %struct.PendingWriteback, ptr %72, i64 %84
-  %86 = getelementptr inbounds %struct.PendingWriteback, ptr %72, i64 %80
+  %85 = getelementptr inbounds [20 x i8], ptr %72, i64 %84
+  %86 = getelementptr inbounds [20 x i8], ptr %72, i64 %80
   %87 = tail call fastcc ptr @sort_pending_writebacks_med3(ptr noundef %85, ptr noundef %86, ptr noundef %72)
   br label %88
 
@@ -9073,14 +9063,14 @@ rlocator_comparator.exit.i190:                    ; preds = %130
   %154 = sdiv exact i64 %153, 20
   %. = tail call i64 @llvm.smin.i64(i64 %151, i64 %154)
   %155 = sub nsw i64 0, %.
-  %156 = getelementptr inbounds %struct.PendingWriteback, ptr %.1138.lcssa, i64 %155
+  %156 = getelementptr inbounds [20 x i8], ptr %.1138.lcssa, i64 %155
   %.not.i199 = icmp eq i64 %., 0
   br i1 %.not.i199, label %sort_pending_writebacks_swapn.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge4, %.lr.ph.i
   %.06.i = phi i64 [ %159, %.lr.ph.i ], [ 0, %.critedge4 ]
-  %157 = getelementptr inbounds nuw %struct.PendingWriteback, ptr %.0127.ph, i64 %.06.i
-  %158 = getelementptr inbounds nuw %struct.PendingWriteback, ptr %156, i64 %.06.i
+  %157 = getelementptr inbounds nuw [20 x i8], ptr %.0127.ph, i64 %.06.i
+  %158 = getelementptr inbounds nuw [20 x i8], ptr %156, i64 %.06.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i.i, ptr noundef nonnull align 4 dereferenceable(20) %157, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %157, ptr noundef nonnull align 4 dereferenceable(20) %158, i64 20, i1 false)
@@ -9101,14 +9091,14 @@ sort_pending_writebacks_swapn.exit:               ; preds = %.lr.ph.i, %.critedg
   %167 = add nsw i64 %166, -1
   %168 = tail call i64 @llvm.smin.i64(i64 %163, i64 %167)
   %169 = sub nsw i64 0, %168
-  %170 = getelementptr inbounds %struct.PendingWriteback, ptr %10, i64 %169
+  %170 = getelementptr inbounds [20 x i8], ptr %10, i64 %169
   %.not.i201 = icmp eq i64 %168, 0
   br i1 %.not.i201, label %sort_pending_writebacks_swapn.exit205, label %.lr.ph.i202
 
 .lr.ph.i202:                                      ; preds = %sort_pending_writebacks_swapn.exit, %.lr.ph.i202
   %.06.i203 = phi i64 [ %173, %.lr.ph.i202 ], [ 0, %sort_pending_writebacks_swapn.exit ]
-  %171 = getelementptr inbounds nuw %struct.PendingWriteback, ptr %.1138.lcssa, i64 %.06.i203
-  %172 = getelementptr inbounds nuw %struct.PendingWriteback, ptr %170, i64 %.06.i203
+  %171 = getelementptr inbounds nuw [20 x i8], ptr %.1138.lcssa, i64 %.06.i203
+  %172 = getelementptr inbounds nuw [20 x i8], ptr %170, i64 %.06.i203
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i200)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i.i200, ptr noundef nonnull align 4 dereferenceable(20) %171, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %171, ptr noundef nonnull align 4 dereferenceable(20) %172, i64 20, i1 false)
@@ -9136,7 +9126,7 @@ sort_pending_writebacks_swapn.exit205:            ; preds = %.lr.ph.i202, %sort_
 
 179:                                              ; preds = %177
   %180 = sub nsw i64 0, %163
-  %181 = getelementptr inbounds %struct.PendingWriteback, ptr %10, i64 %180
+  %181 = getelementptr inbounds [20 x i8], ptr %10, i64 %180
   br label %.outer
 
 182:                                              ; preds = %sort_pending_writebacks_swapn.exit205
@@ -9145,7 +9135,7 @@ sort_pending_writebacks_swapn.exit205:            ; preds = %.lr.ph.i202, %sort_
 
 184:                                              ; preds = %182
   %185 = sub nsw i64 0, %163
-  %186 = getelementptr inbounds %struct.PendingWriteback, ptr %10, i64 %185
+  %186 = getelementptr inbounds [20 x i8], ptr %10, i64 %185
   tail call fastcc void @sort_pending_writebacks(ptr noundef nonnull %186, i64 noundef %163)
   br label %187
 
@@ -9176,13 +9166,13 @@ define dso_local noundef zeroext i1 @EvictUnpinnedBuffer(i32 noundef %0) local_u
 
 .critedge.i:                                      ; preds = %1, %6
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %6 ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 8
   %.not8.i = icmp eq i32 %8, 0
   br i1 %.not8.i, label %9, label %6
 
 9:                                                ; preds = %.critedge.i
-  %10 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %10, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -9193,7 +9183,7 @@ define dso_local noundef zeroext i1 @EvictUnpinnedBuffer(i32 noundef %0) local_u
   store i32 %13, ptr @PrivateRefCountClock, align 4
   %14 = and i32 %12, 7
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %15
   store ptr %16, ptr @ReservedRefCountEntry, align 8
   %17 = load ptr, ptr @PrivateRefCountHash, align 8
   %18 = call ptr @hash_search(ptr noundef %17, ptr noundef nonnull %16, i32 noundef 1, ptr noundef nonnull %3) #15
@@ -9214,7 +9204,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %1, %9, %11
   %25 = add i32 %0, -1
   %26 = load ptr, ptr @BufferDescriptors, align 8
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 %27
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -9318,7 +9308,7 @@ define internal fastcc noundef zeroext i1 @InvalidateVictimBuffer(ptr noundef %0
   %5 = load ptr, ptr @MainLWLockArray, align 8
   %6 = and i32 %4, 127
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw %union.LWLockPadded, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 6784
   %10 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %9, i32 noundef 0) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -9398,7 +9388,7 @@ define internal fastcc void @ZeroAndLockBuffer(i32 noundef %0, i32 noundef %1, i
   %8 = add nsw i32 %0, -1
   %9 = load ptr, ptr @BufferDescriptors, align 8
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %10
   %12 = tail call fastcc zeroext i1 @StartBufferIO(ptr noundef %11, i1 noundef zeroext true, i1 noundef zeroext false)
   br i1 %12, label %22, label %.critedge.thread31
 
@@ -9406,7 +9396,7 @@ define internal fastcc void @ZeroAndLockBuffer(i32 noundef %0, i32 noundef %1, i
   %14 = xor i32 %0, -1
   %15 = load ptr, ptr @LocalBufferDescriptors, align 8
   %16 = zext nneg i32 %14 to i64
-  %17 = getelementptr inbounds nuw %struct.BufferDesc, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [52 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load volatile i32, ptr %18, align 4
   %20 = and i32 %19, 16777216
@@ -9463,13 +9453,13 @@ TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %22
   %.val11.i = load i32, ptr %41, align 4
   %44 = load ptr, ptr @BufferIOCVArray, align 8
   %45 = sext i32 %.val11.i to i64
-  %46 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %44, i64 %45
+  %46 = getelementptr inbounds [16 x i8], ptr %44, i64 %45
   call void @ConditionVariableBroadcast(ptr noundef %46) #15
   br label %.critedge.thread
 
 .critedge23:                                      ; preds = %13
   %47 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %16
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %16
   %49 = load ptr, ptr %48, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %49, i8 0, i64 8192, i1 false)
   %50 = load volatile i32, ptr %18, align 4
@@ -9488,7 +9478,7 @@ LockBuffer.exit:                                  ; preds = %.critedge.thread31
   %53 = add nsw i32 %0, -1
   %54 = load ptr, ptr @BufferDescriptors, align 8
   %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [64 x i8], ptr %54, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 36
   %58 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %57, i32 noundef 0) #15
   br label %.critedge.thread
@@ -9526,13 +9516,13 @@ define internal fastcc i32 @GetVictimBuffer(ptr noundef %0, i32 noundef %1) unna
 
 .critedge.i:                                      ; preds = %2, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %2 ]
-  %9 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 8
   %.not8.i = icmp eq i32 %10, 0
   br i1 %.not8.i, label %11, label %8
 
 11:                                               ; preds = %.critedge.i
-  %12 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   store ptr %12, ptr @ReservedRefCountEntry, align 8
   br label %ReservePrivateRefCountEntry.exit
 
@@ -9543,7 +9533,7 @@ define internal fastcc i32 @GetVictimBuffer(ptr noundef %0, i32 noundef %1) unna
   store i32 %15, ptr @PrivateRefCountClock, align 4
   %16 = and i32 %14, 7
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %17
   store ptr %18, ptr @ReservedRefCountEntry, align 8
   %19 = load ptr, ptr @PrivateRefCountHash, align 8
   %20 = call ptr @hash_search(ptr noundef %19, ptr noundef nonnull %18, i32 noundef 1, ptr noundef nonnull %4) #15
@@ -9677,7 +9667,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %52
   %82 = add i32 %81, 1
   store i32 %82, ptr getelementptr inbounds nuw (i8, ptr @BackendWritebackContext, i64 8), align 8
   %83 = sext i32 %81 to i64
-  %84 = getelementptr inbounds %struct.PendingWriteback, ptr getelementptr inbounds nuw (i8, ptr @BackendWritebackContext, i64 12), i64 %83
+  %84 = getelementptr inbounds [20 x i8], ptr getelementptr inbounds nuw (i8, ptr @BackendWritebackContext, i64 12), i64 %83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %84, ptr noundef nonnull readonly align 4 dereferenceable(20) %34, i64 20, i1 false)
   %.pre.i = load ptr, ptr @BackendWritebackContext, align 8
   %.pre9.i = load i32, ptr %.pre.i, align 4
@@ -9869,7 +9859,7 @@ define internal fastcc void @WaitIO(ptr noundef %0) unnamed_addr #0 {
   %.val = load i32, ptr %3, align 4
   %4 = load ptr, ptr @BufferIOCVArray, align 8
   %5 = sext i32 %.val to i64
-  %6 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %4, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %4, i64 %5
   tail call void @ConditionVariablePrepareToSleep(ptr noundef %6) #15
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -9956,7 +9946,7 @@ define internal fastcc void @UnpinBufferNoOwner(ptr noundef %0) unnamed_addr #0 
 
 10:                                               ; preds = %9, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %9 ]
-  %11 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, %8
   br i1 %13, label %GetPrivateRefCountEntry.exit.loopexit, label %9
@@ -9972,7 +9962,7 @@ define internal fastcc void @UnpinBufferNoOwner(ptr noundef %0) unnamed_addr #0 
   br label %GetPrivateRefCountEntry.exit
 
 GetPrivateRefCountEntry.exit.loopexit:            ; preds = %10
-  %20 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @PrivateRefCountArray, i64 %indvars.iv.i
   br label %GetPrivateRefCountEntry.exit
 
 GetPrivateRefCountEntry.exit:                     ; preds = %GetPrivateRefCountEntry.exit.loopexit, %14, %17
@@ -10272,7 +10262,7 @@ ckpt_buforder_comparator.exit158.thread:          ; preds = %64, %56, %.lr.ph, %
 
 ckpt_buforder_comparator.exit158.thread176:       ; preds = %72, %70, %54, %62
   %80 = lshr i64 %.0, 1
-  %81 = getelementptr inbounds nuw %struct.CkptSortItem, ptr %.0127.ph, i64 %80
+  %81 = getelementptr inbounds nuw [20 x i8], ptr %.0127.ph, i64 %80
   %.not = icmp eq i64 %.0, 7
   br i1 %.not, label %101, label %82
 
@@ -10283,17 +10273,17 @@ ckpt_buforder_comparator.exit158.thread176:       ; preds = %72, %70, %54, %62
 
 85:                                               ; preds = %82
   %86 = lshr i64 %.0, 3
-  %87 = getelementptr inbounds nuw %struct.CkptSortItem, ptr %.0127.ph, i64 %86
+  %87 = getelementptr inbounds nuw [20 x i8], ptr %.0127.ph, i64 %86
   %88 = shl nuw nsw i64 %86, 1
-  %89 = getelementptr inbounds nuw %struct.CkptSortItem, ptr %.0127.ph, i64 %88
+  %89 = getelementptr inbounds nuw [20 x i8], ptr %.0127.ph, i64 %88
   %90 = tail call fastcc ptr @sort_checkpoint_bufferids_med3(ptr noundef %.0127.ph, ptr noundef %87, ptr noundef %89)
   %91 = sub nsw i64 0, %86
-  %92 = getelementptr inbounds %struct.CkptSortItem, ptr %81, i64 %91
-  %93 = getelementptr inbounds nuw %struct.CkptSortItem, ptr %81, i64 %86
+  %92 = getelementptr inbounds [20 x i8], ptr %81, i64 %91
+  %93 = getelementptr inbounds nuw [20 x i8], ptr %81, i64 %86
   %94 = tail call fastcc ptr @sort_checkpoint_bufferids_med3(ptr noundef %92, ptr noundef %81, ptr noundef %93)
   %95 = sub nsw i64 0, %88
-  %96 = getelementptr inbounds %struct.CkptSortItem, ptr %83, i64 %95
-  %97 = getelementptr inbounds %struct.CkptSortItem, ptr %83, i64 %91
+  %96 = getelementptr inbounds [20 x i8], ptr %83, i64 %95
+  %97 = getelementptr inbounds [20 x i8], ptr %83, i64 %91
   %98 = tail call fastcc ptr @sort_checkpoint_bufferids_med3(ptr noundef %96, ptr noundef %97, ptr noundef %83)
   br label %99
 
@@ -10469,14 +10459,14 @@ ckpt_buforder_comparator.exit161:                 ; preds = %123
   %169 = sdiv exact i64 %168, 20
   %. = tail call i64 @llvm.smin.i64(i64 %166, i64 %169)
   %170 = sub nsw i64 0, %.
-  %171 = getelementptr inbounds %struct.CkptSortItem, ptr %.1138.lcssa, i64 %170
+  %171 = getelementptr inbounds [20 x i8], ptr %.1138.lcssa, i64 %170
   %.not.i = icmp eq i64 %., 0
   br i1 %.not.i, label %sort_checkpoint_bufferids_swapn.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge4, %.lr.ph.i
   %.06.i = phi i64 [ %174, %.lr.ph.i ], [ 0, %.critedge4 ]
-  %172 = getelementptr inbounds nuw %struct.CkptSortItem, ptr %.0127.ph, i64 %.06.i
-  %173 = getelementptr inbounds nuw %struct.CkptSortItem, ptr %171, i64 %.06.i
+  %172 = getelementptr inbounds nuw [20 x i8], ptr %.0127.ph, i64 %.06.i
+  %173 = getelementptr inbounds nuw [20 x i8], ptr %171, i64 %.06.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %172, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %172, ptr noundef nonnull align 4 dereferenceable(20) %173, i64 20, i1 false)
@@ -10497,14 +10487,14 @@ sort_checkpoint_bufferids_swapn.exit:             ; preds = %.lr.ph.i, %.critedg
   %182 = add nsw i64 %181, -1
   %183 = tail call i64 @llvm.smin.i64(i64 %178, i64 %182)
   %184 = sub nsw i64 0, %183
-  %185 = getelementptr inbounds %struct.CkptSortItem, ptr %17, i64 %184
+  %185 = getelementptr inbounds [20 x i8], ptr %17, i64 %184
   %.not.i165 = icmp eq i64 %183, 0
   br i1 %.not.i165, label %sort_checkpoint_bufferids_swapn.exit169, label %.lr.ph.i166
 
 .lr.ph.i166:                                      ; preds = %sort_checkpoint_bufferids_swapn.exit, %.lr.ph.i166
   %.06.i167 = phi i64 [ %188, %.lr.ph.i166 ], [ 0, %sort_checkpoint_bufferids_swapn.exit ]
-  %186 = getelementptr inbounds nuw %struct.CkptSortItem, ptr %.1138.lcssa, i64 %.06.i167
-  %187 = getelementptr inbounds nuw %struct.CkptSortItem, ptr %185, i64 %.06.i167
+  %186 = getelementptr inbounds nuw [20 x i8], ptr %.1138.lcssa, i64 %.06.i167
+  %187 = getelementptr inbounds nuw [20 x i8], ptr %185, i64 %.06.i167
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %186, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %186, ptr noundef nonnull align 4 dereferenceable(20) %187, i64 20, i1 false)
@@ -10532,7 +10522,7 @@ sort_checkpoint_bufferids_swapn.exit169:          ; preds = %.lr.ph.i166, %sort_
 
 194:                                              ; preds = %192
   %195 = sub nsw i64 0, %178
-  %196 = getelementptr inbounds %struct.CkptSortItem, ptr %17, i64 %195
+  %196 = getelementptr inbounds [20 x i8], ptr %17, i64 %195
   br label %.outer
 
 197:                                              ; preds = %sort_checkpoint_bufferids_swapn.exit169
@@ -10541,7 +10531,7 @@ sort_checkpoint_bufferids_swapn.exit169:          ; preds = %.lr.ph.i166, %sort_
 
 199:                                              ; preds = %197
   %200 = sub nsw i64 0, %178
-  %201 = getelementptr inbounds %struct.CkptSortItem, ptr %17, i64 %200
+  %201 = getelementptr inbounds [20 x i8], ptr %17, i64 %200
   tail call fastcc void @sort_checkpoint_bufferids(ptr noundef nonnull %201, i64 noundef %178)
   br label %202
 

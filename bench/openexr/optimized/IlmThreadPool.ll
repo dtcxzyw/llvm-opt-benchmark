@@ -2157,7 +2157,7 @@ _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.i.i: ; preds = %33
   %.val11.i = load ptr, ptr %5, align 8, !tbaa !60
   %36 = getelementptr inbounds nuw i8, ptr %.val11.i, i64 144
   %37 = load ptr, ptr %36, align 8, !tbaa !92
-  %38 = getelementptr inbounds nuw %"class.std::thread", ptr %37, i64 %.018.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.018.i
   invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
           to label %.noexc26 unwind label %.loopexit
 
@@ -2218,7 +2218,7 @@ _ZN13IlmThread_3_412_GLOBAL__N_125DefaultThreadPoolProvider12lockedFinishEv.exit
   br i1 %51, label %52, label %_ZNSt6vectorISt6threadSaIS0_EE6resizeEm.exit
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw %"class.std::thread", ptr %43, i64 %17
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %17
   %.not.i.i27 = icmp eq ptr %44, %53
   br i1 %.not.i.i27, label %_ZNSt6vectorISt6threadSaIS0_EE6resizeEm.exit, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i
 
@@ -2342,7 +2342,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i9.i: ; preds = %90
   %.val17 = load ptr, ptr %5, align 8, !tbaa !60
   %97 = getelementptr inbounds nuw i8, ptr %.val17, i64 144
   %98 = load ptr, ptr %97, align 8, !tbaa !92
-  %99 = getelementptr inbounds nuw %"class.std::thread", ptr %98, i64 %.039
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %.039
   %.sroa.0.0.copyload.i.i = load i64, ptr %99, align 8, !tbaa !95
   %.not.i31 = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
   br i1 %.not.i31, label %_ZNSt6threadD2Ev.exit, label %100
@@ -2454,7 +2454,7 @@ _ZNSt6vectorIPN13IlmThread_3_44TaskESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.
 _ZNSt6vectorIPN13IlmThread_3_44TaskESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIPN13IlmThread_3_44TaskESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %27, ptr %7, align 8, !tbaa !115
   store ptr %31, ptr %8, align 8, !tbaa !108
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %33, ptr %10, align 8, !tbaa !112
   br label %_ZNSt6vectorIPN13IlmThread_3_44TaskESaIS2_EE9push_backERKS2_.exit
 
@@ -2551,7 +2551,7 @@ _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.i.i: ; preds = %19
   %.val11.i = load ptr, ptr %2, align 8, !tbaa !60
   %22 = getelementptr inbounds nuw i8, ptr %.val11.i, i64 144
   %23 = load ptr, ptr %22, align 8, !tbaa !92
-  %24 = getelementptr inbounds nuw %"class.std::thread", ptr %23, i64 %.018.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.018.i
   invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
           to label %.noexc2 unwind label %.loopexit
 
@@ -2860,9 +2860,9 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %.lr.
 
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %32
   store ptr %26, ptr %0, align 8, !tbaa !92
-  %34 = getelementptr inbounds nuw %"class.std::thread", ptr %27, i64 %1
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %1
   store ptr %34, ptr %4, align 8, !tbaa !89
-  %35 = getelementptr inbounds nuw %"class.std::thread", ptr %26, i64 %24
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %35, ptr %11, align 8, !tbaa !116
   br label %36
 

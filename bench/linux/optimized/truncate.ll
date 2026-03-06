@@ -582,7 +582,7 @@ define dso_local void @truncate_inode_pages_range(ptr noundef %0, i64 noundef %1
 
 .preheader10:                                     ; preds = %25, %truncate_cleanup_folio.exit
   %28 = phi i64 [ %73, %truncate_cleanup_folio.exit ], [ 0, %25 ]
-  %29 = getelementptr ptr, ptr %21, i64 %28
+  %29 = getelementptr [8 x i8], ptr %21, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = load volatile i64, ptr %30, align 8
   %32 = and i64 %31, 64
@@ -668,7 +668,7 @@ truncate_cleanup_folio.exit:                      ; preds = %67, %71
 
 .preheader9:                                      ; preds = %.loopexit11, %.preheader9
   %79 = phi i64 [ %82, %.preheader9 ], [ 0, %.loopexit11 ]
-  %80 = getelementptr ptr, ptr %21, i64 %79
+  %80 = getelementptr [8 x i8], ptr %21, i64 %79
   %81 = load ptr, ptr %80, align 8
   call void @folio_unlock(ptr noundef %81) #5
   %82 = add nuw nsw i64 %79, 1
@@ -791,7 +791,7 @@ truncate_cleanup_folio.exit:                      ; preds = %67, %71
 .preheader:                                       ; preds = %138, %208
   %148 = phi i8 [ %209, %208 ], [ %139, %138 ]
   %149 = phi i64 [ %210, %208 ], [ 0, %138 ]
-  %150 = getelementptr ptr, ptr %133, i64 %149
+  %150 = getelementptr [8 x i8], ptr %133, i64 %149
   %151 = load ptr, ptr %150, align 8
   %152 = ptrtoint ptr %151 to i64
   %153 = and i64 %152, 1
@@ -946,7 +946,7 @@ define internal fastcc void @truncate_folio_batch_exceptionals(ptr noundef %0, p
 
 15:                                               ; preds = %22, %13
   %16 = phi i64 [ 0, %13 ], [ %23, %22 ]
-  %17 = getelementptr ptr, ptr %9, i64 %16
+  %17 = getelementptr [8 x i8], ptr %9, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, 1
@@ -990,7 +990,7 @@ define internal fastcc void @truncate_folio_batch_exceptionals(ptr noundef %0, p
 44:                                               ; preds = %64, %37
   %45 = phi i64 [ %42, %37 ], [ %66, %64 ]
   %46 = phi i32 [ %28, %37 ], [ %65, %64 ]
-  %47 = getelementptr ptr, ptr %9, i64 %45
+  %47 = getelementptr [8 x i8], ptr %9, i64 %45
   %48 = load ptr, ptr %47, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = and i64 %49, 1
@@ -1000,12 +1000,12 @@ define internal fastcc void @truncate_folio_batch_exceptionals(ptr noundef %0, p
 52:                                               ; preds = %44
   %53 = add i32 %46, 1
   %54 = sext i32 %46 to i64
-  %55 = getelementptr ptr, ptr %9, i64 %54
+  %55 = getelementptr [8 x i8], ptr %9, i64 %54
   store ptr %48, ptr %55, align 8
   br label %64
 
 56:                                               ; preds = %44
-  %57 = getelementptr i64, ptr %2, i64 %45
+  %57 = getelementptr [8 x i8], ptr %2, i64 %45
   %58 = load i64, ptr %57, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %43, align 8, !annotation !13
@@ -1149,7 +1149,7 @@ define dso_local i64 @mapping_try_invalidate(ptr noundef %0, i64 noundef %1, i64
 .preheader:                                       ; preds = %24, %103
   %28 = phi i64 [ %105, %103 ], [ 0, %24 ]
   %29 = phi i64 [ %104, %103 ], [ %25, %24 ]
-  %30 = getelementptr ptr, ptr %13, i64 %28
+  %30 = getelementptr [8 x i8], ptr %13, i64 %28
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, 1
@@ -1162,7 +1162,7 @@ define dso_local i64 @mapping_try_invalidate(ptr noundef %0, i64 noundef %1, i64
   br i1 %37, label %62, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr i64, ptr %6, i64 %28
+  %39 = getelementptr [8 x i8], ptr %6, i64 %28
   %40 = load i64, ptr %39, align 8
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 136
@@ -1376,7 +1376,7 @@ define dso_local i32 @invalidate_inode_pages2_range(ptr noundef %0, i64 noundef 
   %30 = phi i64 [ %174, %171 ], [ 0, %25 ]
   %31 = phi i32 [ %173, %171 ], [ %26, %25 ]
   %32 = phi i32 [ %172, %171 ], [ %27, %25 ]
-  %33 = getelementptr ptr, ptr %16, i64 %30
+  %33 = getelementptr [8 x i8], ptr %16, i64 %30
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %35, 1
@@ -1389,7 +1389,7 @@ define dso_local i32 @invalidate_inode_pages2_range(ptr noundef %0, i64 noundef 
   br i1 %40, label %171, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr i64, ptr %5, i64 %30
+  %42 = getelementptr [8 x i8], ptr %5, i64 %30
   %43 = load i64, ptr %42, align 8
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 136
@@ -1462,7 +1462,7 @@ clear_shadow_entry.exit:                          ; preds = %53, %61
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %75, %71
-  %81 = getelementptr i64, ptr %5, i64 %30
+  %81 = getelementptr [8 x i8], ptr %5, i64 %30
   %82 = load i64, ptr %81, align 8
   %83 = sub i64 %18, %82
   call void @unmap_mapping_pages(ptr noundef %0, i64 noundef %82, i64 noundef %83, i1 noundef zeroext false) #5

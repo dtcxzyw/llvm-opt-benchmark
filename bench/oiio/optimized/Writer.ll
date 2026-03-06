@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.OpenImageIO::v3_1_0::basic_string_view" = type { ptr, i64 }
-%"struct.dpx::ImageElement" = type { i32, i32, float, i32, float, i8, i8, i8, i8, i16, i16, i32, i32, i32, [32 x i8] }
 
 $_ZN3dpx11WriteBufferIhLi8ELb1EEEiP9OutStreamNS_8DataSizeEPvjjiNS_7PackingEbbiPcRbb = comdat any
 
@@ -75,7 +74,7 @@ define hidden void @_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm(i32 noundef %0, i
 
 .lr.ph.i.i.i:                                     ; preds = %7, %.lr.ph.i.i.i
   %.06.i.i.i = phi i64 [ %14, %.lr.ph.i.i.i ], [ 0, %7 ]
-  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %.06.i.i.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.06.i.i.i
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = tail call noundef i32 @llvm.bswap.i32(i32 %12)
   store i32 %13, ptr %11, align 4, !tbaa !3
@@ -92,7 +91,7 @@ define hidden void @_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm(i32 noundef %0, i
 
 .lr.ph.i.i.i10:                                   ; preds = %15, %.lr.ph.i.i.i10
   %.06.i.i.i11 = phi i64 [ %22, %.lr.ph.i.i.i10 ], [ 0, %15 ]
-  %19 = getelementptr inbounds nuw i16, ptr %2, i64 %.06.i.i.i11
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.06.i.i.i11
   %20 = load i16, ptr %19, align 2, !tbaa !9
   %21 = tail call noundef i16 @llvm.bswap.i16(i16 %20)
   store i16 %21, ptr %19, align 2, !tbaa !9
@@ -109,7 +108,7 @@ define hidden void @_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm(i32 noundef %0, i
 
 .lr.ph.i.i.i14:                                   ; preds = %23, %.lr.ph.i.i.i14
   %.06.i.i.i15 = phi i64 [ %30, %.lr.ph.i.i.i14 ], [ 0, %23 ]
-  %27 = getelementptr inbounds nuw i16, ptr %2, i64 %.06.i.i.i15
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.06.i.i.i15
   %28 = load i16, ptr %27, align 2, !tbaa !9
   %29 = tail call noundef i16 @llvm.bswap.i16(i16 %28)
   store i16 %29, ptr %27, align 2, !tbaa !9
@@ -126,7 +125,7 @@ define hidden void @_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm(i32 noundef %0, i
 
 .lr.ph.i.i.i19:                                   ; preds = %31, %.lr.ph.i.i.i19
   %.06.i.i.i20 = phi i64 [ %38, %.lr.ph.i.i.i19 ], [ 0, %31 ]
-  %35 = getelementptr inbounds nuw i32, ptr %2, i64 %.06.i.i.i20
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.06.i.i.i20
   %36 = load i32, ptr %35, align 4, !tbaa !3
   %37 = tail call noundef i32 @llvm.bswap.i32(i32 %36)
   store i32 %37, ptr %35, align 4, !tbaa !3
@@ -302,7 +301,7 @@ define hidden noundef i32 @_ZNK3dpx6Writer16NextAvailElementEv(ptr noundef nonnu
 
 _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %2 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %indvars.iv
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 808
   %4 = load i8, ptr %3, align 8, !tbaa !33
   %5 = icmp eq i8 %4, -1
@@ -399,9 +398,9 @@ _ZN3dpx13GenericHeader20SetEndOfImagePaddingEij.exit: ; preds = %15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 788
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [72 x i8], ptr %17, i64 %18
   store i32 %8, ptr %19, align 4, !tbaa !38
-  %20 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %16, i64 %18
+  %20 = getelementptr inbounds nuw [72 x i8], ptr %16, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 784
   store i32 %9, ptr %21, align 8, !tbaa !39
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 788
@@ -517,7 +516,7 @@ define hidden noundef zeroext i1 @_ZN3dpx6Writer12WriteElementEiPvl(ptr noundef 
 _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [72 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 800
   %9 = load i8, ptr %8, align 8, !tbaa !33
   %10 = icmp eq i8 %9, -1
@@ -598,7 +597,7 @@ define hidden noundef zeroext i1 @_ZN3dpx6Writer12WriteElementEiPv(ptr noundef n
 _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [72 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 800
   %8 = load i8, ptr %7, align 8, !tbaa !33
   %9 = icmp eq i8 %8, -1
@@ -625,7 +624,7 @@ define hidden noundef zeroext i1 @_ZN3dpx6Writer12WriteElementEiPvNS_8DataSizeE(
 _ZNK3dpx13GenericHeader15ImageDescriptorEi.exit:  ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [72 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 800
   %10 = load i8, ptr %9, align 8, !tbaa !33
   %11 = icmp eq i8 %10, -1
@@ -1133,7 +1132,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferIhLi8ELb1EEEiP9OutSt
 
 .lr.ph.i17.i:                                     ; preds = %37, %.lr.ph.i17.i
   %indvars.iv.i18.i = phi i64 [ %indvars.iv.next.i19.i, %.lr.ph.i17.i ], [ 0, %37 ]
-  %38 = getelementptr inbounds nuw i16, ptr %35, i64 %indvars.iv.i18.i
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %indvars.iv.i18.i
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i18.i
   %40 = load i16, ptr %38, align 2, !tbaa !9
   %41 = lshr i16 %40, 8
@@ -1148,7 +1147,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferIhLi8ELb1EEEiP9OutSt
 
 .lr.ph.i23.i:                                     ; preds = %43, %.lr.ph.i23.i
   %indvars.iv.i24.i = phi i64 [ %indvars.iv.next.i25.i, %.lr.ph.i23.i ], [ 0, %43 ]
-  %44 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i24.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i24.i
   %45 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i24.i
   %46 = load float, ptr %44, align 4, !tbaa !58
   %47 = fptoui float %46 to i8
@@ -1162,7 +1161,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferIhLi8ELb1EEEiP9OutSt
 
 .lr.ph.i29.i:                                     ; preds = %48, %.lr.ph.i29.i
   %indvars.iv.i30.i = phi i64 [ %indvars.iv.next.i31.i, %.lr.ph.i29.i ], [ 0, %48 ]
-  %49 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv.i30.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i30.i
   %50 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i30.i
   %51 = load double, ptr %49, align 8, !tbaa !60
   %52 = fptoui double %51 to i8
@@ -1324,7 +1323,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi10ELb1EEEiP9OutS
   %27 = add nuw nsw i32 %14, 2
   %28 = udiv i32 %27, 3
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr i32, ptr %23, i64 %29
+  %30 = getelementptr [4 x i8], ptr %23, i64 %29
   %31 = getelementptr i8, ptr %30, i64 -4
   %32 = udiv i32 %14, 3
   %33 = urem i32 %14, 3
@@ -1371,7 +1370,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi10ELb1EEEiP9OutS
 .lr.ph.i.i:                                       ; preds = %55, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %55 ]
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv.i.i
-  %57 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv.i.i
   %58 = load i8, ptr %56, align 1, !tbaa !56
   %59 = zext i8 %58 to i16
   %60 = shl nuw i16 %59, 8
@@ -1393,8 +1392,8 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi10ELb1EEEiP9OutS
 
 .lr.ph.i23.i:                                     ; preds = %63, %.lr.ph.i23.i
   %indvars.iv.i24.i = phi i64 [ %indvars.iv.next.i25.i, %.lr.ph.i23.i ], [ 0, %63 ]
-  %64 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv.i24.i
-  %65 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv.i24.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i24.i
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv.i24.i
   %66 = load float, ptr %64, align 4, !tbaa !58
   %67 = fptoui float %66 to i16
   store i16 %67, ptr %65, align 2, !tbaa !9
@@ -1407,8 +1406,8 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi10ELb1EEEiP9OutS
 
 .lr.ph.i29.i:                                     ; preds = %68, %.lr.ph.i29.i
   %indvars.iv.i30.i = phi i64 [ %indvars.iv.next.i31.i, %.lr.ph.i29.i ], [ 0, %68 ]
-  %69 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv.i30.i
-  %70 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv.i30.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv.i30.i
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv.i30.i
   %71 = load double, ptr %69, align 8, !tbaa !60
   %72 = fptoui double %71 to i16
   store i16 %72, ptr %70, align 2, !tbaa !9
@@ -1427,7 +1426,7 @@ _ZN3dpx15CopyWriteBufferItEEvNS_8DataSizeEPhPT_i.exit: ; preds = %.lr.ph.i29.i, 
 
 .lr.ph.i:                                         ; preds = %73, %99
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %99 ], [ 0, %73 ]
-  %74 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv136
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv136
   %75 = load i16, ptr %74, align 2, !tbaa !9
   %76 = lshr i16 %75, 6
   %77 = zext nneg i16 %76 to i32
@@ -1437,7 +1436,7 @@ _ZN3dpx15CopyWriteBufferItEEvNS_8DataSizeEPhPT_i.exit: ; preds = %.lr.ph.i29.i, 
   %81 = and i32 %79, 30
   %82 = shl i32 1023, %81
   %83 = zext nneg i32 %80 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %23, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !3
   %86 = xor i32 %82, -1
   %87 = and i32 %85, %86
@@ -1482,7 +1481,7 @@ _ZN3dpx15CopyWriteBufferItEEvNS_8DataSizeEPhPT_i.exit: ; preds = %.lr.ph.i29.i, 
 
 106:                                              ; preds = %.preheader.split.us.i
   %107 = zext nneg i32 %103 to i64
-  %108 = getelementptr i32, ptr %23, i64 %107
+  %108 = getelementptr [4 x i8], ptr %23, i64 %107
   %109 = getelementptr i8, ptr %108, i64 -4
   store i32 %.03033.us.i, ptr %109, align 4, !tbaa !3
   br label %110
@@ -1490,7 +1489,7 @@ _ZN3dpx15CopyWriteBufferItEEvNS_8DataSizeEPhPT_i.exit: ; preds = %.lr.ph.i29.i, 
 110:                                              ; preds = %106, %.preheader.split.us.i
   %.1.us.i = phi i32 [ 0, %106 ], [ %.03033.us.i, %.preheader.split.us.i ]
   %111 = sub nuw nsw i32 2, %102
-  %112 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv133
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv133
   %113 = load i16, ptr %112, align 2, !tbaa !9
   %114 = lshr i16 %113, 6
   %115 = zext nneg i16 %114 to i32
@@ -1519,14 +1518,14 @@ _ZN3dpx15CopyWriteBufferItEEvNS_8DataSizeEPhPT_i.exit: ; preds = %.lr.ph.i29.i, 
 
 129:                                              ; preds = %.preheader.split.i
   %130 = zext nneg i32 %126 to i64
-  %131 = getelementptr i32, ptr %23, i64 %130
+  %131 = getelementptr [4 x i8], ptr %23, i64 %130
   %132 = getelementptr i8, ptr %131, i64 -4
   store i32 %.03033.i, ptr %132, align 4, !tbaa !3
   br label %133
 
 133:                                              ; preds = %129, %.preheader.split.i
   %.1.i = phi i32 [ 0, %129 ], [ %.03033.i, %.preheader.split.i ]
-  %134 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv
   %135 = load i16, ptr %134, align 2, !tbaa !9
   %136 = lshr i16 %135, 6
   %137 = zext nneg i16 %136 to i32
@@ -1561,7 +1560,7 @@ _ZN3dpx15CopyWriteBufferItEEvNS_8DataSizeEPhPT_i.exit: ; preds = %.lr.ph.i29.i, 
 
 152:                                              ; preds = %.preheader.split.us.i87
   %153 = zext nneg i32 %149 to i64
-  %154 = getelementptr i32, ptr %23, i64 %153
+  %154 = getelementptr [4 x i8], ptr %23, i64 %153
   %155 = getelementptr i8, ptr %154, i64 -4
   store i32 %.03033.us.i89, ptr %155, align 4, !tbaa !3
   br label %156
@@ -1569,7 +1568,7 @@ _ZN3dpx15CopyWriteBufferItEEvNS_8DataSizeEPhPT_i.exit: ; preds = %.lr.ph.i29.i, 
 156:                                              ; preds = %152, %.preheader.split.us.i87
   %.1.us.i91 = phi i32 [ 0, %152 ], [ %.03033.us.i89, %.preheader.split.us.i87 ]
   %157 = sub nuw nsw i32 2, %148
-  %158 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv142
+  %158 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv142
   %159 = load i16, ptr %158, align 2, !tbaa !9
   %160 = lshr i16 %159, 6
   %161 = zext nneg i16 %160 to i32
@@ -1596,14 +1595,14 @@ _ZN3dpx15CopyWriteBufferItEEvNS_8DataSizeEPhPT_i.exit: ; preds = %.lr.ph.i29.i, 
 
 173:                                              ; preds = %.preheader.split.i78
   %174 = zext nneg i32 %170 to i64
-  %175 = getelementptr i32, ptr %23, i64 %174
+  %175 = getelementptr [4 x i8], ptr %23, i64 %174
   %176 = getelementptr i8, ptr %175, i64 -4
   store i32 %.03033.i80, ptr %176, align 4, !tbaa !3
   br label %177
 
 177:                                              ; preds = %173, %.preheader.split.i78
   %.1.i82 = phi i32 [ 0, %173 ], [ %.03033.i80, %.preheader.split.i78 ]
-  %178 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv139
+  %178 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv139
   %179 = load i16, ptr %178, align 2, !tbaa !9
   %180 = lshr i16 %179, 6
   %181 = zext nneg i16 %180 to i32
@@ -1637,7 +1636,7 @@ _ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccess
 
 .lr.ph.i.i.i19.i:                                 ; preds = %192, %.lr.ph.i.i.i19.i
   %.06.i.i.i20.i = phi i64 [ %197, %.lr.ph.i.i.i19.i ], [ 0, %192 ]
-  %194 = getelementptr inbounds nuw i32, ptr %23, i64 %.06.i.i.i20.i
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.06.i.i.i20.i
   %195 = load i32, ptr %194, align 4, !tbaa !3
   %196 = tail call noundef i32 @llvm.bswap.i32(i32 %195)
   store i32 %196, ptr %194, align 4, !tbaa !3
@@ -1709,7 +1708,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi10ELb0EEEiP9OutS
   %26 = add nuw nsw i32 %14, 2
   %27 = udiv i32 %26, 3
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr i32, ptr %23, i64 %28
+  %29 = getelementptr [4 x i8], ptr %23, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -4
   %31 = udiv i32 %14, 3
   %32 = urem i32 %14, 3
@@ -1755,7 +1754,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi10ELb0EEEiP9OutS
 
 .lr.ph.i:                                         ; preds = %55, %81
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %81 ], [ 0, %55 ]
-  %56 = getelementptr inbounds nuw i16, ptr %spec.select98, i64 %indvars.iv126
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %spec.select98, i64 %indvars.iv126
   %57 = load i16, ptr %56, align 2, !tbaa !9
   %58 = lshr i16 %57, 6
   %59 = zext nneg i16 %58 to i32
@@ -1765,7 +1764,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi10ELb0EEEiP9OutS
   %63 = and i32 %61, 30
   %64 = shl i32 1023, %63
   %65 = zext nneg i32 %62 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %23, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !3
   %68 = xor i32 %64, -1
   %69 = and i32 %67, %68
@@ -1810,7 +1809,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi10ELb0EEEiP9OutS
 
 88:                                               ; preds = %.preheader.split.us.i
   %89 = zext nneg i32 %85 to i64
-  %90 = getelementptr i32, ptr %23, i64 %89
+  %90 = getelementptr [4 x i8], ptr %23, i64 %89
   %91 = getelementptr i8, ptr %90, i64 -4
   store i32 %.03033.us.i, ptr %91, align 4, !tbaa !3
   br label %92
@@ -1818,7 +1817,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi10ELb0EEEiP9OutS
 92:                                               ; preds = %88, %.preheader.split.us.i
   %.1.us.i = phi i32 [ 0, %88 ], [ %.03033.us.i, %.preheader.split.us.i ]
   %93 = sub nuw nsw i32 2, %84
-  %94 = getelementptr inbounds nuw i16, ptr %spec.select98, i64 %indvars.iv123
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %spec.select98, i64 %indvars.iv123
   %95 = load i16, ptr %94, align 2, !tbaa !9
   %96 = lshr i16 %95, 6
   %97 = zext nneg i16 %96 to i32
@@ -1847,14 +1846,14 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi10ELb0EEEiP9OutS
 
 111:                                              ; preds = %.preheader.split.i
   %112 = zext nneg i32 %108 to i64
-  %113 = getelementptr i32, ptr %23, i64 %112
+  %113 = getelementptr [4 x i8], ptr %23, i64 %112
   %114 = getelementptr i8, ptr %113, i64 -4
   store i32 %.03033.i, ptr %114, align 4, !tbaa !3
   br label %115
 
 115:                                              ; preds = %111, %.preheader.split.i
   %.1.i = phi i32 [ 0, %111 ], [ %.03033.i, %.preheader.split.i ]
-  %116 = getelementptr inbounds nuw i16, ptr %spec.select98, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %spec.select98, i64 %indvars.iv
   %117 = load i16, ptr %116, align 2, !tbaa !9
   %118 = lshr i16 %117, 6
   %119 = zext nneg i16 %118 to i32
@@ -1889,7 +1888,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi10ELb0EEEiP9OutS
 
 134:                                              ; preds = %.preheader.split.us.i82
   %135 = zext nneg i32 %131 to i64
-  %136 = getelementptr i32, ptr %23, i64 %135
+  %136 = getelementptr [4 x i8], ptr %23, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -4
   store i32 %.03033.us.i84, ptr %137, align 4, !tbaa !3
   br label %138
@@ -1897,7 +1896,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi10ELb0EEEiP9OutS
 138:                                              ; preds = %134, %.preheader.split.us.i82
   %.1.us.i86 = phi i32 [ 0, %134 ], [ %.03033.us.i84, %.preheader.split.us.i82 ]
   %139 = sub nuw nsw i32 2, %130
-  %140 = getelementptr inbounds nuw i16, ptr %spec.select98, i64 %indvars.iv132
+  %140 = getelementptr inbounds nuw [2 x i8], ptr %spec.select98, i64 %indvars.iv132
   %141 = load i16, ptr %140, align 2, !tbaa !9
   %142 = lshr i16 %141, 6
   %143 = zext nneg i16 %142 to i32
@@ -1924,14 +1923,14 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi10ELb0EEEiP9OutS
 
 155:                                              ; preds = %.preheader.split.i73
   %156 = zext nneg i32 %152 to i64
-  %157 = getelementptr i32, ptr %23, i64 %156
+  %157 = getelementptr [4 x i8], ptr %23, i64 %156
   %158 = getelementptr i8, ptr %157, i64 -4
   store i32 %.03033.i75, ptr %158, align 4, !tbaa !3
   br label %159
 
 159:                                              ; preds = %155, %.preheader.split.i73
   %.1.i77 = phi i32 [ 0, %155 ], [ %.03033.i75, %.preheader.split.i73 ]
-  %160 = getelementptr inbounds nuw i16, ptr %spec.select98, i64 %indvars.iv129
+  %160 = getelementptr inbounds nuw [2 x i8], ptr %spec.select98, i64 %indvars.iv129
   %161 = load i16, ptr %160, align 2, !tbaa !9
   %162 = lshr i16 %161, 6
   %163 = zext nneg i16 %162 to i32
@@ -1965,7 +1964,7 @@ _ZN3dpx25WritePackedMethodAB_10bitItLNS_7PackingE1EEEvPT_S3_ibRNS_12BufferAccess
 
 .lr.ph.i.i.i19.i:                                 ; preds = %174, %.lr.ph.i.i.i19.i
   %.06.i.i.i20.i = phi i64 [ %179, %.lr.ph.i.i.i19.i ], [ 0, %174 ]
-  %176 = getelementptr inbounds nuw i32, ptr %23, i64 %.06.i.i.i20.i
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.06.i.i.i20.i
   %177 = load i32, ptr %176, align 4, !tbaa !3
   %178 = tail call noundef i32 @llvm.bswap.i32(i32 %177)
   store i32 %178, ptr %176, align 4, !tbaa !3
@@ -2073,7 +2072,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi12ELb1EEEiP9OutS
 .lr.ph.i.i:                                       ; preds = %44, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %44 ]
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv.i.i
-  %46 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv.i.i
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv.i.i
   %47 = load i8, ptr %45, align 1, !tbaa !56
   %48 = zext i8 %47 to i16
   %49 = shl nuw i16 %48, 8
@@ -2095,8 +2094,8 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi12ELb1EEEiP9OutS
 
 .lr.ph.i23.i:                                     ; preds = %52, %.lr.ph.i23.i
   %indvars.iv.i24.i = phi i64 [ %indvars.iv.next.i25.i, %.lr.ph.i23.i ], [ 0, %52 ]
-  %53 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv.i24.i
-  %54 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv.i24.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv.i24.i
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv.i24.i
   %55 = load float, ptr %53, align 4, !tbaa !58
   %56 = fptoui float %55 to i16
   store i16 %56, ptr %54, align 2, !tbaa !9
@@ -2109,8 +2108,8 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi12ELb1EEEiP9OutS
 
 .lr.ph.i29.i:                                     ; preds = %57, %.lr.ph.i29.i
   %indvars.iv.i30.i = phi i64 [ %indvars.iv.next.i31.i, %.lr.ph.i29.i ], [ 0, %57 ]
-  %58 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv.i30.i
-  %59 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv.i30.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i30.i
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv.i30.i
   %60 = load double, ptr %58, align 8, !tbaa !60
   %61 = fptoui double %60 to i16
   store i16 %61, ptr %59, align 2, !tbaa !9
@@ -2137,7 +2136,7 @@ _ZN3dpx15CopyWriteBufferItEEvNS_8DataSizeEPhPT_i.exit: ; preds = %.lr.ph.i29.i, 
 
 .lr.ph.i:                                         ; preds = %63, %89
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %89 ], [ 0, %63 ]
-  %64 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv102
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv102
   %65 = load i16, ptr %64, align 2, !tbaa !9
   %66 = lshr i16 %65, 4
   %67 = zext nneg i16 %66 to i32
@@ -2147,7 +2146,7 @@ _ZN3dpx15CopyWriteBufferItEEvNS_8DataSizeEPhPT_i.exit: ; preds = %.lr.ph.i29.i, 
   %71 = and i32 %69, 28
   %72 = shl i32 4095, %71
   %73 = zext nneg i32 %70 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %23, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !3
   %76 = xor i32 %72, -1
   %77 = and i32 %75, %76
@@ -2175,7 +2174,7 @@ _ZN3dpx15CopyWriteBufferItEEvNS_8DataSizeEPhPT_i.exit: ; preds = %.lr.ph.i29.i, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %90 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv
   %91 = load i16, ptr %90, align 2, !tbaa !9
   %92 = lshr i16 %91, 4
   store i16 %92, ptr %90, align 2, !tbaa !9
@@ -2201,7 +2200,7 @@ _ZN3dpx17WritePackedMethodItLi12EEEvPT_S2_ibRNS_12BufferAccessE.exit: ; preds = 
 
 .lr.ph.i.i.i.i:                                   ; preds = %98, %.lr.ph.i.i.i.i
   %.06.i.i.i.i = phi i64 [ %103, %.lr.ph.i.i.i.i ], [ 0, %98 ]
-  %100 = getelementptr inbounds nuw i32, ptr %23, i64 %.06.i.i.i.i
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.06.i.i.i.i
   %101 = load i32, ptr %100, align 4, !tbaa !3
   %102 = tail call noundef i32 @llvm.bswap.i32(i32 %101)
   store i32 %102, ptr %100, align 4, !tbaa !3
@@ -2215,7 +2214,7 @@ _ZN3dpx17WritePackedMethodItLi12EEEvPT_S2_ibRNS_12BufferAccessE.exit: ; preds = 
 
 .lr.ph.i.i.i10.i:                                 ; preds = %104, %.lr.ph.i.i.i10.i
   %.06.i.i.i11.i = phi i64 [ %108, %.lr.ph.i.i.i10.i ], [ 0, %104 ]
-  %105 = getelementptr inbounds nuw i16, ptr %23, i64 %.06.i.i.i11.i
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %.06.i.i.i11.i
   %106 = load i16, ptr %105, align 2, !tbaa !9
   %107 = tail call noundef i16 @llvm.bswap.i16(i16 %106)
   store i16 %107, ptr %105, align 2, !tbaa !9
@@ -2328,7 +2327,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi12ELb0EEEiP9OutS
 
 .lr.ph.i:                                         ; preds = %45, %71
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %71 ], [ 0, %45 ]
-  %46 = getelementptr inbounds nuw i16, ptr %spec.select, i64 %indvars.iv91
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %spec.select, i64 %indvars.iv91
   %47 = load i16, ptr %46, align 2, !tbaa !9
   %48 = lshr i16 %47, 4
   %49 = zext nneg i16 %48 to i32
@@ -2338,7 +2337,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi12ELb0EEEiP9OutS
   %53 = and i32 %51, 28
   %54 = shl i32 4095, %53
   %55 = zext nneg i32 %52 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %23, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !3
   %58 = xor i32 %54, -1
   %59 = and i32 %57, %58
@@ -2366,10 +2365,10 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi12ELb0EEEiP9OutS
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %72 = getelementptr inbounds nuw i16, ptr %spec.select, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %spec.select, i64 %indvars.iv
   %73 = load i16, ptr %72, align 2, !tbaa !9
   %74 = lshr i16 %73, 4
-  %75 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv
   store i16 %74, ptr %75, align 2, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2393,7 +2392,7 @@ _ZN3dpx17WritePackedMethodItLi12EEEvPT_S2_ibRNS_12BufferAccessE.exit: ; preds = 
 
 .lr.ph.i.i.i.i:                                   ; preds = %81, %.lr.ph.i.i.i.i
   %.06.i.i.i.i = phi i64 [ %86, %.lr.ph.i.i.i.i ], [ 0, %81 ]
-  %83 = getelementptr inbounds nuw i32, ptr %23, i64 %.06.i.i.i.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.06.i.i.i.i
   %84 = load i32, ptr %83, align 4, !tbaa !3
   %85 = tail call noundef i32 @llvm.bswap.i32(i32 %84)
   store i32 %85, ptr %83, align 4, !tbaa !3
@@ -2407,7 +2406,7 @@ _ZN3dpx17WritePackedMethodItLi12EEEvPT_S2_ibRNS_12BufferAccessE.exit: ; preds = 
 
 .lr.ph.i.i.i10.i:                                 ; preds = %87, %.lr.ph.i.i.i10.i
   %.06.i.i.i11.i = phi i64 [ %91, %.lr.ph.i.i.i10.i ], [ 0, %87 ]
-  %88 = getelementptr inbounds nuw i16, ptr %23, i64 %.06.i.i.i11.i
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %.06.i.i.i11.i
   %89 = load i16, ptr %88, align 2, !tbaa !9
   %90 = tail call noundef i16 @llvm.bswap.i16(i16 %89)
   store i16 %90, ptr %88, align 2, !tbaa !9
@@ -2511,7 +2510,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi16ELb1EEEiP9OutS
 .lr.ph.i.i:                                       ; preds = %40, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %40 ]
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv.i.i
-  %42 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv.i.i
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv.i.i
   %43 = load i8, ptr %41, align 1, !tbaa !56
   %44 = zext i8 %43 to i16
   %45 = shl nuw i16 %44, 8
@@ -2533,8 +2532,8 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi16ELb1EEEiP9OutS
 
 .lr.ph.i23.i:                                     ; preds = %48, %.lr.ph.i23.i
   %indvars.iv.i24.i = phi i64 [ %indvars.iv.next.i25.i, %.lr.ph.i23.i ], [ 0, %48 ]
-  %49 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i24.i
-  %50 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv.i24.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv.i24.i
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv.i24.i
   %51 = load float, ptr %49, align 4, !tbaa !58
   %52 = fptoui float %51 to i16
   store i16 %52, ptr %50, align 2, !tbaa !9
@@ -2547,8 +2546,8 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx11WriteBufferItLi16ELb1EEEiP9OutS
 
 .lr.ph.i29.i:                                     ; preds = %53, %.lr.ph.i29.i
   %indvars.iv.i30.i = phi i64 [ %indvars.iv.next.i31.i, %.lr.ph.i29.i ], [ 0, %53 ]
-  %54 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv.i30.i
-  %55 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv.i30.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i30.i
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv.i30.i
   %56 = load double, ptr %54, align 8, !tbaa !60
   %57 = fptoui double %56 to i16
   store i16 %57, ptr %55, align 2, !tbaa !9
@@ -2562,7 +2561,7 @@ _ZN3dpx15CopyWriteBufferItEEvNS_8DataSizeEPhPT_i.exit: ; preds = %.lr.ph.i29.i, 
 
 .lr.ph.i.i.i14.i:                                 ; preds = %_ZN3dpx15CopyWriteBufferItEEvNS_8DataSizeEPhPT_i.exit, %.lr.ph.i.i.i14.i
   %.06.i.i.i15.i = phi i64 [ %62, %.lr.ph.i.i.i14.i ], [ 0, %_ZN3dpx15CopyWriteBufferItEEvNS_8DataSizeEPhPT_i.exit ]
-  %59 = getelementptr inbounds nuw i16, ptr %23, i64 %.06.i.i.i15.i
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %.06.i.i.i15.i
   %60 = load i16, ptr %59, align 2, !tbaa !9
   %61 = tail call noundef i16 @llvm.bswap.i16(i16 %60)
   store i16 %61, ptr %59, align 2, !tbaa !9
@@ -2706,7 +2705,7 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us: ; preds = %.lr.ph.split.us, 
 
 .lr.ph.i.i.i14.i.us:                              ; preds = %.lr.ph.i.i.i14.i.us, %.lr.ph.i.i.i14.i.preheader.us
   %.06.i.i.i15.i.us = phi i64 [ %63, %.lr.ph.i.i.i14.i.us ], [ 0, %.lr.ph.i.i.i14.i.preheader.us ]
-  %60 = getelementptr inbounds nuw i16, ptr %23, i64 %.06.i.i.i15.i.us
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %.06.i.i.i15.i.us
   %61 = load i16, ptr %60, align 2, !tbaa !9
   %62 = tail call noundef i16 @llvm.bswap.i16(i16 %61)
   store i16 %62, ptr %60, align 2, !tbaa !9
@@ -2736,7 +2735,7 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us: ; preds = %.lr.ph.i
 
 .lr.ph.i.i.i14.i:                                 ; preds = %.lr.ph.i.i.i14.i.preheader, %.lr.ph.i.i.i14.i
   %.06.i.i.i15.i = phi i64 [ %76, %.lr.ph.i.i.i14.i ], [ 0, %.lr.ph.i.i.i14.i.preheader ]
-  %73 = getelementptr inbounds nuw i16, ptr %23, i64 %.06.i.i.i15.i
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %.06.i.i.i15.i
   %74 = load i16, ptr %73, align 2, !tbaa !9
   %75 = tail call noundef i16 @llvm.bswap.i16(i16 %74)
   store i16 %75, ptr %73, align 2, !tbaa !9
@@ -2876,7 +2875,7 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us: ; preds = %.lr.ph.split.us, 
 
 .lr.ph.i.i.i19.i.us:                              ; preds = %.lr.ph.i.i.i19.i.us, %.lr.ph.i.i.i19.i.preheader.us
   %.06.i.i.i20.i.us = phi i64 [ %61, %.lr.ph.i.i.i19.i.us ], [ 0, %.lr.ph.i.i.i19.i.preheader.us ]
-  %58 = getelementptr inbounds nuw i32, ptr %21, i64 %.06.i.i.i20.i.us
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.06.i.i.i20.i.us
   %59 = load i32, ptr %58, align 4, !tbaa !3
   %60 = tail call noundef i32 @llvm.bswap.i32(i32 %59)
   store i32 %60, ptr %58, align 4, !tbaa !3
@@ -2906,7 +2905,7 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us: ; preds = %.lr.ph.i
 
 .lr.ph.i.i.i19.i:                                 ; preds = %.lr.ph.i.i.i19.i.preheader, %.lr.ph.i.i.i19.i
   %.06.i.i.i20.i = phi i64 [ %74, %.lr.ph.i.i.i19.i ], [ 0, %.lr.ph.i.i.i19.i.preheader ]
-  %71 = getelementptr inbounds nuw i32, ptr %21, i64 %.06.i.i.i20.i
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.06.i.i.i20.i
   %72 = load i32, ptr %71, align 4, !tbaa !3
   %73 = tail call noundef i32 @llvm.bswap.i32(i32 %72)
   store i32 %73, ptr %71, align 4, !tbaa !3
@@ -3006,7 +3005,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx16WriteFloatBufferIfLi32ELb0EEEiP
 .lr.ph.i.i:                                       ; preds = %38, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %38 ]
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv.i.i
-  %40 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i.i
   %41 = load i8, ptr %39, align 1, !tbaa !56
   %42 = uitofp i8 %41 to float
   store float %42, ptr %40, align 4, !tbaa !58
@@ -3019,8 +3018,8 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx16WriteFloatBufferIfLi32ELb0EEEiP
 
 .lr.ph.i17.i:                                     ; preds = %43, %.lr.ph.i17.i
   %indvars.iv.i18.i = phi i64 [ %indvars.iv.next.i19.i, %.lr.ph.i17.i ], [ 0, %43 ]
-  %44 = getelementptr inbounds nuw i16, ptr %37, i64 %indvars.iv.i18.i
-  %45 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i18.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %indvars.iv.i18.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i18.i
   %46 = load i16, ptr %44, align 2, !tbaa !9
   %47 = uitofp i16 %46 to float
   store float %47, ptr %45, align 4, !tbaa !58
@@ -3040,8 +3039,8 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx16WriteFloatBufferIfLi32ELb0EEEiP
 
 .lr.ph.i29.i:                                     ; preds = %49, %.lr.ph.i29.i
   %indvars.iv.i30.i = phi i64 [ %indvars.iv.next.i31.i, %.lr.ph.i29.i ], [ 0, %49 ]
-  %50 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv.i30.i
-  %51 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i30.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i30.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i30.i
   %52 = load double, ptr %50, align 8, !tbaa !60
   %53 = fptrunc double %52 to float
   store float %53, ptr %51, align 4, !tbaa !58
@@ -3055,7 +3054,7 @@ _ZN3dpx15CopyWriteBufferIfEEvNS_8DataSizeEPhPT_i.exit: ; preds = %.lr.ph.i29.i, 
 
 .lr.ph.i.i.i19.i:                                 ; preds = %_ZN3dpx15CopyWriteBufferIfEEvNS_8DataSizeEPhPT_i.exit, %.lr.ph.i.i.i19.i
   %.06.i.i.i20.i = phi i64 [ %58, %.lr.ph.i.i.i19.i ], [ 0, %_ZN3dpx15CopyWriteBufferIfEEvNS_8DataSizeEPhPT_i.exit ]
-  %55 = getelementptr inbounds nuw i32, ptr %21, i64 %.06.i.i.i20.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.06.i.i.i20.i
   %56 = load i32, ptr %55, align 4, !tbaa !3
   %57 = tail call noundef i32 @llvm.bswap.i32(i32 %56)
   store i32 %57, ptr %55, align 4, !tbaa !3
@@ -3198,7 +3197,7 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.us.us: ; preds = %_ZN3dpx16Endia
 
 .lr.ph.i.i.i19.i.us.us:                           ; preds = %.lr.ph.i.i.i19.i.us.us, %.lr.ph.i.i.i19.i.preheader.us.us
   %.06.i.i.i20.i.us.us = phi i64 [ %60, %.lr.ph.i.i.i19.i.us.us ], [ 0, %.lr.ph.i.i.i19.i.preheader.us.us ]
-  %57 = getelementptr inbounds nuw i32, ptr %21, i64 %.06.i.i.i20.i.us.us
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.06.i.i.i20.i.us.us
   %58 = load i32, ptr %57, align 4, !tbaa !3
   %59 = tail call noundef i32 @llvm.bswap.i32(i32 %58)
   store i32 %59, ptr %57, align 4, !tbaa !3
@@ -3228,7 +3227,7 @@ _ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm.exit.loopexit.us.us: ; preds = %.lr.p
 
 .lr.ph.i.i.i19.i.us:                              ; preds = %.lr.ph.i.i.i19.i.preheader.us, %.lr.ph.i.i.i19.i.us
   %.06.i.i.i20.i.us = phi i64 [ %73, %.lr.ph.i.i.i19.i.us ], [ 0, %.lr.ph.i.i.i19.i.preheader.us ]
-  %70 = getelementptr inbounds nuw i32, ptr %21, i64 %.06.i.i.i20.i.us
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.06.i.i.i20.i.us
   %71 = load i32, ptr %70, align 4, !tbaa !3
   %72 = tail call noundef i32 @llvm.bswap.i32(i32 %71)
   store i32 %72, ptr %70, align 4, !tbaa !3
@@ -3383,7 +3382,7 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx16WriteFloatBufferIdLi64ELb0EEEiP
 .lr.ph.i.i:                                       ; preds = %41, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %41 ]
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv.i.i
-  %43 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i.i
   %44 = load i8, ptr %42, align 1, !tbaa !56
   %45 = uitofp i8 %44 to double
   store double %45, ptr %43, align 8, !tbaa !60
@@ -3396,8 +3395,8 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx16WriteFloatBufferIdLi64ELb0EEEiP
 
 .lr.ph.i17.i:                                     ; preds = %46, %.lr.ph.i17.i
   %indvars.iv.i18.i = phi i64 [ %indvars.iv.next.i19.i, %.lr.ph.i17.i ], [ 0, %46 ]
-  %47 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv.i18.i
-  %48 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv.i18.i
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %indvars.iv.i18.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i18.i
   %49 = load i16, ptr %47, align 2, !tbaa !9
   %50 = uitofp i16 %49 to double
   store double %50, ptr %48, align 8, !tbaa !60
@@ -3410,8 +3409,8 @@ define linkonce_odr hidden noundef i32 @_ZN3dpx16WriteFloatBufferIdLi64ELb0EEEiP
 
 .lr.ph.i23.i:                                     ; preds = %51, %.lr.ph.i23.i
   %indvars.iv.i24.i = phi i64 [ %indvars.iv.next.i25.i, %.lr.ph.i23.i ], [ 0, %51 ]
-  %52 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv.i24.i
-  %53 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv.i24.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i24.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i24.i
   %54 = load float, ptr %52, align 4, !tbaa !58
   %55 = fpext float %54 to double
   store double %55, ptr %53, align 8, !tbaa !60
@@ -3432,7 +3431,7 @@ _ZN3dpx15CopyWriteBufferIdEEvNS_8DataSizeEPhPT_i.exit: ; preds = %.lr.ph.i23.i, 
 
 .lr.ph.i.i.i19.i:                                 ; preds = %_ZN3dpx15CopyWriteBufferIdEEvNS_8DataSizeEPhPT_i.exit, %.lr.ph.i.i.i19.i
   %.06.i.i.i20.i = phi i64 [ %61, %.lr.ph.i.i.i19.i ], [ 0, %_ZN3dpx15CopyWriteBufferIdEEvNS_8DataSizeEPhPT_i.exit ]
-  %58 = getelementptr inbounds nuw i32, ptr %21, i64 %.06.i.i.i20.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.06.i.i.i20.i
   %59 = load i32, ptr %58, align 4, !tbaa !3
   %60 = tail call noundef i32 @llvm.bswap.i32(i32 %59)
   store i32 %60, ptr %58, align 4, !tbaa !3

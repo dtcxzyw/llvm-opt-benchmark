@@ -29,12 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.20" = type { %"struct.std::_Vector_base<std::unique_ptr<node>, std::allocator<std::unique_ptr<node>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::unique_ptr<node>, std::allocator<std::unique_ptr<node>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<node>, std::allocator<std::unique_ptr<node>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::unique_ptr<node>, std::allocator<std::unique_ptr<node>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.31" }
-%"struct.std::_Head_base.31" = type { ptr }
 %"class.std::map.38" = type { %"class.std::_Rb_tree.39" }
 %"class.std::_Rb_tree.39" = type { %"struct.std::_Rb_tree<Block *, std::pair<Block *const, node *>, std::_Select1st<std::pair<Block *const, node *>>, std::less<Block *>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<Block *, std::pair<Block *const, node *>, std::_Select1st<std::pair<Block *const, node *>>, std::less<Block *>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
@@ -115,7 +109,7 @@ define void @_ZN7IncVPSCC2EjPP8VariablejPP10Constraint(ptr noundef nonnull align
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %10 = zext i32 %3 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   invoke void @_ZNSt6vectorIP10ConstraintSaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %4, ptr noundef %11)
           to label %_ZNSt6vectorIP10ConstraintSaIS1_EE6assignIPS1_vEEvT_S6_.exit unwind label %15
 
@@ -260,7 +254,7 @@ _ZNSt7__cxx1110_List_baseIP8VariableSaIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i, %.
 
 24:                                               ; preds = %.lr.ph24, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next, %19 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !29
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !57
@@ -414,7 +408,7 @@ define void @_ZN4VPSC6refineEv(ptr noundef nonnull align 8 dereferenceable(84) %
 
 29:                                               ; preds = %.lr.ph41, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next, %28 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !57
@@ -761,7 +755,7 @@ _ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; pre
 _ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %116, %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %111, ptr %20, align 8, !tbaa !26
   store ptr %115, ptr %21, align 8, !tbaa !77
-  %117 = getelementptr inbounds nuw ptr, ptr %111, i64 %109
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %109
   store ptr %117, ptr %22, align 8, !tbaa !28
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit
 
@@ -954,7 +948,7 @@ _ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; p
 _ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %88, %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %83, ptr %6, align 8, !tbaa !26
   store ptr %87, ptr %7, align 8, !tbaa !77
-  %89 = getelementptr inbounds nuw ptr, ptr %83, i64 %81
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %81
   store ptr %89, ptr %10, align 8, !tbaa !28
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backEOS1_.exit
 
@@ -1054,7 +1048,7 @@ _ZN7IncVPSC12mostViolatedERSt6vectorIP10ConstraintSaIS2_EERS2_.exit.thread: ; pr
 
 120:                                              ; preds = %.lr.ph, %119
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %119 ]
-  %121 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv
   %122 = load ptr, ptr %121, align 8, !tbaa !29
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8, !tbaa !57
@@ -1395,14 +1389,14 @@ _ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE11_S_relocateEP
 _ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE17_M_realloc_insertIJPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %49, %_ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i
   store ptr %43, ptr %5, align 8, !tbaa !94
   store ptr %48, ptr %11, align 8, !tbaa !88
-  %50 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %43, i64 %41
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
   store ptr %50, ptr %12, align 8, !tbaa !91
   br label %_ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE12emplace_backIJPS1_EEERS4_DpOT_.exit
 
 _ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE12emplace_backIJPS1_EEERS4_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE17_M_realloc_insertIJPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %28
   %51 = phi ptr [ %.0.lcssa.i.i.i.i.i, %_ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE17_M_realloc_insertIJPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %26, %28 ]
   %52 = load ptr, ptr %51, align 8, !tbaa !92
-  %53 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIP8VariableP4nodeSt4lessIS1_ESaISt4pairIKS1_S3_EEEixERS7_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(8) %53)
           to label %55 unwind label %56
 
@@ -1436,7 +1430,7 @@ _ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE12emplace_backI
 
 .lr.ph213:                                        ; preds = %.lr.ph213.preheader, %._crit_edge211
   %indvars.iv242 = phi i64 [ 0, %.lr.ph213.preheader ], [ %indvars.iv.next243, %._crit_edge211 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv242
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv242
   %62 = load ptr, ptr %61, align 8, !tbaa !39
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %64 = load ptr, ptr %63, align 8, !tbaa !25
@@ -2466,7 +2460,7 @@ _ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE11_S_relocateEP
 _ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE17_M_realloc_insertIJPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %54, %_ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i
   store ptr %48, ptr %3, align 8, !tbaa !94
   store ptr %53, ptr %13, align 8, !tbaa !88
-  %55 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %48, i64 %46
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %46
   store ptr %55, ptr %14, align 8, !tbaa !91
   br label %_ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE12emplace_backIJPS1_EEERS4_DpOT_.exit
 

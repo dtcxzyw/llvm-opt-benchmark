@@ -746,7 +746,7 @@ Vec_IntGrow.exit.i:                               ; preds = %27, %15
 
 32:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   %34 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %34, ptr %33, align 4, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -985,7 +985,7 @@ Vec_WrdFillExtra.exit74:                          ; preds = %Vec_WrdFillExtra.ex
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.critedge2..critedge4_crit_edge.us.us ], [ 0, %.critedge.lr.ph.split.us.split.us ]
   %.04781.us.us = phi i32 [ %172, %.critedge2..critedge4_crit_edge.us.us ], [ 0, %.critedge.lr.ph.split.us.split.us ]
   %137 = mul nsw i64 %indvars.iv125, %135
-  %138 = getelementptr inbounds i64, ptr %.val56, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %.val56, i64 %137
   %139 = sext i32 %.04781.us.us to i64
   br label %154
 
@@ -994,7 +994,7 @@ Vec_WrdFillExtra.exit74:                          ; preds = %Vec_WrdFillExtra.ex
   %.14977.us.us = phi i32 [ 0, %.critedge2.us.us.preheader ], [ %153, %.critedge2.us.us ]
   %140 = lshr i32 %.14977.us.us, 5
   %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds nuw i64, ptr %170, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %141
   %143 = load i64, ptr %142, align 8, !tbaa !38
   %144 = shl nuw i32 %.14977.us.us, 1
   %145 = and i32 %144, 62
@@ -1018,7 +1018,7 @@ Vec_WrdFillExtra.exit74:                          ; preds = %Vec_WrdFillExtra.ex
   %indvars.iv119 = add i32 %indvars.iv119.in, 1
   %155 = lshr i32 %.04875.us.us, 5
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw i64, ptr %138, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %156
   %158 = load i64, ptr %157, align 8, !tbaa !38
   %159 = shl nuw i32 %.04875.us.us, 1
   %160 = and i32 %159, 62
@@ -1037,7 +1037,7 @@ Vec_WrdFillExtra.exit74:                          ; preds = %Vec_WrdFillExtra.ex
 
 .critedge2.us.us.preheader:                       ; preds = %154
   %169 = mul nsw i64 %indvars.iv125, %136
-  %170 = getelementptr inbounds i64, ptr %.val58, i64 %169
+  %170 = getelementptr inbounds [8 x i8], ptr %.val58, i64 %169
   %171 = sext i32 %indvars.iv119 to i64
   br label %.critedge2.us.us
 
@@ -1051,7 +1051,7 @@ Vec_WrdFillExtra.exit74:                          ; preds = %Vec_WrdFillExtra.ex
   %indvars.iv110 = phi i64 [ 0, %.critedge.us.preheader ], [ %indvars.iv.next111, %..critedge2.preheader_crit_edge.us ]
   %.04781.us = phi i64 [ 0, %.critedge.us.preheader ], [ %indvars.iv.next107, %..critedge2.preheader_crit_edge.us ]
   %173 = mul nsw i64 %indvars.iv110, %135
-  %174 = getelementptr inbounds i64, ptr %.val56, i64 %173
+  %174 = getelementptr inbounds [8 x i8], ptr %.val56, i64 %173
   %sext146 = shl i64 %.04781.us, 32
   %175 = ashr exact i64 %sext146, 32
   br label %176
@@ -1061,7 +1061,7 @@ Vec_WrdFillExtra.exit74:                          ; preds = %Vec_WrdFillExtra.ex
   %.04875.us = phi i32 [ 0, %.critedge.us ], [ %190, %176 ]
   %177 = lshr i32 %.04875.us, 5
   %178 = zext nneg i32 %177 to i64
-  %179 = getelementptr inbounds nuw i64, ptr %174, i64 %178
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %178
   %180 = load i64, ptr %179, align 8, !tbaa !38
   %181 = shl nuw i32 %.04875.us, 1
   %182 = and i32 %181, 62
@@ -1096,7 +1096,7 @@ Vec_WrdFillExtra.exit74:                          ; preds = %Vec_WrdFillExtra.ex
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %.critedge2..critedge4_crit_edge.us93 ], [ 0, %.critedge.lr.ph.split.split.us ]
   %.04781.us85 = phi i64 [ %indvars.iv.next, %.critedge2..critedge4_crit_edge.us93 ], [ 0, %.critedge.lr.ph.split.split.us ]
   %192 = mul nsw i64 %indvars.iv102, %191
-  %193 = getelementptr inbounds i64, ptr %.val58, i64 %192
+  %193 = getelementptr inbounds [8 x i8], ptr %.val58, i64 %192
   %sext = shl i64 %.04781.us85, 32
   %194 = ashr exact i64 %sext, 32
   br label %.critedge2.us88
@@ -1106,7 +1106,7 @@ Vec_WrdFillExtra.exit74:                          ; preds = %Vec_WrdFillExtra.ex
   %.14977.us90 = phi i32 [ 0, %.critedge.us83 ], [ %208, %.critedge2.us88 ]
   %195 = lshr i32 %.14977.us90, 5
   %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr inbounds nuw i64, ptr %193, i64 %196
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %196
   %198 = load i64, ptr %197, align 8, !tbaa !38
   %199 = shl nuw i32 %.14977.us90, 1
   %200 = and i32 %199, 62
@@ -1256,7 +1256,7 @@ Abc_UtilStrsav.exit.i:                            ; preds = %36, %31
 
 62:                                               ; preds = %62, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv.i.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv.i.i
   %64 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %64, ptr %63, align 4, !tbaa !12
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

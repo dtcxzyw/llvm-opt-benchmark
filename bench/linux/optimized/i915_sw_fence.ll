@@ -300,7 +300,7 @@ define internal fastcc noundef range(i32 -12, 2) i32 @__i915_sw_fence_await_sw_f
 
 30:                                               ; preds = %26, %23
   %31 = phi i64 [ 0, %23 ], [ %29, %26 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %31
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %31
   %32 = getelementptr i8, ptr %.split, i64 48
   %33 = load ptr, ptr %32, align 16
   %34 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %33, i32 noundef %3, i64 noundef 40) #11

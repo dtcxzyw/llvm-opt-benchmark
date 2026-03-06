@@ -4911,7 +4911,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal19UniversalPrintArrayIjE
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.i
   %.09.i = phi i64 [ %17, %.lr.ph.i ], [ 1, %11 ]
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.66, i64 noundef 2)
-  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %.09.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.09.i
   %14 = load i32, ptr %13, align 4, !tbaa !89
   %15 = zext i32 %14 to i64
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %15)
@@ -4922,7 +4922,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal19UniversalPrintArrayIjE
 .lr.ph.i13:                                       ; preds = %5, %.lr.ph.i13
   %.09.i14 = phi i64 [ %23, %.lr.ph.i13 ], [ 1, %5 ]
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.66, i64 noundef 2)
-  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %.09.i14
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.09.i14
   %20 = load i32, ptr %19, align 4, !tbaa !89
   %21 = zext i32 %20 to i64
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %21)
@@ -4932,7 +4932,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal19UniversalPrintArrayIjE
 
 _ZN7testing8internal15PrintRawArrayToIjEEvPKT_mPSo.exit16: ; preds = %.lr.ph.i13
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.72, i64 noundef 7)
-  %25 = getelementptr inbounds nuw i32, ptr %0, i64 %1
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %1
   %26 = getelementptr inbounds i8, ptr %25, i64 -32
   %27 = load i32, ptr %26, align 4, !tbaa !89
   %28 = zext i32 %27 to i64
@@ -4942,7 +4942,7 @@ _ZN7testing8internal15PrintRawArrayToIjEEvPKT_mPSo.exit16: ; preds = %.lr.ph.i13
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17, %_ZN7testing8internal15PrintRawArrayToIjEEvPKT_mPSo.exit16
   %.09.i18 = phi i64 [ %35, %.lr.ph.i17 ], [ 1, %_ZN7testing8internal15PrintRawArrayToIjEEvPKT_mPSo.exit16 ]
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.66, i64 noundef 2)
-  %31 = getelementptr inbounds nuw i32, ptr %26, i64 %.09.i18
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %.09.i18
   %32 = load i32, ptr %31, align 4, !tbaa !89
   %33 = zext i32 %32 to i64
   %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %33)
@@ -7696,7 +7696,7 @@ define internal void @_ZN12_GLOBAL__N_163ReadSeedMaterialFromURBG_SeedMaterialEq
 10:                                               ; preds = %10, %1
   %store_forwarded50 = phi i64 [ 5489, %1 ], [ %16, %10 ]
   %.011.i.i.i = phi i64 [ 1, %1 ], [ %17, %10 ]
-  %11 = getelementptr i64, ptr %2, i64 %.011.i.i.i
+  %11 = getelementptr [8 x i8], ptr %2, i64 %.011.i.i.i
   %12 = lshr i64 %store_forwarded50, 30
   %13 = xor i64 %12, %store_forwarded50
   %14 = mul nuw nsw i64 %13, 1812433253
@@ -7717,7 +7717,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 19:                                               ; preds = %19, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Ev.exit
   %store_forwarded = phi i64 [ 5489, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Ev.exit ], [ %25, %19 ]
   %.011.i.i.i21 = phi i64 [ 1, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Ev.exit ], [ %26, %19 ]
-  %20 = getelementptr i64, ptr %3, i64 %.011.i.i.i21
+  %20 = getelementptr [8 x i8], ptr %3, i64 %.011.i.i.i21
   %21 = lshr i64 %store_forwarded, 30
   %22 = xor i64 %21, %store_forwarded
   %23 = mul nuw nsw i64 %22, 1812433253
@@ -7910,10 +7910,10 @@ define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm32E
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !40
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -7937,10 +7937,10 @@ define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm32E
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 227, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !40
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -7978,7 +7978,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8, !tbaa !234
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !40
   %55 = lshr i64 %54, 11
   %56 = and i64 %55, 4294967295
@@ -8539,9 +8539,9 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i: ; preds = %1, %_ZNSt
 26:                                               ; preds = %17, %26
   %.090 = phi i64 [ 0, %17 ], [ %35, %26 ]
   %27 = phi i32 [ 0, %17 ], [ %34, %26 ]
-  %28 = getelementptr inbounds nuw i32, ptr %12, i64 %.090
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.090
   %29 = load i32, ptr %28, align 4, !tbaa !89
-  %30 = getelementptr inbounds nuw i32, ptr %15, i64 %.090
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.090
   %31 = load i32, ptr %30, align 4, !tbaa !89
   %32 = xor i32 %31, %29
   %33 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %32)

@@ -307,7 +307,7 @@ _ZN12_GLOBAL__N_112getLocalImplEPN2cv8img_hash11ImgHashBase11ImgHashImplE.exit: 
   %53 = fmul float %51, 5.000000e-01
   %54 = tail call noundef float @expf(float noundef %53) #20, !tbaa !29
   %55 = fmul float %54, %52
-  %56 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv.i.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv.i.i
   store float %55, ptr %56, align 4, !tbaa !38
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %57 = load i32, ptr %32, align 4, !tbaa !34
@@ -715,7 +715,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120MarrHildrethHashImplC2Eff(ptr no
   %49 = fmul float %47, 5.000000e-01
   %50 = tail call noundef float @expf(float noundef %49) #20, !tbaa !29
   %51 = fmul float %50, %48
-  %52 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv.i
   store float %51, ptr %52, align 4, !tbaa !38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %53 = load i32, ptr %28, align 4, !tbaa !34
@@ -1070,7 +1070,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
 126:                                              ; preds = %.noexc41
   %127 = load double, ptr %11, align 8, !tbaa !68
   %128 = fptrunc double %127 to float
-  %129 = getelementptr inbounds nuw float, ptr %120, i64 %indvars.iv.i
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv.i
   store float %128, ptr %129, align 4, !tbaa !38
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1226,7 +1226,7 @@ _ZNK2cv11_InputArray6getMatEi.exit45:             ; preds = %137, %140
   %.35.i = phi i32 [ %.210.i, %.lr.ph.i47 ], [ %179, %187 ]
   %.3344.i = phi i8 [ %.2339.i, %.lr.ph.i47 ], [ %.5.i, %187 ]
   %174 = shl i8 %.3344.i, 1
-  %175 = getelementptr inbounds nuw float, ptr %172, i64 %indvars.iv.i48
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %indvars.iv.i48
   %176 = load float, ptr %175, align 4, !tbaa !38
   %177 = fcmp ogt float %176, %159
   %178 = zext i1 %177 to i8

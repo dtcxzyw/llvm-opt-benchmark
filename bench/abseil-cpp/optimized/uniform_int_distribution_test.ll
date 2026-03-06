@@ -1320,7 +1320,7 @@ define internal void @_ZN12_GLOBAL__N_145UniformIntDistributionTest_StabilityTes
   %.sroa.0259.0.ptr328 = getelementptr inbounds nuw i8, ptr %31, i64 %.sroa.0259.0.idx326
   %43 = add i64 %.sroa.0265.0327, 1
   %44 = urem i64 %.sroa.0265.0327, 12
-  %45 = getelementptr inbounds nuw i64, ptr %30, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !38
   %47 = and i64 %46, 4294967295
   %48 = mul nuw nsw i64 %47, 5
@@ -1336,7 +1336,7 @@ define internal void @_ZN12_GLOBAL__N_145UniformIntDistributionTest_StabilityTes
   %53 = phi i64 [ %54, %.lr.ph.i.i.i ], [ %43, %51 ]
   %54 = add i64 %53, 1
   %55 = urem i64 %53, 12
-  %56 = getelementptr inbounds nuw i64, ptr %30, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !38
   %58 = and i64 %57, 4294967295
   %59 = mul nuw nsw i64 %58, 5
@@ -1659,7 +1659,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.sroa.0229.0330 = phi ptr [ %167, %.loopexit319 ], [ %141, %140 ]
   %147 = add i64 %.sroa.0265.1331, 1
   %148 = urem i64 %.sroa.0265.1331, 12
-  %149 = getelementptr inbounds nuw i64, ptr %30, i64 %148
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %148
   %150 = load i64, ptr %149, align 8, !tbaa !38
   %151 = and i64 %150, 4294967295
   %152 = mul nuw nsw i64 %151, 101
@@ -1675,7 +1675,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %157 = phi i64 [ %158, %.lr.ph.i.i.i94 ], [ %147, %155 ]
   %158 = add i64 %157, 1
   %159 = urem i64 %157, 12
-  %160 = getelementptr inbounds nuw i64, ptr %30, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %159
   %161 = load i64, ptr %160, align 8, !tbaa !38
   %162 = and i64 %161, 4294967295
   %163 = mul nuw nsw i64 %162, 101
@@ -1998,7 +1998,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.sroa.0199.0333 = phi ptr [ %272, %.loopexit ], [ %246, %245 ]
   %252 = add i64 %.sroa.0265.2334, 1
   %253 = urem i64 %.sroa.0265.2334, 12
-  %254 = getelementptr inbounds nuw i64, ptr %30, i64 %253
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %253
   %255 = load i64, ptr %254, align 8, !tbaa !38
   %256 = and i64 %255, 4294967295
   %257 = mul nuw nsw i64 %256, 10001
@@ -2014,7 +2014,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %262 = phi i64 [ %263, %.lr.ph.i.i.i144 ], [ %252, %260 ]
   %263 = add i64 %262, 1
   %264 = urem i64 %262, 12
-  %265 = getelementptr inbounds nuw i64, ptr %30, i64 %264
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %264
   %266 = load i64, ptr %265, align 8, !tbaa !38
   %267 = and i64 %266, 4294967295
   %268 = mul nuw nsw i64 %267, 10001
@@ -4551,7 +4551,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKiEES4_EvT_S6_RSaIT0_E.exit: ; preds = %.lr.ph
 _ZNSt12_Vector_baseIN7testing7MatcherIRKiEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKiEES4_EvT_S6_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !115
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !118
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.68", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !119
   ret void
 }
@@ -5722,7 +5722,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %.body, %_ZNKSt14def
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.021)
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.29, i64 noundef 1)
   %95 = load ptr, ptr %8, align 8, !tbaa !115
-  %96 = getelementptr inbounds nuw %"class.testing::Matcher.68", ptr %95, i64 %.021
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.021
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !132
   %99 = icmp ne ptr %98, null
@@ -5965,7 +5965,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %.body, %_ZNKSt14def
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.29, i64 noundef 1)
   %77 = load ptr, ptr %7, align 8, !tbaa !115
-  %78 = getelementptr inbounds nuw %"class.testing::Matcher.68", ptr %77, i64 %.017
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.017
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !132
   %81 = icmp ne ptr %80, null
@@ -6067,7 +6067,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = shl nuw nsw i64 %23, 5
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #29
   store ptr %26, ptr %9, align 8, !tbaa !4
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !19
   br label %.lr.ph.i.i.i.i.i
@@ -6141,7 +6141,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %65
   %66 = load ptr, ptr %16, align 8, !tbaa !115
-  %67 = getelementptr inbounds nuw %"class.testing::Matcher.68", ptr %66, i64 %storemerge164.us
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %storemerge164.us
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !132
   %70 = icmp ne ptr %69, null
@@ -6202,7 +6202,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %87, %81
   %88 = load ptr, ptr %9, align 8, !tbaa !4
-  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %storemerge164.us
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %storemerge164.us
   %90 = load ptr, ptr %89, align 8, !tbaa !11
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %92 = icmp eq ptr %90, %91
@@ -6366,7 +6366,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   br i1 %.not, label %.critedge, label %144
 
 144:                                              ; preds = %.lr.ph.split
-  %145 = getelementptr inbounds nuw %"class.testing::Matcher.68", ptr %139, i64 %storemerge164
+  %145 = getelementptr inbounds nuw [24 x i8], ptr %139, i64 %storemerge164
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %37, align 8, !tbaa !56
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %7, align 8, !tbaa !20
@@ -6687,7 +6687,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %246
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %248
   %.pre216 = load ptr, ptr %13, align 8, !tbaa !56
   %250 = load ptr, ptr %9, align 8, !tbaa !4
-  %251 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %250, i64 %storemerge.lcssa
+  %251 = getelementptr inbounds nuw [32 x i8], ptr %250, i64 %storemerge.lcssa
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %253 = load i64, ptr %252, align 8, !tbaa !77
   %254 = icmp eq i64 %253, 0
@@ -6717,7 +6717,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %248
 .lr.ph206:                                        ; preds = %.lr.ph206.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.028205 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph206.preheader ]
   %storemerge48204 = phi i64 [ %282, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph206.preheader ]
-  %262 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge48204
+  %262 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %storemerge48204
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %264 = load i64, ptr %263, align 8, !tbaa !77
   %265 = icmp eq i64 %264, 0
@@ -7929,7 +7929,7 @@ define internal void @_ZN12_GLOBAL__N_150UniformIntDistributionTest_ParamSeriali
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %73 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %74, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %75 = getelementptr inbounds nuw i32, ptr %6, i64 %.016.i.i.i.i.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.016.i.i.i.i.i
   %76 = load i32, ptr %75, align 4, !tbaa !37
   %77 = zext i32 %76 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %77
@@ -13087,7 +13087,7 @@ define internal void @_ZN12_GLOBAL__N_150UniformIntDistributionTest_ParamSeriali
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %73 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %74, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %75 = getelementptr inbounds nuw i32, ptr %6, i64 %.016.i.i.i.i.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.016.i.i.i.i.i
   %76 = load i32, ptr %75, align 4, !tbaa !37
   %77 = zext i32 %76 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %77
@@ -22004,7 +22004,7 @@ define internal void @_ZN12_GLOBAL__N_150UniformIntDistributionTest_ParamSeriali
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %73 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %74, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %75 = getelementptr inbounds nuw i32, ptr %6, i64 %.016.i.i.i.i.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.016.i.i.i.i.i
   %76 = load i32, ptr %75, align 4, !tbaa !37
   %77 = zext i32 %76 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %77
@@ -26944,7 +26944,7 @@ define internal void @_ZN12_GLOBAL__N_150UniformIntDistributionTest_ParamSeriali
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %73 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %74, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %75 = getelementptr inbounds nuw i32, ptr %6, i64 %.016.i.i.i.i.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.016.i.i.i.i.i
   %76 = load i32, ptr %75, align 4, !tbaa !37
   %77 = zext i32 %76 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %77
@@ -31885,7 +31885,7 @@ define internal void @_ZN12_GLOBAL__N_150UniformIntDistributionTest_ParamSeriali
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %73 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %74, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %75 = getelementptr inbounds nuw i32, ptr %6, i64 %.016.i.i.i.i.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.016.i.i.i.i.i
   %76 = load i32, ptr %75, align 4, !tbaa !37
   %77 = zext i32 %76 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %77
@@ -36709,7 +36709,7 @@ define internal void @_ZN12_GLOBAL__N_150UniformIntDistributionTest_ParamSeriali
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %73 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %74, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %75 = getelementptr inbounds nuw i32, ptr %6, i64 %.016.i.i.i.i.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.016.i.i.i.i.i
   %76 = load i32, ptr %75, align 4, !tbaa !37
   %77 = zext i32 %76 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %77
@@ -41648,7 +41648,7 @@ define internal void @_ZN12_GLOBAL__N_150UniformIntDistributionTest_ParamSeriali
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %73 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %74, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %75 = getelementptr inbounds nuw i32, ptr %6, i64 %.016.i.i.i.i.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.016.i.i.i.i.i
   %76 = load i32, ptr %75, align 4, !tbaa !37
   %77 = zext i32 %76 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %77
@@ -46595,7 +46595,7 @@ define internal void @_ZN12_GLOBAL__N_150UniformIntDistributionTest_ParamSeriali
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %73 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %74, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %75 = getelementptr inbounds nuw i32, ptr %6, i64 %.016.i.i.i.i.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.016.i.i.i.i.i
   %76 = load i32, ptr %75, align 4, !tbaa !37
   %77 = zext i32 %76 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %77
@@ -51763,7 +51763,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !10
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !19
   ret void
 }
@@ -52709,7 +52709,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %43 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %44, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %45 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i.i.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.016.i.i.i.i.i
   %46 = load i32, ptr %45, align 4, !tbaa !37
   %47 = zext i32 %46 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %47
@@ -54329,7 +54329,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %43 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %44, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %45 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i.i.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.016.i.i.i.i.i
   %46 = load i32, ptr %45, align 4, !tbaa !37
   %47 = zext i32 %46 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %47
@@ -58742,7 +58742,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %42 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %43, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.016.i.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !37
   %46 = zext i32 %45 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %46
@@ -59159,7 +59159,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %42 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %43, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.016.i.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !37
   %46 = zext i32 %45 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %46
@@ -59577,7 +59577,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %42 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %43, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.016.i.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !37
   %46 = zext i32 %45 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %46
@@ -59991,7 +59991,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %42 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %43, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.016.i.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !37
   %46 = zext i32 %45 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %46
@@ -60408,7 +60408,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %42 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %43, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.016.i.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !37
   %46 = zext i32 %45 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %46
@@ -60829,7 +60829,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %42 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %43, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.016.i.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !37
   %46 = zext i32 %45 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %46
@@ -61606,7 +61606,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %167 = load i8, ptr %3, align 1, !tbaa !16
   %168 = sitofp i8 %167 to double
-  %169 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store double %168, ptr %169, align 8, !tbaa !972
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -62644,7 +62644,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %167 = load i8, ptr %3, align 1, !tbaa !16
   %168 = uitofp i8 %167 to double
-  %169 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store double %168, ptr %169, align 8, !tbaa !972
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -67650,7 +67650,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %166 = load i16, ptr %3, align 2, !tbaa !523
   %167 = sitofp i16 %166 to double
-  %168 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store double %167, ptr %168, align 8, !tbaa !972
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -68681,7 +68681,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %166 = load i16, ptr %3, align 2, !tbaa !523
   %167 = uitofp i16 %166 to double
-  %168 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store double %167, ptr %168, align 8, !tbaa !972
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -69707,7 +69707,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %162 = load i32, ptr %3, align 4, !tbaa !37
   %163 = sitofp i32 %162 to double
-  %164 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store double %163, ptr %164, align 8, !tbaa !972
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -70733,7 +70733,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %162 = load i32, ptr %3, align 4, !tbaa !37
   %163 = uitofp i32 %162 to double
-  %164 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store double %163, ptr %164, align 8, !tbaa !972
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -71757,7 +71757,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %155 = load i64, ptr %3, align 8, !tbaa !38
   %156 = sitofp i64 %155 to double
-  %157 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store double %156, ptr %157, align 8, !tbaa !972
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -72781,7 +72781,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %155 = load i64, ptr %3, align 8, !tbaa !38
   %156 = uitofp i64 %155 to double
-  %157 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store double %156, ptr %157, align 8, !tbaa !972
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -73944,7 +73944,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.lr.ph.i.i.i, %33, 
   %.018.i.i.i = phi i16 [ %30, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.preheader ], [ %30, %33 ], [ %42, %.lr.ph.i.i.i ]
   %45 = lshr i16 %.018.i.i.i, 8
   %46 = zext nneg i16 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %15, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !37
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %47, align 4, !tbaa !37
@@ -78849,7 +78849,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.lr.ph.i.i.i, %33, 
   %.018.i.i.i = phi i32 [ %30, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.preheader ], [ %30, %33 ], [ %42, %.lr.ph.i.i.i ]
   %45 = lshr i32 %.018.i.i.i, 16
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %15, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !37
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %47, align 4, !tbaa !37
@@ -79308,7 +79308,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.lr.ph.i.i.i, %32, 
   %.sroa.793.1 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.preheader ], [ %.narrow.i.i.i.i.i.i.i.i, %32 ], [ %.narrow.i.i.i.i.i30.i.i.i, %.lr.ph.i.i.i ]
   %.018.i.i.i = phi i64 [ %29, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.preheader ], [ %29, %32 ], [ %39, %.lr.ph.i.i.i ]
   %42 = lshr i64 %.018.i.i.i, 32
-  %43 = getelementptr inbounds nuw i32, ptr %15, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !37
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4, !tbaa !37
@@ -79767,7 +79767,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.lr.ph.i.i.i, %32, 
   %.sroa.793.1 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.preheader ], [ %.narrow.i.i.i.i.i.i.i.i, %32 ], [ %.narrow.i.i.i.i.i30.i.i.i, %.lr.ph.i.i.i ]
   %.018.i.i.i = phi i64 [ %29, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.preheader ], [ %29, %32 ], [ %39, %.lr.ph.i.i.i ]
   %42 = lshr i64 %.018.i.i.i, 32
-  %43 = getelementptr inbounds nuw i32, ptr %15, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !37
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4, !tbaa !37
@@ -80232,7 +80232,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %..loopexit_crit_edg
   %.sroa.094.1 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.preheader ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i34.i.i.i, %..loopexit_crit_edge.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %30 ]
   %.sroa.795.1 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.preheader ], [ %.narrow.i.i.i.i.i36.i.i.i, %..loopexit_crit_edge.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i, %30 ]
   %.0.i.i.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i.i.i.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.preheader ], [ %.sroa.2.0.extract.trunc.i.i42.le.i.i.i, %..loopexit_crit_edge.i.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i.i.i, %30 ]
-  %38 = getelementptr inbounds nuw i32, ptr %15, i64 %.0.i.i.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.0.i.i.i
   %39 = load i32, ptr %38, align 4, !tbaa !37
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 4, !tbaa !37
@@ -80705,7 +80705,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %..loopexit_crit_edg
   %.sroa.094.1 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.preheader ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i34.i.i.i, %..loopexit_crit_edge.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %30 ]
   %.sroa.795.1 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.preheader ], [ %.narrow.i.i.i.i.i36.i.i.i, %..loopexit_crit_edge.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i, %30 ]
   %.0.i.i.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i.i.i.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.preheader ], [ %.sroa.2.0.extract.trunc.i.i42.le.i.i.i, %..loopexit_crit_edge.i.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i.i.i, %30 ]
-  %38 = getelementptr inbounds nuw i32, ptr %15, i64 %.0.i.i.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.0.i.i.i
   %39 = load i32, ptr %38, align 4, !tbaa !37
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 4, !tbaa !37

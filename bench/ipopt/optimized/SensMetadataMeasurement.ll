@@ -1771,7 +1771,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %113
   %121 = phi ptr [ null, %.lr.ph ], [ %152, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
   %.078 = phi i64 [ 0, %.lr.ph ], [ %154, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
   %122 = phi ptr [ null, %.lr.ph ], [ %153, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
-  %123 = getelementptr inbounds nuw i32, ptr %104, i64 %.078
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %.078
   %124 = load i32, ptr %123, align 4, !tbaa !180
   %.not = icmp eq i32 %124, 0
   br i1 %.not, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, label %125
@@ -1837,7 +1837,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %145, %.n
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %147, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %146, ptr %109, align 8, !tbaa !147
-  %148 = getelementptr inbounds nuw i32, ptr %142, i64 %140
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %140
   store ptr %148, ptr %110, align 8, !tbaa !181
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -2626,19 +2626,19 @@ _ZN5Ipopt8SmartPtrIKNS_16DenseVectorSpaceEED2Ev.exit104: ; preds = %259, %264
 
 .lr.ph:                                           ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit, %282
   %.0166 = phi i64 [ %283, %282 ], [ 0, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit ]
-  %270 = getelementptr inbounds nuw i32, ptr %76, i64 %.0166
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.0166
   %271 = load i32, ptr %270, align 4, !tbaa !180
   %272 = icmp sgt i32 %271, 0
   br i1 %272, label %273, label %282
 
 273:                                              ; preds = %.lr.ph
-  %274 = getelementptr inbounds nuw double, ptr %142, i64 %.0166
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %.0166
   %275 = load double, ptr %274, align 8, !tbaa !227
-  %276 = getelementptr inbounds nuw double, ptr %226, i64 %.0166
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %.0166
   %277 = load double, ptr %276, align 8, !tbaa !227
   %278 = fsub double %275, %277
   %279 = zext nneg i32 %271 to i64
-  %280 = getelementptr double, ptr %203, i64 %279
+  %280 = getelementptr [8 x i8], ptr %203, i64 %279
   %281 = getelementptr i8, ptr %280, i64 -8
   store double %278, ptr %281, align 8, !tbaa !227
   br label %282

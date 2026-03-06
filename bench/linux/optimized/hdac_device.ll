@@ -1051,7 +1051,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   br i1 %exitcond.not, label %.thread18, label %133
 
 133:                                              ; preds = %.preheader.split
-  %134 = getelementptr i16, ptr %2, i64 %indvars.iv
+  %134 = getelementptr [2 x i8], ptr %2, i64 %indvars.iv
   store i16 %132, ptr %134, align 2
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %135 = add i16 %132, 1
@@ -1068,7 +1068,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
 
 141:                                              ; preds = %139
   %142 = sext i32 %79 to i64
-  %143 = getelementptr i16, ptr %2, i64 %142
+  %143 = getelementptr [2 x i8], ptr %2, i64 %142
   store i16 %111, ptr %143, align 2
   br label %144
 
@@ -1253,7 +1253,7 @@ define dso_local i32 @snd_hdac_stream_format_bits(i32 noundef %0, i32 noundef %1
   %13 = shl nuw i32 1, %12
   %14 = lshr i32 %10, 5
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr i32, ptr %11, i64 %15
+  %16 = getelementptr [4 x i8], ptr %11, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %13, %17
   store i32 %18, ptr %16, align 4
@@ -1262,7 +1262,7 @@ define dso_local i32 @snd_hdac_stream_format_bits(i32 noundef %0, i32 noundef %1
   %21 = shl nuw i32 1, %20
   %22 = lshr i32 %1, 5
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr i32, ptr %19, i64 %23
+  %24 = getelementptr [4 x i8], ptr %19, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = or i32 %25, %21
   store i32 %26, ptr %24, align 4
@@ -1292,7 +1292,7 @@ define dso_local i32 @snd_hdac_stream_format(i32 noundef %0, i32 noundef %1, i32
   br i1 %7, label %.thread, label %8, !llvm.loop !19
 
 8:                                                ; preds = %.preheader
-  %9 = getelementptr %struct.hda_rate_tbl, ptr @rate_bits, i64 %6
+  %9 = getelementptr [12 x i8], ptr @rate_bits, i64 %6
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, %2
   br i1 %11, label %12, label %.preheader, !llvm.loop !19
@@ -1361,7 +1361,7 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
   br i1 %8, label %.thread5, label %9, !llvm.loop !19
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr %struct.hda_rate_tbl, ptr @rate_bits, i64 %7
+  %10 = getelementptr [12 x i8], ptr @rate_bits, i64 %7
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %2
   br i1 %12, label %13, label %.preheader, !llvm.loop !19
@@ -1458,7 +1458,7 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %.preheader
-  %.split = getelementptr %struct.hda_rate_tbl, ptr @rate_bits, i64 %19
+  %.split = getelementptr [12 x i8], ptr @rate_bits, i64 %19
   %26 = getelementptr i8, ptr %.split, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = or i32 %27, %20
@@ -1684,7 +1684,7 @@ define dso_local noundef zeroext i1 @snd_hdac_is_supported_format(ptr noundef %0
 
 10:                                               ; preds = %20, %8
   %11 = phi i64 [ 0, %8 ], [ %21, %20 ]
-  %.split = getelementptr %struct.hda_rate_tbl, ptr @rate_bits, i64 %11
+  %.split = getelementptr [12 x i8], ptr @rate_bits, i64 %11
   %12 = getelementptr i8, ptr %.split, i64 8
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %9

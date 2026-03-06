@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.fileStream = type <{ %class.outputStream, ptr, i8, [7 x i8] }>
 %class.VM_ReportJavaOutOfMemory = type { %class.VM_Operation, ptr }
 %class.VM_Operation = type { ptr, ptr }
-%class.ImmutableOopMapPair = type { i32, i32 }
 
 $_ZN12ResourceMarkD2Ev = comdat any
 
@@ -833,7 +832,7 @@ define internal fastcc void @_ZL10next_frame5frameP6Thread(ptr dead_on_unwind no
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %15 to i64
-  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   br label %_ZNK5frame7real_fpEv.exit
 
 22:                                               ; preds = %13, %10
@@ -4008,7 +4007,7 @@ define internal fastcc void @_ZL20print_stack_locationP12outputStreamPvRi(ptr no
   %8 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %8, ptr @_ZZN7VMError6reportEP12outputStreambE12continuation, align 4
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %indvars.iv
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 7
   %13 = icmp eq i64 %12, 0
@@ -4072,7 +4071,7 @@ _ZN19TemplateInterpreter8containsEPh.exit:        ; preds = %5
 
 .preheader61:                                     ; preds = %16, %27
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %27 ], [ 0, %16 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %17
   br i1 %20, label %_ZL13add_if_absentPhPS_i.exit, label %21
@@ -4082,7 +4081,7 @@ _ZN19TemplateInterpreter8containsEPh.exit:        ; preds = %5
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   store ptr %17, ptr %24, align 8
   %.not.i40 = icmp eq i64 %indvars.iv.i, 9
   br i1 %.not.i40, label %28, label %25
@@ -4127,7 +4126,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %5, %_ZN19TemplateIn
 
 .preheader59:                                     ; preds = %43, %53
   %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %53 ], [ 0, %43 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i41
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, %42
   br i1 %46, label %_ZL13add_if_absentPhPS_i.exit, label %47
@@ -4137,7 +4136,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %5, %_ZN19TemplateIn
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i41
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i41
   store ptr %42, ptr %50, align 8
   %.not.i45 = icmp eq i64 %indvars.iv.i41, 9
   br i1 %.not.i45, label %54, label %51
@@ -4172,7 +4171,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %5, %_ZN19TemplateIn
 
 .preheader:                                       ; preds = %60, %71
   %indvars.iv.i47 = phi i64 [ %indvars.iv.next.i48, %71 ], [ 0, %60 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i47
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i47
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, %61
   br i1 %64, label %_ZL13add_if_absentPhPS_i.exit, label %65
@@ -4182,7 +4181,7 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %5, %_ZN19TemplateIn
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i47
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i47
   store ptr %61, ptr %68, align 8
   %.not.i51 = icmp eq i64 %indvars.iv.i47, 9
   br i1 %.not.i51, label %72, label %69
@@ -5499,7 +5498,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef no
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12VM_Operation6_namesE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12VM_Operation6_namesE, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -5796,7 +5795,7 @@ define linkonce_odr hidden void @_ZNK5frame25sender_for_compiled_frameEP11Regist
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
@@ -5851,7 +5850,7 @@ _ZNK5frame7oop_mapEv.exit.thread23:               ; preds = %42
   %45 = lshr i32 %44, 24
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %36, align 4

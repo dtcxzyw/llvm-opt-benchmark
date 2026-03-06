@@ -113,8 +113,8 @@ _ZN5alloc5slice11stable_sort17h94a17f4a52719898E.exit: ; preds = %"_ZN67_$LT$all
   %.val = load ptr, ptr %49, align 8, !nonnull !5, !noundef !5
   %.val10 = load ptr, ptr %43, align 8, !nonnull !5, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %55 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %.val10, i64 %.val11
-  %56 = getelementptr inbounds { { i64, i64, i64 }, { i64, { { [2 x i32] } }, {}, {} } }, ptr %.val, i64 %.val11
+  %55 = getelementptr inbounds [40 x i8], ptr %.val10, i64 %.val11
+  %56 = getelementptr inbounds [40 x i8], ptr %.val, i64 %.val11
   invoke void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17heee0b11b2423bcc1E"(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56) %4, ptr noundef nonnull align 8 %.val10, ptr noundef nonnull %55, ptr noundef nonnull align 8 %.val, ptr noundef nonnull %56)
           to label %.noexc unwind label %47
 

@@ -994,7 +994,7 @@ PaPulseAudio_UnLock.exit:                         ; preds = %PaPulseAudio_Lock.e
 
 switch.lookup:                                    ; preds = %PaPulseAudio_UnLock.exit
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._PaPulseAudio_WaitStreamState, i64 %10
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._PaPulseAudio_WaitStreamState, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %11
 
@@ -1090,7 +1090,7 @@ PaPulseAudio_UnLock.exit:                         ; preds = %PaPulseAudio_Lock.e
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 74008
   %44 = sext i32 %40 to i64
-  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !71
   br label %47
 
@@ -1210,7 +1210,7 @@ PaPulseAudio_UnLock.exit124:                      ; preds = %PaPulseAudio_Lock.e
 93:                                               ; preds = %89
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 74008
   %95 = sext i32 %91 to i64
-  %96 = getelementptr inbounds ptr, ptr %94, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %94, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !71
   br label %98
 

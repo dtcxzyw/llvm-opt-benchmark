@@ -332,13 +332,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
 
 .lr.ph:                                           ; preds = %8, %150
   %.0103120 = phi i64 [ %154, %150 ], [ 0, %8 ]
-  %14 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %7, i64 %.0103120
+  %14 = getelementptr inbounds nuw [304 x i8], ptr %7, i64 %.0103120
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 192
   store i64 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 208
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0103120
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0103120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %18, i8 0, i64 112, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(89) %17, i8 0, i64 89, i1 false)
@@ -366,7 +366,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   br label %.loopexit
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds nuw i64, ptr %2, i64 %.0103120
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0103120
   %35 = load i64, ptr %34, align 8, !tbaa !8
   %36 = call ptr @H5I_object_verify(i64 noundef %35, i32 noundef 3) #5
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 200
@@ -381,7 +381,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   br label %.loopexit
 
 43:                                               ; preds = %33
-  %44 = getelementptr inbounds nuw i64, ptr %4, i64 %.0103120
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0103120
   %45 = load i64, ptr %44, align 8, !tbaa !8
   switch i64 %45, label %87 [
     i64 0, label %46
@@ -470,7 +470,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   br label %.loopexit
 
 95:                                               ; preds = %86, %87, %46
-  %96 = getelementptr inbounds nuw i64, ptr %3, i64 %.0103120
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0103120
   %97 = load i64, ptr %96, align 8, !tbaa !8
   switch i64 %97, label %126 [
     i64 0, label %98
@@ -574,7 +574,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
 
 150:                                              ; preds = %142
   %151 = getelementptr inbounds nuw i8, ptr %14, i64 120
-  %152 = getelementptr inbounds nuw %union.H5_flexible_const_ptr_t, ptr %6, i64 %.0103120
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0103120
   %153 = load i64, ptr %152, align 8, !tbaa !66
   store i64 %153, ptr %151, align 8, !tbaa !66
   %154 = add nuw i64 %.0103120, 1
@@ -598,13 +598,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_cleanup(i64
 .lr.ph:                                           ; preds = %4, %34
   %.022 = phi i32 [ %.2, %34 ], [ 0, %4 ]
   %.01721 = phi i64 [ %35, %34 ], [ 0, %4 ]
-  %5 = getelementptr inbounds nuw i64, ptr %1, i64 %.01721
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.01721
   %6 = load i64, ptr %5, align 8, !tbaa !8
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %3, i64 %.01721
+  %9 = getelementptr inbounds nuw [304 x i8], ptr %3, i64 %.01721
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %11 = load ptr, ptr %10, align 8, !tbaa !65
   %.not = icmp eq ptr %11, null
@@ -623,13 +623,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_cleanup(i64
 
 19:                                               ; preds = %12, %15, %8, %.lr.ph
   %.1 = phi i32 [ -1, %15 ], [ %.022, %12 ], [ %.022, %8 ], [ %.022, %.lr.ph ]
-  %20 = getelementptr inbounds nuw i64, ptr %2, i64 %.01721
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.01721
   %21 = load i64, ptr %20, align 8, !tbaa !8
   %22 = icmp eq i64 %21, 2
   br i1 %22, label %23, label %34
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw %struct.H5D_dset_io_info_t, ptr %3, i64 %.01721
+  %24 = getelementptr inbounds nuw [304 x i8], ptr %3, i64 %.01721
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 176
   %26 = load ptr, ptr %25, align 8, !tbaa !63
   %.not20 = icmp eq ptr %26, null

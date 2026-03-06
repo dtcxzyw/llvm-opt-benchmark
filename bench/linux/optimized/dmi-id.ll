@@ -156,7 +156,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 8:                                                ; preds = %4
   %9 = add nuw nsw i32 %5, 1
   %10 = zext nneg i32 %5 to i64
-  %11 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %10
+  %11 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %10
   store ptr @sys_dmi_bios_version_attr, ptr %11, align 8
   br label %12
 
@@ -169,7 +169,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 16:                                               ; preds = %12
   %17 = add nuw nsw i32 %13, 1
   %18 = zext nneg i32 %13 to i64
-  %19 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %18
+  %19 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %18
   store ptr @sys_dmi_bios_date_attr, ptr %19, align 8
   br label %20
 
@@ -182,7 +182,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 24:                                               ; preds = %20
   %25 = add nuw nsw i32 %21, 1
   %26 = zext nneg i32 %21 to i64
-  %27 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %26
+  %27 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %26
   store ptr @sys_dmi_bios_release_attr, ptr %27, align 8
   br label %28
 
@@ -195,7 +195,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 32:                                               ; preds = %28
   %33 = add nuw nsw i32 %29, 1
   %34 = zext nneg i32 %29 to i64
-  %35 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %34
+  %35 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %34
   store ptr @sys_dmi_ec_firmware_release_attr, ptr %35, align 8
   br label %36
 
@@ -208,7 +208,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 40:                                               ; preds = %36
   %41 = add nuw nsw i32 %37, 1
   %42 = zext nneg i32 %37 to i64
-  %43 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %42
+  %43 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %42
   store ptr @sys_dmi_sys_vendor_attr, ptr %43, align 8
   br label %44
 
@@ -221,7 +221,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 48:                                               ; preds = %44
   %49 = add nuw nsw i32 %45, 1
   %50 = zext nneg i32 %45 to i64
-  %51 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %50
+  %51 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %50
   store ptr @sys_dmi_product_name_attr, ptr %51, align 8
   br label %52
 
@@ -234,7 +234,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 56:                                               ; preds = %52
   %57 = add nuw nsw i32 %53, 1
   %58 = zext nneg i32 %53 to i64
-  %59 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %58
+  %59 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %58
   store ptr @sys_dmi_product_version_attr, ptr %59, align 8
   br label %60
 
@@ -247,7 +247,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 64:                                               ; preds = %60
   %65 = add nuw nsw i32 %61, 1
   %66 = zext nneg i32 %61 to i64
-  %67 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %66
+  %67 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %66
   store ptr @sys_dmi_product_serial_attr, ptr %67, align 8
   br label %68
 
@@ -260,7 +260,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 72:                                               ; preds = %68
   %73 = add nuw nsw i32 %69, 1
   %74 = zext nneg i32 %69 to i64
-  %75 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %74
+  %75 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %74
   store ptr @sys_dmi_product_uuid_attr, ptr %75, align 8
   br label %76
 
@@ -273,7 +273,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 80:                                               ; preds = %76
   %81 = add nuw nsw i32 %77, 1
   %82 = zext nneg i32 %77 to i64
-  %83 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %82
+  %83 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %82
   store ptr @sys_dmi_product_family_attr, ptr %83, align 8
   br label %84
 
@@ -286,7 +286,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 88:                                               ; preds = %84
   %89 = add nuw nsw i32 %85, 1
   %90 = zext nneg i32 %85 to i64
-  %91 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %90
+  %91 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %90
   store ptr @sys_dmi_product_sku_attr, ptr %91, align 8
   br label %92
 
@@ -299,7 +299,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 96:                                               ; preds = %92
   %97 = add nuw nsw i32 %93, 1
   %98 = zext nneg i32 %93 to i64
-  %99 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %98
+  %99 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %98
   store ptr @sys_dmi_board_vendor_attr, ptr %99, align 8
   br label %100
 
@@ -312,7 +312,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 104:                                              ; preds = %100
   %105 = add nuw nsw i32 %101, 1
   %106 = zext nneg i32 %101 to i64
-  %107 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %106
+  %107 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %106
   store ptr @sys_dmi_board_name_attr, ptr %107, align 8
   br label %108
 
@@ -325,7 +325,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 112:                                              ; preds = %108
   %113 = add nuw nsw i32 %109, 1
   %114 = zext nneg i32 %109 to i64
-  %115 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %114
+  %115 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %114
   store ptr @sys_dmi_board_version_attr, ptr %115, align 8
   br label %116
 
@@ -338,7 +338,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 120:                                              ; preds = %116
   %121 = add nuw nsw i32 %117, 1
   %122 = zext nneg i32 %117 to i64
-  %123 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %122
+  %123 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %122
   store ptr @sys_dmi_board_serial_attr, ptr %123, align 8
   br label %124
 
@@ -351,7 +351,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 128:                                              ; preds = %124
   %129 = add nuw nsw i32 %125, 1
   %130 = zext nneg i32 %125 to i64
-  %131 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %130
+  %131 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %130
   store ptr @sys_dmi_board_asset_tag_attr, ptr %131, align 8
   br label %132
 
@@ -364,7 +364,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 136:                                              ; preds = %132
   %137 = add nuw nsw i32 %133, 1
   %138 = zext nneg i32 %133 to i64
-  %139 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %138
+  %139 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %138
   store ptr @sys_dmi_chassis_vendor_attr, ptr %139, align 8
   br label %140
 
@@ -377,7 +377,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 144:                                              ; preds = %140
   %145 = add nuw nsw i32 %141, 1
   %146 = zext nneg i32 %141 to i64
-  %147 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %146
+  %147 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %146
   store ptr @sys_dmi_chassis_type_attr, ptr %147, align 8
   br label %148
 
@@ -390,7 +390,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 152:                                              ; preds = %148
   %153 = add nuw nsw i32 %149, 1
   %154 = zext nneg i32 %149 to i64
-  %155 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %154
+  %155 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %154
   store ptr @sys_dmi_chassis_version_attr, ptr %155, align 8
   br label %156
 
@@ -403,7 +403,7 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 160:                                              ; preds = %156
   %161 = add nuw nsw i32 %157, 1
   %162 = zext nneg i32 %157 to i64
-  %163 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %162
+  %163 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %162
   store ptr @sys_dmi_chassis_serial_attr, ptr %163, align 8
   br label %164
 
@@ -416,14 +416,14 @@ define internal fastcc void @dmi_id_init_attr_table() unnamed_addr #0 section ".
 168:                                              ; preds = %164
   %169 = add nuw nsw i32 %165, 1
   %170 = zext nneg i32 %165 to i64
-  %171 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %170
+  %171 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %170
   store ptr @sys_dmi_chassis_asset_tag_attr, ptr %171, align 8
   br label %172
 
 172:                                              ; preds = %168, %164
   %173 = phi i32 [ %169, %168 ], [ %165, %164 ]
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr ptr, ptr @sys_dmi_attributes, i64 %174
+  %175 = getelementptr [8 x i8], ptr @sys_dmi_attributes, i64 %174
   store ptr @sys_dmi_modalias_attr, ptr %175, align 8
   ret void
 }

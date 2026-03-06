@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/nal.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.NALU = type { i32, i32 }
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @ff_nal_find_startcode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
@@ -241,7 +239,7 @@ define internal fastcc i32 @nal_parse_units(ptr noundef %0, ptr noundef %1, ptr 
   %26 = add i32 %25, 1
   store i32 %26, ptr %8, align 4, !tbaa !12
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw %struct.NALU, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %27
   %29 = ptrtoint ptr %.244.us to i64
   %30 = sub i64 %29, %10
   %31 = trunc i64 %30 to i32
@@ -348,7 +346,7 @@ define i32 @ff_nal_units_create_list(ptr noundef initializes((12, 16)) %0, ptr n
   %25 = add i32 %24, 1
   store i32 %25, ptr %4, align 4, !tbaa !12
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw %struct.NALU, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %26
   %28 = ptrtoint ptr %.244.us.i to i64
   %29 = sub i64 %28, %9
   %30 = trunc i64 %29 to i32
@@ -383,12 +381,12 @@ define void @ff_nal_units_write_list(ptr noundef readonly captures(none) %0, ptr
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %6 = load ptr, ptr %0, align 8, !tbaa !17
-  %7 = getelementptr inbounds nuw %struct.NALU, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !19
   tail call void @avio_wb32(ptr noundef %1, i32 noundef %9) #8
   %10 = load ptr, ptr %0, align 8, !tbaa !17
-  %11 = getelementptr inbounds nuw %struct.NALU, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !21
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %2, i64 %13

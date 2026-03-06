@@ -37,21 +37,16 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_fib_add_next
 %struct.rwlock_t = type { %struct.qrwlock }
 %struct.qrwlock = type { %union.anon.8, %struct.qspinlock }
 %union.anon.8 = type { %struct.atomic_t }
-%struct.fnhe_hash_bucket = type { ptr }
-%struct.fib_nh = type { %struct.fib_nh_common, %struct.hlist_node, ptr, i32, i32 }
-%struct.fib_nh_common = type { ptr, %struct.netdevice_tracker, i32, i8, i8, i8, i8, ptr, %union.anon, i32, %struct.atomic_t, ptr, ptr, ptr }
-%union.anon = type { %struct.in6_addr }
-%struct.in6_addr = type { %union.anon.0 }
-%union.anon.0 = type { [4 x i32] }
-%struct.nh_grp_entry = type { ptr, i8, %union.anon.40, %struct.list_head, ptr }
-%union.anon.40 = type { %struct.anon.42 }
-%struct.anon.42 = type { %struct.list_head, i16, i16 }
 %struct.fib_rt_info = type { ptr, i32, i32, i32, i8, i8, i8 }
 %struct.fib_config = type { i8, i8, i8, i8, i8, i8, i32, i32, %union.anon.4, i32, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, i32, %struct.nl_info, ptr, i16 }
 %union.anon.4 = type { %struct.in6_addr }
+%struct.in6_addr = type { %union.anon.0 }
+%union.anon.0 = type { [4 x i32] }
 %struct.nl_info = type { ptr, ptr, i32, i8 }
 %struct.fib6_config = type { i32, i32, i32, i32, i32, i32, i32, i16, i16, i32, %struct.in6_addr, %struct.in6_addr, %struct.in6_addr, %struct.in6_addr, i64, ptr, i32, i32, ptr, %struct.nl_info, ptr, i16, i8 }
 %struct.fib6_nh = type { %struct.fib_nh_common, ptr, ptr }
+%struct.fib_nh_common = type { ptr, %struct.netdevice_tracker, i32, i8, i8, i8, i8, ptr, %union.anon, i32, %struct.atomic_t, ptr, ptr, ptr }
+%union.anon = type { %struct.in6_addr }
 %struct.fib_result = type { i32, i8, i8, i8, i8, i32, ptr, ptr, ptr, ptr }
 %struct.flowi4 = type { %struct.flowi_common, i32, i32, %union.flowi_uli }
 %struct.flowi_common = type { i32, i32, i32, i32, i8, i8, i8, i8, i32, %struct.kuid_t, i32, %struct.flowi_tunnel }
@@ -153,7 +148,7 @@ define dso_local void @fib_nh_common_release(ptr noundef readonly captures(none)
 
 23:                                               ; preds = %19
   %24 = and i64 %20, 63
-  %25 = getelementptr i64, ptr @__per_cpu_offset, i64 %24
+  %25 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, %12
   %28 = inttoptr i64 %27 to ptr
@@ -197,7 +192,7 @@ define dso_local void @fib_nh_common_release(ptr noundef readonly captures(none)
 
 .preheader11:                                     ; preds = %42, %.loopexit
   %46 = phi i64 [ %63, %.loopexit ], [ 0, %42 ]
-  %47 = getelementptr %struct.fnhe_hash_bucket, ptr %44, i64 %46
+  %47 = getelementptr [8 x i8], ptr %44, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.loopexit, label %.preheader
@@ -585,7 +580,7 @@ define dso_local noundef range(i32 -1, 1) i32 @ip_fib_check_default(i32 noundef 
   %10 = mul i32 %9, 1640531527
   %11 = lshr i32 %10, 24
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr %struct.hlist_head, ptr @fib_info_devhash, i64 %12
+  %13 = getelementptr [8 x i8], ptr @fib_info_devhash, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   %16 = getelementptr i8, ptr %14, i64 -72
@@ -671,7 +666,7 @@ define dso_local range(i64 -9223372036854775604, -9223372036854775808) i64 @fib_
   %25 = phi i32 [ %34, %.thread4.us ], [ 0, %.thread.split.us ]
   %26 = phi i64 [ %33, %.thread4.us ], [ 0, %.thread.split.us ]
   %27 = sext i32 %25 to i64
-  %28 = getelementptr %struct.fib_nh, ptr %0, i64 %27
+  %28 = getelementptr [104 x i8], ptr %0, i64 %27
   %29 = getelementptr i8, ptr %28, i64 144
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
@@ -733,7 +728,7 @@ define dso_local range(i64 -9223372036854775604, -9223372036854775808) i64 @fib_
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %69 = getelementptr %struct.nh_grp_entry, ptr %68, i64 %indvars.iv
+  %69 = getelementptr [64 x i8], ptr %68, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
   %.not = icmp eq ptr %70, null
   br i1 %.not, label %.thread6, label %.thread5
@@ -1300,7 +1295,7 @@ define dso_local noundef range(i32 -95, 1) i32 @fib_nh_common_init(ptr readnone 
 
 34:                                               ; preds = %30
   %35 = and i64 %31, 63
-  %36 = getelementptr i64, ptr @__per_cpu_offset, i64 %35
+  %36 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, %23
   %39 = inttoptr i64 %38 to ptr
@@ -1783,7 +1778,7 @@ define dso_local noundef zeroext i1 @fib_metrics_match(ptr noundef readonly capt
   %44 = phi i32 [ %36, %33 ], [ %42, %40 ]
   %45 = load ptr, ptr %12, align 8
   %46 = zext nneg i32 %31 to i64
-  %47 = getelementptr i32, ptr %45, i64 %46
+  %47 = getelementptr [4 x i8], ptr %45, i64 %46
   %48 = getelementptr i8, ptr %47, i64 -4
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %31, 12
@@ -2341,7 +2336,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
 
 8:                                                ; preds = %2
   %9 = zext nneg i8 %6 to i64
-  %.split = getelementptr %struct.fib_prop, ptr @fib_props, i64 %9
+  %.split = getelementptr [8 x i8], ptr @fib_props, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 4
   %11 = load i8, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -2411,7 +2406,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   %56 = and i32 %55, %51
   %57 = load ptr, ptr @fib_info_hash, align 8
   %58 = zext i32 %56 to i64
-  %59 = getelementptr %struct.hlist_head, ptr %57, i64 %58
+  %59 = getelementptr [8 x i8], ptr %57, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.thread, label %62
@@ -3011,7 +3006,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   %415 = load ptr, ptr @fib_info_hash, align 8
   %416 = tail call fastcc i32 @fib_info_hashfn(ptr noundef nonnull %176)
   %417 = zext i32 %416 to i64
-  %418 = getelementptr %struct.hlist_head, ptr %415, i64 %417
+  %418 = getelementptr [8 x i8], ptr %415, i64 %417
   %419 = load ptr, ptr %418, align 8
   store volatile ptr %419, ptr %176, align 8
   %420 = icmp eq ptr %419, null
@@ -3040,7 +3035,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   %434 = lshr i32 %432, %433
   %435 = load ptr, ptr @fib_info_laddrhash, align 8
   %436 = zext i32 %434 to i64
-  %437 = getelementptr %struct.hlist_head, ptr %435, i64 %436
+  %437 = getelementptr [8 x i8], ptr %435, i64 %436
   %438 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %439 = load ptr, ptr %437, align 8
   store volatile ptr %439, ptr %438, align 8
@@ -3132,7 +3127,7 @@ define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, pt
   %491 = mul i32 %490, 1640531527
   %492 = lshr i32 %491, 24
   %493 = zext nneg i32 %492 to i64
-  %494 = getelementptr %struct.hlist_head, ptr @fib_info_devhash, i64 %493
+  %494 = getelementptr [8 x i8], ptr @fib_info_devhash, i64 %493
   %495 = getelementptr inbounds nuw i8, ptr %459, i64 72
   %496 = load ptr, ptr %494, align 8
   store volatile ptr %496, ptr %495, align 8
@@ -3232,7 +3227,7 @@ define internal fastcc void @fib_info_hash_move(ptr noundef nonnull %0, ptr noun
 12:                                               ; preds = %.loopexit14, %9
   %13 = phi i64 [ 0, %9 ], [ %77, %.loopexit14 ]
   %14 = load ptr, ptr @fib_info_hash, align 8
-  %15 = getelementptr %struct.hlist_head, ptr %14, i64 %13
+  %15 = getelementptr [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit14, label %.preheader13
@@ -3300,7 +3295,7 @@ define internal fastcc void @fib_info_hash_move(ptr noundef nonnull %0, ptr noun
   %66 = xor i32 %65, %62
   %67 = and i32 %66, %10
   %68 = zext i32 %67 to i64
-  %69 = getelementptr %struct.hlist_head, ptr %0, i64 %68
+  %69 = getelementptr [8 x i8], ptr %0, i64 %68
   %70 = load ptr, ptr %69, align 8
   store volatile ptr %70, ptr %18, align 8
   %71 = icmp eq ptr %70, null
@@ -3331,7 +3326,7 @@ define internal fastcc void @fib_info_hash_move(ptr noundef nonnull %0, ptr noun
 
 81:                                               ; preds = %.loopexit, %79
   %82 = phi i64 [ 0, %79 ], [ %113, %.loopexit ]
-  %83 = getelementptr %struct.hlist_head, ptr %6, i64 %82
+  %83 = getelementptr [8 x i8], ptr %6, i64 %82
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
   %86 = getelementptr i8, ptr %84, i64 -16
@@ -3353,7 +3348,7 @@ define internal fastcc void @fib_info_hash_move(ptr noundef nonnull %0, ptr noun
   %99 = mul i32 %98, 1640531527
   %100 = lshr i32 %99, %80
   %101 = zext i32 %100 to i64
-  %102 = getelementptr %struct.hlist_head, ptr %1, i64 %101
+  %102 = getelementptr [8 x i8], ptr %1, i64 %101
   %103 = load ptr, ptr %102, align 8
   store volatile ptr %103, ptr %90, align 8
   %104 = icmp eq ptr %103, null
@@ -4187,7 +4182,7 @@ define internal fastcc ptr @fib_find_info(ptr noundef nonnull readonly captures(
   %51 = and i32 %50, %46
   %52 = load ptr, ptr @fib_info_hash, align 8
   %53 = zext i32 %51 to i64
-  %54 = getelementptr %struct.hlist_head, ptr %52, i64 %53
+  %54 = getelementptr [8 x i8], ptr %52, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.thread, label %57
@@ -4341,7 +4336,7 @@ define internal fastcc ptr @fib_find_info(ptr noundef nonnull readonly captures(
 
 155:                                              ; preds = %154, %151
   %156 = sext i32 %129 to i64
-  %157 = getelementptr %struct.fib_nh, ptr %63, i64 %156
+  %157 = getelementptr [104 x i8], ptr %63, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %159 = load i32, ptr %158, align 8
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 8
@@ -4879,7 +4874,7 @@ define dso_local i32 @fib_sync_down_addr(ptr noundef readonly captures(none) %0,
   %15 = sub i32 32, %13
   %16 = lshr i32 %14, %15
   %17 = zext i32 %16 to i64
-  %18 = getelementptr %struct.hlist_head, ptr %5, i64 %17
+  %18 = getelementptr [8 x i8], ptr %5, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %21 = getelementptr i8, ptr %19, i64 -16
@@ -4941,7 +4936,7 @@ define dso_local void @fib_nhc_update_mtu(ptr noundef readonly captures(none) %0
 
 .preheader4:                                      ; preds = %3, %.loopexit
   %7 = phi i64 [ %28, %.loopexit ], [ 0, %3 ]
-  %8 = getelementptr %struct.fnhe_hash_bucket, ptr %5, i64 %7
+  %8 = getelementptr [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %.preheader
@@ -5000,7 +4995,7 @@ define dso_local void @fib_sync_mtu(ptr noundef readonly captures(address) %0, i
   %10 = mul i32 %9, 1640531527
   %11 = lshr i32 %10, 24
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr %struct.hlist_head, ptr @fib_info_devhash, i64 %12
+  %13 = getelementptr [8 x i8], ptr @fib_info_devhash, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   %16 = getelementptr i8, ptr %14, i64 -72
@@ -5027,7 +5022,7 @@ define dso_local void @fib_sync_mtu(ptr noundef readonly captures(address) %0, i
 
 .preheader6:                                      ; preds = %25, %.loopexit
   %30 = phi i64 [ %51, %.loopexit ], [ 0, %25 ]
-  %31 = getelementptr %struct.fnhe_hash_bucket, ptr %28, i64 %30
+  %31 = getelementptr [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.loopexit, label %.preheader
@@ -5096,7 +5091,7 @@ define dso_local i32 @fib_sync_down_dev(ptr noundef readonly captures(address) %
   %12 = mul i32 %11, 1640531527
   %13 = lshr i32 %12, 24
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr %struct.hlist_head, ptr @fib_info_devhash, i64 %14
+  %15 = getelementptr [8 x i8], ptr @fib_info_devhash, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   %18 = getelementptr i8, ptr %16, i64 -72
@@ -5373,7 +5368,7 @@ define dso_local i32 @fib_sync_up(ptr noundef %0, i8 noundef zeroext %1) local_u
   %26 = mul i32 %25, 1640531527
   %27 = lshr i32 %26, 24
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr %struct.hlist_head, ptr @fib_info_devhash, i64 %28
+  %29 = getelementptr [8 x i8], ptr @fib_info_devhash, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   %32 = getelementptr i8, ptr %30, i64 -72
@@ -5688,7 +5683,7 @@ define dso_local void @fib_select_multipath(ptr noundef captures(none) %0, i32 n
   %77 = lshr i32 %73, %76
   %78 = load ptr, ptr %65, align 8
   %79 = zext i32 %77 to i64
-  %80 = getelementptr ptr, ptr %78, i64 %79
+  %80 = getelementptr [8 x i8], ptr %78, i64 %79
   %81 = load volatile ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
   br i1 %82, label %.thread, label %.preheader
@@ -6353,7 +6348,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @nexthop_mpath_fill_node(pt
 
 10:                                               ; preds = %34, %6
   %11 = phi i64 [ 0, %6 ], [ %45, %34 ]
-  %12 = getelementptr %struct.nh_grp_entry, ptr %7, i64 %11
+  %12 = getelementptr [64 x i8], ptr %7, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %15 = load volatile ptr, ptr %14, align 8
@@ -6465,7 +6460,7 @@ define internal fastcc ptr @__ipv6_neigh_lookup_noref_stub(ptr noundef %0, ptr n
   %38 = lshr i32 %34, %37
   %39 = load ptr, ptr %7, align 8
   %40 = zext i32 %38 to i64
-  %41 = getelementptr ptr, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   %42 = load volatile ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.loopexit, label %.preheader

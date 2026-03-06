@@ -98,7 +98,7 @@ define dso_local noundef i32 @string_get_size(i64 noundef %0, i64 noundef %1, i3
 
 12:                                               ; preds = %10
   %13 = zext i32 %2 to i64
-  %14 = getelementptr i32, ptr @string_get_size.divisor, i64 %13
+  %14 = getelementptr [4 x i8], ptr @string_get_size.divisor, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   br label %20
@@ -108,7 +108,7 @@ define dso_local noundef i32 @string_get_size(i64 noundef %0, i64 noundef %1, i3
   %18 = phi i64 [ %1, %10 ], [ %23, %20 ]
   %19 = icmp ult i64 %0, 4294967296
   %.phi.trans.insert = zext i32 %2 to i64
-  %.phi.trans.insert24 = getelementptr i32, ptr @string_get_size.divisor, i64 %.phi.trans.insert
+  %.phi.trans.insert24 = getelementptr [4 x i8], ptr @string_get_size.divisor, i64 %.phi.trans.insert
   %.pre = load i32, ptr %.phi.trans.insert24, align 4
   %.pre25 = zext i32 %.pre to i64
   br i1 %19, label %.loopexit, label %.preheader43
@@ -170,7 +170,7 @@ define dso_local noundef i32 @string_get_size(i64 noundef %0, i64 noundef %1, i3
   %57 = lshr i32 %56, 10
   %58 = select i1 %55, i32 %57, i32 %44
   %59 = sext i32 %50 to i64
-  %60 = getelementptr i32, ptr @string_get_size.rounding, i64 %59
+  %60 = getelementptr [4 x i8], ptr @string_get_size.rounding, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = add i32 %61, %58
   %63 = icmp ugt i32 %62, 999
@@ -197,9 +197,9 @@ define dso_local noundef i32 @string_get_size(i64 noundef %0, i64 noundef %1, i3
   %75 = phi i64 [ 0, %..thread_crit_edge ], [ %65, %73 ]
   %76 = phi i32 [ 0, %..thread_crit_edge ], [ %45, %73 ]
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr ptr, ptr @string_get_size.units_str, i64 %.pre-phi28
+  %78 = getelementptr [8 x i8], ptr @string_get_size.units_str, i64 %.pre-phi28
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr ptr, ptr %79, i64 %77
+  %80 = getelementptr [8 x i8], ptr %79, i64 %77
   %81 = load ptr, ptr %80, align 8
   br label %82
 
@@ -1235,7 +1235,7 @@ define dso_local ptr @kasprintf_strarray(i32 noundef %0, ptr noundef %1, i64 nou
 .preheader3:                                      ; preds = %11, %26
   %13 = phi i64 [ %27, %26 ], [ 0, %11 ]
   %14 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef %0, ptr noundef nonnull @.str.24, ptr noundef %1, i64 noundef %13) #17
-  %15 = getelementptr ptr, ptr %9, i64 %13
+  %15 = getelementptr [8 x i8], ptr %9, i64 %13
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
   br i1 %16, label %17, label %26
@@ -1247,7 +1247,7 @@ define dso_local ptr @kasprintf_strarray(i32 noundef %0, ptr noundef %1, i64 nou
 .preheader:                                       ; preds = %17, %.preheader
   %19 = phi i64 [ %24, %.preheader ], [ 0, %17 ]
   %20 = phi i32 [ %23, %.preheader ], [ 0, %17 ]
-  %21 = getelementptr ptr, ptr %9, i64 %19
+  %21 = getelementptr [8 x i8], ptr %9, i64 %19
   %22 = load ptr, ptr %21, align 8
   tail call void @kfree(ptr noundef %22) #17
   %23 = add i32 %20, 1
@@ -1284,7 +1284,7 @@ define dso_local void @kfree_strarray(ptr noundef %0, i64 noundef %1) #3 align 1
 .preheader:                                       ; preds = %4, %.preheader
   %6 = phi i64 [ %11, %.preheader ], [ 0, %4 ]
   %7 = phi i32 [ %10, %.preheader ], [ 0, %4 ]
-  %8 = getelementptr ptr, ptr %0, i64 %6
+  %8 = getelementptr [8 x i8], ptr %0, i64 %6
   %9 = load ptr, ptr %8, align 8
   tail call void @kfree(ptr noundef %9) #17
   %10 = add i32 %7, 1
@@ -1324,7 +1324,7 @@ define dso_local ptr @devm_kasprintf_strarray(ptr noundef %0, ptr noundef %1, i6
 .preheader6:                                      ; preds = %13, %28
   %15 = phi i64 [ %29, %28 ], [ 0, %13 ]
   %16 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.24, ptr noundef %1, i64 noundef %15) #17
-  %17 = getelementptr ptr, ptr %11, i64 %15
+  %17 = getelementptr [8 x i8], ptr %11, i64 %15
   store ptr %16, ptr %17, align 8
   %18 = icmp eq ptr %16, null
   br i1 %18, label %19, label %28
@@ -1336,7 +1336,7 @@ define dso_local ptr @devm_kasprintf_strarray(ptr noundef %0, ptr noundef %1, i6
 .preheader:                                       ; preds = %19, %.preheader
   %21 = phi i64 [ %26, %.preheader ], [ 0, %19 ]
   %22 = phi i32 [ %25, %.preheader ], [ 0, %19 ]
-  %23 = getelementptr ptr, ptr %11, i64 %21
+  %23 = getelementptr [8 x i8], ptr %11, i64 %21
   %24 = load ptr, ptr %23, align 8
   tail call void @kfree(ptr noundef %24) #17
   %25 = add i32 %22, 1
@@ -1389,7 +1389,7 @@ define internal void @devm_kfree_strarray(ptr readnone captures(none) %0, ptr no
 .preheader:                                       ; preds = %7, %.preheader
   %9 = phi i64 [ %14, %.preheader ], [ 0, %7 ]
   %10 = phi i32 [ %13, %.preheader ], [ 0, %7 ]
-  %11 = getelementptr ptr, ptr %3, i64 %9
+  %11 = getelementptr [8 x i8], ptr %3, i64 %9
   %12 = load ptr, ptr %11, align 8
   tail call void @kfree(ptr noundef %12) #17
   %13 = add i32 %10, 1
@@ -1571,7 +1571,7 @@ define dso_local i32 @match_string(ptr noundef readonly captures(none) %0, i64 n
 .preheader:                                       ; preds = %3, %13
   %5 = phi i64 [ %15, %13 ], [ 0, %3 ]
   %6 = phi i32 [ %14, %13 ], [ 0, %3 ]
-  %7 = getelementptr ptr, ptr %0, i64 %5
+  %7 = getelementptr [8 x i8], ptr %0, i64 %5
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10
@@ -1603,7 +1603,7 @@ define dso_local i32 @__sysfs_match_string(ptr noundef readonly captures(none) %
 .preheader10:                                     ; preds = %3, %45
   %5 = phi i64 [ %47, %45 ], [ 0, %3 ]
   %6 = phi i32 [ %46, %45 ], [ 0, %3 ]
-  %7 = getelementptr ptr, ptr %0, i64 %5
+  %7 = getelementptr [8 x i8], ptr %0, i64 %5
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit11, label %10

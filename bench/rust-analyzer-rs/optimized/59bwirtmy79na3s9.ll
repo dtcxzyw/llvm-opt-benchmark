@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef double @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h28a872f950883daaE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !alias.scope !4, !nonnull !9, !noundef !9
-  %4 = getelementptr inbounds double, ptr %3, i64 %1
+  %4 = getelementptr inbounds [8 x i8], ptr %3, i64 %1
   %5 = load double, ptr %4, align 8, !noundef !9
   ret double %5
 }
@@ -34,7 +34,7 @@ define hidden noundef double @"_ZN104_$LT$core..iter..adapters..copied..Copied$L
 10:                                               ; preds = %"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0c86af8835e63d77E.exit.i", %5
   %.017.i = phi double [ %2, %5 ], [ %16, %"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0c86af8835e63d77E.exit.i" ]
   %.016.i = phi i64 [ 0, %5 ], [ %17, %"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0c86af8835e63d77E.exit.i" ]
-  %11 = getelementptr inbounds double, ptr %0, i64 %.016.i
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %.016.i
   %.val.i = load double, ptr %11, align 8, !noundef !9
   %12 = fcmp ugt double %.017.i, %.val.i
   br i1 %12, label %13, label %"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0c86af8835e63d77E.exit.i"
@@ -79,7 +79,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
 
 15:                                               ; preds = %"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h36903d8c2053e69aE.exit.i", %6
   %.0.i = phi i64 [ 0, %6 ], [ %36, %"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h36903d8c2053e69aE.exit.i" ]
-  %16 = getelementptr inbounds { double, double }, ptr %0, i64 %.0.i
+  %16 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.i
   %.val16.i = load double, ptr %16, align 8, !noalias !22, !noundef !9
   %17 = getelementptr i8, ptr %16, i64 8
   %.val17.i = load double, ptr %17, align 8, !noalias !22, !noundef !9
@@ -96,7 +96,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
 "_ZN93_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$10extend_one17h0a23c39bd87273f0E.exit.i.i.i": ; preds = %21, %15
   %22 = phi i64 [ %.pre.i.i.i.i.i, %21 ], [ %18, %15 ]
   %23 = load ptr, ptr %12, align 8, !alias.scope !23, !noalias !20, !nonnull !9, !noundef !9
-  %24 = getelementptr inbounds double, ptr %23, i64 %22
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %22
   store double %.val16.i, ptr %24, align 8
   %25 = load i64, ptr %11, align 8, !alias.scope !23, !noalias !20, !noundef !9
   %26 = add i64 %25, 1
@@ -114,7 +114,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
 "_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h36903d8c2053e69aE.exit.i": ; preds = %30, %"_ZN93_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$10extend_one17h0a23c39bd87273f0E.exit.i.i.i"
   %31 = phi i64 [ %.pre.i.i1.i.i.i, %30 ], [ %27, %"_ZN93_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$10extend_one17h0a23c39bd87273f0E.exit.i.i.i" ]
   %32 = load ptr, ptr %14, align 8, !alias.scope !28, !noalias !17, !nonnull !9, !noundef !9
-  %33 = getelementptr inbounds double, ptr %32, i64 %31
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %31
   store double %.val17.i, ptr %33, align 8
   %34 = load i64, ptr %13, align 8, !alias.scope !28, !noalias !17, !noundef !9
   %35 = add i64 %34, 1
@@ -924,7 +924,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN72_$LT$I$u20$as$u20$core..iter..adapters..zip..SpecTrustedRandomAccess$GT$17try_get_unchecked17hae271f7fece2fbd1E.llvm.7778062522576825543"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #12 {
   %3 = load ptr, ptr %0, align 8, !alias.scope !216, !nonnull !9, !noundef !9
-  %4 = getelementptr inbounds double, ptr %3, i64 %1
+  %4 = getelementptr inbounds [8 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
@@ -954,7 +954,7 @@ define hidden noundef i64 @"_ZN83_$LT$core..hash..BuildHasherDefault$LT$H$GT$$u2
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h26c741421ea87781E.llvm.7778062522576825543"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #12 {
   %3 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
-  %4 = getelementptr inbounds double, ptr %3, i64 %1
+  %4 = getelementptr inbounds [8 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
@@ -974,7 +974,7 @@ define hidden noundef double @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as
 10:                                               ; preds = %"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0c86af8835e63d77E.exit", %5
   %.017 = phi double [ %2, %5 ], [ %16, %"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0c86af8835e63d77E.exit" ]
   %.016 = phi i64 [ 0, %5 ], [ %17, %"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0c86af8835e63d77E.exit" ]
-  %11 = getelementptr inbounds double, ptr %0, i64 %.016
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %.016
   %.val = load double, ptr %11, align 8, !noundef !9
   %12 = fcmp ugt double %.017, %.val
   br i1 %12, label %13, label %"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0c86af8835e63d77E.exit"
@@ -1017,7 +1017,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 15:                                               ; preds = %"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h36903d8c2053e69aE.exit", %6
   %.0 = phi i64 [ 0, %6 ], [ %36, %"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h36903d8c2053e69aE.exit" ]
-  %16 = getelementptr inbounds { double, double }, ptr %0, i64 %.0
+  %16 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0
   %.val16 = load double, ptr %16, align 8, !noundef !9
   %17 = getelementptr i8, ptr %16, i64 8
   %.val17 = load double, ptr %17, align 8, !noundef !9
@@ -1034,7 +1034,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 "_ZN93_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$10extend_one17h0a23c39bd87273f0E.exit.i.i": ; preds = %21, %15
   %22 = phi i64 [ %.pre.i.i.i.i, %21 ], [ %18, %15 ]
   %23 = load ptr, ptr %12, align 8, !alias.scope !226, !nonnull !9, !noundef !9
-  %24 = getelementptr inbounds double, ptr %23, i64 %22
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %22
   store double %.val16, ptr %24, align 8
   %25 = load i64, ptr %11, align 8, !alias.scope !226, !noundef !9
   %26 = add i64 %25, 1
@@ -1052,7 +1052,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 "_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h36903d8c2053e69aE.exit": ; preds = %"_ZN93_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$10extend_one17h0a23c39bd87273f0E.exit.i.i", %30
   %31 = phi i64 [ %.pre.i.i1.i.i, %30 ], [ %27, %"_ZN93_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$10extend_one17h0a23c39bd87273f0E.exit.i.i" ]
   %32 = load ptr, ptr %14, align 8, !alias.scope !231, !nonnull !9, !noundef !9
-  %33 = getelementptr inbounds double, ptr %32, i64 %31
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %31
   store double %.val17, ptr %33, align 8
   %34 = load i64, ptr %13, align 8, !alias.scope !231, !noundef !9
   %35 = add i64 %34, 1

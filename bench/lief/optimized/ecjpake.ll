@@ -209,7 +209,7 @@ define hidden i32 @mbedtls_ecjpake_read_round_one(ptr noundef %0, ptr noundef %1
   %12 = load i32, ptr %11, align 8, !tbaa !17
   %13 = sub i32 1, %12
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @ecjpake_id, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @ecjpake_id, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !20
@@ -253,7 +253,7 @@ define hidden i32 @mbedtls_ecjpake_write_round_one(ptr noundef %0, ptr noundef %
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %20 = load i32, ptr %19, align 8, !tbaa !17
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr @ecjpake_id, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @ecjpake_id, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 %2
@@ -398,7 +398,7 @@ ecjpake_ecp_add3.exit:                            ; preds = %12
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %32 = sub i32 1, %27
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr @ecjpake_id, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @ecjpake_id, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !20
   %36 = call fastcc i32 @ecjpake_kkp_read(i32 noundef %28, ptr noundef nonnull %9, i32 noundef %30, ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %35, ptr noundef %5, ptr noundef %8)
   %.not22 = icmp eq i32 %36, 0
@@ -625,7 +625,7 @@ ecjpake_ecp_add3.exit:                            ; preds = %17
   %52 = load i32, ptr %42, align 4, !tbaa !16
   %53 = load i32, ptr %30, align 8, !tbaa !17
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr @ecjpake_id, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr @ecjpake_id, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !20
   %57 = call fastcc i32 @ecjpake_zkp_write(i32 noundef %51, ptr noundef nonnull %14, i32 noundef %52, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %56, ptr noundef %11, ptr noundef %13, ptr noundef %4, ptr noundef %5)
   %.not46 = icmp eq i32 %57, 0
@@ -1015,7 +1015,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_ecjpake_self_test(i32 noundef %0) loc
   %48 = load i32, ptr %47, align 8, !tbaa !17
   %49 = sub i32 1, %48
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr @ecjpake_id, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @ecjpake_id, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %5, ptr %2, align 8, !tbaa !20

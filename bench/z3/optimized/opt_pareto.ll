@@ -624,7 +624,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %42, %.noexc24
   %50 = phi ptr [ %.pre.i.i, %.noexc24 ], [ %40, %42 ]
   %51 = getelementptr inbounds i8, ptr %50, i64 -4
   %52 = zext i32 %49 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %52
   store ptr %39, ptr %53, align 8, !tbaa !55
   %54 = add i32 %49, 1
   store i32 %54, ptr %51, align 4, !tbaa !52
@@ -666,7 +666,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit31:       ; preds = %63, %.noexc28
   %71 = phi ptr [ %.pre.i.i25, %.noexc28 ], [ %61, %63 ]
   %72 = getelementptr inbounds i8, ptr %71, i64 -4
   %73 = zext i32 %70 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %71, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %73
   store ptr %60, ptr %74, align 8, !tbaa !55
   %75 = add i32 %70, 1
   store i32 %75, ptr %72, align 4, !tbaa !52
@@ -735,7 +735,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %97 = phi ptr [ %.pre.i.i32, %.noexc35 ], [ %87, %89 ]
   %98 = getelementptr inbounds i8, ptr %97, i64 -4
   %99 = zext i32 %96 to i64
-  %100 = getelementptr inbounds nuw ptr, ptr %97, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %99
   store ptr %27, ptr %100, align 8, !tbaa !55
   %101 = add i32 %96, 1
   store i32 %101, ptr %98, align 4, !tbaa !52
@@ -1147,7 +1147,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %40, %.noexc16
   %48 = phi ptr [ %.pre.i.i, %.noexc16 ], [ %38, %40 ]
   %49 = getelementptr inbounds i8, ptr %48, i64 -4
   %50 = zext i32 %47 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %50
   store ptr %37, ptr %51, align 8, !tbaa !55
   %52 = add i32 %47, 1
   store i32 %52, ptr %49, align 4, !tbaa !52

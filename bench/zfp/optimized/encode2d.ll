@@ -277,7 +277,7 @@ stream_write_bits.exit48.i:                       ; preds = %114, %rev_fwd_reint
 
 .preheader.i.i.i:                                 ; preds = %135, %.preheader.i.i.i
   %indvars.iv20.i.i.i = phi i64 [ %indvars.iv.next21.i.i.i, %.preheader.i.i.i ], [ 0, %135 ]
-  %150 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv20.i.i.i
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv20.i.i.i
   %151 = load i64, ptr %150, align 8, !tbaa !15
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 32
   %153 = load i64, ptr %152, align 8, !tbaa !15
@@ -305,7 +305,7 @@ rev_fwd_xform_int64_2.exit.i.i:                   ; preds = %.preheader.i.i.i, %
   %164 = getelementptr inbounds nuw i8, ptr %.03.i.i.i, i64 1
   %165 = load i8, ptr %.03.i.i.i, align 1, !tbaa !26
   %166 = zext i8 %165 to i64
-  %167 = getelementptr inbounds nuw i64, ptr %9, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %166
   %168 = load i64, ptr %167, align 8, !tbaa !15
   %169 = add i64 %168, -6148914691236517206
   %170 = xor i64 %169, -6148914691236517206
@@ -578,7 +578,7 @@ fwd_cast_double.exit.i:                           ; preds = %271
 
 .preheader.i.i.i17:                               ; preds = %281, %.preheader.i.i.i17
   %indvars.iv12.i.i.i = phi i64 [ %indvars.iv.next13.i.i.i, %.preheader.i.i.i17 ], [ 0, %281 ]
-  %306 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv12.i.i.i
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv12.i.i.i
   %307 = load i64, ptr %306, align 8, !tbaa !15
   %308 = getelementptr inbounds nuw i8, ptr %306, i64 32
   %309 = load i64, ptr %308, align 8, !tbaa !15
@@ -617,7 +617,7 @@ fwd_xform_int64_2.exit.i.i:                       ; preds = %.preheader.i.i.i17,
   %330 = getelementptr inbounds nuw i8, ptr %.03.i.i.i19, i64 1
   %331 = load i8, ptr %.03.i.i.i19, align 1, !tbaa !26
   %332 = zext i8 %331 to i64
-  %333 = getelementptr inbounds nuw i64, ptr %5, i64 %332
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %332
   %334 = load i64, ptr %333, align 8, !tbaa !15
   %335 = add i64 %334, -6148914691236517206
   %336 = xor i64 %335, -6148914691236517206
@@ -795,7 +795,7 @@ define internal fastcc i32 @encode_ints_uint64(ptr noalias noundef captures(none
 .preheader74.i:                                   ; preds = %.lr.ph120.i, %.preheader74.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader74.i ], [ 0, %.lr.ph120.i ]
   %.076.i = phi i64 [ %16, %.preheader74.i ], [ 0, %.lr.ph120.i ]
-  %11 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %12 = load i64, ptr %11, align 8, !tbaa !15, !alias.scope !30, !noalias !27
   %13 = lshr i64 %12, %indvars.iv.next133.i
   %14 = and i64 %13, 1
@@ -974,7 +974,7 @@ encode_few_ints_uint64.exit:                      ; preds = %.lr.ph120.i, %strea
 75:                                               ; preds = %75, %.preheader72.i
   %indvars.iv.i26 = phi i64 [ 0, %.preheader72.i ], [ %indvars.iv.next.i27, %75 ]
   %.074.i = phi i64 [ 0, %.preheader72.i ], [ %81, %75 ]
-  %76 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i26
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i26
   %77 = load i64, ptr %76, align 8, !tbaa !15, !alias.scope !38, !noalias !35
   %78 = lshr i64 %77, %indvars.iv112.i
   %79 = and i64 %78, 1
@@ -1134,13 +1134,13 @@ define range(i64 0, 4294967296) i64 @zfp_encode_block_strided_double_2(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %.115.i, i64 8
   store double %9, ptr %.115.i, align 8, !tbaa !12
   %11 = add nuw nsw i32 %.01016.i, 1
-  %12 = getelementptr inbounds double, ptr %.11314.i, i64 %2
+  %12 = getelementptr inbounds [8 x i8], ptr %.11314.i, i64 %2
   %exitcond.not.i = icmp eq i32 %11, 4
   br i1 %exitcond.not.i, label %13, label %8
 
 13:                                               ; preds = %8
   %14 = add nuw nsw i32 %.019.i, 1
-  %15 = getelementptr inbounds double, ptr %12, i64 %7
+  %15 = getelementptr inbounds [8 x i8], ptr %12, i64 %7
   %exitcond21.not.i = icmp eq i32 %14, 4
   br i1 %exitcond21.not.i, label %gather_double_2.exit, label %.preheader.i
 
@@ -1195,7 +1195,7 @@ define range(i64 0, 4294967296) i64 @zfp_encode_partial_block_strided_double_2(p
 
 pad_block_double.exit.us.i:                       ; preds = %._crit_edge.us.i, %15
   %18 = add nuw i64 %.039.us.i, 1
-  %19 = getelementptr inbounds double, ptr %24, i64 %9
+  %19 = getelementptr inbounds [8 x i8], ptr %24, i64 %9
   %exitcond75.not.i = icmp eq i64 %18, %3
   br i1 %exitcond75.not.i, label %.preheader.i, label %.preheader35.us.i
 
@@ -1203,10 +1203,10 @@ pad_block_double.exit.us.i:                       ; preds = %._crit_edge.us.i, %
   %.02337.us.i = phi i64 [ 0, %.preheader35.us.i ], [ %23, %20 ]
   %.12536.us.i = phi ptr [ %.02438.us.i, %.preheader35.us.i ], [ %24, %20 ]
   %21 = load double, ptr %.12536.us.i, align 8, !tbaa !12
-  %22 = getelementptr double, ptr %10, i64 %.02337.us.i
+  %22 = getelementptr [8 x i8], ptr %10, i64 %.02337.us.i
   store double %21, ptr %22, align 8, !tbaa !12
   %23 = add nuw i64 %.02337.us.i, 1
-  %24 = getelementptr inbounds double, ptr %.12536.us.i, i64 %4
+  %24 = getelementptr inbounds [8 x i8], ptr %.12536.us.i, i64 %4
   %exitcond.not.i = icmp eq i64 %23, %2
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %20
 
@@ -1235,7 +1235,7 @@ pad_block_double.exit.us.i:                       ; preds = %._crit_edge.us.i, %
 
 ._crit_edge.i32.i.us:                             ; preds = %.preheader.i, %._crit_edge.i32.i.us
   %.168.i.us6 = phi i64 [ %30, %._crit_edge.i32.i.us ], [ 0, %.preheader.i ]
-  %26 = getelementptr inbounds nuw double, ptr %7, i64 %.168.i.us6
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.168.i.us6
   %.pre.i33.i.us = load double, ptr %26, align 8, !tbaa !12
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store double %.pre.i33.i.us, ptr %27, align 8, !tbaa !12
@@ -1249,7 +1249,7 @@ pad_block_double.exit.us.i:                       ; preds = %._crit_edge.us.i, %
 
 ._crit_edge15.i29.i.us:                           ; preds = %.preheader.i, %._crit_edge15.i29.i.us
   %.168.i.us10 = phi i64 [ %35, %._crit_edge15.i29.i.us ], [ 0, %.preheader.i ]
-  %31 = getelementptr inbounds nuw double, ptr %7, i64 %.168.i.us10
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.168.i.us10
   %.phi.trans.insert.i30.i.us = getelementptr inbounds nuw i8, ptr %31, i64 32
   %.pre16.i31.i.us = load double, ptr %.phi.trans.insert.i30.i.us, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
@@ -1263,7 +1263,7 @@ pad_block_double.exit.us.i:                       ; preds = %._crit_edge.us.i, %
 
 pad_block_double.exit34.i.us15:                   ; preds = %.preheader.i, %pad_block_double.exit34.i.us15
   %.168.i.us14 = phi i64 [ %39, %pad_block_double.exit34.i.us15 ], [ 0, %.preheader.i ]
-  %36 = getelementptr inbounds nuw double, ptr %7, i64 %.168.i.us14
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.168.i.us14
   %37 = load double, ptr %36, align 8, !tbaa !12
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 96
   store double %37, ptr %38, align 8, !tbaa !12

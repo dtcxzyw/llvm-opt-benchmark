@@ -151,7 +151,7 @@ define i32 @Ssw_ManCountEquivs(ptr noundef readonly captures(none) %0) local_unn
 10:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %.014 = phi i32 [ 0, %.lr.ph ], [ %.1, %25 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %.val11, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.val11, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !50
   %13 = icmp eq ptr %12, null
   br i1 %13, label %25, label %14
@@ -165,7 +165,7 @@ define i32 @Ssw_ManCountEquivs(ptr noundef readonly captures(none) %0) local_unn
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %17 = load i32, ptr %16, align 4, !tbaa !52
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %.val12, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %.val12, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !53
   %21 = icmp ne ptr %20, null
   %22 = zext i1 %21 to i32
@@ -251,7 +251,7 @@ define void @Ssw_ManPrintStats(ptr noundef captures(none) %0) local_unnamed_addr
 43:                                               ; preds = %58, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %58 ]
   %.014.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %58 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %.val11.i, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val11.i, i64 %indvars.iv.i
   %45 = load ptr, ptr %44, align 8, !tbaa !50
   %46 = icmp eq ptr %45, null
   br i1 %46, label %58, label %47
@@ -265,7 +265,7 @@ define void @Ssw_ManPrintStats(ptr noundef captures(none) %0) local_unnamed_addr
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 36
   %50 = load i32, ptr %49, align 4, !tbaa !52
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %.val12.i, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %.val12.i, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !53
   %54 = icmp ne ptr %53, null
   %55 = zext i1 %54 to i32

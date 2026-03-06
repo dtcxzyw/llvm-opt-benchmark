@@ -139814,7 +139814,7 @@ _ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Selec
   %37 = load i32, ptr %36, align 4, !tbaa !96
   %38 = sext i32 %37 to i64
   %39 = urem i64 %38, %28
-  %40 = getelementptr inbounds nuw ptr, ptr %26, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %39
   store ptr %8, ptr %40, align 8, !tbaa !1378
   br label %_ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE16_M_update_bbeginEv.exit.i.i.i
 
@@ -140231,7 +140231,7 @@ _ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Selec
   %sext = shl i64 %29, 32
   %34 = ashr exact i64 %sext, 32
   %35 = urem i64 %34, %33
-  %36 = getelementptr inbounds nuw ptr, ptr %31, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %35
   store ptr %30, ptr %36, align 8, !tbaa !1378
   %.02837 = load ptr, ptr %19, align 8, !tbaa !986
   %.not3038 = icmp eq ptr %.02837, null
@@ -140266,7 +140266,7 @@ _ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Selec
   %47 = ashr exact i64 %sext45, 32
   %48 = urem i64 %47, %46
   %49 = load ptr, ptr %0, align 8, !tbaa !962
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %48
   %51 = load ptr, ptr %50, align 8, !tbaa !1378
   %.not32 = icmp eq ptr %51, null
   br i1 %.not32, label %52, label %57
@@ -140411,7 +140411,7 @@ _ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Selec
   %sext = shl i64 %26, 32
   %30 = ashr exact i64 %sext, 32
   %31 = urem i64 %30, %29
-  %32 = getelementptr inbounds nuw ptr, ptr %18, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %31
   store ptr %27, ptr %32, align 8, !tbaa !1378
   %.02834 = load ptr, ptr %20, align 8, !tbaa !986
   %.not3035 = icmp eq ptr %.02834, null
@@ -140433,7 +140433,7 @@ _ZNSt10_HashtableIiSt4pairIKiN4test14non_comparableEESaIS4_ENSt8__detail10_Selec
   %sext41 = shl i64 %37, 32
   %38 = ashr exact i64 %sext41, 32
   %39 = urem i64 %38, %29
-  %40 = getelementptr inbounds nuw ptr, ptr %18, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !1378
   %.not32 = icmp eq ptr %41, null
   br i1 %.not32, label %42, label %47
@@ -140659,7 +140659,7 @@ _ZNSt6vectorIN4test14non_comparableESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17
 
 _ZNSt12_Vector_baseIN4test14non_comparableESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN4test14non_comparableESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit, %22
   store ptr %20, ptr %0, align 8, !tbaa !1002
-  %23 = getelementptr inbounds nuw %"struct.test::non_comparable", ptr %20, i64 %9
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %9
   store ptr %23, ptr %10, align 8, !tbaa !1005
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4test14non_comparableESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
 
@@ -140699,7 +140699,7 @@ _ZSt4copyIPN4test14non_comparableES2_ET0_T_S4_S3_.exit: ; preds = %31, %32
   %33 = phi ptr [ %5, %31 ], [ %.pre28, %32 ]
   %34 = phi ptr [ %26, %31 ], [ %.pre26, %32 ]
   %35 = phi ptr [ %6, %31 ], [ %.pre, %32 ]
-  %36 = getelementptr inbounds nuw %"struct.test::non_comparable", ptr %35, i64 %.pre-phi33
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.pre-phi33
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %33, %36
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4test14non_comparableESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, label %37
 
@@ -140712,7 +140712,7 @@ _ZSt4copyIPN4test14non_comparableES2_ET0_T_S4_S3_.exit: ; preds = %31, %32
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4test14non_comparableESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit: ; preds = %37, %_ZSt4copyIPN4test14non_comparableES2_ET0_T_S4_S3_.exit, %30, %29, %_ZNSt12_Vector_baseIN4test14non_comparableESaIS1_EE13_M_deallocateEPS1_m.exit
   %41 = load ptr, ptr %0, align 8, !tbaa !1002
-  %42 = getelementptr inbounds nuw %"struct.test::non_comparable", ptr %41, i64 %9
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %9
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %42, ptr %43, align 8, !tbaa !1387
   br label %44
@@ -140758,7 +140758,7 @@ _ZN4entt7type_idISt6vectorIN4test14non_comparableESaIS3_EEEERKNS_9type_infoEv.ex
 
 .noexc3.thread:                                   ; preds = %_ZN4entt7type_idISt6vectorIN4test14non_comparableESaIS3_EEEERKNS_9type_infoEv.exit
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %20 = getelementptr inbounds %"struct.test::non_comparable", ptr null, i64 %18
+  %20 = getelementptr inbounds i8, ptr null, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store ptr %20, ptr %21, align 8, !tbaa !1005
@@ -140783,7 +140783,7 @@ _ZNSt16allocator_traitsISaIN4test14non_comparableEEE8allocateERS2_m.exit.i.i.i.i
   store ptr %24, ptr %12, align 8, !tbaa !1002
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %24, ptr %26, align 8, !tbaa !1387
-  %27 = getelementptr inbounds nuw %"struct.test::non_comparable", ptr %24, i64 %18
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %18
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !1005
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %15, i64 %18, i1 false)
@@ -142757,7 +142757,7 @@ _ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 _ZNSt12_Vector_baseIN4entt9basic_anyILm16ELm8EEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit37, %86
   store ptr %20, ptr %0, align 8, !tbaa !1168
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !1167
-  %90 = getelementptr inbounds nuw %"class.entt::basic_any", ptr %20, i64 %16
+  %90 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %90, ptr %85, align 8, !tbaa !1164
   ret void
 }

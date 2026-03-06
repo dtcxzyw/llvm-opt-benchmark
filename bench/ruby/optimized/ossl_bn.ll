@@ -2084,7 +2084,7 @@ define internal i64 @ossl_bn_s_rand(i32 noundef %0, ptr noundef readonly capture
   %12 = phi i1 [ true, %.preheader ], [ false, %25 ]
   %.185.i20 = phi i32 [ 1, %.preheader ], [ %.286.i, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !25
   %15 = icmp slt i32 %.185.i20, %0
   %.not108.i = icmp eq ptr %14, null
@@ -2095,7 +2095,7 @@ define internal i64 @ossl_bn_s_rand(i32 noundef %0, ptr noundef readonly capture
 
 17:                                               ; preds = %16
   %18 = sext i32 %.185.i20 to i64
-  %19 = getelementptr inbounds i64, ptr %1, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %1, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !6
   store i64 %20, ptr %14, align 8, !tbaa !6
   br label %21
@@ -2262,7 +2262,7 @@ define internal i64 @ossl_bn_s_generate_prime(i32 noundef %0, ptr noundef readon
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %26 ]
   %.185.i21 = phi i32 [ 1, %.preheader ], [ %.286.i, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !25
   %16 = icmp slt i32 %.185.i21, %0
   %.not108.i = icmp eq ptr %15, null
@@ -2273,7 +2273,7 @@ define internal i64 @ossl_bn_s_generate_prime(i32 noundef %0, ptr noundef readon
 
 18:                                               ; preds = %17
   %19 = sext i32 %.185.i21 to i64
-  %20 = getelementptr inbounds i64, ptr %1, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !6
   store i64 %21, ptr %15, align 8, !tbaa !6
   br label %22

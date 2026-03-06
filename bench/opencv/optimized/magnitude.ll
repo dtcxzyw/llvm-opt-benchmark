@@ -1601,7 +1601,7 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
   %39 = load i8, ptr %38, align 1, !tbaa !24
   %40 = zext i8 %39 to i32
   %41 = sub nsw i32 %37, %40
-  %42 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %41, ptr %42, align 4, !tbaa !25
   br label %57
 
@@ -1612,7 +1612,7 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
   %47 = load i8, ptr %46, align 1, !tbaa !24
   %48 = zext i8 %47 to i32
   %49 = sub nsw i32 %45, %48
-  %50 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %49, ptr %50, align 4, !tbaa !25
   br label %57
 
@@ -1637,9 +1637,9 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
   %66 = load i8, ptr %65, align 1, !tbaa !24
   %67 = zext i8 %66 to i32
   %68 = sub nsw i32 %64, %67
-  %69 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 %68, ptr %69, align 4, !tbaa !25
-  %70 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %71 = load i32, ptr %70, align 4, !tbaa !25
   %72 = mul nsw i32 %71, %71
   %73 = mul nsw i32 %68, %68
@@ -1648,7 +1648,7 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
   %sqrt.us = tail call double @llvm.sqrt.f64(double %75)
   %76 = fadd double %sqrt.us, 5.000000e-01
   %77 = fptosi double %76 to i32
-  %78 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   store i32 %77, ptr %78, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = load i32, ptr %17, align 8, !tbaa !55
@@ -1705,7 +1705,7 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
   %.sink = load i8, ptr %.sink.in, align 1, !tbaa !24
   %105 = zext i8 %.sink to i32
   %106 = sub nsw i32 %.sink74, %105
-  %107 = getelementptr inbounds i32, ptr %8, i64 %.sink73
+  %107 = getelementptr inbounds [4 x i8], ptr %8, i64 %.sink73
   store i32 %106, ptr %107, align 4, !tbaa !25
   %108 = load i32, ptr %18, align 4, !tbaa !53
   %109 = add nsw i32 %108, -1
@@ -1745,9 +1745,9 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
 137:                                              ; preds = %111, %123
   %.sink78 = phi i64 [ %112, %111 ], [ %136, %123 ]
   %.sink76 = phi i32 [ %122, %111 ], [ %135, %123 ]
-  %138 = getelementptr inbounds i32, ptr %12, i64 %.sink78
+  %138 = getelementptr inbounds [4 x i8], ptr %12, i64 %.sink78
   store i32 %.sink76, ptr %138, align 4, !tbaa !25
-  %139 = getelementptr inbounds i32, ptr %8, i64 %.sink78
+  %139 = getelementptr inbounds [4 x i8], ptr %8, i64 %.sink78
   %140 = load i32, ptr %139, align 4, !tbaa !25
   %141 = mul nsw i32 %140, %140
   %142 = mul nsw i32 %.sink76, %.sink76
@@ -1756,7 +1756,7 @@ define hidden void @_ZN2cv3hfs9Magnitude16derrivativeXYCpuEv(ptr noundef nonnull
   %sqrt = tail call double @llvm.sqrt.f64(double %144)
   %145 = fadd double %sqrt, 5.000000e-01
   %146 = fptosi double %145 to i32
-  %147 = getelementptr inbounds i32, ptr %16, i64 %.sink78
+  %147 = getelementptr inbounds [4 x i8], ptr %16, i64 %.sink78
   store i32 %146, ptr %147, align 4, !tbaa !25
   %148 = add nuw nsw i32 %.05658, 1
   %149 = load i32, ptr %17, align 8, !tbaa !55
@@ -1843,19 +1843,19 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
 
 46:                                               ; preds = %40
   %47 = sext i32 %36 to i64
-  %48 = getelementptr inbounds i32, ptr %12, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %12, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !25
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %256, label %51
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds i32, ptr %4, i64 %47
+  %52 = getelementptr inbounds [4 x i8], ptr %4, i64 %47
   %53 = load i32, ptr %52, align 4, !tbaa !25
   %54 = sub nsw i32 0, %53
   %55 = sitofp i32 %54 to double
   %56 = sitofp i32 %49 to double
   %57 = fdiv double %55, %56
-  %58 = getelementptr inbounds i32, ptr %8, i64 %47
+  %58 = getelementptr inbounds [4 x i8], ptr %8, i64 %47
   %59 = load i32, ptr %58, align 4, !tbaa !25
   %60 = sitofp i32 %59 to double
   %61 = fdiv double %60, %56
@@ -1876,7 +1876,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   %69 = xor i32 %34, -1
   %70 = add i32 %36, %69
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %12, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %12, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !25
   %74 = sub nsw i32 %49, %68
   %75 = sitofp i32 %74 to double
@@ -1888,7 +1888,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   %81 = load i32, ptr %80, align 4, !tbaa !25
   %82 = add nsw i32 %36, %34
   %83 = sext i32 %82 to i64
-  %84 = getelementptr i32, ptr %12, i64 %83
+  %84 = getelementptr [4 x i8], ptr %12, i64 %83
   %85 = getelementptr i8, ptr %84, i64 4
   %86 = load i32, ptr %85, align 4, !tbaa !25
   %87 = sub nsw i32 %49, %81
@@ -1898,7 +1898,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
 89:                                               ; preds = %65
   %90 = sub nsw i32 %36, %34
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds i32, ptr %12, i64 %91
+  %92 = getelementptr inbounds [4 x i8], ptr %12, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !25
   %94 = getelementptr i8, ptr %92, i64 -4
   %95 = load i32, ptr %94, align 4, !tbaa !25
@@ -1910,7 +1910,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   %101 = tail call double @llvm.fmuladd.f64(double %97, double %57, double %100)
   %102 = add nsw i32 %36, %34
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i32, ptr %12, i64 %103
+  %104 = getelementptr inbounds [4 x i8], ptr %12, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !25
   %106 = getelementptr i8, ptr %104, i64 4
   %107 = load i32, ptr %106, align 4, !tbaa !25
@@ -1928,7 +1928,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   %114 = load i32, ptr %113, align 4, !tbaa !25
   %115 = add nsw i32 %36, %34
   %116 = sext i32 %115 to i64
-  %117 = getelementptr i32, ptr %12, i64 %116
+  %117 = getelementptr [4 x i8], ptr %12, i64 %116
   %118 = getelementptr i8, ptr %117, i64 -4
   %119 = load i32, ptr %118, align 4, !tbaa !25
   %120 = sub nsw i32 %49, %114
@@ -1941,7 +1941,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   %127 = load i32, ptr %126, align 4, !tbaa !25
   %128 = sub nsw i32 %36, %34
   %129 = sext i32 %128 to i64
-  %130 = getelementptr i32, ptr %12, i64 %129
+  %130 = getelementptr [4 x i8], ptr %12, i64 %129
   %131 = getelementptr i8, ptr %130, i64 4
   %132 = load i32, ptr %131, align 4, !tbaa !25
   %133 = sub nsw i32 %49, %127
@@ -1951,7 +1951,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
 135:                                              ; preds = %110
   %136 = add nsw i32 %36, %34
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds i32, ptr %12, i64 %137
+  %138 = getelementptr inbounds [4 x i8], ptr %12, i64 %137
   %139 = load i32, ptr %138, align 4, !tbaa !25
   %140 = getelementptr i8, ptr %138, i64 -4
   %141 = load i32, ptr %140, align 4, !tbaa !25
@@ -1963,7 +1963,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   %147 = tail call double @llvm.fmuladd.f64(double %143, double %57, double %146)
   %148 = sub nsw i32 %36, %34
   %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds i32, ptr %12, i64 %149
+  %150 = getelementptr inbounds [4 x i8], ptr %12, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !25
   %152 = getelementptr i8, ptr %150, i64 4
   %153 = load i32, ptr %152, align 4, !tbaa !25
@@ -1983,7 +1983,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   %160 = load i32, ptr %159, align 4, !tbaa !25
   %161 = sub nsw i32 %36, %34
   %162 = sext i32 %161 to i64
-  %163 = getelementptr i32, ptr %12, i64 %162
+  %163 = getelementptr [4 x i8], ptr %12, i64 %162
   %164 = getelementptr i8, ptr %163, i64 4
   %165 = load i32, ptr %164, align 4, !tbaa !25
   %166 = sub nsw i32 %160, %49
@@ -1996,7 +1996,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   %173 = load i32, ptr %172, align 4, !tbaa !25
   %174 = add nsw i32 %36, %34
   %175 = sext i32 %174 to i64
-  %176 = getelementptr i32, ptr %12, i64 %175
+  %176 = getelementptr [4 x i8], ptr %12, i64 %175
   %177 = getelementptr i8, ptr %176, i64 -4
   %178 = load i32, ptr %177, align 4, !tbaa !25
   %179 = sub nsw i32 %173, %49
@@ -2006,7 +2006,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
 181:                                              ; preds = %157
   %182 = sub nsw i32 %36, %34
   %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds i32, ptr %12, i64 %183
+  %184 = getelementptr inbounds [4 x i8], ptr %12, i64 %183
   %185 = load i32, ptr %184, align 4, !tbaa !25
   %186 = getelementptr i8, ptr %184, i64 4
   %187 = load i32, ptr %186, align 4, !tbaa !25
@@ -2018,7 +2018,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   %193 = tail call double @llvm.fmuladd.f64(double %189, double %57, double %192)
   %194 = add nsw i32 %36, %34
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds i32, ptr %12, i64 %195
+  %196 = getelementptr inbounds [4 x i8], ptr %12, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !25
   %198 = getelementptr i8, ptr %196, i64 -4
   %199 = load i32, ptr %198, align 4, !tbaa !25
@@ -2035,7 +2035,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   %206 = load i32, ptr %205, align 4, !tbaa !25
   %207 = add nsw i32 %36, %34
   %208 = sext i32 %207 to i64
-  %209 = getelementptr i32, ptr %12, i64 %208
+  %209 = getelementptr [4 x i8], ptr %12, i64 %208
   %210 = getelementptr i8, ptr %209, i64 4
   %211 = load i32, ptr %210, align 4, !tbaa !25
   %212 = sub nsw i32 %206, %49
@@ -2049,7 +2049,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   %220 = xor i32 %34, -1
   %221 = add i32 %36, %220
   %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds i32, ptr %12, i64 %222
+  %223 = getelementptr inbounds [4 x i8], ptr %12, i64 %222
   %224 = load i32, ptr %223, align 4, !tbaa !25
   %225 = sub nsw i32 %219, %49
   %226 = sub nsw i32 %219, %224
@@ -2058,7 +2058,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
 227:                                              ; preds = %202
   %228 = add nsw i32 %36, %34
   %229 = sext i32 %228 to i64
-  %230 = getelementptr inbounds i32, ptr %12, i64 %229
+  %230 = getelementptr inbounds [4 x i8], ptr %12, i64 %229
   %231 = load i32, ptr %230, align 4, !tbaa !25
   %232 = getelementptr i8, ptr %230, i64 4
   %233 = load i32, ptr %232, align 4, !tbaa !25
@@ -2070,7 +2070,7 @@ define hidden void @_ZN2cv3hfs9Magnitude13nonMaxSuppCpuEv(ptr noundef nonnull re
   %239 = tail call double @llvm.fmuladd.f64(double %235, double %57, double %238)
   %240 = sub nsw i32 %36, %34
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds i32, ptr %12, i64 %241
+  %242 = getelementptr inbounds [4 x i8], ptr %12, i64 %241
   %243 = load i32, ptr %242, align 4, !tbaa !25
   %244 = getelementptr i8, ptr %242, i64 -4
   %245 = load i32, ptr %244, align 4, !tbaa !25

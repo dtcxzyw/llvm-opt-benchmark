@@ -6,25 +6,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::APSInt" = type { %"class.llvm::APInt.base", i8, [3 x i8] }
 %"class.llvm::APInt.base" = type <{ %union.anon.379, i32 }>
 %union.anon.379 = type { i64 }
-%"class.clang::APValue" = type { i32, i8, [3 x i8], %"struct.llvm::AlignedCharArrayUnion" }
-%"struct.llvm::AlignedCharArrayUnion" = type { [48 x i8] }
-%"struct.clang::ComparisonCategoryInfo::ValueInfo" = type { i8, ptr }
 %"struct.std::pair.392" = type <{ %"class.llvm::DenseMapIterator", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator" = type { ptr, ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { i8, [7 x i8], %"class.clang::ComparisonCategoryInfo" }
-%"class.clang::ComparisonCategoryInfo" = type <{ ptr, %"class.llvm::SmallVector.380", ptr, i8, [7 x i8] }>
-%"class.llvm::SmallVector.380" = type { %"class.llvm::SmallVectorImpl.381", %"struct.llvm::SmallVectorStorage.384" }
-%"class.llvm::SmallVectorImpl.381" = type { %"class.llvm::SmallVectorTemplateBase.382" }
-%"class.llvm::SmallVectorTemplateBase.382" = type { %"class.llvm::SmallVectorTemplateCommon.383" }
-%"class.llvm::SmallVectorTemplateCommon.383" = type { %"class.llvm::SmallVectorBase" }
-%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvm::SmallVectorStorage.384" = type { [80 x i8] }
 %"class.std::vector.394" = type { %"struct.std::_Vector_base.395" }
 %"struct.std::_Vector_base.395" = type { %"struct.std::_Vector_base<clang::ComparisonCategoryResult, std::allocator<clang::ComparisonCategoryResult>>::_Vector_impl" }
 %"struct.std::_Vector_base<clang::ComparisonCategoryResult, std::allocator<clang::ComparisonCategoryResult>>::_Vector_impl" = type { %"struct.std::_Vector_base<clang::ComparisonCategoryResult, std::allocator<clang::ComparisonCategoryResult>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<clang::ComparisonCategoryResult, std::allocator<clang::ComparisonCategoryResult>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.407" = type { ptr, i64 }
 
 $_ZN5clang15IdentifierTable3getEN4llvm9StringRefE = comdat any
 
@@ -295,7 +282,7 @@ define dso_local void @_ZNK5clang22ComparisonCategoryInfo9ValueInfo11getIntValue
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !24
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"class.clang::APValue", ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -430,7 +417,7 @@ define dso_local noundef ptr @_ZNK5clang22ComparisonCategoryInfo15lookupValueInf
 
 "_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit": ; preds = %11, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit36", %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit38", %27, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i, %35
   %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %8, %35 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %27 ], [ %38, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit38" ], [ %36, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit" ], [ %37, %"_ZN4llvm7find_ifIRNS_11SmallVectorIN5clang22ComparisonCategoryInfo9ValueInfoELj5EEEZNKS3_15lookupValueInfoENS2_24ComparisonCategoryResultEE3$_0EEDaOT_T0_.exit.loopexit.split.loop.exit36" ], [ %.02950.i.i.i.i, %11 ]
-  %39 = getelementptr inbounds nuw %"struct.clang::ComparisonCategoryInfo::ValueInfo", ptr %.val, i64 %7
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %.val, i64 %7
   %.not = icmp eq ptr %.028.i.i.i.i, %39
   br i1 %.not, label %switch.lookup, label %.critedge
 
@@ -446,10 +433,10 @@ switch.lookup:                                    ; preds = %"_ZN4llvm7find_ifIR
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 17344
   %49 = load ptr, ptr %48, align 8, !tbaa !51
   %50 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE, i64 %50
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE, i64 %50
   %switch.load = load i64, ptr %switch.gep, align 8
   %51 = zext nneg i8 %1 to i64
-  %switch.gep48 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE.8, i64 %51
+  %switch.gep48 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE.8, i64 %51
   %switch.load49 = load ptr, ptr %switch.gep48, align 8
   %52 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %49, ptr nonnull %switch.load49, i64 %switch.load)
   %53 = ptrtoint ptr %52 to i64
@@ -500,7 +487,7 @@ _ZNK5clang23DeclContextLookupResult5frontEv.exit13: ; preds = %_ZNK5clang23DeclC
 75:                                               ; preds = %_ZNK5clang23DeclContextLookupResult5frontEv.exit13
   %76 = zext i32 %70 to i64
   %77 = load ptr, ptr %5, align 8, !tbaa !33
-  %78 = getelementptr inbounds nuw %"struct.clang::ComparisonCategoryInfo::ValueInfo", ptr %77, i64 %76
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %76
   store i8 %1, ptr %78, align 8, !tbaa !36
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %.1.i.i12, ptr %79, align 8, !tbaa !13
@@ -513,7 +500,7 @@ _ZN4llvm15SmallVectorImplIN5clang22ComparisonCategoryInfo9ValueInfoEE12emplace_b
   %82 = phi ptr [ %.pre, %73 ], [ %77, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %83 = zext i32 %81 to i64
-  %84 = getelementptr inbounds nuw %"struct.clang::ComparisonCategoryInfo::ValueInfo", ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %83
   %85 = getelementptr inbounds i8, ptr %84, i64 -16
   br label %.critedge
 
@@ -605,10 +592,10 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
 define dso_local { ptr, i64 } @_ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE(i8 noundef zeroext %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE.8, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang20ComparisonCategories15getResultStringENS_24ComparisonCategoryResultE.8, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -635,7 +622,7 @@ define dso_local noundef ptr @_ZNK5clang20ComparisonCategories10lookupInfoENS_22
   %15 = add i32 %10, -1
   %.01726.i.i = and i32 %15, %14
   %16 = zext i32 %.01726.i.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %16
+  %17 = getelementptr inbounds nuw [128 x i8], ptr %8, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !12
   %19 = icmp eq i8 %1, %18
   br i1 %19, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E4findERKc.exit, label %.lr.ph.i.i, !prof !436
@@ -652,20 +639,20 @@ define dso_local noundef ptr @_ZNK5clang20ComparisonCategories10lookupInfoENS_22
   %24 = add i32 %.01527.i.i, %.01728.i.i
   %.017.i.i = and i32 %24, %15
   %25 = zext i32 %.017.i.i to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %25
+  %26 = getelementptr inbounds nuw [128 x i8], ptr %8, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !12
   %28 = icmp eq i8 %1, %27
   br i1 %28, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E4findERKc.exit, label %.lr.ph.i.i, !prof !437, !llvm.loop !438
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %2
   %29 = zext i32 %10 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %29
+  %30 = getelementptr inbounds nuw [128 x i8], ptr %8, i64 %29
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E4findERKc.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E4findERKc.exit: ; preds = %22, %12, %.loopexit.i
   %.sroa.0.1.i = phi ptr [ %30, %.loopexit.i ], [ %17, %12 ], [ %26, %22 ]
   %31 = zext i32 %10 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %31
+  %32 = getelementptr inbounds nuw [128 x i8], ptr %8, i64 %31
   %.not27 = icmp eq ptr %.sroa.0.1.i, %32
   br i1 %.not27, label %35, label %33
 
@@ -733,10 +720,10 @@ _ZL18lookupStdNamespaceRKN5clang10ASTContextERPNS_13NamespaceDeclE.exit.thread: 
   %65 = getelementptr i8, ptr %64, i64 17344
   %.val = load ptr, ptr %65, align 8
   %66 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 %66
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 %66
   %switch.load = load i64, ptr %switch.gep, align 8
   %67 = zext nneg i8 %1 to i64
-  %switch.gep36 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11, i64 %67
+  %switch.gep36 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11, i64 %67
   %switch.load37 = load ptr, ptr %switch.gep36, align 8
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %69 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %.val, ptr nonnull %switch.load37, i64 %switch.load)
@@ -806,7 +793,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22C
   %16 = add i32 %10, -1
   %.02744.i = and i32 %15, %16
   %17 = zext i32 %.02744.i to i64
-  %18 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %17
+  %18 = getelementptr inbounds nuw [128 x i8], ptr %8, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !12
   %20 = icmp eq i8 %13, %19
   br i1 %20, label %.loopexit, label %.lr.ph.i, !prof !436
@@ -834,7 +821,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22C
   %30 = add i32 %.02546.i, %.02747.i
   %.027.i = and i32 %30, %16
   %31 = zext i32 %.027.i to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %31
+  %32 = getelementptr inbounds nuw [128 x i8], ptr %8, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !12
   %34 = icmp eq i8 %13, %33
   br i1 %34, label %.loopexit, label %.lr.ph.i, !prof !437, !llvm.loop !451
@@ -918,7 +905,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseM
   %.sink31 = phi ptr [ %49, %58 ], [ %18, %12 ], [ %32, %26 ]
   %.sink = phi i8 [ 1, %58 ], [ 0, %12 ], [ 0, %26 ]
   %71 = zext i32 %.sink34 to i64
-  %72 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink32, i64 %71
+  %72 = getelementptr inbounds nuw [128 x i8], ptr %.sink32, i64 %71
   store ptr %.sink31, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %72, ptr %.sroa.4.0..sroa_idx, align 8
@@ -958,7 +945,7 @@ define dso_local noundef ptr @_ZNK5clang20ComparisonCategories17lookupInfoForTyp
   br i1 %19, label %24, label %26
 
 24:                                               ; preds = %11
-  %25 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %20, i64 %23
+  %25 = getelementptr inbounds nuw [128 x i8], ptr %20, i64 %23
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E5beginEv.exit
 
 26:                                               ; preds = %11
@@ -981,7 +968,7 @@ define dso_local noundef ptr @_ZNK5clang20ComparisonCategories17lookupInfoForTyp
 _ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i9.i, %24, %26
   %.pn14.i = phi ptr [ %25, %24 ], [ %20, %26 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %27, %.critedge2.i8.i14.i9.i ]
   %.pn12.i = phi ptr [ %25, %24 ], [ %27, %26 ], [ %27, %.critedge2.i8.i14.i9.i ], [ %27, %.lr.ph.i6.i12.i3.i ]
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %20, i64 %23
+  %30 = getelementptr inbounds nuw [128 x i8], ptr %20, i64 %23
   %.not4447 = icmp eq ptr %.pn14.i, %30
   br i1 %.not4447, label %._crit_edge, label %.lr.ph
 
@@ -1034,11 +1021,11 @@ switch.lookup:                                    ; preds = %.preheader, %_ZN4ll
   store i8 %45, ptr %4, align 1, !tbaa !433
   %.mask = and i32 %.02650, 255
   %46 = zext nneg i32 %.mask to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 %46
   %switch.load = load i64, ptr %switch.gep, align 8
   %.mask72 = and i32 %.02650, 255
   %47 = zext nneg i32 %.mask72 to i64
-  %switch.gep70 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11, i64 %47
+  %switch.gep70 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11, i64 %47
   %switch.load71 = load ptr, ptr %switch.gep70, align 8
   %48 = load i64, ptr %44, align 8, !tbaa !461
   %49 = and i64 %48, 7
@@ -1098,10 +1085,10 @@ declare noundef zeroext i1 @_ZNK5clang11DeclContext14isStdNamespaceEv(ptr nounde
 define dso_local { ptr, i64 } @_ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE(i8 noundef zeroext %0) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -1170,7 +1157,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang14IdentifierI
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #13
   %7 = load ptr, ptr %0, align 8, !tbaa !482
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !419
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -1253,7 +1240,7 @@ _ZN4llvm14StringMapEntryIPN5clang14IdentifierInfoEE6createINS_20BumpPtrAllocator
   %45 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #13
   %46 = load ptr, ptr %0, align 8, !tbaa !482
   %47 = zext i32 %45 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryIPN5clang14IdentifierInfoEE6createINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEJDnEEEPS4_NS_9StringRefERT_DpOT0_.exit
@@ -1314,7 +1301,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !33
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.407", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -1355,7 +1342,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !33
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !35
@@ -1517,7 +1504,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang22ComparisonCategoryInfo9ValueInfoELb1E
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !33
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.clang::ComparisonCategoryInfo::ValueInfo", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store i8 %4, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -1526,7 +1513,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang22ComparisonCategoryInfo9ValueInfoELb1E
   store i32 %19, ptr %6, align 8, !tbaa !35
   %20 = load ptr, ptr %0, align 8, !tbaa !33
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.clang::ComparisonCategoryInfo::ValueInfo", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   ret ptr %23
 }
@@ -1546,7 +1533,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %12 = add i32 %6, -1
   %.02744 = and i32 %11, %12
   %13 = zext i32 %.02744 to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %13
+  %14 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !12
   %16 = icmp eq i8 %9, %15
   br i1 %16, label %._crit_edge, label %.lr.ph, !prof !436
@@ -1574,7 +1561,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %26 = add i32 %.02747, %.02546
   %.027 = and i32 %26, %12
   %27 = zext i32 %.027 to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %27
+  %28 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !12
   %30 = icmp eq i8 %9, %29
   br i1 %30, label %._crit_edge, label %.lr.ph, !prof !437, !llvm.loop !451
@@ -1635,7 +1622,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22C
 
 30:                                               ; preds = %2
   %31 = zext i32 %4 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 %31
   tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E18moveFromOldBucketsEPS8_SB_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %5, ptr noundef nonnull %32)
   %33 = shl nuw nsw i64 %31, 7
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %5, i64 noundef %33, i64 noundef 8) #13
@@ -1690,7 +1677,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseM
   %19 = add i32 %15, -1
   %.02744.i = and i32 %19, %18
   %20 = zext i32 %.02744.i to i64
-  %21 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %14, i64 %20
+  %21 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !12
   %23 = icmp eq i8 %12, %22
   br i1 %23, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E15LookupBucketForIcEEbRKT_RPS8_.exit, label %.lr.ph.i13, !prof !436
@@ -1718,7 +1705,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseM
   %33 = add i32 %.02546.i, %.02747.i
   %.027.i = and i32 %33, %19
   %34 = zext i32 %.027.i to i64
-  %35 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %14, i64 %34
+  %35 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !12
   %37 = icmp eq i8 %12, %36
   br i1 %37, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIcN5clang22ComparisonCategoryInfoENS_12DenseMapInfoIcvEENS_6detail12DenseMapPairIcS3_EEEEcS3_S5_S8_E15LookupBucketForIcEEbRKT_RPS8_.exit, label %.lr.ph.i13, !prof !437, !llvm.loop !451
@@ -1869,7 +1856,7 @@ _ZSt4moveIPN5clang22ComparisonCategoryInfo9ValueInfoES3_ET0_T_S5_S4_.exit35: ; p
   %.idx40 = shl nuw nsw i64 %.026, 4
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !33
-  %45 = getelementptr inbounds nuw %"struct.clang::ComparisonCategoryInfo::ValueInfo", ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)

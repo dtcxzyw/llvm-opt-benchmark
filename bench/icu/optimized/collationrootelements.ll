@@ -25,7 +25,7 @@ define noundef range(i64 0, -1095216660480) i64 @_ZNK6icu_7721CollationRootEleme
   %13 = add nsw i32 %.038.i36, %.041.i35
   %14 = sdiv i32 %13, 2
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %5, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %5, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !10
   %18 = and i32 %17, 128
   %.not.i = icmp eq i32 %18, 0
@@ -48,7 +48,7 @@ define noundef range(i64 0, -1095216660480) i64 @_ZNK6icu_7721CollationRootEleme
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %20, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %21 ]
-  %24 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i
+  %24 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 4, !tbaa !10
   %26 = and i32 %25, 128
   %27 = icmp eq i32 %26, 0
@@ -75,7 +75,7 @@ define noundef range(i64 0, -1095216660480) i64 @_ZNK6icu_7721CollationRootEleme
 
 .lr.ph61.i:                                       ; preds = %31, %.lr.ph61.preheader.i
   %indvars.iv74.i = phi i64 [ %30, %.lr.ph61.preheader.i ], [ %indvars.iv.next75.i, %31 ]
-  %34 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv74.i
+  %34 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv74.i
   %35 = load i32, ptr %34, align 4, !tbaa !10
   %36 = and i32 %35, 128
   %37 = icmp eq i32 %36, 0
@@ -99,7 +99,7 @@ define noundef range(i64 0, -1095216660480) i64 @_ZNK6icu_7721CollationRootEleme
 _ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %39, %31, %4
   %.041.i34 = phi i32 [ %.041.i35, %31 ], [ %7, %4 ], [ %.041.i35, %.preheader.i ], [ %.041..033.i, %39 ]
   %44 = sext i32 %.041.i34 to i64
-  %45 = getelementptr inbounds i32, ptr %5, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %5, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !10
   %47 = and i32 %46, -256
   %48 = icmp eq i32 %1, %47
@@ -123,7 +123,7 @@ _ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %39, 
 
 59:                                               ; preds = %59, %56
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %59 ], [ %58, %56 ]
-  %60 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv47
+  %60 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv47
   %61 = load i32, ptr %60, align 4, !tbaa !10
   %62 = and i32 %61, 128
   %63 = icmp eq i32 %62, 0
@@ -138,7 +138,7 @@ _ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %39, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %44, %_ZNK6icu_7721CollationRootElements5findPEj.exit ]
   %.1 = phi i32 [ %67, %.preheader ], [ 83887360, %_ZNK6icu_7721CollationRootElements5findPEj.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %66 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next
+  %66 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv.next
   %67 = load i32, ptr %66, align 4, !tbaa !10
   %68 = and i32 %67, 128
   %69 = icmp eq i32 %68, 0
@@ -177,7 +177,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements5findPEj(ptr noundef nonnu
   %11 = add nsw i32 %.038108, %.041107
   %12 = sdiv i32 %11, 2
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %3, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %3, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !10
   %16 = and i32 %15, 128
   %.not = icmp eq i32 %16, 0
@@ -200,7 +200,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements5findPEj(ptr noundef nonnu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ %18, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %22 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %22 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !10
   %24 = and i32 %23, 128
   %25 = icmp eq i32 %24, 0
@@ -228,7 +228,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements5findPEj(ptr noundef nonnu
 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %29
   %indvars.iv74 = phi i64 [ %28, %.lr.ph61.preheader ], [ %indvars.iv.next75, %29 ]
-  %32 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv74
+  %32 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv74
   %33 = load i32, ptr %32, align 4, !tbaa !10
   %34 = and i32 %33, 128
   %35 = icmp eq i32 %34, 0
@@ -276,7 +276,7 @@ define noundef range(i64 0, -553916563456) i64 @_ZNK6icu_7721CollationRootElemen
   %13 = add nsw i32 %.038.i21, %.041.i20
   %14 = sdiv i32 %13, 2
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %5, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %5, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !10
   %18 = and i32 %17, 128
   %.not.i = icmp eq i32 %18, 0
@@ -299,7 +299,7 @@ define noundef range(i64 0, -553916563456) i64 @_ZNK6icu_7721CollationRootElemen
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %20, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %21 ]
-  %24 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i
+  %24 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 4, !tbaa !10
   %26 = and i32 %25, 128
   %27 = icmp eq i32 %26, 0
@@ -326,7 +326,7 @@ define noundef range(i64 0, -553916563456) i64 @_ZNK6icu_7721CollationRootElemen
 
 .lr.ph61.i:                                       ; preds = %31, %.lr.ph61.preheader.i
   %indvars.iv74.i = phi i64 [ %30, %.lr.ph61.preheader.i ], [ %indvars.iv.next75.i, %31 ]
-  %34 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv74.i
+  %34 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv74.i
   %35 = load i32, ptr %34, align 4, !tbaa !10
   %36 = and i32 %35, 128
   %37 = icmp eq i32 %36, 0
@@ -350,7 +350,7 @@ define noundef range(i64 0, -553916563456) i64 @_ZNK6icu_7721CollationRootElemen
 _ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %39, %31, %4
   %.041.i19 = phi i32 [ %.041.i20, %31 ], [ %7, %4 ], [ %.041.i20, %.preheader.i ], [ %.041..033.i, %39 ]
   %44 = sext i32 %.041.i19 to i64
-  %45 = getelementptr inbounds i32, ptr %5, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %5, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !10
   %47 = and i32 %46, -256
   %.not = icmp eq i32 %1, %47
@@ -359,7 +359,7 @@ _ZNK6icu_7721CollationRootElements5findPEj.exit:  ; preds = %.preheader.i, %39, 
 .preheader:                                       ; preds = %_ZNK6icu_7721CollationRootElements5findPEj.exit, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %44, %_ZNK6icu_7721CollationRootElements5findPEj.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %48 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next
+  %48 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv.next
   %49 = load i32, ptr %48, align 4, !tbaa !10
   %50 = and i32 %49, 128
   %51 = icmp eq i32 %50, 0
@@ -395,7 +395,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements16getPrimaryBeforeEja(ptr 
   %12 = add nsw i32 %.041.i10.i, %.038.i11.i
   %13 = sdiv i32 %12, 2
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr %4, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %4, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !10
   %17 = and i32 %16, 128
   %.not.i.i = icmp eq i32 %17, 0
@@ -418,7 +418,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements16getPrimaryBeforeEja(ptr 
 
 .lr.ph.i.i:                                       ; preds = %20, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %19, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %20 ]
-  %23 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv.i.i
   %24 = load i32, ptr %23, align 4, !tbaa !10
   %25 = and i32 %24, 128
   %26 = icmp eq i32 %25, 0
@@ -445,7 +445,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements16getPrimaryBeforeEja(ptr 
 
 .lr.ph61.i.i:                                     ; preds = %30, %.lr.ph61.preheader.i.i
   %indvars.iv74.i.i = phi i64 [ %29, %.lr.ph61.preheader.i.i ], [ %indvars.iv.next75.i.i, %30 ]
-  %33 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv74.i.i
+  %33 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv74.i.i
   %34 = load i32, ptr %33, align 4, !tbaa !10
   %35 = and i32 %34, 128
   %36 = icmp eq i32 %35, 0
@@ -469,7 +469,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements16getPrimaryBeforeEja(ptr 
 _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.i, %38, %30, %3
   %.041.i9.i = phi i32 [ %.041.i10.i, %30 ], [ %6, %3 ], [ %.041.i10.i, %.preheader.i.i ], [ %.041..033.i.i, %38 ]
   %43 = sext i32 %.041.i9.i to i64
-  %44 = getelementptr inbounds i32, ptr %4, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %4, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !10
   %46 = and i32 %45, -256
   %47 = icmp eq i32 %1, %46
@@ -483,7 +483,7 @@ _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.
 .preheader:                                       ; preds = %48, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ %43, %48 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %51 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next
+  %51 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv.next
   %52 = load i32, ptr %51, align 4, !tbaa !10
   %53 = and i32 %52, 128
   %.not = icmp eq i32 %53, 0
@@ -536,7 +536,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements11findPrimaryEj(ptr nounde
   %11 = add nsw i32 %.038.i11, %.041.i10
   %12 = sdiv i32 %11, 2
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %3, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %3, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !10
   %16 = and i32 %15, 128
   %.not.i = icmp eq i32 %16, 0
@@ -559,7 +559,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements11findPrimaryEj(ptr nounde
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %18, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
-  %22 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
+  %22 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !10
   %24 = and i32 %23, 128
   %25 = icmp eq i32 %24, 0
@@ -586,7 +586,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements11findPrimaryEj(ptr nounde
 
 .lr.ph61.i:                                       ; preds = %29, %.lr.ph61.preheader.i
   %indvars.iv74.i = phi i64 [ %28, %.lr.ph61.preheader.i ], [ %indvars.iv.next75.i, %29 ]
-  %32 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv74.i
+  %32 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv74.i
   %33 = load i32, ptr %32, align 4, !tbaa !10
   %34 = and i32 %33, 128
   %35 = icmp eq i32 %34, 0
@@ -626,7 +626,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements18getS
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !10
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %5, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %5, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !10
   br label %57
 
@@ -646,7 +646,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements18getS
   %20 = add nsw i32 %.041.i10.i, %.038.i11.i
   %21 = sdiv i32 %20, 2
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %5, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %5, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !10
   %25 = and i32 %24, 128
   %.not.i.i = icmp eq i32 %25, 0
@@ -669,7 +669,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements18getS
 
 .lr.ph.i.i:                                       ; preds = %28, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %27, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %28 ]
-  %31 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i.i
+  %31 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv.i.i
   %32 = load i32, ptr %31, align 4, !tbaa !10
   %33 = and i32 %32, 128
   %34 = icmp eq i32 %33, 0
@@ -696,7 +696,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements18getS
 
 .lr.ph61.i.i:                                     ; preds = %38, %.lr.ph61.preheader.i.i
   %indvars.iv74.i.i = phi i64 [ %37, %.lr.ph61.preheader.i.i ], [ %indvars.iv.next75.i.i, %38 ]
-  %41 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv74.i.i
+  %41 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv74.i.i
   %42 = load i32, ptr %41, align 4, !tbaa !10
   %43 = and i32 %42, 128
   %44 = icmp eq i32 %43, 0
@@ -721,7 +721,7 @@ _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.
   %.041.i9.i = phi i32 [ %.041.i10.i, %38 ], [ %14, %12 ], [ %.041.i10.i, %.preheader.i.i ], [ %.041..033.i.i, %46 ]
   %51 = add nsw i32 %.041.i9.i, 1
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %5, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %5, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !10
   %55 = and i32 %54, 128
   %56 = icmp eq i32 %55, 0
@@ -745,7 +745,7 @@ _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.
   %indvars.iv = phi i64 [ %59, %.lr.ph ], [ %indvars.iv.next, %60 ]
   %.123 = phi i32 [ %.121, %.lr.ph ], [ %.1, %60 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %61 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %61 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !10
   %.1 = lshr i32 %62, 16
   %63 = icmp ugt i32 %2, %.1
@@ -760,7 +760,7 @@ _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.
 define noundef range(i32 0, 83887361) i32 @_ZNK6icu_7721CollationRootElements24getFirstSecTerForPrimaryEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i32, ptr %3, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !10
   %7 = and i32 %6, 128
   %8 = icmp eq i32 %7, 0
@@ -783,7 +783,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements17getT
   %.0.in = getelementptr inbounds nuw i8, ptr %8, i64 %.0.in.idx
   %.0 = load i32, ptr %.0.in, align 4, !tbaa !10
   %9 = sext i32 %.0 to i64
-  %10 = getelementptr inbounds i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !10
   %12 = and i32 %11, -129
   br label %60
@@ -805,7 +805,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements17getT
   %22 = add nsw i32 %.041.i10.i, %.038.i11.i
   %23 = sdiv i32 %22, 2
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %14, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %14, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !10
   %27 = and i32 %26, 128
   %.not.i.i = icmp eq i32 %27, 0
@@ -828,7 +828,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements17getT
 
 .lr.ph.i.i:                                       ; preds = %30, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %29, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %30 ]
-  %33 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds [4 x i8], ptr %14, i64 %indvars.iv.i.i
   %34 = load i32, ptr %33, align 4, !tbaa !10
   %35 = and i32 %34, 128
   %36 = icmp eq i32 %35, 0
@@ -855,7 +855,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements17getT
 
 .lr.ph61.i.i:                                     ; preds = %40, %.lr.ph61.preheader.i.i
   %indvars.iv74.i.i = phi i64 [ %39, %.lr.ph61.preheader.i.i ], [ %indvars.iv.next75.i.i, %40 ]
-  %43 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv74.i.i
+  %43 = getelementptr inbounds [4 x i8], ptr %14, i64 %indvars.iv74.i.i
   %44 = load i32, ptr %43, align 4, !tbaa !10
   %45 = and i32 %44, 128
   %46 = icmp eq i32 %45, 0
@@ -880,7 +880,7 @@ _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.
   %.041.i9.i = phi i32 [ %.041.i10.i, %40 ], [ %16, %13 ], [ %.041.i10.i, %.preheader.i.i ], [ %.041..033.i.i, %48 ]
   %53 = add nsw i32 %.041.i9.i, 1
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %14, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %14, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !10
   %57 = and i32 %56, 128
   %58 = icmp eq i32 %57, 0
@@ -911,7 +911,7 @@ _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.
   %68 = icmp eq i32 %67, %2
   %spec.select = select i1 %68, i32 %.11528, i32 %.21827
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %69 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv
+  %69 = getelementptr inbounds [4 x i8], ptr %61, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !10
   %71 = and i32 %70, -129
   %72 = icmp ugt i32 %63, %71
@@ -927,7 +927,7 @@ _ZNK6icu_7721CollationRootElements11findPrimaryEj.exit: ; preds = %.preheader.i.
 define noundef i32 @_ZNK6icu_7721CollationRootElements15getPrimaryAfterEjia(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, i32 noundef %1, i32 noundef %2, i8 noundef signext %3) local_unnamed_addr #1 align 2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !3
   %6 = sext i32 %2 to i64
-  %7 = getelementptr i32, ptr %5, i64 %6
+  %7 = getelementptr [4 x i8], ptr %5, i64 %6
   %8 = getelementptr i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !10
   %10 = and i32 %9, 128
@@ -960,7 +960,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements15getPrimaryAfterEjia(ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %22, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %23 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next
+  %23 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv.next
   %24 = load i32, ptr %23, align 4, !tbaa !10
   %25 = and i32 %24, 128
   %.not17 = icmp eq i32 %25, 0
@@ -985,13 +985,13 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements17getSecondaryAfterEij(ptr
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !10
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %5, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %5, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !10
   br label %23
 
 12:                                               ; preds = %3
   %13 = sext i32 %1 to i64
-  %14 = getelementptr i32, ptr %5, i64 %13
+  %14 = getelementptr [4 x i8], ptr %5, i64 %13
   %15 = getelementptr i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !10
   %17 = and i32 %16, 128
@@ -1019,7 +1019,7 @@ define noundef i32 @_ZNK6icu_7721CollationRootElements17getSecondaryAfterEij(ptr
 
 27:                                               ; preds = %24
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next
+  %28 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv.next
   %29 = load i32, ptr %28, align 4, !tbaa !10
   %30 = and i32 %29, 128
   %.not = icmp eq i32 %30, 0
@@ -1053,7 +1053,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements16getT
   %.016 = phi i32 [ %14, %9 ], [ 16384, %6 ]
   %.019 = load i32, ptr %.019.in, align 4, !tbaa !10
   %16 = sext i32 %.019 to i64
-  %17 = getelementptr inbounds i32, ptr %8, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %8, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !10
   %19 = and i32 %18, -129
   br label %33
@@ -1061,7 +1061,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements16getT
 20:                                               ; preds = %4
   %21 = load ptr, ptr %0, align 8, !tbaa !3
   %22 = sext i32 %1 to i64
-  %23 = getelementptr i32, ptr %21, i64 %22
+  %23 = getelementptr [4 x i8], ptr %21, i64 %22
   %24 = getelementptr i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !10
   %26 = and i32 %25, 128
@@ -1102,7 +1102,7 @@ define noundef range(i32 0, 65536) i32 @_ZNK6icu_7721CollationRootElements16getT
 43:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ %38, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %44 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv.next
+  %44 = getelementptr inbounds [4 x i8], ptr %34, i64 %indvars.iv.next
   %45 = load i32, ptr %44, align 4, !tbaa !10
   %46 = and i32 %45, 128
   %47 = icmp eq i32 %46, 0

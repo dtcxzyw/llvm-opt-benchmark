@@ -30,8 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.google::protobuf::internal::HasBits" = type { [1 x i32] }
 %"class.google::protobuf::RepeatedPtrField.22" = type { %"class.google::protobuf::internal::RepeatedPtrFieldBase" }
 %"struct.google::protobuf::internal::ArenaStringPtr" = type { ptr }
-%"union.absl::debian2::container_internal::map_slot_type" = type { %"struct.std::pair.33" }
-%"struct.std::pair.33" = type { %"class.std::__cxx11::basic_string", %"class.i18n::phonenumbers::PhoneMetadata" }
 %"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
 %"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
@@ -546,7 +544,7 @@ _ZN4i18n12phonenumbers13LoggerHandlerD2Ev.exit:   ; preds = %33, %_ZNSt7__cxx111
   %.fca.0.extract.i.i.i.i.i.i = extractvalue { i64, i8 } %76, 0
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !61, !noalias !62
-  %80 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %79, i64 %.fca.0.extract.i.i.i.i.i.i
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %79, i64 %.fca.0.extract.i.i.i.i.i.i
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store ptr %81, ptr %80, align 8, !tbaa !19, !noalias !62
   store i16 21058, ptr %81, align 8, !noalias !62
@@ -639,7 +637,7 @@ _ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4i18n12p
   %111 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %112 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %113 = load ptr, ptr %112, align 8, !tbaa !101, !noalias !102
-  %114 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %113, i64 %.fca.0.extract.i.i.i.i.i.i.i
+  %114 = getelementptr inbounds nuw [312 x i8], ptr %113, i64 %.fca.0.extract.i.i.i.i.i.i.i
   invoke void @_ZNSt15__new_allocatorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEE9constructISB_JRKSt21piecewise_construct_tSt5tupleIJOS6_EESH_IJOSA_EEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %111, ptr noundef %114, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %74)
           to label %115 unwind label %123
 
@@ -692,7 +690,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumb
   %.fca.0.extract.i.i.i.i.i.i38 = extractvalue { i64, i8 } %127, 0
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %130 = load ptr, ptr %129, align 8, !tbaa !61, !noalias !107
-  %131 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %130, i64 %.fca.0.extract.i.i.i.i.i.i38
+  %131 = getelementptr inbounds nuw [32 x i8], ptr %130, i64 %.fca.0.extract.i.i.i.i.i.i38
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   store ptr %132, ptr %131, align 8, !tbaa !19, !noalias !107
   store i16 19523, ptr %132, align 8, !noalias !107
@@ -716,7 +714,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumb
   %.fca.0.extract.i.i.i.i.i.i47 = extractvalue { i64, i8 } %137, 0
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !61, !noalias !120
-  %141 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %140, i64 %.fca.0.extract.i.i.i.i.i.i47
+  %141 = getelementptr inbounds nuw [32 x i8], ptr %140, i64 %.fca.0.extract.i.i.i.i.i.i47
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
   store ptr %142, ptr %141, align 8, !tbaa !19, !noalias !120
   store i16 18766, ptr %142, align 8, !noalias !120
@@ -938,7 +936,7 @@ define linkonce_odr dso_local void @_ZN5boost10scoped_ptrIN4absl7debian213flat_h
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr %7, align 8, !tbaa !61
-  %21 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %.06.i.i.i
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %.06.i.i.i
   %22 = load ptr, ptr %21, align 8, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = icmp eq ptr %22, %23
@@ -1000,7 +998,7 @@ define linkonce_odr dso_local void @_ZN5boost10scoped_ptrIN4absl7debian213flat_h
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %7, align 8, !tbaa !101
-  %20 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %19, i64 %.06.i.i.i
+  %20 = getelementptr inbounds nuw [312 x i8], ptr %19, i64 %.06.i.i.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   tail call void @_ZN4i18n12phonenumbers13PhoneMetadataD1Ev(ptr noundef nonnull align 8 dereferenceable(280) %21) #27
   %22 = load ptr, ptr %20, align 8, !tbaa !26
@@ -1065,7 +1063,7 @@ define dso_local void @_ZN4i18n12phonenumbers15ShortNumberInfoD2Ev(ptr noundef n
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %8, align 8, !tbaa !61
-  %22 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %21, i64 %.06.i.i.i.i
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %.06.i.i.i.i
   %23 = load ptr, ptr %22, align 8, !tbaa !26
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = icmp eq ptr %23, %24
@@ -1211,7 +1209,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   %45 = zext nneg i32 %44 to i64
   %46 = add i64 %.sroa.6.0.us.i.us, %45
   %47 = and i64 %46, %17
-  %48 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %28, i64 %47
+  %48 = getelementptr inbounds nuw [312 x i8], ptr %28, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !23
   %51 = icmp sgt i64 %50, -1
@@ -1259,7 +1257,7 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   %67 = zext nneg i32 %66 to i64
   %68 = add i64 %.sroa.6.0.us.i, %67
   %69 = and i64 %68, %17
-  %70 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %28, i64 %69
+  %70 = getelementptr inbounds nuw [312 x i8], ptr %28, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !26
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !23
@@ -1296,7 +1294,7 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   %84 = zext nneg i16 %83 to i64
   %85 = add i64 %.sroa.6.0.lcssa55.i, %84
   %86 = and i64 %85, %17
-  %87 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %28, i64 %86
+  %87 = getelementptr inbounds nuw [312 x i8], ptr %28, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i64, ptr %88, align 8, !tbaa !23
   %90 = icmp sgt i64 %89, -1
@@ -3495,7 +3493,7 @@ define dso_local void @_ZNK4i18n12phonenumbers15ShortNumberInfo28GetExampleShort
 
 switch.lookup:                                    ; preds = %17
   %19 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4i18n12phonenumbers15ShortNumberInfo28GetExampleShortNumberForCostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_15ShortNumberCostE, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4i18n12phonenumbers15ShortNumberInfo28GetExampleShortNumberForCostERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_15ShortNumberCostE, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 %switch.load
   %21 = load ptr, ptr %20, align 8, !tbaa !181
@@ -3797,7 +3795,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   %45 = zext nneg i32 %44 to i64
   %46 = add i64 %.sroa.6.0.us.i.us, %45
   %47 = and i64 %46, %17
-  %48 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %47
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !23
   %51 = icmp sgt i64 %50, -1
@@ -3845,7 +3843,7 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicy
   %67 = zext nneg i32 %66 to i64
   %68 = add i64 %.sroa.6.0.us.i, %67
   %69 = and i64 %68, %17
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %69
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !26
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !23
@@ -3882,7 +3880,7 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicy
   %84 = zext nneg i16 %83 to i64
   %85 = add i64 %.sroa.6.0.lcssa55.i, %84
   %86 = and i64 %85, %17
-  %87 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %86
+  %87 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i64, ptr %88, align 8, !tbaa !23
   %90 = icmp sgt i64 %89, -1
@@ -4767,7 +4765,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   %45 = zext nneg i32 %44 to i64
   %46 = add i64 %.sroa.6.0.us, %45
   %47 = and i64 %46, %17
-  %48 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %28, i64 %47
+  %48 = getelementptr inbounds nuw [312 x i8], ptr %28, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !26
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !23
@@ -4807,7 +4805,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   %63 = zext nneg i16 %62 to i64
   %64 = add i64 %.sroa.6.0.lcssa58, %63
   %65 = and i64 %64, %17
-  %66 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %28, i64 %65
+  %66 = getelementptr inbounds nuw [312 x i8], ptr %28, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i64, ptr %67, align 8, !tbaa !23
   %69 = icmp sgt i64 %68, -1
@@ -5166,7 +5164,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   br i1 %25, label %26, label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEEvE8transferISaISt4pairIKS9_SC_EEEEvPT_PNS1_13map_slot_typeIS9_SC_EESO_.exit
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %5, i64 %.02132
+  %27 = getelementptr inbounds nuw [312 x i8], ptr %5, i64 %.02132
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !23
   %30 = icmp sgt i64 %29, -1
@@ -5233,7 +5231,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   %72 = getelementptr i8, ptr %71, i64 %69
   store i8 %63, ptr %72, align 1, !tbaa !22
   %73 = load ptr, ptr %4, align 8, !tbaa !101
-  %74 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %73, i64 %61
+  %74 = getelementptr inbounds nuw [312 x i8], ptr %73, i64 %61
   tail call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEC2EOSA_(ptr noundef nonnull align 8 dereferenceable(312) %74, ptr noundef nonnull align 8 dereferenceable(312) %27)
   %75 = getelementptr inbounds nuw i8, ptr %27, i64 32
   tail call void @_ZN4i18n12phonenumbers13PhoneMetadataD1Ev(ptr noundef nonnull align 8 dereferenceable(280) %75) #27
@@ -5304,7 +5302,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal12raw_ha
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %7, align 8, !tbaa !101
-  %22 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %21, i64 %.02238
+  %22 = getelementptr inbounds nuw [312 x i8], ptr %21, i64 %.02238
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !23
   %25 = icmp sgt i64 %24, -1
@@ -5400,8 +5398,8 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   br i1 %76, label %88, label %101
 
 88:                                               ; preds = %73
-  %89 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %87, i64 %56
-  %90 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %87, i64 %.02238
+  %89 = getelementptr inbounds nuw [312 x i8], ptr %87, i64 %56
+  %90 = getelementptr inbounds nuw [312 x i8], ptr %87, i64 %.02238
   call void @_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEEvE8transferISaISt4pairIKS9_SC_EEEEvPT_PNS1_13map_slot_typeIS9_SC_EESO_(ptr noundef nonnull %8, ptr noundef %89, ptr noundef %90)
   %91 = load ptr, ptr %0, align 8, !tbaa !36
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 %.02238
@@ -5418,14 +5416,14 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   br label %109
 
 101:                                              ; preds = %73
-  %102 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %87, i64 %.02238
+  %102 = getelementptr inbounds nuw [312 x i8], ptr %87, i64 %.02238
   call void @_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEEvE8transferISaISt4pairIKS9_SC_EEEEvPT_PNS1_13map_slot_typeIS9_SC_EESO_(ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef %102)
   %103 = load ptr, ptr %7, align 8, !tbaa !101
-  %104 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %103, i64 %.02238
-  %105 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %103, i64 %56
+  %104 = getelementptr inbounds nuw [312 x i8], ptr %103, i64 %.02238
+  %105 = getelementptr inbounds nuw [312 x i8], ptr %103, i64 %56
   call void @_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEEvE8transferISaISt4pairIKS9_SC_EEEEvPT_PNS1_13map_slot_typeIS9_SC_EESO_(ptr noundef nonnull %8, ptr noundef %104, ptr noundef %105)
   %106 = load ptr, ptr %7, align 8, !tbaa !101
-  %107 = getelementptr inbounds nuw %"union.absl::debian2::container_internal::map_slot_type", ptr %106, i64 %56
+  %107 = getelementptr inbounds nuw [312 x i8], ptr %106, i64 %56
   call void @_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4i18n12phonenumbers13PhoneMetadataEEEvE8transferISaISt4pairIKS9_SC_EEEEvPT_PNS1_13map_slot_typeIS9_SC_EESO_(ptr noundef nonnull %8, ptr noundef %107, ptr noundef nonnull %2)
   %108 = add i64 %.02238, -1
   br label %109
@@ -5743,7 +5741,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit:         ; preds = %2
   %33 = zext nneg i32 %32 to i64
   %34 = add i64 %.sroa.6.0, %33
   %35 = and i64 %34, %15
-  %36 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %25, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !26
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !23
@@ -5972,7 +5970,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7_
   br i1 %25, label %26, label %86
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i64 %.02132
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %.02132
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !23
   %30 = icmp sgt i64 %29, -1
@@ -6039,7 +6037,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   %72 = getelementptr i8, ptr %71, i64 %69
   store i8 %63, ptr %72, align 1, !tbaa !22
   %73 = load ptr, ptr %4, align 8, !tbaa !61
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %73, i64 %61
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %61
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store ptr %75, ptr %74, align 8, !tbaa !19
   %76 = load ptr, ptr %27, align 8, !tbaa !26
@@ -6127,7 +6125,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal12raw_ha
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %7, align 8, !tbaa !61
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %.02244
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %.02244
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !23
   %26 = icmp sgt i64 %25, -1
@@ -6223,8 +6221,8 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   br i1 %77, label %89, label %115
 
 89:                                               ; preds = %74
-  %90 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %57
-  %91 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %.02244
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %57
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %.02244
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store ptr %92, ptr %90, align 8, !tbaa !19
   %93 = load ptr, ptr %91, align 8, !tbaa !26
@@ -6270,7 +6268,7 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicy
   br label %157
 
 115:                                              ; preds = %74
-  %116 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %.02244
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %.02244
   store ptr %8, ptr %2, align 8, !tbaa !19
   %117 = load ptr, ptr %116, align 8, !tbaa !26
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 16
@@ -6300,8 +6298,8 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicy
   store i64 0, ptr %126, align 8, !tbaa !23
   store i8 0, ptr %118, align 8, !tbaa !22
   %128 = load ptr, ptr %7, align 8, !tbaa !61
-  %129 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %128, i64 %.02244
-  %130 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %128, i64 %57
+  %129 = getelementptr inbounds nuw [32 x i8], ptr %128, i64 %.02244
+  %130 = getelementptr inbounds nuw [32 x i8], ptr %128, i64 %57
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store ptr %131, ptr %129, align 8, !tbaa !19
   %132 = load ptr, ptr %130, align 8, !tbaa !26
@@ -6333,7 +6331,7 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashSetPolicy
   store i64 0, ptr %141, align 8, !tbaa !23
   store i8 0, ptr %133, align 8, !tbaa !22
   %144 = load ptr, ptr %7, align 8, !tbaa !61
-  %145 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %144, i64 %57
+  %145 = getelementptr inbounds nuw [32 x i8], ptr %144, i64 %57
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
   store ptr %146, ptr %145, align 8, !tbaa !19
   %147 = load ptr, ptr %2, align 8, !tbaa !26

@@ -265,7 +265,7 @@ _ZN8rawspeed8OptionalINS_10ByteStreamEEaSIS1_Qsr3stdE7same_asITL0__T_EEERS2_OS5_
 switch.lookup:                                    ; preds = %68
   %72 = lshr exact i16 %70, 11
   %73 = zext nneg i16 %72 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN8rawspeed9CiffEntry15getElementShiftENS_12CiffDataTypeE, i64 %73
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN8rawspeed9CiffEntry15getElementShiftENS_12CiffDataTypeE, i64 %73
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN8rawspeed9CiffEntry15getElementShiftENS_12CiffDataTypeE.exit
 
@@ -321,7 +321,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN8rawspeed9CiffEntry15getElementShi
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i16 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN8rawspeed9CiffEntry15getElementShiftENS_12CiffDataTypeE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN8rawspeed9CiffEntry15getElementShiftENS_12CiffDataTypeE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -337,7 +337,7 @@ switch.lookup:
   %2 = load i16, ptr %1, align 2, !tbaa !19
   %3 = tail call i16 @llvm.fshl.i16(i16 %2, i16 %2, i16 5)
   %4 = zext nneg i16 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8rawspeed9CiffEntry14getElementSizeEv, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK8rawspeed9CiffEntry14getElementSizeEv, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1381,7 +1381,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %75
   store ptr %22, ptr %0, align 8, !tbaa !55
   store ptr %.0.lcssa.i.i.i38, ptr %4, align 8, !tbaa !49
-  %79 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %79, ptr %74, align 8, !tbaa !52
   ret void
 

@@ -49,11 +49,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Optional_payload_base<grpc_core::Timestamp>::_Storage" = type { %"class.grpc_core::Timestamp" }
 %"class.grpc_core::Timestamp" = type { i64 }
 %"class.absl::lts_20240722::Status" = type { i64 }
-%struct.grpc_metadata = type { %struct.grpc_slice, %struct.grpc_slice, %struct.anon }
-%struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
-%"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
-%"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
-%struct.anon = type { [4 x ptr] }
 %"class.grpc_core::Poll" = type { i8, %union.anon.54 }
 %union.anon.54 = type { %"class.absl::lts_20240722::Status" }
 %"class.absl::lts_20240722::StatusOr.82" = type { %"class.absl::lts_20240722::internal_statusor::StatusOrData.83" }
@@ -109,15 +104,16 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%struct.grpc_auth_property = type { ptr, ptr, i64 }
 %"class.grpc_core::Waker" = type { %"struct.grpc_core::Waker::WakeableAndArg" }
 %"struct.grpc_core::Waker::WakeableAndArg" = type { ptr, i16 }
 %"class.grpc_core::Slice" = type { %"class.grpc_core::slice_detail::BaseSlice" }
 %"class.grpc_core::slice_detail::BaseSlice" = type { %struct.grpc_slice }
+%struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
+%"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
+%"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 %"class.grpc_core::CompressionAlgorithmSet" = type { %"class.grpc_core::BitSet.151" }
 %"class.grpc_core::BitSet.151" = type { [1 x i8] }
 %"class.grpc_core::StaticSlice" = type { %"class.grpc_core::slice_detail::BaseSlice" }
-%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
 %"class.grpc_core::Poll.252" = type { i8, %union.anon.253 }
 %union.anon.253 = type { %"class.std::unique_ptr.103" }
 
@@ -916,7 +912,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi75EEERS2_RAT__Kc.exit: ; pr
 
 .lr.ph:                                           ; preds = %51, %66
   %.02966 = phi i64 [ %67, %66 ], [ 0, %51 ]
-  %56 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %1, i64 %.02966
+  %56 = getelementptr inbounds nuw [96 x i8], ptr %1, i64 %.02966
   %57 = load ptr, ptr %56, align 8, !tbaa !97
   %.not.i = icmp eq ptr %57, null
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -1091,7 +1087,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit46:         ; preds = %_ZN4absl12lts_20240
 120:                                              ; preds = %.lr.ph68, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit49
   %.067 = phi i64 [ 0, %.lr.ph68 ], [ %142, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit49 ]
   %121 = load ptr, ptr %119, align 8, !tbaa !54
-  %122 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %121, i64 %.067
+  %122 = getelementptr inbounds nuw [96 x i8], ptr %121, i64 %.067
   %123 = load ptr, ptr %122, align 8, !tbaa !97
   %124 = icmp ugt ptr %123, inttoptr (i64 1 to ptr)
   br i1 %124, label %125, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -1109,7 +1105,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit46:         ; preds = %_ZN4absl12lts_20240
 
 _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %125, %120, %128
   %131 = load ptr, ptr %119, align 8, !tbaa !54
-  %132 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %131, i64 %.067
+  %132 = getelementptr inbounds nuw [96 x i8], ptr %131, i64 %.067
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 32
   %134 = load ptr, ptr %133, align 8, !tbaa !97
   %135 = icmp ugt ptr %134, inttoptr (i64 1 to ptr)
@@ -1419,7 +1415,7 @@ _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev.exit: ; preds = %14, %11, 
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_15SecurityContextEE3id_E, align 2, !tbaa !108
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !117
   %.not.i3 = icmp eq ptr %20, null
   br i1 %.not.i3, label %_ZN9grpc_core5Arena10SetContextINS_15SecurityContextEEEvPT_.exit, label %21
@@ -1774,7 +1770,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !142
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !139
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !143
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -2462,7 +2458,7 @@ _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextE5resetERKNS_13DebugLocationEPKc
 .lr.ph:                                           ; preds = %.preheader, %15
   %.06 = phi i64 [ %16, %15 ], [ 0, %.preheader ]
   %13 = load ptr, ptr %8, align 8, !tbaa !177
-  %14 = getelementptr inbounds nuw %struct.grpc_auth_property, ptr %13, i64 %.06
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.06
   invoke void @_Z24grpc_auth_property_resetP18grpc_auth_property(ptr noundef %14)
           to label %15 unwind label %.loopexit
 
@@ -3179,7 +3175,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %110 = phi ptr [ %106, %.noexc.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %111 = add i64 %109, 1
   store i64 %111, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %112 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %110, i64 %109
+  %112 = getelementptr inbounds nuw [96 x i8], ptr %110, i64 %109
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(32) %75, i64 32, i1 false)
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %76, i64 32, i1 false)
@@ -3253,7 +3249,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %137 = phi ptr [ %133, %.noexc.i.i.i.i32.i.i.i.i ], [ %.pre.i.i.i.i.i30.i.i.i.i, %._crit_edge.i.i.i.i.i28.i.i.i.i ]
   %138 = add i64 %136, 1
   store i64 %138, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %139 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %137, i64 %136
+  %139 = getelementptr inbounds nuw [96 x i8], ptr %137, i64 %136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(32) %73, i64 32, i1 false)
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull align 8 dereferenceable(32) %74, i64 32, i1 false)
@@ -3324,7 +3320,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %163 = phi ptr [ %160, %.noexc6.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i42.i.i.i.i, %._crit_edge.i.i.i.i.i40.i.i.i.i ]
   %164 = add i64 %162, 1
   store i64 %164, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %165 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %163, i64 %162
+  %165 = getelementptr inbounds nuw [96 x i8], ptr %163, i64 %162
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false), !tbaa.struct !257, !noalias !247
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, i8 0, i64 32, i1 false), !noalias !276
@@ -3470,7 +3466,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %215 = phi ptr [ %208, %.noexc.i.i.i.i56.i.i.i.i ], [ %.pre.i.i.i.i.i54.i.i.i.i, %._crit_edge.i.i.i.i.i52.i.i.i.i ]
   %216 = add i64 %214, 1
   store i64 %216, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %217 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %215, i64 %214
+  %217 = getelementptr inbounds nuw [96 x i8], ptr %215, i64 %214
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull align 8 dereferenceable(32) %65, i64 32, i1 false)
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %218, ptr noundef nonnull align 8 dereferenceable(32) %66, i64 32, i1 false)
@@ -3553,7 +3549,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %241 = phi ptr [ %234, %.noexc.i.i.i.i70.i.i.i.i ], [ %.pre.i.i.i.i.i68.i.i.i.i, %._crit_edge.i.i.i.i.i66.i.i.i.i ]
   %242 = add i64 %240, 1
   store i64 %242, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %243 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %241, i64 %240
+  %243 = getelementptr inbounds nuw [96 x i8], ptr %241, i64 %240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %243, ptr noundef nonnull align 8 dereferenceable(32) %62, i64 32, i1 false)
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %244, ptr noundef nonnull align 8 dereferenceable(32) %63, i64 32, i1 false)
@@ -3644,7 +3640,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %267 = phi ptr [ %261, %.noexc5.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i82.i.i.i.i, %._crit_edge.i.i.i.i.i80.i.i.i.i ]
   %268 = add i64 %266, 1
   store i64 %268, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %269 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %267, i64 %266
+  %269 = getelementptr inbounds nuw [96 x i8], ptr %267, i64 %266
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %269, ptr noundef nonnull align 8 dereferenceable(32) %60, i64 32, i1 false)
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %270, ptr noundef nonnull align 8 dereferenceable(32) %61, i64 32, i1 false)
@@ -3739,7 +3735,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %295 = phi ptr [ %289, %.noexc6.i.i.i.i97.i.i.i.i ], [ %.pre.i.i.i.i.i95.i.i.i.i, %._crit_edge.i.i.i.i.i93.i.i.i.i ]
   %296 = add i64 %294, 1
   store i64 %296, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %297 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %295, i64 %294
+  %297 = getelementptr inbounds nuw [96 x i8], ptr %295, i64 %294
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %297, ptr noundef nonnull align 8 dereferenceable(32) %57, i64 32, i1 false)
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %298, ptr noundef nonnull align 8 dereferenceable(32) %58, i64 32, i1 false)
@@ -3834,7 +3830,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %323 = phi ptr [ %317, %.noexc6.i.i.i.i116.i.i.i.i ], [ %.pre.i.i.i.i.i114.i.i.i.i, %._crit_edge.i.i.i.i.i112.i.i.i.i ]
   %324 = add i64 %322, 1
   store i64 %324, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %325 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %323, i64 %322
+  %325 = getelementptr inbounds nuw [96 x i8], ptr %323, i64 %322
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %325, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 32, i1 false)
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %326, ptr noundef nonnull align 8 dereferenceable(32) %55, i64 32, i1 false)
@@ -3900,7 +3896,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %345 = phi ptr [ %342, %.noexc.i.i.i.i132.i.i.i.i ], [ %.pre.i.i.i.i.i129.i.i.i.i, %._crit_edge.i.i.i.i.i127.i.i.i.i ]
   %346 = add i64 %344, 1
   store i64 %346, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %347 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %345, i64 %344
+  %347 = getelementptr inbounds nuw [96 x i8], ptr %345, i64 %344
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %51, i64 32, i1 false), !tbaa.struct !257, !noalias !247
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false), !noalias !325
@@ -4036,7 +4032,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %396 = phi ptr [ %393, %.noexc6.i.i.i.i148.i.i.i.i ], [ %.pre.i.i.i.i.i145.i.i.i.i, %._crit_edge.i.i.i.i.i143.i.i.i.i ]
   %397 = add i64 %395, 1
   store i64 %397, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %398 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %396, i64 %395
+  %398 = getelementptr inbounds nuw [96 x i8], ptr %396, i64 %395
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %46, i64 32, i1 false), !tbaa.struct !257, !noalias !247
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false), !noalias !341
@@ -4163,7 +4159,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %444 = phi ptr [ %441, %.noexc.i.i.i.i162.i.i.i.i ], [ %.pre.i.i.i.i.i159.i.i.i.i, %._crit_edge.i.i.i.i.i157.i.i.i.i ]
   %445 = add i64 %443, 1
   store i64 %445, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %446 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %444, i64 %443
+  %446 = getelementptr inbounds nuw [96 x i8], ptr %444, i64 %443
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 32, i1 false), !tbaa.struct !257, !noalias !247
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 32, i1 false), !noalias !348
@@ -4299,7 +4295,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %495 = phi ptr [ %492, %.noexc6.i.i.i.i178.i.i.i.i ], [ %.pre.i.i.i.i.i175.i.i.i.i, %._crit_edge.i.i.i.i.i173.i.i.i.i ]
   %496 = add i64 %494, 1
   store i64 %496, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %497 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %495, i64 %494
+  %497 = getelementptr inbounds nuw [96 x i8], ptr %495, i64 %494
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 32, i1 false), !tbaa.struct !257, !noalias !247
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false), !noalias !362
@@ -4432,7 +4428,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %545 = phi ptr [ %542, %.noexc7.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i190.i.i.i.i, %._crit_edge.i.i.i.i.i188.i.i.i.i ]
   %546 = add i64 %544, 1
   store i64 %546, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %547 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %545, i64 %544
+  %547 = getelementptr inbounds nuw [96 x i8], ptr %545, i64 %544
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false), !tbaa.struct !257, !noalias !247
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false), !noalias !376
@@ -4571,7 +4567,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %598 = phi ptr [ %594, %.noexc.i.i.i.i204.i.i.i.i ], [ %.pre.i.i.i.i.i202.i.i.i.i, %._crit_edge.i.i.i.i.i200.i.i.i.i ]
   %599 = add i64 %597, 1
   store i64 %599, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %600 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %598, i64 %597
+  %600 = getelementptr inbounds nuw [96 x i8], ptr %598, i64 %597
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %600, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false)
   %601 = getelementptr inbounds nuw i8, ptr %600, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %601, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false)
@@ -4645,7 +4641,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %625 = phi ptr [ %621, %.noexc.i.i.i.i216.i.i.i.i ], [ %.pre.i.i.i.i.i214.i.i.i.i, %._crit_edge.i.i.i.i.i212.i.i.i.i ]
   %626 = add i64 %624, 1
   store i64 %626, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %627 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %625, i64 %624
+  %627 = getelementptr inbounds nuw [96 x i8], ptr %625, i64 %624
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %627, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false)
   %628 = getelementptr inbounds nuw i8, ptr %627, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %628, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false)
@@ -4719,7 +4715,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %652 = phi ptr [ %648, %.noexc.i.i.i.i228.i.i.i.i ], [ %.pre.i.i.i.i.i226.i.i.i.i, %._crit_edge.i.i.i.i.i224.i.i.i.i ]
   %653 = add i64 %651, 1
   store i64 %653, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %654 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %652, i64 %651
+  %654 = getelementptr inbounds nuw [96 x i8], ptr %652, i64 %651
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %654, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
   %655 = getelementptr inbounds nuw i8, ptr %654, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %655, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false)
@@ -4793,7 +4789,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %679 = phi ptr [ %675, %.noexc.i.i.i.i240.i.i.i.i ], [ %.pre.i.i.i.i.i238.i.i.i.i, %._crit_edge.i.i.i.i.i236.i.i.i.i ]
   %680 = add i64 %678, 1
   store i64 %680, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %681 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %679, i64 %678
+  %681 = getelementptr inbounds nuw [96 x i8], ptr %679, i64 %678
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %681, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
   %682 = getelementptr inbounds nuw i8, ptr %681, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %682, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false)
@@ -4867,7 +4863,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %706 = phi ptr [ %702, %.noexc.i.i.i.i252.i.i.i.i ], [ %.pre.i.i.i.i.i250.i.i.i.i, %._crit_edge.i.i.i.i.i248.i.i.i.i ]
   %707 = add i64 %705, 1
   store i64 %707, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %708 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %706, i64 %705
+  %708 = getelementptr inbounds nuw [96 x i8], ptr %706, i64 %705
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %708, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
   %709 = getelementptr inbounds nuw i8, ptr %708, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %709, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
@@ -4941,7 +4937,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %733 = phi ptr [ %729, %.noexc.i.i.i.i264.i.i.i.i ], [ %.pre.i.i.i.i.i262.i.i.i.i, %._crit_edge.i.i.i.i.i260.i.i.i.i ]
   %734 = add i64 %732, 1
   store i64 %734, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %735 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %733, i64 %732
+  %735 = getelementptr inbounds nuw [96 x i8], ptr %733, i64 %732
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %735, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
   %736 = getelementptr inbounds nuw i8, ptr %735, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %736, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false)
@@ -5015,7 +5011,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %760 = phi ptr [ %756, %.noexc.i.i.i.i276.i.i.i.i ], [ %.pre.i.i.i.i.i274.i.i.i.i, %._crit_edge.i.i.i.i.i272.i.i.i.i ]
   %761 = add i64 %759, 1
   store i64 %761, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %762 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %760, i64 %759
+  %762 = getelementptr inbounds nuw [96 x i8], ptr %760, i64 %759
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %762, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
   %763 = getelementptr inbounds nuw i8, ptr %762, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %763, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
@@ -5100,7 +5096,7 @@ _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_I
   %792 = phi ptr [ %789, %.noexc.i.i.i.i292.i.i.i.i ], [ %.pre.i.i.i.i.i289.i.i.i.i, %._crit_edge.i.i.i.i.i287.i.i.i.i ]
   %793 = add i64 %791, 1
   store i64 %793, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %794 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %792, i64 %791
+  %794 = getelementptr inbounds nuw [96 x i8], ptr %792, i64 %791
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !tbaa.struct !257, !noalias !247
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false), !noalias !424
@@ -5244,7 +5240,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %846 = phi ptr [ %842, %.noexc.i.i.i.i304.i.i.i.i ], [ %.pre.i.i.i.i.i302.i.i.i.i, %._crit_edge.i.i.i.i.i300.i.i.i.i ]
   %847 = add i64 %845, 1
   store i64 %847, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %848 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %846, i64 %845
+  %848 = getelementptr inbounds nuw [96 x i8], ptr %846, i64 %845
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %848, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   %849 = getelementptr inbounds nuw i8, ptr %848, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %849, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
@@ -5318,7 +5314,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %873 = phi ptr [ %869, %.noexc.i.i.i.i316.i.i.i.i ], [ %.pre.i.i.i.i.i314.i.i.i.i, %._crit_edge.i.i.i.i.i312.i.i.i.i ]
   %874 = add i64 %872, 1
   store i64 %874, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %875 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %873, i64 %872
+  %875 = getelementptr inbounds nuw [96 x i8], ptr %873, i64 %872
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %875, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %876 = getelementptr inbounds nuw i8, ptr %875, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %876, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
@@ -5392,7 +5388,7 @@ _ZN9grpc_core15metadata_detail13EncodeWrapperINS_12_GLOBAL__N_112ArrayEncoderEEc
   %900 = phi ptr [ %896, %.noexc.i.i.i.i328.i.i.i.i ], [ %.pre.i.i.i.i.i326.i.i.i.i, %._crit_edge.i.i.i.i.i324.i.i.i.i ]
   %901 = add i64 %899, 1
   store i64 %901, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %902 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %900, i64 %899
+  %902 = getelementptr inbounds nuw [96 x i8], ptr %900, i64 %899
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %902, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %903 = getelementptr inbounds nuw i8, ptr %902, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %903, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
@@ -5473,7 +5469,7 @@ _ZN9grpc_core12_GLOBAL__N_112ArrayEncoder6EncodeERKNS_5SliceES4_.exit.i.i: ; pre
   %932 = phi ptr [ %928, %.noexc.i.i.i ], [ %.pre.i.i9.i.i, %._crit_edge.i.i.i.i ]
   %933 = add i64 %931, 1
   store i64 %933, ptr %86, align 8, !tbaa !258, !alias.scope !247
-  %934 = getelementptr inbounds nuw %struct.grpc_metadata, ptr %932, i64 %931
+  %934 = getelementptr inbounds nuw [96 x i8], ptr %932, i64 %931
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %934, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %935 = getelementptr inbounds nuw i8, ptr %934, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %935, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -6469,7 +6465,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -7046,7 +7042,7 @@ _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextED2Ev.exit.i.i.i.i: ; preds = %2
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %28 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_15SecurityContextEE3id_E, align 2, !tbaa !108
   %29 = zext i16 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !117
   %.not.i3.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i3.i.i.i.i, label %_ZN9grpc_core5Arena14ManagedNewImplINS_21promise_filter_detail14FilterCallDataINS_16ServerAuthFilterEEEEC2IJRPS4_EEEDpOT_.exit, label %32
@@ -7894,7 +7890,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !43
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11

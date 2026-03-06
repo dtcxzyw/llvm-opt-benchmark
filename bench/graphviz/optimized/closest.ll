@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.Pair = type { i64, i64, double }
 %struct.PairHeap = type { ptr, i64, i64 }
-%struct.vtx_data = type { i64, ptr, ptr, ptr, ptr }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [58 x i8] c"integer overflow when trying to allocate %zu * %zu bytes\0A\00", align 1
@@ -119,7 +118,7 @@ gv_calloc.exit96.i:                               ; preds = %27
 
 .lr.ph.i:                                         ; preds = %gv_calloc.exit96.i, %.lr.ph.i
   %.0138.i = phi i64 [ %52, %.lr.ph.i ], [ 0, %gv_calloc.exit96.i ]
-  %51 = getelementptr inbounds nuw i64, ptr %28, i64 %.0138.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.0138.i
   store i64 %.0138.i, ptr %51, align 8, !tbaa !12
   %52 = add nuw i64 %.0138.i, 1
   %exitcond.not.i = icmp eq i64 %52, %9
@@ -148,7 +147,7 @@ gv_calloc.exit96.i:                               ; preds = %27
 .lr.ph.split.preheader.i.i:                       ; preds = %56
   store ptr %57, ptr %7, align 8, !tbaa !9
   %.pre.i.i = load i64, ptr %28, align 8, !tbaa !12
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw double, ptr %0, i64 %.pre.i.i
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.pre.i.i
   %.pre33.i.i = load double, ptr %.phi.trans.insert.i.i, align 8, !tbaa !17
   br label %.lr.ph.split.i.i
 
@@ -168,12 +167,12 @@ gv_calloc.exit96.i:                               ; preds = %27
   %68 = phi i64 [ %71, %.lr.ph.split.i.i ], [ %.pre.i.i, %.lr.ph.split.preheader.i.i ]
   %.02830.i.i = phi i64 [ %69, %.lr.ph.split.i.i ], [ 0, %.lr.ph.split.preheader.i.i ]
   %69 = add nuw i64 %.02830.i.i, 1
-  %70 = getelementptr inbounds nuw i64, ptr %28, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !12
-  %72 = getelementptr inbounds nuw double, ptr %0, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %71
   %73 = load double, ptr %72, align 8, !tbaa !17
   %74 = fsub double %73, %67
-  %75 = getelementptr inbounds nuw %struct.Pair, ptr %57, i64 %.02830.i.i
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %57, i64 %.02830.i.i
   store i64 %68, ptr %75, align 8, !tbaa !12
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 %71, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !12
@@ -194,10 +193,10 @@ gv_calloc.exit96.i:                               ; preds = %27
   br i1 %79, label %80, label %93
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds nuw %struct.Pair, ptr %65, i64 %77
+  %81 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %77
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load double, ptr %82, align 8, !tbaa !20
-  %84 = getelementptr inbounds nuw %struct.Pair, ptr %65, i64 %.036.i.i.i
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %.036.i.i.i
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load double, ptr %85, align 8, !tbaa !20
   %87 = fcmp olt double %83, %86
@@ -222,10 +221,10 @@ gv_calloc.exit96.i:                               ; preds = %27
   br i1 %95, label %96, label %110
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw %struct.Pair, ptr %65, i64 %78
+  %97 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %78
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load double, ptr %98, align 8, !tbaa !20
-  %100 = getelementptr inbounds nuw %struct.Pair, ptr %65, i64 %.037.i.i.i
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %.037.i.i.i
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load double, ptr %101, align 8, !tbaa !20
   %103 = fcmp olt double %99, %102
@@ -251,9 +250,9 @@ gv_calloc.exit96.i:                               ; preds = %27
 
 112:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %113 = getelementptr inbounds nuw %struct.Pair, ptr %65, i64 %.138.i.i.i
+  %113 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %.138.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %113, i64 24, i1 false), !tbaa.struct !22
-  %114 = getelementptr inbounds nuw %struct.Pair, ptr %65, i64 %.036.i.i.i
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %.036.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef nonnull align 8 dereferenceable(24) %114, i64 24, i1 false), !tbaa.struct !22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -269,9 +268,9 @@ initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
 
 .lr.ph140.i:                                      ; preds = %.lr.ph140.i, %.lr.ph140.preheader.i
   %.080139.i = phi i64 [ %119, %.lr.ph140.i ], [ 0, %.lr.ph140.preheader.i ]
-  %116 = getelementptr inbounds nuw i64, ptr %28, i64 %.080139.i
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.080139.i
   %117 = load i64, ptr %116, align 8, !tbaa !12
-  %118 = getelementptr inbounds nuw i64, ptr %34, i64 %117
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %117
   store i64 %.080139.i, ptr %118, align 8, !tbaa !12
   %119 = add nuw i64 %.080139.i, 1
   %exitcond151.not.i = icmp eq i64 %119, %9
@@ -283,11 +282,11 @@ initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
 
 .lr.ph143.i:                                      ; preds = %initHeap.exit.i, %.lr.ph143.i
   %.081142.i = phi i64 [ %125, %.lr.ph143.i ], [ 1, %initHeap.exit.i ]
-  %120 = getelementptr i64, ptr %28, i64 %.081142.i
+  %120 = getelementptr [8 x i8], ptr %28, i64 %.081142.i
   %121 = getelementptr i8, ptr %120, i64 -8
   %122 = load i64, ptr %121, align 8, !tbaa !12
   %123 = load i64, ptr %120, align 8, !tbaa !12
-  %124 = getelementptr inbounds nuw i64, ptr %15, i64 %123
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %123
   store i64 %122, ptr %124, align 8, !tbaa !12
   %125 = add nuw i64 %.081142.i, 1
   %exitcond152.not.i = icmp eq i64 %125, %9
@@ -314,9 +313,9 @@ initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
   %135 = phi i64 [ %138, %.lr.ph145.split.i ], [ %.pre.i, %.lr.ph145.split.preheader.i ]
   %.082144.i = phi i64 [ %136, %.lr.ph145.split.i ], [ 0, %.lr.ph145.split.preheader.i ]
   %136 = add nuw i64 %.082144.i, 1
-  %137 = getelementptr inbounds nuw i64, ptr %28, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %136
   %138 = load i64, ptr %137, align 8, !tbaa !12
-  %139 = getelementptr inbounds nuw i64, ptr %21, i64 %135
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %135
   store i64 %138, ptr %139, align 8, !tbaa !12
   %exitcond153.not.i = icmp eq i64 %136, %64
   br i1 %exitcond153.not.i, label %.preheader.i, label %.lr.ph145.split.i, !llvm.loop !26
@@ -337,7 +336,7 @@ initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
   %.sroa.9.0.copyload.i = load i64, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !12
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val.pre.pre157.i, i64 16
   %.sroa.13.0.copyload.i = load double, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !17
-  %143 = getelementptr %struct.Pair, ptr %.val.pre.pre157.i, i64 %141
+  %143 = getelementptr [24 x i8], ptr %.val.pre.pre157.i, i64 %141
   %144 = getelementptr i8, ptr %143, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.val.pre.pre157.i, ptr noundef nonnull align 8 dereferenceable(24) %144, i64 24, i1 false), !tbaa.struct !22
   %145 = add i64 %141, -1
@@ -352,10 +351,10 @@ initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
   br i1 %149, label %150, label %163
 
 150:                                              ; preds = %146
-  %151 = getelementptr inbounds nuw %struct.Pair, ptr %.val.pre.pre157.i, i64 %147
+  %151 = getelementptr inbounds nuw [24 x i8], ptr %.val.pre.pre157.i, i64 %147
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %153 = load double, ptr %152, align 8, !tbaa !20
-  %154 = getelementptr inbounds nuw %struct.Pair, ptr %.val.pre.pre157.i, i64 %.036.i.i104.i
+  %154 = getelementptr inbounds nuw [24 x i8], ptr %.val.pre.pre157.i, i64 %.036.i.i104.i
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %156 = load double, ptr %155, align 8, !tbaa !20
   %157 = fcmp olt double %153, %156
@@ -380,10 +379,10 @@ initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
   br i1 %165, label %166, label %180
 
 166:                                              ; preds = %164
-  %167 = getelementptr inbounds nuw %struct.Pair, ptr %.val.pre.pre157.i, i64 %148
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %.val.pre.pre157.i, i64 %148
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load double, ptr %168, align 8, !tbaa !20
-  %170 = getelementptr inbounds nuw %struct.Pair, ptr %.val.pre.pre157.i, i64 %.037.i.i105.i
+  %170 = getelementptr inbounds nuw [24 x i8], ptr %.val.pre.pre157.i, i64 %.037.i.i105.i
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load double, ptr %171, align 8, !tbaa !20
   %173 = fcmp olt double %169, %172
@@ -409,9 +408,9 @@ initHeap.exit.i:                                  ; preds = %heapify.exit.i.i
 
 182:                                              ; preds = %180
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %183 = getelementptr inbounds nuw %struct.Pair, ptr %.val.pre.pre157.i, i64 %.138.i.i106.i
+  %183 = getelementptr inbounds nuw [24 x i8], ptr %.val.pre.pre157.i, i64 %.138.i.i106.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %183, i64 24, i1 false), !tbaa.struct !22
-  %184 = getelementptr inbounds nuw %struct.Pair, ptr %.val.pre.pre157.i, i64 %.036.i.i104.i
+  %184 = getelementptr inbounds nuw [24 x i8], ptr %.val.pre.pre157.i, i64 %.036.i.i104.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %183, ptr noundef nonnull align 8 dereferenceable(24) %184, i64 24, i1 false), !tbaa.struct !22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %184, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -451,7 +450,7 @@ gv_alloc.exit.i.i:                                ; preds = %extractMax.exit.i
   br i1 %197, label %210, label %198
 
 198:                                              ; preds = %194
-  %199 = getelementptr inbounds nuw ptr, ptr %196, i64 %.sroa.16.0
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %.sroa.16.0
   %200 = sub nsw i64 %spec.select.i.i.i.i.i, %.sroa.16.0
   %201 = shl i64 %200, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %199, i8 0, i64 %201, i1 false)
@@ -462,8 +461,8 @@ gv_alloc.exit.i.i:                                ; preds = %extractMax.exit.i
 204:                                              ; preds = %198
   %205 = sub i64 %.sroa.16.0, %.sroa.10.0
   %206 = sub i64 %spec.select.i.i.i.i.i, %205
-  %207 = getelementptr inbounds nuw ptr, ptr %196, i64 %206
-  %208 = getelementptr inbounds nuw ptr, ptr %196, i64 %.sroa.10.0
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %206
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %.sroa.10.0
   %209 = shl i64 %205, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %207, ptr nonnull align 8 %208, i64 %209, i1 false)
   br label %push.exit.i
@@ -482,23 +481,23 @@ push.exit.i:                                      ; preds = %198, %204, %gv_allo
   %.sroa.22.1 = phi i64 [ %.sroa.22.0, %gv_alloc.exit.i.i ], [ %spec.select.i.i.i.i.i, %204 ], [ %spec.select.i.i.i.i.i, %198 ]
   %214 = add i64 %.sroa.10.1, %.sroa.16.0
   %215 = urem i64 %214, %.sroa.22.1
-  %216 = getelementptr inbounds nuw ptr, ptr %.sroa.0.1, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.1, i64 %215
   store ptr %185, ptr %216, align 8, !tbaa !8
   %217 = add nuw nsw i64 %.sroa.16.0, 1
-  %218 = getelementptr inbounds nuw i64, ptr %131, i64 %.sroa.0.0.copyload.i
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %.sroa.0.0.copyload.i
   %219 = load i64, ptr %218, align 8, !tbaa !12
-  %220 = getelementptr inbounds nuw i64, ptr %131, i64 %.sroa.9.0.copyload.i
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %.sroa.9.0.copyload.i
   %221 = load i64, ptr %220, align 8, !tbaa !12
   %.not.i = icmp eq i64 %219, 0
   br i1 %.not.i, label %238, label %222
 
 222:                                              ; preds = %push.exit.i
-  %223 = getelementptr i64, ptr %128, i64 %219
+  %223 = getelementptr [8 x i8], ptr %128, i64 %219
   %224 = getelementptr i8, ptr %223, i64 -8
   %225 = load i64, ptr %224, align 8, !tbaa !12
-  %226 = getelementptr inbounds nuw i64, ptr %130, i64 %225
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %225
   %227 = load i64, ptr %226, align 8, !tbaa !12
-  %228 = getelementptr inbounds nuw i64, ptr %131, i64 %227
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %227
   %229 = load i64, ptr %228, align 8, !tbaa !12
   %230 = icmp ult i64 %229, %221
   br i1 %230, label %231, label %238
@@ -506,15 +505,15 @@ push.exit.i:                                      ; preds = %198, %204, %gv_allo
 231:                                              ; preds = %222
   store i64 %225, ptr %8, align 8, !tbaa !27
   store i64 %.sroa.9.0.copyload.i, ptr %133, align 8, !tbaa !28
-  %232 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.9.0.copyload.i
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.9.0.copyload.i
   %233 = load double, ptr %232, align 8, !tbaa !17
-  %234 = getelementptr inbounds nuw double, ptr %0, i64 %225
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %225
   %235 = load double, ptr %234, align 8, !tbaa !17
   %236 = fsub double %233, %235
   store double %236, ptr %134, align 8, !tbaa !20
   call fastcc void @insert(ptr noundef %7, ptr noundef nonnull byval(%struct.Pair) align 8 %8)
   store i64 %.sroa.9.0.copyload.i, ptr %226, align 8, !tbaa !12
-  %237 = getelementptr inbounds nuw i64, ptr %129, i64 %.sroa.9.0.copyload.i
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %.sroa.9.0.copyload.i
   store i64 %225, ptr %237, align 8, !tbaa !12
   br label %238
 
@@ -523,12 +522,12 @@ push.exit.i:                                      ; preds = %198, %204, %gv_allo
   br i1 %239, label %240, label %256
 
 240:                                              ; preds = %238
-  %241 = getelementptr inbounds nuw i64, ptr %128, i64 %221
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %221
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %243 = load i64, ptr %242, align 8, !tbaa !12
-  %244 = getelementptr inbounds nuw i64, ptr %129, i64 %243
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %243
   %245 = load i64, ptr %244, align 8, !tbaa !12
-  %246 = getelementptr inbounds nuw i64, ptr %131, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %245
   %247 = load i64, ptr %246, align 8, !tbaa !12
   %248 = icmp ugt i64 %247, %219
   br i1 %248, label %249, label %256
@@ -536,15 +535,15 @@ push.exit.i:                                      ; preds = %198, %204, %gv_allo
 249:                                              ; preds = %240
   store i64 %.sroa.0.0.copyload.i, ptr %8, align 8, !tbaa !27
   store i64 %243, ptr %133, align 8, !tbaa !28
-  %250 = getelementptr inbounds nuw double, ptr %0, i64 %243
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %243
   %251 = load double, ptr %250, align 8, !tbaa !17
-  %252 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.0.0.copyload.i
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.0.copyload.i
   %253 = load double, ptr %252, align 8, !tbaa !17
   %254 = fsub double %251, %253
   store double %254, ptr %134, align 8, !tbaa !20
   call fastcc void @insert(ptr noundef %7, ptr noundef nonnull byval(%struct.Pair) align 8 %8)
   store i64 %.sroa.0.0.copyload.i, ptr %244, align 8, !tbaa !12
-  %255 = getelementptr inbounds nuw i64, ptr %130, i64 %.sroa.0.0.copyload.i
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %.sroa.0.0.copyload.i
   store i64 %243, ptr %255, align 8, !tbaa !12
   br label %256
 
@@ -654,7 +653,7 @@ gv_calloc.exit62.i:                               ; preds = %gv_calloc.exit57.i,
 
 .lr.ph.i8:                                        ; preds = %gv_calloc.exit62.i, %.lr.ph.i8
   %.04983.i = phi i64 [ %294, %.lr.ph.i8 ], [ 0, %gv_calloc.exit62.i ]
-  %293 = getelementptr inbounds nuw i32, ptr %269, i64 %.04983.i
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %269, i64 %.04983.i
   store i32 1, ptr %293, align 4, !tbaa !30
   %294 = add nuw i64 %.04983.i, 1
   %exitcond.not.i9 = icmp eq i64 %294, %9
@@ -667,16 +666,16 @@ gv_calloc.exit62.i:                               ; preds = %gv_calloc.exit57.i,
   %.04884.i = phi i64 [ %305, %.lr.ph85.i ], [ 0, %.preheader82.i ]
   %295 = add i64 %.04884.i, %.sroa.10.3
   %296 = urem i64 %295, %.sroa.22.2
-  %297 = getelementptr inbounds nuw ptr, ptr %.sroa.0.2, i64 %296
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.2, i64 %296
   %298 = load ptr, ptr %297, align 8, !tbaa !8
   %.sroa.0.0.copyload.i10 = load i64, ptr %298, align 8, !tbaa !12
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %298, i64 8
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !12
-  %299 = getelementptr inbounds nuw i32, ptr %269, i64 %.sroa.0.0.copyload.i10
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %269, i64 %.sroa.0.0.copyload.i10
   %300 = load i32, ptr %299, align 4, !tbaa !30
   %301 = add nsw i32 %300, 1
   store i32 %301, ptr %299, align 4, !tbaa !30
-  %302 = getelementptr inbounds nuw i32, ptr %269, i64 %.sroa.6.0.copyload.i
+  %302 = getelementptr inbounds nuw [4 x i8], ptr %269, i64 %.sroa.6.0.copyload.i
   %303 = load i32, ptr %302, align 4, !tbaa !30
   %304 = add nsw i32 %303, 1
   store i32 %304, ptr %302, align 4, !tbaa !30
@@ -710,7 +709,7 @@ gv_calloc.exit67.thread.i:                        ; preds = %._crit_edge.i12
 
 .lr.ph87.i:                                       ; preds = %.preheader.i11, %.lr.ph87.i
   %.04786.i = phi i64 [ %315, %.lr.ph87.i ], [ 0, %.preheader.i11 ]
-  %314 = getelementptr inbounds nuw float, ptr %292, i64 %.04786.i
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %292, i64 %.04786.i
   store float 1.000000e+00, ptr %314, align 4, !tbaa !34
   %315 = add nuw i64 %.04786.i, 1
   %exitcond103.not.i = icmp eq i64 %315, %271
@@ -729,7 +728,7 @@ gv_calloc.exit67.thread.i:                        ; preds = %._crit_edge.i12
   %.090.i = phi i64 [ %327, %.lr.ph91.i ], [ 0, %.lr.ph91.preheader.i ]
   %.05089.i = phi ptr [ %325, %.lr.ph91.i ], [ %292, %.lr.ph91.preheader.i ]
   %.05188.i = phi ptr [ %326, %.lr.ph91.i ], [ %291, %.lr.ph91.preheader.i ]
-  %318 = getelementptr inbounds nuw %struct.vtx_data, ptr %308, i64 %.090.i
+  %318 = getelementptr inbounds nuw [40 x i8], ptr %308, i64 %.090.i
   store i64 1, ptr %318, align 8, !tbaa !37
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 16
   store ptr %.05089.i, ptr %319, align 8, !tbaa !41
@@ -738,11 +737,11 @@ gv_calloc.exit67.thread.i:                        ; preds = %._crit_edge.i12
   %321 = trunc i64 %.090.i to i32
   store i32 %321, ptr %.05188.i, align 4, !tbaa !30
   store float 0.000000e+00, ptr %.05089.i, align 4, !tbaa !34
-  %322 = getelementptr inbounds nuw i32, ptr %269, i64 %.090.i
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %269, i64 %.090.i
   %323 = load i32, ptr %322, align 4, !tbaa !30
   %324 = sext i32 %323 to i64
-  %325 = getelementptr inbounds float, ptr %.05089.i, i64 %324
-  %326 = getelementptr inbounds i32, ptr %.05188.i, i64 %324
+  %325 = getelementptr inbounds [4 x i8], ptr %.05089.i, i64 %324
+  %326 = getelementptr inbounds [4 x i8], ptr %.05188.i, i64 %324
   %327 = add nuw i64 %.090.i, 1
   %exitcond104.not.i = icmp eq i64 %327, %9
   br i1 %exitcond104.not.i, label %._crit_edge92.i, label %.lr.ph91.i, !llvm.loop !43
@@ -752,7 +751,7 @@ gv_calloc.exit67.thread.i:                        ; preds = %._crit_edge.i12
   %329 = add nsw i64 %.val.i95.i, -1
   %330 = add i64 %329, %.sroa.10.3
   %331 = urem i64 %330, %.sroa.22.2
-  %332 = getelementptr inbounds nuw ptr, ptr %.sroa.0.2, i64 %331
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.2, i64 %331
   %333 = load ptr, ptr %332, align 8, !tbaa !8
   %.sroa.0.0.copyload70.i = load i64, ptr %333, align 8, !tbaa !12
   %.sroa.6.0..sroa_idx71.i = getelementptr inbounds nuw i8, ptr %333, i64 8
@@ -762,7 +761,7 @@ gv_calloc.exit67.thread.i:                        ; preds = %._crit_edge.i12
   %335 = trunc i64 %.sroa.6.0.copyload72.i to i32
   %sext.i = shl i64 %.sroa.0.0.copyload70.i, 32
   %336 = ashr exact i64 %sext.i, 32
-  %337 = getelementptr inbounds %struct.vtx_data, ptr %316, i64 %336
+  %337 = getelementptr inbounds [40 x i8], ptr %316, i64 %336
   %338 = load i64, ptr %337, align 8, !tbaa !37
   %.not30.i.i = icmp eq i64 %338, 0
   %.phi.trans.insert.i.i13 = getelementptr inbounds nuw i8, ptr %337, i64 8
@@ -776,7 +775,7 @@ gv_calloc.exit67.thread.i:                        ; preds = %._crit_edge.i12
 
 .lr.ph.i.i:                                       ; preds = %328, %339
   %.02328.i.i = phi i64 [ %340, %339 ], [ 0, %328 ]
-  %341 = getelementptr inbounds nuw i32, ptr %.pre.i.i14, i64 %.02328.i.i
+  %341 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i14, i64 %.02328.i.i
   %342 = load i32, ptr %341, align 4, !tbaa !30
   %343 = icmp eq i32 %342, %335
   br i1 %343, label %add_edge.exit.i, label %339
@@ -784,17 +783,17 @@ gv_calloc.exit67.thread.i:                        ; preds = %._crit_edge.i12
 ._crit_edge.i.i16:                                ; preds = %339, %328
   %344 = add i64 %338, 1
   store i64 %344, ptr %337, align 8, !tbaa !37
-  %345 = getelementptr inbounds nuw i32, ptr %.pre.i.i14, i64 %338
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i14, i64 %338
   store i32 %335, ptr %345, align 4, !tbaa !30
   %sext81.i = shl i64 %.sroa.6.0.copyload72.i, 32
   %346 = ashr exact i64 %sext81.i, 32
-  %347 = getelementptr inbounds %struct.vtx_data, ptr %316, i64 %346
+  %347 = getelementptr inbounds [40 x i8], ptr %316, i64 %346
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 8
   %349 = load ptr, ptr %348, align 8, !tbaa !42
   %350 = load i64, ptr %347, align 8, !tbaa !37
   %351 = add i64 %350, 1
   store i64 %351, ptr %347, align 8, !tbaa !37
-  %352 = getelementptr inbounds nuw i32, ptr %349, i64 %350
+  %352 = getelementptr inbounds nuw [4 x i8], ptr %349, i64 %350
   store i32 %334, ptr %352, align 4, !tbaa !30
   %353 = load ptr, ptr %317, align 8, !tbaa !41
   %.not.i68.i = icmp eq ptr %353, null
@@ -828,10 +827,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = load i64, ptr %0, align 8, !tbaa !12
-  %5 = getelementptr inbounds nuw double, ptr %2, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %4
   %6 = load double, ptr %5, align 8, !tbaa !17
   %7 = load i64, ptr %1, align 8, !tbaa !12
-  %8 = getelementptr inbounds nuw double, ptr %2, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %7
   %9 = load double, ptr %8, align 8, !tbaa !17
   %10 = fcmp olt double %6, %9
   %11 = fcmp ogt double %6, %9
@@ -904,7 +903,7 @@ gv_recalloc.exit:                                 ; preds = %19, %26, %28
   %32 = phi i64 [ %.pre, %gv_recalloc.exit ], [ %5, %2 ]
   %33 = add i64 %32, 1
   store i64 %33, ptr %4, align 8, !tbaa !15
-  %34 = getelementptr inbounds nuw %struct.Pair, ptr %31, i64 %5
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !22
   %.not36 = icmp eq i64 %5, 0
   br i1 %.not36, label %.critedge, label %.lr.ph
@@ -912,11 +911,11 @@ gv_recalloc.exit:                                 ; preds = %19, %26, %28
 .lr.ph:                                           ; preds = %30, %.critedge2
   %.037 = phi i64 [ %39, %.critedge2 ], [ %5, %30 ]
   %35 = load ptr, ptr %0, align 8, !tbaa !9
-  %36 = getelementptr inbounds nuw %struct.Pair, ptr %35, i64 %.037
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %.037
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load double, ptr %37, align 8, !tbaa !20
   %39 = lshr i64 %.037, 1
-  %40 = getelementptr inbounds nuw %struct.Pair, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load double, ptr %41, align 8, !tbaa !20
   %43 = fcmp olt double %38, %42
@@ -939,12 +938,12 @@ gv_recalloc.exit:                                 ; preds = %19, %26, %28
 .critedge2:                                       ; preds = %..critedge2_crit_edge, %.lr.ph
   %49 = phi ptr [ %.pre41, %..critedge2_crit_edge ], [ %35, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %50 = getelementptr inbounds nuw %struct.Pair, ptr %49, i64 %.037
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %.037
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %50, i64 24, i1 false), !tbaa.struct !22
-  %51 = getelementptr inbounds nuw %struct.Pair, ptr %49, i64 %39
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false), !tbaa.struct !22
   %52 = load ptr, ptr %0, align 8, !tbaa !9
-  %53 = getelementptr inbounds nuw %struct.Pair, ptr %52, i64 %39
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %52, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i64 %39, 0

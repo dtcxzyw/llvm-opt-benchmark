@@ -46,17 +46,17 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %33 = load i32, ptr %6, align 4, !tbaa !3
   %narrow275 = xor i32 %33, -1
   %34 = sext i32 %narrow275 to i64
-  %35 = getelementptr inbounds double, ptr %5, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %5, i64 %34
   %36 = getelementptr inbounds i8, ptr %7, i64 -8
   %37 = getelementptr inbounds i8, ptr %8, i64 -8
   %38 = load i32, ptr %10, align 4, !tbaa !3
   %narrow = xor i32 %38, -1
   %39 = sext i32 %narrow to i64
-  %40 = getelementptr inbounds double, ptr %9, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %9, i64 %39
   %41 = load i32, ptr %12, align 4, !tbaa !3
   %narrow258 = xor i32 %41, -1
   %42 = sext i32 %narrow258 to i64
-  %43 = getelementptr inbounds double, ptr %11, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %11, i64 %42
   %44 = getelementptr inbounds i8, ptr %15, i64 -8
   %45 = getelementptr inbounds i8, ptr %16, i64 -4
   %46 = getelementptr inbounds i8, ptr %17, i64 -4
@@ -89,15 +89,15 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not280, label %61, label %59
 
 59:                                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   store i32 0, ptr %60, align 4, !tbaa !3
   br label %78
 
 61:                                               ; preds = %.lr.ph
-  %62 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %63 = load double, ptr %62, align 8, !tbaa !7
   %64 = fcmp oeq double %63, 0.000000e+00
-  %65 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !3
   %.not283 = icmp eq i32 %66, 0
   br i1 %64, label %67, label %71
@@ -243,7 +243,7 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.0328 = phi i32 [ 1, %.lr.ph332 ], [ %.1, %.critedge ]
   %.0240327 = phi i32 [ 0, %.lr.ph332 ], [ %.2, %.critedge ]
   %.0242326 = phi i32 [ 1, %.lr.ph332 ], [ %.2244, %.critedge ]
-  %125 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv335
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv335
   %126 = load i32, ptr %125, align 4, !tbaa !3
   %.not266 = icmp eq i32 %126, 0
   br i1 %.not266, label %.critedge, label %127
@@ -265,8 +265,8 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 132:                                              ; preds = %131
   %indvars.iv.next338 = add nsw i64 %indvars.iv337, -1
   %133 = mul nsw i64 %indvars.iv.next338, %120
-  %134 = getelementptr double, ptr %35, i64 %133
-  %135 = getelementptr double, ptr %134, i64 %indvars.iv337
+  %134 = getelementptr [8 x i8], ptr %35, i64 %133
+  %135 = getelementptr [8 x i8], ptr %134, i64 %indvars.iv337
   %136 = load double, ptr %135, align 8, !tbaa !7
   %137 = fcmp oeq double %136, 0.000000e+00
   br i1 %137, label %.split.loop.exit377, label %131, !llvm.loop !11
@@ -296,8 +296,8 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 146:                                              ; preds = %145
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   %147 = mul nsw i64 %indvars.iv340, %120
-  %148 = getelementptr double, ptr %35, i64 %indvars.iv.next341
-  %149 = getelementptr double, ptr %148, i64 %147
+  %148 = getelementptr [8 x i8], ptr %35, i64 %indvars.iv.next341
+  %149 = getelementptr [8 x i8], ptr %148, i64 %147
   %150 = load double, ptr %149, align 8, !tbaa !7
   %151 = fcmp oeq double %150, 0.000000e+00
   br i1 %151, label %.split.loop.exit380, label %145, !llvm.loop !12
@@ -323,7 +323,7 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %156, ptr %21, align 4, !tbaa !3
   %157 = mul i32 %.1243, %119
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds double, ptr %35, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %35, i64 %158
   %160 = call double @dlanhs_(ptr noundef nonnull @.str.9, ptr noundef nonnull %21, ptr noundef %159, ptr noundef nonnull %6, ptr noundef %15) #5
   store double %160, ptr %23, align 8, !tbaa !7
   %161 = call i32 @disnan_(ptr noundef nonnull %23) #5
@@ -345,10 +345,10 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 167:                                              ; preds = %.sink.split, %153
   %.1241 = phi i32 [ %.0240327, %153 ], [ %.1243, %.sink.split ]
-  %168 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv335
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv335
   %169 = load double, ptr %168, align 8, !tbaa !7
   store double %169, ptr %30, align 8, !tbaa !7
-  %170 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv335
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv335
   %171 = load double, ptr %170, align 8, !tbaa !7
   store double %171, ptr %29, align 8, !tbaa !7
   %172 = sext i32 %.1243 to i64
@@ -366,19 +366,19 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 175:                                              ; preds = %195, %.lr.ph300.us
   %indvars.iv343 = phi i64 [ %indvars.iv.next344, %195 ], [ %indvars.iv335, %.lr.ph300.us ]
   %indvars.iv.next344 = add nsw i64 %indvars.iv343, -1
-  %176 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv.next344
+  %176 = getelementptr inbounds [4 x i8], ptr %32, i64 %indvars.iv.next344
   %177 = load i32, ptr %176, align 4, !tbaa !3
   %.not279.us = icmp eq i32 %177, 0
   br i1 %.not279.us, label %195, label %178
 
 178:                                              ; preds = %175
-  %179 = getelementptr inbounds double, ptr %36, i64 %indvars.iv.next344
+  %179 = getelementptr inbounds [8 x i8], ptr %36, i64 %indvars.iv.next344
   %180 = load double, ptr %179, align 8, !tbaa !7
   %181 = fsub double %180, %174
   %182 = fcmp oge double %181, 0.000000e+00
   %183 = fneg double %181
   %184 = select i1 %182, double %181, double %183
-  %185 = getelementptr inbounds double, ptr %37, i64 %indvars.iv.next344
+  %185 = getelementptr inbounds [8 x i8], ptr %37, i64 %indvars.iv.next344
   %186 = load double, ptr %185, align 8, !tbaa !7
   %187 = fsub double %186, %171
   %188 = fcmp oge double %187, 0.000000e+00
@@ -413,19 +413,19 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %201, ptr %21, align 4, !tbaa !3
   %202 = mul i32 %.1243, %119
   %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds double, ptr %35, i64 %203
+  %204 = getelementptr inbounds [8 x i8], ptr %35, i64 %203
   %205 = mul nsw i32 %.0328, %38
   %206 = add nsw i32 %.1243, %205
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds double, ptr %40, i64 %207
+  %208 = getelementptr inbounds [8 x i8], ptr %40, i64 %207
   %209 = mul nsw i32 %.0239, %38
   %210 = add nsw i32 %209, %.1243
   %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds double, ptr %40, i64 %211
+  %212 = getelementptr inbounds [8 x i8], ptr %40, i64 %211
   %213 = add i32 %200, 1
   %214 = mul i32 %213, %200
   %215 = sext i32 %214 to i64
-  %216 = getelementptr double, ptr %44, i64 %215
+  %216 = getelementptr [8 x i8], ptr %44, i64 %215
   %217 = getelementptr i8, ptr %216, i64 8
   call void @dlaein_(ptr noundef nonnull @c_false, ptr noundef nonnull %26, ptr noundef nonnull %21, ptr noundef %204, ptr noundef nonnull %6, ptr noundef nonnull %30, ptr noundef nonnull %29, ptr noundef %208, ptr noundef %212, ptr noundef %15, ptr noundef nonnull %27, ptr noundef %217, ptr noundef nonnull %31, ptr noundef nonnull %28, ptr noundef nonnull %25, ptr noundef nonnull %22) #5
   %218 = load i32, ptr %22, align 4, !tbaa !3
@@ -438,21 +438,21 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %222 = add nsw i32 %221, %.
   store i32 %222, ptr %18, align 4, !tbaa !3
   %223 = sext i32 %.0328 to i64
-  %224 = getelementptr inbounds i32, ptr %45, i64 %223
+  %224 = getelementptr inbounds [4 x i8], ptr %45, i64 %223
   %225 = trunc nuw nsw i64 %indvars.iv335 to i32
   store i32 %225, ptr %224, align 4, !tbaa !3
   br label %229
 
 226:                                              ; preds = %199
   %227 = sext i32 %.0328 to i64
-  %228 = getelementptr inbounds i32, ptr %45, i64 %227
+  %228 = getelementptr inbounds [4 x i8], ptr %45, i64 %227
   store i32 0, ptr %228, align 4, !tbaa !3
   br label %229
 
 229:                                              ; preds = %226, %220
   %.sink384 = phi i32 [ 0, %226 ], [ %225, %220 ]
   %230 = sext i32 %.0239 to i64
-  %231 = getelementptr inbounds i32, ptr %45, i64 %230
+  %231 = getelementptr inbounds [4 x i8], ptr %45, i64 %230
   store i32 %.sink384, ptr %231, align 4, !tbaa !3
   %232 = add i32 %.1243, -1
   store i32 %232, ptr %21, align 4, !tbaa !3
@@ -486,17 +486,17 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 243:                                              ; preds = %.loopexit290
   %244 = mul nsw i32 %.0328, %41
   %245 = sext i32 %244 to i64
-  %246 = getelementptr double, ptr %43, i64 %245
+  %246 = getelementptr [8 x i8], ptr %43, i64 %245
   %247 = getelementptr i8, ptr %246, i64 8
   %248 = mul nsw i32 %.0239, %41
   %249 = sext i32 %248 to i64
-  %250 = getelementptr double, ptr %43, i64 %249
+  %250 = getelementptr [8 x i8], ptr %43, i64 %249
   %251 = getelementptr i8, ptr %250, i64 8
   %252 = load i32, ptr %4, align 4, !tbaa !3
   %253 = add i32 %252, 1
   %254 = mul i32 %253, %252
   %255 = sext i32 %254 to i64
-  %256 = getelementptr double, ptr %44, i64 %255
+  %256 = getelementptr [8 x i8], ptr %44, i64 %255
   %257 = getelementptr i8, ptr %256, i64 8
   call void @dlaein_(ptr noundef nonnull @c_true, ptr noundef nonnull %26, ptr noundef nonnull %24, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %30, ptr noundef nonnull %29, ptr noundef %247, ptr noundef %251, ptr noundef %15, ptr noundef nonnull %27, ptr noundef %257, ptr noundef nonnull %31, ptr noundef nonnull %28, ptr noundef nonnull %25, ptr noundef nonnull %22) #5
   %258 = load i32, ptr %22, align 4, !tbaa !3
@@ -509,21 +509,21 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %262 = add nsw i32 %261, %.391
   store i32 %262, ptr %18, align 4, !tbaa !3
   %263 = sext i32 %.0328 to i64
-  %264 = getelementptr inbounds i32, ptr %46, i64 %263
+  %264 = getelementptr inbounds [4 x i8], ptr %46, i64 %263
   %265 = trunc nuw nsw i64 %indvars.iv335 to i32
   store i32 %265, ptr %264, align 4, !tbaa !3
   br label %269
 
 266:                                              ; preds = %243
   %267 = sext i32 %.0328 to i64
-  %268 = getelementptr inbounds i32, ptr %46, i64 %267
+  %268 = getelementptr inbounds [4 x i8], ptr %46, i64 %267
   store i32 0, ptr %268, align 4, !tbaa !3
   br label %269
 
 269:                                              ; preds = %266, %260
   %.sink388 = phi i32 [ 0, %266 ], [ %265, %260 ]
   %270 = sext i32 %.0239 to i64
-  %271 = getelementptr inbounds i32, ptr %46, i64 %270
+  %271 = getelementptr inbounds [4 x i8], ptr %46, i64 %270
   store i32 %.sink388, ptr %271, align 4, !tbaa !3
   %272 = load i32, ptr %4, align 4, !tbaa !3
   store i32 %272, ptr %21, align 4, !tbaa !3

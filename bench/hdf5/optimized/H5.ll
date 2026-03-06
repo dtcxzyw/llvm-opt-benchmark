@@ -405,7 +405,7 @@ define internal fastcc void @H5_check_version(i32 noundef %0, i32 noundef %1, i3
   %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = load i8, ptr %14, align 1, !tbaa !20
   %19 = sext i8 %18 to i64
-  %20 = getelementptr inbounds i16, ptr %17, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %17, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !21
   %22 = and i16 %21, 2048
   %.not29 = icmp eq i16 %22, 0
@@ -1605,7 +1605,7 @@ define internal fastcc void @H5__debug_mask(ptr noundef %0) unnamed_addr #2 {
   %7 = tail call ptr @__ctype_b_loc() #22
   %8 = load ptr, ptr %7, align 8, !tbaa !18
   %9 = sext i8 %5 to i64
-  %10 = getelementptr inbounds i16, ptr %8, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %8, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !21
   %.fr = freeze i16 %11
   %12 = zext i16 %.fr to i32
@@ -1628,7 +1628,7 @@ switch.early.test:                                ; preds = %6
   %.1 = getelementptr inbounds nuw i8, ptr %.04584, i64 %.1.idx
   %18 = load i8, ptr %.1, align 1, !tbaa !20
   %19 = sext i8 %18 to i64
-  %20 = getelementptr inbounds i16, ptr %8, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %8, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !21
   %22 = and i16 %21, 1024
   %.not6076 = icmp eq i16 %22, 0
@@ -1654,7 +1654,7 @@ switch.early.test:                                ; preds = %6
   %31 = getelementptr inbounds nuw i8, ptr %.278, i64 1
   %32 = load i8, ptr %31, align 1, !tbaa !20
   %33 = sext i8 %32 to i64
-  %34 = getelementptr inbounds i16, ptr %29, i64 %33
+  %34 = getelementptr inbounds [2 x i8], ptr %29, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !21
   %36 = and i16 %35, 1024
   %.not60 = icmp eq i16 %36, 0
@@ -1711,7 +1711,7 @@ switch.early.test:                                ; preds = %6
 
 49:                                               ; preds = %.preheader, %49
   %.15081 = phi i64 [ 0, %.preheader ], [ %52, %49 ]
-  %50 = getelementptr inbounds nuw %struct.anon, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 16), i64 %.15081
+  %50 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 16), i64 %.15081
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %48, ptr %51, align 8, !tbaa !46
   %52 = add nuw nsw i64 %.15081, 1
@@ -1725,7 +1725,7 @@ switch.early.test:                                ; preds = %6
 
 .preheader74:                                     ; preds = %47, %53
   %.25180 = phi i64 [ %54, %53 ], [ 0, %47 ]
-  %55 = getelementptr inbounds nuw %struct.anon, ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 16), i64 %.25180
+  %55 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @H5_debug_g, i64 16), i64 %.25180
   %56 = load ptr, ptr %55, align 8, !tbaa !13
   %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %2) #26
   %.not68 = icmp eq i32 %57, 0

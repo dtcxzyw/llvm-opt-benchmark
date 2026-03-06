@@ -53,13 +53,13 @@ define i32 @ff_codec_guid_get_id(ptr noundef readonly captures(none) %0, ptr nou
 .lr.ph19:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv18 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv18, 1
-  %5 = getelementptr inbounds nuw %struct.AVCodecGuid, ptr %0, i64 %indvars.iv.next
+  %5 = getelementptr inbounds nuw [20 x i8], ptr %0, i64 %indvars.iv.next
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph19
-  %7 = getelementptr inbounds nuw %struct.AVCodecGuid, ptr %0, i64 %indvars.iv.next
+  %7 = getelementptr inbounds nuw [20 x i8], ptr %0, i64 %indvars.iv.next
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %8, ptr noundef nonnull dereferenceable(16) %1, i64 16)
   %.not9 = icmp eq i32 %bcmp, 0
@@ -356,7 +356,7 @@ ff_wav_codec_get_id.exit.i:                       ; preds = %117, %107
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader.i, %.lr.ph.i.i
   %indvars.iv.i26.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i26.i, 1
-  %123 = getelementptr inbounds nuw %struct.AVCodecGuid, ptr @ff_codec_wav_guids, i64 %indvars.iv.next.i.i
+  %123 = getelementptr inbounds nuw [20 x i8], ptr @ff_codec_wav_guids, i64 %indvars.iv.next.i.i
   %124 = load i32, ptr %123, align 4, !tbaa !4
   %.not.i.i = icmp eq i32 %124, 0
   br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !9

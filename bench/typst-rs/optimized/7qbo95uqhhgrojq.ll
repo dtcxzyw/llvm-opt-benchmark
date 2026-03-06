@@ -170,7 +170,7 @@ common.resume.i:                                  ; preds = %35, %26
   %39 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %31, %"_ZN9typst_svg11SVGRenderer13push_gradient28_$u7b$$u7b$closure$u7d$$u7d$17h42bd16fda8f7e146E.exit.i" ]
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.48.0.copyload, i64 8
   %41 = load ptr, ptr %40, align 8, !alias.scope !14, !noalias !17, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds { i128, { { i64, [1 x i64] }, double }, [1 x i64] }, ptr %41, i64 %39
+  %42 = getelementptr inbounds [48 x i8], ptr %41, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %42, ptr noundef nonnull align 16 dereferenceable(48) %4, i64 48, i1 false), !noalias !6
   %43 = load i64, ptr %11, align 8, !alias.scope !14, !noalias !17, !noundef !4
   %44 = add i64 %43, 1
@@ -197,7 +197,7 @@ common.resume.i:                                  ; preds = %35, %26
   store i8 %52, ptr %59, align 1, !noalias !20
   %60 = load ptr, ptr %.sroa.01.sroa.5.0.copyload, align 8, !alias.scope !30, !noalias !20, !nonnull !4, !noundef !4
   %61 = sub nsw i64 0, %47
-  %62 = getelementptr inbounds { i128, { i128, i64, i32, [1 x i32] } }, ptr %60, i64 %61
+  %62 = getelementptr inbounds [48 x i8], ptr %60, i64 %61
   %63 = and i8 %50, 1
   %64 = zext nneg i8 %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.01.sroa.5.0.copyload, i64 16
@@ -302,7 +302,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   %28 = phi i64 [ %.pre.i.i, %27 ], [ %24, %7 ]
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.48.0.copyload, i64 8
   %30 = load ptr, ptr %29, align 8, !alias.scope !41, !noalias !44, !nonnull !4, !noundef !4
-  %31 = getelementptr inbounds { i128, { { double, double, double, double, double, double }, { double, double }, { i128, i64, i32, [1 x i32] } } }, ptr %30, i64 %28
+  %31 = getelementptr inbounds [112 x i8], ptr %30, i64 %28
   store i128 %11, ptr %31, align 16, !noalias !33
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 16 dereferenceable(48) %.sroa.4.sroa.0.i, i64 48, i1 false), !noalias !33
@@ -338,7 +338,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   store i8 %41, ptr %48, align 1, !noalias !46
   %49 = load ptr, ptr %.sroa.01.sroa.5.0.copyload, align 8, !alias.scope !56, !noalias !46, !nonnull !4, !noundef !4
   %50 = sub nsw i64 0, %36
-  %51 = getelementptr inbounds { i128, { i128, i64, i32, [1 x i32] } }, ptr %49, i64 %50
+  %51 = getelementptr inbounds [48 x i8], ptr %49, i64 %50
   %52 = and i8 %39, 1
   %53 = zext nneg i8 %52 to i64
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.01.sroa.5.0.copyload, i64 16
@@ -489,7 +489,7 @@ common.resume.i:                                  ; preds = %39, %25, %20
   %43 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %35, %"_ZN9typst_svg11SVGRenderer19render_bitmap_glyph28_$u7b$$u7b$closure$u7d$$u7d$17h53021dd622184095E.exit.i" ]
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.48.0.copyload, i64 8
   %45 = load ptr, ptr %44, align 8, !alias.scope !74, !noalias !77, !nonnull !4, !noundef !4
-  %46 = getelementptr inbounds { i128, { i64, [10 x i64] }, [1 x i64] }, ptr %45, i64 %43
+  %46 = getelementptr inbounds [112 x i8], ptr %45, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %46, ptr noundef nonnull align 16 dereferenceable(112) %6, i64 112, i1 false), !noalias !59
   %47 = load i64, ptr %13, align 8, !alias.scope !74, !noalias !77, !noundef !4
   %48 = add i64 %47, 1
@@ -516,7 +516,7 @@ common.resume.i:                                  ; preds = %39, %25, %20
   store i8 %56, ptr %63, align 1, !noalias !79
   %64 = load ptr, ptr %.sroa.01.sroa.5.0.copyload, align 8, !alias.scope !89, !noalias !79, !nonnull !4, !noundef !4
   %65 = sub nsw i64 0, %51
-  %66 = getelementptr inbounds { i128, { i128, i64, i32, [1 x i32] } }, ptr %64, i64 %65
+  %66 = getelementptr inbounds [48 x i8], ptr %64, i64 %65
   %67 = and i8 %54, 1
   %68 = zext nneg i8 %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.01.sroa.5.0.copyload, i64 16
@@ -583,7 +583,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   %15 = phi i64 [ %.pre.i.i, %14 ], [ %10, %7 ]
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.48.0.copyload, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !96, !noalias !99, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds { i128, { { double, double }, double, double, { i32, [4 x i32] }, { i32, [4 x i32] } }, [1 x i64] }, ptr %17, i64 %15
+  %18 = getelementptr inbounds [96 x i8], ptr %17, i64 %15
   store i128 %11, ptr %18, align 16, !noalias !92
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.610.0..sroa_idx, i64 72, i1 false)
@@ -611,7 +611,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   store i8 %28, ptr %35, align 1, !noalias !101
   %36 = load ptr, ptr %.sroa.01.sroa.5.0.copyload, align 8, !alias.scope !111, !noalias !101, !nonnull !4, !noundef !4
   %37 = sub nsw i64 0, %23
-  %38 = getelementptr inbounds { i128, { i128, i64, i32, [1 x i32] } }, ptr %36, i64 %37
+  %38 = getelementptr inbounds [48 x i8], ptr %36, i64 %37
   %39 = and i8 %26, 1
   %40 = zext nneg i8 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.01.sroa.5.0.copyload, i64 16
@@ -711,7 +711,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   %26 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %14, %8 ]
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.47.0.copyload, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !118, !noalias !123, !nonnull !4, !noundef !4
-  %29 = getelementptr inbounds { i128, { { { [2 x i64] } } } }, ptr %28, i64 %26
+  %29 = getelementptr inbounds [32 x i8], ptr %28, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %29, ptr noundef nonnull align 16 dereferenceable(32) %3, i64 32, i1 false), !noalias !114
   %30 = load i64, ptr %10, align 8, !alias.scope !118, !noalias !123, !noundef !4
   %31 = add i64 %30, 1
@@ -738,7 +738,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   store i8 %39, ptr %46, align 1, !noalias !134
   %47 = load ptr, ptr %.sroa.01.sroa.5.0.copyload, align 8, !alias.scope !144, !noalias !134, !nonnull !4, !noundef !4
   %48 = sub nsw i64 0, %34
-  %49 = getelementptr inbounds { i128, { i128, i64, i32, [1 x i32] } }, ptr %47, i64 %48
+  %49 = getelementptr inbounds [48 x i8], ptr %47, i64 %48
   %50 = and i8 %37, 1
   %51 = zext nneg i8 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.01.sroa.5.0.copyload, i64 16
@@ -821,7 +821,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   %18 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %8, %5 ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.411.0.copyload, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !151, !noalias !154, !nonnull !4, !noundef !4
-  %21 = getelementptr inbounds { i128, { i64, [10 x i64] }, [1 x i64] }, ptr %20, i64 %18
+  %21 = getelementptr inbounds [112 x i8], ptr %20, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %21, ptr noundef nonnull align 16 dereferenceable(112) %3, i64 112, i1 false), !noalias !147
   %22 = load i64, ptr %7, align 8, !alias.scope !151, !noalias !154, !noundef !4
   %23 = add i64 %22, 1
@@ -848,7 +848,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   store i8 %31, ptr %38, align 1, !noalias !161
   %39 = load ptr, ptr %.sroa.01.sroa.5.0.copyload, align 8, !alias.scope !166, !noalias !161, !nonnull !4, !noundef !4
   %40 = sub nsw i64 0, %26
-  %41 = getelementptr inbounds { i128, { i128, i64, i32, [1 x i32] } }, ptr %39, i64 %40
+  %41 = getelementptr inbounds [48 x i8], ptr %39, i64 %40
   %42 = and i8 %29, 1
   %43 = zext nneg i8 %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.01.sroa.5.0.copyload, i64 16
@@ -944,7 +944,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   %switch.idx.cast.i.i.i = trunc nuw nsw i64 %12 to i8
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.48.0.copyload, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !191, !noalias !194, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds { i128, { { double, double, double, double, double, double }, { i128, i64, i32, [1 x i32] }, i8, [15 x i8] } }, ptr %18, i64 %16
+  %19 = getelementptr inbounds [112 x i8], ptr %18, i64 %16
   store i128 %11, ptr %19, align 16, !noalias !180
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 16 dereferenceable(80) %.sroa.01.i, i64 80, i1 false), !noalias !180
@@ -975,7 +975,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   store i8 %29, ptr %36, align 1, !noalias !196
   %37 = load ptr, ptr %.sroa.01.sroa.5.0.copyload, align 8, !alias.scope !206, !noalias !196, !nonnull !4, !noundef !4
   %38 = sub nsw i64 0, %24
-  %39 = getelementptr inbounds { i128, { i128, i64, i32, [1 x i32] } }, ptr %37, i64 %38
+  %39 = getelementptr inbounds [48 x i8], ptr %37, i64 %38
   %40 = and i8 %27, 1
   %41 = zext nneg i8 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.01.sroa.5.0.copyload, i64 16
@@ -1145,7 +1145,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   %50 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %42, %"_ZN9typst_svg11SVGRenderer16render_svg_glyph28_$u7b$$u7b$closure$u7d$$u7d$17h1d0e6d042c585c69E.exit.i" ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.411.0.copyload, i64 8
   %52 = load ptr, ptr %51, align 8, !alias.scope !224, !noalias !227, !nonnull !4, !noundef !4
-  %53 = getelementptr inbounds { i128, { i64, [10 x i64] }, [1 x i64] }, ptr %52, i64 %50
+  %53 = getelementptr inbounds [112 x i8], ptr %52, i64 %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %53, ptr noundef nonnull align 16 dereferenceable(112) %7, i64 112, i1 false), !noalias !209
   %54 = load i64, ptr %11, align 8, !alias.scope !224, !noalias !227, !noundef !4
   %55 = add i64 %54, 1
@@ -1172,7 +1172,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   store i8 %63, ptr %70, align 1, !noalias !234
   %71 = load ptr, ptr %.sroa.01.sroa.5.0.copyload, align 8, !alias.scope !239, !noalias !234, !nonnull !4, !noundef !4
   %72 = sub nsw i64 0, %58
-  %73 = getelementptr inbounds { i128, { i128, i64, i32, [1 x i32] } }, ptr %71, i64 %72
+  %73 = getelementptr inbounds [48 x i8], ptr %71, i64 %72
   %74 = and i8 %61, 1
   %75 = zext nneg i8 %74 to i64
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.01.sroa.5.0.copyload, i64 16
@@ -1293,7 +1293,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   %26 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %17, %"_ZN9typst_svg11SVGRenderer12push_pattern28_$u7b$$u7b$closure$u7d$$u7d$17h7b73259b25b77af6E.exit.i" ]
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.47.0.copyload, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !257, !noalias !253, !nonnull !4, !noundef !4
-  %29 = getelementptr inbounds { i128, ptr, [1 x i64] }, ptr %28, i64 %26
+  %29 = getelementptr inbounds [32 x i8], ptr %28, i64 %26
   store i128 %12, ptr %29, align 16, !noalias !253
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %.val.i, ptr %30, align 16, !noalias !253
@@ -1322,7 +1322,7 @@ define hidden noundef nonnull align 16 dereferenceable(32) ptr @"_ZN3std11collec
   store i8 %40, ptr %47, align 1, !noalias !261
   %48 = load ptr, ptr %.sroa.01.sroa.5.0.copyload, align 8, !alias.scope !271, !noalias !261, !nonnull !4, !noundef !4
   %49 = sub nsw i64 0, %35
-  %50 = getelementptr inbounds { i128, { i128, i64, i32, [1 x i32] } }, ptr %48, i64 %49
+  %50 = getelementptr inbounds [48 x i8], ptr %48, i64 %49
   %51 = and i8 %38, 1
   %52 = zext nneg i8 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.01.sroa.5.0.copyload, i64 16
@@ -2389,7 +2389,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with17h0cf6594
   %switch.idx.cast.i.i.i.i = trunc nuw nsw i64 %17 to i8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !534, !noalias !537, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds { i128, { { double, double, double, double, double, double }, { i128, i64, i32, [1 x i32] }, i8, [15 x i8] } }, ptr %23, i64 %21
+  %24 = getelementptr inbounds [112 x i8], ptr %23, i64 %21
   store i128 %2, ptr %24, align 16, !noalias !520
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 16 dereferenceable(80) %.sroa.01.i.i, i64 80, i1 false), !noalias !520
@@ -2418,7 +2418,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with17h0cf6594
   store i8 %33, ptr %40, align 1, !noalias !539
   %41 = load ptr, ptr %.sroa.510.0.copyload, align 8, !alias.scope !549, !noalias !539, !nonnull !4, !noundef !4
   %42 = sub nsw i64 0, %28
-  %43 = getelementptr inbounds { i128, { i128, i64, i32, [1 x i32] } }, ptr %41, i64 %42
+  %43 = getelementptr inbounds [48 x i8], ptr %41, i64 %42
   %44 = and i8 %31, 1
   %45 = zext nneg i8 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.510.0.copyload, i64 16
@@ -2734,7 +2734,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with17hdb7faee
   %20 = phi i64 [ %.pre.i.i.i, %19 ], [ %16, %12 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !568, !noalias !571, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds { i128, { { double, double }, double, double, { i32, [4 x i32] }, { i32, [4 x i32] } }, [1 x i64] }, ptr %22, i64 %20
+  %23 = getelementptr inbounds [96 x i8], ptr %22, i64 %20
   store i128 %2, ptr %23, align 16, !noalias !561
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
@@ -2760,7 +2760,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$11insert_with17hdb7faee
   store i8 %32, ptr %39, align 1, !noalias !573
   %40 = load ptr, ptr %.sroa.510.0.copyload, align 8, !alias.scope !583, !noalias !573, !nonnull !4, !noundef !4
   %41 = sub nsw i64 0, %27
-  %42 = getelementptr inbounds { i128, { i128, i64, i32, [1 x i32] } }, ptr %40, i64 %41
+  %42 = getelementptr inbounds [48 x i8], ptr %40, i64 %41
   %43 = and i8 %30, 1
   %44 = zext nneg i8 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.510.0.copyload, i64 16
@@ -2793,7 +2793,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter17h47df213c3d8864c
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds { i128, { { i64, [1 x i64] }, double }, [1 x i64] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [48 x i8], ptr %4, i64 %6
   store ptr %4, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2810,7 +2810,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter17h4f4fa91a83dc7e1
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds { i128, { i64, [10 x i64] }, [1 x i64] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [112 x i8], ptr %4, i64 %6
   store ptr %4, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2827,7 +2827,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter17h501f75cb4bd22ef
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds { i128, { { double, double }, double, double, { i32, [4 x i32] }, { i32, [4 x i32] } }, [1 x i64] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [96 x i8], ptr %4, i64 %6
   store ptr %4, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2844,7 +2844,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter17h6f1aad4809697ef
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds { i128, ptr, [1 x i64] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %4, i64 %6
   store ptr %4, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2861,7 +2861,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter17h8178deffab8fc32
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds { i128, { { double, double, double, double, double, double }, { i128, i64, i32, [1 x i32] }, i8, [15 x i8] } }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [112 x i8], ptr %4, i64 %6
   store ptr %4, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2878,7 +2878,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter17h93690a796136dd3
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds { i128, { { double, double, double, double, double, double }, { double, double }, { i128, i64, i32, [1 x i32] } } }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [112 x i8], ptr %4, i64 %6
   store ptr %4, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2895,7 +2895,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$4iter17hd72492007da12dd
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds { i128, { { { [2 x i64] } } } }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %4, i64 %6
   store ptr %4, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.4.0..sroa_idx, align 8

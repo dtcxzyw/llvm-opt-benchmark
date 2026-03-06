@@ -803,7 +803,7 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormat5ClearEv(ptr noundef 
 9:                                                ; preds = %9, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %9 ], [ 0, %5 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !67
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %12, align 8, !tbaa !56
@@ -1096,7 +1096,7 @@ _ZN4i18n12phonenumbers12NumberFormat24_internal_mutable_formatB5cxx11Ev.exit: ; 
   %96 = add nsw i32 %91, 1
   store i32 %96, ptr %13, align 8, !tbaa !51
   %97 = sext i32 %91 to i64
-  %98 = getelementptr inbounds ptr, ptr %95, i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr %95, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !67
   br label %_ZN4i18n12phonenumbers12NumberFormat36_internal_add_leading_digits_patternB5cxx11Ev.exit
 
@@ -1153,7 +1153,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %123 = add nsw i32 %122, 1
   store i32 %123, ptr %13, align 8, !tbaa !51
   %124 = sext i32 %122 to i64
-  %125 = getelementptr inbounds ptr, ptr %121, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %121, i64 %124
   store ptr %.sink5.i.i.i.i.i, ptr %125, align 8, !tbaa !67
   br label %_ZN4i18n12phonenumbers12NumberFormat36_internal_add_leading_digits_patternB5cxx11Ev.exit
 
@@ -1453,7 +1453,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
   %.257 = phi ptr [ %.1, %.lr.ph ], [ %.0.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %50 = load ptr, ptr %47, align 8, !tbaa !52
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !67
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i64, ptr %54, align 8, !tbaa !56
@@ -1786,7 +1786,7 @@ _ZNK4i18n12phonenumbers12NumberFormat30RequiredFieldsByteSizeFallbackEv.exit: ; 
 79:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
   %.127 = phi i64 [ %73, %.lr.ph ], [ %93, %79 ]
-  %80 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv
   %81 = load ptr, ptr %80, align 8, !tbaa !67
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !56
@@ -2177,7 +2177,7 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormat8CopyFromERKS1_(ptr n
 12:                                               ; preds = %12, %8
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %12 ], [ 0, %8 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !67
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %15, align 8, !tbaa !56
@@ -3057,7 +3057,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit: ; preds = %88, %97, %100
 _ZN4i18n12phonenumbers15PhoneNumberDesc29_internal_add_possible_lengthEi.exit: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %109
   %110 = load ptr, ptr %12, align 8, !tbaa !105
   %111 = zext i32 %105 to i64
-  %112 = getelementptr inbounds nuw i32, ptr %110, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %111
   store i32 %104, ptr %112, align 4, !tbaa !62
   store i32 %108, ptr %10, align 8, !tbaa !107
   %.not25 = icmp eq ptr %.0.i.i39, null
@@ -3139,7 +3139,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit44: ; preds = %128, %137, %1
 _ZN4i18n12phonenumbers15PhoneNumberDesc40_internal_add_possible_length_local_onlyEi.exit: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit44, %149
   %150 = load ptr, ptr %9, align 8, !tbaa !105
   %151 = zext i32 %145 to i64
-  %152 = getelementptr inbounds nuw i32, ptr %150, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %151
   store i32 %144, ptr %152, align 4, !tbaa !62
   store i32 %148, ptr %7, align 8, !tbaa !107
   %.not23 = icmp eq ptr %.0.i.i43, null
@@ -3319,7 +3319,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %52, %54
   %.0.i33 = phi ptr [ %55, %54 ], [ %.249, %52 ]
   %56 = load ptr, ptr %47, align 8, !tbaa !105
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4, !tbaa !62
   store i8 72, ptr %.0.i33, align 1, !tbaa !50
   %59 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 1
@@ -3397,7 +3397,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit36: ; preds = %88, %90
   %.0.i35 = phi ptr [ %91, %90 ], [ %.351, %88 ]
   %92 = load ptr, ptr %51, align 8, !tbaa !105
-  %93 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv61
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv61
   %94 = load i32, ptr %93, align 4, !tbaa !62
   store i8 80, ptr %.0.i35, align 1, !tbaa !50
   %95 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 1
@@ -3649,7 +3649,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINSt7__cxx1112basic_stri
   %39 = add nsw i32 %38, %35
   store i32 %39, ptr %32, align 8, !tbaa !107
   %40 = sext i32 %33 to i64
-  %41 = getelementptr inbounds i32, ptr %37, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %37, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %43 = load ptr, ptr %42, align 8, !tbaa !105
   %44 = load i32, ptr %29, align 8, !tbaa !107
@@ -3676,7 +3676,7 @@ _ZN6google8protobuf13RepeatedFieldIiE9MergeFromERKS2_.exit: ; preds = %_ZN6googl
   %57 = add nsw i32 %56, %53
   store i32 %57, ptr %50, align 8, !tbaa !107
   %58 = sext i32 %51 to i64
-  %59 = getelementptr inbounds i32, ptr %55, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %55, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %61 = load ptr, ptr %60, align 8, !tbaa !105
   %62 = load i32, ptr %47, align 8, !tbaa !107
@@ -4219,9 +4219,9 @@ define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadataC2ERKS1_(ptr noundef
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %26 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !67
-  %28 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i.i.i
   %29 = load ptr, ptr %28, align 8, !tbaa !67
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE5MergeERKS5_PS5_(ptr noundef nonnull align 8 dereferenceable(88) %27, ptr noundef %29)
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -4230,11 +4230,11 @@ define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadataC2ERKS1_(ptr noundef
 
 .lr.ph28.i.i.i.i:                                 ; preds = %.lr.ph28.i.i.i.i, %.lr.ph28.preheader.i.i.i.i
   %indvars.iv31.i.i.i.i = phi i64 [ %25, %.lr.ph28.preheader.i.i.i.i ], [ %indvars.iv.next32.i.i.i.i, %.lr.ph28.i.i.i.i ]
-  %30 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv31.i.i.i.i
+  %30 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv31.i.i.i.i
   %31 = load ptr, ptr %30, align 8, !tbaa !67
   %32 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers12NumberFormatEJEEEPT_PS1_DpOT0_(ptr noundef %23)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE5MergeERKS5_PS5_(ptr noundef nonnull align 8 dereferenceable(88) %31, ptr noundef %32)
-  %33 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv31.i.i.i.i
+  %33 = getelementptr inbounds [8 x i8], ptr %15, i64 %indvars.iv31.i.i.i.i
   store ptr %32, ptr %33, align 8, !tbaa !67
   %indvars.iv.next32.i.i.i.i = add nsw i64 %indvars.iv31.i.i.i.i, 1
   %lftr.wideiv.i.i.i.i = trunc i64 %indvars.iv.next32.i.i.i.i to i32
@@ -4295,9 +4295,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEEC2ERKS
 
 .lr.ph.i.i.i.i82:                                 ; preds = %.noexc87, %.lr.ph.preheader.i.i.i.i80
   %indvars.iv.i.i.i.i83 = phi i64 [ 0, %.lr.ph.preheader.i.i.i.i80 ], [ %indvars.iv.next.i.i.i.i84, %.noexc87 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i.i.i.i83
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i.i.i.i83
   %59 = load ptr, ptr %58, align 8, !tbaa !67
-  %60 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.i.i.i.i83
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i.i.i.i83
   %61 = load ptr, ptr %60, align 8, !tbaa !67
   invoke void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE5MergeERKS5_PS5_(ptr noundef nonnull align 8 dereferenceable(88) %59, ptr noundef %61)
           to label %.noexc87 unwind label %.loopexit.split-lp.loopexit
@@ -4309,7 +4309,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEEC2ERKS
 
 .lr.ph28.i.i.i.i75:                               ; preds = %.noexc89, %.lr.ph28.preheader.i.i.i.i74
   %indvars.iv31.i.i.i.i76 = phi i64 [ %57, %.lr.ph28.preheader.i.i.i.i74 ], [ %indvars.iv.next32.i.i.i.i77, %.noexc89 ]
-  %62 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv31.i.i.i.i76
+  %62 = getelementptr inbounds [8 x i8], ptr %46, i64 %indvars.iv31.i.i.i.i76
   %63 = load ptr, ptr %62, align 8, !tbaa !67
   %64 = invoke noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers12NumberFormatEJEEEPT_PS1_DpOT0_(ptr noundef %55)
           to label %.noexc88 unwind label %.loopexit
@@ -4319,7 +4319,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEEC2ERKS
           to label %.noexc89 unwind label %.loopexit
 
 .noexc89:                                         ; preds = %.noexc88
-  %65 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv31.i.i.i.i76
+  %65 = getelementptr inbounds [8 x i8], ptr %47, i64 %indvars.iv31.i.i.i.i76
   store ptr %64, ptr %65, align 8, !tbaa !67
   %indvars.iv.next32.i.i.i.i77 = add nsw i64 %indvars.iv31.i.i.i.i76, 1
   %lftr.wideiv.i.i.i.i78 = trunc i64 %indvars.iv.next32.i.i.i.i77 to i32
@@ -8319,7 +8319,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit266: ; preds = %631
   %662 = add nsw i32 %657, 1
   store i32 %662, ptr %28, align 8, !tbaa !51
   %663 = sext i32 %657 to i64
-  %664 = getelementptr inbounds ptr, ptr %661, i64 %663
+  %664 = getelementptr inbounds [8 x i8], ptr %661, i64 %663
   %665 = load ptr, ptr %664, align 8, !tbaa !67
   br label %_ZN4i18n12phonenumbers13PhoneMetadata27_internal_add_number_formatEv.exit
 
@@ -8349,7 +8349,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit266: ; preds = %631
   %680 = add nsw i32 %679, 1
   store i32 %680, ptr %28, align 8, !tbaa !51
   %681 = sext i32 %679 to i64
-  %682 = getelementptr inbounds ptr, ptr %678, i64 %681
+  %682 = getelementptr inbounds [8 x i8], ptr %678, i64 %681
   store ptr %676, ptr %682, align 8, !tbaa !67
   br label %_ZN4i18n12phonenumbers13PhoneMetadata27_internal_add_number_formatEv.exit
 
@@ -8454,7 +8454,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i268: ; preds = %_ZN4i18n12phone
   %733 = add nsw i32 %728, 1
   store i32 %733, ptr %24, align 8, !tbaa !51
   %734 = sext i32 %728 to i64
-  %735 = getelementptr inbounds ptr, ptr %732, i64 %734
+  %735 = getelementptr inbounds [8 x i8], ptr %732, i64 %734
   %736 = load ptr, ptr %735, align 8, !tbaa !67
   br label %_ZN4i18n12phonenumbers13PhoneMetadata32_internal_add_intl_number_formatEv.exit
 
@@ -8484,7 +8484,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i268: ; preds = %_ZN4i18n12phone
   %751 = add nsw i32 %750, 1
   store i32 %751, ptr %24, align 8, !tbaa !51
   %752 = sext i32 %750 to i64
-  %753 = getelementptr inbounds ptr, ptr %749, i64 %752
+  %753 = getelementptr inbounds [8 x i8], ptr %749, i64 %752
   store ptr %747, ptr %753, align 8, !tbaa !67
   br label %_ZN4i18n12phonenumbers13PhoneMetadata32_internal_add_intl_number_formatEv.exit
 
@@ -10586,7 +10586,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit276: ; preds = %
   %476 = load ptr, ptr %468, align 8, !tbaa !52
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 8
   %478 = sext i32 %.0145429 to i64
-  %479 = getelementptr inbounds ptr, ptr %477, i64 %478
+  %479 = getelementptr inbounds [8 x i8], ptr %477, i64 %478
   %480 = load ptr, ptr %479, align 8, !tbaa !67
   store i8 -102, ptr %.0.i275, align 1, !tbaa !50
   %481 = getelementptr inbounds nuw i8, ptr %.0.i275, i64 1
@@ -10667,7 +10667,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit284: ; preds = %
   %515 = load ptr, ptr %471, align 8, !tbaa !52
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 8
   %517 = sext i32 %.0144431 to i64
-  %518 = getelementptr inbounds ptr, ptr %516, i64 %517
+  %518 = getelementptr inbounds [8 x i8], ptr %516, i64 %517
   %519 = load ptr, ptr %518, align 8, !tbaa !67
   store i8 -94, ptr %.0.i283, align 1, !tbaa !50
   %520 = getelementptr inbounds nuw i8, ptr %.0.i283, i64 1
@@ -12357,9 +12357,9 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINSt7__cxx1112basic_stri
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %48 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i.i.i
   %49 = load ptr, ptr %48, align 8, !tbaa !67
-  %50 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i.i.i
   %51 = load ptr, ptr %50, align 8, !tbaa !67
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE5MergeERKS5_PS5_(ptr noundef nonnull align 8 dereferenceable(88) %49, ptr noundef %51)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -12368,11 +12368,11 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINSt7__cxx1112basic_stri
 
 .lr.ph28.i.i.i:                                   ; preds = %.lr.ph28.i.i.i, %.lr.ph28.preheader.i.i.i
   %indvars.iv31.i.i.i = phi i64 [ %47, %.lr.ph28.preheader.i.i.i ], [ %indvars.iv.next32.i.i.i, %.lr.ph28.i.i.i ]
-  %52 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv31.i.i.i
+  %52 = getelementptr inbounds [8 x i8], ptr %36, i64 %indvars.iv31.i.i.i
   %53 = load ptr, ptr %52, align 8, !tbaa !67
   %54 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers12NumberFormatEJEEEPT_PS1_DpOT0_(ptr noundef %45)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE5MergeERKS5_PS5_(ptr noundef nonnull align 8 dereferenceable(88) %53, ptr noundef %54)
-  %55 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv31.i.i.i
+  %55 = getelementptr inbounds [8 x i8], ptr %37, i64 %indvars.iv31.i.i.i
   store ptr %54, ptr %55, align 8, !tbaa !67
   %indvars.iv.next32.i.i.i = add nsw i64 %indvars.iv31.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next32.i.i.i to i32
@@ -12429,9 +12429,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE9Merge
 
 .lr.ph.i.i.i110:                                  ; preds = %.lr.ph.i.i.i110, %.lr.ph.preheader.i.i.i108
   %indvars.iv.i.i.i111 = phi i64 [ 0, %.lr.ph.preheader.i.i.i108 ], [ %indvars.iv.next.i.i.i112, %.lr.ph.i.i.i110 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv.i.i.i111
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv.i.i.i111
   %82 = load ptr, ptr %81, align 8, !tbaa !67
-  %83 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv.i.i.i111
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv.i.i.i111
   %84 = load ptr, ptr %83, align 8, !tbaa !67
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE5MergeERKS5_PS5_(ptr noundef nonnull align 8 dereferenceable(88) %82, ptr noundef %84)
   %indvars.iv.next.i.i.i112 = add nuw nsw i64 %indvars.iv.i.i.i111, 1
@@ -12440,11 +12440,11 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE9Merge
 
 .lr.ph28.i.i.i103:                                ; preds = %.lr.ph28.i.i.i103, %.lr.ph28.preheader.i.i.i102
   %indvars.iv31.i.i.i104 = phi i64 [ %80, %.lr.ph28.preheader.i.i.i102 ], [ %indvars.iv.next32.i.i.i105, %.lr.ph28.i.i.i103 ]
-  %85 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv31.i.i.i104
+  %85 = getelementptr inbounds [8 x i8], ptr %69, i64 %indvars.iv31.i.i.i104
   %86 = load ptr, ptr %85, align 8, !tbaa !67
   %87 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers12NumberFormatEJEEEPT_PS1_DpOT0_(ptr noundef %78)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE5MergeERKS5_PS5_(ptr noundef nonnull align 8 dereferenceable(88) %86, ptr noundef %87)
-  %88 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv31.i.i.i104
+  %88 = getelementptr inbounds [8 x i8], ptr %70, i64 %indvars.iv31.i.i.i104
   store ptr %87, ptr %88, align 8, !tbaa !67
   %indvars.iv.next32.i.i.i105 = add nsw i64 %indvars.iv31.i.i.i104, 1
   %lftr.wideiv.i.i.i106 = trunc i64 %indvars.iv.next32.i.i.i105 to i32
@@ -13626,7 +13626,7 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers13PhoneMetadata13IsI
 
 15:                                               ; preds = %12
   %16 = add nsw i64 %indvars.iv.i, -1
-  %17 = getelementptr ptr, ptr %10, i64 %indvars.iv.i
+  %17 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !67
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 4, !tbaa !62
@@ -13650,7 +13650,7 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers13PhoneMetadata13IsI
 
 31:                                               ; preds = %28
   %32 = add nsw i64 %indvars.iv.i2, -1
-  %33 = getelementptr ptr, ptr %26, i64 %indvars.iv.i2
+  %33 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv.i2
   %34 = load ptr, ptr %33, align 8, !tbaa !67
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i32, ptr %35, align 4, !tbaa !62
@@ -13939,7 +13939,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf16RepeatedPtrFieldIN4i18n
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE6DeleteEPS5_PNS0_5ArenaE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE6DeleteEPS5_PNS0_5ArenaE.exit.i ]
-  %16 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE6DeleteEPS5_PNS0_5ArenaE.exit.i, label %19
@@ -14001,9 +14001,9 @@ define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollectionC2ERKS1_(p
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %22 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i.i.i
   %23 = load ptr, ptr %22, align 8, !tbaa !67
-  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !67
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE5MergeERKS5_PS5_(ptr noundef nonnull align 8 dereferenceable(280) %23, ptr noundef %25)
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -14012,11 +14012,11 @@ define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollectionC2ERKS1_(p
 
 .lr.ph28.i.i.i.i:                                 ; preds = %.lr.ph28.i.i.i.i, %.lr.ph28.preheader.i.i.i.i
   %indvars.iv31.i.i.i.i = phi i64 [ %21, %.lr.ph28.preheader.i.i.i.i ], [ %indvars.iv.next32.i.i.i.i, %.lr.ph28.i.i.i.i ]
-  %26 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv31.i.i.i.i
+  %26 = getelementptr inbounds [8 x i8], ptr %10, i64 %indvars.iv31.i.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !67
   %28 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers13PhoneMetadataEJEEEPT_PS1_DpOT0_(ptr noundef %19)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE5MergeERKS5_PS5_(ptr noundef nonnull align 8 dereferenceable(280) %27, ptr noundef %28)
-  %29 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv31.i.i.i.i
+  %29 = getelementptr inbounds [8 x i8], ptr %11, i64 %indvars.iv31.i.i.i.i
   store ptr %28, ptr %29, align 8, !tbaa !67
   %indvars.iv.next32.i.i.i.i = add nsw i64 %indvars.iv31.i.i.i.i, 1
   %lftr.wideiv.i.i.i.i = trunc i64 %indvars.iv.next32.i.i.i.i to i32
@@ -14169,7 +14169,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringI
 
 .lr.ph.i.i:                                       ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE6DeleteEPS5_PNS0_5ArenaE.exit.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE6DeleteEPS5_PNS0_5ArenaE.exit.i.i ]
-  %33 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i
   %34 = load ptr, ptr %33, align 8, !tbaa !67
   %35 = icmp eq ptr %34, null
   br i1 %35, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE6DeleteEPS5_PNS0_5ArenaE.exit.i.i, label %36
@@ -14239,7 +14239,7 @@ define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollection5ClearEv(p
 9:                                                ; preds = %9, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %9 ], [ 0, %5 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !67
   tail call void @_ZN4i18n12phonenumbers13PhoneMetadata5ClearEv(ptr noundef nonnull align 8 dereferenceable(280) %11)
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -14370,7 +14370,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %53 = add nsw i32 %48, 1
   store i32 %53, ptr %9, align 8, !tbaa !51
   %54 = sext i32 %48 to i64
-  %55 = getelementptr inbounds ptr, ptr %52, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %52, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !67
   br label %_ZN4i18n12phonenumbers23PhoneMetadataCollection22_internal_add_metadataEv.exit
 
@@ -14400,7 +14400,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %71 = add nsw i32 %70, 1
   store i32 %71, ptr %9, align 8, !tbaa !51
   %72 = sext i32 %70 to i64
-  %73 = getelementptr inbounds ptr, ptr %69, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %69, i64 %72
   store ptr %67, ptr %73, align 8, !tbaa !67
   br label %_ZN4i18n12phonenumbers23PhoneMetadataCollection22_internal_add_metadataEv.exit
 
@@ -14554,7 +14554,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %11,
   %15 = load ptr, ptr %6, align 8, !tbaa !52
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = sext i32 %.01118 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !67
   store i8 10, ptr %.0.i14, align 1, !tbaa !50
   %20 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 1
@@ -14793,9 +14793,9 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINSt7__cxx1112basic_stri
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %48 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i.i.i
   %49 = load ptr, ptr %48, align 8, !tbaa !67
-  %50 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i.i.i
   %51 = load ptr, ptr %50, align 8, !tbaa !67
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE5MergeERKS5_PS5_(ptr noundef nonnull align 8 dereferenceable(280) %49, ptr noundef %51)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -14804,11 +14804,11 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINSt7__cxx1112basic_stri
 
 .lr.ph28.i.i.i:                                   ; preds = %.lr.ph28.i.i.i, %.lr.ph28.preheader.i.i.i
   %indvars.iv31.i.i.i = phi i64 [ %47, %.lr.ph28.preheader.i.i.i ], [ %indvars.iv.next32.i.i.i, %.lr.ph28.i.i.i ]
-  %52 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv31.i.i.i
+  %52 = getelementptr inbounds [8 x i8], ptr %36, i64 %indvars.iv31.i.i.i
   %53 = load ptr, ptr %52, align 8, !tbaa !67
   %54 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers13PhoneMetadataEJEEEPT_PS1_DpOT0_(ptr noundef %45)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE5MergeERKS5_PS5_(ptr noundef nonnull align 8 dereferenceable(280) %53, ptr noundef %54)
-  %55 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv31.i.i.i
+  %55 = getelementptr inbounds [8 x i8], ptr %37, i64 %indvars.iv31.i.i.i
   store ptr %54, ptr %55, align 8, !tbaa !67
   %indvars.iv.next32.i.i.i = add nsw i64 %indvars.iv31.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next32.i.i.i to i32
@@ -14853,7 +14853,7 @@ define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollection8CopyFromE
 12:                                               ; preds = %12, %8
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %12 ], [ 0, %8 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !67
   tail call void @_ZN4i18n12phonenumbers13PhoneMetadata5ClearEv(ptr noundef nonnull align 8 dereferenceable(280) %14)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -14909,7 +14909,7 @@ _ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv.exit.loopexit.i: ; preds
 9:                                                ; preds = %_ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv.exit.loopexit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %7, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv.exit.loopexit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %10 = getelementptr ptr, ptr %6, i64 %indvars.iv.i
+  %10 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !67
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 4, !tbaa !62
@@ -14932,7 +14932,7 @@ _ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv.exit.loopexit.i: ; preds
 
 24:                                               ; preds = %21
   %25 = add nsw i64 %indvars.iv.i.i.i, -1
-  %26 = getelementptr ptr, ptr %19, i64 %indvars.iv.i.i.i
+  %26 = getelementptr [8 x i8], ptr %19, i64 %indvars.iv.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !67
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 4, !tbaa !62
@@ -14956,7 +14956,7 @@ _ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv.exit.loopexit.i: ; preds
 
 40:                                               ; preds = %37
   %41 = add nsw i64 %indvars.iv.i2.i.i, -1
-  %42 = getelementptr ptr, ptr %35, i64 %indvars.iv.i2.i.i
+  %42 = getelementptr [8 x i8], ptr %35, i64 %indvars.iv.i2.i.i
   %43 = load ptr, ptr %42, align 8, !tbaa !67
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 4, !tbaa !62
@@ -15673,7 +15673,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal20RepeatedPtrFie
 9:                                                ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE5ClearEPS5_.exit, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE5ClearEPS5_.exit ], [ 0, %5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !67
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8, !tbaa !51
@@ -15690,7 +15690,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal20RepeatedPtrFie
 19:                                               ; preds = %19, %15
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %19 ], [ 0, %15 ]
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i.i.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i.i.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !67
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %22, align 8, !tbaa !56
@@ -15826,7 +15826,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
 
 _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us: ; preds = %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us.preheader, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us
   %indvars.iv36 = phi i64 [ %11, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us.preheader ], [ %indvars.iv.next37, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us ]
-  %12 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv36
+  %12 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv36
   %13 = load ptr, ptr %12, align 8, !tbaa !67
   %14 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -15835,7 +15835,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store i64 0, ptr %16, align 8, !tbaa !56
   store i8 0, ptr %15, align 8, !tbaa !50
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %13)
-  %17 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv36
+  %17 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv36
   store ptr %14, ptr %17, align 8, !tbaa !67
   %indvars.iv.next37 = add nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
@@ -15843,9 +15843,9 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !67
-  %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !67
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -15857,7 +15857,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
 
 .lr.ph28.split:                                   ; preds = %.lr.ph28, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ], [ %11, %.lr.ph28 ]
-  %22 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv32
+  %22 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv32
   %23 = load ptr, ptr %22, align 8, !tbaa !67
   %24 = load ptr, ptr %10, align 8, !tbaa !82
   %.not.i.i.i = icmp eq ptr %24, null
@@ -15875,7 +15875,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %25, %.
   store i64 0, ptr %28, align 8, !tbaa !56
   store i8 0, ptr %27, align 8, !tbaa !50
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %23)
-  %29 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv32
+  %29 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv32
   store ptr %26, ptr %29, align 8, !tbaa !67
   %indvars.iv.next33 = add nsw i64 %indvars.iv32, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next33 to i32
@@ -15931,7 +15931,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal20RepeatedPtrFie
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE6DeleteEPS5_PNS0_5ArenaE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE6DeleteEPS5_PNS0_5ArenaE.exit ]
-  %16 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE6DeleteEPS5_PNS0_5ArenaE.exit, label %19

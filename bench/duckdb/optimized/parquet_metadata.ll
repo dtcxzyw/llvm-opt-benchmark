@@ -123,75 +123,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.282" = type { %"struct.std::_Vector_base<duckdb::Value, std::allocator<duckdb::Value>>::_Vector_impl" }
 %"struct.std::_Vector_base<duckdb::Value, std::allocator<duckdb::Value>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb::Value, std::allocator<duckdb::Value>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<duckdb::Value, std::allocator<duckdb::Value>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.duckdb_parquet::ColumnChunk" = type <{ %"class.duckdb_apache::thrift::TBase", %"class.std::__cxx11::basic_string", i64, %"class.duckdb_parquet::ColumnMetaData", i64, i32, [4 x i8], i64, i32, [4 x i8], %"class.duckdb_parquet::ColumnCryptoMetaData", %"class.std::__cxx11::basic_string", %"struct.duckdb_parquet::_ColumnChunk__isset", [7 x i8] }>
-%"class.duckdb_apache::thrift::TBase" = type { ptr }
-%"class.duckdb_parquet::ColumnMetaData" = type <{ %"class.duckdb_apache::thrift::TBase", i32, [4 x i8], %"class.duckdb::vector.262", %"class.duckdb::vector", i32, [4 x i8], i64, i64, i64, %"class.duckdb::vector.237", i64, i64, i64, %"class.duckdb_parquet::Statistics", %"class.duckdb::vector.268", i64, i32, [4 x i8], %"class.duckdb_parquet::SizeStatistics", %"struct.duckdb_parquet::_ColumnMetaData__isset", [7 x i8] }>
-%"class.duckdb::vector.262" = type { %"class.std::vector.263" }
-%"class.std::vector.263" = type { %"struct.std::_Vector_base.264" }
-%"struct.std::_Vector_base.264" = type { %"struct.std::_Vector_base<duckdb_parquet::Encoding::type, std::allocator<duckdb_parquet::Encoding::type>>::_Vector_impl" }
-%"struct.std::_Vector_base<duckdb_parquet::Encoding::type, std::allocator<duckdb_parquet::Encoding::type>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb_parquet::Encoding::type, std::allocator<duckdb_parquet::Encoding::type>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<duckdb_parquet::Encoding::type, std::allocator<duckdb_parquet::Encoding::type>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.duckdb::vector.237" = type { %"class.std::vector.238" }
-%"class.std::vector.238" = type { %"struct.std::_Vector_base.239" }
-%"struct.std::_Vector_base.239" = type { %"struct.std::_Vector_base<duckdb_parquet::KeyValue, std::allocator<duckdb_parquet::KeyValue>>::_Vector_impl" }
-%"struct.std::_Vector_base<duckdb_parquet::KeyValue, std::allocator<duckdb_parquet::KeyValue>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb_parquet::KeyValue, std::allocator<duckdb_parquet::KeyValue>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<duckdb_parquet::KeyValue, std::allocator<duckdb_parquet::KeyValue>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.duckdb_parquet::Statistics" = type <{ %"class.duckdb_apache::thrift::TBase", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, i64, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, %"struct.duckdb_parquet::_Statistics__isset", [5 x i8] }>
-%"struct.duckdb_parquet::_Statistics__isset" = type { i8 }
-%"class.duckdb::vector.268" = type { %"class.std::vector.269" }
-%"class.std::vector.269" = type { %"struct.std::_Vector_base.270" }
-%"struct.std::_Vector_base.270" = type { %"struct.std::_Vector_base<duckdb_parquet::PageEncodingStats, std::allocator<duckdb_parquet::PageEncodingStats>>::_Vector_impl" }
-%"struct.std::_Vector_base<duckdb_parquet::PageEncodingStats, std::allocator<duckdb_parquet::PageEncodingStats>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb_parquet::PageEncodingStats, std::allocator<duckdb_parquet::PageEncodingStats>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<duckdb_parquet::PageEncodingStats, std::allocator<duckdb_parquet::PageEncodingStats>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.duckdb_parquet::SizeStatistics" = type <{ %"class.duckdb_apache::thrift::TBase", i64, %"class.duckdb::vector.274", %"class.duckdb::vector.274", %"struct.duckdb_parquet::_SizeStatistics__isset", [7 x i8] }>
-%"class.duckdb::vector.274" = type { %"class.std::vector.275" }
-%"class.std::vector.275" = type { %"struct.std::_Vector_base.276" }
-%"struct.std::_Vector_base.276" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" }
-%"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.duckdb_parquet::_SizeStatistics__isset" = type { i8 }
-%"struct.duckdb_parquet::_ColumnMetaData__isset" = type { i8 }
-%"class.duckdb_parquet::ColumnCryptoMetaData" = type <{ %"class.duckdb_apache::thrift::TBase", %"class.duckdb_parquet::EncryptionWithFooterKey", %"class.duckdb_parquet::EncryptionWithColumnKey", %"struct.duckdb_parquet::_ColumnCryptoMetaData__isset", [7 x i8] }>
-%"class.duckdb_parquet::EncryptionWithFooterKey" = type { %"class.duckdb_apache::thrift::TBase" }
-%"class.duckdb_parquet::EncryptionWithColumnKey" = type <{ %"class.duckdb_apache::thrift::TBase", %"class.duckdb::vector", %"class.std::__cxx11::basic_string", %"struct.duckdb_parquet::_EncryptionWithColumnKey__isset", [7 x i8] }>
-%"struct.duckdb_parquet::_EncryptionWithColumnKey__isset" = type { i8 }
-%"struct.duckdb_parquet::_ColumnCryptoMetaData__isset" = type { i8 }
-%"struct.duckdb_parquet::_ColumnChunk__isset" = type { i8 }
-%"class.duckdb_parquet::SchemaElement" = type <{ %"class.duckdb_apache::thrift::TBase", i32, i32, i32, [4 x i8], %"class.std::__cxx11::basic_string", i32, i32, i32, i32, i32, [4 x i8], %"class.duckdb_parquet::LogicalType", %"struct.duckdb_parquet::_SchemaElement__isset", [6 x i8] }>
-%"class.duckdb_parquet::LogicalType" = type <{ %"class.duckdb_apache::thrift::TBase", %"class.duckdb_parquet::StringType", %"class.duckdb_parquet::MapType", %"class.duckdb_parquet::ListType", %"class.duckdb_parquet::EnumType", %"class.duckdb_parquet::DecimalType", %"class.duckdb_parquet::DateType", %"class.duckdb_parquet::TimeType", %"class.duckdb_parquet::TimestampType", %"class.duckdb_parquet::IntType", %"class.duckdb_parquet::NullType", %"class.duckdb_parquet::JsonType", %"class.duckdb_parquet::BsonType", %"class.duckdb_parquet::UUIDType", %"class.duckdb_parquet::Float16Type", %"struct.duckdb_parquet::_LogicalType__isset", [6 x i8] }>
-%"class.duckdb_parquet::StringType" = type { %"class.duckdb_apache::thrift::TBase" }
-%"class.duckdb_parquet::MapType" = type { %"class.duckdb_apache::thrift::TBase" }
-%"class.duckdb_parquet::ListType" = type { %"class.duckdb_apache::thrift::TBase" }
-%"class.duckdb_parquet::EnumType" = type { %"class.duckdb_apache::thrift::TBase" }
-%"class.duckdb_parquet::DecimalType" = type { %"class.duckdb_apache::thrift::TBase", i32, i32 }
-%"class.duckdb_parquet::DateType" = type { %"class.duckdb_apache::thrift::TBase" }
-%"class.duckdb_parquet::TimeType" = type { %"class.duckdb_apache::thrift::TBase", i8, [7 x i8], %"class.duckdb_parquet::TimeUnit" }
-%"class.duckdb_parquet::TimeUnit" = type <{ %"class.duckdb_apache::thrift::TBase", %"class.duckdb_parquet::MilliSeconds", %"class.duckdb_parquet::MicroSeconds", %"class.duckdb_parquet::NanoSeconds", %"struct.duckdb_parquet::_TimeUnit__isset", [7 x i8] }>
-%"class.duckdb_parquet::MilliSeconds" = type { %"class.duckdb_apache::thrift::TBase" }
-%"class.duckdb_parquet::MicroSeconds" = type { %"class.duckdb_apache::thrift::TBase" }
-%"class.duckdb_parquet::NanoSeconds" = type { %"class.duckdb_apache::thrift::TBase" }
-%"struct.duckdb_parquet::_TimeUnit__isset" = type { i8 }
-%"class.duckdb_parquet::TimestampType" = type { %"class.duckdb_apache::thrift::TBase", i8, [7 x i8], %"class.duckdb_parquet::TimeUnit" }
-%"class.duckdb_parquet::IntType" = type <{ %"class.duckdb_apache::thrift::TBase", i8, i8, [6 x i8] }>
-%"class.duckdb_parquet::NullType" = type { %"class.duckdb_apache::thrift::TBase" }
-%"class.duckdb_parquet::JsonType" = type { %"class.duckdb_apache::thrift::TBase" }
-%"class.duckdb_parquet::BsonType" = type { %"class.duckdb_apache::thrift::TBase" }
-%"class.duckdb_parquet::UUIDType" = type { %"class.duckdb_apache::thrift::TBase" }
-%"class.duckdb_parquet::Float16Type" = type { %"class.duckdb_apache::thrift::TBase" }
-%"struct.duckdb_parquet::_LogicalType__isset" = type { i16 }
-%"struct.duckdb_parquet::_SchemaElement__isset" = type { i16 }
-%"class.duckdb_parquet::RowGroup" = type <{ %"class.duckdb_apache::thrift::TBase", %"class.duckdb::vector.249", i64, i64, %"class.duckdb::vector.255", i64, i64, i16, %"struct.duckdb_parquet::_RowGroup__isset", [5 x i8] }>
-%"class.duckdb::vector.249" = type { %"class.std::vector.250" }
-%"class.std::vector.250" = type { %"struct.std::_Vector_base.251" }
-%"struct.std::_Vector_base.251" = type { %"struct.std::_Vector_base<duckdb_parquet::ColumnChunk, std::allocator<duckdb_parquet::ColumnChunk>>::_Vector_impl" }
-%"struct.std::_Vector_base<duckdb_parquet::ColumnChunk, std::allocator<duckdb_parquet::ColumnChunk>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb_parquet::ColumnChunk, std::allocator<duckdb_parquet::ColumnChunk>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<duckdb_parquet::ColumnChunk, std::allocator<duckdb_parquet::ColumnChunk>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.duckdb::vector.255" = type { %"class.std::vector.256" }
-%"class.std::vector.256" = type { %"struct.std::_Vector_base.257" }
-%"struct.std::_Vector_base.257" = type { %"struct.std::_Vector_base<duckdb_parquet::SortingColumn, std::allocator<duckdb_parquet::SortingColumn>>::_Vector_impl" }
-%"struct.std::_Vector_base<duckdb_parquet::SortingColumn, std::allocator<duckdb_parquet::SortingColumn>>::_Vector_impl" = type { %"struct.std::_Vector_base<duckdb_parquet::SortingColumn, std::allocator<duckdb_parquet::SortingColumn>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<duckdb_parquet::SortingColumn, std::allocator<duckdb_parquet::SortingColumn>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.duckdb_parquet::_RowGroup__isset" = type { i8 }
 %"class.duckdb::unique_ptr.287" = type { %"class.std::unique_ptr.288" }
 %"class.std::unique_ptr.288" = type { %"struct.std::__uniq_ptr_data.289" }
 %"struct.std::__uniq_ptr_data.289" = type { %"class.std::__uniq_ptr_impl.290" }
@@ -199,8 +130,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.291" = type { %"struct.std::_Tuple_impl.292" }
 %"struct.std::_Tuple_impl.292" = type { %"struct.std::_Head_base.295" }
 %"struct.std::_Head_base.295" = type { ptr }
-%"class.duckdb_parquet::KeyValue" = type <{ %"class.duckdb_apache::thrift::TBase", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"struct.duckdb_parquet::_KeyValue__isset", [7 x i8] }>
-%"struct.duckdb_parquet::_KeyValue__isset" = type { i8 }
 %"class.std::shared_ptr.314" = type { %"class.std::__shared_ptr.315" }
 %"class.std::__shared_ptr.315" = type { ptr, %"class.std::__shared_count" }
 %"class.duckdb::unique_ptr.317" = type { %"class.std::unique_ptr.318" }
@@ -212,14 +141,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.325" = type { ptr }
 %"class.duckdb::ConstantFilter" = type { %"class.duckdb::TableFilter.base", i8, %"class.duckdb::Value" }
 %"class.duckdb::TableFilter.base" = type <{ ptr, i8 }>
-%"struct.duckdb::MultiFileReaderColumnDefinition" = type { %"class.std::__cxx11::basic_string", %"struct.duckdb::LogicalType", %"class.duckdb::vector.149", %"class.duckdb::unique_ptr.296", %"class.duckdb::Value" }
-%"class.duckdb::unique_ptr.296" = type { %"class.std::unique_ptr.297" }
-%"class.std::unique_ptr.297" = type { %"struct.std::__uniq_ptr_data.298" }
-%"struct.std::__uniq_ptr_data.298" = type { %"class.std::__uniq_ptr_impl.299" }
-%"class.std::__uniq_ptr_impl.299" = type { %"class.std::tuple.300" }
-%"class.std::tuple.300" = type { %"struct.std::_Tuple_impl.301" }
-%"struct.std::_Tuple_impl.301" = type { %"struct.std::_Head_base.304" }
-%"struct.std::_Head_base.304" = type { ptr }
 %"class.duckdb::vector.7" = type { %"class.std::vector.8" }
 %"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<duckdb::LogicalType, std::allocator<duckdb::LogicalType>>::_Vector_impl" }
@@ -3233,7 +3154,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit277: ; preds = %38
   %404 = phi ptr [ %367, %.lr.ph2901 ], [ %1133, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   %.11692900 = phi i64 [ %.01682905, %.lr.ph2901 ], [ %.2170, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   %.01752899 = phi i64 [ 0, %.lr.ph2901 ], [ %1131, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
-  %405 = getelementptr inbounds nuw %"class.duckdb_parquet::ColumnChunk", ptr %404, i64 %.01752899
+  %405 = getelementptr inbounds nuw [640 x i8], ptr %404, i64 %.01752899
   %406 = load ptr, ptr %191, align 8, !tbaa !122
   %407 = load ptr, ptr %37, align 8, !tbaa !125
   %408 = ptrtoint ptr %406 to i64
@@ -3302,7 +3223,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i287: ; preds
   unreachable
 
 426:                                              ; preds = %403
-  %427 = getelementptr inbounds nuw %"struct.duckdb::ParquetColumnSchema", ptr %407, i64 %.01752899
+  %427 = getelementptr inbounds nuw [144 x i8], ptr %407, i64 %.01752899
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store ptr %192, ptr %43, align 8, !tbaa !3
@@ -4292,7 +4213,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i: ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
   store ptr %705, ptr %64, align 8, !tbaa !266
   store ptr %705, ptr %249, align 8, !tbaa !15
-  %706 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %705, i64 %700
+  %706 = getelementptr inbounds nuw [32 x i8], ptr %705, i64 %700
   store ptr %706, ptr %248, align 8, !tbaa !18
   %.pre3216 = load ptr, ptr %693, align 8, !tbaa !267
   %.pre3217 = load ptr, ptr %694, align 8, !tbaa !267
@@ -5012,7 +4933,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26.i, %919
   store ptr %891, ptr %64, align 8, !tbaa !266
   store ptr %918, ptr %249, align 8, !tbaa !15
-  %920 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %891, i64 %887
+  %920 = getelementptr inbounds nuw [32 x i8], ptr %891, i64 %887
   store ptr %920, ptr %248, align 8, !tbaa !18
   %.pre3219 = load ptr, ptr %65, align 8, !tbaa !9
   %921 = icmp eq ptr %.pre3219, %264
@@ -5418,7 +5339,7 @@ _ZNSt6vectorIN6duckdb5ValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i: ; pre
   br label %.noexc441
 
 .noexc441:                                        ; preds = %1027, %_ZNSt6vectorIN6duckdb5ValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i
-  %1028 = getelementptr inbounds nuw %"class.duckdb::Value", ptr %1023, i64 %1021
+  %1028 = getelementptr inbounds nuw [64 x i8], ptr %1023, i64 %1021
   br label %_ZNSt6vectorIN6duckdb5ValueESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN6duckdb5ValueESaIS1_EE9push_backEOS1_.exit: ; preds = %.noexc441, %1010
@@ -5497,7 +5418,7 @@ _ZNSt6vectorIN6duckdb5ValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i599: ; 
   br label %.noexc445
 
 .noexc445:                                        ; preds = %1050, %_ZNSt6vectorIN6duckdb5ValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i599
-  %1051 = getelementptr inbounds nuw %"class.duckdb::Value", ptr %1046, i64 %1044
+  %1051 = getelementptr inbounds nuw [64 x i8], ptr %1046, i64 %1044
   br label %_ZNSt6vectorIN6duckdb5ValueESaIS1_EE9push_backEOS1_.exit446
 
 _ZNSt6vectorIN6duckdb5ValueESaIS1_EE9push_backEOS1_.exit446: ; preds = %.noexc445, %1033
@@ -6279,7 +6200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZNK6duckdb6vectorIN14duckdb_parquet13SchemaElementELb1EE3getILb1EEERKS2_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb_parquet::SchemaElement", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [328 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -6396,7 +6317,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZNK6duckdb6vectorIN14duckdb_parquet8RowGroupELb1EE3getILb1EEERKS2_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb_parquet::RowGroup", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [96 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -6481,7 +6402,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZNK6duckdb6vectorIN14duckdb_parquet11ColumnChunkELb1EE3getILb1EEERKS2_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb_parquet::ColumnChunk", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [640 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -10715,7 +10636,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZNK6duckdb6vectorIN14duckdb_parquet8KeyValueELb1EE3getILb1EEERKS2_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb_parquet::KeyValue", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [80 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -12504,7 +12425,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINS_31MultiFileReaderColumnDefinitionELb1EE3getILb1EEERS1_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"struct.duckdb::MultiFileReaderColumnDefinition", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [152 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -12832,7 +12753,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZNK6duckdb6vectorINS_31MultiFileReaderColumnDefinitionELb1EE3getILb1EEERKS1_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"struct.duckdb::MultiFileReaderColumnDefinition", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [152 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 
@@ -17235,7 +17156,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !604
   %32 = urem i64 %27, %31
-  %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %32
   store ptr %28, ptr %33, align 8, !tbaa !626
   %.02834 = load ptr, ptr %19, align 8, !tbaa !605
   %.not3035 = icmp eq ptr %.02834, null
@@ -17258,7 +17179,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %40 = load i64, ptr %30, align 8, !tbaa !604
   %41 = urem i64 %39, %40
   %42 = load ptr, ptr %0, align 8, !tbaa !603
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8, !tbaa !626
   %.not32 = icmp eq ptr %44, null
   br i1 %.not32, label %45, label %50
@@ -17553,7 +17474,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !613
   %32 = urem i64 %27, %31
-  %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %32
   store ptr %28, ptr %33, align 8, !tbaa !626
   %.02834 = load ptr, ptr %19, align 8, !tbaa !605
   %.not3035 = icmp eq ptr %.02834, null
@@ -17576,7 +17497,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %40 = load i64, ptr %30, align 8, !tbaa !613
   %41 = urem i64 %39, %40
   %42 = load ptr, ptr %0, align 8, !tbaa !612
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8, !tbaa !626
   %.not32 = icmp eq ptr %44, null
   br i1 %.not32, label %45, label %50
@@ -18367,7 +18288,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -18476,7 +18397,7 @@ _ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !521
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !19
-  %30 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %20, i64 %16
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %30, ptr %29, align 8, !tbaa !22
   ret void
 
@@ -18696,7 +18617,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -18913,7 +18834,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -19130,7 +19051,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -19347,7 +19268,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -19564,7 +19485,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -19781,7 +19702,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -19998,7 +19919,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -20215,7 +20136,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -20432,7 +20353,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -20649,7 +20570,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -20866,7 +20787,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -21083,7 +21004,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -21300,7 +21221,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -21405,7 +21326,7 @@ _ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !521
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !19
-  %29 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !22
   ret void
 }
@@ -21594,7 +21515,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -22121,7 +22042,7 @@ _ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE13_M_deallocateEPS1_m
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !822
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !825
-  %74 = getelementptr inbounds nuw %"struct.duckdb::ExceptionFormatValue", ptr %20, i64 %16
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %74, ptr %73, align 8, !tbaa !827
   ret void
 }
@@ -22254,7 +22175,7 @@ _ZNSt12_Vector_baseIN6duckdb19ParquetColumnSchemaESaIS1_EE13_M_deallocateEPS1_m.
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !125
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !122
-  %58 = getelementptr inbounds nuw %"struct.duckdb::ParquetColumnSchema", ptr %20, i64 %16
+  %58 = getelementptr inbounds nuw [144 x i8], ptr %20, i64 %16
   store ptr %58, ptr %57, align 8, !tbaa !123
   ret void
 }
@@ -22586,7 +22507,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -22803,7 +22724,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -23236,7 +23157,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -23453,7 +23374,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !266
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !15
-  %72 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %72, ptr %71, align 8, !tbaa !18
   ret void
 
@@ -27737,7 +27658,7 @@ _ZNSt11_Deque_baseIsSaIsEE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !975
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -27829,7 +27750,7 @@ _ZNSt11_Deque_baseIsSaIsEE15_M_create_nodesEPPsS3_.exit: ; preds = %_ZNSt11_Dequ
   store ptr %46, ptr %47, align 8, !tbaa !989
   store ptr %37, ptr %35, align 8, !tbaa !1004
   %48 = and i64 %1, 255
-  %49 = getelementptr inbounds nuw i16, ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !980
   ret void
 
@@ -27941,9 +27862,9 @@ define linkonce_odr void @_ZNSt5dequeIsSaIsEE17_M_reallocate_mapEmb(ptr noundef 
   %19 = load ptr, ptr %0, align 8, !tbaa !975
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -27962,12 +27883,12 @@ define linkonce_odr void @_ZNSt5dequeIsSaIsEE17_M_reallocate_mapEmb(ptr noundef 
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPsS1_ET0_T_S3_S2_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPsS1_ET0_T_S3_S2_.exit
 
@@ -27995,9 +27916,9 @@ _ZNSt11_Deque_baseIsSaIsEE15_M_allocate_mapEm.exit: ; preds = %39
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #31
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPsS1_ET0_T_S3_S2_.exit26, label %53
@@ -28024,7 +27945,7 @@ _ZSt4copyIPPsS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, 
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 512
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %59, ptr %60, align 8, !tbaa !989
-  %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   store ptr %62, ptr %4, align 8, !tbaa !988
   %63 = load ptr, ptr %62, align 8, !tbaa !978
@@ -28273,7 +28194,7 @@ define linkonce_odr noundef ptr @_ZNK13duckdb_apache6thrift8protocol18TProtocolE
 
 switch.lookup:                                    ; preds = %5
   %12 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK13duckdb_apache6thrift8protocol18TProtocolException4whatEv, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK13duckdb_apache6thrift8protocol18TProtocolException4whatEv, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %13
 
@@ -28782,7 +28703,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %2
   %26 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE8getTTypeEa, i64 %26
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE8getTTypeEa, i64 %26
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 
@@ -30481,7 +30402,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
   unreachable
 
 _ZN6duckdb6vectorINS_5ValueELb1EE3getILb1EEERS1_m.exit: ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.duckdb::Value", ptr %7, i64 %1
+  %25 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %1
   ret ptr %25
 }
 

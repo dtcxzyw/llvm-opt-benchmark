@@ -26,7 +26,7 @@ define ptr @cs_transpose(ptr noundef readonly captures(address_is_null) %0, i32 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !15
   %18 = sext i32 %11 to i64
-  %19 = getelementptr inbounds i32, ptr %13, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %13, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !16
   %21 = icmp ne i32 %1, 0
   %22 = icmp ne ptr %17, null
@@ -53,10 +53,10 @@ define ptr @cs_transpose(ptr noundef readonly captures(address_is_null) %0, i32 
 
 .lr.ph:                                           ; preds = %29, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %29 ]
-  %38 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !16
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i32, ptr %26, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %26, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !16
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %41, align 4, !tbaa !16
@@ -81,7 +81,7 @@ define ptr @cs_transpose(ptr noundef readonly captures(address_is_null) %0, i32 
   %49 = phi i32 [ %55, %.loopexit.us ], [ %.pre84, %.lr.ph66 ]
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.loopexit.us ], [ 0, %.lr.ph66 ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %50 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next80
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.next80
   %51 = load i32, ptr %50, align 4, !tbaa !16
   %52 = icmp slt i32 %49, %51
   br i1 %52, label %.lr.ph63.us.preheader, label %.loopexit.us
@@ -98,15 +98,15 @@ define ptr @cs_transpose(ptr noundef readonly captures(address_is_null) %0, i32 
 
 .lr.ph63.us:                                      ; preds = %.lr.ph63.us.preheader, %.lr.ph63.us
   %indvars.iv76 = phi i64 [ %53, %.lr.ph63.us.preheader ], [ %indvars.iv.next77, %.lr.ph63.us ]
-  %56 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv76
+  %56 = getelementptr inbounds [4 x i8], ptr %15, i64 %indvars.iv76
   %57 = load i32, ptr %56, align 4, !tbaa !16
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %26, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %26, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !16
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %59, align 4, !tbaa !16
   %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds i32, ptr %33, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %33, i64 %62
   store i32 %54, ptr %63, align 4, !tbaa !16
   %indvars.iv.next77 = add nsw i64 %indvars.iv76, 1
   %64 = load i32, ptr %50, align 4, !tbaa !16
@@ -123,7 +123,7 @@ define ptr @cs_transpose(ptr noundef readonly captures(address_is_null) %0, i32 
   %68 = phi i32 [ %67, %.loopexit ], [ %.pre84, %.lr.ph66 ]
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %.loopexit ], [ 0, %.lr.ph66 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %69 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next74
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.next74
   %70 = load i32, ptr %69, align 4, !tbaa !16
   %71 = icmp slt i32 %68, %70
   br i1 %71, label %.lr.ph63.preheader, label %.loopexit
@@ -135,19 +135,19 @@ define ptr @cs_transpose(ptr noundef readonly captures(address_is_null) %0, i32 
 
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %.lr.ph63
   %indvars.iv70 = phi i64 [ %72, %.lr.ph63.preheader ], [ %indvars.iv.next71, %.lr.ph63 ]
-  %74 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv70
+  %74 = getelementptr inbounds [4 x i8], ptr %15, i64 %indvars.iv70
   %75 = load i32, ptr %74, align 4, !tbaa !16
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i32, ptr %26, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %26, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !16
   %79 = add nsw i32 %78, 1
   store i32 %79, ptr %77, align 4, !tbaa !16
   %80 = sext i32 %78 to i64
-  %81 = getelementptr inbounds i32, ptr %33, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %33, i64 %80
   store i32 %73, ptr %81, align 4, !tbaa !16
-  %82 = getelementptr inbounds double, ptr %17, i64 %indvars.iv70
+  %82 = getelementptr inbounds [8 x i8], ptr %17, i64 %indvars.iv70
   %83 = load double, ptr %82, align 8, !tbaa !21
-  %84 = getelementptr inbounds double, ptr %.fr, i64 %80
+  %84 = getelementptr inbounds [8 x i8], ptr %.fr, i64 %80
   store double %83, ptr %84, align 8, !tbaa !21
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %85 = load i32, ptr %69, align 4, !tbaa !16

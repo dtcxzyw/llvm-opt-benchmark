@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base" = type { i8 }
 %"struct.std::_Head_base.131" = type { i64 }
 %"struct.std::_Head_base.132" = type { i64 }
-%struct.tlb_entry_t = type { ptr, i64 }
 %class.target_endian.147 = type { %class.base_endian.148 }
 %class.base_endian.148 = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -303,7 +302,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %69
   %.not65 = icmp eq i64 %85, 0
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 39056
   %87 = and i64 %84, 255
-  %88 = getelementptr inbounds nuw i64, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %87
   %89 = load i64, ptr %88, align 8, !tbaa !3
   %90 = icmp eq i64 %89, %84
   %or.cond.i = select i1 %.not65, i1 %90, i1 false, !prof !157
@@ -311,7 +310,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %69
 
 91:                                               ; preds = %80
   %92 = getelementptr inbounds nuw i8, ptr %82, i64 32912
-  %93 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %92, i64 %87
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %87
   %94 = load ptr, ptr %93, align 8, !tbaa !158
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 %81
   %96 = load i32, ptr %95, align 4
@@ -352,7 +351,7 @@ _ZN5mmu_t4loadIiEET_m13xlate_flags_t.exit:        ; preds = %97, %100, %104
 
 106:                                              ; preds = %_ZN5mmu_t4loadIiEET_m13xlate_flags_t.exit
   %107 = sext i32 %.sroa.0.0.copyload.i to i64
-  %108 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store i64 %107, ptr %108, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -568,7 +567,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %70
   %.not65 = icmp eq i64 %86, 0
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 39056
   %88 = and i64 %85, 255
-  %89 = getelementptr inbounds nuw i64, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %88
   %90 = load i64, ptr %89, align 8, !tbaa !3
   %91 = icmp eq i64 %90, %85
   %or.cond.i = select i1 %.not65, i1 %91, i1 false, !prof !157
@@ -576,7 +575,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %70
 
 92:                                               ; preds = %81
   %93 = getelementptr inbounds nuw i8, ptr %83, i64 32912
-  %94 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %93, i64 %88
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %88
   %95 = load ptr, ptr %94, align 8, !tbaa !158
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 %82
   %97 = load i64, ptr %96, align 8
@@ -616,7 +615,7 @@ _ZN5mmu_t4loadIlEET_m13xlate_flags_t.exit:        ; preds = %98, %101, %105
   br i1 %.not.i48, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %107
 
 107:                                              ; preds = %_ZN5mmu_t4loadIlEET_m13xlate_flags_t.exit
-  %108 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store i64 %.sroa.0.0.copyload.i, ptr %108, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -828,7 +827,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %75
   %.not77 = icmp eq i64 %91, 0
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 39056
   %93 = and i64 %90, 255
-  %94 = getelementptr inbounds nuw i64, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %93
   %95 = load i64, ptr %94, align 8, !tbaa !3
   %96 = icmp eq i64 %95, %90
   %or.cond.i = select i1 %.not77, i1 %96, i1 false, !prof !157
@@ -836,7 +835,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %75
 
 97:                                               ; preds = %86
   %98 = getelementptr inbounds nuw i8, ptr %88, i64 32912
-  %99 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %98, i64 %93
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %98, i64 %93
   %100 = load ptr, ptr %99, align 8, !tbaa !158
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 %87
   %102 = load i32, ptr %101, align 4
@@ -885,7 +884,7 @@ _ZN5mmu_t4loadIiEET_m13xlate_flags_t.exit:        ; preds = %103, %106, %110
   br i1 %.not.i60, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %115
 
 115:                                              ; preds = %_ZN5mmu_t4loadIiEET_m13xlate_flags_t.exit
-  %116 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   store i64 %112, ptr %116, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -1193,7 +1192,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %76
   %.not77 = icmp eq i64 %92, 0
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 39056
   %94 = and i64 %91, 255
-  %95 = getelementptr inbounds nuw i64, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %94
   %96 = load i64, ptr %95, align 8, !tbaa !3
   %97 = icmp eq i64 %96, %91
   %or.cond.i = select i1 %.not77, i1 %97, i1 false, !prof !157
@@ -1201,7 +1200,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %76
 
 98:                                               ; preds = %87
   %99 = getelementptr inbounds nuw i8, ptr %89, i64 32912
-  %100 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %99, i64 %94
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %94
   %101 = load ptr, ptr %100, align 8, !tbaa !158
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 %88
   %103 = load i64, ptr %102, align 8
@@ -1249,7 +1248,7 @@ _ZN5mmu_t4loadIlEET_m13xlate_flags_t.exit:        ; preds = %104, %107, %111
   br i1 %.not.i60, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %115
 
 115:                                              ; preds = %_ZN5mmu_t4loadIlEET_m13xlate_flags_t.exit
-  %116 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   store i64 %.sroa.0.0.copyload.i, ptr %116, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -1461,7 +1460,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %69
   %.not69 = icmp eq i64 %92, 0
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 39056
   %94 = and i64 %91, 255
-  %95 = getelementptr inbounds nuw i64, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %94
   %96 = load i64, ptr %95, align 8, !tbaa !3
   %97 = icmp eq i64 %96, %91
   %or.cond.i = select i1 %.not69, i1 %97, i1 false, !prof !157
@@ -1469,7 +1468,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %69
 
 98:                                               ; preds = %87
   %99 = getelementptr inbounds nuw i8, ptr %89, i64 32912
-  %100 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %99, i64 %94
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %94
   %101 = load ptr, ptr %100, align 8, !tbaa !158
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 %88
   %103 = load i32, ptr %102, align 4
@@ -1510,7 +1509,7 @@ _ZN5mmu_t4loadIiEET_m13xlate_flags_t.exit:        ; preds = %104, %107, %111
 
 113:                                              ; preds = %_ZN5mmu_t4loadIiEET_m13xlate_flags_t.exit
   %114 = sext i32 %.sroa.0.0.copyload.i to i64
-  %115 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store i64 %114, ptr %115, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -1732,7 +1731,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %70
   %.not69 = icmp eq i64 %93, 0
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 39056
   %95 = and i64 %92, 255
-  %96 = getelementptr inbounds nuw i64, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %95
   %97 = load i64, ptr %96, align 8, !tbaa !3
   %98 = icmp eq i64 %97, %92
   %or.cond.i = select i1 %.not69, i1 %98, i1 false, !prof !157
@@ -1740,7 +1739,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %70
 
 99:                                               ; preds = %88
   %100 = getelementptr inbounds nuw i8, ptr %90, i64 32912
-  %101 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %100, i64 %95
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %100, i64 %95
   %102 = load ptr, ptr %101, align 8, !tbaa !158
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 %89
   %104 = load i64, ptr %103, align 8
@@ -1780,7 +1779,7 @@ _ZN5mmu_t4loadIlEET_m13xlate_flags_t.exit:        ; preds = %105, %108, %112
   br i1 %.not.i51, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %114
 
 114:                                              ; preds = %_ZN5mmu_t4loadIlEET_m13xlate_flags_t.exit
-  %115 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store i64 %.sroa.0.0.copyload.i, ptr %115, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -2008,7 +2007,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %75
   %.not81 = icmp eq i64 %98, 0
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 39056
   %100 = and i64 %97, 255
-  %101 = getelementptr inbounds nuw i64, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %100
   %102 = load i64, ptr %101, align 8, !tbaa !3
   %103 = icmp eq i64 %102, %97
   %or.cond.i = select i1 %.not81, i1 %103, i1 false, !prof !157
@@ -2016,7 +2015,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %75
 
 104:                                              ; preds = %93
   %105 = getelementptr inbounds nuw i8, ptr %95, i64 32912
-  %106 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %105, i64 %100
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %100
   %107 = load ptr, ptr %106, align 8, !tbaa !158
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 %94
   %109 = load i32, ptr %108, align 4
@@ -2065,7 +2064,7 @@ _ZN5mmu_t4loadIiEET_m13xlate_flags_t.exit:        ; preds = %110, %113, %117
   br i1 %.not.i63, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %122
 
 122:                                              ; preds = %_ZN5mmu_t4loadIiEET_m13xlate_flags_t.exit
-  %123 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   store i64 %119, ptr %123, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -2303,7 +2302,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %76
   %.not81 = icmp eq i64 %99, 0
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 39056
   %101 = and i64 %98, 255
-  %102 = getelementptr inbounds nuw i64, ptr %100, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %101
   %103 = load i64, ptr %102, align 8, !tbaa !3
   %104 = icmp eq i64 %103, %98
   %or.cond.i = select i1 %.not81, i1 %104, i1 false, !prof !157
@@ -2311,7 +2310,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %76
 
 105:                                              ; preds = %94
   %106 = getelementptr inbounds nuw i8, ptr %96, i64 32912
-  %107 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %106, i64 %101
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %106, i64 %101
   %108 = load ptr, ptr %107, align 8, !tbaa !158
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 %95
   %110 = load i64, ptr %109, align 8
@@ -2359,7 +2358,7 @@ _ZN5mmu_t4loadIlEET_m13xlate_flags_t.exit:        ; preds = %111, %114, %118
   br i1 %.not.i63, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.thread, label %122
 
 122:                                              ; preds = %_ZN5mmu_t4loadIlEET_m13xlate_flags_t.exit
-  %123 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   store i64 %.sroa.0.0.copyload.i, ptr %123, align 8, !tbaa !3
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -2653,7 +2652,7 @@ _ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds
 _ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !210
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !208
-  %53 = getelementptr inbounds nuw %"class.std::tuple", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !209
   ret void
 }

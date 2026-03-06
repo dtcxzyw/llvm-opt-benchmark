@@ -5,14 +5,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.XRectangle = type { i16, i16, i16, i16 }
 %struct.XVisualInfo = type { ptr, i64, i32, i32, i32, i64, i64, i64, i32, i32 }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 %struct.XWindowAttributes = type { i32, i32, i32, i32, i32, i32, ptr, i64, i32, i32, i32, i32, i64, i64, i32, i64, i32, i32, i64, i64, i64, i32, ptr }
 %struct._list_item = type { ptr, %union.anon }
 %union.anon = type { ptr }
 %struct.Visual = type { ptr, i64, i32, i64, i64, i64, i32, i32 }
-%struct.OverlayInfo = type { ptr, i32, i64, i32 }
-%struct.myBox = type { i16, i16, i16, i16 }
-%struct.XColor = type { i64, i16, i16, i16, i8, i8 }
 
 @.str = private unnamed_addr constant [23 x i8] c"SERVER_OVERLAY_VISUALS\00", align 1
 
@@ -148,7 +144,7 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
   %28 = add i64 %27, %26
   store i64 %28, ptr %12, align 8
   %29 = load ptr, ptr %22, align 8
-  %30 = getelementptr inbounds %struct.Screen, ptr %29, i64 %23
+  %30 = getelementptr inbounds [128 x i8], ptr %29, i64 %23
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = call i32 @XGetWindowProperty(ptr noundef %0, i64 noundef %32, i64 noundef %20, i64 noundef 0, i64 noundef %28, i32 noundef 0, i64 noundef %20, ptr noundef nonnull %11, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %6) #9
@@ -237,7 +233,7 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
   store ptr %67, ptr %8, align 8
   %68 = load i32, ptr %7, align 4
   %69 = sext i32 %68 to i64
-  %70 = getelementptr ptr, ptr %67, i64 %69
+  %70 = getelementptr [8 x i8], ptr %67, i64 %69
   %71 = getelementptr i8, ptr %70, i64 -8
   br label %72
 
@@ -324,7 +320,7 @@ define internal fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr
 
 41:                                               ; preds = %40, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %39
@@ -523,7 +519,7 @@ src_in_image.exit:                                ; preds = %41, %36
 
 .lr.ph.i109:                                      ; preds = %155, %156
   %indvars.iv.i111 = phi i64 [ %indvars.iv.next.i112, %156 ], [ 0, %155 ]
-  %157 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i111
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i111
   %158 = load ptr, ptr %157, align 8
   %159 = load ptr, ptr %158, align 8
   %160 = icmp eq ptr %159, %121
@@ -683,7 +679,7 @@ define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %
 
 43:                                               ; preds = %101, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %101 ]
-  %44 = getelementptr inbounds nuw %struct.OverlayInfo, ptr %9, i64 %indvars.iv.i.us
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv.i.us
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, %42
@@ -996,7 +992,7 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
 42:                                               ; preds = %.lr.ph, %273
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %273 ]
   %43 = load ptr, ptr %36, align 8
-  %44 = getelementptr inbounds nuw %struct.myBox, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 2
   %46 = load i16, ptr %45, align 2
   %47 = sext i16 %46 to i32
@@ -1057,7 +1053,7 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
 
 .lr.ph.i.i:                                       ; preds = %.preheader78.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader78.i.i ]
-  %92 = getelementptr inbounds nuw %struct.XColor, ptr %88, i64 %indvars.iv.i.i
+  %92 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %indvars.iv.i.i
   store i64 %indvars.iv.i.i, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 15
   store i8 0, ptr %93, align 1
@@ -1134,7 +1130,7 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
   %115 = trunc nuw i64 %indvars.iv109.i.i to i32
   %116 = shl i32 %115, %.063.lcssa.i.i
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds nuw %struct.XColor, ptr %88, i64 %indvars.iv109.i.i
+  %118 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %indvars.iv109.i.i
   store i64 %117, ptr %118, align 8
   br label %119
 
@@ -1146,7 +1142,7 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
   %121 = trunc nuw i64 %indvars.iv109.i.i to i32
   %122 = shl i32 %121, %.062.lcssa.i.i
   %123 = zext i32 %122 to i64
-  %124 = getelementptr inbounds nuw %struct.XColor, ptr %88, i64 %indvars.iv109.i.i
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %indvars.iv109.i.i
   %125 = load i64, ptr %124, align 8
   %126 = or i64 %125, %123
   store i64 %126, ptr %124, align 8
@@ -1160,14 +1156,14 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
   %129 = trunc nuw i64 %indvars.iv109.i.i to i32
   %130 = shl i32 %129, %.061.lcssa.i.i
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw %struct.XColor, ptr %88, i64 %indvars.iv109.i.i
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %indvars.iv109.i.i
   %133 = load i64, ptr %132, align 8
   %134 = or i64 %133, %131
   store i64 %134, ptr %132, align 8
   br label %135
 
 135:                                              ; preds = %128, %127
-  %136 = getelementptr inbounds nuw %struct.XColor, ptr %88, i64 %indvars.iv109.i.i
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %indvars.iv109.i.i
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 15
   store i8 0, ptr %137, align 1
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 14

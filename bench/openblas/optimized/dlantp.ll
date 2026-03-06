@@ -66,7 +66,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge675
   %indvars.iv = phi i64 [ %27, %.lr.ph.preheader ], [ %indvars.iv.next, %._crit_edge675 ]
   %.2369 = phi double [ %.1373, %.lr.ph.preheader ], [ %.3, %._crit_edge675 ]
-  %29 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %30 = load double, ptr %29, align 8, !tbaa !7
   %31 = fcmp oge double %30, 0.000000e+00
   %32 = fneg double %30
@@ -117,7 +117,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %indvars.iv572 = phi i64 [ %44, %.lr.ph382.preheader ], [ %indvars.iv.next573, %._crit_edge676 ]
   %.5379 = phi double [ %.4388, %.lr.ph382.preheader ], [ %.6, %._crit_edge676 ]
   %indvars.iv.next573 = add nsw i64 %indvars.iv572, 1
-  %46 = getelementptr double, ptr %4, i64 %indvars.iv572
+  %46 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv572
   %47 = load double, ptr %46, align 8, !tbaa !7
   %48 = fcmp oge double %47, 0.000000e+00
   %49 = fneg double %47
@@ -175,7 +175,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .lr.ph396:                                        ; preds = %.lr.ph396.preheader, %._crit_edge679
   %indvars.iv575 = phi i64 [ %63, %.lr.ph396.preheader ], [ %indvars.iv.next576, %._crit_edge679 ]
   %.8394 = phi double [ %.7402, %.lr.ph396.preheader ], [ %.9, %._crit_edge679 ]
-  %65 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv575
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv575
   %66 = load double, ptr %65, align 8, !tbaa !7
   %67 = fcmp oge double %66, 0.000000e+00
   %68 = fneg double %66
@@ -225,7 +225,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .lr.ph410:                                        ; preds = %.lr.ph410.preheader, %._crit_edge681
   %indvars.iv578 = phi i64 [ %80, %.lr.ph410.preheader ], [ %indvars.iv.next579, %._crit_edge681 ]
   %.11408 = phi double [ %.10416, %.lr.ph410.preheader ], [ %.12, %._crit_edge681 ]
-  %82 = getelementptr inbounds double, ptr %13, i64 %indvars.iv578
+  %82 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv578
   %83 = load double, ptr %82, align 8, !tbaa !7
   %84 = fcmp oge double %83, 0.000000e+00
   %85 = fneg double %83
@@ -308,7 +308,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .lr.ph514:                                        ; preds = %.lr.ph514.preheader, %.lr.ph514
   %indvars.iv658 = phi i64 [ %110, %.lr.ph514.preheader ], [ %indvars.iv.next659, %.lr.ph514 ]
   %113 = phi double [ 1.000000e+00, %.lr.ph514.preheader ], [ %119, %.lr.ph514 ]
-  %114 = getelementptr inbounds double, ptr %13, i64 %indvars.iv658
+  %114 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv658
   %115 = load double, ptr %114, align 8, !tbaa !7
   %116 = fcmp oge double %115, 0.000000e+00
   %117 = fneg double %115
@@ -328,7 +328,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .lr.ph520:                                        ; preds = %.lr.ph520.preheader, %.lr.ph520
   %indvars.iv662 = phi i64 [ %121, %.lr.ph520.preheader ], [ %indvars.iv.next663, %.lr.ph520 ]
   %123 = phi double [ 0.000000e+00, %.lr.ph520.preheader ], [ %129, %.lr.ph520 ]
-  %124 = getelementptr inbounds double, ptr %13, i64 %indvars.iv662
+  %124 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv662
   %125 = load double, ptr %124, align 8, !tbaa !7
   %126 = fcmp oge double %125, 0.000000e+00
   %127 = fneg double %125
@@ -394,7 +394,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %indvars.iv665 = phi i64 [ %142, %.lr.ph534.preheader ], [ %indvars.iv.next666, %.lr.ph534 ]
   %143 = phi double [ 1.000000e+00, %.lr.ph534.preheader ], [ %149, %.lr.ph534 ]
   %indvars.iv.next666 = add nsw i64 %indvars.iv665, 1
-  %144 = getelementptr double, ptr %4, i64 %indvars.iv665
+  %144 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv665
   %145 = load double, ptr %144, align 8, !tbaa !7
   %146 = fcmp oge double %145, 0.000000e+00
   %147 = fneg double %145
@@ -420,7 +420,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .lr.ph540:                                        ; preds = %.lr.ph540.preheader, %.lr.ph540
   %indvars.iv670 = phi i64 [ %153, %.lr.ph540.preheader ], [ %indvars.iv.next671, %.lr.ph540 ]
   %157 = phi double [ 0.000000e+00, %.lr.ph540.preheader ], [ %163, %.lr.ph540 ]
-  %158 = getelementptr inbounds double, ptr %13, i64 %indvars.iv670
+  %158 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv670
   %159 = load double, ptr %158, align 8, !tbaa !7
   %160 = fcmp oge double %159, 0.000000e+00
   %161 = fneg double %159
@@ -492,7 +492,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 
 .lr.ph423:                                        ; preds = %.lr.ph423.preheader, %.lr.ph423
   %indvars.iv581 = phi i64 [ 1, %.lr.ph423.preheader ], [ %indvars.iv.next582, %.lr.ph423 ]
-  %183 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv581
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv581
   store double 1.000000e+00, ptr %183, align 8, !tbaa !7
   %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next582, %wide.trip.count
@@ -511,12 +511,12 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .lr.ph428:                                        ; preds = %.lr.ph428.preheader, %.lr.ph428
   %indvars.iv586 = phi i64 [ 1, %.lr.ph428.preheader ], [ %indvars.iv.next587, %.lr.ph428 ]
   %indvars.iv584 = phi i64 [ %184, %.lr.ph428.preheader ], [ %indvars.iv.next585, %.lr.ph428 ]
-  %185 = getelementptr inbounds double, ptr %13, i64 %indvars.iv584
+  %185 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv584
   %186 = load double, ptr %185, align 8, !tbaa !7
   %187 = fcmp oge double %186, 0.000000e+00
   %188 = fneg double %186
   %189 = select i1 %187, double %186, double %188
-  %190 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv586
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv586
   %191 = load double, ptr %190, align 8, !tbaa !7
   %192 = fadd double %191, %189
   store double %192, ptr %190, align 8, !tbaa !7
@@ -557,12 +557,12 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 200:                                              ; preds = %.lr.ph448, %200
   %indvars.iv603 = phi i64 [ 1, %.lr.ph448 ], [ %indvars.iv.next604, %200 ]
   %indvars.iv601 = phi i64 [ %199, %.lr.ph448 ], [ %indvars.iv.next602, %200 ]
-  %201 = getelementptr inbounds double, ptr %13, i64 %indvars.iv601
+  %201 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv601
   %202 = load double, ptr %201, align 8, !tbaa !7
   %203 = fcmp oge double %202, 0.000000e+00
   %204 = fneg double %202
   %205 = select i1 %203, double %202, double %204
-  %206 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv603
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv603
   %207 = load double, ptr %206, align 8, !tbaa !7
   %208 = fadd double %207, %205
   store double %208, ptr %206, align 8, !tbaa !7
@@ -595,7 +595,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 
 .lr.ph454:                                        ; preds = %.lr.ph454.preheader, %.lr.ph454
   %indvars.iv617 = phi i64 [ 1, %.lr.ph454.preheader ], [ %indvars.iv.next618, %.lr.ph454 ]
-  %214 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv617
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv617
   store double 1.000000e+00, ptr %214, align 8, !tbaa !7
   %indvars.iv.next618 = add nuw nsw i64 %indvars.iv617, 1
   %exitcond621.not = icmp eq i64 %indvars.iv.next618, %wide.trip.count620
@@ -617,12 +617,12 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %indvars.iv626 = phi i64 [ %indvars.iv624, %.lr.ph460.preheader ], [ %indvars.iv.next627, %.lr.ph460 ]
   %indvars.iv622 = phi i64 [ %215, %.lr.ph460.preheader ], [ %indvars.iv.next623, %.lr.ph460 ]
   %indvars.iv.next627 = add nuw nsw i64 %indvars.iv626, 1
-  %216 = getelementptr inbounds double, ptr %13, i64 %indvars.iv622
+  %216 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv622
   %217 = load double, ptr %216, align 8, !tbaa !7
   %218 = fcmp oge double %217, 0.000000e+00
   %219 = fneg double %217
   %220 = select i1 %218, double %217, double %219
-  %221 = getelementptr double, ptr %5, i64 %indvars.iv626
+  %221 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv626
   %222 = load double, ptr %221, align 8, !tbaa !7
   %223 = fadd double %222, %220
   store double %223, ptr %221, align 8, !tbaa !7
@@ -661,12 +661,12 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 230:                                              ; preds = %.lr.ph482, %230
   %indvars.iv643 = phi i64 [ %indvars.iv641, %.lr.ph482 ], [ %indvars.iv.next644, %230 ]
   %indvars.iv639 = phi i64 [ %229, %.lr.ph482 ], [ %indvars.iv.next640, %230 ]
-  %231 = getelementptr inbounds double, ptr %13, i64 %indvars.iv639
+  %231 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv639
   %232 = load double, ptr %231, align 8, !tbaa !7
   %233 = fcmp oge double %232, 0.000000e+00
   %234 = fneg double %232
   %235 = select i1 %233, double %232, double %234
-  %236 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv643
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv643
   %237 = load double, ptr %236, align 8, !tbaa !7
   %238 = fadd double %237, %235
   store double %238, ptr %236, align 8, !tbaa !7
@@ -692,7 +692,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 .lr.ph489:                                        ; preds = %.lr.ph489.preheader, %._crit_edge684
   %indvars.iv653 = phi i64 [ 1, %.lr.ph489.preheader ], [ %indvars.iv.next654, %._crit_edge684 ]
   %.17487 = phi double [ 0.000000e+00, %.lr.ph489.preheader ], [ %.18, %._crit_edge684 ]
-  %241 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv653
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv653
   %242 = load double, ptr %241, align 8, !tbaa !7
   store double %242, ptr %10, align 8, !tbaa !7
   %243 = fcmp olt double %.17487, %242
@@ -752,7 +752,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   store double 1.000000e+00, ptr %258, align 8, !tbaa !7
   store i32 %storemerge288492, ptr %7, align 4, !tbaa !3
   %261 = zext nneg i32 %.14249493 to i64
-  %262 = getelementptr inbounds nuw double, ptr %13, i64 %261
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %261
   call void @dlassq_(ptr noundef nonnull %7, ptr noundef nonnull %262, ptr noundef nonnull @c__1, ptr noundef nonnull %9, ptr noundef nonnull %258) #5
   call void @dcombssq_(ptr noundef nonnull %11, ptr noundef nonnull %9) #5
   %263 = add nuw nsw i32 %260, %.14249493
@@ -778,7 +778,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   store double 0.000000e+00, ptr %9, align 16, !tbaa !7
   store double 1.000000e+00, ptr %268, align 8, !tbaa !7
   %270 = sext i32 %.15250497 to i64
-  %271 = getelementptr inbounds double, ptr %13, i64 %270
+  %271 = getelementptr inbounds [8 x i8], ptr %13, i64 %270
   call void @dlassq_(ptr noundef nonnull %8, ptr noundef nonnull %271, ptr noundef nonnull @c__1, ptr noundef nonnull %9, ptr noundef nonnull %268) #5
   call void @dcombssq_(ptr noundef nonnull %11, ptr noundef nonnull %9) #5
   %272 = load i32, ptr %8, align 4, !tbaa !3
@@ -813,7 +813,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %284 = sub nsw i32 %282, %283
   store i32 %284, ptr %7, align 4, !tbaa !3
   %285 = sext i32 %.16251502 to i64
-  %286 = getelementptr inbounds double, ptr %13, i64 %285
+  %286 = getelementptr inbounds [8 x i8], ptr %13, i64 %285
   call void @dlassq_(ptr noundef nonnull %7, ptr noundef nonnull %286, ptr noundef nonnull @c__1, ptr noundef nonnull %9, ptr noundef nonnull %280) #5
   call void @dcombssq_(ptr noundef nonnull %11, ptr noundef nonnull %9) #5
   %287 = load i32, ptr %3, align 4, !tbaa !3
@@ -846,7 +846,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %299 = add i32 %reass.sub, 1
   store i32 %299, ptr %7, align 4, !tbaa !3
   %300 = sext i32 %.17252507 to i64
-  %301 = getelementptr inbounds double, ptr %13, i64 %300
+  %301 = getelementptr inbounds [8 x i8], ptr %13, i64 %300
   call void @dlassq_(ptr noundef nonnull %7, ptr noundef nonnull %301, ptr noundef nonnull @c__1, ptr noundef nonnull %9, ptr noundef nonnull %295) #5
   call void @dcombssq_(ptr noundef nonnull %11, ptr noundef nonnull %9) #5
   %302 = load i32, ptr %3, align 4, !tbaa !3

@@ -689,7 +689,7 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_check_coding_spec(ptr noundef %0
   %25 = phi i8 [ %.pr.i, %.critedge2.i ], [ %24, %.critedge.i ]
   %.153.i = phi ptr [ %30, %.critedge2.i ], [ %23, %.critedge.i ]
   %26 = zext i8 %25 to i64
-  %27 = getelementptr i32, ptr @_Py_ctype_table, i64 %26
+  %27 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !38
   %.fr89.i = freeze i32 %28
   %29 = and i32 %.fr89.i, 7

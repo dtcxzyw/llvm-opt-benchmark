@@ -3,9 +3,6 @@ source_filename = "bench/ffmpeg/original/h2645_parse.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.H2645NAL = type { ptr, i32, i32, i32, ptr, %struct.GetBitContext, i32, i32, i32, i32, i32, i32, ptr }
-%struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [30 x i8] c"Assertion %s failed at %s:%d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [50 x i8] c"nal->skipped_bytes_pos_size >= nal->skipped_bytes\00", align 1
 @.str.2 = private unnamed_addr constant [25 x i8] c"libavcodec/h2645_parse.c\00", align 1
@@ -350,7 +347,7 @@ define i32 @ff_h2645_extract_rbsp(ptr noundef %0, i32 noundef %1, ptr noundef ca
   %104 = phi i32 [ %.pre, %..thread_crit_edge ], [ %94, %92 ]
   %105 = phi ptr [ %102, %..thread_crit_edge ], [ %91, %92 ]
   %106 = sext i32 %104 to i64
-  %107 = getelementptr i32, ptr %105, i64 %106
+  %107 = getelementptr [4 x i8], ptr %105, i64 %106
   %108 = getelementptr i8, ptr %107, i64 -4
   store i32 %84, ptr %108, align 4, !tbaa !26
   br label %.backedge
@@ -738,12 +735,12 @@ find_next_start_code.exit:                        ; preds = %94, %._crit_edge.i1
   store ptr %139, ptr %0, align 8, !tbaa !40
   %141 = load i32, ptr %63, align 4, !tbaa !39
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds %struct.H2645NAL, ptr %139, i64 %142
+  %143 = getelementptr inbounds [96 x i8], ptr %139, i64 %142
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %143, i8 0, i64 96, i1 false)
   %144 = load ptr, ptr %0, align 8, !tbaa !40
   %145 = load i32, ptr %56, align 8, !tbaa !35
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds %struct.H2645NAL, ptr %144, i64 %146
+  %147 = getelementptr inbounds [96 x i8], ptr %144, i64 %146
   %148 = icmp slt i32 %.0106, 3069
   br i1 %148, label %149, label %152
 
@@ -772,7 +769,7 @@ find_next_start_code.exit:                        ; preds = %94, %._crit_edge.i1
   %160 = phi i32 [ %.pre, %158 ], [ %132, %130 ]
   %161 = load ptr, ptr %0, align 8, !tbaa !40
   %162 = sext i32 %160 to i64
-  %163 = getelementptr inbounds %struct.H2645NAL, ptr %161, i64 %162
+  %163 = getelementptr inbounds [96 x i8], ptr %161, i64 %162
   %164 = tail call i32 @ff_h2645_extract_rbsp(ptr noundef %.sroa.0.3, i32 noundef %.0106, ptr noundef nonnull %16, ptr noundef %163, i32 noundef %.lobit128)
   %165 = icmp slt i32 %164, 0
   br i1 %165, label %.thread226, label %166
@@ -959,7 +956,7 @@ get_bit_length.exit:                              ; preds = %200, %202
 
 vvc_nal_unit_name.exit.i:                         ; preds = %255
   %257 = zext nneg i32 %242 to i64
-  %258 = getelementptr inbounds nuw ptr, ptr @vvc_nal_type_name, i64 %257
+  %258 = getelementptr inbounds nuw [8 x i8], ptr @vvc_nal_type_name, i64 %257
   %259 = load ptr, ptr %258, align 8, !tbaa !51
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef %242, ptr noundef %259, i32 noundef %237, i32 noundef %252) #7
   br label %vvc_parse_nal_header.exit.thread223
@@ -1007,7 +1004,7 @@ hevc_parse_nal_header.exit:                       ; preds = %261, %262
 
 hevc_parse_nal_header.exit.thread:                ; preds = %262
   %286 = zext nneg i32 %265 to i64
-  %287 = getelementptr inbounds nuw ptr, ptr @hevc_nal_type_name, i64 %286
+  %287 = getelementptr inbounds nuw [8 x i8], ptr @hevc_nal_type_name, i64 %286
   %288 = load ptr, ptr %287, align 8, !tbaa !51
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef %265, ptr noundef %288, i32 noundef %269, i32 noundef %280) #7
   %289 = getelementptr inbounds nuw i8, ptr %163, i64 76
@@ -1030,7 +1027,7 @@ hevc_parse_nal_header.exit.thread:                ; preds = %262
   store i32 8, ptr %230, align 8, !tbaa !47
   store i32 %299, ptr %232, align 8, !tbaa !48
   %300 = zext nneg i32 %299 to i64
-  %301 = getelementptr inbounds nuw ptr, ptr @h264_nal_type_name, i64 %300
+  %301 = getelementptr inbounds nuw [8 x i8], ptr @h264_nal_type_name, i64 %300
   %302 = load ptr, ptr %301, align 8, !tbaa !51
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 48, ptr noundef nonnull @.str.102, i32 noundef %299, ptr noundef %302, i32 noundef %296) #7
   br label %vvc_parse_nal_header.exit.thread223
@@ -1078,7 +1075,7 @@ define void @ff_h2645_packet_uninit(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !40
-  %6 = getelementptr inbounds nuw %struct.H2645NAL, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [96 x i8], ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
   tail call void @av_freep(ptr noundef nonnull %7) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

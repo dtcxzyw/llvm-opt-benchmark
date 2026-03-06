@@ -217,7 +217,7 @@ define dso_local noundef i32 @main() local_unnamed_addr #6 personality ptr @__gx
 
 20:                                               ; preds = %20, %.preheader.us.i.i.i.i.i.i.i
   %.09.us.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.us.i.i.i.i.i.i.i ], [ %23, %20 ]
-  %gep.us.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep.us.i.i.i.i.i.i.i, i64 %.09.us.i.i.i.i.i.i.i
+  %gep.us.i.i.i.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.us.i.i.i.i.i.i.i, i64 %.09.us.i.i.i.i.i.i.i
   %.idx.i.i.i.us.i.i.i.i.i.i.i = shl i64 %.09.us.i.i.i.i.i.i.i, 4
   %21 = getelementptr i8, ptr %.0810.us.i.i.i.i.i.i.i.sroa.phi, i64 %.idx.i.i.i.us.i.i.i.i.i.i.i
   %22 = load double, ptr %21, align 8, !tbaa !20
@@ -252,7 +252,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi2ELi2ELi1ELi2ELi2E
 
 28:                                               ; preds = %28, %.preheader.us.i.i.i.i.i.i.i42
   %.09.us.i.i.i.i.i.i.i47 = phi i64 [ 0, %.preheader.us.i.i.i.i.i.i.i42 ], [ %31, %28 ]
-  %gep.us.i.i.i.i.i.i.i48 = getelementptr double, ptr %invariant.gep.us.i.i.i.i.i.i.i46, i64 %.09.us.i.i.i.i.i.i.i47
+  %gep.us.i.i.i.i.i.i.i48 = getelementptr [8 x i8], ptr %invariant.gep.us.i.i.i.i.i.i.i46, i64 %.09.us.i.i.i.i.i.i.i47
   %.idx.i.i.i.us.i.i.i.i.i.i.i49 = shl i64 %.09.us.i.i.i.i.i.i.i47, 4
   %29 = getelementptr i8, ptr %.0810.us.i.i.i.i.i.i.i44.sroa.phi, i64 %.idx.i.i.i.us.i.i.i.i.i.i.i49
   %30 = load double, ptr %29, align 8, !tbaa !20
@@ -1101,9 +1101,9 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit: ; pr
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit ]
   %27 = mul nsw i64 %.05.i.i.i.i.i.i.i.i, %21
-  %28 = getelementptr double, ptr %.pre14, i64 %.05.i.i.i.i.i.i.i.i
-  %29 = getelementptr double, ptr %28, i64 %27
-  %30 = getelementptr inbounds nuw double, ptr %25, i64 %.05.i.i.i.i.i.i.i.i
+  %28 = getelementptr [8 x i8], ptr %.pre14, i64 %.05.i.i.i.i.i.i.i.i
+  %29 = getelementptr [8 x i8], ptr %28, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.05.i.i.i.i.i.i.i.i
   %31 = load double, ptr %30, align 8, !tbaa !20
   store double %31, ptr %29, align 8, !tbaa !20
   %32 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i, 1

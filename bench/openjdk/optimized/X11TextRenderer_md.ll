@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.XGCValues = type { i32, i64, i64, i64, i32, i32, i32, i32, i32, i32, i32, i64, i64, i32, i32, i64, i32, i32, i32, i32, i64, i32, i8 }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
-%struct.ImageRef = type { ptr, ptr, i32, i32, i32, i32, i32, i32 }
 
 @awt_display = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [32 x i8] c"Cannot allocate bitmap for text\00", align 1
@@ -122,7 +120,7 @@ define void @AWTDrawGlyphList(ptr noundef %0, ptr noundef readnone captures(none
   %70 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %71 = load i32, ptr %70, align 8
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds %struct.Screen, ptr %69, i64 %72
+  %73 = getelementptr inbounds [128 x i8], ptr %69, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i64, ptr %74, align 8
   %76 = tail call i64 @XCreatePixmap(ptr noundef %67, i64 noundef %75, i32 noundef 1024, i32 noundef 32, i32 noundef 1) #5
@@ -251,7 +249,7 @@ checkPixmap.exit:                                 ; preds = %87, %54
 
 .lr.ph169.i:                                      ; preds = %.preheader.i.loopexit, %.loopexit.i
   %indvars.iv179.i = phi i64 [ %indvars.iv.next180.i, %.loopexit.i ], [ 0, %.preheader.i.loopexit ]
-  %139 = getelementptr inbounds nuw %struct.ImageRef, ptr %5, i64 %indvars.iv179.i
+  %139 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %indvars.iv179.i
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load ptr, ptr %140, align 8
   %.not.i73 = icmp eq ptr %141, null

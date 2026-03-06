@@ -1291,7 +1291,7 @@ for.body:                                         ; preds = %invoke.cont93, %inv
   %104 = phi ptr [ %106, %invoke.cont102 ], [ %90, %invoke.cont93 ]
   %i.0198 = phi i64 [ %inc105, %invoke.cont102 ], [ 1, %invoke.cont93 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp97)
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %104, i64 %i.0198
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %104, i64 %i.0198
   %call101 = invoke i64 @_ZN8QuantLib12PeriodParser14parseOnePeriodERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
           to label %invoke.cont100 unwind label %lpad99
 
@@ -2982,7 +2982,7 @@ if.then:                                          ; preds = %invoke.cont
 land.rhs.i:                                       ; preds = %if.then
   %_M_facets.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %_M_facets.i, align 8, !tbaa !68
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %5, i64 %call.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %call.i
   %6 = load ptr, ptr %arrayidx.i, align 8, !tbaa !39
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZSt9has_facetIN5boost9date_time16date_input_facetINS0_9gregorian4dateEcSt19istreambuf_iteratorIcSt11char_traitsIcEEEEEbRKSt6locale.exit.thread, label %_ZSt9has_facetIN5boost9date_time16date_input_facetINS0_9gregorian4dateEcSt19istreambuf_iteratorIcSt11char_traitsIcEEEEEbRKSt6locale.exit
@@ -3017,7 +3017,7 @@ if.then9:                                         ; preds = %_ZSt9has_facetIN5bo
 lor.lhs.false.i:                                  ; preds = %if.then9
   %_M_facets.i21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %_M_facets.i21, align 8, !tbaa !68
-  %arrayidx.i22 = getelementptr inbounds nuw ptr, ptr %11, i64 %call.i19
+  %arrayidx.i22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %call.i19
   %12 = load ptr, ptr %arrayidx.i22, align 8, !tbaa !39
   %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
@@ -5706,7 +5706,7 @@ if.then.i31:                                      ; preds = %_ZNSt6vectorINSt7__
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit30, %if.then.i31
   store ptr %cond.i10, ptr %this, align 8, !tbaa !25
   store ptr %__cur.0.lcssa.i.i.i25, ptr %_M_finish.i.i, align 8, !tbaa !17
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [32 x i8], ptr %cond.i10, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !19
   ret void
 }
@@ -7837,7 +7837,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %conv22 = phi i64 [ 0, %while.body.lr.ph ], [ %conv, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %index.021 = phi i16 [ 0, %while.body.lr.ph ], [ %inc, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %s)
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i64 %conv22
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %conv22
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !140)
@@ -9972,7 +9972,7 @@ if.then.i39:                                      ; preds = %_ZNSt6vectorINSt7__
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit38, %if.then.i39
   store ptr %cond.i17, ptr %this, align 8, !tbaa !25
   store ptr %__cur.0.lcssa.i.i.i33, ptr %_M_finish.i.i, align 8, !tbaa !17
-  %add.ptr26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i17, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [32 x i8], ptr %cond.i17, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !19
   ret void
 

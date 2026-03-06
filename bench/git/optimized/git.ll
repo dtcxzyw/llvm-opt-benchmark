@@ -6,10 +6,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.strvec = type { ptr, i64, i64 }
 %struct.trace_key = type { ptr, i32, i8 }
 %struct.strbuf = type { i64, i64, ptr }
-%struct.cmd_struct = type { ptr, ptr, i32 }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 
@@ -346,7 +344,7 @@ define dso_local range(i32 0, 2) i32 @is_builtin(ptr noundef readonly captures(n
 
 2:                                                ; preds = %2, %1
   %.01013.i = phi i64 [ 0, %1 ], [ %6, %2 ]
-  %3 = getelementptr inbounds nuw %struct.cmd_struct, ptr @commands, i64 %.01013.i
+  %3 = getelementptr inbounds nuw [24 x i8], ptr @commands, i64 %.01013.i
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #17
   %.not.not.i = icmp eq i32 %5, 0
@@ -389,7 +387,7 @@ define dso_local void @load_builtin_commands(ptr noundef %0, ptr noundef %1) loc
 
 skip_prefix.exit.preheader:                       ; preds = %3, %skip_prefix.exit6
   %.018 = phi i64 [ %23, %skip_prefix.exit6 ], [ 0, %3 ]
-  %11 = getelementptr inbounds nuw %struct.cmd_struct, ptr @commands, i64 %.018
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @commands, i64 %.018
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   br label %13
 
@@ -595,7 +593,7 @@ sub_240:                                          ; preds = %sub_139
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %75 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8, !tbaa !21
   %77 = call ptr @strvec_push(ptr noundef nonnull %14, ptr noundef %76) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -631,7 +629,7 @@ sub_240:                                          ; preds = %sub_139
 
 86:                                               ; preds = %84, %81
   %.01013.i.i = phi i64 [ 0, %81 ], [ %85, %84 ]
-  %87 = getelementptr inbounds nuw %struct.cmd_struct, ptr @commands, i64 %.01013.i.i
+  %87 = getelementptr inbounds nuw [24 x i8], ptr @commands, i64 %.01013.i.i
   %88 = load ptr, ptr %87, align 8, !tbaa !11
   %89 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %83, ptr noundef nonnull dereferenceable(1) %88) #17
   %.not.not.i.i = icmp eq i32 %89, 0
@@ -673,7 +671,7 @@ commit_pager_choice.exit:                         ; preds = %get_builtin.exit.i,
 .lr.ph.i:                                         ; preds = %commit_pager_choice.exit, %.lr.ph.i
   %.024105.i = phi i64 [ %103, %.lr.ph.i ], [ 0, %commit_pager_choice.exit ]
   %99 = load ptr, ptr %14, align 8, !tbaa !23
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %.024105.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %.024105.i
   %101 = load ptr, ptr %100, align 8, !tbaa !21
   %102 = call ptr @strvec_push(ptr noundef nonnull %10, ptr noundef %101) #16
   %103 = add nuw i64 %.024105.i, 1
@@ -728,7 +726,7 @@ get_builtin.exit.thread.i:                        ; preds = %84, %80
 
 128:                                              ; preds = %128, %126
   %.01013.i.i.i.i = phi i64 [ 0, %126 ], [ %132, %128 ]
-  %129 = getelementptr inbounds nuw %struct.cmd_struct, ptr @commands, i64 %.01013.i.i.i.i
+  %129 = getelementptr inbounds nuw [24 x i8], ptr @commands, i64 %.01013.i.i.i.i
   %130 = load ptr, ptr %129, align 8, !tbaa !11
   %131 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %127, ptr noundef nonnull dereferenceable(1) %130) #17
   %.not.not.i.i.i.i = icmp eq i32 %131, 0
@@ -833,7 +831,7 @@ execv_dashed_external.exit.i:                     ; preds = %155
 .lr.ph108.i:                                      ; preds = %163, %179
   %.023106.i = phi i64 [ %181, %179 ], [ 0, %163 ]
   %171 = load ptr, ptr %9, align 8, !tbaa !36
-  %172 = getelementptr inbounds nuw %struct.string_list_item, ptr %171, i64 %.023106.i
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %.023106.i
   %173 = load ptr, ptr %172, align 8, !tbaa !37
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %11, ptr noundef nonnull @.str.238, ptr noundef %173) #16
   %174 = icmp eq ptr %172, %162
@@ -977,7 +975,7 @@ _.exit.i.i:                                       ; preds = %206, %203
   %239 = load ptr, ptr %5, align 8, !tbaa !19
   %240 = sext i32 %234 to i64
   %241 = sub nsw i64 0, %240
-  %242 = getelementptr inbounds ptr, ptr %239, i64 %241
+  %242 = getelementptr inbounds [8 x i8], ptr %239, i64 %241
   %243 = load i32, ptr %4, align 4, !tbaa !4
   %244 = sext i32 %243 to i64
   %.not.i.i32.i = icmp eq i32 %243, 0
@@ -1001,7 +999,7 @@ _.exit.i.i:                                       ; preds = %206, %203
   %251 = shl nuw nsw i64 %244, 3
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %242, ptr readonly align 1 %239, i64 %251, i1 false)
   %.pre.i.i = load ptr, ptr %5, align 8, !tbaa !19
-  %252 = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %241
+  %252 = getelementptr inbounds [8 x i8], ptr %.pre.i.i, i64 %241
   store ptr %252, ptr %5, align 8, !tbaa !19
   %253 = load ptr, ptr %252, align 8, !tbaa !21
   %254 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %189, ptr noundef nonnull dereferenceable(1) %253) #17
@@ -1143,7 +1141,7 @@ define internal fastcc void @handle_builtin(ptr noundef nonnull %0) unnamed_addr
 
 18:                                               ; preds = %16, %15
   %.01013.i = phi i64 [ 0, %15 ], [ %17, %16 ]
-  %19 = getelementptr inbounds nuw %struct.cmd_struct, ptr @commands, i64 %.01013.i
+  %19 = getelementptr inbounds nuw [24 x i8], ptr @commands, i64 %.01013.i
   %20 = load ptr, ptr %19, align 8, !tbaa !11
   %21 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(1) %20) #17
   %.not.not.i = icmp eq i32 %21, 0
@@ -1894,7 +1892,7 @@ sub_1219:                                         ; preds = %224
 .lr.ph252:                                        ; preds = %267, %.lr.ph252
   %.0251 = phi i64 [ %276, %.lr.ph252 ], [ 0, %267 ]
   %272 = load ptr, ptr %4, align 8, !tbaa !36
-  %273 = getelementptr inbounds nuw %struct.string_list_item, ptr %272, i64 %.0251
+  %273 = getelementptr inbounds nuw [16 x i8], ptr %272, i64 %.0251
   %274 = load ptr, ptr %273, align 8, !tbaa !37
   %275 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.217, ptr noundef %274)
   %276 = add nuw i64 %.0251, 1
@@ -2613,7 +2611,7 @@ define internal fastcc void @list_builtins(ptr noundef nonnull %0, i32 noundef r
 
 .split.us:                                        ; preds = %2, %.split.us
   %.08.us = phi i64 [ %6, %.split.us ], [ 0, %2 ]
-  %3 = getelementptr inbounds nuw %struct.cmd_struct, ptr @commands, i64 %.08.us
+  %3 = getelementptr inbounds nuw [24 x i8], ptr @commands, i64 %.08.us
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = tail call ptr @string_list_append(ptr noundef nonnull %0, ptr noundef %4) #16
   %6 = add nuw nsw i64 %.08.us, 1
@@ -2625,7 +2623,7 @@ define internal fastcc void @list_builtins(ptr noundef nonnull %0, i32 noundef r
 
 .split:                                           ; preds = %2, %14
   %.08 = phi i64 [ %15, %14 ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %struct.cmd_struct, ptr @commands, i64 %.08
+  %7 = getelementptr inbounds nuw [24 x i8], ptr @commands, i64 %.08
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !45
   %10 = and i32 %9, %1
@@ -2693,7 +2691,7 @@ match_token.exit:                                 ; preds = %12
 
 .split.us.i:                                      ; preds = %match_token.exit, %.split.us.i
   %.08.us.i = phi i64 [ %22, %.split.us.i ], [ 0, %match_token.exit ]
-  %19 = getelementptr inbounds nuw %struct.cmd_struct, ptr @commands, i64 %.08.us.i
+  %19 = getelementptr inbounds nuw [24 x i8], ptr @commands, i64 %.08.us.i
   %20 = load ptr, ptr %19, align 8, !tbaa !11
   %21 = call ptr @string_list_append(ptr noundef nonnull %2, ptr noundef %20) #16
   %22 = add nuw nsw i64 %.08.us.i, 1
@@ -2732,7 +2730,7 @@ match_token.exit44:                               ; preds = %12
   %30 = phi i64 [ %40, %39 ], [ %29, %28 ]
   %.06.i = phi i64 [ %.1.i, %39 ], [ 0, %28 ]
   %31 = load ptr, ptr %2, align 8, !tbaa !36
-  %32 = getelementptr inbounds nuw %struct.string_list_item, ptr %31, i64 %.06.i
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.06.i
   %33 = load ptr, ptr %32, align 8, !tbaa !37
   %34 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) @.str.232) #17
   %.not.i45 = icmp eq ptr %34, null
@@ -2820,7 +2818,7 @@ list_builtins.exit:                               ; preds = %39, %.split.us.i, %
 .lr.ph63:                                         ; preds = %.preheader, %.lr.ph63
   %.062 = phi i64 [ %63, %.lr.ph63 ], [ 0, %.preheader ]
   %59 = load ptr, ptr %2, align 8, !tbaa !36
-  %60 = getelementptr inbounds nuw %struct.string_list_item, ptr %59, i64 %.062
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %.062
   %61 = load ptr, ptr %60, align 8, !tbaa !37
   %62 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %61)
   %63 = add nuw i64 %.062, 1

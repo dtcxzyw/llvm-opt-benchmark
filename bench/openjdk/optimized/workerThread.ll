@@ -214,7 +214,7 @@ define hidden void @_ZN13WorkerThreads18initialize_workersEv(ptr noundef nonnull
   %19 = load ptr, ptr %10, align 8
   %20 = load i32, ptr %7, align 4
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   store ptr %13, ptr %22, align 8
   %23 = load i32, ptr %7, align 4
   %24 = add i32 %23, 1
@@ -282,7 +282,7 @@ define hidden noundef i32 @_ZN13WorkerThreads18set_active_workersEj(ptr noundef 
   %15 = load ptr, ptr %6, align 8
   %16 = load i32, ptr %3, align 4
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %17
   store ptr %9, ptr %18, align 8
   %19 = load i32, ptr %3, align 4
   %20 = add i32 %19, 1
@@ -393,7 +393,7 @@ define hidden void @_ZNK13WorkerThreads10threads_doEP13ThreadClosure(ptr noundef
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %1, align 8
   %11 = load ptr, ptr %10, align 8
@@ -468,7 +468,7 @@ define hidden void @_ZN13WorkerThreads8run_taskEP10WorkerTaskj(ptr noundef nonnu
   %18 = load ptr, ptr %9, align 8
   %19 = load i32, ptr %6, align 4
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %20
   store ptr %12, ptr %21, align 8
   %22 = load i32, ptr %6, align 4
   %23 = add i32 %22, 1
@@ -533,7 +533,7 @@ _ZN17WithActiveWorkersC2EP13WorkerThreadsj.exit:  ; preds = %.loopexit.i.i, %28
   %50 = load ptr, ptr %41, align 8
   %51 = load i32, ptr %6, align 4
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %52
   store ptr %44, ptr %53, align 8
   %54 = load i32, ptr %6, align 4
   %55 = add i32 %54, 1

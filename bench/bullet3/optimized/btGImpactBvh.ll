@@ -3,15 +3,12 @@ source_filename = "bench/bullet3/original/btGImpactBvh.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.GIM_BVH_DATA = type { %class.btAABB, i32 }
 %class.btAABB = type { %class.btVector3, %class.btVector3 }
 %class.btVector3 = type { [4 x float] }
-%class.GIM_BVH_TREE_NODE = type { %class.btAABB, i32 }
 %class.GIM_BVH_DATA_ARRAY = type { %class.btAlignedObjectArray.base, [7 x i8] }
 %class.btAlignedObjectArray.base = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8 }>
 %class.BT_BOX_BOX_TRANSFORM_CACHE = type { %class.btVector3, %class.btMatrix3x3, %class.btMatrix3x3 }
 %class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%struct.GIM_PAIR = type { i32, i32 }
 
 $_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev = comdat any
 
@@ -41,7 +38,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN9btBvhTree20_calc_splitting_axi
   %.sroa.1485.091 = phi float [ 0.000000e+00, %.lr.ph ], [ %31, %10 ]
   %.sroa.882.090 = phi float [ 0.000000e+00, %.lr.ph ], [ %30, %10 ]
   %.sroa.079.089 = phi float [ 0.000000e+00, %.lr.ph ], [ %29, %10 ]
-  %11 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds [36 x i8], ptr %8, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load float, ptr %12, align 4, !tbaa !13
   %14 = load float, ptr %11, align 4, !tbaa !13
@@ -87,7 +84,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN9btBvhTree20_calc_splitting_axi
   %.sroa.14.097 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %68, %41 ]
   %.sroa.8.096 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %67, %41 ]
   %.sroa.069.095 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %66, %41 ]
-  %42 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %39, i64 %indvars.iv111
+  %42 = getelementptr inbounds [36 x i8], ptr %39, i64 %indvars.iv111
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load float, ptr %43, align 4, !tbaa !13
   %45 = load float, ptr %42, align 4, !tbaa !13
@@ -165,7 +162,7 @@ define dso_local noundef i32 @_ZN9btBvhTree30_sort_and_calc_splitting_indexER18G
   %.0.606170 = phi float [ 0.000000e+00, %.lr.ph ], [ %35, %16 ]
   %.0.596269 = phi float [ 0.000000e+00, %.lr.ph ], [ %36, %16 ]
   %.0.586368 = phi float [ 0.000000e+00, %.lr.ph ], [ %37, %16 ]
-  %17 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %14, i64 %indvars.iv
+  %17 = getelementptr inbounds [36 x i8], ptr %14, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load float, ptr %18, align 4, !tbaa !13
   %20 = load float, ptr %17, align 4, !tbaa !13
@@ -203,14 +200,14 @@ define dso_local noundef i32 @_ZN9btBvhTree30_sort_and_calc_splitting_indexER18G
   %42 = fmul float %39, %.0.5863.lcssa
   store float %42, ptr %10, align 4, !tbaa !13
   %43 = sext i32 %4 to i64
-  %44 = getelementptr inbounds float, ptr %6, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %6, i64 %43
   %45 = load float, ptr %44, align 4, !tbaa !13
   br i1 %11, label %.lr.ph80, label %._crit_edge81
 
 .lr.ph80:                                         ; preds = %._crit_edge
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %48 = getelementptr inbounds float, ptr %7, i64 %43
+  %48 = getelementptr inbounds [4 x i8], ptr %7, i64 %43
   %.sroa.0.16..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 16
   %49 = sext i32 %2 to i64
   %wide.trip.count90 = sext i32 %3 to i64
@@ -221,7 +218,7 @@ define dso_local noundef i32 @_ZN9btBvhTree30_sort_and_calc_splitting_indexER18G
   %.03777 = phi i32 [ %2, %.lr.ph80 ], [ %.138, %80 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %51 = load ptr, ptr %46, align 8, !tbaa !4
-  %52 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %51, i64 %indvars.iv87
+  %52 = getelementptr inbounds [36 x i8], ptr %51, i64 %indvars.iv87
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load float, ptr %53, align 4, !tbaa !13
   %55 = load float, ptr %52, align 4, !tbaa !13
@@ -255,10 +252,10 @@ define dso_local noundef i32 @_ZN9btBvhTree30_sort_and_calc_splitting_indexER18G
   %73 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %74 = load i32, ptr %73, align 4, !tbaa !21
   %75 = sext i32 %.03777 to i64
-  %76 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %51, i64 %75
+  %76 = getelementptr inbounds [36 x i8], ptr %51, i64 %75
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %52, ptr noundef nonnull align 4 dereferenceable(36) %76, i64 36, i1 false), !tbaa.struct !25
   %77 = load ptr, ptr %46, align 8, !tbaa !4
-  %78 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %77, i64 %75
+  %78 = getelementptr inbounds [36 x i8], ptr %77, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, i64 32, i1 false), !tbaa.struct !25
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 32
   store i32 %74, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !26
@@ -302,16 +299,16 @@ define dso_local void @_ZN9btBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii(pt
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = sext i32 %2 to i64
-  %13 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %11, i64 %12
+  %13 = getelementptr inbounds [36 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !34
   %16 = sext i32 %5 to i64
-  %17 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %15, i64 %16
+  %17 = getelementptr inbounds [36 x i8], ptr %15, i64 %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %17, ptr noundef nonnull align 4 dereferenceable(32) %13, i64 32, i1 false), !tbaa.struct !35
   %18 = load ptr, ptr %14, align 8, !tbaa !34
-  %19 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %18, i64 %16
+  %19 = getelementptr inbounds [36 x i8], ptr %18, i64 %16
   %20 = load ptr, ptr %10, align 8, !tbaa !4
-  %21 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %20, i64 %12
+  %21 = getelementptr inbounds [36 x i8], ptr %20, i64 %12
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load i32, ptr %22, align 4, !tbaa !21
   br label %common.ret
@@ -346,7 +343,7 @@ common.ret:                                       ; preds = %9, %._crit_edge
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !34
   %34 = sext i32 %5 to i64
-  %35 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %33, i64 %34
+  %35 = getelementptr inbounds [36 x i8], ptr %33, i64 %34
   store float %.sroa.0.0.lcssa, ptr %35, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 4
   store float %.sroa.6.0.lcssa, ptr %.sroa.6.0..sroa_idx, align 4
@@ -365,7 +362,7 @@ common.ret:                                       ; preds = %9, %._crit_edge
   tail call void @_ZN9btBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %2, i32 noundef %26)
   tail call void @_ZN9btBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef %26, i32 noundef %3)
   %36 = load ptr, ptr %32, align 8, !tbaa !34
-  %37 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %36, i64 %34
+  %37 = getelementptr inbounds [36 x i8], ptr %36, i64 %34
   %38 = load i32, ptr %0, align 8, !tbaa !28
   %.neg = sub nsw i32 %5, %38
   br label %common.ret
@@ -378,7 +375,7 @@ common.ret:                                       ; preds = %9, %._crit_edge
   %.sroa.10.047 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.sroa.speculated, %.cont38 ]
   %.sroa.22.046 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph ], [ %60, %.cont38 ]
   %.sroa.18.045 = phi float [ 0xC7EFFFFFE0000000, %.lr.ph ], [ %56, %.cont38 ]
-  %39 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %29, i64 %indvars.iv
+  %39 = getelementptr inbounds [36 x i8], ptr %29, i64 %indvars.iv
   %40 = load float, ptr %39, align 4, !tbaa !13
   %41 = fcmp ogt float %.sroa.0.050, %40
   %42 = select i1 %41, float %40, float %.sroa.0.050
@@ -453,9 +450,9 @@ _ZN20btAlignedObjectArrayI17GIM_BVH_TREE_NODEE8allocateEi.exit.i.i: ; preds = %1
 
 21:                                               ; preds = %21, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %21 ]
-  %22 = getelementptr inbounds nuw %class.GIM_BVH_TREE_NODE, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [36 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %23 = load ptr, ptr %20, align 8, !tbaa !34
-  %24 = getelementptr inbounds nuw %class.GIM_BVH_TREE_NODE, ptr %23, i64 %indvars.iv.i.i.i
+  %24 = getelementptr inbounds nuw [36 x i8], ptr %23, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %22, ptr noundef nonnull align 4 dereferenceable(36) %24, i64 16, i1 false), !tbaa.struct !19
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -496,7 +493,7 @@ _ZN20btAlignedObjectArrayI17GIM_BVH_TREE_NODEE10deallocateEv.exit.i.i: ; preds =
 
 38:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %37, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
-  %39 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %36, i64 %indvars.iv.i
+  %39 = getelementptr inbounds [36 x i8], ptr %36, i64 %indvars.iv.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store i32 0, ptr %40, align 4, !tbaa !36
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -531,7 +528,7 @@ define dso_local void @_ZN12btGImpactBvh5refitEv(ptr noundef nonnull readonly al
   %indvars.iv = phi i64 [ %6, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %8 = load ptr, ptr %4, align 8, !tbaa !34
-  %9 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %8, i64 %indvars.iv.next
+  %9 = getelementptr inbounds [36 x i8], ptr %8, i64 %indvars.iv.next
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load i32, ptr %10, align 4, !tbaa !36
   %12 = icmp sgt i32 %11, -1
@@ -545,13 +542,13 @@ define dso_local void @_ZN12btGImpactBvh5refitEv(ptr noundef nonnull readonly al
   %17 = load ptr, ptr %16, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(32) %2)
   %18 = load ptr, ptr %4, align 8, !tbaa !34
-  %19 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %18, i64 %indvars.iv.next
+  %19 = getelementptr inbounds [36 x i8], ptr %18, i64 %indvars.iv.next
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %19, ptr noundef nonnull align 4 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !35
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %47
 
 20:                                               ; preds = %7
-  %21 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %8, i64 %indvars.iv
+  %21 = getelementptr inbounds [36 x i8], ptr %8, i64 %indvars.iv
   %.sroa.0.0.copyload = load float, ptr %21, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4
@@ -587,7 +584,7 @@ define dso_local void @_ZN12btGImpactBvh5refitEv(ptr noundef nonnull readonly al
 
 35:                                               ; preds = %20
   %36 = sext i32 %.0.i.i to i64
-  %37 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %8, i64 %36
+  %37 = getelementptr inbounds [36 x i8], ptr %8, i64 %36
   %.sroa.0.0.copyload39 = load float, ptr %37, align 4
   %.sroa.6.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %.sroa.6.0.copyload41 = load float, ptr %.sroa.6.0..sroa_idx40, align 4
@@ -687,8 +684,8 @@ _ZN20btAlignedObjectArrayI12GIM_BVH_DATAE8allocateEi.exit.i.i: ; preds = %15
 
 20:                                               ; preds = %20, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %20 ]
-  %21 = getelementptr inbounds nuw %struct.GIM_BVH_DATA, ptr %18, i64 %indvars.iv.i.i.i
-  %22 = getelementptr inbounds nuw %struct.GIM_BVH_DATA, ptr %.pre.pre, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw [36 x i8], ptr %18, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [36 x i8], ptr %.pre.pre, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %21, ptr noundef nonnull align 4 dereferenceable(36) %22, i64 16, i1 false), !tbaa.struct !19
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -721,7 +718,7 @@ _ZNK20btAlignedObjectArrayI12GIM_BVH_DATAE4copyEiiPS0_.exit.i.i: ; preds = %20, 
 
 31:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr inbounds nuw %struct.GIM_BVH_DATA, ptr %18, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [36 x i8], ptr %18, i64 %indvars.iv.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %32, i8 0, i64 36, i1 false)
@@ -759,7 +756,7 @@ _ZNK20btAlignedObjectArrayI12GIM_BVH_DATAE4copyEiiPS0_.exit.i.i: ; preds = %20, 
   %39 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %47, %46 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %46 ]
   %40 = load ptr, ptr %7, align 8, !tbaa !46
-  %41 = getelementptr inbounds nuw %struct.GIM_BVH_DATA, ptr %39, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [36 x i8], ptr %39, i64 %indvars.iv
   %42 = load ptr, ptr %40, align 8, !tbaa !49
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8
@@ -769,7 +766,7 @@ _ZNK20btAlignedObjectArrayI12GIM_BVH_DATAE4copyEiiPS0_.exit.i.i: ; preds = %20, 
 
 46:                                               ; preds = %.lr.ph
   %47 = load ptr, ptr %4, align 8, !tbaa !4
-  %48 = getelementptr inbounds nuw %struct.GIM_BVH_DATA, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [36 x i8], ptr %47, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store i32 %45, ptr %49, align 4, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -868,7 +865,7 @@ define dso_local noundef zeroext i1 @_ZNK12btGImpactBvh8boxQueryERK6btAABBR20btA
   %.01939 = phi i32 [ 0, %.lr.ph ], [ %.1, %69 ]
   %17 = load ptr, ptr %6, align 8, !tbaa !34
   %18 = zext nneg i32 %.01939 to i64
-  %19 = getelementptr inbounds nuw %class.GIM_BVH_TREE_NODE, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [36 x i8], ptr %17, i64 %18
   %.sroa.0.0.copyload = load float, ptr %19, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
@@ -942,8 +939,8 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %44, %43
 
 51:                                               ; preds = %51, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %51 ]
-  %52 = getelementptr inbounds nuw i32, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %53 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i.i.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i.i.i
   %54 = load i32, ptr %53, align 4, !tbaa !26
   store i32 %54, ptr %52, align 4, !tbaa !26
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -978,7 +975,7 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %35, %39, %_ZN20btAl
   %59 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i ], [ %36, %39 ], [ %36, %35 ]
   %60 = load ptr, ptr %14, align 8, !tbaa !62
   %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds i32, ptr %60, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %60, i64 %61
   store i32 %33, ptr %62, align 4, !tbaa !26
   %63 = load i32, ptr %12, align 4, !tbaa !57
   %64 = add nsw i32 %63, 1
@@ -1030,7 +1027,7 @@ define dso_local noundef zeroext i1 @_ZNK12btGImpactBvh8rayQueryERK9btVector3S2_
   %.02025 = phi i32 [ 0, %.lr.ph ], [ %.1, %127 ]
   %17 = load ptr, ptr %7, align 8, !tbaa !34
   %18 = sext i32 %.02025 to i64
-  %19 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %17, i64 %18
+  %19 = getelementptr inbounds [36 x i8], ptr %17, i64 %18
   %.sroa.0.0.copyload = load float, ptr %19, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
@@ -1169,8 +1166,8 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %96, %95
 
 103:                                              ; preds = %103, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %103 ]
-  %104 = getelementptr inbounds nuw i32, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %105 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv.i.i.i
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %indvars.iv.i.i.i
   %106 = load i32, ptr %105, align 4, !tbaa !26
   store i32 %106, ptr %104, align 4, !tbaa !26
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1205,7 +1202,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %110, %_ZNK20btAl
   %111 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i ], [ %88, %91 ], [ %88, %87 ]
   %112 = load ptr, ptr %14, align 8, !tbaa !62
   %113 = sext i32 %111 to i64
-  %114 = getelementptr inbounds i32, ptr %112, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %112, i64 %113
   store i32 %85, ptr %114, align 4, !tbaa !26
   %115 = load i32, ptr %12, align 4, !tbaa !57
   %116 = add nsw i32 %115, 1
@@ -1224,7 +1221,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %110, %_ZNK20btAl
 
 121:                                              ; preds = %117
   %122 = load ptr, ptr %7, align 8, !tbaa !34
-  %123 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %122, i64 %18
+  %123 = getelementptr inbounds [36 x i8], ptr %122, i64 %18
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %125 = load i32, ptr %124, align 4, !tbaa !36
   %126 = sub nsw i32 %.02025, %125
@@ -1399,17 +1396,17 @@ define linkonce_odr dso_local void @_ZN26BT_BOX_BOX_TRANSFORM_CACHE19calc_from_h
 
 .preheader.i:                                     ; preds = %113, %3
   %indvars.iv12.i = phi i64 [ 0, %3 ], [ %indvars.iv.next13.i, %113 ]
-  %105 = getelementptr inbounds nuw %class.btVector3, ptr %101, i64 %indvars.iv12.i
-  %106 = getelementptr inbounds nuw %class.btVector3, ptr %104, i64 %indvars.iv12.i
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %101, i64 %indvars.iv12.i
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %indvars.iv12.i
   br label %107
 
 107:                                              ; preds = %107, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %107 ]
-  %108 = getelementptr inbounds nuw float, ptr %105, i64 %indvars.iv.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv.i
   %109 = load float, ptr %108, align 4, !tbaa !13
   %110 = tail call noundef float @llvm.fabs.f32(float %109)
   %111 = fadd float %110, 0x3EB0C6F7A0000000
-  %112 = getelementptr inbounds nuw float, ptr %106, i64 %indvars.iv.i
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv.i
   store float %111, ptr %112, align 4, !tbaa !13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -1432,13 +1429,13 @@ define internal fastcc void @_ZL31_find_collision_pairs_recursiveP12btGImpactBvh
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !34
   %12 = sext i32 %4 to i64
-  %13 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %11, i64 %12
+  %13 = getelementptr inbounds [36 x i8], ptr %11, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %8, ptr noundef nonnull align 4 dereferenceable(32) %13, i64 32, i1 false), !tbaa.struct !35
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !34
   %16 = sext i32 %5 to i64
-  %17 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %15, i64 %16
+  %17 = getelementptr inbounds [36 x i8], ptr %15, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %9, ptr noundef nonnull align 4 dereferenceable(32) %17, i64 32, i1 false), !tbaa.struct !35
   %18 = call noundef zeroext i1 @_ZNK6btAABB23overlapping_trans_cacheERKS_RK26BT_BOX_BOX_TRANSFORM_CACHEb(ptr noundef nonnull align 4 dereferenceable(32) %8, ptr noundef nonnull align 4 dereferenceable(32) %9, ptr noundef nonnull align 4 dereferenceable(112) %3, i1 noundef zeroext %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1447,12 +1444,12 @@ define internal fastcc void @_ZL31_find_collision_pairs_recursiveP12btGImpactBvh
 
 19:                                               ; preds = %7
   %20 = load ptr, ptr %10, align 8, !tbaa !34
-  %21 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %20, i64 %12
+  %21 = getelementptr inbounds [36 x i8], ptr %20, i64 %12
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load i32, ptr %22, align 4, !tbaa !36
   %24 = icmp sgt i32 %23, -1
   %25 = load ptr, ptr %14, align 8, !tbaa !34
-  %26 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %25, i64 %16
+  %26 = getelementptr inbounds [36 x i8], ptr %25, i64 %16
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load i32, ptr %27, align 4, !tbaa !36
   %29 = icmp sgt i32 %28, -1
@@ -1501,8 +1498,8 @@ _ZN20btAlignedObjectArrayI8GIM_PAIRE8allocateEi.exit.i.i.i: ; preds = %42, %41
 
 50:                                               ; preds = %50, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %50 ]
-  %51 = getelementptr inbounds nuw %struct.GIM_PAIR, ptr %.0.i.i.i.i, i64 %indvars.iv.i.i.i.i
-  %52 = getelementptr inbounds nuw %struct.GIM_PAIR, ptr %49, i64 %indvars.iv.i.i.i.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i.i.i.i
   %53 = load i32, ptr %52, align 4, !tbaa !88
   store i32 %53, ptr %51, align 4, !tbaa !88
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -1545,7 +1542,7 @@ _ZN9btPairSet9push_pairEii.exit:                  ; preds = %31, %37, %_ZN20btAl
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !87
   %65 = sext i32 %62 to i64
-  %66 = getelementptr inbounds %struct.GIM_PAIR, ptr %64, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %64, i64 %65
   store i32 %23, ptr %66, align 4, !tbaa !88
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i32 %28, ptr %67, align 4, !tbaa !90
@@ -1558,7 +1555,7 @@ _ZN9btPairSet9push_pairEii.exit:                  ; preds = %31, %37, %_ZN20btAl
   call fastcc void @_ZL31_find_collision_pairs_recursiveP12btGImpactBvhS0_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(112) %3, i32 noundef %4, i32 noundef %70, i1 noundef zeroext false)
   %71 = load ptr, ptr %14, align 8, !tbaa !34
   %72 = sext i32 %70 to i64
-  %73 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %71, i64 %72
+  %73 = getelementptr inbounds [36 x i8], ptr %71, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = load i32, ptr %74, align 4, !tbaa !36
   %76 = add nsw i32 %5, 2
@@ -1576,7 +1573,7 @@ _ZN9btPairSet9push_pairEii.exit:                  ; preds = %31, %37, %_ZN20btAl
   call fastcc void @_ZL31_find_collision_pairs_recursiveP12btGImpactBvhS0_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(112) %3, i32 noundef %80, i32 noundef %5, i1 noundef zeroext false)
   %82 = load ptr, ptr %10, align 8, !tbaa !34
   %83 = sext i32 %80 to i64
-  %84 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %82, i64 %83
+  %84 = getelementptr inbounds [36 x i8], ptr %82, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load i32, ptr %85, align 4, !tbaa !36
   %87 = add nsw i32 %4, 2
@@ -1591,7 +1588,7 @@ _ZN9btPairSet9push_pairEii.exit:                  ; preds = %31, %37, %_ZN20btAl
   call fastcc void @_ZL31_find_collision_pairs_recursiveP12btGImpactBvhS0_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(112) %3, i32 noundef %80, i32 noundef %91, i1 noundef zeroext false)
   %92 = load ptr, ptr %14, align 8, !tbaa !34
   %93 = sext i32 %91 to i64
-  %94 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %92, i64 %93
+  %94 = getelementptr inbounds [36 x i8], ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %96 = load i32, ptr %95, align 4, !tbaa !36
   %97 = add nsw i32 %5, 2
@@ -1601,7 +1598,7 @@ _ZN9btPairSet9push_pairEii.exit:                  ; preds = %31, %37, %_ZN20btAl
   call fastcc void @_ZL31_find_collision_pairs_recursiveP12btGImpactBvhS0_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(112) %3, i32 noundef %80, i32 noundef %.0.i.i77, i1 noundef zeroext false)
   %100 = load ptr, ptr %10, align 8, !tbaa !34
   %101 = sext i32 %80 to i64
-  %102 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %100, i64 %101
+  %102 = getelementptr inbounds [36 x i8], ptr %100, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %104 = load i32, ptr %103, align 4, !tbaa !36
   %105 = add nsw i32 %4, 2
@@ -1610,14 +1607,14 @@ _ZN9btPairSet9push_pairEii.exit:                  ; preds = %31, %37, %_ZN20btAl
   %.0.i.i78 = select i1 %107, i32 %106, i32 %105
   call fastcc void @_ZL31_find_collision_pairs_recursiveP12btGImpactBvhS0_P9btPairSetRK26BT_BOX_BOX_TRANSFORM_CACHEiib(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(112) %3, i32 noundef %.0.i.i78, i32 noundef %91, i1 noundef zeroext false)
   %108 = load ptr, ptr %10, align 8, !tbaa !34
-  %109 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %108, i64 %101
+  %109 = getelementptr inbounds [36 x i8], ptr %108, i64 %101
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %111 = load i32, ptr %110, align 4, !tbaa !36
   %112 = sub nsw i32 %80, %111
   %113 = icmp slt i32 %111, 0
   %.0.i.i79 = select i1 %113, i32 %112, i32 %105
   %114 = load ptr, ptr %14, align 8, !tbaa !34
-  %115 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %114, i64 %93
+  %115 = getelementptr inbounds [36 x i8], ptr %114, i64 %93
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %117 = load i32, ptr %116, align 4, !tbaa !36
   %118 = sub nsw i32 %91, %117
@@ -1741,7 +1738,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6btAABB23overlapping_trans
 
 61:                                               ; preds = %4, %51
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %51 ]
-  %62 = getelementptr inbounds nuw %class.btVector3, ptr %49, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %indvars.iv
   %63 = load float, ptr %62, align 4, !tbaa !13
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %65 = load float, ptr %64, align 4, !tbaa !13
@@ -1750,15 +1747,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6btAABB23overlapping_trans
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %69 = load float, ptr %68, align 4, !tbaa !13
   %70 = tail call noundef float @llvm.fmuladd.f32(float %69, float %45, float %67)
-  %71 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %72 = load float, ptr %71, align 4, !tbaa !13
   %73 = fadd float %72, %70
-  %74 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %75 = load float, ptr %74, align 4, !tbaa !13
   %76 = fsub float %73, %75
-  %77 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store float %76, ptr %77, align 4, !tbaa !13
-  %78 = getelementptr inbounds nuw %class.btVector3, ptr %50, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %indvars.iv
   %79 = load float, ptr %78, align 4, !tbaa !13
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %81 = load float, ptr %80, align 4, !tbaa !13
@@ -1767,7 +1764,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6btAABB23overlapping_trans
   %84 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %85 = load float, ptr %84, align 4, !tbaa !13
   %86 = tail call noundef float @llvm.fmuladd.f32(float %85, float %48, float %83)
-  %87 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %88 = load float, ptr %87, align 4, !tbaa !13
   %89 = fadd float %86, %88
   %90 = tail call noundef float @llvm.fabs.f32(float %76)
@@ -1781,25 +1778,25 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6btAABB23overlapping_trans
 
 93:                                               ; preds = %.preheader83, %92
   %indvars.iv94 = phi i64 [ 0, %.preheader83 ], [ %indvars.iv.next95, %92 ]
-  %94 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv94
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv94
   %95 = load float, ptr %94, align 4, !tbaa !13
-  %96 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv94
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv94
   %97 = load float, ptr %96, align 4, !tbaa !13
   %98 = fmul float %54, %97
   %99 = tail call float @llvm.fmuladd.f32(float %52, float %95, float %98)
-  %100 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv94
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv94
   %101 = load float, ptr %100, align 4, !tbaa !13
   %102 = tail call noundef float @llvm.fmuladd.f32(float %57, float %101, float %99)
-  %103 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv94
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv94
   %104 = load float, ptr %103, align 4, !tbaa !13
-  %105 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv94
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv94
   %106 = load float, ptr %105, align 4, !tbaa !13
   %107 = fmul float %27, %106
   %108 = tail call float @llvm.fmuladd.f32(float %26, float %104, float %107)
-  %109 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv94
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv94
   %110 = load float, ptr %109, align 4, !tbaa !13
   %111 = tail call noundef float @llvm.fmuladd.f32(float %28, float %110, float %108)
-  %112 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv94
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv94
   %113 = load float, ptr %112, align 4, !tbaa !13
   %114 = fadd float %111, %113
   %115 = tail call noundef float @llvm.fabs.f32(float %102)
@@ -1822,26 +1819,26 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6btAABB23overlapping_trans
   %121 = select i1 %.cmp, i32 2, i32 %120
   %122 = icmp eq i64 %indvars.iv102, 2
   %123 = zext nneg i32 %121 to i64
-  %124 = getelementptr inbounds nuw float, ptr %8, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %123
   %125 = load float, ptr %124, align 4, !tbaa !13
   %126 = and i64 %indvars.iv.next103, 4294967295
   %127 = select i1 %118, i64 0, i64 %126
-  %128 = getelementptr inbounds nuw %class.btVector3, ptr %49, i64 %127
-  %129 = getelementptr inbounds nuw float, ptr %8, i64 %127
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %127
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %127
   %130 = load float, ptr %129, align 4, !tbaa !13
   %131 = sext i32 %121 to i64
-  %132 = getelementptr inbounds %class.btVector3, ptr %49, i64 %131
+  %132 = getelementptr inbounds [16 x i8], ptr %49, i64 %131
   %.sroa.sel80.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.cmp, i64 4, i64 0
   %.sroa.sel80.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.sel80.idx.sroa.sel.idx.sroa.sel.idx
   %133 = load float, ptr %.sroa.sel80.idx.sroa.sel.idx.sroa.sel, align 4, !tbaa !13
   %134 = select i1 %122, i64 1, i64 2
-  %135 = getelementptr inbounds nuw %class.btVector3, ptr %50, i64 %134
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %134
   %.sroa.sel.v = select i1 %122, i64 4, i64 8
   %.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.sel.v
   %136 = load float, ptr %.sroa.sel, align 4, !tbaa !13
   %137 = zext i1 %.cmp to i64
-  %138 = getelementptr inbounds nuw %class.btVector3, ptr %50, i64 %137
-  %139 = getelementptr inbounds nuw %class.btVector3, ptr %50, i64 %indvars.iv102
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %137
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %indvars.iv102
   br label %141
 
 140:                                              ; preds = %141
@@ -1854,26 +1851,26 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6btAABB23overlapping_trans
   %142 = icmp eq i64 %indvars.iv98, 2
   %143 = select i1 %142, i64 1, i64 2
   %144 = icmp eq i64 %indvars.iv98, 0
-  %145 = getelementptr inbounds nuw float, ptr %128, i64 %indvars.iv98
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %indvars.iv98
   %146 = load float, ptr %145, align 4, !tbaa !13
-  %147 = getelementptr inbounds nuw float, ptr %132, i64 %indvars.iv98
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %indvars.iv98
   %148 = load float, ptr %147, align 4, !tbaa !13
   %149 = fneg float %148
   %150 = fmul float %130, %149
   %151 = tail call float @llvm.fmuladd.f32(float %125, float %146, float %150)
-  %152 = getelementptr inbounds nuw float, ptr %135, i64 %indvars.iv98
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %indvars.iv98
   %153 = load float, ptr %152, align 4, !tbaa !13
-  %154 = getelementptr inbounds nuw float, ptr %138, i64 %indvars.iv98
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %indvars.iv98
   %155 = load float, ptr %154, align 4, !tbaa !13
   %156 = fmul float %136, %155
   %157 = tail call float @llvm.fmuladd.f32(float %133, float %153, float %156)
   %158 = zext i1 %144 to i64
   %159 = select i1 %144, float %47, float %46
-  %160 = getelementptr inbounds nuw float, ptr %139, i64 %143
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %143
   %161 = load float, ptr %160, align 4, !tbaa !13
   %162 = tail call float @llvm.fmuladd.f32(float %159, float %161, float %157)
   %163 = select i1 %142, float %47, float %48
-  %164 = getelementptr inbounds nuw float, ptr %139, i64 %158
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %158
   %165 = load float, ptr %164, align 4, !tbaa !13
   %166 = tail call float @llvm.fmuladd.f32(float %163, float %165, float %162)
   %167 = tail call noundef float @llvm.fabs.f32(float %151)

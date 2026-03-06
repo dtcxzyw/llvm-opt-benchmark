@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%struct._range = type { i64, i64, i32 }
 
 @.str = private unnamed_addr constant [37 x i8] c"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\00", align 1
 @alpha_num = dso_local local_unnamed_addr global ptr @.str, align 8
@@ -387,7 +386,7 @@ define dso_local noundef ptr @hostlist_copy(ptr noundef %0) #0 {
 27:                                               ; preds = %.lr.ph, %hostrange_copy.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %hostrange_copy.exit ]
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 28
   %32 = load i8, ptr %31, align 4, !range !14, !noundef !15
@@ -428,7 +427,7 @@ define dso_local noundef ptr @hostlist_copy(ptr noundef %0) #0 {
 hostrange_copy.exit:                              ; preds = %35, %40
   %.0.i = phi ptr [ %36, %35 ], [ %47, %40 ]
   %53 = load ptr, ptr %26, align 8
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv
   store ptr %.0.i, ptr %54, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %9, align 4
@@ -594,7 +593,7 @@ define dso_local range(i32 -1, 2) i32 @hostlist_delete_nth(ptr noundef %0, i32 n
 14:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %.03764 = phi i32 [ 0, %.lr.ph ], [ %47, %45 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %18 = load i8, ptr %17, align 4, !range !14, !noundef !15
@@ -733,7 +732,7 @@ define dso_local range(i64 -1, 2147483648) i64 @hostlist_deranged_string_dims(pt
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %12, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = sub nuw i64 %1, %21
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 %21
@@ -930,7 +929,7 @@ _hostlist_iterator_destroy.exit:                  ; preds = %.lr.ph, %.lr.ph24, 
   %30 = phi i32 [ %13, %.lr.ph26.preheader ], [ %36, %hostrange_destroy.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph26.preheader ], [ %indvars.iv.next, %hostrange_destroy.exit ]
   %31 = load ptr, ptr %15, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %33, ptr %2, align 8
@@ -1167,7 +1166,7 @@ define dso_local noalias ptr @hostlist_nth(ptr noundef %0, i32 noundef %1) #0 {
 13:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %.02641 = phi i32 [ 0, %.lr.ph ], [ %33, %32 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %17 = load i8, ptr %16, align 4, !range !14, !noundef !15
@@ -1253,7 +1252,7 @@ define dso_local noalias ptr @hostlist_pop(ptr noundef %0) #0 {
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr ptr, ptr %16, i64 %19
+  %20 = getelementptr [8 x i8], ptr %16, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call fastcc ptr @hostrange_pop(ptr noundef %22)
@@ -1275,7 +1274,7 @@ define dso_local noalias ptr @hostlist_pop(ptr noundef %0) #0 {
   %33 = add nsw i32 %32, -1
   store i32 %33, ptr %17, align 4
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %31, i64 %34
   %36 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %36, ptr %2, align 8
@@ -1294,7 +1293,7 @@ hostrange_destroy.exit:                           ; preds = %30, %38
   %.pre-phi = phi i64 [ %34, %30 ], [ %.pre29, %38 ]
   %39 = phi ptr [ %31, %30 ], [ %.pre, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %40 = getelementptr inbounds ptr, ptr %39, i64 %.pre-phi
+  %40 = getelementptr inbounds [8 x i8], ptr %39, i64 %.pre-phi
   store ptr null, ptr %40, align 8
   br label %41
 
@@ -1491,7 +1490,7 @@ define dso_local i32 @hostlist_push_list(ptr noundef %0, ptr noundef %1) #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %.01824 = phi i32 [ 0, %.lr.ph ], [ %19, %14 ]
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = tail call fastcc i32 @hostlist_push_range(ptr noundef nonnull %0, ptr noundef %17)
   %19 = add nsw i32 %18, %.01824
@@ -1575,7 +1574,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_
   %28 = shl i32 %.0, 2
   store i32 %28, ptr @dim_grid_size, align 4
   %29 = zext nneg i32 %.0 to i64
-  %30 = getelementptr i32, ptr @offset, i64 %29
+  %30 = getelementptr [4 x i8], ptr @offset, i64 %29
   %31 = getelementptr i8, ptr %30, i64 -4
   store i32 1, ptr %31, align 4
   %32 = add nsw i32 %.0, -2
@@ -1589,7 +1588,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %37, %.lr.ph ]
   %indvars.iv = phi i64 [ %33, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %36 = getelementptr inbounds nuw i32, ptr @offset, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @offset, i64 %indvars.iv
   %37 = mul nsw i32 %store_forwarded, 36
   store i32 %37, ptr %36, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -1652,7 +1651,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_
 56:                                               ; preds = %.lr.ph200, %84
   %indvars.iv236 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next237, %84 ]
   %57 = load ptr, ptr %55, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv236
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv236
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load i32, ptr %60, align 8
@@ -1673,7 +1672,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_
 
 69:                                               ; preds = %67
   %70 = load ptr, ptr %55, align 8
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv236
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv236
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -1687,7 +1686,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_
 
 78:                                               ; preds = %76
   %79 = load ptr, ptr %55, align 8
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv236
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv236
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %83 = load i32, ptr %82, align 8
@@ -1740,7 +1739,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_
   %indvars.iv260 = phi i64 [ 0, %.lr.ph218.preheader ], [ %indvars.iv.next261, %.lr.ph218 ]
   %indvars.iv258 = phi i64 [ %100, %.lr.ph218.preheader ], [ %indvars.iv.next259, %.lr.ph218 ]
   %101 = load ptr, ptr @alpha_num, align 8
-  %102 = getelementptr inbounds nuw i32, ptr @grid_start, i64 %indvars.iv260
+  %102 = getelementptr inbounds nuw [4 x i8], ptr @grid_start, i64 %indvars.iv260
   %103 = load i32, ptr %102, align 4
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds i8, ptr %101, i64 %104
@@ -1763,9 +1762,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_
 
 .preheader.i:                                     ; preds = %108, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %108 ]
-  %109 = getelementptr inbounds nuw i32, ptr @grid_start, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw [4 x i8], ptr @grid_start, i64 %indvars.iv.i
   %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds nuw i32, ptr @grid_end, i64 %indvars.iv.i
+  %111 = getelementptr inbounds nuw [4 x i8], ptr @grid_end, i64 %indvars.iv.i
   %112 = load i32, ptr %111, align 4
   %113 = icmp sgt i32 %110, %112
   br i1 %113, label %_test_box.exit.thread, label %108
@@ -1854,7 +1853,7 @@ _test_box.exit.thread:                            ; preds = %.preheader.i, %_tes
   %indvars.iv241 = phi i64 [ 0, %.lr.ph205.preheader ], [ %indvars.iv.next242, %.lr.ph205 ]
   %indvars.iv239 = phi i64 [ %153, %.lr.ph205.preheader ], [ %indvars.iv.next240, %.lr.ph205 ]
   %154 = load ptr, ptr @alpha_num, align 8
-  %155 = getelementptr inbounds nuw i32, ptr @grid_start, i64 %indvars.iv241
+  %155 = getelementptr inbounds nuw [4 x i8], ptr @grid_start, i64 %indvars.iv241
   %156 = load i32, ptr %155, align 4
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds i8, ptr %154, i64 %157
@@ -1880,7 +1879,7 @@ _test_box.exit.thread:                            ; preds = %.preheader.i, %_tes
   %indvars.iv250 = phi i64 [ 0, %.lr.ph212.preheader ], [ %indvars.iv.next251, %.lr.ph212 ]
   %indvars.iv248 = phi i64 [ %163, %.lr.ph212.preheader ], [ %indvars.iv.next249, %.lr.ph212 ]
   %164 = load ptr, ptr @alpha_num, align 8
-  %165 = getelementptr inbounds nuw i32, ptr @grid_end, i64 %indvars.iv250
+  %165 = getelementptr inbounds nuw [4 x i8], ptr @grid_end, i64 %indvars.iv250
   %166 = load i32, ptr %165, align 4
   %167 = sext i32 %166 to i64
   %168 = getelementptr inbounds i8, ptr %164, i64 %167
@@ -1979,7 +1978,7 @@ _test_box.exit.thread:                            ; preds = %.preheader.i, %_tes
 205:                                              ; preds = %200
   %.val.i = load i32, ptr %188, align 4
   %206 = sext i32 %.0176220 to i64
-  %207 = getelementptr inbounds ptr, ptr %204, i64 %206
+  %207 = getelementptr inbounds [8 x i8], ptr %204, i64 %206
   %208 = load ptr, ptr %207, align 8
   %209 = add nsw i32 %.val.i, -1
   %210 = icmp slt i32 %.0176220, %209
@@ -2029,7 +2028,7 @@ hostrange_prefix_cmp.exit.i.i.i:                  ; preds = %227
 _is_bracket_needed.exit.i:                        ; preds = %hostrange_prefix_cmp.exit.i.i.i, %227, %hostrange_count.exit.thread.i.i, %hostrange_count.exit.i.i, %._is_bracket_needed.exit_crit_edge.i
   %.pre-phi67.i = phi i64 [ %.pre66.i, %._is_bracket_needed.exit_crit_edge.i ], [ %206, %hostrange_prefix_cmp.exit.i.i.i ], [ %206, %227 ], [ %206, %hostrange_count.exit.thread.i.i ], [ %206, %hostrange_count.exit.i.i ]
   %.not53.i = phi i1 [ true, %._is_bracket_needed.exit_crit_edge.i ], [ %236, %hostrange_prefix_cmp.exit.i.i.i ], [ true, %227 ], [ true, %hostrange_count.exit.thread.i.i ], [ false, %hostrange_count.exit.i.i ]
-  %237 = getelementptr inbounds ptr, ptr %204, i64 %.pre-phi67.i
+  %237 = getelementptr inbounds [8 x i8], ptr %204, i64 %.pre-phi67.i
   %238 = load ptr, ptr %237, align 8
   %239 = load ptr, ptr %238, align 8
   %240 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %203, i64 noundef %202, ptr noundef nonnull @.str.11, ptr noundef %239) #22
@@ -2075,7 +2074,7 @@ _is_bracket_needed.exit.i:                        ; preds = %hostrange_prefix_cm
 
 260:                                              ; preds = %256, %254
   %.2.i = phi i32 [ %257, %256 ], [ %.1.i, %254 ]
-  %261 = getelementptr inbounds ptr, ptr %204, i64 %indvars.iv.i164
+  %261 = getelementptr inbounds [8 x i8], ptr %204, i64 %indvars.iv.i164
   %262 = load ptr, ptr %261, align 8
   %263 = zext nneg i32 %.2.i to i64
   %264 = sub i64 %202, %263
@@ -2103,7 +2102,7 @@ _is_bracket_needed.exit.i:                        ; preds = %hostrange_prefix_cm
   br i1 %277, label %278, label %.critedge.i
 
 278:                                              ; preds = %274
-  %279 = getelementptr inbounds ptr, ptr %204, i64 %indvars.iv.next.i165
+  %279 = getelementptr inbounds [8 x i8], ptr %204, i64 %indvars.iv.next.i165
   %280 = load ptr, ptr %279, align 8
   %281 = load ptr, ptr %261, align 8
   %282 = icmp eq ptr %280, null
@@ -2287,7 +2286,7 @@ hostrange_destroy.exit:                           ; preds = %9
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %20, align 8
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %25, i64 %28
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %10, align 8
   store i32 -1, ptr %14, align 8
@@ -2547,10 +2546,10 @@ define dso_local void @hostlist_sort(ptr noundef %0) #0 {
   %42 = load ptr, ptr %17, align 8
   %43 = add nsw i32 %.0.in134.i, -2
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = zext nneg i32 %.0135.i to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %51 = load i8, ptr %50, align 4, !range !14, !noundef !15
@@ -2730,9 +2729,9 @@ _zero_padded.exit42.i.i.i.i:                      ; preds = %_zero_padded.exit42
   %135 = getelementptr inbounds nuw i8, ptr %.0.i21.i.i, i64 16
   store i64 %..i.i, ptr %135, align 8
   %136 = load ptr, ptr %17, align 8
-  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %44
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %44
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds nuw ptr, ptr %136, i64 %47
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %47
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %142 = load i64, ptr %141, align 8
@@ -2809,7 +2808,7 @@ _zero_padded.exit42.i.i.i.i:                      ; preds = %_zero_padded.exit42
 .thread.i:                                        ; preds = %175
   %178 = load ptr, ptr %17, align 8
   %179 = zext nneg i32 %.050132.i to i64
-  %180 = getelementptr inbounds nuw ptr, ptr %178, i64 %179
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %179
   %181 = load ptr, ptr %180, align 8
   br label %196
 
@@ -2823,7 +2822,7 @@ _zero_padded.exit42.i.i.i.i:                      ; preds = %_zero_padded.exit42
   %186 = trunc nuw i8 %.pre147.i to i1
   %187 = load ptr, ptr %17, align 8
   %188 = zext nneg i32 %.050132.i to i64
-  %189 = getelementptr inbounds nuw ptr, ptr %187, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %188
   %190 = load ptr, ptr %189, align 8
   br i1 %186, label %191, label %._crit_edge44
 
@@ -2868,7 +2867,7 @@ hostrange_copy.exit.i62.i:                        ; preds = %196, %191
   %210 = phi i64 [ %188, %191 ], [ %201, %196 ]
   %.0.i.i.i = phi ptr [ %192, %191 ], [ %203, %196 ]
   %211 = load ptr, ptr %17, align 8
-  %212 = getelementptr inbounds nuw ptr, ptr %211, i64 %210
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %210
   store ptr %.0.i.i.i, ptr %212, align 8
   %213 = load i32, ptr %9, align 4
   %214 = icmp slt i32 %.050132.i, %213
@@ -2879,7 +2878,7 @@ hostrange_copy.exit.i62.i:                        ; preds = %196, %191
   %.03038.i.i = phi ptr [ %217, %.lr.ph.i.i ], [ %209, %hostrange_copy.exit.i62.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %215 = load ptr, ptr %17, align 8
-  %216 = getelementptr inbounds nuw ptr, ptr %215, i64 %indvars.iv.next.i.i
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %indvars.iv.next.i.i
   %217 = load ptr, ptr %216, align 8
   store ptr %.03038.i.i, ptr %216, align 8
   %218 = load i32, ptr %9, align 4
@@ -2910,7 +2909,7 @@ hostrange_copy.exit.i62.i:                        ; preds = %196, %191
   %229 = add nuw nsw i32 %223, 1
   store i32 %229, ptr %222, align 8
   %230 = zext nneg i32 %229 to i64
-  %231 = getelementptr inbounds nuw ptr, ptr %228, i64 %230
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %230
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds nuw i8, ptr %.02941.i.i, i64 24
   store ptr %232, ptr %233, align 8
@@ -2950,7 +2949,7 @@ hostlist_insert_range.exit.i:                     ; preds = %234, %._crit_edge.i
 250:                                              ; preds = %246, %243
   %251 = load ptr, ptr %17, align 8
   %252 = zext nneg i32 %.151.i to i64
-  %253 = getelementptr inbounds nuw ptr, ptr %251, i64 %252
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %252
   %254 = load ptr, ptr %253, align 8
   %255 = load i8, ptr %167, align 4, !range !14, !noundef !15
   %256 = trunc nuw i8 %255 to i1
@@ -2987,7 +2986,7 @@ hostlist_insert_range.exit.i:                     ; preds = %234, %._crit_edge.i
 hostrange_copy.exit.i63.i:                        ; preds = %263, %258
   %.0.i.i64.i = phi ptr [ %259, %258 ], [ %267, %263 ]
   %273 = load ptr, ptr %17, align 8
-  %274 = getelementptr inbounds nuw ptr, ptr %273, i64 %252
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %252
   store ptr %.0.i.i64.i, ptr %274, align 8
   %275 = load i32, ptr %9, align 4
   %276 = icmp slt i32 %.151.i, %275
@@ -2998,7 +2997,7 @@ hostrange_copy.exit.i63.i:                        ; preds = %263, %258
   %.03038.i77.i = phi ptr [ %279, %.lr.ph.i75.i ], [ %254, %hostrange_copy.exit.i63.i ]
   %indvars.iv.next.i78.i = add nuw nsw i64 %indvars.iv.i76.i, 1
   %277 = load ptr, ptr %17, align 8
-  %278 = getelementptr inbounds nuw ptr, ptr %277, i64 %indvars.iv.next.i78.i
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %indvars.iv.next.i78.i
   %279 = load ptr, ptr %278, align 8
   store ptr %.03038.i77.i, ptr %278, align 8
   %280 = load i32, ptr %9, align 4
@@ -3029,7 +3028,7 @@ hostrange_copy.exit.i63.i:                        ; preds = %263, %258
   %291 = add nuw nsw i32 %285, 1
   store i32 %291, ptr %284, align 8
   %292 = zext nneg i32 %291 to i64
-  %293 = getelementptr inbounds nuw ptr, ptr %290, i64 %292
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %292
   %294 = load ptr, ptr %293, align 8
   %295 = getelementptr inbounds nuw i8, ptr %.02941.i70.i, i64 24
   store ptr %294, ptr %295, align 8
@@ -3104,10 +3103,10 @@ hostrange_intersect.exit.thread.i:                ; preds = %hostrange_destroy.e
   %indvars.iv.i84.i = phi i64 [ %313, %.lr.ph.i83.i ], [ %indvars.iv.next.i85.i, %hostrange_width_combine.exit.i.i ]
   %indvars.iv.next.i85.i = add nsw i64 %indvars.iv.i84.i, -1
   %315 = load ptr, ptr %17, align 8
-  %316 = getelementptr ptr, ptr %315, i64 %indvars.iv.i84.i
+  %316 = getelementptr [8 x i8], ptr %315, i64 %indvars.iv.i84.i
   %317 = getelementptr i8, ptr %316, i64 -16
   %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds nuw ptr, ptr %315, i64 %indvars.iv.next.i85.i
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %315, i64 %indvars.iv.next.i85.i
   %320 = load ptr, ptr %319, align 8
   %321 = getelementptr inbounds nuw i8, ptr %318, i64 16
   %322 = load i64, ptr %321, align 8
@@ -3318,7 +3317,7 @@ define dso_local void @hostlist_uniq(ptr noundef %0) #0 {
   %.028 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %_attempt_range_join.exit ]
   %22 = load ptr, ptr %15, align 8
   %23 = zext nneg i32 %.028 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -8
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %24, align 8
@@ -3509,7 +3508,7 @@ define dso_local i32 @hostset_insert(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %hostset_insert_range.exit ]
   %.01933 = phi i32 [ 0, %.lr.ph ], [ %179, %hostset_insert_range.exit ]
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %.val = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -3558,7 +3557,7 @@ hostrange_count.exit.i:                           ; preds = %34, %30
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i.split.preheader, %hostrange_cmp.exit.thread27
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %hostrange_cmp.exit.thread27 ], [ 0, %.lr.ph.i.split.preheader ]
   %46 = load ptr, ptr %43, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %hostrange_cmp.exit.thread, label %50
@@ -3699,7 +3698,7 @@ hostrange_cmp.exit:                               ; preds = %50, %hostrange_pref
 
 hostrange_cmp.exit.hostrange_cmp.exit.thread_crit_edge: ; preds = %hostrange_cmp.exit
   %.pre = load ptr, ptr %43, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv.i
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv.i
   %.pre42 = load ptr, ptr %.phi.trans.insert, align 8
   br label %hostrange_cmp.exit.thread
 
@@ -3723,7 +3722,7 @@ hostrange_cmp.exit.thread:                        ; preds = %.lr.ph.i.split, %ho
 113:                                              ; preds = %112
   %114 = load ptr, ptr %43, align 8
   %115 = and i64 %indvars.iv.i, 4294967295
-  %116 = getelementptr ptr, ptr %114, i64 %115
+  %116 = getelementptr [8 x i8], ptr %114, i64 %115
   %117 = getelementptr i8, ptr %116, i64 -8
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %116, align 8
@@ -3808,7 +3807,7 @@ hostrange_copy.exit.i:                            ; preds = %141, %136
   %157 = add nsw i32 %156, 1
   store i32 %157, ptr %22, align 4
   %158 = sext i32 %156 to i64
-  %159 = getelementptr inbounds ptr, ptr %155, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %155, i64 %158
   store ptr %.0.i45.i, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %161 = load i32, ptr %160, align 8
@@ -3822,7 +3821,7 @@ hostrange_copy.exit.i:                            ; preds = %141, %136
   %166 = add nsw i32 %163, -1
   %167 = load ptr, ptr %154, align 8
   %168 = zext nneg i32 %166 to i64
-  %169 = getelementptr ptr, ptr %167, i64 %168
+  %169 = getelementptr [8 x i8], ptr %167, i64 %168
   %170 = getelementptr i8, ptr %169, i64 -8
   %171 = load ptr, ptr %170, align 8
   %172 = load ptr, ptr %169, align 8
@@ -4129,7 +4128,7 @@ define internal fastcc noundef ptr @hostlist_new() unnamed_addr #0 {
 9:                                                ; preds = %6, %9
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store ptr null, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -4214,7 +4213,7 @@ define internal fastcc ptr @hostname_create_dims(ptr noundef nonnull %0, i32 nou
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = sext i8 %29 to i64
-  %31 = getelementptr inbounds i16, ptr %25, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %25, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = and i16 %32, 2304
   %or.cond.i = icmp eq i16 %33, 0
@@ -4231,7 +4230,7 @@ define internal fastcc ptr @hostname_create_dims(ptr noundef nonnull %0, i32 nou
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = sext i8 %39 to i64
-  %41 = getelementptr inbounds i16, ptr %23, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %23, i64 %40
   %42 = load i16, ptr %41, align 2
   %43 = and i16 %42, 2048
   %.not19.i = icmp eq i16 %43, 0
@@ -4321,7 +4320,7 @@ define internal fastcc i32 @hostlist_push_range(ptr noundef %0, ptr noundef capt
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %9 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -8
   %.in = select i1 %10, ptr %15, ptr %12
   %16 = load ptr, ptr %.in, align 8
@@ -4519,7 +4518,7 @@ hostrange_copy.exit:                              ; preds = %91, %96
   %112 = add nsw i32 %111, 1
   store i32 %112, ptr %8, align 4
   %113 = sext i32 %111 to i64
-  %114 = getelementptr inbounds ptr, ptr %110, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %110, i64 %113
   store ptr %.0.i32, ptr %114, align 8
   br label %115
 
@@ -4630,7 +4629,7 @@ hostrange_count.exit:                             ; preds = %1
   %.012.i = phi i32 [ %37, %.lr.ph.preheader.i ], [ %40, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %38 = srem i32 %.012.i, 36
-  %39 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.next.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.next.i
   store i32 %38, ptr %39, align 4
   %40 = sdiv i32 %.012.i, 36
   %41 = icmp samesign ugt i64 %indvars.iv.i, 1
@@ -4656,7 +4655,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
   %indvars.iv47 = phi i64 [ %49, %.preheader ], [ %indvars.iv.next48, %50 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i8, ptr %48, i64 %53
@@ -4768,7 +4767,7 @@ hostrange_count.exit:                             ; preds = %6
   %.012.i = phi i32 [ %39, %.lr.ph.preheader.i ], [ %42, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %40 = srem i32 %.012.i, 36
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv.next.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv.next.i
   store i32 %40, ptr %41, align 4
   %42 = sdiv i32 %.012.i, 36
   %43 = icmp samesign ugt i64 %indvars.iv.i, 1
@@ -4793,7 +4792,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
   %indvars.iv50 = phi i64 [ %51, %.lr.ph ], [ %indvars.iv.next51, %52 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds i8, ptr %50, i64 %55
@@ -4834,7 +4833,7 @@ define internal fastcc void @hostlist_delete_range(ptr noundef captures(none) %0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %10 = load i32, ptr %9, align 4
@@ -4850,9 +4849,9 @@ define internal fastcc void @hostlist_delete_range(ptr noundef captures(none) %0
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %6, %2 ]
   %13 = load ptr, ptr %4, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.next
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv.next
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv
   store ptr %15, ptr %16, align 8
   %17 = load i32, ptr %9, align 4
   %18 = add nsw i32 %17, -1
@@ -4869,7 +4868,7 @@ define internal fastcc void @hostlist_delete_range(ptr noundef captures(none) %0
   %21 = phi ptr [ %5, %.._crit_edge_crit_edge ], [ %.pre, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %11, %.._crit_edge_crit_edge ], [ %18, %._crit_edge.loopexit ]
   store i32 %.lcssa, ptr %9, align 4
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %.pre-phi
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %.pre-phi
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.026.i = load ptr, ptr %23, align 8
@@ -4895,7 +4894,7 @@ define internal fastcc void @hostlist_delete_range(ptr noundef captures(none) %0
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %33 = load ptr, ptr %32, align 8
   %34 = zext nneg i32 %27 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.028.i, i64 24
   store ptr %36, ptr %37, align 8
@@ -4982,7 +4981,7 @@ define internal fastcc noalias ptr @_hostrange_string(ptr noundef readonly captu
   %.012.i = phi i32 [ %26, %.lr.ph.preheader.i ], [ %29, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %27 = srem i32 %.012.i, 36
-  %28 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.next.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv.next.i
   store i32 %27, ptr %28, align 4
   %29 = sdiv i32 %.012.i, 36
   %30 = icmp samesign ugt i64 %indvars.iv.i, 1
@@ -4998,7 +4997,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %hostlist_parse_int_
   %indvars.iv34 = phi i64 [ 0, %hostlist_parse_int_to_array.exit.preheader ], [ %indvars.iv.next35, %hostlist_parse_int_to_array.exit ]
   %indvars.iv = phi i64 [ %32, %hostlist_parse_int_to_array.exit.preheader ], [ %indvars.iv.next, %hostlist_parse_int_to_array.exit ]
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %33 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv34
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv34
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %31, i64 %35
@@ -5134,7 +5133,7 @@ define internal fastcc void @hostlist_insert_range(ptr noundef %0, ptr noundef r
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %2 to i64
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %23 = load i8, ptr %22, align 4, !range !14, !noundef !15
@@ -5175,7 +5174,7 @@ define internal fastcc void @hostlist_insert_range(ptr noundef %0, ptr noundef r
 hostrange_copy.exit:                              ; preds = %26, %31
   %.0.i = phi ptr [ %27, %26 ], [ %38, %31 ]
   %44 = load ptr, ptr %17, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %19
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %19
   store ptr %.0.i, ptr %45, align 8
   %46 = load i32, ptr %4, align 4
   %47 = icmp slt i32 %2, %46
@@ -5186,7 +5185,7 @@ hostrange_copy.exit:                              ; preds = %26, %31
   %.03038 = phi ptr [ %50, %.lr.ph ], [ %21, %hostrange_copy.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %48 = load ptr, ptr %17, align 8
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv.next
+  %49 = getelementptr inbounds [8 x i8], ptr %48, i64 %indvars.iv.next
   %50 = load ptr, ptr %49, align 8
   store ptr %.03038, ptr %49, align 8
   %51 = load i32, ptr %4, align 4
@@ -5218,7 +5217,7 @@ hostrange_copy.exit:                              ; preds = %26, %31
   %63 = add nsw i32 %57, 1
   store i32 %63, ptr %56, align 8
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr %62, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %62, i64 %64
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.02941, i64 24
   store ptr %66, ptr %67, align 8
@@ -5280,7 +5279,7 @@ define dso_local i32 @hostlist_find_dims(ptr noundef %0, ptr noundef %1, i32 nou
   %22 = phi ptr [ %.pre, %.lr.ph ], [ %42, %hostrange_count.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %hostrange_count.exit ]
   %.03350 = phi i32 [ 0, %.lr.ph ], [ %56, %hostrange_count.exit ]
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = tail call fastcc i32 @hostrange_hn_within(ptr noundef %24, ptr noundef %12, i32 noundef %.030)
   %.not40 = icmp eq i32 %25, 0
@@ -5302,7 +5301,7 @@ hostname_suffix_is_valid.exit:                    ; preds = %26
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %30
   %34 = load ptr, ptr %18, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i64, ptr %37, align 8
@@ -5312,7 +5311,7 @@ hostname_suffix_is_valid.exit:                    ; preds = %26
 
 41:                                               ; preds = %21
   %42 = load ptr, ptr %18, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %46 = load i8, ptr %45, align 4, !range !14, !noundef !15
@@ -5696,7 +5695,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @hostrange_to_string(ptr no
   %.012.i.us = phi i32 [ %49, %.lr.ph.preheader.i.us ], [ %52, %.lr.ph.i.us ]
   %indvars.iv.next.i.us = add nsw i64 %indvars.iv.i.us, -1
   %50 = srem i32 %.012.i.us, 36
-  %51 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.next.i.us
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.next.i.us
   store i32 %50, ptr %51, align 4
   %52 = sdiv i32 %.012.i.us, 36
   %53 = icmp samesign ugt i64 %indvars.iv.i.us, 1
@@ -5741,7 +5740,7 @@ hostlist_parse_int_to_array.exit.us:              ; preds = %.lr.ph.i.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.us ], [ 0, %.preheader.us ]
   %68 = load ptr, ptr @alpha_num, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %69 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i8, ptr %68, i64 %71
@@ -5834,7 +5833,7 @@ define dso_local void @hostlist_parse_int_to_array(i32 noundef %0, ptr noundef w
   %.012 = phi i32 [ %0, %.lr.ph.preheader ], [ %12, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %10 = srem i32 %.012, %7
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next
   store i32 %10, ptr %11, align 4
   %12 = sdiv i32 %.012, %7
   %13 = icmp samesign ugt i64 %indvars.iv, 1
@@ -5913,7 +5912,7 @@ define internal fastcc void @_set_grid(i64 noundef %0, i64 noundef %1, i32 nound
   %.012.i = phi i32 [ %7, %3 ], [ %10, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %8 = srem i32 %.012.i, 36
-  %9 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next.i
   store i32 %8, ptr %9, align 4
   %10 = sdiv i32 %.012.i, 36
   %11 = icmp samesign ugt i64 %indvars.iv.i, 1
@@ -5928,7 +5927,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
   %.012.i27 = phi i32 [ %12, %hostlist_parse_int_to_array.exit ], [ %15, %.lr.ph.i25 ]
   %indvars.iv.next.i28 = add nsw i64 %indvars.iv.i26, -1
   %13 = srem i32 %.012.i27, 36
-  %14 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next.i28
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.next.i28
   store i32 %13, ptr %14, align 4
   %15 = sdiv i32 %.012.i27, 36
   %16 = icmp samesign ugt i64 %indvars.iv.i26, 1
@@ -5936,15 +5935,15 @@ hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
 
 hostlist_parse_int_to_array.exit29:               ; preds = %.lr.ph.i25, %hostlist_parse_int_to_array.exit29
   %indvars.iv = phi i64 [ %indvars.iv.next, %hostlist_parse_int_to_array.exit29 ], [ 0, %.lr.ph.i25 ]
-  %17 = getelementptr inbounds nuw i32, ptr @grid_start, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @grid_start, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %18, i32 %20)
   store i32 %., ptr %17, align 4
-  %21 = getelementptr inbounds nuw i32, ptr @grid_end, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @grid_end, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = tail call i32 @llvm.smax.i32(i32 %22, i32 %24)
   store i32 %25, ptr %21, align 4
@@ -5998,7 +5997,7 @@ define internal fastcc i32 @_get_boxes(ptr noundef writeonly captures(none) %0, 
 
 15:                                               ; preds = %.preheader
   %16 = load ptr, ptr @alpha_num, align 8
-  %17 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv109
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv109
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i8, ptr %16, i64 %19
@@ -6024,7 +6023,7 @@ define internal fastcc i32 @_get_boxes(ptr noundef writeonly captures(none) %0, 
 
 25:                                               ; preds = %.preheader61
   %26 = load ptr, ptr @alpha_num, align 8
-  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv88
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv88
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %26, i64 %29
@@ -6058,7 +6057,7 @@ define internal fastcc i32 @_get_boxes(ptr noundef writeonly captures(none) %0, 
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr @alpha_num, align 8
-  %42 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv100
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv100
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
@@ -6180,7 +6179,7 @@ define dso_local noalias ptr @hostlist_next_dims(ptr noundef captures(none) %0, 
   %32 = add nsw i32 %12, 1
   store i32 %32, ptr %11, align 8
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %31, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %31, i64 %33
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %21, align 8
   br label %_iterator_advance.exit
@@ -6250,7 +6249,7 @@ _iterator_advance.exit:                           ; preds = %10, %16, %29
   %.012.i = phi i32 [ %72, %.lr.ph.preheader.i ], [ %75, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %73 = srem i32 %.012.i, 36
-  %74 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv.next.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv.next.i
   store i32 %73, ptr %74, align 4
   %75 = sdiv i32 %.012.i, 36
   %76 = icmp samesign ugt i64 %indvars.iv.i, 1
@@ -6265,7 +6264,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph, %hostlist_p
   %indvars.iv55 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next56, %hostlist_parse_int_to_array.exit ]
   %indvars.iv = phi i64 [ %78, %.lr.ph ], [ %indvars.iv.next, %hostlist_parse_int_to_array.exit ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %79 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv55
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv55
   %80 = load i32, ptr %79, align 4
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i8, ptr %77, i64 %81
@@ -6404,7 +6403,7 @@ define internal fastcc range(i32 0, 2) i32 @hostset_find_host(ptr noundef readon
   %22 = phi ptr [ %.pre.pre, %17 ], [ %13, %9 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = tail call fastcc i32 @hostrange_hn_within(ptr noundef %26, ptr noundef %12, i32 noundef 0)
   %.not17 = icmp eq i32 %27, 0
@@ -6585,7 +6584,7 @@ _grow_ranges.exit.us:                             ; preds = %26
   %36 = add nsw i32 %11, 1
   store i32 %36, ptr %5, align 4
   %37 = sext i32 %11 to i64
-  %38 = getelementptr inbounds %struct._range, ptr %35, i64 %37
+  %38 = getelementptr inbounds [24 x i8], ptr %35, i64 %37
   %39 = tail call fastcc i32 @_parse_single_range(ptr noundef %.02331.us, ptr noundef %38, i32 noundef %3)
   %.not29.us = icmp eq i32 %39, 0
   br i1 %.not29.us, label %.loopexit, label %42
@@ -6647,7 +6646,7 @@ _grow_ranges.exit:                                ; preds = %51
 
 59:                                               ; preds = %_grow_ranges.exit, %48
   %60 = load ptr, ptr %1, align 8
-  %61 = getelementptr inbounds nuw %struct._range, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %60, i64 %indvars.iv
   %62 = tail call fastcc i32 @_parse_single_range(ptr noundef %.02331, ptr noundef %61, i32 noundef %3)
   %.not29 = icmp eq i32 %62, 0
   br i1 %.not29, label %.loopexit, label %63
@@ -7100,7 +7099,7 @@ define internal fastcc range(i32 0, 2) i32 @_parse_box_range(ptr noundef nonnull
 
 28:                                               ; preds = %25, %21
   %.sink = phi i32 [ %27, %25 ], [ %22, %21 ]
-  %29 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %.sink, ptr %29, align 4
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %gep, i64 1
@@ -7125,7 +7124,7 @@ define internal fastcc range(i32 0, 2) i32 @_parse_box_range(ptr noundef nonnull
 
 40:                                               ; preds = %33, %37
   %.sink76 = phi i32 [ %34, %33 ], [ %39, %37 ]
-  %41 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %.sink76, ptr %41, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
@@ -7268,10 +7267,10 @@ define internal fastcc range(i32 0, 2) i32 @_parse_single_range(ptr noundef nonn
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef range(i32 0, 2) i32 @_add_box_ranges(i32 noundef %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull %5, ptr noundef nonnull captures(none) %6, ptr noundef nonnull captures(none) %7, i32 noundef range(i32 2, -2147483648) %8) unnamed_addr #0 {
   %10 = sext i32 %0 to i64
-  %11 = getelementptr inbounds i32, ptr %2, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %2, i64 %10
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i32, ptr %4, i64 %10
-  %14 = getelementptr inbounds i32, ptr %3, i64 %10
+  %13 = getelementptr inbounds [4 x i8], ptr %4, i64 %10
+  %14 = getelementptr inbounds [4 x i8], ptr %3, i64 %10
   store i32 %12, ptr %13, align 4
   %15 = load i32, ptr %14, align 4
   %.not71 = icmp sgt i32 %12, %15
@@ -7280,7 +7279,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_add_box_ranges(i32 noundef 
 .lr.ph74:                                         ; preds = %9
   %16 = add nsw i32 %8, -2
   %17 = icmp eq i32 %0, %16
-  %18 = getelementptr inbounds i32, ptr @offset, i64 %10
+  %18 = getelementptr inbounds [4 x i8], ptr @offset, i64 %10
   %19 = add nsw i32 %0, 1
   %20 = shl nuw nsw i32 %8, 1
   %21 = add nuw nsw i32 %20, 2
@@ -7291,8 +7290,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_add_box_ranges(i32 noundef 
 .lr.ph74.split.us.preheader:                      ; preds = %.lr.ph74
   %24 = add nsw i32 %8, -1
   %wide.trip.count = zext nneg i32 %24 to i64
-  %.phi.trans.insert89 = getelementptr inbounds nuw i32, ptr %2, i64 %wide.trip.count
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %3, i64 %wide.trip.count
+  %.phi.trans.insert89 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %wide.trip.count
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %wide.trip.count
   %25 = add nuw nsw i32 %24, %8
   %26 = zext nneg i32 %25 to i64
   br label %.lr.ph74.split.us
@@ -7342,7 +7341,7 @@ _grow_ranges.exit.us:                             ; preds = %33
   %47 = load ptr, ptr %5, align 8
   %48 = load i32, ptr %7, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %struct._range, ptr %47, i64 %49
+  %50 = getelementptr inbounds [24 x i8], ptr %47, i64 %49
   %51 = call fastcc i32 @_parse_single_range(ptr noundef %28, ptr noundef %50, i32 noundef %8)
   %.not67.not.us = icmp eq i32 %51, 0
   br i1 %.not67.not.us, label %.critedge, label %52
@@ -7361,7 +7360,7 @@ _grow_ranges.exit.us:                             ; preds = %33
 
 58:                                               ; preds = %.lr.ph.us, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i8, ptr %67, i64 %61
@@ -7618,15 +7617,15 @@ hostrange_width_combine.exit:                     ; preds = %5, %2, %_zero_padde
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_set_box_in_grid(i32 noundef %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, i1 noundef zeroext %4, i32 noundef range(i32 2, -2147483648) %5) unnamed_addr #0 {
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds i32, ptr %2, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %2, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i32, ptr %3, i64 %7
+  %10 = getelementptr inbounds [4 x i8], ptr %3, i64 %7
   %11 = load i32, ptr %10, align 4
   %.not21 = icmp sgt i32 %9, %11
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %12 = getelementptr inbounds i32, ptr @offset, i64 %7
+  %12 = getelementptr inbounds [4 x i8], ptr @offset, i64 %7
   %13 = add nsw i32 %5, -1
   %14 = icmp eq i32 %0, %13
   %15 = add nsw i32 %0, 1
@@ -7683,15 +7682,15 @@ declare void @bit_clear(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @_test_box_in_grid(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2) unnamed_addr #0 {
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds i32, ptr @grid_start, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @grid_start, i64 %4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i32, ptr @grid_end, i64 %4
+  %7 = getelementptr inbounds [4 x i8], ptr @grid_end, i64 %4
   %8 = load i32, ptr %7, align 4
   %.not1 = icmp sgt i32 %6, %8
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds i32, ptr @offset, i64 %4
+  %9 = getelementptr inbounds [4 x i8], ptr @offset, i64 %4
   %10 = add nsw i32 %2, -1
   %11 = icmp eq i32 %0, %10
   %12 = add nsw i32 %0, 1
@@ -7812,21 +7811,21 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @_tell_if_used(i32 noundef %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, i32 noundef range(i32 2, -2147483648) %5) unnamed_addr #0 {
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds i32, ptr %2, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %2, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i32, ptr @_get_next_box.last, i64 %7
-  %11 = getelementptr inbounds i32, ptr @grid_end, i64 %7
+  %10 = getelementptr inbounds [4 x i8], ptr @_get_next_box.last, i64 %7
+  %11 = getelementptr inbounds [4 x i8], ptr @grid_end, i64 %7
   store i32 %9, ptr %10, align 4
   %12 = load i32, ptr %11, align 4
   %.not4 = icmp sgt i32 %9, %12
   br i1 %.not4, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %13 = getelementptr inbounds i32, ptr @offset, i64 %7
+  %13 = getelementptr inbounds [4 x i8], ptr @offset, i64 %7
   %14 = add nsw i32 %5, -1
   %15 = icmp eq i32 %0, %14
   %16 = add nsw i32 %0, 1
-  %17 = getelementptr inbounds i32, ptr @grid_start, i64 %7
+  %17 = getelementptr inbounds [4 x i8], ptr @grid_start, i64 %7
   br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %35
@@ -7888,7 +7887,7 @@ define internal fastcc range(i32 0, 2) i32 @_tell_if_used(i32 noundef %0, i32 no
   br i1 %.not66.not, label %.loopexit1, label %48
 
 .split.us:                                        ; preds = %34
-  %43 = getelementptr inbounds i32, ptr %3, i64 %7
+  %43 = getelementptr inbounds [4 x i8], ptr %3, i64 %7
   %44 = load i32, ptr %43, align 4
   %45 = load i32, ptr %11, align 4
   %46 = icmp slt i32 %44, %45
@@ -7942,17 +7941,17 @@ define internal fastcc range(i32 0, 2) i32 @_tell_if_used(i32 noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_set_min_max_of_grid(i32 noundef %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, i32 noundef range(i32 2, -2147483648) %5) unnamed_addr #0 {
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds i32, ptr @grid_start, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr @grid_start, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i32, ptr %4, i64 %7
-  %11 = getelementptr inbounds i32, ptr @_get_next_box.orig_grid_end, i64 %7
+  %10 = getelementptr inbounds [4 x i8], ptr %4, i64 %7
+  %11 = getelementptr inbounds [4 x i8], ptr @_get_next_box.orig_grid_end, i64 %7
   store i32 %9, ptr %10, align 4
   %12 = load i32, ptr %11, align 4
   %.not2 = icmp sgt i32 %9, %12
   br i1 %.not2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %13 = getelementptr inbounds i32, ptr @offset, i64 %7
+  %13 = getelementptr inbounds [4 x i8], ptr @offset, i64 %7
   %14 = add nsw i32 %5, -1
   %15 = icmp eq i32 %0, %14
   %16 = add nsw i32 %0, 1
@@ -7975,13 +7974,13 @@ define internal fastcc void @_set_min_max_of_grid(i32 noundef %0, i32 noundef %1
 
 .preheader.us:                                    ; preds = %.lr.ph.split.us, %.preheader.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.us ], [ 0, %.lr.ph.split.us ]
-  %23 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %..us = tail call i32 @llvm.smin.i32(i32 %24, i32 %26)
   store i32 %..us, ptr %23, align 4
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = load i32, ptr %25, align 4
   %30 = tail call i32 @llvm.smax.i32(i32 %28, i32 %29)
@@ -8052,7 +8051,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @hostrange_numstr(
   %.012.i = phi i32 [ %21, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %22 = srem i32 %.012.i, 36
-  %23 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.next.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.next.i
   store i32 %22, ptr %23, align 4
   %24 = sdiv i32 %.012.i, 36
   %25 = icmp samesign ugt i64 %indvars.iv.i, 1
@@ -8066,7 +8065,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %hostlist_parse_int_
   %indvars.iv = phi i64 [ 0, %hostlist_parse_int_to_array.exit.preheader ], [ %indvars.iv.next, %hostlist_parse_int_to_array.exit ]
   %26 = load ptr, ptr @alpha_num, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %26, i64 %29
@@ -8127,7 +8126,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %hostlist_parse_int_
   %.012.i77 = phi i32 [ %58, %.lr.ph.preheader.i74 ], [ %61, %.lr.ph.i75 ]
   %indvars.iv.next.i78 = add nsw i64 %indvars.iv.i76, -1
   %59 = srem i32 %.012.i77, 36
-  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.next.i78
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.next.i78
   store i32 %59, ptr %60, align 4
   %61 = sdiv i32 %.012.i77, 36
   %62 = icmp samesign ugt i64 %indvars.iv.i76, 1
@@ -8147,7 +8146,7 @@ hostlist_parse_int_to_array.exit79:               ; preds = %.lr.ph.i75
   %indvars.iv88 = phi i64 [ %65, %hostlist_parse_int_to_array.exit79 ], [ %indvars.iv.next89, %66 ]
   %67 = load ptr, ptr @alpha_num, align 8
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %68 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv90
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv90
   %69 = load i32, ptr %68, align 4
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %67, i64 %70

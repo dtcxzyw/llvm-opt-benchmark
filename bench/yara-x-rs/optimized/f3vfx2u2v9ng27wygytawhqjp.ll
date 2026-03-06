@@ -220,7 +220,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %4 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4core3fmt9Formatter10debug_list17h7a39ccee36dbce39E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %5 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [112 x i8], ptr %0, i64 %1
   %6 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h211382de42ac7751E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0, ptr noundef nonnull %5)
   %7 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h32d327fe4f5896c1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -232,7 +232,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %4 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4core3fmt9Formatter10debug_list17h7a39ccee36dbce39E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %5 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %1
   %6 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h4a184372e8e33a1dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0, ptr noundef nonnull %5)
   %7 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h32d327fe4f5896c1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -550,8 +550,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader.backedge
   %.sroa.01.020 = phi i64 [ %5, %.preheader.backedge ], [ 0, %.preheader.preheader ]
   %5 = add i64 %.sroa.01.020, 1
-  %6 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %0, i64 %.sroa.01.020
-  %7 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, { { i64 } } } }, ptr %2, i64 %.sroa.01.020
+  %6 = getelementptr inbounds nuw [112 x i8], ptr %0, i64 %.sroa.01.020
+  %7 = getelementptr inbounds nuw [112 x i8], ptr %2, i64 %.sroa.01.020
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %9 = load i64, ptr %8, align 8, !range !24, !noundef !3
   %.not.i.i = icmp eq i64 %9, -9223372036854775808
@@ -630,8 +630,8 @@ _ZN4core3cmp9PartialEq2ne17hfe1ddc7664ea222fE.exit.thread: ; preds = %.preheader
 
 40:                                               ; preds = %.preheader.split.i.i.i.i
   %41 = add i64 %.sroa.01.0.i.i.i.i, 1
-  %42 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val19.i.i, i64 %.sroa.01.0.i.i.i.i
-  %43 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val21.i.i, i64 %.sroa.01.0.i.i.i.i
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %.val19.i.i, i64 %.sroa.01.0.i.i.i.i
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %.val21.i.i, i64 %.sroa.01.0.i.i.i.i
   %44 = getelementptr i8, ptr %42, i64 8
   %.val.i.i.i.i = load ptr, ptr %44, align 8, !alias.scope !25, !noalias !28, !nonnull !3, !noundef !3
   %45 = getelementptr i8, ptr %42, i64 16
@@ -664,8 +664,8 @@ _ZN4core3cmp9PartialEq2ne17hfe1ddc7664ea222fE.exit.thread: ; preds = %.preheader
 
 53:                                               ; preds = %.preheader.split.i.i25.i.i
   %54 = add i64 %.sroa.01.0.i.i26.i.i, 1
-  %55 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val15.i.i, i64 %.sroa.01.0.i.i26.i.i
-  %56 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.val17.i.i, i64 %.sroa.01.0.i.i26.i.i
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %.val15.i.i, i64 %.sroa.01.0.i.i26.i.i
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %.val17.i.i, i64 %.sroa.01.0.i.i26.i.i
   %57 = getelementptr i8, ptr %55, i64 8
   %.val.i.i28.i.i = load ptr, ptr %57, align 8, !alias.scope !31, !noalias !34, !nonnull !3, !noundef !3
   %58 = getelementptr i8, ptr %55, i64 16
@@ -712,8 +712,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 5:                                                ; preds = %.preheader.split
   %6 = add i64 %.sroa.01.0, 1
-  %7 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %0, i64 %.sroa.01.0
-  %8 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %2, i64 %.sroa.01.0
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.sroa.01.0
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %.sroa.01.0
   %9 = getelementptr i8, ptr %7, i64 8
   %.val = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %10 = getelementptr i8, ptr %7, i64 16

@@ -52,24 +52,24 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEll.exit
 
 19:                                               ; preds = %.lr.ph, %98
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %98 ]
-  %20 = getelementptr i32, ptr %13, i64 %indvars.iv
+  %20 = getelementptr [4 x i8], ptr %13, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !24
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds double, ptr %14, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %14, i64 %22
   %24 = load double, ptr %23, align 8, !tbaa !15
   %.sroa.093.0.vec.insert = insertelement <2 x double> poison, double %24, i64 0
-  %25 = getelementptr inbounds double, ptr %23, i64 %16
+  %25 = getelementptr inbounds [8 x i8], ptr %23, i64 %16
   %26 = load double, ptr %25, align 8, !tbaa !15
   %.sroa.093.8.vec.insert = insertelement <2 x double> %.sroa.093.0.vec.insert, double %26, i64 1
   %27 = getelementptr inbounds i8, ptr %23, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %28 = load double, ptr %27, align 8, !tbaa !15
-  %29 = getelementptr i32, ptr %20, i64 %17
+  %29 = getelementptr [4 x i8], ptr %20, i64 %17
   %30 = load i32, ptr %29, align 4, !tbaa !24
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds double, ptr %14, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %14, i64 %31
   %33 = load double, ptr %32, align 8, !tbaa !15
   %.sroa.0100.0.vec.insert = insertelement <2 x double> poison, double %33, i64 0
-  %34 = getelementptr inbounds double, ptr %32, i64 %16
+  %34 = getelementptr inbounds [8 x i8], ptr %32, i64 %16
   %35 = load double, ptr %34, align 8, !tbaa !15
   %.sroa.0100.8.vec.insert = insertelement <2 x double> %.sroa.0100.0.vec.insert, double %35, i64 1
   %36 = getelementptr inbounds i8, ptr %32, i64 %.idx.i.i.i.i.i.i.i.i.i.i
@@ -77,10 +77,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEll.exit
   %38 = getelementptr i8, ptr %20, i64 %.idx
   %39 = load i32, ptr %38, align 4, !tbaa !24
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds double, ptr %14, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %14, i64 %40
   %42 = load double, ptr %41, align 8, !tbaa !15
   %.sroa.0.0.vec.insert = insertelement <2 x double> poison, double %42, i64 0
-  %43 = getelementptr inbounds double, ptr %41, i64 %16
+  %43 = getelementptr inbounds [8 x i8], ptr %41, i64 %16
   %44 = load double, ptr %43, align 8, !tbaa !15
   %.sroa.0.8.vec.insert = insertelement <2 x double> %.sroa.0.0.vec.insert, double %44, i64 1
   %45 = getelementptr inbounds i8, ptr %41, i64 %.idx.i.i.i.i.i.i.i.i.i.i
@@ -88,10 +88,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEll.exit
   %47 = getelementptr i8, ptr %20, i64 %.idx108
   %48 = load i32, ptr %47, align 4, !tbaa !24
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds double, ptr %14, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %14, i64 %49
   %51 = load double, ptr %50, align 8, !tbaa !15
   %.sroa.087.0.vec.insert = insertelement <2 x double> poison, double %51, i64 0
-  %52 = getelementptr inbounds double, ptr %50, i64 %16
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %16
   %53 = load double, ptr %52, align 8, !tbaa !15
   %.sroa.087.8.vec.insert = insertelement <2 x double> %.sroa.087.0.vec.insert, double %53, i64 1
   %54 = getelementptr inbounds i8, ptr %50, i64 %.idx.i.i.i.i.i.i.i.i.i.i
@@ -157,7 +157,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEll.exit
 
 98:                                               ; preds = %19, %90
   %.sink = phi double [ %97, %90 ], [ 0.000000e+00, %19 ]
-  %99 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   store double %.sink, ptr %99, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

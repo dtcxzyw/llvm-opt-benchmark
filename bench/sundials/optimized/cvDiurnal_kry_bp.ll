@@ -142,11 +142,11 @@ check_retval.exit56:                              ; preds = %14
   %48 = fmul double %47, 1.000000e+06
   %49 = fmul double %36, %48
   %50 = shl nuw nsw i64 %indvars.iv.i, 1
-  %gep.i = getelementptr inbounds nuw double, ptr %invariant.gep.i, i64 %50
+  %gep.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep.i, i64 %50
   store double %49, ptr %gep.i, align 8, !tbaa !19
   %51 = fmul double %47, 1.000000e+12
   %52 = fmul double %36, %51
-  %53 = getelementptr inbounds nuw double, ptr %37, i64 %50
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %50
   store double %52, ptr %53, align 8, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
@@ -334,8 +334,8 @@ define internal fastcc void @SetInitialProfiles(ptr noundef %0, double noundef %
   %13 = fmul double %11, %11
   %14 = tail call double @llvm.fmuladd.f64(double %13, double 5.000000e-01, double %12)
   %15 = mul nuw nsw i64 %indvars.iv32, 20
-  %invariant.gep = getelementptr inbounds nuw double, ptr %4, i64 %15
-  %16 = getelementptr inbounds nuw double, ptr %4, i64 %15
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %18
 
@@ -353,11 +353,11 @@ define internal fastcc void @SetInitialProfiles(ptr noundef %0, double noundef %
   %28 = fmul double %27, 1.000000e+06
   %29 = fmul double %14, %28
   %30 = shl nuw nsw i64 %indvars.iv, 1
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %30
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %30
   store double %29, ptr %gep, align 8, !tbaa !19
   %31 = fmul double %27, 1.000000e+12
   %32 = fmul double %14, %31
-  %33 = getelementptr inbounds nuw double, ptr %17, i64 %30
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %30
   store double %32, ptr %33, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -435,25 +435,25 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   %46 = ashr exact i64 %sext, 32
   %sext132 = mul i64 %44, 85899345920
   %47 = ashr exact i64 %sext132, 32
-  %invariant.gep = getelementptr double, ptr %5, i64 %47
-  %invariant.gep133 = getelementptr double, ptr %5, i64 %47
-  %invariant.gep135 = getelementptr double, ptr %5, i64 %46
-  %invariant.gep137 = getelementptr double, ptr %5, i64 %46
-  %48 = getelementptr double, ptr %5, i64 %43
+  %invariant.gep = getelementptr [8 x i8], ptr %5, i64 %47
+  %invariant.gep133 = getelementptr [8 x i8], ptr %5, i64 %47
+  %invariant.gep135 = getelementptr [8 x i8], ptr %5, i64 %46
+  %invariant.gep137 = getelementptr [8 x i8], ptr %5, i64 %46
+  %48 = getelementptr [8 x i8], ptr %5, i64 %43
   %49 = trunc i64 %43 to i32
   %50 = or disjoint i32 %49, 1
-  %51 = getelementptr double, ptr %5, i64 %43
+  %51 = getelementptr [8 x i8], ptr %5, i64 %43
   br label %52
 
 52:                                               ; preds = %27, %52
   %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %52 ]
   %53 = shl nuw nsw i64 %indvars.iv, 1
   %54 = add nuw nsw i64 %53, %43
-  %55 = getelementptr inbounds nuw double, ptr %5, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %54
   %56 = load double, ptr %55, align 8, !tbaa !19
   %57 = or disjoint i64 %53, 1
   %58 = add nuw nsw i64 %57, %43
-  %59 = getelementptr inbounds nuw double, ptr %5, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %58
   %60 = load double, ptr %59, align 8, !tbaa !19
   %61 = fmul double %56, 1.630000e-16
   %62 = fmul double %61, 3.700000e+16
@@ -466,13 +466,13 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   %69 = fadd double %65, %68
   %70 = fsub double %62, %64
   %71 = fsub double %70, %65
-  %gep = getelementptr double, ptr %invariant.gep, i64 %53
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %53
   %72 = load double, ptr %gep, align 8, !tbaa !19
-  %gep134 = getelementptr double, ptr %invariant.gep133, i64 %57
+  %gep134 = getelementptr [8 x i8], ptr %invariant.gep133, i64 %57
   %73 = load double, ptr %gep134, align 8, !tbaa !19
-  %gep136 = getelementptr double, ptr %invariant.gep135, i64 %53
+  %gep136 = getelementptr [8 x i8], ptr %invariant.gep135, i64 %53
   %74 = load double, ptr %gep136, align 8, !tbaa !19
-  %gep138 = getelementptr double, ptr %invariant.gep137, i64 %57
+  %gep138 = getelementptr [8 x i8], ptr %invariant.gep137, i64 %57
   %75 = load double, ptr %gep138, align 8, !tbaa !19
   %76 = fsub double %74, %56
   %77 = fsub double %56, %72
@@ -492,20 +492,20 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   %91 = add nsw i32 %87, %90
   %92 = shl nsw i32 %91, 1
   %93 = sext i32 %92 to i64
-  %94 = getelementptr double, ptr %48, i64 %93
+  %94 = getelementptr [8 x i8], ptr %48, i64 %93
   %95 = load double, ptr %94, align 8, !tbaa !19
   %96 = add i32 %50, %92
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds double, ptr %5, i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr %5, i64 %97
   %99 = load double, ptr %98, align 8, !tbaa !19
   %100 = add nsw i32 %89, %90
   %101 = shl nsw i32 %100, 1
   %102 = sext i32 %101 to i64
-  %103 = getelementptr double, ptr %51, i64 %102
+  %103 = getelementptr [8 x i8], ptr %51, i64 %102
   %104 = load double, ptr %103, align 8, !tbaa !19
   %105 = add i32 %50, %101
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds double, ptr %5, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %5, i64 %106
   %108 = load double, ptr %107, align 8, !tbaa !19
   %109 = tail call double @llvm.fmuladd.f64(double %56, double -2.000000e+00, double %104)
   %110 = fadd double %95, %109
@@ -520,12 +520,12 @@ define internal noundef i32 @f(double noundef %0, ptr noundef %1, ptr noundef %2
   %119 = fadd double %80, %111
   %120 = fadd double %116, %119
   %121 = fadd double %69, %120
-  %122 = getelementptr inbounds nuw double, ptr %6, i64 %54
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %54
   store double %121, ptr %122, align 8, !tbaa !19
   %123 = fadd double %85, %114
   %124 = fadd double %118, %123
   %125 = fadd double %71, %124
-  %126 = getelementptr inbounds nuw double, ptr %6, i64 %58
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %58
   store double %125, ptr %126, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10

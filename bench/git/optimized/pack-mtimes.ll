@@ -262,7 +262,7 @@ define dso_local i32 @nth_packed_mtime(ptr noundef %0, i32 noundef %1) local_unn
 
 11:                                               ; preds = %7
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %15 = load i8, ptr %14, align 1, !tbaa !17
   %16 = zext i8 %15 to i32

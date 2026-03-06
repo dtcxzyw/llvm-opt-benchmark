@@ -38,7 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.19" = type { %"struct.std::_Tuple_impl.20" }
 %"struct.std::_Tuple_impl.20" = type { %"struct.std::_Head_base.23" }
 %"struct.std::_Head_base.23" = type { ptr }
-%struct.Elf64_Phdr = type { i32, i32, i64, i64, i64, i64, i64, i64 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
@@ -5230,9 +5229,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .preheader:                                       ; preds = %.critedge73, %207
   %203 = phi i1 [ true, %.critedge73 ], [ false, %207 ]
   %indvars.iv = phi i64 [ 0, %.critedge73 ], [ 1, %207 ]
-  %204 = getelementptr inbounds nuw ptr, ptr @__const._ZN40Symbolize_SymbolizeWithMultipleMaps_Test8TestBodyEv.ptrs, i64 %indvars.iv
+  %204 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN40Symbolize_SymbolizeWithMultipleMaps_Test8TestBodyEv.ptrs, i64 %indvars.iv
   %205 = load ptr, ptr %204, align 8, !tbaa !10
-  %206 = getelementptr inbounds nuw ptr, ptr @__const._ZN40Symbolize_SymbolizeWithMultipleMaps_Test8TestBodyEv.expected, i64 %indvars.iv
+  %206 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN40Symbolize_SymbolizeWithMultipleMaps_Test8TestBodyEv.expected, i64 %indvars.iv
   br label %208
 
 207:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit145
@@ -5404,7 +5403,7 @@ define internal noundef i32 @_ZL15FilterElfHeaderP12dl_phdr_infomPv(ptr noundef 
 
 8:                                                ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %9 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %7, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8, !tbaa !83
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %12, label %34
@@ -12398,7 +12397,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit37, %73
   store ptr %23, ptr %0, align 8, !tbaa !105
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !107
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !109
   ret void
 

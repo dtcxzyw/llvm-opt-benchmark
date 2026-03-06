@@ -111,7 +111,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__123_Large_integer_to_charsB8ne2
 13:                                               ; preds = %4
   %14 = add nsw i32 %8, -2
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %15
   store i32 %12, ptr %16, align 4, !tbaa !7
   %17 = sub nuw nsw i32 32, %10
   %18 = lshr i32 %2, %17
@@ -120,7 +120,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__123_Large_integer_to_charsB8ne2
 19:                                               ; preds = %4, %13
   %.sink = phi i32 [ %18, %13 ], [ %12, %4 ]
   %20 = zext i32 %9 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %5, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %20
   store i32 %.sink, ptr %21, align 4, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq i32 %9, 0
@@ -130,7 +130,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__123_Large_integer_to_charsB8ne2
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %19 ]
   %.057 = phi i32 [ %.2, %40 ], [ %9, %19 ]
   %22 = zext i32 %.057 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %5, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !7
   %25 = urem i32 %24, 1000000000
   %26 = udiv i32 %24, 1000000000
@@ -144,7 +144,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__123_Large_integer_to_charsB8ne2
   %28 = add i32 %.058, -1
   %29 = shl nuw i64 %.059, 32
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %5, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !7
   %33 = zext i32 %32 to i64
   %34 = or disjoint i64 %29, %33
@@ -161,7 +161,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__123_Large_integer_to_charsB8ne2
 
 40:                                               ; preds = %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %39, ptr %41, align 4, !tbaa !7
   %42 = icmp ugt i32 %24, 999999999
   %43 = add i32 %.057, -1
@@ -239,7 +239,7 @@ _ZNSt3__116__decimalLength9B8ne210000Ej.exit:     ; preds = %62, %60, %58, %56, 
   %indvars.iv80 = phi i64 [ %76, %.lr.ph.preheader ], [ %indvars.iv.next81, %.lr.ph ]
   %.05475 = phi ptr [ %74, %.lr.ph.preheader ], [ %79, %.lr.ph ]
   %indvars.iv.next81 = add nsw i64 %indvars.iv80, -1
-  %77 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next81
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.next81
   %78 = load i32, ptr %77, align 4, !tbaa !7
   tail call void @_ZNSt3__120__append_nine_digitsB8ne210000EjPc(i32 noundef %78, ptr noundef nonnull %.05475)
   %79 = getelementptr inbounds nuw i8, ptr %.05475, i64 9
@@ -285,7 +285,7 @@ define linkonce_odr hidden i64 @_ZNSt3__15__f2dB8ne210000Ejj(i32 noundef %0, i32
   %22 = add nsw i32 %21, 59
   %23 = add nsw i32 %22, %20
   %24 = zext nneg i32 %18 to i64
-  %25 = getelementptr inbounds nuw i64, ptr @_ZNSt3__122__FLOAT_POW5_INV_SPLITE, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @_ZNSt3__122__FLOAT_POW5_INV_SPLITE, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !12
   %27 = lshr i64 %26, 32
   %28 = zext i32 %8 to i64
@@ -353,7 +353,7 @@ define linkonce_odr hidden i64 @_ZNSt3__15__f2dB8ne210000Ejj(i32 noundef %0, i32
   %84 = add nsw i32 %21, 1
   %85 = add nsw i32 %84, %83
   %86 = zext nneg i32 %81 to i64
-  %87 = getelementptr inbounds nuw i64, ptr @_ZNSt3__122__FLOAT_POW5_INV_SPLITE, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr @_ZNSt3__122__FLOAT_POW5_INV_SPLITE, i64 %86
   %88 = load i64, ptr %87, align 8, !tbaa !12
   %89 = lshr i64 %88, 32
   %90 = and i64 %88, 4294967295
@@ -454,7 +454,7 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196: ; preds = %.lr.ph.i.i192, 
   %.neg205 = add nuw nsw i32 %133, 60
   %138 = sub nsw i32 %.neg205, %137
   %139 = zext i32 %135 to i64
-  %140 = getelementptr inbounds nuw i64, ptr @_ZNSt3__118__FLOAT_POW5_SPLITE, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr @_ZNSt3__118__FLOAT_POW5_SPLITE, i64 %139
   %141 = load i64, ptr %140, align 8, !tbaa !12
   %142 = lshr i64 %141, 32
   %143 = zext i32 %8 to i64
@@ -522,7 +522,7 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196: ; preds = %.lr.ph.i.i192, 
   %.neg202 = xor i32 %198, -1
   %reass.sub = add nsw i32 %133, %.neg202
   %199 = zext i32 %196 to i64
-  %200 = getelementptr inbounds nuw i64, ptr @_ZNSt3__118__FLOAT_POW5_SPLITE, i64 %199
+  %200 = getelementptr inbounds nuw [8 x i8], ptr @_ZNSt3__118__FLOAT_POW5_SPLITE, i64 %199
   %201 = load i64, ptr %200, align 8, !tbaa !12
   %202 = lshr i64 %201, 32
   %203 = and i64 %201, 4294967295
@@ -827,7 +827,7 @@ _ZNSt3__116__decimalLength9B8ne210000Ej.exit:     ; preds = %6, %8, %10, %12, %1
   %55 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.0.0.extract.trunc, i1 true)
   %56 = select i1 %54, i32 undef, i32 %55
   %57 = lshr i32 %.sroa.0.0.extract.trunc, %56
-  %58 = getelementptr inbounds nuw i32, ptr @_ZZNSt3__110__to_charsB8ne210000EPcS0_NS_21__floating_decimal_32ENS_12chars_formatEjjE21_Max_shifted_mantissa, i64 %.sroa.4.0.extract.shift
+  %58 = getelementptr inbounds nuw [4 x i8], ptr @_ZZNSt3__110__to_charsB8ne210000EPcS0_NS_21__floating_decimal_32ENS_12chars_formatEjjE21_Max_shifted_mantissa, i64 %.sroa.4.0.extract.shift
   %59 = load i32, ptr %58, align 4, !tbaa !7
   %.not189 = icmp ugt i32 %57, %59
   br i1 %.not189, label %.thread174, label %.thread178

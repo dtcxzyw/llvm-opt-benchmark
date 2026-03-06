@@ -241,7 +241,7 @@ define internal range(i32 0, 2) i32 @test_store_get_params(i32 noundef %0) #1 {
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.test_store_get_params, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.test_store_get_params, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = load ptr, ptr @datadir, align 8, !tbaa !4
   %7 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %2, i64 noundef 4096, ptr noundef nonnull @.str.38, ptr noundef %6, ptr noundef nonnull %switch.load) #4

@@ -120,7 +120,7 @@ define hidden noundef zeroext i1 @_ZN2va11openDisplayEv() local_unnamed_addr #3 
 _ZNK2va9DirectoryixEi.exit.i.i:                   ; preds = %9, %.thread50.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.thread50.i.i ], [ 0, %9 ]
   %13 = load ptr, ptr %10, align 8, !tbaa !14, !nonnull !9, !noundef !9
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i.i
   %15 = load ptr, ptr %14, align 8, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 19
   %17 = invoke fastcc noundef i32 @_ZN2vaL6readIdEPKcS1_(ptr noundef nonnull %16, ptr noundef nonnull @.str.8)
@@ -189,7 +189,7 @@ _ZN2va9DirectoryC2EPKc.exit.i.i:                  ; preds = %24
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %.preheader.i.i.i ]
   %34 = load ptr, ptr %26, align 8, !tbaa !14
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i.i.i
   %36 = load ptr, ptr %35, align 8, !tbaa !19
   call void @free(ptr noundef %36) #25
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -251,7 +251,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
   br i1 %.not65.i.i, label %_ZNK2va9DirectoryixEi.exit36.thread.i.i, label %_ZNK2va9DirectoryixEi.exit36.i.i
 
 _ZNK2va9DirectoryixEi.exit36.i.i:                 ; preds = %.lr.ph.split.i.i
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv86.i.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv86.i.i
   %56 = load ptr, ptr %55, align 8, !tbaa !19
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 19
   %58 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(5) @.str.12, i64 noundef 4) #27
@@ -327,7 +327,7 @@ common.resume.i:                                  ; preds = %_ZN2va8NodeInfoD2Ev
 .lr.ph.i43.i.i:                                   ; preds = %.preheader.i41.i.i, %.lr.ph.i43.i.i
   %indvars.iv.i44.i.i = phi i64 [ %indvars.iv.next.i45.i.i, %.lr.ph.i43.i.i ], [ 0, %.preheader.i41.i.i ]
   %73 = load ptr, ptr %10, align 8, !tbaa !14
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv.i44.i.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv.i44.i.i
   %75 = load ptr, ptr %74, align 8, !tbaa !19
   call void @free(ptr noundef %75) #25
   %indvars.iv.next.i45.i.i = add nuw nsw i64 %indvars.iv.i44.i.i, 1
@@ -460,7 +460,7 @@ _ZN2vaL15openDeviceIntelEv.exit.thread.preheader: ; preds = %_ZN2vaL11findAdapte
 _ZN2vaL15openDeviceIntelEv.exit.thread:           ; preds = %_ZN2vaL15openDeviceIntelEv.exit.thread.preheader, %130
   %120 = phi i1 [ false, %130 ], [ true, %_ZN2vaL15openDeviceIntelEv.exit.thread.preheader ]
   %indvars.iv.i2 = phi i64 [ 1, %130 ], [ 0, %_ZN2vaL15openDeviceIntelEv.exit.thread.preheader ]
-  %121 = getelementptr inbounds nuw ptr, ptr @_ZZN2vaL17openDeviceGenericEvE12device_paths, i64 %indvars.iv.i2
+  %121 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN2vaL17openDeviceGenericEvE12device_paths, i64 %indvars.iv.i2
   %122 = load ptr, ptr %121, align 8, !tbaa !32
   %123 = call i32 (ptr, i32, ...) @open(ptr noundef %122, i32 noundef 2)
   store i32 %123, ptr @_ZN2va5drmfdE, align 4, !tbaa !10
@@ -596,7 +596,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   %31 = phi i8 [ 1, %.lr.ph.i ], [ %47, %.tail.thread.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %.tail.thread.i ]
   %.016.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.tail.thread.i ]
-  %32 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8, !tbaa !32
   %34 = load i8, ptr %33, align 1, !tbaa !38
   %35 = icmp eq i8 %34, 45
@@ -622,7 +622,7 @@ sub_1.i:                                          ; preds = %30
 43:                                               ; preds = %41
   %44 = add nsw i32 %.016.i, 1
   %45 = sext i32 %.016.i to i64
-  %46 = getelementptr inbounds ptr, ptr %27, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %27, i64 %45
   store ptr %33, ptr %46, align 8, !tbaa !32
   br label %.tail.thread.i
 
@@ -759,7 +759,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc53
 
 .lr.ph.i21:                                       ; preds = %93, %.lr.ph.preheader.i
   %indvars.iv.i22 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i23, %93 ]
-  %90 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i22
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i22
   %91 = load i32, ptr %90, align 4, !tbaa !65
   %92 = icmp eq i32 %91, 1
   br i1 %92, label %._crit_edge.loopexit.i25, label %93
@@ -1538,14 +1538,14 @@ define linkonce_odr hidden void @_ZN2va8NodeInfoC2Ei(ptr noundef nonnull align 8
   %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %8 ], [ %.sroa.5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %indvars.iv = phi i64 [ 0, %8 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %16 = getelementptr inbounds nuw ptr, ptr @__const.NodeInfo.names, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @__const.NodeInfo.names, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !32
   %18 = load i32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !10
   invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef %17, i32 noundef %18)
           to label %19 unwind label %49
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = icmp eq ptr %21, %22
@@ -1750,7 +1750,7 @@ define linkonce_odr hidden void @_ZN2va9DirectoryD2Ev(ptr noundef nonnull align 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %8 = load ptr, ptr %4, align 8, !tbaa !14
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   tail call void @free(ptr noundef %10) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

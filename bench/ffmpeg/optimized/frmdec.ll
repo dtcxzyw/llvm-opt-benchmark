@@ -76,7 +76,7 @@ define internal range(i32 -1094995529, 1) i32 @frm_read_header(ptr noundef %0) #
 
 13:                                               ; preds = %5
   %14 = zext nneg i32 %11 to i64
-  %15 = getelementptr inbounds nuw i32, ptr @frm_pix_fmt_tags, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @frm_pix_fmt_tags, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !39
   %17 = load ptr, ptr %6, align 8, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 44

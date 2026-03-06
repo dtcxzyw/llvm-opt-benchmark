@@ -1308,7 +1308,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   br i1 %or.cond.us, label %44, label %39
 
 39:                                               ; preds = %.preheader120.split.us
-  %40 = getelementptr inbounds nuw %struct.anon.18, ptr @numeric_getaddrinfo.list, i64 %indvars.iv140
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @numeric_getaddrinfo.list, i64 %indvars.iv140
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !79
   %43 = icmp eq i32 %.fr132, %42
@@ -1326,7 +1326,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   store i16 %.0, ptr %49, align 2, !tbaa !84
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 10, ptr %50, align 4, !tbaa !77
-  %51 = getelementptr inbounds nuw %struct.anon.18, ptr @numeric_getaddrinfo.list, i64 %indvars.iv140
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @numeric_getaddrinfo.list, i64 %indvars.iv140
   %52 = load i32, ptr %51, align 8, !tbaa !85
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %52, ptr %53, align 8, !tbaa !60
@@ -1363,7 +1363,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
 .preheader120.split.split.us:                     ; preds = %.preheader120.split, %83
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %83 ], [ 2, %.preheader120.split ]
   %.084123.us124 = phi ptr [ %.185.us127, %83 ], [ null, %.preheader120.split ]
-  %65 = getelementptr inbounds nuw %struct.anon.18, ptr @numeric_getaddrinfo.list, i64 %indvars.iv137
+  %65 = getelementptr inbounds nuw [8 x i8], ptr @numeric_getaddrinfo.list, i64 %indvars.iv137
   %66 = load i32, ptr %65, align 8, !tbaa !85
   %67 = icmp eq i32 %30, %66
   br i1 %67, label %68, label %83
@@ -1405,7 +1405,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
 .preheader120.split.split:                        ; preds = %.preheader120.split, %106
   %indvars.iv = phi i64 [ %indvars.iv.next, %106 ], [ 2, %.preheader120.split ]
   %.084123 = phi ptr [ %.185, %106 ], [ null, %.preheader120.split ]
-  %84 = getelementptr inbounds nuw %struct.anon.18, ptr @numeric_getaddrinfo.list, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr @numeric_getaddrinfo.list, i64 %indvars.iv
   %85 = load i32, ptr %84, align 8, !tbaa !85
   %86 = icmp eq i32 %30, %85
   br i1 %86, label %87, label %106
@@ -1482,7 +1482,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   br i1 %116, label %123, label %119
 
 119:                                              ; preds = %118
-  %120 = getelementptr inbounds nuw %struct.anon.18, ptr @numeric_getaddrinfo.list, i64 %indvars.iv143
+  %120 = getelementptr inbounds nuw [8 x i8], ptr @numeric_getaddrinfo.list, i64 %indvars.iv143
   %121 = load i32, ptr %120, align 8, !tbaa !85
   %122 = icmp eq i32 %110, %121
   br i1 %122, label %123, label %151
@@ -1493,7 +1493,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   br i1 %or.cond107, label %130, label %125
 
 125:                                              ; preds = %123
-  %126 = getelementptr inbounds nuw %struct.anon.18, ptr @numeric_getaddrinfo.list, i64 %indvars.iv143
+  %126 = getelementptr inbounds nuw [8 x i8], ptr @numeric_getaddrinfo.list, i64 %indvars.iv143
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %128 = load i32, ptr %127, align 4, !tbaa !79
   %129 = icmp eq i32 %109, %128
@@ -1512,7 +1512,7 @@ parse_numeric_port.exit:                          ; preds = %17, %7
   store i16 %.0, ptr %136, align 2, !tbaa !89
   %137 = getelementptr inbounds nuw i8, ptr %131, i64 4
   store i32 2, ptr %137, align 4, !tbaa !77
-  %138 = getelementptr inbounds nuw %struct.anon.18, ptr @numeric_getaddrinfo.list, i64 %indvars.iv143
+  %138 = getelementptr inbounds nuw [8 x i8], ptr @numeric_getaddrinfo.list, i64 %indvars.iv143
   %139 = load i32, ptr %138, align 8, !tbaa !85
   %140 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store i32 %139, ptr %140, align 8, !tbaa !60
@@ -3151,7 +3151,7 @@ define internal noundef i64 @addrinfo_initialize(i32 noundef %0, ptr noundef rea
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %40 ]
   %.185.i46 = phi i32 [ 1, %.preheader ], [ %.286.i, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !165
   %30 = icmp slt i32 %.185.i46, %0
   %.not108.i = icmp eq ptr %29, null
@@ -3162,7 +3162,7 @@ define internal noundef i64 @addrinfo_initialize(i32 noundef %0, ptr noundef rea
 
 32:                                               ; preds = %31
   %33 = sext i32 %.185.i46 to i64
-  %34 = getelementptr inbounds i64, ptr %1, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %1, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !35
   store i64 %35, ptr %29, align 8, !tbaa !35
   br label %36
@@ -3738,7 +3738,7 @@ rb_scan_args_n_opt.exit:
 
 19:                                               ; preds = %rb_scan_args_n_opt.exit
   %20 = zext nneg i32 %0 to i64
-  %21 = getelementptr i64, ptr %1, i64 %20
+  %21 = getelementptr [8 x i8], ptr %1, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load i64, ptr %22, align 8, !tbaa !35
   %24 = call i32 @rb_keyword_given_p() #21
@@ -3765,7 +3765,7 @@ rb_scan_args_n_opt.exit:
   br i1 %.not109.i, label %34, label %31
 
 31:                                               ; preds = %.preheader6
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %33 = load i64, ptr %32, align 8, !tbaa !35
   store i64 %33, ptr %30, align 8, !tbaa !35
   br label %34
@@ -3777,7 +3777,7 @@ rb_scan_args_n_opt.exit:
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %47 ], [ 2, %34 ]
   %.185.i11 = phi i32 [ %.286.i, %47 ], [ 2, %34 ]
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
-  %35 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv20
   %36 = load ptr, ptr %35, align 8, !tbaa !165
   %37 = icmp slt i32 %.185.i11, %.0.i
   %.not108.i = icmp eq ptr %36, null
@@ -3788,7 +3788,7 @@ rb_scan_args_n_opt.exit:
 
 39:                                               ; preds = %38
   %40 = sext i32 %.185.i11 to i64
-  %41 = getelementptr inbounds i64, ptr %1, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %1, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !35
   store i64 %42, ptr %36, align 8, !tbaa !35
   br label %43

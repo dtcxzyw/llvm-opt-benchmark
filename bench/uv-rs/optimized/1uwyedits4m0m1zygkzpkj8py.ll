@@ -346,7 +346,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc9:                                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3973fc12699e89c0E.exit.i.i..noexc9_crit_edge", %36
   %40 = phi ptr [ %.pre, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h3973fc12699e89c0E.exit.i.i..noexc9_crit_edge" ], [ %26, %36 ]
-  %41 = getelementptr inbounds nuw { ptr, i64 }, ptr %40, i64 %27
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %27
   store ptr %33, ptr %41, align 8, !noalias !45
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 %34, ptr %42, align 8, !noalias !45
@@ -487,7 +487,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %33 = phi i64 [ 0, %19 ], [ %.pre.i.i, %.noexc.i ]
   %34 = icmp ult i64 %33, 384307168202282326
   tail call void @llvm.assume(i1 %34)
-  %35 = getelementptr inbounds nuw { { { [9 x i8], i8, [6 x i8] } }, i8, [7 x i8] }, ptr %32, i64 %33
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr nonnull readonly align 8 %.val.i, i64 %26, i1 false), !noalias !64
   %36 = add nuw nsw i64 %33, %27
   store i64 %36, ptr %21, align 8, !alias.scope !63, !noalias !58
@@ -6373,8 +6373,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %exitcond.not, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h7b613736a364130cE.llvm.9247416921288015072.exit.thread", label %5
 
 5:                                                ; preds = %.preheader.split
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %.sroa.01.0
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %2, i64 %.sroa.01.0
+  %6 = getelementptr inbounds [16 x i8], ptr %0, i64 %.sroa.01.0
+  %7 = getelementptr inbounds [16 x i8], ptr %2, i64 %.sroa.01.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !728)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !731)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8

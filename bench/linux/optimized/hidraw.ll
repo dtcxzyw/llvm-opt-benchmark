@@ -25,7 +25,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hidraw_disco
 %struct.pcpu_hot = type { %union.anon.16 }
 %union.anon.16 = type { %struct.anon.17, [16 x i8] }
 %struct.anon.17 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.hidraw_report = type { ptr, i32 }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.hidraw_devinfo = type { i32, i16, i16 }
 
@@ -81,7 +80,7 @@ define dso_local range(i32 -12, 1) i32 @hidraw_report_event(ptr noundef readonly
   %22 = tail call ptr @kmemdup(ptr noundef %1, i64 noundef %9, i32 noundef 2080) #14
   %23 = load i32, ptr %14, align 8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr %struct.hidraw_report, ptr %13, i64 %24
+  %25 = getelementptr [16 x i8], ptr %13, i64 %24
   store ptr %22, ptr %25, align 8
   %26 = icmp eq ptr %22, null
   br i1 %26, label %.thread, label %27
@@ -141,13 +140,13 @@ define dso_local i32 @hidraw_connect(ptr noundef %0) #0 align 16 {
   br label %20
 
 8:                                                ; preds = %.preheader
-  %9 = getelementptr ptr, ptr @hidraw_table, i64 %17
+  %9 = getelementptr [8 x i8], ptr @hidraw_table, i64 %17
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %.preheader, !llvm.loop !9
 
 12:                                               ; preds = %8
-  %13 = getelementptr ptr, ptr @hidraw_table, i64 %17
+  %13 = getelementptr [8 x i8], ptr @hidraw_table, i64 %17
   %14 = icmp samesign ult i64 %16, 63
   %15 = trunc nuw nsw i64 %17 to i32
   store ptr %3, ptr %13, align 8
@@ -179,7 +178,7 @@ define dso_local i32 @hidraw_connect(ptr noundef %0) #0 align 16 {
 
 29:                                               ; preds = %20
   %30 = zext nneg i32 %21 to i64
-  %31 = getelementptr ptr, ptr @hidraw_table, i64 %30
+  %31 = getelementptr [8 x i8], ptr @hidraw_table, i64 %30
   store ptr null, ptr %31, align 8
   tail call void @up_write(ptr noundef nonnull @minors_rwsem) #13
   %32 = load ptr, ptr %27, align 8
@@ -265,7 +264,7 @@ define dso_local void @hidraw_disconnect(ptr noundef readonly captures(none) %0)
 23:                                               ; preds = %20
   %24 = load i32, ptr %3, align 8
   %25 = zext i32 %24 to i64
-  %26 = getelementptr ptr, ptr @hidraw_table, i64 %25
+  %26 = getelementptr [8 x i8], ptr @hidraw_table, i64 %25
   store ptr null, ptr %26, align 8
   tail call void @kfree(ptr noundef %3) #13
   br label %drop_ref.exit
@@ -483,7 +482,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr noundef 
 .thread:                                          ; preds = %.loopexit..thread_crit_edge, %19
   %56 = phi i32 [ %.pre11, %.loopexit..thread_crit_edge ], [ %20, %19 ]
   %57 = sext i32 %56 to i64
-  %.split = getelementptr %struct.hidraw_report, ptr %7, i64 %57
+  %.split = getelementptr [16 x i8], ptr %7, i64 %57
   %58 = getelementptr i8, ptr %.split, i64 8
   %59 = load i32, ptr %58, align 8
   %60 = sext i32 %59 to i64
@@ -513,7 +512,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr noundef 
 ._crit_edge:                                      ; preds = %69
   %.pre12 = load i32, ptr %15, align 4
   %.phi.trans.insert = sext i32 %.pre12 to i64
-  %.phi.trans.insert13 = getelementptr %struct.hidraw_report, ptr %7, i64 %.phi.trans.insert
+  %.phi.trans.insert13 = getelementptr [16 x i8], ptr %7, i64 %.phi.trans.insert
   %.pre14 = load ptr, ptr %.phi.trans.insert13, align 8
   br label %72
 
@@ -523,7 +522,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr noundef 
   call void @kfree(ptr noundef %73) #13
   %75 = load i32, ptr %15, align 4
   %76 = sext i32 %75 to i64
-  %77 = getelementptr %struct.hidraw_report, ptr %7, i64 %76
+  %77 = getelementptr [16 x i8], ptr %7, i64 %76
   store ptr null, ptr %77, align 8
   %78 = load i32, ptr %15, align 4
   %79 = add i32 %78, 1
@@ -603,7 +602,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr noundef
   %10 = inttoptr i64 %2 to ptr
   tail call void @down_read(ptr noundef nonnull @minors_rwsem) #13
   %11 = zext nneg i32 %9 to i64
-  %12 = getelementptr ptr, ptr @hidraw_table, i64 %11
+  %12 = getelementptr [8 x i8], ptr @hidraw_table, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %156, label %15
@@ -845,7 +844,7 @@ define internal i32 @hidraw_open(ptr noundef readonly captures(none) %0, ptr nou
   %9 = and i32 %4, 1048575
   tail call void @down_write(ptr noundef nonnull @minors_rwsem) #13
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr ptr, ptr @hidraw_table, i64 %10
+  %11 = getelementptr [8 x i8], ptr @hidraw_table, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread7, label %14
@@ -964,7 +963,7 @@ define internal noundef i32 @hidraw_release(ptr noundef readonly captures(none) 
   %7 = load ptr, ptr %6, align 8
   tail call void @down_write(ptr noundef nonnull @minors_rwsem) #13
   %8 = zext nneg i32 %5 to i64
-  %9 = getelementptr ptr, ptr @hidraw_table, i64 %8
+  %9 = getelementptr [8 x i8], ptr @hidraw_table, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %11) #13
@@ -978,12 +977,12 @@ define internal noundef i32 @hidraw_release(ptr noundef readonly captures(none) 
 .preheader:                                       ; preds = %2, %.preheader
   %18 = phi i32 [ %27, %.preheader ], [ %15, %2 ]
   %19 = sext i32 %18 to i64
-  %20 = getelementptr %struct.hidraw_report, ptr %7, i64 %19
+  %20 = getelementptr [16 x i8], ptr %7, i64 %19
   %21 = load ptr, ptr %20, align 8
   tail call void @kfree(ptr noundef %21) #13
   %22 = load i32, ptr %13, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr %struct.hidraw_report, ptr %7, i64 %23
+  %24 = getelementptr [16 x i8], ptr %7, i64 %23
   store ptr null, ptr %24, align 8
   %25 = load i32, ptr %13, align 4
   %26 = add i32 %25, 1
@@ -1024,7 +1023,7 @@ define internal noundef i32 @hidraw_release(ptr noundef readonly captures(none) 
 46:                                               ; preds = %42
   %47 = load i32, ptr %37, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr ptr, ptr @hidraw_table, i64 %48
+  %49 = getelementptr [8 x i8], ptr @hidraw_table, i64 %48
   store ptr null, ptr %49, align 8
   tail call void @kfree(ptr noundef %37) #13
   br label %61
@@ -1090,7 +1089,7 @@ declare dso_local void @down_read(ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i64 -2147483648, 2147483648) i64 @hidraw_send_report(i32 %.168.val.76.val, ptr noundef %0, i64 noundef %1, i8 noundef zeroext range(i8 0, 3) %2) unnamed_addr #0 align 16 {
   %4 = and i32 %.168.val.76.val, 1048575
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr ptr, ptr @hidraw_table, i64 %5
+  %6 = getelementptr [8 x i8], ptr @hidraw_table, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %53, label %9
@@ -1199,7 +1198,7 @@ define internal fastcc range(i64 -2147483648, 16384) i64 @hidraw_get_report(i32 
   %5 = and i32 %.168.val.76.val, 1048575
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr ptr, ptr @hidraw_table, i64 %6
+  %7 = getelementptr [8 x i8], ptr @hidraw_table, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %51, label %10

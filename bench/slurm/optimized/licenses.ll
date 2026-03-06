@@ -280,7 +280,7 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef capt
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %20 = phi i8 [ %16, %.lr.ph ], [ %36, %34 ]
   %21 = sext i8 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %18, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %18, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 8192
   %.not51 = icmp eq i16 %24, 0
@@ -1356,14 +1356,14 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 
 .lr.ph:                                           ; preds = %7, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 8, %7 ]
-  %10 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8
   %.not60 = icmp eq i64 %11, 0
   br i1 %.not60, label %20, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = load ptr, ptr @assoc_mgr_tres_array, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
@@ -1502,7 +1502,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
   %70 = load i32, ptr %61, align 8
   %71 = zext i32 %70 to i64
   %72 = sext i32 %68 to i64
-  %73 = getelementptr inbounds i64, ptr %3, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %3, i64 %72
   store i64 %71, ptr %73, align 8
   br label %.backedge.us79
 
@@ -1590,7 +1590,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
   %108 = load i32, ptr %107, align 8
   %109 = zext i32 %108 to i64
   %110 = sext i32 %97 to i64
-  %111 = getelementptr inbounds i64, ptr %3, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %3, i64 %110
   store i64 %109, ptr %111, align 8
   br label %.backedge
 
@@ -2546,7 +2546,7 @@ define dso_local void @license_set_job_tres_cnt(ptr noundef %0, ptr noundef writ
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = sext i32 %16 to i64
-  %22 = getelementptr inbounds i64, ptr %1, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %1, i64 %21
   store i64 %20, ptr %22, align 8
   br label %23
 

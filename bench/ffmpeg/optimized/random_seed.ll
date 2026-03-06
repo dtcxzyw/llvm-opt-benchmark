@@ -120,7 +120,7 @@ define i32 @av_get_random_seed() local_unnamed_addr #0 {
   %50 = add i64 %49, 1
   store i64 %50, ptr @get_generic_seed.i, align 8, !tbaa !4
   %51 = and i64 %50, 511
-  %52 = getelementptr inbounds nuw i32, ptr @get_generic_seed.buffer, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @get_generic_seed.buffer, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !8
   %54 = add i32 %53, %48
   store i32 %54, ptr %52, align 4, !tbaa !8
@@ -147,7 +147,7 @@ define i32 @av_get_random_seed() local_unnamed_addr #0 {
   %64 = add i64 %63, 1
   store i64 %64, ptr @get_generic_seed.i, align 8, !tbaa !4
   %65 = and i64 %64, 511
-  %66 = getelementptr inbounds nuw i32, ptr @get_generic_seed.buffer, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr @get_generic_seed.buffer, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !8
   %68 = add i32 %62, %67
   store i32 %68, ptr %66, align 4, !tbaa !8
@@ -156,7 +156,7 @@ define i32 @av_get_random_seed() local_unnamed_addr #0 {
 69:                                               ; preds = %55
   %70 = load i64, ptr @get_generic_seed.i, align 8, !tbaa !4
   %71 = and i64 %70, 511
-  %72 = getelementptr inbounds nuw i32, ptr @get_generic_seed.buffer, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr @get_generic_seed.buffer, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !8
   %74 = mul i32 %73, 1664525
   %75 = icmp ult i32 %40, -1000328775

@@ -28,7 +28,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.event_command = type { %struct.list_head, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.srcu_struct = type { i32, ptr, %struct.lockdep_map, ptr }
 %struct.lockdep_map = type {}
-%struct.probe_arg = type { ptr, i8, i32, i32, ptr, ptr, ptr, ptr }
 %struct.traceprobe_parse_context = type { ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i32, i32 }
 %struct.trace_event_buffer = type { ptr, ptr, ptr, ptr, i32, ptr }
 
@@ -863,7 +862,7 @@ define internal noundef i32 @eprobe_dyn_event_show(ptr noundef %0, ptr noundef r
 35:                                               ; preds = %35, %33
   %36 = phi i32 [ 0, %33 ], [ %43, %35 ]
   %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct.probe_arg, ptr %34, i64 %37
+  %38 = getelementptr [56 x i8], ptr %34, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -1142,7 +1141,7 @@ define internal i32 @__trace_eprobe_create(i32 noundef %0, ptr noundef %1) #0 al
 
 sub_0:                                            ; preds = %.tail.thread, %49
   %51 = phi i64 [ 2, %49 ], [ %64, %.tail.thread ]
-  %52 = getelementptr ptr, ptr %1, i64 %51
+  %52 = getelementptr [8 x i8], ptr %1, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = load i8, ptr %53, align 1
   %.not = icmp eq i8 %54, 105
@@ -1395,7 +1394,7 @@ sub_1:                                            ; preds = %sub_0
 192:                                              ; preds = %190
   call void @trace_probe_log_set_index(i32 noundef %66) #15
   %193 = sext i32 %66 to i64
-  %194 = getelementptr ptr, ptr %1, i64 %193
+  %194 = getelementptr [8 x i8], ptr %1, i64 %193
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %195 = icmp eq i32 %67, 0
@@ -1416,7 +1415,7 @@ sub_1:                                            ; preds = %sub_0
 201:                                              ; preds = %201, %198
   %202 = phi i64 [ 0, %198 ], [ %210, %201 ]
   %203 = phi i32 [ 0, %198 ], [ %209, %201 ]
-  %204 = getelementptr ptr, ptr %194, i64 %202
+  %204 = getelementptr [8 x i8], ptr %194, i64 %202
   %205 = load ptr, ptr %204, align 8
   %206 = call i64 @strlen(ptr noundef %205) #15
   %207 = trunc i64 %206 to i32
@@ -1448,7 +1447,7 @@ sub_1:                                            ; preds = %sub_0
   %223 = phi i32 [ %212, %218 ], [ %232, %220 ]
   %224 = icmp eq i64 %221, 0
   %225 = sext i32 %223 to i64
-  %226 = getelementptr ptr, ptr %194, i64 %221
+  %226 = getelementptr [8 x i8], ptr %194, i64 %221
   %227 = select i1 %224, ptr @.str.7, ptr @.str.6
   %228 = load ptr, ptr %226, align 8
   %229 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %222, i64 noundef %225, ptr noundef nonnull %227, ptr noundef %228) #15
@@ -1536,7 +1535,7 @@ sub_1:                                            ; preds = %sub_0
   %277 = load ptr, ptr %261, align 8
   store ptr %277, ptr %3, align 8
   store i32 10, ptr %262, align 8
-  %278 = getelementptr ptr, ptr %258, i64 %274
+  %278 = getelementptr [8 x i8], ptr %258, i64 %274
   %279 = load ptr, ptr %278, align 8
   %280 = call i32 @traceprobe_parse_probe_arg(ptr noundef nonnull %263, i32 noundef %275, ptr noundef %279, ptr noundef nonnull %3) #15
   %281 = icmp eq i32 %280, 0
@@ -1548,7 +1547,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.loopexit
 
 282:                                              ; preds = %273
-  %283 = getelementptr %struct.probe_arg, ptr %264, i64 %274
+  %283 = getelementptr [56 x i8], ptr %264, i64 %274
   %284 = call i32 @traceprobe_update_arg(ptr noundef %283) #15
   call void @traceprobe_finish_parse(ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2382,7 +2381,7 @@ define internal void @eprobe_trigger_func(ptr noundef readonly captures(none) %0
   %42 = phi i32 [ 0, %38 ], [ %485, %.loopexit22 ]
   %43 = phi i32 [ 0, %38 ], [ %486, %.loopexit22 ]
   %44 = sext i32 %43 to i64
-  %45 = getelementptr %struct.probe_arg, ptr %39, i64 %44
+  %45 = getelementptr [56 x i8], ptr %39, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i8, ptr %46, align 8, !range !53, !noundef !54
   %48 = icmp eq i8 %47, 0
@@ -3142,7 +3141,7 @@ thread-pre-split:                                 ; preds = %231, %233, %241, %.
   %516 = phi ptr [ %511, %508 ], [ %545, %534 ]
   %517 = phi i32 [ %489, %508 ], [ %543, %534 ]
   %518 = sext i32 %515 to i64
-  %519 = getelementptr %struct.probe_arg, ptr %512, i64 %518
+  %519 = getelementptr [56 x i8], ptr %512, i64 %518
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 12
   %521 = load i32, ptr %520, align 4
   %522 = zext i32 %521 to i64

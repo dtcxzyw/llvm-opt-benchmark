@@ -12,15 +12,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage.11" = type { [32 x %"struct.llvh::AlignedCharArrayUnion.12"] }
 %"struct.llvh::AlignedCharArrayUnion.12" = type { %"struct.llvh::AlignedCharArray.13" }
 %"struct.llvh::AlignedCharArray.13" = type { [4 x i8] }
-%"class.std::unique_ptr.107" = type { %"struct.std::__uniq_ptr_data.108" }
-%"struct.std::__uniq_ptr_data.108" = type { %"class.std::__uniq_ptr_impl.109" }
-%"class.std::__uniq_ptr_impl.109" = type { %"class.std::tuple.110" }
-%"class.std::tuple.110" = type { %"struct.std::_Tuple_impl.111" }
-%"struct.std::_Tuple_impl.111" = type { %"struct.std::_Head_base.114" }
-%"struct.std::_Head_base.114" = type { ptr }
 %"class.llvh::StringRef" = type { ptr, i64 }
 %"struct.std::pair.97" = type { %"class.llvh::StringRef", ptr }
-%"struct.llvh::detail::DenseMapPair" = type { %"struct.std::pair.97" }
 %"struct.std::pair.16" = type { %"struct.std::pair.14", ptr }
 %"struct.std::pair.14" = type { i64, ptr }
 %"class.llvh::SmallVector.20" = type { %"class.llvh::SmallVectorImpl.21", %"struct.llvh::SmallVectorStorage.24" }
@@ -45,7 +38,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage.94" = type { [10 x %"struct.llvh::AlignedCharArrayUnion.95"] }
 %"struct.llvh::AlignedCharArrayUnion.95" = type { %"struct.llvh::AlignedCharArray.96" }
 %"struct.llvh::AlignedCharArray.96" = type { [16 x i8] }
-%"struct.std::pair" = type { ptr, ptr }
 %"class.llvh::SmallVector.85" = type { %"class.llvh::SmallVectorImpl.86", %"struct.llvh::SmallVectorStorage.89" }
 %"class.llvh::SmallVectorImpl.86" = type { %"class.llvh::SmallVectorTemplateBase.87" }
 %"class.llvh::SmallVectorTemplateBase.87" = type { %"class.llvh::SmallVectorTemplateCommon.88" }
@@ -107,7 +99,7 @@ $_ZTVN4llvh10FoldingSetIN6hermes6parser10JSONNumberEEE = comdat any
 define hidden noundef nonnull ptr @_ZN6hermes6parser16JSONKindToStringENS0_8JSONKindE(i32 noundef %kind) local_unnamed_addr #0 {
 entry:
   %0 = zext nneg i32 %kind to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6hermes6parser16JSONKindToStringENS0_8JSONKindE, i64 %0
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6hermes6parser16JSONKindToStringENS0_8JSONKindE, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -141,8 +133,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %__begin3.sroa.3.031 = phi i64 [ 0, %for.body.lr.ph ], [ %inc.i, %for.body ]
   %3 = load ptr, ptr %hiddenClass_.i.i, align 8
   %keys_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %keys_.i.i, i64 %__begin3.sroa.3.031
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i, i64 %__begin3.sroa.3.031
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %keys_.i.i, i64 %__begin3.sroa.3.031
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %add.ptr.i.i.i.i, i64 %__begin3.sroa.3.031
   %4 = load ptr, ptr %arrayidx.i.i, align 8
   %5 = load ptr, ptr %arrayidx.i, align 8
   %value_.i = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -301,7 +293,7 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr %2, align 8
   %conv.i.i = zext i32 %3 to i64
   %4 = load ptr, ptr %1, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::unique_ptr.107", ptr %4, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %conv.i.i
   %5 = load ptr, ptr %add.ptr.i.i.i, align 8
   %6 = ptrtoint ptr %5 to i64
   %offset.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -383,7 +375,7 @@ entry:
   %NumBuckets.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i32, ptr %NumBuckets.i.i.i.i, align 8
   %idx.ext.i.i = zext i32 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %2, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %idx.ext.i.i
   %cmp.i.i.not7 = icmp ne ptr %1, %add.ptr.i.i
   %cmp.i.i.not.not = select i1 %call.i.i, i1 %cmp.i.i.not7, i1 false
   br i1 %cmp.i.i.not.not, label %if.then, label %if.end
@@ -400,7 +392,7 @@ if.end:                                           ; preds = %entry
   %6 = load i32, ptr %5, align 8
   %conv.i.i = zext i32 %6 to i64
   %7 = load ptr, ptr %4, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::unique_ptr.107", ptr %7, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %conv.i.i
   %8 = load ptr, ptr %add.ptr.i.i.i, align 8
   %9 = ptrtoint ptr %8 to i64
   %offset.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -439,7 +431,7 @@ _ZN6hermes28BacktrackingBumpPtrAllocator8AllocateINS_12UniqueStringEEEPT_mm.exit
   %17 = load i32, ptr %16, align 8
   %conv.i.i.i = zext i32 %17 to i64
   %18 = load ptr, ptr %15, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.std::unique_ptr.107", ptr %18, i64 %conv.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %conv.i.i.i
   %19 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %20 = ptrtoint ptr %19 to i64
   %offset.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -533,7 +525,7 @@ if.end:                                           ; preds = %entry
   %4 = load i32, ptr %3, align 8
   %conv.i.i = zext i32 %4 to i64
   %5 = load ptr, ptr %2, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::unique_ptr.107", ptr %5, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %conv.i.i
   %6 = load ptr, ptr %add.ptr.i.i.i, align 8
   %7 = ptrtoint ptr %6 to i64
   %offset.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -623,9 +615,9 @@ for.body.lr.ph.i.i.i.i:                           ; preds = %if.end.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end14.i.i.i.i, %for.body.lr.ph.i.i.i.i
   %i.015.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i.i ], [ %inc.i.i.i.i, %if.end14.i.i.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %4, i64 %i.015.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr %4, i64 %i.015.i.i.i.i
   %5 = load ptr, ptr %arrayidx.i.i.i.i, align 8
-  %arrayidx11.i.i.i.i = getelementptr inbounds ptr, ptr %1, i64 %i.015.i.i.i.i
+  %arrayidx11.i.i.i.i = getelementptr inbounds [8 x i8], ptr %1, i64 %i.015.i.i.i.i
   %6 = load ptr, ptr %arrayidx11.i.i.i.i, align 8
   %cmp12.i.i.i.i = icmp ult ptr %5, %6
   br i1 %cmp12.i.i.i.i, label %if.end.i.i.i, label %if.end14.i.i.i.i
@@ -667,9 +659,9 @@ for.body.lr.ph.i.i.i:                             ; preds = %if.end.i5.i.i
 
 for.body.i.i.i:                                   ; preds = %if.end14.i.i.i, %for.body.lr.ph.i.i.i
   %i.015.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %if.end14.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %1, i64 %i.015.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %1, i64 %i.015.i.i.i
   %10 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %arrayidx11.i.i.i = getelementptr inbounds ptr, ptr %9, i64 %i.015.i.i.i
+  %arrayidx11.i.i.i = getelementptr inbounds [8 x i8], ptr %9, i64 %i.015.i.i.i
   %11 = load ptr, ptr %arrayidx11.i.i.i, align 8
   %cmp12.i.i.i = icmp ult ptr %10, %11
   br i1 %cmp12.i.i.i, label %if.end, label %if.end14.i.i.i
@@ -695,7 +687,7 @@ if.end:                                           ; preds = %for.body.i.i.i, %lo
   %14 = load i32, ptr %13, align 8
   %conv.i.i = zext i32 %14 to i64
   %15 = load ptr, ptr %12, align 8
-  %add.ptr.i.i.i6 = getelementptr inbounds nuw %"class.std::unique_ptr.107", ptr %15, i64 %conv.i.i
+  %add.ptr.i.i.i6 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %conv.i.i
   %16 = load ptr, ptr %add.ptr.i.i.i6, align 8
   %17 = ptrtoint ptr %16 to i64
   %offset.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -902,7 +894,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %if.en
   br i1 %cmp.i.not3.i.i.i.i, label %_ZN4llvh11SmallVectorIPN6hermes6parser10JSONStringELj10EEC2INS1_17PairFirstIteratorIPSt4pairIS4_PNS2_9JSONValueEEEEvEET_SE_.exit, label %for.body.i.i.i.i.i.i.i.i.preheader.i.i
 
 for.body.i.i.i.i.i.i.i.i.preheader.i.i:           ; preds = %if.end.i.i
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %.pre7, i64 %conv.i7.pre-phi.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.pre7, i64 %conv.i7.pre-phi.i.i
   br label %for.body.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.preheader.i.i
@@ -940,7 +932,7 @@ _ZN4llvh11SmallVectorIPN6hermes6parser10JSONStringELj10EEC2INS1_17PairFirstItera
   %11 = load i32, ptr %10, align 8
   %conv.i.i.i.i = zext i32 %11 to i64
   %12 = load ptr, ptr %8, align 8
-  %add.ptr.i.i.i.i.i1 = getelementptr inbounds nuw %"class.std::unique_ptr.107", ptr %12, i64 %conv.i.i.i.i
+  %add.ptr.i.i.i.i.i1 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %conv.i.i.i.i
   %13 = load ptr, ptr %add.ptr.i.i.i.i.i1, align 8
   %14 = ptrtoint ptr %13 to i64
   %offset.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1029,9 +1021,9 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %if.end14, %for.body.lr.ph
   %i.015 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end14 ]
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %i.015
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %3, i64 %i.015
   %5 = load ptr, ptr %arrayidx, align 8
-  %arrayidx11 = getelementptr inbounds ptr, ptr %4, i64 %i.015
+  %arrayidx11 = getelementptr inbounds [8 x i8], ptr %4, i64 %i.015
   %6 = load ptr, ptr %arrayidx11, align 8
   %cmp12 = icmp ult ptr %5, %6
   br i1 %cmp12, label %return, label %if.end14
@@ -1321,7 +1313,7 @@ _ZN4llvh23SmallVectorTemplateBaseISt4pairIPN6hermes6parser10JSONStringEPNS3_9JSO
   %12 = phi i32 [ %.pre.i, %if.then.i ], [ %10, %if.then23 ]
   %13 = load ptr, ptr %pairs, align 8
   %conv.i3.i = zext i32 %12 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %13, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %conv.i3.i
   store ptr %call11, ptr %add.ptr.i.i, align 1
   %ref.tmp24.sroa.2.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   store ptr %9, ptr %ref.tmp24.sroa.2.0.add.ptr.i.i.sroa_idx, align 1
@@ -1360,7 +1352,7 @@ if.end49:                                         ; preds = %_ZN4llvh23SmallVect
   %18 = load ptr, ptr %pairs, align 8
   %19 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i = zext i32 %19 to i64
-  %add.ptr.i77 = getelementptr inbounds nuw %"struct.std::pair", ptr %18, i64 %conv.i
+  %add.ptr.i77 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %conv.i
   %call55 = call noundef ptr @_ZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS0_10JSONStringEPNS0_9JSONValueEES8_(ptr noundef %18, ptr noundef %add.ptr.i77)
   %tobool.not = icmp eq ptr %call55, null
   br i1 %tobool.not, label %if.end61, label %_ZN4llvhplERKNS_5TwineES2_.exit
@@ -1396,7 +1388,7 @@ if.end61:                                         ; preds = %if.end49
   %23 = load ptr, ptr %pairs, align 8
   %24 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i35 = zext i32 %24 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %conv.i35
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %conv.i35
   %call66 = call noundef ptr @_ZN6hermes6parser11JSONFactory9newObjectEPSt4pairIPNS0_10JSONStringEPNS0_9JSONValueEES8_b(ptr noundef nonnull align 8 dereferenceable(120) %22, ptr noundef %23, ptr noundef %add.ptr.i, i1 noundef zeroext true)
   %25 = ptrtoint ptr %call66 to i64
   br label %cleanup
@@ -1457,7 +1449,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6parser9JSONValueELb1EE9push_backERKS
   %5 = phi i32 [ %.pre.i, %if.then.i ], [ %3, %if.end ]
   %6 = load ptr, ptr %storage, align 8
   %conv.i3.i = zext i32 %5 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %6, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %conv.i3.i
   store i64 %1, ptr %add.ptr.i.i, align 1
   %7 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i = add i32 %7, 1
@@ -1503,7 +1495,7 @@ if.end27:                                         ; preds = %_ZN4llvh23SmallVect
   %16 = load i32, ptr %15, align 8
   %conv.i.i.i.i = zext i32 %16 to i64
   %17 = load ptr, ptr %14, align 8
-  %add.ptr.i.i.i.i.i8 = getelementptr inbounds nuw %"class.std::unique_ptr.107", ptr %17, i64 %conv.i.i.i.i
+  %add.ptr.i.i.i.i.i8 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %conv.i.i.i.i
   %18 = load ptr, ptr %add.ptr.i.i.i.i.i8, align 8
   %19 = ptrtoint ptr %18 to i64
   %offset.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1607,7 +1599,7 @@ while.body.us.us:                                 ; preds = %if.end.split.us, %_
   %FoundTombstone.0.us.us = phi ptr [ %spec.select.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us.us ], [ null, %if.end.split.us ]
   %BucketNo.0.us.us = and i32 %call5.pn.us.us, %sub
   %idx.ext.us.us = zext i32 %BucketNo.0.us.us to i64
-  %add.ptr.us.us = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us.us
+  %add.ptr.us.us = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %idx.ext.us.us
   %agg.tmp6.sroa.0.0.copyload.us.us = load ptr, ptr %add.ptr.us.us, align 8
   %magicptr.i.us.us = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us.us to i64
   switch i64 %magicptr.i.us.us, label %if.end19.i.us.us [
@@ -1643,7 +1635,7 @@ while.body.us:                                    ; preds = %if.end.split.us, %_
   %FoundTombstone.0.us = phi ptr [ %spec.select.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us ], [ null, %if.end.split.us ]
   %BucketNo.0.us = and i32 %call5.pn.us, %sub
   %idx.ext.us = zext i32 %BucketNo.0.us to i64
-  %add.ptr.us = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us
+  %add.ptr.us = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %idx.ext.us
   %agg.tmp6.sroa.0.0.copyload.us = load ptr, ptr %add.ptr.us, align 8
   %magicptr = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us to i64
   switch i64 %magicptr, label %if.end19.i.us [
@@ -1682,7 +1674,7 @@ while.body.us50:                                  ; preds = %if.end.split, %_ZN4
   %FoundTombstone.0.us53 = phi ptr [ %spec.select.us72, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us68 ], [ null, %if.end.split ]
   %BucketNo.0.us54 = and i32 %call5.pn.us52, %sub
   %idx.ext.us55 = zext i32 %BucketNo.0.us54 to i64
-  %add.ptr.us56 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us55
+  %add.ptr.us56 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %idx.ext.us55
   %agg.tmp6.sroa.0.0.copyload.us57 = load ptr, ptr %add.ptr.us56, align 8
   %magicptr133 = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us57 to i64
   switch i64 %magicptr133, label %if.end19.i.us61 [
@@ -1723,7 +1715,7 @@ while.body.us83:                                  ; preds = %if.end.split.split,
   %FoundTombstone.0.us86 = phi ptr [ %spec.select.us106, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us102 ], [ null, %if.end.split.split ]
   %BucketNo.0.us87 = and i32 %call5.pn.us85, %sub
   %idx.ext.us88 = zext i32 %BucketNo.0.us87 to i64
-  %add.ptr.us89 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us88
+  %add.ptr.us89 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %idx.ext.us88
   %agg.tmp6.sroa.0.0.copyload.us90 = load ptr, ptr %add.ptr.us89, align 8
   %magicptr134 = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us90 to i64
   switch i64 %magicptr134, label %if.end19.i.us94 [
@@ -1761,7 +1753,7 @@ while.body:                                       ; preds = %if.end.split.split,
   %FoundTombstone.0 = phi ptr [ %spec.select, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40 ], [ null, %if.end.split.split ]
   %BucketNo.0 = and i32 %call5.pn, %sub
   %idx.ext = zext i32 %BucketNo.0 to i64
-  %add.ptr = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %idx.ext
   %agg.tmp6.sroa.0.0.copyload = load ptr, ptr %add.ptr, align 8
   %switch = icmp ugt ptr %agg.tmp6.sroa.0.0.copyload, inttoptr (i64 -3 to ptr)
   br i1 %switch, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27, label %if.end19.i
@@ -2100,9 +2092,9 @@ for.body.lr.ph.i.i:                               ; preds = %if.end.i.i
 
 for.body.i.i:                                     ; preds = %if.end14.i.i, %for.body.lr.ph.i.i
   %i.015.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %if.end14.i.i ]
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %2, i64 %i.015.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %i.015.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
-  %arrayidx11.i.i = getelementptr inbounds ptr, ptr %4, i64 %i.015.i.i
+  %arrayidx11.i.i = getelementptr inbounds [8 x i8], ptr %4, i64 %i.015.i.i
   %6 = load ptr, ptr %arrayidx11.i.i, align 8
   %cmp12.i.i = icmp ult ptr %5, %6
   br i1 %cmp12.i.i, label %cond.end.i, label %if.end14.i.i
@@ -2171,9 +2163,9 @@ for.body.lr.ph.i10.i:                             ; preds = %if.end.i7.i
 
 for.body.i13.i:                                   ; preds = %if.end14.i18.i, %for.body.lr.ph.i10.i
   %i.015.i14.i = phi i64 [ 0, %for.body.lr.ph.i10.i ], [ %inc.i20.i, %if.end14.i18.i ]
-  %arrayidx.i15.i = getelementptr inbounds ptr, ptr %11, i64 %i.015.i14.i
+  %arrayidx.i15.i = getelementptr inbounds [8 x i8], ptr %11, i64 %i.015.i14.i
   %13 = load ptr, ptr %arrayidx.i15.i, align 8
-  %arrayidx11.i16.i = getelementptr inbounds ptr, ptr %12, i64 %i.015.i14.i
+  %arrayidx11.i16.i = getelementptr inbounds [8 x i8], ptr %12, i64 %i.015.i14.i
   %14 = load ptr, ptr %arrayidx11.i16.i, align 8
   %cmp12.i17.i = icmp ult ptr %13, %14
   br i1 %cmp12.i17.i, label %if.then, label %if.end14.i18.i
@@ -2211,9 +2203,9 @@ for.body.lr.ph.i.i10:                             ; preds = %if.end.i.i8
 
 for.body.i.i13:                                   ; preds = %if.end14.i.i18, %for.body.lr.ph.i.i10
   %i.015.i.i14 = phi i64 [ 0, %for.body.lr.ph.i.i10 ], [ %inc.i.i20, %if.end14.i.i18 ]
-  %arrayidx.i.i15 = getelementptr inbounds ptr, ptr %18, i64 %i.015.i.i14
+  %arrayidx.i.i15 = getelementptr inbounds [8 x i8], ptr %18, i64 %i.015.i.i14
   %20 = load ptr, ptr %arrayidx.i.i15, align 8
-  %arrayidx11.i.i16 = getelementptr inbounds ptr, ptr %19, i64 %i.015.i.i14
+  %arrayidx11.i.i16 = getelementptr inbounds [8 x i8], ptr %19, i64 %i.015.i.i14
   %21 = load ptr, ptr %arrayidx11.i.i16, align 8
   %cmp12.i.i17 = icmp ult ptr %20, %21
   br i1 %cmp12.i.i17, label %_ZNSt8_Rb_treeISt4pairImPKPN6hermes6parser10JSONStringEES0_IKS7_PNS2_15JSONHiddenClassEESt10_Select1stISB_ENS2_11JSONFactory18LessHiddenClassKeyESaISB_EE10_M_insert_ISB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit, label %if.end14.i.i18
@@ -2276,7 +2268,7 @@ if.then:                                          ; preds = %while.body
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub25, 4
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -2
   %div17.i.i.i = lshr i64 %sub.i.i.i, 1
-  %add.ptr9.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %div17.i.i.i
+  %add.ptr9.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %__first, i64 %div17.i.i.i
   %__value.sroa.0.0.copyload10.i.i.i = load ptr, ptr %add.ptr9.i.i.i, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx11.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr9.i.i.i, i64 8
   %__value.sroa.2.0.copyload12.i.i.i = load ptr, ptr %__value.sroa.2.0.add.ptr.sroa_idx11.i.i.i, align 8
@@ -2286,7 +2278,7 @@ if.then:                                          ; preds = %while.body
 if.end8.split.i.i.i:                              ; preds = %if.then, %if.end8.split.i.i.i
   %__parent.02.i.i.i = phi i64 [ %dec.i.i.i, %if.end8.split.i.i.i ], [ %div17.i.i.i, %if.then ]
   %dec.i.i.i = add nsw i64 %__parent.02.i.i.i, -1
-  %add.ptr13.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %dec.i.i.i
+  %add.ptr13.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %__first, i64 %dec.i.i.i
   %__value.sroa.0.0.copyload14.i.i.i = load ptr, ptr %add.ptr13.i.i.i, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx15.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr13.i.i.i, i64 8
   %__value.sroa.2.0.copyload16.i.i.i = load ptr, ptr %__value.sroa.2.0.add.ptr.sroa_idx15.i.i.i, align 8
@@ -2314,7 +2306,7 @@ while.body.i.i:                                   ; preds = %if.end8.split.i.i.i
 if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.023, -1
   %div.i1415 = lshr i64 %sub.ptr.sub25, 5
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %div.i1415
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %__first, i64 %div.i1415
   %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.024, i64 -16
   %__a.val24.i.i = load ptr, ptr %add.ptr1.i, align 8
   %__b.val25.i.i = load ptr, ptr %add.ptr.i, align 8
@@ -2559,8 +2551,8 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %__holeIndex.addr.028 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SB_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
   %add = shl nuw nsw i64 %__holeIndex.addr.028, 1
   %mul = add nuw nsw i64 %add, 2
-  %add.ptr = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %mul
-  %0 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %add
+  %add.ptr = getelementptr inbounds nuw [16 x i8], ptr %__first, i64 %mul
+  %0 = getelementptr inbounds nuw [16 x i8], ptr %__first, i64 %add
   %add.ptr2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %add.ptr.val = load ptr, ptr %add.ptr, align 8
   %add.ptr2.val = load ptr, ptr %add.ptr2, align 8
@@ -2595,8 +2587,8 @@ if.end.i.i.i.i:                                   ; preds = %_ZN4llvh9StringRef1
   %retval.i.0.i.i.i = phi i1 [ %cmp.i.inv.i.i.i, %if.then.i.i.i.i ], [ %cmp12.i.i.i.i, %if.end.i.i.i.i ]
   %dec = or disjoint i64 %add, 1
   %spec.select = select i1 %retval.i.0.i.i.i, i64 %dec, i64 %mul
-  %add.ptr3 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %spec.select
-  %add.ptr4 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.028
+  %add.ptr3 = getelementptr inbounds nuw [16 x i8], ptr %__first, i64 %spec.select
+  %add.ptr4 = getelementptr inbounds nuw [16 x i8], ptr %__first, i64 %__holeIndex.addr.028
   %5 = load ptr, ptr %add.ptr3, align 8
   store ptr %5, ptr %add.ptr4, align 8
   %second.i = getelementptr inbounds nuw i8, ptr %add.ptr3, i64 8
@@ -2621,8 +2613,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then10:                                        ; preds = %land.lhs.true
   %add11 = shl nuw nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
-  %add.ptr14 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %sub13
-  %add.ptr15 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr14 = getelementptr inbounds nuw [16 x i8], ptr %__first, i64 %sub13
+  %add.ptr15 = getelementptr inbounds nuw [16 x i8], ptr %__first, i64 %__holeIndex.addr.0.lcssa
   %7 = load ptr, ptr %add.ptr14, align 8
   store ptr %7, ptr %add.ptr15, align 8
   %second.i25 = getelementptr inbounds nuw i8, ptr %add.ptr14, i64 8
@@ -2644,7 +2636,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %__holeIndex.addr.04.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.i ], [ %__parent.058.i, %while.body.i ]
   %__parent.05.in.i = add nsw i64 %__holeIndex.addr.04.i, -1
   %__parent.058.i = lshr i64 %__parent.05.in.i, 1
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__parent.058.i
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %__first, i64 %__parent.058.i
   %add.ptr.val.i = load ptr, ptr %add.ptr.i, align 8
   %10 = getelementptr i8, ptr %add.ptr.val.i, i64 16
   %add.ptr.val.val.i = load ptr, ptr %10, align 8
@@ -2673,7 +2665,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN4llvh9StringRef1
   br i1 %cmp12.i.i.i.i.i, label %while.body.i, label %"_ZSt11__push_heapIPSt4pairIPN6hermes6parser10JSONStringEPNS2_9JSONValueEElS7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_11JSONFactory9sortPropsES8_S8_E3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SA_EEbT_RT0_.exit.i", %if.then.i.i.i.i.i
-  %add.ptr2.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.04.i
+  %add.ptr2.i = getelementptr inbounds nuw [16 x i8], ptr %__first, i64 %__holeIndex.addr.04.i
   store ptr %add.ptr.val.i, ptr %add.ptr2.i, align 8
   %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %13 = load ptr, ptr %second.i.i, align 8
@@ -2684,7 +2676,7 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
 
 "_ZSt11__push_heapIPSt4pairIPN6hermes6parser10JSONStringEPNS2_9JSONValueEElS7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_11JSONFactory9sortPropsES8_S8_E3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %if.then.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SA_EEbT_RT0_.exit.i", %while.body.i, %if.end18
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end18 ], [ %__holeIndex.addr.04.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SA_EEbT_RT0_.exit.i" ], [ %__parent.058.i, %while.body.i ], [ %__holeIndex.addr.04.i, %if.then.i.i.i.i.i ]
-  %add.ptr6.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr6.i = getelementptr inbounds nuw [16 x i8], ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   store ptr %__value.coerce0, ptr %add.ptr6.i, align 8
   %second3.i13.i = getelementptr inbounds nuw i8, ptr %add.ptr6.i, i64 8
   store ptr %__value.coerce1, ptr %second3.i13.i, align 8

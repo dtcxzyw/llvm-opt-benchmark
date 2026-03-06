@@ -23,7 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.DhKey = type { %struct.sp_int, %struct.sp_int, %struct.sp_int, ptr, i32 }
 %struct.ecc_key = type { i32, i32, i32, i32, ptr, ptr, %struct.ecc_point, [1 x %struct.sp_int], ptr }
 %struct.ecc_point = type { [1 x %struct.sp_int], [1 x %struct.sp_int], [1 x %struct.sp_int], i8 }
-%struct.bench_alg = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [28 x i8] c"%swolfCrypt_Init failed %d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [59 x i8] c"%swolfCrypt Benchmark (block bytes %d, min %.*f sec each)\0A\00", align 1
@@ -1446,7 +1445,7 @@ define internal fastcc void @bench_stats_sym_finish(ptr noundef %0, i32 noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @lng_index, align 4, !tbaa !4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds [4 x ptr], ptr @bench_result_words1, i64 %9
+  %10 = getelementptr inbounds [32 x i8], ptr @bench_result_words1, i64 %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(150) %7, i8 0, i64 150, i1 false)
   %11 = tail call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
   %12 = extractvalue { i32, i32 } %11, 0
@@ -1574,7 +1573,7 @@ get_blocktype.exit:                               ; preds = %.sink.split.i31, %5
   %81 = sub i64 150, %79
   %82 = load i32, ptr @lng_index, align 4, !tbaa !4
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds [4 x ptr], ptr @bench_result_words1, i64 %83
+  %84 = getelementptr inbounds [32 x i8], ptr @bench_result_words1, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 16, !tbaa !8
   %87 = icmp eq i32 %1, 0
@@ -5732,7 +5731,7 @@ define dso_local void @bench_rsa(i32 %0) local_unnamed_addr #0 {
 19:                                               ; preds = %15
   %20 = load i32, ptr @lng_index, align 4, !tbaa !4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [15 x ptr], ptr @bench_desc_words, i64 %21
+  %22 = getelementptr inbounds [120 x i8], ptr @bench_desc_words, i64 %21
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = call ptr @wolfSSL_Malloc(i64 noundef 2048) #17
   %24 = icmp eq ptr %23, null
@@ -6099,7 +6098,7 @@ define dso_local void @bench_dh(i32 %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = load i32, ptr @lng_index, align 4, !tbaa !4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [15 x ptr], ptr @bench_desc_words, i64 %18
+  %19 = getelementptr inbounds [120 x i8], ptr @bench_desc_words, i64 %18
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -6361,7 +6360,7 @@ define internal fastcc void @bench_stats_asym_finish(ptr noundef %0, i32 noundef
   %8 = alloca [256 x i8], align 16
   %9 = load i32, ptr @lng_index, align 4, !tbaa !4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds [5 x ptr], ptr @bench_result_words2, i64 %10
+  %11 = getelementptr inbounds [40 x i8], ptr @bench_result_words2, i64 %10
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %8, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -6581,7 +6580,7 @@ bench_async_handle.exit.thread:                   ; preds = %bench_stats_check.e
   %.126 = phi i32 [ %.025, %38 ], [ %.025, %.preheader ], [ %51, %bench_stats_check.exit ]
   %.3 = phi i32 [ %39, %38 ], [ %36, %.preheader ], [ %39, %bench_stats_check.exit ]
   %60 = sext i32 %7 to i64
-  %61 = getelementptr inbounds [15 x ptr], ptr @bench_desc_words, i64 %60
+  %61 = getelementptr inbounds [120 x i8], ptr @bench_desc_words, i64 %60
   %62 = call ptr @wc_ecc_get_name(i32 noundef %1) #17
   %63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 24, ptr noundef nonnull @.str.75, ptr noundef %62) #17
   %64 = shl nsw i32 %8, 3
@@ -6614,7 +6613,7 @@ define dso_local void @bench_ecc(i32 %0, i32 noundef %1) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %14 = load i32, ptr @lng_index, align 4, !tbaa !4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [15 x ptr], ptr @bench_desc_words, i64 %15
+  %16 = getelementptr inbounds [120 x i8], ptr @bench_desc_words, i64 %15
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -7259,7 +7258,7 @@ sub_1:                                            ; preds = %sub_0
 
 107:                                              ; preds = %.preheader, %106
   %indvars.iv306 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %106 ]
-  %108 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_cipher_opt, i64 %indvars.iv306
+  %108 = getelementptr inbounds nuw [16 x i8], ptr @bench_cipher_opt, i64 %indvars.iv306
   %109 = load ptr, ptr %108, align 16, !tbaa !162
   %110 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %109) #20
   %.not180.not = icmp eq i32 %110, 0
@@ -7284,7 +7283,7 @@ sub_1:                                            ; preds = %sub_0
 
 114:                                              ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv233307 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next234, %.lr.ph ]
-  %115 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_digest_opt, i64 %indvars.iv233307
+  %115 = getelementptr inbounds nuw [16 x i8], ptr @bench_digest_opt, i64 %indvars.iv233307
   %116 = load ptr, ptr %115, align 16, !tbaa !162
   %117 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %116) #20
   %.not181.not = icmp eq i32 %117, 0
@@ -7309,7 +7308,7 @@ sub_1:                                            ; preds = %sub_0
 
 121:                                              ; preds = %.lr.ph201.preheader, %.lr.ph201
   %indvars.iv236308 = phi i64 [ 0, %.lr.ph201.preheader ], [ %indvars.iv.next237, %.lr.ph201 ]
-  %122 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_mac_opt, i64 %indvars.iv236308
+  %122 = getelementptr inbounds nuw [16 x i8], ptr @bench_mac_opt, i64 %indvars.iv236308
   %123 = load ptr, ptr %122, align 16, !tbaa !162
   %124 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %123) #20
   %.not182.not = icmp eq i32 %124, 0
@@ -7344,7 +7343,7 @@ sub_1:                                            ; preds = %sub_0
 
 129:                                              ; preds = %.lr.ph215.preheader, %.lr.ph215
   %indvars.iv242309 = phi i64 [ 0, %.lr.ph215.preheader ], [ %indvars.iv.next243, %.lr.ph215 ]
-  %130 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_asym_opt, i64 %indvars.iv242309
+  %130 = getelementptr inbounds nuw [16 x i8], ptr @bench_asym_opt, i64 %indvars.iv242309
   %131 = load ptr, ptr %130, align 16, !tbaa !162
   %132 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %131) #20
   %.not184.not = icmp eq i32 %132, 0
@@ -7369,7 +7368,7 @@ sub_1:                                            ; preds = %sub_0
 
 136:                                              ; preds = %.lr.ph221.preheader, %.lr.ph221
   %indvars.iv245310 = phi i64 [ 0, %.lr.ph221.preheader ], [ %indvars.iv.next246, %.lr.ph221 ]
-  %137 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_other_opt, i64 %indvars.iv245310
+  %137 = getelementptr inbounds nuw [16 x i8], ptr @bench_other_opt, i64 %indvars.iv245310
   %138 = load ptr, ptr %137, align 16, !tbaa !162
   %139 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %138) #20
   %.not185.not = icmp eq i32 %139, 0
@@ -7425,48 +7424,48 @@ define internal fastcc void @Usage() unnamed_addr #12 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %1 = load i32, ptr @lng_index, align 4, !tbaa !4
   %2 = sext i32 %1 to i64
-  %3 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %2
+  %3 = getelementptr inbounds [216 x i8], ptr @bench_Usage_msg1, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !8
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %4)
   %6 = load i32, ptr @lng_index, align 4, !tbaa !4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %7
+  %8 = getelementptr inbounds [216 x i8], ptr @bench_Usage_msg1, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !8
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %10)
   %12 = load i32, ptr @lng_index, align 4, !tbaa !4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %13
+  %14 = getelementptr inbounds [216 x i8], ptr @bench_Usage_msg1, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !8
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %16)
   %18 = load i32, ptr @lng_index, align 4, !tbaa !4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %19
+  %20 = getelementptr inbounds [216 x i8], ptr @bench_Usage_msg1, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !8
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %22)
   %24 = load i32, ptr @lng_index, align 4, !tbaa !4
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %25
+  %26 = getelementptr inbounds [216 x i8], ptr @bench_Usage_msg1, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !8
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %28)
   %30 = load i32, ptr @lng_index, align 4, !tbaa !4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %31
+  %32 = getelementptr inbounds [216 x i8], ptr @bench_Usage_msg1, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !8
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %34)
   %36 = load i32, ptr @lng_index, align 4, !tbaa !4
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %37
+  %38 = getelementptr inbounds [216 x i8], ptr @bench_Usage_msg1, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load ptr, ptr %39, align 8, !tbaa !8
   %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %40)
   %42 = load i32, ptr @lng_index, align 4, !tbaa !4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %43
+  %44 = getelementptr inbounds [216 x i8], ptr @bench_Usage_msg1, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %46 = load ptr, ptr %45, align 8, !tbaa !8
   %47 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %46)
@@ -7474,7 +7473,7 @@ define internal fastcc void @Usage() unnamed_addr #12 {
   %puts103 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
   %48 = load i32, ptr @lng_index, align 4, !tbaa !4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %49
+  %50 = getelementptr inbounds [216 x i8], ptr @bench_Usage_msg1, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 88
   %52 = load ptr, ptr %51, align 8, !tbaa !8
   %53 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %52)
@@ -7486,7 +7485,7 @@ define internal fastcc void @Usage() unnamed_addr #12 {
 54:                                               ; preds = %0, %print_alg.exit
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %print_alg.exit ]
   %.08090 = phi i32 [ 0, %0 ], [ %.7, %print_alg.exit ]
-  %55 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_cipher_opt, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [16 x i8], ptr @bench_cipher_opt, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 16, !tbaa !162
   %57 = icmp eq i32 %.08090, 0
   br i1 %57, label %58, label %60
@@ -7518,7 +7517,7 @@ print_alg.exit:                                   ; preds = %60, %67
 .preheader89:                                     ; preds = %print_alg.exit, %print_alg.exit60
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %print_alg.exit60 ], [ 0, %print_alg.exit ]
   %.18192 = phi i32 [ %.9, %print_alg.exit60 ], [ %.7, %print_alg.exit ]
-  %68 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_digest_opt, i64 %indvars.iv109
+  %68 = getelementptr inbounds nuw [16 x i8], ptr @bench_digest_opt, i64 %indvars.iv109
   %69 = load ptr, ptr %68, align 16, !tbaa !162
   %70 = icmp eq i32 %.18192, 0
   br i1 %70, label %71, label %73
@@ -7550,7 +7549,7 @@ print_alg.exit60:                                 ; preds = %73, %80
 .preheader88:                                     ; preds = %print_alg.exit60, %.preheader88.backedge
   %indvars.iv112 = phi i64 [ %indvars.iv112.be, %.preheader88.backedge ], [ 0, %print_alg.exit60 ]
   %.28294 = phi i32 [ %.28294.be, %.preheader88.backedge ], [ %.9, %print_alg.exit60 ]
-  %81 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_mac_opt, i64 %indvars.iv112
+  %81 = getelementptr inbounds nuw [16 x i8], ptr @bench_mac_opt, i64 %indvars.iv112
   %82 = load ptr, ptr %81, align 16, !tbaa !162
   %83 = icmp eq i32 %.28294, 0
   br i1 %83, label %84, label %86
@@ -7611,7 +7610,7 @@ print_alg.exit62.thread:                          ; preds = %86
 .preheader86:                                     ; preds = %.preheader86.preheader, %print_alg.exit66
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %print_alg.exit66 ], [ 0, %.preheader86.preheader ]
   %.48498 = phi i32 [ %.15, %print_alg.exit66 ], [ %.48498.ph, %.preheader86.preheader ]
-  %101 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_asym_opt, i64 %indvars.iv118
+  %101 = getelementptr inbounds nuw [16 x i8], ptr @bench_asym_opt, i64 %indvars.iv118
   %102 = load ptr, ptr %101, align 16, !tbaa !162
   %103 = icmp eq i32 %.48498, 0
   br i1 %103, label %104, label %106
@@ -7644,7 +7643,7 @@ print_alg.exit66:                                 ; preds = %106, %113
   %.not58 = phi i1 [ true, %print_alg.exit68 ], [ false, %print_alg.exit66 ]
   %indvars.iv121 = phi i64 [ 1, %print_alg.exit68 ], [ 0, %print_alg.exit66 ]
   %.585100 = phi i32 [ %.17, %print_alg.exit68 ], [ %.15, %print_alg.exit66 ]
-  %114 = getelementptr inbounds nuw %struct.bench_alg, ptr @bench_other_opt, i64 %indvars.iv121
+  %114 = getelementptr inbounds nuw [16 x i8], ptr @bench_other_opt, i64 %indvars.iv121
   %115 = load ptr, ptr %114, align 16, !tbaa !162
   %116 = icmp eq i32 %.585100, 0
   br i1 %116, label %117, label %119
@@ -7675,25 +7674,25 @@ print_alg.exit68:                                 ; preds = %119, %126
   %putchar = tail call i32 @putchar(i32 10)
   %128 = load i32, ptr @lng_index, align 4, !tbaa !4
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %129
+  %130 = getelementptr inbounds [216 x i8], ptr @bench_Usage_msg1, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 144
   %132 = load ptr, ptr %131, align 8, !tbaa !8
   %133 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %132)
   %134 = load i32, ptr @lng_index, align 4, !tbaa !4
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %135
+  %136 = getelementptr inbounds [216 x i8], ptr @bench_Usage_msg1, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 152
   %138 = load ptr, ptr %137, align 8, !tbaa !8
   %139 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %138)
   %140 = load i32, ptr @lng_index, align 4, !tbaa !4
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %141
+  %142 = getelementptr inbounds [216 x i8], ptr @bench_Usage_msg1, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 160
   %144 = load ptr, ptr %143, align 8, !tbaa !8
   %145 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %144)
   %146 = load i32, ptr @lng_index, align 4, !tbaa !4
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds [27 x ptr], ptr @bench_Usage_msg1, i64 %147
+  %148 = getelementptr inbounds [216 x i8], ptr @bench_Usage_msg1, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 184
   %150 = load ptr, ptr %149, align 8, !tbaa !8
   %151 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, ptr noundef %150)

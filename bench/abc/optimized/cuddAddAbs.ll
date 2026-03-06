@@ -127,14 +127,14 @@ define ptr @cuddAddExistAbstractRecur(ptr noundef %0, ptr noundef %1, ptr nounde
 
 13:                                               ; preds = %10
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %.pre, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !34
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %13
   %17 = phi i32 [ %16, %13 ], [ 2147483647, %10 ]
   %18 = zext i32 %8 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %.pre, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !34
   %21 = icmp sgt i32 %17, %20
   br i1 %21, label %22, label %.critedge
@@ -392,7 +392,7 @@ define ptr @cuddAddUnivAbstractRecur(ptr noundef %0, ptr noundef %1, ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %17 = load ptr, ptr %16, align 8, !tbaa !33
   %18 = zext i32 %13 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !34
   br label %21
 
@@ -406,7 +406,7 @@ define ptr @cuddAddUnivAbstractRecur(ptr noundef %0, ptr noundef %1, ptr noundef
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %27 = load ptr, ptr %26, align 8, !tbaa !33
   %28 = zext i32 %23 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !34
   %31 = icmp sgt i32 %22, %30
   br i1 %31, label %32, label %.critedge
@@ -663,10 +663,10 @@ define ptr @cuddAddOrAbstractRecur(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 13:                                               ; preds = %.lr.ph.split
   %14 = load ptr, ptr %9, align 8, !tbaa !33
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %10
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %10
   %16 = load i32, ptr %15, align 4, !tbaa !34
   %17 = zext i32 %11 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !34
   %20 = icmp sgt i32 %16, %19
   br i1 %20, label %tailrecurse, label %.critedge

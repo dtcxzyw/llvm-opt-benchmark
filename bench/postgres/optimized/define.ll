@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/define.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [24 x i8] c"%s requires a parameter\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"define.c\00", align 1
 @__func__.defGetString = private unnamed_addr constant [13 x i8] c"defGetString\00", align 1
@@ -599,7 +597,7 @@ define dso_local nonnull ptr @defGetStringList(ptr noundef readonly captures(non
 
 23:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 467

@@ -8,10 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.ozz::log::Logger.base" = type <{ ptr, i8 }>
 %"struct.ozz::animation::Animation::AllocateParams" = type { i64, i64, i64, i64, i64, %"struct.ozz::animation::Animation::AllocateParams::IFrames", %"struct.ozz::animation::Animation::AllocateParams::IFrames", %"struct.ozz::animation::Animation::AllocateParams::IFrames" }
 %"struct.ozz::animation::Animation::AllocateParams::IFrames" = type { i64, i64 }
-%"struct.ozz::animation::Animation::TKeyframesCtrl" = type <{ %"struct.ozz::span.0", %"struct.ozz::span.1", %"struct.ozz::span.0", %"struct.ozz::span.2", float, [4 x i8] }>
-%"struct.ozz::span.1" = type { ptr, i64 }
-%"struct.ozz::span.0" = type { ptr, i64 }
-%"struct.ozz::span.2" = type { ptr, i64 }
 
 $__clang_call_terminate = comdat any
 
@@ -864,7 +860,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
 
 .lr.ph.i.i71:                                     ; preds = %.preheader.i.i69, %.lr.ph.i.i71
   %.0.i5.i.i72 = phi i64 [ %194, %.lr.ph.i.i71 ], [ 0, %.preheader.i.i69 ]
-  %182 = getelementptr inbounds nuw float, ptr %.sroa.05.0.copyload, i64 %.0.i5.i.i72
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.05.0.copyload, i64 %.0.i5.i.i72
   %183 = load float, ptr %182, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %184 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
@@ -908,7 +904,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %.0.i5.i.i.i.i.i = phi i64 [ %214, %.lr.ph.i.i.i.i.i ], [ 0, %.preheader.i.i.i.i.i ]
-  %205 = getelementptr inbounds nuw i16, ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i.i.i.i
+  %205 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i.i.i.i
   %206 = load i16, ptr %205, align 2, !tbaa !77
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %207 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
@@ -950,7 +946,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal9Float3KeyEEEEEv
 
 .lr.ph.i.i.i.i.i75:                               ; preds = %.preheader.i.i.i.i.i73, %.lr.ph.i.i.i.i.i75
   %.0.i5.i.i.i.i.i76 = phi i64 [ %234, %.lr.ph.i.i.i.i.i75 ], [ 0, %.preheader.i.i.i.i.i73 ]
-  %225 = getelementptr inbounds nuw i16, ptr %.sroa.01.0.copyload, i64 %.0.i5.i.i.i.i.i76
+  %225 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.01.0.copyload, i64 %.0.i5.i.i.i.i.i76
   %226 = load i16, ptr %225, align 2, !tbaa !77
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %227 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
@@ -992,7 +988,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayINS_9animation8internal13QuaternionKeyE
 
 .lr.ph.i.i.i.i.i82:                               ; preds = %.preheader.i.i.i.i.i80, %.lr.ph.i.i.i.i.i82
   %.0.i5.i.i.i.i.i83 = phi i64 [ %254, %.lr.ph.i.i.i.i.i82 ], [ 0, %.preheader.i.i.i.i.i80 ]
-  %245 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.copyload, i64 %.0.i5.i.i.i.i.i83
+  %245 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.copyload, i64 %.0.i5.i.i.i.i.i83
   %246 = load i16, ptr %245, align 2, !tbaa !77
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %247 = load i8, ptr %22, align 8, !tbaa !65, !range !69, !noundef !70
@@ -1501,7 +1497,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation9Animation14T
 
 10:                                               ; preds = %.lr.ph, %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIjEEEEvRKT_.exit
   %.066 = phi i64 [ 0, %.lr.ph ], [ %97, %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIjEEEEvRKT_.exit ]
-  %11 = getelementptr inbounds nuw %"struct.ozz::animation::Animation::TKeyframesCtrl", ptr %1, i64 %.066
+  %11 = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %.066
   %.sroa.05.0.copyload = load ptr, ptr %11, align 8, !tbaa !12
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !16
@@ -1552,7 +1548,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
 
 .lr.ph.i.i28:                                     ; preds = %.preheader.i.i26, %.lr.ph.i.i28
   %.0.i5.i.i29 = phi i64 [ %40, %.lr.ph.i.i28 ], [ 0, %.preheader.i.i26 ]
-  %31 = getelementptr inbounds nuw i16, ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i29
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i29
   %32 = load i16, ptr %31, align 2, !tbaa !77
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %33 = load i8, ptr %9, align 8, !tbaa !65, !range !69, !noundef !70
@@ -1631,7 +1627,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit34: ; preds = %.lr.ph.i
 
 .lr.ph.i.i37:                                     ; preds = %.preheader.i.i35, %.lr.ph.i.i37
   %.0.i5.i.i38 = phi i64 [ %77, %.lr.ph.i.i37 ], [ 0, %.preheader.i.i35 ]
-  %68 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload, i64 %.0.i5.i.i38
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload, i64 %.0.i5.i.i38
   %69 = load i32, ptr %68, align 4, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %70 = load i8, ptr %9, align 8, !tbaa !65, !range !69, !noundef !70
@@ -1708,7 +1704,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation9Animation14T
 
 7:                                                ; preds = %.lr.ph, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIjEEEEvRT_.exit
   %.048 = phi i64 [ 0, %.lr.ph ], [ %63, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIjEEEEvRT_.exit ]
-  %8 = getelementptr inbounds nuw %"struct.ozz::animation::Animation::TKeyframesCtrl", ptr %1, i64 %.048
+  %8 = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %.048
   %.sroa.05.0.copyload = load ptr, ptr %8, align 8, !tbaa !12
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !16

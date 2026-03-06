@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.vector = type { ptr }
 %class.obj_ref = type { ptr, ptr }
 %"struct.std::pair.44" = type <{ %class.obj_ref, i32, [4 x i8] }>
-%"struct.std::pair" = type <{ ptr, i32, [4 x i8] }>
 %class.symbol = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -126,7 +125,7 @@ _ZNK9pp_params7boundedEv.exit:                    ; preds = %_ZNK9pp_params10max
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !15
   %24 = zext i32 %.pre2.i to i64
-  %25 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre.i, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %.pre.i, i64 %24
   store ptr %1, ptr %25, align 8
   %.sroa.5195.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 0, ptr %.sroa.5195.0..sroa_idx, align 8
@@ -221,7 +220,7 @@ _ZNK6vectorISt4pairIP3appjELb0EjE5emptyEv.exit:   ; preds = %_ZNK6vectorISt4pair
 64:                                               ; preds = %_ZNK6vectorISt4pairIP3appjELb0EjE5emptyEv.exit
   %65 = add i32 %46, -1
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %"struct.std::pair", ptr %44, i64 %66
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %66
   %.sroa.024.0.copyload = load ptr, ptr %67, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8
@@ -356,7 +355,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i: ; preds = %_ZNK9
 122:                                              ; preds = %.noexc119, %115
   %.pre-phi = phi i64 [ %.pre217, %.noexc119 ], [ %66, %115 ]
   %123 = phi ptr [ %.pre.i116, %.noexc119 ], [ %44, %115 ]
-  %124 = getelementptr inbounds nuw %"struct.std::pair", ptr %123, i64 %.pre-phi
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %123, i64 %.pre-phi
   store ptr %107, ptr %124, align 8
   %.sroa.5181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 8
   store i32 %.sroa.speculated176, ptr %.sroa.5181.0..sroa_idx, align 8
@@ -393,7 +392,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i: ; preds = %_ZNK9
   %136 = phi ptr [ %44, %.lr.ph208 ], [ %149, %144 ]
   %indvars.iv = phi i64 [ %133, %.lr.ph208 ], [ %137, %144 ]
   %137 = add nsw i64 %indvars.iv, -1
-  %138 = getelementptr inbounds nuw ptr, ptr %132, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %137
   %139 = load ptr, ptr %138, align 8, !tbaa !111
   %140 = getelementptr inbounds i8, ptr %136, i64 -8
   %141 = load i32, ptr %140, align 4, !tbaa !15
@@ -414,7 +413,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i: ; preds = %_ZNK9
   %145 = phi i32 [ %.pre2.i125, %.noexc126 ], [ %135, %134 ]
   %146 = phi ptr [ %.pre.i123, %.noexc126 ], [ %136, %134 ]
   %147 = zext i32 %145 to i64
-  %148 = getelementptr inbounds nuw %"struct.std::pair", ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %147
   store ptr %139, ptr %148, align 8
   %.sroa.5173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 8
   store i32 %.sroa.5.0.copyload, ptr %.sroa.5173.0..sroa_idx, align 8
@@ -482,7 +481,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i: ; preds = %_ZNK9
   %177 = phi i32 [ %.pre2.i134, %.noexc135 ], [ %171, %169 ]
   %178 = phi ptr [ %.pre.i132, %.noexc135 ], [ %.pre214, %169 ]
   %179 = zext i32 %177 to i64
-  %180 = getelementptr inbounds nuw %"struct.std::pair", ptr %178, i64 %179
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %178, i64 %179
   store ptr %167, ptr %180, align 8
   %.sroa.5165.0..sroa_idx = getelementptr inbounds nuw i8, ptr %180, i64 8
   store i32 %.sroa.5.0.copyload, ptr %.sroa.5165.0..sroa_idx, align 8
@@ -530,7 +529,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i: ; preds = %_ZNK9
   %203 = phi i32 [ %.pre2.i141, %.noexc142 ], [ %195, %191 ]
   %204 = phi ptr [ %.pre.i139, %.noexc142 ], [ %193, %191 ]
   %205 = zext i32 %203 to i64
-  %206 = getelementptr inbounds nuw %"struct.std::pair", ptr %204, i64 %205
+  %206 = getelementptr inbounds nuw [16 x i8], ptr %204, i64 %205
   store ptr %202, ptr %206, align 8
   %.sroa.5161.0..sroa_idx = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i32 %.sroa.5.0.copyload, ptr %.sroa.5161.0..sroa_idx, align 8
@@ -589,7 +588,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i:      ; preds = %214
   %227 = phi i32 [ %.pre2.i146, %.noexc147 ], [ %221, %220 ]
   %228 = phi ptr [ %.pre.i144, %.noexc147 ], [ %44, %220 ]
   %229 = zext i32 %227 to i64
-  %230 = getelementptr inbounds nuw %"struct.std::pair", ptr %228, i64 %229
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %228, i64 %229
   store ptr %215, ptr %230, align 8
   %.sroa.5.0..sroa_idx158 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store i32 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx158, align 8
@@ -955,7 +954,7 @@ _ZNK9parameter10get_symbolEv.exit:                ; preds = %13
 .critedge:                                        ; preds = %.preheader, %26
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.preheader ]
   %.031 = phi i32 [ %32, %26 ], [ 0, %.preheader ]
-  %29 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !111
   %31 = tail call fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app(ptr noundef %30)
   %.sroa.0.0.extract.trunc = trunc i64 %31 to i32

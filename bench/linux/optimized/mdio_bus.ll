@@ -81,12 +81,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mdio_bus_exi
 %struct.anon.9 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.cpumask = type { [1 x i64] }
 %struct.trace_event_buffer = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.mdio_bus_stats = type { %struct.u64_stats_t, %struct.u64_stats_t, %struct.u64_stats_t, %struct.u64_stats_t, %struct.u64_stats_sync }
-%struct.u64_stats_t = type { %struct.local64_t }
-%struct.local64_t = type { %struct.local_t }
-%struct.local_t = type { %struct.atomic64_t }
-%struct.atomic64_t = type { i64 }
-%struct.u64_stats_sync = type {}
 
 @__tpstrtab_mdio_access = internal constant [12 x i8] c"mdio_access\00", section "__tracepoints_strings", align 1
 @__SCK__tp_func_mdio_access = dso_local global %struct.static_call_key { ptr @__traceiter_mdio_access, %union.anon.0 { i64 1 } }, align 8
@@ -730,7 +724,7 @@ define dso_local noundef range(i32 -16, 1) i32 @mdiobus_register_device(ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr ptr, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %22
@@ -755,7 +749,7 @@ define dso_local noundef range(i32 -16, 1) i32 @mdiobus_register_device(ptr noun
   %.pre-phi = phi i64 [ %.pre2, %16 ], [ %7, %11 ]
   %19 = phi ptr [ %.pre, %16 ], [ %3, %11 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1928
-  %21 = getelementptr ptr, ptr %20, i64 %.pre-phi
+  %21 = getelementptr [8 x i8], ptr %20, i64 %.pre-phi
   store ptr %0, ptr %21, align 8
   br label %22
 
@@ -775,7 +769,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mdiobus_unregister_device(ptr no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr ptr, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
   br i1 %10, label %11, label %12
@@ -812,7 +806,7 @@ define dso_local ptr @mdiobus_get_phy(ptr noundef readonly captures(none) %0, i3
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1928
-  %10 = getelementptr ptr, ptr %9, i64 %3
+  %10 = getelementptr [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread2, label %13
@@ -853,7 +847,7 @@ define dso_local zeroext i1 @mdiobus_is_registered_device(ptr noundef readonly c
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1928
-  %10 = getelementptr ptr, ptr %9, i64 %3
+  %10 = getelementptr [8 x i8], ptr %9, i64 %3
   %11 = load ptr, ptr %10, align 8
   %12 = icmp ne ptr %11, null
   br label %13
@@ -1092,7 +1086,7 @@ mdiobus_scan_bus_c22.exit.thread:                 ; preds = %95, %mdiobus_scan_b
 102:                                              ; preds = %.thread3.i, %mdiobus_scan_bus_c22.exit.thread
   %103 = phi i64 [ 0, %mdiobus_scan_bus_c22.exit.thread ], [ %117, %.thread3.i ]
   %104 = phi i1 [ true, %mdiobus_scan_bus_c22.exit.thread ], [ %118, %.thread3.i ]
-  %105 = getelementptr ptr, ptr %101, i64 %103
+  %105 = getelementptr [8 x i8], ptr %101, i64 %103
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, null
   br i1 %107, label %.thread3.i, label %108
@@ -1143,7 +1137,7 @@ mdiobus_prevent_c45_scan.exit:                    ; preds = %113, %.thread3.i
 
 131:                                              ; preds = %141, %128
   %132 = phi i64 [ 0, %128 ], [ %142, %141 ]
-  %133 = getelementptr ptr, ptr %130, i64 %132
+  %133 = getelementptr [8 x i8], ptr %130, i64 %132
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %141, label %136
@@ -1224,7 +1218,7 @@ define internal fastcc i32 @mdiobus_scan_bus_c45(ptr noundef nonnull %0) unnamed
   br i1 %10, label %11, label %.thread3
 
 11:                                               ; preds = %4
-  %12 = getelementptr ptr, ptr %3, i64 %5
+  %12 = getelementptr [8 x i8], ptr %3, i64 %5
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %.thread3
@@ -1317,7 +1311,7 @@ define dso_local void @mdiobus_unregister(ptr noundef %0) #1 align 16 {
 
 8:                                                ; preds = %24, %6
   %9 = phi i64 [ 0, %6 ], [ %25, %24 ]
-  %10 = getelementptr ptr, ptr %7, i64 %9
+  %10 = getelementptr [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %24, label %13
@@ -1468,7 +1462,7 @@ define dso_local i32 @__mdiobus_read(ptr noundef %0, i32 noundef %1, i32 noundef
 35:                                               ; preds = %32, %28, %13, %9
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %37 = sext i32 %1 to i64
-  %38 = getelementptr %struct.mdio_bus_stats, ptr %36, i64 %37
+  %38 = getelementptr [32 x i8], ptr %36, i64 %37
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !46
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !51
   tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %38, ptr elementtype(i64) %38) #15, !srcloc !52
@@ -1561,7 +1555,7 @@ define dso_local i32 @__mdiobus_write(ptr noundef %0, i32 noundef %1, i32 nounde
 35:                                               ; preds = %32, %28, %13, %10
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %37 = sext i32 %1 to i64
-  %38 = getelementptr %struct.mdio_bus_stats, ptr %36, i64 %37
+  %38 = getelementptr [32 x i8], ptr %36, i64 %37
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !46
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !51
   tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %38, ptr elementtype(i64) %38) #15, !srcloc !52
@@ -1682,7 +1676,7 @@ define dso_local i32 @__mdiobus_c45_read(ptr noundef %0, i32 noundef %1, i32 nou
 36:                                               ; preds = %33, %29, %14, %10
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %38 = sext i32 %1 to i64
-  %39 = getelementptr %struct.mdio_bus_stats, ptr %37, i64 %38
+  %39 = getelementptr [32 x i8], ptr %37, i64 %38
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !46
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !51
   tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %39, ptr elementtype(i64) %39) #15, !srcloc !52
@@ -1775,7 +1769,7 @@ define dso_local i32 @__mdiobus_c45_write(ptr noundef %0, i32 noundef %1, i32 no
 36:                                               ; preds = %33, %29, %14, %11
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %38 = sext i32 %1 to i64
-  %39 = getelementptr %struct.mdio_bus_stats, ptr %37, i64 %38
+  %39 = getelementptr [32 x i8], ptr %37, i64 %38
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !46
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !51
   tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %39, ptr elementtype(i64) %39) #15, !srcloc !52
@@ -2241,7 +2235,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mdio_bus_stat_field_show
 14:                                               ; preds = %14, %8
   %15 = phi i64 [ 0, %8 ], [ %20, %14 ]
   %16 = phi i64 [ 0, %8 ], [ %19, %14 ]
-  %17 = getelementptr %struct.mdio_bus_stats, ptr %13, i64 %15
+  %17 = getelementptr [32 x i8], ptr %13, i64 %15
   %18 = load volatile i64, ptr %17, align 8
   %19 = add i64 %18, %16
   %20 = add nuw nsw i64 %15, 1
@@ -2251,7 +2245,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mdio_bus_stat_field_show
 22:                                               ; preds = %3
   %23 = getelementptr i8, ptr %0, i64 -1072
   %24 = zext nneg i32 %6 to i64
-  %25 = getelementptr %struct.mdio_bus_stats, ptr %23, i64 %24
+  %25 = getelementptr [32 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
@@ -2318,7 +2312,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mdio_bus_device_stat_fie
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %11 = sext i32 %7 to i64
-  %12 = getelementptr %struct.mdio_bus_stats, ptr %10, i64 %11
+  %12 = getelementptr [32 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64

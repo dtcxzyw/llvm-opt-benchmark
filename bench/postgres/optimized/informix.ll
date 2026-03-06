@@ -619,7 +619,7 @@ define range(i32 -1212, 1) i32 @rstrdate(ptr noundef %0, ptr noundef %1) local_u
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rdefmtdate, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rdefmtdate, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rdefmtdate.exit
 
@@ -644,7 +644,7 @@ define range(i32 -1212, 1) i32 @rdefmtdate(ptr noundef %0, ptr noundef %1, ptr n
 
 switch.lookup:                                    ; preds = %7
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rdefmtdate, i64 %10
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rdefmtdate, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %11
 
@@ -1321,7 +1321,7 @@ define void @rupshift(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   %.08 = phi ptr [ %0, %.lr.ph ], [ %18, %17 ]
   %6 = load ptr, ptr %3, align 8
   %7 = zext i8 %5 to i64
-  %8 = getelementptr inbounds nuw i16, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %7
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, 512
   %.not6 = icmp eq i16 %10, 0
@@ -1330,7 +1330,7 @@ define void @rupshift(ptr noundef captures(none) %0) local_unnamed_addr #10 {
 11:                                               ; preds = %4
   %12 = tail call ptr @__ctype_toupper_loc() #17
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %7
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %7
   %15 = load i32, ptr %14, align 4
   %16 = trunc i32 %15 to i8
   store i8 %16, ptr %.08, align 1

@@ -1233,20 +1233,20 @@ define internal range(i64 -2147483648, 2147483648) i64 @my_bio_cb_ex(ptr noundef
 
 11:                                               ; preds = %8
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds ptr, ptr @my_param_b, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr @my_param_b, i64 %12
   store ptr %0, ptr %13, align 8, !tbaa !8
-  %14 = getelementptr inbounds i32, ptr @my_param_oper, i64 %12
+  %14 = getelementptr inbounds [4 x i8], ptr @my_param_oper, i64 %12
   store i32 %1, ptr %14, align 4, !tbaa !4
-  %15 = getelementptr inbounds ptr, ptr @my_param_argp, i64 %12
+  %15 = getelementptr inbounds [8 x i8], ptr @my_param_argp, i64 %12
   store ptr %2, ptr %15, align 8, !tbaa !11
-  %16 = getelementptr inbounds i32, ptr @my_param_argi, i64 %12
+  %16 = getelementptr inbounds [4 x i8], ptr @my_param_argi, i64 %12
   store i32 %4, ptr %16, align 4, !tbaa !4
-  %17 = getelementptr inbounds i64, ptr @my_param_argl, i64 %12
+  %17 = getelementptr inbounds [8 x i8], ptr @my_param_argl, i64 %12
   store i64 %5, ptr %17, align 8, !tbaa !13
   %18 = sext i32 %6 to i64
-  %19 = getelementptr inbounds i64, ptr @my_param_ret, i64 %12
+  %19 = getelementptr inbounds [8 x i8], ptr @my_param_ret, i64 %12
   store i64 %18, ptr %19, align 8, !tbaa !13
-  %20 = getelementptr inbounds i64, ptr @my_param_len, i64 %12
+  %20 = getelementptr inbounds [8 x i8], ptr @my_param_len, i64 %12
   store i64 %3, ptr %20, align 8, !tbaa !13
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %23, label %21
@@ -1257,7 +1257,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @my_bio_cb_ex(ptr noundef
 
 23:                                               ; preds = %11, %21
   %24 = phi i64 [ %22, %21 ], [ 0, %11 ]
-  %25 = getelementptr inbounds i64, ptr @my_param_processed, i64 %12
+  %25 = getelementptr inbounds [8 x i8], ptr @my_param_processed, i64 %12
   store i64 %24, ptr %25, align 8, !tbaa !13
   %26 = add nsw i32 %9, 1
   store i32 %26, ptr @my_param_count, align 4, !tbaa !4
@@ -1301,17 +1301,17 @@ define internal noundef i64 @my_bio_callback(ptr noundef %0, i32 noundef %1, ptr
 
 9:                                                ; preds = %6
   %10 = sext i32 %7 to i64
-  %11 = getelementptr inbounds ptr, ptr @my_param_b, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr @my_param_b, i64 %10
   store ptr %0, ptr %11, align 8, !tbaa !8
-  %12 = getelementptr inbounds i32, ptr @my_param_oper, i64 %10
+  %12 = getelementptr inbounds [4 x i8], ptr @my_param_oper, i64 %10
   store i32 %1, ptr %12, align 4, !tbaa !4
-  %13 = getelementptr inbounds ptr, ptr @my_param_argp, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr @my_param_argp, i64 %10
   store ptr %2, ptr %13, align 8, !tbaa !11
-  %14 = getelementptr inbounds i32, ptr @my_param_argi, i64 %10
+  %14 = getelementptr inbounds [4 x i8], ptr @my_param_argi, i64 %10
   store i32 %3, ptr %14, align 4, !tbaa !4
-  %15 = getelementptr inbounds i64, ptr @my_param_argl, i64 %10
+  %15 = getelementptr inbounds [8 x i8], ptr @my_param_argl, i64 %10
   store i64 %4, ptr %15, align 8, !tbaa !13
-  %16 = getelementptr inbounds i64, ptr @my_param_ret, i64 %10
+  %16 = getelementptr inbounds [8 x i8], ptr @my_param_ret, i64 %10
   store i64 %5, ptr %16, align 8, !tbaa !13
   %17 = add nsw i32 %7, 1
   store i32 %17, ptr @my_param_count, align 4, !tbaa !4

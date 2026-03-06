@@ -44,7 +44,7 @@ define hidden ptr @_Py_CalculateSuggestions(ptr noundef readonly captures(none) 
   %.04371 = phi ptr [ null, %.lr.ph ], [ %.24560, %.thread ]
   %.04970 = phi i64 [ 0, %.lr.ph ], [ %37, %.thread ]
   %17 = load ptr, ptr %13, align 8, !tbaa !12
-  %18 = getelementptr ptr, ptr %17, i64 %.04970
+  %18 = getelementptr [8 x i8], ptr %17, i64 %.04970
   %19 = load ptr, ptr %18, align 8, !tbaa !15
   %20 = call i32 @_PyUnicode_Equal(ptr noundef %1, ptr noundef %19) #5
   %.not = icmp eq i32 %20, 0
@@ -283,7 +283,7 @@ define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly ca
 substitution_cost.exit.us:                        ; preds = %68, %66, %61
   %.019.i.us = phi i64 [ %72, %68 ], [ 2, %61 ], [ 0, %66 ]
   %73 = add i64 %.019.i.us, %.094146.us
-  %74 = getelementptr i64, ptr %5, i64 %.091148.us
+  %74 = getelementptr [8 x i8], ptr %5, i64 %.091148.us
   %75 = load i64, ptr %74, align 8, !tbaa !17
   %76 = tail call i64 @llvm.umin.i64(i64 %.2103145.us, i64 %75)
   %77 = add i64 %76, 2
@@ -301,7 +301,7 @@ substitution_cost.exit.us:                        ; preds = %68, %66, %61
 .lr.ph144:                                        ; preds = %47, %.lr.ph144
   %.0104143 = phi i64 [ %82, %.lr.ph144 ], [ 0, %47 ]
   %.0105142 = phi i64 [ %81, %.lr.ph144 ], [ 2, %47 ]
-  %80 = getelementptr i64, ptr %5, i64 %.0104143
+  %80 = getelementptr [8 x i8], ptr %5, i64 %.0104143
   store i64 %.0105142, ptr %80, align 8, !tbaa !17
   %81 = add i64 %.0105142, 2
   %82 = add nuw nsw i64 %.0104143, 1

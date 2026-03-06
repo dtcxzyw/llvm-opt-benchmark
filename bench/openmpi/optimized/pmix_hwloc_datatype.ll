@@ -3,9 +3,6 @@ source_filename = "bench/openmpi/original/pmix_hwloc_datatype.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.pmix_cpuset_t = type { ptr, ptr }
-%struct.pmix_topology_t = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [6 x i8] c"hwloc\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"\0A%s\09\00", align 1
 @.str.2 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -330,7 +327,7 @@ define void @pmix_hwloc_release_cpuset(ptr noundef captures(address_is_null) %0,
 
 .lr.ph:                                           ; preds = %.preheader, %pmix_hwloc_destruct_cpuset.exit
   %.07 = phi i64 [ %15, %pmix_hwloc_destruct_cpuset.exit ], [ 0, %.preheader ]
-  %4 = getelementptr inbounds nuw %struct.pmix_cpuset_t, ptr %0, i64 %.07
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.07
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = icmp eq ptr %5, null
   br i1 %6, label %pmix_hwloc_destruct_cpuset.exit, label %7
@@ -382,7 +379,7 @@ define void @pmix_ploc_base_release_cpuset(ptr noundef captures(address_is_null)
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %pmix_hwloc_destruct_cpuset.exit.i
   %.07.i = phi i64 [ %15, %pmix_hwloc_destruct_cpuset.exit.i ], [ 0, %.preheader.i ]
-  %4 = getelementptr inbounds nuw %struct.pmix_cpuset_t, ptr %0, i64 %.07.i
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.07.i
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = icmp eq ptr %5, null
   br i1 %6, label %pmix_hwloc_destruct_cpuset.exit.i, label %7
@@ -975,7 +972,7 @@ define internal fastcc void @print_hwloc_obj(ptr noundef nonnull captures(none) 
 77:                                               ; preds = %.lr.ph, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
   %78 = load ptr, ptr %76, align 8, !tbaa !56
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8, !tbaa !57
   %81 = load ptr, ptr %8, align 8, !tbaa !3
   call fastcc void @print_hwloc_obj(ptr noundef %7, ptr noundef %81, ptr noundef %2, ptr noundef %80)
@@ -1089,7 +1086,7 @@ define void @pmix_hwloc_release_topology(ptr noundef captures(address_is_null) %
 
 .lr.ph:                                           ; preds = %2, %pmix_hwloc_destruct_topology.exit
   %.06 = phi i64 [ %16, %pmix_hwloc_destruct_topology.exit ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw %struct.pmix_topology_t, ptr %0, i64 %.06
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.06
   %6 = load ptr, ptr %5, align 8, !tbaa !21
   %7 = icmp eq ptr %6, null
   br i1 %7, label %pmix_hwloc_destruct_topology.exit, label %8
@@ -1135,7 +1132,7 @@ define void @pmix_ploc_base_release_topology(ptr noundef captures(address_is_nul
 
 .lr.ph.i:                                         ; preds = %2, %pmix_hwloc_destruct_topology.exit.i
   %.06.i = phi i64 [ %16, %pmix_hwloc_destruct_topology.exit.i ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw %struct.pmix_topology_t, ptr %0, i64 %.06.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.06.i
   %6 = load ptr, ptr %5, align 8, !tbaa !21
   %7 = icmp eq ptr %6, null
   br i1 %7, label %pmix_hwloc_destruct_topology.exit.i, label %8

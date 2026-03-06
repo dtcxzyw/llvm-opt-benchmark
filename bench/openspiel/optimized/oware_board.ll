@@ -90,7 +90,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   store ptr %16, ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %10
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %18, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 %15

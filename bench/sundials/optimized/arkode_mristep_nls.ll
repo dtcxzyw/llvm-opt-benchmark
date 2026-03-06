@@ -217,10 +217,10 @@ define i32 @mriStep_NlsResidual(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 160
   %29 = load i32, ptr %28, align 8, !tbaa !45
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %27, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %27, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !46
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %25, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %25, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !47
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !48
@@ -258,10 +258,10 @@ define i32 @mriStep_NlsResidual(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %58 = getelementptr inbounds nuw i8, ptr %39, i64 160
   %59 = load i32, ptr %58, align 8, !tbaa !45
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i32, ptr %57, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !46
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %55, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %55, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !47
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %65, ptr %66, align 16, !tbaa !47
@@ -312,10 +312,10 @@ define i32 @mriStep_NlsFPFunction(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 160
   %27 = load i32, ptr %26, align 8, !tbaa !45
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %25, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %25, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !46
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %23, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %23, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !47
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !48
@@ -342,10 +342,10 @@ define i32 @mriStep_NlsFPFunction(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 160
   %51 = load i32, ptr %50, align 8, !tbaa !45
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %49, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %49, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !46
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr %47, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %47, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !47
   %58 = getelementptr inbounds nuw i8, ptr %37, i64 136
   %59 = load ptr, ptr %58, align 8, !tbaa !51
@@ -500,10 +500,10 @@ define i32 @mriStep_GetNonlinearSystemData(ptr noundef %0, ptr noundef writeonly
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 160
   %24 = load i32, ptr %23, align 8, !tbaa !45
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %22, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !46
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %20, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %20, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !47
   store ptr %30, ptr %4, align 8, !tbaa !47
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 192
@@ -627,10 +627,10 @@ define i32 @mriStep_NlsLSetup(i32 noundef %0, ptr noundef writeonly captures(non
   %25 = getelementptr inbounds nuw i8, ptr %.pre, i64 160
   %26 = load i32, ptr %25, align 8, !tbaa !45
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %24, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !46
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %22, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %22, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !47
   %33 = getelementptr inbounds nuw i8, ptr %.pre, i64 304
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 616
@@ -712,10 +712,10 @@ define i32 @mriStep_NlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 160
   %26 = load i32, ptr %25, align 8, !tbaa !45
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %24, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !46
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %22, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %22, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !47
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 264
   %34 = load double, ptr %33, align 8, !tbaa !73

@@ -487,7 +487,7 @@ define void @_ZN10wasmi_core5table5Table3get17h245addeab3c4c758E(ptr dead_on_unw
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load ptr, ptr %9, align 8, !alias.scope !33, !noalias !36, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %2
   %12 = load i64, ptr %11, align 8, !noalias !38, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !38, !noundef !3
@@ -517,7 +517,7 @@ define void @_ZN10wasmi_core5table5Table11get_untyped17hcac74ebb078e8059E(ptr de
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
-  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i64 %2
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %2
   %11 = load i64, ptr %10, align 8, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !3
@@ -562,7 +562,7 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table3set17hd6d07a598c8b0bc2E(ptr noa
   %16 = extractvalue { i64, i64 } %10, 0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8, !alias.scope !47, !nonnull !3, !noundef !3
-  %19 = getelementptr inbounds nuw { i64, i64 }, ptr %18, i64 %1
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %1
   store i64 %16, ptr %19, align 8, !noalias !47
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %15, ptr %20, align 8, !noalias !47
@@ -589,7 +589,7 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table11set_untyped17h252630c7a7c266b2
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %1
   store i64 %2, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %3, ptr %12, align 8
@@ -665,14 +665,14 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table4init17hfdedac7c19035517E(ptr no
 34:                                               ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8, !nonnull !3, !noundef !3
-  %37 = getelementptr inbounds nuw { i64, i64 }, ptr %36, i64 %2
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %2
   %38 = zext i32 %3 to i64
   %39 = call { ptr, i64 } @_ZN10wasmi_core5table7element17ElementSegmentRef5items17h29e46ebb2f2a4cb7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1)
   %40 = extractvalue { ptr, i64 } %39, 0
   %41 = extractvalue { ptr, i64 } %39, 1
   %.not67 = icmp ult i64 %41, %38
   %42 = sub nuw i64 %41, %38
-  %43 = getelementptr inbounds nuw { i64, i64 }, ptr %40, i64 %38
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %38
   %44 = icmp ult i64 %42, %27
   %.not5966 = icmp eq ptr %40, null
   %.not59 = select i1 %.not67, i1 true, i1 %.not5966
@@ -750,7 +750,7 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table4copy17h26e63aa95c484007E(ptr no
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
-  %25 = getelementptr inbounds nuw { i64, i64 }, ptr %24, i64 %1
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %1
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %27 = load i64, ptr %26, align 8, !noundef !3
   %28 = icmp ult i64 %27, %3
@@ -762,7 +762,7 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table4copy17h26e63aa95c484007E(ptr no
 32:                                               ; preds = %22
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %34 = load ptr, ptr %33, align 8, !nonnull !3, !noundef !3
-  %35 = getelementptr inbounds nuw { i64, i64 }, ptr %34, i64 %3
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %3
   %.not62 = icmp eq ptr %5, null
   br i1 %.not62, label %39, label %36
 
@@ -875,7 +875,7 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table4fill17hf3514b69d449a7b3E(ptr no
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8, !alias.scope !83, !noalias !88, !nonnull !3, !noundef !3
   %22 = sub nuw i64 %17, %1
-  %23 = getelementptr inbounds nuw { i64, i64 }, ptr %21, i64 %1
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %1
   %.not.i = icmp ugt i64 %3, %22
   br i1 %.not.i, label %_ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb045E.exit, label %24
 
@@ -926,7 +926,7 @@ define { i64, i64 } @_ZN10wasmi_core5table5Table12fill_untyped17hed78d2b2b6ffb04
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
   %14 = sub nuw i64 %9, %1
-  %15 = getelementptr inbounds nuw { i64, i64 }, ptr %13, i64 %1
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %1
   %.not = icmp ugt i64 %4, %14
   br i1 %.not, label %26, label %16
 

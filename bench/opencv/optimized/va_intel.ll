@@ -3086,7 +3086,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %39,
           to label %.noexc15 unwind label %75
 
 .noexc15:                                         ; preds = %.preheader
-  %46 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv6detailL9loadLibVAEvE10candidates, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN2cv6detailL9loadLibVAEvE10candidates, i64 %indvars.iv
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 1, ptr %47, align 8, !tbaa !69, !noalias !80
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 12

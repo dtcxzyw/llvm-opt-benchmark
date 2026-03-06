@@ -38,15 +38,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"struct.std::__detail::_AllocNode" = type { ptr }
-%"struct.std::pair" = type { %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", %"struct.pxrInternal_v0_24__pxrReserved__::SdfChangeList::Entry" }
 %"struct.std::pair.17" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %"struct.std::pair.13" = type { %"class.pxrInternal_v0_24__pxrReserved__::VtValue", %"class.pxrInternal_v0_24__pxrReserved__::VtValue" }
 %"class.pxrInternal_v0_24__pxrReserved__::VtValue" = type { %"union.std::aligned_storage<8, 8>::type", %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits.15" }
 %"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
 %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits.15" = type { ptr }
-%"struct.std::pair.11" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfToken", %"struct.std::pair.13" }
-%"class.pxrInternal_v0_24__pxrReserved__::TfToken" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" }
-%"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" = type { ptr }
 %"struct.pxrInternal_v0_24__pxrReserved__::VtValue::_HoldAside" = type { %"union.std::aligned_storage<8, 8>::type", ptr }
 %"struct.std::_Hashtable<pxrInternal_v0_24__pxrReserved__::SdfPath, std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, unsigned long>, std::allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, unsigned long>>, std::__detail::_Select1st, std::equal_to<pxrInternal_v0_24__pxrReserved__::SdfPath>, pxrInternal_v0_24__pxrReserved__::SdfPath::Hash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
 
@@ -535,7 +531,7 @@ _ZNSt10unique_ptrISt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathE
   %15 = and i32 %13, 255
   %16 = lshr i32 %13, 8
   %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = mul nuw nsw i32 %16, 24
   %21 = zext nneg i32 %20 to i64
@@ -1126,7 +1122,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt4pairINS_7SdfPathENS_13Sd
   %spec.select.i.i.i = select i1 %15, ptr %1, ptr %16
   %17 = load i32, ptr %5, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %18
+  %19 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %18
   %20 = tail call noundef ptr @_ZSt16__do_uninit_copyIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_13SdfChangeList5EntryEEPS5_ET0_T_SA_S9_(ptr noundef %spec.select.i.i.i, ptr noundef %19, ptr noundef %spec.select.i.i5.i)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %22 = load ptr, ptr %21, align 8
@@ -1213,7 +1209,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIS
   %13 = and i32 %11, 255
   %14 = lshr i32 %11, 8
   %15 = zext nneg i32 %13 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = mul nuw nsw i32 %14, 24
   %19 = zext nneg i32 %18 to i64
@@ -1273,7 +1269,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt4pairINS_7SdfPathENS_13Sd
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %10
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt4pairINS_7SdfPathENS_13SdfChangeList5EntryEELj1EE6assignIPKS5_vEEvT_SA_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %spec.select.i.i.i, ptr noundef %11)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -1364,7 +1360,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i, i64 %14
+  %15 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i, i64 %14
   %.not = icmp eq ptr %7, %15
   br i1 %.not, label %18, label %16
 
@@ -1407,7 +1403,7 @@ define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__13SdfChangeList9FindEn
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %"struct.std::pair", ptr %spec.select.i.i, i64 %9
+  %10 = getelementptr [208 x i8], ptr %spec.select.i.i, i64 %9
   %11 = icmp eq i32 %8, 0
   br i1 %11, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_mEEE4findERS6_.exit.thread, label %12
 
@@ -1460,7 +1456,7 @@ define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__13SdfChangeList9FindEn
   %38 = load i64, ptr %37, align 8
   %39 = urem i64 %36, %38
   %40 = load ptr, ptr %18, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %39
+  %41 = getelementptr inbounds [8 x i8], ptr %40, i64 %39
   %42 = load ptr, ptr %41, align 8
   %.not.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_mEEE4findERS6_.exit.thread, label %43
@@ -1504,7 +1500,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8e
   %.sroa.06.1.i.i = phi ptr [ %.sroa.06.0.i.i, %25 ], [ %44, %43 ], [ %56, %51 ]
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds %"struct.std::pair", ptr %spec.select.i.i, i64 %62
+  %63 = getelementptr inbounds [208 x i8], ptr %spec.select.i.i, i64 %62
   br label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_mEEE4findERS6_.exit.thread
 
 64:                                               ; preds = %16
@@ -1624,7 +1620,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList5E
   %6 = and i32 %4, 255
   %7 = lshr i32 %4, 8
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = mul nuw nsw i32 %7, 24
   %12 = zext nneg i32 %11 to i64
@@ -1701,7 +1697,7 @@ define noundef nonnull align 8 dereferenceable(195) ptr @_ZN32pxrInternal_v0_24_
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i, i64 %10
   %.not = icmp eq ptr %3, %11
   br i1 %.not, label %14, label %12
 
@@ -1750,7 +1746,7 @@ define noundef nonnull align 8 dereferenceable(195) ptr @_ZN32pxrInternal_v0_24_
   %18 = load ptr, ptr %0, align 8
   %spec.select.i.i.i = select i1 %17, ptr %0, ptr %18
   %19 = zext i32 %15 to i64
-  %20 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %19
+  %20 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %19
   %21 = load i32, ptr %1, align 4
   store i32 %21, ptr %20, align 4
   %.not.i.i.i.i.i = icmp eq i32 %21, 0
@@ -1760,7 +1756,7 @@ define noundef nonnull align 8 dereferenceable(195) ptr @_ZN32pxrInternal_v0_24_
   %23 = and i32 %21, 255
   %24 = lshr i32 %21, 8
   %25 = zext nneg i32 %23 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = mul nuw nsw i32 %24, 24
   %29 = zext nneg i32 %28 to i64
@@ -1823,7 +1819,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathEmNS1_4HashESt8e
   %spec.select.i.i.i3 = select i1 %57, ptr %0, ptr %58
   %59 = load i32, ptr %4, align 8
   %60 = zext i32 %59 to i64
-  %61 = getelementptr %"struct.std::pair", ptr %spec.select.i.i.i3, i64 %60
+  %61 = getelementptr [208 x i8], ptr %spec.select.i.i.i3, i64 %60
   %62 = getelementptr i8, ptr %61, i64 -200
   ret ptr %62
 }
@@ -1846,7 +1842,7 @@ define noundef nonnull align 8 dereferenceable(195) ptr @_ZN32pxrInternal_v0_24_
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %14
+  %15 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %14
   %.not.i = icmp eq ptr %7, %15
   br i1 %.not.i, label %18, label %16
 
@@ -1878,7 +1874,7 @@ define noundef nonnull align 8 dereferenceable(195) ptr @_ZN32pxrInternal_v0_24_
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i, i64 %33
+  %34 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i, i64 %33
   %.not = icmp eq ptr %26, %34
   br i1 %.not, label %48, label %35
 
@@ -1921,7 +1917,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt4pairINS_7SdfPathENS_13Sd
   %spec.select.i.i.i30 = select i1 %51, ptr %0, ptr %52
   %53 = load i32, ptr %31, align 8
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i30, i64 %54
+  %55 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i30, i64 %54
   %.not.i31 = icmp eq ptr %49, %55
   br i1 %.not.i31, label %58, label %56
 
@@ -1957,7 +1953,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
   %71 = and i32 %69, 255
   %72 = lshr i32 %69, 8
   %73 = zext nneg i32 %71 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = mul nuw nsw i32 %72, 24
   %77 = zext nneg i32 %76 to i64
@@ -1973,7 +1969,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
   %82 = and i32 %.pr.i.i, 255
   %83 = lshr i32 %.pr.i.i, 8
   %84 = zext nneg i32 %82 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = mul nuw nsw i32 %83, 24
   %88 = zext nneg i32 %87 to i64
@@ -2268,7 +2264,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrI
   %26 = and i32 %24, 255
   %27 = lshr i32 %24, 8
   %28 = zext nneg i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = mul nuw nsw i32 %27, 24
   %32 = zext nneg i32 %31 to i64
@@ -2323,7 +2319,7 @@ define linkonce_odr noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallV
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i, i64 %15
+  %16 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i, i64 %15
   %17 = ptrtoint ptr %16 to i64
   %18 = sub i64 %17, %6
   %19 = icmp sgt i64 %18, 0
@@ -2348,7 +2344,7 @@ define linkonce_odr noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallV
   %24 = and i32 %22, 255
   %25 = lshr i32 %22, 8
   %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = mul nuw nsw i32 %25, 24
   %30 = zext nneg i32 %29 to i64
@@ -2402,7 +2398,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_13SdfChangeList5Entry
   %54 = and i32 %52, 255
   %55 = lshr i32 %52, 8
   %56 = zext nneg i32 %54 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = mul nuw nsw i32 %55, 24
   %60 = zext nneg i32 %59 to i64
@@ -2455,7 +2451,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList11_EraseEntryER
   %11 = load ptr, ptr %0, align 8
   %spec.select.i.i = select i1 %10, ptr %0, ptr %11
   %12 = zext i32 %4 to i64
-  %13 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i, i64 %12
+  %13 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i, i64 %12
   %.not = icmp eq ptr %7, %13
   br i1 %.not, label %17, label %14
 
@@ -2481,7 +2477,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList22DidReplaceLay
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %10
   %.not.i = icmp eq ptr %3, %11
   br i1 %.not.i, label %14, label %12
 
@@ -2516,7 +2512,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList21DidReloadLaye
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %10
   %.not.i = icmp eq ptr %3, %11
   br i1 %.not.i, label %14, label %12
 
@@ -2549,7 +2545,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList24DidChangeLaye
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %11
+  %12 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %11
   %.not.i = icmp eq ptr %4, %12
   br i1 %.not.i, label %15, label %13
 
@@ -2593,7 +2589,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList26DidChangeLaye
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %10
   %.not.i = icmp eq ptr %3, %11
   br i1 %.not.i, label %14, label %12
 
@@ -2627,7 +2623,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList22DidChangeSubl
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %13
   %.not.i = icmp eq ptr %6, %14
   br i1 %.not.i, label %17, label %15
 
@@ -2689,7 +2685,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList13DidChangeInfo
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %14
+  %15 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %14
   %.not.i = icmp eq ptr %7, %15
   br i1 %.not.i, label %18, label %16
 
@@ -2736,7 +2732,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList9_GetEntryERKNS_7SdfPathE.ex
 
 _ZNK32pxrInternal_v0_24__pxrReserved__13SdfChangeList5Entry14FindInfoChangeERKNS_7TfTokenE.exit: ; preds = %31, %36, %_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList9_GetEntryERKNS_7SdfPathE.exit
   %.0.lcssa.i = phi ptr [ %spec.select.i.i.i16, %_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList9_GetEntryERKNS_7SdfPathE.exit ], [ %37, %36 ], [ %.09.i, %31 ]
-  %38 = getelementptr inbounds nuw %"struct.std::pair.11", ptr %spec.select.i.i.i16, i64 %27
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %spec.select.i.i.i16, i64 %27
   %39 = icmp eq ptr %.0.lcssa.i, %38
   br i1 %39, label %40, label %106
 
@@ -2786,7 +2782,7 @@ _ZSt9make_pairIN32pxrInternal_v0_24__pxrReserved__7VtValueERKS1_ESt4pairINSt25__
   %58 = load ptr, ptr %20, align 8
   %spec.select.i.i.i18 = select i1 %57, ptr %20, ptr %58
   %59 = zext i32 %55 to i64
-  %60 = getelementptr inbounds nuw %"struct.std::pair.11", ptr %spec.select.i.i.i18, i64 %59
+  %60 = getelementptr inbounds nuw [40 x i8], ptr %spec.select.i.i.i18, i64 %59
   %61 = load i64, ptr %2, align 8
   store i64 %61, ptr %60, align 8
   %62 = and i64 %61, 7
@@ -2956,7 +2952,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList17DidChangePrim
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %11
+  %12 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %11
   %.not.i = icmp eq ptr %4, %12
   br i1 %.not.i, label %15, label %13
 
@@ -2996,7 +2992,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList24DidChangePrim
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %10
   %.not.i = icmp eq ptr %3, %11
   br i1 %.not.i, label %14, label %12
 
@@ -3028,7 +3024,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList25DidChangePrim
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %10
   %.not.i = icmp eq ptr %3, %11
   br i1 %.not.i, label %14, label %12
 
@@ -3060,7 +3056,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList24DidChangePrim
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %10
   %.not.i = icmp eq ptr %3, %11
   br i1 %.not.i, label %14, label %12
 
@@ -3092,7 +3088,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList23DidChangePrim
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %10
   %.not.i = icmp eq ptr %3, %11
   br i1 %.not.i, label %14, label %12
 
@@ -3124,7 +3120,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList15DidReorderPri
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %10
   %.not.i = icmp eq ptr %3, %11
   br i1 %.not.i, label %14, label %12
 
@@ -3156,7 +3152,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList10DidAddPrimERK
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %11
+  %12 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %11
   %.not.i = icmp eq ptr %4, %12
   br i1 %.not.i, label %15, label %13
 
@@ -3201,7 +3197,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList13DidRemovePrim
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %11
+  %12 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %11
   %.not.i = icmp eq ptr %4, %12
   br i1 %.not.i, label %15, label %13
 
@@ -3246,7 +3242,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList11DidMovePrimER
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i.i, i64 %11
+  %12 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i.i, i64 %11
   %.not.i.i = icmp eq ptr %4, %12
   br i1 %.not.i.i, label %15, label %13
 
@@ -3285,7 +3281,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList13DidRemovePrimERKNS_7SdfPat
   %spec.select.i.i.i.i5 = select i1 %28, ptr %0, ptr %29
   %30 = load i32, ptr %9, align 8
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i.i5, i64 %31
+  %32 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i.i5, i64 %31
   %.not.i.i6 = icmp eq ptr %26, %32
   br i1 %.not.i.i6, label %35, label %33
 
@@ -3324,7 +3320,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList10DidAddPrimERKNS_7SdfPathEb
   %spec.select.i.i.i = select i1 %48, ptr %0, ptr %49
   %50 = load i32, ptr %9, align 8
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %51
+  %52 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %51
   %.not.i = icmp eq ptr %46, %52
   br i1 %.not.i, label %55, label %53
 
@@ -3352,7 +3348,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList9_GetEntryERKNS_7SdfPathE.ex
   %64 = and i32 %60, 255
   %65 = lshr i32 %60, 8
   %66 = zext nneg i32 %64 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = mul nuw nsw i32 %65, 24
   %70 = zext nneg i32 %69 to i64
@@ -3372,7 +3368,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
   %76 = and i32 %74, 255
   %77 = lshr i32 %74, 8
   %78 = zext nneg i32 %76 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = mul nuw nsw i32 %77, 24
   %82 = zext nneg i32 %81 to i64
@@ -3413,7 +3409,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList21DidChangeProp
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %11
+  %12 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %11
   %.not.i = icmp eq ptr %4, %12
   br i1 %.not.i, label %15, label %13
 
@@ -3452,7 +3448,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList20DidReorderPro
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %10
   %.not.i = icmp eq ptr %3, %11
   br i1 %.not.i, label %14, label %12
 
@@ -3484,7 +3480,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList14DidAddPropert
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %11
+  %12 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %11
   %.not.i = icmp eq ptr %4, %12
   br i1 %.not.i, label %15, label %13
 
@@ -3528,7 +3524,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList17DidRemoveProp
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %11
+  %12 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %11
   %.not.i = icmp eq ptr %4, %12
   br i1 %.not.i, label %15, label %13
 
@@ -3573,7 +3569,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList29DidChangeAttr
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %10
   %.not.i = icmp eq ptr %3, %11
   br i1 %.not.i, label %14, label %12
 
@@ -3605,7 +3601,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList28DidChangeAttr
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %10
   %.not.i = icmp eq ptr %3, %11
   br i1 %.not.i, label %14, label %12
 
@@ -3637,7 +3633,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList28DidChangeRela
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %10
   %.not.i = icmp eq ptr %3, %11
   br i1 %.not.i, label %14, label %12
 
@@ -3669,7 +3665,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList12DidAddTargetE
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %10
   %.not.i = icmp eq ptr %3, %11
   br i1 %.not.i, label %14, label %12
 
@@ -3714,7 +3710,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13SdfChangeList15DidRemoveTarg
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i.i, i64 %10
+  %11 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i.i, i64 %10
   %.not.i = icmp eq ptr %3, %11
   br i1 %.not.i, label %14, label %12
 
@@ -3809,7 +3805,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   %8 = and i32 %6, 255
   %9 = lshr i32 %6, 8
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = mul nuw nsw i32 %9, 24
   %14 = zext nneg i32 %13 to i64
@@ -3877,7 +3873,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   %8 = and i32 %6, 255
   %9 = lshr i32 %6, 8
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = mul nuw nsw i32 %9, 24
   %14 = zext nneg i32 %13 to i64
@@ -3927,7 +3923,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr 
   %4 = and i32 %2, 255
   %5 = lshr i32 %2, 8
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = mul nuw nsw i32 %5, 24
   %10 = zext nneg i32 %9 to i64
@@ -4166,7 +4162,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaIS
   %27 = and i32 %25, 255
   %28 = lshr i32 %25, 8
   %29 = zext nneg i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = mul nuw nsw i32 %28, 24
   %33 = zext nneg i32 %32 to i64
@@ -4195,7 +4191,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaIS
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load i64, ptr %49, align 8
   %51 = urem i64 %47, %50
-  %52 = getelementptr inbounds ptr, ptr %38, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %38, i64 %51
   store ptr %48, ptr %52, align 8
   %.02736 = load ptr, ptr %20, align 8
   %.not2937 = icmp eq ptr %.02736, null
@@ -4220,7 +4216,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaIS
   %58 = and i32 %56, 255
   %59 = lshr i32 %56, 8
   %60 = zext nneg i32 %58 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = mul nuw nsw i32 %59, 24
   %64 = zext nneg i32 %63 to i64
@@ -4246,7 +4242,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaIS
   %78 = load i64, ptr %49, align 8
   %79 = urem i64 %77, %78
   %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds ptr, ptr %80, i64 %79
+  %81 = getelementptr inbounds [8 x i8], ptr %80, i64 %79
   %82 = load ptr, ptr %81, align 8
   %.not31 = icmp eq ptr %82, null
   br i1 %.not31, label %83, label %95
@@ -4557,12 +4553,12 @@ _ZSt11swap_rangesIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenES0_INS1_7
   %41 = icmp ult i32 %40, 4
   %42 = load ptr, ptr %16, align 8
   %spec.select.i.i47 = select i1 %41, ptr %16, ptr %42
-  %43 = getelementptr inbounds nuw %"struct.std::pair.11", ptr %spec.select.i.i47, i64 %.04471
+  %43 = getelementptr inbounds nuw [40 x i8], ptr %spec.select.i.i47, i64 %.04471
   %44 = load i32, ptr %26, align 4
   %45 = icmp ult i32 %44, 4
   %46 = load ptr, ptr %17, align 8
   %spec.select.i.i.i = select i1 %45, ptr %17, ptr %46
-  %47 = getelementptr inbounds nuw %"struct.std::pair.11", ptr %spec.select.i.i.i, i64 %.04471
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %spec.select.i.i.i, i64 %.04471
   %48 = load i64, ptr %47, align 8
   store i64 %48, ptr %43, align 8
   store i64 0, ptr %47, align 8
@@ -4580,7 +4576,7 @@ _ZSt11swap_rangesIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenES0_INS1_7
   %56 = icmp ult i32 %55, 4
   %57 = load ptr, ptr %17, align 8
   %spec.select.i.i.i48 = select i1 %56, ptr %17, ptr %57
-  %58 = getelementptr inbounds nuw %"struct.std::pair.11", ptr %spec.select.i.i.i48, i64 %.04471
+  %58 = getelementptr inbounds nuw [40 x i8], ptr %spec.select.i.i.i48, i64 %.04471
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %61 = load ptr, ptr %60, align 8
@@ -4701,12 +4697,12 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenES_INS0_7VtValueES2_EED2Ev
 
 116:                                              ; preds = %.lr.ph, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenES_INS0_7VtValueES2_EED2Ev.exit58
   %.070 = phi i64 [ 0, %.lr.ph ], [ %168, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenES_INS0_7VtValueES2_EED2Ev.exit58 ]
-  %117 = getelementptr inbounds nuw %"struct.std::pair.11", ptr %110, i64 %.070
+  %117 = getelementptr inbounds nuw [40 x i8], ptr %110, i64 %.070
   %118 = load i32, ptr %115, align 4
   %119 = icmp ult i32 %118, 4
   %120 = load ptr, ptr %109, align 8
   %spec.select.i.i.i49 = select i1 %119, ptr %109, ptr %120
-  %121 = getelementptr inbounds nuw %"struct.std::pair.11", ptr %spec.select.i.i.i49, i64 %.070
+  %121 = getelementptr inbounds nuw [40 x i8], ptr %spec.select.i.i.i49, i64 %.070
   %122 = load i64, ptr %121, align 8
   store i64 %122, ptr %117, align 8
   store i64 0, ptr %121, align 8
@@ -4724,7 +4720,7 @@ _ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenES_INS0_7VtValueES2_EED2Ev
   %130 = icmp ult i32 %129, 4
   %131 = load ptr, ptr %109, align 8
   %spec.select.i.i.i50 = select i1 %130, ptr %109, ptr %131
-  %132 = getelementptr inbounds nuw %"struct.std::pair.11", ptr %spec.select.i.i.i50, i64 %.070
+  %132 = getelementptr inbounds nuw [40 x i8], ptr %spec.select.i.i.i50, i64 %.070
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 32
   %135 = load ptr, ptr %134, align 8
@@ -5257,7 +5253,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKSt4pairIN32pxrInternal
   %6 = and i32 %4, 255
   %7 = lshr i32 %4, 8
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = mul nuw nsw i32 %7, 24
   %12 = zext nneg i32 %11 to i64
@@ -5336,7 +5332,7 @@ define linkonce_odr void @_ZSt8_DestroyIPSt4pairIN32pxrInternal_v0_24__pxrReserv
   %6 = and i32 %4, 255
   %7 = lshr i32 %4, 8
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = mul nuw nsw i32 %7, 24
   %12 = zext nneg i32 %11 to i64
@@ -5395,7 +5391,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt4pairINS_7TfTokenES1_INS_
   %spec.select.i.i.i = select i1 %14, ptr %1, ptr %15
   %16 = load i32, ptr %4, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"struct.std::pair.11", ptr %spec.select.i.i.i, i64 %17
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %spec.select.i.i.i, i64 %17
   %19 = tail call noundef ptr @_ZSt16__do_uninit_copyIPKSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenES0_INS1_7VtValueES3_EEPS5_ET0_T_SA_S9_(ptr noundef %spec.select.i.i.i, ptr noundef %18, ptr noundef %spec.select.i.i5.i)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -5414,7 +5410,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt4pairINS_7TfTokenES1_INS_
   %27 = and i32 %25, 255
   %28 = lshr i32 %25, 8
   %29 = zext nneg i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = mul nuw nsw i32 %28, 24
   %33 = zext nneg i32 %32 to i64
@@ -5787,7 +5783,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIS
   %15 = and i32 %13, 255
   %16 = lshr i32 %13, 8
   %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = mul nuw nsw i32 %16, 24
   %21 = zext nneg i32 %20 to i64
@@ -5857,7 +5853,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIS
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %spec.select.i.i, i64 %11
+  %12 = getelementptr inbounds nuw [208 x i8], ptr %spec.select.i.i, i64 %11
   %13 = tail call noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS2_13SdfChangeList5EntryEEES7_ET0_T_SA_S9_(ptr %spec.select.i.i, ptr %12, ptr noundef %4)
   %14 = load i32, ptr %5, align 4
   %15 = icmp ult i32 %14, 2
@@ -5882,7 +5878,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIS
   %23 = and i32 %21, 255
   %24 = lshr i32 %21, 8
   %25 = zext nneg i32 %23 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = mul nuw nsw i32 %24, 24
   %29 = zext nneg i32 %28 to i64
@@ -6188,7 +6184,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN32pxrInternal_v0_
   %19 = load i64, ptr %18, align 8
   %20 = urem i64 %17, %19
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %.loopexit, label %24
@@ -6245,7 +6241,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN32pxrInternal_v0_
   %48 = and i32 %6, 255
   %49 = lshr i32 %6, 8
   %50 = zext nneg i32 %48 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = mul nuw nsw i32 %49, 24
   %54 = zext nneg i32 %53 to i64
@@ -6338,7 +6334,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaIS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %41, label %36
@@ -6347,7 +6343,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaIS
   %37 = load ptr, ptr %35, align 8
   store ptr %37, ptr %3, align 8
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %.0
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %.0
   %40 = load ptr, ptr %39, align 8
   store ptr %3, ptr %40, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS6_10_Hash_nodeIS4_Lb1EEE.exit
@@ -6367,13 +6363,13 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaIS
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %46, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %45, %41
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0
   store ptr %42, ptr %54, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_4HashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS6_10_Hash_nodeIS4_Lb1EEE.exit
 
@@ -6401,7 +6397,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7
   %8 = and i32 %6, 255
   %9 = lshr i32 %6, 8
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = mul nuw nsw i32 %9, 24
   %14 = zext nneg i32 %13 to i64
@@ -6480,7 +6476,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaIS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -6495,7 +6491,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_mESaIS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8
   br label %28
 
@@ -6624,7 +6620,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrI
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__13SdfChangeList18SubLayerChangeTypeEESaISA_EE13_M_deallocateEPSA_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__13SdfChangeList18SubLayerChangeTypeEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22, %37
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %41 = getelementptr inbounds nuw %"struct.std::pair.17", ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %41, ptr %36, align 8
   ret void
 }

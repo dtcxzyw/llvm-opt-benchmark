@@ -3722,7 +3722,7 @@ _ZNSt12_Vector_baseIN3nix11DerivedPathESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %32, ptr %5, align 8
-  %43 = getelementptr inbounds nuw %"struct.nix::DerivedPath", ptr %23, i64 %17
+  %43 = getelementptr inbounds nuw [80 x i8], ptr %23, i64 %17
   store ptr %43, ptr %42, align 8
   ret void
 

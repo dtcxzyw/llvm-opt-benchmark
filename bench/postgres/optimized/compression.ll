@@ -73,7 +73,7 @@ define noundef nonnull ptr @get_compress_algorithm_name(i32 noundef %0) local_un
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.validate_compress_specification, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.validate_compress_specification, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -472,7 +472,7 @@ define ptr @validate_compress_specification(ptr noundef readonly captures(none) 
 
 switch.lookup:                                    ; preds = %18
   %20 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.validate_compress_specification, i64 %20
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.validate_compress_specification, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_compress_algorithm_name.exit
 
@@ -523,7 +523,7 @@ get_compress_algorithm_name.exit35:               ; preds = %26, %27, %28, %29
 
 switch.lookup48:                                  ; preds = %33
   %35 = zext nneg i32 %5 to i64
-  %switch.gep49 = getelementptr inbounds nuw ptr, ptr @switch.table.validate_compress_specification.1, i64 %35
+  %switch.gep49 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.validate_compress_specification.1, i64 %35
   %switch.load50 = load ptr, ptr %switch.gep49, align 8
   br label %get_compress_algorithm_name.exit37
 

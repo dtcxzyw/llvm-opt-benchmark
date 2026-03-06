@@ -3,8 +3,6 @@ source_filename = "bench/php/original/timelib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._timelib_error_message = type { i32, i32, i8, ptr }
-
 @.str = private unnamed_addr constant [9 x i8] c"No error\00", align 1
 @.str.1 = private unnamed_addr constant [35 x i8] c"Cannot allocate buffer for parsing\00", align 1
 @.str.2 = private unnamed_addr constant [66 x i8] c"Corrupt tzfile: The transitions in the file don't always increase\00", align 1
@@ -44,7 +42,7 @@ define hidden ptr @timelib_get_error_message(i32 noundef %0) local_unnamed_addr 
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @timelib_error_messages, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @timelib_error_messages, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   br label %6
 
@@ -204,7 +202,7 @@ define hidden void @timelib_time_tz_abbr_update(ptr noundef captures(none) %0, p
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %11
   %14 = load i8, ptr %13, align 1, !tbaa !21
   %15 = sext i8 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %12, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %12, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !22
   %18 = trunc i32 %17 to i8
   %19 = load ptr, ptr %4, align 8, !tbaa !9
@@ -281,7 +279,7 @@ define hidden void @timelib_error_container_dtor(ptr noundef %0) local_unnamed_a
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !29
-  %8 = getelementptr inbounds nuw %struct._timelib_error_message, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   tail call void @_efree(ptr noundef %10) #19
@@ -303,7 +301,7 @@ define hidden void @timelib_error_container_dtor(ptr noundef %0) local_unnamed_a
 .lr.ph15:                                         ; preds = %._crit_edge, %.lr.ph15
   %indvars.iv18 = phi i64 [ %indvars.iv.next19, %.lr.ph15 ], [ 0, %._crit_edge ]
   %19 = load ptr, ptr %0, align 8, !tbaa !33
-  %20 = getelementptr inbounds nuw %struct._timelib_error_message, ptr %19, i64 %indvars.iv18
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %indvars.iv18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !30
   tail call void @_efree(ptr noundef %22) #19

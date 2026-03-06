@@ -581,7 +581,7 @@ define range(i32 -1, 2) i32 @EVP_CIPHER_CTX_get_algor_params(ptr noundef %0, ptr
   store ptr %26, ptr %3, align 8, !tbaa !39
   %27 = select i1 %or.cond.not, i64 4294967295, i64 0
   %28 = select i1 %or.cond7.not, i64 %27, i64 1
-  %29 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %4, i64 %28
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !42
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %32 = load i64, ptr %31, align 8, !tbaa !44

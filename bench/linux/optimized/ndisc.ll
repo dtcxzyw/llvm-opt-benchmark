@@ -647,7 +647,7 @@ define dso_local noundef ptr @ndisc_parse_options(ptr noundef %0, ptr noundef %1
 
 36:                                               ; preds = %.critedge10, %.critedge10, %.critedge10, %.critedge10, %.critedge10
   %37 = zext nneg i8 %35 to i64
-  %38 = getelementptr ptr, ptr %3, i64 %37
+  %38 = getelementptr [8 x i8], ptr %3, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %57, label %.critedge12
@@ -656,7 +656,7 @@ define dso_local noundef ptr @ndisc_parse_options(ptr noundef %0, ptr noundef %1
   store ptr %16, ptr %3, align 8
   %42 = load i8, ptr %16, align 1
   %43 = zext i8 %42 to i64
-  %44 = getelementptr ptr, ptr %3, i64 %43
+  %44 = getelementptr [8 x i8], ptr %3, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %57, label %.critedge12
@@ -1029,11 +1029,11 @@ define dso_local void @ndisc_send_skb(ptr noundef %0, ptr noundef %1, ptr nounde
 139:                                              ; preds = %136
   %140 = getelementptr inbounds nuw i8, ptr %95, i64 928
   %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr %struct.atomic64_t, ptr %141, i64 %138
+  %142 = getelementptr [8 x i8], ptr %141, i64 %138
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %142, ptr elementtype(i64) %142) #14, !srcloc !18
   %143 = getelementptr inbounds nuw i8, ptr %13, i64 496
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr %struct.atomic64_t, ptr %144, i64 %138
+  %145 = getelementptr [8 x i8], ptr %144, i64 %138
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %145, ptr elementtype(i64) %145) #14, !srcloc !18
   %146 = getelementptr inbounds nuw i8, ptr %95, i64 920
   %147 = load ptr, ptr %146, align 8
@@ -1044,7 +1044,7 @@ define dso_local void @ndisc_send_skb(ptr noundef %0, ptr noundef %1, ptr nounde
 149:                                              ; preds = %136
   %150 = getelementptr inbounds nuw i8, ptr %13, i64 496
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr %struct.atomic64_t, ptr %151, i64 %138
+  %152 = getelementptr [8 x i8], ptr %151, i64 %138
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %152, ptr elementtype(i64) %152) #14, !srcloc !18
   br label %153
 
@@ -2513,7 +2513,7 @@ define internal fastcc noundef range(i32 1, 82) i32 @ndisc_recv_ns(ptr noundef %
 
 75:                                               ; preds = %.critedge10.i, %.critedge10.i, %.critedge10.i, %.critedge10.i, %.critedge10.i
   %76 = zext nneg i8 %74 to i64
-  %77 = getelementptr ptr, ptr %2, i64 %76
+  %77 = getelementptr [8 x i8], ptr %2, i64 %76
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %93, label %.critedge12.i
@@ -3024,7 +3024,7 @@ define internal fastcc noundef range(i32 1, 81) i32 @ndisc_recv_na(ptr noundef %
 
 80:                                               ; preds = %.critedge10.i, %.critedge10.i, %.critedge10.i, %.critedge10.i, %.critedge10.i
   %81 = zext nneg i8 %79 to i64
-  %82 = getelementptr ptr, ptr %2, i64 %81
+  %82 = getelementptr [8 x i8], ptr %2, i64 %81
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %98, label %.critedge12.i
@@ -3384,7 +3384,7 @@ define internal fastcc noundef range(i32 1, 81) i32 @ndisc_recv_rs(ptr noundef r
 
 69:                                               ; preds = %.critedge10.i, %.critedge10.i, %.critedge10.i, %.critedge10.i, %.critedge10.i
   %70 = zext nneg i8 %68 to i64
-  %71 = getelementptr ptr, ptr %2, i64 %70
+  %71 = getelementptr [8 x i8], ptr %2, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %87, label %.critedge12.i
@@ -3634,7 +3634,7 @@ define internal fastcc range(i32 1, 81) i32 @ndisc_router_discovery(ptr noundef 
 
 72:                                               ; preds = %.critedge10.i, %.critedge10.i, %.critedge10.i, %.critedge10.i, %.critedge10.i
   %73 = zext nneg i8 %71 to i64
-  %74 = getelementptr ptr, ptr %2, i64 %73
+  %74 = getelementptr [8 x i8], ptr %2, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %90, label %.critedge12.i
@@ -4562,7 +4562,7 @@ define internal fastcc i32 @ndisc_redirect_rcv(ptr noundef %0) unnamed_addr #1 a
 
 62:                                               ; preds = %.critedge10.i, %.critedge10.i, %.critedge10.i, %.critedge10.i, %.critedge10.i
   %63 = zext nneg i8 %61 to i64
-  %64 = getelementptr ptr, ptr %2, i64 %63
+  %64 = getelementptr [8 x i8], ptr %2, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %80, label %.critedge12.i

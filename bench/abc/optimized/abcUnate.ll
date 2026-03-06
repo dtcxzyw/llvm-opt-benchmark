@@ -94,7 +94,7 @@ Abc_Clock.exit67.i:                               ; preds = %25, %22
   %.05185.i = phi i32 [ 0, %.lr.ph.i ], [ %96, %91 ]
   %41 = getelementptr i8, ptr %.val88.i, i64 8
   %.val59.val.i = load ptr, ptr %41, align 8, !tbaa !30
-  %42 = getelementptr inbounds nuw ptr, ptr %.val59.val.i, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.val59.val.i, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 8, !tbaa !31
   %.val61.i = load ptr, ptr %43, align 8, !tbaa !32
   %44 = getelementptr i8, ptr %43, i64 16
@@ -139,7 +139,7 @@ Abc_Clock.exit67.i:                               ; preds = %25, %22
   %65 = phi ptr [ %60, %59 ], [ %62, %61 ]
   store ptr %65, ptr %55, align 8, !tbaa !39
   %66 = sext i32 %64 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %65, i64 %66
   %68 = sub nsw i32 %53, %64
   %69 = sext i32 %68 to i64
   %70 = shl nsw i64 %69, 3
@@ -151,7 +151,7 @@ Vec_AttGrow.exit.i.i.i:                           ; preds = %63, %49, %40
   %71 = getelementptr inbounds nuw i8, ptr %.val61.val.val.val.i, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !39
   %73 = sext i32 %.val62.i to i64
-  %74 = getelementptr inbounds ptr, ptr %72, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !31
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %Abc_ObjGlobalBdd.exit.i
@@ -167,10 +167,10 @@ Vec_AttGrow.exit.i.i.i:                           ; preds = %63, %49, %40
   %82 = load ptr, ptr %81, align 8, !tbaa !41
   %83 = call ptr %79(ptr noundef %82) #12
   %84 = load ptr, ptr %71, align 8, !tbaa !39
-  %85 = getelementptr inbounds ptr, ptr %84, i64 %73
+  %85 = getelementptr inbounds [8 x i8], ptr %84, i64 %73
   store ptr %83, ptr %85, align 8, !tbaa !31
   %.pre.i.i.i = load ptr, ptr %71, align 8, !tbaa !39
-  %.phi.trans.insert.i.i.i = getelementptr inbounds ptr, ptr %.pre.i.i.i, i64 %73
+  %.phi.trans.insert.i.i.i = getelementptr inbounds [8 x i8], ptr %.pre.i.i.i, i64 %73
   %.pre19.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !31
   br label %Abc_ObjGlobalBdd.exit.i
 
@@ -220,7 +220,7 @@ Abc_ObjGlobalBdd.exit.i:                          ; preds = %80, %77, %Vec_AttGr
   %.25392.i = phi i32 [ 0, %.lr.ph96.i ], [ %161, %156 ]
   %106 = getelementptr i8, ptr %.val5795.i, i64 8
   %.val60.val.i = load ptr, ptr %106, align 8, !tbaa !30
-  %107 = getelementptr inbounds nuw ptr, ptr %.val60.val.i, i64 %indvars.iv104.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %.val60.val.i, i64 %indvars.iv104.i
   %108 = load ptr, ptr %107, align 8, !tbaa !31
   %.val63.i = load ptr, ptr %108, align 8, !tbaa !32
   %109 = getelementptr i8, ptr %108, i64 16
@@ -265,7 +265,7 @@ Abc_ObjGlobalBdd.exit.i:                          ; preds = %80, %77, %Vec_AttGr
   %130 = phi ptr [ %125, %124 ], [ %127, %126 ]
   store ptr %130, ptr %120, align 8, !tbaa !39
   %131 = sext i32 %129 to i64
-  %132 = getelementptr inbounds ptr, ptr %130, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %130, i64 %131
   %133 = sub nsw i32 %118, %129
   %134 = sext i32 %133 to i64
   %135 = shl nsw i64 %134, 3
@@ -277,7 +277,7 @@ Vec_AttGrow.exit.i.i70.i:                         ; preds = %128, %114, %105
   %136 = getelementptr inbounds nuw i8, ptr %.val63.val.val.val.i, i64 8
   %137 = load ptr, ptr %136, align 8, !tbaa !39
   %138 = sext i32 %.val64.i to i64
-  %139 = getelementptr inbounds ptr, ptr %137, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %137, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !31
   %141 = icmp eq ptr %140, null
   br i1 %141, label %142, label %Abc_ObjGlobalBdd.exit77.i
@@ -293,10 +293,10 @@ Vec_AttGrow.exit.i.i70.i:                         ; preds = %128, %114, %105
   %147 = load ptr, ptr %146, align 8, !tbaa !41
   %148 = call ptr %144(ptr noundef %147) #12
   %149 = load ptr, ptr %136, align 8, !tbaa !39
-  %150 = getelementptr inbounds ptr, ptr %149, i64 %138
+  %150 = getelementptr inbounds [8 x i8], ptr %149, i64 %138
   store ptr %148, ptr %150, align 8, !tbaa !31
   %.pre.i.i72.i = load ptr, ptr %136, align 8, !tbaa !39
-  %.phi.trans.insert.i.i73.i = getelementptr inbounds ptr, ptr %.pre.i.i72.i, i64 %138
+  %.phi.trans.insert.i.i73.i = getelementptr inbounds [8 x i8], ptr %.pre.i.i72.i, i64 %138
   %.pre19.i.i74.i = load ptr, ptr %.phi.trans.insert.i.i73.i, align 8, !tbaa !31
   br label %Abc_ObjGlobalBdd.exit77.i
 

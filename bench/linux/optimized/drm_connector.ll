@@ -294,7 +294,7 @@ define dso_local void @drm_connector_ida_init() local_unnamed_addr #0 align 16 {
 
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 0, %0 ], [ %6, %1 ]
-  %.split = getelementptr %struct.drm_conn_prop_enum_list, ptr @drm_connector_enum_list, i64 %2
+  %.split = getelementptr [32 x i8], ptr @drm_connector_enum_list, i64 %2
   %3 = getelementptr i8, ptr %.split, i64 16
   store i32 0, ptr %3, align 16
   %4 = getelementptr i8, ptr %.split, i64 20
@@ -315,7 +315,7 @@ define dso_local void @drm_connector_ida_destroy() local_unnamed_addr #1 align 1
 
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 0, %0 ], [ %4, %1 ]
-  %.split = getelementptr %struct.drm_conn_prop_enum_list, ptr @drm_connector_enum_list, i64 %2
+  %.split = getelementptr [32 x i8], ptr @drm_connector_enum_list, i64 %2
   %3 = getelementptr i8, ptr %.split, i64 16
   tail call void @ida_destroy(ptr noundef %3) #21
   %4 = add nuw nsw i64 %2, 1
@@ -336,7 +336,7 @@ define dso_local ptr @drm_get_connector_type_name(i32 noundef %0) #3 align 16 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %.split = getelementptr %struct.drm_conn_prop_enum_list, ptr @drm_connector_enum_list, i64 %4
+  %.split = getelementptr [32 x i8], ptr @drm_connector_enum_list, i64 %4
   %5 = getelementptr i8, ptr %.split, i64 8
   %6 = load ptr, ptr %5, align 8
   br label %7
@@ -436,7 +436,7 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @__drm_connector_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 align 16 {
   %6 = sext i32 %3 to i64
-  %7 = getelementptr %struct.drm_conn_prop_enum_list, ptr @drm_connector_enum_list, i64 %6
+  %7 = getelementptr [32 x i8], ptr @drm_connector_enum_list, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
@@ -989,7 +989,7 @@ define dso_local void @drm_connector_cleanup(ptr noundef %0) #1 align 16 {
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
-  %.split = getelementptr %struct.drm_conn_prop_enum_list, ptr @drm_connector_enum_list, i64 %56
+  %.split = getelementptr [32 x i8], ptr @drm_connector_enum_list, i64 %56
   %57 = getelementptr i8, ptr %.split, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %59 = load i32, ptr %58, align 8
@@ -1654,7 +1654,7 @@ define dso_local noundef nonnull ptr @drm_get_connector_force_name(i32 noundef %
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local ptr @drm_get_subpixel_order_name(i32 noundef %0) #7 align 16 {
   %2 = zext i32 %0 to i64
-  %.split = getelementptr %struct.drm_prop_enum_list, ptr @drm_subpixel_enum_list, i64 %2
+  %.split = getelementptr [16 x i8], ptr @drm_subpixel_enum_list, i64 %2
   %3 = getelementptr i8, ptr %.split, i64 8
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
@@ -1671,7 +1671,7 @@ define dso_local ptr @drm_get_dpms_name(i32 noundef %0) local_unnamed_addr #8 al
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.drm_prop_enum_list, ptr @drm_dpms_enum_list, i64 %6
+  %7 = getelementptr [16 x i8], ptr @drm_dpms_enum_list, i64 %6
   %8 = load i32, ptr %7, align 16
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %2
@@ -1734,7 +1734,7 @@ define dso_local ptr @drm_get_dvi_i_select_name(i32 noundef %0) local_unnamed_ad
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.drm_prop_enum_list, ptr @drm_dvi_i_select_enum_list, i64 %6
+  %7 = getelementptr [16 x i8], ptr @drm_dvi_i_select_enum_list, i64 %6
   %8 = load i32, ptr %7, align 16
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %2
@@ -1760,7 +1760,7 @@ define dso_local ptr @drm_get_dvi_i_subconnector_name(i32 noundef %0) local_unna
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.drm_prop_enum_list, ptr @drm_dvi_i_subconnector_enum_list, i64 %6
+  %7 = getelementptr [16 x i8], ptr @drm_dvi_i_subconnector_enum_list, i64 %6
   %8 = load i32, ptr %7, align 16
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %2
@@ -1786,7 +1786,7 @@ define dso_local ptr @drm_get_tv_mode_name(i32 noundef %0) local_unnamed_addr #8
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.drm_prop_enum_list, ptr @drm_tv_mode_enum_list, i64 %6
+  %7 = getelementptr [16 x i8], ptr @drm_tv_mode_enum_list, i64 %6
   %8 = load i32, ptr %7, align 16
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %2
@@ -1812,7 +1812,7 @@ define dso_local i32 @drm_get_tv_mode_from_name(ptr noundef readonly captures(no
 
 6:                                                ; preds = %3, %2
   %7 = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %8 = getelementptr %struct.drm_prop_enum_list, ptr @drm_tv_mode_enum_list, i64 %7
+  %8 = getelementptr [16 x i8], ptr @drm_tv_mode_enum_list, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 @strlen(ptr noundef %10) #21
@@ -1850,7 +1850,7 @@ define dso_local ptr @drm_get_tv_select_name(i32 noundef %0) local_unnamed_addr 
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.drm_prop_enum_list, ptr @drm_tv_select_enum_list, i64 %6
+  %7 = getelementptr [16 x i8], ptr @drm_tv_select_enum_list, i64 %6
   %8 = load i32, ptr %7, align 16
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %2
@@ -1876,7 +1876,7 @@ define dso_local ptr @drm_get_tv_subconnector_name(i32 noundef %0) local_unnamed
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.drm_prop_enum_list, ptr @drm_tv_subconnector_enum_list, i64 %6
+  %7 = getelementptr [16 x i8], ptr @drm_tv_subconnector_enum_list, i64 %6
   %8 = load i32, ptr %7, align 16
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %2
@@ -1902,7 +1902,7 @@ define dso_local ptr @drm_get_dp_subconnector_name(i32 noundef %0) local_unnamed
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.drm_prop_enum_list, ptr @drm_dp_subconnector_enum_list, i64 %6
+  %7 = getelementptr [16 x i8], ptr @drm_dp_subconnector_enum_list, i64 %6
   %8 = load i32, ptr %7, align 16
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %2
@@ -1924,7 +1924,7 @@ define dso_local ptr @drm_get_colorspace_name(i32 noundef %0) local_unnamed_addr
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr ptr, ptr @colorspace_names, i64 %4
+  %5 = getelementptr [8 x i8], ptr @colorspace_names, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -2193,7 +2193,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_mode_create_tv_properties_le
 25:                                               ; preds = %25, %23
   %26 = phi i64 [ 0, %23 ], [ %31, %25 ]
   %27 = load ptr, ptr %21, align 8
-  %28 = getelementptr ptr, ptr %2, i64 %26
+  %28 = getelementptr [8 x i8], ptr %2, i64 %26
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @drm_property_add_enum(ptr noundef %27, i64 noundef %26, ptr noundef %29) #21
   %31 = add nuw nsw i64 %26, 1
@@ -2277,7 +2277,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_mode_create_tv_properties(pt
 
 15:                                               ; preds = %9
   %16 = zext i32 %11 to i64
-  %17 = getelementptr %struct.drm_prop_enum_list, ptr %3, i64 %16
+  %17 = getelementptr [16 x i8], ptr %3, i64 %16
   %18 = trunc i64 %10 to i32
   store i32 %18, ptr %17, align 16
   br label %22
@@ -2289,7 +2289,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_mode_create_tv_properties(pt
 
 22:                                               ; preds = %19, %15
   %23 = phi i64 [ 0, %15 ], [ %20, %19 ]
-  %24 = getelementptr %struct.drm_prop_enum_list, ptr @drm_tv_mode_enum_list, i64 %23
+  %24 = getelementptr [16 x i8], ptr @drm_tv_mode_enum_list, i64 %23
   %25 = load i32, ptr %24, align 16
   %26 = zext i32 %25 to i64
   %27 = icmp eq i64 %10, %26
@@ -2401,7 +2401,7 @@ define dso_local i32 @drm_connector_attach_scaling_mode_property(ptr noundef %0,
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr %struct.drm_prop_enum_list, ptr @drm_scaling_mode_enum_list, i64 %15
+  %20 = getelementptr [16 x i8], ptr @drm_scaling_mode_enum_list, i64 %15
   %21 = load i32, ptr %20, align 16
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -2504,10 +2504,10 @@ define dso_local range(i32 -22, 1) i32 @drm_mode_create_hdmi_colorspace_property
 
 33:                                               ; preds = %27
   %34 = sext i32 %29 to i64
-  %35 = getelementptr %struct.drm_prop_enum_list, ptr %3, i64 %34
+  %35 = getelementptr [16 x i8], ptr %3, i64 %34
   %36 = trunc i64 %28 to i32
   store i32 %36, ptr %35, align 16
-  %37 = getelementptr ptr, ptr @colorspace_names, i64 %28
+  %37 = getelementptr [8 x i8], ptr @colorspace_names, i64 %28
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %38, ptr %39, align 8
@@ -2584,10 +2584,10 @@ define dso_local range(i32 -22, 1) i32 @drm_mode_create_dp_colorspace_property(p
 
 33:                                               ; preds = %27
   %34 = sext i32 %29 to i64
-  %35 = getelementptr %struct.drm_prop_enum_list, ptr %3, i64 %34
+  %35 = getelementptr [16 x i8], ptr %3, i64 %34
   %36 = trunc i64 %28 to i32
   store i32 %36, ptr %35, align 16
-  %37 = getelementptr ptr, ptr @colorspace_names, i64 %28
+  %37 = getelementptr [8 x i8], ptr @colorspace_names, i64 %28
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %38, ptr %39, align 8
@@ -3271,7 +3271,7 @@ define dso_local i32 @drm_mode_getconnector(ptr noundef %0, ptr noundef %1, ptr 
   %47 = getelementptr i8, ptr %38, i64 16
   %48 = load i32, ptr %47, align 8
   %49 = sext i32 %39 to i64
-  %50 = getelementptr i32, ptr %32, i64 %49
+  %50 = getelementptr [4 x i8], ptr %32, i64 %49
   %51 = tail call i64 @llvm.read_register.i64(metadata !0)
   %52 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %50, i32 %48, i64 4, i64 %51) #21, !srcloc !70
   %53 = extractvalue { ptr, i64 } %52, 0
@@ -3488,7 +3488,7 @@ define dso_local i32 @drm_mode_getconnector(ptr noundef %0, ptr noundef %1, ptr 
 
 183:                                              ; preds = %180, %176
   %184 = sext i32 %172 to i64
-  %185 = getelementptr %struct.drm_mode_modeinfo, ptr %164, i64 %184
+  %185 = getelementptr [68 x i8], ptr %164, i64 %184
   %186 = call i64 @_copy_to_user(ptr noundef %185, ptr noundef nonnull %4, i64 noundef 68) #21
   %187 = icmp eq i64 %186, 0
   br i1 %187, label %195, label %188

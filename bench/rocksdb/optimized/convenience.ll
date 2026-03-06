@@ -117,8 +117,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.rocksdb::TableReaderOptions" = type <{ ptr, ptr, ptr, ptr, i8, i8, i8, i8, i32, i64, ptr, i64, %"class.std::__cxx11::basic_string", i64, %"struct.std::array", i8, [7 x i8], i64, i8, [7 x i8] }>
 %"struct.std::array" = type { [2 x i64] }
 %"class.std::function.419" = type { %"class.std::_Function_base", ptr }
-%"class.std::shared_ptr.434" = type { %"class.std::__shared_ptr.435" }
-%"class.std::__shared_ptr.435" = type { ptr, %"class.std::__shared_count" }
 
 $_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_ = comdat any
 
@@ -2814,7 +2812,7 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_
 _ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !231
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !232
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.434", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !240
   ret void
 }

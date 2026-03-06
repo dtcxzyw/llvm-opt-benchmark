@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.0 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.0 = type { i64, [8 x i8] }
-%"class.cv::Point3_" = type { float, float, float }
-%"class.cv::Point_" = type { float, float }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -188,12 +186,12 @@ define hidden void @_ZN9CsvWriter8writeXYZERKSt6vectorIN2cv7Point3_IfEESaIS3_EE(
   %18 = phi ptr [ %8, %.lr.ph ], [ %73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   %.01339 = phi i64 [ 0, %.lr.ph ], [ %71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %19 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %18, i64 %.01339
+  %19 = getelementptr inbounds nuw [12 x i8], ptr %18, i64 %.01339
   %20 = load float, ptr %19, align 4, !tbaa !43
   call void @_Z13FloatToStringB5cxx11f(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, float noundef %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load ptr, ptr %1, align 8, !tbaa !42
-  %22 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %21, i64 %.01339
+  %22 = getelementptr inbounds nuw [12 x i8], ptr %21, i64 %.01339
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load float, ptr %23, align 4, !tbaa !46
   invoke void @_Z13FloatToStringB5cxx11f(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, float noundef %24)
@@ -202,7 +200,7 @@ define hidden void @_ZN9CsvWriter8writeXYZERKSt6vectorIN2cv7Point3_IfEESaIS3_EE(
 25:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = load ptr, ptr %1, align 8, !tbaa !42
-  %27 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %26, i64 %.01339
+  %27 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 %.01339
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load float, ptr %28, align 4, !tbaa !47
   invoke void @_Z13FloatToStringB5cxx11f(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, float noundef %29)
@@ -426,12 +424,12 @@ define hidden void @_ZN9CsvWriter10writeUVXYZERKSt6vectorIN2cv7Point3_IfEESaIS3_
   %.02782 = phi i64 [ 0, %.lr.ph ], [ %142, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = load ptr, ptr %2, align 8, !tbaa !63
-  %32 = getelementptr inbounds nuw %"class.cv::Point_", ptr %31, i64 %.02782
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.02782
   %33 = load float, ptr %32, align 4, !tbaa !66
   call void @_Z13FloatToStringB5cxx11f(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, float noundef %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %34 = load ptr, ptr %2, align 8, !tbaa !63
-  %35 = getelementptr inbounds nuw %"class.cv::Point_", ptr %34, i64 %.02782
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02782
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load float, ptr %36, align 4, !tbaa !68
   invoke void @_Z13FloatToStringB5cxx11f(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, float noundef %37)
@@ -440,7 +438,7 @@ define hidden void @_ZN9CsvWriter10writeUVXYZERKSt6vectorIN2cv7Point3_IfEESaIS3_
 38:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %39 = load ptr, ptr %1, align 8, !tbaa !42
-  %40 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %39, i64 %.02782
+  %40 = getelementptr inbounds nuw [12 x i8], ptr %39, i64 %.02782
   %41 = load float, ptr %40, align 4, !tbaa !43
   invoke void @_Z13FloatToStringB5cxx11f(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, float noundef %41)
           to label %42 unwind label %103
@@ -448,7 +446,7 @@ define hidden void @_ZN9CsvWriter10writeUVXYZERKSt6vectorIN2cv7Point3_IfEESaIS3_
 42:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %43 = load ptr, ptr %1, align 8, !tbaa !42
-  %44 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %43, i64 %.02782
+  %44 = getelementptr inbounds nuw [12 x i8], ptr %43, i64 %.02782
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load float, ptr %45, align 4, !tbaa !46
   invoke void @_Z13FloatToStringB5cxx11f(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, float noundef %46)
@@ -457,7 +455,7 @@ define hidden void @_ZN9CsvWriter10writeUVXYZERKSt6vectorIN2cv7Point3_IfEESaIS3_
 47:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %48 = load ptr, ptr %1, align 8, !tbaa !42
-  %49 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %48, i64 %.02782
+  %49 = getelementptr inbounds nuw [12 x i8], ptr %48, i64 %.02782
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load float, ptr %50, align 4, !tbaa !47
   invoke void @_Z13FloatToStringB5cxx11f(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, float noundef %51)
@@ -608,7 +606,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc77, %91
   %112 = load i64, ptr %111, align 8, !tbaa !77
   %113 = mul i64 %112, %80
   %114 = getelementptr inbounds nuw i8, ptr %110, i64 %113
-  %115 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv
   %116 = load float, ptr %115, align 4, !tbaa !78
   invoke void @_Z13FloatToStringB5cxx11f(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, float noundef %116)
           to label %117 unwind label %126

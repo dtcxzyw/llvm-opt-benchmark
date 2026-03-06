@@ -2255,7 +2255,7 @@ thread-pre-split:                                 ; preds = %1
   %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull %12) #11
   %14 = tail call ptr @g_list_prepend(ptr noundef %.441.us, ptr noundef %13) #11
   %15 = add i64 %.042.us, 1
-  %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !57
   %.not31.us = icmp eq ptr %17, null
   br i1 %.not31.us, label %.critedge.thread.loopexit.us, label %.lr.ph.us
@@ -4714,7 +4714,7 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
 .lr.ph117:                                        ; preds = %.lr.ph.split.split, %47
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.lr.ph.split.split ]
   %42 = phi ptr [ %49, %47 ], [ %41, %.lr.ph.split.split ]
-  %43 = getelementptr inbounds nuw ptr, ptr %.fr146, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.fr146, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !57
   %.not90 = icmp eq ptr %44, null
   br i1 %.not90, label %.critedge.loopexit, label %45
@@ -4726,7 +4726,7 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
 
 47:                                               ; preds = %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = getelementptr inbounds nuw ptr, ptr %.078136, i64 %indvars.iv.next
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.078136, i64 %indvars.iv.next
   %49 = load ptr, ptr %48, align 8, !tbaa !57
   %.not149 = icmp eq ptr %49, null
   br i1 %.not149, label %.critedge.loopexit, label %.lr.ph117
@@ -4752,7 +4752,7 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
   %51 = and i32 %39, 1
   %.not95 = icmp eq i32 %51, 0
   %.not96 = icmp eq ptr %37, null
-  %52 = getelementptr inbounds nuw ptr, ptr %.fr146, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.fr146, i64 %50
   %53 = load ptr, ptr %52, align 8, !tbaa !57
   %.not93177 = icmp eq ptr %53, null
   br i1 %.not93177, label %.critedge3, label %.preheader102.preheader
@@ -4773,7 +4773,7 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
 
 ._crit_edge:                                      ; preds = %.lr.ph120, %.preheader102
   %55 = add nuw i64 %.074129179, 1
-  %56 = getelementptr inbounds nuw ptr, ptr %.fr146, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %.fr146, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !57
   %.not94 = icmp eq ptr %57, null
   br i1 %.not94, label %60, label %79
@@ -4841,7 +4841,7 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
 82:                                               ; preds = %79, %.loopexit, %64, %60
   %.2 = phi i32 [ %.1125180, %79 ], [ %61, %.loopexit ], [ %61, %64 ], [ %61, %60 ]
   %indvars156 = trunc i64 %55 to i32
-  %83 = getelementptr inbounds nuw ptr, ptr %.fr146, i64 %55
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %.fr146, i64 %55
   %84 = load ptr, ptr %83, align 8, !tbaa !57
   %.not93 = icmp eq ptr %84, null
   br i1 %.not93, label %.critedge3, label %.preheader102
@@ -4947,7 +4947,7 @@ define ptr @dt_tag_get_subtags(i32 noundef %0, ptr noundef %1, i32 noundef %2) l
 
 49:                                               ; preds = %45
   %50 = call ptr @g_strsplit(ptr noundef %47, ptr noundef nonnull @.str.31, i32 noundef -1) #11
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %44
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %44
   %52 = load ptr, ptr %51, align 8, !tbaa !57
   %53 = load ptr, ptr %4, align 8, !tbaa !57
   %.not36 = icmp eq ptr %53, null

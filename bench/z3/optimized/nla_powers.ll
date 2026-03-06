@@ -15,11 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 %class.map.195 = type { %class.table2map.196 }
 %class.table2map.196 = type { %class.core_hashtable.197 }
 %class.core_hashtable.197 = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.lp::column" = type { ptr, ptr, ptr }
-%"struct.lp::numeric_pair" = type { %class.rational, %class.rational }
 %struct._key_data = type { i32, %class.rational }
-%class.default_map_entry = type { %class.default_hash_entry }
-%class.default_hash_entry = type { i32, i32, %struct._key_data }
 
 $_ZneRK8rationali = comdat any
 
@@ -190,7 +186,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN3nla6powers5checkEjjjR6vectorINS_
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1320
   %61 = load ptr, ptr %60, align 8, !tbaa !180
   %62 = zext i32 %2 to i64
-  %63 = getelementptr inbounds nuw %"class.lp::column", ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !183
   %.not = icmp eq ptr %65, null
@@ -198,7 +194,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN3nla6powers5checkEjjjR6vectorINS_
 
 66:                                               ; preds = %57
   %67 = zext i32 %3 to i64
-  %68 = getelementptr inbounds nuw %"class.lp::column", ptr %61, i64 %67
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !183
   %.not247 = icmp eq ptr %70, null
@@ -206,7 +202,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN3nla6powers5checkEjjjR6vectorINS_
 
 71:                                               ; preds = %66
   %72 = zext i32 %1 to i64
-  %73 = getelementptr inbounds nuw %"class.lp::column", ptr %61, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !183
   %.not248 = icmp eq ptr %75, null
@@ -222,7 +218,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN3nla6powers5checkEjjjR6vectorINS_
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %81 = getelementptr inbounds nuw i8, ptr %59, i64 536
   %82 = load ptr, ptr %81, align 8, !tbaa !189
-  %83 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %82, i64 %62
+  %83 = getelementptr inbounds nuw [64 x i8], ptr %82, i64 %62
   store i32 0, ptr %6, align 8, !tbaa !192
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 0, ptr %84, align 4
@@ -276,7 +272,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i:   ; preds = %96, %94
   %108 = load ptr, ptr %58, align 8, !tbaa !9
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 536
   %110 = load ptr, ptr %109, align 8, !tbaa !189
-  %111 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %110, i64 %67
+  %111 = getelementptr inbounds nuw [64 x i8], ptr %110, i64 %67
   store i32 0, ptr %7, align 8, !tbaa !192
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %113 = load i8, ptr %112, align 4
@@ -334,7 +330,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i226: ; preds = %128, %126
   %140 = load ptr, ptr %58, align 8, !tbaa !9
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 536
   %142 = load ptr, ptr %141, align 8, !tbaa !189
-  %143 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %142, i64 %72
+  %143 = getelementptr inbounds nuw [64 x i8], ptr %142, i64 %72
   store i32 0, ptr %8, align 8, !tbaa !192
   %144 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %145 = load i8, ptr %144, align 4
@@ -3537,7 +3533,7 @@ define linkonce_odr hidden noundef ptr @_ZNK9table2mapI17default_map_entryIj8rat
   %.idx.i = mul nuw nsw i64 %13, 48
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %15 = zext i32 %9 to i64
-  %16 = getelementptr inbounds nuw %class.default_map_entry, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %15
   %.not30.i = icmp eq i32 %11, %9
   br i1 %.not30.i, label %.preheader.i, label %.lr.ph.i
 
@@ -3736,7 +3732,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.idx = mul nuw nsw i64 %20, 48
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %22 = zext i32 %15 to i64
-  %23 = getelementptr inbounds nuw %class.default_map_entry, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %22
   %.not63 = icmp eq i32 %18, %15
   br i1 %.not63, label %.preheader, label %.lr.ph
 
@@ -4242,7 +4238,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.idx = mul nuw nsw i64 %6, 48
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds nuw %class.default_map_entry, ptr %2, i64 %8
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %2, i64 %8
   %.not38 = icmp eq i32 %1, 0
   br i1 %.not38, label %._crit_edge43, label %.lr.ph42
 
@@ -4617,7 +4613,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.idx = mul nuw nsw i64 %9, 48
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw %class.default_map_entry, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %11
   %.not39 = icmp eq i32 %7, %5
   br i1 %.not39, label %.preheader, label %.lr.ph
 
@@ -5013,7 +5009,7 @@ _ZN5u_mapI8rationalEC2Ev.exit:                    ; preds = %.lr.ph.i.i.i.i.i.i.
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %29, %_ZN5u_mapI8rationalEC2Ev.exit
   %.sroa.0.1.i.i.i = phi ptr [ %21, %_ZN5u_mapI8rationalEC2Ev.exit ], [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %25, %29 ]
-  %31 = getelementptr inbounds nuw %class.default_map_entry, ptr %21, i64 %24
+  %31 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %24
   %.not23 = icmp eq ptr %.sroa.0.1.i.i.i, %31
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 

@@ -1494,7 +1494,7 @@ sub_0.preheader:                                  ; preds = %.preheader
 
 sub_0:                                            ; preds = %sub_0.preheader, %115
   %indvars.iv = phi i64 [ 0, %sub_0.preheader ], [ %indvars.iv.next, %115 ]
-  %90 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8
   %92 = load i8, ptr %91, align 1
   %.not109 = icmp eq i8 %92, 45
@@ -1527,14 +1527,14 @@ sub_0:                                            ; preds = %sub_0.preheader, %1
 
 .preheader.i:                                     ; preds = %.tail.thread, %103
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %103 ], [ 0, %.tail.thread ]
-  %104 = getelementptr inbounds nuw ptr, ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
   %105 = load ptr, ptr %104, align 16
   %106 = call i32 @pg_strcasecmp(ptr noundef nonnull %101, ptr noundef %105) #8
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %108, label %103
 
 108:                                              ; preds = %.preheader.i
-  %109 = getelementptr inbounds nuw ptr, ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
   %110 = getelementptr i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
   br label %map_typename_pattern.exit
@@ -1671,14 +1671,14 @@ define dso_local noundef zeroext i1 @describeTypes(ptr noundef %0, i1 noundef ze
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %14
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %.preheader.i.preheader ]
-  %15 = getelementptr inbounds nuw ptr, ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 16
   %17 = call i32 @pg_strcasecmp(ptr noundef nonnull %0, ptr noundef %16) #8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %14
 
 19:                                               ; preds = %.preheader.i
-  %20 = getelementptr inbounds nuw ptr, ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
   %21 = getelementptr i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   br label %map_typename_pattern.exit
@@ -1795,7 +1795,7 @@ sub_0.preheader:                                  ; preds = %.thread42, %27
 
 sub_0:                                            ; preds = %sub_0.preheader, %54
   %indvars.iv = phi i64 [ 0, %sub_0.preheader ], [ %indvars.iv.next, %54 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = load i8, ptr %30, align 1
   %.not37 = icmp eq i8 %31, 45
@@ -1828,14 +1828,14 @@ sub_0:                                            ; preds = %sub_0.preheader, %5
 
 .preheader.i:                                     ; preds = %.tail.thread, %42
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %42 ], [ 0, %.tail.thread ]
-  %43 = getelementptr inbounds nuw ptr, ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
   %44 = load ptr, ptr %43, align 16
   %45 = call i32 @pg_strcasecmp(ptr noundef nonnull %40, ptr noundef %44) #8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %42
 
 47:                                               ; preds = %.preheader.i
-  %48 = getelementptr inbounds nuw ptr, ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @map_typename_pattern.typename_map, i64 %indvars.iv.i
   %49 = getelementptr i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   br label %map_typename_pattern.exit
@@ -2873,7 +2873,7 @@ sub_1:                                            ; preds = %.tail1271
 209:                                              ; preds = %207
   %210 = add nuw nsw i32 %.6988, 1
   %211 = zext nneg i32 %.6988 to i64
-  %212 = getelementptr inbounds nuw ptr, ptr %8, i64 %211
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %211
   store ptr @.str.704, ptr %212, align 8
   br label %213
 
@@ -2885,7 +2885,7 @@ sub_1:                                            ; preds = %.tail1271
 215:                                              ; preds = %213
   %216 = add nuw nsw i32 %.7989, 1
   %217 = zext nneg i32 %.7989 to i64
-  %218 = getelementptr inbounds nuw ptr, ptr %8, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %217
   store ptr @.str.385, ptr %218, align 8
   br label %219
 
@@ -2897,7 +2897,7 @@ sub_1:                                            ; preds = %.tail1271
 221:                                              ; preds = %219
   %222 = add nuw nsw i32 %.8990, 1
   %223 = zext nneg i32 %.8990 to i64
-  %224 = getelementptr inbounds nuw ptr, ptr %8, i64 %223
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %223
   store ptr @.str.474, ptr %224, align 8
   br label %225
 
@@ -2909,7 +2909,7 @@ sub_1:                                            ; preds = %.tail1271
 227:                                              ; preds = %225
   %228 = add nuw nsw i32 %.9991, 1
   %229 = zext nneg i32 %.9991 to i64
-  %230 = getelementptr inbounds nuw ptr, ptr %8, i64 %229
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %229
   store ptr @.str.705, ptr %230, align 8
   br label %231
 
@@ -2921,7 +2921,7 @@ sub_1:                                            ; preds = %.tail1271
 233:                                              ; preds = %231
   %234 = add nuw nsw i32 %.10992, 1
   %235 = zext nneg i32 %.10992 to i64
-  %236 = getelementptr inbounds nuw ptr, ptr %8, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %235
   store ptr @.str.706, ptr %236, align 8
   br label %237
 
@@ -2933,7 +2933,7 @@ sub_1:                                            ; preds = %.tail1271
 239:                                              ; preds = %237
   %240 = add nuw nsw i32 %.11993, 1
   %241 = zext nneg i32 %.11993 to i64
-  %242 = getelementptr inbounds nuw ptr, ptr %8, i64 %241
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %241
   store ptr @.str.707, ptr %242, align 8
   br label %243
 
@@ -2945,7 +2945,7 @@ sub_1:                                            ; preds = %.tail1271
 245:                                              ; preds = %243
   %246 = add nuw nsw i32 %.12994, 1
   %247 = zext nneg i32 %.12994 to i64
-  %248 = getelementptr inbounds nuw ptr, ptr %8, i64 %247
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %247
   store ptr @.str.6, ptr %248, align 8
   br label %.lr.ph.preheader
 
@@ -2962,7 +2962,7 @@ sub_1:                                            ; preds = %.tail1271
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %251 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %252 = load ptr, ptr %251, align 8
   call void @printTableAddHeader(ptr noundef nonnull %7, ptr noundef %252, i1 noundef zeroext true, i8 noundef signext 108) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4249,7 +4249,7 @@ sub_11409:                                        ; preds = %sub_01408
 .preheader1418.us:                                ; preds = %717, %._crit_edge1445.us
   %.010151446.us = phi i32 [ %745, %._crit_edge1445.us ], [ 0, %717 ]
   %720 = zext nneg i32 %.010151446.us to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.describeOneTableDetails, i64 %720
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.describeOneTableDetails, i64 %720
   br label %721
 
 721:                                              ; preds = %.preheader1418.us, %.critedge1167.us
@@ -4527,7 +4527,7 @@ switch.lookup:                                    ; preds = %738
 .preheader.us:                                    ; preds = %826, %._crit_edge1461.us
   %.010011462.us = phi i32 [ %859, %._crit_edge1461.us ], [ 0, %826 ]
   %829 = zext nneg i32 %.010011462.us to i64
-  %switch.gep1608 = getelementptr inbounds nuw ptr, ptr @switch.table.describeOneTableDetails.1, i64 %829
+  %switch.gep1608 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.describeOneTableDetails.1, i64 %829
   br label %830
 
 830:                                              ; preds = %.preheader.us, %.critedge1179.us
@@ -5310,7 +5310,7 @@ add_role_attribute.exit78:                        ; preds = %93, %95
 116:                                              ; preds = %114, %109
   %117 = load ptr, ptr %6, align 8
   %118 = call ptr @pg_strdup(ptr noundef %117) #8
-  %119 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   store ptr %118, ptr %119, align 8
   call void @printTableAddCell(ptr noundef nonnull %7, ptr noundef %118, i1 noundef zeroext false, i1 noundef zeroext false) #8
   br i1 %1, label %120, label %122
@@ -5336,7 +5336,7 @@ add_role_attribute.exit78:                        ; preds = %93, %95
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph
   %indvars.iv116 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next117, %.lr.ph ]
-  %125 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv116
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv116
   %126 = load ptr, ptr %125, align 8
   call void @free(ptr noundef %126) #8
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
@@ -6761,7 +6761,7 @@ define dso_local noundef zeroext i1 @listSchemas(ptr noundef %0, i1 noundef zero
   %36 = load ptr, ptr %4, align 8
   %37 = call ptr @pg_strdup(ptr noundef %36) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.next
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.next
   store ptr %37, ptr %38, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %39, label %33, !llvm.loop !32

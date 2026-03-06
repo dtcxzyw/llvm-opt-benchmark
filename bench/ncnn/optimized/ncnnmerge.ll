@@ -63,11 +63,11 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %20
   %27 = zext nneg i32 %0 to i64
-  %28 = getelementptr ptr, ptr %1, i64 %27
+  %28 = getelementptr [8 x i8], ptr %1, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -16
   %30 = load ptr, ptr %29, align 8, !tbaa !9
   %31 = zext nneg i32 %21 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %1, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !9
   %34 = tail call noalias ptr @fopen(ptr noundef %30, ptr noundef nonnull @.str.1)
   %35 = tail call noalias ptr @fopen(ptr noundef %33, ptr noundef nonnull @.str.1)

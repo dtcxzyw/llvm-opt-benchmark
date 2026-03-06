@@ -300,7 +300,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 102:                                              ; preds = %100
   %103 = zext nneg i32 %101 to i64
-  %104 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %103
+  %104 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %106 = load i32, ptr %105, align 4, !tbaa !31
   %107 = icmp sgt i32 %106, 0
@@ -508,7 +508,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 180:                                              ; preds = %178
   %181 = zext nneg i32 %179 to i64
-  %182 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %181
+  %182 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %181
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
   %184 = load i32, ptr %183, align 4, !tbaa !31
   %185 = icmp sgt i32 %184, 0
@@ -578,7 +578,7 @@ define range(i32 -46, 1) i32 @prte_ess_base_bootstrap() local_unnamed_addr #0 {
 
 210:                                              ; preds = %208
   %211 = zext nneg i32 %209 to i64
-  %212 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %211
+  %212 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %211
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 4
   %214 = load i32, ptr %213, align 4, !tbaa !31
   %215 = icmp sgt i32 %214, 0
@@ -694,7 +694,7 @@ regex_extract_nodes.exit:                         ; preds = %.thread153.i, %._cr
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.18, i32 noundef %258, ptr noundef nonnull %257) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %259 = load ptr, ptr %1, align 8, !tbaa !3
-  %260 = getelementptr inbounds nuw ptr, ptr %259, i64 %indvars.iv.next
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %indvars.iv.next
   %261 = load ptr, ptr %260, align 8, !tbaa !39
   %.not102 = icmp eq ptr %261, null
   br i1 %.not102, label %.loopexit, label %.lr.ph200, !llvm.loop !40
@@ -832,7 +832,7 @@ define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.07392
   %13 = load i8, ptr %12, align 1, !tbaa !19
   %14 = sext i8 %13 to i64
-  %15 = getelementptr inbounds i16, ptr %10, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %10, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !43
   %17 = and i16 %16, 2048
   %18 = icmp eq i16 %17, 0
@@ -863,7 +863,7 @@ define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nounde
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %.17493
   %29 = load i8, ptr %28, align 1, !tbaa !19
   %30 = sext i8 %29 to i64
-  %31 = getelementptr inbounds i16, ptr %23, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %23, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !43
   %33 = and i16 %32, 2048
   %.not = icmp eq i16 %33, 0
@@ -883,7 +883,7 @@ define internal fastcc range(i32 -46, 1) i32 @regex_parse_value_range(ptr nounde
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 %.295
   %38 = load i8, ptr %37, align 1, !tbaa !19
   %39 = sext i8 %38 to i64
-  %40 = getelementptr inbounds i16, ptr %23, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %23, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !43
   %42 = and i16 %41, 2048
   %.not82 = icmp eq i16 %42, 0

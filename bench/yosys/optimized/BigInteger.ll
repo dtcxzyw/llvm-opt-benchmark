@@ -79,9 +79,9 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %17, %4
 
 26:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
-  %27 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.i
   %28 = load i64, ptr %27, align 8, !tbaa !19
-  %29 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i
   store i64 %28, ptr %29, align 8, !tbaa !19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -113,7 +113,7 @@ define void @_ZN10BigIntegerC2EPKmjNS_4SignE(ptr noundef nonnull align 8 capture
   %indvars.iv.i.i = phi i64 [ %7, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %16 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %12 = and i64 %indvars.iv.next.i.i, 4294967295
-  %13 = getelementptr inbounds nuw i64, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !19
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %16, label %_ZN11BigUnsignedC2EPKmj.exit
@@ -199,9 +199,9 @@ define void @_ZN10BigIntegerC2ERK11BigUnsignedNS_4SignE(ptr noundef nonnull alig
 
 14:                                               ; preds = %14, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %14 ]
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i.i
   %16 = load i64, ptr %15, align 8, !tbaa !19
-  %17 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i
   store i64 %16, ptr %17, align 8, !tbaa !19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %8
@@ -678,9 +678,9 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i:    ; preds = %.noexc, %12
 
 34:                                               ; preds = %34, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %34 ]
-  %35 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i.i.i
   %36 = load i64, ptr %35, align 8, !tbaa !19
-  %37 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv.i.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i.i.i
   store i64 %36, ptr %37, align 8, !tbaa !19
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -768,9 +768,9 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i32:  ; preds = %64, %52
 
 73:                                               ; preds = %73, %.lr.ph.i.i.i34
   %indvars.iv.i.i.i36 = phi i64 [ 0, %.lr.ph.i.i.i34 ], [ %indvars.iv.next.i.i.i37, %73 ]
-  %74 = getelementptr inbounds nuw i64, ptr %70, i64 %indvars.iv.i.i.i36
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv.i.i.i36
   %75 = load i64, ptr %74, align 8, !tbaa !19
-  %76 = getelementptr inbounds nuw i64, ptr %72, i64 %indvars.iv.i.i.i36
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv.i.i.i36
   store i64 %75, ptr %76, align 8, !tbaa !19
   %indvars.iv.next.i.i.i37 = add nuw nsw i64 %indvars.iv.i.i.i36, 1
   %exitcond.not.i.i.i38 = icmp eq i64 %indvars.iv.next.i.i.i37, %wide.trip.count.i.i.i35
@@ -826,9 +826,9 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i42:  ; preds = %91, %79
 
 100:                                              ; preds = %100, %.lr.ph.i.i.i44
   %indvars.iv.i.i.i46 = phi i64 [ 0, %.lr.ph.i.i.i44 ], [ %indvars.iv.next.i.i.i47, %100 ]
-  %101 = getelementptr inbounds nuw i64, ptr %97, i64 %indvars.iv.i.i.i46
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv.i.i.i46
   %102 = load i64, ptr %101, align 8, !tbaa !19
-  %103 = getelementptr inbounds nuw i64, ptr %99, i64 %indvars.iv.i.i.i46
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv.i.i.i46
   store i64 %102, ptr %103, align 8, !tbaa !19
   %indvars.iv.next.i.i.i47 = add nuw nsw i64 %indvars.iv.i.i.i46, 1
   %exitcond.not.i.i.i48 = icmp eq i64 %indvars.iv.next.i.i.i47, %wide.trip.count.i.i.i45
@@ -910,9 +910,9 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %.noexc52, %117
 
 137:                                              ; preds = %137, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %137 ]
-  %138 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv.i.i
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv.i.i
   %139 = load i64, ptr %138, align 8, !tbaa !19
-  %140 = getelementptr inbounds nuw i64, ptr %136, i64 %indvars.iv.i.i
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv.i.i
   store i64 %139, ptr %140, align 8, !tbaa !19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1048,9 +1048,9 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i:    ; preds = %.noexc, %12
 
 34:                                               ; preds = %34, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %34 ]
-  %35 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i.i.i
   %36 = load i64, ptr %35, align 8, !tbaa !19
-  %37 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv.i.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i.i.i
   store i64 %36, ptr %37, align 8, !tbaa !19
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -1136,9 +1136,9 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %63, %51
 
 72:                                               ; preds = %72, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %72 ]
-  %73 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv.i.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv.i.i
   %74 = load i64, ptr %73, align 8, !tbaa !19
-  %75 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv.i.i
   store i64 %74, ptr %75, align 8, !tbaa !19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1201,9 +1201,9 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i33:  ; preds = %93, %81
 
 102:                                              ; preds = %102, %.lr.ph.i.i.i35
   %indvars.iv.i.i.i37 = phi i64 [ 0, %.lr.ph.i.i.i35 ], [ %indvars.iv.next.i.i.i38, %102 ]
-  %103 = getelementptr inbounds nuw i64, ptr %99, i64 %indvars.iv.i.i.i37
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv.i.i.i37
   %104 = load i64, ptr %103, align 8, !tbaa !19
-  %105 = getelementptr inbounds nuw i64, ptr %101, i64 %indvars.iv.i.i.i37
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv.i.i.i37
   store i64 %104, ptr %105, align 8, !tbaa !19
   %indvars.iv.next.i.i.i38 = add nuw nsw i64 %indvars.iv.i.i.i37, 1
   %exitcond.not.i.i.i39 = icmp eq i64 %indvars.iv.next.i.i.i38, %wide.trip.count.i.i.i36
@@ -1285,9 +1285,9 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i43:    ; preds = %.noexc52, %118
 
 138:                                              ; preds = %138, %.lr.ph.i.i45
   %indvars.iv.i.i47 = phi i64 [ 0, %.lr.ph.i.i45 ], [ %indvars.iv.next.i.i48, %138 ]
-  %139 = getelementptr inbounds nuw i64, ptr %135, i64 %indvars.iv.i.i47
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv.i.i47
   %140 = load i64, ptr %139, align 8, !tbaa !19
-  %141 = getelementptr inbounds nuw i64, ptr %137, i64 %indvars.iv.i.i47
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %indvars.iv.i.i47
   store i64 %140, ptr %141, align 8, !tbaa !19
   %indvars.iv.next.i.i48 = add nuw nsw i64 %indvars.iv.i.i47, 1
   %exitcond.not.i.i49 = icmp eq i64 %indvars.iv.next.i.i48, %wide.trip.count.i.i46
@@ -1418,9 +1418,9 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i:    ; preds = %.noexc, %12
 
 34:                                               ; preds = %34, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %34 ]
-  %35 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i.i.i
   %36 = load i64, ptr %35, align 8, !tbaa !19
-  %37 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv.i.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i.i.i
   store i64 %36, ptr %37, align 8, !tbaa !19
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -1521,9 +1521,9 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %.noexc21, %57
 
 77:                                               ; preds = %77, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %77 ]
-  %78 = getelementptr inbounds nuw i64, ptr %74, i64 %indvars.iv.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv.i.i
   %79 = load i64, ptr %78, align 8, !tbaa !19
-  %80 = getelementptr inbounds nuw i64, ptr %76, i64 %indvars.iv.i.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv.i.i
   store i64 %79, ptr %80, align 8, !tbaa !19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1624,9 +1624,9 @@ define void @_ZN10BigInteger19divideWithRemainderERKS_RS_(ptr noundef nonnull al
 
 25:                                               ; preds = %25, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %25 ]
-  %26 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i.i.i
   %27 = load i64, ptr %26, align 8, !tbaa !19
-  %28 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv.i.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i.i.i
   store i64 %27, ptr %28, align 8, !tbaa !19
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %19
@@ -1723,9 +1723,9 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %.noexc, %44
 
 64:                                               ; preds = %64, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %64 ]
-  %65 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv.i.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i.i
   %66 = load i64, ptr %65, align 8, !tbaa !19
-  %67 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv.i.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv.i.i
   store i64 %66, ptr %67, align 8, !tbaa !19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1821,9 +1821,9 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i33:    ; preds = %.noexc42, %84
 
 104:                                              ; preds = %104, %.lr.ph.i.i35
   %indvars.iv.i.i37 = phi i64 [ 0, %.lr.ph.i.i35 ], [ %indvars.iv.next.i.i38, %104 ]
-  %105 = getelementptr inbounds nuw i64, ptr %101, i64 %indvars.iv.i.i37
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv.i.i37
   %106 = load i64, ptr %105, align 8, !tbaa !19
-  %107 = getelementptr inbounds nuw i64, ptr %103, i64 %indvars.iv.i.i37
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv.i.i37
   store i64 %106, ptr %107, align 8, !tbaa !19
   %indvars.iv.next.i.i38 = add nuw nsw i64 %indvars.iv.i.i37, 1
   %exitcond.not.i.i39 = icmp eq i64 %indvars.iv.next.i.i38, %wide.trip.count.i.i36
@@ -1989,9 +1989,9 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i:    ; preds = %.noexc, %9
 
 31:                                               ; preds = %31, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %31 ]
-  %32 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv.i.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i.i.i
   %33 = load i64, ptr %32, align 8, !tbaa !19
-  %34 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv.i.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i.i.i
   store i64 %33, ptr %34, align 8, !tbaa !19
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -2072,9 +2072,9 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %57, %45
 
 66:                                               ; preds = %66, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %66 ]
-  %67 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv.i.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv.i.i
   %68 = load i64, ptr %67, align 8, !tbaa !19
-  %69 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv.i.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.i.i
   store i64 %68, ptr %69, align 8, !tbaa !19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -2123,9 +2123,9 @@ define void @_ZN10BigIntegerppEv(ptr noundef nonnull align 8 dereferenceable(24)
 
 15:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %16 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i.i
   %17 = load i64, ptr %16, align 8, !tbaa !19
-  %18 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i
   %19 = load i64, ptr %18, align 8, !tbaa !19
   %.not8.i.i = icmp eq i64 %17, %19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2194,9 +2194,9 @@ define void @_ZN10BigIntegerppEi(ptr noundef nonnull align 8 dereferenceable(24)
 
 16:                                               ; preds = %16, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %16 ]
-  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i.i.i
   %18 = load i64, ptr %17, align 8, !tbaa !19
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i.i
   %20 = load i64, ptr %19, align 8, !tbaa !19
   %.not8.i.i.i = icmp eq i64 %18, %20
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2265,9 +2265,9 @@ define void @_ZN10BigIntegermmEv(ptr noundef nonnull align 8 dereferenceable(24)
 
 15:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %16 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i.i
   %17 = load i64, ptr %16, align 8, !tbaa !19
-  %18 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i
   %19 = load i64, ptr %18, align 8, !tbaa !19
   %.not8.i.i = icmp eq i64 %17, %19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2336,9 +2336,9 @@ define void @_ZN10BigIntegermmEi(ptr noundef nonnull align 8 dereferenceable(24)
 
 16:                                               ; preds = %16, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %16 ]
-  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i.i.i
   %18 = load i64, ptr %17, align 8, !tbaa !19
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i.i
   %20 = load i64, ptr %19, align 8, !tbaa !19
   %.not8.i.i.i = icmp eq i64 %18, %20
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1

@@ -3526,7 +3526,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i16: 
 1104:                                             ; preds = %1104, %1103
   %store_forwarded = phi i64 [ 23, %1103 ], [ %1110, %1104 ]
   %.011.i.i.i = phi i64 [ 1, %1103 ], [ %1111, %1104 ]
-  %1105 = getelementptr i64, ptr %50, i64 %.011.i.i.i
+  %1105 = getelementptr [8 x i8], ptr %50, i64 %.011.i.i.i
   %1106 = lshr i64 %store_forwarded, 30
   %1107 = xor i64 %1106, %store_forwarded
   %1108 = mul nuw nsw i64 %1107, 1812433253
@@ -3635,10 +3635,10 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 1158:                                             ; preds = %1158, %1157
   %1159 = phi i64 [ %.pre.i.i51.i, %1157 ], [ %1164, %1158 ]
   %.021.i.i52.i = phi i64 [ 0, %1157 ], [ %1162, %1158 ]
-  %1160 = getelementptr inbounds nuw i64, ptr %50, i64 %.021.i.i52.i
+  %1160 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.021.i.i52.i
   %1161 = and i64 %1159, -2147483648
   %1162 = add nuw nsw i64 %.021.i.i52.i, 1
-  %1163 = getelementptr inbounds nuw i64, ptr %50, i64 %1162
+  %1163 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %1162
   %1164 = load i64, ptr %1163, align 8
   %1165 = and i64 %1164, 2147483646
   %1166 = or disjoint i64 %1165, %1161
@@ -3661,10 +3661,10 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 .preheader.i.i58.i:                               ; preds = %.preheader.i.i58.i, %.preheader.preheader.i.i55.i
   %1174 = phi i64 [ %1179, %.preheader.i.i58.i ], [ %.pre24.i.i57.i, %.preheader.preheader.i.i55.i ]
   %.01822.i.i59.i = phi i64 [ %1177, %.preheader.i.i58.i ], [ 227, %.preheader.preheader.i.i55.i ]
-  %1175 = getelementptr inbounds nuw i64, ptr %50, i64 %.01822.i.i59.i
+  %1175 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.01822.i.i59.i
   %1176 = and i64 %1174, -2147483648
   %1177 = add nuw nsw i64 %.01822.i.i59.i, 1
-  %1178 = getelementptr inbounds nuw i64, ptr %50, i64 %1177
+  %1178 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %1177
   %1179 = load i64, ptr %1178, align 8
   %1180 = and i64 %1179, 2147483646
   %1181 = or disjoint i64 %1180, %1176
@@ -3700,7 +3700,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %1200 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i62.i ], [ %1125, %1149 ]
   %1201 = add nuw nsw i64 %1200, 1
   store i64 %1201, ptr %1112, align 8
-  %1202 = getelementptr inbounds nuw i64, ptr %50, i64 %1200
+  %1202 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %1200
   %1203 = load i64, ptr %1202, align 8
   %1204 = lshr i64 %1203, 11
   %1205 = and i64 %1204, 4294967295
@@ -3748,10 +3748,10 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 1233:                                             ; preds = %1233, %1232
   %1234 = phi i64 [ %.pre.i.i.i, %1232 ], [ %1239, %1233 ]
   %.021.i.i.i = phi i64 [ 0, %1232 ], [ %1237, %1233 ]
-  %1235 = getelementptr inbounds nuw i64, ptr %50, i64 %.021.i.i.i
+  %1235 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.021.i.i.i
   %1236 = and i64 %1234, -2147483648
   %1237 = add nuw nsw i64 %.021.i.i.i, 1
-  %1238 = getelementptr inbounds nuw i64, ptr %50, i64 %1237
+  %1238 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %1237
   %1239 = load i64, ptr %1238, align 8
   %1240 = and i64 %1239, 2147483646
   %1241 = or disjoint i64 %1240, %1236
@@ -3774,10 +3774,10 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %.preheader.preheader.i.i.i
   %1249 = phi i64 [ %1254, %.preheader.i.i.i ], [ %.pre24.i.i.i, %.preheader.preheader.i.i.i ]
   %.01822.i.i.i = phi i64 [ %1252, %.preheader.i.i.i ], [ 227, %.preheader.preheader.i.i.i ]
-  %1250 = getelementptr inbounds nuw i64, ptr %50, i64 %.01822.i.i.i
+  %1250 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.01822.i.i.i
   %1251 = and i64 %1249, -2147483648
   %1252 = add nuw nsw i64 %.01822.i.i.i, 1
-  %1253 = getelementptr inbounds nuw i64, ptr %50, i64 %1252
+  %1253 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %1252
   %1254 = load i64, ptr %1253, align 8
   %1255 = and i64 %1254, 2147483646
   %1256 = or disjoint i64 %1255, %1251
@@ -3813,7 +3813,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %1275 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i.i ], [ %1230, %.lr.ph.i.i.i.i ]
   %1276 = add nuw nsw i64 %1275, 1
   store i64 %1276, ptr %1112, align 8
-  %1277 = getelementptr inbounds nuw i64, ptr %50, i64 %1275
+  %1277 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %1275
   %1278 = load i64, ptr %1277, align 8
   %1279 = lshr i64 %1278, 11
   %1280 = and i64 %1279, 4294967295
@@ -6032,7 +6032,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %308
           to label %.noexc152 unwind label %356
 
 .noexc152:                                        ; preds = %312
-  %315 = getelementptr inbounds nuw float, ptr %314, i64 %309
+  %315 = getelementptr inbounds nuw [4 x i8], ptr %314, i64 %309
   store float 0.000000e+00, ptr %314, align 4
   %316 = getelementptr i8, ptr %314, i64 4
   %317 = add nsw i64 %309, -1
@@ -6106,7 +6106,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit157: ;
   %337 = mul i32 %.val3.val4.i, %335
   %338 = add nsw i32 %337, %334
   %339 = sext i32 %338 to i64
-  %340 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %339
+  %340 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %339
   %341 = load float, ptr %340, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #23
@@ -6237,7 +6237,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit163: ;
   %377 = mul i32 %.val3.val4.i173, %375
   %378 = add nsw i32 %377, %374
   %379 = sext i32 %378 to i64
-  %380 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %379
+  %380 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %379
   %381 = load float, ptr %380, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #23
@@ -6329,7 +6329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit180: ;
   %405 = mul i32 %404, %.val3.val4.i190
   %406 = add nsw i32 %405, %400
   %407 = sext i32 %406 to i64
-  %408 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %407
+  %408 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %407
   %409 = load float, ptr %408, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #23
@@ -6421,7 +6421,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit197: ;
   %433 = mul i32 %432, %.val3.val4.i207
   %434 = add nsw i32 %433, %428
   %435 = sext i32 %434 to i64
-  %436 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %435
+  %436 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %435
   %437 = load float, ptr %436, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #23
@@ -6514,7 +6514,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit214: ;
   %462 = mul i32 %461, %.val3.val4.i224
   %463 = add nsw i32 %462, %456
   %464 = sext i32 %463 to i64
-  %465 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %464
+  %465 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %464
   %466 = load float, ptr %465, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #23
@@ -6607,7 +6607,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit231: ;
   %491 = mul i32 %490, %.val3.val4.i241
   %492 = add nsw i32 %491, %485
   %493 = sext i32 %492 to i64
-  %494 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %493
+  %494 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %493
   %495 = load float, ptr %494, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #23
@@ -6700,7 +6700,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit248: ;
   %520 = mul i32 %519, %.val3.val4.i258
   %521 = add nsw i32 %520, %514
   %522 = sext i32 %521 to i64
-  %523 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %522
+  %523 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %522
   %524 = load float, ptr %523, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #23
@@ -6793,7 +6793,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit265: ;
   %549 = mul i32 %548, %.val3.val4.i275
   %550 = add nsw i32 %549, %543
   %551 = sext i32 %550 to i64
-  %552 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %551
+  %552 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %551
   %553 = load float, ptr %552, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #23
@@ -6886,7 +6886,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit282: ;
   %578 = mul i32 %577, %.val3.val4.i292
   %579 = add nsw i32 %578, %572
   %580 = sext i32 %579 to i64
-  %581 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %580
+  %581 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %580
   %582 = load float, ptr %581, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #23
@@ -6979,7 +6979,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit299: ;
   %607 = mul i32 %606, %.val3.val4.i309
   %608 = add nsw i32 %607, %601
   %609 = sext i32 %608 to i64
-  %610 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %609
+  %610 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %609
   %611 = load float, ptr %610, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #23
@@ -7072,7 +7072,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit316: ;
   %636 = mul i32 %635, %.val3.val4.i326
   %637 = add nsw i32 %636, %630
   %638 = sext i32 %637 to i64
-  %639 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %638
+  %639 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %638
   %640 = load float, ptr %639, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #23
@@ -7165,7 +7165,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit333: ;
   %665 = mul i32 %664, %.val3.val4.i343
   %666 = add nsw i32 %665, %659
   %667 = sext i32 %666 to i64
-  %668 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %667
+  %668 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %667
   %669 = load float, ptr %668, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %76) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #23
@@ -7258,7 +7258,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit350: ;
   %694 = mul i32 %693, %.val3.val4.i360
   %695 = add nsw i32 %694, %688
   %696 = sext i32 %695 to i64
-  %697 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %696
+  %697 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %696
   %698 = load float, ptr %697, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #23
@@ -7351,7 +7351,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit367: ;
   %723 = mul i32 %722, %.val3.val4.i377
   %724 = add nsw i32 %723, %717
   %725 = sext i32 %724 to i64
-  %726 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %725
+  %726 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %725
   %727 = load float, ptr %726, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #23
@@ -7444,7 +7444,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit384: ;
   %752 = mul i32 %751, %.val3.val4.i394
   %753 = add nsw i32 %752, %746
   %754 = sext i32 %753 to i64
-  %755 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %754
+  %755 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %754
   %756 = load float, ptr %755, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #23
@@ -7537,7 +7537,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit401: ;
   %781 = mul i32 %780, %.val3.val4.i411
   %782 = add nsw i32 %781, %775
   %783 = sext i32 %782 to i64
-  %784 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %783
+  %784 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %783
   %785 = load float, ptr %784, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %100) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %101) #23
@@ -7630,7 +7630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit418: ;
   %810 = mul i32 %809, %.val3.val4.i428
   %811 = add nsw i32 %810, %804
   %812 = sext i32 %811 to i64
-  %813 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %812
+  %813 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %812
   %814 = load float, ptr %813, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #23
@@ -7723,7 +7723,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit435: ;
   %839 = mul i32 %838, %.val3.val4.i445
   %840 = add nsw i32 %839, %833
   %841 = sext i32 %840 to i64
-  %842 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %841
+  %842 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %841
   %843 = load float, ptr %842, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %112) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %113) #23
@@ -7816,7 +7816,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit452: ;
   %868 = mul i32 %867, %.val3.val4.i462
   %869 = add nsw i32 %868, %862
   %870 = sext i32 %869 to i64
-  %871 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %870
+  %871 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %870
   %872 = load float, ptr %871, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %118) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %119) #23
@@ -7909,7 +7909,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit469: ;
   %897 = mul i32 %896, %.val3.val4.i479
   %898 = add nsw i32 %897, %891
   %899 = sext i32 %898 to i64
-  %900 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %899
+  %900 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %899
   %901 = load float, ptr %900, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %124) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %125) #23
@@ -8002,7 +8002,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit486: ;
   %926 = mul i32 %925, %.val3.val4.i496
   %927 = add nsw i32 %926, %920
   %928 = sext i32 %927 to i64
-  %929 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %928
+  %929 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %928
   %930 = load float, ptr %929, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %130) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %131) #23
@@ -8095,7 +8095,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit503: ;
   %955 = mul i32 %954, %.val3.val4.i513
   %956 = add nsw i32 %955, %949
   %957 = sext i32 %956 to i64
-  %958 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %957
+  %958 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %957
   %959 = load float, ptr %958, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %136) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %137) #23
@@ -8188,7 +8188,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit520: ;
   %984 = mul i32 %983, %.val3.val4.i530
   %985 = add nsw i32 %984, %978
   %986 = sext i32 %985 to i64
-  %987 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %986
+  %987 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %986
   %988 = load float, ptr %987, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %142) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %143) #23
@@ -8281,7 +8281,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit537: ;
   %1013 = mul i32 %1012, %.val3.val4.i547
   %1014 = add nsw i32 %1013, %1007
   %1015 = sext i32 %1014 to i64
-  %1016 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %1015
+  %1016 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %1015
   %1017 = load float, ptr %1016, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %148) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %149) #23
@@ -8374,7 +8374,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit554: ;
   %1042 = mul i32 %1041, %.val3.val4.i564
   %1043 = add nsw i32 %1042, %1036
   %1044 = sext i32 %1043 to i64
-  %1045 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %1044
+  %1045 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %1044
   %1046 = load float, ptr %1045, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %154) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %155) #23
@@ -8467,7 +8467,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit571: ;
   %1071 = mul i32 %1070, %.val3.val4.i581
   %1072 = add nsw i32 %1071, %1065
   %1073 = sext i32 %1072 to i64
-  %1074 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %1073
+  %1074 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %1073
   %1075 = load float, ptr %1074, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %160) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %161) #23
@@ -8519,7 +8519,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit571: ;
   %1089 = mul nsw i32 %.val130.val, 13
   %1090 = mul i32 %1089, %.val130.val131
   %1091 = sext i32 %1090 to i64
-  %1092 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %1091
+  %1092 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %1091
   %1093 = load float, ptr %1092, align 4
   store float %1093, ptr %165, align 4
   store double 0.000000e+00, ptr %166, align 8
@@ -8548,7 +8548,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit571: ;
   %1101 = mul nsw i32 %.val130.val, 14
   %1102 = mul i32 %1101, %.val130.val131
   %1103 = sext i32 %1102 to i64
-  %1104 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %1103
+  %1104 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %1103
   %1105 = load float, ptr %1104, align 4
   store float %1105, ptr %169, align 4
   store double 1.000000e+00, ptr %170, align 8
@@ -8577,7 +8577,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit571: ;
   %1113 = mul nsw i32 %.val130.val, 15
   %1114 = mul i32 %1113, %.val130.val131
   %1115 = sext i32 %1114 to i64
-  %1116 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %1115
+  %1116 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %1115
   %1117 = load float, ptr %1116, align 4
   store float %1117, ptr %173, align 4
   store double 0.000000e+00, ptr %174, align 8
@@ -8606,7 +8606,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit571: ;
   %1125 = shl nsw i32 %.val130.val, 4
   %1126 = mul i32 %1125, %.val130.val131
   %1127 = sext i32 %1126 to i64
-  %1128 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %1127
+  %1128 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %1127
   %1129 = load float, ptr %1128, align 4
   store float %1129, ptr %177, align 4
   store double 1.000000e+00, ptr %178, align 8
@@ -8636,7 +8636,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit571: ;
   %1138 = add i32 %1137, 1
   %1139 = mul i32 %1138, %.val130.val131
   %1140 = sext i32 %1139 to i64
-  %1141 = getelementptr float, ptr %.sroa.0.0, i64 %1140
+  %1141 = getelementptr [4 x i8], ptr %.sroa.0.0, i64 %1140
   %1142 = getelementptr i8, ptr %1141, i64 4
   %1143 = load float, ptr %1142, align 4
   store float %1143, ptr %181, align 4
@@ -8667,7 +8667,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit571: ;
   %1152 = add i32 %1151, 2
   %1153 = mul i32 %1152, %.val130.val131
   %1154 = sext i32 %1153 to i64
-  %1155 = getelementptr float, ptr %.sroa.0.0, i64 %1154
+  %1155 = getelementptr [4 x i8], ptr %.sroa.0.0, i64 %1154
   %1156 = getelementptr i8, ptr %1155, i64 8
   %1157 = load float, ptr %1156, align 4
   store float %1157, ptr %185, align 4
@@ -8698,7 +8698,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit571: ;
   %1166 = add i32 %1165, 3
   %1167 = mul i32 %1166, %.val130.val131
   %1168 = sext i32 %1167 to i64
-  %1169 = getelementptr float, ptr %.sroa.0.0, i64 %1168
+  %1169 = getelementptr [4 x i8], ptr %.sroa.0.0, i64 %1168
   %1170 = getelementptr i8, ptr %1169, i64 12
   %1171 = load float, ptr %1170, align 4
   store float %1171, ptr %189, align 4
@@ -8818,7 +8818,7 @@ _ZN4absl7debian212c_accumulateISt6vectorIiSaIiEEiSt10multipliesIiEEENSt5decayIT0
   %1214 = mul nsw i32 %.val116.val, 14
   %1215 = mul i32 %1214, %.val116.val138
   %1216 = sext i32 %1215 to i64
-  %1217 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %1216
+  %1217 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %1216
   %1218 = load float, ptr %1217, align 4
   store float %1218, ptr %197, align 4
   store double 0.000000e+00, ptr %198, align 8
@@ -8889,7 +8889,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit598: ;
   %1236 = mul i32 %.val3.val4.i608, %1234
   %1237 = add nsw i32 %1236, %1233
   %1238 = sext i32 %1237 to i64
-  %1239 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %1238
+  %1239 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %1238
   %1240 = load float, ptr %1239, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %202) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %203) #23
@@ -8978,7 +8978,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit615: ;
   %1262 = mul i32 %.val3.val4.i625, %1260
   %1263 = add nsw i32 %1262, %1259
   %1264 = sext i32 %1263 to i64
-  %1265 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %1264
+  %1265 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %1264
   %1266 = load float, ptr %1265, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %208) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %209) #23
@@ -9030,7 +9030,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit615: ;
   %1280 = mul nsw i32 %.val114.val, 15
   %1281 = mul i32 %1280, %.val114.val139
   %1282 = sext i32 %1281 to i64
-  %1283 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %1282
+  %1283 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %1282
   %1284 = load float, ptr %1283, align 4
   store float %1284, ptr %213, align 4
   store float 0x3F8446F860000000, ptr %214, align 4
@@ -9061,7 +9061,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit615: ;
   %1294 = shl nsw i32 %.val114.val, 4
   %1295 = mul i32 %1294, %.val114.val139
   %1296 = sext i32 %1295 to i64
-  %1297 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %1296
+  %1297 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0, i64 %1296
   %1298 = load float, ptr %1297, align 4
   store float %1298, ptr %217, align 4
   store double 0.000000e+00, ptr %218, align 8
@@ -9091,7 +9091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit615: ;
   %1307 = add i32 %1306, 1
   %1308 = mul i32 %1307, %.val114.val139
   %1309 = sext i32 %1308 to i64
-  %1310 = getelementptr float, ptr %.sroa.0.0, i64 %1309
+  %1310 = getelementptr [4 x i8], ptr %.sroa.0.0, i64 %1309
   %1311 = getelementptr i8, ptr %1310, i64 4
   %1312 = load float, ptr %1311, align 4
   store float %1312, ptr %221, align 4
@@ -9122,7 +9122,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit615: ;
   %1321 = add i32 %1320, 2
   %1322 = mul i32 %1321, %.val114.val139
   %1323 = sext i32 %1322 to i64
-  %1324 = getelementptr float, ptr %.sroa.0.0, i64 %1323
+  %1324 = getelementptr [4 x i8], ptr %.sroa.0.0, i64 %1323
   %1325 = getelementptr i8, ptr %1324, i64 8
   %1326 = load float, ptr %1325, align 4
   store float %1326, ptr %225, align 4
@@ -9153,7 +9153,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit615: ;
   %1335 = add i32 %1334, 3
   %1336 = mul i32 %1335, %.val114.val139
   %1337 = sext i32 %1336 to i64
-  %1338 = getelementptr float, ptr %.sroa.0.0, i64 %1337
+  %1338 = getelementptr [4 x i8], ptr %.sroa.0.0, i64 %1337
   %1339 = getelementptr i8, ptr %1338, i64 12
   %1340 = load float, ptr %1339, align 4
   store float %1340, ptr %229, align 4
@@ -10340,7 +10340,7 @@ _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit2
 _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %28, %_ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i.i
   store ptr %23, ptr %.val, align 8
   store ptr %27, ptr %3, align 8
-  %29 = getelementptr inbounds nuw %"struct.open_spiel::chess::Move", ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %21
   store ptr %29, ptr %5, align 8
   br label %"_ZSt10__invoke_rIbRZN10open_spiel5chess12_GLOBAL__N_15PerftERKNS1_10ChessBoardEiE3$_0JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit"
 

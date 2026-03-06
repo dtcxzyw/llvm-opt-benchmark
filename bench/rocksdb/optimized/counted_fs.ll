@@ -62,21 +62,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.std::__detail::_Hash_node_base" = type { ptr }
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"struct.rocksdb::FSReadRequest" = type { i64, i64, ptr, %"class.rocksdb::Slice", %"class.rocksdb::IOStatus", %"class.std::unique_ptr.57" }
-%"class.rocksdb::Slice" = type { ptr, i64 }
-%"class.std::unique_ptr.57" = type { %"struct.std::__uniq_ptr_data.58" }
-%"struct.std::__uniq_ptr_data.58" = type { %"class.std::__uniq_ptr_impl.59" }
-%"class.std::__uniq_ptr_impl.59" = type { %"class.std::tuple.60" }
-%"class.std::tuple.60" = type { %"struct.std::_Tuple_impl.61" }
-%"struct.std::_Tuple_impl.61" = type { %"struct.std::_Tuple_impl.62", %"struct.std::_Head_base.66" }
-%"struct.std::_Tuple_impl.62" = type { %"struct.std::_Head_base.63" }
-%"struct.std::_Head_base.63" = type { %"class.std::function.64" }
-%"class.std::function.64" = type { %"class.std::_Function_base", ptr }
+%"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"struct.std::_Head_base.66" = type { ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
 
 $_ZN7rocksdb17FileSystemWrapperD2Ev = comdat any
 
@@ -3094,7 +3083,7 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_123CountedRandomAccessFile9MultiRe
 13:                                               ; preds = %.lr.ph, %_ZN7rocksdb9OpCounter8RecordOpERKNS_8IOStatusEm.exit
   %.014 = phi i64 [ 0, %.lr.ph ], [ %28, %_ZN7rocksdb9OpCounter8RecordOpERKNS_8IOStatusEm.exit ]
   %14 = load ptr, ptr %12, align 8, !tbaa !101
-  %15 = getelementptr inbounds nuw %"struct.rocksdb::FSReadRequest", ptr %2, i64 %.014
+  %15 = getelementptr inbounds nuw [96 x i8], ptr %2, i64 %.014
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load i64, ptr %17, align 8, !tbaa !168

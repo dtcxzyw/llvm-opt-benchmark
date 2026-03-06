@@ -12,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.49 }
 %union.anon.49 = type { i64 }
 %struct.intel_ddi_port_domains = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.i915_power_well = type { ptr, %struct.intel_power_domain_mask, i32, i8, i8 }
 %struct.intel_power_domain_mask = type { [2 x i64] }
 
 @.str = private unnamed_addr constant [13 x i8] c"DISPLAY_CORE\00", align 1
@@ -541,7 +540,7 @@ define dso_local noundef zeroext i1 @__intel_display_power_is_enabled(ptr nounde
 18:                                               ; preds = %13
   %19 = zext nneg i32 %16 to i64
   %20 = load ptr, ptr %14, align 8
-  %21 = getelementptr %struct.i915_power_well, ptr %20, i64 %19
+  %21 = getelementptr [32 x i8], ptr %20, i64 %19
   %22 = getelementptr i8, ptr %21, i64 -32
   %23 = zext i32 %1 to i64
   br label %24
@@ -612,7 +611,7 @@ define dso_local noundef zeroext i1 @intel_display_power_is_enabled(ptr noundef 
 19:                                               ; preds = %14
   %20 = zext nneg i32 %17 to i64
   %21 = load ptr, ptr %15, align 8
-  %22 = getelementptr %struct.i915_power_well, ptr %21, i64 %20
+  %22 = getelementptr [32 x i8], ptr %21, i64 %20
   %23 = getelementptr i8, ptr %22, i64 -32
   %24 = zext i32 %1 to i64
   br label %25
@@ -695,7 +694,7 @@ define dso_local void @intel_display_power_set_target_dc_state(ptr noundef %0, i
 20:                                               ; preds = %33, %18
   %21 = phi i64 [ 0, %18 ], [ %35, %33 ]
   %22 = phi i32 [ %1, %18 ], [ %34, %33 ]
-  %23 = getelementptr i32, ptr @sanitize_target_dc_state.states, i64 %21
+  %23 = getelementptr [4 x i8], ptr @sanitize_target_dc_state.states, i64 %21
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %22, %24
   br i1 %25, label %26, label %33
@@ -846,7 +845,7 @@ define internal fastcc void @__intel_display_power_get_domain(ptr noundef %0, i3
 
 .loopexit:                                        ; preds = %34, %20
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2824
-  %45 = getelementptr i32, ptr %44, i64 %6
+  %45 = getelementptr [4 x i8], ptr %44, i64 %6
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4
@@ -894,7 +893,7 @@ define dso_local i64 @intel_display_power_get_if_enabled(ptr noundef %0, i32 nou
 23:                                               ; preds = %18
   %24 = zext nneg i32 %21 to i64
   %25 = load ptr, ptr %19, align 8
-  %26 = getelementptr %struct.i915_power_well, ptr %25, i64 %24
+  %26 = getelementptr [32 x i8], ptr %25, i64 %24
   %27 = getelementptr i8, ptr %26, i64 -32
   %28 = zext i32 %1 to i64
   br label %29
@@ -955,7 +954,7 @@ define dso_local void @__intel_display_power_put_async(ptr noundef %0, i32 nound
   tail call void @mutex_lock(ptr noundef nonnull %10) #10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2824
   %12 = zext i32 %1 to i64
-  %13 = getelementptr i32, ptr %11, i64 %12
+  %13 = getelementptr [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %14, 1
   br i1 %15, label %16, label %17
@@ -1039,7 +1038,7 @@ define internal fastcc void @__intel_display_power_put_domain(ptr noundef %0, i3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !22
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2824
   %6 = zext i32 %1 to i64
-  %7 = getelementptr i32, ptr %5, i64 %6
+  %7 = getelementptr [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %22, !prof !15
@@ -1115,7 +1114,7 @@ define internal fastcc void @__intel_display_power_put_domain(ptr noundef %0, i3
 .preheader.preheader:                             ; preds = %40
   %47 = load ptr, ptr %43, align 8
   %48 = zext nneg i32 %45 to i64
-  %49 = getelementptr %struct.i915_power_well, ptr %47, i64 %48
+  %49 = getelementptr [32 x i8], ptr %47, i64 %48
   %50 = getelementptr i8, ptr %49, i64 -32
   br label %.preheader
 
@@ -1649,7 +1648,7 @@ define dso_local i32 @intel_power_domains_init(ptr noundef %0) local_unnamed_add
 86:                                               ; preds = %98, %83
   %87 = phi i64 [ 0, %83 ], [ %100, %98 ]
   %88 = phi i32 [ 2, %83 ], [ %99, %98 ]
-  %89 = getelementptr i32, ptr @sanitize_target_dc_state.states, i64 %87
+  %89 = getelementptr [4 x i8], ptr @sanitize_target_dc_state.states, i64 %87
   %90 = load i32, ptr %89, align 4
   %91 = icmp eq i32 %88, %90
   br i1 %91, label %92, label %98
@@ -1856,7 +1855,7 @@ define dso_local void @gen9_dbuf_slices_update(ptr noundef %0, i8 noundef zeroex
   store i32 282600, ptr %34, align 4
   store i32 279296, ptr %35, align 4
   store i32 279300, ptr %36, align 4
-  %53 = getelementptr i32, ptr %3, i64 %42
+  %53 = getelementptr [4 x i8], ptr %3, i64 %42
   %54 = load i32, ptr %53, align 4
   %55 = select i1 %52, i32 -2147483648, i32 0
   %56 = load ptr, ptr %38, align 8
@@ -2418,7 +2417,7 @@ define internal fastcc void @icl_display_core_init(ptr noundef %0, i1 noundef ze
   store i32 282600, ptr %63, align 4
   store i32 279296, ptr %64, align 4
   store i32 279300, ptr %65, align 4
-  %76 = getelementptr i32, ptr %3, i64 %67
+  %76 = getelementptr [4 x i8], ptr %3, i64 %67
   %77 = load i32, ptr %76, align 4
   %78 = load ptr, ptr %32, align 8
   %79 = tail call i32 %78(ptr noundef nonnull %31, i32 %77, i1 noundef zeroext true) #10
@@ -2615,7 +2614,7 @@ define internal fastcc void @icl_display_core_init(ptr noundef %0, i1 noundef ze
 190:                                              ; preds = %185, %.preheader20
   %191 = add i32 %181, 1
   %192 = sext i32 %191 to i64
-  %193 = getelementptr %struct.buddy_page_mask, ptr %176, i64 %192
+  %193 = getelementptr [8 x i8], ptr %176, i64 %192
   %194 = load i32, ptr %193, align 8
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %.loopexit, label %.preheader20, !llvm.loop !117
@@ -3016,7 +3015,7 @@ define dso_local void @intel_power_domains_sanitize_state(ptr noundef %0) local_
 7:                                                ; preds = %1
   %8 = zext nneg i32 %5 to i64
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr %struct.i915_power_well, ptr %9, i64 %8
+  %10 = getelementptr [32 x i8], ptr %9, i64 %8
   %11 = getelementptr i8, ptr %10, i64 -32
   %12 = icmp eq ptr %0, null
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4729,7 +4728,7 @@ define dso_local void @intel_display_power_debug(ptr noundef %0, ptr noundef %1)
 10:                                               ; preds = %30, %7
   %11 = phi i64 [ 0, %7 ], [ %31, %30 ]
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr %struct.i915_power_well, ptr %12, i64 %11
+  %13 = getelementptr [32 x i8], ptr %12, i64 %11
   %14 = tail call ptr @intel_power_well_name(ptr noundef %13) #10
   %15 = tail call i32 @intel_power_well_refcount(ptr noundef %13) #10
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.95, ptr noundef %14, i32 noundef %15) #10
@@ -4747,7 +4746,7 @@ define dso_local void @intel_display_power_debug(ptr noundef %0, ptr noundef %1)
 22:                                               ; preds = %16
   %23 = trunc i64 %17 to i32
   %24 = tail call ptr @intel_display_power_domain_str(i32 noundef %23)
-  %25 = getelementptr i32, ptr %9, i64 %17
+  %25 = getelementptr [4 x i8], ptr %9, i64 %17
   %26 = load i32, ptr %25, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.96, ptr noundef nonnull %24, i32 noundef %26) #10
   br label %27
@@ -4802,7 +4801,7 @@ define dso_local i32 @intel_display_power_ddi_io_domain(ptr noundef readonly cap
 
 15:                                               ; preds = %24, %12
   %16 = phi i64 [ 0, %12 ], [ %25, %24 ]
-  %17 = getelementptr %struct.intel_ddi_port_domains, ptr %13, i64 %16
+  %17 = getelementptr [36 x i8], ptr %13, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, %1
   br i1 %19, label %24, label %20
@@ -4886,7 +4885,7 @@ define dso_local i32 @intel_display_power_ddi_lanes_domain(ptr noundef readonly 
 
 15:                                               ; preds = %24, %12
   %16 = phi i64 [ 0, %12 ], [ %25, %24 ]
-  %17 = getelementptr %struct.intel_ddi_port_domains, ptr %13, i64 %16
+  %17 = getelementptr [36 x i8], ptr %13, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, %1
   br i1 %19, label %24, label %20
@@ -4970,7 +4969,7 @@ define dso_local i32 @intel_display_power_aux_io_domain(ptr noundef readonly cap
 
 15:                                               ; preds = %25, %12
   %16 = phi i64 [ 0, %12 ], [ %26, %25 ]
-  %17 = getelementptr %struct.intel_ddi_port_domains, ptr %13, i64 %16
+  %17 = getelementptr [36 x i8], ptr %13, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, %1
@@ -5055,7 +5054,7 @@ define dso_local i32 @intel_display_power_legacy_aux_domain(ptr noundef readonly
 
 15:                                               ; preds = %25, %12
   %16 = phi i64 [ 0, %12 ], [ %26, %25 ]
-  %17 = getelementptr %struct.intel_ddi_port_domains, ptr %13, i64 %16
+  %17 = getelementptr [36 x i8], ptr %13, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, %1
@@ -5140,7 +5139,7 @@ define dso_local i32 @intel_display_power_tbt_aux_domain(ptr noundef readonly ca
 
 15:                                               ; preds = %25, %12
   %16 = phi i64 [ 0, %12 ], [ %26, %25 ]
-  %17 = getelementptr %struct.intel_ddi_port_domains, ptr %13, i64 %16
+  %17 = getelementptr [36 x i8], ptr %13, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, %1

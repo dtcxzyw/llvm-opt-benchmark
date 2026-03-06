@@ -2215,7 +2215,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %240
   %283 = mul i64 %281, %282
   %284 = getelementptr inbounds nuw i8, ptr %278, i64 %283
   %285 = sext i32 %276 to i64
-  %286 = getelementptr inbounds double, ptr %284, i64 %285
+  %286 = getelementptr inbounds [8 x i8], ptr %284, i64 %285
   br label %_ZN2cv3Mat2atIdEERT_i.exit130
 
 _ZN2cv3Mat2atIdEERT_i.exit130:                    ; preds = %269, %262, %254
@@ -2291,7 +2291,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit133:              ; preds = %288
   %330 = mul i64 %328, %329
   %331 = getelementptr inbounds nuw i8, ptr %325, i64 %330
   %332 = sext i32 %.recomposed to i64
-  %333 = getelementptr inbounds double, ptr %331, i64 %332
+  %333 = getelementptr inbounds [8 x i8], ptr %331, i64 %332
   br label %_ZN2cv3Mat2atIdEERT_i.exit136
 
 _ZN2cv3Mat2atIdEERT_i.exit136:                    ; preds = %319, %311, %303
@@ -2887,7 +2887,7 @@ declare void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %5 = getelementptr inbounds nuw %"class.cv::Mat", ptr %1, i64 %2
+  %5 = getelementptr inbounds nuw [96 x i8], ptr %1, i64 %2
   invoke void @_ZNSt6vectorIN2cv3MatESaIS1_EE19_M_range_initializeIPKS1_EEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %5)
           to label %6 unwind label %7
 
@@ -5699,7 +5699,7 @@ _ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i: ; preds = %.noexc22, %201, %20
 
 208:                                              ; preds = %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit48.i", %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit48.i" ]
-  %209 = getelementptr inbounds nuw double, ptr %.val3565.i, i64 %indvars.iv.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %.val3565.i, i64 %indvars.iv.i
   %210 = load double, ptr %209, align 8, !tbaa !84, !noalias !137
   %211 = load double, ptr %196, align 8, !tbaa !131, !noalias !137
   %212 = fcmp ogt double %210, %211
@@ -6413,7 +6413,7 @@ _ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i: ; preds = %.noexc22, %205, %20
 
 212:                                              ; preds = %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit48.i", %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit48.i" ]
-  %213 = getelementptr inbounds nuw double, ptr %.val3365.i, i64 %indvars.iv.i
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %.val3365.i, i64 %indvars.iv.i
   %214 = load double, ptr %213, align 8, !tbaa !84, !noalias !174
   %215 = load double, ptr %200, align 8, !tbaa !133, !noalias !174
   %216 = fcmp ogt double %214, %215
@@ -25261,7 +25261,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
 
 25:                                               ; preds = %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i.i.i", %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %24, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %"_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i.i.i" ]
-  %26 = getelementptr inbounds double, ptr %16, i64 %indvars.iv.i.i.i
+  %26 = getelementptr inbounds [8 x i8], ptr %16, i64 %indvars.iv.i.i.i
   %27 = load double, ptr %26, align 8, !tbaa !84
   %28 = load double, ptr %17, align 8, !tbaa !131
   %29 = fcmp ogt double %27, %28
@@ -25298,7 +25298,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
 
 "_ZZNK2cv3ccm9sRGBBase_7toLFuncERNS_3MatEENK3$_0clEd.exit.i.i.i": ; preds = %43, %40, %30
   %.0.i.i.i.i.i = phi double [ %36, %30 ], [ %42, %40 ], [ %50, %43 ]
-  %51 = getelementptr inbounds double, ptr %23, i64 %indvars.iv.i.i.i
+  %51 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv.i.i.i
   store double %.0.i.i.i.i.i, ptr %51, align 8, !tbaa !84
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -25361,7 +25361,7 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !96
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i64, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !97
   br label %16
@@ -25467,7 +25467,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
 
 25:                                               ; preds = %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i.i.i", %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %24, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %"_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i.i.i" ]
-  %26 = getelementptr inbounds double, ptr %16, i64 %indvars.iv.i.i.i
+  %26 = getelementptr inbounds [8 x i8], ptr %16, i64 %indvars.iv.i.i.i
   %27 = load double, ptr %26, align 8, !tbaa !84
   %28 = load double, ptr %17, align 8, !tbaa !133
   %29 = fcmp ogt double %27, %28
@@ -25507,7 +25507,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3ccm11eleme
 
 "_ZZNK2cv3ccm9sRGBBase_9fromLFuncERNS_3MatES2_ENK3$_0clEd.exit.i.i.i": ; preds = %44, %41, %30
   %.0.i.i.i.i.i = phi double [ %37, %30 ], [ %43, %41 ], [ %53, %44 ]
-  %54 = getelementptr inbounds double, ptr %23, i64 %indvars.iv.i.i.i
+  %54 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv.i.i.i
   store double %.0.i.i.i.i.i, ptr %54, align 8, !tbaa !84
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i

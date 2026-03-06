@@ -14,7 +14,7 @@ define range(i32 -2147483646, -2147483647) i32 @uprv_makeDenseRanges(ptr noundef
 8:                                                ; preds = %5
   %9 = load i32, ptr %0, align 4, !tbaa !3
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr i32, ptr %0, i64 %10
+  %11 = getelementptr [4 x i8], ptr %0, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -4
   %13 = load i32, ptr %12, align 4, !tbaa !3
   %14 = sext i32 %13 to i64
@@ -61,7 +61,7 @@ define range(i32 -2147483646, -2147483647) i32 @uprv_makeDenseRanges(ptr noundef
   %indvars.iv = phi i64 [ 1, %25 ], [ %indvars.iv.next, %_ZN12_GLOBAL__N_111LargestGaps3addEil.exit ]
   %.06081 = phi i32 [ %9, %25 ], [ %.161, %_ZN12_GLOBAL__N_111LargestGaps3addEil.exit ]
   %32 = add nsw i32 %.06081, 1
-  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !3
   %.not73 = icmp eq i32 %32, %34
   br i1 %.not73, label %_ZN12_GLOBAL__N_111LargestGaps3addEil.exit, label %35
@@ -77,7 +77,7 @@ define range(i32 -2147483646, -2147483647) i32 @uprv_makeDenseRanges(ptr noundef
 .lr.ph.i:                                         ; preds = %35, %46
   %.01619.i = phi i32 [ %47, %46 ], [ %39, %35 ]
   %41 = zext nneg i32 %.01619.i to i64
-  %42 = getelementptr i64, ptr %6, i64 %41
+  %42 = getelementptr [8 x i8], ptr %6, i64 %41
   %43 = getelementptr i8, ptr %42, i64 64
   %44 = load i64, ptr %43, align 8, !tbaa !10
   %45 = icmp sgt i64 %38, %44
@@ -124,22 +124,22 @@ define range(i32 -2147483646, -2147483647) i32 @uprv_makeDenseRanges(ptr noundef
 62:                                               ; preds = %62, %.lr.ph23.i
   %indvars.iv.i = phi i64 [ %60, %.lr.ph23.i ], [ %indvars.iv.next.i, %62 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %63 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv.next.i
+  %63 = getelementptr inbounds [4 x i8], ptr %29, i64 %indvars.iv.next.i
   %64 = load i32, ptr %63, align 4, !tbaa !3
-  %65 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv.i
+  %65 = getelementptr inbounds [4 x i8], ptr %29, i64 %indvars.iv.i
   store i32 %64, ptr %65, align 4, !tbaa !3
-  %66 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv.next.i
+  %66 = getelementptr inbounds [8 x i8], ptr %30, i64 %indvars.iv.next.i
   %67 = load i64, ptr %66, align 8, !tbaa !10
-  %68 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv.i
+  %68 = getelementptr inbounds [8 x i8], ptr %30, i64 %indvars.iv.i
   store i64 %67, ptr %68, align 8, !tbaa !10
   %69 = icmp sgt i64 %indvars.iv.next.i, %61
   br i1 %69, label %62, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %62, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %.._crit_edge_crit_edge.i ], [ %61, %62 ]
-  %70 = getelementptr inbounds i32, ptr %29, i64 %.pre-phi.i
+  %70 = getelementptr inbounds [4 x i8], ptr %29, i64 %.pre-phi.i
   store i32 %32, ptr %70, align 4, !tbaa !3
-  %71 = getelementptr inbounds i64, ptr %30, i64 %.pre-phi.i
+  %71 = getelementptr inbounds [8 x i8], ptr %30, i64 %.pre-phi.i
   store i64 %38, ptr %71, align 8, !tbaa !10
   br label %_ZN12_GLOBAL__N_111LargestGaps3addEil.exit
 
@@ -154,7 +154,7 @@ _ZN12_GLOBAL__N_111LargestGaps3addEil.exit:       ; preds = %._crit_edge.i, %.cr
   %indvars.iv95 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next96, %81 ]
   %.05885 = phi i32 [ 2, %.lr.ph ], [ %82, %81 ]
   %.05984 = phi i64 [ %17, %.lr.ph ], [ %75, %81 ]
-  %73 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv95
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv95
   %74 = load i64, ptr %73, align 8, !tbaa !10
   %75 = sub nsw i64 %.05984, %74
   %76 = shl nuw nsw i32 %.05885, 1
@@ -207,7 +207,7 @@ _ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit:   ; preds = %83, %85
   %indvars.iv.i75.us = phi i64 [ 0, %.lr.ph.i74.us ], [ %indvars.iv.next.i76.us, %96 ]
   %.01118.i.us = phi i32 [ -1, %.lr.ph.i74.us ], [ %.1.i.us, %96 ]
   %.01217.i.us = phi i32 [ 0, %.lr.ph.i74.us ], [ %.113.i.us, %96 ]
-  %89 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i75.us
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv.i75.us
   %90 = load i32, ptr %89, align 4, !tbaa !3
   %91 = icmp slt i32 %.05788.us, %90
   br i1 %91, label %92, label %96
@@ -230,18 +230,18 @@ _ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit:   ; preds = %83, %85
 
 _ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us: ; preds = %96
   %97 = sext i32 %.1.i.us to i64
-  %98 = getelementptr inbounds i32, ptr %29, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %29, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !3
   %100 = add nsw i32 %99, -1
-  %101 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 %indvars.iv108
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv108
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i32 %100, ptr %102, align 4, !tbaa !3
-  %103 = getelementptr inbounds i64, ptr %30, i64 %97
+  %103 = getelementptr inbounds [8 x i8], ptr %30, i64 %97
   %104 = load i64, ptr %103, align 8, !tbaa !10
   %105 = trunc i64 %104 to i32
   %106 = add i32 %99, %105
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %107 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 %indvars.iv.next109
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next109
   store i32 %106, ptr %107, align 4, !tbaa !3
   %exitcond114.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count113
   br i1 %exitcond114.not, label %._crit_edge, label %.lr.ph.i74.us, !llvm.loop !18
@@ -257,18 +257,18 @@ _ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us: ; preds = %96
 
 _ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit: ; preds = %.lr.ph89.split, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit
   %indvars.iv100 = phi i64 [ 0, %.lr.ph89.split ], [ %indvars.iv.next101, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit ]
-  %113 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 %indvars.iv100
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv100
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
   store i32 %108, ptr %114, align 4, !tbaa !3
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %115 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 %indvars.iv.next101
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next101
   store i32 %112, ptr %115, align 4, !tbaa !3
   %exitcond107.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count106
   br i1 %exitcond107.not, label %._crit_edge, label %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us, %_ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit
   %116 = sext i32 %84 to i64
-  %117 = getelementptr inbounds [2 x i32], ptr %3, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %3, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   store i32 %13, ptr %118, align 4, !tbaa !3
   br label %.loopexit

@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ObjectAddress = type { i32, i32, i32 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 
@@ -151,7 +149,7 @@ define dso_local i32 @StoreAttrDefault(ptr noundef readonly captures(none) %0, i
   %83 = shl nsw i64 %82, 4
   %84 = getelementptr i8, ptr %80, i64 %83
   %85 = getelementptr i8, ptr %84, i64 -76
-  %86 = getelementptr %struct.FormData_pg_attribute, ptr %85, i64 %22
+  %86 = getelementptr [100 x i8], ptr %85, i64 %22
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 68
   %88 = load i32, ptr %87, align 4
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 72

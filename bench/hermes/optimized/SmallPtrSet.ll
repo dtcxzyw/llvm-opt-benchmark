@@ -104,7 +104,7 @@ if.end12:                                         ; preds = %if.end12.sink.split
   %6 = load ptr, ptr %CurArray.i, align 8
   %Bucket.017.i = and i32 %sub.i5, %xor.i.i
   %idxprom18.i = zext nneg i32 %Bucket.017.i to i64
-  %arrayidx19.i = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom18.i
+  %arrayidx19.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idxprom18.i
   %7 = load ptr, ptr %arrayidx19.i, align 8
   %cmp20.i = icmp eq ptr %7, inttoptr (i64 -1 to ptr)
   br i1 %cmp20.i, label %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit, label %if.end.i
@@ -127,7 +127,7 @@ if.end10.i:                                       ; preds = %if.end.i
   %add.i = add i32 %ProbeAmt.021.i, %Bucket.023.i
   %Bucket.0.i = and i32 %add.i, %sub.i5
   %idxprom.i = zext i32 %Bucket.0.i to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %idxprom.i
   %9 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq ptr %9, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i, label %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit, label %if.end.i, !llvm.loop !4
@@ -218,7 +218,7 @@ if.then:                                          ; preds = %for.body
   %7 = load ptr, ptr %CurArray, align 8
   %Bucket.017.i = and i32 %sub.i, %xor.i.i
   %idxprom18.i = zext nneg i32 %Bucket.017.i to i64
-  %arrayidx19.i = getelementptr inbounds nuw ptr, ptr %7, i64 %idxprom18.i
+  %arrayidx19.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %idxprom18.i
   %8 = load ptr, ptr %arrayidx19.i, align 8
   %cmp20.i = icmp eq ptr %8, inttoptr (i64 -1 to ptr)
   br i1 %cmp20.i, label %if.then.i13, label %if.end.i
@@ -248,7 +248,7 @@ if.end10.i:                                       ; preds = %if.end.i
   %add.i = add i32 %ProbeAmt.021.i, %Bucket.023.i
   %Bucket.0.i = and i32 %add.i, %sub.i
   %idxprom.i = zext i32 %Bucket.0.i to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %7, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %idxprom.i
   %10 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i12 = icmp eq ptr %10, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i12, label %if.then.i13, label %if.end.i, !llvm.loop !4
@@ -295,7 +295,7 @@ entry:
   %2 = load ptr, ptr %CurArray, align 8
   %Bucket.017 = and i32 %xor.i, %sub
   %idxprom18 = zext nneg i32 %Bucket.017 to i64
-  %arrayidx19 = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idxprom18
   %3 = load ptr, ptr %arrayidx19, align 8
   %cmp20 = icmp eq ptr %3, inttoptr (i64 -1 to ptr)
   br i1 %cmp20, label %if.then, label %if.end
@@ -325,7 +325,7 @@ if.end10:                                         ; preds = %if.end
   %add = add i32 %Bucket.023, %ProbeAmt.021
   %Bucket.0 = and i32 %add, %sub
   %idxprom = zext i32 %Bucket.0 to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %cmp = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
   br i1 %cmp, label %if.then, label %if.end, !llvm.loop !4
@@ -848,7 +848,7 @@ if.then.i.i.i.i.i57:                              ; preds = %_ZSt11swap_rangesIP
   %35 = zext i32 %narrow to i64
   %gepdiff69 = shl nuw nsw i64 %35, 3
   %36 = load ptr, ptr %RHS, align 8
-  %add.ptr71 = getelementptr inbounds nuw ptr, ptr %36, i64 %idx.ext55
+  %add.ptr71 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %idx.ext55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr71, ptr align 8 %add.ptr64, i64 %gepdiff69, i1 false)
   br label %if.end84
 
@@ -864,7 +864,7 @@ if.then.i.i.i.i.i64:                              ; preds = %if.else
   %add.ptr75 = getelementptr inbounds nuw i8, ptr %38, i64 %add.ptr56.idx
   %gepdiff = sub nsw i64 %add.ptr79.idx, %add.ptr56.idx
   %39 = load ptr, ptr %this, align 8
-  %add.ptr82 = getelementptr inbounds nuw ptr, ptr %39, i64 %idx.ext55
+  %add.ptr82 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %idx.ext55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr82, ptr align 8 %add.ptr75, i64 %gepdiff, i1 false)
   br label %if.end84
 

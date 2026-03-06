@@ -1675,7 +1675,7 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
   %170 = and i64 %.0289, 1
   %.not175.not = icmp eq i64 %170, 0
   %171 = lshr i64 %169, 1
-  %172 = getelementptr inbounds nuw i64, ptr %4, i64 %171
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %171
   %173 = load i64, ptr %172, align 8, !tbaa !24
   %. = select i1 %.not175.not, i64 4294967295, i64 -4294967296
   %174 = and i64 %173, %.
@@ -1690,7 +1690,7 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader
   %.01924.i = phi i64 [ %180, %.preheader ], [ 0, %._crit_edge ]
-  %177 = getelementptr inbounds nuw i64, ptr %4, i64 %.01924.i
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01924.i
   %178 = load i64, ptr %177, align 8, !tbaa !24
   %179 = xor i64 %178, -1
   store i64 %179, ptr %177, align 8, !tbaa !24
@@ -1700,7 +1700,7 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
 
 .preheader.i:                                     ; preds = %.preheader, %.preheader.i
   %.1.i = phi i64 [ %185, %.preheader.i ], [ 0, %.preheader ]
-  %181 = getelementptr inbounds nuw i64, ptr %4, i64 %.1.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.1.i
   %182 = load i64, ptr %181, align 8, !tbaa !24
   %183 = add i64 %182, 1
   store i64 %183, ptr %181, align 8, !tbaa !24
@@ -2169,7 +2169,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %342 = and i64 %.0460, 1
   %.not233.not = icmp eq i64 %342, 0
   %343 = lshr i64 %341, 1
-  %344 = getelementptr inbounds nuw i64, ptr %4, i64 %343
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %343
   %345 = load i64, ptr %344, align 8, !tbaa !24
   %. = select i1 %.not233.not, i64 4294967295, i64 -4294967296
   %346 = and i64 %345, %.
@@ -2184,7 +2184,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader
   %.01924.i = phi i64 [ %352, %.preheader ], [ 0, %._crit_edge ]
-  %349 = getelementptr inbounds nuw i64, ptr %4, i64 %.01924.i
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01924.i
   %350 = load i64, ptr %349, align 8, !tbaa !24
   %351 = xor i64 %350, -1
   store i64 %351, ptr %349, align 8, !tbaa !24
@@ -2194,7 +2194,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
 
 .preheader.i:                                     ; preds = %.preheader, %.preheader.i
   %.1.i = phi i64 [ %357, %.preheader.i ], [ 0, %.preheader ]
-  %353 = getelementptr inbounds nuw i64, ptr %4, i64 %.1.i
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.1.i
   %354 = load i64, ptr %353, align 8, !tbaa !24
   %355 = add i64 %354, 1
   store i64 %355, ptr %353, align 8, !tbaa !24
@@ -2815,7 +2815,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %464 = and i64 %.0597, 1
   %.not324.not = icmp eq i64 %464, 0
   %465 = lshr i64 %463, 1
-  %466 = getelementptr inbounds nuw i64, ptr %4, i64 %465
+  %466 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %465
   %467 = load i64, ptr %466, align 8, !tbaa !24
   %. = select i1 %.not324.not, i64 4294967295, i64 -4294967296
   %468 = and i64 %467, %.
@@ -2830,7 +2830,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader
   %.01924.i = phi i64 [ %474, %.preheader ], [ 0, %._crit_edge ]
-  %471 = getelementptr inbounds nuw i64, ptr %4, i64 %.01924.i
+  %471 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01924.i
   %472 = load i64, ptr %471, align 8, !tbaa !24
   %473 = xor i64 %472, -1
   store i64 %473, ptr %471, align 8, !tbaa !24
@@ -2840,7 +2840,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
 
 .preheader.i:                                     ; preds = %.preheader, %.preheader.i
   %.1.i = phi i64 [ %479, %.preheader.i ], [ 0, %.preheader ]
-  %475 = getelementptr inbounds nuw i64, ptr %4, i64 %.1.i
+  %475 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.1.i
   %476 = load i64, ptr %475, align 8, !tbaa !24
   %477 = add i64 %476, 1
   store i64 %477, ptr %475, align 8, !tbaa !24
@@ -3132,9 +3132,9 @@ define internal fastcc i32 @ecp_mod_koblitz(ptr noundef %0, ptr noundef %1, i64 
   store i16 %spec.select, ptr %21, align 2, !tbaa !17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %9, i8 0, i64 48, i1 false)
   %24 = load ptr, ptr %0, align 8, !tbaa !18
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %2
   %26 = sub nsw i64 0, %3
-  %27 = getelementptr inbounds i64, ptr %25, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %25, i64 %26
   %28 = shl nuw nsw i64 %spec.select74, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 8 %27, i64 %28, i1 false)
   %.not = icmp eq i64 %4, 0
@@ -3158,7 +3158,7 @@ define internal fastcc i32 @ecp_mod_koblitz(ptr noundef %0, ptr noundef %1, i64 
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %0, align 8, !tbaa !18
-  %36 = getelementptr i64, ptr %35, i64 %2
+  %36 = getelementptr [8 x i8], ptr %35, i64 %2
   %37 = getelementptr i8, ptr %36, i64 -8
   %38 = load i64, ptr %37, align 8, !tbaa !24
   %39 = and i64 %38, %5
@@ -3199,8 +3199,8 @@ define internal fastcc i32 @ecp_mod_koblitz(ptr noundef %0, ptr noundef %1, i64 
   store i16 %spec.select73, ptr %21, align 2, !tbaa !17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %9, i8 0, i64 48, i1 false)
   %55 = load ptr, ptr %0, align 8, !tbaa !18
-  %56 = getelementptr inbounds nuw i64, ptr %55, i64 %2
-  %57 = getelementptr inbounds i64, ptr %56, i64 %26
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %2
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %26
   %58 = shl nuw nsw i64 %spec.select7375, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 8 %57, i64 %58, i1 false)
   br i1 %.not, label %61, label %59
@@ -3223,7 +3223,7 @@ define internal fastcc i32 @ecp_mod_koblitz(ptr noundef %0, ptr noundef %1, i64 
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr %0, align 8, !tbaa !18
-  %67 = getelementptr i64, ptr %66, i64 %2
+  %67 = getelementptr [8 x i8], ptr %66, i64 %2
   %68 = getelementptr i8, ptr %67, i64 -8
   %69 = load i64, ptr %68, align 8, !tbaa !24
   %70 = and i64 %69, %5

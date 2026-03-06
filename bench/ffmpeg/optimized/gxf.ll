@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVRational = type { i32, i32 }
-%struct.AVIndexEntry = type { i64, i64, i32, i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"gxf\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"GXF (General eXchange Format)\00", align 1
@@ -242,7 +241,7 @@ gxf_material_tags.exit:                           ; preds = %.lr.ph.i, %47, %26
   %91 = add nsw i32 %88, -1
   %92 = select i1 %or.cond.i.i, i32 8, i32 %91
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds %struct.AVRational, ptr @frame_rate_tab, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr @frame_rate_tab, i64 %93
   %.sroa.0.0.copyload.i.i = load i64, ptr %94, align 8
   store i64 %.sroa.0.0.copyload.i.i, ptr %59, align 8
   br label %106
@@ -330,7 +329,7 @@ add_timecode_metadata.exit:                       ; preds = %115, %117
 133:                                              ; preds = %128
   %134 = load ptr, ptr %63, align 8, !tbaa !36
   %135 = zext nneg i32 %131 to i64
-  %136 = getelementptr inbounds nuw ptr, ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %135
   %137 = load ptr, ptr %136, align 8, !tbaa !37
   %138 = icmp ne i32 %.sroa.047.0132, 0
   %139 = icmp ne i32 %.sroa.10.0131, 0
@@ -446,7 +445,7 @@ thread-pre-split:                                 ; preds = %166
   %187 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %186
   %188 = load i8, ptr %187, align 1, !tbaa !48
   %189 = zext i8 %188 to i64
-  %190 = getelementptr inbounds nuw %struct.AVRational, ptr @fps_umf2avr.map, i64 %189
+  %190 = getelementptr inbounds nuw [8 x i8], ptr @fps_umf2avr.map, i64 %189
   %.sroa.0.0.copyload.i = load i64, ptr %190, align 8
   %.sroa.4.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
@@ -506,7 +505,7 @@ thread-pre-split:                                 ; preds = %166
 214:                                              ; preds = %.lr.ph138, %214
   %indvars.iv = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next, %214 ]
   %215 = load ptr, ptr %213, align 8, !tbaa !36
-  %216 = getelementptr inbounds nuw ptr, ptr %215, i64 %indvars.iv
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %indvars.iv
   %217 = load ptr, ptr %216, align 8, !tbaa !37
   call void @avpriv_set_pts_info(ptr noundef %217, i32 noundef 32, i32 noundef %spec.select122, i32 noundef %spec.select) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -589,7 +588,7 @@ define internal i32 @gxf_packet(ptr noundef %0, ptr noundef %1) #1 {
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load ptr, ptr %32, align 8, !tbaa !36
   %34 = zext nneg i32 %29 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !37
   %37 = tail call i32 @avio_rb32(ptr noundef nonnull %6) #7
   %38 = tail call i32 @avio_rb32(ptr noundef nonnull %6) #7
@@ -681,7 +680,7 @@ define internal i32 @gxf_seek(ptr noundef readonly captures(none) %0, i32 nounde
   %6 = load ptr, ptr %5, align 8, !tbaa !36
   %7 = load ptr, ptr %6, align 8, !tbaa !37
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i64, ptr %11, align 8, !tbaa !41
@@ -695,7 +694,7 @@ define internal i32 @gxf_seek(ptr noundef readonly captures(none) %0, i32 nounde
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 320
   %18 = load ptr, ptr %17, align 8, !tbaa !61
   %19 = zext nneg i32 %14 to i64
-  %20 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !73
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 328
   %23 = load i32, ptr %22, align 8, !tbaa !75

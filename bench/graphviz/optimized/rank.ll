@@ -153,7 +153,7 @@ scale_clamp.exit:                                 ; preds = %._crit_edge.i, %7, 
   %.013 = phi i64 [ %29, %.lr.ph ], [ 0, %scale_clamp.exit ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 304
   %20 = load ptr, ptr %19, align 8, !tbaa !44
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.013
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.013
   %22 = load ptr, ptr %21, align 8, !tbaa !45
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 256
   store ptr %22, ptr %23, align 8, !tbaa !46
@@ -867,9 +867,9 @@ gv_recalloc.exit.i.i:                             ; preds = %350, %348
   %356 = load i64, ptr %355, align 8, !tbaa !83
   %357 = add i64 %356, 1
   store i64 %357, ptr %355, align 8, !tbaa !83
-  %358 = getelementptr inbounds nuw ptr, ptr %343, i64 %356
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %343, i64 %356
   store ptr %.057.i.i, ptr %358, align 8, !tbaa !97
-  %359 = getelementptr inbounds nuw ptr, ptr %343, i64 %357
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %343, i64 %357
   store ptr null, ptr %359, align 8, !tbaa !97
   %360 = load i32, ptr %.057.i.i, align 8
   %361 = and i32 %360, 3
@@ -952,7 +952,7 @@ gv_recalloc.exit46.i.i:                           ; preds = %392, %390, %383
   %415 = load i64, ptr %414, align 8, !tbaa !79
   %416 = add i64 %415, 1
   store i64 %416, ptr %414, align 8, !tbaa !79
-  %417 = getelementptr inbounds nuw ptr, ptr %413, i64 %415
+  %417 = getelementptr inbounds nuw [8 x i8], ptr %413, i64 %415
   store ptr %.057.i.i, ptr %417, align 8, !tbaa !97
   %418 = load i32, ptr %.057.i.i, align 8
   %419 = and i32 %418, 3
@@ -966,7 +966,7 @@ gv_recalloc.exit46.i.i:                           ; preds = %392, %390, %383
   %427 = load ptr, ptr %426, align 8, !tbaa !82
   %428 = getelementptr inbounds nuw i8, ptr %425, i64 264
   %429 = load i64, ptr %428, align 8, !tbaa !79
-  %430 = getelementptr inbounds nuw ptr, ptr %427, i64 %429
+  %430 = getelementptr inbounds nuw [8 x i8], ptr %427, i64 %429
   store ptr null, ptr %430, align 8, !tbaa !97
   %431 = call ptr @agnxtout(ptr noundef %12, ptr noundef nonnull %.057.i.i) #15
   %.not44.i.i = icmp eq ptr %431, null
@@ -1014,7 +1014,7 @@ add_fast_edges.exit.i:                            ; preds = %._crit_edge.i43.i, 
 
 gv_calloc.exit.i.i:                               ; preds = %443, %gv_calloc.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %gv_calloc.exit.i.i ], [ 1, %443 ]
-  %452 = getelementptr inbounds nuw i32, ptr %446, i64 %indvars.iv.i.i
+  %452 = getelementptr inbounds nuw [4 x i8], ptr %446, i64 %indvars.iv.i.i
   store i32 2147483647, ptr %452, align 4, !tbaa !78
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %445
@@ -1074,7 +1074,7 @@ gv_calloc.exit.i.i:                               ; preds = %443, %gv_calloc.exi
   %481 = getelementptr inbounds nuw i8, ptr %465, i64 172
   store i32 %480, ptr %481, align 4, !tbaa !93
   %482 = sext i32 %480 to i64
-  %483 = getelementptr inbounds i32, ptr %.071.i.i, i64 %482
+  %483 = getelementptr inbounds [4 x i8], ptr %.071.i.i, i64 %482
   %484 = load i32, ptr %483, align 4, !tbaa !78
   %..i.i = call i32 @llvm.smin.i32(i32 %484, i32 %463)
   store i32 %..i.i, ptr %483, align 4, !tbaa !78
@@ -1101,7 +1101,7 @@ gv_calloc.exit.i.i:                               ; preds = %443, %gv_calloc.exi
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 172
   %492 = load i32, ptr %491, align 4, !tbaa !93
   %493 = sext i32 %492 to i64
-  %494 = getelementptr inbounds i32, ptr %.071.i.i, i64 %493
+  %494 = getelementptr inbounds [4 x i8], ptr %.071.i.i, i64 %493
   %495 = load i32, ptr %494, align 4, !tbaa !78
   %496 = getelementptr inbounds nuw i8, ptr %490, i64 360
   %497 = load i32, ptr %496, align 8, !tbaa !33
@@ -1570,7 +1570,7 @@ minmax_edges2.exit.thread:                        ; preds = %77, %74, %113, %min
   %159 = phi ptr [ %164, %.lr.ph45 ], [ %156, %.preheader ]
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 240
   %161 = load ptr, ptr %160, align 8, !tbaa !114
-  %162 = getelementptr inbounds nuw ptr, ptr %161, i64 %indvars.iv
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %indvars.iv
   %163 = load ptr, ptr %162, align 8, !tbaa !115
   tail call fastcc void @set_minmax(ptr noundef %163)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1761,7 +1761,7 @@ expand_ranksets.exit:                             ; preds = %collapse_cluster.ex
 
 248:                                              ; preds = %._crit_edge.i20, %.lr.ph63.i
   %.061.i = phi i64 [ 0, %.lr.ph63.i ], [ %267, %._crit_edge.i20 ]
-  %249 = getelementptr inbounds nuw ptr, ptr %245, i64 %.061.i
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %.061.i
   %250 = load ptr, ptr %249, align 8, !tbaa !45
   store ptr %250, ptr %246, align 8, !tbaa !46
   %.not5559.i = icmp eq ptr %250, null
@@ -2248,7 +2248,7 @@ define internal fastcc void @node_induce(ptr noundef readonly captures(none) %0,
   %17 = phi ptr [ %.pre.pre, %23 ], [ %11, %.preheader ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 240
   %19 = load ptr, ptr %18, align 8, !tbaa !114
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !115
   %22 = tail call i32 @agcontains(ptr noundef %21, ptr noundef nonnull %.03444) #15
   %.not39 = icmp eq i32 %22, 0
@@ -2390,7 +2390,7 @@ gv_recalloc.exit:                                 ; preds = %21, %28, %30
   %33 = load ptr, ptr %3, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 240
   store ptr %.0.i.i, ptr %34, align 8, !tbaa !114
-  %35 = getelementptr inbounds ptr, ptr %.0.i.i, i64 %10
+  %35 = getelementptr inbounds [8 x i8], ptr %.0.i.i, i64 %10
   store ptr %1, ptr %35, align 8, !tbaa !115
   tail call void @do_graph_label(ptr noundef %1) #15
   ret void
@@ -2462,7 +2462,7 @@ define internal fastcc void @set_minmax(ptr noundef readonly captures(none) %0) 
   %18 = phi ptr [ %23, %.lr.ph ], [ %3, %1 ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 240
   %20 = load ptr, ptr %19, align 8, !tbaa !114
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !115
   tail call fastcc void @set_minmax(ptr noundef %22)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3192,7 +3192,7 @@ define internal fastcc void @setMinMax(ptr noundef %0, i32 noundef range(i32 0, 
   %7 = phi ptr [ %12, %.lr.ph ], [ %4, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 240
   %9 = load ptr, ptr %8, align 8, !tbaa !114
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !115
   tail call fastcc void @setMinMax(ptr noundef %11, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

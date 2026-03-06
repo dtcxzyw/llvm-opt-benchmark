@@ -3,11 +3,6 @@ source_filename = "bench/clamav/original/cache.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.CACHE = type { %struct.cache_set, i32, i32, %union.pthread_mutex_t }
-%struct.cache_set = type { ptr, ptr, ptr, ptr }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 %struct.node = type { [2 x i64], ptr, ptr, ptr, ptr, ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [37 x i8] c"clean_cache_init: mpool malloc fail\0A\00", align 1
@@ -89,7 +84,7 @@ define range(i32 0, 2) i32 @clean_cache_init(ptr noundef captures(address_is_nul
   %indvars.iv114 = phi i32 [ %indvars.iv.next115, %.loopexit ], [ 1, %21 ]
   %indvars.iv89 = phi i32 [ %indvars.iv.next90, %.loopexit ], [ 0, %21 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %21 ]
-  %24 = getelementptr inbounds nuw %struct.CACHE, ptr %19, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [80 x i8], ptr %19, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %25, ptr noundef null) #9
   %.not59 = icmp eq i32 %26, 0
@@ -110,7 +105,7 @@ define range(i32 0, 2) i32 @clean_cache_init(ptr noundef captures(address_is_nul
 
 .lr.ph71:                                         ; preds = %.lr.ph71.preheader, %.lr.ph71
   %indvars.iv86 = phi i64 [ 0, %.lr.ph71.preheader ], [ %indvars.iv.next87, %.lr.ph71 ]
-  %28 = getelementptr inbounds nuw %struct.CACHE, ptr %19, i64 %indvars.iv86
+  %28 = getelementptr inbounds nuw [80 x i8], ptr %19, i64 %indvars.iv86
   %29 = load ptr, ptr %15, align 8, !tbaa !31
   %30 = load ptr, ptr %28, align 8, !tbaa !37
   tail call void @mpool_free(ptr noundef %29, ptr noundef %30) #9
@@ -121,7 +116,7 @@ define range(i32 0, 2) i32 @clean_cache_init(ptr noundef captures(address_is_nul
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %.lr.ph73
   %indvars.iv95 = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next96, %.lr.ph73 ]
-  %31 = getelementptr inbounds nuw %struct.CACHE, ptr %19, i64 %indvars.iv95
+  %31 = getelementptr inbounds nuw [80 x i8], ptr %19, i64 %indvars.iv95
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %32) #9
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
@@ -158,7 +153,7 @@ cacheset_init.exit.preheader82:                   ; preds = %cacheset_init.exit.
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %.preheader.i ]
-  %42 = getelementptr inbounds nuw %struct.node, ptr %39, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [64 x i8], ptr %39, i64 %indvars.iv.i
   %43 = getelementptr i8, ptr %42, i64 -64
   %44 = getelementptr i8, ptr %42, i64 -24
   store ptr %42, ptr %44, align 8, !tbaa !39
@@ -174,7 +169,7 @@ cacheset_init.exit.preheader82:                   ; preds = %cacheset_init.exit.
 
 cacheset_init.exit:                               ; preds = %cacheset_init.exit.preheader82, %cacheset_init.exit
   %indvars.iv103 = phi i64 [ 0, %cacheset_init.exit.preheader82 ], [ %indvars.iv.next104, %cacheset_init.exit ]
-  %46 = getelementptr inbounds nuw %struct.CACHE, ptr %19, i64 %indvars.iv103
+  %46 = getelementptr inbounds nuw [80 x i8], ptr %19, i64 %indvars.iv103
   %47 = load ptr, ptr %15, align 8, !tbaa !31
   %48 = load ptr, ptr %46, align 8, !tbaa !37
   tail call void @mpool_free(ptr noundef %47, ptr noundef %48) #9
@@ -185,7 +180,7 @@ cacheset_init.exit:                               ; preds = %cacheset_init.exit.
 
 49:                                               ; preds = %.preheader, %49
   %indvars.iv111 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next112, %49 ]
-  %50 = getelementptr inbounds nuw %struct.CACHE, ptr %19, i64 %indvars.iv111
+  %50 = getelementptr inbounds nuw [80 x i8], ptr %19, i64 %indvars.iv111
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %52 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %51) #9
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
@@ -202,7 +197,7 @@ cacheset_init.exit:                               ; preds = %cacheset_init.exit.
   store ptr %39, ptr %55, align 8, !tbaa !42
   %56 = add i32 %37, -1
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw %struct.node, ptr %39, i64 %57
+  %58 = getelementptr inbounds nuw [64 x i8], ptr %39, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %58, ptr %59, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -268,7 +263,7 @@ define void @clean_cache_destroy(ptr noundef readonly captures(address_is_null) 
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw %struct.CACHE, ptr %4, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [80 x i8], ptr %4, i64 %indvars.iv
   %14 = load ptr, ptr %11, align 8, !tbaa !31
   %15 = load ptr, ptr %13, align 8, !tbaa !37
   tail call void @mpool_free(ptr noundef %14, ptr noundef %15) #9
@@ -394,7 +389,7 @@ define void @clean_cache_add(ptr noundef readonly captures(address_is_null) %0, 
   %53 = getelementptr i8, ptr %0, i64 1
   %54 = urem i32 %52, %51
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw %struct.CACHE, ptr %49, i64 %55
+  %56 = getelementptr inbounds nuw [80 x i8], ptr %49, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %57) #9
   %.not53 = icmp eq i32 %58, 0
@@ -713,7 +708,7 @@ define void @clean_cache_remove(ptr noundef readonly captures(address_is_null) %
   %18 = getelementptr i8, ptr %0, i64 1
   %19 = urem i32 %17, %16
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.CACHE, ptr %6, i64 %20
+  %21 = getelementptr inbounds nuw [80 x i8], ptr %6, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %22) #9
   %.not33 = icmp eq i32 %23, 0
@@ -944,7 +939,7 @@ define range(i32 0, 2) i32 @clean_cache_check(ptr noundef readonly captures(addr
   %23 = zext i16 %.val.i to i32
   %24 = urem i32 %23, %22
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw %struct.CACHE, ptr %9, i64 %25
+  %26 = getelementptr inbounds nuw [80 x i8], ptr %9, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %27) #9
   %.not15.i = icmp eq i32 %28, 0

@@ -172,7 +172,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_set_bit(ptr noundef captures(address_i
 22:                                               ; preds = %14
   %23 = load i32, ptr %12, align 8, !tbaa !13
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i64, ptr %20, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %20, i64 %24
   %26 = sub nsw i32 %spec.select, %23
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 3
@@ -185,7 +185,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_set_bit(ptr noundef captures(address_i
   %31 = zext nneg i32 %11 to i64
   %32 = shl nuw i64 1, %31
   %33 = zext nneg i32 %10 to i64
-  %34 = getelementptr inbounds nuw i64, ptr %30, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !15
   %36 = or i64 %35, %32
   store i64 %36, ptr %34, align 8, !tbaa !15
@@ -225,7 +225,7 @@ define range(i32 -27, 1) i32 @pmix_bitmap_clear_bit(ptr noundef readonly capture
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load ptr, ptr %15, align 8, !tbaa !3
   %17 = zext nneg i32 %10 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !15
   %20 = and i64 %19, %14
   store i64 %20, ptr %18, align 8, !tbaa !15
@@ -256,7 +256,7 @@ define zeroext i1 @pmix_bitmap_is_set_bit(ptr noundef readonly captures(address_
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = zext nneg i32 %10 to i64
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !15
   %17 = zext nneg i32 %11 to i64
   %18 = shl nuw i64 1, %17
@@ -309,7 +309,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_find_and_set_first_unset_bit(ptr nound
 
 10:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %11 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8, !tbaa !15
   %13 = icmp eq i64 %12, -1
   br i1 %13, label %14, label %.critedge.loopexit
@@ -367,7 +367,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_find_and_set_first_unset_bit(ptr nound
 34:                                               ; preds = %26
   %35 = load i32, ptr %5, align 8, !tbaa !13
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i64, ptr %32, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %32, i64 %36
   %38 = sub nsw i32 %spec.select.i, %35
   %39 = sext i32 %38 to i64
   %40 = shl nsw i64 %39, 3
@@ -378,7 +378,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_find_and_set_first_unset_bit(ptr nound
 41:                                               ; preds = %34, %._crit_edge.i
   %42 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %32, %34 ]
   %43 = zext nneg i32 %24 to i64
-  %44 = getelementptr inbounds nuw i64, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !15
   %46 = or i64 %45, 1
   store i64 %46, ptr %44, align 8, !tbaa !15
@@ -388,7 +388,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_find_and_set_first_unset_bit(ptr nound
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %49 = load ptr, ptr %48, align 8, !tbaa !3
   %50 = zext nneg i32 %.029.lcssa to i64
-  %51 = getelementptr inbounds nuw i64, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !15
   %53 = add i64 %52, 1
   %54 = or i64 %53, %52
@@ -448,9 +448,9 @@ define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_and_inplace(ptr noundef readon
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8, !tbaa !15
-  %18 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8, !tbaa !15
   %20 = and i64 %19, %17
   store i64 %20, ptr %18, align 8, !tbaa !15
@@ -492,9 +492,9 @@ define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_or_inplace(ptr noundef readonl
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8, !tbaa !15
-  %18 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8, !tbaa !15
   %20 = or i64 %19, %17
   store i64 %20, ptr %18, align 8, !tbaa !15
@@ -536,9 +536,9 @@ define range(i32 -27, 1) i32 @pmix_bitmap_bitwise_xor_inplace(ptr noundef readon
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8, !tbaa !15
-  %18 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8, !tbaa !15
   %20 = xor i64 %19, %17
   store i64 %20, ptr %18, align 8, !tbaa !15
@@ -580,9 +580,9 @@ define noundef zeroext i1 @pmix_bitmap_are_different(ptr noundef readonly captur
 
 13:                                               ; preds = %13, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8, !tbaa !15
-  %16 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8, !tbaa !15
   %.not15.not = icmp ne i64 %15, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -628,7 +628,7 @@ pmix_bitmap_is_set_bit.exit:                      ; preds = %pmix_bitmap_is_set_
   %17 = lshr i64 %indvars.iv, 6
   %18 = and i64 %indvars.iv, 63
   %19 = and i64 %17, 67108863
-  %20 = getelementptr inbounds nuw i64, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !15
   %22 = shl nuw i64 1, %18
   %23 = and i64 %21, %22
@@ -659,7 +659,7 @@ define i32 @pmix_bitmap_num_unset_bits(ptr noundef readonly captures(none) %0, i
 6:                                                ; preds = %.loopexit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.01115.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.loopexit.i ]
-  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %8 = load i64, ptr %7, align 8, !tbaa !15
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
@@ -699,7 +699,7 @@ define range(i32 -2147483647, -2147483648) i32 @pmix_bitmap_num_set_bits(ptr nou
 6:                                                ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
   %.01115 = phi i32 [ 0, %.lr.ph ], [ %.1, %.loopexit ]
-  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !15
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %.loopexit, label %.preheader
@@ -739,7 +739,7 @@ define noundef zeroext i1 @pmix_bitmap_is_clear(ptr noundef readonly captures(no
 
 7:                                                ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !15
   %.not = icmp eq i64 %9, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

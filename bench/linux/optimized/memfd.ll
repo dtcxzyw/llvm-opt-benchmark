@@ -646,7 +646,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
 
 117:                                              ; preds = %111
   %118 = zext i8 %112 to i64
-  %119 = getelementptr ptr, ptr %110, i64 %118
+  %119 = getelementptr [8 x i8], ptr %110, i64 %118
   %120 = load volatile ptr, ptr %119, align 8
   %121 = ptrtoint ptr %120 to i64
   %122 = and i64 %121, 3
@@ -909,7 +909,7 @@ define internal fastcc range(i32 -16, 1) i32 @memfd_wait_for_pins(ptr noundef %0
 
 277:                                              ; preds = %269
   %278 = getelementptr inbounds nuw i8, ptr %247, i64 40
-  %279 = getelementptr ptr, ptr %278, i64 %274
+  %279 = getelementptr [8 x i8], ptr %278, i64 %274
   %280 = load volatile ptr, ptr %279, align 8
   %281 = icmp eq ptr %280, null
   br i1 %281, label %282, label %284

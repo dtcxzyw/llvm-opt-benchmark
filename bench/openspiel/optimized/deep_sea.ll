@@ -1241,7 +1241,7 @@ _ZNK10open_spiel8deep_sea11DeepSeaGame13ActionMappingEv.exit: ; preds = %79
   %93 = sub i64 %91, %92
   %94 = ashr exact i64 %93, 3
   %95 = sub nsw i64 0, %94
-  %96 = getelementptr inbounds i64, ptr %90, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %90, i64 %95
   call void @_ZdlPvm(ptr noundef %96, i64 noundef %93) #28
   store ptr null, ptr %55, align 8
   store i32 0, ptr %56, align 8
@@ -1407,7 +1407,7 @@ define linkonce_odr void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 d
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %8) #28
   store ptr null, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1768,7 +1768,7 @@ define void @_ZNK10open_spiel8deep_sea12DeepSeaState8ToStringB5cxx11Ev(ptr dead_
   %27 = load ptr, ptr %12, align 8
   %28 = sdiv i32 %25, 64
   %.sext = sext i32 %28 to i64
-  %29 = getelementptr inbounds i64, ptr %27, i64 %.sext
+  %29 = getelementptr inbounds [8 x i8], ptr %27, i64 %.sext
   %30 = and i64 %26, -9223372036854775745
   %31 = icmp ugt i64 %30, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %31, i64 -8, i64 0
@@ -1838,7 +1838,7 @@ define void @_ZNK10open_spiel8deep_sea12DeepSeaState7RewardsEv(ptr dead_on_unwin
   %13 = zext i32 %8 to i64
   %14 = add nsw i64 %13, -1
   %15 = sdiv i64 %14, 64
-  %16 = getelementptr inbounds nuw i64, ptr %6, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %15
   %17 = and i64 %14, -9223372036854775745
   %18 = icmp ugt i64 %17, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %18, i64 -8, i64 0
@@ -2257,7 +2257,7 @@ _ZSt4fillIPfdEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.prehea
   unreachable
 
 _ZNK4absl7debian24SpanIfEixEm.exit:               ; preds = %48
-  %54 = getelementptr inbounds nuw float, ptr %2, i64 %51
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %51
   store float 1.000000e+00, ptr %54, align 4
   br label %55
 
@@ -2493,7 +2493,7 @@ define void @_ZN10open_spiel8deep_sea12DeepSeaState13DoApplyActionEl(ptr noundef
   %13 = load ptr, ptr %11, align 8
   %14 = sdiv i32 %10, 64
   %.sext = sext i32 %14 to i64
-  %15 = getelementptr inbounds i64, ptr %13, i64 %.sext
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %.sext
   %16 = and i64 %12, -9223372036854775745
   %17 = icmp ugt i64 %16, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %17, i64 -8, i64 0
@@ -2804,10 +2804,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit56: ; 
 .preheader.i.i:                                   ; preds = %78, %.preheader.i.i.backedge
   %.01825.i.i = phi i64 [ %.01825.i.i.be, %.preheader.i.i.backedge ], [ 0, %78 ]
   %.01924.i.i = phi i1 [ %.01924.i.i.be, %.preheader.i.i.backedge ], [ true, %78 ]
-  %80 = getelementptr inbounds nuw i32, ptr %3, i64 %.01825.i.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.01825.i.i
   %81 = load i32, ptr %80, align 4
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw i64, ptr %17, i64 %.01825.i.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.01825.i.i
   store i64 %82, ptr %83, align 8
   br i1 %.01924.i.i, label %84, label %.thread.i.i
 
@@ -2863,7 +2863,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %103 = load ptr, ptr %59, align 8
   %104 = lshr i64 %indvars.iv, 6
   %.zext = and i64 %104, 67108863
-  %105 = getelementptr inbounds nuw i64, ptr %103, i64 %.zext
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %.zext
   %106 = and i64 %indvars.iv, 63
   %107 = shl nuw i64 1, %106
   %.0.i.i.i.i.i.i79 = and i64 %101, 1
@@ -4817,7 +4817,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %0, align 8
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %2
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %2
   store ptr %11, ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4881,7 +4881,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %36, %.no
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %33, ptr %0, align 8
   store ptr %37, ptr %13, align 8
-  %39 = getelementptr inbounds nuw i32, ptr %33, i64 %31
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %31
   store ptr %39, ptr %7, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -5028,7 +5028,7 @@ define linkonce_odr void @_ZN10open_spiel8deep_sea12DeepSeaStateD2Ev(ptr noundef
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #28
   store ptr null, ptr %2, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -5054,7 +5054,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %1, %4
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 3
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i64, ptr %17, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %17, i64 %22
   tail call void @_ZdlPvm(ptr noundef %23, i64 noundef %20) #28
   store ptr null, ptr %13, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i2 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -5310,7 +5310,7 @@ define linkonce_odr noundef double @_ZNK10open_spiel5State12PlayerRewardEi(ptr n
   br label %33
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
-  %27 = getelementptr inbounds double, ptr %13, i64 %18
+  %27 = getelementptr inbounds [8 x i8], ptr %13, i64 %18
   %28 = load double, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -5414,7 +5414,7 @@ define linkonce_odr noundef double @_ZNK10open_spiel5State12PlayerReturnEi(ptr n
   br label %44
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %23
-  %38 = getelementptr inbounds nuw double, ptr %26, i64 %31
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %31
   %39 = load double, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %41 = load ptr, ptr %40, align 8
@@ -5651,7 +5651,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %_ZNSt12_Vector
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %19, ptr %0, align 8
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %13
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %13
   store ptr %21, ptr %17, align 8
   br label %_ZNSt6vectorIlSaIlEE7reserveEm.exit
 
@@ -5731,7 +5731,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %46, %.noex
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %48, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %47, ptr %22, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %27
@@ -6038,7 +6038,7 @@ define linkonce_odr void @_ZN10open_spiel8deep_sea11DeepSeaGameD2Ev(ptr noundef 
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #28
   store ptr null, ptr %2, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -6071,7 +6071,7 @@ define linkonce_odr void @_ZN10open_spiel8deep_sea11DeepSeaGameD0Ev(ptr noundef 
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #28
   store ptr null, ptr %2, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -7064,12 +7064,12 @@ define linkonce_odr void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align
 
 .noexc:                                           ; preds = %18
   %23 = lshr i64 %19, 6
-  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   store ptr %24, ptr %6, align 8
   store ptr %22, ptr %0, align 8
   store i32 0, ptr %3, align 8
   %25 = sdiv i64 %17, 64
-  %26 = getelementptr inbounds i64, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = and i64 %17, -9223372036854775745
   %28 = icmp ugt i64 %27, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %28, i64 -8, i64 0
@@ -7175,7 +7175,7 @@ define linkonce_odr void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull al
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %8) #28
   store ptr null, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8462,7 +8462,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %12
   %22 = trunc i64 %21 to i32
   %23 = and i32 %22, 63
   %24 = lshr i64 %21, 6
-  %25 = getelementptr inbounds nuw i64, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %24
   br label %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i
 
 _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i:          ; preds = %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
@@ -8723,13 +8723,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZSt4copyISt13_Bit_
   %141 = sub i64 %11, %140
   %142 = ashr exact i64 %141, 3
   %143 = sub nsw i64 0, %142
-  %144 = getelementptr inbounds i64, ptr %8, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %8, i64 %143
   tail call void @_ZdlPvm(ptr noundef %144, i64 noundef %141) #28
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %139
   %145 = lshr i64 %72, 6
-  %146 = getelementptr inbounds nuw i64, ptr %75, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %145
   store ptr %146, ptr %7, align 8
   store ptr %75, ptr %0, align 8
   %.sroa.388.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9782,7 +9782,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %25
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 63
   %36 = sdiv i64 %33, 64
-  %37 = getelementptr inbounds i64, ptr %16, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %16, i64 %36
   %38 = and i64 %33, -9223372036854775745
   %39 = icmp ugt i64 %38, -9223372036854775808
   %storemerge.idx.i.i.i = select i1 %39, i64 -8, i64 0
@@ -9937,7 +9937,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %77, %_ZSt14__fill_b
   %107 = add nsw i64 %3, %106
   %108 = sdiv i64 %107, 64
   %109 = load ptr, ptr %15, align 8
-  %110 = getelementptr inbounds i64, ptr %109, i64 %108
+  %110 = getelementptr inbounds [8 x i8], ptr %109, i64 %108
   %111 = and i64 %107, -9223372036854775745
   %112 = icmp ugt i64 %111, -9223372036854775808
   %storemerge.idx.i.i = select i1 %112, i64 -8, i64 0
@@ -10198,13 +10198,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
   %231 = sub i64 %229, %230
   %232 = ashr exact i64 %231, 3
   %233 = sub nsw i64 0, %232
-  %234 = getelementptr inbounds i64, ptr %228, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr %228, i64 %233
   tail call void @_ZdlPvm(ptr noundef %234, i64 noundef %231) #28
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %227
   %235 = lshr i64 %123, 6
-  %236 = getelementptr inbounds nuw i64, ptr %126, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %235
   store ptr %236, ptr %8, align 8
   store ptr %126, ptr %0, align 8
   %.sroa.3139.0..sroa_idx140 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10272,11 +10272,11 @@ define linkonce_odr void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %35, i64 %12)
   %36 = trunc i64 %19 to i32
   %37 = add i32 %36, 1371501266
-  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %33
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %33
   %39 = load i32, ptr %38, align 4
   %40 = add i32 %39, 1371501266
   store i32 %40, ptr %38, align 4
-  %41 = getelementptr inbounds i32, ptr %1, i64 %34
+  %41 = getelementptr inbounds [4 x i8], ptr %1, i64 %34
   %42 = load i32, ptr %41, align 4
   %43 = add i32 %42, %37
   store i32 %43, ptr %41, align 4
@@ -10299,13 +10299,13 @@ define linkonce_odr void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull
   %47 = urem i64 %46, %12
   %48 = add i64 %.0131, %34
   %49 = urem i64 %48, %12
-  %50 = getelementptr inbounds i32, ptr %1, i64 %45
+  %50 = getelementptr inbounds [4 x i8], ptr %1, i64 %45
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i32, ptr %1, i64 %47
+  %52 = getelementptr inbounds [4 x i8], ptr %1, i64 %47
   %53 = load i32, ptr %52, align 4
   %54 = add i64 %.0131, -1
   %55 = urem i64 %54, %12
-  %56 = getelementptr inbounds i32, ptr %1, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %1, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = xor i32 %51, %57
   %59 = xor i32 %58, %53
@@ -10314,13 +10314,13 @@ define linkonce_odr void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull
   %62 = mul i32 %61, 1664525
   %63 = trunc i64 %45 to i32
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i32, ptr %64, i64 %54
+  %65 = getelementptr inbounds [4 x i8], ptr %64, i64 %54
   %66 = load i32, ptr %65, align 4
   %67 = add i32 %66, %63
   %68 = add i32 %67, %62
   %69 = add i32 %62, %53
   store i32 %69, ptr %52, align 4
-  %70 = getelementptr inbounds i32, ptr %1, i64 %49
+  %70 = getelementptr inbounds [4 x i8], ptr %1, i64 %49
   %71 = load i32, ptr %70, align 4
   %72 = add i32 %68, %71
   store i32 %72, ptr %70, align 4
@@ -10341,13 +10341,13 @@ define linkonce_odr void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull
   %78 = urem i64 %77, %12
   %79 = add i64 %.0114132, %34
   %80 = urem i64 %79, %12
-  %81 = getelementptr inbounds i32, ptr %1, i64 %76
+  %81 = getelementptr inbounds [4 x i8], ptr %1, i64 %76
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i32, ptr %1, i64 %78
+  %83 = getelementptr inbounds [4 x i8], ptr %1, i64 %78
   %84 = load i32, ptr %83, align 4
   %85 = add i64 %.0114132, -1
   %86 = urem i64 %85, %12
-  %87 = getelementptr inbounds i32, ptr %1, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %1, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = xor i32 %82, %88
   %90 = xor i32 %89, %84
@@ -10358,7 +10358,7 @@ define linkonce_odr void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull
   %95 = add i32 %93, %94
   %96 = add i32 %93, %84
   store i32 %96, ptr %83, align 4
-  %97 = getelementptr inbounds i32, ptr %1, i64 %80
+  %97 = getelementptr inbounds [4 x i8], ptr %1, i64 %80
   %98 = load i32, ptr %97, align 4
   %99 = add i32 %95, %98
   store i32 %99, ptr %97, align 4
@@ -10374,14 +10374,14 @@ define linkonce_odr void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull
   %103 = urem i64 %102, %12
   %104 = add i64 %.0115134, %34
   %105 = urem i64 %104, %12
-  %106 = getelementptr inbounds i32, ptr %1, i64 %101
+  %106 = getelementptr inbounds [4 x i8], ptr %1, i64 %101
   %107 = load i32, ptr %106, align 4
-  %108 = getelementptr inbounds i32, ptr %1, i64 %103
+  %108 = getelementptr inbounds [4 x i8], ptr %1, i64 %103
   %109 = load i32, ptr %108, align 4
   %110 = add i32 %109, %107
   %111 = add i64 %.0115134, -1
   %112 = urem i64 %111, %12
-  %113 = getelementptr inbounds i32, ptr %1, i64 %112
+  %113 = getelementptr inbounds [4 x i8], ptr %1, i64 %112
   %114 = load i32, ptr %113, align 4
   %115 = add i32 %110, %114
   %116 = lshr i32 %115, 27
@@ -10391,7 +10391,7 @@ define linkonce_odr void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull
   %120 = sub i32 %118, %119
   %121 = xor i32 %118, %109
   store i32 %121, ptr %108, align 4
-  %122 = getelementptr inbounds i32, ptr %1, i64 %105
+  %122 = getelementptr inbounds [4 x i8], ptr %1, i64 %105
   %123 = load i32, ptr %122, align 4
   %124 = xor i32 %120, %123
   store i32 %124, ptr %122, align 4
@@ -10418,10 +10418,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -10445,10 +10445,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 227, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -10486,7 +10486,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8
   %55 = lshr i64 %54, 11
   %56 = and i64 %55, 4294967295

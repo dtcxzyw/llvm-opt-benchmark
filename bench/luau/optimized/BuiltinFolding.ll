@@ -1763,7 +1763,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 .lr.ph471:                                        ; preds = %223, %229
   %.0470 = phi double [ %233, %229 ], [ %225, %223 ]
   %.0348469 = phi i64 [ %234, %229 ], [ 1, %223 ]
-  %226 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0348469
+  %226 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %.0348469
   %227 = load i32, ptr %226, align 8, !tbaa !8
   %.not401 = icmp eq i32 %227, 3
   br i1 %.not401, label %229, label %228
@@ -1808,7 +1808,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 .lr.ph466:                                        ; preds = %241, %247
   %.0350465 = phi double [ %251, %247 ], [ %243, %241 ]
   %.0351464 = phi i64 [ %252, %247 ], [ 1, %241 ]
-  %244 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0351464
+  %244 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %.0351464
   %245 = load i32, ptr %244, align 8, !tbaa !8
   %.not398 = icmp eq i32 %245, 3
   br i1 %.not398, label %247, label %246
@@ -2039,7 +2039,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 .lr.ph461:                                        ; preds = %365, %373
   %.0352460 = phi i32 [ %378, %373 ], [ %369, %365 ]
   %.0353459 = phi i64 [ %379, %373 ], [ 1, %365 ]
-  %370 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0353459
+  %370 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %.0353459
   %371 = load i32, ptr %370, align 8, !tbaa !8
   %.not395 = icmp eq i32 %371, 3
   br i1 %.not395, label %373, label %372
@@ -2111,7 +2111,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 .lr.ph456:                                        ; preds = %401, %409
   %.0354455 = phi i32 [ %414, %409 ], [ %405, %401 ]
   %.0355454 = phi i64 [ %415, %409 ], [ 1, %401 ]
-  %406 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0355454
+  %406 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %.0355454
   %407 = load i32, ptr %406, align 8, !tbaa !8
   %.not392 = icmp eq i32 %407, 3
   br i1 %.not392, label %409, label %408
@@ -2160,7 +2160,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 .lr.ph451:                                        ; preds = %423, %431
   %.0356450 = phi i32 [ %436, %431 ], [ %427, %423 ]
   %.0357449 = phi i64 [ %437, %431 ], [ 1, %423 ]
-  %428 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0357449
+  %428 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %.0357449
   %429 = load i32, ptr %428, align 8, !tbaa !8
   %.not389 = icmp eq i32 %429, 3
   br i1 %.not389, label %431, label %430
@@ -2209,7 +2209,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 .lr.ph:                                           ; preds = %445, %453
   %.0358447 = phi i32 [ %458, %453 ], [ %449, %445 ]
   %.0359446 = phi i64 [ %459, %453 ], [ 1, %445 ]
-  %450 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0359446
+  %450 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %.0359446
   %451 = load i32, ptr %450, align 8, !tbaa !8
   %.not386 = icmp eq i32 %451, 3
   br i1 %.not386, label %453, label %452

@@ -482,7 +482,7 @@ define dso_local noundef i32 @_ZNK17ExpressionFuncall14get_complexityEv(ptr noun
   %13 = phi ptr [ %23, %.lr.ph ], [ %12, %1 ]
   %.011 = phi i64 [ %21, %.lr.ph ], [ 0, %1 ]
   %.110 = phi i32 [ %20, %.lr.ph ], [ %spec.select, %1 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.011
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.011
   %15 = load ptr, ptr %14, align 8, !tbaa !94
   %16 = load ptr, ptr %15, align 8, !tbaa !83
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
@@ -533,7 +533,7 @@ define dso_local void @_ZNK17ExpressionFuncall21get_dereferenced_ptrsEv(ptr dead
 13:                                               ; preds = %.lr.ph, %_ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit
   %14 = phi ptr [ %9, %.lr.ph ], [ %41, %_ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit ]
   %.017 = phi i64 [ 0, %.lr.ph ], [ %36, %_ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit ]
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.017
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.017
   %16 = load ptr, ptr %15, align 8, !tbaa !94
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = load ptr, ptr %16, align 8, !tbaa !83
@@ -646,7 +646,7 @@ define dso_local void @_ZNK17ExpressionFuncall19get_referenced_ptrsERSt6vectorIP
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %12 = phi ptr [ %23, %.lr.ph ], [ %8, %2 ]
   %.08 = phi i64 [ %18, %.lr.ph ], [ 0, %2 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.08
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.08
   %14 = load ptr, ptr %13, align 8, !tbaa !94
   %15 = load ptr, ptr %14, align 8, !tbaa !83
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
@@ -730,7 +730,7 @@ define dso_local noundef zeroext i1 @_ZNK17ExpressionFuncall7use_varEPK8Variable
 .lr.ph:                                           ; preds = %2, %9
   %21 = phi ptr [ %15, %9 ], [ %8, %2 ]
   %.06 = phi i64 [ %10, %9 ], [ 0, %2 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.06
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.06
   %23 = load ptr, ptr %22, align 8, !tbaa !94
   %24 = load ptr, ptr %23, align 8, !tbaa !83
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 136
@@ -843,7 +843,7 @@ _ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; 
 _ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %27, %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %22, ptr %1, align 8, !tbaa !93
   store ptr %26, ptr %3, align 8, !tbaa !92
-  %28 = getelementptr inbounds nuw ptr, ptr %22, i64 %20
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   store ptr %28, ptr %5, align 8, !tbaa !107
   br label %_ZNSt6vectorIPK10ExpressionSaIS2_EE9push_backEOS2_.exit
 
@@ -951,7 +951,7 @@ _ZSt22__uninitialized_move_aIPPK18ExpressionVariableS3_SaIS2_EET0_T_S6_S5_RT1_.e
   %27 = sub i64 %26, %18
   %28 = ashr exact i64 %27, 3
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds ptr, ptr %13, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %13, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPPK18ExpressionVariableS3_ET0_T_S5_S4_.exit
 
@@ -974,7 +974,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPK18ExpressionVariableSt6vectorIS4_
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPK18ExpressionVariableSt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPK18ExpressionVariableSt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit, %32
   %35 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPK18ExpressionVariableSt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ], [ %.pre, %32 ]
   %36 = sub nuw nsw i64 %9, %20
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   store ptr %37, ptr %12, align 8, !tbaa !108
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIPPK18ExpressionVariableS3_SaIS2_EET0_T_S6_S5_RT1_.exit53, label %38
@@ -1058,7 +1058,7 @@ _ZNSt12_Vector_baseIPK18ExpressionVariableSaIS2_EE11_M_allocateEm.exit: ; preds 
 _ZNSt12_Vector_baseIPK18ExpressionVariableSaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %66, %68
   store ptr %57, ptr %0, align 8, !tbaa !99
   store ptr %67, ptr %12, align 8, !tbaa !108
-  %70 = getelementptr inbounds nuw ptr, ptr %57, i64 %53
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %53
   store ptr %70, ptr %10, align 8, !tbaa !101
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPK18ExpressionVariableSt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 

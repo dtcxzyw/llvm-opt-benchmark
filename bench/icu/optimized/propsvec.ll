@@ -53,7 +53,7 @@ define noundef ptr @upvec_open_77(i32 noundef %0, ptr noundef captures(none) %1)
 25:                                               ; preds = %16, %25
   %.041 = phi i32 [ 1114112, %16 ], [ %26, %25 ]
   %.pn40 = phi ptr [ %12, %16 ], [ %.035, %25 ]
-  %.035 = getelementptr inbounds nuw i32, ptr %.pn40, i64 %24
+  %.035 = getelementptr inbounds nuw [4 x i8], ptr %.pn40, i64 %24
   store i32 %.041, ptr %.035, align 4, !tbaa !15
   %26 = add nuw nsw i32 %.041, 1
   %27 = getelementptr inbounds nuw i8, ptr %.035, i64 4
@@ -139,7 +139,7 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
 
 31:                                               ; preds = %24
   %32 = zext nneg i32 %26 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %28, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !15
   %35 = and i32 %34, %5
   %36 = icmp ne i32 %27, %35
@@ -154,7 +154,7 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
 
 41:                                               ; preds = %37
   %42 = zext nneg i32 %26 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %29, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !15
   %45 = and i32 %44, %5
   %46 = icmp ne i32 %27, %45
@@ -229,8 +229,8 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
   %.1132 = phi ptr [ %28, %._crit_edge ], [ %78, %69 ]
   %84 = mul nsw i32 %51, %19
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i32, ptr %83, i64 %85
-  %87 = getelementptr inbounds i32, ptr %.1134, i64 %.pre-phi
+  %86 = getelementptr inbounds [4 x i8], ptr %83, i64 %85
+  %87 = getelementptr inbounds [4 x i8], ptr %.1134, i64 %.pre-phi
   %88 = ptrtoint ptr %86 to i64
   %89 = ptrtoint ptr %87 to i64
   %90 = sub i64 %88, %89
@@ -244,7 +244,7 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
   %96 = add nuw nsw i32 %95, %53
   %97 = mul nsw i32 %96, %19
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i32, ptr %.1134, i64 %98
+  %99 = getelementptr inbounds [4 x i8], ptr %.1134, i64 %98
   %100 = and i64 %90, 4294967295
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %99, ptr align 4 %87, i64 %100, i1 false)
   br label %101
@@ -260,7 +260,7 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
   %106 = lshr exact i64 %105, 2
   %107 = trunc i64 %106 to i32
   %108 = add i32 %19, %107
-  %109 = getelementptr inbounds i32, ptr %.1132, i64 %.pre-phi
+  %109 = getelementptr inbounds [4 x i8], ptr %.1132, i64 %.pre-phi
   %110 = sext i32 %108 to i64
   %111 = shl nsw i64 %110, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %109, ptr align 4 %.1132, i64 %111, i1 false)
@@ -275,7 +275,7 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
   br i1 %48, label %114, label %118
 
 114:                                              ; preds = %113
-  %115 = getelementptr inbounds i32, ptr %.4137, i64 %.pre-phi
+  %115 = getelementptr inbounds [4 x i8], ptr %.4137, i64 %.pre-phi
   %116 = shl nsw i64 %.pre-phi, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %115, ptr align 4 %.4137, i64 %116, i1 false)
   store i32 %25, ptr %115, align 4, !tbaa !15
@@ -297,8 +297,8 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %125, ptr %126, align 4, !tbaa !19
   %127 = zext nneg i32 %26 to i64
-  %128 = getelementptr inbounds nuw i32, ptr %.0131, i64 %127
-  %129 = getelementptr inbounds nuw i32, ptr %.0133, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %.0131, i64 %127
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %.0133, i64 %127
   %130 = xor i32 %5, -1
   %131 = load i32, ptr %128, align 4, !tbaa !15
   %132 = and i32 %131, %130
@@ -309,7 +309,7 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
 
 .lr.ph:                                           ; preds = %118, %.lr.ph
   %.5150 = phi ptr [ %135, %.lr.ph ], [ %128, %118 ]
-  %135 = getelementptr inbounds i32, ptr %.5150, i64 %.pre-phi154
+  %135 = getelementptr inbounds [4 x i8], ptr %.5150, i64 %.pre-phi154
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = and i32 %136, %130
   %138 = or disjoint i32 %137, %27
@@ -337,7 +337,7 @@ define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef ca
   %9 = load ptr, ptr %0, align 8, !tbaa !7
   %10 = mul nsw i32 %8, %4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %9, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %9, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !15
   %.not = icmp slt i32 %1, %13
   br i1 %.not, label %44, label %14
@@ -350,7 +350,7 @@ define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef ca
 
 18:                                               ; preds = %14
   %19 = sext i32 %4 to i64
-  %20 = getelementptr inbounds i32, ptr %12, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %12, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !15
   %23 = icmp slt i32 %1, %22
@@ -362,7 +362,7 @@ define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef ca
   br label %69
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i32, ptr %20, i64 %19
+  %27 = getelementptr inbounds [4 x i8], ptr %20, i64 %19
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !15
   %30 = icmp slt i32 %1, %29
@@ -386,7 +386,7 @@ define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef ca
   %.063 = phi ptr [ %27, %36 ], [ %40, %38 ]
   %.0 = phi i32 [ %37, %36 ], [ %39, %38 ]
   %39 = add nsw i32 %.0, 1
-  %40 = getelementptr inbounds i32, ptr %.063, i64 %19
+  %40 = getelementptr inbounds [4 x i8], ptr %.063, i64 %19
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !15
   %.not66 = icmp slt i32 %1, %42
@@ -417,7 +417,7 @@ define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef ca
   %52 = lshr i32 %51, 1
   %53 = mul nsw i32 %52, %4
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %9, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %9, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !15
   %57 = icmp slt i32 %1, %56
   br i1 %57, label %63, label %58
@@ -444,7 +444,7 @@ define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef ca
   store i32 %.060.lcssa, ptr %7, align 4, !tbaa !19
   %66 = mul nsw i32 %.060.lcssa, %4
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i32, ptr %9, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %9, i64 %67
   br label %69
 
 69:                                               ; preds = %14, %._crit_edge, %62, %48, %43, %31, %24
@@ -484,7 +484,7 @@ define i32 @upvec_getValue_77(ptr noundef captures(none) %0, i32 noundef %1, i32
   %18 = load ptr, ptr %0, align 8, !tbaa !7
   %19 = mul nsw i32 %17, %11
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %18, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %18, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !15
   %.not.i = icmp slt i32 %1, %22
   br i1 %.not.i, label %53, label %23
@@ -497,7 +497,7 @@ define i32 @upvec_getValue_77(ptr noundef captures(none) %0, i32 noundef %1, i32
 
 27:                                               ; preds = %23
   %28 = sext i32 %11 to i64
-  %29 = getelementptr inbounds i32, ptr %21, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %21, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !15
   %32 = icmp slt i32 %1, %31
@@ -509,7 +509,7 @@ define i32 @upvec_getValue_77(ptr noundef captures(none) %0, i32 noundef %1, i32
   br label %_ZL8_findRowP13UPropsVectorsi.exit
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i32, ptr %29, i64 %28
+  %36 = getelementptr inbounds [4 x i8], ptr %29, i64 %28
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !15
   %39 = icmp slt i32 %1, %38
@@ -533,7 +533,7 @@ define i32 @upvec_getValue_77(ptr noundef captures(none) %0, i32 noundef %1, i32
   %.063.i = phi ptr [ %36, %45 ], [ %49, %47 ]
   %.0.i = phi i32 [ %46, %45 ], [ %48, %47 ]
   %48 = add nsw i32 %.0.i, 1
-  %49 = getelementptr inbounds i32, ptr %.063.i, i64 %28
+  %49 = getelementptr inbounds [4 x i8], ptr %.063.i, i64 %28
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !15
   %.not66.i = icmp slt i32 %1, %51
@@ -564,7 +564,7 @@ define i32 @upvec_getValue_77(ptr noundef captures(none) %0, i32 noundef %1, i32
   %61 = lshr i32 %60, 1
   %62 = mul nsw i32 %61, %11
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i32, ptr %18, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %18, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !15
   %66 = icmp slt i32 %1, %65
   br i1 %66, label %72, label %67
@@ -591,13 +591,13 @@ define i32 @upvec_getValue_77(ptr noundef captures(none) %0, i32 noundef %1, i32
   store i32 %.060.lcssa.i, ptr %16, align 4, !tbaa !19
   %75 = mul nsw i32 %.060.lcssa.i, %11
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i32, ptr %18, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %18, i64 %76
   br label %_ZL8_findRowP13UPropsVectorsi.exit
 
 _ZL8_findRowP13UPropsVectorsi.exit:               ; preds = %23, %33, %40, %52, %57, %71, %._crit_edge.i
   %.062.i = phi ptr [ %18, %57 ], [ %29, %33 ], [ %36, %40 ], [ %49, %52 ], [ %64, %71 ], [ %77, %._crit_edge.i ], [ %21, %23 ]
   %78 = zext nneg i32 %2 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %.062.i, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %.062.i, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load i32, ptr %80, align 4, !tbaa !15
   br label %82
@@ -628,7 +628,7 @@ define ptr @upvec_getRow_77(ptr noundef readonly captures(none) %0, i32 noundef 
   %15 = load ptr, ptr %0, align 8, !tbaa !7
   %16 = mul nsw i32 %14, %1
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %15, i64 %17
   %.not19 = icmp eq ptr %2, null
   br i1 %.not19, label %21, label %19
 
@@ -715,7 +715,7 @@ define void @upvec_compact_77(ptr noundef %0, ptr noundef readonly captures(addr
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %.0104, i64 8
-  %37 = getelementptr inbounds i32, ptr %.0104, i64 %28
+  %37 = getelementptr inbounds [4 x i8], ptr %.0104, i64 %28
   %bcmp97 = tail call i32 @bcmp(ptr nonnull %36, ptr nonnull %37, i64 %30)
   %.not95 = icmp eq i32 %bcmp97, 0
   br i1 %.not95, label %40, label %38
@@ -737,7 +737,7 @@ define void @upvec_compact_77(ptr noundef %0, ptr noundef readonly captures(addr
   br i1 %45, label %46, label %.loopexit
 
 46:                                               ; preds = %42, %40
-  %47 = getelementptr inbounds i32, ptr %.0104, i64 %31
+  %47 = getelementptr inbounds [4 x i8], ptr %.0104, i64 %31
   %48 = add nuw nsw i32 %.084102, 1
   %exitcond.not = icmp eq i32 %48, %15
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !23
@@ -746,7 +746,7 @@ define void @upvec_compact_77(ptr noundef %0, ptr noundef readonly captures(addr
   %.082.lcssa = phi i32 [ %25, %23 ], [ %.183, %46 ]
   %.0.lcssa = phi ptr [ %24, %23 ], [ %47, %46 ]
   %49 = add nsw i32 %.082.lcssa, %18
-  %50 = getelementptr inbounds i32, ptr %.0.lcssa, i64 %28
+  %50 = getelementptr inbounds [4 x i8], ptr %.0.lcssa, i64 %28
   tail call void %1(ptr noundef %2, i32 noundef 2097152, i32 noundef 2097152, i32 noundef %49, ptr noundef %50, i32 noundef %18, ptr noundef nonnull %3)
   %51 = load i32, ptr %3, align 4, !tbaa !3
   %52 = icmp slt i32 %51, 1
@@ -777,7 +777,7 @@ define void @upvec_compact_77(ptr noundef %0, ptr noundef readonly captures(addr
 64:                                               ; preds = %59
   %65 = getelementptr inbounds nuw i8, ptr %.1108, i64 8
   %66 = zext nneg i32 %.2107 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %.pre, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %66
   %bcmp = tail call i32 @bcmp(ptr nonnull %65, ptr %67, i64 %56)
   %.not93 = icmp eq i32 %bcmp, 0
   br i1 %.not93, label %73, label %68
@@ -785,7 +785,7 @@ define void @upvec_compact_77(ptr noundef %0, ptr noundef readonly captures(addr
 68:                                               ; preds = %64, %59
   %69 = add nsw i32 %.2107, %18
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %.pre, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %.pre, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %.1108, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %71, ptr nonnull align 4 %72, i64 %57, i1 false)
   br label %73
@@ -799,14 +799,14 @@ define void @upvec_compact_77(ptr noundef %0, ptr noundef readonly captures(addr
   %76 = add nsw i32 %62, -1
   %77 = load ptr, ptr %0, align 8, !tbaa !7
   %78 = sext i32 %.3 to i64
-  %79 = getelementptr inbounds i32, ptr %77, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %77, i64 %78
   tail call void %1(ptr noundef %2, i32 noundef %60, i32 noundef %76, i32 noundef %.3, ptr noundef %79, i32 noundef %18, ptr noundef nonnull %3)
   %80 = load i32, ptr %3, align 4, !tbaa !3
   %81 = icmp slt i32 %80, 1
   br i1 %81, label %82, label %.loopexit
 
 82:                                               ; preds = %75, %73
-  %83 = getelementptr inbounds i32, ptr %.1108, i64 %58
+  %83 = getelementptr inbounds [4 x i8], ptr %.1108, i64 %58
   %84 = add nuw nsw i32 %.185106, 1
   %exitcond116.not = icmp eq i32 %84, %15
   br i1 %exitcond116.not, label %._crit_edge111, label %59, !llvm.loop !24
@@ -834,9 +834,9 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17upvec_compareRowsPKvS0_S0_(pt
   %.016 = phi i32 [ 2, %3 ], [ %spec.store.select, %15 ]
   %.015 = phi i32 [ %5, %3 ], [ %18, %15 ]
   %7 = sext i32 %.016 to i64
-  %8 = getelementptr inbounds i32, ptr %1, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %1, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !15
-  %10 = getelementptr inbounds i32, ptr %2, i64 %7
+  %10 = getelementptr inbounds [4 x i8], ptr %2, i64 %7
   %11 = load i32, ptr %10, align 4, !tbaa !15
   %.not = icmp eq i32 %9, %11
   br i1 %.not, label %15, label %12

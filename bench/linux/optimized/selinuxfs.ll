@@ -273,7 +273,7 @@ define internal void @sel_kill_sb(ptr noundef %0) #4 align 16 {
 11:                                               ; preds = %11, %9
   %12 = phi i64 [ 0, %9 ], [ %16, %11 ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr ptr, ptr %13, i64 %12
+  %14 = getelementptr [8 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8
   tail call void @kfree(ptr noundef %15) #14
   %16 = add nuw nsw i64 %12, 1
@@ -401,7 +401,7 @@ define internal i32 @sel_fill_super(ptr noundef %0, ptr readnone captures(none) 
 
 57:                                               ; preds = %68, %51
   %58 = phi i64 [ 0, %51 ], [ %78, %68 ]
-  %59 = getelementptr %struct.tree_descr, ptr @sel_make_avc_files.files, i64 %58
+  %59 = getelementptr [24 x i8], ptr @sel_make_avc_files.files, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr @d_alloc_name(ptr noundef %45, ptr noundef %60) #14
   %.not = icmp eq ptr %61, null
@@ -567,7 +567,7 @@ define internal i32 @sel_fill_super(ptr noundef %0, ptr readnone captures(none) 
 154:                                              ; preds = %164, %152
   %155 = phi i64 [ 0, %152 ], [ %169, %164 ]
   %156 = load ptr, ptr %147, align 8
-  %157 = getelementptr ptr, ptr @selinux_policycap_names, i64 %155
+  %157 = getelementptr [8 x i8], ptr @selinux_policycap_names, i64 %155
   %158 = load ptr, ptr %157, align 8
   %159 = tail call ptr @d_alloc_name(ptr noundef %156, ptr noundef %158) #14
   %.not27 = icmp eq ptr %159, null
@@ -621,7 +621,7 @@ define internal i32 @sel_fill_super(ptr noundef %0, ptr readnone captures(none) 
 184:                                              ; preds = %184, %182
   %185 = phi i64 [ 0, %182 ], [ %189, %184 ]
   %186 = load ptr, ptr %183, align 8
-  %187 = getelementptr ptr, ptr %186, i64 %185
+  %187 = getelementptr [8 x i8], ptr %186, i64 %185
   %188 = load ptr, ptr %187, align 8
   tail call void @kfree(ptr noundef %188) #14
   %189 = add nuw nsw i64 %185, 1
@@ -998,7 +998,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !annotation !12
   %96 = load ptr, ptr %7, align 8
-  %97 = getelementptr ptr, ptr %96, i64 %95
+  %97 = getelementptr [8 x i8], ptr %96, i64 %95
   %98 = load ptr, ptr %97, align 8
   %99 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %71, i64 noundef 4096, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.24, ptr noundef %98) #14
   %100 = icmp ugt i32 %99, 4095
@@ -1006,7 +1006,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
 
 101:                                              ; preds = %94
   %102 = load ptr, ptr %7, align 8
-  %103 = getelementptr ptr, ptr %102, i64 %95
+  %103 = getelementptr [8 x i8], ptr %102, i64 %95
   %104 = load ptr, ptr %103, align 8
   %105 = call ptr @d_alloc_name(ptr noundef %51, ptr noundef %104) #14
   %106 = icmp eq ptr %105, null
@@ -1102,7 +1102,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
 .preheader58:                                     ; preds = %134, %233
   %142 = phi i64 [ %234, %233 ], [ 0, %134 ]
   %143 = load ptr, ptr %6, align 8
-  %144 = getelementptr ptr, ptr %143, i64 %142
+  %144 = getelementptr [8 x i8], ptr %143, i64 %142
   %145 = load ptr, ptr %144, align 8
   %146 = call fastcc ptr @sel_make_dir(ptr noundef %64, ptr noundef %145, ptr noundef nonnull %131)
   %147 = icmp ugt ptr %146, inttoptr (i64 -4096 to ptr)
@@ -1115,7 +1115,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
 
 151:                                              ; preds = %.preheader58
   %152 = load ptr, ptr %6, align 8
-  %153 = getelementptr ptr, ptr %152, i64 %142
+  %153 = getelementptr [8 x i8], ptr %152, i64 %142
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr inbounds nuw i8, ptr %146, i64 112
   %156 = load ptr, ptr %155, align 8
@@ -1181,7 +1181,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
 191:                                              ; preds = %203, %188
   %192 = phi i64 [ 0, %188 ], [ %211, %203 ]
   %193 = load ptr, ptr %4, align 8
-  %194 = getelementptr ptr, ptr %193, i64 %192
+  %194 = getelementptr [8 x i8], ptr %193, i64 %192
   %195 = load ptr, ptr %194, align 8
   %196 = call ptr @d_alloc_name(ptr noundef %176, ptr noundef %195) #14
   %197 = icmp eq ptr %196, null
@@ -1228,7 +1228,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
 .preheader56:                                     ; preds = %.loopexit57, %.preheader56
   %218 = phi i64 [ %222, %.preheader56 ], [ 0, %.loopexit57 ]
   %219 = load ptr, ptr %4, align 8
-  %220 = getelementptr ptr, ptr %219, i64 %218
+  %220 = getelementptr [8 x i8], ptr %219, i64 %218
   %221 = load ptr, ptr %220, align 8
   call void @kfree(ptr noundef %221) #14
   %222 = add nuw nsw i64 %218, 1
@@ -1276,7 +1276,7 @@ thread-pre-split:                                 ; preds = %151, %230, %178, %1
 .preheader:                                       ; preds = %.loopexit59, %.preheader
   %241 = phi i64 [ %245, %.preheader ], [ 0, %.loopexit59 ]
   %242 = load ptr, ptr %6, align 8
-  %243 = getelementptr ptr, ptr %242, i64 %241
+  %243 = getelementptr [8 x i8], ptr %242, i64 %241
   %244 = load ptr, ptr %243, align 8
   call void @kfree(ptr noundef %244) #14
   %245 = add nuw nsw i64 %241, 1
@@ -1340,7 +1340,7 @@ thread-pre-split:                                 ; preds = %151, %230, %178, %1
 
 277:                                              ; preds = %277, %275
   %278 = phi i64 [ 0, %275 ], [ %281, %277 ]
-  %279 = getelementptr ptr, ptr %271, i64 %278
+  %279 = getelementptr [8 x i8], ptr %271, i64 %278
   %280 = load ptr, ptr %279, align 8
   call void @kfree(ptr noundef %280) #14
   %281 = add nuw nsw i64 %278, 1
@@ -1451,7 +1451,7 @@ define internal i64 @sel_read_bool(ptr noundef readonly captures(none) %0, ptr n
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = and i64 %12, 16777215
-  %26 = getelementptr ptr, ptr %24, i64 %25
+  %26 = getelementptr [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @strcmp(ptr noundef %18, ptr noundef %27) #14
   %29 = icmp eq i32 %28, 0
@@ -1475,7 +1475,7 @@ define internal i64 @sel_read_bool(ptr noundef readonly captures(none) %0, ptr n
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr i32, ptr %41, i64 %25
+  %42 = getelementptr [4 x i8], ptr %41, i64 %25
   %43 = load i32, ptr %42, align 4
   %44 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef nonnull %32, i64 noundef 4096, ptr noundef nonnull @.str.40, i32 noundef %35, i32 noundef %43) #14
   %45 = sext i32 %44 to i64
@@ -1560,7 +1560,7 @@ define internal i64 @sel_write_bool(ptr noundef readonly captures(none) %0, ptr 
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = and i64 %13, 16777215
-  %52 = getelementptr ptr, ptr %50, i64 %51
+  %52 = getelementptr [8 x i8], ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = tail call i32 @strcmp(ptr noundef %19, ptr noundef %53) #14
   %55 = icmp eq i32 %54, 0
@@ -1584,7 +1584,7 @@ define internal i64 @sel_write_bool(ptr noundef readonly captures(none) %0, ptr 
   %64 = phi i32 [ 1, %62 ], [ 0, %59 ]
   %65 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr i32, ptr %66, i64 %51
+  %67 = getelementptr [4 x i8], ptr %66, i64 %51
   store i32 %64, ptr %67, align 4
   br label %68
 
@@ -1797,7 +1797,7 @@ define internal i64 @selinux_transaction_write(ptr noundef %0, ptr noundef %1, i
   br i1 %9, label %25, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr ptr, ptr @write_op, i64 %8
+  %11 = getelementptr [8 x i8], ptr @write_op, i64 %8
   %12 = shl nuw nsw i64 1, %8
   %13 = and i64 %12, 15391
   %14 = icmp eq i64 %13, 0
@@ -2349,7 +2349,7 @@ define internal i64 @sel_write_user(ptr readnone captures(none) %0, ptr noundef 
   %53 = phi i64 [ %46, %49 ], [ %73, %69 ]
   %54 = phi ptr [ %50, %49 ], [ %72, %69 ]
   %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr i32, ptr %55, i64 %52
+  %56 = getelementptr [4 x i8], ptr %55, i64 %52
   %57 = load i32, ptr %56, align 4
   %58 = call i32 @security_sid_to_context(i32 noundef %57, ptr noundef nonnull %6, ptr noundef nonnull %7) #14
   %59 = icmp eq i32 %58, 0

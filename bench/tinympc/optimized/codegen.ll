@@ -403,8 +403,8 @@ define noundef i32 @codegen_data_source(ptr noundef readonly captures(none) %0, 
   %100 = sdiv i64 %indvars.iv.i, %98
   %101 = srem i64 %indvars.iv.i, %98
   %102 = mul nsw i64 %101, %97
-  %103 = getelementptr double, ptr %99, i64 %100
-  %104 = getelementptr double, ptr %103, i64 %102
+  %103 = getelementptr [8 x i8], ptr %99, i64 %100
+  %104 = getelementptr [8 x i8], ptr %103, i64 %102
   %105 = load double, ptr %104, align 8, !tbaa !71
   %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %105) #21
   %107 = icmp samesign ult i64 %indvars.iv.i, %95
@@ -455,8 +455,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit: ; p
   %128 = sdiv i64 %indvars.iv.i308, %126
   %129 = srem i64 %indvars.iv.i308, %126
   %130 = mul nsw i64 %129, %125
-  %131 = getelementptr double, ptr %127, i64 %128
-  %132 = getelementptr double, ptr %131, i64 %130
+  %131 = getelementptr [8 x i8], ptr %127, i64 %128
+  %132 = getelementptr [8 x i8], ptr %131, i64 %130
   %133 = load double, ptr %132, align 8, !tbaa !71
   %134 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %133) #21
   %135 = icmp samesign ult i64 %indvars.iv.i308, %123
@@ -507,8 +507,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit312: 
   %160 = sdiv i64 %indvars.iv.i315, %158
   %161 = srem i64 %indvars.iv.i315, %158
   %162 = mul nsw i64 %161, %157
-  %163 = getelementptr double, ptr %159, i64 %160
-  %164 = getelementptr double, ptr %163, i64 %162
+  %163 = getelementptr [8 x i8], ptr %159, i64 %160
+  %164 = getelementptr [8 x i8], ptr %163, i64 %162
   %165 = load double, ptr %164, align 8, !tbaa !71
   %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %165) #21
   %167 = icmp samesign ult i64 %indvars.iv.i315, %155
@@ -551,8 +551,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit319: 
   %184 = sdiv i64 %indvars.iv.i322, %182
   %185 = srem i64 %indvars.iv.i322, %182
   %186 = mul nsw i64 %185, %181
-  %187 = getelementptr double, ptr %183, i64 %184
-  %188 = getelementptr double, ptr %187, i64 %186
+  %187 = getelementptr [8 x i8], ptr %183, i64 %184
+  %188 = getelementptr [8 x i8], ptr %187, i64 %186
   %189 = load double, ptr %188, align 8, !tbaa !71
   %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %189) #21
   %191 = icmp samesign ult i64 %indvars.iv.i322, %179
@@ -595,8 +595,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit326: 
   %208 = sdiv i64 %indvars.iv.i329, %206
   %209 = srem i64 %indvars.iv.i329, %206
   %210 = mul nsw i64 %209, %205
-  %211 = getelementptr double, ptr %207, i64 %208
-  %212 = getelementptr double, ptr %211, i64 %210
+  %211 = getelementptr [8 x i8], ptr %207, i64 %208
+  %212 = getelementptr [8 x i8], ptr %211, i64 %210
   %213 = load double, ptr %212, align 8, !tbaa !71
   %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %213) #21
   %215 = icmp samesign ult i64 %indvars.iv.i329, %203
@@ -637,8 +637,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit333: 
   %231 = sdiv i64 %indvars.iv.i336, %229
   %232 = srem i64 %indvars.iv.i336, %229
   %233 = mul nsw i64 %232, %228
-  %234 = getelementptr double, ptr %230, i64 %231
-  %235 = getelementptr double, ptr %234, i64 %233
+  %234 = getelementptr [8 x i8], ptr %230, i64 %231
+  %235 = getelementptr [8 x i8], ptr %234, i64 %233
   %236 = load double, ptr %235, align 8, !tbaa !71
   %237 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %236) #21
   %238 = icmp samesign ult i64 %indvars.iv.i336, %226
@@ -716,8 +716,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit340: 
   %287 = sdiv i64 %indvars.iv.i343, %285
   %288 = srem i64 %indvars.iv.i343, %285
   %289 = mul nsw i64 %288, %284
-  %290 = getelementptr double, ptr %286, i64 %287
-  %291 = getelementptr double, ptr %290, i64 %289
+  %290 = getelementptr [8 x i8], ptr %286, i64 %287
+  %291 = getelementptr [8 x i8], ptr %290, i64 %289
   %292 = load double, ptr %291, align 8, !tbaa !71
   %293 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %292) #21
   %294 = icmp samesign ult i64 %indvars.iv.i343, %282
@@ -763,8 +763,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit347: 
   %310 = sdiv i64 %indvars.iv.i350, %308
   %311 = srem i64 %indvars.iv.i350, %308
   %312 = mul nsw i64 %311, %307
-  %313 = getelementptr double, ptr %309, i64 %310
-  %314 = getelementptr double, ptr %313, i64 %312
+  %313 = getelementptr [8 x i8], ptr %309, i64 %310
+  %314 = getelementptr [8 x i8], ptr %313, i64 %312
   %315 = load double, ptr %314, align 8, !tbaa !71
   %316 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %315) #21
   %317 = icmp samesign ult i64 %indvars.iv.i350, %305
@@ -810,8 +810,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit354: 
   %333 = sdiv i64 %indvars.iv.i357, %331
   %334 = srem i64 %indvars.iv.i357, %331
   %335 = mul nsw i64 %334, %330
-  %336 = getelementptr double, ptr %332, i64 %333
-  %337 = getelementptr double, ptr %336, i64 %335
+  %336 = getelementptr [8 x i8], ptr %332, i64 %333
+  %337 = getelementptr [8 x i8], ptr %336, i64 %335
   %338 = load double, ptr %337, align 8, !tbaa !71
   %339 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %338) #21
   %340 = icmp samesign ult i64 %indvars.iv.i357, %328
@@ -857,8 +857,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit361: 
   %356 = sdiv i64 %indvars.iv.i364, %354
   %357 = srem i64 %indvars.iv.i364, %354
   %358 = mul nsw i64 %357, %353
-  %359 = getelementptr double, ptr %355, i64 %356
-  %360 = getelementptr double, ptr %359, i64 %358
+  %359 = getelementptr [8 x i8], ptr %355, i64 %356
+  %360 = getelementptr [8 x i8], ptr %359, i64 %358
   %361 = load double, ptr %360, align 8, !tbaa !71
   %362 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %361) #21
   %363 = icmp samesign ult i64 %indvars.iv.i364, %351
@@ -904,8 +904,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit368: 
   %379 = sdiv i64 %indvars.iv.i371, %377
   %380 = srem i64 %indvars.iv.i371, %377
   %381 = mul nsw i64 %380, %376
-  %382 = getelementptr double, ptr %378, i64 %379
-  %383 = getelementptr double, ptr %382, i64 %381
+  %382 = getelementptr [8 x i8], ptr %378, i64 %379
+  %383 = getelementptr [8 x i8], ptr %382, i64 %381
   %384 = load double, ptr %383, align 8, !tbaa !71
   %385 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %384) #21
   %386 = icmp samesign ult i64 %indvars.iv.i371, %374
@@ -951,8 +951,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit375: 
   %402 = sdiv i64 %indvars.iv.i378, %400
   %403 = srem i64 %indvars.iv.i378, %400
   %404 = mul nsw i64 %403, %399
-  %405 = getelementptr double, ptr %401, i64 %402
-  %406 = getelementptr double, ptr %405, i64 %404
+  %405 = getelementptr [8 x i8], ptr %401, i64 %402
+  %406 = getelementptr [8 x i8], ptr %405, i64 %404
   %407 = load double, ptr %406, align 8, !tbaa !71
   %408 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %407) #21
   %409 = icmp samesign ult i64 %indvars.iv.i378, %397
@@ -998,8 +998,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit382: 
   %425 = sdiv i64 %indvars.iv.i385, %423
   %426 = srem i64 %indvars.iv.i385, %423
   %427 = mul nsw i64 %426, %422
-  %428 = getelementptr double, ptr %424, i64 %425
-  %429 = getelementptr double, ptr %428, i64 %427
+  %428 = getelementptr [8 x i8], ptr %424, i64 %425
+  %429 = getelementptr [8 x i8], ptr %428, i64 %427
   %430 = load double, ptr %429, align 8, !tbaa !71
   %431 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %430) #21
   %432 = icmp samesign ult i64 %indvars.iv.i385, %420
@@ -1045,8 +1045,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit389: 
   %448 = sdiv i64 %indvars.iv.i392, %446
   %449 = srem i64 %indvars.iv.i392, %446
   %450 = mul nsw i64 %449, %445
-  %451 = getelementptr double, ptr %447, i64 %448
-  %452 = getelementptr double, ptr %451, i64 %450
+  %451 = getelementptr [8 x i8], ptr %447, i64 %448
+  %452 = getelementptr [8 x i8], ptr %451, i64 %450
   %453 = load double, ptr %452, align 8, !tbaa !71
   %454 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %453) #21
   %455 = icmp samesign ult i64 %indvars.iv.i392, %443
@@ -1092,8 +1092,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit396: 
   %471 = sdiv i64 %indvars.iv.i399, %469
   %472 = srem i64 %indvars.iv.i399, %469
   %473 = mul nsw i64 %472, %468
-  %474 = getelementptr double, ptr %470, i64 %471
-  %475 = getelementptr double, ptr %474, i64 %473
+  %474 = getelementptr [8 x i8], ptr %470, i64 %471
+  %475 = getelementptr [8 x i8], ptr %474, i64 %473
   %476 = load double, ptr %475, align 8, !tbaa !71
   %477 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %476) #21
   %478 = icmp samesign ult i64 %indvars.iv.i399, %466
@@ -1139,8 +1139,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit403: 
   %494 = sdiv i64 %indvars.iv.i406, %492
   %495 = srem i64 %indvars.iv.i406, %492
   %496 = mul nsw i64 %495, %491
-  %497 = getelementptr double, ptr %493, i64 %494
-  %498 = getelementptr double, ptr %497, i64 %496
+  %497 = getelementptr [8 x i8], ptr %493, i64 %494
+  %498 = getelementptr [8 x i8], ptr %497, i64 %496
   %499 = load double, ptr %498, align 8, !tbaa !71
   %500 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %499) #21
   %501 = icmp samesign ult i64 %indvars.iv.i406, %489
@@ -1186,8 +1186,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit410: 
   %517 = sdiv i64 %indvars.iv.i413, %515
   %518 = srem i64 %indvars.iv.i413, %515
   %519 = mul nsw i64 %518, %514
-  %520 = getelementptr double, ptr %516, i64 %517
-  %521 = getelementptr double, ptr %520, i64 %519
+  %520 = getelementptr [8 x i8], ptr %516, i64 %517
+  %521 = getelementptr [8 x i8], ptr %520, i64 %519
   %522 = load double, ptr %521, align 8, !tbaa !71
   %523 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %522) #21
   %524 = icmp samesign ult i64 %indvars.iv.i413, %512
@@ -1233,8 +1233,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit417: 
   %540 = sdiv i64 %indvars.iv.i420, %538
   %541 = srem i64 %indvars.iv.i420, %538
   %542 = mul nsw i64 %541, %537
-  %543 = getelementptr double, ptr %539, i64 %540
-  %544 = getelementptr double, ptr %543, i64 %542
+  %543 = getelementptr [8 x i8], ptr %539, i64 %540
+  %544 = getelementptr [8 x i8], ptr %543, i64 %542
   %545 = load double, ptr %544, align 8, !tbaa !71
   %546 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %545) #21
   %547 = icmp samesign ult i64 %indvars.iv.i420, %535
@@ -1332,7 +1332,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERK
 
 583:                                              ; preds = %589, %.lr.ph.i425
   %indvars.iv.i427 = phi i64 [ 0, %.lr.ph.i425 ], [ %indvars.iv.next.i428, %589 ]
-  %584 = getelementptr double, ptr %.sroa.0555.3576, i64 %indvars.iv.i427
+  %584 = getelementptr [8 x i8], ptr %.sroa.0555.3576, i64 %indvars.iv.i427
   %585 = load double, ptr %584, align 8, !tbaa !71
   %586 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %585) #21
   %587 = icmp samesign ult i64 %indvars.iv.i427, %582
@@ -1428,7 +1428,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERK
 
 622:                                              ; preds = %628, %.lr.ph.i446
   %indvars.iv.i448 = phi i64 [ 0, %.lr.ph.i446 ], [ %indvars.iv.next.i449, %628 ]
-  %623 = getelementptr double, ptr %.sroa.0.3580, i64 %indvars.iv.i448
+  %623 = getelementptr [8 x i8], ptr %.sroa.0.3580, i64 %indvars.iv.i448
   %624 = load double, ptr %623, align 8, !tbaa !71
   %625 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %624) #21
   %626 = icmp samesign ult i64 %indvars.iv.i448, %621
@@ -1468,8 +1468,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit452: 
   %641 = sdiv i64 %indvars.iv.i455, %639
   %642 = srem i64 %indvars.iv.i455, %639
   %643 = mul nsw i64 %642, %638
-  %644 = getelementptr double, ptr %640, i64 %641
-  %645 = getelementptr double, ptr %644, i64 %643
+  %644 = getelementptr [8 x i8], ptr %640, i64 %641
+  %645 = getelementptr [8 x i8], ptr %644, i64 %643
   %646 = load double, ptr %645, align 8, !tbaa !71
   %647 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %646) #21
   %648 = icmp samesign ult i64 %indvars.iv.i455, %636
@@ -1510,8 +1510,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit459: 
   %664 = sdiv i64 %indvars.iv.i462, %662
   %665 = srem i64 %indvars.iv.i462, %662
   %666 = mul nsw i64 %665, %661
-  %667 = getelementptr double, ptr %663, i64 %664
-  %668 = getelementptr double, ptr %667, i64 %666
+  %667 = getelementptr [8 x i8], ptr %663, i64 %664
+  %668 = getelementptr [8 x i8], ptr %667, i64 %666
   %669 = load double, ptr %668, align 8, !tbaa !71
   %670 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %669) #21
   %671 = icmp samesign ult i64 %indvars.iv.i462, %659
@@ -1552,8 +1552,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit466: 
   %687 = sdiv i64 %indvars.iv.i469, %685
   %688 = srem i64 %indvars.iv.i469, %685
   %689 = mul nsw i64 %688, %684
-  %690 = getelementptr double, ptr %686, i64 %687
-  %691 = getelementptr double, ptr %690, i64 %689
+  %690 = getelementptr [8 x i8], ptr %686, i64 %687
+  %691 = getelementptr [8 x i8], ptr %690, i64 %689
   %692 = load double, ptr %691, align 8, !tbaa !71
   %693 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %692) #21
   %694 = icmp samesign ult i64 %indvars.iv.i469, %682
@@ -1588,8 +1588,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit473: 
   %708 = sdiv i64 %indvars.iv.i476, %706
   %709 = srem i64 %indvars.iv.i476, %706
   %710 = mul nsw i64 %709, %705
-  %711 = getelementptr double, ptr %707, i64 %708
-  %712 = getelementptr double, ptr %711, i64 %710
+  %711 = getelementptr [8 x i8], ptr %707, i64 %708
+  %712 = getelementptr [8 x i8], ptr %711, i64 %710
   %713 = load double, ptr %712, align 8, !tbaa !71
   %714 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %713) #21
   %715 = icmp samesign ult i64 %indvars.iv.i476, %682
@@ -1640,8 +1640,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit480: 
   %736 = sdiv i64 %indvars.iv.i483, %734
   %737 = srem i64 %indvars.iv.i483, %734
   %738 = mul nsw i64 %737, %733
-  %739 = getelementptr double, ptr %735, i64 %736
-  %740 = getelementptr double, ptr %739, i64 %738
+  %739 = getelementptr [8 x i8], ptr %735, i64 %736
+  %740 = getelementptr [8 x i8], ptr %739, i64 %738
   %741 = load double, ptr %740, align 8, !tbaa !71
   %742 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %741) #21
   %743 = icmp samesign ult i64 %indvars.iv.i483, %731
@@ -1676,8 +1676,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit487: 
   %757 = sdiv i64 %indvars.iv.i490, %755
   %758 = srem i64 %indvars.iv.i490, %755
   %759 = mul nsw i64 %758, %754
-  %760 = getelementptr double, ptr %756, i64 %757
-  %761 = getelementptr double, ptr %760, i64 %759
+  %760 = getelementptr [8 x i8], ptr %756, i64 %757
+  %761 = getelementptr [8 x i8], ptr %760, i64 %759
   %762 = load double, ptr %761, align 8, !tbaa !71
   %763 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %762) #21
   %764 = icmp samesign ult i64 %indvars.iv.i490, %731
@@ -1732,8 +1732,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit494: 
   %785 = sdiv i64 %indvars.iv.i497, %783
   %786 = srem i64 %indvars.iv.i497, %783
   %787 = mul nsw i64 %786, %782
-  %788 = getelementptr double, ptr %784, i64 %785
-  %789 = getelementptr double, ptr %788, i64 %787
+  %788 = getelementptr [8 x i8], ptr %784, i64 %785
+  %789 = getelementptr [8 x i8], ptr %788, i64 %787
   %790 = load double, ptr %789, align 8, !tbaa !71
   %791 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %790) #21
   %792 = icmp samesign ult i64 %indvars.iv.i497, %780
@@ -1779,8 +1779,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit501: 
   %808 = sdiv i64 %indvars.iv.i504, %806
   %809 = srem i64 %indvars.iv.i504, %806
   %810 = mul nsw i64 %809, %805
-  %811 = getelementptr double, ptr %807, i64 %808
-  %812 = getelementptr double, ptr %811, i64 %810
+  %811 = getelementptr [8 x i8], ptr %807, i64 %808
+  %812 = getelementptr [8 x i8], ptr %811, i64 %810
   %813 = load double, ptr %812, align 8, !tbaa !71
   %814 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %813) #21
   %815 = icmp samesign ult i64 %indvars.iv.i504, %803
@@ -1826,8 +1826,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit508: 
   %831 = sdiv i64 %indvars.iv.i511, %829
   %832 = srem i64 %indvars.iv.i511, %829
   %833 = mul nsw i64 %832, %828
-  %834 = getelementptr double, ptr %830, i64 %831
-  %835 = getelementptr double, ptr %834, i64 %833
+  %834 = getelementptr [8 x i8], ptr %830, i64 %831
+  %835 = getelementptr [8 x i8], ptr %834, i64 %833
   %836 = load double, ptr %835, align 8, !tbaa !71
   %837 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %836) #21
   %838 = icmp samesign ult i64 %indvars.iv.i511, %826

@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%struct.ConvexVolume = type { [36 x float], float, float, i32, i32 }
-%struct.rcChunkyTriMeshNode = type { [2 x float], [2 x float], i32, i32 }
 %struct._Guard = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
@@ -455,7 +453,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 105:                                              ; preds = %102
   %106 = mul nsw i32 %103, 6
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds float, ptr %64, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %64, i64 %107
   store i32 0, ptr %8, align 4
   store i32 0, ptr %9, align 4
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
@@ -467,7 +465,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %115 = load float, ptr %10, align 4
   %116 = load i32, ptr %32, align 8
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds float, ptr %65, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr %65, i64 %117
   store float %115, ptr %118, align 4
   %119 = load i32, ptr %7, align 4
   %120 = trunc i32 %119 to i8
@@ -485,7 +483,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %130 = trunc i32 %129 to i16
   %131 = load i32, ptr %32, align 8
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds i16, ptr %68, i64 %132
+  %133 = getelementptr inbounds [2 x i8], ptr %68, i64 %132
   store i16 %130, ptr %133, align 2
   %134 = load i32, ptr %32, align 8
   %135 = add nsw i32 %134, 1
@@ -501,7 +499,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %140 = add nsw i32 %137, 1
   store i32 %140, ptr %33, align 4
   %141 = sext i32 %137 to i64
-  %142 = getelementptr inbounds %struct.ConvexVolume, ptr %63, i64 %141
+  %142 = getelementptr inbounds [160 x i8], ptr %63, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 152
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 156
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 144
@@ -847,7 +845,7 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11saveGeomSetEPK13BuildSetting
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %99 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 24
   %100 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx
-  %101 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv
   %102 = load float, ptr %101, align 4
   %103 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv
   %104 = load i8, ptr %103, align 1
@@ -855,7 +853,7 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11saveGeomSetEPK13BuildSetting
   %106 = getelementptr inbounds nuw i8, ptr %93, i64 %indvars.iv
   %107 = load i8, ptr %106, align 1
   %108 = zext i8 %107 to i32
-  %109 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %indvars.iv
   %110 = load i16, ptr %109, align 2
   %111 = zext i16 %110 to i32
   %112 = load float, ptr %100, align 8
@@ -885,7 +883,7 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11saveGeomSetEPK13BuildSetting
 
 134:                                              ; preds = %.lr.ph81, %._crit_edge
   %indvars.iv87 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next88, %._crit_edge ]
-  %135 = getelementptr inbounds nuw %struct.ConvexVolume, ptr %98, i64 %indvars.iv87
+  %135 = getelementptr inbounds nuw [160 x i8], ptr %98, i64 %indvars.iv87
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 152
   %137 = load i32, ptr %136, align 4
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 156
@@ -985,35 +983,35 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11raycastMeshEPfS0_Rf(ptr noun
   %27 = phi float [ 1.000000e+00, %4 ], [ %63, %62 ]
   %28 = phi float [ 1.000000e+00, %4 ], [ %64, %62 ]
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %62 ]
-  %29 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %30 = load float, ptr %29, align 4
   %31 = tail call float @llvm.fabs.f32(float %30)
   %32 = fcmp olt float %31, 0x3EB0C6F7A0000000
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %35 = load float, ptr %34, align 4
-  %36 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   %37 = load float, ptr %36, align 4
   %38 = fcmp olt float %35, %37
   br i1 %38, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread, label %39
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i
   %41 = load float, ptr %40, align 4
   %42 = fcmp ogt float %35, %41
   br i1 %42, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread, label %62
 
 43:                                               ; preds = %26
   %44 = fdiv float 1.000000e+00, %30
-  %45 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   %46 = load float, ptr %45, align 4
-  %47 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %48 = load float, ptr %47, align 4
   %49 = fsub float %46, %48
   %50 = fmul float %44, %49
-  %51 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i
   %52 = load float, ptr %51, align 4
   %53 = fsub float %52, %48
   %54 = fmul float %44, %53
@@ -1079,17 +1077,17 @@ _ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread:   ; preds = %43, %33, %39
   %.04165 = phi i1 [ false, %.lr.ph67.preheader ], [ %.1.lcssa, %._crit_edge ]
   %81 = load ptr, ptr %0, align 8
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv69
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv69
   %84 = load i32, ptr %83, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds %struct.rcChunkyTriMeshNode, ptr %82, i64 %85
+  %86 = getelementptr inbounds [24 x i8], ptr %82, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %88 = load ptr, ptr %87, align 8
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %90 = load i32, ptr %89, align 4
   %91 = mul nsw i32 %90, 3
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds i32, ptr %88, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %88, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %86, i64 20
   %95 = load i32, ptr %94, align 4
   %96 = icmp sgt i32 %95, 0
@@ -1104,21 +1102,21 @@ _ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread:   ; preds = %43, %33, %39
   %99 = phi float [ %80, %.lr.ph.preheader ], [ %193, %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread ]
   %.162 = phi i1 [ %.04165, %.lr.ph.preheader ], [ %.2, %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread ]
-  %100 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv
   %101 = load i32, ptr %100, align 4
   %102 = mul nsw i32 %101, 3
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds float, ptr %78, i64 %103
+  %104 = getelementptr inbounds [4 x i8], ptr %78, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %106 = load i32, ptr %105, align 4
   %107 = mul nsw i32 %106, 3
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds float, ptr %78, i64 %108
+  %109 = getelementptr inbounds [4 x i8], ptr %78, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %111 = load i32, ptr %110, align 4
   %112 = mul nsw i32 %111, 3
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds float, ptr %78, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %78, i64 %113
   %115 = load float, ptr %109, align 4
   %116 = load float, ptr %104, align 4
   %117 = fsub float %115, %116
@@ -1248,10 +1246,10 @@ define dso_local void @_ZN9InputGeom20addOffMeshConnectionEPKfS1_fhht(ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = mul nsw i32 %9, 6
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds float, ptr %12, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %12, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 6272
   %17 = sext i32 %9 to i64
-  %18 = getelementptr inbounds float, ptr %16, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %16, i64 %17
   store float %3, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 7296
   %20 = load i32, ptr %8, align 8
@@ -1266,13 +1264,13 @@ define dso_local void @_ZN9InputGeom20addOffMeshConnectionEPKfS1_fhht(ptr nounde
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 7808
   %28 = load i32, ptr %8, align 8
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i16, ptr %27, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %27, i64 %29
   store i16 %6, ptr %30, align 2
   %31 = load i32, ptr %8, align 8
   %32 = add nsw i32 %31, 1000
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8320
   %34 = sext i32 %31 to i64
-  %35 = getelementptr inbounds i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %33, i64 %34
   store i32 %32, ptr %35, align 4
   %36 = load float, ptr %1, align 4
   store float %36, ptr %15, align 8
@@ -1313,10 +1311,10 @@ define dso_local void @_ZN9InputGeom23deleteOffMeshConnectionEi(ptr noundef nonn
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = mul nsw i32 %5, 6
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds float, ptr %6, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %6, i64 %8
   %10 = mul nsw i32 %1, 6
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds float, ptr %6, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %6, i64 %11
   %13 = load float, ptr %9, align 8
   store float %13, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -1342,10 +1340,10 @@ define dso_local void @_ZN9InputGeom23deleteOffMeshConnectionEi(ptr noundef nonn
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 6272
   %30 = load i32, ptr %3, align 8
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds float, ptr %29, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %29, i64 %31
   %33 = load float, ptr %32, align 4
   %34 = sext i32 %1 to i64
-  %35 = getelementptr inbounds float, ptr %29, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %29, i64 %34
   store float %33, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 7296
   %37 = load i32, ptr %3, align 8
@@ -1364,9 +1362,9 @@ define dso_local void @_ZN9InputGeom23deleteOffMeshConnectionEi(ptr noundef nonn
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 7808
   %49 = load i32, ptr %3, align 8
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i16, ptr %48, i64 %50
+  %51 = getelementptr inbounds [2 x i8], ptr %48, i64 %50
   %52 = load i16, ptr %51, align 2
-  %53 = getelementptr inbounds i16, ptr %48, i64 %34
+  %53 = getelementptr inbounds [2 x i8], ptr %48, i64 %34
   store i16 %52, ptr %53, align 2
   ret void
 }
@@ -1435,7 +1433,7 @@ define dso_local void @_ZN9InputGeom22drawOffMeshConnectionsEP11duDebugDrawb(ptr
   %50 = load float, ptr %19, align 4
   %51 = fadd float %50, 0x3FB99999A0000000
   %52 = load float, ptr %21, align 8
-  %53 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %54 = load float, ptr %53, align 4
   tail call void @_Z14duAppendCircleP11duDebugDrawffffj(ptr noundef nonnull %1, float noundef %49, float noundef %51, float noundef %52, float noundef %54, i32 noundef 1073741824)
   %55 = load float, ptr %33, align 4
@@ -1496,7 +1494,7 @@ define dso_local void @_ZN9InputGeom15addConvexVolumeEPKfiffh(ptr noundef nonnul
   %12 = add nsw i32 %8, 1
   store i32 %12, ptr %7, align 4
   %13 = sext i32 %8 to i64
-  %14 = getelementptr inbounds %struct.ConvexVolume, ptr %11, i64 %13
+  %14 = getelementptr inbounds [160 x i8], ptr %11, i64 %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(160) %14, i8 0, i64 160, i1 false)
   %15 = sext i32 %2 to i64
   %16 = mul nsw i64 %15, 12
@@ -1530,9 +1528,9 @@ define dso_local void @_ZN9InputGeom18deleteConvexVolumeEi(ptr noundef nonnull a
   store i32 %5, ptr %3, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 9348
   %7 = sext i32 %5 to i64
-  %8 = getelementptr inbounds %struct.ConvexVolume, ptr %6, i64 %7
+  %8 = getelementptr inbounds [160 x i8], ptr %6, i64 %7
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %struct.ConvexVolume, ptr %6, i64 %9
+  %10 = getelementptr inbounds [160 x i8], ptr %6, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(160) %10, ptr noundef nonnull align 4 dereferenceable(160) %8, i64 160, i1 false)
   ret void
 }
@@ -1558,7 +1556,7 @@ define dso_local void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noun
 
 14:                                               ; preds = %.lr.ph150, %._crit_edge
   %indvars.iv170 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next171, %._crit_edge ]
-  %15 = getelementptr inbounds nuw %struct.ConvexVolume, ptr %13, i64 %indvars.iv170
+  %15 = getelementptr inbounds nuw [160 x i8], ptr %13, i64 %indvars.iv170
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 156
   %17 = load i32, ptr %16, align 8
   %18 = load ptr, ptr %1, align 8
@@ -1587,7 +1585,7 @@ define dso_local void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noun
   %.0142146 = phi i32 [ %27, %.lr.ph ], [ %98, %34 ]
   %35 = mul nsw i32 %.0142146, 3
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw float, ptr %15, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %36
   %.idx = mul nuw nsw i64 %indvars.iv, 12
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   %39 = load float, ptr %15, align 4
@@ -1688,7 +1686,7 @@ define dso_local void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noun
 
 111:                                              ; preds = %.lr.ph159, %._crit_edge156
   %indvars.iv176 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next177, %._crit_edge156 ]
-  %112 = getelementptr inbounds nuw %struct.ConvexVolume, ptr %110, i64 %indvars.iv176
+  %112 = getelementptr inbounds nuw [160 x i8], ptr %110, i64 %indvars.iv176
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 156
   %114 = load i32, ptr %113, align 8
   %115 = load ptr, ptr %1, align 8
@@ -1716,7 +1714,7 @@ define dso_local void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noun
   %.0144153 = phi i32 [ %124, %.lr.ph155 ], [ %176, %130 ]
   %131 = mul nsw i32 %.0144153, 3
   %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr inbounds nuw float, ptr %112, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %132
   %.idx186 = mul nuw nsw i64 %indvars.iv173, 12
   %134 = getelementptr inbounds nuw i8, ptr %112, i64 %.idx186
   %135 = load float, ptr %133, align 4
@@ -1796,7 +1794,7 @@ define dso_local void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noun
 
 189:                                              ; preds = %.lr.ph167, %._crit_edge164
   %indvars.iv182 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next183, %._crit_edge164 ]
-  %190 = getelementptr inbounds nuw %struct.ConvexVolume, ptr %188, i64 %indvars.iv182
+  %190 = getelementptr inbounds nuw [160 x i8], ptr %188, i64 %indvars.iv182
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 156
   %192 = load i32, ptr %191, align 8
   %193 = load ptr, ptr %1, align 8

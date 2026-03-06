@@ -128,77 +128,77 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1E
   %62 = add nuw nsw i32 %57, %22
   %63 = add nuw nsw i32 %60, %22
   %64 = mul nsw i64 %indvars.iv664, %21
-  %65 = getelementptr i32, ptr %25, i64 %64
+  %65 = getelementptr [4 x i8], ptr %25, i64 %64
   store i32 %48, ptr %65, align 4, !tbaa !4, !noalias !10
-  %66 = getelementptr i32, ptr %65, i64 %30
-  %67 = getelementptr i32, ptr %66, i64 %.sroa.6321.0.us.us.us
+  %66 = getelementptr [4 x i8], ptr %65, i64 %30
+  %67 = getelementptr [4 x i8], ptr %66, i64 %.sroa.6321.0.us.us.us
   store i32 %52, ptr %67, align 4, !tbaa !4
-  %68 = getelementptr i32, ptr %65, i64 %35
-  %69 = getelementptr i32, ptr %68, i64 %.sroa.6321.1.us.us.us
+  %68 = getelementptr [4 x i8], ptr %65, i64 %35
+  %69 = getelementptr [4 x i8], ptr %68, i64 %.sroa.6321.1.us.us.us
   store i32 %63, ptr %69, align 4, !tbaa !4
-  %70 = getelementptr i32, ptr %65, i64 %39
-  %71 = getelementptr i32, ptr %70, i64 %.sroa.6321.1.us.us.us
-  %72 = getelementptr i32, ptr %71, i64 %38
+  %70 = getelementptr [4 x i8], ptr %65, i64 %39
+  %71 = getelementptr [4 x i8], ptr %70, i64 %.sroa.6321.1.us.us.us
+  %72 = getelementptr [4 x i8], ptr %71, i64 %38
   store i32 %62, ptr %72, align 4, !tbaa !4
   %73 = getelementptr i8, ptr %65, i64 4
   store i32 %48, ptr %73, align 4, !tbaa !4, !noalias !13
-  %74 = getelementptr i32, ptr %73, i64 %30
-  %75 = getelementptr i32, ptr %74, i64 %.sroa.6321.0.us.us.us
+  %74 = getelementptr [4 x i8], ptr %73, i64 %30
+  %75 = getelementptr [4 x i8], ptr %74, i64 %.sroa.6321.0.us.us.us
   store i32 %63, ptr %75, align 4, !tbaa !4
-  %76 = getelementptr i32, ptr %73, i64 %35
-  %77 = getelementptr i32, ptr %76, i64 %.sroa.6321.1.us.us.us
+  %76 = getelementptr [4 x i8], ptr %73, i64 %35
+  %77 = getelementptr [4 x i8], ptr %76, i64 %.sroa.6321.1.us.us.us
   store i32 %58, ptr %77, align 4, !tbaa !4
-  %78 = getelementptr i32, ptr %73, i64 %39
-  %79 = getelementptr i32, ptr %78, i64 %.sroa.6321.1.us.us.us
-  %80 = getelementptr i32, ptr %79, i64 %38
+  %78 = getelementptr [4 x i8], ptr %73, i64 %39
+  %79 = getelementptr [4 x i8], ptr %78, i64 %.sroa.6321.1.us.us.us
+  %80 = getelementptr [4 x i8], ptr %79, i64 %38
   store i32 %62, ptr %80, align 4, !tbaa !4
   %81 = getelementptr i8, ptr %65, i64 8
   store i32 %48, ptr %81, align 4, !tbaa !4, !noalias !16
-  %82 = getelementptr i32, ptr %81, i64 %30
-  %83 = getelementptr i32, ptr %82, i64 %.sroa.6321.0.us.us.us
+  %82 = getelementptr [4 x i8], ptr %81, i64 %30
+  %83 = getelementptr [4 x i8], ptr %82, i64 %.sroa.6321.0.us.us.us
   store i32 %52, ptr %83, align 4, !tbaa !4
-  %84 = getelementptr i32, ptr %81, i64 %35
-  %85 = getelementptr i32, ptr %84, i64 %.sroa.6321.1.us.us.us
+  %84 = getelementptr [4 x i8], ptr %81, i64 %35
+  %85 = getelementptr [4 x i8], ptr %84, i64 %.sroa.6321.1.us.us.us
   store i32 %53, ptr %85, align 4, !tbaa !4
-  %86 = getelementptr i32, ptr %81, i64 %39
-  %87 = getelementptr i32, ptr %86, i64 %.sroa.6321.1.us.us.us
-  %88 = getelementptr i32, ptr %87, i64 %38
+  %86 = getelementptr [4 x i8], ptr %81, i64 %39
+  %87 = getelementptr [4 x i8], ptr %86, i64 %.sroa.6321.1.us.us.us
+  %88 = getelementptr [4 x i8], ptr %87, i64 %38
   store i32 %63, ptr %88, align 4, !tbaa !4
   %89 = getelementptr i8, ptr %65, i64 12
   store i32 %48, ptr %89, align 4, !tbaa !4, !noalias !19
-  %90 = getelementptr i32, ptr %89, i64 %30
-  %91 = getelementptr i32, ptr %90, i64 %.sroa.6321.0.us.us.us
+  %90 = getelementptr [4 x i8], ptr %89, i64 %30
+  %91 = getelementptr [4 x i8], ptr %90, i64 %.sroa.6321.0.us.us.us
   store i32 %53, ptr %91, align 4, !tbaa !4
-  %92 = getelementptr i32, ptr %89, i64 %35
-  %93 = getelementptr i32, ptr %92, i64 %.sroa.6321.1.us.us.us
+  %92 = getelementptr [4 x i8], ptr %89, i64 %35
+  %93 = getelementptr [4 x i8], ptr %92, i64 %.sroa.6321.1.us.us.us
   store i32 %51, ptr %93, align 4, !tbaa !4
-  %94 = getelementptr i32, ptr %89, i64 %39
-  %95 = getelementptr i32, ptr %94, i64 %.sroa.6321.1.us.us.us
-  %96 = getelementptr i32, ptr %95, i64 %38
+  %94 = getelementptr [4 x i8], ptr %89, i64 %39
+  %95 = getelementptr [4 x i8], ptr %94, i64 %.sroa.6321.1.us.us.us
+  %96 = getelementptr [4 x i8], ptr %95, i64 %38
   store i32 %63, ptr %96, align 4, !tbaa !4
   %97 = getelementptr i8, ptr %65, i64 16
   store i32 %48, ptr %97, align 4, !tbaa !4, !noalias !22
-  %98 = getelementptr i32, ptr %97, i64 %30
-  %99 = getelementptr i32, ptr %98, i64 %.sroa.6321.0.us.us.us
+  %98 = getelementptr [4 x i8], ptr %97, i64 %30
+  %99 = getelementptr [4 x i8], ptr %98, i64 %.sroa.6321.0.us.us.us
   store i32 %61, ptr %99, align 4, !tbaa !4
-  %100 = getelementptr i32, ptr %97, i64 %35
-  %101 = getelementptr i32, ptr %100, i64 %.sroa.6321.1.us.us.us
+  %100 = getelementptr [4 x i8], ptr %97, i64 %35
+  %101 = getelementptr [4 x i8], ptr %100, i64 %.sroa.6321.1.us.us.us
   store i32 %58, ptr %101, align 4, !tbaa !4
-  %102 = getelementptr i32, ptr %97, i64 %39
-  %103 = getelementptr i32, ptr %102, i64 %.sroa.6321.1.us.us.us
-  %104 = getelementptr i32, ptr %103, i64 %38
+  %102 = getelementptr [4 x i8], ptr %97, i64 %39
+  %103 = getelementptr [4 x i8], ptr %102, i64 %.sroa.6321.1.us.us.us
+  %104 = getelementptr [4 x i8], ptr %103, i64 %38
   store i32 %63, ptr %104, align 4, !tbaa !4
   %105 = getelementptr i8, ptr %65, i64 20
   store i32 %48, ptr %105, align 4, !tbaa !4, !noalias !25
-  %106 = getelementptr i32, ptr %105, i64 %30
-  %107 = getelementptr i32, ptr %106, i64 %.sroa.6321.0.us.us.us
+  %106 = getelementptr [4 x i8], ptr %105, i64 %30
+  %107 = getelementptr [4 x i8], ptr %106, i64 %.sroa.6321.0.us.us.us
   store i32 %51, ptr %107, align 4, !tbaa !4
-  %108 = getelementptr i32, ptr %105, i64 %35
-  %109 = getelementptr i32, ptr %108, i64 %.sroa.6321.1.us.us.us
+  %108 = getelementptr [4 x i8], ptr %105, i64 %35
+  %109 = getelementptr [4 x i8], ptr %108, i64 %.sroa.6321.1.us.us.us
   store i32 %61, ptr %109, align 4, !tbaa !4
-  %110 = getelementptr i32, ptr %105, i64 %39
-  %111 = getelementptr i32, ptr %110, i64 %.sroa.6321.1.us.us.us
-  %112 = getelementptr i32, ptr %111, i64 %38
+  %110 = getelementptr [4 x i8], ptr %105, i64 %39
+  %111 = getelementptr [4 x i8], ptr %110, i64 %.sroa.6321.1.us.us.us
+  %112 = getelementptr [4 x i8], ptr %111, i64 %38
   store i32 %63, ptr %112, align 4, !tbaa !4
   %indvars.iv.next665 = add nsw i64 %indvars.iv664, 1
   %exitcond667.not = icmp eq i32 %54, %10
@@ -246,88 +246,88 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1E
   %.idx = mul i64 %indvars.iv, 20
   %135 = getelementptr i8, ptr %25, i64 %.idx
   store i32 %.0477.us.us.us.us, ptr %135, align 4, !tbaa !4, !noalias !29
-  %136 = getelementptr i32, ptr %135, i64 %30
-  %137 = getelementptr i32, ptr %136, i64 %.sroa.6321.0.us.us.us
+  %136 = getelementptr [4 x i8], ptr %135, i64 %30
+  %137 = getelementptr [4 x i8], ptr %136, i64 %.sroa.6321.0.us.us.us
   store i32 %.0475.us.us.us.us, ptr %137, align 4, !tbaa !4
-  %138 = getelementptr i32, ptr %135, i64 %35
-  %139 = getelementptr i32, ptr %138, i64 %.sroa.6321.1.us.us.us
+  %138 = getelementptr [4 x i8], ptr %135, i64 %35
+  %139 = getelementptr [4 x i8], ptr %138, i64 %.sroa.6321.1.us.us.us
   store i32 %.0474.us.us.us.us, ptr %139, align 4, !tbaa !4
-  %140 = getelementptr i32, ptr %135, i64 %39
-  %141 = getelementptr i32, ptr %140, i64 %.sroa.6321.1.us.us.us
-  %142 = getelementptr i32, ptr %141, i64 %38
+  %140 = getelementptr [4 x i8], ptr %135, i64 %39
+  %141 = getelementptr [4 x i8], ptr %140, i64 %.sroa.6321.1.us.us.us
+  %142 = getelementptr [4 x i8], ptr %141, i64 %38
   store i32 %.0.us.us.us.us, ptr %142, align 4, !tbaa !4
   %143 = getelementptr i8, ptr %135, i64 4
   store i32 %.0475.us.us.us.us, ptr %143, align 4, !tbaa !4, !noalias !32
-  %144 = getelementptr i32, ptr %143, i64 %30
-  %145 = getelementptr i32, ptr %144, i64 %.sroa.6321.0.us.us.us
+  %144 = getelementptr [4 x i8], ptr %143, i64 %30
+  %145 = getelementptr [4 x i8], ptr %144, i64 %.sroa.6321.0.us.us.us
   store i32 %.0474.us.us.us.us, ptr %145, align 4, !tbaa !4
-  %146 = getelementptr i32, ptr %143, i64 %35
-  %147 = getelementptr i32, ptr %146, i64 %.sroa.6321.1.us.us.us
+  %146 = getelementptr [4 x i8], ptr %143, i64 %35
+  %147 = getelementptr [4 x i8], ptr %146, i64 %.sroa.6321.1.us.us.us
   store i32 %.0480.us.us.us.us, ptr %147, align 4, !tbaa !4
-  %148 = getelementptr i32, ptr %143, i64 %39
-  %149 = getelementptr i32, ptr %148, i64 %.sroa.6321.1.us.us.us
-  %150 = getelementptr i32, ptr %149, i64 %38
+  %148 = getelementptr [4 x i8], ptr %143, i64 %39
+  %149 = getelementptr [4 x i8], ptr %148, i64 %.sroa.6321.1.us.us.us
+  %150 = getelementptr [4 x i8], ptr %149, i64 %38
   store i32 %.0477.us.us.us.us, ptr %150, align 4, !tbaa !4
   %151 = getelementptr i8, ptr %135, i64 8
   store i32 %.0475.us.us.us.us, ptr %151, align 4, !tbaa !4, !noalias !35
-  %152 = getelementptr i32, ptr %151, i64 %30
-  %153 = getelementptr i32, ptr %152, i64 %.sroa.6321.0.us.us.us
+  %152 = getelementptr [4 x i8], ptr %151, i64 %30
+  %153 = getelementptr [4 x i8], ptr %152, i64 %.sroa.6321.0.us.us.us
   store i32 %.0476.us.us.us.us, ptr %153, align 4, !tbaa !4
-  %154 = getelementptr i32, ptr %151, i64 %35
-  %155 = getelementptr i32, ptr %154, i64 %.sroa.6321.1.us.us.us
+  %154 = getelementptr [4 x i8], ptr %151, i64 %35
+  %155 = getelementptr [4 x i8], ptr %154, i64 %.sroa.6321.1.us.us.us
   store i32 %.0480.us.us.us.us, ptr %155, align 4, !tbaa !4
-  %156 = getelementptr i32, ptr %151, i64 %39
-  %157 = getelementptr i32, ptr %156, i64 %.sroa.6321.1.us.us.us
-  %158 = getelementptr i32, ptr %157, i64 %38
+  %156 = getelementptr [4 x i8], ptr %151, i64 %39
+  %157 = getelementptr [4 x i8], ptr %156, i64 %.sroa.6321.1.us.us.us
+  %158 = getelementptr [4 x i8], ptr %157, i64 %38
   store i32 %.0474.us.us.us.us, ptr %158, align 4, !tbaa !4
   %159 = getelementptr i8, ptr %135, i64 12
   store i32 %.0475.us.us.us.us, ptr %159, align 4, !tbaa !4, !noalias !38
-  %160 = getelementptr i32, ptr %159, i64 %30
-  %161 = getelementptr i32, ptr %160, i64 %.sroa.6321.0.us.us.us
+  %160 = getelementptr [4 x i8], ptr %159, i64 %30
+  %161 = getelementptr [4 x i8], ptr %160, i64 %.sroa.6321.0.us.us.us
   store i32 %.0480.us.us.us.us, ptr %161, align 4, !tbaa !4
-  %162 = getelementptr i32, ptr %159, i64 %35
-  %163 = getelementptr i32, ptr %162, i64 %.sroa.6321.1.us.us.us
+  %162 = getelementptr [4 x i8], ptr %159, i64 %35
+  %163 = getelementptr [4 x i8], ptr %162, i64 %.sroa.6321.1.us.us.us
   store i32 %.0479.us.us.us.us, ptr %163, align 4, !tbaa !4
-  %164 = getelementptr i32, ptr %159, i64 %39
-  %165 = getelementptr i32, ptr %164, i64 %.sroa.6321.1.us.us.us
-  %166 = getelementptr i32, ptr %165, i64 %38
+  %164 = getelementptr [4 x i8], ptr %159, i64 %39
+  %165 = getelementptr [4 x i8], ptr %164, i64 %.sroa.6321.1.us.us.us
+  %166 = getelementptr [4 x i8], ptr %165, i64 %38
   store i32 %.0477.us.us.us.us, ptr %166, align 4, !tbaa !4
   %167 = getelementptr i8, ptr %135, i64 16
   store i32 %.0474.us.us.us.us, ptr %167, align 4, !tbaa !4, !noalias !41
-  %168 = getelementptr i32, ptr %167, i64 %30
-  %169 = getelementptr i32, ptr %168, i64 %.sroa.6321.0.us.us.us
+  %168 = getelementptr [4 x i8], ptr %167, i64 %30
+  %169 = getelementptr [4 x i8], ptr %168, i64 %.sroa.6321.0.us.us.us
   store i32 %.0478.us.us.us.us, ptr %169, align 4, !tbaa !4
-  %170 = getelementptr i32, ptr %167, i64 %35
-  %171 = getelementptr i32, ptr %170, i64 %.sroa.6321.1.us.us.us
+  %170 = getelementptr [4 x i8], ptr %167, i64 %35
+  %171 = getelementptr [4 x i8], ptr %170, i64 %.sroa.6321.1.us.us.us
   store i32 %.0480.us.us.us.us, ptr %171, align 4, !tbaa !4
-  %172 = getelementptr i32, ptr %167, i64 %39
-  %173 = getelementptr i32, ptr %172, i64 %.sroa.6321.1.us.us.us
-  %174 = getelementptr i32, ptr %173, i64 %38
+  %172 = getelementptr [4 x i8], ptr %167, i64 %39
+  %173 = getelementptr [4 x i8], ptr %172, i64 %.sroa.6321.1.us.us.us
+  %174 = getelementptr [4 x i8], ptr %173, i64 %38
   store i32 %.0477.us.us.us.us, ptr %174, align 4, !tbaa !4
   br i1 %.not.us.us.us.us, label %175, label %191
 
 175:                                              ; preds = %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit205.us.us.us.us
-  %176 = getelementptr i32, ptr %135, i64 %29
+  %176 = getelementptr [4 x i8], ptr %135, i64 %29
   %177 = load i32, ptr %135, align 4, !tbaa !4
   %178 = load i32, ptr %176, align 4, !tbaa !4
   store i32 %178, ptr %135, align 4, !tbaa !4
   store i32 %177, ptr %176, align 4, !tbaa !4
-  %179 = getelementptr i32, ptr %143, i64 %29
+  %179 = getelementptr [4 x i8], ptr %143, i64 %29
   %180 = load i32, ptr %143, align 4, !tbaa !4
   %181 = load i32, ptr %179, align 4, !tbaa !4
   store i32 %181, ptr %143, align 4, !tbaa !4
   store i32 %180, ptr %179, align 4, !tbaa !4
-  %182 = getelementptr i32, ptr %151, i64 %29
+  %182 = getelementptr [4 x i8], ptr %151, i64 %29
   %183 = load i32, ptr %151, align 4, !tbaa !4
   %184 = load i32, ptr %182, align 4, !tbaa !4
   store i32 %184, ptr %151, align 4, !tbaa !4
   store i32 %183, ptr %182, align 4, !tbaa !4
-  %185 = getelementptr i32, ptr %159, i64 %29
+  %185 = getelementptr [4 x i8], ptr %159, i64 %29
   %186 = load i32, ptr %159, align 4, !tbaa !4
   %187 = load i32, ptr %185, align 4, !tbaa !4
   store i32 %187, ptr %159, align 4, !tbaa !4
   store i32 %186, ptr %185, align 4, !tbaa !4
-  %188 = getelementptr i32, ptr %167, i64 %29
+  %188 = getelementptr [4 x i8], ptr %167, i64 %29
   %189 = load i32, ptr %167, align 4, !tbaa !4
   %190 = load i32, ptr %188, align 4, !tbaa !4
   store i32 %190, ptr %167, align 4, !tbaa !4

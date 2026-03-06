@@ -20,7 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.compat_msghdr = type { i32, i32, i32, i32, i32, i32, i32 }
 %struct.io_recvmsg_multishot_hdr = type { %struct.io_uring_recvmsg_out, %struct.__kernel_sockaddr_storage }
 %struct.io_uring_recvmsg_out = type { i32, i32, i32, i32 }
-%struct.bio_vec = type { ptr, i32, i32 }
 %struct.io_async_connect = type { %struct.__kernel_sockaddr_storage }
 
 @.str = private unnamed_addr constant [15 x i8] c"io_uring/net.c\00", align 1
@@ -2616,7 +2615,7 @@ define dso_local noundef range(i32 -22, 1) i32 @io_send_zc_prep(ptr noundef capt
   %57 = and i64 %56, %54
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr ptr, ptr %59, i64 %57
+  %60 = getelementptr [8 x i8], ptr %59, i64 %57
   %61 = load volatile ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %61, ptr %62, align 8
@@ -3114,7 +3113,7 @@ define internal i32 @io_sg_from_iter(ptr noundef %0, ptr noundef %1, ptr noundef
   %43 = phi i32 [ 0, %34 ], [ %71, %37 ]
   %44 = phi i32 [ %27, %34 ], [ %73, %37 ]
   %45 = zext i32 %43 to i64
-  %46 = getelementptr %struct.bio_vec, ptr %38, i64 %45
+  %46 = getelementptr [16 x i8], ptr %38, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %49 = load i32, ptr %48, align 8
@@ -3130,7 +3129,7 @@ define internal i32 @io_sg_from_iter(ptr noundef %0, ptr noundef %1, ptr noundef
   %59 = and i32 %58, -4096
   %60 = add i32 %59, %41
   %61 = add nuw nsw i64 %39, 1
-  %62 = getelementptr %struct.bio_vec, ptr %35, i64 %39
+  %62 = getelementptr [16 x i8], ptr %35, i64 %39
   store ptr %47, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 12
   store i32 %54, ptr %63, align 4
@@ -3138,7 +3137,7 @@ define internal i32 @io_sg_from_iter(ptr noundef %0, ptr noundef %1, ptr noundef
   store i32 %51, ptr %64, align 8
   %65 = load ptr, ptr %23, align 8
   %66 = add i32 %51, %42
-  %.split = getelementptr %struct.bio_vec, ptr %65, i64 %45
+  %.split = getelementptr [16 x i8], ptr %65, i64 %45
   %67 = getelementptr i8, ptr %.split, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %66, %68
@@ -3166,7 +3165,7 @@ define internal i32 @io_sg_from_iter(ptr noundef %0, ptr noundef %1, ptr noundef
   %87 = select i1 %86, i32 -90, i32 0
   store i8 %85, ptr %11, align 2
   %88 = load ptr, ptr %23, align 8
-  %89 = getelementptr %struct.bio_vec, ptr %88, i64 %81
+  %89 = getelementptr [16 x i8], ptr %88, i64 %81
   store ptr %89, ptr %23, align 8
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %91 = load i64, ptr %90, align 8

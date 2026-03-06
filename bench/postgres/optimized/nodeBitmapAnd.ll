@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/nodeBitmapAnd.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [33 x i8] c"unrecognized result from subplan\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"nodeBitmapAnd.c\00", align 1
 @__func__.MultiExecBitmapAnd = private unnamed_addr constant [19 x i8] c"MultiExecBitmapAnd\00", align 1
@@ -55,10 +53,10 @@ list_length.exit:                                 ; preds = %3, %7
 .lr.ph31:                                         ; preds = %.lr.ph, %.lr.ph31
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph31 ], [ 0, %.lr.ph ]
   %24 = load ptr, ptr %21, align 8
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @ExecInitNode(ptr noundef %26, ptr noundef %1, i32 noundef %2) #4
-  %28 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   store ptr %27, ptr %28, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %20, align 4
@@ -108,7 +106,7 @@ define dso_local nonnull ptr @MultiExecBitmapAnd(ptr noundef readonly captures(n
 .lr.ph:                                           ; preds = %23, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
   %.02333 = phi ptr [ null, %.lr.ph.preheader ], [ %.2, %23 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @MultiExecProcNode(ptr noundef %12) #4
   %.not27 = icmp eq ptr %13, null
@@ -195,7 +193,7 @@ define dso_local void @ExecEndBitmapAnd(ptr noundef readonly captures(none) %0) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
@@ -230,7 +228,7 @@ define dso_local void @ExecReScanBitmapAnd(ptr noundef readonly captures(none) %
 7:                                                ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %11, null

@@ -13,8 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.129" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.134" = type { %"class.std::__shared_ptr.135" }
 %"class.std::__shared_ptr.135" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.125" = type { %"class.std::__shared_ptr.126" }
-%"class.std::__shared_ptr.126" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.192" = type { %"class.std::__shared_ptr.193" }
 %"class.std::__shared_ptr.193" = type { ptr, %"class.std::__shared_count" }
 %"class.OpenColorIO_v2_5dev::OpRcPtrVec" = type { %"class.std::vector", %"class.OpenColorIO_v2_5dev::FormatMetadataImpl" }
@@ -1957,7 +1955,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15CreateCPUEngineERKNS_10OpRcPtrVecE
   %.038158 = phi i64 [ 0, %.lr.ph ], [ %694, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %54 = load ptr, ptr %0, align 8, !tbaa !201
-  %55 = getelementptr inbounds nuw %"class.std::shared_ptr.125", ptr %54, i64 %.038158
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %.038158
   %56 = load ptr, ptr %55, align 8, !tbaa !202
   store ptr %56, ptr %8, align 8, !tbaa !205
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -5302,7 +5300,7 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl5applyERKNS_9ImageDescE
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46
   %.021 = phi i64 [ %47, %46 ], [ 0, %.lr.ph.preheader ]
   %38 = load ptr, ptr %15, align 8, !tbaa !267
-  %39 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %38, i64 %.021
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %.021
   %40 = load ptr, ptr %39, align 8, !tbaa !191
   %41 = load ptr, ptr %3, align 8, !tbaa !295
   %42 = load i64, ptr %4, align 8, !tbaa !297
@@ -5421,7 +5419,7 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl5applyERKNS_9ImageDescE
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %47
   %.022 = phi i64 [ %48, %47 ], [ 0, %.lr.ph.preheader ]
   %39 = load ptr, ptr %16, align 8, !tbaa !267
-  %40 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %39, i64 %.022
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %.022
   %41 = load ptr, ptr %40, align 8, !tbaa !191
   %42 = load ptr, ptr %4, align 8, !tbaa !295
   %43 = load i64, ptr %5, align 8, !tbaa !297
@@ -5524,7 +5522,7 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl8applyRGBEPf(ptr nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.010 = phi i64 [ %38, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %32 = load ptr, ptr %16, align 8, !tbaa !267
-  %33 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %32, i64 %.010
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %.010
   %34 = load ptr, ptr %33, align 8, !tbaa !191
   %35 = load ptr, ptr %34, align 8, !tbaa !12
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -5568,7 +5566,7 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor4Impl9applyRGBAEPf(ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.010 = phi i64 [ %26, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %20 = load ptr, ptr %7, align 8, !tbaa !267
-  %21 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %.010
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %.010
   %22 = load ptr, ptr %21, align 8, !tbaa !191
   %23 = load ptr, ptr %22, align 8, !tbaa !12
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -6082,7 +6080,7 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor8applyRGBEPf(ptr noundef non
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.010.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %25 = load ptr, ptr %17, align 8, !tbaa !267
-  %26 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %25, i64 %.010.i
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %.010.i
   %27 = load ptr, ptr %26, align 8, !tbaa !191
   %28 = load ptr, ptr %27, align 8, !tbaa !12
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -6134,7 +6132,7 @@ define void @_ZNK19OpenColorIO_v2_5dev12CPUProcessor9applyRGBAEPf(ptr noundef no
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.010.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %16 = load ptr, ptr %8, align 8, !tbaa !267
-  %17 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %16, i64 %.010.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %.010.i
   %18 = load ptr, ptr %17, align 8, !tbaa !191
   %19 = load ptr, ptr %18, align 8, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -14051,7 +14049,7 @@ _ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEESaIS4_EE11_S_relocate
 _ZNSt12_Vector_baseISt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_5dev5OpCPUEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !267
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !233
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !236
   ret void
 }

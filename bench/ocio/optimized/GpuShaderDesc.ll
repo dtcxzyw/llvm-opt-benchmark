@@ -2004,7 +2004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %39
 
 48:                                               ; preds = %3
   %49 = zext i32 %2 to i64
-  %50 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %11, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !55
   store ptr %51, ptr %0, align 8, !tbaa !55
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4206,7 +4206,7 @@ _ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEESaIS3_EE11_
 _ZNSt12_Vector_baseISt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !39
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !40
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !51
   ret void
 }

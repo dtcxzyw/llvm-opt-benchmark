@@ -3,17 +3,7 @@ source_filename = "bench/memcached/original/extstore.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.store_io_thread = type { %union.pthread_mutex_t, %union.pthread_cond_t, ptr, ptr, ptr, i32 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%struct._store_page = type { %union.pthread_mutex_t, i64, i64, i64, i32, i32, i32, i32, i32, i32, i32, i16, i8, i8, i8, ptr, ptr }
-%struct.extstore_page_data = type { i64, i64, i32, i32, i8 }
 %struct.flock = type { i16, i16, i64, i64, i32 }
-%struct.iovec = type { ptr, i64 }
 %struct.extstore_stats = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [14 x i8] c"unknown error\00", align 1
@@ -74,10 +64,10 @@ define dso_local void @extstore_get_stats(ptr noundef %0, ptr noundef captures(n
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %31 = load ptr, ptr %21, align 8, !tbaa !26
-  %32 = getelementptr inbounds nuw %struct.store_io_thread, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [120 x i8], ptr %31, i64 %indvars.iv
   %33 = tail call i32 @pthread_mutex_lock(ptr noundef %32) #13
   %34 = load ptr, ptr %21, align 8, !tbaa !26
-  %35 = getelementptr inbounds nuw %struct.store_io_thread, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [120 x i8], ptr %34, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 112
   %37 = load i32, ptr %36, align 8, !tbaa !27
   %38 = zext i32 %37 to i64
@@ -123,14 +113,14 @@ define dso_local void @extstore_get_page_data(ptr noundef %0, ptr noundef readon
 11:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %12 = load ptr, ptr %9, align 8, !tbaa !33
-  %13 = getelementptr inbounds nuw %struct._store_page, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [120 x i8], ptr %12, i64 %indvars.iv
   %14 = tail call i32 @pthread_mutex_lock(ptr noundef %13) #13
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 84
   %16 = load i32, ptr %15, align 4, !tbaa !34
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 92
   %18 = load i16, ptr %17, align 4, !tbaa !38
   %19 = zext i16 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %6, i64 %19
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 %16, ptr %21, align 4, !tbaa !39
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -222,7 +212,7 @@ define internal fastcc void @_free_page(ptr noundef %0, ptr noundef %1) unnamed_
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %23 = load i32, ptr %22, align 8, !tbaa !52
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %24
   %.03943 = load ptr, ptr %25, align 8, !tbaa !60
   %.not44 = icmp eq ptr %.03943, null
   br i1 %.not44, label %.loopexit, label %.lr.ph.preheader
@@ -284,7 +274,7 @@ define internal fastcc void @_free_page(ptr noundef %0, ptr noundef %1) unnamed_
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %45 = load i32, ptr %44, align 4, !tbaa !34
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %43, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !60
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %48, ptr %49, align 8, !tbaa !62
@@ -305,7 +295,7 @@ define dso_local noundef nonnull ptr @extstore_err(i32 noundef %0) local_unnamed
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.extstore_err, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.extstore_err, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -479,7 +469,7 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
 71:                                               ; preds = %69
   %72 = add i32 %70, -1
   store i32 %72, ptr %.3147, align 8, !tbaa !80
-  %73 = getelementptr inbounds nuw %struct._store_page, ptr %59, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [120 x i8], ptr %59, i64 %indvars.iv
   %74 = call i32 @pthread_mutex_init(ptr noundef nonnull %73, ptr noundef null) #13
   %75 = trunc i64 %indvars.iv to i16
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 92
@@ -525,11 +515,11 @@ define dso_local noundef ptr @extstore_init(ptr noundef captures(address) %0, pt
 
 97:                                               ; preds = %.lr.ph176, %97
   %indvars.iv199 = phi i64 [ %96, %.lr.ph176 ], [ %indvars.iv.next200, %97 ]
-  %98 = getelementptr inbounds nuw %struct._store_page, ptr %59, i64 %indvars.iv199
+  %98 = getelementptr inbounds nuw [120 x i8], ptr %59, i64 %indvars.iv199
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 84
   %100 = load i32, ptr %99, align 4, !tbaa !34
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds ptr, ptr %91, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %91, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !60
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 112
   store ptr %103, ptr %104, align 8, !tbaa !62
@@ -616,14 +606,14 @@ wbuf_new.exit:                                    ; preds = %.lr.ph180, %wbuf_ne
 .lr.ph186:                                        ; preds = %130, %.lr.ph186
   %indvars.iv202 = phi i64 [ %indvars.iv.next203, %.lr.ph186 ], [ 0, %130 ]
   %144 = load ptr, ptr %143, align 8, !tbaa !26
-  %145 = getelementptr inbounds nuw %struct.store_io_thread, ptr %144, i64 %indvars.iv202
+  %145 = getelementptr inbounds nuw [120 x i8], ptr %144, i64 %indvars.iv202
   %146 = call i32 @pthread_mutex_init(ptr noundef %145, ptr noundef null) #13
   %147 = load ptr, ptr %143, align 8, !tbaa !26
-  %148 = getelementptr inbounds nuw %struct.store_io_thread, ptr %147, i64 %indvars.iv202
+  %148 = getelementptr inbounds nuw [120 x i8], ptr %147, i64 %indvars.iv202
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 40
   %150 = call i32 @pthread_cond_init(ptr noundef nonnull %149, ptr noundef null) #13
   %151 = load ptr, ptr %143, align 8, !tbaa !26
-  %152 = getelementptr inbounds nuw %struct.store_io_thread, ptr %151, i64 %indvars.iv202
+  %152 = getelementptr inbounds nuw [120 x i8], ptr %151, i64 %indvars.iv202
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 104
   store ptr %26, ptr %153, align 8, !tbaa !110
   %154 = call i32 @pthread_create(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull @extstore_io_thread, ptr noundef %152) #13
@@ -767,7 +757,7 @@ define internal noalias noundef nonnull ptr @extstore_io_thread(ptr noundef %0) 
   %35 = getelementptr inbounds nuw i8, ptr %.07698, i64 48
   %36 = load i16, ptr %35, align 8, !tbaa !117
   %37 = zext i16 %36 to i64
-  %38 = getelementptr inbounds nuw %struct._store_page, ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [120 x i8], ptr %34, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %.07698, i64 52
   %40 = load i32, ptr %39, align 4, !tbaa !118
   switch i32 %40, label %.critedge [
@@ -851,7 +841,7 @@ define internal noalias noundef nonnull ptr @extstore_io_thread(ptr noundef %0) 
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %90 ]
   %.0201.i = phi i32 [ %88, %.lr.ph.i ], [ %101, %90 ]
   %91 = load ptr, ptr %67, align 8, !tbaa !122
-  %92 = getelementptr inbounds nuw %struct.iovec, ptr %91, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %indvars.iv.i
   %93 = load ptr, ptr %92, align 8, !tbaa !127
   %94 = load ptr, ptr %89, align 8, !tbaa !95
   %95 = zext i32 %.0201.i to i64
@@ -994,7 +984,7 @@ define dso_local range(i32 -1, 1) i32 @extstore_write_request(ptr noundef %0, i3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load ptr, ptr %11, align 8, !tbaa !59
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !60
   %.not62 = icmp eq ptr %15, null
   br i1 %.not62, label %16, label %72
@@ -1003,7 +993,7 @@ define dso_local range(i32 -1, 1) i32 @extstore_write_request(ptr noundef %0, i3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = load ptr, ptr %17, align 8, !tbaa !65
   %19 = zext i32 %2 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !60
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %25, label %22
@@ -1080,7 +1070,7 @@ define dso_local range(i32 -1, 1) i32 @extstore_write_request(ptr noundef %0, i3
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %70 ]
   %.01733.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %70 ]
   %.01832.i = phi i64 [ -1, %.lr.ph.preheader.i ], [ %.2.i, %70 ]
-  %58 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %55, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [32 x i8], ptr %55, i64 %indvars.iv.i
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 20
   %60 = load i32, ptr %59, align 4, !tbaa !39
   %.not.i71 = icmp eq i32 %60, 0
@@ -1168,7 +1158,7 @@ _evict_page.exit:                                 ; preds = %61, %50, %._crit_ed
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %100 = load ptr, ptr %99, align 8, !tbaa !65
   %101 = zext i32 %2 to i64
-  %102 = getelementptr inbounds nuw ptr, ptr %100, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !60
   %.not.i72 = icmp eq ptr %103, null
   br i1 %.not.i72, label %107, label %104
@@ -1193,7 +1183,7 @@ _evict_page.exit:                                 ; preds = %61, %50, %._crit_ed
 _allocate_page.exit76:                            ; preds = %104, %109
   %.0.ph.i73 = phi ptr [ %108, %109 ], [ %103, %104 ]
   %112 = load ptr, ptr %11, align 8, !tbaa !59
-  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %13
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %13
   %114 = load ptr, ptr %113, align 8, !tbaa !60
   %115 = getelementptr inbounds nuw i8, ptr %.0.ph.i73, i64 112
   store ptr %114, ptr %115, align 8, !tbaa !62
@@ -1248,7 +1238,7 @@ _allocate_page.exit76:                            ; preds = %104, %109
   %indvars.iv.i81 = phi i64 [ 0, %.lr.ph.preheader.i78 ], [ %indvars.iv.next.i89, %154 ]
   %.01733.i82 = phi i32 [ 0, %.lr.ph.preheader.i78 ], [ %.1.i88, %154 ]
   %.01832.i83 = phi i64 [ -1, %.lr.ph.preheader.i78 ], [ %.2.i87, %154 ]
-  %142 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %139, i64 %indvars.iv.i81
+  %142 = getelementptr inbounds nuw [32 x i8], ptr %139, i64 %indvars.iv.i81
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 20
   %144 = load i32, ptr %143, align 4, !tbaa !39
   %.not.i84 = icmp eq i32 %144, 0
@@ -1493,7 +1483,7 @@ define dso_local void @extstore_write(ptr noundef %0, ptr noundef captures(none)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i16, ptr %5, align 8, !tbaa !117
   %7 = zext i16 %6 to i64
-  %8 = getelementptr inbounds nuw %struct._store_page, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [120 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %10 = load ptr, ptr %9, align 8, !tbaa !121
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -1570,7 +1560,7 @@ define dso_local noundef i32 @extstore_submit(ptr noundef %0, ptr noundef %1) lo
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
   %.01522.i = phi i64 [ 9223372036854775807, %.lr.ph.i ], [ %spec.select20.i, %14 ]
   %.01621.i = phi i32 [ -1, %.lr.ph.i ], [ %spec.select.i, %14 ]
-  %9 = getelementptr inbounds nuw %struct.store_io_thread, ptr %7, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [120 x i8], ptr %7, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = load i32, ptr %10, align 8, !tbaa !27
   %12 = icmp eq i32 %11, 0
@@ -1596,7 +1586,7 @@ _get_io_thread.exit:                              ; preds = %2, %._crit_edge.loo
   %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8, !tbaa !26
-  %21 = getelementptr inbounds %struct.store_io_thread, ptr %20, i64 %.117.i
+  %21 = getelementptr inbounds [120 x i8], ptr %20, i64 %.117.i
   %.not1.i = icmp eq ptr %1, null
   br i1 %.not1.i, label %._crit_edge.i, label %.lr.ph.i5
 
@@ -1698,7 +1688,7 @@ define dso_local range(i32 -1, 1) i32 @extstore_delete(ptr noundef %0, i32 nound
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !33
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw %struct._store_page, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [120 x i8], ptr %7, i64 %8
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef %9) #13
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 95
   %12 = load i8, ptr %11, align 1, !tbaa !51, !range !46, !noundef !47
@@ -1765,7 +1755,7 @@ define dso_local range(i32 -1, 1) i32 @extstore_check(ptr noundef readonly captu
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct._store_page, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [120 x i8], ptr %5, i64 %6
   %8 = tail call i32 @pthread_mutex_lock(ptr noundef %7) #13
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %10 = load i32, ptr %9, align 8, !tbaa !41
@@ -1781,7 +1771,7 @@ define dso_local void @extstore_close_page(ptr noundef %0, i32 noundef %1, i64 n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct._store_page, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [120 x i8], ptr %5, i64 %6
   %8 = tail call i32 @pthread_mutex_lock(ptr noundef %7) #13
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 95
   %10 = load i8, ptr %9, align 1, !tbaa !51, !range !46, !noundef !47
@@ -1822,7 +1812,7 @@ define dso_local void @extstore_evict_page(ptr noundef %0, i32 noundef %1, i64 n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct._store_page, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [120 x i8], ptr %5, i64 %6
   %8 = tail call i32 @pthread_mutex_lock(ptr noundef %7) #13
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 95
   %10 = load i8, ptr %9, align 1, !tbaa !51, !range !46, !noundef !47
@@ -1890,7 +1880,7 @@ define internal void @_wbuf_cb(ptr noundef %0, ptr noundef initializes((8, 16)) 
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load i16, ptr %6, align 8, !tbaa !117
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw %struct._store_page, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [120 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %1, align 8, !tbaa !138
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 37
   store i8 1, ptr %11, align 1, !tbaa !140

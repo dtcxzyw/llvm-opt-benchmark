@@ -276,7 +276,7 @@ define dso_local ptr @onas_get_opt_list(ptr noundef %0, ptr noundef captures(non
 .preheader:                                       ; preds = %9
   %13 = load i32, ptr %1, align 4, !tbaa !20
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %6, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %6, i64 %14
   %16 = call i64 @__getdelim(ptr noundef nonnull %15, ptr noundef nonnull %5, i32 noundef 10, ptr noundef nonnull %11) #10
   %17 = and i64 %16, 4294967295
   %.not6567 = icmp eq i64 %17, 4294967295
@@ -305,7 +305,7 @@ define dso_local ptr @onas_get_opt_list(ptr noundef %0, ptr noundef captures(non
 26:                                               ; preds = %.lr.ph, %.backedge
   %27 = load i32, ptr %1, align 4, !tbaa !20
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %.0.ph68, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !25
   %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #12
   %32 = getelementptr i8, ptr %30, i64 %31
@@ -314,7 +314,7 @@ define dso_local ptr @onas_get_opt_list(ptr noundef %0, ptr noundef captures(non
   store i32 0, ptr %10, align 4, !tbaa !20
   %34 = load i32, ptr %1, align 4, !tbaa !20
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %.0.ph68, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = call i32 @stat(ptr noundef %37, ptr noundef nonnull %4) #10
   %.not61 = icmp eq i32 %38, 0
@@ -323,7 +323,7 @@ define dso_local ptr @onas_get_opt_list(ptr noundef %0, ptr noundef captures(non
 39:                                               ; preds = %26
   %40 = load i32, ptr %1, align 4, !tbaa !20
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %.0.ph68, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !25
   %44 = load i32, ptr %10, align 4, !tbaa !20
   %45 = call ptr @strerror(i32 noundef %44) #10
@@ -334,14 +334,14 @@ define dso_local ptr @onas_get_opt_list(ptr noundef %0, ptr noundef captures(non
   store i64 0, ptr %5, align 8, !tbaa !24
   %47 = load i32, ptr %1, align 4, !tbaa !20
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %.0.ph68, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !25
   call void @free(ptr noundef %50) #10
   %51 = load i32, ptr %1, align 4, !tbaa !20
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.0.ph68, i64 %52
   store ptr null, ptr %53, align 8, !tbaa !25
-  %54 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %52
+  %54 = getelementptr inbounds [8 x i8], ptr %.0.ph68, i64 %52
   %55 = call i64 @__getdelim(ptr noundef nonnull %54, ptr noundef nonnull %5, i32 noundef 10, ptr noundef nonnull %11) #10
   %56 = and i64 %55, 4294967295
   %.not = icmp eq i64 %56, 4294967295
@@ -353,7 +353,7 @@ define dso_local ptr @onas_get_opt_list(ptr noundef %0, ptr noundef captures(non
   %60 = icmp eq i32 %59, 16384
   %61 = load i32, ptr %1, align 4, !tbaa !20
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %.0.ph68, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !25
   br i1 %60, label %sub_0, label %65
 
@@ -376,7 +376,7 @@ sub_0:                                            ; preds = %57
   %72 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.18, ptr noundef nonnull %64) #10
   %73 = load i32, ptr %1, align 4, !tbaa !20
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds ptr, ptr %.0.ph68, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %.0.ph68, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !25
   %77 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef %76) #10
   br label %.backedge
@@ -394,7 +394,7 @@ sub_0:                                            ; preds = %57
 .outer:                                           ; preds = %.tail.thread
   %83 = load i32, ptr %1, align 4, !tbaa !20
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr %82, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %82, i64 %84
   store ptr null, ptr %85, align 8, !tbaa !25
   store i64 0, ptr %5, align 8, !tbaa !24
   %86 = call i64 @__getdelim(ptr noundef nonnull %85, ptr noundef nonnull %5, i32 noundef 10, ptr noundef nonnull %11) #10
@@ -419,7 +419,7 @@ sub_0:                                            ; preds = %57
 
 .lr.ph.i:                                         ; preds = %95, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %95 ]
-  %92 = getelementptr inbounds nuw ptr, ptr %.0.ph68, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %.0.ph68, i64 %indvars.iv.i
   %93 = load ptr, ptr %92, align 8, !tbaa !25
   %.not.i = icmp eq ptr %93, null
   br i1 %.not.i, label %95, label %94
@@ -442,7 +442,7 @@ free_opt_list.exit:                               ; preds = %95, %88
   %.0.ph.lcssa64 = phi ptr [ %.0.ph68, %.backedge ], [ %6, %.preheader ], [ %82, %.outer ]
   %96 = load i32, ptr %1, align 4, !tbaa !20
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds ptr, ptr %.0.ph.lcssa64, i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr %.0.ph.lcssa64, i64 %97
   store ptr null, ptr %98, align 8, !tbaa !25
   %99 = call i32 @fclose(ptr noundef nonnull %11)
   br label %100
@@ -479,7 +479,7 @@ define dso_local void @free_opt_list(ptr noundef captures(none) %0, i32 noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !25
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6

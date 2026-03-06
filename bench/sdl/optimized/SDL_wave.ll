@@ -846,7 +846,7 @@ WaveFreeChunkData.exit.i:                         ; preds = %265, %263
 
 switch.lookup:                                    ; preds = %299
   %310 = zext nneg i32 %304 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_LoadWAV_IO_REAL, i64 %310
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SDL_LoadWAV_IO_REAL, i64 %310
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %WaveLoad.exit.thread41
 
@@ -1695,7 +1695,7 @@ SafeMult.exit79:                                  ; preds = %43
   %75 = sub i16 0, %.159
   %.not7374 = icmp slt i8 %60, 0
   %76 = select i1 %.not7374, i16 %.159, i16 %75
-  %77 = getelementptr inbounds nuw i16, ptr %54, i64 %58
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %58
   store i16 %76, ptr %77, align 2
   %.not71 = icmp eq i64 %58, 0
   br i1 %.not71, label %.loopexit, label %.lr.ph104, !llvm.loop !6
@@ -1722,7 +1722,7 @@ SafeMult.exit79:                                  ; preds = %43
   %.not70 = icmp slt i8 %80, 0
   %95 = sub nsw i16 132, %93
   %96 = select i1 %.not70, i16 %94, i16 %95
-  %97 = getelementptr inbounds nuw i16, ptr %54, i64 %78
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %78
   store i16 %96, ptr %97, align 2
   %.not69 = icmp eq i64 %78, 0
   br i1 %.not69, label %.loopexit, label %.lr.ph, !llvm.loop !7
@@ -1867,7 +1867,7 @@ SafeMult.exit:                                    ; preds = %17
   %.idx = shl nuw nsw i64 %69, 2
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx
   %72 = load i16, ptr %71, align 2
-  %73 = getelementptr inbounds nuw %struct.MS_ADPCM_ChannelState, ptr %4, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [6 x i8], ptr %4, i64 %indvars.iv.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 2
   store i16 %72, ptr %74, align 2
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 2
@@ -1880,8 +1880,8 @@ SafeMult.exit:                                    ; preds = %17
   store i16 %80, ptr %73, align 2
   %81 = getelementptr inbounds nuw i8, ptr %61, i64 %78
   %82 = load i16, ptr %81, align 1
-  %83 = getelementptr i16, ptr %43, i64 %.sroa.70.2
-  %84 = getelementptr i16, ptr %83, i64 %23
+  %83 = getelementptr [2 x i8], ptr %43, i64 %.sroa.70.2
+  %84 = getelementptr [2 x i8], ptr %83, i64 %23
   store i16 %82, ptr %84, align 2
   %85 = getelementptr inbounds nuw i8, ptr %62, i64 %78
   %86 = load i16, ptr %85, align 1
@@ -1953,12 +1953,12 @@ MS_ADPCM_DecodeBlockHeader.exit:                  ; preds = %63
   %.247.us.i = phi i16 [ %99, %98 ], [ %107, %102 ]
   %.2.us.i = phi i64 [ %.14460.us.i, %98 ], [ %103, %102 ]
   %109 = sub i64 %.14161.us.i, %23
-  %110 = getelementptr inbounds nuw i16, ptr %43, i64 %109
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %109
   %111 = load i16, ptr %110, align 2
   %112 = sub i64 %.14161.us.i, %28
-  %113 = getelementptr inbounds nuw i16, ptr %43, i64 %112
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %112
   %114 = load i16, ptr %113, align 2
-  %115 = getelementptr inbounds nuw %struct.MS_ADPCM_ChannelState, ptr %4, i64 %indvars.iv.i35
+  %115 = getelementptr inbounds nuw [6 x i8], ptr %4, i64 %indvars.iv.i35
   %116 = sext i16 %111 to i32
   %117 = sext i16 %114 to i32
   %118 = trunc i16 %.247.us.i to i8
@@ -1985,7 +1985,7 @@ MS_ADPCM_DecodeBlockHeader.exit:                  ; preds = %63
   %.01922.i.us.i = tail call i32 @llvm.smin.i32(i32 %137, i32 32767)
   %.019.i.us.i = trunc nsw i32 %.01922.i.us.i to i16
   %138 = zext nneg i8 %119 to i64
-  %139 = getelementptr inbounds nuw i16, ptr @__const.MS_ADPCM_ProcessNibble.adaptive, i64 %138
+  %139 = getelementptr inbounds nuw [2 x i8], ptr @__const.MS_ADPCM_ProcessNibble.adaptive, i64 %138
   %140 = load i16, ptr %139, align 2
   %141 = zext i16 %140 to i32
   %142 = mul nuw i32 %141, %121
@@ -1996,7 +1996,7 @@ MS_ADPCM_DecodeBlockHeader.exit:                  ; preds = %63
   %.0.i.us.i = select i1 %143, i16 16, i16 %145
   store i16 %.0.i.us.i, ptr %115, align 2
   %146 = add i64 %.14161.us.i, 1
-  %147 = getelementptr inbounds nuw i16, ptr %43, i64 %.14161.us.i
+  %147 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %.14161.us.i
   store i16 %.019.i.us.i, ptr %147, align 2
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %23
@@ -2169,7 +2169,7 @@ SafeMult.exit:                                    ; preds = %16
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 %58
   %60 = load i16, ptr %59, align 1
   %61 = add i64 %.sroa.68.2, 1
-  %62 = getelementptr inbounds nuw i16, ptr %40, i64 %.sroa.68.2
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %.sroa.68.2
   store i16 %60, ptr %62, align 2
   %63 = getelementptr i8, ptr %59, i64 2
   %64 = load i8, ptr %63, align 1
@@ -2221,10 +2221,10 @@ IMA_ADPCM_DecodeBlockHeader.exit:                 ; preds = %.lr.ph.i, %57
   %.17081.us.i = phi i64 [ %.06983.us.i, %.lr.ph.us.i ], [ %.372.us.i, %88 ]
   %82 = add i64 %indvars.iv.i42, %.06884.us.i
   %83 = sub i64 %82, %22
-  %84 = getelementptr inbounds nuw i16, ptr %40, i64 %83
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %83
   %85 = load i16, ptr %84, align 2
   %86 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv.i42
-  %87 = getelementptr i16, ptr %40, i64 %82
+  %87 = getelementptr [2 x i8], ptr %40, i64 %82
   %.promoted = load i8, ptr %86, align 1
   br label %89
 
@@ -2260,7 +2260,7 @@ IMA_ADPCM_DecodeBlockHeader.exit:                 ; preds = %.lr.ph.i, %57
   %spec.store.select.i.us.i = tail call i8 @llvm.smax.i8(i8 %90, i8 0)
   %100 = tail call i8 @llvm.umin.i8(i8 %spec.store.select.i.us.i, i8 88)
   %101 = zext nneg i8 %100 to i64
-  %102 = getelementptr inbounds nuw i16, ptr @__const.IMA_ADPCM_ProcessNibble.step_table, i64 %101
+  %102 = getelementptr inbounds nuw [2 x i8], ptr @__const.IMA_ADPCM_ProcessNibble.step_table, i64 %101
   %103 = load i16, ptr %102, align 2
   %104 = zext i16 %103 to i32
   %105 = zext nneg i8 %99 to i64
@@ -2293,7 +2293,7 @@ IMA_ADPCM_DecodeBlockHeader.exit:                 ; preds = %.lr.ph.i, %57
   %.02531.i.us.i = tail call i32 @llvm.smin.i32(i32 %spec.store.select1.i.us.i, i32 32767)
   %.025.i.us.i = trunc nsw i32 %.02531.i.us.i to i16
   %122 = mul nuw nsw i64 %.06378.us.i, %22
-  %123 = getelementptr i16, ptr %87, i64 %122
+  %123 = getelementptr [2 x i8], ptr %87, i64 %122
   store i16 %.025.i.us.i, ptr %123, align 2
   %124 = add nuw nsw i64 %.06378.us.i, 1
   %exitcond.not.i = icmp eq i64 %124, %80
@@ -2388,7 +2388,7 @@ define internal fastcc zeroext i16 @WaveGetFormatGUIDEncoding(ptr noundef nonnul
 
 5:                                                ; preds = %1, %3
   %.06 = phi i64 [ 0, %1 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw %struct.WaveExtensibleGUID, ptr @extensible_guids, i64 %.06
+  %6 = getelementptr inbounds nuw [18 x i8], ptr @extensible_guids, i64 %.06
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %8 = tail call i32 @SDL_memcmp_REAL(ptr noundef nonnull %2, ptr noundef nonnull %7, i64 noundef 16) #8
   %9 = icmp eq i32 %8, 0
@@ -2734,7 +2734,7 @@ define internal fastcc zeroext i1 @MS_ADPCM_Init(ptr noundef nonnull captures(no
   br i1 %84, label %85, label %91
 
 85:                                               ; preds = %75
-  %86 = getelementptr inbounds nuw i16, ptr @__const.MS_ADPCM_Init.presetcoeffs, i64 %.06174
+  %86 = getelementptr inbounds nuw [2 x i8], ptr @__const.MS_ADPCM_Init.presetcoeffs, i64 %.06174
   %87 = load i16, ptr %86, align 2
   %88 = sext i16 %87 to i32
   %.not68 = icmp eq i32 %spec.select, %88
@@ -2747,7 +2747,7 @@ define internal fastcc zeroext i1 @MS_ADPCM_Init(ptr noundef nonnull captures(no
 91:                                               ; preds = %75, %85
   %92 = trunc nsw i32 %spec.select to i16
   %93 = load ptr, ptr %73, align 8
-  %94 = getelementptr inbounds nuw i16, ptr %93, i64 %.06174
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %93, i64 %.06174
   store i16 %92, ptr %94, align 2
   %95 = add nuw nsw i64 %.06174, 1
   %exitcond.not = icmp eq i64 %95, %74

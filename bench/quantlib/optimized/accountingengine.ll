@@ -13,12 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.17" = type { %"struct.std::_Vector_base.18" }
-%"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl" }
-%"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.QuantLib::MarketModelMultiProduct::CashFlow" = type { i64, double }
-%"class.QuantLib::MarketModelDiscounter" = type { i64, double }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -38,41 +32,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.36" = type { %"struct.std::_Tuple_impl.37" }
 %"struct.std::_Tuple_impl.37" = type { %"struct.std::_Head_base.40" }
 %"struct.std::_Head_base.40" = type { ptr }
-%"class.QuantLib::IncrementalStatistics" = type { %"struct.boost::accumulators::accumulator_set", %"struct.boost::accumulators::accumulator_set.76" }
-%"struct.boost::accumulators::accumulator_set" = type { %"struct.boost::fusion::cons" }
-%"struct.boost::fusion::cons" = type { %"struct.boost::accumulators::detail::accumulator_wrapper", %"struct.boost::fusion::cons.46" }
-%"struct.boost::accumulators::detail::accumulator_wrapper" = type { %"struct.boost::accumulators::impl::count_impl" }
-%"struct.boost::accumulators::impl::count_impl" = type { i64 }
-%"struct.boost::fusion::cons.46" = type { %"struct.boost::accumulators::detail::accumulator_wrapper.48", %"struct.boost::fusion::cons.49" }
-%"struct.boost::accumulators::detail::accumulator_wrapper.48" = type { %"struct.boost::accumulators::impl::min_impl" }
-%"struct.boost::accumulators::impl::min_impl" = type { double }
-%"struct.boost::fusion::cons.49" = type { %"struct.boost::accumulators::detail::accumulator_wrapper.51", %"struct.boost::fusion::cons.52" }
-%"struct.boost::accumulators::detail::accumulator_wrapper.51" = type { %"struct.boost::accumulators::impl::max_impl" }
-%"struct.boost::accumulators::impl::max_impl" = type { double }
-%"struct.boost::fusion::cons.52" = type { %"struct.boost::accumulators::detail::accumulator_wrapper.54", %"struct.boost::fusion::cons.55" }
-%"struct.boost::accumulators::detail::accumulator_wrapper.54" = type { %"struct.boost::accumulators::impl::sum_impl" }
-%"struct.boost::accumulators::impl::sum_impl" = type { double }
-%"struct.boost::fusion::cons.55" = type { %"struct.boost::accumulators::detail::accumulator_wrapper.57", %"struct.boost::fusion::cons.58" }
-%"struct.boost::accumulators::detail::accumulator_wrapper.57" = type { %"struct.boost::accumulators::impl::weighted_sum_impl" }
-%"struct.boost::accumulators::impl::weighted_sum_impl" = type { double }
-%"struct.boost::fusion::cons.58" = type { [8 x i8], %"struct.boost::fusion::cons.60" }
-%"struct.boost::fusion::cons.60" = type { %"struct.boost::accumulators::detail::accumulator_wrapper.62", %"struct.boost::fusion::cons.63" }
-%"struct.boost::accumulators::detail::accumulator_wrapper.62" = type { %"struct.boost::accumulators::impl::weighted_variance_impl" }
-%"struct.boost::accumulators::impl::weighted_variance_impl" = type { double }
-%"struct.boost::fusion::cons.63" = type { %"struct.boost::accumulators::detail::accumulator_wrapper.65", %"struct.boost::fusion::cons.66" }
-%"struct.boost::accumulators::detail::accumulator_wrapper.65" = type { %"struct.boost::accumulators::impl::weighted_moment_impl" }
-%"struct.boost::accumulators::impl::weighted_moment_impl" = type { double }
-%"struct.boost::fusion::cons.66" = type { %"struct.boost::accumulators::detail::accumulator_wrapper.68", %"struct.boost::fusion::cons.70" }
-%"struct.boost::accumulators::detail::accumulator_wrapper.68" = type { %"struct.boost::accumulators::impl::weighted_moment_impl.69" }
-%"struct.boost::accumulators::impl::weighted_moment_impl.69" = type { double }
-%"struct.boost::fusion::cons.70" = type { [8 x i8], %"struct.boost::fusion::cons.72" }
-%"struct.boost::fusion::cons.72" = type <{ %"struct.boost::accumulators::detail::accumulator_wrapper.74", [8 x i8] }>
-%"struct.boost::accumulators::detail::accumulator_wrapper.74" = type { %"struct.boost::accumulators::impl::weighted_moment_impl.75" }
-%"struct.boost::accumulators::impl::weighted_moment_impl.75" = type { double }
-%"struct.boost::accumulators::accumulator_set.76" = type { %"struct.boost::fusion::cons.77" }
-%"struct.boost::fusion::cons.77" = type { %"struct.boost::accumulators::detail::accumulator_wrapper", %"struct.boost::fusion::cons.79" }
-%"struct.boost::fusion::cons.79" = type { %"struct.boost::accumulators::detail::accumulator_wrapper.54", %"struct.boost::fusion::cons.81" }
-%"struct.boost::fusion::cons.81" = type <{ %"struct.boost::accumulators::detail::accumulator_wrapper.65", [8 x i8] }>
 %"class.std::vector.28" = type { %"struct.std::_Vector_base.29" }
 %"struct.std::_Vector_base.29" = type { %"struct.std::_Vector_base<QuantLib::IncrementalStatistics, std::allocator<QuantLib::IncrementalStatistics>>::_Vector_impl" }
 %"struct.std::_Vector_base<QuantLib::IncrementalStatistics, std::allocator<QuantLib::IncrementalStatistics>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::IncrementalStatistics, std::allocator<QuantLib::IncrementalStatistics>>::_Vector_impl_data" }
@@ -208,7 +167,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i18, ptr %numerairesHeld_, align 8, !tbaa !41
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i18, i64 %call11
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i18, i64 %call11
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !42
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i18, align 8, !tbaa !43
@@ -258,7 +217,7 @@ if.then.i.i.i.i.i21:                              ; preds = %_ZNSt6vectorImSaImE
 
 call5.i.i.i.i2.i.i.noexc35:                       ; preds = %if.then.i.i.i.i.i21
   store ptr %call5.i.i.i.i2.i.i36, ptr %numberCashFlowsThisStep_, align 8, !tbaa !45
-  %add.ptr.i.i.i23 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i36, i64 %call20
+  %add.ptr.i.i.i23 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i36, i64 %call20
   %_M_end_of_storage.i.i.i24 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr %add.ptr.i.i.i23, ptr %_M_end_of_storage.i.i.i24, align 8, !tbaa !46
   store i64 0, ptr %call5.i.i.i.i2.i.i36, align 8, !tbaa !47
@@ -312,7 +271,7 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIS_IN8Q
 
 call5.i.i.i.i2.i.i.noexc44:                       ; preds = %for.body.preheader.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i45, ptr %cashFlowsGenerated_, align 8, !tbaa !49
-  %add.ptr.i.i.i40 = getelementptr inbounds nuw %"class.std::vector.17", ptr %call5.i.i.i.i2.i.i45, i64 %call30
+  %add.ptr.i.i.i40 = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i.i2.i.i45, i64 %call30
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i45, i8 0, i64 %mul.i.i.i.i.i.i39, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i45, i64 %mul.i.i.i.i.i.i39
   br label %invoke.cont33
@@ -377,7 +336,7 @@ lpad32:                                           ; preds = %for.body.preheader.
 for.body:                                         ; preds = %invoke.cont33, %for.inc
   %i.0104 = phi i64 [ %inc, %for.inc ], [ 0, %invoke.cont33 ]
   %24 = load ptr, ptr %cashFlowsGenerated_, align 8, !tbaa !49
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::vector.17", ptr %24, i64 %i.0104
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %i.0104
   %25 = load ptr, ptr %product_, align 8, !tbaa !10
   %vtable41 = load ptr, ptr %25, align 8, !tbaa !11
   %vfn42 = getelementptr inbounds nuw i8, ptr %vtable41, i64 48
@@ -406,7 +365,7 @@ if.else.i:                                        ; preds = %invoke.cont43
   br i1 %cmp4.i, label %if.then5.i, label %for.inc
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i46 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelMultiProduct::CashFlow", ptr %28, i64 %call44
+  %add.ptr.i46 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %call44
   %tobool.not.i.i = icmp eq ptr %27, %add.ptr.i46
   br i1 %tobool.not.i.i, label %for.inc, label %invoke.cont.i.i
 
@@ -504,7 +463,7 @@ _ZNSt12_Vector_baseIN8QuantLib21MarketModelDiscounterESaIS1_EE13_M_deallocateEPS
   store ptr %call5.i.i.i.i60, ptr %discounters_, align 8, !tbaa !58
   %add.ptr.i57 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i60, i64 %sub.ptr.sub.i8.i
   store ptr %add.ptr.i57, ptr %_M_finish.i.i53, align 8, !tbaa !59
-  %add.ptr21.i = getelementptr inbounds nuw %"class.QuantLib::MarketModelDiscounter", ptr %call5.i.i.i.i60, i64 %sub.ptr.div.i
+  %add.ptr21.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i60, i64 %sub.ptr.div.i
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !57
   br label %invoke.cont66
 
@@ -895,7 +854,7 @@ _ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit32: ; preds = %_
   %26 = load ptr, ptr %vfn36, align 8
   %call37 = tail call noundef nonnull align 8 dereferenceable(24) ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %25)
   %27 = load ptr, ptr %call37, align 8, !tbaa !45
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %27, i64 %call17
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %call17
   %28 = load i64, ptr %add.ptr.i, align 8, !tbaa !47
   %29 = load i64, ptr %numberProducts_, align 8, !tbaa !40
   %cmp58.not = icmp eq i64 %29, 0
@@ -928,8 +887,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %34 = phi ptr [ %38, %for.cond.cleanup45 ], [ %.pre, %for.body.preheader ]
   %i.059 = phi i64 [ %inc60, %for.cond.cleanup45 ], [ 0, %for.body.preheader ]
   %35 = load ptr, ptr %cashFlowsGenerated_, align 8, !tbaa !49
-  %add.ptr.i33 = getelementptr inbounds nuw %"class.std::vector.17", ptr %35, i64 %i.059
-  %add.ptr.i3455 = getelementptr inbounds nuw i64, ptr %34, i64 %i.059
+  %add.ptr.i33 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %i.059
+  %add.ptr.i3455 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %i.059
   %36 = load i64, ptr %add.ptr.i3455, align 8, !tbaa !47
   %cmp4456.not = icmp eq i64 %36, 0
   br i1 %cmp4456.not, label %for.cond.cleanup45, label %for.body46
@@ -948,10 +907,10 @@ for.cond.cleanup45:                               ; preds = %for.cond.cleanup45.
 for.body46:                                       ; preds = %for.body, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit41
   %j.057 = phi i64 [ %inc, %_ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit41 ], [ 0, %for.body ]
   %39 = load ptr, ptr %add.ptr.i33, align 8, !tbaa !54
-  %add.ptr.i35 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelMultiProduct::CashFlow", ptr %39, i64 %j.057
+  %add.ptr.i35 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %j.057
   %40 = load i64, ptr %add.ptr.i35, align 8, !tbaa !70
   %41 = load ptr, ptr %discounters_, align 8, !tbaa !58
-  %add.ptr.i36 = getelementptr inbounds nuw %"class.QuantLib::MarketModelDiscounter", ptr %41, i64 %40
+  %add.ptr.i36 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %40
   %amount = getelementptr inbounds nuw i8, ptr %add.ptr.i35, i64 8
   %42 = load double, ptr %amount, align 8, !tbaa !72
   %43 = load ptr, ptr %this, align 8, !tbaa !3
@@ -973,13 +932,13 @@ _ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit41: ; preds = %f
   %mul56 = fmul double %42, %call55
   %div = fdiv double %mul56, %principalInNumerairePortfolio.0
   %46 = load ptr, ptr %numerairesHeld_, align 8, !tbaa !41
-  %add.ptr.i42 = getelementptr inbounds nuw double, ptr %46, i64 %i.059
+  %add.ptr.i42 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %i.059
   %47 = load double, ptr %add.ptr.i42, align 8, !tbaa !43
   %add = fadd double %47, %div
   store double %add, ptr %add.ptr.i42, align 8, !tbaa !43
   %inc = add nuw i64 %j.057, 1
   %48 = load ptr, ptr %numberCashFlowsThisStep_, align 8, !tbaa !45
-  %add.ptr.i34 = getelementptr inbounds nuw i64, ptr %48, i64 %i.059
+  %add.ptr.i34 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %i.059
   %49 = load i64, ptr %add.ptr.i34, align 8, !tbaa !47
   %cmp44 = icmp ult i64 %inc, %49
   br i1 %cmp44, label %for.body46, label %for.cond.cleanup45.loopexit, !llvm.loop !73
@@ -1001,7 +960,7 @@ _ZNK5boost10shared_ptrIN8QuantLib18MarketModelEvolverEEptEv.exit46: ; preds = %i
   %52 = load ptr, ptr %vfn65, align 8
   %call66 = tail call noundef nonnull align 8 dereferenceable(24) ptr %52(ptr noundef nonnull align 8 dereferenceable(8) %51)
   %53 = load ptr, ptr %call66, align 8, !tbaa !45
-  %54 = getelementptr i64, ptr %53, i64 %call17
+  %54 = getelementptr [8 x i8], ptr %53, i64 %call17
   %add.ptr.i47 = getelementptr i8, ptr %54, i64 8
   %55 = load i64, ptr %add.ptr.i47, align 8, !tbaa !47
   %56 = load ptr, ptr %this, align 8, !tbaa !3
@@ -1031,11 +990,11 @@ for.cond.cleanup84:                               ; preds = %for.body85, %for.co
 
 for.body85:                                       ; preds = %for.body85.lr.ph, %for.body85
   %i79.061 = phi i64 [ 0, %for.body85.lr.ph ], [ %inc91, %for.body85 ]
-  %add.ptr.i53 = getelementptr inbounds nuw double, ptr %31, i64 %i79.061
+  %add.ptr.i53 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %i79.061
   %60 = load double, ptr %add.ptr.i53, align 8, !tbaa !43
   %61 = load double, ptr %initialNumeraireValue_, align 8, !tbaa !13
   %mul88 = fmul double %60, %61
-  %add.ptr.i54 = getelementptr inbounds nuw double, ptr %32, i64 %i79.061
+  %add.ptr.i54 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %i79.061
   store double %mul88, ptr %add.ptr.i54, align 8, !tbaa !43
   %inc91 = add nuw i64 %i79.061, 1
   %exitcond.not = icmp eq i64 %inc91, %sub.ptr.div.i
@@ -1074,7 +1033,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %call2, 3
   %call5.i.i.i.i2.i.i3 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #20
   store ptr %call5.i.i.i.i2.i.i3, ptr %values, align 8, !tbaa !41
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i3, i64 %call2
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i3, i64 %call2
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %values, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !42
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i3, align 8, !tbaa !43
@@ -1276,9 +1235,9 @@ if.then.i39:                                      ; preds = %_ZNSt6vectorIN8Quan
 
 _ZNSt12_Vector_baseIN8QuantLib23MarketModelMultiProduct8CashFlowESaIS2_EE13_M_deallocateEPS2_m.exit41: ; preds = %_ZNSt6vectorIN8QuantLib23MarketModelMultiProduct8CashFlowESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i39
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !54
-  %add.ptr37 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelMultiProduct::CashFlow", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [16 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !52
-  %add.ptr40 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelMultiProduct::CashFlow", ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !66
   br label %if.end44
 
@@ -1370,7 +1329,7 @@ if.then.i27:                                      ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt12_Vector_baseIN8QuantLib21MarketModelDiscounterESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN8QuantLib21MarketModelDiscounterESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, %if.then.i27
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !58
   store ptr %__cur.0.lcssa.i.i.i25, ptr %_M_finish.i.i, align 8, !tbaa !59
-  %add.ptr28 = getelementptr inbounds nuw %"class.QuantLib::MarketModelDiscounter", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr28 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr28, ptr %_M_end_of_storage, align 8, !tbaa !57
   ret void
 
@@ -1836,7 +1795,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.0121 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %begin.sroa.0.0120 = phi ptr [ %begin.coerce, %for.body.lr.ph ], [ %incdec.ptr.i, %for.body ]
   %47 = load ptr, ptr %stats_, align 8, !tbaa !109
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::IncrementalStatistics", ptr %47, i64 %i.0121
+  %add.ptr.i = getelementptr inbounds nuw [128 x i8], ptr %47, i64 %i.0121
   %48 = load double, ptr %begin.sroa.0.0120, align 8, !tbaa !43
   call void @_ZN8QuantLib21IncrementalStatistics3addEdd(ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i, double noundef %48, double noundef %weight)
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %begin.sroa.0.0120, i64 8
@@ -1992,7 +1951,7 @@ for.body.lr.ph:                                   ; preds = %if.then
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.031 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %1 = load ptr, ptr %stats_, align 8, !tbaa !109
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::IncrementalStatistics", ptr %1, i64 %i.031
+  %add.ptr.i = getelementptr inbounds nuw [128 x i8], ptr %1, i64 %i.031
   tail call void @_ZN8QuantLib21IncrementalStatistics5resetEv(ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i)
   %inc = add nuw i64 %i.031, 1
   %2 = load i64, ptr %this, align 8, !tbaa !86
@@ -2051,7 +2010,7 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorIN8Quan
 if.then.i.i.i.i.i9:                               ; preds = %_ZNSt6vectorIN8QuantLib21IncrementalStatisticsESaIS1_EED2Ev.exit
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %dimension, 3
   %call5.i.i.i.i2.i.i10 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #20
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i10, i64 %dimension
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i10, i64 %dimension
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i10, align 8, !tbaa !43
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i10, i64 8
   %sub.i.i.i.i.i = add nsw i64 %dimension, -1
@@ -2439,7 +2398,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %i.0101 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %v1begin.sroa.0.0100 = phi ptr [ %incdec.ptr.i61, %for.inc ], [ %v1begin.coerce, %for.body.preheader ]
   %mul.i60 = mul i64 %i.0101, %sub.ptr.div.i.i.i34
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %cond.i, i64 %mul.i60
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i, i64 %mul.i60
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body, %for.body.i
@@ -2738,7 +2697,7 @@ _ZNSt12_Vector_baseIN8QuantLib21IncrementalStatisticsESaIS1_EEC2EmRKS2_.exit: ; 
   store ptr %call5.i.i.i.i2.i, ptr %this, align 8, !tbaa !109
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call5.i.i.i.i2.i, ptr %_M_finish.i.i, align 8, !tbaa !115
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.QuantLib::IncrementalStatistics", ptr %call5.i.i.i.i2.i, i64 %__n
+  %add.ptr.i.i = getelementptr inbounds nuw [128 x i8], ptr %call5.i.i.i.i2.i, i64 %__n
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !114
   br label %for.body.i.i.i.i

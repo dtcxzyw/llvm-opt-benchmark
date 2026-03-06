@@ -1383,7 +1383,7 @@ define linkonce_odr void @_ZN5Yosys10PluginPass7executeESt6vectorINSt7__cxx1112b
   %23 = phi ptr [ %15, %.lr.ph ], [ %80, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit ]
   %.0105 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit ]
   %.018104 = phi i64 [ 1, %.lr.ph ], [ %78, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit ]
-  %24 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %.018104
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %.018104
   %25 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull @.str.23) #22
   %26 = icmp eq i32 %25, 0
   %.pre = load ptr, ptr %1, align 8, !tbaa !51
@@ -1403,7 +1403,7 @@ define linkonce_odr void @_ZN5Yosys10PluginPass7executeESt6vectorINSt7__cxx1112b
   br i1 %or.cond, label %37, label %39
 
 37:                                               ; preds = %27
-  %38 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %28
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %28
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %38)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %.loopexit100
 
@@ -1418,7 +1418,7 @@ define linkonce_odr void @_ZN5Yosys10PluginPass7executeESt6vectorINSt7__cxx1112b
   br label %.body
 
 39:                                               ; preds = %27, %22
-  %40 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %.018104
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %.018104
   %41 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull @.str.24) #22
   %42 = icmp eq i32 %41, 0
   %.pre126 = load ptr, ptr %1, align 8, !tbaa !51
@@ -1435,7 +1435,7 @@ define linkonce_odr void @_ZN5Yosys10PluginPass7executeESt6vectorINSt7__cxx1112b
   br i1 %50, label %51, label %74
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre126, i64 %44
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %.pre126, i64 %44
   %53 = load ptr, ptr %20, align 8, !tbaa !49
   %54 = load ptr, ptr %21, align 8, !tbaa !52
   %.not.i = icmp eq ptr %53, %54
@@ -1496,7 +1496,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %.loopexit100
 
 74:                                               ; preds = %43, %39
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre126, i64 %.018104
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %.pre126, i64 %.018104
   %76 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull @.str.25) #22
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit, label %.._crit_edge.loopexit_crit_edge
@@ -2201,7 +2201,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !51
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !49
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !52
   ret void
 

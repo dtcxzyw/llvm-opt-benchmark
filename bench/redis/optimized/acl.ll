@@ -263,7 +263,7 @@ define dso_local range(i32 0, 2) i32 @ACLAddCommandCategory(ptr noundef %0, i64 
   %6 = tail call noalias ptr @zstrdup(ptr noundef %0) #25
   %7 = load ptr, ptr @ACLCommandCategories, align 8, !tbaa !9
   %8 = load i64, ptr @nextCommandCategory, align 8, !tbaa !5
-  %9 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %8
   store ptr %6, ptr %9, align 8, !tbaa !12
   %.not = icmp eq i64 %1, 0
   %10 = shl nuw i64 1, %8
@@ -309,19 +309,19 @@ define dso_local void @ACLInitCommandCategories() local_unnamed_addr #0 {
   unreachable
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr @ACLDefaultCommandCategories, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @ACLDefaultCommandCategories, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 16, !tbaa !12
   %10 = tail call noalias ptr @zstrdup(ptr noundef %9) #25
   %11 = load ptr, ptr @ACLCommandCategories, align 8, !tbaa !9
   %12 = load i64, ptr @nextCommandCategory, align 8, !tbaa !5
-  %13 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %12
   store ptr %10, ptr %13, align 8, !tbaa !12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %4, ptr %14, align 8, !tbaa !15
   %15 = add i64 %12, 1
   store i64 %15, ptr @nextCommandCategory, align 8, !tbaa !5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr @ACLDefaultCommandCategories, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw [16 x i8], ptr @ACLDefaultCommandCategories, i64 %indvars.iv.next
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !15
   %.not = icmp eq i64 %18, 0
@@ -359,11 +359,11 @@ define dso_local void @ACLCleanupCategoriesOnFailure(i64 noundef %0) local_unnam
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %5 = phi ptr [ %8, %.lr.ph ], [ %.pre, %.lr.ph.preheader ]
   %.08 = phi i64 [ %10, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %6 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %5, i64 %.08
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.08
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   tail call void @zfree(ptr noundef %7) #25
   %8 = load ptr, ptr @ACLCommandCategories, align 8, !tbaa !9
-  %9 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %8, i64 %.08
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %.08
   %10 = add nuw i64 %.08, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %11 = load i64, ptr @nextCommandCategory, align 8, !tbaa !5
@@ -497,7 +497,7 @@ define dso_local range(i32 0, 2) i32 @ACLStringHasSpaces(ptr noundef readonly ca
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.0811
   %9 = load i8, ptr %8, align 1, !tbaa !19
   %10 = sext i8 %9 to i64
-  %11 = getelementptr inbounds i16, ptr %4, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %4, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !26
   %13 = and i16 %12, 8192
   %.not = icmp ne i16 %13, 0
@@ -530,14 +530,14 @@ define dso_local i64 @ACLGetCommandCategoryFlagByName(ptr noundef readonly captu
 .lr.ph18:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv17 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv17, 1
-  %7 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %2, i64 %indvars.iv.next
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv.next
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !15
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %.lr.ph18
-  %10 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %2, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv.next
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %11) #29
   %.not8 = icmp eq i32 %12, 0
@@ -752,7 +752,7 @@ define dso_local void @ACLFreeSelector(ptr noundef %0) local_unnamed_addr #0 {
 .preheader18.i:                                   ; preds = %1, %23
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %23 ], [ 0, %1 ]
   %13 = load ptr, ptr %8, align 8, !tbaa !66
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv24.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv24.i
   %15 = load ptr, ptr %14, align 8, !tbaa !73
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %23, label %.preheader.i
@@ -773,9 +773,9 @@ define dso_local void @ACLFreeSelector(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @sdsfree(ptr noundef nonnull %17) #25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = load ptr, ptr %8, align 8, !tbaa !66
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv24.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv24.i
   %20 = load ptr, ptr %19, align 8, !tbaa !73
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.next.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.next.i
   %22 = load ptr, ptr %21, align 8, !tbaa !29
   %.not17.i = icmp eq ptr %22, null
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !74
@@ -808,7 +808,7 @@ define dso_local void @ACLResetFirstArgs(ptr noundef captures(none) %0) local_un
 .preheader18:                                     ; preds = %1, %17
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %17 ], [ 0, %1 ]
   %7 = load ptr, ptr %2, align 8, !tbaa !66
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv24
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv24
   %9 = load ptr, ptr %8, align 8, !tbaa !73
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %17, label %.preheader
@@ -829,9 +829,9 @@ define dso_local void @ACLResetFirstArgs(ptr noundef captures(none) %0) local_un
   tail call void @sdsfree(ptr noundef nonnull %11) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load ptr, ptr %2, align 8, !tbaa !66
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv24
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv24
   %14 = load ptr, ptr %13, align 8, !tbaa !73
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.next
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.next
   %16 = load ptr, ptr %15, align 8, !tbaa !29
   %.not17 = icmp eq ptr %16, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !74
@@ -880,13 +880,13 @@ define dso_local noalias noundef ptr @ACLCopySelector(ptr noundef readonly captu
   %21 = phi ptr [ %56, %.loopexit ], [ %20, %1 ]
   %22 = phi ptr [ %57, %.loopexit ], [ %20, %1 ]
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.loopexit ], [ 0, %1 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv37
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv37
   %24 = load ptr, ptr %23, align 8, !tbaa !73
   %.not27 = icmp eq ptr %24, null
   br i1 %.not27, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader29
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv37
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv37
   %26 = load ptr, ptr %25, align 8, !tbaa !73
   %27 = load ptr, ptr %26, align 8, !tbaa !29
   %.not2831 = icmp eq ptr %27, null
@@ -905,7 +905,7 @@ define dso_local noalias noundef ptr @ACLCopySelector(ptr noundef readonly captu
 
 33:                                               ; preds = %31, %.lr.ph
   %34 = phi ptr [ %32, %31 ], [ %28, %.lr.ph ]
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv37
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv37
   %36 = load ptr, ptr %35, align 8, !tbaa !73
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
@@ -924,7 +924,7 @@ define dso_local noalias noundef ptr @ACLCopySelector(ptr noundef readonly captu
 
 40:                                               ; preds = %.lr.ph.i
   %41 = add nuw nsw i64 %.130.i, 1
-  %42 = getelementptr inbounds nuw ptr, ptr %36, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !29
   %.not25.i = icmp eq ptr %43, null
   br i1 %.not25.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !76
@@ -937,7 +937,7 @@ define dso_local noalias noundef ptr @ACLCopySelector(ptr noundef readonly captu
   store ptr %46, ptr %35, align 8, !tbaa !73
   %47 = tail call ptr @sdsnew(ptr noundef nonnull %29) #25
   %48 = load ptr, ptr %35, align 8, !tbaa !73
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %.0.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.0.i
   store ptr %47, ptr %49, align 8, !tbaa !29
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr null, ptr %50, align 8, !tbaa !29
@@ -946,9 +946,9 @@ define dso_local noalias noundef ptr @ACLCopySelector(ptr noundef readonly captu
 ACLAddAllowedFirstArg.exit:                       ; preds = %.lr.ph.i, %.loopexit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load ptr, ptr %19, align 8, !tbaa !66
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv37
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv37
   %53 = load ptr, ptr %52, align 8, !tbaa !73
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.next
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv.next
   %55 = load ptr, ptr %54, align 8, !tbaa !29
   %.not28 = icmp eq ptr %55, null
   br i1 %.not28, label %..loopexit_crit_edge, label %.lr.ph, !llvm.loop !77
@@ -988,7 +988,7 @@ define dso_local void @ACLAddAllowedFirstArg(ptr noundef captures(none) %0, i64 
 
 9:                                                ; preds = %7, %3
   %10 = phi ptr [ %8, %7 ], [ %5, %3 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %1
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %1
   %12 = load ptr, ptr %11, align 8, !tbaa !73
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -1007,7 +1007,7 @@ define dso_local void @ACLAddAllowedFirstArg(ptr noundef captures(none) %0, i64 
 
 16:                                               ; preds = %.lr.ph
   %17 = add nuw nsw i64 %.130, 1
-  %18 = getelementptr inbounds nuw ptr, ptr %12, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !29
   %.not25 = icmp eq ptr %19, null
   br i1 %.not25, label %.loopexit, label %.lr.ph, !llvm.loop !76
@@ -1018,13 +1018,13 @@ define dso_local void @ACLAddAllowedFirstArg(ptr noundef captures(none) %0, i64 
   %21 = add i64 %20, 16
   %22 = tail call ptr @zrealloc(ptr noundef %12, i64 noundef %21) #30
   %23 = load ptr, ptr %4, align 8, !tbaa !66
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %1
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %1
   store ptr %22, ptr %24, align 8, !tbaa !73
   %25 = tail call ptr @sdsnew(ptr noundef %2) #25
   %26 = load ptr, ptr %4, align 8, !tbaa !66
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %1
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %1
   %28 = load ptr, ptr %27, align 8, !tbaa !73
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.0
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.0
   store ptr %25, ptr %29, align 8, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr null, ptr %30, align 8, !tbaa !29
@@ -1378,7 +1378,7 @@ define dso_local range(i32 0, 2) i32 @ACLGetSelectorCommandBit(ptr noundef reado
   %5 = lshr i64 %1, 6
   %6 = and i64 %1, 63
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = getelementptr inbounds nuw i64, ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %5
   %9 = load i64, ptr %8, align 8, !tbaa !5
   %10 = lshr i64 %9, %6
   %11 = trunc i64 %10 to i32
@@ -1413,7 +1413,7 @@ define dso_local void @ACLSetSelectorCommandBit(ptr noundef captures(none) %0, i
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %6
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %6
   %12 = load i64, ptr %11, align 8, !tbaa !5
   %13 = or i64 %12, %8
   store i64 %13, ptr %11, align 8, !tbaa !5
@@ -1422,7 +1422,7 @@ define dso_local void @ACLSetSelectorCommandBit(ptr noundef captures(none) %0, i
 14:                                               ; preds = %5
   %15 = xor i64 %8, -1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %6
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %6
   %18 = load i64, ptr %17, align 8, !tbaa !5
   %19 = and i64 %18, %15
   store i64 %19, ptr %17, align 8, !tbaa !5
@@ -1699,7 +1699,7 @@ define dso_local void @ACLChangeSelectorPerm(ptr noundef captures(none) %0, ptr 
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %9
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %9
   %15 = load i64, ptr %14, align 8, !tbaa !5
   %16 = or i64 %15, %11
   store i64 %16, ptr %14, align 8, !tbaa !5
@@ -1708,7 +1708,7 @@ define dso_local void @ACLChangeSelectorPerm(ptr noundef captures(none) %0, ptr 
 17:                                               ; preds = %8
   %18 = xor i64 %11, -1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %9
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %9
   %21 = load i64, ptr %20, align 8, !tbaa !5
   %22 = and i64 %21, %18
   store i64 %22, ptr %20, align 8, !tbaa !5
@@ -1724,7 +1724,7 @@ ACLSetSelectorCommandBit.exit:                    ; preds = %3, %12, %17
   br i1 %.not.i15, label %ACLResetFirstArgsForCommand.exit, label %27
 
 27:                                               ; preds = %ACLSetSelectorCommandBit.exit
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %6
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %6
   %29 = load ptr, ptr %28, align 8, !tbaa !73
   %.not15.i = icmp eq ptr %29, null
   br i1 %.not15.i, label %ACLResetFirstArgsForCommand.exit, label %.preheader.i
@@ -1738,7 +1738,7 @@ ACLSetSelectorCommandBit.exit:                    ; preds = %3, %12, %17
   %.lcssa.i = phi ptr [ %29, %.preheader.i ], [ %36, %.lr.ph.i ]
   tail call void @zfree(ptr noundef nonnull %.lcssa.i) #25
   %31 = load ptr, ptr %25, align 8, !tbaa !66
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %6
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %6
   store ptr null, ptr %32, align 8, !tbaa !73
   br label %ACLResetFirstArgsForCommand.exit
 
@@ -1748,9 +1748,9 @@ ACLSetSelectorCommandBit.exit:                    ; preds = %3, %12, %17
   tail call void @sdsfree(ptr noundef nonnull %33) #25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = load ptr, ptr %25, align 8, !tbaa !66
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %6
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %6
   %36 = load ptr, ptr %35, align 8, !tbaa !73
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.next.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.next.i
   %38 = load ptr, ptr %37, align 8, !tbaa !29
   %.not16.i = icmp eq ptr %38, null
   br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !110
@@ -1786,7 +1786,7 @@ ACLResetFirstArgsForCommand.exit:                 ; preds = %ACLSetSelectorComma
   %53 = and i64 %51, 63
   %54 = shl nuw i64 1, %53
   %55 = xor i64 %54, -1
-  %56 = getelementptr inbounds nuw i64, ptr %44, i64 %52
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %52
   %57 = load i64, ptr %56, align 8, !tbaa !5
   %58 = and i64 %57, %55
   store i64 %58, ptr %56, align 8, !tbaa !5
@@ -1813,7 +1813,7 @@ ACLSetSelectorCommandBit.exit17.us:               ; preds = %50, %.lr.ph.split.u
   %69 = lshr i64 %68, 6
   %70 = and i64 %68, 63
   %71 = shl nuw i64 1, %70
-  %72 = getelementptr inbounds nuw i64, ptr %44, i64 %69
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %69
   %73 = load i64, ptr %72, align 8, !tbaa !5
   %74 = or i64 %73, %71
   store i64 %74, ptr %72, align 8, !tbaa !5
@@ -1840,7 +1840,7 @@ define dso_local void @ACLResetFirstArgsForCommand(ptr noundef readonly captures
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %1
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %1
   %7 = load ptr, ptr %6, align 8, !tbaa !73
   %.not15 = icmp eq ptr %7, null
   br i1 %.not15, label %17, label %.preheader
@@ -1854,7 +1854,7 @@ define dso_local void @ACLResetFirstArgsForCommand(ptr noundef readonly captures
   %.lcssa = phi ptr [ %7, %.preheader ], [ %14, %.lr.ph ]
   tail call void @zfree(ptr noundef nonnull %.lcssa) #25
   %9 = load ptr, ptr %3, align 8, !tbaa !66
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %1
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %1
   store ptr null, ptr %10, align 8, !tbaa !73
   br label %17
 
@@ -1864,9 +1864,9 @@ define dso_local void @ACLResetFirstArgsForCommand(ptr noundef readonly captures
   tail call void @sdsfree(ptr noundef nonnull %11) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load ptr, ptr %3, align 8, !tbaa !66
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %1
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !73
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.next
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.next
   %16 = load ptr, ptr %15, align 8, !tbaa !29
   %.not16 = icmp eq ptr %16, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !110
@@ -2017,7 +2017,7 @@ define dso_local void @ACLRecomputeCommandBitsFromCommandRulesAllUsers() local_u
 
 .lr.ph:                                           ; preds = %31, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %31 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !29
   %41 = getelementptr inbounds i8, ptr %40, i64 -1
   %42 = load i8, ptr %41, align 1, !tbaa !19
@@ -2190,7 +2190,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
 .preheader18.i:                                   ; preds = %39, %60
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %60 ], [ 0, %39 ]
   %50 = load ptr, ptr %45, align 8, !tbaa !66
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv24.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv24.i
   %52 = load ptr, ptr %51, align 8, !tbaa !73
   %.not.i = icmp eq ptr %52, null
   br i1 %.not.i, label %60, label %.preheader.i
@@ -2211,9 +2211,9 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   tail call void @sdsfree(ptr noundef nonnull %54) #25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %55 = load ptr, ptr %45, align 8, !tbaa !66
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv24.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv24.i
   %57 = load ptr, ptr %56, align 8, !tbaa !73
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv.next.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv.next.i
   %59 = load ptr, ptr %58, align 8, !tbaa !29
   %.not17.i = icmp eq ptr %59, null
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !74
@@ -2285,7 +2285,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelector(ptr noundef captures(none)
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 %.0139196
   %85 = load i8, ptr %84, align 1, !tbaa !19
   %86 = sext i8 %85 to i64
-  %87 = getelementptr inbounds i32, ptr %82, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %82, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !102
   %89 = icmp eq i32 %88, 82
   %90 = and i32 %.0136197, 1
@@ -2596,7 +2596,7 @@ define dso_local range(i32 -1, 1) i32 @ACLSetSelectorCategory(ptr noundef captur
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i13, 1
-  %10 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %5, i64 %indvars.iv.next.i
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.next.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !15
   %.not.i = icmp eq i64 %12, 0
@@ -2650,7 +2650,7 @@ ACLGetSelectorCommandBit.exit:                    ; preds = %15
   %19 = zext nneg i32 %17 to i64
   %20 = lshr i64 %19, 6
   %21 = and i64 %19, 63
-  %22 = getelementptr inbounds nuw i64, ptr %8, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %20
   %23 = load i64, ptr %22, align 8, !tbaa !5
   %24 = shl nuw i64 1, %21
   %25 = and i64 %23, %24
@@ -2704,7 +2704,7 @@ define dso_local range(i32 -1, 1) i32 @ACLCountCategoryBitsForSelector(ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i13, 1
-  %10 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %5, i64 %indvars.iv.next.i
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.next.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !15
   %.not.i = icmp eq i64 %12, 0
@@ -2843,7 +2843,7 @@ sdslen.exit:                                      ; preds = %40, %43, %47, %51, 
 
 .lr.ph:                                           ; preds = %.preheader, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.preheader ]
-  %58 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !tbaa !29
   %60 = call i32 @ACLSetSelector(ptr noundef nonnull %4, ptr noundef %59, i64 noundef -1)
   %61 = icmp eq i32 %60, 0
@@ -3011,7 +3011,7 @@ define dso_local ptr @ACLDescribeUser(ptr noundef captures(none) %0) local_unnam
   br i1 %.not39, label %24, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw %struct.ACLUserFlag, ptr @ACLUserFlags, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr @ACLUserFlags, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 16, !tbaa !136
   %22 = tail call ptr @sdscat(ptr noundef %.02942, ptr noundef %21) #25
   %23 = tail call ptr @sdscatlen(ptr noundef %22, ptr noundef nonnull @.str.40, i64 noundef 1) #25
@@ -3020,7 +3020,7 @@ define dso_local ptr @ACLDescribeUser(ptr noundef captures(none) %0) local_unnam
 24:                                               ; preds = %14, %19
   %.1 = phi ptr [ %23, %19 ], [ %.02942, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds nuw %struct.ACLUserFlag, ptr @ACLUserFlags, i64 %indvars.iv.next
+  %25 = getelementptr inbounds nuw [16 x i8], ptr @ACLUserFlags, i64 %indvars.iv.next
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !134
   %.not35 = icmp eq i64 %27, 0
@@ -3160,7 +3160,7 @@ define dso_local noundef ptr @aclCreateSelectorFromOpSet(ptr noundef %0, i64 nou
 
 .lr.ph:                                           ; preds = %11, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %11 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !29
   %40 = getelementptr inbounds i8, ptr %39, i64 -1
   %41 = load i8, ptr %40, align 1, !tbaa !19
@@ -3721,19 +3721,19 @@ define dso_local void @ACLInit() local_unnamed_addr #0 {
   unreachable
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr @ACLDefaultCommandCategories, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [16 x i8], ptr @ACLDefaultCommandCategories, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 16, !tbaa !12
   %12 = tail call noalias ptr @zstrdup(ptr noundef %11) #25
   %13 = load ptr, ptr @ACLCommandCategories, align 8, !tbaa !9
   %14 = load i64, ptr @nextCommandCategory, align 8, !tbaa !5
-  %15 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %14
   store ptr %12, ptr %15, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %6, ptr %16, align 8, !tbaa !15
   %17 = add i64 %14, 1
   store i64 %17, ptr @nextCommandCategory, align 8, !tbaa !5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %18 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr @ACLDefaultCommandCategories, i64 %indvars.iv.next.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @ACLDefaultCommandCategories, i64 %indvars.iv.next.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !15
   %.not.i = icmp eq i64 %20, 0
@@ -4219,7 +4219,7 @@ ACLUpdateInfoMetrics.exit:                        ; preds = %8, %11, %14, %17
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %67 = load ptr, ptr %66, align 8, !tbaa !167
   %68 = sext i32 %3 to i64
-  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %67, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !168
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   br label %.sink.split
@@ -4228,7 +4228,7 @@ ACLUpdateInfoMetrics.exit:                        ; preds = %8, %11, %14, %17
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %74 = load ptr, ptr %73, align 8, !tbaa !167
   %75 = sext i32 %3 to i64
-  %76 = getelementptr inbounds ptr, ptr %74, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %74, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !168
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   br label %.sink.split
@@ -4887,7 +4887,7 @@ ACLGetSelectorCommandBit.exit:                    ; preds = %17
   %19 = lshr i64 %10, 6
   %20 = and i64 %10, 63
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %19
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %19
   %23 = load i64, ptr %22, align 8, !tbaa !5
   %24 = shl nuw i64 1, %20
   %25 = and i64 %23, %24
@@ -4905,7 +4905,7 @@ ACLGetSelectorCommandBit.exit.thread:             ; preds = %17, %ACLGetSelector
   br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %10
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %10
   %34 = load ptr, ptr %33, align 8, !tbaa !73
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.critedge, label %.preheader
@@ -4916,7 +4916,7 @@ ACLGetSelectorCommandBit.exit.thread:             ; preds = %17, %ACLGetSelector
 
 37:                                               ; preds = %.preheader, %40
   %.094 = phi i64 [ %48, %40 ], [ 0, %.preheader ]
-  %38 = getelementptr inbounds nuw ptr, ptr %34, i64 %.094
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.094
   %39 = load ptr, ptr %38, align 8, !tbaa !29
   %.not106 = icmp eq ptr %39, null
   br i1 %.not106, label %.critedge, label %40
@@ -4925,7 +4925,7 @@ ACLGetSelectorCommandBit.exit.thread:             ; preds = %17, %ACLGetSelector
   %41 = load ptr, ptr %36, align 8, !tbaa !127
   %.not104 = icmp eq ptr %41, null
   %42 = select i1 %.not104, i64 1, i64 2
-  %43 = getelementptr inbounds nuw ptr, ptr %2, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !168
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !144
@@ -4977,10 +4977,10 @@ ACLGetSelectorCommandBit.exit.thread:             ; preds = %17, %ACLGetSelector
 
 .lr.ph:                                           ; preds = %57, %62
   %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %57 ]
-  %65 = getelementptr inbounds nuw %struct.keyReference, ptr %60, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !182
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds ptr, ptr %2, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %2, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !168
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !144
@@ -5068,7 +5068,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %76, %79, %
 111:                                              ; preds = %.lr.ph145, %150
   %112 = phi i32 [ %108, %.lr.ph145 ], [ %151, %150 ]
   %indvars.iv153 = phi i64 [ 0, %.lr.ph145 ], [ %indvars.iv.next154, %150 ]
-  %113 = getelementptr inbounds nuw %struct.keyReference, ptr %107, i64 %indvars.iv153
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv153
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
   %115 = load i32, ptr %114, align 4, !tbaa !184
   %116 = and i32 %115, 20480
@@ -5080,7 +5080,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %76, %79, %
   %119 = and i32 %115, 2048
   %120 = load ptr, ptr %110, align 8, !tbaa !65
   %121 = sext i32 %118 to i64
-  %122 = getelementptr inbounds ptr, ptr %2, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %2, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !168
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load ptr, ptr %124, align 8, !tbaa !144
@@ -5954,7 +5954,7 @@ define dso_local ptr @ACLMergeSelectorArguments(ptr noundef readonly captures(no
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %84 ]
   %.04252 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %84 ]
   %.04351 = phi i32 [ -1, %.lr.ph.preheader ], [ %.144, %84 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !29
   %cond = icmp eq i32 %.04351, -1
   br i1 %cond, label %13, label %45
@@ -6071,7 +6071,7 @@ sdslen.exit50:                                    ; preds = %45, %51, %54, %58, 
 73:                                               ; preds = %sdslen.exit50
   %74 = load i32, ptr %2, align 4, !tbaa !102
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds ptr, ptr %7, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %7, i64 %75
   store ptr %46, ptr %76, align 8, !tbaa !29
   %77 = add nsw i32 %74, 1
   store i32 %77, ptr %2, align 4, !tbaa !102
@@ -6081,7 +6081,7 @@ sdslen.exit50:                                    ; preds = %45, %51, %54, %58, 
   %79 = tail call ptr @sdsdup(ptr noundef nonnull %12) #25
   %80 = load i32, ptr %2, align 4, !tbaa !102
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds ptr, ptr %7, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %7, i64 %81
   store ptr %79, ptr %82, align 8, !tbaa !29
   %83 = add nsw i32 %80, 1
   store i32 %83, ptr %2, align 4, !tbaa !102
@@ -6102,7 +6102,7 @@ sdslen.exit50:                                    ; preds = %45, %51, %54, %58, 
 
 .lr.ph57:                                         ; preds = %.preheader, %.lr.ph57
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.lr.ph57 ], [ 0, %.preheader ]
-  %85 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv60
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv60
   %86 = load ptr, ptr %85, align 8, !tbaa !29
   tail call void @sdsfree(ptr noundef %86) #25
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
@@ -6146,7 +6146,7 @@ define dso_local ptr @ACLStringSetUser(ptr noundef captures(address) %0, ptr nou
   %14 = call ptr @sdsempty() #25
   %15 = load i32, ptr %6, align 4, !tbaa !102
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %2, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %2, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %14, ptr noundef nonnull @.str.92, ptr noundef %18) #25
   br label %142
@@ -6210,7 +6210,7 @@ ACLCopyUser.exit:                                 ; preds = %42, %39, %20
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !29
   %48 = getelementptr inbounds i8, ptr %47, i64 -1
   %49 = load i8, ptr %48, align 1, !tbaa !19
@@ -6259,7 +6259,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %52, %55, %
   br i1 %.not44, label %45, label %71
 
 71:                                               ; preds = %sdslen.exit
-  %72 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %73 = tail call ptr @__errno_location() #28
   %74 = load i32, ptr %73, align 4, !tbaa !102
   switch i32 %74, label %.fold.split.i [
@@ -6437,7 +6437,7 @@ ACLFreeUser.exit:                                 ; preds = %ACLCopyUser.exit52,
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
   %indvars.iv70 = phi i64 [ 0, %.lr.ph66.preheader ], [ %indvars.iv.next71, %.lr.ph66 ]
-  %140 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv70
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv70
   %141 = load ptr, ptr %140, align 8, !tbaa !29
   call void @sdsfree(ptr noundef %141) #25
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
@@ -6512,7 +6512,7 @@ define dso_local range(i32 -1, 1) i32 @ACLAppendUserForLoading(ptr noundef reado
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %61 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !29
   %29 = getelementptr inbounds i8, ptr %28, i64 -1
   %30 = load i8, ptr %29, align 1, !tbaa !19
@@ -6582,7 +6582,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %33, %36, %
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
   %indvars.iv76 = phi i64 [ 0, %.lr.ph72.preheader ], [ %indvars.iv.next77, %.lr.ph72 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv76
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv76
   %60 = load ptr, ptr %59, align 8, !tbaa !29
   tail call void @sdsfree(ptr noundef %60) #25
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
@@ -6610,7 +6610,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %33, %36, %
 
 ._crit_edge:                                      ; preds = %.lr.ph66, %.critedge
   %68 = sext i32 %26 to i64
-  %69 = getelementptr ptr, ptr %65, i64 %68
+  %69 = getelementptr [8 x i8], ptr %65, i64 %68
   %70 = getelementptr i8, ptr %69, i64 8
   store ptr null, ptr %70, align 8, !tbaa !29
   %71 = load ptr, ptr @UsersToLoad, align 8, !tbaa !142
@@ -6643,18 +6643,18 @@ ACLFreeUser.exit:                                 ; preds = %._crit_edge, %76
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
   %indvars.iv81 = phi i64 [ 0, %.lr.ph66.preheader ], [ %indvars.iv.next82, %.lr.ph66 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv81
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv81
   %82 = load ptr, ptr %81, align 8, !tbaa !29
   %83 = tail call ptr @sdsdup(ptr noundef %82) #25
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %84 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.next82
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.next82
   store ptr %83, ptr %84, align 8, !tbaa !29
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
   br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph66, !llvm.loop !206
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
   %indvars.iv86 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next87, %.lr.ph68 ]
-  %85 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv86
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv86
   %86 = load ptr, ptr %85, align 8, !tbaa !29
   tail call void @sdsfree(ptr noundef %86) #25
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
@@ -6752,7 +6752,7 @@ sdslen.exit:                                      ; preds = %13, %16, %20, %24, 
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 %.0811.i
   %37 = load i8, ptr %36, align 1, !tbaa !19
   %38 = sext i8 %37 to i64
-  %39 = getelementptr inbounds i16, ptr %32, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %32, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !26
   %41 = and i16 %40, 8192
   %.not.i = icmp ne i16 %41, 0
@@ -6841,7 +6841,7 @@ sdslen.exit45:                                    ; preds = %.lr.ph59, %sdslen.e
 
 76:                                               ; preds = %sdslen.exit47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next
   %78 = load ptr, ptr %77, align 8, !tbaa !29
   %.not38 = icmp eq ptr %78, null
   br i1 %.not38, label %.critedge, label %.lr.ph, !llvm.loop !208
@@ -6896,7 +6896,7 @@ sdslen.exit47:                                    ; preds = %.lr.ph, %84, %87, %
   br i1 %.not39, label %76, label %103
 
 103:                                              ; preds = %sdslen.exit47
-  %104 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %105 = tail call ptr @__errno_location() #28
   %106 = load i32, ptr %105, align 4, !tbaa !102
   switch i32 %106, label %.fold.split.i [
@@ -7079,7 +7079,7 @@ sdslen.exit:                                      ; preds = %34, %37, %41, %45, 
   %.0112189 = phi ptr [ %.1113, %230 ], [ %23, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %53 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv206
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv206
   %54 = load ptr, ptr %53, align 8, !tbaa !29
   %55 = call ptr @sdstrim(ptr noundef %54, ptr noundef nonnull @.str.103) #25
   store ptr %55, ptr %53, align 8, !tbaa !29
@@ -7228,7 +7228,7 @@ sdslen.exit148:                                   ; preds = %108, %111, %115, %1
   %131 = getelementptr inbounds nuw i8, ptr %103, i64 %.0811.i
   %132 = load i8, ptr %131, align 1, !tbaa !19
   %133 = sext i8 %132 to i64
-  %134 = getelementptr inbounds i16, ptr %127, i64 %133
+  %134 = getelementptr inbounds [2 x i8], ptr %127, i64 %133
   %135 = load i16, ptr %134, align 2, !tbaa !26
   %136 = and i16 %135, 8192
   %.not.i = icmp ne i16 %136, 0
@@ -7333,7 +7333,7 @@ sdslen.exit150:                                   ; preds = %101, %sdslen.exit14
   %indvars.iv = phi i64 [ 0, %.lr.ph182.preheader ], [ %indvars.iv.next, %223 ]
   %.4180 = phi ptr [ %.3, %.lr.ph182.preheader ], [ %.6, %223 ]
   %.0119178 = phi i32 [ 0, %.lr.ph182.preheader ], [ %.2121, %223 ]
-  %181 = getelementptr inbounds nuw ptr, ptr %170, i64 %indvars.iv
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %indvars.iv
   %182 = load ptr, ptr %181, align 8, !tbaa !29
   %183 = call ptr @sdstrim(ptr noundef %182, ptr noundef nonnull @.str.109) #25
   store ptr %183, ptr %181, align 8, !tbaa !29
@@ -7453,7 +7453,7 @@ ACLSetUserStringError.exit.thread:                ; preds = %ACLSetUserStringErr
 
 .lr.ph186:                                        ; preds = %.lr.ph186.preheader, %.lr.ph186
   %indvars.iv203 = phi i64 [ 0, %.lr.ph186.preheader ], [ %indvars.iv.next204, %.lr.ph186 ]
-  %228 = getelementptr inbounds nuw ptr, ptr %170, i64 %indvars.iv203
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %indvars.iv203
   %229 = load ptr, ptr %228, align 8, !tbaa !29
   call void @sdsfree(ptr noundef %229) #25
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
@@ -8626,7 +8626,7 @@ sdslen.exit:                                      ; preds = %32, %35, %39, %43, 
   %55 = getelementptr inbounds nuw i8, ptr %27, i64 %.0811.i
   %56 = load i8, ptr %55, align 1, !tbaa !19
   %57 = sext i8 %56 to i64
-  %58 = getelementptr inbounds i16, ptr %51, i64 %57
+  %58 = getelementptr inbounds [2 x i8], ptr %51, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !26
   %60 = and i16 %59, 8192
   %.not.i = icmp ne i16 %60, 0
@@ -8713,11 +8713,11 @@ sdslen.exit349:                                   ; preds = %._crit_edge419, %sd
 
 96:                                               ; preds = %.lr.ph421, %96
   %indvars.iv438 = phi i64 [ 3, %.lr.ph421 ], [ %indvars.iv.next439, %96 ]
-  %97 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv438
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv438
   %98 = load ptr, ptr %97, align 8, !tbaa !168
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !144
-  %101 = getelementptr ptr, ptr %89, i64 %indvars.iv438
+  %101 = getelementptr [8 x i8], ptr %89, i64 %indvars.iv438
   %102 = getelementptr i8, ptr %101, i64 -24
   store ptr %100, ptr %102, align 8, !tbaa !29
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
@@ -8768,7 +8768,7 @@ sdslen.exit349:                                   ; preds = %._crit_edge419, %sd
 
 .critedge335:                                     ; preds = %.critedge335.lr.ph, %116
   %indvars.iv432 = phi i64 [ 2, %.critedge335.lr.ph ], [ %indvars.iv.next433, %116 ]
-  %117 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv432
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv432
   %118 = load ptr, ptr %117, align 8, !tbaa !168
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !144
@@ -8793,7 +8793,7 @@ sdslen.exit349:                                   ; preds = %._crit_edge419, %sd
   %indvars.iv435 = phi i64 [ %indvars.iv.next436, %.critedge337 ], [ 2, %116 ]
   %.0269414 = phi i32 [ %.1270, %.critedge337 ], [ 0, %116 ]
   %124 = load ptr, ptr %15, align 8, !tbaa !167
-  %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv435
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv435
   %126 = load ptr, ptr %125, align 8, !tbaa !168
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8, !tbaa !144
@@ -8976,7 +8976,7 @@ sdslen.exit353:                                   ; preds = %165, %175, %178, %1
   br i1 %.not307, label %218, label %214
 
 214:                                              ; preds = %209
-  %215 = getelementptr inbounds nuw %struct.ACLUserFlag, ptr @ACLUserFlags, i64 %indvars.iv429
+  %215 = getelementptr inbounds nuw [16 x i8], ptr @ACLUserFlags, i64 %indvars.iv429
   %216 = load ptr, ptr %215, align 16, !tbaa !136
   call void @addReplyBulkCString(ptr noundef %0, ptr noundef %216) #25
   %217 = add nsw i32 %.0275396, 1
@@ -8985,7 +8985,7 @@ sdslen.exit353:                                   ; preds = %165, %175, %178, %1
 218:                                              ; preds = %209, %214
   %.1276 = phi i32 [ %217, %214 ], [ %.0275396, %209 ]
   %indvars.iv.next430 = add nuw nsw i64 %indvars.iv429, 1
-  %219 = getelementptr inbounds nuw %struct.ACLUserFlag, ptr @ACLUserFlags, i64 %indvars.iv.next430
+  %219 = getelementptr inbounds nuw [16 x i8], ptr @ACLUserFlags, i64 %indvars.iv.next430
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %221 = load i64, ptr %220, align 8, !tbaa !134
   %.not303 = icmp eq i64 %221, 0
@@ -9381,7 +9381,7 @@ sdslen.exit360:                                   ; preds = %335, %341, %344, %3
   tail call void @addReplyBulkCString(ptr noundef nonnull %0, ptr noundef %404) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %405 = load ptr, ptr @ACLCommandCategories, align 8, !tbaa !9
-  %406 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %405, i64 %indvars.iv.next
+  %406 = getelementptr inbounds nuw [16 x i8], ptr %405, i64 %indvars.iv.next
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 8
   %408 = load i64, ptr %407, align 8, !tbaa !15
   %.not320 = icmp eq i64 %408, 0
@@ -9412,7 +9412,7 @@ sdslen.exit360:                                   ; preds = %335, %341, %344, %3
 .lr.ph385:                                        ; preds = %.lr.ph.i361.preheader, %.lr.ph.i361
   %indvars.iv.i384 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i361 ], [ 0, %.lr.ph.i361.preheader ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i384, 1
-  %419 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %414, i64 %indvars.iv.next.i
+  %419 = getelementptr inbounds nuw [16 x i8], ptr %414, i64 %indvars.iv.next.i
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 8
   %421 = load i64, ptr %420, align 8, !tbaa !15
   %.not.i362 = icmp eq i64 %421, 0
@@ -9588,7 +9588,7 @@ ACLGetCommandCategoryFlagByName.exit:             ; preds = %.lr.ph.i361, %.lr.p
 
 switch.lookup:                                    ; preds = %485
   %492 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.aclCommand, i64 %492
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.aclCommand, i64 %492
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %493
 
@@ -9603,7 +9603,7 @@ switch.lookup:                                    ; preds = %485
 
 switch.lookup491:                                 ; preds = %493
   %497 = zext nneg i32 %495 to i64
-  %switch.gep492 = getelementptr inbounds nuw ptr, ptr @switch.table.aclCommand.1, i64 %497
+  %switch.gep492 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.aclCommand.1, i64 %497
   %switch.load493 = load ptr, ptr %switch.gep492, align 8
   br label %498
 
@@ -9858,7 +9858,7 @@ sdslen.exit368:                                   ; preds = %sdslen.exit366, %55
   %631 = load ptr, ptr %15, align 8, !tbaa !167
   %632 = load i32, ptr %13, align 4, !tbaa !102
   %633 = sext i32 %632 to i64
-  %634 = getelementptr ptr, ptr %631, i64 %633
+  %634 = getelementptr [8 x i8], ptr %631, i64 %633
   %635 = getelementptr i8, ptr %634, i64 24
   %636 = load ptr, ptr %635, align 8, !tbaa !168
   %637 = getelementptr inbounds nuw i8, ptr %636, i64 8
@@ -9986,7 +9986,7 @@ define dso_local void @addReplyCommandCategories(ptr noundef %0, ptr noundef rea
   %19 = phi ptr [ %.pre, %15 ], [ %10, %9 ]
   %.1 = phi i32 [ %17, %15 ], [ %.01014, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %19, i64 %indvars.iv.next
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv.next
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !15
   %.not = icmp eq i64 %22, 0

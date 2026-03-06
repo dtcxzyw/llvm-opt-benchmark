@@ -309,7 +309,7 @@ dissect_do_message.exit.thread.thread:            ; preds = %63
 
 switch.lookup:                                    ; preds = %86
   %91 = zext nneg i8 %89 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_do, i64 %91
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_do, i64 %91
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %do_add_message_tree.exit.i
 
@@ -336,7 +336,7 @@ do_add_message_tree.exit.i:                       ; preds = %86, %switch.lookup
 
 switch.lookup46:                                  ; preds = %do_add_message_tree.exit.i
   %106 = zext nneg i8 %89 to i64
-  %switch.gep47 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_do.2, i64 %106
+  %switch.gep47 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_do.2, i64 %106
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %dissect_do_message.exit
 

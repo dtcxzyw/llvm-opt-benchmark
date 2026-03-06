@@ -26,10 +26,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.decoration = type { ptr, i32, i32, ptr }
 %struct.oidset = type { %struct.kh_oid_set }
 %struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.refspec_item = type { i8, ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.object_array_entry = type { ptr, ptr, ptr, i32 }
 %union.git_hash_ctx = type { %struct.SHA1_CTX }
 %struct.SHA1_CTX = type { i64, [5 x i32], [64 x i8], i32, i32, i32, i32, i32, ptr, [5 x i32], [5 x i32], [80 x i32], [80 x i32], [80 x [5 x i32]] }
 %struct.remote_ls_ctx = type { ptr, ptr, ptr, i32, ptr, i32, ptr }
@@ -622,7 +620,7 @@ run_request_queue.exit:                           ; preds = %180
 183:                                              ; preds = %run_request_queue.exit
   %184 = load ptr, ptr %9, align 8, !tbaa !48
   %185 = zext nneg i32 %.0101227 to i64
-  %186 = getelementptr inbounds nuw %struct.refspec_item, ptr %184, i64 %185
+  %186 = getelementptr inbounds nuw [32 x i8], ptr %184, i64 %185
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %188 = load ptr, ptr %187, align 8, !tbaa !51
   %189 = call fastcc i32 @delete_remote_branch(ptr noundef %188, i32 noundef %.0104230)
@@ -1610,7 +1608,7 @@ define internal fastcc i32 @get_delta(ptr noundef nonnull %0, ptr noundef nonnul
   %.148 = phi ptr [ %.0.lcssa, %.lr.ph49 ], [ %.2, %44 ]
   %.03447 = phi i64 [ 0, %.lr.ph49 ], [ %45, %44 ]
   %20 = load ptr, ptr %6, align 8, !tbaa !130
-  %21 = getelementptr inbounds nuw %struct.object_array_entry, ptr %20, i64 %.03447
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %.03447
   %22 = load ptr, ptr %21, align 8, !tbaa !131
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 48
@@ -2931,7 +2929,7 @@ define internal void @process_ls_object(ptr noundef readonly captures(none) %0) 
 
 28:                                               ; preds = %30, %24
   %.0811.i.i = phi i64 [ 0, %24 ], [ %31, %30 ]
-  %29 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %29 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %27, %29
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %30
 
@@ -3951,7 +3949,7 @@ define internal fastcc void @fetch_symref(ptr noundef %0, ptr noundef nonnull ca
 
 15:                                               ; preds = %17, %10
   %.0811.i.i = phi i64 [ 0, %10 ], [ %18, %17 ]
-  %16 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %16 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %14, %16
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %17
 

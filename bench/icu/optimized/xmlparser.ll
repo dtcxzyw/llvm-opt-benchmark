@@ -830,7 +830,7 @@ define noundef ptr @_ZN6icu_7710UXMLParser9parseFileEPKcR10UErrorCode(ptr nounde
   %49 = load i32, ptr %48, align 8
   %50 = sext i32 %49 to i64
   %51 = select i1 %.not.i, i64 %50, i64 27
-  %52 = getelementptr inbounds i16, ptr %41, i64 %51
+  %52 = getelementptr inbounds [2 x i8], ptr %41, i64 %51
   %53 = sext i32 %22 to i64
   %54 = getelementptr inbounds i8, ptr %4, i64 %53
   invoke void @ucnv_toUnicode_77(ptr noundef %36, ptr noundef nonnull %8, ptr noundef nonnull %52, ptr noundef nonnull %6, ptr noundef nonnull %54, ptr noundef null, i8 noundef signext 1, ptr noundef nonnull %2)
@@ -1182,7 +1182,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %.noexc121, %134
 
 206:                                              ; preds = %203
   %207 = sext i32 %201 to i64
-  %208 = getelementptr inbounds i16, ptr %202, i64 %207
+  %208 = getelementptr inbounds [2 x i8], ptr %202, i64 %207
   store ptr %208, ptr %8, align 8, !tbaa !21
   %209 = load i16, ptr %13, align 8, !tbaa !17
   %210 = and i16 %209, 2
@@ -1190,7 +1190,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %.noexc121, %134
   %211 = load i32, ptr %191, align 8
   %212 = sext i32 %211 to i64
   %213 = select i1 %.not.i122, i64 %212, i64 27
-  %214 = getelementptr inbounds i16, ptr %202, i64 %213
+  %214 = getelementptr inbounds [2 x i8], ptr %202, i64 %213
   invoke void @ucnv_toUnicode_77(ptr noundef %.088, ptr noundef nonnull %8, ptr noundef nonnull %214, ptr noundef nonnull %6, ptr noundef nonnull %194, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %2)
           to label %215 unwind label %.loopexit
 
@@ -2641,7 +2641,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %.preheader67, %104
   %.not.i.i.i = icmp eq i16 %97, 0
   %98 = load ptr, ptr %22, align 8
   %99 = select i1 %.not.i.i.i, ptr %98, ptr %21
-  %100 = getelementptr inbounds nuw i16, ptr %99, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %99, i64 %indvars.iv
   %101 = load i16, ptr %100, align 2, !tbaa !59
   %102 = zext i16 %101 to i32
   %103 = invoke i32 @u_digit_77(i32 noundef %102, i8 noundef signext 16)
@@ -2737,7 +2737,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit63:       ; preds = %.preheader, %145
   %.not.i.i.i62 = icmp eq i16 %138, 0
   %139 = load ptr, ptr %26, align 8
   %140 = select i1 %.not.i.i.i62, ptr %139, ptr %25
-  %141 = getelementptr inbounds nuw i16, ptr %140, i64 %indvars.iv88
+  %141 = getelementptr inbounds nuw [2 x i8], ptr %140, i64 %indvars.iv88
   %142 = load i16, ptr %141, align 2, !tbaa !59
   %143 = zext i16 %142 to i32
   %144 = invoke i32 @u_digit_77(i32 noundef %143, i8 noundef signext 10)

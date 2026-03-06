@@ -251,7 +251,7 @@ define dso_local void @intel_print_wm_latency(ptr noundef readonly captures(addr
 
 .split.us:                                        ; preds = %7, %29
   %11 = phi i64 [ %30, %29 ], [ 0, %7 ]
-  %12 = getelementptr i16, ptr %2, i64 %11
+  %12 = getelementptr [2 x i8], ptr %2, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = icmp eq i16 %13, 0
   br i1 %14, label %27, label %15
@@ -285,7 +285,7 @@ define dso_local void @intel_print_wm_latency(ptr noundef readonly captures(addr
 
 .split:                                           ; preds = %7, %54
   %34 = phi i64 [ %55, %54 ], [ 0, %7 ]
-  %35 = getelementptr i16, ptr %2, i64 %34
+  %35 = getelementptr [2 x i8], ptr %2, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = icmp eq i16 %36, 0
   br i1 %37, label %38, label %41
@@ -462,9 +462,9 @@ define internal fastcc noundef range(i64 -22, 32) i64 @wm_latency_write(ptr %.20
 
 .preheader:                                       ; preds = %24, %.preheader
   %27 = phi i64 [ %31, %.preheader ], [ 0, %24 ]
-  %28 = getelementptr i16, ptr %4, i64 %27
+  %28 = getelementptr [2 x i8], ptr %4, i64 %27
   %29 = load i16, ptr %28, align 2
-  %30 = getelementptr i16, ptr %2, i64 %27
+  %30 = getelementptr [2 x i8], ptr %2, i64 %27
   store i16 %29, ptr %30, align 2
   %31 = add nuw nsw i64 %27, 1
   %32 = load i8, ptr %20, align 8
@@ -522,7 +522,7 @@ define internal noundef i32 @pri_wm_latency_show(ptr noundef %0, ptr readnone ca
 
 15:                                               ; preds = %32, %13
   %16 = phi i64 [ 0, %13 ], [ %37, %32 ]
-  %17 = getelementptr i16, ptr %9, i64 %16
+  %17 = getelementptr [2 x i8], ptr %9, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
   %20 = load i16, ptr %5, align 8
@@ -622,7 +622,7 @@ define internal noundef i32 @spr_wm_latency_show(ptr noundef %0, ptr readnone ca
 
 15:                                               ; preds = %32, %13
   %16 = phi i64 [ 0, %13 ], [ %37, %32 ]
-  %17 = getelementptr i16, ptr %9, i64 %16
+  %17 = getelementptr [2 x i8], ptr %9, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
   %20 = load i16, ptr %5, align 8
@@ -719,7 +719,7 @@ define internal noundef i32 @cur_wm_latency_show(ptr noundef %0, ptr readnone ca
 
 15:                                               ; preds = %32, %13
   %16 = phi i64 [ 0, %13 ], [ %37, %32 ]
-  %17 = getelementptr i16, ptr %9, i64 %16
+  %17 = getelementptr [2 x i8], ptr %9, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
   %20 = load i16, ptr %5, align 8

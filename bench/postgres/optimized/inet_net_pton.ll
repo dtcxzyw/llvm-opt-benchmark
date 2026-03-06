@@ -35,7 +35,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
   %12 = sext i8 %11 to i32
   %13 = load ptr, ptr %8, align 8
   %14 = zext i8 %11 to i64
-  %15 = getelementptr inbounds nuw i16, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 2048
   %.not.i = icmp eq i16 %17, 0
@@ -63,7 +63,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
 
 28:                                               ; preds = %24
   %29 = zext i8 %26 to i64
-  %30 = getelementptr inbounds nuw i16, ptr %13, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 2048
   %.not67.i = icmp eq i16 %32, 0
@@ -98,7 +98,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
   %40 = load ptr, ptr %8, align 8
   %41 = load i8, ptr %.156.i, align 1
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw i16, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = and i16 %44, 2048
   %.not69.i = icmp ne i16 %45, 0
@@ -124,7 +124,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
 
 53:                                               ; preds = %.preheader86.i
   %54 = zext i8 %52 to i64
-  %55 = getelementptr inbounds nuw i16, ptr %40, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %54
   %56 = load i16, ptr %55, align 2
   %57 = and i16 %56, 2048
   %.not72.i = icmp eq i16 %57, 0
@@ -196,7 +196,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i64
-  %88 = getelementptr inbounds nuw i16, ptr %84, i64 %87
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %84, i64 %87
   %89 = load i16, ptr %88, align 2
   %90 = and i16 %89, 4096
   %.not.i20 = icmp eq i16 %90, 0
@@ -224,7 +224,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
   %96 = sext i8 %94 to i32
   %97 = load ptr, ptr %83, align 8
   %98 = zext i8 %94 to i64
-  %99 = getelementptr inbounds nuw i16, ptr %97, i64 %98
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %97, i64 %98
   %100 = load i16, ptr %99, align 2
   %101 = zext i16 %100 to i32
   %102 = and i32 %101, 4096
@@ -239,7 +239,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
 105:                                              ; preds = %103
   %106 = tail call ptr @__ctype_tolower_loc() #7
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %98
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %98
   %109 = load i32, ptr %108, align 4
   br label %110
 
@@ -302,7 +302,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
   %136 = tail call ptr @__ctype_b_loc() #7
   %137 = load ptr, ptr %136, align 8
   %138 = zext i8 %78 to i64
-  %139 = getelementptr inbounds nuw i16, ptr %137, i64 %138
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %137, i64 %138
   %140 = load i16, ptr %139, align 2
   %141 = and i16 %140, 2048
   %.not121.i = icmp eq i16 %141, 0
@@ -339,7 +339,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
 
 154:                                              ; preds = %150
   %155 = zext i8 %152 to i64
-  %156 = getelementptr inbounds nuw i16, ptr %142, i64 %155
+  %156 = getelementptr inbounds nuw [2 x i8], ptr %142, i64 %155
   %157 = load i16, ptr %156, align 2
   %158 = and i16 %157, 2048
   %.not123.i = icmp eq i16 %158, 0
@@ -365,7 +365,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
   %166 = load i8, ptr %151, align 1
   %167 = load ptr, ptr %136, align 8
   %168 = zext i8 %166 to i64
-  %169 = getelementptr inbounds nuw i16, ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [2 x i8], ptr %167, i64 %168
   %170 = load i16, ptr %169, align 2
   %171 = and i16 %170, 2048
   %.not125.i = icmp eq i16 %171, 0
@@ -384,7 +384,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
   %175 = load ptr, ptr %174, align 8
   %176 = load i8, ptr %.1.i17, align 1
   %177 = zext i8 %176 to i64
-  %178 = getelementptr inbounds nuw i16, ptr %175, i64 %177
+  %178 = getelementptr inbounds nuw [2 x i8], ptr %175, i64 %177
   %179 = load i16, ptr %178, align 2
   %180 = and i16 %179, 2048
   %.not129.i = icmp ne i16 %180, 0
@@ -410,7 +410,7 @@ define dso_local i32 @pg_inet_net_pton(i32 noundef %0, ptr noundef readonly capt
 
 188:                                              ; preds = %.preheader.i19
   %189 = zext i8 %187 to i64
-  %190 = getelementptr inbounds nuw i16, ptr %175, i64 %189
+  %190 = getelementptr inbounds nuw [2 x i8], ptr %175, i64 %189
   %191 = load i16, ptr %190, align 2
   %192 = and i16 %191, 2048
   %.not132.i = icmp eq i16 %192, 0

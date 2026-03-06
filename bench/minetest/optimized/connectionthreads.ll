@@ -38,37 +38,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.70" = type { %"struct.std::_Vector_base<ConstSharedPtr<con::BufferedPacket>, std::allocator<ConstSharedPtr<con::BufferedPacket>>>::_Vector_impl" }
 %"struct.std::_Vector_base<ConstSharedPtr<con::BufferedPacket>, std::allocator<ConstSharedPtr<con::BufferedPacket>>>::_Vector_impl" = type { %"struct.std::_Vector_base<ConstSharedPtr<con::BufferedPacket>, std::allocator<ConstSharedPtr<con::BufferedPacket>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ConstSharedPtr<con::BufferedPacket>, std::allocator<ConstSharedPtr<con::BufferedPacket>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.con::Channel" = type { %"class.con::ReliablePacketBuffer", %"class.con::ReliablePacketBuffer", %"class.std::queue.57", %"class.std::deque.22", %"class.con::IncomingSplitBuffer", %"class.std::mutex", i16, i16, i16, i16, i32, i32, i32, float, i32, i32, i32, float, float, float, float, float, float, float, float, float, float, i32 }
-%"class.con::ReliablePacketBuffer" = type { %"class.std::__cxx11::list", i16, %"class.std::mutex" }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::shared_ptr<con::BufferedPacket>, std::allocator<std::shared_ptr<con::BufferedPacket>>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<std::shared_ptr<con::BufferedPacket>, std::allocator<std::shared_ptr<con::BufferedPacket>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.std::queue.57" = type { %"class.std::deque.58" }
-%"class.std::deque.58" = type { %"class.std::_Deque_base.59" }
-%"class.std::_Deque_base.59" = type { %"struct.std::_Deque_base<std::shared_ptr<con::BufferedPacket>, std::allocator<std::shared_ptr<con::BufferedPacket>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::shared_ptr<con::BufferedPacket>, std::allocator<std::shared_ptr<con::BufferedPacket>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::shared_ptr<con::BufferedPacket>, std::allocator<std::shared_ptr<con::BufferedPacket>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::shared_ptr<con::BufferedPacket>, std::allocator<std::shared_ptr<con::BufferedPacket>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.63", %"struct.std::_Deque_iterator.63" }
-%"struct.std::_Deque_iterator.63" = type { ptr, ptr, ptr, ptr }
-%"class.std::deque.22" = type { %"class.std::_Deque_base.23" }
-%"class.std::_Deque_base.23" = type { %"struct.std::_Deque_base<std::shared_ptr<con::ConnectionCommand>, std::allocator<std::shared_ptr<con::ConnectionCommand>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::shared_ptr<con::ConnectionCommand>, std::allocator<std::shared_ptr<con::ConnectionCommand>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::shared_ptr<con::ConnectionCommand>, std::allocator<std::shared_ptr<con::ConnectionCommand>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::shared_ptr<con::ConnectionCommand>, std::allocator<std::shared_ptr<con::ConnectionCommand>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.27", %"struct.std::_Deque_iterator.27" }
-%"struct.std::_Deque_iterator.27" = type { ptr, ptr, ptr, ptr }
-%"class.con::IncomingSplitBuffer" = type { %"class.std::map.64", %"class.std::mutex" }
-%"class.std::map.64" = type { %"class.std::_Rb_tree.65" }
-%"class.std::_Rb_tree.65" = type { %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, con::IncomingSplitPacket *>, std::_Select1st<std::pair<const unsigned short, con::IncomingSplitPacket *>>, std::less<unsigned short>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, con::IncomingSplitPacket *>, std::_Select1st<std::pair<const unsigned short, con::IncomingSplitPacket *>>, std::less<unsigned short>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 %class.Address = type <{ i16, [2 x i8], %union.anon.52, i16, [2 x i8] }>
 %union.anon.52 = type { %struct.in6_addr }
 %struct.in6_addr = type { %union.anon.53 }
@@ -76,6 +45,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::map.103" = type { %"class.std::_Rb_tree.104" }
 %"class.std::_Rb_tree.104" = type { %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, bool>, std::_Select1st<std::pair<const unsigned short, bool>>, std::less<unsigned short>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, bool>, std::_Select1st<std::pair<const unsigned short, bool>>, std::less<unsigned short>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
+%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
+%"struct.std::less" = type { i8 }
+%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
+%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.std::shared_ptr.87" = type { %"class.std::__shared_ptr.88" }
 %"class.std::__shared_ptr.88" = type { ptr, %"class.std::__shared_count" }
 %"struct.con::OutgoingPacket" = type <{ i16, i8, [5 x i8], %class.SharedBuffer, i8, i8, [6 x i8] }>
@@ -89,6 +62,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::list.98" = type { %"class.std::__cxx11::_List_base.99" }
 %"class.std::__cxx11::_List_base.99" = type { %"struct.std::__cxx11::_List_base<SharedBuffer<unsigned char>, std::allocator<SharedBuffer<unsigned char>>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<SharedBuffer<unsigned char>, std::allocator<SharedBuffer<unsigned char>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
+%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
+%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %class.Buffer = type <{ ptr, i32, [4 x i8] }>
 %"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 
@@ -2216,7 +2191,7 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorItSaItE
   br label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i
 
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i
-  %add.ptr19.i.i = getelementptr inbounds nuw i16, ptr %call5.i.i.i.i.i361, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i.i.i361, i64 %cond.i.i.i
   br label %cleanup195
 
 lpad17:                                           ; preds = %call.i.noexc, %if.end16
@@ -4295,7 +4270,7 @@ dynamic_cast.notnull:                             ; preds = %_ZNSt7__cxx1112basi
   %channelnum67 = getelementptr inbounds nuw i8, ptr %116, i64 30
   %117 = load i8, ptr %channelnum67, align 2, !tbaa !142
   %idxprom = zext i8 %117 to i64
-  %arrayidx = getelementptr inbounds nuw %"class.con::Channel", ptr %channels, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [512 x i8], ptr %channels, i64 %idxprom
   call void @llvm.lifetime.start.p0(ptr nonnull %list)
   %outgoing_reliables_sent = getelementptr inbounds nuw i8, ptr %arrayidx, i64 72
   invoke void @_ZN3con20ReliablePacketBuffer9getResendEfj(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.69") align 8 %list, ptr noundef nonnull align 8 dereferenceable(72) %outgoing_reliables_sent, float noundef 0.000000e+00, i32 noundef 1)
@@ -6365,7 +6340,7 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorItSaItE
   br label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i
 
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i
-  %add.ptr19.i.i = getelementptr inbounds nuw i16, ptr %call5.i.i.i.i.i561, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i.i.i561, i64 %cond.i.i.i
   br label %if.end32
 
 if.end32:                                         ; preds = %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i, %if.then.i559, %if.end28
@@ -6544,7 +6519,7 @@ ehcleanup54:                                      ; preds = %lpad37, %if.then.i.
 
 for.body57:                                       ; preds = %cleanup, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit605
   %indvars.iv = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit605 ], [ %indvars.iv.next, %cleanup ]
-  %arrayidx = getelementptr inbounds nuw %"class.con::Channel", ptr %channels, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [512 x i8], ptr %channels, i64 %indvars.iv
   %_M_finish.i.i612 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 192
   %_M_start.i.i613 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 160
   %49 = load ptr, ptr %_M_finish.i.i612, align 8, !tbaa !155
@@ -9456,7 +9431,7 @@ dynamic_cast.notnull:                             ; preds = %entry
   %spec.select = select i1 %21, ptr %1, ptr null
   %channels = getelementptr inbounds nuw i8, ptr %spec.select, i64 152
   %idxprom = zext i8 %channelnum to i64
-  %arrayidx = getelementptr inbounds nuw %"class.con::Channel", ptr %channels, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [512 x i8], ptr %channels, i64 %idxprom
   br i1 %reliable, label %if.then25, label %if.end122
 
 if.then25:                                        ; preds = %dynamic_cast.notnull
@@ -14748,7 +14723,7 @@ ehcleanup267:                                     ; preds = %lpad255, %if.then.i
 if.end268:                                        ; preds = %dynamic_cast.notnull
   %channels = getelementptr inbounds nuw i8, ptr %160, i64 152
   %idxprom = zext nneg i8 %call79.val to i64
-  %arrayidx = getelementptr inbounds nuw %"class.con::Channel", ptr %channels, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [512 x i8], ptr %channels, i64 %idxprom
   invoke void @_ZN3con7Channel19UpdateBytesReceivedEj(ptr noundef nonnull align 8 dereferenceable(512) %arrayidx, i32 noundef %call28)
           to label %invoke.cont270 unwind label %lpad269
 
@@ -15645,7 +15620,7 @@ lpad63:                                           ; preds = %_ZNSt7__cxx1112basi
 
 memptr.nonvirtual:                                ; preds = %if.end39
   %idxprom = zext nneg i8 %12 to i64
-  %arrayidx = getelementptr inbounds nuw %"struct.con::ConnectionReceiveThread::PacketTypeHandler", ptr @_ZN3con23ConnectionReceiveThread16packetTypeRouterE, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr @_ZN3con23ConnectionReceiveThread16packetTypeRouterE, i64 %idxprom
   %.unpack = load i64, ptr %arrayidx, align 16, !tbaa !283
   %memptr.nonvirtualfn = inttoptr i64 %.unpack to ptr
   invoke void %memptr.nonvirtualfn(ptr dead_on_unwind writable sret(%class.SharedBuffer) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %channel, ptr noundef nonnull align 8 dereferenceable(24) %packetdata, ptr noundef nonnull %1, i8 noundef zeroext %channelnum, i1 noundef zeroext %reliable)
@@ -20661,8 +20636,8 @@ _ZNSt11_Deque_baseIN3con14OutgoingPacketESaIS1_EE15_M_allocate_mapEm.exit: ; pre
   store ptr %call5.i.i4.i, ptr %this, align 8, !tbaa !297
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div1348 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i4.i, i64 %div1348
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i4.i, i64 %div1348
+  %add.ptr14 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %add
   br label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont.i, %_ZNSt11_Deque_baseIN3con14OutgoingPacketESaIS1_EE15_M_allocate_mapEm.exit
@@ -20751,7 +20726,7 @@ try.cont:                                         ; preds = %invoke.cont.i
   %_M_last.i54 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i53, ptr %_M_last.i54, align 8, !tbaa !193
   store ptr %12, ptr %_M_start, align 8, !tbaa !321
-  %add.ptr36 = getelementptr inbounds nuw %"struct.con::OutgoingPacket", ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8, !tbaa !202
   ret void
 
@@ -21089,9 +21064,9 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8, !tbaa !323
   %sub = sub i64 %2, %add4
   %div88 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div88
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div88
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
@@ -21114,8 +21089,8 @@ if.then.i.i.i.i.i93:                              ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i91 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i89, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i91, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
-  %add.ptr.i.i.i.i.i94 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %.pre.i.i.i.i.i
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %add.ptr9, i64 %add
+  %add.ptr.i.i.i.i.i94 = getelementptr inbounds [8 x i8], ptr %add.ptr29, i64 %.pre.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i94, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i91, i1 false)
   br label %if.end65
 
@@ -21143,9 +21118,9 @@ _ZNSt11_Deque_baseISt10shared_ptrIN3con14BufferedPacketEESaIS3_EE15_M_allocate_m
   %call5.i.i4.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #31
   %sub40 = sub i64 %add38, %add4
   %div4187 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i4.i, i64 %div4187
+  %add.ptr42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i4.i, i64 %div4187
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
+  %add.ptr48 = getelementptr inbounds [8 x i8], ptr %add.ptr42, i64 %cond47
   %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i98 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i98, label %_ZSt4copyIPPSt10shared_ptrIN3con14BufferedPacketEES5_ET0_T_S7_S6_.exit101, label %if.then.i.i.i.i.i99
@@ -21172,7 +21147,7 @@ if.end65:                                         ; preds = %_ZSt4copyIPPSt10sha
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8, !tbaa !159
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
+  %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8, !tbaa !157
   %6 = load ptr, ptr %add.ptr71, align 8, !tbaa !35
@@ -21383,9 +21358,9 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8, !tbaa !297
   %sub = sub i64 %2, %add4
   %div88 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div88
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div88
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
@@ -21408,8 +21383,8 @@ if.then.i.i.i.i.i93:                              ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i91 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i89, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i91, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
-  %add.ptr.i.i.i.i.i94 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %.pre.i.i.i.i.i
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %add.ptr9, i64 %add
+  %add.ptr.i.i.i.i.i94 = getelementptr inbounds [8 x i8], ptr %add.ptr29, i64 %.pre.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i94, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i91, i1 false)
   br label %if.end65
 
@@ -21437,9 +21412,9 @@ _ZNSt11_Deque_baseIN3con14OutgoingPacketESaIS1_EE15_M_allocate_mapEm.exit: ; pre
   %call5.i.i4.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #31
   %sub40 = sub i64 %add38, %add4
   %div4187 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i4.i, i64 %div4187
+  %add.ptr42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i4.i, i64 %div4187
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
+  %add.ptr48 = getelementptr inbounds [8 x i8], ptr %add.ptr42, i64 %cond47
   %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i98 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i98, label %_ZSt4copyIPPN3con14OutgoingPacketES3_ET0_T_S5_S4_.exit101, label %if.then.i.i.i.i.i99
@@ -21466,7 +21441,7 @@ if.end65:                                         ; preds = %_ZSt4copyIPPN3con14
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 480
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8, !tbaa !193
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
+  %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8, !tbaa !191
   %6 = load ptr, ptr %add.ptr71, align 8, !tbaa !35

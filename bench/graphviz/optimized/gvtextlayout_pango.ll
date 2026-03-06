@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { %struct.anon }
 %struct.anon = type { ptr, i64, i64, [7 x i8], i8 }
 %struct._PangoRectangle = type { i32, i32, i32, i32 }
-%struct.gv_font_map = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [11 x i8] c"textlayout\00", align 1
@@ -143,7 +142,7 @@ gv_strdup.exit:                                   ; preds = %32
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %51 = load i32, ptr %50, align 8, !tbaa !30
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %struct.gv_font_map, ptr %49, i64 %52
+  %53 = getelementptr inbounds [16 x i8], ptr %49, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !32
   %.not83 = icmp eq ptr %55, null

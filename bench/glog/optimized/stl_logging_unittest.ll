@@ -3534,7 +3534,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %_ZNSt6vectorIiSa
   %39 = getelementptr inbounds i8, ptr %33, i64 %34
   store ptr %25, ptr %0, align 8, !tbaa !90
   store ptr %39, ptr %4, align 8, !tbaa !53
-  %40 = getelementptr inbounds nuw i32, ptr %25, i64 %16
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %16
   store ptr %40, ptr %38, align 8, !tbaa !56
   ret void
 }
@@ -5138,7 +5138,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %_ZNSt6vectorIiSa
   %39 = getelementptr inbounds i8, ptr %33, i64 %34
   store ptr %25, ptr %0, align 8, !tbaa !90
   store ptr %39, ptr %4, align 8, !tbaa !53
-  %40 = getelementptr inbounds nuw i32, ptr %25, i64 %16
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %16
   store ptr %40, ptr %38, align 8, !tbaa !56
   ret void
 }

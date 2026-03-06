@@ -189,8 +189,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.testing::internal::DummyMatchResultListener" = type { %"class.testing::MatchResultListener" }
 %"class.testing::MatchResultListener" = type { ptr, ptr }
-%"class.std::shared_ptr.180" = type { %"class.std::__shared_ptr.181" }
-%"class.std::__shared_ptr.181" = type { ptr, %"class.std::__shared_count" }
 %"class.testing::StringMatchResultListener" = type { %"class.testing::MatchResultListener", %"class.std::__cxx11::basic_stringstream" }
 %"class.testing::ExpectationSet" = type { %"class.std::set" }
 %"class.std::set" = type { %"class.std::_Rb_tree.55" }
@@ -203,6 +201,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.169" = type { ptr }
 %"struct.std::_Head_base.170" = type { ptr }
 %"struct.std::_Head_base.171" = type { i32 }
+%"class.std::shared_ptr.180" = type { %"class.std::__shared_ptr.181" }
+%"class.std::__shared_ptr.181" = type { ptr, %"class.std::__shared_count" }
 %"class.testing::Expectation" = type { %"class.std::shared_ptr.180" }
 %"struct.testing::internal::CodeLocation" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 
@@ -18070,7 +18070,7 @@ define internal fastcc void @_ZL19TestLogPeriodicallyv() unnamed_addr #20 person
 17:                                               ; preds = %15
   %18 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #46
   %19 = add nuw nsw i64 %.pr3639, 1
-  %20 = getelementptr inbounds nuw %"class.std::chrono::time_point.27", ptr %9, i64 %.pr3639
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.pr3639
   store i64 %18, ptr %20, align 8, !tbaa !129
   %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.447, i64 noundef 15)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %23
@@ -18110,12 +18110,12 @@ _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_tra
 
 30:                                               ; preds = %28, %30
   %.01740 = phi i64 [ 1, %28 ], [ %36, %30 ]
-  %31 = getelementptr %"class.std::chrono::time_point.27", ptr %1, i64 %.01740
-  %32 = getelementptr inbounds nuw %"class.std::chrono::time_point.27", ptr %9, i64 %.01740
+  %31 = getelementptr [8 x i8], ptr %1, i64 %.01740
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.01740
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %32, align 8, !tbaa !129
   %.sroa.0.0.copyload.i2.i.i = load i64, ptr %31, align 8, !tbaa !129
   %33 = sub nsw i64 %.sroa.0.0.copyload.i.i.i, %.sroa.0.0.copyload.i2.i.i
-  %34 = getelementptr i64, ptr %3, i64 %.01740
+  %34 = getelementptr [8 x i8], ptr %3, i64 %.01740
   %35 = getelementptr i8, ptr %34, i64 -8
   store i64 %33, ptr %35, align 8, !tbaa !129
   %36 = add nuw nsw i64 %.01740, 1
@@ -19307,7 +19307,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoR15LogTimeR
   %5 = load i64, ptr %1, align 8, !tbaa !341
   %6 = add i64 %5, 1
   store i64 %6, ptr %1, align 8, !tbaa !341
-  %7 = getelementptr inbounds nuw %"class.std::chrono::time_point.27", ptr %4, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   store i64 %3, ptr %7, align 8, !tbaa !129
   ret ptr %0
 }
@@ -36834,7 +36834,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %0, align 8, !tbaa !250
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !252
-  %78 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %16
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %16
   store ptr %78, ptr %77, align 8, !tbaa !523
   ret void
 }
@@ -37617,7 +37617,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %.032 = phi i64 [ 0, %.lr.ph ], [ %70, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = load ptr, ptr %30, align 8, !tbaa !541
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.032
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.032
   %38 = load ptr, ptr %37, align 8, !tbaa !133
   store ptr %31, ptr %6, align 8, !tbaa !128
   %39 = icmp eq ptr %38, null
@@ -39522,7 +39522,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %31, ptr %0, align 8, !tbaa !250
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !252
-  %82 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %31, i64 %17
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %17
   store ptr %82, ptr %81, align 8, !tbaa !523
   ret void
 
@@ -39645,8 +39645,8 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   %18 = load i64, ptr %6, align 8, !tbaa !594
   %19 = sub i64 %18, %4
   %20 = lshr i64 %19, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %20
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %4
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %4
   invoke void @_ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_create_nodesEPPS5_S9_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %21, ptr noundef nonnull %22)
           to label %31 unwind label %23
 
@@ -39692,7 +39692,7 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   store ptr %43, ptr %44, align 8, !tbaa !571
   store ptr %34, ptr %32, align 8, !tbaa !569
   %45 = and i64 %1, 15
-  %46 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %41, i64 %45
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %45
   store ptr %46, ptr %38, align 8, !tbaa !596
   ret void
 
@@ -40271,9 +40271,9 @@ define linkonce_odr dso_local void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11c
   %19 = load ptr, ptr %0, align 8, !tbaa !595
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -40292,12 +40292,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11c
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit
 
@@ -40351,9 +40351,9 @@ _ZnwmRKSt9nothrow_t.exit.i.i.i.i:                 ; preds = %48, %45
 _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_allocate_mapEm.exit: ; preds = %_ZnwmRKSt9nothrow_t.exit.i.i.i.i
   %55 = sub i64 %41, %13
   %56 = lshr i64 %55, 1
-  %57 = getelementptr inbounds nuw ptr, ptr %52, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %56
   %58 = select i1 %2, i64 %1, i64 0
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   %60 = load ptr, ptr %6, align 8, !tbaa !574
   %61 = load ptr, ptr %4, align 8, !tbaa !605
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -40383,7 +40383,7 @@ _ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 512
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %70, ptr %71, align 8, !tbaa !571
-  %72 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %73 = getelementptr inbounds i8, ptr %72, i64 -8
   store ptr %73, ptr %4, align 8, !tbaa !572
   %74 = load ptr, ptr %73, align 8, !tbaa !57
@@ -42508,7 +42508,7 @@ define linkonce_odr hidden void @_ZNK7testing8internal14FunctionMockerIFvN6googl
 24:                                               ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %.021 = phi i64 [ 0, %.lr.ph ], [ %62, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
   %25 = load ptr, ptr %5, align 8, !tbaa !702
-  %26 = getelementptr inbounds nuw %"class.std::shared_ptr.180", ptr %25, i64 %.021
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %.021
   %27 = load ptr, ptr %26, align 8, !tbaa !645
   %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.259, i64 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -44771,7 +44771,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %128
 139:                                              ; preds = %138
   %140 = load ptr, ptr %23, align 8, !tbaa !626
   %141 = sext i32 %9 to i64
-  %142 = getelementptr ptr, ptr %140, i64 %141
+  %142 = getelementptr [8 x i8], ptr %140, i64 %141
   %143 = getelementptr i8, ptr %142, i64 -8
   %144 = load ptr, ptr %143, align 8, !tbaa !51
   br label %147
@@ -47871,7 +47871,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %0, align 8, !tbaa !702
   store ptr %.0.lcssa.i.i.i22, ptr %4, align 8, !tbaa !701
-  %57 = getelementptr inbounds nuw %"class.std::shared_ptr.180", ptr %25, i64 %16
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %16
   store ptr %57, ptr %56, align 8, !tbaa !792
   ret void
 }
@@ -49130,7 +49130,7 @@ _ZNSt12_Vector_baseIN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_trai
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %0, align 8, !tbaa !432
   store ptr %.0.lcssa.i.i.i.i.i37, ptr %4, align 8, !tbaa !435
-  %71 = getelementptr inbounds nuw %"class.testing::Matcher", ptr %25, i64 %16
+  %71 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %16
   store ptr %71, ptr %70, align 8, !tbaa !436
   ret void
 }
@@ -49629,7 +49629,7 @@ define linkonce_odr hidden void @_ZNK7testing8internal16AllOfMatcherImplIRKNSt7_
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.549, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !432
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -49698,7 +49698,7 @@ define linkonce_odr hidden void @_ZNK7testing8internal16AllOfMatcherImplIRKNSt7_
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.550, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !432
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -49814,7 +49814,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK7testing8internal16AllOfMatch
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit:  ; preds = %50
   %51 = load ptr, ptr %12, align 8, !tbaa !432
-  %52 = getelementptr inbounds nuw %"class.testing::Matcher", ptr %51, i64 %.019109
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %.019109
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !367
   %55 = icmp ne ptr %54, null

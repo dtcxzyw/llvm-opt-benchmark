@@ -269,7 +269,7 @@ dec_month.exit.i:                                 ; preds = %.preheader.i, %.cri
 
 .critedge18.i:                                    ; preds = %.critedge.i, %119
   %days_in_month.sink.i = phi ptr [ @days_in_month, %.critedge.i ], [ @days_in_month_leap, %119 ]
-  %123 = getelementptr inbounds i32, ptr %days_in_month.sink.i, i64 %.111.i
+  %123 = getelementptr inbounds [4 x i8], ptr %days_in_month.sink.i, i64 %.111.i
   %124 = load i32, ptr %123, align 4, !tbaa !12
   %125 = sext i32 %124 to i64
   %126 = add i64 %112, %125
@@ -299,7 +299,7 @@ dec_month.exit.i:                                 ; preds = %.preheader.i, %.cri
 
 inc_month.exit.i:                                 ; preds = %.critedge20.i, %133
   %days_in_month.sink29.i = phi ptr [ @days_in_month, %.critedge20.i ], [ @days_in_month_leap, %133 ]
-  %137 = getelementptr inbounds i32, ptr %days_in_month.sink29.i, i64 %.21216.i
+  %137 = getelementptr inbounds [4 x i8], ptr %days_in_month.sink29.i, i64 %.21216.i
   %138 = load i32, ptr %137, align 4, !tbaa !12
   %139 = sext i32 %138 to i64
   %140 = add i64 %130, %139
@@ -734,7 +734,7 @@ do_range_limit.exit.i:                            ; preds = %144, %141
 
 .critedge52.i:                                    ; preds = %.critedge50.i, %170
   %days_in_month.sink.i = phi ptr [ @days_in_month, %.critedge50.i ], [ @days_in_month_leap, %170 ]
-  %174 = getelementptr inbounds nuw i32, ptr %days_in_month.sink.i, i64 %.039.i
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %days_in_month.sink.i, i64 %.039.i
   %175 = load i32, ptr %174, align 4, !tbaa !12
   %176 = sext i32 %175 to i64
   %177 = add i64 %164, %176
@@ -752,14 +752,14 @@ do_range_limit.exit.i:                            ; preds = %144, %141
   %.lcssa6882139 = phi i64 [ %177, %.lr.ph59.preheader.i ], [ %.lcssa6884, %158 ]
   %.lcssa7092138 = phi i64 [ %166, %.lr.ph59.preheader.i ], [ %.lcssa7094, %158 ]
   %180 = phi i64 [ %166, %.lr.ph59.preheader.i ], [ %148, %158 ]
-  %181 = getelementptr inbounds i32, ptr %159, i64 %.lcssa7092138
+  %181 = getelementptr inbounds [4 x i8], ptr %159, i64 %.lcssa7092138
   %182 = load i32, ptr %181, align 4, !tbaa !12
   %183 = sext i32 %182 to i64
   %184 = icmp sgt i64 %.lcssa6882139, %183
   br i1 %184, label %.lr.ph157, label %do_range_limit_days.exit.loopexit
 
 .lr.ph72:                                         ; preds = %.lr.ph157
-  %185 = getelementptr inbounds i32, ptr %159, i64 %191
+  %185 = getelementptr inbounds [4 x i8], ptr %159, i64 %191
   %186 = load i32, ptr %185, align 4, !tbaa !12
   %187 = sext i32 %186 to i64
   %188 = icmp sgt i64 %190, %187

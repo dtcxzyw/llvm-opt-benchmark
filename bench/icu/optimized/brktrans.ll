@@ -935,7 +935,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_Z
   %97 = phi i32 [ %.pre.i, %_ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i ], [ %92, %91 ]
   %98 = load ptr, ptr %60, align 8, !tbaa !37
   %99 = sext i32 %97 to i64
-  %100 = getelementptr inbounds i32, ptr %98, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %98, i64 %99
   store i32 %.037, ptr %100, align 4, !tbaa !12
   %101 = load i32, ptr %58, align 8, !tbaa !33
   %102 = add nsw i32 %101, 1
@@ -971,7 +971,7 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit: ; preds = %_ZN6icu_779UVec
 120:                                              ; preds = %108
   %121 = load ptr, ptr %60, align 8, !tbaa !37
   %122 = zext nneg i32 %107 to i64
-  %123 = getelementptr i32, ptr %121, i64 %122
+  %123 = getelementptr [4 x i8], ptr %121, i64 %122
   %124 = getelementptr i8, ptr %123, i64 -4
   %125 = load i32, ptr %124, align 4, !tbaa !12
   br label %_ZNK6icu_779UVector3212lastElementiEv.exit
@@ -990,7 +990,7 @@ _ZN6icu_779UVector324popiEv.exit:                 ; preds = %127
   store i32 %130, ptr %58, align 8, !tbaa !33
   %131 = load ptr, ptr %60, align 8, !tbaa !37
   %132 = zext nneg i32 %130 to i64
-  %133 = getelementptr inbounds nuw i32, ptr %131, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !12
   %135 = load ptr, ptr %1, align 8, !tbaa !19
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 32

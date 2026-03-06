@@ -158,7 +158,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4i18n12phon
 
 15:                                               ; preds = %11
   %16 = sext i32 %12 to i64
-  %17 = getelementptr inbounds %"class.google::protobuf::internal::ExplicitlyConstructed.0", ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_stringsB5cxx11E, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_stringsB5cxx11E, i64 %16
   br label %18
 
 18:                                               ; preds = %15, %14

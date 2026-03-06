@@ -6069,7 +6069,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h28bd48f2d758f8c
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h8fc228ceddad9128E.llvm.4074410953282169344.exit.thread"
 
 "_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h8fc228ceddad9128E.llvm.4074410953282169344.exit": ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h7f456520763d906fE.llvm.4074410953282169344.exit"
-  %62 = getelementptr inbounds nuw { { { [22 x i64] } } }, ptr %51, i64 %53
+  %62 = getelementptr inbounds nuw [176 x i8], ptr %51, i64 %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull readonly align 8 dereferenceable(176) %62, i64 176, i1 false)
   %.pre7 = load i64, ptr %0, align 8, !range !487
   %63 = icmp samesign ugt i64 %.pre7, 2
@@ -6337,7 +6337,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h8fc228cedd
   ret void
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw { { { [22 x i64] } } }, ptr %1, i64 %4
+  %15 = getelementptr inbounds nuw [176 x i8], ptr %1, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %15, i64 176, i1 false)
   br label %13
 }
@@ -6450,7 +6450,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8, !noalias !493, !noundef !4
   %17 = and i64 %16, %13
-  %18 = getelementptr inbounds { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } }, ptr %14, i64 %17
+  %18 = getelementptr inbounds [24 x i8], ptr %14, i64 %17
   %19 = invoke { i8, i8 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h8fcc09bb6e2205bbE.llvm.10746823393314531435(ptr noundef nonnull align 1 %18, i8 noundef 0, i8 noundef 1, i8 noundef 2, i8 noundef 0)
           to label %.noexc unwind label %26
 
@@ -6580,7 +6580,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8, !noalias !497, !noundef !4
   %17 = and i64 %16, %13
-  %18 = getelementptr inbounds { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } }, ptr %14, i64 %17
+  %18 = getelementptr inbounds [24 x i8], ptr %14, i64 %17
   %19 = invoke { i8, i8 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h8fcc09bb6e2205bbE.llvm.10746823393314531435(ptr noundef nonnull align 1 %18, i8 noundef 0, i8 noundef 1, i8 noundef 2, i8 noundef 0)
           to label %.noexc unwind label %26
 
@@ -6710,7 +6710,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8, !noalias !501, !noundef !4
   %17 = and i64 %16, %13
-  %18 = getelementptr inbounds { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } }, ptr %14, i64 %17
+  %18 = getelementptr inbounds [24 x i8], ptr %14, i64 %17
   %19 = invoke { i8, i8 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h8fcc09bb6e2205bbE.llvm.10746823393314531435(ptr noundef nonnull align 1 %18, i8 noundef 0, i8 noundef 1, i8 noundef 2, i8 noundef 0)
           to label %.noexc unwind label %26
 
@@ -7031,7 +7031,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler16multi_thread_alt5queue1
 47:                                               ; preds = %32
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %49 = load ptr, ptr %48, align 128, !nonnull !4, !align !125, !noundef !4
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %36
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %36
   %51 = load ptr, ptr %50, align 8
   br label %53
 

@@ -3,7 +3,6 @@ source_filename = "bench/postgres/original/clauses.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
 %struct.max_parallel_hazard_context = type { i8, i8, ptr }
 %struct.eval_const_expressions_context = type { ptr, ptr, ptr, ptr, i8 }
 %struct.ParamExternData = type { i64, i8, i16, i32 }
@@ -15,8 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SupportRequestSimplify = type { i32, ptr, ptr }
 %struct.FuncExpr = type { %struct.Expr, i32, i32, i8, i8, i32, i32, i32, ptr, i32 }
 %struct.Expr = type { i32 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 
 @.str = private unnamed_addr constant [42 x i8] c"cannot commute non-binary-operator clause\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"clauses.c\00", align 1
@@ -151,7 +148,7 @@ define internal zeroext i1 @find_window_functions_walker(ptr noundef %0, ptr nou
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = zext i32 %9 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i1 @list_member(ptr noundef %22, ptr noundef nonnull %0) #7
   br i1 %23, label %39, label %24
@@ -160,13 +157,13 @@ define internal zeroext i1 @find_window_functions_walker(ptr noundef %0, ptr nou
   %25 = load ptr, ptr %18, align 8
   %26 = load i32, ptr %8, align 8
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @lappend(ptr noundef %29, ptr noundef nonnull %0) #7
   %31 = load ptr, ptr %18, align 8
   %32 = load i32, ptr %8, align 8
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %33
   store ptr %30, ptr %34, align 8
   %35 = load i32, ptr %1, align 8
   %36 = add i32 %35, 1
@@ -323,7 +320,7 @@ define internal zeroext i1 @contain_mutable_functions_walker(ptr noundef %0, ptr
 .critedge.us:                                     ; preds = %.lr.ph.split.us.split, %23
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %23 ], [ 0, %.lr.ph.split.us.split ]
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv65
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv65
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @exprType(ptr noundef %29) #7
   %31 = tail call zeroext i1 @to_jsonb_is_immutable(i32 noundef %30) #7
@@ -342,7 +339,7 @@ define internal zeroext i1 @contain_mutable_functions_walker(ptr noundef %0, ptr
 .critedge:                                        ; preds = %.lr.ph.split.split, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.lr.ph.split.split ]
   %36 = load ptr, ptr %20, align 8
-  %37 = getelementptr inbounds nuw %union.ListCell, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @exprType(ptr noundef %38) #7
   %40 = tail call zeroext i1 @to_json_is_immutable(i32 noundef %39) #7
@@ -741,7 +738,7 @@ define dso_local zeroext i1 @is_parallel_safe(ptr noundef readonly captures(none
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph22 ], [ 0, %.lr.ph ]
   %22 = phi ptr [ %28, %.lr.ph22 ], [ %15, %.lr.ph ]
   %23 = load ptr, ptr %19, align 8
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %27 = load ptr, ptr %26, align 8
@@ -1042,7 +1039,7 @@ define internal zeroext i1 @contain_leaked_vars_walker(ptr noundef %0, ptr nound
 
 43:                                               ; preds = %.split.split.split
   %44 = load ptr, ptr %35, align 8
-  %45 = getelementptr inbounds nuw %union.ListCell, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   br label %46
 
 46:                                               ; preds = %.split.split.split, %43
@@ -1054,7 +1051,7 @@ define internal zeroext i1 @contain_leaked_vars_walker(ptr noundef %0, ptr nound
 
 51:                                               ; preds = %46
   %52 = load ptr, ptr %37, align 8
-  %53 = getelementptr inbounds nuw %union.ListCell, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   br label %54
 
 54:                                               ; preds = %46, %51
@@ -1066,7 +1063,7 @@ define internal zeroext i1 @contain_leaked_vars_walker(ptr noundef %0, ptr nound
 
 59:                                               ; preds = %54
   %60 = load ptr, ptr %39, align 8
-  %61 = getelementptr inbounds nuw %union.ListCell, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv
   %62 = icmp ne ptr %47, null
   %63 = icmp ne ptr %55, null
   %or.cond.not72.not76 = select i1 %62, i1 %63, i1 false
@@ -1184,7 +1181,7 @@ define internal fastcc ptr @find_nonnullable_rels_walker(ptr noundef %0, i1 noun
   %indvars.iv178 = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next179, %16 ]
   %.2162 = phi ptr [ null, %.lr.ph163 ], [ %21, %16 ]
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv178
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv178
   %19 = load ptr, ptr %18, align 8
   %20 = tail call fastcc ptr @find_nonnullable_rels_walker(ptr noundef %19, i1 noundef zeroext %.tr116131)
   %21 = tail call ptr @bms_join(ptr noundef %.2162, ptr noundef %20) #7
@@ -1312,7 +1309,7 @@ tailrecurse.backedge:                             ; preds = %24, %112, %109, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %82 ], [ 0, %.lr.ph149 ]
   %.7148156 = phi ptr [ %.9, %82 ], [ null, %.lr.ph149 ]
   %86 = load ptr, ptr %79, align 8
-  %87 = getelementptr inbounds nuw %union.ListCell, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8
   %89 = tail call fastcc ptr @find_nonnullable_rels_walker(ptr noundef %88, i1 noundef zeroext %.tr116.lcssa124)
   %90 = icmp eq ptr %.7148156, null
@@ -1460,7 +1457,7 @@ define internal fastcc ptr @find_nonnullable_vars_walker(ptr noundef %0, i1 noun
   %indvars.iv171 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next172, %20 ]
   %.2157 = phi ptr [ null, %.lr.ph158 ], [ %25, %20 ]
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv171
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv171
   %23 = load ptr, ptr %22, align 8
   %24 = tail call fastcc ptr @find_nonnullable_vars_walker(ptr noundef %23, i1 noundef zeroext %.tr113126)
   %25 = tail call ptr @mbms_add_members(ptr noundef %.2157, ptr noundef %24) #7
@@ -1588,7 +1585,7 @@ tailrecurse.backedge:                             ; preds = %28, %.lr.ph, %117, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %86 ], [ 0, %.lr.ph144 ]
   %.7143151 = phi ptr [ %.9, %86 ], [ null, %.lr.ph144 ]
   %90 = load ptr, ptr %83, align 8
-  %91 = getelementptr inbounds nuw %union.ListCell, ptr %90, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8
   %93 = tail call fastcc ptr @find_nonnullable_vars_walker(ptr noundef %92, i1 noundef zeroext %.tr113.lcssa120)
   %94 = icmp eq ptr %.7143151, null
@@ -1747,7 +1744,7 @@ find_forced_null_var.exit:                        ; preds = %32, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next, %46 ]
   %.136 = phi ptr [ null, %.lr.ph37 ], [ %51, %46 ]
   %47 = load ptr, ptr %45, align 8
-  %48 = getelementptr inbounds nuw %union.ListCell, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr @find_forced_null_vars(ptr noundef %49)
   %51 = tail call ptr @mbms_add_members(ptr noundef %.136, ptr noundef %50) #7
@@ -2097,7 +2094,7 @@ define internal ptr @eval_const_expressions_mutator(ptr noundef %0, ptr noundef 
 
 39:                                               ; preds = %35
   %40 = zext nneg i32 %30 to i64
-  %41 = getelementptr %struct.ParamExternData, ptr %23, i64 %40
+  %41 = getelementptr [16 x i8], ptr %23, i64 %40
   %42 = getelementptr i8, ptr %41, i64 48
   br label %43
 
@@ -2414,7 +2411,7 @@ common.ret1269:                                   ; preds = %.thread856, %.split
   %indvars.iv1029 = phi i64 [ %indvars.iv.next1030, %221 ], [ %indvars.iv1029.ph, %.outer ]
   %.0661965983 = phi i8 [ %225, %221 ], [ %.0661965983.ph, %.outer ]
   %.0659966982 = phi i8 [ %224, %221 ], [ %.0659966982.ph, %.outer ]
-  %216 = getelementptr inbounds nuw %union.ListCell, ptr %214, i64 %indvars.iv1029
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %indvars.iv1029
   %217 = load ptr, ptr %216, align 8
   %218 = load i32, ptr %217, align 4
   %219 = icmp eq i32 %218, 7
@@ -2546,7 +2543,7 @@ common.ret1269:                                   ; preds = %.thread856, %.split
 
 280:                                              ; preds = %.outer1112, %289
   %indvars.iv1027 = phi i64 [ %indvars.iv.next1028, %289 ], [ %indvars.iv1027.ph, %.outer1112 ]
-  %281 = getelementptr inbounds nuw %union.ListCell, ptr %279, i64 %indvars.iv1027
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %indvars.iv1027
   %282 = load ptr, ptr %281, align 8
   %283 = load i32, ptr %282, align 4
   %284 = icmp eq i32 %283, 7
@@ -2978,7 +2975,7 @@ list_length.exit777:                              ; preds = %362
   %indvars.iv1024 = phi i64 [ %indvars.iv.next1025, %.thread795 ], [ 0, %.lr.ph935 ]
   %.0676933943 = phi ptr [ %.2678.ph, %.thread795 ], [ null, %.lr.ph935 ]
   %509 = load ptr, ptr %506, align 8
-  %510 = getelementptr inbounds nuw %union.ListCell, ptr %509, i64 %indvars.iv1024
+  %510 = getelementptr inbounds nuw [8 x i8], ptr %509, i64 %indvars.iv1024
   %511 = load ptr, ptr %510, align 8
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 8
   %513 = load ptr, ptr %512, align 8
@@ -3112,7 +3109,7 @@ list_length.exit777:                              ; preds = %362
   %indvars.iv1021 = phi i64 [ %indvars.iv.next1022, %593 ], [ 0, %.lr.ph918 ]
   %.0689916928 = phi ptr [ %.2691, %593 ], [ null, %.lr.ph918 ]
   %579 = load ptr, ptr %576, align 8
-  %580 = getelementptr inbounds nuw %union.ListCell, ptr %579, i64 %indvars.iv1021
+  %580 = getelementptr inbounds nuw [8 x i8], ptr %579, i64 %indvars.iv1021
   %581 = load ptr, ptr %580, align 8
   %582 = tail call ptr @eval_const_expressions_mutator(ptr noundef %581, ptr noundef %1)
   %583 = load i32, ptr %582, align 4
@@ -3284,7 +3281,7 @@ list_length.exit779:                              ; preds = %675
   %683 = getelementptr i8, ptr %678, i64 16
   %.val770 = load ptr, ptr %683, align 8
   %684 = zext nneg i16 %673 to i64
-  %685 = getelementptr %union.ListCell, ptr %.val770, i64 %684
+  %685 = getelementptr [8 x i8], ptr %.val770, i64 %684
   %686 = getelementptr i8, ptr %685, i64 -8
   %687 = load ptr, ptr %686, align 8
   %688 = getelementptr inbounds nuw i8, ptr %629, i64 16
@@ -3394,7 +3391,7 @@ list_length.exit779:                              ; preds = %675
   %indvars.iv = phi i64 [ %indvars.iv.next, %780 ], [ 0, %.lr.ph906 ]
   %.0672904912 = phi ptr [ %.2674.ph, %780 ], [ null, %.lr.ph906 ]
   %756 = load ptr, ptr %750, align 8
-  %757 = getelementptr inbounds nuw %union.ListCell, ptr %756, i64 %indvars.iv
+  %757 = getelementptr inbounds nuw [8 x i8], ptr %756, i64 %indvars.iv
   %758 = load ptr, ptr %757, align 8
   %.not734 = icmp eq ptr %758, null
   br i1 %.not734, label %771, label %759
@@ -4038,7 +4035,7 @@ define dso_local noundef ptr @expand_function_arguments(ptr noundef %0, i1 nound
 
 48:                                               ; preds = %.lr.ph71, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next, %47 ]
-  %49 = getelementptr inbounds nuw %union.ListCell, ptr %46, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %50, align 4
   %.not57 = icmp eq i32 %51, 16
@@ -4069,7 +4066,7 @@ list_length.exit.thread.i:                        ; preds = %48
 61:                                               ; preds = %74, %.lr.ph56.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph56.i ], [ %indvars.iv.next.i, %74 ]
   %.0415254.i = phi i32 [ 0, %.lr.ph56.i ], [ %.142.i, %74 ]
-  %62 = getelementptr inbounds nuw %union.ListCell, ptr %46, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i
   %63 = load ptr, ptr %62, align 8
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %64, 16
@@ -4095,7 +4092,7 @@ list_length.exit.thread.i:                        ; preds = %48
   %.sink.i = phi ptr [ %71, %69 ], [ %63, %67 ]
   %.142.i = phi i32 [ %.0415254.i, %69 ], [ %68, %67 ]
   %75 = sext i32 %.sink85.i to i64
-  %76 = getelementptr inbounds ptr, ptr %5, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %5, i64 %75
   store ptr %.sink.i, ptr %76, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
@@ -4129,14 +4126,14 @@ list_length.exit.thread.i:                        ; preds = %48
   %indvars.iv68.i = phi i64 [ 0, %.lr.ph63.preheader.i ], [ %indvars.iv.next69.i, %98 ]
   %.25762.i = phi i32 [ %89, %.lr.ph63.preheader.i ], [ %99, %98 ]
   %90 = sext i32 %.25762.i to i64
-  %91 = getelementptr inbounds ptr, ptr %5, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %5, i64 %90
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %94, label %98
 
 94:                                               ; preds = %.lr.ph63.i
   %95 = load ptr, ptr %84, align 8
-  %96 = getelementptr inbounds nuw %union.ListCell, ptr %95, i64 %indvars.iv68.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv68.i
   %97 = load ptr, ptr %96, align 8
   store ptr %97, ptr %91, align 8
   br label %98
@@ -4158,7 +4155,7 @@ list_length.exit.thread.i:                        ; preds = %48
 .lr.ph66.i:                                       ; preds = %.lr.ph66.i, %.lr.ph66.preheader.i
   %indvars.iv73.i = phi i64 [ 0, %.lr.ph66.preheader.i ], [ %indvars.iv.next74.i, %.lr.ph66.i ]
   %.065.i = phi ptr [ null, %.lr.ph66.preheader.i ], [ %102, %.lr.ph66.i ]
-  %100 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv73.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv73.i
   %101 = load ptr, ptr %100, align 8
   %102 = call ptr @lappend(ptr noundef %.065.i, ptr noundef %101) #7
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
@@ -4267,11 +4264,11 @@ list_length.exit:                                 ; preds = %4
 .critedge1:                                       ; preds = %.lr.ph, %.critedge1
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge1 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %11, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @exprType(ptr noundef %21) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %22, ptr %23, align 4
   %24 = load i32, ptr %13, align 4
   %25 = sext i32 %24 to i64
@@ -5103,7 +5100,7 @@ define internal fastcc ptr @simplify_function(i32 noundef %0, i32 noundef %1, i3
   %indvars.iv.i = phi i64 [ 0, %.lr.ph14.i ], [ %indvars.iv.next.i, %63 ]
   %.041113.i = phi i8 [ 0, %.lr.ph14.i ], [ %.142.i, %63 ]
   %.040212.i = phi i1 [ false, %.lr.ph14.i ], [ %.1.i, %63 ]
-  %51 = getelementptr inbounds nuw %union.ListCell, ptr %49, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %53, 7
@@ -5640,9 +5637,9 @@ thread-pre-split:                                 ; preds = %298
   %328 = phi i32 [ %351, %.thread82 ], [ %326, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread82 ], [ 0, %.lr.ph ]
   %329 = load ptr, ptr %324, align 8
-  %330 = getelementptr inbounds nuw %union.ListCell, ptr %329, i64 %indvars.iv
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %329, i64 %indvars.iv
   %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds nuw i32, ptr %317, i64 %indvars.iv
+  %332 = getelementptr inbounds nuw [4 x i8], ptr %317, i64 %indvars.iv
   %333 = load i32, ptr %332, align 4
   switch i32 %333, label %337 [
     i32 0, label %334
@@ -6081,7 +6078,7 @@ define internal fastcc noundef zeroext i1 @rowtype_field_matches(i32 noundef %0,
   %19 = shl nuw nsw i64 %18, 4
   %20 = getelementptr i8, ptr %8, i64 %19
   %21 = zext nneg i32 %1 to i64
-  %22 = getelementptr %struct.FormData_pg_attribute, ptr %20, i64 %21
+  %22 = getelementptr [100 x i8], ptr %20, i64 %21
   %23 = getelementptr i8, ptr %22, i64 15
   %24 = load i8, ptr %23, align 1, !range !4, !noundef !5
   %25 = trunc nuw i8 %24 to i1
@@ -6251,7 +6248,7 @@ define internal ptr @substitute_actual_parameters_mutator(ptr noundef %0, ptr no
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = zext nneg i32 %16 to i64
-  %29 = getelementptr i32, ptr %27, i64 %28
+  %29 = getelementptr [4 x i8], ptr %27, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -4
   %31 = load i32, ptr %30, align 4
   %32 = add i32 %31, 1
@@ -6263,7 +6260,7 @@ define internal ptr @substitute_actual_parameters_mutator(ptr noundef %0, ptr no
   %37 = getelementptr i8, ptr %34, i64 16
   %.val = load ptr, ptr %37, align 8
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %.val, i64 %38
   %40 = load ptr, ptr %39, align 8
   br label %43
 
@@ -6359,7 +6356,7 @@ define internal ptr @substitute_actual_srf_parameters_mutator(ptr noundef %0, pt
   %29 = getelementptr i8, ptr %28, i64 16
   %.val = load ptr, ptr %29, align 8
   %30 = zext nneg i32 %18 to i64
-  %31 = getelementptr %union.ListCell, ptr %.val, i64 %30
+  %31 = getelementptr [8 x i8], ptr %.val, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr @copyObjectImpl(ptr noundef %33) #7

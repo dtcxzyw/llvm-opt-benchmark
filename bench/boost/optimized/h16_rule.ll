@@ -94,7 +94,7 @@ switch.hole_check:                                ; preds = %16
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %25 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 %25
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 %25
   %switch.load = load i16, ptr %switch.gep, align 2
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %26, ptr %2, align 8, !tbaa !3
@@ -115,7 +115,7 @@ switch.hole_check81:                              ; preds = %28
 
 switch.lookup82:                                  ; preds = %switch.hole_check81
   %31 = zext nneg i8 %switch.tableidx79 to i64
-  %switch.gep86 = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 %31
+  %switch.gep86 = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 %31
   %switch.load87 = load i16, ptr %switch.gep86, align 2
   %32 = shl nuw nsw i16 %switch.load, 4
   %33 = or disjoint i16 %switch.load87, %32
@@ -138,7 +138,7 @@ switch.hole_check90:                              ; preds = %36
 
 switch.lookup91:                                  ; preds = %switch.hole_check90
   %39 = zext nneg i8 %switch.tableidx88 to i64
-  %switch.gep95 = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 %39
+  %switch.gep95 = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 %39
   %switch.load96 = load i16, ptr %switch.gep95, align 2
   %40 = shl nuw nsw i16 %33, 4
   %41 = or disjoint i16 %switch.load96, %40
@@ -161,7 +161,7 @@ switch.hole_check99:                              ; preds = %44
 
 switch.lookup100:                                 ; preds = %switch.hole_check99
   %47 = zext nneg i8 %switch.tableidx97 to i64
-  %switch.gep104 = getelementptr inbounds nuw i16, ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 %47
+  %switch.gep104 = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZNK5boost4urls6detail10h16_rule_t5parseERPKcS4_.3, i64 %47
   %switch.load105 = load i16, ptr %switch.gep104, align 2
   %48 = shl nuw i16 %41, 4
   %49 = or disjoint i16 %switch.load105, %48

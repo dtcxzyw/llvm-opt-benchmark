@@ -131,7 +131,7 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) local_unnamed_addr #3 {
   %64 = getelementptr inbounds nuw i8, ptr %.03645, i64 %indvars.iv
   %65 = load i8, ptr %64, align 1, !tbaa !31
   %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds nuw [10 x [9 x i8]], ptr @kBModesProba, i64 %66
+  %67 = getelementptr inbounds nuw [90 x i8], ptr @kBModesProba, i64 %66
   %68 = zext nneg i32 %.03344 to i64
   %69 = getelementptr inbounds nuw [9 x i8], ptr %67, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %.047, i64 %indvars.iv
@@ -273,16 +273,16 @@ define hidden void @VP8WriteProbas(ptr noundef %0, ptr noundef readonly captures
 
 .preheader34:                                     ; preds = %2, %29
   %indvars.iv48 = phi i64 [ 0, %2 ], [ %indvars.iv.next49, %29 ]
-  %4 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %3, i64 %indvars.iv48
-  %5 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr @VP8CoeffsProba0, i64 %indvars.iv48
-  %6 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr @VP8CoeffsUpdateProba, i64 %indvars.iv48
+  %4 = getelementptr inbounds nuw [264 x i8], ptr %3, i64 %indvars.iv48
+  %5 = getelementptr inbounds nuw [264 x i8], ptr @VP8CoeffsProba0, i64 %indvars.iv48
+  %6 = getelementptr inbounds nuw [264 x i8], ptr @VP8CoeffsUpdateProba, i64 %indvars.iv48
   br label %.preheader33
 
 .preheader33:                                     ; preds = %.preheader34, %28
   %indvars.iv44 = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next45, %28 ]
-  %7 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %4, i64 %indvars.iv44
-  %8 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %5, i64 %indvars.iv44
-  %9 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %6, i64 %indvars.iv44
+  %7 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 %indvars.iv44
+  %8 = getelementptr inbounds nuw [33 x i8], ptr %5, i64 %indvars.iv44
+  %9 = getelementptr inbounds nuw [33 x i8], ptr %6, i64 %indvars.iv44
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader33, %27

@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SockAddr = type { %struct.sockaddr_storage, i32 }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 %struct.passwd = type { ptr, ptr, i32, i32, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 
 @ClientAuthentication_hook = dso_local local_unnamed_addr global ptr null, align 8
 @InterruptPending = external global i32, align 4
@@ -1084,7 +1083,7 @@ list_head.exit69.i:                               ; preds = %455, %list_head.exi
   %.043108.i101 = phi ptr [ %.245.i, %list_length.exit77.thread.i ], [ %446, %.lr.ph.i ]
   %indvars.iv.i100 = phi i64 [ %indvars.iv.next.i, %list_length.exit77.thread.i ], [ 0, %.lr.ph.i ]
   %480 = load ptr, ptr %462, align 8
-  %481 = getelementptr inbounds nuw %union.ListCell, ptr %480, i64 %indvars.iv.i100
+  %481 = getelementptr inbounds nuw [8 x i8], ptr %480, i64 %indvars.iv.i100
   %482 = load ptr, ptr %481, align 8
   %483 = load ptr, ptr %.043108.i101, align 8
   %.not58.i = icmp eq ptr %.051106.i103, null
@@ -1499,7 +1498,7 @@ radius_add_attribute.exit175.i.i:                 ; preds = %617, %615, %613
   %690 = shl nuw i64 1, %689
   %691 = sdiv i32 %633, 64
   %692 = sext i32 %691 to i64
-  %693 = getelementptr inbounds i64, ptr %11, i64 %692
+  %693 = getelementptr inbounds [8 x i8], ptr %11, i64 %692
   %694 = add nuw i32 %633, 1
   %695 = trunc i64 %495 to i16
   %696 = call i16 @llvm.bswap.i16(i16 %695)
@@ -1807,7 +1806,7 @@ list_length.exit.i:                               ; preds = %PerformRadiusTransa
   %.val60.i = load ptr, ptr %823, align 8
   %824 = getelementptr inbounds nuw i8, ptr %.043108.i101, i64 8
   %825 = zext nneg i32 %820 to i64
-  %826 = getelementptr inbounds nuw %union.ListCell, ptr %.val60.i, i64 %825
+  %826 = getelementptr inbounds nuw [8 x i8], ptr %.val60.i, i64 %825
   %827 = icmp ult ptr %824, %826
   %..i72.i = select i1 %827, ptr %824, ptr null
   br label %list_length.exit.thread.i
@@ -1830,7 +1829,7 @@ list_length.exit74.i:                             ; preds = %list_length.exit.th
   %.val62.i = load ptr, ptr %834, align 8
   %835 = getelementptr inbounds nuw i8, ptr %.051106.i103, i64 8
   %836 = zext nneg i32 %831 to i64
-  %837 = getelementptr inbounds nuw %union.ListCell, ptr %.val62.i, i64 %836
+  %837 = getelementptr inbounds nuw [8 x i8], ptr %.val62.i, i64 %836
   %838 = icmp ult ptr %835, %837
   %..i75.i = select i1 %838, ptr %835, ptr null
   br label %list_length.exit74.thread.i
@@ -1853,7 +1852,7 @@ list_length.exit77.i:                             ; preds = %list_length.exit74.
   %.val64.i = load ptr, ptr %845, align 8
   %846 = getelementptr inbounds nuw i8, ptr %.048107.i102, i64 8
   %847 = zext nneg i32 %842 to i64
-  %848 = getelementptr inbounds nuw %union.ListCell, ptr %.val64.i, i64 %847
+  %848 = getelementptr inbounds nuw [8 x i8], ptr %.val64.i, i64 %847
   %849 = icmp ult ptr %846, %848
   %..i78.i = select i1 %849, ptr %846, ptr null
   br label %list_length.exit77.thread.i
@@ -1968,10 +1967,10 @@ sendAuthRequest.exit:                             ; preds = %879, %887
 
 switch.lookup:                                    ; preds = %892
   %897 = zext nneg i32 %895 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ClientAuthentication, i64 %897
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ClientAuthentication, i64 %897
   %switch.load = load ptr, ptr %switch.gep, align 8
   %898 = zext nneg i32 %895 to i64
-  %switch.gep145 = getelementptr inbounds nuw i32, ptr @switch.table.ClientAuthentication.3, i64 %898
+  %switch.gep145 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ClientAuthentication.3, i64 %898
   %switch.load146 = load i32, ptr %switch.gep145, align 4
   br label %899
 

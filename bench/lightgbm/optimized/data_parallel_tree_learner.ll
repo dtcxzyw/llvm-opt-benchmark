@@ -14,18 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.36" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.167" = type { %"struct.std::__uniq_ptr_data.168" }
-%"struct.std::__uniq_ptr_data.168" = type { %"class.std::__uniq_ptr_impl.169" }
-%"class.std::__uniq_ptr_impl.169" = type { %"class.std::tuple.170" }
-%"class.std::tuple.170" = type { %"struct.std::_Tuple_impl.171" }
-%"struct.std::_Tuple_impl.171" = type { %"struct.std::_Head_base.174" }
-%"struct.std::_Head_base.174" = type { ptr }
-%"class.std::unique_ptr.193" = type { %"struct.std::__uniq_ptr_data.194" }
-%"struct.std::__uniq_ptr_data.194" = type { %"class.std::__uniq_ptr_impl.195" }
-%"class.std::__uniq_ptr_impl.195" = type { %"class.std::tuple.196" }
-%"class.std::tuple.196" = type { %"struct.std::_Tuple_impl.197" }
-%"struct.std::_Tuple_impl.197" = type { %"struct.std::_Head_base.200" }
-%"struct.std::_Head_base.200" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.85 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.85 = type { i64, [8 x i8] }
@@ -50,12 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"class.LightGBM::FeatureHistogram" = type { ptr, ptr, ptr, i8, %"class.std::function", %"class.std::function.201" }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::function.201" = type { %"class.std::_Function_base", ptr }
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %"class.std::unordered_set" = type { %"class.std::_Hashtable.203" }
 %"class.std::_Hashtable.203" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
@@ -71,6 +53,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::function.235" = type { %"class.std::_Function_base", ptr }
+%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
+%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
+%"union.std::_Nocopy_types" = type { { i64, i64 } }
 
 $_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerEED5Ev = comdat any
 
@@ -340,7 +325,7 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 42:                                               ; preds = %3
   %43 = sdiv i32 %28, 64
   %.sext = sext i32 %43 to i64
-  %44 = getelementptr inbounds i64, ptr %34, i64 %.sext
+  %44 = getelementptr inbounds [8 x i8], ptr %34, i64 %.sext
   %45 = and i64 %29, -9223372036854775745
   %46 = icmp ugt i64 %45, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %46, i64 -8, i64 0
@@ -381,7 +366,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %42, %48
   br i1 %64, label %65, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i32, ptr %55, i64 %52
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %52
   %.not.i.i = icmp eq ptr %54, %66
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %67
 
@@ -412,7 +397,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %61, %63, %65, %67
   br i1 %80, label %81, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit6
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds nuw i32, ptr %71, i64 %.pre-phi
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %.pre-phi
   %.not.i.i5 = icmp eq ptr %70, %82
   br i1 %.not.i.i5, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit6, label %83
 
@@ -453,7 +438,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit6:              ; preds = %77, %79, %81, %83
   br i1 %103, label %104, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit8
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds nuw i32, ptr %94, i64 %91
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %91
   %.not.i.i7 = icmp eq ptr %93, %105
   br i1 %.not.i.i7, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit8, label %106
 
@@ -484,7 +469,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit8:              ; preds = %100, %102, %104, %1
   br i1 %119, label %120, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit10
 
 120:                                              ; preds = %118
-  %121 = getelementptr inbounds nuw i32, ptr %110, i64 %.pre-phi29
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %.pre-phi29
   %.not.i.i9 = icmp eq ptr %109, %121
   br i1 %.not.i.i9, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit10, label %122
 
@@ -518,7 +503,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit10:             ; preds = %122, %120, %118, %1
   br i1 %137, label %138, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit12
 
 138:                                              ; preds = %136
-  %139 = getelementptr inbounds nuw i32, ptr %128, i64 %125
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %125
   %.not.i.i11 = icmp eq ptr %127, %139
   br i1 %.not.i.i11, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit12, label %140
 
@@ -549,7 +534,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit12:             ; preds = %134, %136, %138, %1
   br i1 %153, label %154, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit14
 
 154:                                              ; preds = %152
-  %155 = getelementptr inbounds nuw i32, ptr %144, i64 %.pre-phi31
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %.pre-phi31
   %.not.i.i13 = icmp eq ptr %143, %155
   br i1 %.not.i.i13, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit14, label %156
 
@@ -590,7 +575,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit14:             ; preds = %150, %152, %154, %1
   br i1 %176, label %177, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit16
 
 177:                                              ; preds = %175
-  %178 = getelementptr inbounds nuw i32, ptr %167, i64 %164
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %164
   %.not.i.i15 = icmp eq ptr %166, %178
   br i1 %.not.i.i15, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit16, label %179
 
@@ -621,7 +606,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit16:             ; preds = %173, %175, %177, %1
   br i1 %192, label %193, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit18
 
 193:                                              ; preds = %191
-  %194 = getelementptr inbounds nuw i32, ptr %183, i64 %.pre-phi33
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %.pre-phi33
   %.not.i.i17 = icmp eq ptr %182, %194
   br i1 %.not.i.i17, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit18, label %195
 
@@ -655,7 +640,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit18:             ; preds = %195, %193, %191, %1
   br i1 %212, label %213, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit20
 
 213:                                              ; preds = %211
-  %214 = getelementptr inbounds nuw i32, ptr %203, i64 %200
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %200
   %.not.i.i19 = icmp eq ptr %202, %214
   br i1 %.not.i.i19, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit20, label %215
 
@@ -720,7 +705,7 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   br i1 %20, label %21, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i32, ptr %11, i64 %8
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %8
   %.not.i.i = icmp eq ptr %10, %22
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %23
 
@@ -899,7 +884,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt1
   store ptr %13, ptr %2, align 8, !tbaa !206
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %13, ptr %14, align 8, !tbaa !207
-  %15 = getelementptr inbounds nuw %"class.std::vector.35", ptr %13, i64 %8
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !208
   %17 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RKT1_(ptr noundef %13, i64 noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -981,7 +966,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc38, %_ZNSt6ve
   %47 = load i32, ptr %46, align 8, !tbaa !4
   %48 = sext i32 %47 to i64
   %49 = load ptr, ptr %2, align 8, !tbaa !206
-  %50 = getelementptr inbounds nuw %"class.std::vector.35", ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %48
   %51 = load ptr, ptr %50, align 8, !tbaa !230
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !230
@@ -1023,7 +1008,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit40:                  ; preds = %.body, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %151 ]
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %65 = load ptr, ptr %64, align 8, !tbaa !168
-  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4, !tbaa !209
   %68 = icmp eq i32 %67, -1
   br i1 %68, label %151, label %69
@@ -1042,9 +1027,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit40:                  ; preds = %.body, %59
 .lr.ph.i:                                         ; preds = %74, %.lr.ph.i
   %.013.i = phi i64 [ %80, %.lr.ph.i ], [ 1, %74 ]
   %.01012.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ 0, %74 ]
-  %75 = getelementptr inbounds nuw i32, ptr %.sroa.097.0, i64 %.013.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.097.0, i64 %.013.i
   %76 = load i32, ptr %75, align 4, !tbaa !209
-  %77 = getelementptr inbounds nuw i32, ptr %.sroa.097.0, i64 %.01012.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.097.0, i64 %.01012.i
   %78 = load i32, ptr %77, align 4, !tbaa !209
   %79 = icmp slt i32 %76, %78
   %spec.select.i = select i1 %79, i64 %.013.i, i64 %.01012.i
@@ -1060,7 +1045,7 @@ _ZN8LightGBM9ArrayArgsIiE6ArgMinERKSt6vectorIiSaIiEE.exit.loopexit: ; preds = %.
 _ZN8LightGBM9ArrayArgsIiE6ArgMinERKSt6vectorIiSaIiEE.exit: ; preds = %_ZN8LightGBM9ArrayArgsIiE6ArgMinERKSt6vectorIiSaIiEE.exit.loopexit, %74
   %.011.i = phi i64 [ 0, %74 ], [ %82, %_ZN8LightGBM9ArrayArgsIiE6ArgMinERKSt6vectorIiSaIiEE.exit.loopexit ]
   %83 = load ptr, ptr %2, align 8, !tbaa !206
-  %84 = getelementptr inbounds nuw %"class.std::vector.35", ptr %83, i64 %.011.i
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %.011.i
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !167
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
@@ -1126,7 +1111,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %109 ], [ %.pre113, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i ]
   store ptr %104, ptr %84, align 8, !tbaa !168
   store ptr %108, ptr %85, align 8, !tbaa !167
-  %110 = getelementptr inbounds nuw i32, ptr %104, i64 %102
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %102
   store ptr %110, ptr %87, align 8, !tbaa !235
   br label %111
 
@@ -1135,28 +1120,28 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %112 = phi ptr [ %63, %89 ], [ %.pre, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ]
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 464
   %114 = load ptr, ptr %113, align 8, !tbaa !168
-  %115 = getelementptr inbounds nuw i32, ptr %114, i64 %70
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %70
   %116 = load i32, ptr %115, align 4, !tbaa !209
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 488
   %118 = load ptr, ptr %117, align 8, !tbaa !168
-  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %70
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %70
   %120 = load i32, ptr %119, align 4, !tbaa !209
   %121 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %122 = sext i32 %116 to i64
   %123 = load ptr, ptr %121, align 8, !tbaa !236
-  %124 = getelementptr inbounds nuw %"class.std::unique_ptr.167", ptr %123, i64 %122
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %122
   %125 = load ptr, ptr %124, align 8, !tbaa !237
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = sext i32 %120 to i64
   %128 = load ptr, ptr %126, align 8, !tbaa !239
-  %129 = getelementptr inbounds nuw %"class.std::unique_ptr.193", ptr %128, i64 %127
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %127
   %130 = load ptr, ptr %129, align 8, !tbaa !242
   %131 = load i32, ptr %130, align 8, !tbaa !244
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 156
   %133 = load i32, ptr %132, align 4, !tbaa !256
   %134 = icmp eq i32 %133, 0
   %135 = sext i1 %134 to i32
-  %136 = getelementptr inbounds nuw i32, ptr %.sroa.097.0, i64 %.011.i
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.097.0, i64 %.011.i
   %137 = load i32, ptr %136, align 4, !tbaa !209
   %spec.select = add i32 %137, %131
   %138 = add i32 %spec.select, %135
@@ -1179,7 +1164,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %141 = load ptr, ptr %45, align 8, !tbaa !165
   %142 = sdiv i32 %67, 64
   %.sext = sext i32 %142 to i64
-  %143 = getelementptr inbounds i64, ptr %141, i64 %.sext
+  %143 = getelementptr inbounds [8 x i8], ptr %141, i64 %.sext
   %144 = and i64 %70, -9223372036854775745
   %145 = icmp ugt i64 %144, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %145, i64 -8, i64 0
@@ -1221,7 +1206,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %169 = sext i32 %168 to i64
   %170 = sdiv i32 %168, 64
   %.sext103 = sext i32 %170 to i64
-  %171 = getelementptr inbounds i64, ptr %55, i64 %.sext103
+  %171 = getelementptr inbounds [8 x i8], ptr %55, i64 %.sext103
   %172 = and i64 %169, -9223372036854775745
   %173 = icmp ugt i64 %172, -9223372036854775808
   %storemerge.idx.i.i.i.i.i44 = select i1 %173, i64 -8, i64 0
@@ -1481,7 +1466,7 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = sext i32 %23 to i64
   %28 = load ptr, ptr %26, align 8, !tbaa !168
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %27
   %30 = load i32, ptr %29, align 4, !tbaa !209
   %31 = icmp slt i32 %30, 1
   br i1 %31, label %32, label %.noexc.i
@@ -1774,7 +1759,7 @@ _ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_Z
   %24 = shl nuw nsw i64 %22, 7
   %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #34
   store ptr %25, ptr %8, align 8, !tbaa !277
-  %26 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %25, i64 %22
+  %26 = getelementptr inbounds nuw [128 x i8], ptr %25, i64 %22
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %26, ptr %27, align 8, !tbaa !278
   br label %.lr.ph.i.i.i.i.i
@@ -1819,7 +1804,7 @@ _ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i40: ; preds = %
 
 .noexc48:                                         ; preds = %_ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i40
   store ptr %40, ptr %9, align 8, !tbaa !277
-  %41 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %40, i64 %22
+  %41 = getelementptr inbounds nuw [128 x i8], ptr %40, i64 %22
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %41, ptr %42, align 8, !tbaa !278
   br label %.lr.ph.i.i.i.i.i41
@@ -2078,8 +2063,8 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i51: ; preds = %130
 .lr.ph.i:                                         ; preds = %.preheader.i, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i
   %.015.i = phi i64 [ %166, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i ], [ 1, %.preheader.i ]
   %.01214.i = phi i64 [ %spec.select.i, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i ], [ 0, %.preheader.i ]
-  %150 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %138, i64 %.015.i
-  %151 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %138, i64 %.01214.i
+  %150 = getelementptr inbounds nuw [128 x i8], ptr %138, i64 %.015.i
+  %151 = getelementptr inbounds nuw [128 x i8], ptr %138, i64 %.01214.i
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 40
   %153 = load double, ptr %152, align 8, !tbaa !281
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 40
@@ -2114,11 +2099,11 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; pr
   %168 = load ptr, ptr %54, align 8, !tbaa !259
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %170 = load i32, ptr %169, align 4, !tbaa !267
-  %171 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %167, i64 %.013.i
+  %171 = getelementptr inbounds nuw [128 x i8], ptr %167, i64 %.013.i
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %173 = sext i32 %170 to i64
   %174 = load ptr, ptr %172, align 8, !tbaa !277
-  %175 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %174, i64 %173
+  %175 = getelementptr inbounds nuw [128 x i8], ptr %174, i64 %173
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %175, ptr noundef nonnull align 8 dereferenceable(122) %171, i64 96, i1 false)
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 96
   %177 = getelementptr inbounds nuw i8, ptr %171, i64 96
@@ -2169,8 +2154,8 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; pr
 .lr.ph.i61:                                       ; preds = %.preheader.i59, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65
   %.015.i62 = phi i64 [ %217, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65 ], [ 1, %.preheader.i59 ]
   %.01214.i63 = phi i64 [ %spec.select.i67, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65 ], [ 0, %.preheader.i59 ]
-  %201 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %189, i64 %.015.i62
-  %202 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %189, i64 %.01214.i63
+  %201 = getelementptr inbounds nuw [128 x i8], ptr %189, i64 %.015.i62
+  %202 = getelementptr inbounds nuw [128 x i8], ptr %189, i64 %.01214.i63
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 40
   %204 = load double, ptr %203, align 8, !tbaa !281
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 40
@@ -2202,10 +2187,10 @@ _ZNK8LightGBM9SplitInfogtERKS0_.exit.i65:         ; preds = %210, %208
 _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70: ; preds = %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70_crit_edge, %.preheader.i59, %188
   %218 = phi ptr [ %189, %188 ], [ %.pre148, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70_crit_edge ], [ %189, %.preheader.i59 ], [ %189, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65 ]
   %.013.i60 = phi i64 [ 0, %188 ], [ %200, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70_crit_edge ], [ 0, %.preheader.i59 ], [ %spec.select.i67, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65 ]
-  %219 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %218, i64 %.013.i60
+  %219 = getelementptr inbounds nuw [128 x i8], ptr %218, i64 %.013.i60
   %220 = zext nneg i32 %186 to i64
   %221 = load ptr, ptr %172, align 8, !tbaa !277
-  %222 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %221, i64 %220
+  %222 = getelementptr inbounds nuw [128 x i8], ptr %221, i64 %220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %222, ptr noundef nonnull align 8 dereferenceable(122) %219, i64 96, i1 false)
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 96
   %224 = getelementptr inbounds nuw i8, ptr %219, i64 96
@@ -2273,7 +2258,7 @@ _ZN8LightGBM9SplitInfoaSERKS0_.exit72:            ; preds = %_ZN8LightGBM9ArrayA
   %252 = load i32, ptr %251, align 4, !tbaa !267
   %253 = sext i32 %252 to i64
   %254 = load ptr, ptr %172, align 8, !tbaa !277
-  %255 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %254, i64 %253
+  %255 = getelementptr inbounds nuw [128 x i8], ptr %254, i64 %253
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %16, ptr noundef nonnull align 8 dereferenceable(122) %255, i64 96, i1 false)
   %256 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %.not.i112 = icmp eq ptr %255, %16
@@ -2325,7 +2310,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T
 
 280:                                              ; preds = %273
   %281 = zext nneg i32 %278 to i64
-  %282 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %254, i64 %281
+  %282 = getelementptr inbounds nuw [128 x i8], ptr %254, i64 %281
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %17, ptr noundef nonnull align 8 dereferenceable(122) %282, i64 96, i1 false)
   %283 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %.not.i117 = icmp eq ptr %282, %17
@@ -2419,7 +2404,7 @@ _ZN8LightGBM9SplitInfoD2Ev.exit79:                ; preds = %_ZN8LightGBM9SplitI
   %318 = load i32, ptr %317, align 4, !tbaa !267
   %319 = sext i32 %318 to i64
   %320 = load ptr, ptr %172, align 8, !tbaa !277
-  %321 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %320, i64 %319
+  %321 = getelementptr inbounds nuw [128 x i8], ptr %320, i64 %319
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %321, ptr noundef nonnull align 8 dereferenceable(122) %16, i64 96, i1 false)
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 96
   %323 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %322, ptr noundef nonnull align 8 dereferenceable(24) %256)
@@ -2438,7 +2423,7 @@ _ZN8LightGBM9SplitInfoD2Ev.exit79:                ; preds = %_ZN8LightGBM9SplitI
 331:                                              ; preds = %324
   %332 = zext nneg i32 %329 to i64
   %333 = load ptr, ptr %172, align 8, !tbaa !277
-  %334 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %333, i64 %332
+  %334 = getelementptr inbounds nuw [128 x i8], ptr %333, i64 %332
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %334, ptr noundef nonnull align 8 dereferenceable(122) %17, i64 96, i1 false)
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 96
   %336 = getelementptr inbounds nuw i8, ptr %17, i64 96
@@ -2655,20 +2640,20 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = sext i32 %2 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !277
-  %9 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [128 x i8], ptr %8, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !296
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %13 = load i32, ptr %3, align 4, !tbaa !209
   %14 = sext i32 %13 to i64
   %15 = load ptr, ptr %12, align 8, !tbaa !168
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %14
   store i32 %11, ptr %16, align 4, !tbaa !209
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %18 = load i32, ptr %17, align 4, !tbaa !297
   %19 = load i32, ptr %4, align 4, !tbaa !209
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %15, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %20
   store i32 %18, ptr %21, align 4, !tbaa !209
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %23 = load ptr, ptr %22, align 8, !tbaa !116
@@ -2707,7 +2692,7 @@ define weak_odr noundef i32 @_ZNK8LightGBM23DataParallelTreeLearnerINS_14GPUTree
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %6 = zext nneg i32 %1 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !168
-  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %6
   %9 = load i32, ptr %8, align 4, !tbaa !209
   br label %10
 
@@ -2775,7 +2760,7 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 42:                                               ; preds = %3
   %43 = sdiv i32 %28, 64
   %.sext = sext i32 %43 to i64
-  %44 = getelementptr inbounds i64, ptr %34, i64 %.sext
+  %44 = getelementptr inbounds [8 x i8], ptr %34, i64 %.sext
   %45 = and i64 %29, -9223372036854775745
   %46 = icmp ugt i64 %45, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %46, i64 -8, i64 0
@@ -2816,7 +2801,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %42, %48
   br i1 %64, label %65, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i32, ptr %55, i64 %52
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %52
   %.not.i.i = icmp eq ptr %54, %66
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %67
 
@@ -2847,7 +2832,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %61, %63, %65, %67
   br i1 %80, label %81, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit6
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds nuw i32, ptr %71, i64 %.pre-phi
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %.pre-phi
   %.not.i.i5 = icmp eq ptr %70, %82
   br i1 %.not.i.i5, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit6, label %83
 
@@ -2888,7 +2873,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit6:              ; preds = %77, %79, %81, %83
   br i1 %103, label %104, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit8
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds nuw i32, ptr %94, i64 %91
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %91
   %.not.i.i7 = icmp eq ptr %93, %105
   br i1 %.not.i.i7, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit8, label %106
 
@@ -2919,7 +2904,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit8:              ; preds = %100, %102, %104, %1
   br i1 %119, label %120, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit10
 
 120:                                              ; preds = %118
-  %121 = getelementptr inbounds nuw i32, ptr %110, i64 %.pre-phi29
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %.pre-phi29
   %.not.i.i9 = icmp eq ptr %109, %121
   br i1 %.not.i.i9, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit10, label %122
 
@@ -2953,7 +2938,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit10:             ; preds = %122, %120, %118, %1
   br i1 %137, label %138, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit12
 
 138:                                              ; preds = %136
-  %139 = getelementptr inbounds nuw i32, ptr %128, i64 %125
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %125
   %.not.i.i11 = icmp eq ptr %127, %139
   br i1 %.not.i.i11, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit12, label %140
 
@@ -2984,7 +2969,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit12:             ; preds = %134, %136, %138, %1
   br i1 %153, label %154, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit14
 
 154:                                              ; preds = %152
-  %155 = getelementptr inbounds nuw i32, ptr %144, i64 %.pre-phi31
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %.pre-phi31
   %.not.i.i13 = icmp eq ptr %143, %155
   br i1 %.not.i.i13, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit14, label %156
 
@@ -3025,7 +3010,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit14:             ; preds = %150, %152, %154, %1
   br i1 %176, label %177, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit16
 
 177:                                              ; preds = %175
-  %178 = getelementptr inbounds nuw i32, ptr %167, i64 %164
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %164
   %.not.i.i15 = icmp eq ptr %166, %178
   br i1 %.not.i.i15, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit16, label %179
 
@@ -3056,7 +3041,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit16:             ; preds = %173, %175, %177, %1
   br i1 %192, label %193, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit18
 
 193:                                              ; preds = %191
-  %194 = getelementptr inbounds nuw i32, ptr %183, i64 %.pre-phi33
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %.pre-phi33
   %.not.i.i17 = icmp eq ptr %182, %194
   br i1 %.not.i.i17, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit18, label %195
 
@@ -3090,7 +3075,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit18:             ; preds = %195, %193, %191, %1
   br i1 %212, label %213, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit20
 
 213:                                              ; preds = %211
-  %214 = getelementptr inbounds nuw i32, ptr %203, i64 %200
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %200
   %.not.i.i19 = icmp eq ptr %202, %214
   br i1 %.not.i.i19, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit20, label %215
 
@@ -3131,7 +3116,7 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   br i1 %20, label %21, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i32, ptr %11, i64 %8
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %8
   %.not.i.i = icmp eq ptr %10, %22
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %23
 
@@ -3181,7 +3166,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt1
   store ptr %13, ptr %2, align 8, !tbaa !206
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %13, ptr %14, align 8, !tbaa !207
-  %15 = getelementptr inbounds nuw %"class.std::vector.35", ptr %13, i64 %8
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !208
   %17 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RKT1_(ptr noundef %13, i64 noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -3263,7 +3248,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc38, %_ZNSt6ve
   %47 = load i32, ptr %46, align 8, !tbaa !298
   %48 = sext i32 %47 to i64
   %49 = load ptr, ptr %2, align 8, !tbaa !206
-  %50 = getelementptr inbounds nuw %"class.std::vector.35", ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %48
   %51 = load ptr, ptr %50, align 8, !tbaa !230
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !230
@@ -3305,7 +3290,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit40:                  ; preds = %.body, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %151 ]
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %65 = load ptr, ptr %64, align 8, !tbaa !168
-  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4, !tbaa !209
   %68 = icmp eq i32 %67, -1
   br i1 %68, label %151, label %69
@@ -3324,9 +3309,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit40:                  ; preds = %.body, %59
 .lr.ph.i:                                         ; preds = %74, %.lr.ph.i
   %.013.i = phi i64 [ %80, %.lr.ph.i ], [ 1, %74 ]
   %.01012.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ 0, %74 ]
-  %75 = getelementptr inbounds nuw i32, ptr %.sroa.097.0, i64 %.013.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.097.0, i64 %.013.i
   %76 = load i32, ptr %75, align 4, !tbaa !209
-  %77 = getelementptr inbounds nuw i32, ptr %.sroa.097.0, i64 %.01012.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.097.0, i64 %.01012.i
   %78 = load i32, ptr %77, align 4, !tbaa !209
   %79 = icmp slt i32 %76, %78
   %spec.select.i = select i1 %79, i64 %.013.i, i64 %.01012.i
@@ -3342,7 +3327,7 @@ _ZN8LightGBM9ArrayArgsIiE6ArgMinERKSt6vectorIiSaIiEE.exit.loopexit: ; preds = %.
 _ZN8LightGBM9ArrayArgsIiE6ArgMinERKSt6vectorIiSaIiEE.exit: ; preds = %_ZN8LightGBM9ArrayArgsIiE6ArgMinERKSt6vectorIiSaIiEE.exit.loopexit, %74
   %.011.i = phi i64 [ 0, %74 ], [ %82, %_ZN8LightGBM9ArrayArgsIiE6ArgMinERKSt6vectorIiSaIiEE.exit.loopexit ]
   %83 = load ptr, ptr %2, align 8, !tbaa !206
-  %84 = getelementptr inbounds nuw %"class.std::vector.35", ptr %83, i64 %.011.i
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %.011.i
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !167
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
@@ -3408,7 +3393,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %109 ], [ %.pre113, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i ]
   store ptr %104, ptr %84, align 8, !tbaa !168
   store ptr %108, ptr %85, align 8, !tbaa !167
-  %110 = getelementptr inbounds nuw i32, ptr %104, i64 %102
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %102
   store ptr %110, ptr %87, align 8, !tbaa !235
   br label %111
 
@@ -3417,28 +3402,28 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %112 = phi ptr [ %63, %89 ], [ %.pre, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ]
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 464
   %114 = load ptr, ptr %113, align 8, !tbaa !168
-  %115 = getelementptr inbounds nuw i32, ptr %114, i64 %70
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %70
   %116 = load i32, ptr %115, align 4, !tbaa !209
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 488
   %118 = load ptr, ptr %117, align 8, !tbaa !168
-  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %70
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %70
   %120 = load i32, ptr %119, align 4, !tbaa !209
   %121 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %122 = sext i32 %116 to i64
   %123 = load ptr, ptr %121, align 8, !tbaa !236
-  %124 = getelementptr inbounds nuw %"class.std::unique_ptr.167", ptr %123, i64 %122
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %122
   %125 = load ptr, ptr %124, align 8, !tbaa !237
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = sext i32 %120 to i64
   %128 = load ptr, ptr %126, align 8, !tbaa !239
-  %129 = getelementptr inbounds nuw %"class.std::unique_ptr.193", ptr %128, i64 %127
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %127
   %130 = load ptr, ptr %129, align 8, !tbaa !242
   %131 = load i32, ptr %130, align 8, !tbaa !244
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 156
   %133 = load i32, ptr %132, align 4, !tbaa !256
   %134 = icmp eq i32 %133, 0
   %135 = sext i1 %134 to i32
-  %136 = getelementptr inbounds nuw i32, ptr %.sroa.097.0, i64 %.011.i
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.097.0, i64 %.011.i
   %137 = load i32, ptr %136, align 4, !tbaa !209
   %spec.select = add i32 %137, %131
   %138 = add i32 %spec.select, %135
@@ -3461,7 +3446,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %141 = load ptr, ptr %45, align 8, !tbaa !165
   %142 = sdiv i32 %67, 64
   %.sext = sext i32 %142 to i64
-  %143 = getelementptr inbounds i64, ptr %141, i64 %.sext
+  %143 = getelementptr inbounds [8 x i8], ptr %141, i64 %.sext
   %144 = and i64 %70, -9223372036854775745
   %145 = icmp ugt i64 %144, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %145, i64 -8, i64 0
@@ -3503,7 +3488,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %169 = sext i32 %168 to i64
   %170 = sdiv i32 %168, 64
   %.sext103 = sext i32 %170 to i64
-  %171 = getelementptr inbounds i64, ptr %55, i64 %.sext103
+  %171 = getelementptr inbounds [8 x i8], ptr %55, i64 %.sext103
   %172 = and i64 %169, -9223372036854775745
   %173 = icmp ugt i64 %172, -9223372036854775808
   %storemerge.idx.i.i.i.i.i44 = select i1 %173, i64 -8, i64 0
@@ -3761,7 +3746,7 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = sext i32 %23 to i64
   %28 = load ptr, ptr %26, align 8, !tbaa !168
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %27
   %30 = load i32, ptr %29, align 4, !tbaa !209
   %31 = icmp slt i32 %30, 1
   br i1 %31, label %32, label %.noexc.i
@@ -4050,7 +4035,7 @@ _ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_Z
   %24 = shl nuw nsw i64 %22, 7
   %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #34
   store ptr %25, ptr %8, align 8, !tbaa !277
-  %26 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %25, i64 %22
+  %26 = getelementptr inbounds nuw [128 x i8], ptr %25, i64 %22
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %26, ptr %27, align 8, !tbaa !278
   br label %.lr.ph.i.i.i.i.i
@@ -4095,7 +4080,7 @@ _ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i40: ; preds = %
 
 .noexc48:                                         ; preds = %_ZNSt12_Vector_baseIN8LightGBM9SplitInfoESaIS1_EEC2EmRKS2_.exit.i40
   store ptr %40, ptr %9, align 8, !tbaa !277
-  %41 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %40, i64 %22
+  %41 = getelementptr inbounds nuw [128 x i8], ptr %40, i64 %22
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %41, ptr %42, align 8, !tbaa !278
   br label %.lr.ph.i.i.i.i.i41
@@ -4354,8 +4339,8 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i51: ; preds = %130
 .lr.ph.i:                                         ; preds = %.preheader.i, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i
   %.015.i = phi i64 [ %166, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i ], [ 1, %.preheader.i ]
   %.01214.i = phi i64 [ %spec.select.i, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i ], [ 0, %.preheader.i ]
-  %150 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %138, i64 %.015.i
-  %151 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %138, i64 %.01214.i
+  %150 = getelementptr inbounds nuw [128 x i8], ptr %138, i64 %.015.i
+  %151 = getelementptr inbounds nuw [128 x i8], ptr %138, i64 %.01214.i
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 40
   %153 = load double, ptr %152, align 8, !tbaa !281
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 40
@@ -4390,11 +4375,11 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; pr
   %168 = load ptr, ptr %54, align 8, !tbaa !259
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %170 = load i32, ptr %169, align 4, !tbaa !267
-  %171 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %167, i64 %.013.i
+  %171 = getelementptr inbounds nuw [128 x i8], ptr %167, i64 %.013.i
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %173 = sext i32 %170 to i64
   %174 = load ptr, ptr %172, align 8, !tbaa !277
-  %175 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %174, i64 %173
+  %175 = getelementptr inbounds nuw [128 x i8], ptr %174, i64 %173
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %175, ptr noundef nonnull align 8 dereferenceable(122) %171, i64 96, i1 false)
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 96
   %177 = getelementptr inbounds nuw i8, ptr %171, i64 96
@@ -4445,8 +4430,8 @@ _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit: ; pr
 .lr.ph.i61:                                       ; preds = %.preheader.i59, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65
   %.015.i62 = phi i64 [ %217, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65 ], [ 1, %.preheader.i59 ]
   %.01214.i63 = phi i64 [ %spec.select.i67, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65 ], [ 0, %.preheader.i59 ]
-  %201 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %189, i64 %.015.i62
-  %202 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %189, i64 %.01214.i63
+  %201 = getelementptr inbounds nuw [128 x i8], ptr %189, i64 %.015.i62
+  %202 = getelementptr inbounds nuw [128 x i8], ptr %189, i64 %.01214.i63
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 40
   %204 = load double, ptr %203, align 8, !tbaa !281
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 40
@@ -4478,10 +4463,10 @@ _ZNK8LightGBM9SplitInfogtERKS0_.exit.i65:         ; preds = %210, %208
 _ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70: ; preds = %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70_crit_edge, %.preheader.i59, %188
   %218 = phi ptr [ %189, %188 ], [ %.pre148, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70_crit_edge ], [ %189, %.preheader.i59 ], [ %189, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65 ]
   %.013.i60 = phi i64 [ 0, %188 ], [ %200, %._ZN8LightGBM9ArrayArgsINS_9SplitInfoEE6ArgMaxERKSt6vectorIS1_SaIS1_EE.exit70_crit_edge ], [ 0, %.preheader.i59 ], [ %spec.select.i67, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i65 ]
-  %219 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %218, i64 %.013.i60
+  %219 = getelementptr inbounds nuw [128 x i8], ptr %218, i64 %.013.i60
   %220 = zext nneg i32 %186 to i64
   %221 = load ptr, ptr %172, align 8, !tbaa !277
-  %222 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %221, i64 %220
+  %222 = getelementptr inbounds nuw [128 x i8], ptr %221, i64 %220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %222, ptr noundef nonnull align 8 dereferenceable(122) %219, i64 96, i1 false)
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 96
   %224 = getelementptr inbounds nuw i8, ptr %219, i64 96
@@ -4549,7 +4534,7 @@ _ZN8LightGBM9SplitInfoaSERKS0_.exit72:            ; preds = %_ZN8LightGBM9ArrayA
   %252 = load i32, ptr %251, align 4, !tbaa !267
   %253 = sext i32 %252 to i64
   %254 = load ptr, ptr %172, align 8, !tbaa !277
-  %255 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %254, i64 %253
+  %255 = getelementptr inbounds nuw [128 x i8], ptr %254, i64 %253
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %16, ptr noundef nonnull align 8 dereferenceable(122) %255, i64 96, i1 false)
   %256 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %.not.i112 = icmp eq ptr %255, %16
@@ -4601,7 +4586,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T
 
 280:                                              ; preds = %273
   %281 = zext nneg i32 %278 to i64
-  %282 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %254, i64 %281
+  %282 = getelementptr inbounds nuw [128 x i8], ptr %254, i64 %281
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %17, ptr noundef nonnull align 8 dereferenceable(122) %282, i64 96, i1 false)
   %283 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %.not.i117 = icmp eq ptr %282, %17
@@ -4695,7 +4680,7 @@ _ZN8LightGBM9SplitInfoD2Ev.exit79:                ; preds = %_ZN8LightGBM9SplitI
   %318 = load i32, ptr %317, align 4, !tbaa !267
   %319 = sext i32 %318 to i64
   %320 = load ptr, ptr %172, align 8, !tbaa !277
-  %321 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %320, i64 %319
+  %321 = getelementptr inbounds nuw [128 x i8], ptr %320, i64 %319
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %321, ptr noundef nonnull align 8 dereferenceable(122) %16, i64 96, i1 false)
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 96
   %323 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIjSaIjEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %322, ptr noundef nonnull align 8 dereferenceable(24) %256)
@@ -4714,7 +4699,7 @@ _ZN8LightGBM9SplitInfoD2Ev.exit79:                ; preds = %_ZN8LightGBM9SplitI
 331:                                              ; preds = %324
   %332 = zext nneg i32 %329 to i64
   %333 = load ptr, ptr %172, align 8, !tbaa !277
-  %334 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %333, i64 %332
+  %334 = getelementptr inbounds nuw [128 x i8], ptr %333, i64 %332
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(122) %334, ptr noundef nonnull align 8 dereferenceable(122) %17, i64 96, i1 false)
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 96
   %336 = getelementptr inbounds nuw i8, ptr %17, i64 96
@@ -4931,20 +4916,20 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = sext i32 %2 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !277
-  %9 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [128 x i8], ptr %8, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !296
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %13 = load i32, ptr %3, align 4, !tbaa !209
   %14 = sext i32 %13 to i64
   %15 = load ptr, ptr %12, align 8, !tbaa !168
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %14
   store i32 %11, ptr %16, align 4, !tbaa !209
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %18 = load i32, ptr %17, align 4, !tbaa !297
   %19 = load i32, ptr %4, align 4, !tbaa !209
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %15, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %20
   store i32 %18, ptr %21, align 4, !tbaa !209
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %23 = load ptr, ptr %22, align 8, !tbaa !116
@@ -4983,7 +4968,7 @@ define weak_odr noundef i32 @_ZNK8LightGBM23DataParallelTreeLearnerINS_17SerialT
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %6 = zext nneg i32 %1 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !168
-  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %6
   %9 = load i32, ptr %8, align 4, !tbaa !209
   br label %10
 
@@ -5173,7 +5158,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM17SerialTreeLearner24GetGlobalData
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = zext nneg i32 %1 to i64
   %9 = load ptr, ptr %7, align 8, !tbaa !168
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %8
   %11 = load i32, ptr %10, align 4, !tbaa !209
   br label %12
 
@@ -5340,7 +5325,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit16:                  ; preds = %_ZNSt6vectorIiSaIiE
   %36 = sub i64 %34, %35
   %37 = ashr exact i64 %36, 3
   %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds i64, ptr %33, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %33, i64 %38
   tail call void @_ZdlPv(ptr noundef %39) #32
   store ptr null, ptr %29, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 600
@@ -5534,7 +5519,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %25
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 63
   %36 = sdiv i64 %33, 64
-  %37 = getelementptr inbounds i64, ptr %16, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %16, i64 %36
   %38 = and i64 %33, -9223372036854775745
   %39 = icmp ugt i64 %38, -9223372036854775808
   %storemerge.idx.i.i.i = select i1 %39, i64 -8, i64 0
@@ -5689,7 +5674,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %77, %_ZSt14__fill_b
   %107 = add nsw i64 %3, %106
   %108 = sdiv i64 %107, 64
   %109 = load ptr, ptr %15, align 8, !tbaa !165
-  %110 = getelementptr inbounds i64, ptr %109, i64 %108
+  %110 = getelementptr inbounds [8 x i8], ptr %109, i64 %108
   %111 = and i64 %107, -9223372036854775745
   %112 = icmp ugt i64 %111, -9223372036854775808
   %storemerge.idx.i.i = select i1 %112, i64 -8, i64 0
@@ -5950,13 +5935,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
   %231 = sub i64 %229, %230
   %232 = ashr exact i64 %231, 3
   %233 = sub nsw i64 0, %232
-  %234 = getelementptr inbounds i64, ptr %228, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr %228, i64 %233
   tail call void @_ZdlPv(ptr noundef %234) #32
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %227
   %235 = lshr i64 %123, 6
-  %236 = getelementptr inbounds nuw i64, ptr %126, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %235
   store ptr %236, ptr %8, align 8, !tbaa !306
   store ptr %126, ptr %0, align 8
   %.sroa.5138.0..sroa_idx139 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6076,9 +6061,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !168
-  %38 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !167
-  %39 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !235
   br label %40
 
@@ -6118,9 +6103,9 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 24:                                               ; preds = %.lr.ph80, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next, %._crit_edge ]
-  %25 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 0, ptr %25, align 4, !tbaa !209
-  %26 = getelementptr inbounds nuw %"class.std::vector.35", ptr %13, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !230
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !230
@@ -6149,17 +6134,17 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %.sroa.071.077 = phi ptr [ %27, %.lr.ph ], [ %62, %39 ]
   %41 = load i32, ptr %.sroa.071.077, align 4, !tbaa !209
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %30, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !209
-  %45 = getelementptr inbounds nuw i32, ptr %31, i64 %42
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %42
   %46 = load i32, ptr %45, align 4, !tbaa !209
   %47 = sext i32 %44 to i64
-  %48 = getelementptr inbounds nuw %"class.std::unique_ptr.167", ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !237
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = sext i32 %46 to i64
   %52 = load ptr, ptr %50, align 8, !tbaa !239
-  %53 = getelementptr inbounds nuw %"class.std::unique_ptr.193", ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8, !tbaa !242
   %55 = load i32, ptr %54, align 8, !tbaa !244
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 156
@@ -6192,11 +6177,11 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 71:                                               ; preds = %.lr.ph84, %71
   %72 = phi i32 [ 0, %.lr.ph84 ], [ %76, %71 ]
   %indvars.iv102 = phi i64 [ 1, %.lr.ph84 ], [ %indvars.iv.next103, %71 ]
-  %73 = getelementptr i32, ptr %23, i64 %indvars.iv102
+  %73 = getelementptr [4 x i8], ptr %23, i64 %indvars.iv102
   %74 = getelementptr i8, ptr %73, i64 -4
   %75 = load i32, ptr %74, align 4, !tbaa !209
   %76 = add nsw i32 %75, %72
-  %77 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv102
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv102
   store i32 %76, ptr %77, align 4, !tbaa !209
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %78 = load i32, ptr %9, align 4, !tbaa !115
@@ -6208,7 +6193,7 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %82 = load i32, ptr %81, align 8, !tbaa !4
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"class.std::vector.35", ptr %.pre108, i64 %83
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %.pre108, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !230
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !230
@@ -6232,7 +6217,7 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %99 = phi i32 [ %63, %.lr.ph93 ], [ %108, %._crit_edge90 ]
   %indvars.iv105 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next106, %._crit_edge90 ]
   %.06091 = phi i32 [ 0, %.lr.ph93 ], [ %.1.lcssa, %._crit_edge90 ]
-  %100 = getelementptr inbounds nuw %"class.std::vector.35", ptr %.pre108, i64 %indvars.iv105
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %.pre108, i64 %indvars.iv105
   %101 = load ptr, ptr %100, align 8, !tbaa !230
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !230
@@ -6263,19 +6248,19 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %.sroa.067.086 = phi ptr [ %101, %.lr.ph89 ], [ %134, %111 ]
   %112 = load i32, ptr %.sroa.067.086, align 4, !tbaa !209
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds nuw i32, ptr %104, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %113
   store i32 %.187, ptr %114, align 4, !tbaa !209
-  %115 = getelementptr inbounds nuw i32, ptr %105, i64 %113
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %113
   %116 = load i32, ptr %115, align 4, !tbaa !209
-  %117 = getelementptr inbounds nuw i32, ptr %106, i64 %113
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %113
   %118 = load i32, ptr %117, align 4, !tbaa !209
   %119 = sext i32 %116 to i64
-  %120 = getelementptr inbounds nuw %"class.std::unique_ptr.167", ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !237
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = sext i32 %118 to i64
   %124 = load ptr, ptr %122, align 8, !tbaa !239
-  %125 = getelementptr inbounds nuw %"class.std::unique_ptr.193", ptr %124, i64 %123
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %123
   %126 = load ptr, ptr %125, align 8, !tbaa !242
   %127 = load i32, ptr %126, align 8, !tbaa !244
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 156
@@ -6297,19 +6282,19 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %.sroa.063.096 = phi ptr [ %85, %.lr.ph99 ], [ %158, %135 ]
   %136 = load i32, ptr %.sroa.063.096, align 4, !tbaa !209
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds nuw i32, ptr %88, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %137
   store i32 %.297, ptr %138, align 4, !tbaa !209
-  %139 = getelementptr inbounds nuw i32, ptr %92, i64 %137
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %137
   %140 = load i32, ptr %139, align 4, !tbaa !209
-  %141 = getelementptr inbounds nuw i32, ptr %94, i64 %137
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !209
   %143 = sext i32 %140 to i64
-  %144 = getelementptr inbounds nuw %"class.std::unique_ptr.167", ptr %96, i64 %143
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !237
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = sext i32 %142 to i64
   %148 = load ptr, ptr %146, align 8, !tbaa !239
-  %149 = getelementptr inbounds nuw %"class.std::unique_ptr.193", ptr %148, i64 %147
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %147
   %150 = load ptr, ptr %149, align 8, !tbaa !242
   %151 = load i32, ptr %150, align 8, !tbaa !244
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 156
@@ -6627,21 +6612,21 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %28 = load ptr, ptr %18, align 8, !tbaa !210
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 464
   %30 = load ptr, ptr %29, align 8, !tbaa !168
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !209
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 488
   %34 = load ptr, ptr %33, align 8, !tbaa !168
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !209
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %38 = sext i32 %32 to i64
   %39 = load ptr, ptr %37, align 8, !tbaa !236
-  %40 = getelementptr inbounds nuw %"class.std::unique_ptr.167", ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %38
   %41 = load ptr, ptr %40, align 8, !tbaa !237
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = sext i32 %36 to i64
   %44 = load ptr, ptr %42, align 8, !tbaa !239
-  %45 = getelementptr inbounds nuw %"class.std::unique_ptr.193", ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %43
   %46 = load ptr, ptr %45, align 8, !tbaa !242
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 156
   %48 = load i32, ptr %47, align 4, !tbaa !256
@@ -6653,7 +6638,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %53 = load i8, ptr %52, align 8, !tbaa !143, !range !144, !noundef !145
   %54 = trunc nuw i8 %53 to i1
   %55 = load ptr, ptr %20, align 8, !tbaa !318
-  %56 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds [96 x i8], ptr %55, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !319
   %59 = add i32 %50, %.neg
@@ -6664,7 +6649,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %62 = shl nsw i64 %60, 3
   call void @llvm.memset.p0.i64(ptr align 1 %58, i8 0, i64 %62, i1 false)
   %63 = load ptr, ptr %20, align 8, !tbaa !318
-  %64 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds [96 x i8], ptr %63, i64 %indvars.iv
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !325
   br label %.sink.split
@@ -6792,10 +6777,10 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 53:                                               ; preds = %47
   %54 = load ptr, ptr %21, align 8, !tbaa !318
-  %55 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds [96 x i8], ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %19, align 8, !tbaa !265
   %57 = load ptr, ptr %20, align 8, !tbaa !168
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !209
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i8, ptr %56, i64 %60
@@ -6816,7 +6801,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %71 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv.i
   %72 = load i32, ptr %71, align 4, !tbaa !209
   %73 = lshr i32 %72, 16
   %74 = zext nneg i32 %73 to i64
@@ -6825,7 +6810,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %76 = and i32 %72, 65535
   %77 = zext nneg i32 %76 to i64
   %78 = or disjoint i64 %75, %77
-  %79 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i
   store i64 %78, ptr %79, align 8, !tbaa !257
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -6837,12 +6822,12 @@ _ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit.sink.split: ; preds
   %.sink33 = phi i32 [ 3, %47 ], [ 2, %36 ], [ 4, %31 ]
   %.sink45 = load ptr, ptr %19, align 8, !tbaa !265
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !168
-  %80 = getelementptr inbounds nuw i32, ptr %.sink, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %.sink, i64 %indvars.iv
   %81 = load i32, ptr %80, align 4, !tbaa !209
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i8, ptr %.sink45, i64 %82
   %84 = load ptr, ptr %21, align 8, !tbaa !318
-  %85 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds [96 x i8], ptr %84, i64 %indvars.iv
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %.sink43
   %87 = load ptr, ptr %86, align 8, !tbaa !266
   %88 = load ptr, ptr %85, align 8, !tbaa !328
@@ -6991,9 +6976,9 @@ define internal void @_ZN8LightGBML24Int16HistogramSumReducerEPKcPcii.omp_outlin
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
+  %22 = getelementptr inbounds [4 x i8], ptr %18, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !209
-  %24 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
+  %24 = getelementptr inbounds [4 x i8], ptr %19, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !209
   %26 = add nsw i32 %25, %23
   store i32 %26, ptr %24, align 4, !tbaa !209
@@ -7053,9 +7038,9 @@ define internal void @_ZN8LightGBML24Int32HistogramSumReducerEPKcPcii.omp_outlin
 
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds i64, ptr %18, i64 %indvars.iv
+  %23 = getelementptr inbounds [8 x i8], ptr %18, i64 %indvars.iv
   %24 = load i64, ptr %23, align 8, !tbaa !257
-  %25 = getelementptr inbounds i64, ptr %19, i64 %indvars.iv
+  %25 = getelementptr inbounds [8 x i8], ptr %19, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8, !tbaa !257
   %27 = add nsw i64 %26, %24
   store i64 %27, ptr %25, align 8, !tbaa !257
@@ -7116,7 +7101,7 @@ define linkonce_odr void @_ZN8LightGBM10ColSampler9GetByNodeEPKNS_4TreeEi(ptr de
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 512
   %33 = sext i32 %3 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !206, !noalias !340
-  %35 = getelementptr inbounds nuw %"class.std::vector.35", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %33
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !167, !noalias !340
   %38 = load ptr, ptr %35, align 8, !tbaa !168, !noalias !340
@@ -7252,7 +7237,7 @@ _ZNK8LightGBM4Tree15branch_featuresEi.exit:       ; preds = %.noexc60, %.thread.
   %82 = load i64, ptr %22, align 8, !tbaa !337
   %83 = urem i64 %81, %82
   %84 = load ptr, ptr %7, align 8, !tbaa !335
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %83
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %83
   %86 = load ptr, ptr %85, align 8, !tbaa !351
   %.not.i.i.i158 = icmp eq ptr %86, null
   br i1 %.not.i.i.i158, label %.critedge.i, label %95
@@ -7386,7 +7371,7 @@ _ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE6insertINSt8__detail14_Node_
   %134 = load i32, ptr %.sroa.0217.0281, align 4, !tbaa !209
   %135 = sext i32 %134 to i64
   %136 = urem i64 %135, %120
-  %137 = getelementptr inbounds nuw ptr, ptr %121, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !351
   %.not.i.i.i.i.i69 = icmp eq ptr %138, null
   br i1 %.not.i.i.i.i.i69, label %_ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE6insertINSt8__detail14_Node_iteratorIiLb1ELb0EEEEEvT_SA_.exit76.thread, label %139
@@ -7447,7 +7432,7 @@ _ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE6insertINSt8__detail14_Node_
   %161 = load i64, ptr %22, align 8, !tbaa !337
   %162 = urem i64 %160, %161
   %163 = load ptr, ptr %7, align 8, !tbaa !335
-  %164 = getelementptr inbounds nuw ptr, ptr %163, i64 %162
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %162
   %165 = load ptr, ptr %164, align 8, !tbaa !351
   %.not.i.i.i164 = icmp eq ptr %165, null
   br i1 %.not.i.i.i164, label %.critedge.i170, label %174
@@ -7706,7 +7691,7 @@ _ZNSt12_Vector_baseIaSaIaEEC2EmRKS0_.exit.thread.i85: ; preds = %_ZNSt6vectorIaS
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 56
   %252 = sext i32 %249 to i64
   %253 = load ptr, ptr %251, align 8, !tbaa !168
-  %254 = getelementptr inbounds nuw i32, ptr %253, i64 %252
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %253, i64 %252
   %255 = load i32, ptr %254, align 4, !tbaa !209
   %256 = icmp sgt i32 %255, -1
   br i1 %256, label %257, label %261
@@ -7786,7 +7771,7 @@ _ZNSt12_Vector_baseIaSaIaEEC2EmRKS0_.exit.thread.i85: ; preds = %_ZNSt6vectorIaS
   %298 = load i32, ptr %.sroa.0200.0297, align 4, !tbaa !209
   %299 = sext i32 %298 to i64
   %300 = load ptr, ptr %284, align 8, !tbaa !168
-  %301 = getelementptr inbounds nuw i32, ptr %300, i64 %299
+  %301 = getelementptr inbounds nuw [4 x i8], ptr %300, i64 %299
   %302 = load i64, ptr %285, align 8, !tbaa !347
   %.not.not.i.i.i89 = icmp eq i64 %302, 0
   %303 = load i32, ptr %301, align 4
@@ -7809,7 +7794,7 @@ _ZNSt12_Vector_baseIaSaIaEEC2EmRKS0_.exit.thread.i85: ; preds = %_ZNSt6vectorIaS
   %310 = load i64, ptr %22, align 8, !tbaa !337
   %311 = urem i64 %309, %310
   %312 = load ptr, ptr %7, align 8, !tbaa !335
-  %313 = getelementptr inbounds nuw ptr, ptr %312, i64 %311
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %311
   %314 = load ptr, ptr %313, align 8, !tbaa !351
   %.not.i.i.i.i.i90 = icmp eq ptr %314, null
   br i1 %.not.i.i.i.i.i90, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %315
@@ -7901,7 +7886,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %345, %.noe
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %347, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %342, ptr %11, align 8, !tbaa !168
   store ptr %346, ptr %286, align 8, !tbaa !167
-  %348 = getelementptr inbounds nuw i32, ptr %342, i64 %340
+  %348 = getelementptr inbounds nuw [4 x i8], ptr %342, i64 %340
   store ptr %348, ptr %287, align 8, !tbaa !235
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -8113,7 +8098,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit113:                 ; preds = %386, %388
   %428 = load i64, ptr %22, align 8, !tbaa !337
   %429 = urem i64 %427, %428
   %430 = load ptr, ptr %7, align 8, !tbaa !335
-  %431 = getelementptr inbounds nuw ptr, ptr %430, i64 %429
+  %431 = getelementptr inbounds nuw [8 x i8], ptr %430, i64 %429
   %432 = load ptr, ptr %431, align 8, !tbaa !351
   %.not.i.i.i.i.i118 = icmp eq ptr %432, null
   br i1 %.not.i.i.i.i.i118, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit140, label %433
@@ -8205,7 +8190,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i135: ; preds = %463, %.
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i137: ; preds = %465, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i135
   store ptr %460, ptr %16, align 8, !tbaa !168
   store ptr %464, ptr %407, align 8, !tbaa !167
-  %466 = getelementptr inbounds nuw i32, ptr %460, i64 %458
+  %466 = getelementptr inbounds nuw [4 x i8], ptr %460, i64 %458
   store ptr %466, ptr %408, align 8, !tbaa !235
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit140
 
@@ -8450,7 +8435,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %25 = trunc nsw i64 %indvars.iv to i32
   %26 = sdiv i32 %25, 64
   %.sext = sext i32 %26 to i64
-  %27 = getelementptr inbounds i64, ptr %19, i64 %.sext
+  %27 = getelementptr inbounds [8 x i8], ptr %19, i64 %.sext
   %28 = and i64 %indvars.iv, -9223372036854775745
   %29 = icmp ugt i64 %28, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %29, i64 -8, i64 0
@@ -8464,11 +8449,11 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 34:                                               ; preds = %24
   %35 = load ptr, ptr %20, align 8, !tbaa !366
-  %36 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds [96 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %21, align 8, !tbaa !268
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 5312
   %39 = load ptr, ptr %38, align 8, !tbaa !206
-  %40 = getelementptr inbounds nuw %"class.std::vector.35", ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !168
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !319
@@ -8487,9 +8472,9 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %51 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i
   %52 = load i64, ptr %51, align 8, !tbaa !257
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.i
   store i64 %52, ptr %53, align 8, !tbaa !257
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -8679,7 +8664,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %38 = trunc nsw i64 %indvars.iv to i32
   %39 = sdiv i32 %38, 64
   %.sext = sext i32 %39 to i64
-  %40 = getelementptr inbounds i64, ptr %37, i64 %.sext
+  %40 = getelementptr inbounds [8 x i8], ptr %37, i64 %.sext
   %41 = and i64 %indvars.iv, -9223372036854775745
   %42 = icmp ugt i64 %41, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %42, i64 -8, i64 0
@@ -8696,7 +8681,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %49 = load ptr, ptr %25, align 8, !tbaa !210
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 440
   %51 = load ptr, ptr %50, align 8, !tbaa !168
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !209
   %54 = load ptr, ptr %26, align 8, !tbaa !116
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 840
@@ -8716,7 +8701,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %67 = load i8, ptr %66, align 1, !tbaa !232
   %68 = icmp ult i8 %67, 17
   %69 = load ptr, ptr %27, align 8, !tbaa !318
-  %70 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds [96 x i8], ptr %69, i64 %indvars.iv
   %71 = load ptr, ptr %28, align 8, !tbaa !265
   %72 = load ptr, ptr %70, align 8, !tbaa !328
   %73 = load i32, ptr %72, align 8, !tbaa !329
@@ -8729,7 +8714,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 79:                                               ; preds = %58
   %80 = load ptr, ptr %32, align 8, !tbaa !168
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4, !tbaa !209
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds i8, ptr %71, i64 %83
@@ -8747,7 +8732,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 90:                                               ; preds = %58
   %91 = load ptr, ptr %29, align 8, !tbaa !168
-  %92 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4, !tbaa !209
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds i8, ptr %71, i64 %94
@@ -8759,10 +8744,10 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 99:                                               ; preds = %47
   %100 = load ptr, ptr %27, align 8, !tbaa !318
-  %101 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %100, i64 %indvars.iv
+  %101 = getelementptr inbounds [96 x i8], ptr %100, i64 %indvars.iv
   %102 = load ptr, ptr %28, align 8, !tbaa !265
   %103 = load ptr, ptr %29, align 8, !tbaa !168
-  %104 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv
   %105 = load i32, ptr %104, align 4, !tbaa !209
   %106 = sext i32 %105 to i64
   %107 = getelementptr inbounds i8, ptr %102, i64 %106
@@ -8801,7 +8786,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %135 = icmp ult i8 %132, 17
   %136 = load ptr, ptr %25, align 8, !tbaa !210
   %137 = load ptr, ptr %27, align 8, !tbaa !318
-  %138 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %137, i64 %indvars.iv
+  %138 = getelementptr inbounds [96 x i8], ptr %137, i64 %indvars.iv
   br i1 %135, label %139, label %144
 
 139:                                              ; preds = %124
@@ -8829,7 +8814,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %151 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %152 = load double, ptr %151, align 8, !tbaa !263
   %153 = load ptr, ptr %27, align 8, !tbaa !318
-  %154 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %153, i64 %indvars.iv
+  %154 = getelementptr inbounds [96 x i8], ptr %153, i64 %indvars.iv
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load ptr, ptr %155, align 8, !tbaa !319
   invoke void @_ZNK8LightGBM7Dataset12FixHistogramEiddPd(ptr noundef nonnull align 8 dereferenceable(864) %148, i32 noundef %38, double noundef %150, double noundef %152, ptr noundef %156)
@@ -8853,7 +8838,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %170 = load ptr, ptr %31, align 8, !tbaa !259
   %171 = sext i32 %48 to i64
   %172 = load ptr, ptr %4, align 8, !tbaa !277
-  %173 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %172, i64 %171
+  %173 = getelementptr inbounds nuw [128 x i8], ptr %172, i64 %171
   %174 = load double, ptr %5, align 8, !tbaa !285
   invoke void @_ZN8LightGBM17SerialTreeLearner26ComputeBestSplitForFeatureEPNS_16FeatureHistogramEiiaiPKNS_10LeafSplitsEPNS_9SplitInfoEd(ptr noundef nonnull align 8 dereferenceable(536) %2, ptr noundef %158, i32 noundef %38, i32 noundef %53, i8 noundef signext %161, i32 noundef %168, ptr noundef %170, ptr noundef nonnull %173, double noundef %174)
           to label %175 unwind label %88
@@ -8922,9 +8907,9 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 213:                                              ; preds = %212, %210
   %214 = load ptr, ptr %34, align 8, !tbaa !366
-  %215 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %214, i64 %indvars.iv
+  %215 = getelementptr inbounds [96 x i8], ptr %214, i64 %indvars.iv
   %216 = load ptr, ptr %27, align 8, !tbaa !318
-  %217 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %216, i64 %indvars.iv
+  %217 = getelementptr inbounds [96 x i8], ptr %216, i64 %indvars.iv
   %218 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %219 = load ptr, ptr %218, align 8, !tbaa !325
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 16
@@ -8939,9 +8924,9 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 .lr.ph.i:                                         ; preds = %213, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %213 ]
-  %228 = getelementptr inbounds nuw i32, ptr %219, i64 %indvars.iv.i
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %219, i64 %indvars.iv.i
   %229 = load i32, ptr %228, align 4, !tbaa !209
-  %230 = getelementptr inbounds nuw i32, ptr %221, i64 %indvars.iv.i
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %221, i64 %indvars.iv.i
   %231 = load i32, ptr %230, align 4, !tbaa !209
   %232 = sub nsw i32 %229, %231
   store i32 %232, ptr %228, align 4, !tbaa !209
@@ -8971,12 +8956,12 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 242:                                              ; preds = %._crit_edge108, %240
   %243 = phi ptr [ %.pre, %._crit_edge108 ], [ %190, %240 ]
   %244 = load ptr, ptr %34, align 8, !tbaa !366
-  %245 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %244, i64 %indvars.iv
+  %245 = getelementptr inbounds [96 x i8], ptr %244, i64 %indvars.iv
   %246 = load ptr, ptr %27, align 8, !tbaa !318
-  %247 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %246, i64 %indvars.iv
+  %247 = getelementptr inbounds [96 x i8], ptr %246, i64 %indvars.iv
   %248 = getelementptr inbounds nuw i8, ptr %243, i64 5312
   %249 = load ptr, ptr %248, align 8, !tbaa !206
-  %250 = getelementptr inbounds nuw %"class.std::vector.35", ptr %249, i64 %indvars.iv
+  %250 = getelementptr inbounds nuw [24 x i8], ptr %249, i64 %indvars.iv
   %251 = load ptr, ptr %250, align 8, !tbaa !168
   %252 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %253 = load ptr, ptr %252, align 8, !tbaa !325
@@ -8992,9 +8977,9 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 .lr.ph.i71:                                       ; preds = %242, %.lr.ph.i71
   %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i73, %.lr.ph.i71 ], [ 0, %242 ]
-  %262 = getelementptr inbounds nuw i32, ptr %253, i64 %indvars.iv.i72
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %253, i64 %indvars.iv.i72
   %263 = load i32, ptr %262, align 4, !tbaa !209
-  %264 = getelementptr inbounds nuw i64, ptr %251, i64 %indvars.iv.i72
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %indvars.iv.i72
   %265 = load i64, ptr %264, align 8, !tbaa !257
   %266 = lshr i32 %263, 16
   %267 = zext nneg i32 %266 to i64
@@ -9009,7 +8994,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
   %273 = and i32 %tr.sh.diff.i, -65536
   %274 = trunc i64 %272 to i32
   %275 = or i32 %273, %274
-  %276 = getelementptr inbounds nuw i32, ptr %255, i64 %indvars.iv.i72
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %255, i64 %indvars.iv.i72
   store i32 %275, ptr %276, align 4, !tbaa !209
   %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i72, 1
   %277 = load i32, ptr %256, align 8, !tbaa !329
@@ -9020,9 +9005,9 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 281:                                              ; preds = %237
   %282 = load ptr, ptr %34, align 8, !tbaa !366
-  %283 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %282, i64 %indvars.iv
+  %283 = getelementptr inbounds [96 x i8], ptr %282, i64 %indvars.iv
   %284 = load ptr, ptr %27, align 8, !tbaa !318
-  %285 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %284, i64 %indvars.iv
+  %285 = getelementptr inbounds [96 x i8], ptr %284, i64 %indvars.iv
   %286 = getelementptr inbounds nuw i8, ptr %283, i64 8
   %287 = load ptr, ptr %286, align 8, !tbaa !319
   %288 = load ptr, ptr %283, align 8, !tbaa !328
@@ -9045,9 +9030,9 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 .lr.ph.i74:                                       ; preds = %.lr.ph.i74, %.lr.ph.preheader.i
   %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i77, %.lr.ph.i74 ]
-  %298 = getelementptr inbounds nuw i32, ptr %297, i64 %indvars.iv.i75
+  %298 = getelementptr inbounds nuw [4 x i8], ptr %297, i64 %indvars.iv.i75
   %299 = load i32, ptr %298, align 4, !tbaa !209
-  %300 = getelementptr inbounds nuw i64, ptr %287, i64 %indvars.iv.i75
+  %300 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %indvars.iv.i75
   %301 = load i64, ptr %300, align 8, !tbaa !257
   %302 = lshr i32 %299, 16
   %303 = zext nneg i32 %302 to i64
@@ -9073,9 +9058,9 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 .lr.ph.i80:                                       ; preds = %.lr.ph.i80, %.lr.ph.preheader.i78
   %indvars.iv.i81 = phi i64 [ 0, %.lr.ph.preheader.i78 ], [ %indvars.iv.next.i82, %.lr.ph.i80 ]
-  %312 = getelementptr inbounds nuw i64, ptr %287, i64 %indvars.iv.i81
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %indvars.iv.i81
   %313 = load i64, ptr %312, align 8, !tbaa !257
-  %314 = getelementptr inbounds nuw i64, ptr %311, i64 %indvars.iv.i81
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %indvars.iv.i81
   %315 = load i64, ptr %314, align 8, !tbaa !257
   %316 = sub nsw i64 %313, %315
   store i64 %316, ptr %312, align 8, !tbaa !257
@@ -9085,7 +9070,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 317:                                              ; preds = %181
   %318 = load ptr, ptr %34, align 8, !tbaa !366
-  %319 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %318, i64 %indvars.iv
+  %319 = getelementptr inbounds [96 x i8], ptr %318, i64 %indvars.iv
   %320 = load ptr, ptr %319, align 8, !tbaa !328
   %321 = load i32, ptr %320, align 8, !tbaa !329
   %322 = getelementptr inbounds nuw i8, ptr %320, i64 8
@@ -9097,7 +9082,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 .lr.ph.i84:                                       ; preds = %317
   %327 = load ptr, ptr %27, align 8, !tbaa !318
-  %328 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %327, i64 %indvars.iv
+  %328 = getelementptr inbounds [96 x i8], ptr %327, i64 %indvars.iv
   %329 = shl nuw i32 %325, 1
   %330 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %331 = load ptr, ptr %330, align 8, !tbaa !319
@@ -9109,9 +9094,9 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_14GPUTreeLearnerE
 
 334:                                              ; preds = %334, %.lr.ph.i84
   %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.i84 ], [ %indvars.iv.next.i87, %334 ]
-  %335 = getelementptr inbounds nuw double, ptr %331, i64 %indvars.iv.i86
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %331, i64 %indvars.iv.i86
   %336 = load double, ptr %335, align 8, !tbaa !285
-  %337 = getelementptr inbounds nuw double, ptr %333, i64 %indvars.iv.i86
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %indvars.iv.i86
   %338 = load double, ptr %337, align 8, !tbaa !285
   %339 = fsub double %338, %336
   store double %339, ptr %337, align 8, !tbaa !285
@@ -9136,7 +9121,7 @@ _ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit: 
 351:                                              ; preds = %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
   %352 = load ptr, ptr %33, align 8, !tbaa !259
   %353 = load ptr, ptr %7, align 8, !tbaa !277
-  %354 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %353, i64 %171
+  %354 = getelementptr inbounds nuw [128 x i8], ptr %353, i64 %171
   %355 = load double, ptr %8, align 8, !tbaa !285
   invoke void @_ZN8LightGBM17SerialTreeLearner26ComputeBestSplitForFeatureEPNS_16FeatureHistogramEiiaiPKNS_10LeafSplitsEPNS_9SplitInfoEd(ptr noundef nonnull align 8 dereferenceable(536) %2, ptr noundef nonnull %340, i32 noundef %38, i32 noundef %53, i8 noundef signext %343, i32 noundef %350, ptr noundef %352, ptr noundef nonnull %354, double noundef %355)
           to label %365 unwind label %88
@@ -9424,7 +9409,7 @@ define linkonce_odr void @_ZN8LightGBM21SyncUpGlobalBestSplitEPcS0_PNS_9SplitInf
   br i1 %159, label %160, label %_ZN8LightGBM9SplitInfo8CopyFromEPKc.exit
 
 160:                                              ; preds = %158
-  %161 = getelementptr inbounds nuw i32, ptr %150, i64 %147
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %147
   %.not.i.i.i = icmp eq ptr %149, %161
   br i1 %.not.i.i.i, label %_ZN8LightGBM9SplitInfo8CopyFromEPKc.exit, label %162
 
@@ -9510,7 +9495,7 @@ _ZN8LightGBM9SplitInfo8CopyFromEPKc.exit:         ; preds = %156, %158, %160, %1
   br i1 %210, label %211, label %_ZN8LightGBM9SplitInfo8CopyFromEPKc.exit19
 
 211:                                              ; preds = %209
-  %212 = getelementptr inbounds nuw i32, ptr %201, i64 %198
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 %198
   %.not.i.i.i15 = icmp eq ptr %200, %212
   br i1 %.not.i.i.i15, label %_ZN8LightGBM9SplitInfo8CopyFromEPKc.exit19, label %213
 
@@ -9625,7 +9610,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %8
   %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #34
   store ptr %12, ptr %0, align 8, !tbaa !168
   store ptr %12, ptr %10, align 8, !tbaa !167
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %6
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %6
   store ptr %13, ptr %9, align 8, !tbaa !235
   %14 = icmp sgt i32 %3, %2
   br i1 %14, label %_ZNSt6vectorIiSaIiEE7reserveEm.exit.thread, label %15
@@ -9702,7 +9687,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %39, %.noex
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %41, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %40, ptr %17, align 8, !tbaa !167
-  %42 = getelementptr inbounds nuw i32, ptr %36, i64 %34
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %34
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %22
@@ -9823,7 +9808,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i42: ; preds = %91, %.no
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i44: ; preds = %93, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i42
   store ptr %92, ptr %54, align 8, !tbaa !167
-  %94 = getelementptr inbounds nuw i32, ptr %88, i64 %86
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %86
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit47
 
 .loopexit106:                                     ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i39
@@ -10106,7 +10091,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i79: ; preds = %183, %.n
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i81: ; preds = %185, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i79
   store ptr %184, ptr %105, align 8, !tbaa !167
-  %186 = getelementptr inbounds nuw i32, ptr %179, i64 %177
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %179, i64 %177
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit84
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit84:        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i81, %164
@@ -10210,21 +10195,21 @@ define internal void @_ZN8LightGBM10ColSampler9GetByNodeEPKNS_4TreeEi.omp_outlin
   %indvars.iv = phi i64 [ %23, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %24 = load ptr, ptr %4, align 8, !tbaa !365
   %25 = load ptr, ptr %5, align 8, !tbaa !168
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !209
   %28 = sext i32 %27 to i64
   %29 = load ptr, ptr %24, align 8, !tbaa !168
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %28
   %31 = load i32, ptr %30, align 4, !tbaa !209
   %32 = sext i32 %31 to i64
   %33 = load ptr, ptr %20, align 8, !tbaa !168
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %32
   %35 = load i32, ptr %34, align 4, !tbaa !209
   %36 = load ptr, ptr %3, align 8, !tbaa !359
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %38 = sext i32 %35 to i64
   %39 = load ptr, ptr %37, align 8, !tbaa !168
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %38
   %41 = load i32, ptr %40, align 4, !tbaa !209
   %42 = sext i32 %41 to i64
   %43 = load ptr, ptr %6, align 8, !tbaa !231
@@ -10313,17 +10298,17 @@ define internal void @_ZN8LightGBM10ColSampler9GetByNodeEPKNS_4TreeEi.omp_outlin
   %indvars.iv = phi i64 [ %22, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %23 = load ptr, ptr %3, align 8, !tbaa !365
   %24 = load ptr, ptr %4, align 8, !tbaa !168
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !209
   %27 = sext i32 %26 to i64
   %28 = load ptr, ptr %23, align 8, !tbaa !168
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %27
   %30 = load i32, ptr %29, align 4, !tbaa !209
   %31 = load ptr, ptr %5, align 8, !tbaa !359
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = sext i32 %30 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !168
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %33
   %36 = load i32, ptr %35, align 4, !tbaa !209
   %37 = sext i32 %36 to i64
   %38 = load ptr, ptr %6, align 8, !tbaa !231
@@ -10377,7 +10362,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail9_Identity
   %10 = load i64, ptr %9, align 8, !tbaa !337
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %0, align 8, !tbaa !335
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !351
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.critedge, label %28
@@ -10514,7 +10499,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
 31:                                               ; preds = %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !335
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !351
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -10541,7 +10526,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   %45 = load i32, ptr %43, align 4, !tbaa !209
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !351
   br label %49
 
@@ -10606,7 +10591,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   %16 = load i32, ptr %15, align 8, !tbaa !209
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !351
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -10621,7 +10606,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !351
   br label %29
 
@@ -10721,7 +10706,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   %29 = load i64, ptr %28, align 8, !tbaa !337
   %30 = sext i32 %26 to i64
   %31 = urem i64 %30, %29
-  %32 = getelementptr inbounds nuw ptr, ptr %18, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %31
   store ptr %27, ptr %32, align 8, !tbaa !351
   %.02834 = load ptr, ptr %20, align 8, !tbaa !346
   %.not3035 = icmp eq ptr %.02834, null
@@ -10742,7 +10727,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
   store ptr %33, ptr %.02636, align 8, !tbaa !346
   %38 = sext i32 %37 to i64
   %39 = urem i64 %38, %29
-  %40 = getelementptr inbounds nuw ptr, ptr %18, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !351
   %.not32 = icmp eq ptr %41, null
   br i1 %.not32, label %42, label %47
@@ -10983,7 +10968,7 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   %7 = shl nuw nsw i64 %5, 3
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #34
   store ptr %8, ptr %2, align 8, !tbaa !402
-  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %5
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %9, ptr %10, align 8, !tbaa !403
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %7, i1 false), !tbaa !257
@@ -11077,10 +11062,10 @@ _ZNSt14_Function_baseD2Ev.exit19:                 ; preds = %34, %37
 44:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %63 ]
   %.01323 = phi i64 [ %31, %.lr.ph ], [ %.1, %63 ]
-  %45 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8, !tbaa !257
-  %47 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %33, i64 %46
-  %48 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %33, i64 %.01323
+  %47 = getelementptr inbounds nuw [128 x i8], ptr %33, i64 %46
+  %48 = getelementptr inbounds nuw [128 x i8], ptr %33, i64 %.01323
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %50 = load double, ptr %49, align 8, !tbaa !281
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 40
@@ -11384,8 +11369,8 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvimmEZN8LightGBM9ArrayArgsIN
 11:                                               ; preds = %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i.i.i, %.lr.ph.i.i.i
   %.013.i.i.i = phi i64 [ %.011.i.i.i, %.lr.ph.i.i.i ], [ %.0.i.i.i, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i.i.i ]
   %.01012.i.i.i = phi i64 [ %6, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %_ZNK8LightGBM9SplitInfogtERKS0_.exit.i.i.i ]
-  %12 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %10, i64 %.013.i.i.i
-  %13 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %10, i64 %.01012.i.i.i
+  %12 = getelementptr inbounds nuw [128 x i8], ptr %10, i64 %.013.i.i.i
+  %13 = getelementptr inbounds nuw [128 x i8], ptr %10, i64 %.01012.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %15 = load double, ptr %14, align 8, !tbaa !281
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -11420,7 +11405,7 @@ _ZSt10__invoke_rIvRZN8LightGBM9ArrayArgsINS0_9SplitInfoEE8ArgMaxMTERKSt6vectorIS
   %29 = load ptr, ptr %28, align 8, !tbaa !416
   %30 = sext i32 %5 to i64
   %31 = load ptr, ptr %29, align 8, !tbaa !402
-  %32 = getelementptr inbounds nuw i64, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   store i64 %.010.lcssa.i.i.i, ptr %32, align 8, !tbaa !257
   ret void
 }
@@ -11696,9 +11681,9 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !292
-  %38 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !291
-  %39 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !294
   br label %40
 
@@ -11829,7 +11814,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit16:                  ; preds = %_ZNSt6vectorIiSaIiE
   %36 = sub i64 %34, %35
   %37 = ashr exact i64 %36, 3
   %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds i64, ptr %33, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %33, i64 %38
   tail call void @_ZdlPv(ptr noundef %39) #32
   store ptr null, ptr %29, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 600
@@ -11898,9 +11883,9 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 
 24:                                               ; preds = %.lr.ph80, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next, %._crit_edge ]
-  %25 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 0, ptr %25, align 4, !tbaa !209
-  %26 = getelementptr inbounds nuw %"class.std::vector.35", ptr %13, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !230
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !230
@@ -11929,17 +11914,17 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %.sroa.071.077 = phi ptr [ %27, %.lr.ph ], [ %62, %39 ]
   %41 = load i32, ptr %.sroa.071.077, align 4, !tbaa !209
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %30, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !209
-  %45 = getelementptr inbounds nuw i32, ptr %31, i64 %42
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %42
   %46 = load i32, ptr %45, align 4, !tbaa !209
   %47 = sext i32 %44 to i64
-  %48 = getelementptr inbounds nuw %"class.std::unique_ptr.167", ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !237
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = sext i32 %46 to i64
   %52 = load ptr, ptr %50, align 8, !tbaa !239
-  %53 = getelementptr inbounds nuw %"class.std::unique_ptr.193", ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8, !tbaa !242
   %55 = load i32, ptr %54, align 8, !tbaa !244
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 156
@@ -11972,11 +11957,11 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 71:                                               ; preds = %.lr.ph84, %71
   %72 = phi i32 [ 0, %.lr.ph84 ], [ %76, %71 ]
   %indvars.iv102 = phi i64 [ 1, %.lr.ph84 ], [ %indvars.iv.next103, %71 ]
-  %73 = getelementptr i32, ptr %23, i64 %indvars.iv102
+  %73 = getelementptr [4 x i8], ptr %23, i64 %indvars.iv102
   %74 = getelementptr i8, ptr %73, i64 -4
   %75 = load i32, ptr %74, align 4, !tbaa !209
   %76 = add nsw i32 %75, %72
-  %77 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv102
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv102
   store i32 %76, ptr %77, align 4, !tbaa !209
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %78 = load i32, ptr %9, align 4, !tbaa !300
@@ -11988,7 +11973,7 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %82 = load i32, ptr %81, align 8, !tbaa !298
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"class.std::vector.35", ptr %.pre108, i64 %83
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %.pre108, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !230
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !230
@@ -12012,7 +11997,7 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %99 = phi i32 [ %63, %.lr.ph93 ], [ %108, %._crit_edge90 ]
   %indvars.iv105 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next106, %._crit_edge90 ]
   %.06091 = phi i32 [ 0, %.lr.ph93 ], [ %.1.lcssa, %._crit_edge90 ]
-  %100 = getelementptr inbounds nuw %"class.std::vector.35", ptr %.pre108, i64 %indvars.iv105
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %.pre108, i64 %indvars.iv105
   %101 = load ptr, ptr %100, align 8, !tbaa !230
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !230
@@ -12043,19 +12028,19 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %.sroa.067.086 = phi ptr [ %101, %.lr.ph89 ], [ %134, %111 ]
   %112 = load i32, ptr %.sroa.067.086, align 4, !tbaa !209
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds nuw i32, ptr %104, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %113
   store i32 %.187, ptr %114, align 4, !tbaa !209
-  %115 = getelementptr inbounds nuw i32, ptr %105, i64 %113
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %113
   %116 = load i32, ptr %115, align 4, !tbaa !209
-  %117 = getelementptr inbounds nuw i32, ptr %106, i64 %113
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %113
   %118 = load i32, ptr %117, align 4, !tbaa !209
   %119 = sext i32 %116 to i64
-  %120 = getelementptr inbounds nuw %"class.std::unique_ptr.167", ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !237
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = sext i32 %118 to i64
   %124 = load ptr, ptr %122, align 8, !tbaa !239
-  %125 = getelementptr inbounds nuw %"class.std::unique_ptr.193", ptr %124, i64 %123
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %123
   %126 = load ptr, ptr %125, align 8, !tbaa !242
   %127 = load i32, ptr %126, align 8, !tbaa !244
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 156
@@ -12077,19 +12062,19 @@ define weak_odr void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %.sroa.063.096 = phi ptr [ %85, %.lr.ph99 ], [ %158, %135 ]
   %136 = load i32, ptr %.sroa.063.096, align 4, !tbaa !209
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds nuw i32, ptr %88, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %137
   store i32 %.297, ptr %138, align 4, !tbaa !209
-  %139 = getelementptr inbounds nuw i32, ptr %92, i64 %137
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %137
   %140 = load i32, ptr %139, align 4, !tbaa !209
-  %141 = getelementptr inbounds nuw i32, ptr %94, i64 %137
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !209
   %143 = sext i32 %140 to i64
-  %144 = getelementptr inbounds nuw %"class.std::unique_ptr.167", ptr %96, i64 %143
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !237
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = sext i32 %142 to i64
   %148 = load ptr, ptr %146, align 8, !tbaa !239
-  %149 = getelementptr inbounds nuw %"class.std::unique_ptr.193", ptr %148, i64 %147
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %147
   %150 = load ptr, ptr %149, align 8, !tbaa !242
   %151 = load i32, ptr %150, align 8, !tbaa !244
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 156
@@ -12238,21 +12223,21 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %28 = load ptr, ptr %18, align 8, !tbaa !210
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 464
   %30 = load ptr, ptr %29, align 8, !tbaa !168
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !209
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 488
   %34 = load ptr, ptr %33, align 8, !tbaa !168
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !209
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %38 = sext i32 %32 to i64
   %39 = load ptr, ptr %37, align 8, !tbaa !236
-  %40 = getelementptr inbounds nuw %"class.std::unique_ptr.167", ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %38
   %41 = load ptr, ptr %40, align 8, !tbaa !237
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = sext i32 %36 to i64
   %44 = load ptr, ptr %42, align 8, !tbaa !239
-  %45 = getelementptr inbounds nuw %"class.std::unique_ptr.193", ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %43
   %46 = load ptr, ptr %45, align 8, !tbaa !242
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 156
   %48 = load i32, ptr %47, align 4, !tbaa !256
@@ -12264,7 +12249,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %53 = load i8, ptr %52, align 8, !tbaa !143, !range !144, !noundef !145
   %54 = trunc nuw i8 %53 to i1
   %55 = load ptr, ptr %20, align 8, !tbaa !318
-  %56 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds [96 x i8], ptr %55, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !319
   %59 = add i32 %50, %.neg
@@ -12275,7 +12260,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %62 = shl nsw i64 %60, 3
   call void @llvm.memset.p0.i64(ptr align 1 %58, i8 0, i64 %62, i1 false)
   %63 = load ptr, ptr %20, align 8, !tbaa !318
-  %64 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds [96 x i8], ptr %63, i64 %indvars.iv
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !325
   br label %.sink.split
@@ -12386,10 +12371,10 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 
 53:                                               ; preds = %47
   %54 = load ptr, ptr %21, align 8, !tbaa !318
-  %55 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds [96 x i8], ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %19, align 8, !tbaa !265
   %57 = load ptr, ptr %20, align 8, !tbaa !168
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4, !tbaa !209
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i8, ptr %56, i64 %60
@@ -12410,7 +12395,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %71 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv.i
   %72 = load i32, ptr %71, align 4, !tbaa !209
   %73 = lshr i32 %72, 16
   %74 = zext nneg i32 %73 to i64
@@ -12419,7 +12404,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %76 = and i32 %72, 65535
   %77 = zext nneg i32 %76 to i64
   %78 = or disjoint i64 %75, %77
-  %79 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i
   store i64 %78, ptr %79, align 8, !tbaa !257
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -12431,12 +12416,12 @@ _ZN8LightGBM16FeatureHistogram20CopyFromInt16ToInt32EPc.exit.sink.split: ; preds
   %.sink33 = phi i32 [ 3, %47 ], [ 2, %36 ], [ 4, %31 ]
   %.sink45 = load ptr, ptr %19, align 8, !tbaa !265
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !168
-  %80 = getelementptr inbounds nuw i32, ptr %.sink, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %.sink, i64 %indvars.iv
   %81 = load i32, ptr %80, align 4, !tbaa !209
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i8, ptr %.sink45, i64 %82
   %84 = load ptr, ptr %21, align 8, !tbaa !318
-  %85 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds [96 x i8], ptr %84, i64 %indvars.iv
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %.sink43
   %87 = load ptr, ptr %86, align 8, !tbaa !266
   %88 = load ptr, ptr %85, align 8, !tbaa !328
@@ -12513,7 +12498,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %25 = trunc nsw i64 %indvars.iv to i32
   %26 = sdiv i32 %25, 64
   %.sext = sext i32 %26 to i64
-  %27 = getelementptr inbounds i64, ptr %19, i64 %.sext
+  %27 = getelementptr inbounds [8 x i8], ptr %19, i64 %.sext
   %28 = and i64 %indvars.iv, -9223372036854775745
   %29 = icmp ugt i64 %28, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %29, i64 -8, i64 0
@@ -12533,11 +12518,11 @@ _ZN8LightGBM16FeatureHistogram12CopyToBufferEPi.exit: ; preds = %.lr.ph.i, %34, 
 
 34:                                               ; preds = %24
   %35 = load ptr, ptr %20, align 8, !tbaa !366
-  %36 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds [96 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %21, align 8, !tbaa !268
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 5312
   %39 = load ptr, ptr %38, align 8, !tbaa !206
-  %40 = getelementptr inbounds nuw %"class.std::vector.35", ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !168
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !319
@@ -12556,9 +12541,9 @@ _ZN8LightGBM16FeatureHistogram12CopyToBufferEPi.exit: ; preds = %.lr.ph.i, %34, 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %51 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i
   %52 = load i64, ptr %51, align 8, !tbaa !257
-  %53 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.i
   store i64 %52, ptr %53, align 8, !tbaa !257
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -12627,7 +12612,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %38 = trunc nsw i64 %indvars.iv to i32
   %39 = sdiv i32 %38, 64
   %.sext = sext i32 %39 to i64
-  %40 = getelementptr inbounds i64, ptr %37, i64 %.sext
+  %40 = getelementptr inbounds [8 x i8], ptr %37, i64 %.sext
   %41 = and i64 %indvars.iv, -9223372036854775745
   %42 = icmp ugt i64 %41, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %42, i64 -8, i64 0
@@ -12644,7 +12629,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %49 = load ptr, ptr %25, align 8, !tbaa !210
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 440
   %51 = load ptr, ptr %50, align 8, !tbaa !168
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !209
   %54 = load ptr, ptr %26, align 8, !tbaa !116
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 840
@@ -12664,7 +12649,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %67 = load i8, ptr %66, align 1, !tbaa !232
   %68 = icmp ult i8 %67, 17
   %69 = load ptr, ptr %27, align 8, !tbaa !318
-  %70 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds [96 x i8], ptr %69, i64 %indvars.iv
   %71 = load ptr, ptr %28, align 8, !tbaa !265
   %72 = load ptr, ptr %70, align 8, !tbaa !328
   %73 = load i32, ptr %72, align 8, !tbaa !329
@@ -12677,7 +12662,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 
 79:                                               ; preds = %58
   %80 = load ptr, ptr %32, align 8, !tbaa !168
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4, !tbaa !209
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds i8, ptr %71, i64 %83
@@ -12689,7 +12674,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 
 88:                                               ; preds = %58
   %89 = load ptr, ptr %29, align 8, !tbaa !168
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   %91 = load i32, ptr %90, align 4, !tbaa !209
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i8, ptr %71, i64 %92
@@ -12701,10 +12686,10 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 
 97:                                               ; preds = %47
   %98 = load ptr, ptr %27, align 8, !tbaa !318
-  %99 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds [96 x i8], ptr %98, i64 %indvars.iv
   %100 = load ptr, ptr %28, align 8, !tbaa !265
   %101 = load ptr, ptr %29, align 8, !tbaa !168
-  %102 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv
   %103 = load i32, ptr %102, align 4, !tbaa !209
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds i8, ptr %100, i64 %104
@@ -12743,7 +12728,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %133 = icmp ult i8 %130, 17
   %134 = load ptr, ptr %25, align 8, !tbaa !210
   %135 = load ptr, ptr %27, align 8, !tbaa !318
-  %136 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %135, i64 %indvars.iv
+  %136 = getelementptr inbounds [96 x i8], ptr %135, i64 %indvars.iv
   br i1 %133, label %137, label %142
 
 137:                                              ; preds = %122
@@ -12771,7 +12756,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %149 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %150 = load double, ptr %149, align 8, !tbaa !263
   %151 = load ptr, ptr %27, align 8, !tbaa !318
-  %152 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %151, i64 %indvars.iv
+  %152 = getelementptr inbounds [96 x i8], ptr %151, i64 %indvars.iv
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %154 = load ptr, ptr %153, align 8, !tbaa !319
   invoke void @_ZNK8LightGBM7Dataset12FixHistogramEiddPd(ptr noundef nonnull align 8 dereferenceable(864) %146, i32 noundef %38, double noundef %148, double noundef %150, ptr noundef %154)
@@ -12801,7 +12786,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %170 = load ptr, ptr %31, align 8, !tbaa !259
   %171 = sext i32 %48 to i64
   %172 = load ptr, ptr %4, align 8, !tbaa !277
-  %173 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %172, i64 %171
+  %173 = getelementptr inbounds nuw [128 x i8], ptr %172, i64 %171
   %174 = load double, ptr %5, align 8, !tbaa !285
   invoke void @_ZN8LightGBM17SerialTreeLearner26ComputeBestSplitForFeatureEPNS_16FeatureHistogramEiiaiPKNS_10LeafSplitsEPNS_9SplitInfoEd(ptr noundef nonnull align 8 dereferenceable(536) %2, ptr noundef %158, i32 noundef %38, i32 noundef %53, i8 noundef signext %161, i32 noundef %168, ptr noundef %170, ptr noundef nonnull %173, double noundef %174)
           to label %175 unwind label %155
@@ -12870,9 +12855,9 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 
 213:                                              ; preds = %212, %210
   %214 = load ptr, ptr %34, align 8, !tbaa !366
-  %215 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %214, i64 %indvars.iv
+  %215 = getelementptr inbounds [96 x i8], ptr %214, i64 %indvars.iv
   %216 = load ptr, ptr %27, align 8, !tbaa !318
-  %217 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %216, i64 %indvars.iv
+  %217 = getelementptr inbounds [96 x i8], ptr %216, i64 %indvars.iv
   %218 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %219 = load ptr, ptr %218, align 8, !tbaa !325
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 16
@@ -12887,9 +12872,9 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 
 .lr.ph.i:                                         ; preds = %213, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %213 ]
-  %228 = getelementptr inbounds nuw i32, ptr %219, i64 %indvars.iv.i
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %219, i64 %indvars.iv.i
   %229 = load i32, ptr %228, align 4, !tbaa !209
-  %230 = getelementptr inbounds nuw i32, ptr %221, i64 %indvars.iv.i
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %221, i64 %indvars.iv.i
   %231 = load i32, ptr %230, align 4, !tbaa !209
   %232 = sub nsw i32 %229, %231
   store i32 %232, ptr %228, align 4, !tbaa !209
@@ -12919,12 +12904,12 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 242:                                              ; preds = %._crit_edge108, %240
   %243 = phi ptr [ %.pre, %._crit_edge108 ], [ %190, %240 ]
   %244 = load ptr, ptr %34, align 8, !tbaa !366
-  %245 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %244, i64 %indvars.iv
+  %245 = getelementptr inbounds [96 x i8], ptr %244, i64 %indvars.iv
   %246 = load ptr, ptr %27, align 8, !tbaa !318
-  %247 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %246, i64 %indvars.iv
+  %247 = getelementptr inbounds [96 x i8], ptr %246, i64 %indvars.iv
   %248 = getelementptr inbounds nuw i8, ptr %243, i64 5312
   %249 = load ptr, ptr %248, align 8, !tbaa !206
-  %250 = getelementptr inbounds nuw %"class.std::vector.35", ptr %249, i64 %indvars.iv
+  %250 = getelementptr inbounds nuw [24 x i8], ptr %249, i64 %indvars.iv
   %251 = load ptr, ptr %250, align 8, !tbaa !168
   %252 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %253 = load ptr, ptr %252, align 8, !tbaa !325
@@ -12940,9 +12925,9 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 
 .lr.ph.i71:                                       ; preds = %242, %.lr.ph.i71
   %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i73, %.lr.ph.i71 ], [ 0, %242 ]
-  %262 = getelementptr inbounds nuw i32, ptr %253, i64 %indvars.iv.i72
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %253, i64 %indvars.iv.i72
   %263 = load i32, ptr %262, align 4, !tbaa !209
-  %264 = getelementptr inbounds nuw i64, ptr %251, i64 %indvars.iv.i72
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %indvars.iv.i72
   %265 = load i64, ptr %264, align 8, !tbaa !257
   %266 = lshr i32 %263, 16
   %267 = zext nneg i32 %266 to i64
@@ -12957,7 +12942,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
   %273 = and i32 %tr.sh.diff.i, -65536
   %274 = trunc i64 %272 to i32
   %275 = or i32 %273, %274
-  %276 = getelementptr inbounds nuw i32, ptr %255, i64 %indvars.iv.i72
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %255, i64 %indvars.iv.i72
   store i32 %275, ptr %276, align 4, !tbaa !209
   %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i72, 1
   %277 = load i32, ptr %256, align 8, !tbaa !329
@@ -12968,9 +12953,9 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 
 281:                                              ; preds = %237
   %282 = load ptr, ptr %34, align 8, !tbaa !366
-  %283 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %282, i64 %indvars.iv
+  %283 = getelementptr inbounds [96 x i8], ptr %282, i64 %indvars.iv
   %284 = load ptr, ptr %27, align 8, !tbaa !318
-  %285 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %284, i64 %indvars.iv
+  %285 = getelementptr inbounds [96 x i8], ptr %284, i64 %indvars.iv
   %286 = getelementptr inbounds nuw i8, ptr %283, i64 8
   %287 = load ptr, ptr %286, align 8, !tbaa !319
   %288 = load ptr, ptr %283, align 8, !tbaa !328
@@ -12993,9 +12978,9 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 
 .lr.ph.i74:                                       ; preds = %.lr.ph.i74, %.lr.ph.preheader.i
   %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i77, %.lr.ph.i74 ]
-  %298 = getelementptr inbounds nuw i32, ptr %297, i64 %indvars.iv.i75
+  %298 = getelementptr inbounds nuw [4 x i8], ptr %297, i64 %indvars.iv.i75
   %299 = load i32, ptr %298, align 4, !tbaa !209
-  %300 = getelementptr inbounds nuw i64, ptr %287, i64 %indvars.iv.i75
+  %300 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %indvars.iv.i75
   %301 = load i64, ptr %300, align 8, !tbaa !257
   %302 = lshr i32 %299, 16
   %303 = zext nneg i32 %302 to i64
@@ -13021,9 +13006,9 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 
 .lr.ph.i80:                                       ; preds = %.lr.ph.i80, %.lr.ph.preheader.i78
   %indvars.iv.i81 = phi i64 [ 0, %.lr.ph.preheader.i78 ], [ %indvars.iv.next.i82, %.lr.ph.i80 ]
-  %312 = getelementptr inbounds nuw i64, ptr %287, i64 %indvars.iv.i81
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %indvars.iv.i81
   %313 = load i64, ptr %312, align 8, !tbaa !257
-  %314 = getelementptr inbounds nuw i64, ptr %311, i64 %indvars.iv.i81
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %indvars.iv.i81
   %315 = load i64, ptr %314, align 8, !tbaa !257
   %316 = sub nsw i64 %313, %315
   store i64 %316, ptr %312, align 8, !tbaa !257
@@ -13033,7 +13018,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 
 317:                                              ; preds = %181
   %318 = load ptr, ptr %34, align 8, !tbaa !366
-  %319 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %318, i64 %indvars.iv
+  %319 = getelementptr inbounds [96 x i8], ptr %318, i64 %indvars.iv
   %320 = load ptr, ptr %319, align 8, !tbaa !328
   %321 = load i32, ptr %320, align 8, !tbaa !329
   %322 = getelementptr inbounds nuw i8, ptr %320, i64 8
@@ -13045,7 +13030,7 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 
 .lr.ph.i84:                                       ; preds = %317
   %327 = load ptr, ptr %27, align 8, !tbaa !318
-  %328 = getelementptr inbounds %"class.LightGBM::FeatureHistogram", ptr %327, i64 %indvars.iv
+  %328 = getelementptr inbounds [96 x i8], ptr %327, i64 %indvars.iv
   %329 = shl nuw i32 %325, 1
   %330 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %331 = load ptr, ptr %330, align 8, !tbaa !319
@@ -13057,9 +13042,9 @@ define internal void @_ZN8LightGBM23DataParallelTreeLearnerINS_17SerialTreeLearn
 
 334:                                              ; preds = %334, %.lr.ph.i84
   %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.i84 ], [ %indvars.iv.next.i87, %334 ]
-  %335 = getelementptr inbounds nuw double, ptr %331, i64 %indvars.iv.i86
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %331, i64 %indvars.iv.i86
   %336 = load double, ptr %335, align 8, !tbaa !285
-  %337 = getelementptr inbounds nuw double, ptr %333, i64 %indvars.iv.i86
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %indvars.iv.i86
   %338 = load double, ptr %337, align 8, !tbaa !285
   %339 = fsub double %338, %336
   store double %339, ptr %337, align 8, !tbaa !285
@@ -13084,7 +13069,7 @@ _ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit: 
 351:                                              ; preds = %_ZN8LightGBM16FeatureHistogram8SubtractILb1EiiiLi16ELi16ELi16EEEvRKS0_PKi.exit
   %352 = load ptr, ptr %33, align 8, !tbaa !259
   %353 = load ptr, ptr %7, align 8, !tbaa !277
-  %354 = getelementptr inbounds nuw %"struct.LightGBM::SplitInfo", ptr %353, i64 %171
+  %354 = getelementptr inbounds nuw [128 x i8], ptr %353, i64 %171
   %355 = load double, ptr %8, align 8, !tbaa !285
   invoke void @_ZN8LightGBM17SerialTreeLearner26ComputeBestSplitForFeatureEPNS_16FeatureHistogramEiiaiPKNS_10LeafSplitsEPNS_9SplitInfoEd(ptr noundef nonnull align 8 dereferenceable(536) %2, ptr noundef nonnull %340, i32 noundef %38, i32 noundef %53, i8 noundef signext %343, i32 noundef %350, ptr noundef %352, ptr noundef nonnull %354, double noundef %355)
           to label %365 unwind label %155
@@ -13199,14 +13184,14 @@ define internal void @_ZNK8LightGBM17SerialTreeLearner20AddPredictionToScoreEPKN
 
 35:                                               ; preds = %.preheader, %._crit_edge
   %indvars.iv31 = phi i64 [ %indvars.iv29, %.preheader ], [ %indvars.iv.next32, %._crit_edge ]
-  %36 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv31
   %37 = load double, ptr %36, align 8, !tbaa !285
-  %38 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv31
   %39 = load i32, ptr %38, align 4, !tbaa !209
-  %40 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv31
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv31
   %41 = load i32, ptr %40, align 4, !tbaa !209
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds i32, ptr %28, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %28, i64 %42
   %44 = icmp sgt i32 %41, 0
   br i1 %44, label %.lr.ph.preheader, label %._crit_edge
 
@@ -13221,10 +13206,10 @@ define internal void @_ZNK8LightGBM17SerialTreeLearner20AddPredictionToScoreEPKN
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !209
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds double, ptr %33, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %33, i64 %47
   %49 = load double, ptr %48, align 8, !tbaa !285
   %50 = fadd double %37, %49
   store double %50, ptr %48, align 8, !tbaa !285

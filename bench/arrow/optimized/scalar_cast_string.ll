@@ -58,11 +58,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.83" = type { ptr }
 %class.anon.94 = type { ptr, ptr, ptr }
 %class.anon.92 = type { ptr, ptr, ptr }
-%"union.arrow::BinaryViewType::c_type" = type { %struct.anon }
-%struct.anon = type { i32, %"struct.std::array" }
-%"struct.std::array" = type { [12 x i8] }
-%"class.std::shared_ptr.98" = type { %"class.std::__shared_ptr.99" }
-%"class.std::__shared_ptr.99" = type { ptr, %"class.std::__shared_count" }
 %class.anon.108 = type { ptr, ptr, ptr, ptr }
 %class.anon.106 = type { ptr, ptr, ptr }
 %class.anon.114 = type { ptr, ptr, ptr }
@@ -77,6 +72,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.arrow::TypedBufferBuilder.141" = type { %"class.arrow::BufferBuilder" }
 %"class.std::shared_ptr.70" = type { %"class.std::__shared_ptr.71" }
 %"class.std::__shared_ptr.71" = type { ptr, %"class.std::__shared_count" }
+%"class.std::shared_ptr.98" = type { %"class.std::__shared_ptr.99" }
+%"class.std::__shared_ptr.99" = type { ptr, %"class.std::__shared_count" }
 %"class.std::vector.164" = type { %"struct.std::_Vector_base.165" }
 %"struct.std::_Vector_base.165" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::Buffer>, std::allocator<std::shared_ptr<arrow::Buffer>>>::_Vector_impl_data" }
@@ -12570,7 +12567,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit79.i: ; preds = %4928, %4925, %
 
 switch.lookup:                                    ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit79.i
   %4936 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5arrow7compute8internal18GetBinaryLikeCastsEv, i64 %4936
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5arrow7compute8internal18GetBinaryLikeCastsEv, i64 %4936
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5arrow7compute8internal15GenerateNumericITtTpTyENS1_12_GLOBAL__N_126NumericToStringCastFunctorENS_10StringTypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
 
@@ -19190,7 +19187,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit79.i1231: ; preds = %7615, %761
 
 switch.lookup3602:                                ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit79.i1231
   %7623 = zext nneg i32 %switch.tableidx3601 to i64
-  %switch.gep3603 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5arrow7compute8internal18GetBinaryLikeCastsEv.817, i64 %7623
+  %switch.gep3603 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5arrow7compute8internal18GetBinaryLikeCastsEv.817, i64 %7623
   %switch.load3604 = load ptr, ptr %switch.gep3603, align 8
   br label %_ZN5arrow7compute8internal15GenerateNumericITtTpTyENS1_12_GLOBAL__N_126NumericToStringCastFunctorENS_14StringViewTypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
 
@@ -25810,7 +25807,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit79.i1974: ; preds = %10302, %10
 
 switch.lookup3606:                                ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit79.i1974
   %10310 = zext nneg i32 %switch.tableidx3605 to i64
-  %switch.gep3607 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5arrow7compute8internal18GetBinaryLikeCastsEv.818, i64 %10310
+  %switch.gep3607 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5arrow7compute8internal18GetBinaryLikeCastsEv.818, i64 %10310
   %switch.load3608 = load ptr, ptr %switch.gep3607, align 8
   br label %_ZN5arrow7compute8internal15GenerateNumericITtTpTyENS1_12_GLOBAL__N_126NumericToStringCastFunctorENS_15LargeStringTypeEPFNS_6StatusEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEEJEEET1_NS1_6detail9GetTypeIdE.exit.i
 
@@ -34851,7 +34848,7 @@ _ZN5arrow6StatusD2Ev.exit29:                      ; preds = %_ZN5arrow6StatusD2E
   %97 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %98 = getelementptr inbounds nuw i8, ptr %68, i64 56
   %99 = load ptr, ptr %98, align 8, !tbaa !363, !noalias !357
-  %100 = getelementptr inbounds i32, ptr %99, i64 %96
+  %100 = getelementptr inbounds [4 x i8], ptr %99, i64 %96
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !357
   %101 = getelementptr inbounds nuw i8, ptr %68, i64 80
   %102 = load ptr, ptr %101, align 8, !tbaa !363, !noalias !357
@@ -36573,7 +36570,7 @@ _ZN5arrow6StatusD2Ev.exit29:                      ; preds = %_ZN5arrow6StatusD2E
   %92 = load i64, ptr %91, align 8, !tbaa !362, !noalias !495
   %93 = getelementptr inbounds nuw i8, ptr %66, i64 56
   %94 = load ptr, ptr %93, align 8, !tbaa !363, !noalias !495
-  %95 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %94, i64 %92
+  %95 = getelementptr inbounds [16 x i8], ptr %94, i64 %92
   store ptr %95, ptr %8, align 8, !tbaa !500, !noalias !495
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !495
   %96 = invoke { ptr, i64 } @_ZNK5arrow9ArraySpan18GetVariadicBuffersEv(ptr noundef nonnull align 8 dereferenceable(128) %66)
@@ -36991,7 +36988,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14St
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !546
   %10 = load ptr, ptr %9, align 8, !tbaa !500
-  %11 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %10, i64 %2
+  %11 = getelementptr inbounds [16 x i8], ptr %10, i64 %2
   %12 = load i32, ptr %11, align 8, !tbaa !51
   %13 = icmp slt i32 %12, 13
   br i1 %13, label %14, label %16
@@ -37007,7 +37004,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14St
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !51
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %19, i64 %22
+  %23 = getelementptr inbounds [16 x i8], ptr %19, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !548
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 9
   %26 = load i8, ptr %25, align 1, !tbaa !551, !range !92, !noundef !93
@@ -37419,7 +37416,7 @@ _ZN5arrow6StatusD2Ev.exit29:                      ; preds = %_ZN5arrow6StatusD2E
   %95 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %96 = getelementptr inbounds nuw i8, ptr %68, i64 56
   %97 = load ptr, ptr %96, align 8, !tbaa !363, !noalias !595
-  %98 = getelementptr inbounds i32, ptr %97, i64 %94
+  %98 = getelementptr inbounds [4 x i8], ptr %97, i64 %94
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !595
   %99 = getelementptr inbounds nuw i8, ptr %68, i64 80
   %100 = load ptr, ptr %99, align 8, !tbaa !363, !noalias !595
@@ -38256,7 +38253,7 @@ _ZN5arrow6StatusD2Ev.exit29:                      ; preds = %_ZN5arrow6StatusD2E
   %92 = load i64, ptr %91, align 8, !tbaa !362, !noalias !681
   %93 = getelementptr inbounds nuw i8, ptr %66, i64 56
   %94 = load ptr, ptr %93, align 8, !tbaa !363, !noalias !681
-  %95 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %94, i64 %92
+  %95 = getelementptr inbounds [16 x i8], ptr %94, i64 %92
   store ptr %95, ptr %8, align 8, !tbaa !500, !noalias !681
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !681
   %96 = invoke { ptr, i64 } @_ZNK5arrow9ArraySpan18GetVariadicBuffersEv(ptr noundef nonnull align 8 dereferenceable(128) %66)
@@ -38672,7 +38669,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Bi
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !725
   %10 = load ptr, ptr %9, align 8, !tbaa !500
-  %11 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %10, i64 %2
+  %11 = getelementptr inbounds [16 x i8], ptr %10, i64 %2
   %12 = load i32, ptr %11, align 8, !tbaa !51
   %13 = icmp slt i32 %12, 13
   br i1 %13, label %14, label %16
@@ -38688,7 +38685,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Bi
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !51
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %19, i64 %22
+  %23 = getelementptr inbounds [16 x i8], ptr %19, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !548
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 9
   %26 = load i8, ptr %25, align 1, !tbaa !551, !range !92, !noundef !93
@@ -39100,7 +39097,7 @@ _ZN5arrow6StatusD2Ev.exit29:                      ; preds = %_ZN5arrow6StatusD2E
   %95 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %96 = getelementptr inbounds nuw i8, ptr %68, i64 56
   %97 = load ptr, ptr %96, align 8, !tbaa !363, !noalias !764
-  %98 = getelementptr inbounds i64, ptr %97, i64 %94
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %94
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !764
   %99 = getelementptr inbounds nuw i8, ptr %68, i64 80
   %100 = load ptr, ptr %99, align 8, !tbaa !363, !noalias !764
@@ -39942,7 +39939,7 @@ _ZN5arrow6StatusD2Ev.exit29:                      ; preds = %_ZN5arrow6StatusD2E
   %95 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %96 = getelementptr inbounds nuw i8, ptr %68, i64 56
   %97 = load ptr, ptr %96, align 8, !tbaa !363, !noalias !854
-  %98 = getelementptr inbounds i64, ptr %97, i64 %94
+  %98 = getelementptr inbounds [8 x i8], ptr %97, i64 %94
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !854
   %99 = getelementptr inbounds nuw i8, ptr %68, i64 80
   %100 = load ptr, ptr %99, align 8, !tbaa !363, !noalias !854
@@ -41043,7 +41040,7 @@ define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCa
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !363
-  %30 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %29, i64 %26
+  %30 = getelementptr inbounds [16 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !325
   %33 = icmp sgt i64 %32, 0
@@ -41052,7 +41049,7 @@ define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCa
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.08.i = phi i64 [ %38, %.lr.ph.i ], [ 0, %4 ]
   %.067.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %4 ]
-  %34 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %30, i64 %.08.i
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %.08.i
   %35 = load i32, ptr %34, align 8, !tbaa !51
   %36 = sext i32 %35 to i64
   %37 = add nsw i64 %.067.i, %36
@@ -41286,7 +41283,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
 114:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit46
   %115 = load i64, ptr %25, align 8, !tbaa !362, !noalias !993
   %116 = load ptr, ptr %28, align 8, !tbaa !363, !noalias !993
-  %117 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %116, i64 %115
+  %117 = getelementptr inbounds [16 x i8], ptr %116, i64 %115
   %118 = invoke { ptr, i64 } @_ZNK5arrow9ArraySpan18GetVariadicBuffersEv(ptr noundef nonnull align 8 dereferenceable(128) %24)
           to label %.noexc47 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -41332,7 +41329,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
 .lr.ph29.i.i:                                     ; preds = %.preheader.i.i, %_ZN5arrow6StatusD2Ev.exit69.i.i
   %.04728.i.i = phi i64 [ %218, %_ZN5arrow6StatusD2Ev.exit69.i.i ], [ 0, %.preheader.i.i ]
   %.14927.i.i = phi i64 [ %219, %_ZN5arrow6StatusD2Ev.exit69.i.i ], [ %.04831.i.i, %.preheader.i.i ]
-  %134 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %117, i64 %.14927.i.i
+  %134 = getelementptr inbounds [16 x i8], ptr %117, i64 %.14927.i.i
   %135 = load i32, ptr %134, align 8, !tbaa !51, !noalias !999
   %136 = icmp slt i32 %135, 13
   br i1 %136, label %137, label %139
@@ -41345,7 +41342,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %141 = load i32, ptr %140, align 8, !tbaa !51, !noalias !999
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %119, i64 %142
+  %143 = getelementptr inbounds [16 x i8], ptr %119, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !548, !noalias !999
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 9
   %146 = load i8, ptr %145, align 1, !tbaa !551, !range !92, !noalias !999, !noundef !93
@@ -41601,7 +41598,7 @@ _ZN5arrow6StatusD2Ev.exit71.i.i:                  ; preds = %.preheader12.i.i, %
 
 259:                                              ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !996
-  %260 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %117, i64 %.55320.i.i
+  %260 = getelementptr inbounds [16 x i8], ptr %117, i64 %.55320.i.i
   %261 = load i32, ptr %260, align 8, !tbaa !51, !noalias !1037
   %262 = icmp slt i32 %261, 13
   br i1 %262, label %263, label %265
@@ -41614,7 +41611,7 @@ _ZN5arrow6StatusD2Ev.exit71.i.i:                  ; preds = %.preheader12.i.i, %
   %266 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %267 = load i32, ptr %266, align 8, !tbaa !51, !noalias !1037
   %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %119, i64 %268
+  %269 = getelementptr inbounds [16 x i8], ptr %119, i64 %268
   %270 = load ptr, ptr %269, align 8, !tbaa !548, !noalias !1037
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 9
   %272 = load i8, ptr %271, align 1, !tbaa !551, !range !92, !noalias !1037, !noundef !93
@@ -43459,11 +43456,11 @@ define linkonce_odr void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE16Append
   %14 = load i64, ptr %13, align 8, !tbaa !362
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !363
-  %17 = getelementptr inbounds i32, ptr %16, i64 %14
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %14
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !363
-  %20 = getelementptr i32, ptr %17, i64 %3
-  %21 = getelementptr i32, ptr %20, i64 %4
+  %20 = getelementptr [4 x i8], ptr %17, i64 %3
+  %21 = getelementptr [4 x i8], ptr %20, i64 %4
   %22 = load i32, ptr %21, align 4, !tbaa !52
   %23 = load i32, ptr %20, align 4, !tbaa !52
   %24 = sub nsw i32 %22, %23
@@ -43606,7 +43603,7 @@ _ZN5arrow6StatusD2Ev.exit45:                      ; preds = %_ZN5arrow6StatusD2E
 
 70:                                               ; preds = %._crit_edge49, %59
   %71 = phi i64 [ %.pre, %._crit_edge49 ], [ %.pre50, %59 ]
-  %72 = getelementptr i32, ptr %20, i64 %.03448
+  %72 = getelementptr [4 x i8], ptr %20, i64 %.03448
   %73 = load i32, ptr %72, align 4, !tbaa !52
   %74 = getelementptr i8, ptr %72, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !52
@@ -45593,7 +45590,7 @@ define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCa
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !363
-  %30 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %29, i64 %26
+  %30 = getelementptr inbounds [16 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !325
   %33 = icmp sgt i64 %32, 0
@@ -45602,7 +45599,7 @@ define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCa
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.08.i = phi i64 [ %38, %.lr.ph.i ], [ 0, %4 ]
   %.067.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %4 ]
-  %34 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %30, i64 %.08.i
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %.08.i
   %35 = load i32, ptr %34, align 8, !tbaa !51
   %36 = sext i32 %35 to i64
   %37 = add nsw i64 %.067.i, %36
@@ -45836,7 +45833,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
 114:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit46
   %115 = load i64, ptr %25, align 8, !tbaa !362, !noalias !1303
   %116 = load ptr, ptr %28, align 8, !tbaa !363, !noalias !1303
-  %117 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %116, i64 %115
+  %117 = getelementptr inbounds [16 x i8], ptr %116, i64 %115
   %118 = invoke { ptr, i64 } @_ZNK5arrow9ArraySpan18GetVariadicBuffersEv(ptr noundef nonnull align 8 dereferenceable(128) %24)
           to label %.noexc47 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -45882,7 +45879,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
 .lr.ph29.i.i:                                     ; preds = %.preheader.i.i, %_ZN5arrow6StatusD2Ev.exit69.i.i
   %.04728.i.i = phi i64 [ %218, %_ZN5arrow6StatusD2Ev.exit69.i.i ], [ 0, %.preheader.i.i ]
   %.14927.i.i = phi i64 [ %219, %_ZN5arrow6StatusD2Ev.exit69.i.i ], [ %.04831.i.i, %.preheader.i.i ]
-  %134 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %117, i64 %.14927.i.i
+  %134 = getelementptr inbounds [16 x i8], ptr %117, i64 %.14927.i.i
   %135 = load i32, ptr %134, align 8, !tbaa !51, !noalias !1309
   %136 = icmp slt i32 %135, 13
   br i1 %136, label %137, label %139
@@ -45895,7 +45892,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %141 = load i32, ptr %140, align 8, !tbaa !51, !noalias !1309
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %119, i64 %142
+  %143 = getelementptr inbounds [16 x i8], ptr %119, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !548, !noalias !1309
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 9
   %146 = load i8, ptr %145, align 1, !tbaa !551, !range !92, !noalias !1309, !noundef !93
@@ -46151,7 +46148,7 @@ _ZN5arrow6StatusD2Ev.exit71.i.i:                  ; preds = %.preheader12.i.i, %
 
 259:                                              ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1306
-  %260 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %117, i64 %.55320.i.i
+  %260 = getelementptr inbounds [16 x i8], ptr %117, i64 %.55320.i.i
   %261 = load i32, ptr %260, align 8, !tbaa !51, !noalias !1347
   %262 = icmp slt i32 %261, 13
   br i1 %262, label %263, label %265
@@ -46164,7 +46161,7 @@ _ZN5arrow6StatusD2Ev.exit71.i.i:                  ; preds = %.preheader12.i.i, %
   %266 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %267 = load i32, ptr %266, align 8, !tbaa !51, !noalias !1347
   %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %119, i64 %268
+  %269 = getelementptr inbounds [16 x i8], ptr %119, i64 %268
   %270 = load ptr, ptr %269, align 8, !tbaa !548, !noalias !1347
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 9
   %272 = load i8, ptr %271, align 1, !tbaa !551, !range !92, !noalias !1347, !noundef !93
@@ -46527,10 +46524,10 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_125CastBinar
   %10 = load i64, ptr %9, align 8, !tbaa !362
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !363
-  %13 = getelementptr inbounds i64, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !325
-  %16 = getelementptr inbounds i64, ptr %13, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %13, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !390
   %18 = icmp sgt i64 %17, 2147483647
   br i1 %18, label %19, label %66
@@ -46781,7 +46778,7 @@ _ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.
   %137 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %138 = load ptr, ptr %137, align 8
   %139 = select i1 %136, ptr %138, ptr null, !prof !81
-  %140 = getelementptr inbounds i32, ptr %139, i64 %129
+  %140 = getelementptr inbounds [4 x i8], ptr %139, i64 %129
   br label %_ZN5arrow9ArrayData16GetMutableValuesIiEEPT_i.exit
 
 _ZN5arrow9ArrayData16GetMutableValuesIiEEPT_i.exit: ; preds = %128, %_ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -47569,7 +47566,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
   %230 = getelementptr inbounds nuw i8, ptr %220, i64 16
   %231 = load ptr, ptr %230, align 8
   %232 = select i1 %229, ptr %231, ptr null, !prof !81
-  %233 = getelementptr inbounds i32, ptr %232, i64 %222
+  %233 = getelementptr inbounds [4 x i8], ptr %232, i64 %222
   br label %_ZN5arrow9ArrayData16GetMutableValuesIiEEPT_i.exit
 
 _ZN5arrow9ArrayData16GetMutableValuesIiEEPT_i.exit: ; preds = %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %221
@@ -47663,7 +47660,7 @@ _ZNK5arrow9ArraySpan9GetBufferEi.exit99:          ; preds = %241, %249, %252
   %.049145 = phi i64 [ %269, %.lr.ph ], [ 0, %_ZN5arrow9ArrayData16GetMutableValuesIiEEPT_i.exit ]
   %268 = add nsw i32 %267, %17
   %269 = add nuw nsw i64 %.049145, 1
-  %270 = getelementptr inbounds nuw i32, ptr %.0.i.i, i64 %269
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i, i64 %269
   store i32 %268, ptr %270, align 4, !tbaa !52
   %exitcond.not = icmp eq i64 %269, %237
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1436
@@ -48562,7 +48559,7 @@ _ZNK5arrow7compute10ExecResult10array_dataEv.exit: ; preds = %_ZN5arrow6StatusD2
   %25 = load ptr, ptr %24, align 8, !tbaa !363
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %27 = load ptr, ptr %26, align 8, !tbaa !363
-  %28 = getelementptr inbounds i32, ptr %27, i64 %20
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %20
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %30 = load ptr, ptr %29, align 8, !tbaa !363
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -48676,7 +48673,7 @@ _ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.
   %94 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %95 = load ptr, ptr %94, align 8
   %96 = select i1 %93, ptr %95, ptr null, !prof !81
-  %97 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %96, i64 %86
+  %97 = getelementptr inbounds [16 x i8], ptr %96, i64 %86
   br label %_ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit
 
 _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; preds = %84, %_ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -48693,13 +48690,13 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 .lr.ph.i.i:                                       ; preds = %101, %119
   %.5 = phi i1 [ %.6, %119 ], [ true, %101 ]
   %.022.i.i = phi i64 [ %105, %119 ], [ 0, %101 ]
-  %103 = getelementptr inbounds nuw i32, ptr %28, i64 %.022.i.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.022.i.i
   %104 = load i32, ptr %103, align 4, !tbaa !52
   %105 = add nuw nsw i64 %.022.i.i, 1
-  %106 = getelementptr inbounds nuw i32, ptr %28, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !52
   %108 = sub nsw i32 %107, %104
-  %109 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.022.i.i
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i, i64 %.022.i.i
   %110 = icmp slt i32 %108, 13
   store i32 %108, ptr %109, align 8, !tbaa !51
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 4
@@ -48756,13 +48753,13 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 .lr.ph.i10.i:                                     ; preds = %.lr.ph.i, %147
   %.3 = phi i1 [ %.4, %147 ], [ %.0, %.lr.ph.i ]
   %.022.i11.i = phi i64 [ %133, %147 ], [ %128, %.lr.ph.i ]
-  %131 = getelementptr inbounds i32, ptr %28, i64 %.022.i11.i
+  %131 = getelementptr inbounds [4 x i8], ptr %28, i64 %.022.i11.i
   %132 = load i32, ptr %131, align 4, !tbaa !52
   %133 = add nsw i64 %.022.i11.i, 1
-  %134 = getelementptr inbounds i32, ptr %28, i64 %133
+  %134 = getelementptr inbounds [4 x i8], ptr %28, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !52
   %136 = sub nsw i32 %135, %132
-  %137 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.022.i11.i
+  %137 = getelementptr inbounds [16 x i8], ptr %.0.i.i, i64 %.022.i11.i
   %138 = icmp slt i32 %136, 13
   store i32 %136, ptr %137, align 8, !tbaa !51
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 4
@@ -49382,7 +49379,7 @@ _ZNK5arrow7compute10ExecResult10array_dataEv.exit: ; preds = %_ZN5arrow6StatusD2
   %25 = load ptr, ptr %24, align 8, !tbaa !363
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %27 = load ptr, ptr %26, align 8, !tbaa !363
-  %28 = getelementptr inbounds i32, ptr %27, i64 %20
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %20
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %30 = load ptr, ptr %29, align 8, !tbaa !363
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -49496,7 +49493,7 @@ _ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.
   %94 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %95 = load ptr, ptr %94, align 8
   %96 = select i1 %93, ptr %95, ptr null, !prof !81
-  %97 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %96, i64 %86
+  %97 = getelementptr inbounds [16 x i8], ptr %96, i64 %86
   br label %_ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit
 
 _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; preds = %84, %_ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -49513,13 +49510,13 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 .lr.ph.i.i:                                       ; preds = %101, %119
   %.5 = phi i1 [ %.6, %119 ], [ true, %101 ]
   %.022.i.i = phi i64 [ %105, %119 ], [ 0, %101 ]
-  %103 = getelementptr inbounds nuw i32, ptr %28, i64 %.022.i.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.022.i.i
   %104 = load i32, ptr %103, align 4, !tbaa !52
   %105 = add nuw nsw i64 %.022.i.i, 1
-  %106 = getelementptr inbounds nuw i32, ptr %28, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !52
   %108 = sub nsw i32 %107, %104
-  %109 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.022.i.i
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i, i64 %.022.i.i
   %110 = icmp slt i32 %108, 13
   store i32 %108, ptr %109, align 8, !tbaa !51
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 4
@@ -49576,13 +49573,13 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 .lr.ph.i10.i:                                     ; preds = %.lr.ph.i, %147
   %.3 = phi i1 [ %.4, %147 ], [ %.0, %.lr.ph.i ]
   %.022.i11.i = phi i64 [ %133, %147 ], [ %128, %.lr.ph.i ]
-  %131 = getelementptr inbounds i32, ptr %28, i64 %.022.i11.i
+  %131 = getelementptr inbounds [4 x i8], ptr %28, i64 %.022.i11.i
   %132 = load i32, ptr %131, align 4, !tbaa !52
   %133 = add nsw i64 %.022.i11.i, 1
-  %134 = getelementptr inbounds i32, ptr %28, i64 %133
+  %134 = getelementptr inbounds [4 x i8], ptr %28, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !52
   %136 = sub nsw i32 %135, %132
-  %137 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.022.i11.i
+  %137 = getelementptr inbounds [16 x i8], ptr %.0.i.i, i64 %.022.i11.i
   %138 = icmp slt i32 %136, 13
   store i32 %136, ptr %137, align 8, !tbaa !51
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 4
@@ -49841,7 +49838,7 @@ _ZNK5arrow7compute10ExecResult10array_dataEv.exit: ; preds = %_ZN5arrow6StatusD2
   %27 = load ptr, ptr %26, align 8, !tbaa !363
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !363
-  %30 = getelementptr inbounds i64, ptr %29, i64 %22
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %22
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %32 = load ptr, ptr %31, align 8, !tbaa !363
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -49941,7 +49938,7 @@ _ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.
 
 84:                                               ; preds = %_ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %85 = load i64, ptr %23, align 8, !tbaa !325
-  %86 = getelementptr inbounds i64, ptr %30, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %30, i64 %85
   %87 = load i64, ptr %86, align 8, !tbaa !390
   %.not = icmp sgt i64 %87, 2147483647
   br i1 %.not, label %88, label %.critedge48, !prof !62
@@ -50060,7 +50057,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
   %139 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %140 = load ptr, ptr %139, align 8
   %141 = select i1 %138, ptr %140, ptr null, !prof !81
-  %142 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %141, i64 %131
+  %142 = getelementptr inbounds [16 x i8], ptr %141, i64 %131
   br label %_ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit
 
 _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; preds = %129, %.critedge48
@@ -50077,13 +50074,13 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 .lr.ph.i.i:                                       ; preds = %146, %164
   %.5 = phi i1 [ %.6, %164 ], [ true, %146 ]
   %.022.i.i = phi i64 [ %150, %164 ], [ 0, %146 ]
-  %148 = getelementptr inbounds nuw i64, ptr %30, i64 %.022.i.i
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.022.i.i
   %149 = load i64, ptr %148, align 8, !tbaa !390
   %150 = add nuw nsw i64 %.022.i.i, 1
-  %151 = getelementptr inbounds nuw i64, ptr %30, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %150
   %152 = load i64, ptr %151, align 8, !tbaa !390
   %153 = sub nsw i64 %152, %149
-  %154 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.022.i.i
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i, i64 %.022.i.i
   %155 = icmp slt i64 %153, 13
   %156 = trunc i64 %153 to i32
   store i32 %156, ptr %154, align 8, !tbaa !51
@@ -50140,13 +50137,13 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 .lr.ph.i10.i:                                     ; preds = %.lr.ph.i, %192
   %.3 = phi i1 [ %.4, %192 ], [ %.0, %.lr.ph.i ]
   %.022.i11.i = phi i64 [ %178, %192 ], [ %173, %.lr.ph.i ]
-  %176 = getelementptr inbounds i64, ptr %30, i64 %.022.i11.i
+  %176 = getelementptr inbounds [8 x i8], ptr %30, i64 %.022.i11.i
   %177 = load i64, ptr %176, align 8, !tbaa !390
   %178 = add nsw i64 %.022.i11.i, 1
-  %179 = getelementptr inbounds i64, ptr %30, i64 %178
+  %179 = getelementptr inbounds [8 x i8], ptr %30, i64 %178
   %180 = load i64, ptr %179, align 8, !tbaa !390
   %181 = sub nsw i64 %180, %177
-  %182 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.022.i11.i
+  %182 = getelementptr inbounds [16 x i8], ptr %.0.i.i, i64 %.022.i11.i
   %183 = icmp slt i64 %181, 13
   %184 = trunc i64 %181 to i32
   store i32 %184, ptr %182, align 8, !tbaa !51
@@ -50494,7 +50491,7 @@ _ZNK5arrow7compute10ExecResult10array_dataEv.exit: ; preds = %_ZN5arrow6StatusD2
   %27 = load ptr, ptr %26, align 8, !tbaa !363
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !363
-  %30 = getelementptr inbounds i64, ptr %29, i64 %22
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %22
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %32 = load ptr, ptr %31, align 8, !tbaa !363
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -50594,7 +50591,7 @@ _ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.
 
 84:                                               ; preds = %_ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %85 = load i64, ptr %23, align 8, !tbaa !325
-  %86 = getelementptr inbounds i64, ptr %30, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %30, i64 %85
   %87 = load i64, ptr %86, align 8, !tbaa !390
   %.not = icmp sgt i64 %87, 2147483647
   br i1 %.not, label %88, label %.critedge48, !prof !62
@@ -50713,7 +50710,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
   %139 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %140 = load ptr, ptr %139, align 8
   %141 = select i1 %138, ptr %140, ptr null, !prof !81
-  %142 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %141, i64 %131
+  %142 = getelementptr inbounds [16 x i8], ptr %141, i64 %131
   br label %_ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit
 
 _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; preds = %129, %.critedge48
@@ -50730,13 +50727,13 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 .lr.ph.i.i:                                       ; preds = %146, %164
   %.5 = phi i1 [ %.6, %164 ], [ true, %146 ]
   %.022.i.i = phi i64 [ %150, %164 ], [ 0, %146 ]
-  %148 = getelementptr inbounds nuw i64, ptr %30, i64 %.022.i.i
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.022.i.i
   %149 = load i64, ptr %148, align 8, !tbaa !390
   %150 = add nuw nsw i64 %.022.i.i, 1
-  %151 = getelementptr inbounds nuw i64, ptr %30, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %150
   %152 = load i64, ptr %151, align 8, !tbaa !390
   %153 = sub nsw i64 %152, %149
-  %154 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.022.i.i
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i, i64 %.022.i.i
   %155 = icmp slt i64 %153, 13
   %156 = trunc i64 %153 to i32
   store i32 %156, ptr %154, align 8, !tbaa !51
@@ -50793,13 +50790,13 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 .lr.ph.i10.i:                                     ; preds = %.lr.ph.i, %192
   %.3 = phi i1 [ %.4, %192 ], [ %.0, %.lr.ph.i ]
   %.022.i11.i = phi i64 [ %178, %192 ], [ %173, %.lr.ph.i ]
-  %176 = getelementptr inbounds i64, ptr %30, i64 %.022.i11.i
+  %176 = getelementptr inbounds [8 x i8], ptr %30, i64 %.022.i11.i
   %177 = load i64, ptr %176, align 8, !tbaa !390
   %178 = add nsw i64 %.022.i11.i, 1
-  %179 = getelementptr inbounds i64, ptr %30, i64 %178
+  %179 = getelementptr inbounds [8 x i8], ptr %30, i64 %178
   %180 = load i64, ptr %179, align 8, !tbaa !390
   %181 = sub nsw i64 %180, %177
-  %182 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.022.i11.i
+  %182 = getelementptr inbounds [16 x i8], ptr %.0.i.i, i64 %.022.i11.i
   %183 = icmp slt i64 %181, 13
   %184 = trunc i64 %181 to i32
   store i32 %184, ptr %182, align 8, !tbaa !51
@@ -51355,7 +51352,7 @@ _ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.
   %181 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %182 = load ptr, ptr %181, align 8
   %183 = select i1 %180, ptr %182, ptr null, !prof !81
-  %184 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %183, i64 %173
+  %184 = getelementptr inbounds [16 x i8], ptr %183, i64 %173
   br label %_ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit
 
 _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; preds = %172, %_ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -51571,7 +51568,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %_Z
 274:                                              ; preds = %.lr.ph133, %274
   %indvars.iv136 = phi i64 [ %273, %.lr.ph133 ], [ %indvars.iv.next137, %274 ]
   %.071132 = phi i64 [ 0, %.lr.ph133 ], [ %278, %274 ]
-  %275 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.071132
+  %275 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i, i64 %.071132
   store i32 %15, ptr %275, align 8, !tbaa !51
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 4
   %277 = getelementptr inbounds i8, ptr %219, i64 %indvars.iv136
@@ -51655,7 +51652,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEEaSEOS2_.exit116: ; preds = %281, %293, %_ZN9__
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %314, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.064130 = phi i64 [ 0, %.lr.ph.preheader ], [ %322, %.lr.ph ]
-  %316 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.064130
+  %316 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i, i64 %.064130
   store i32 %15, ptr %316, align 8, !tbaa !51
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 4
   %318 = getelementptr inbounds i8, ptr %218, i64 %indvars.iv
@@ -51897,9 +51894,9 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EE13_M_deallocateEPS3_m.exit37: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %35
   store ptr %26, ptr %0, align 8, !tbaa !1101
-  %37 = getelementptr inbounds nuw %"class.std::shared_ptr.98", ptr %27, i64 %1
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %37, ptr %4, align 8, !tbaa !1105
-  %38 = getelementptr inbounds nuw %"class.std::shared_ptr.98", ptr %26, i64 %24
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %38, ptr %11, align 8, !tbaa !1103
   br label %39
 
@@ -52142,7 +52139,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %45, %4
   %66 = load i64, ptr %65, align 8, !tbaa !362
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %68 = load ptr, ptr %67, align 8, !tbaa !363
-  %69 = getelementptr inbounds i32, ptr %68, i64 %66
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %66
   %70 = load ptr, ptr %23, align 8, !tbaa !1101
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !548
@@ -52161,7 +52158,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %45, %4
   %82 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %83 = load ptr, ptr %82, align 8
   %84 = select i1 %81, ptr %83, ptr null, !prof !81
-  %85 = getelementptr inbounds i64, ptr %84, i64 %74
+  %85 = getelementptr inbounds [8 x i8], ptr %84, i64 %74
   br label %_ZN5arrow9ArrayData16GetMutableValuesIlEEPT_i.exit
 
 _ZN5arrow9ArrayData16GetMutableValuesIlEEPT_i.exit: ; preds = %73, %49
@@ -52280,7 +52277,7 @@ define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCa
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !363
-  %30 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %29, i64 %26
+  %30 = getelementptr inbounds [16 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !325
   %33 = icmp sgt i64 %32, 0
@@ -52289,7 +52286,7 @@ define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCa
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.08.i = phi i64 [ %38, %.lr.ph.i ], [ 0, %4 ]
   %.067.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %4 ]
-  %34 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %30, i64 %.08.i
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %.08.i
   %35 = load i32, ptr %34, align 8, !tbaa !51
   %36 = sext i32 %35 to i64
   %37 = add nsw i64 %.067.i, %36
@@ -52523,7 +52520,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
 114:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit46
   %115 = load i64, ptr %25, align 8, !tbaa !362, !noalias !1593
   %116 = load ptr, ptr %28, align 8, !tbaa !363, !noalias !1593
-  %117 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %116, i64 %115
+  %117 = getelementptr inbounds [16 x i8], ptr %116, i64 %115
   %118 = invoke { ptr, i64 } @_ZNK5arrow9ArraySpan18GetVariadicBuffersEv(ptr noundef nonnull align 8 dereferenceable(128) %24)
           to label %.noexc47 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -52569,7 +52566,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
 .lr.ph29.i.i:                                     ; preds = %.preheader.i.i, %_ZN5arrow6StatusD2Ev.exit69.i.i
   %.04728.i.i = phi i64 [ %217, %_ZN5arrow6StatusD2Ev.exit69.i.i ], [ 0, %.preheader.i.i ]
   %.14927.i.i = phi i64 [ %218, %_ZN5arrow6StatusD2Ev.exit69.i.i ], [ %.04831.i.i, %.preheader.i.i ]
-  %134 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %117, i64 %.14927.i.i
+  %134 = getelementptr inbounds [16 x i8], ptr %117, i64 %.14927.i.i
   %135 = load i32, ptr %134, align 8, !tbaa !51, !noalias !1599
   %136 = icmp slt i32 %135, 13
   br i1 %136, label %137, label %139
@@ -52582,7 +52579,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %141 = load i32, ptr %140, align 8, !tbaa !51, !noalias !1599
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %119, i64 %142
+  %143 = getelementptr inbounds [16 x i8], ptr %119, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !548, !noalias !1599
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 9
   %146 = load i8, ptr %145, align 1, !tbaa !551, !range !92, !noalias !1599, !noundef !93
@@ -52836,7 +52833,7 @@ _ZN5arrow6StatusD2Ev.exit71.i.i:                  ; preds = %.preheader12.i.i, %
 
 257:                                              ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1596
-  %258 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %117, i64 %.55320.i.i
+  %258 = getelementptr inbounds [16 x i8], ptr %117, i64 %.55320.i.i
   %259 = load i32, ptr %258, align 8, !tbaa !51, !noalias !1637
   %260 = icmp slt i32 %259, 13
   br i1 %260, label %261, label %263
@@ -52849,7 +52846,7 @@ _ZN5arrow6StatusD2Ev.exit71.i.i:                  ; preds = %.preheader12.i.i, %
   %264 = getelementptr inbounds nuw i8, ptr %258, i64 8
   %265 = load i32, ptr %264, align 8, !tbaa !51, !noalias !1637
   %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %119, i64 %266
+  %267 = getelementptr inbounds [16 x i8], ptr %119, i64 %266
   %268 = load ptr, ptr %267, align 8, !tbaa !548, !noalias !1637
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 9
   %270 = load i8, ptr %269, align 1, !tbaa !551, !range !92, !noalias !1637, !noundef !93
@@ -54524,11 +54521,11 @@ define linkonce_odr void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE16A
   %14 = load i64, ptr %13, align 8, !tbaa !362
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !363
-  %17 = getelementptr inbounds i64, ptr %16, i64 %14
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %14
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !363
-  %20 = getelementptr i64, ptr %17, i64 %3
-  %21 = getelementptr i64, ptr %20, i64 %4
+  %20 = getelementptr [8 x i8], ptr %17, i64 %3
+  %21 = getelementptr [8 x i8], ptr %20, i64 %4
   %22 = load i64, ptr %21, align 8, !tbaa !390
   %23 = load i64, ptr %20, align 8, !tbaa !390
   %24 = sub nsw i64 %22, %23
@@ -54644,7 +54641,7 @@ _ZN5arrow6StatusD2Ev.exit45:                      ; preds = %_ZN5arrow6StatusD2E
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.03448.us = phi i64 [ %87, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %57 = getelementptr i64, ptr %20, i64 %.03448.us
+  %57 = getelementptr [8 x i8], ptr %20, i64 %.03448.us
   %58 = load i64, ptr %57, align 8, !tbaa !390
   %59 = getelementptr i8, ptr %57, i64 8
   %60 = load i64, ptr %59, align 8, !tbaa !390
@@ -54704,7 +54701,7 @@ _ZN5arrow6StatusD2Ev.exit45:                      ; preds = %_ZN5arrow6StatusD2E
   br i1 %97, label %98, label %129
 
 98:                                               ; preds = %.lr.ph.split
-  %99 = getelementptr i64, ptr %20, i64 %.03448
+  %99 = getelementptr [8 x i8], ptr %20, i64 %.03448
   %100 = load i64, ptr %99, align 8, !tbaa !390
   %101 = getelementptr i8, ptr %99, i64 8
   %102 = load i64, ptr %101, align 8, !tbaa !390
@@ -55047,7 +55044,7 @@ define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCa
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !363
-  %30 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %29, i64 %26
+  %30 = getelementptr inbounds [16 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !325
   %33 = icmp sgt i64 %32, 0
@@ -55056,7 +55053,7 @@ define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCa
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.08.i = phi i64 [ %38, %.lr.ph.i ], [ 0, %4 ]
   %.067.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %4 ]
-  %34 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %30, i64 %.08.i
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %.08.i
   %35 = load i32, ptr %34, align 8, !tbaa !51
   %36 = sext i32 %35 to i64
   %37 = add nsw i64 %.067.i, %36
@@ -55290,7 +55287,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
 114:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit46
   %115 = load i64, ptr %25, align 8, !tbaa !362, !noalias !1834
   %116 = load ptr, ptr %28, align 8, !tbaa !363, !noalias !1834
-  %117 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %116, i64 %115
+  %117 = getelementptr inbounds [16 x i8], ptr %116, i64 %115
   %118 = invoke { ptr, i64 } @_ZNK5arrow9ArraySpan18GetVariadicBuffersEv(ptr noundef nonnull align 8 dereferenceable(128) %24)
           to label %.noexc47 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -55336,7 +55333,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
 .lr.ph29.i.i:                                     ; preds = %.preheader.i.i, %_ZN5arrow6StatusD2Ev.exit69.i.i
   %.04728.i.i = phi i64 [ %217, %_ZN5arrow6StatusD2Ev.exit69.i.i ], [ 0, %.preheader.i.i ]
   %.14927.i.i = phi i64 [ %218, %_ZN5arrow6StatusD2Ev.exit69.i.i ], [ %.04831.i.i, %.preheader.i.i ]
-  %134 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %117, i64 %.14927.i.i
+  %134 = getelementptr inbounds [16 x i8], ptr %117, i64 %.14927.i.i
   %135 = load i32, ptr %134, align 8, !tbaa !51, !noalias !1840
   %136 = icmp slt i32 %135, 13
   br i1 %136, label %137, label %139
@@ -55349,7 +55346,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %141 = load i32, ptr %140, align 8, !tbaa !51, !noalias !1840
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %119, i64 %142
+  %143 = getelementptr inbounds [16 x i8], ptr %119, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !548, !noalias !1840
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 9
   %146 = load i8, ptr %145, align 1, !tbaa !551, !range !92, !noalias !1840, !noundef !93
@@ -55603,7 +55600,7 @@ _ZN5arrow6StatusD2Ev.exit71.i.i:                  ; preds = %.preheader12.i.i, %
 
 257:                                              ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1837
-  %258 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %117, i64 %.55320.i.i
+  %258 = getelementptr inbounds [16 x i8], ptr %117, i64 %.55320.i.i
   %259 = load i32, ptr %258, align 8, !tbaa !51, !noalias !1878
   %260 = icmp slt i32 %259, 13
   br i1 %260, label %261, label %263
@@ -55616,7 +55613,7 @@ _ZN5arrow6StatusD2Ev.exit71.i.i:                  ; preds = %.preheader12.i.i, %
   %264 = getelementptr inbounds nuw i8, ptr %258, i64 8
   %265 = load i32, ptr %264, align 8, !tbaa !51, !noalias !1878
   %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %119, i64 %266
+  %267 = getelementptr inbounds [16 x i8], ptr %119, i64 %266
   %268 = load ptr, ptr %267, align 8, !tbaa !548, !noalias !1878
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 9
   %270 = load i8, ptr %269, align 1, !tbaa !551, !range !92, !noalias !1878, !noundef !93
@@ -56360,7 +56357,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
   %172 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %173 = load ptr, ptr %172, align 8
   %174 = select i1 %171, ptr %173, ptr null, !prof !81
-  %175 = getelementptr inbounds i64, ptr %174, i64 %164
+  %175 = getelementptr inbounds [8 x i8], ptr %174, i64 %164
   br label %_ZN5arrow9ArrayData16GetMutableValuesIlEEPT_i.exit
 
 _ZN5arrow9ArrayData16GetMutableValuesIlEEPT_i.exit: ; preds = %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %163
@@ -56453,7 +56450,7 @@ _ZNK5arrow9ArraySpan9GetBufferEi.exit84:          ; preds = %182, %190, %193
   %.049129 = phi i64 [ %210, %.lr.ph ], [ 0, %_ZN5arrow9ArrayData16GetMutableValuesIlEEPT_i.exit ]
   %209 = add nsw i64 %208, %15
   %210 = add nuw nsw i64 %.049129, 1
-  %211 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %210
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %210
   store i64 %209, ptr %211, align 8, !tbaa !390
   %212 = load i64, ptr %16, align 8, !tbaa !325
   %213 = icmp slt i64 %210, %212
@@ -57853,7 +57850,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %78 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %80 = load ptr, ptr %79, align 8, !tbaa !363, !noalias !2078
-  %81 = getelementptr inbounds i16, ptr %80, i64 %77
+  %81 = getelementptr inbounds [2 x i8], ptr %80, i64 %77
   %82 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !2078
   %83 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !325, !noalias !2078
@@ -57895,7 +57892,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph34.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit75.i.i.i
   %.04733.i.i.i = phi i64 [ %162, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14932.i.i.i = phi i64 [ %163, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ %.04836.i.i.i, %.preheader.i.i.i ]
-  %97 = getelementptr inbounds i16, ptr %81, i64 %.14932.i.i.i
+  %97 = getelementptr inbounds [2 x i8], ptr %81, i64 %.14932.i.i.i
   %98 = load i16, ptr %97, align 2, !tbaa !2086, !noalias !2087
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !2090
   %99 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEtPci(ptr noundef nonnull align 8 dereferenceable(8) %17, i16 noundef zeroext %98, ptr noundef nonnull %14, i32 noundef 50)
@@ -58185,7 +58182,7 @@ _ZN5arrow6StatusD2Ev.exit79.i.i.i:                ; preds = %.noexc35, %_ZN5arro
 
 _ZN5arrow6StatusD2Ev.exit81.i.i.i:                ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2083
-  %215 = getelementptr inbounds i16, ptr %81, i64 %.55324.i.i.i
+  %215 = getelementptr inbounds [2 x i8], ptr %81, i64 %.55324.i.i.i
   %216 = load i16, ptr %215, align 2, !tbaa !2086, !noalias !2136
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2139
   %217 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEtPci(ptr noundef nonnull align 8 dereferenceable(8) %17, i16 noundef zeroext %216, ptr noundef nonnull %12, i32 noundef 50)
@@ -60902,7 +60899,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %79 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !2376
-  %80 = getelementptr inbounds i16, ptr %79, i64 %76
+  %80 = getelementptr inbounds [2 x i8], ptr %79, i64 %76
   %81 = load ptr, ptr %77, align 8, !tbaa !363, !noalias !2376
   %82 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !325, !noalias !2376
@@ -60948,7 +60945,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph37.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.i.i.i
   %.04736.i.i.i = phi i64 [ %196, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14935.i.i.i = phi i64 [ %197, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04839.i.i.i, %.preheader.i.i.i ]
-  %100 = getelementptr inbounds i16, ptr %80, i64 %.14935.i.i.i
+  %100 = getelementptr inbounds [2 x i8], ptr %80, i64 %.14935.i.i.i
   %101 = load i16, ptr %100, align 2, !tbaa !2086, !noalias !2384
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !2387
   %102 = call noundef i16 @llvm.abs.i16(i16 %101, i1 false)
@@ -61296,7 +61293,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 249:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2381
-  %250 = getelementptr inbounds i16, ptr %80, i64 %.55327.i.i.i
+  %250 = getelementptr inbounds [2 x i8], ptr %80, i64 %.55327.i.i.i
   %251 = load i16, ptr %250, align 2, !tbaa !2086, !noalias !2434
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2437
   %252 = call noundef i16 @llvm.abs.i16(i16 %251, i1 false)
@@ -61819,7 +61816,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %79 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !2476
-  %80 = getelementptr inbounds i16, ptr %79, i64 %76
+  %80 = getelementptr inbounds [2 x i8], ptr %79, i64 %76
   %81 = load ptr, ptr %77, align 8, !tbaa !363, !noalias !2476
   %82 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !325, !noalias !2476
@@ -61865,7 +61862,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph37.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.i.i.i
   %.04736.i.i.i = phi i64 [ %192, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14935.i.i.i = phi i64 [ %193, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04839.i.i.i, %.preheader.i.i.i ]
-  %100 = getelementptr inbounds i16, ptr %80, i64 %.14935.i.i.i
+  %100 = getelementptr inbounds [2 x i8], ptr %80, i64 %.14935.i.i.i
   %101 = load i16, ptr %100, align 2, !tbaa !2086, !noalias !2484
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !2487
   %102 = icmp ugt i16 %101, 99
@@ -62202,7 +62199,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 245:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2481
-  %246 = getelementptr inbounds i16, ptr %80, i64 %.55327.i.i.i
+  %246 = getelementptr inbounds [2 x i8], ptr %80, i64 %.55327.i.i.i
   %247 = load i16, ptr %246, align 2, !tbaa !2086, !noalias !2533
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2536
   %248 = icmp ugt i16 %247, 99
@@ -62714,7 +62711,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %79 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !2575
-  %80 = getelementptr inbounds i32, ptr %79, i64 %76
+  %80 = getelementptr inbounds [4 x i8], ptr %79, i64 %76
   %81 = load ptr, ptr %77, align 8, !tbaa !363, !noalias !2575
   %82 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !325, !noalias !2575
@@ -62760,7 +62757,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph37.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.i.i.i
   %.04736.i.i.i = phi i64 [ %196, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14935.i.i.i = phi i64 [ %197, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04839.i.i.i, %.preheader.i.i.i ]
-  %100 = getelementptr inbounds i32, ptr %80, i64 %.14935.i.i.i
+  %100 = getelementptr inbounds [4 x i8], ptr %80, i64 %.14935.i.i.i
   %101 = load i32, ptr %100, align 4, !tbaa !52, !noalias !2583
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !2586
   %102 = call noundef i32 @llvm.abs.i32(i32 %101, i1 false)
@@ -63108,7 +63105,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 249:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2580
-  %250 = getelementptr inbounds i32, ptr %80, i64 %.55327.i.i.i
+  %250 = getelementptr inbounds [4 x i8], ptr %80, i64 %.55327.i.i.i
   %251 = load i32, ptr %250, align 4, !tbaa !52, !noalias !2633
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2636
   %252 = call noundef i32 @llvm.abs.i32(i32 %251, i1 false)
@@ -63631,7 +63628,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %79 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !2675
-  %80 = getelementptr inbounds i32, ptr %79, i64 %76
+  %80 = getelementptr inbounds [4 x i8], ptr %79, i64 %76
   %81 = load ptr, ptr %77, align 8, !tbaa !363, !noalias !2675
   %82 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !325, !noalias !2675
@@ -63677,7 +63674,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph37.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.i.i.i
   %.04736.i.i.i = phi i64 [ %192, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14935.i.i.i = phi i64 [ %193, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04839.i.i.i, %.preheader.i.i.i ]
-  %100 = getelementptr inbounds i32, ptr %80, i64 %.14935.i.i.i
+  %100 = getelementptr inbounds [4 x i8], ptr %80, i64 %.14935.i.i.i
   %101 = load i32, ptr %100, align 4, !tbaa !52, !noalias !2683
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !2686
   %102 = icmp ugt i32 %101, 99
@@ -64014,7 +64011,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 245:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2680
-  %246 = getelementptr inbounds i32, ptr %80, i64 %.55327.i.i.i
+  %246 = getelementptr inbounds [4 x i8], ptr %80, i64 %.55327.i.i.i
   %247 = load i32, ptr %246, align 4, !tbaa !52, !noalias !2732
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2735
   %248 = icmp ugt i32 %247, 99
@@ -64526,7 +64523,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %79 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !2774
-  %80 = getelementptr inbounds i64, ptr %79, i64 %76
+  %80 = getelementptr inbounds [8 x i8], ptr %79, i64 %76
   %81 = load ptr, ptr %77, align 8, !tbaa !363, !noalias !2774
   %82 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !325, !noalias !2774
@@ -64572,7 +64569,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph37.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.i.i.i
   %.04736.i.i.i = phi i64 [ %194, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14935.i.i.i = phi i64 [ %195, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04839.i.i.i, %.preheader.i.i.i ]
-  %100 = getelementptr inbounds i64, ptr %80, i64 %.14935.i.i.i
+  %100 = getelementptr inbounds [8 x i8], ptr %80, i64 %.14935.i.i.i
   %101 = load i64, ptr %100, align 8, !tbaa !390, !noalias !2782
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !2785
   %102 = call noundef i64 @llvm.abs.i64(i64 %101, i1 false)
@@ -64918,7 +64915,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 247:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2779
-  %248 = getelementptr inbounds i64, ptr %80, i64 %.55327.i.i.i
+  %248 = getelementptr inbounds [8 x i8], ptr %80, i64 %.55327.i.i.i
   %249 = load i64, ptr %248, align 8, !tbaa !390, !noalias !2832
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2835
   %250 = call noundef i64 @llvm.abs.i64(i64 %249, i1 false)
@@ -65439,7 +65436,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %79 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !2874
-  %80 = getelementptr inbounds i64, ptr %79, i64 %76
+  %80 = getelementptr inbounds [8 x i8], ptr %79, i64 %76
   %81 = load ptr, ptr %77, align 8, !tbaa !363, !noalias !2874
   %82 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !325, !noalias !2874
@@ -65485,7 +65482,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph37.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.i.i.i
   %.04736.i.i.i = phi i64 [ %190, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14935.i.i.i = phi i64 [ %191, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04839.i.i.i, %.preheader.i.i.i ]
-  %100 = getelementptr inbounds i64, ptr %80, i64 %.14935.i.i.i
+  %100 = getelementptr inbounds [8 x i8], ptr %80, i64 %.14935.i.i.i
   %101 = load i64, ptr %100, align 8, !tbaa !390, !noalias !2882
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !2885
   %102 = icmp ugt i64 %101, 99
@@ -65820,7 +65817,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 243:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2879
-  %244 = getelementptr inbounds i64, ptr %80, i64 %.55327.i.i.i
+  %244 = getelementptr inbounds [8 x i8], ptr %80, i64 %.55327.i.i.i
   %245 = load i64, ptr %244, align 8, !tbaa !390, !noalias !2931
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2934
   %246 = icmp ugt i64 %245, 99
@@ -66336,7 +66333,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %78 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %80 = load ptr, ptr %79, align 8, !tbaa !363, !noalias !2973
-  %81 = getelementptr inbounds float, ptr %80, i64 %77
+  %81 = getelementptr inbounds [4 x i8], ptr %80, i64 %77
   %82 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !2973
   %83 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !325, !noalias !2973
@@ -66378,7 +66375,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph34.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit75.i.i.i
   %.04733.i.i.i = phi i64 [ %162, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14932.i.i.i = phi i64 [ %163, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ %.04836.i.i.i, %.preheader.i.i.i ]
-  %97 = getelementptr inbounds float, ptr %81, i64 %.14932.i.i.i
+  %97 = getelementptr inbounds [4 x i8], ptr %81, i64 %.14932.i.i.i
   %98 = load float, ptr %97, align 4, !tbaa !2981, !noalias !2983
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !2986
   %99 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEfPci(ptr noundef nonnull align 8 dereferenceable(8) %17, float noundef %98, ptr noundef nonnull %14, i32 noundef 50)
@@ -66668,7 +66665,7 @@ _ZN5arrow6StatusD2Ev.exit79.i.i.i:                ; preds = %.noexc35, %_ZN5arro
 
 _ZN5arrow6StatusD2Ev.exit81.i.i.i:                ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2978
-  %215 = getelementptr inbounds float, ptr %81, i64 %.55324.i.i.i
+  %215 = getelementptr inbounds [4 x i8], ptr %81, i64 %.55324.i.i.i
   %216 = load float, ptr %215, align 4, !tbaa !2981, !noalias !3032
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !3035
   %217 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEfPci(ptr noundef nonnull align 8 dereferenceable(8) %17, float noundef %216, ptr noundef nonnull %12, i32 noundef 50)
@@ -67152,7 +67149,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %78 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %80 = load ptr, ptr %79, align 8, !tbaa !363, !noalias !3074
-  %81 = getelementptr inbounds double, ptr %80, i64 %77
+  %81 = getelementptr inbounds [8 x i8], ptr %80, i64 %77
   %82 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !3074
   %83 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !325, !noalias !3074
@@ -67194,7 +67191,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph34.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit75.i.i.i
   %.04733.i.i.i = phi i64 [ %162, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14932.i.i.i = phi i64 [ %163, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ %.04836.i.i.i, %.preheader.i.i.i ]
-  %97 = getelementptr inbounds double, ptr %81, i64 %.14932.i.i.i
+  %97 = getelementptr inbounds [8 x i8], ptr %81, i64 %.14932.i.i.i
   %98 = load double, ptr %97, align 8, !tbaa !3082, !noalias !3084
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !3087
   %99 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEdPci(ptr noundef nonnull align 8 dereferenceable(8) %17, double noundef %98, ptr noundef nonnull %14, i32 noundef 50)
@@ -67484,7 +67481,7 @@ _ZN5arrow6StatusD2Ev.exit79.i.i.i:                ; preds = %.noexc35, %_ZN5arro
 
 _ZN5arrow6StatusD2Ev.exit81.i.i.i:                ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !3079
-  %215 = getelementptr inbounds double, ptr %81, i64 %.55324.i.i.i
+  %215 = getelementptr inbounds [8 x i8], ptr %81, i64 %.55324.i.i.i
   %216 = load double, ptr %215, align 8, !tbaa !3082, !noalias !3133
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !3136
   %217 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEdPci(ptr noundef nonnull align 8 dereferenceable(8) %17, double noundef %216, ptr noundef nonnull %12, i32 noundef 50)
@@ -71737,7 +71734,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %80 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %81 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %82 = load ptr, ptr %81, align 8, !tbaa !363, !noalias !3594
-  %83 = getelementptr inbounds i32, ptr %82, i64 %79
+  %83 = getelementptr inbounds [4 x i8], ptr %82, i64 %79
   %84 = load ptr, ptr %80, align 8, !tbaa !363, !noalias !3594
   %85 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %86 = load i64, ptr %85, align 8, !tbaa !325, !noalias !3594
@@ -71806,7 +71803,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %.04737.i.i.i = phi i64 [ %268, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14936.i.i.i = phi i64 [ %269, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04840.i.i.i, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !3599
-  %125 = getelementptr inbounds i32, ptr %83, i64 %.14936.i.i.i
+  %125 = getelementptr inbounds [4 x i8], ptr %83, i64 %.14936.i.i.i
   %126 = load i32, ptr %125, align 4, !tbaa !52, !noalias !3602
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !3605
   store ptr %20, ptr %16, align 8, !tbaa !3608, !noalias !3605
@@ -72220,7 +72217,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc30, %_ZN5arro
 
 321:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !3599
-  %322 = getelementptr inbounds i32, ptr %83, i64 %.55328.i.i.i
+  %322 = getelementptr inbounds [4 x i8], ptr %83, i64 %.55328.i.i.i
   %323 = load i32, ptr %322, align 4, !tbaa !52, !noalias !3659
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !3662
   store ptr %20, ptr %13, align 8, !tbaa !3608, !noalias !3662
@@ -72804,7 +72801,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %80 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %81 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %82 = load ptr, ptr %81, align 8, !tbaa !363, !noalias !3704
-  %83 = getelementptr inbounds i64, ptr %82, i64 %79
+  %83 = getelementptr inbounds [8 x i8], ptr %82, i64 %79
   %84 = load ptr, ptr %80, align 8, !tbaa !363, !noalias !3704
   %85 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %86 = load i64, ptr %85, align 8, !tbaa !325, !noalias !3704
@@ -72873,7 +72870,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %.04737.i.i.i = phi i64 [ %270, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14936.i.i.i = phi i64 [ %271, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04840.i.i.i, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !3709
-  %125 = getelementptr inbounds i64, ptr %83, i64 %.14936.i.i.i
+  %125 = getelementptr inbounds [8 x i8], ptr %83, i64 %.14936.i.i.i
   %126 = load i64, ptr %125, align 8, !tbaa !390, !noalias !3712
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !3715
   store ptr %20, ptr %16, align 8, !tbaa !3608, !noalias !3715
@@ -73289,7 +73286,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc30, %_ZN5arro
 
 323:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !3709
-  %324 = getelementptr inbounds i64, ptr %83, i64 %.55328.i.i.i
+  %324 = getelementptr inbounds [8 x i8], ptr %83, i64 %.55328.i.i.i
   %325 = load i64, ptr %324, align 8, !tbaa !390, !noalias !3767
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !3770
   store ptr %20, ptr %13, align 8, !tbaa !3608, !noalias !3770
@@ -73872,7 +73869,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %79 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !3812
-  %80 = getelementptr inbounds i64, ptr %79, i64 %76
+  %80 = getelementptr inbounds [8 x i8], ptr %79, i64 %76
   %81 = load ptr, ptr %77, align 8, !tbaa !363, !noalias !3812
   %82 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !325, !noalias !3812
@@ -73918,7 +73915,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph37.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.i.i.i
   %.04736.i.i.i = phi i64 [ %194, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14935.i.i.i = phi i64 [ %195, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04839.i.i.i, %.preheader.i.i.i ]
-  %100 = getelementptr inbounds i64, ptr %80, i64 %.14935.i.i.i
+  %100 = getelementptr inbounds [8 x i8], ptr %80, i64 %.14935.i.i.i
   %101 = load i64, ptr %100, align 8, !tbaa !390, !noalias !3820
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !3823
   %102 = call noundef i64 @llvm.abs.i64(i64 %101, i1 false)
@@ -74264,7 +74261,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 247:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !3817
-  %248 = getelementptr inbounds i64, ptr %80, i64 %.55327.i.i.i
+  %248 = getelementptr inbounds [8 x i8], ptr %80, i64 %.55327.i.i.i
   %249 = load i64, ptr %248, align 8, !tbaa !390, !noalias !3869
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !3872
   %250 = call noundef i64 @llvm.abs.i64(i64 %249, i1 false)
@@ -74780,7 +74777,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %72 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %74 = load ptr, ptr %73, align 8, !tbaa !363, !noalias !3915
-  %75 = getelementptr inbounds i32, ptr %74, i64 %71
+  %75 = getelementptr inbounds [4 x i8], ptr %74, i64 %71
   %76 = load ptr, ptr %72, align 8, !tbaa !363, !noalias !3915
   %77 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !325, !noalias !3915
@@ -75398,7 +75395,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %72 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %74 = load ptr, ptr %73, align 8, !tbaa !363, !noalias !3973
-  %75 = getelementptr inbounds i64, ptr %74, i64 %71
+  %75 = getelementptr inbounds [8 x i8], ptr %74, i64 %71
   %76 = load ptr, ptr %72, align 8, !tbaa !363, !noalias !3973
   %77 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !325, !noalias !3973
@@ -76315,7 +76312,7 @@ _ZN5arrow6StatusD2Ev.exit104:                     ; preds = %_ZN5arrow6StatusD2E
   %212 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %213 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %214 = load ptr, ptr %213, align 8, !tbaa !363, !noalias !4068
-  %215 = getelementptr inbounds i64, ptr %214, i64 %211
+  %215 = getelementptr inbounds [8 x i8], ptr %214, i64 %211
   %216 = load ptr, ptr %212, align 8, !tbaa !363, !noalias !4068
   %217 = load i64, ptr %150, align 8, !tbaa !325, !noalias !4068
   call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !4073
@@ -76767,7 +76764,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i: ; preds = %3
   %383 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %384 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %385 = load ptr, ptr %384, align 8, !tbaa !363, !noalias !4128
-  %386 = getelementptr inbounds i64, ptr %385, i64 %382
+  %386 = getelementptr inbounds [8 x i8], ptr %385, i64 %382
   %387 = load ptr, ptr %383, align 8, !tbaa !363, !noalias !4128
   %388 = load i64, ptr %150, align 8, !tbaa !325, !noalias !4128
   call void @llvm.experimental.noalias.scope.decl(metadata !4129)
@@ -77330,7 +77327,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i136: ; preds =
   %596 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %597 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %598 = load ptr, ptr %597, align 8, !tbaa !363, !noalias !4177
-  %599 = getelementptr inbounds i64, ptr %598, i64 %595
+  %599 = getelementptr inbounds [8 x i8], ptr %598, i64 %595
   %600 = load ptr, ptr %596, align 8, !tbaa !363, !noalias !4177
   %601 = load i64, ptr %150, align 8, !tbaa !325, !noalias !4177
   call void @llvm.experimental.noalias.scope.decl(metadata !4178)
@@ -77893,7 +77890,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i218: ; preds =
   %809 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %810 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %811 = load ptr, ptr %810, align 8, !tbaa !363, !noalias !4226
-  %812 = getelementptr inbounds i64, ptr %811, i64 %808
+  %812 = getelementptr inbounds [8 x i8], ptr %811, i64 %808
   %813 = load ptr, ptr %809, align 8, !tbaa !363, !noalias !4226
   %814 = load i64, ptr %150, align 8, !tbaa !325, !noalias !4226
   call void @llvm.experimental.noalias.scope.decl(metadata !4227)
@@ -78456,7 +78453,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i300: ; preds =
   %1022 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %1023 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %1024 = load ptr, ptr %1023, align 8, !tbaa !363, !noalias !4275
-  %1025 = getelementptr inbounds i64, ptr %1024, i64 %1021
+  %1025 = getelementptr inbounds [8 x i8], ptr %1024, i64 %1021
   %1026 = load ptr, ptr %1022, align 8, !tbaa !363, !noalias !4275
   %1027 = load i64, ptr %150, align 8, !tbaa !325, !noalias !4275
   call void @llvm.experimental.noalias.scope.decl(metadata !4276)
@@ -80131,7 +80128,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Ti
   %5 = alloca %"struct.std::array.413", align 1
   %6 = alloca %"struct.std::array.389", align 1
   %7 = alloca %class.anon.407, align 8
-  %8 = getelementptr inbounds i32, ptr %.8.val.0.val, i64 %1
+  %8 = getelementptr inbounds [4 x i8], ptr %.8.val.0.val, i64 %1
   %9 = load i32, ptr %8, align 4, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !4338
   store ptr %.0.val.8.val, ptr %7, align 8, !tbaa !3608, !noalias !4338
@@ -80788,7 +80785,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Ti
   %5 = alloca %"struct.std::array.413", align 1
   %6 = alloca %"struct.std::array.389", align 1
   %7 = alloca %class.anon.429, align 8
-  %8 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %8 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %9 = load i64, ptr %8, align 8, !tbaa !390
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !4366
   store ptr %.0.val.8.val, ptr %7, align 8, !tbaa !3608, !noalias !4366
@@ -81477,7 +81474,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Ti
   %5 = alloca %"struct.std::array.439", align 1
   %6 = alloca %"struct.std::array.437", align 1
   %7 = alloca %class.anon.435, align 8
-  %8 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %8 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %9 = load i64, ptr %8, align 8, !tbaa !390
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !4393
   store ptr %.0.val.8.val, ptr %7, align 8, !tbaa !3608, !noalias !4393
@@ -83483,7 +83480,7 @@ declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216
 define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val.0.val, i64 noundef %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::Result.456", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %6 = load i64, ptr %5, align 8, !tbaa !390
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4426)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4426
@@ -85225,7 +85222,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1010: ; preds = %550, 
   %566 = zext nneg i8 %555 to i64
   %567 = add nuw nsw i64 %566, 4294967295
   %568 = and i64 %567, 4294967295
-  %569 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %568
+  %569 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %568
   %570 = load i8, ptr %569, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -86329,7 +86326,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1170: ; preds = %1023,
   %1042 = zext nneg i8 %1031 to i64
   %1043 = add nuw nsw i64 %1042, 4294967295
   %1044 = and i64 %1043, 4294967295
-  %1045 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1044
+  %1045 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1044
   %1046 = load i8, ptr %1045, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1182
 
@@ -86706,7 +86703,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1236: ; preds = %1197,
   %1216 = zext nneg i8 %1205 to i64
   %1217 = add nuw nsw i64 %1216, 4294967295
   %1218 = and i64 %1217, 4294967295
-  %1219 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1218
+  %1219 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1218
   %1220 = load i8, ptr %1219, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1248
 
@@ -87095,7 +87092,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1303: ; preds = %1378,
   %1397 = zext nneg i8 %1386 to i64
   %1398 = add nuw nsw i64 %1397, 4294967295
   %1399 = and i64 %1398, 4294967295
-  %1400 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1399
+  %1400 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1399
   %1401 = load i8, ptr %1400, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1315
 
@@ -87830,7 +87827,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1423: ; preds = %1729,
   %1748 = zext nneg i8 %1737 to i64
   %1749 = add nuw nsw i64 %1748, 4294967295
   %1750 = and i64 %1749, 4294967295
-  %1751 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1750
+  %1751 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1750
   %1752 = load i8, ptr %1751, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date19year_month_day_last3dayEv.exit.i1431
 
@@ -87880,7 +87877,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit1435.thread: ; preds = %1734
   %1769 = zext nneg i8 %1737 to i64
   %1770 = add nuw nsw i64 %1769, 4294967295
   %1771 = and i64 %1770, 4294967295
-  %1772 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1771
+  %1772 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1771
   %1773 = load i8, ptr %1772, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1447
 
@@ -90490,7 +90487,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1906: ; preds = %2935,
   %2951 = zext nneg i8 %2940 to i64
   %2952 = add nuw nsw i64 %2951, 4294967295
   %2953 = and i64 %2952, 4294967295
-  %2954 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %2953
+  %2954 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %2953
   %2955 = load i8, ptr %2954, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1918
 
@@ -90944,7 +90941,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2001: ; preds = %3158,
   %3174 = zext nneg i8 %3163 to i64
   %3175 = add nuw nsw i64 %3174, 4294967295
   %3176 = and i64 %3175, 4294967295
-  %3177 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3176
+  %3177 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3176
   %3178 = load i8, ptr %3177, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit2013
 
@@ -91621,7 +91618,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2175: ; preds = %3489,
   %3505 = zext nneg i8 %3494 to i64
   %3506 = add nuw nsw i64 %3505, 4294967295
   %3507 = and i64 %3506, 4294967295
-  %3508 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3507
+  %3508 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3507
   %3509 = load i8, ptr %3508, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit2187
 
@@ -93470,7 +93467,7 @@ define linkonce_odr noundef i32 @_ZN14arrow_vendored4date6detail15extract_weekda
   %18 = zext nneg i8 %6 to i64
   %19 = add nuw nsw i64 %18, 4294967295
   %20 = and i64 %19, 4294967295
-  %21 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -93538,7 +93535,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit.thread.thread: ; preds = %2
   %54 = zext nneg i8 %6 to i64
   %55 = add nuw nsw i64 %54, 4294967295
   %56 = and i64 %55, 4294967295
-  %57 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit20
 
@@ -94348,7 +94345,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val.0.val, i64 noundef %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::Result.456", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %6 = load i64, ptr %5, align 8, !tbaa !390
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4511)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4511
@@ -95937,7 +95934,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1012: ; preds = %551, 
   %567 = zext nneg i8 %556 to i64
   %568 = add nuw nsw i64 %567, 4294967295
   %569 = and i64 %568, 4294967295
-  %570 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %569
+  %570 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %569
   %571 = load i8, ptr %570, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -97041,7 +97038,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1172: ; preds = %1024,
   %1043 = zext nneg i8 %1032 to i64
   %1044 = add nuw nsw i64 %1043, 4294967295
   %1045 = and i64 %1044, 4294967295
-  %1046 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1045
+  %1046 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1045
   %1047 = load i8, ptr %1046, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1184
 
@@ -97418,7 +97415,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1238: ; preds = %1198,
   %1217 = zext nneg i8 %1206 to i64
   %1218 = add nuw nsw i64 %1217, 4294967295
   %1219 = and i64 %1218, 4294967295
-  %1220 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1219
+  %1220 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1219
   %1221 = load i8, ptr %1220, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1250
 
@@ -97807,7 +97804,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1305: ; preds = %1379,
   %1398 = zext nneg i8 %1387 to i64
   %1399 = add nuw nsw i64 %1398, 4294967295
   %1400 = and i64 %1399, 4294967295
-  %1401 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1400
+  %1401 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1400
   %1402 = load i8, ptr %1401, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1317
 
@@ -98542,7 +98539,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1425: ; preds = %1730,
   %1749 = zext nneg i8 %1738 to i64
   %1750 = add nuw nsw i64 %1749, 4294967295
   %1751 = and i64 %1750, 4294967295
-  %1752 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1751
+  %1752 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1751
   %1753 = load i8, ptr %1752, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date19year_month_day_last3dayEv.exit.i1433
 
@@ -98592,7 +98589,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit1437.thread: ; preds = %1735
   %1770 = zext nneg i8 %1738 to i64
   %1771 = add nuw nsw i64 %1770, 4294967295
   %1772 = and i64 %1771, 4294967295
-  %1773 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1772
+  %1773 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1772
   %1774 = load i8, ptr %1773, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1449
 
@@ -101204,7 +101201,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1908: ; preds = %2938,
   %2954 = zext nneg i8 %2943 to i64
   %2955 = add nuw nsw i64 %2954, 4294967295
   %2956 = and i64 %2955, 4294967295
-  %2957 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %2956
+  %2957 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %2956
   %2958 = load i8, ptr %2957, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1920
 
@@ -101658,7 +101655,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2003: ; preds = %3161,
   %3177 = zext nneg i8 %3166 to i64
   %3178 = add nuw nsw i64 %3177, 4294967295
   %3179 = and i64 %3178, 4294967295
-  %3180 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3179
+  %3180 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3179
   %3181 = load i8, ptr %3180, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit2015
 
@@ -102335,7 +102332,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2177: ; preds = %3492,
   %3508 = zext nneg i8 %3497 to i64
   %3509 = add nuw nsw i64 %3508, 4294967295
   %3510 = and i64 %3509, 4294967295
-  %3511 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3510
+  %3511 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3510
   %3512 = load i8, ptr %3511, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit2189
 
@@ -104182,7 +104179,7 @@ define linkonce_odr noundef i32 @_ZN14arrow_vendored4date6detail15extract_weekda
   %18 = zext nneg i8 %6 to i64
   %19 = add nuw nsw i64 %18, 4294967295
   %20 = and i64 %19, 4294967295
-  %21 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -104250,7 +104247,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit.thread.thread: ; preds = %2
   %54 = zext nneg i8 %6 to i64
   %55 = add nuw nsw i64 %54, 4294967295
   %56 = and i64 %55, 4294967295
-  %57 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit20
 
@@ -104775,7 +104772,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val.0.val, i64 noundef %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::Result.456", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %6 = load i64, ptr %5, align 8, !tbaa !390
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4543)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4543
@@ -106362,7 +106359,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1012: ; preds = %551, 
   %567 = zext nneg i8 %556 to i64
   %568 = add nuw nsw i64 %567, 4294967295
   %569 = and i64 %568, 4294967295
-  %570 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %569
+  %570 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %569
   %571 = load i8, ptr %570, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -107466,7 +107463,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1172: ; preds = %1024,
   %1043 = zext nneg i8 %1032 to i64
   %1044 = add nuw nsw i64 %1043, 4294967295
   %1045 = and i64 %1044, 4294967295
-  %1046 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1045
+  %1046 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1045
   %1047 = load i8, ptr %1046, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1184
 
@@ -107843,7 +107840,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1238: ; preds = %1198,
   %1217 = zext nneg i8 %1206 to i64
   %1218 = add nuw nsw i64 %1217, 4294967295
   %1219 = and i64 %1218, 4294967295
-  %1220 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1219
+  %1220 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1219
   %1221 = load i8, ptr %1220, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1250
 
@@ -108232,7 +108229,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1305: ; preds = %1379,
   %1398 = zext nneg i8 %1387 to i64
   %1399 = add nuw nsw i64 %1398, 4294967295
   %1400 = and i64 %1399, 4294967295
-  %1401 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1400
+  %1401 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1400
   %1402 = load i8, ptr %1401, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1317
 
@@ -108967,7 +108964,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1425: ; preds = %1730,
   %1749 = zext nneg i8 %1738 to i64
   %1750 = add nuw nsw i64 %1749, 4294967295
   %1751 = and i64 %1750, 4294967295
-  %1752 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1751
+  %1752 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1751
   %1753 = load i8, ptr %1752, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date19year_month_day_last3dayEv.exit.i1433
 
@@ -109017,7 +109014,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit1437.thread: ; preds = %1735
   %1770 = zext nneg i8 %1738 to i64
   %1771 = add nuw nsw i64 %1770, 4294967295
   %1772 = and i64 %1771, 4294967295
-  %1773 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1772
+  %1773 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1772
   %1774 = load i8, ptr %1773, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1449
 
@@ -111629,7 +111626,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1908: ; preds = %2938,
   %2954 = zext nneg i8 %2943 to i64
   %2955 = add nuw nsw i64 %2954, 4294967295
   %2956 = and i64 %2955, 4294967295
-  %2957 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %2956
+  %2957 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %2956
   %2958 = load i8, ptr %2957, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1920
 
@@ -112083,7 +112080,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2003: ; preds = %3161,
   %3177 = zext nneg i8 %3166 to i64
   %3178 = add nuw nsw i64 %3177, 4294967295
   %3179 = and i64 %3178, 4294967295
-  %3180 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3179
+  %3180 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3179
   %3181 = load i8, ptr %3180, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit2015
 
@@ -112760,7 +112757,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2177: ; preds = %3492,
   %3508 = zext nneg i8 %3497 to i64
   %3509 = add nuw nsw i64 %3508, 4294967295
   %3510 = and i64 %3509, 4294967295
-  %3511 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3510
+  %3511 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3510
   %3512 = load i8, ptr %3511, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit2189
 
@@ -114607,7 +114604,7 @@ define linkonce_odr noundef i32 @_ZN14arrow_vendored4date6detail15extract_weekda
   %18 = zext nneg i8 %6 to i64
   %19 = add nuw nsw i64 %18, 4294967295
   %20 = and i64 %19, 4294967295
-  %21 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -114675,7 +114672,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit.thread.thread: ; preds = %2
   %54 = zext nneg i8 %6 to i64
   %55 = add nuw nsw i64 %54, 4294967295
   %56 = and i64 %55, 4294967295
-  %57 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit20
 
@@ -115198,7 +115195,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val.0.val, i64 noundef %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::Result.456", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %6 = load i64, ptr %5, align 8, !tbaa !390
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4575)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4575
@@ -116779,7 +116776,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1012: ; preds = %551, 
   %567 = zext nneg i8 %556 to i64
   %568 = add nuw nsw i64 %567, 4294967295
   %569 = and i64 %568, 4294967295
-  %570 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %569
+  %570 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %569
   %571 = load i8, ptr %570, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -117883,7 +117880,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1172: ; preds = %1024,
   %1043 = zext nneg i8 %1032 to i64
   %1044 = add nuw nsw i64 %1043, 4294967295
   %1045 = and i64 %1044, 4294967295
-  %1046 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1045
+  %1046 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1045
   %1047 = load i8, ptr %1046, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1184
 
@@ -118260,7 +118257,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1238: ; preds = %1198,
   %1217 = zext nneg i8 %1206 to i64
   %1218 = add nuw nsw i64 %1217, 4294967295
   %1219 = and i64 %1218, 4294967295
-  %1220 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1219
+  %1220 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1219
   %1221 = load i8, ptr %1220, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1250
 
@@ -118649,7 +118646,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1305: ; preds = %1379,
   %1398 = zext nneg i8 %1387 to i64
   %1399 = add nuw nsw i64 %1398, 4294967295
   %1400 = and i64 %1399, 4294967295
-  %1401 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1400
+  %1401 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1400
   %1402 = load i8, ptr %1401, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1317
 
@@ -119384,7 +119381,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1425: ; preds = %1730,
   %1749 = zext nneg i8 %1738 to i64
   %1750 = add nuw nsw i64 %1749, 4294967295
   %1751 = and i64 %1750, 4294967295
-  %1752 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1751
+  %1752 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1751
   %1753 = load i8, ptr %1752, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date19year_month_day_last3dayEv.exit.i1433
 
@@ -119434,7 +119431,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit1437.thread: ; preds = %1735
   %1770 = zext nneg i8 %1738 to i64
   %1771 = add nuw nsw i64 %1770, 4294967295
   %1772 = and i64 %1771, 4294967295
-  %1773 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1772
+  %1773 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1772
   %1774 = load i8, ptr %1773, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1449
 
@@ -122046,7 +122043,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1908: ; preds = %2938,
   %2954 = zext nneg i8 %2943 to i64
   %2955 = add nuw nsw i64 %2954, 4294967295
   %2956 = and i64 %2955, 4294967295
-  %2957 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %2956
+  %2957 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %2956
   %2958 = load i8, ptr %2957, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1920
 
@@ -122500,7 +122497,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2003: ; preds = %3161,
   %3177 = zext nneg i8 %3166 to i64
   %3178 = add nuw nsw i64 %3177, 4294967295
   %3179 = and i64 %3178, 4294967295
-  %3180 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3179
+  %3180 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3179
   %3181 = load i8, ptr %3180, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit2015
 
@@ -123177,7 +123174,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2177: ; preds = %3492,
   %3508 = zext nneg i8 %3497 to i64
   %3509 = add nuw nsw i64 %3508, 4294967295
   %3510 = and i64 %3509, 4294967295
-  %3511 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3510
+  %3511 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3510
   %3512 = load i8, ptr %3511, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit2189
 
@@ -125024,7 +125021,7 @@ define linkonce_odr noundef i32 @_ZN14arrow_vendored4date6detail15extract_weekda
   %18 = zext nneg i8 %6 to i64
   %19 = add nuw nsw i64 %18, 4294967295
   %20 = and i64 %19, 4294967295
-  %21 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -125092,7 +125089,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit.thread.thread: ; preds = %2
   %54 = zext nneg i8 %6 to i64
   %55 = add nuw nsw i64 %54, 4294967295
   %56 = and i64 %55, 4294967295
-  %57 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !51
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit20
 
@@ -125719,7 +125716,7 @@ define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCa
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !363
-  %30 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %29, i64 %26
+  %30 = getelementptr inbounds [16 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !325
   %33 = icmp sgt i64 %32, 0
@@ -125728,7 +125725,7 @@ define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCa
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.08.i = phi i64 [ %38, %.lr.ph.i ], [ 0, %4 ]
   %.067.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %4 ]
-  %34 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %30, i64 %.08.i
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %.08.i
   %35 = load i32, ptr %34, align 8, !tbaa !51
   %36 = sext i32 %35 to i64
   %37 = add nsw i64 %.067.i, %36
@@ -125962,7 +125959,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
 114:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit46
   %115 = load i64, ptr %25, align 8, !tbaa !362, !noalias !4653
   %116 = load ptr, ptr %28, align 8, !tbaa !363, !noalias !4653
-  %117 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %116, i64 %115
+  %117 = getelementptr inbounds [16 x i8], ptr %116, i64 %115
   %118 = invoke { ptr, i64 } @_ZNK5arrow9ArraySpan18GetVariadicBuffersEv(ptr noundef nonnull align 8 dereferenceable(128) %24)
           to label %.noexc47 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -126008,7 +126005,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
 .lr.ph29.i.i:                                     ; preds = %.preheader.i.i, %_ZN5arrow6StatusD2Ev.exit69.i.i
   %.04728.i.i = phi i64 [ %218, %_ZN5arrow6StatusD2Ev.exit69.i.i ], [ 0, %.preheader.i.i ]
   %.14927.i.i = phi i64 [ %219, %_ZN5arrow6StatusD2Ev.exit69.i.i ], [ %.04831.i.i, %.preheader.i.i ]
-  %134 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %117, i64 %.14927.i.i
+  %134 = getelementptr inbounds [16 x i8], ptr %117, i64 %.14927.i.i
   %135 = load i32, ptr %134, align 8, !tbaa !51, !noalias !4659
   %136 = icmp slt i32 %135, 13
   br i1 %136, label %137, label %139
@@ -126021,7 +126018,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %141 = load i32, ptr %140, align 8, !tbaa !51, !noalias !4659
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %119, i64 %142
+  %143 = getelementptr inbounds [16 x i8], ptr %119, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !548, !noalias !4659
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 9
   %146 = load i8, ptr %145, align 1, !tbaa !551, !range !92, !noalias !4659, !noundef !93
@@ -126277,7 +126274,7 @@ _ZN5arrow6StatusD2Ev.exit71.i.i:                  ; preds = %.preheader12.i.i, %
 
 259:                                              ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !4656
-  %260 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %117, i64 %.55320.i.i
+  %260 = getelementptr inbounds [16 x i8], ptr %117, i64 %.55320.i.i
   %261 = load i32, ptr %260, align 8, !tbaa !51, !noalias !4697
   %262 = icmp slt i32 %261, 13
   br i1 %262, label %263, label %265
@@ -126290,7 +126287,7 @@ _ZN5arrow6StatusD2Ev.exit71.i.i:                  ; preds = %.preheader12.i.i, %
   %266 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %267 = load i32, ptr %266, align 8, !tbaa !51, !noalias !4697
   %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %119, i64 %268
+  %269 = getelementptr inbounds [16 x i8], ptr %119, i64 %268
   %270 = load ptr, ptr %269, align 8, !tbaa !548, !noalias !4697
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 9
   %272 = load i8, ptr %271, align 1, !tbaa !551, !range !92, !noalias !4697, !noundef !93
@@ -126687,7 +126684,7 @@ define internal fastcc void @_ZN5arrow16ArraySpanVisitorINS_10BinaryTypeEE5Visit
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !363, !noalias !4739
-  %17 = getelementptr inbounds i32, ptr %16, i64 %13
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %13
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !363, !noalias !4739
   %20 = icmp eq ptr %19, null
@@ -126863,27 +126860,27 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Valid
   %16 = lshr i64 %.0.copyload.i.i.i, 16
   %17 = lshr i64 %.0.copyload.i.i.i, 8
   %18 = and i64 %.0.copyload.i.i.i, 255
-  %19 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !2086
   %21 = zext i16 %20 to i64
   %22 = and i64 %17, 255
-  %23 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %21
-  %24 = getelementptr inbounds nuw i16, ptr %23, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %21
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %22
   %25 = load i16, ptr %24, align 2, !tbaa !2086
   %26 = zext i16 %25 to i64
   %27 = and i64 %16, 255
-  %28 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %26
-  %29 = getelementptr inbounds nuw i16, ptr %28, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %26
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %27
   %30 = load i16, ptr %29, align 2, !tbaa !2086
   %31 = zext i16 %30 to i64
   %32 = and i64 %15, 255
-  %33 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %31
-  %34 = getelementptr inbounds nuw i16, ptr %33, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %31
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %32
   %35 = load i16, ptr %34, align 2, !tbaa !2086
   %36 = zext i16 %35 to i64
   %37 = and i64 %14, 255
-  %38 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %36
-  %39 = getelementptr inbounds nuw i16, ptr %38, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %36
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %37
   %40 = load i16, ptr %39, align 2, !tbaa !2086
   %41 = icmp eq i16 %40, 0
   br i1 %41, label %42, label %45
@@ -126896,8 +126893,8 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Valid
 45:                                               ; preds = %13
   %46 = zext i16 %40 to i64
   %47 = and i64 %7, 255
-  %48 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %46
-  %49 = getelementptr inbounds nuw i16, ptr %48, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %46
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %47
   %50 = load i16, ptr %49, align 2, !tbaa !2086
   %51 = icmp eq i16 %50, 0
   br i1 %51, label %52, label %55
@@ -126910,8 +126907,8 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Valid
 55:                                               ; preds = %45
   %56 = zext i16 %50 to i64
   %57 = and i64 %8, 255
-  %58 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %56
-  %59 = getelementptr inbounds nuw i16, ptr %58, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %56
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %57
   %60 = load i16, ptr %59, align 2, !tbaa !2086
   %61 = icmp eq i16 %60, 0
   br i1 %61, label %62, label %65
@@ -126924,8 +126921,8 @@ define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Valid
 65:                                               ; preds = %55
   %66 = getelementptr inbounds nuw i8, ptr %.079103.i.i, i64 8
   %67 = zext i16 %60 to i64
-  %68 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %67
-  %69 = getelementptr inbounds nuw i16, ptr %68, i64 %9
+  %68 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %67
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %9
   %70 = load i16, ptr %69, align 2, !tbaa !2086
   %71 = add nsw i64 %.082102.i.i, -8
   %72 = icmp eq i16 %70, 0
@@ -127000,7 +126997,7 @@ select.unfold.i.i:                                ; preds = %65, %62, %52, %42, 
 
 105:                                              ; preds = %101
   %106 = and i64 %104, 255
-  %107 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %106
+  %107 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %106
   %108 = load i16, ptr %107, align 2, !tbaa !2086
   %109 = zext i16 %108 to i64
   br label %110
@@ -127011,8 +127008,8 @@ select.unfold.i.i:                                ; preds = %65, %62, %52, %42, 
   %112 = getelementptr i8, ptr %111, i64 -6
   %113 = load i8, ptr %112, align 1, !tbaa !51
   %114 = zext i8 %113 to i64
-  %115 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.0.i.i
-  %116 = getelementptr inbounds nuw i16, ptr %115, i64 %114
+  %115 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.0.i.i
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %115, i64 %114
   %117 = load i16, ptr %116, align 2, !tbaa !2086
   %118 = zext i16 %117 to i64
   br label %119
@@ -127023,8 +127020,8 @@ select.unfold.i.i:                                ; preds = %65, %62, %52, %42, 
   %121 = getelementptr i8, ptr %120, i64 -5
   %122 = load i8, ptr %121, align 1, !tbaa !51
   %123 = zext i8 %122 to i64
-  %124 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.1.i.i
-  %125 = getelementptr inbounds nuw i16, ptr %124, i64 %123
+  %124 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.1.i.i
+  %125 = getelementptr inbounds nuw [2 x i8], ptr %124, i64 %123
   %126 = load i16, ptr %125, align 2, !tbaa !2086
   %127 = zext i16 %126 to i64
   br label %128
@@ -127035,8 +127032,8 @@ select.unfold.i.i:                                ; preds = %65, %62, %52, %42, 
   %130 = getelementptr i8, ptr %129, i64 -4
   %131 = load i8, ptr %130, align 1, !tbaa !51
   %132 = zext i8 %131 to i64
-  %133 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.2.i.i
-  %134 = getelementptr inbounds nuw i16, ptr %133, i64 %132
+  %133 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.2.i.i
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %133, i64 %132
   %135 = load i16, ptr %134, align 2, !tbaa !2086
   %136 = zext i16 %135 to i64
   br label %137
@@ -127047,8 +127044,8 @@ select.unfold.i.i:                                ; preds = %65, %62, %52, %42, 
   %139 = getelementptr i8, ptr %138, i64 -3
   %140 = load i8, ptr %139, align 1, !tbaa !51
   %141 = zext i8 %140 to i64
-  %142 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.3.i.i
-  %143 = getelementptr inbounds nuw i16, ptr %142, i64 %141
+  %142 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.3.i.i
+  %143 = getelementptr inbounds nuw [2 x i8], ptr %142, i64 %141
   %144 = load i16, ptr %143, align 2, !tbaa !2086
   %145 = zext i16 %144 to i64
   br label %146
@@ -127056,8 +127053,8 @@ select.unfold.i.i:                                ; preds = %65, %62, %52, %42, 
 146:                                              ; preds = %137, %101
   %.4.i.i = phi i64 [ %145, %137 ], [ 0, %101 ]
   %147 = and i64 %103, 255
-  %148 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.4.i.i
-  %149 = getelementptr inbounds nuw i16, ptr %148, i64 %147
+  %148 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.4.i.i
+  %149 = getelementptr inbounds nuw [2 x i8], ptr %148, i64 %147
   %150 = load i16, ptr %149, align 2, !tbaa !2086
   %151 = zext i16 %150 to i64
   br label %_ZN5arrow4utilL18ValidateUTF8InlineESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -127069,8 +127066,8 @@ _ZN5arrow4utilL18ValidateUTF8InlineESt17basic_string_viewIcSt11char_traitsIcEE.e
   %152 = phi i8 [ %102, %146 ], [ %99, %98 ]
   %.5.i.i = phi i64 [ %151, %146 ], [ 0, %98 ]
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.5.i.i
-  %155 = getelementptr inbounds nuw i16, ptr %154, i64 %153
+  %154 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.5.i.i
+  %155 = getelementptr inbounds nuw [2 x i8], ptr %154, i64 %153
   %156 = load i16, ptr %155, align 2, !tbaa !2086
   %157 = icmp eq i16 %156, 0
   br i1 %157, label %_ZN5arrow4utilL18ValidateUTF8InlineESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %_ZN5arrow4utilL18ValidateUTF8InlineESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread2, !prof !4780
@@ -127201,7 +127198,7 @@ _ZN5arrow6StatusD2Ev.exit49:                      ; preds = %_ZN5arrow6StatusD2E
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %35 = load ptr, ptr %34, align 8, !tbaa !363
-  %36 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %35, i64 %32
+  %36 = getelementptr inbounds [16 x i8], ptr %35, i64 %32
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !325
   %39 = icmp sgt i64 %38, 0
@@ -127210,7 +127207,7 @@ _ZN5arrow6StatusD2Ev.exit49:                      ; preds = %_ZN5arrow6StatusD2E
 .lr.ph.i:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit49, %.lr.ph.i
   %.08.i = phi i64 [ %44, %.lr.ph.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit49 ]
   %.067.i = phi i64 [ %43, %.lr.ph.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit49 ]
-  %40 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %36, i64 %.08.i
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %.08.i
   %41 = load i32, ptr %40, align 8, !tbaa !51
   %42 = sext i32 %41 to i64
   %43 = add nsw i64 %.067.i, %42
@@ -127444,7 +127441,7 @@ _ZN5arrow6StatusD2Ev.exit60:                      ; preds = %_ZN5arrow6StatusD2E
 120:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit60
   %121 = load i64, ptr %31, align 8, !tbaa !362, !noalias !4825
   %122 = load ptr, ptr %34, align 8, !tbaa !363, !noalias !4825
-  %123 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %122, i64 %121
+  %123 = getelementptr inbounds [16 x i8], ptr %122, i64 %121
   %124 = invoke { ptr, i64 } @_ZNK5arrow9ArraySpan18GetVariadicBuffersEv(ptr noundef nonnull align 8 dereferenceable(128) %25)
           to label %.noexc61 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -127490,7 +127487,7 @@ _ZN5arrow6StatusD2Ev.exit60:                      ; preds = %_ZN5arrow6StatusD2E
 .lr.ph29.i.i:                                     ; preds = %.preheader.i.i, %_ZN5arrow6StatusD2Ev.exit69.i.i
   %.04728.i.i = phi i64 [ %224, %_ZN5arrow6StatusD2Ev.exit69.i.i ], [ 0, %.preheader.i.i ]
   %.14927.i.i = phi i64 [ %225, %_ZN5arrow6StatusD2Ev.exit69.i.i ], [ %.04831.i.i, %.preheader.i.i ]
-  %140 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %123, i64 %.14927.i.i
+  %140 = getelementptr inbounds [16 x i8], ptr %123, i64 %.14927.i.i
   %141 = load i32, ptr %140, align 8, !tbaa !51, !noalias !4831
   %142 = icmp slt i32 %141, 13
   br i1 %142, label %143, label %145
@@ -127503,7 +127500,7 @@ _ZN5arrow6StatusD2Ev.exit60:                      ; preds = %_ZN5arrow6StatusD2E
   %146 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %147 = load i32, ptr %146, align 8, !tbaa !51, !noalias !4831
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %125, i64 %148
+  %149 = getelementptr inbounds [16 x i8], ptr %125, i64 %148
   %150 = load ptr, ptr %149, align 8, !tbaa !548, !noalias !4831
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 9
   %152 = load i8, ptr %151, align 1, !tbaa !551, !range !92, !noalias !4831, !noundef !93
@@ -127759,7 +127756,7 @@ _ZN5arrow6StatusD2Ev.exit71.i.i:                  ; preds = %.preheader12.i.i, %
 
 265:                                              ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !4828
-  %266 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %123, i64 %.55320.i.i
+  %266 = getelementptr inbounds [16 x i8], ptr %123, i64 %.55320.i.i
   %267 = load i32, ptr %266, align 8, !tbaa !51, !noalias !4869
   %268 = icmp slt i32 %267, 13
   br i1 %268, label %269, label %271
@@ -127772,7 +127769,7 @@ _ZN5arrow6StatusD2Ev.exit71.i.i:                  ; preds = %.preheader12.i.i, %
   %272 = getelementptr inbounds nuw i8, ptr %266, i64 8
   %273 = load i32, ptr %272, align 8, !tbaa !51, !noalias !4869
   %274 = sext i32 %273 to i64
-  %275 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %125, i64 %274
+  %275 = getelementptr inbounds [16 x i8], ptr %125, i64 %274
   %276 = load ptr, ptr %275, align 8, !tbaa !548, !noalias !4869
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 9
   %278 = load i8, ptr %277, align 1, !tbaa !551, !range !92, !noalias !4869, !noundef !93
@@ -128101,7 +128098,7 @@ define internal fastcc void @_ZN5arrow16ArraySpanVisitorINS_14BinaryViewTypeEE5V
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load ptr, ptr %14, align 8, !tbaa !363, !noalias !4896
-  %16 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %15, i64 %12
+  %16 = getelementptr inbounds [16 x i8], ptr %15, i64 %12
   %17 = tail call { ptr, i64 } @_ZNK5arrow9ArraySpan18GetVariadicBuffersEv(ptr noundef nonnull align 8 dereferenceable(128) %1), !noalias !4896
   %18 = extractvalue { ptr, i64 } %17, 0
   %19 = load ptr, ptr %13, align 8, !tbaa !363, !noalias !4896
@@ -128131,7 +128128,7 @@ define internal fastcc void @_ZN5arrow16ArraySpanVisitorINS_14BinaryViewTypeEE5V
   %.04724.i.i = phi i64 [ %51, %_ZN5arrow6StatusD2Ev.exit71.i.i ], [ 0, %.preheader.i.i ]
   %.14923.i.i = phi i64 [ %52, %_ZN5arrow6StatusD2Ev.exit71.i.i ], [ %.04827.i.i, %.preheader.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4905
-  %26 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %16, i64 %.14923.i.i
+  %26 = getelementptr inbounds [16 x i8], ptr %16, i64 %.14923.i.i
   %27 = load i32, ptr %26, align 8, !tbaa !51, !noalias !4906
   %28 = icmp slt i32 %27, 13
   br i1 %28, label %29, label %31
@@ -128144,7 +128141,7 @@ define internal fastcc void @_ZN5arrow16ArraySpanVisitorINS_14BinaryViewTypeEE5V
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !51, !noalias !4906
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %18, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %18, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !548, !noalias !4906
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 9
   %38 = load i8, ptr %37, align 1, !tbaa !551, !range !92, !noalias !4906, !noundef !93
@@ -128211,7 +128208,7 @@ _ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i:            ; preds = %.preheader8.i.i
 
 67:                                               ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4905
-  %68 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %16, i64 %.55316.i.i
+  %68 = getelementptr inbounds [16 x i8], ptr %16, i64 %.55316.i.i
   %69 = load i32, ptr %68, align 8, !tbaa !51, !noalias !4917
   %70 = icmp slt i32 %69, 13
   br i1 %70, label %71, label %73
@@ -128224,7 +128221,7 @@ _ZN5arrow6StatusD2Ev.exit73.lr.ph.i.i:            ; preds = %.preheader8.i.i
   %74 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %75 = load i32, ptr %74, align 8, !tbaa !51, !noalias !4917
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %18, i64 %76
+  %77 = getelementptr inbounds [16 x i8], ptr %18, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !548, !noalias !4917
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 9
   %80 = load i8, ptr %79, align 1, !tbaa !551, !range !92, !noalias !4917, !noundef !93
@@ -128410,7 +128407,7 @@ define internal fastcc void @_ZN5arrow16ArraySpanVisitorINS_15LargeBinaryTypeEE5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !363, !noalias !4938
-  %17 = getelementptr inbounds i64, ptr %16, i64 %13
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %13
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !363, !noalias !4938
   %20 = icmp eq ptr %19, null
@@ -129086,7 +129083,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
   %238 = getelementptr inbounds nuw i8, ptr %228, i64 16
   %239 = load ptr, ptr %238, align 8
   %240 = select i1 %237, ptr %239, ptr null, !prof !81
-  %241 = getelementptr inbounds i32, ptr %240, i64 %230
+  %241 = getelementptr inbounds [4 x i8], ptr %240, i64 %230
   br label %_ZN5arrow9ArrayData16GetMutableValuesIiEEPT_i.exit
 
 _ZN5arrow9ArrayData16GetMutableValuesIiEEPT_i.exit: ; preds = %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %229
@@ -129180,7 +129177,7 @@ _ZNK5arrow9ArraySpan9GetBufferEi.exit111:         ; preds = %249, %257, %260
   %.056157 = phi i64 [ %277, %.lr.ph ], [ 0, %_ZN5arrow9ArrayData16GetMutableValuesIiEEPT_i.exit ]
   %276 = add nsw i32 %275, %25
   %277 = add nuw nsw i64 %.056157, 1
-  %278 = getelementptr inbounds nuw i32, ptr %.0.i.i, i64 %277
+  %278 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i, i64 %277
   store i32 %276, ptr %278, align 4, !tbaa !52
   %exitcond.not = icmp eq i64 %277, %245
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5003
@@ -130554,7 +130551,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %68 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %69 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %70 = load ptr, ptr %69, align 8, !tbaa !363, !noalias !5149
-  %71 = getelementptr inbounds i16, ptr %70, i64 %67
+  %71 = getelementptr inbounds [2 x i8], ptr %70, i64 %67
   %72 = load ptr, ptr %68, align 8, !tbaa !363, !noalias !5149
   %73 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %74 = load i64, ptr %73, align 8, !tbaa !325, !noalias !5149
@@ -130608,7 +130605,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %.04732.i.i.i = phi i64 [ %200, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14931.i.i.i = phi i64 [ %201, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ %.04835.i.i.i, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !5154
-  %95 = getelementptr inbounds i16, ptr %71, i64 %.14931.i.i.i
+  %95 = getelementptr inbounds [2 x i8], ptr %71, i64 %.14931.i.i.i
   %96 = load i16, ptr %95, align 2, !tbaa !2086, !noalias !5157
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !5160
   %97 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEtPci(ptr noundef nonnull align 8 dereferenceable(8) %16, i16 noundef zeroext %96, ptr noundef nonnull %12, i32 noundef 50)
@@ -131007,7 +131004,7 @@ _ZN5arrow6StatusD2Ev.exit79.i.i.i:                ; preds = %.noexc35, %_ZN5arro
 
 _ZN5arrow6StatusD2Ev.exit81.i.i.i:                ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !5154
-  %251 = getelementptr inbounds i16, ptr %71, i64 %.55323.i.i.i
+  %251 = getelementptr inbounds [2 x i8], ptr %71, i64 %.55323.i.i.i
   %252 = load i16, ptr %251, align 2, !tbaa !2086, !noalias !5214
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5217
   %253 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEtPci(ptr noundef nonnull align 8 dereferenceable(8) %16, i16 noundef zeroext %252, ptr noundef nonnull %10, i32 noundef 50)
@@ -131586,7 +131583,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 4
-  %25 = getelementptr %"union.arrow::BinaryViewType::c_type", ptr %19, i64 %24
+  %25 = getelementptr [16 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %22, i1 false)
   br label %_ZN5arrow18TypedBufferBuilderINS_14BinaryViewType6c_typeEvE12UnsafeAppendElS2_.exit
 
@@ -131712,7 +131709,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 4
-  %25 = getelementptr %"union.arrow::BinaryViewType::c_type", ptr %19, i64 %24
+  %25 = getelementptr [16 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %22, i1 false)
   br label %_ZN5arrow18TypedBufferBuilderINS_14BinaryViewType6c_typeEvE12UnsafeAppendElS2_.exit
 
@@ -132547,7 +132544,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow15ResizableBufferEESaIS3_EE11_S_relocateEPS3_
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow15ResizableBufferEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow15ResizableBufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !5187
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !5184
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.46", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !5250
   ret void
 }
@@ -134487,7 +134484,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %67 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %68 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %69 = load ptr, ptr %68, align 8, !tbaa !363, !noalias !5544
-  %70 = getelementptr inbounds i16, ptr %69, i64 %66
+  %70 = getelementptr inbounds [2 x i8], ptr %69, i64 %66
   %71 = load ptr, ptr %67, align 8, !tbaa !363, !noalias !5544
   %72 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !325, !noalias !5544
@@ -134545,7 +134542,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %.04735.i.i.i = phi i64 [ %235, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14934.i.i.i = phi i64 [ %236, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04838.i.i.i, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !5549
-  %98 = getelementptr inbounds i16, ptr %70, i64 %.14934.i.i.i
+  %98 = getelementptr inbounds [2 x i8], ptr %70, i64 %.14934.i.i.i
   %99 = load i16, ptr %98, align 2, !tbaa !2086, !noalias !5552
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !5555
   %100 = call noundef i16 @llvm.abs.i16(i16 %99, i1 false)
@@ -135005,7 +135002,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc28, %_ZN5arro
 
 286:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !5549
-  %287 = getelementptr inbounds i16, ptr %70, i64 %.55326.i.i.i
+  %287 = getelementptr inbounds [2 x i8], ptr %70, i64 %.55326.i.i.i
   %288 = load i16, ptr %287, align 2, !tbaa !2086, !noalias !5597
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5600
   %289 = call noundef i16 @llvm.abs.i16(i16 %288, i1 false)
@@ -135416,7 +135413,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %67 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %68 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %69 = load ptr, ptr %68, align 8, !tbaa !363, !noalias !5639
-  %70 = getelementptr inbounds i16, ptr %69, i64 %66
+  %70 = getelementptr inbounds [2 x i8], ptr %69, i64 %66
   %71 = load ptr, ptr %67, align 8, !tbaa !363, !noalias !5639
   %72 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !325, !noalias !5639
@@ -135474,7 +135471,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %.04735.i.i.i = phi i64 [ %231, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14934.i.i.i = phi i64 [ %232, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04838.i.i.i, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !5644
-  %98 = getelementptr inbounds i16, ptr %70, i64 %.14934.i.i.i
+  %98 = getelementptr inbounds [2 x i8], ptr %70, i64 %.14934.i.i.i
   %99 = load i16, ptr %98, align 2, !tbaa !2086, !noalias !5647
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !5650
   %100 = icmp ugt i16 %99, 99
@@ -135923,7 +135920,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc28, %_ZN5arro
 
 282:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !5644
-  %283 = getelementptr inbounds i16, ptr %70, i64 %.55326.i.i.i
+  %283 = getelementptr inbounds [2 x i8], ptr %70, i64 %.55326.i.i.i
   %284 = load i16, ptr %283, align 2, !tbaa !2086, !noalias !5692
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5695
   %285 = icmp ugt i16 %284, 99
@@ -136323,7 +136320,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %67 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %68 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %69 = load ptr, ptr %68, align 8, !tbaa !363, !noalias !5734
-  %70 = getelementptr inbounds i32, ptr %69, i64 %66
+  %70 = getelementptr inbounds [4 x i8], ptr %69, i64 %66
   %71 = load ptr, ptr %67, align 8, !tbaa !363, !noalias !5734
   %72 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !325, !noalias !5734
@@ -136381,7 +136378,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %.04735.i.i.i = phi i64 [ %235, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14934.i.i.i = phi i64 [ %236, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04838.i.i.i, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !5739
-  %98 = getelementptr inbounds i32, ptr %70, i64 %.14934.i.i.i
+  %98 = getelementptr inbounds [4 x i8], ptr %70, i64 %.14934.i.i.i
   %99 = load i32, ptr %98, align 4, !tbaa !52, !noalias !5742
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !5745
   %100 = call noundef i32 @llvm.abs.i32(i32 %99, i1 false)
@@ -136841,7 +136838,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc28, %_ZN5arro
 
 286:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !5739
-  %287 = getelementptr inbounds i32, ptr %70, i64 %.55326.i.i.i
+  %287 = getelementptr inbounds [4 x i8], ptr %70, i64 %.55326.i.i.i
   %288 = load i32, ptr %287, align 4, !tbaa !52, !noalias !5787
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5790
   %289 = call noundef i32 @llvm.abs.i32(i32 %288, i1 false)
@@ -137252,7 +137249,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %67 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %68 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %69 = load ptr, ptr %68, align 8, !tbaa !363, !noalias !5829
-  %70 = getelementptr inbounds i32, ptr %69, i64 %66
+  %70 = getelementptr inbounds [4 x i8], ptr %69, i64 %66
   %71 = load ptr, ptr %67, align 8, !tbaa !363, !noalias !5829
   %72 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !325, !noalias !5829
@@ -137310,7 +137307,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %.04735.i.i.i = phi i64 [ %231, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14934.i.i.i = phi i64 [ %232, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04838.i.i.i, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !5834
-  %98 = getelementptr inbounds i32, ptr %70, i64 %.14934.i.i.i
+  %98 = getelementptr inbounds [4 x i8], ptr %70, i64 %.14934.i.i.i
   %99 = load i32, ptr %98, align 4, !tbaa !52, !noalias !5837
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !5840
   %100 = icmp ugt i32 %99, 99
@@ -137759,7 +137756,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc28, %_ZN5arro
 
 282:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !5834
-  %283 = getelementptr inbounds i32, ptr %70, i64 %.55326.i.i.i
+  %283 = getelementptr inbounds [4 x i8], ptr %70, i64 %.55326.i.i.i
   %284 = load i32, ptr %283, align 4, !tbaa !52, !noalias !5882
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5885
   %285 = icmp ugt i32 %284, 99
@@ -138159,7 +138156,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %67 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %68 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %69 = load ptr, ptr %68, align 8, !tbaa !363, !noalias !5924
-  %70 = getelementptr inbounds i64, ptr %69, i64 %66
+  %70 = getelementptr inbounds [8 x i8], ptr %69, i64 %66
   %71 = load ptr, ptr %67, align 8, !tbaa !363, !noalias !5924
   %72 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !325, !noalias !5924
@@ -138217,7 +138214,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %.04735.i.i.i = phi i64 [ %233, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14934.i.i.i = phi i64 [ %234, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04838.i.i.i, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !5929
-  %98 = getelementptr inbounds i64, ptr %70, i64 %.14934.i.i.i
+  %98 = getelementptr inbounds [8 x i8], ptr %70, i64 %.14934.i.i.i
   %99 = load i64, ptr %98, align 8, !tbaa !390, !noalias !5932
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !5935
   %100 = call noundef i64 @llvm.abs.i64(i64 %99, i1 false)
@@ -138675,7 +138672,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc28, %_ZN5arro
 
 284:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !5929
-  %285 = getelementptr inbounds i64, ptr %70, i64 %.55326.i.i.i
+  %285 = getelementptr inbounds [8 x i8], ptr %70, i64 %.55326.i.i.i
   %286 = load i64, ptr %285, align 8, !tbaa !390, !noalias !5977
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5980
   %287 = call noundef i64 @llvm.abs.i64(i64 %286, i1 false)
@@ -139084,7 +139081,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %67 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %68 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %69 = load ptr, ptr %68, align 8, !tbaa !363, !noalias !6019
-  %70 = getelementptr inbounds i64, ptr %69, i64 %66
+  %70 = getelementptr inbounds [8 x i8], ptr %69, i64 %66
   %71 = load ptr, ptr %67, align 8, !tbaa !363, !noalias !6019
   %72 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !325, !noalias !6019
@@ -139142,7 +139139,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %.04735.i.i.i = phi i64 [ %229, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14934.i.i.i = phi i64 [ %230, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04838.i.i.i, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !6024
-  %98 = getelementptr inbounds i64, ptr %70, i64 %.14934.i.i.i
+  %98 = getelementptr inbounds [8 x i8], ptr %70, i64 %.14934.i.i.i
   %99 = load i64, ptr %98, align 8, !tbaa !390, !noalias !6027
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !6030
   %100 = icmp ugt i64 %99, 99
@@ -139589,7 +139586,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc28, %_ZN5arro
 
 280:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !6024
-  %281 = getelementptr inbounds i64, ptr %70, i64 %.55326.i.i.i
+  %281 = getelementptr inbounds [8 x i8], ptr %70, i64 %.55326.i.i.i
   %282 = load i64, ptr %281, align 8, !tbaa !390, !noalias !6072
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !6075
   %283 = icmp ugt i64 %282, 99
@@ -139993,7 +139990,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %68 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %69 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %70 = load ptr, ptr %69, align 8, !tbaa !363, !noalias !6114
-  %71 = getelementptr inbounds float, ptr %70, i64 %67
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %67
   %72 = load ptr, ptr %68, align 8, !tbaa !363, !noalias !6114
   %73 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %74 = load i64, ptr %73, align 8, !tbaa !325, !noalias !6114
@@ -140047,7 +140044,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %.04732.i.i.i = phi i64 [ %200, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14931.i.i.i = phi i64 [ %201, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ %.04835.i.i.i, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !6119
-  %95 = getelementptr inbounds float, ptr %71, i64 %.14931.i.i.i
+  %95 = getelementptr inbounds [4 x i8], ptr %71, i64 %.14931.i.i.i
   %96 = load float, ptr %95, align 4, !tbaa !2981, !noalias !6122
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !6125
   %97 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEfPci(ptr noundef nonnull align 8 dereferenceable(8) %16, float noundef %96, ptr noundef nonnull %12, i32 noundef 50)
@@ -140446,7 +140443,7 @@ _ZN5arrow6StatusD2Ev.exit79.i.i.i:                ; preds = %.noexc35, %_ZN5arro
 
 _ZN5arrow6StatusD2Ev.exit81.i.i.i:                ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !6119
-  %251 = getelementptr inbounds float, ptr %71, i64 %.55323.i.i.i
+  %251 = getelementptr inbounds [4 x i8], ptr %71, i64 %.55323.i.i.i
   %252 = load float, ptr %251, align 4, !tbaa !2981, !noalias !6167
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !6170
   %253 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEfPci(ptr noundef nonnull align 8 dereferenceable(8) %16, float noundef %252, ptr noundef nonnull %10, i32 noundef 50)
@@ -140820,7 +140817,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %68 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %69 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %70 = load ptr, ptr %69, align 8, !tbaa !363, !noalias !6209
-  %71 = getelementptr inbounds double, ptr %70, i64 %67
+  %71 = getelementptr inbounds [8 x i8], ptr %70, i64 %67
   %72 = load ptr, ptr %68, align 8, !tbaa !363, !noalias !6209
   %73 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %74 = load i64, ptr %73, align 8, !tbaa !325, !noalias !6209
@@ -140874,7 +140871,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %.04732.i.i.i = phi i64 [ %200, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14931.i.i.i = phi i64 [ %201, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ %.04835.i.i.i, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !6214
-  %95 = getelementptr inbounds double, ptr %71, i64 %.14931.i.i.i
+  %95 = getelementptr inbounds [8 x i8], ptr %71, i64 %.14931.i.i.i
   %96 = load double, ptr %95, align 8, !tbaa !3082, !noalias !6217
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !6220
   %97 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEdPci(ptr noundef nonnull align 8 dereferenceable(8) %16, double noundef %96, ptr noundef nonnull %12, i32 noundef 50)
@@ -141273,7 +141270,7 @@ _ZN5arrow6StatusD2Ev.exit79.i.i.i:                ; preds = %.noexc35, %_ZN5arro
 
 _ZN5arrow6StatusD2Ev.exit81.i.i.i:                ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !6214
-  %251 = getelementptr inbounds double, ptr %71, i64 %.55323.i.i.i
+  %251 = getelementptr inbounds [8 x i8], ptr %71, i64 %.55323.i.i.i
   %252 = load double, ptr %251, align 8, !tbaa !3082, !noalias !6262
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !6265
   %253 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEdPci(ptr noundef nonnull align 8 dereferenceable(8) %16, double noundef %252, ptr noundef nonnull %10, i32 noundef 50)
@@ -145287,7 +145284,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %69 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %70 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %71 = load ptr, ptr %70, align 8, !tbaa !363, !noalias !6716
-  %72 = getelementptr inbounds i32, ptr %71, i64 %68
+  %72 = getelementptr inbounds [4 x i8], ptr %71, i64 %68
   %73 = load ptr, ptr %69, align 8, !tbaa !363, !noalias !6716
   %74 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %75 = load i64, ptr %74, align 8, !tbaa !325, !noalias !6716
@@ -145367,7 +145364,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %.04737.i.i.i = phi i64 [ %303, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14936.i.i.i = phi i64 [ %304, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04840.i.i.i, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !6721
-  %122 = getelementptr inbounds i32, ptr %72, i64 %.14936.i.i.i
+  %122 = getelementptr inbounds [4 x i8], ptr %72, i64 %.14936.i.i.i
   %123 = load i32, ptr %122, align 4, !tbaa !52, !noalias !6724
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !6727
   store ptr %18, ptr %14, align 8, !tbaa !6730, !noalias !6727
@@ -145884,7 +145881,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 354:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !6721
-  %355 = getelementptr inbounds i32, ptr %72, i64 %.55328.i.i.i
+  %355 = getelementptr inbounds [4 x i8], ptr %72, i64 %.55328.i.i.i
   %356 = load i32, ptr %355, align 4, !tbaa !52, !noalias !6776
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !6779
   store ptr %18, ptr %11, align 8, !tbaa !6730, !noalias !6779
@@ -146360,7 +146357,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %69 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %70 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %71 = load ptr, ptr %70, align 8, !tbaa !363, !noalias !6823
-  %72 = getelementptr inbounds i64, ptr %71, i64 %68
+  %72 = getelementptr inbounds [8 x i8], ptr %71, i64 %68
   %73 = load ptr, ptr %69, align 8, !tbaa !363, !noalias !6823
   %74 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %75 = load i64, ptr %74, align 8, !tbaa !325, !noalias !6823
@@ -146440,7 +146437,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %.04737.i.i.i = phi i64 [ %305, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14936.i.i.i = phi i64 [ %306, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04840.i.i.i, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !6828
-  %122 = getelementptr inbounds i64, ptr %72, i64 %.14936.i.i.i
+  %122 = getelementptr inbounds [8 x i8], ptr %72, i64 %.14936.i.i.i
   %123 = load i64, ptr %122, align 8, !tbaa !390, !noalias !6831
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !6834
   store ptr %18, ptr %14, align 8, !tbaa !6730, !noalias !6834
@@ -146959,7 +146956,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 356:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !6828
-  %357 = getelementptr inbounds i64, ptr %72, i64 %.55328.i.i.i
+  %357 = getelementptr inbounds [8 x i8], ptr %72, i64 %.55328.i.i.i
   %358 = load i64, ptr %357, align 8, !tbaa !390, !noalias !6881
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !6884
   store ptr %18, ptr %11, align 8, !tbaa !6730, !noalias !6884
@@ -147435,7 +147432,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %67 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %68 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %69 = load ptr, ptr %68, align 8, !tbaa !363, !noalias !6928
-  %70 = getelementptr inbounds i64, ptr %69, i64 %66
+  %70 = getelementptr inbounds [8 x i8], ptr %69, i64 %66
   %71 = load ptr, ptr %67, align 8, !tbaa !363, !noalias !6928
   %72 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !325, !noalias !6928
@@ -147493,7 +147490,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %.04735.i.i.i = phi i64 [ %233, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14934.i.i.i = phi i64 [ %234, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04838.i.i.i, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !6933
-  %98 = getelementptr inbounds i64, ptr %70, i64 %.14934.i.i.i
+  %98 = getelementptr inbounds [8 x i8], ptr %70, i64 %.14934.i.i.i
   %99 = load i64, ptr %98, align 8, !tbaa !390, !noalias !6936
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !6939
   %100 = call noundef i64 @llvm.abs.i64(i64 %99, i1 false)
@@ -147951,7 +147948,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc28, %_ZN5arro
 
 284:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !6933
-  %285 = getelementptr inbounds i64, ptr %70, i64 %.55326.i.i.i
+  %285 = getelementptr inbounds [8 x i8], ptr %70, i64 %.55326.i.i.i
   %286 = load i64, ptr %285, align 8, !tbaa !390, !noalias !6981
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !6984
   %287 = call noundef i64 @llvm.abs.i64(i64 %286, i1 false)
@@ -148355,7 +148352,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %63 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %65 = load ptr, ptr %64, align 8, !tbaa !363, !noalias !7023
-  %66 = getelementptr inbounds i32, ptr %65, i64 %62
+  %66 = getelementptr inbounds [4 x i8], ptr %65, i64 %62
   %67 = load ptr, ptr %63, align 8, !tbaa !363, !noalias !7023
   %68 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %69 = load i64, ptr %68, align 8, !tbaa !325, !noalias !7023
@@ -148867,7 +148864,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %63 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %65 = load ptr, ptr %64, align 8, !tbaa !363, !noalias !7083
-  %66 = getelementptr inbounds i64, ptr %65, i64 %62
+  %66 = getelementptr inbounds [8 x i8], ptr %65, i64 %62
   %67 = load ptr, ptr %63, align 8, !tbaa !363, !noalias !7083
   %68 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %69 = load i64, ptr %68, align 8, !tbaa !325, !noalias !7083
@@ -149621,7 +149618,7 @@ _ZN5arrow6StatusD2Ev.exit101:                     ; preds = %_ZN5arrow6StatusD2E
   %192 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %193 = getelementptr inbounds nuw i8, ptr %74, i64 56
   %194 = load ptr, ptr %193, align 8, !tbaa !363, !noalias !7154
-  %195 = getelementptr inbounds i64, ptr %194, i64 %191
+  %195 = getelementptr inbounds [8 x i8], ptr %194, i64 %191
   %196 = load ptr, ptr %192, align 8, !tbaa !363, !noalias !7154
   %197 = load i64, ptr %138, align 8, !tbaa !325, !noalias !7154
   call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !7159
@@ -150072,7 +150069,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i: ; preds = %3
   %362 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %363 = getelementptr inbounds nuw i8, ptr %74, i64 56
   %364 = load ptr, ptr %363, align 8, !tbaa !363, !noalias !7192
-  %365 = getelementptr inbounds i64, ptr %364, i64 %361
+  %365 = getelementptr inbounds [8 x i8], ptr %364, i64 %361
   %366 = load ptr, ptr %362, align 8, !tbaa !363, !noalias !7192
   %367 = load i64, ptr %138, align 8, !tbaa !325, !noalias !7192
   call void @llvm.experimental.noalias.scope.decl(metadata !7193)
@@ -150629,7 +150626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i133: ; preds =
   %569 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %570 = getelementptr inbounds nuw i8, ptr %74, i64 56
   %571 = load ptr, ptr %570, align 8, !tbaa !363, !noalias !7236
-  %572 = getelementptr inbounds i64, ptr %571, i64 %568
+  %572 = getelementptr inbounds [8 x i8], ptr %571, i64 %568
   %573 = load ptr, ptr %569, align 8, !tbaa !363, !noalias !7236
   %574 = load i64, ptr %138, align 8, !tbaa !325, !noalias !7236
   call void @llvm.experimental.noalias.scope.decl(metadata !7237)
@@ -151186,7 +151183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i215: ; preds =
   %776 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %777 = getelementptr inbounds nuw i8, ptr %74, i64 56
   %778 = load ptr, ptr %777, align 8, !tbaa !363, !noalias !7280
-  %779 = getelementptr inbounds i64, ptr %778, i64 %775
+  %779 = getelementptr inbounds [8 x i8], ptr %778, i64 %775
   %780 = load ptr, ptr %776, align 8, !tbaa !363, !noalias !7280
   %781 = load i64, ptr %138, align 8, !tbaa !325, !noalias !7280
   call void @llvm.experimental.noalias.scope.decl(metadata !7281)
@@ -151743,7 +151740,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i297: ; preds =
   %983 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %984 = getelementptr inbounds nuw i8, ptr %74, i64 56
   %985 = load ptr, ptr %984, align 8, !tbaa !363, !noalias !7324
-  %986 = getelementptr inbounds i64, ptr %985, i64 %982
+  %986 = getelementptr inbounds [8 x i8], ptr %985, i64 %982
   %987 = load ptr, ptr %983, align 8, !tbaa !363, !noalias !7324
   %988 = load i64, ptr %138, align 8, !tbaa !325, !noalias !7324
   call void @llvm.experimental.noalias.scope.decl(metadata !7325)
@@ -152627,7 +152624,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Ti
   %5 = alloca %"struct.std::array.413", align 1
   %6 = alloca %"struct.std::array.389", align 1
   %7 = alloca %class.anon.635, align 8
-  %8 = getelementptr inbounds i32, ptr %.8.val.0.val, i64 %1
+  %8 = getelementptr inbounds [4 x i8], ptr %.8.val.0.val, i64 %1
   %9 = load i32, ptr %8, align 4, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !7383
   store ptr %.0.val.8.val, ptr %7, align 8, !tbaa !6730, !noalias !7383
@@ -153280,7 +153277,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Ti
   %5 = alloca %"struct.std::array.413", align 1
   %6 = alloca %"struct.std::array.389", align 1
   %7 = alloca %class.anon.639, align 8
-  %8 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %8 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %9 = load i64, ptr %8, align 8, !tbaa !390
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !7410
   store ptr %.0.val.8.val, ptr %7, align 8, !tbaa !6730, !noalias !7410
@@ -153953,7 +153950,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Ti
   %5 = alloca %"struct.std::array.439", align 1
   %6 = alloca %"struct.std::array.437", align 1
   %7 = alloca %class.anon.643, align 8
-  %8 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %8 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %9 = load i64, ptr %8, align 8, !tbaa !390
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !7437
   store ptr %.0.val.8.val, ptr %7, align 8, !tbaa !6730, !noalias !7437
@@ -155189,7 +155186,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %66,
 define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_14StringViewTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_17StringViewBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val.0.val, i64 noundef %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::Result.456", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %6 = load i64, ptr %5, align 8, !tbaa !390
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7464)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !7464
@@ -155331,7 +155328,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_14Stri
 define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_14StringViewTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_17StringViewBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val.0.val, i64 noundef %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::Result.456", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %6 = load i64, ptr %5, align 8, !tbaa !390
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7478)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !7478
@@ -155473,7 +155470,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_14Stri
 define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_14StringViewTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_17StringViewBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val.0.val, i64 noundef %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::Result.456", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %6 = load i64, ptr %5, align 8, !tbaa !390
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7492)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !7492
@@ -155615,7 +155612,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_14Stri
 define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_14StringViewTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_17StringViewBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val.0.val, i64 noundef %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::Result.456", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %6 = load i64, ptr %5, align 8, !tbaa !390
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7506)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !7506
@@ -155805,7 +155802,7 @@ _ZNK5arrow7compute10ExecResult10array_dataEv.exit: ; preds = %_ZN5arrow6StatusD2
   %25 = load ptr, ptr %24, align 8, !tbaa !363
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %27 = load ptr, ptr %26, align 8, !tbaa !363
-  %28 = getelementptr inbounds i32, ptr %27, i64 %20
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %20
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %30 = load ptr, ptr %29, align 8, !tbaa !363
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -155919,7 +155916,7 @@ _ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.
   %94 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %95 = load ptr, ptr %94, align 8
   %96 = select i1 %93, ptr %95, ptr null, !prof !81
-  %97 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %96, i64 %86
+  %97 = getelementptr inbounds [16 x i8], ptr %96, i64 %86
   br label %_ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit
 
 _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; preds = %84, %_ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -155936,13 +155933,13 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 .lr.ph.i.i:                                       ; preds = %101, %119
   %.5 = phi i1 [ %.6, %119 ], [ true, %101 ]
   %.022.i.i = phi i64 [ %105, %119 ], [ 0, %101 ]
-  %103 = getelementptr inbounds nuw i32, ptr %28, i64 %.022.i.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.022.i.i
   %104 = load i32, ptr %103, align 4, !tbaa !52
   %105 = add nuw nsw i64 %.022.i.i, 1
-  %106 = getelementptr inbounds nuw i32, ptr %28, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !52
   %108 = sub nsw i32 %107, %104
-  %109 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.022.i.i
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i, i64 %.022.i.i
   %110 = icmp slt i32 %108, 13
   store i32 %108, ptr %109, align 8, !tbaa !51
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 4
@@ -155999,13 +155996,13 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 .lr.ph.i10.i:                                     ; preds = %.lr.ph.i, %147
   %.3 = phi i1 [ %.4, %147 ], [ %.0, %.lr.ph.i ]
   %.022.i11.i = phi i64 [ %133, %147 ], [ %128, %.lr.ph.i ]
-  %131 = getelementptr inbounds i32, ptr %28, i64 %.022.i11.i
+  %131 = getelementptr inbounds [4 x i8], ptr %28, i64 %.022.i11.i
   %132 = load i32, ptr %131, align 4, !tbaa !52
   %133 = add nsw i64 %.022.i11.i, 1
-  %134 = getelementptr inbounds i32, ptr %28, i64 %133
+  %134 = getelementptr inbounds [4 x i8], ptr %28, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !52
   %136 = sub nsw i32 %135, %132
-  %137 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.022.i11.i
+  %137 = getelementptr inbounds [16 x i8], ptr %.0.i.i, i64 %.022.i11.i
   %138 = icmp slt i32 %136, 13
   store i32 %136, ptr %137, align 8, !tbaa !51
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 4
@@ -156281,7 +156278,7 @@ _ZNK5arrow7compute10ExecResult10array_dataEv.exit: ; preds = %_ZN5arrow6StatusD2
   %34 = load ptr, ptr %33, align 8, !tbaa !363
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %36 = load ptr, ptr %35, align 8, !tbaa !363
-  %37 = getelementptr inbounds i32, ptr %36, i64 %29
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %29
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %39 = load ptr, ptr %38, align 8, !tbaa !363
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -156395,7 +156392,7 @@ _ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.
   %103 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %104 = load ptr, ptr %103, align 8
   %105 = select i1 %102, ptr %104, ptr null, !prof !81
-  %106 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %105, i64 %95
+  %106 = getelementptr inbounds [16 x i8], ptr %105, i64 %95
   br label %_ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit
 
 _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; preds = %93, %_ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -156412,13 +156409,13 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 .lr.ph.i.i:                                       ; preds = %110, %128
   %.5 = phi i1 [ %.6, %128 ], [ true, %110 ]
   %.022.i.i = phi i64 [ %114, %128 ], [ 0, %110 ]
-  %112 = getelementptr inbounds nuw i32, ptr %37, i64 %.022.i.i
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.022.i.i
   %113 = load i32, ptr %112, align 4, !tbaa !52
   %114 = add nuw nsw i64 %.022.i.i, 1
-  %115 = getelementptr inbounds nuw i32, ptr %37, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !52
   %117 = sub nsw i32 %116, %113
-  %118 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.022.i.i
+  %118 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i, i64 %.022.i.i
   %119 = icmp slt i32 %117, 13
   store i32 %117, ptr %118, align 8, !tbaa !51
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 4
@@ -156475,13 +156472,13 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 .lr.ph.i10.i:                                     ; preds = %.lr.ph.i, %156
   %.3 = phi i1 [ %.4, %156 ], [ %.0, %.lr.ph.i ]
   %.022.i11.i = phi i64 [ %142, %156 ], [ %137, %.lr.ph.i ]
-  %140 = getelementptr inbounds i32, ptr %37, i64 %.022.i11.i
+  %140 = getelementptr inbounds [4 x i8], ptr %37, i64 %.022.i11.i
   %141 = load i32, ptr %140, align 4, !tbaa !52
   %142 = add nsw i64 %.022.i11.i, 1
-  %143 = getelementptr inbounds i32, ptr %37, i64 %142
+  %143 = getelementptr inbounds [4 x i8], ptr %37, i64 %142
   %144 = load i32, ptr %143, align 4, !tbaa !52
   %145 = sub nsw i32 %144, %141
-  %146 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.022.i11.i
+  %146 = getelementptr inbounds [16 x i8], ptr %.0.i.i, i64 %.022.i11.i
   %147 = icmp slt i32 %145, 13
   store i32 %145, ptr %146, align 8, !tbaa !51
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 4
@@ -156765,7 +156762,7 @@ _ZNK5arrow7compute10ExecResult10array_dataEv.exit: ; preds = %_ZN5arrow6StatusD2
   %27 = load ptr, ptr %26, align 8, !tbaa !363
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !363
-  %30 = getelementptr inbounds i64, ptr %29, i64 %22
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %22
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %32 = load ptr, ptr %31, align 8, !tbaa !363
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -156865,7 +156862,7 @@ _ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.
 
 84:                                               ; preds = %_ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %85 = load i64, ptr %23, align 8, !tbaa !325
-  %86 = getelementptr inbounds i64, ptr %30, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %30, i64 %85
   %87 = load i64, ptr %86, align 8, !tbaa !390
   %.not = icmp sgt i64 %87, 2147483647
   br i1 %.not, label %88, label %.critedge48, !prof !62
@@ -156984,7 +156981,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
   %139 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %140 = load ptr, ptr %139, align 8
   %141 = select i1 %138, ptr %140, ptr null, !prof !81
-  %142 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %141, i64 %131
+  %142 = getelementptr inbounds [16 x i8], ptr %141, i64 %131
   br label %_ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit
 
 _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; preds = %129, %.critedge48
@@ -157001,13 +156998,13 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 .lr.ph.i.i:                                       ; preds = %146, %164
   %.5 = phi i1 [ %.6, %164 ], [ true, %146 ]
   %.022.i.i = phi i64 [ %150, %164 ], [ 0, %146 ]
-  %148 = getelementptr inbounds nuw i64, ptr %30, i64 %.022.i.i
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.022.i.i
   %149 = load i64, ptr %148, align 8, !tbaa !390
   %150 = add nuw nsw i64 %.022.i.i, 1
-  %151 = getelementptr inbounds nuw i64, ptr %30, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %150
   %152 = load i64, ptr %151, align 8, !tbaa !390
   %153 = sub nsw i64 %152, %149
-  %154 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.022.i.i
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i, i64 %.022.i.i
   %155 = icmp slt i64 %153, 13
   %156 = trunc i64 %153 to i32
   store i32 %156, ptr %154, align 8, !tbaa !51
@@ -157064,13 +157061,13 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 .lr.ph.i10.i:                                     ; preds = %.lr.ph.i, %192
   %.3 = phi i1 [ %.4, %192 ], [ %.0, %.lr.ph.i ]
   %.022.i11.i = phi i64 [ %178, %192 ], [ %173, %.lr.ph.i ]
-  %176 = getelementptr inbounds i64, ptr %30, i64 %.022.i11.i
+  %176 = getelementptr inbounds [8 x i8], ptr %30, i64 %.022.i11.i
   %177 = load i64, ptr %176, align 8, !tbaa !390
   %178 = add nsw i64 %.022.i11.i, 1
-  %179 = getelementptr inbounds i64, ptr %30, i64 %178
+  %179 = getelementptr inbounds [8 x i8], ptr %30, i64 %178
   %180 = load i64, ptr %179, align 8, !tbaa !390
   %181 = sub nsw i64 %180, %177
-  %182 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.022.i11.i
+  %182 = getelementptr inbounds [16 x i8], ptr %.0.i.i, i64 %.022.i11.i
   %183 = icmp slt i64 %181, 13
   %184 = trunc i64 %181 to i32
   store i32 %184, ptr %182, align 8, !tbaa !51
@@ -157342,7 +157339,7 @@ _ZNK5arrow7compute10ExecResult10array_dataEv.exit: ; preds = %_ZN5arrow6StatusD2
   %36 = load ptr, ptr %35, align 8, !tbaa !363
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %38 = load ptr, ptr %37, align 8, !tbaa !363
-  %39 = getelementptr inbounds i64, ptr %38, i64 %31
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %31
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %41 = load ptr, ptr %40, align 8, !tbaa !363
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -157442,7 +157439,7 @@ _ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.
 
 93:                                               ; preds = %_ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %94 = load i64, ptr %32, align 8, !tbaa !325
-  %95 = getelementptr inbounds i64, ptr %39, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %39, i64 %94
   %96 = load i64, ptr %95, align 8, !tbaa !390
   %.not = icmp sgt i64 %96, 2147483647
   br i1 %.not, label %97, label %.critedge59, !prof !62
@@ -157561,7 +157558,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %_ZN
   %148 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %149 = load ptr, ptr %148, align 8
   %150 = select i1 %147, ptr %149, ptr null, !prof !81
-  %151 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %150, i64 %140
+  %151 = getelementptr inbounds [16 x i8], ptr %150, i64 %140
   br label %_ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit
 
 _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; preds = %138, %.critedge59
@@ -157578,13 +157575,13 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 .lr.ph.i.i:                                       ; preds = %155, %173
   %.5 = phi i1 [ %.6, %173 ], [ true, %155 ]
   %.022.i.i = phi i64 [ %159, %173 ], [ 0, %155 ]
-  %157 = getelementptr inbounds nuw i64, ptr %39, i64 %.022.i.i
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.022.i.i
   %158 = load i64, ptr %157, align 8, !tbaa !390
   %159 = add nuw nsw i64 %.022.i.i, 1
-  %160 = getelementptr inbounds nuw i64, ptr %39, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %159
   %161 = load i64, ptr %160, align 8, !tbaa !390
   %162 = sub nsw i64 %161, %158
-  %163 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.022.i.i
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i, i64 %.022.i.i
   %164 = icmp slt i64 %162, 13
   %165 = trunc i64 %162 to i32
   store i32 %165, ptr %163, align 8, !tbaa !51
@@ -157641,13 +157638,13 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 .lr.ph.i10.i:                                     ; preds = %.lr.ph.i, %201
   %.3 = phi i1 [ %.4, %201 ], [ %.0, %.lr.ph.i ]
   %.022.i11.i = phi i64 [ %187, %201 ], [ %182, %.lr.ph.i ]
-  %185 = getelementptr inbounds i64, ptr %39, i64 %.022.i11.i
+  %185 = getelementptr inbounds [8 x i8], ptr %39, i64 %.022.i11.i
   %186 = load i64, ptr %185, align 8, !tbaa !390
   %187 = add nsw i64 %.022.i11.i, 1
-  %188 = getelementptr inbounds i64, ptr %39, i64 %187
+  %188 = getelementptr inbounds [8 x i8], ptr %39, i64 %187
   %189 = load i64, ptr %188, align 8, !tbaa !390
   %190 = sub nsw i64 %189, %186
-  %191 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.022.i11.i
+  %191 = getelementptr inbounds [16 x i8], ptr %.0.i.i, i64 %.022.i11.i
   %192 = icmp slt i64 %190, 13
   %193 = trunc i64 %190 to i32
   store i32 %193, ptr %191, align 8, !tbaa !51
@@ -158223,7 +158220,7 @@ _ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.
   %189 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %190 = load ptr, ptr %189, align 8
   %191 = select i1 %188, ptr %190, ptr null, !prof !81
-  %192 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %191, i64 %181
+  %192 = getelementptr inbounds [16 x i8], ptr %191, i64 %181
   br label %_ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit
 
 _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; preds = %180, %_ZNSt12__shared_ptrIN5arrow15ResizableBufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -158439,7 +158436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125: ; preds = %_Z
 282:                                              ; preds = %.lr.ph147, %282
   %indvars.iv150 = phi i64 [ %281, %.lr.ph147 ], [ %indvars.iv.next151, %282 ]
   %.074146 = phi i64 [ 0, %.lr.ph147 ], [ %286, %282 ]
-  %283 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.074146
+  %283 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i, i64 %.074146
   store i32 %23, ptr %283, align 8, !tbaa !51
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 4
   %285 = getelementptr inbounds i8, ptr %227, i64 %indvars.iv150
@@ -158523,7 +158520,7 @@ _ZNSt10shared_ptrIN5arrow6BufferEEaSEOS2_.exit130: ; preds = %289, %301, %_ZN9__
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %322, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.071144 = phi i64 [ 0, %.lr.ph.preheader ], [ %330, %.lr.ph ]
-  %324 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %.0.i.i, i64 %.071144
+  %324 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i, i64 %.071144
   store i32 %23, ptr %324, align 8, !tbaa !51
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 4
   %326 = getelementptr inbounds i8, ptr %226, i64 %indvars.iv
@@ -159780,7 +159777,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %78 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %80 = load ptr, ptr %79, align 8, !tbaa !363, !noalias !7730
-  %81 = getelementptr inbounds i16, ptr %80, i64 %77
+  %81 = getelementptr inbounds [2 x i8], ptr %80, i64 %77
   %82 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !7730
   %83 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !325, !noalias !7730
@@ -159822,7 +159819,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph34.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit75.i.i.i
   %.04733.i.i.i = phi i64 [ %161, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14932.i.i.i = phi i64 [ %162, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ %.04836.i.i.i, %.preheader.i.i.i ]
-  %97 = getelementptr inbounds i16, ptr %81, i64 %.14932.i.i.i
+  %97 = getelementptr inbounds [2 x i8], ptr %81, i64 %.14932.i.i.i
   %98 = load i16, ptr %97, align 2, !tbaa !2086, !noalias !7738
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !7741
   %99 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEtPci(ptr noundef nonnull align 8 dereferenceable(8) %17, i16 noundef zeroext %98, ptr noundef nonnull %14, i32 noundef 50)
@@ -160110,7 +160107,7 @@ _ZN5arrow6StatusD2Ev.exit79.i.i.i:                ; preds = %.noexc35, %_ZN5arro
 
 _ZN5arrow6StatusD2Ev.exit81.i.i.i:                ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !7735
-  %213 = getelementptr inbounds i16, ptr %81, i64 %.55324.i.i.i
+  %213 = getelementptr inbounds [2 x i8], ptr %81, i64 %.55324.i.i.i
   %214 = load i16, ptr %213, align 2, !tbaa !2086, !noalias !7787
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !7790
   %215 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEtPci(ptr noundef nonnull align 8 dereferenceable(8) %17, i16 noundef zeroext %214, ptr noundef nonnull %12, i32 noundef 50)
@@ -162613,7 +162610,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %79 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !8027
-  %80 = getelementptr inbounds i16, ptr %79, i64 %76
+  %80 = getelementptr inbounds [2 x i8], ptr %79, i64 %76
   %81 = load ptr, ptr %77, align 8, !tbaa !363, !noalias !8027
   %82 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !325, !noalias !8027
@@ -162659,7 +162656,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph37.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.i.i.i
   %.04736.i.i.i = phi i64 [ %193, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14935.i.i.i = phi i64 [ %194, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04839.i.i.i, %.preheader.i.i.i ]
-  %100 = getelementptr inbounds i16, ptr %80, i64 %.14935.i.i.i
+  %100 = getelementptr inbounds [2 x i8], ptr %80, i64 %.14935.i.i.i
   %101 = load i16, ptr %100, align 2, !tbaa !2086, !noalias !8035
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !8038
   %102 = call noundef i16 @llvm.abs.i16(i16 %101, i1 false)
@@ -163003,7 +163000,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 245:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !8032
-  %246 = getelementptr inbounds i16, ptr %80, i64 %.55327.i.i.i
+  %246 = getelementptr inbounds [2 x i8], ptr %80, i64 %.55327.i.i.i
   %247 = load i16, ptr %246, align 2, !tbaa !2086, !noalias !8084
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !8087
   %248 = call noundef i16 @llvm.abs.i16(i16 %247, i1 false)
@@ -163524,7 +163521,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %79 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !8126
-  %80 = getelementptr inbounds i16, ptr %79, i64 %76
+  %80 = getelementptr inbounds [2 x i8], ptr %79, i64 %76
   %81 = load ptr, ptr %77, align 8, !tbaa !363, !noalias !8126
   %82 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !325, !noalias !8126
@@ -163570,7 +163567,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph37.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.i.i.i
   %.04736.i.i.i = phi i64 [ %189, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14935.i.i.i = phi i64 [ %190, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04839.i.i.i, %.preheader.i.i.i ]
-  %100 = getelementptr inbounds i16, ptr %80, i64 %.14935.i.i.i
+  %100 = getelementptr inbounds [2 x i8], ptr %80, i64 %.14935.i.i.i
   %101 = load i16, ptr %100, align 2, !tbaa !2086, !noalias !8134
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !8137
   %102 = icmp ugt i16 %101, 99
@@ -163903,7 +163900,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 241:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !8131
-  %242 = getelementptr inbounds i16, ptr %80, i64 %.55327.i.i.i
+  %242 = getelementptr inbounds [2 x i8], ptr %80, i64 %.55327.i.i.i
   %243 = load i16, ptr %242, align 2, !tbaa !2086, !noalias !8183
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !8186
   %244 = icmp ugt i16 %243, 99
@@ -164413,7 +164410,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %79 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !8225
-  %80 = getelementptr inbounds i32, ptr %79, i64 %76
+  %80 = getelementptr inbounds [4 x i8], ptr %79, i64 %76
   %81 = load ptr, ptr %77, align 8, !tbaa !363, !noalias !8225
   %82 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !325, !noalias !8225
@@ -164459,7 +164456,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph37.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.i.i.i
   %.04736.i.i.i = phi i64 [ %193, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14935.i.i.i = phi i64 [ %194, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04839.i.i.i, %.preheader.i.i.i ]
-  %100 = getelementptr inbounds i32, ptr %80, i64 %.14935.i.i.i
+  %100 = getelementptr inbounds [4 x i8], ptr %80, i64 %.14935.i.i.i
   %101 = load i32, ptr %100, align 4, !tbaa !52, !noalias !8233
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !8236
   %102 = call noundef i32 @llvm.abs.i32(i32 %101, i1 false)
@@ -164803,7 +164800,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 245:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !8230
-  %246 = getelementptr inbounds i32, ptr %80, i64 %.55327.i.i.i
+  %246 = getelementptr inbounds [4 x i8], ptr %80, i64 %.55327.i.i.i
   %247 = load i32, ptr %246, align 4, !tbaa !52, !noalias !8282
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !8285
   %248 = call noundef i32 @llvm.abs.i32(i32 %247, i1 false)
@@ -165324,7 +165321,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %79 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !8324
-  %80 = getelementptr inbounds i32, ptr %79, i64 %76
+  %80 = getelementptr inbounds [4 x i8], ptr %79, i64 %76
   %81 = load ptr, ptr %77, align 8, !tbaa !363, !noalias !8324
   %82 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !325, !noalias !8324
@@ -165370,7 +165367,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph37.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.i.i.i
   %.04736.i.i.i = phi i64 [ %189, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14935.i.i.i = phi i64 [ %190, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04839.i.i.i, %.preheader.i.i.i ]
-  %100 = getelementptr inbounds i32, ptr %80, i64 %.14935.i.i.i
+  %100 = getelementptr inbounds [4 x i8], ptr %80, i64 %.14935.i.i.i
   %101 = load i32, ptr %100, align 4, !tbaa !52, !noalias !8332
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !8335
   %102 = icmp ugt i32 %101, 99
@@ -165703,7 +165700,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 241:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !8329
-  %242 = getelementptr inbounds i32, ptr %80, i64 %.55327.i.i.i
+  %242 = getelementptr inbounds [4 x i8], ptr %80, i64 %.55327.i.i.i
   %243 = load i32, ptr %242, align 4, !tbaa !52, !noalias !8381
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !8384
   %244 = icmp ugt i32 %243, 99
@@ -166213,7 +166210,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %79 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !8423
-  %80 = getelementptr inbounds i64, ptr %79, i64 %76
+  %80 = getelementptr inbounds [8 x i8], ptr %79, i64 %76
   %81 = load ptr, ptr %77, align 8, !tbaa !363, !noalias !8423
   %82 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !325, !noalias !8423
@@ -166259,7 +166256,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph37.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.i.i.i
   %.04736.i.i.i = phi i64 [ %191, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14935.i.i.i = phi i64 [ %192, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04839.i.i.i, %.preheader.i.i.i ]
-  %100 = getelementptr inbounds i64, ptr %80, i64 %.14935.i.i.i
+  %100 = getelementptr inbounds [8 x i8], ptr %80, i64 %.14935.i.i.i
   %101 = load i64, ptr %100, align 8, !tbaa !390, !noalias !8431
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !8434
   %102 = call noundef i64 @llvm.abs.i64(i64 %101, i1 false)
@@ -166601,7 +166598,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 243:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !8428
-  %244 = getelementptr inbounds i64, ptr %80, i64 %.55327.i.i.i
+  %244 = getelementptr inbounds [8 x i8], ptr %80, i64 %.55327.i.i.i
   %245 = load i64, ptr %244, align 8, !tbaa !390, !noalias !8480
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !8483
   %246 = call noundef i64 @llvm.abs.i64(i64 %245, i1 false)
@@ -167120,7 +167117,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %79 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !8522
-  %80 = getelementptr inbounds i64, ptr %79, i64 %76
+  %80 = getelementptr inbounds [8 x i8], ptr %79, i64 %76
   %81 = load ptr, ptr %77, align 8, !tbaa !363, !noalias !8522
   %82 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !325, !noalias !8522
@@ -167166,7 +167163,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph37.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.i.i.i
   %.04736.i.i.i = phi i64 [ %187, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14935.i.i.i = phi i64 [ %188, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04839.i.i.i, %.preheader.i.i.i ]
-  %100 = getelementptr inbounds i64, ptr %80, i64 %.14935.i.i.i
+  %100 = getelementptr inbounds [8 x i8], ptr %80, i64 %.14935.i.i.i
   %101 = load i64, ptr %100, align 8, !tbaa !390, !noalias !8530
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !8533
   %102 = icmp ugt i64 %101, 99
@@ -167497,7 +167494,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 239:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !8527
-  %240 = getelementptr inbounds i64, ptr %80, i64 %.55327.i.i.i
+  %240 = getelementptr inbounds [8 x i8], ptr %80, i64 %.55327.i.i.i
   %241 = load i64, ptr %240, align 8, !tbaa !390, !noalias !8579
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !8582
   %242 = icmp ugt i64 %241, 99
@@ -168011,7 +168008,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %78 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %80 = load ptr, ptr %79, align 8, !tbaa !363, !noalias !8621
-  %81 = getelementptr inbounds float, ptr %80, i64 %77
+  %81 = getelementptr inbounds [4 x i8], ptr %80, i64 %77
   %82 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !8621
   %83 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !325, !noalias !8621
@@ -168053,7 +168050,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph34.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit75.i.i.i
   %.04733.i.i.i = phi i64 [ %161, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14932.i.i.i = phi i64 [ %162, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ %.04836.i.i.i, %.preheader.i.i.i ]
-  %97 = getelementptr inbounds float, ptr %81, i64 %.14932.i.i.i
+  %97 = getelementptr inbounds [4 x i8], ptr %81, i64 %.14932.i.i.i
   %98 = load float, ptr %97, align 4, !tbaa !2981, !noalias !8629
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !8632
   %99 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEfPci(ptr noundef nonnull align 8 dereferenceable(8) %17, float noundef %98, ptr noundef nonnull %14, i32 noundef 50)
@@ -168341,7 +168338,7 @@ _ZN5arrow6StatusD2Ev.exit79.i.i.i:                ; preds = %.noexc35, %_ZN5arro
 
 _ZN5arrow6StatusD2Ev.exit81.i.i.i:                ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !8626
-  %213 = getelementptr inbounds float, ptr %81, i64 %.55324.i.i.i
+  %213 = getelementptr inbounds [4 x i8], ptr %81, i64 %.55324.i.i.i
   %214 = load float, ptr %213, align 4, !tbaa !2981, !noalias !8678
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !8681
   %215 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEfPci(ptr noundef nonnull align 8 dereferenceable(8) %17, float noundef %214, ptr noundef nonnull %12, i32 noundef 50)
@@ -168825,7 +168822,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %78 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %80 = load ptr, ptr %79, align 8, !tbaa !363, !noalias !8720
-  %81 = getelementptr inbounds double, ptr %80, i64 %77
+  %81 = getelementptr inbounds [8 x i8], ptr %80, i64 %77
   %82 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !8720
   %83 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !325, !noalias !8720
@@ -168867,7 +168864,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph34.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit75.i.i.i
   %.04733.i.i.i = phi i64 [ %161, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14932.i.i.i = phi i64 [ %162, %_ZN5arrow6StatusD2Ev.exit75.i.i.i ], [ %.04836.i.i.i, %.preheader.i.i.i ]
-  %97 = getelementptr inbounds double, ptr %81, i64 %.14932.i.i.i
+  %97 = getelementptr inbounds [8 x i8], ptr %81, i64 %.14932.i.i.i
   %98 = load double, ptr %97, align 8, !tbaa !3082, !noalias !8728
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !8731
   %99 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEdPci(ptr noundef nonnull align 8 dereferenceable(8) %17, double noundef %98, ptr noundef nonnull %14, i32 noundef 50)
@@ -169155,7 +169152,7 @@ _ZN5arrow6StatusD2Ev.exit79.i.i.i:                ; preds = %.noexc35, %_ZN5arro
 
 _ZN5arrow6StatusD2Ev.exit81.i.i.i:                ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !8725
-  %213 = getelementptr inbounds double, ptr %81, i64 %.55324.i.i.i
+  %213 = getelementptr inbounds [8 x i8], ptr %81, i64 %.55324.i.i.i
   %214 = load double, ptr %213, align 8, !tbaa !3082, !noalias !8777
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !8780
   %215 = invoke noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEdPci(ptr noundef nonnull align 8 dereferenceable(8) %17, double noundef %214, ptr noundef nonnull %12, i32 noundef 50)
@@ -173200,7 +173197,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %80 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %81 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %82 = load ptr, ptr %81, align 8, !tbaa !363, !noalias !9231
-  %83 = getelementptr inbounds i32, ptr %82, i64 %79
+  %83 = getelementptr inbounds [4 x i8], ptr %82, i64 %79
   %84 = load ptr, ptr %80, align 8, !tbaa !363, !noalias !9231
   %85 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %86 = load i64, ptr %85, align 8, !tbaa !325, !noalias !9231
@@ -173269,7 +173266,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %.04737.i.i.i = phi i64 [ %265, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14936.i.i.i = phi i64 [ %266, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04840.i.i.i, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !9236
-  %125 = getelementptr inbounds i32, ptr %83, i64 %.14936.i.i.i
+  %125 = getelementptr inbounds [4 x i8], ptr %83, i64 %.14936.i.i.i
   %126 = load i32, ptr %125, align 4, !tbaa !52, !noalias !9239
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !9242
   store ptr %20, ptr %16, align 8, !tbaa !9245, !noalias !9242
@@ -173679,7 +173676,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc30, %_ZN5arro
 
 317:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !9236
-  %318 = getelementptr inbounds i32, ptr %83, i64 %.55328.i.i.i
+  %318 = getelementptr inbounds [4 x i8], ptr %83, i64 %.55328.i.i.i
   %319 = load i32, ptr %318, align 4, !tbaa !52, !noalias !9296
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !9299
   store ptr %20, ptr %13, align 8, !tbaa !9245, !noalias !9299
@@ -174261,7 +174258,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %80 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %81 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %82 = load ptr, ptr %81, align 8, !tbaa !363, !noalias !9341
-  %83 = getelementptr inbounds i64, ptr %82, i64 %79
+  %83 = getelementptr inbounds [8 x i8], ptr %82, i64 %79
   %84 = load ptr, ptr %80, align 8, !tbaa !363, !noalias !9341
   %85 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %86 = load i64, ptr %85, align 8, !tbaa !325, !noalias !9341
@@ -174330,7 +174327,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %.04737.i.i.i = phi i64 [ %267, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14936.i.i.i = phi i64 [ %268, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04840.i.i.i, %.preheader.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !9346
-  %125 = getelementptr inbounds i64, ptr %83, i64 %.14936.i.i.i
+  %125 = getelementptr inbounds [8 x i8], ptr %83, i64 %.14936.i.i.i
   %126 = load i64, ptr %125, align 8, !tbaa !390, !noalias !9349
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !9352
   store ptr %20, ptr %16, align 8, !tbaa !9245, !noalias !9352
@@ -174742,7 +174739,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc30, %_ZN5arro
 
 319:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !9346
-  %320 = getelementptr inbounds i64, ptr %83, i64 %.55328.i.i.i
+  %320 = getelementptr inbounds [8 x i8], ptr %83, i64 %.55328.i.i.i
   %321 = load i64, ptr %320, align 8, !tbaa !390, !noalias !9404
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !9407
   store ptr %20, ptr %13, align 8, !tbaa !9245, !noalias !9407
@@ -175323,7 +175320,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %78 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %79 = load ptr, ptr %78, align 8, !tbaa !363, !noalias !9449
-  %80 = getelementptr inbounds i64, ptr %79, i64 %76
+  %80 = getelementptr inbounds [8 x i8], ptr %79, i64 %76
   %81 = load ptr, ptr %77, align 8, !tbaa !363, !noalias !9449
   %82 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %83 = load i64, ptr %82, align 8, !tbaa !325, !noalias !9449
@@ -175369,7 +175366,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 .lr.ph37.i.i.i:                                   ; preds = %.preheader.i.i.i, %_ZN5arrow6StatusD2Ev.exit73.i.i.i
   %.04736.i.i.i = phi i64 [ %191, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ 0, %.preheader.i.i.i ]
   %.14935.i.i.i = phi i64 [ %192, %_ZN5arrow6StatusD2Ev.exit73.i.i.i ], [ %.04839.i.i.i, %.preheader.i.i.i ]
-  %100 = getelementptr inbounds i64, ptr %80, i64 %.14935.i.i.i
+  %100 = getelementptr inbounds [8 x i8], ptr %80, i64 %.14935.i.i.i
   %101 = load i64, ptr %100, align 8, !tbaa !390, !noalias !9457
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !9460
   %102 = call noundef i64 @llvm.abs.i64(i64 %101, i1 false)
@@ -175711,7 +175708,7 @@ _ZN5arrow6StatusD2Ev.exit77.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 243:                                              ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !9454
-  %244 = getelementptr inbounds i64, ptr %80, i64 %.55327.i.i.i
+  %244 = getelementptr inbounds [8 x i8], ptr %80, i64 %.55327.i.i.i
   %245 = load i64, ptr %244, align 8, !tbaa !390, !noalias !9506
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !9509
   %246 = call noundef i64 @llvm.abs.i64(i64 %245, i1 false)
@@ -176225,7 +176222,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %72 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %74 = load ptr, ptr %73, align 8, !tbaa !363, !noalias !9548
-  %75 = getelementptr inbounds i32, ptr %74, i64 %71
+  %75 = getelementptr inbounds [4 x i8], ptr %74, i64 %71
   %76 = load ptr, ptr %72, align 8, !tbaa !363, !noalias !9548
   %77 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !325, !noalias !9548
@@ -176841,7 +176838,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   %72 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %74 = load ptr, ptr %73, align 8, !tbaa !363, !noalias !9606
-  %75 = getelementptr inbounds i64, ptr %74, i64 %71
+  %75 = getelementptr inbounds [8 x i8], ptr %74, i64 %71
   %76 = load ptr, ptr %72, align 8, !tbaa !363, !noalias !9606
   %77 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !325, !noalias !9606
@@ -177751,7 +177748,7 @@ _ZN5arrow6StatusD2Ev.exit104:                     ; preds = %_ZN5arrow6StatusD2E
   %210 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %211 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %212 = load ptr, ptr %211, align 8, !tbaa !363, !noalias !9696
-  %213 = getelementptr inbounds i64, ptr %212, i64 %209
+  %213 = getelementptr inbounds [8 x i8], ptr %212, i64 %209
   %214 = load ptr, ptr %210, align 8, !tbaa !363, !noalias !9696
   %215 = load i64, ptr %150, align 8, !tbaa !325, !noalias !9696
   call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !9701
@@ -178201,7 +178198,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i: ; preds = %3
   %379 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %380 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %381 = load ptr, ptr %380, align 8, !tbaa !363, !noalias !9734
-  %382 = getelementptr inbounds i64, ptr %381, i64 %378
+  %382 = getelementptr inbounds [8 x i8], ptr %381, i64 %378
   %383 = load ptr, ptr %379, align 8, !tbaa !363, !noalias !9734
   %384 = load i64, ptr %150, align 8, !tbaa !325, !noalias !9734
   call void @llvm.experimental.noalias.scope.decl(metadata !9735)
@@ -178762,7 +178759,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i136: ; preds =
   %590 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %591 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %592 = load ptr, ptr %591, align 8, !tbaa !363, !noalias !9778
-  %593 = getelementptr inbounds i64, ptr %592, i64 %589
+  %593 = getelementptr inbounds [8 x i8], ptr %592, i64 %589
   %594 = load ptr, ptr %590, align 8, !tbaa !363, !noalias !9778
   %595 = load i64, ptr %150, align 8, !tbaa !325, !noalias !9778
   call void @llvm.experimental.noalias.scope.decl(metadata !9779)
@@ -179323,7 +179320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i218: ; preds =
   %801 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %802 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %803 = load ptr, ptr %802, align 8, !tbaa !363, !noalias !9822
-  %804 = getelementptr inbounds i64, ptr %803, i64 %800
+  %804 = getelementptr inbounds [8 x i8], ptr %803, i64 %800
   %805 = load ptr, ptr %801, align 8, !tbaa !363, !noalias !9822
   %806 = load i64, ptr %150, align 8, !tbaa !325, !noalias !9822
   call void @llvm.experimental.noalias.scope.decl(metadata !9823)
@@ -179884,7 +179881,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i300: ; preds =
   %1012 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %1013 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %1014 = load ptr, ptr %1013, align 8, !tbaa !363, !noalias !9866
-  %1015 = getelementptr inbounds i64, ptr %1014, i64 %1011
+  %1015 = getelementptr inbounds [8 x i8], ptr %1014, i64 %1011
   %1016 = load ptr, ptr %1012, align 8, !tbaa !363, !noalias !9866
   %1017 = load i64, ptr %150, align 8, !tbaa !325, !noalias !9866
   call void @llvm.experimental.noalias.scope.decl(metadata !9867)
@@ -180869,7 +180866,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Ti
   %5 = alloca %"struct.std::array.413", align 1
   %6 = alloca %"struct.std::array.389", align 1
   %7 = alloca %class.anon.743, align 8
-  %8 = getelementptr inbounds i32, ptr %.8.val.0.val, i64 %1
+  %8 = getelementptr inbounds [4 x i8], ptr %.8.val.0.val, i64 %1
   %9 = load i32, ptr %8, align 4, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !9925
   store ptr %.0.val.8.val, ptr %7, align 8, !tbaa !9245, !noalias !9925
@@ -181522,7 +181519,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Ti
   %5 = alloca %"struct.std::array.413", align 1
   %6 = alloca %"struct.std::array.389", align 1
   %7 = alloca %class.anon.747, align 8
-  %8 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %8 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %9 = load i64, ptr %8, align 8, !tbaa !390
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !9952
   store ptr %.0.val.8.val, ptr %7, align 8, !tbaa !9245, !noalias !9952
@@ -182193,7 +182190,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Ti
   %5 = alloca %"struct.std::array.439", align 1
   %6 = alloca %"struct.std::array.437", align 1
   %7 = alloca %class.anon.751, align 8
-  %8 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %8 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %9 = load i64, ptr %8, align 8, !tbaa !390
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !9979
   store ptr %.0.val.8.val, ptr %7, align 8, !tbaa !9245, !noalias !9979
@@ -183429,7 +183426,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %66,
 define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val.0.val, i64 noundef %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::Result.456", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %6 = load i64, ptr %5, align 8, !tbaa !390
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10006)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !10006
@@ -183571,7 +183568,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15Larg
 define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val.0.val, i64 noundef %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::Result.456", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %6 = load i64, ptr %5, align 8, !tbaa !390
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10020)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !10020
@@ -183713,7 +183710,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15Larg
 define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val.0.val, i64 noundef %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::Result.456", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %6 = load i64, ptr %5, align 8, !tbaa !390
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10034)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !10034
@@ -183855,7 +183852,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15Larg
 define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val.0.val, i64 noundef %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.arrow::Result.456", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i64, ptr %.8.val.0.val, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %.8.val.0.val, i64 %1
   %6 = load i64, ptr %5, align 8, !tbaa !390
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10048)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !10048
@@ -184068,7 +184065,7 @@ define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCa
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !363
-  %30 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %29, i64 %26
+  %30 = getelementptr inbounds [16 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !325
   %33 = icmp sgt i64 %32, 0
@@ -184077,7 +184074,7 @@ define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_122BinaryToBinaryCa
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.08.i = phi i64 [ %38, %.lr.ph.i ], [ 0, %4 ]
   %.067.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %4 ]
-  %34 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %30, i64 %.08.i
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %.08.i
   %35 = load i32, ptr %34, align 8, !tbaa !51
   %36 = sext i32 %35 to i64
   %37 = add nsw i64 %.067.i, %36
@@ -184311,7 +184308,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
 114:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit46
   %115 = load i64, ptr %25, align 8, !tbaa !362, !noalias !10100
   %116 = load ptr, ptr %28, align 8, !tbaa !363, !noalias !10100
-  %117 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %116, i64 %115
+  %117 = getelementptr inbounds [16 x i8], ptr %116, i64 %115
   %118 = invoke { ptr, i64 } @_ZNK5arrow9ArraySpan18GetVariadicBuffersEv(ptr noundef nonnull align 8 dereferenceable(128) %24)
           to label %.noexc47 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -184357,7 +184354,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
 .lr.ph29.i.i:                                     ; preds = %.preheader.i.i, %_ZN5arrow6StatusD2Ev.exit69.i.i
   %.04728.i.i = phi i64 [ %217, %_ZN5arrow6StatusD2Ev.exit69.i.i ], [ 0, %.preheader.i.i ]
   %.14927.i.i = phi i64 [ %218, %_ZN5arrow6StatusD2Ev.exit69.i.i ], [ %.04831.i.i, %.preheader.i.i ]
-  %134 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %117, i64 %.14927.i.i
+  %134 = getelementptr inbounds [16 x i8], ptr %117, i64 %.14927.i.i
   %135 = load i32, ptr %134, align 8, !tbaa !51, !noalias !10106
   %136 = icmp slt i32 %135, 13
   br i1 %136, label %137, label %139
@@ -184370,7 +184367,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %141 = load i32, ptr %140, align 8, !tbaa !51, !noalias !10106
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %119, i64 %142
+  %143 = getelementptr inbounds [16 x i8], ptr %119, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !548, !noalias !10106
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 9
   %146 = load i8, ptr %145, align 1, !tbaa !551, !range !92, !noalias !10106, !noundef !93
@@ -184624,7 +184621,7 @@ _ZN5arrow6StatusD2Ev.exit71.i.i:                  ; preds = %.preheader12.i.i, %
 
 257:                                              ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !10103
-  %258 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %117, i64 %.55320.i.i
+  %258 = getelementptr inbounds [16 x i8], ptr %117, i64 %.55320.i.i
   %259 = load i32, ptr %258, align 8, !tbaa !51, !noalias !10144
   %260 = icmp slt i32 %259, 13
   br i1 %260, label %261, label %263
@@ -184637,7 +184634,7 @@ _ZN5arrow6StatusD2Ev.exit71.i.i:                  ; preds = %.preheader12.i.i, %
   %264 = getelementptr inbounds nuw i8, ptr %258, i64 8
   %265 = load i32, ptr %264, align 8, !tbaa !51, !noalias !10144
   %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %119, i64 %266
+  %267 = getelementptr inbounds [16 x i8], ptr %119, i64 %266
   %268 = load ptr, ptr %267, align 8, !tbaa !548, !noalias !10144
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 9
   %270 = load i8, ptr %269, align 1, !tbaa !551, !range !92, !noalias !10144, !noundef !93
@@ -185054,7 +185051,7 @@ _ZN5arrow6StatusD2Ev.exit49:                      ; preds = %_ZN5arrow6StatusD2E
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %35 = load ptr, ptr %34, align 8, !tbaa !363
-  %36 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %35, i64 %32
+  %36 = getelementptr inbounds [16 x i8], ptr %35, i64 %32
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !325
   %39 = icmp sgt i64 %38, 0
@@ -185063,7 +185060,7 @@ _ZN5arrow6StatusD2Ev.exit49:                      ; preds = %_ZN5arrow6StatusD2E
 .lr.ph.i:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit49, %.lr.ph.i
   %.08.i = phi i64 [ %44, %.lr.ph.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit49 ]
   %.067.i = phi i64 [ %43, %.lr.ph.i ], [ 0, %_ZN5arrow6StatusD2Ev.exit49 ]
-  %40 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %36, i64 %.08.i
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %.08.i
   %41 = load i32, ptr %40, align 8, !tbaa !51
   %42 = sext i32 %41 to i64
   %43 = add nsw i64 %.067.i, %42
@@ -185297,7 +185294,7 @@ _ZN5arrow6StatusD2Ev.exit60:                      ; preds = %_ZN5arrow6StatusD2E
 120:                                              ; preds = %_ZN5arrow6StatusD2Ev.exit60
   %121 = load i64, ptr %31, align 8, !tbaa !362, !noalias !10215
   %122 = load ptr, ptr %34, align 8, !tbaa !363, !noalias !10215
-  %123 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %122, i64 %121
+  %123 = getelementptr inbounds [16 x i8], ptr %122, i64 %121
   %124 = invoke { ptr, i64 } @_ZNK5arrow9ArraySpan18GetVariadicBuffersEv(ptr noundef nonnull align 8 dereferenceable(128) %25)
           to label %.noexc61 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -185343,7 +185340,7 @@ _ZN5arrow6StatusD2Ev.exit60:                      ; preds = %_ZN5arrow6StatusD2E
 .lr.ph29.i.i:                                     ; preds = %.preheader.i.i, %_ZN5arrow6StatusD2Ev.exit69.i.i
   %.04728.i.i = phi i64 [ %223, %_ZN5arrow6StatusD2Ev.exit69.i.i ], [ 0, %.preheader.i.i ]
   %.14927.i.i = phi i64 [ %224, %_ZN5arrow6StatusD2Ev.exit69.i.i ], [ %.04831.i.i, %.preheader.i.i ]
-  %140 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %123, i64 %.14927.i.i
+  %140 = getelementptr inbounds [16 x i8], ptr %123, i64 %.14927.i.i
   %141 = load i32, ptr %140, align 8, !tbaa !51, !noalias !10221
   %142 = icmp slt i32 %141, 13
   br i1 %142, label %143, label %145
@@ -185356,7 +185353,7 @@ _ZN5arrow6StatusD2Ev.exit60:                      ; preds = %_ZN5arrow6StatusD2E
   %146 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %147 = load i32, ptr %146, align 8, !tbaa !51, !noalias !10221
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %125, i64 %148
+  %149 = getelementptr inbounds [16 x i8], ptr %125, i64 %148
   %150 = load ptr, ptr %149, align 8, !tbaa !548, !noalias !10221
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 9
   %152 = load i8, ptr %151, align 1, !tbaa !551, !range !92, !noalias !10221, !noundef !93
@@ -185610,7 +185607,7 @@ _ZN5arrow6StatusD2Ev.exit71.i.i:                  ; preds = %.preheader12.i.i, %
 
 263:                                              ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !10218
-  %264 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %123, i64 %.55320.i.i
+  %264 = getelementptr inbounds [16 x i8], ptr %123, i64 %.55320.i.i
   %265 = load i32, ptr %264, align 8, !tbaa !51, !noalias !10259
   %266 = icmp slt i32 %265, 13
   br i1 %266, label %267, label %269
@@ -185623,7 +185620,7 @@ _ZN5arrow6StatusD2Ev.exit71.i.i:                  ; preds = %.preheader12.i.i, %
   %270 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %271 = load i32, ptr %270, align 8, !tbaa !51, !noalias !10259
   %272 = sext i32 %271 to i64
-  %273 = getelementptr inbounds %"class.std::shared_ptr.98", ptr %125, i64 %272
+  %273 = getelementptr inbounds [16 x i8], ptr %125, i64 %272
   %274 = load ptr, ptr %273, align 8, !tbaa !548, !noalias !10259
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 9
   %276 = load i8, ptr %275, align 1, !tbaa !551, !range !92, !noalias !10259, !noundef !93
@@ -186411,7 +186408,7 @@ _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
   %180 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %181 = load ptr, ptr %180, align 8
   %182 = select i1 %179, ptr %181, ptr null, !prof !81
-  %183 = getelementptr inbounds i64, ptr %182, i64 %172
+  %183 = getelementptr inbounds [8 x i8], ptr %182, i64 %172
   br label %_ZN5arrow9ArrayData16GetMutableValuesIlEEPT_i.exit
 
 _ZN5arrow9ArrayData16GetMutableValuesIlEEPT_i.exit: ; preds = %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %171
@@ -186504,7 +186501,7 @@ _ZNK5arrow9ArraySpan9GetBufferEi.exit96:          ; preds = %190, %198, %201
   %.056141 = phi i64 [ %218, %.lr.ph ], [ 0, %_ZN5arrow9ArrayData16GetMutableValuesIlEEPT_i.exit ]
   %217 = add nsw i64 %216, %23
   %218 = add nuw nsw i64 %.056141, 1
-  %219 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %218
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %218
   store i64 %217, ptr %219, align 8, !tbaa !390
   %220 = load i64, ptr %24, align 8, !tbaa !325
   %221 = icmp slt i64 %218, %220

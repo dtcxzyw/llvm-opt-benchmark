@@ -152,12 +152,12 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %13 = icmp ugt i32 %1, 1662
   %14 = select i1 %13, i32 0, i32 %1
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::InstInfo", ptr @_ZN6asmjit9_abi_1_103x866InstDB14_instInfoTableE, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB14_instInfoTableE, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = lshr i32 %17, 14
   %19 = and i32 %18, 1023
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::CommonInfo", ptr @_ZN6asmjit9_abi_1_103x866InstDB16_commonInfoTableE, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB16_commonInfoTableE, i64 %20
   %22 = load i32, ptr %2, align 4, !tbaa !31
   %23 = and i32 %22, 7
   %24 = load i32, ptr %3, align 4, !tbaa !31
@@ -276,7 +276,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %98 = lshr i32 %97, 14
   %99 = and i32 %98, 1023
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::CommonInfo", ptr @_ZN6asmjit9_abi_1_103x866InstDB16_commonInfoTableE, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB16_commonInfoTableE, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !48
   %103 = and i32 %45, 8192
   %104 = icmp eq i32 %103, 0
@@ -360,7 +360,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %155 = getelementptr inbounds nuw i8, ptr %16, i64 6
   %156 = load i8, ptr %155, align 2, !tbaa !53
   %157 = zext i8 %156 to i64
-  %158 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB16_mainOpcodeTableE, i64 %157
+  %158 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB16_mainOpcodeTableE, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !47
   %160 = lshr i32 %159, 18
   %161 = and i32 %160, 7
@@ -679,7 +679,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %254 = lshr i32 %253, 24
   %255 = and i32 %254, 15
   %256 = zext nneg i32 %255 to i64
-  %257 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %256
+  %257 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %256
   %258 = load i32, ptr %257, align 4, !tbaa !47
   %259 = or i32 %258, %165
   br label %260
@@ -768,7 +768,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 309:                                              ; preds = %303
   %310 = and i32 %305, 15
   %311 = zext nneg i32 %310 to i64
-  %312 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %311
+  %312 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %311
   %313 = load i32, ptr %312, align 4, !tbaa !47
   %314 = or i32 %313, %165
   %315 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -786,7 +786,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 323:                                              ; preds = %317
   %324 = and i32 %319, 15
   %325 = zext nneg i32 %324 to i64
-  %326 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %325
+  %326 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %325
   %327 = load i32, ptr %326, align 4, !tbaa !47
   %328 = or i32 %327, %165
   br label %4519
@@ -802,7 +802,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %332 = lshr i32 %331, 24
   %333 = and i32 %332, 15
   %334 = zext nneg i32 %333 to i64
-  %335 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %334
+  %335 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %334
   %336 = load i32, ptr %335, align 4, !tbaa !47
   %337 = or i32 %336, %165
   %338 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -835,7 +835,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %355 = lshr i32 %352, 24
   %356 = and i32 %355, 15
   %357 = zext nneg i32 %356 to i64
-  %358 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %357
+  %358 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %357
   %359 = load i32, ptr %358, align 4, !tbaa !47
   %360 = or i32 %359, %165
   br label %4519
@@ -882,7 +882,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %383 = lshr i32 %382, 24
   %384 = and i32 %383, 15
   %385 = zext nneg i32 %384 to i64
-  %386 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %385
+  %386 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %385
   %387 = load i32, ptr %386, align 4, !tbaa !47
   %388 = or i32 %387, 287
   %389 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -894,7 +894,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %393 = lshr i32 %392, 24
   %394 = and i32 %393, 15
   %395 = zext nneg i32 %394 to i64
-  %396 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %395
+  %396 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %395
   %397 = load i32, ptr %396, align 4, !tbaa !47
   %398 = or i32 %397, 287
   br label %4519
@@ -906,7 +906,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %403 = lshr i32 %402, 24
   %404 = and i32 %403, 15
   %405 = zext nneg i32 %404 to i64
-  %406 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %405
+  %406 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %405
   %407 = load i32, ptr %406, align 4, !tbaa !47
   %408 = or i32 %407, 287
   switch i32 %31, label %6022 [
@@ -1001,7 +1001,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %468 = lshr i32 %467, 24
   %469 = and i32 %468, 15
   %470 = zext nneg i32 %469 to i64
-  %471 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %470
+  %471 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %470
   %472 = load i32, ptr %471, align 4, !tbaa !47
   %473 = or i32 %472, %165
   br label %474
@@ -1076,7 +1076,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %513 = lshr i32 %512, 24
   %514 = and i32 %513, 15
   %515 = zext nneg i32 %514 to i64
-  %516 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %515
+  %516 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %515
   %517 = load i32, ptr %516, align 4, !tbaa !47
   %518 = or i32 %517, %165
   br label %519
@@ -1114,7 +1114,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %532 = lshr i32 %531, 24
   %533 = and i32 %532, 15
   %534 = zext nneg i32 %533 to i64
-  %535 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %534
+  %535 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %534
   %536 = load i32, ptr %535, align 4, !tbaa !47
   %537 = or i32 %536, %165
   %538 = load i32, ptr %3, align 4, !tbaa !31
@@ -1182,7 +1182,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %580 = lshr i32 %579, 24
   %581 = and i32 %580, 15
   %582 = zext nneg i32 %581 to i64
-  %583 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %582
+  %583 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %582
   %584 = load i32, ptr %583, align 4, !tbaa !47
   %585 = or i32 %584, %578
   %586 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1211,7 +1211,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %601 = lshr i32 %600, 24
   %602 = and i32 %601, 15
   %603 = zext nneg i32 %602 to i64
-  %604 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %603
+  %604 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %603
   %605 = load i32, ptr %604, align 4, !tbaa !47
   %606 = or i32 %605, %165
   %607 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1391,7 +1391,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %727 = select i1 %724, i32 128, i32 %726
   %728 = and i32 %709, 15
   %729 = zext nneg i32 %728 to i64
-  %730 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %729
+  %730 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %729
   %731 = load i32, ptr %730, align 4, !tbaa !47
   %732 = or i32 %727, %731
   br label %4519
@@ -1411,7 +1411,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %741 = load i32, ptr %740, align 4, !tbaa !58
   %742 = and i32 %737, 15
   %743 = zext nneg i32 %742 to i64
-  %744 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %743
+  %744 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %743
   %745 = load i32, ptr %744, align 4, !tbaa !47
   %746 = or i32 %745, %165
   br label %4230
@@ -1427,7 +1427,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %750 = lshr i32 %749, 24
   %751 = and i32 %750, 15
   %752 = zext nneg i32 %751 to i64
-  %753 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %752
+  %753 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %752
   %754 = load i32, ptr %753, align 4, !tbaa !47
   %755 = or i32 %754, %165
   %756 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1441,7 +1441,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %762 = lshr i32 %761, 24
   %763 = and i32 %762, 15
   %764 = zext nneg i32 %763 to i64
-  %765 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %764
+  %765 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %764
   %766 = load i32, ptr %765, align 4, !tbaa !47
   %767 = or i32 %766, %165
   %768 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1454,13 +1454,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %773 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %774 = load i8, ptr %773, align 1, !tbaa !61
   %775 = zext i8 %774 to i64
-  %776 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %775
+  %776 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %775
   %777 = load i32, ptr %776, align 4, !tbaa !47
   %778 = load i32, ptr %2, align 4, !tbaa !31
   %779 = lshr i32 %778, 24
   %780 = and i32 %779, 15
   %781 = zext nneg i32 %780 to i64
-  %782 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %781
+  %782 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %781
   %783 = load i32, ptr %782, align 4, !tbaa !47
   %784 = or i32 %783, %777
   %785 = lshr i32 %784, 18
@@ -1522,7 +1522,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 814:                                              ; preds = %808
   %815 = and i32 %810, 15
   %816 = zext nneg i32 %815 to i64
-  %817 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %816
+  %817 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %816
   %818 = load i32, ptr %817, align 4, !tbaa !47
   %819 = or i32 %818, %165
   %820 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1571,7 +1571,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %849 = lshr i32 %848, 24
   %850 = and i32 %849, 15
   %851 = zext nneg i32 %850 to i64
-  %852 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %851
+  %852 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %851
   %853 = load i32, ptr %852, align 4, !tbaa !47
   %854 = or i32 %853, %165
   %855 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1717,7 +1717,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %935 = lshr i32 %934, 24
   %936 = and i32 %935, 15
   %937 = zext nneg i32 %936 to i64
-  %938 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %937
+  %938 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %937
   %939 = load i32, ptr %938, align 4, !tbaa !47
   %940 = or i32 %939, 107
   %941 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1743,7 +1743,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %959 = lshr i32 %958, 24
   %960 = and i32 %959, 15
   %961 = zext nneg i32 %960 to i64
-  %962 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %961
+  %962 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %961
   %963 = load i32, ptr %962, align 4, !tbaa !47
   %964 = or i32 %963, 107
   %965 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1785,7 +1785,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %995 = load i32, ptr %994, align 4, !tbaa !58
   %996 = and i32 %985, 15
   %997 = zext nneg i32 %996 to i64
-  %998 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %997
+  %998 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %997
   %999 = load i32, ptr %998, align 4, !tbaa !47
   %1000 = or i32 %999, 431
   br label %4380
@@ -1803,7 +1803,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1009 = lshr i32 %1005, 24
   %1010 = and i32 %1009, 15
   %1011 = zext nneg i32 %1010 to i64
-  %1012 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1011
+  %1012 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1011
   %1013 = load i32, ptr %1012, align 4, !tbaa !47
   %1014 = or i32 %1013, 431
   br label %4519
@@ -1813,7 +1813,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1017 = lshr i32 %1016, 24
   %1018 = and i32 %1017, 15
   %1019 = zext nneg i32 %1018 to i64
-  %1020 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1019
+  %1020 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1019
   %1021 = load i32, ptr %1020, align 4, !tbaa !47
   %1022 = or i32 %1021, 107
   %1023 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1855,7 +1855,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1050 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %1051 = load i8, ptr %1050, align 1, !tbaa !61
   %1052 = zext i8 %1051 to i64
-  %1053 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %1052
+  %1053 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %1052
   %1054 = load i32, ptr %1053, align 4, !tbaa !47
   %1055 = load i32, ptr %2, align 4, !tbaa !31
   %1056 = lshr i32 %1055, 24
@@ -1970,7 +1970,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1134 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %1135 = load i8, ptr %1134, align 1, !tbaa !61
   %1136 = zext i8 %1135 to i64
-  %1137 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %1136
+  %1137 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %1136
   %1138 = load i32, ptr %1137, align 4, !tbaa !47
   %1139 = and i32 %1114, 7
   %1140 = add i32 %1138, %1139
@@ -1982,7 +1982,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 1144:                                             ; preds = %1128
   %1145 = and i32 %1116, 15
   %1146 = zext nneg i32 %1145 to i64
-  %1147 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %1146
+  %1147 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %1146
   %1148 = load i32, ptr %1147, align 4, !tbaa !47
   %1149 = or i32 %1148, %165
   br label %4380
@@ -1996,7 +1996,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1154 = lshr i32 %1151, 24
   %1155 = and i32 %1154, 15
   %1156 = zext nneg i32 %1155 to i64
-  %1157 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %1156
+  %1157 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %1156
   %1158 = load i32, ptr %1157, align 4, !tbaa !47
   %1159 = or i32 %1158, %165
   br label %4519
@@ -2109,7 +2109,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 1224:                                             ; preds = %1217, %1213, %1213, %1207
   %1225 = phi i32 [ %1212, %1207 ], [ %1215, %1217 ], [ %1215, %1213 ], [ %1215, %1213 ]
   %1226 = zext nneg i32 %1225 to i64
-  %1227 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1226
+  %1227 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1226
   %1228 = load i32, ptr %1227, align 4, !tbaa !47
   %1229 = or i32 %1228, %165
   br label %4519
@@ -2137,7 +2137,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1244 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %1245 = load i8, ptr %1244, align 1, !tbaa !61
   %1246 = zext i8 %1245 to i64
-  %1247 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %1246
+  %1247 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %1246
   %1248 = load i32, ptr %1247, align 4, !tbaa !47
   %1249 = shl i64 %1237, 32
   %1250 = or i64 %1241, %1249
@@ -2152,7 +2152,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1255 = lshr i32 %1254, 24
   %1256 = and i32 %1255, 15
   %1257 = zext nneg i32 %1256 to i64
-  %1258 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1257
+  %1258 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1257
   %1259 = load i32, ptr %1258, align 4, !tbaa !47
   %1260 = or i32 %1259, %165
   %1261 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -2241,7 +2241,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 1310:                                             ; preds = %1280
   %1311 = and i32 %1278, 15
   %1312 = zext nneg i32 %1311 to i64
-  %1313 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1312
+  %1313 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1312
   %1314 = load i32, ptr %1313, align 4, !tbaa !47
   %1315 = or i32 %1314, 137
   %1316 = and i32 %45, 512
@@ -2264,7 +2264,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1323 = lshr i32 %1265, 24
   %1324 = and i32 %1323, 15
   %1325 = zext nneg i32 %1324 to i64
-  %1326 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1325
+  %1326 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1325
   %1327 = load i32, ptr %1326, align 4, !tbaa !47
   %1328 = or i32 %1327, 140
   %1329 = add i32 %1271, -1
@@ -2303,7 +2303,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1345 = lshr i32 %1272, 24
   %1346 = and i32 %1345, 15
   %1347 = zext nneg i32 %1346 to i64
-  %1348 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1347
+  %1348 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1347
   %1349 = load i32, ptr %1348, align 4, !tbaa !47
   %1350 = or i32 %1349, 142
   %1351 = add i32 %1269, -1
@@ -2340,7 +2340,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1371 = lshr i32 %1370, 24
   %1372 = and i32 %1371, 15
   %1373 = zext nneg i32 %1372 to i64
-  %1374 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1373
+  %1374 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1373
   %1375 = load i32, ptr %1374, align 4, !tbaa !47
   %1376 = or i32 %1375, 142
   %1377 = add i32 %1365, -1
@@ -2350,7 +2350,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1379 = lshr i32 %1366, 24
   %1380 = and i32 %1379, 15
   %1381 = zext nneg i32 %1380 to i64
-  %1382 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %1381
+  %1382 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %1381
   %1383 = load i32, ptr %1382, align 4, !tbaa !47
   %1384 = icmp eq i32 %1365, 0
   br i1 %1384, label %1385, label %1465
@@ -2492,7 +2492,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1488 = lshr i32 %1487, 24
   %1489 = and i32 %1488, 15
   %1490 = zext nneg i32 %1489 to i64
-  %1491 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1490
+  %1491 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1490
   %1492 = load i32, ptr %1491, align 4, !tbaa !47
   %1493 = or i32 %1492, 140
   %1494 = add i32 %1482, -1
@@ -2502,7 +2502,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1496 = lshr i32 %1483, 24
   %1497 = and i32 %1496, 15
   %1498 = zext nneg i32 %1497 to i64
-  %1499 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %1498
+  %1499 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %1498
   %1500 = load i32, ptr %1499, align 4, !tbaa !47
   %1501 = icmp eq i32 %1482, 0
   br i1 %1501, label %1502, label %1582
@@ -2695,7 +2695,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1638 = phi i8 [ 8, %1624 ], [ 8, %1634 ], [ %1620, %1619 ], [ 4, %1629 ]
   %1639 = and i8 %1638, 15
   %1640 = zext nneg i8 %1639 to i64
-  %1641 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIhEERS2_T_E4mask, i64 %1640
+  %1641 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIhEERS2_T_E4mask, i64 %1640
   %1642 = load i32, ptr %1641, align 4, !tbaa !47
   %1643 = or i32 %1642, 184
   br label %4230
@@ -2711,7 +2711,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1650 = select i1 %1649, i32 198, i32 199
   %1651 = and i32 %1648, 15
   %1652 = zext nneg i32 %1651 to i64
-  %1653 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1652
+  %1653 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1652
   %1654 = load i32, ptr %1653, align 4, !tbaa !47
   %1655 = or i32 %1654, %1650
   %1656 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2734,7 +2734,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1665 = lshr i32 %1664, 24
   %1666 = and i32 %1665, 15
   %1667 = zext nneg i32 %1666 to i64
-  %1668 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %1667
+  %1668 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %1667
   %1669 = load i32, ptr %1668, align 4, !tbaa !47
   %1670 = or i32 %1669, 160
   %1671 = and i32 %1664, 3840
@@ -2770,7 +2770,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1695 = lshr i32 %1694, 24
   %1696 = and i32 %1695, 15
   %1697 = zext nneg i32 %1696 to i64
-  %1698 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %1697
+  %1698 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %1697
   %1699 = load i32, ptr %1698, align 4, !tbaa !47
   %1700 = or i32 %1699, 162
   %1701 = and i32 %1694, 3840
@@ -2819,7 +2819,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1734 = lshr i32 %1733, 24
   %1735 = and i32 %1734, 15
   %1736 = zext nneg i32 %1735 to i64
-  %1737 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1736
+  %1737 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %1736
   %1738 = load i32, ptr %1737, align 4, !tbaa !47
   %1739 = or i32 %1732, %1738
   switch i32 %31, label %6022 [
@@ -2914,7 +2914,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1797 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %1798 = load i8, ptr %1797, align 1, !tbaa !61
   %1799 = zext i8 %1798 to i64
-  %1800 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %1799
+  %1800 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %1799
   %1801 = load i32, ptr %1800, align 4, !tbaa !47
   %1802 = load i32, ptr %3, align 4, !tbaa !31
   %1803 = lshr i32 %1802, 24
@@ -3012,7 +3012,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 1870:                                             ; preds = %1866
   %1871 = zext nneg i32 %1868 to i64
-  %1872 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L17x86OpcodePushSRegE, i64 %1871
+  %1872 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L17x86OpcodePushSRegE, i64 %1871
   %1873 = load i32, ptr %1872, align 4, !tbaa !47
   br label %4159
 
@@ -3052,7 +3052,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 1895:                                             ; preds = %1889
   %1896 = zext nneg i32 %1891 to i64
-  %1897 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86OpcodePopSRegE, i64 %1896
+  %1897 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86OpcodePopSRegE, i64 %1896
   %1898 = load i32, ptr %1897, align 4, !tbaa !47
   br label %4159
 
@@ -3065,7 +3065,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1903 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %1904 = load i8, ptr %1903, align 1, !tbaa !61
   %1905 = zext i8 %1904 to i64
-  %1906 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %1905
+  %1906 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %1905
   %1907 = load i32, ptr %1906, align 4, !tbaa !47
   %1908 = icmp ult i32 %1900, 50331648
   %1909 = select i1 %1908, i32 2097152, i32 0
@@ -3133,7 +3133,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1948 = lshr i32 %1944, 24
   %1949 = and i32 %1948, 15
   %1950 = zext nneg i32 %1949 to i64
-  %1951 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %1950
+  %1951 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %1950
   %1952 = load i32, ptr %1951, align 4, !tbaa !47
   %1953 = or i32 %1952, %165
   %1954 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -3197,7 +3197,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1989 = lshr i32 %1944, 24
   %1990 = and i32 %1989, 15
   %1991 = zext nneg i32 %1990 to i64
-  %1992 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %1991
+  %1992 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %1991
   %1993 = load i32, ptr %1992, align 4, !tbaa !47
   %1994 = or i32 %1993, %165
   switch i32 %31, label %6022 [
@@ -3265,7 +3265,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2028 = lshr i32 %2027, 24
   %2029 = and i32 %2028, 15
   %2030 = zext nneg i32 %2029 to i64
-  %2031 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %2030
+  %2031 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %2030
   %2032 = load i32, ptr %2031, align 4, !tbaa !47
   %2033 = or i32 %2032, %165
   %2034 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3281,7 +3281,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2042 = lshr i32 %2041, 24
   %2043 = and i32 %2042, 15
   %2044 = zext nneg i32 %2043 to i64
-  %2045 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %2044
+  %2045 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %2044
   %2046 = load i32, ptr %2045, align 4, !tbaa !47
   %2047 = or i32 %2046, %165
   %2048 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3308,7 +3308,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2060 = lshr i32 %2059, 24
   %2061 = and i32 %2060, 15
   %2062 = zext nneg i32 %2061 to i64
-  %2063 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %2062
+  %2063 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %2062
   %2064 = load i32, ptr %2063, align 4, !tbaa !47
   %2065 = or i32 %2064, %2053
   %2066 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3328,7 +3328,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2076 = lshr i32 %2075, 24
   %2077 = and i32 %2076, 15
   %2078 = zext nneg i32 %2077 to i64
-  %2079 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %2078
+  %2079 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %2078
   %2080 = load i32, ptr %2079, align 4, !tbaa !47
   %2081 = or i32 %2080, %2053
   %2082 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3365,7 +3365,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 2105:                                             ; preds = %2098
   %2106 = and i32 %2099, 15
   %2107 = zext nneg i32 %2106 to i64
-  %2108 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2107
+  %2108 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2107
   %2109 = load i32, ptr %2108, align 4, !tbaa !47
   %2110 = or i32 %2109, %165
   br label %4305
@@ -3400,7 +3400,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 2132:                                             ; preds = %2125
   %2133 = and i32 %2126, 15
   %2134 = zext nneg i32 %2133 to i64
-  %2135 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2134
+  %2135 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2134
   %2136 = load i32, ptr %2135, align 4, !tbaa !47
   %2137 = or i32 %2136, %165
   br label %4305
@@ -3442,7 +3442,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 2162:                                             ; preds = %2159
   %2163 = and i32 %2157, 15
   %2164 = zext nneg i32 %2163 to i64
-  %2165 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2164
+  %2165 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2164
   %2166 = load i32, ptr %2165, align 4, !tbaa !47
   %2167 = or i32 %2166, %165
   %2168 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -3466,7 +3466,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 2177:                                             ; preds = %2171
   %2178 = and i32 %2173, 15
   %2179 = zext nneg i32 %2178 to i64
-  %2180 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2179
+  %2180 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2179
   %2181 = load i32, ptr %2180, align 4, !tbaa !47
   %2182 = or i32 %2181, %165
   %2183 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -3515,7 +3515,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2212 = lshr i32 %2211, 24
   %2213 = and i32 %2212, 15
   %2214 = zext nneg i32 %2213 to i64
-  %2215 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2214
+  %2215 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2214
   %2216 = load i32, ptr %2215, align 4, !tbaa !47
   %2217 = or i32 %2216, %165
   %2218 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3543,7 +3543,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2232 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %2233 = load i8, ptr %2232, align 1, !tbaa !61
   %2234 = zext i8 %2233 to i64
-  %2235 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2234
+  %2235 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2234
   %2236 = load i32, ptr %2235, align 4, !tbaa !47
   %2237 = lshr i32 %2236, 18
   %2238 = and i32 %2237, 7
@@ -3557,7 +3557,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2241 = lshr i32 %2240, 24
   %2242 = and i32 %2241, 15
   %2243 = zext nneg i32 %2242 to i64
-  %2244 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2243
+  %2244 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2243
   %2245 = load i32, ptr %2244, align 4, !tbaa !47
   %2246 = or i32 %2245, %2236
   %2247 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -3624,7 +3624,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2288 = lshr i32 %2285, 24
   %2289 = and i32 %2288, 15
   %2290 = zext nneg i32 %2289 to i64
-  %2291 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2290
+  %2291 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2290
   %2292 = load i32, ptr %2291, align 4, !tbaa !47
   %2293 = or i32 %2292, %2236
   %2294 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3645,7 +3645,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2301 = lshr i32 %2300, 24
   %2302 = and i32 %2301, 15
   %2303 = zext nneg i32 %2302 to i64
-  %2304 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2303
+  %2304 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2303
   %2305 = load i32, ptr %2304, align 4, !tbaa !47
   %2306 = or i32 %2305, %165
   %2307 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -3766,7 +3766,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2379 = add i32 %2325, %2323
   %2380 = and i32 %2327, 15
   %2381 = zext nneg i32 %2380 to i64
-  %2382 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2381
+  %2382 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2381
   %2383 = load i32, ptr %2382, align 4, !tbaa !47
   %2384 = or i32 %2383, %159
   %2385 = and i32 %2384, 136314880
@@ -3776,7 +3776,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 2387:                                             ; preds = %2375, %2370, %2357, %2355
   %2388 = and i32 %2327, 15
   %2389 = zext nneg i32 %2388 to i64
-  %2390 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2389
+  %2390 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2389
   %2391 = load i32, ptr %2390, align 4, !tbaa !47
   %2392 = or i32 %2391, %165
   br label %4380
@@ -3786,7 +3786,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2395 = lshr i32 %2394, 24
   %2396 = and i32 %2395, 15
   %2397 = zext nneg i32 %2396 to i64
-  %2398 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2397
+  %2398 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 %2397
   %2399 = load i32, ptr %2398, align 4, !tbaa !47
   %2400 = or i32 %2399, %165
   %2401 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3830,7 +3830,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2423 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %2424 = load i8, ptr %2423, align 1, !tbaa !61
   %2425 = zext i8 %2424 to i64
-  %2426 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2425
+  %2426 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2425
   %2427 = load i32, ptr %2426, align 4, !tbaa !47
   br label %4380
 
@@ -3843,7 +3843,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2432 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %2433 = load i8, ptr %2432, align 1, !tbaa !61
   %2434 = zext i8 %2433 to i64
-  %2435 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2434
+  %2435 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2434
   %2436 = load i32, ptr %2435, align 4, !tbaa !47
   %2437 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %2438 = load i32, ptr %2437, align 4, !tbaa !58
@@ -3942,7 +3942,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2487 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %2488 = load i8, ptr %2487, align 1, !tbaa !61
   %2489 = zext i8 %2488 to i64
-  %2490 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2489
+  %2490 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2489
   %2491 = load i32, ptr %2490, align 4, !tbaa !47
   %2492 = lshr i32 %2491, 18
   %2493 = and i32 %2492, 7
@@ -4014,7 +4014,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2529 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %2530 = load i8, ptr %2529, align 1, !tbaa !61
   %2531 = zext i8 %2530 to i64
-  %2532 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2531
+  %2532 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2531
   %2533 = load i32, ptr %2532, align 4, !tbaa !47
   %2534 = and i32 %2533, -57345
   %2535 = lshr i32 %2533, 18
@@ -4057,7 +4057,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2552 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %2553 = load i8, ptr %2552, align 1, !tbaa !61
   %2554 = zext i8 %2553 to i64
-  %2555 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2554
+  %2555 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2554
   %2556 = load i32, ptr %2555, align 4, !tbaa !47
   br label %5305
 
@@ -4089,7 +4089,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2573 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %2574 = load i8, ptr %2573, align 1, !tbaa !61
   %2575 = zext i8 %2574 to i64
-  %2576 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2575
+  %2576 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2575
   %2577 = load i32, ptr %2576, align 4, !tbaa !47
   %2578 = load i32, ptr %3, align 4, !tbaa !31
   %2579 = and i32 %2578, -16773121
@@ -4158,7 +4158,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 2622:                                             ; preds = %2618
   %2623 = zext i8 %2620 to i64
-  %2624 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2623
+  %2624 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2623
   %2625 = load i32, ptr %2624, align 4, !tbaa !47
   br label %4380
 
@@ -4171,7 +4171,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2630 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %2631 = load i8, ptr %2630, align 1, !tbaa !61
   %2632 = zext i8 %2631 to i64
-  %2633 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2632
+  %2633 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2632
   %2634 = load i32, ptr %2633, align 4, !tbaa !47
   %2635 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %2636 = load i32, ptr %2635, align 4, !tbaa !58
@@ -4190,7 +4190,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 2643:                                             ; preds = %2639
   %2644 = and i32 %2641, 15
   %2645 = zext nneg i32 %2644 to i64
-  %2646 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %2645
+  %2646 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %2645
   %2647 = load i32, ptr %2646, align 4, !tbaa !47
   %2648 = or i32 %2647, %165
   %2649 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -4201,7 +4201,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2652 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %2653 = load i8, ptr %2652, align 1, !tbaa !61
   %2654 = zext i8 %2653 to i64
-  %2655 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2654
+  %2655 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2654
   %2656 = load i32, ptr %2655, align 4, !tbaa !47
   %2657 = icmp eq i32 %31, 10
   br i1 %2657, label %2658, label %6022
@@ -4215,7 +4215,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 2662:                                             ; preds = %2658
   %2663 = and i32 %2660, 15
   %2664 = zext nneg i32 %2663 to i64
-  %2665 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %2664
+  %2665 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 %2664
   %2666 = load i32, ptr %2665, align 4, !tbaa !47
   %2667 = or i32 %2666, %2656
   %2668 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4259,7 +4259,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2694 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %2695 = load i8, ptr %2694, align 1, !tbaa !61
   %2696 = zext i8 %2695 to i64
-  %2697 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2696
+  %2697 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2696
   %2698 = load i32, ptr %2697, align 4, !tbaa !47
   %2699 = or i32 %2698, %2693
   %2700 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4479,7 +4479,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2831 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %2832 = load i8, ptr %2831, align 1, !tbaa !61
   %2833 = zext i8 %2832 to i64
-  %2834 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2833
+  %2834 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2833
   %2835 = load i32, ptr %2834, align 4, !tbaa !47
   %2836 = lshr i32 %2835, 18
   %2837 = and i32 %2836, 7
@@ -4526,7 +4526,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2866 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %2867 = load i8, ptr %2866, align 1, !tbaa !61
   %2868 = zext i8 %2867 to i64
-  %2869 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2868
+  %2869 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2868
   %2870 = load i32, ptr %2869, align 4, !tbaa !47
   %2871 = lshr i32 %2870, 18
   %2872 = and i32 %2871, 7
@@ -4609,7 +4609,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2924 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %2925 = load i8, ptr %2924, align 1, !tbaa !61
   %2926 = zext i8 %2925 to i64
-  %2927 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2926
+  %2927 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2926
   %2928 = load i32, ptr %2927, align 4, !tbaa !47
   %2929 = lshr i32 %2928, 18
   %2930 = and i32 %2929, 7
@@ -4641,7 +4641,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2949 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %2950 = load i8, ptr %2949, align 1, !tbaa !61
   %2951 = zext i8 %2950 to i64
-  %2952 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2951
+  %2952 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2951
   %2953 = load i32, ptr %2952, align 4, !tbaa !47
   %2954 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %2955 = load i64, ptr %2954, align 4
@@ -4689,7 +4689,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2980 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %2981 = load i8, ptr %2980, align 1, !tbaa !61
   %2982 = zext i8 %2981 to i64
-  %2983 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2982
+  %2983 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2982
   %2984 = load i32, ptr %2983, align 4, !tbaa !47
   br label %5346
 
@@ -4703,7 +4703,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2990 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %2991 = load i8, ptr %2990, align 1, !tbaa !61
   %2992 = zext i8 %2991 to i64
-  %2993 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2992
+  %2993 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %2992
   %2994 = load i32, ptr %2993, align 4, !tbaa !47
   %2995 = add i32 %2994, 1
   br label %5346
@@ -4756,7 +4756,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3025 = or i32 %3024, %3023
   %3026 = lshr i32 %3025, 28
   %3027 = zext nneg i32 %3026 to i64
-  %3028 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3027
+  %3028 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3027
   %3029 = load i32, ptr %3028, align 4, !tbaa !47
   %3030 = or i32 %3029, %165
   switch i32 %31, label %6022 [
@@ -4785,12 +4785,12 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3043 = lshr i32 %3042, 8
   %3044 = and i32 %3043, 31
   %3045 = zext nneg i32 %3044 to i64
-  %3046 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L14x86LLByRegTypeE, i64 %3045
+  %3046 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L14x86LLByRegTypeE, i64 %3045
   %3047 = load i32, ptr %3046, align 4, !tbaa !47
   %3048 = load i32, ptr %3, align 4, !tbaa !31
   %3049 = lshr i32 %3048, 28
   %3050 = zext nneg i32 %3049 to i64
-  %3051 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3050
+  %3051 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3050
   %3052 = load i32, ptr %3051, align 4, !tbaa !47
   %3053 = call noundef i32 @llvm.umax.i32(i32 %3047, i32 %3052)
   %3054 = or i32 %3053, %165
@@ -4817,7 +4817,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3069 = or i32 %3068, %3067
   %3070 = lshr i32 %3069, 28
   %3071 = zext nneg i32 %3070 to i64
-  %3072 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3071
+  %3072 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3071
   %3073 = load i32, ptr %3072, align 4, !tbaa !47
   %3074 = or i32 %3073, %165
   br label %3075
@@ -4886,7 +4886,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 3117:                                             ; preds = %3114
   %3118 = lshr i32 %3115, 28
   %3119 = zext nneg i32 %3118 to i64
-  %3120 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3119
+  %3120 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3119
   %3121 = load i32, ptr %3120, align 4, !tbaa !47
   %3122 = or i32 %3121, %165
   br label %3160
@@ -4912,12 +4912,12 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3136 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %3137 = load i8, ptr %3136, align 1, !tbaa !61
   %3138 = zext i8 %3137 to i64
-  %3139 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3138
+  %3139 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3138
   %3140 = load i32, ptr %3139, align 4, !tbaa !47
   %3141 = or i32 %.pre145, %3131
   %3142 = lshr i32 %3141, 28
   %3143 = zext nneg i32 %3142 to i64
-  %3144 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3143
+  %3144 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3143
   %3145 = load i32, ptr %3144, align 4, !tbaa !47
   %3146 = or i32 %3145, %3140
   %3147 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -4932,7 +4932,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3154 = or i32 %3152, %3153
   %3155 = lshr i32 %3154, 28
   %3156 = zext nneg i32 %3155 to i64
-  %3157 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3156
+  %3157 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3156
   %3158 = load i32, ptr %3157, align 4, !tbaa !47
   %3159 = or i32 %3158, %165
   br label %3160
@@ -4966,12 +4966,12 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3175 = lshr i32 %3174, 8
   %3176 = and i32 %3175, 31
   %3177 = zext nneg i32 %3176 to i64
-  %3178 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L14x86LLByRegTypeE, i64 %3177
+  %3178 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L14x86LLByRegTypeE, i64 %3177
   %3179 = load i32, ptr %3178, align 4, !tbaa !47
   %3180 = load i32, ptr %2, align 4, !tbaa !31
   %3181 = lshr i32 %3180, 28
   %3182 = zext nneg i32 %3181 to i64
-  %3183 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3182
+  %3183 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3182
   %3184 = load i32, ptr %3183, align 4, !tbaa !47
   %3185 = call noundef i32 @llvm.umax.i32(i32 %3179, i32 %3184)
   %3186 = or i32 %3185, %165
@@ -5064,7 +5064,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3253 = or i32 %3252, %3251
   %3254 = lshr i32 %3253, 28
   %3255 = zext nneg i32 %3254 to i64
-  %3256 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3255
+  %3256 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3255
   %3257 = load i32, ptr %3256, align 4, !tbaa !47
   %3258 = or i32 %3257, %165
   br label %3259
@@ -5159,7 +5159,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3320 = or i32 %3319, %3317
   %3321 = lshr i32 %3320, 28
   %3322 = zext nneg i32 %3321 to i64
-  %3323 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3322
+  %3323 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3322
   %3324 = load i32, ptr %3323, align 4, !tbaa !47
   %3325 = or i32 %3324, %3318
   br label %3271
@@ -5186,7 +5186,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3339 = load i32, ptr %4, align 4, !tbaa !31
   %3340 = lshr i32 %3339, 28
   %3341 = zext nneg i32 %3340 to i64
-  %3342 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3341
+  %3342 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3341
   %3343 = load i32, ptr %3342, align 4, !tbaa !47
   %3344 = or i32 %3343, %165
   %3345 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5211,7 +5211,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3357 = or i32 %3356, %3355
   %3358 = lshr i32 %3357, 28
   %3359 = zext nneg i32 %3358 to i64
-  %3360 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3359
+  %3360 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3359
   %3361 = load i32, ptr %3360, align 4, !tbaa !47
   %3362 = or i32 %3361, %165
   br label %3363
@@ -5274,7 +5274,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3405 = or i32 %3404, %3402
   %3406 = lshr i32 %3405, 28
   %3407 = zext nneg i32 %3406 to i64
-  %3408 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3407
+  %3408 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3407
   %3409 = load i32, ptr %3408, align 4, !tbaa !47
   %3410 = or i32 %3409, %3403
   br label %3411
@@ -5361,18 +5361,18 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3465 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %3466 = load i8, ptr %3465, align 1, !tbaa !61
   %3467 = zext i8 %3466 to i64
-  %3468 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3467
+  %3468 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3467
   %3469 = load i32, ptr %3468, align 4, !tbaa !47
   %3470 = load i32, ptr %3, align 4, !tbaa !31
   %3471 = lshr i32 %3470, 8
   %3472 = and i32 %3471, 31
   %3473 = zext nneg i32 %3472 to i64
-  %3474 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L14x86LLByRegTypeE, i64 %3473
+  %3474 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L14x86LLByRegTypeE, i64 %3473
   %3475 = load i32, ptr %3474, align 4, !tbaa !47
   %3476 = load i32, ptr %2, align 4, !tbaa !31
   %3477 = lshr i32 %3476, 28
   %3478 = zext nneg i32 %3477 to i64
-  %3479 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3478
+  %3479 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3478
   %3480 = load i32, ptr %3479, align 4, !tbaa !47
   %3481 = call noundef i32 @llvm.umax.i32(i32 %3475, i32 %3480)
   %3482 = or i32 %3481, %3469
@@ -5389,14 +5389,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3489 = lshr i32 %3488, 8
   %3490 = and i32 %3489, 31
   %3491 = zext nneg i32 %3490 to i64
-  %3492 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L14x86LLByRegTypeE, i64 %3491
+  %3492 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L14x86LLByRegTypeE, i64 %3491
   %3493 = load i32, ptr %3492, align 4, !tbaa !47
   %3494 = load i32, ptr %2, align 4, !tbaa !31
   %3495 = load i32, ptr %4, align 4, !tbaa !31
   %3496 = or i32 %3495, %3494
   %3497 = lshr i32 %3496, 28
   %3498 = zext nneg i32 %3497 to i64
-  %3499 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3498
+  %3499 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3498
   %3500 = load i32, ptr %3499, align 4, !tbaa !47
   %3501 = call noundef i32 @llvm.umax.i32(i32 %3493, i32 %3500)
   %3502 = or i32 %3501, %165
@@ -5457,7 +5457,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3538 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %3539 = load i8, ptr %3538, align 1, !tbaa !61
   %3540 = zext i8 %3539 to i64
-  %3541 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3540
+  %3541 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3540
   %3542 = load i32, ptr %3541, align 4, !tbaa !47
   %3543 = and i32 %3534, -16777216
   %3544 = icmp eq i32 %3543, 134217728
@@ -5514,7 +5514,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3583 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %3584 = load i8, ptr %3583, align 1, !tbaa !61
   %3585 = zext i8 %3584 to i64
-  %3586 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3585
+  %3586 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3585
   %3587 = load i32, ptr %3586, align 4, !tbaa !47
   %3588 = and i32 %3587, 268435456
   %3589 = icmp eq i32 %3588, 0
@@ -5531,7 +5531,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3598 = or i32 %3597, %3596
   %3599 = lshr i32 %3598, 28
   %3600 = zext nneg i32 %3599 to i64
-  %3601 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3600
+  %3601 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3600
   %3602 = load i32, ptr %3601, align 4, !tbaa !47
   %3603 = or i32 %3602, %165
   br label %3604
@@ -5561,7 +5561,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3616 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %3617 = load i8, ptr %3616, align 1, !tbaa !61
   %3618 = zext i8 %3617 to i64
-  %3619 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3618
+  %3619 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3618
   %3620 = load i32, ptr %3619, align 4, !tbaa !47
   %3621 = or i32 %3620, %3615
   %3622 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5619,7 +5619,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3658 = or i32 %3657, %3656
   %3659 = lshr i32 %3658, 28
   %3660 = zext nneg i32 %3659 to i64
-  %3661 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3660
+  %3661 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3660
   %3662 = load i32, ptr %3661, align 4, !tbaa !47
   %3663 = or i32 %3662, %165
   br label %3664
@@ -5656,7 +5656,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3684 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %3685 = load i8, ptr %3684, align 1, !tbaa !61
   %3686 = zext i8 %3685 to i64
-  %3687 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3686
+  %3687 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3686
   %3688 = load i32, ptr %3687, align 4, !tbaa !47
   %3689 = or i32 %3688, %3683
   %3690 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5727,7 +5727,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3732 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %3733 = load i8, ptr %3732, align 1, !tbaa !61
   %3734 = zext i8 %3733 to i64
-  %3735 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3734
+  %3735 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3734
   %3736 = load i32, ptr %3735, align 4, !tbaa !47
   %3737 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %3738 = load i64, ptr %3737, align 4
@@ -5778,7 +5778,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3765 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %3766 = load i8, ptr %3765, align 1, !tbaa !61
   %3767 = zext i8 %3766 to i64
-  %3768 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3767
+  %3768 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3767
   %3769 = load i32, ptr %3768, align 4, !tbaa !47
   switch i32 %31, label %6022 [
     i32 9, label %3770
@@ -5803,7 +5803,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3781 = or i32 %3780, %3779
   %3782 = lshr i32 %3781, 28
   %3783 = zext nneg i32 %3782 to i64
-  %3784 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3783
+  %3784 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3783
   %3785 = load i32, ptr %3784, align 4, !tbaa !47
   %3786 = or i32 %3785, %165
   br label %3787
@@ -5841,7 +5841,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3807 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %3808 = load i8, ptr %3807, align 1, !tbaa !61
   %3809 = zext i8 %3808 to i64
-  %3810 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3809
+  %3810 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3809
   %3811 = load i32, ptr %3810, align 4, !tbaa !47
   %3812 = or i32 %3811, %3806
   %3813 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5867,7 +5867,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3829 = or i32 %3828, %3826
   %3830 = lshr i32 %3829, 28
   %3831 = zext nneg i32 %3830 to i64
-  %3832 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3831
+  %3832 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3831
   %3833 = load i32, ptr %3832, align 4, !tbaa !47
   %3834 = or i32 %3833, %3827
   br label %3835
@@ -5904,7 +5904,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3855 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %3856 = load i8, ptr %3855, align 1, !tbaa !61
   %3857 = zext i8 %3856 to i64
-  %3858 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3857
+  %3858 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %3857
   %3859 = load i32, ptr %3858, align 4, !tbaa !47
   %3860 = or i32 %3859, %3854
   %3861 = lshr i32 %3859, 18
@@ -5980,7 +5980,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3909 = or i32 %3908, %3907
   %3910 = lshr i32 %3909, 28
   %3911 = zext nneg i32 %3910 to i64
-  %3912 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3911
+  %3912 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3911
   %3913 = load i32, ptr %3912, align 4, !tbaa !47
   %3914 = or i32 %3913, %3906
   br label %3915
@@ -6034,7 +6034,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3946 = or i32 %3945, %3944
   %3947 = lshr i32 %3946, 28
   %3948 = zext nneg i32 %3947 to i64
-  %3949 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3948
+  %3949 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %3948
   %3950 = load i32, ptr %3949, align 4, !tbaa !47
   %3951 = or i32 %3950, %165
   br label %3952
@@ -6106,7 +6106,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4002 = or i32 %4001, %3993
   %4003 = lshr i32 %4002, 28
   %4004 = zext nneg i32 %4003 to i64
-  %4005 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %4004
+  %4005 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %4004
   %4006 = load i32, ptr %4005, align 4, !tbaa !47
   %4007 = or i32 %4006, %165
   %4008 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -6179,7 +6179,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4055 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %4056 = load i8, ptr %4055, align 1, !tbaa !61
   %4057 = zext i8 %4056 to i64
-  %4058 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %4057
+  %4058 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %4057
   %4059 = load i32, ptr %4058, align 4, !tbaa !47
   %4060 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %4061 = load i32, ptr %4060, align 4, !tbaa !58
@@ -6191,7 +6191,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4065 = or i32 %4064, %4063
   %4066 = lshr i32 %4065, 28
   %4067 = zext nneg i32 %4066 to i64
-  %4068 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %4067
+  %4068 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 %4067
   %4069 = load i32, ptr %4068, align 4, !tbaa !47
   %4070 = or i32 %4069, %165
   br label %4071
@@ -6348,7 +6348,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4183 = lshr i32 %4162, 8
   %4184 = and i32 %4183, 31
   %4185 = zext nneg i32 %4184 to i64
-  %4186 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::X86OpcodeMM", ptr @_ZN6asmjit9_abi_1_103x86L11x86OpcodeMME, i64 %4185
+  %4186 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L11x86OpcodeMME, i64 %4185
   %4187 = getelementptr inbounds nuw i8, ptr %4186, i64 1
   %4188 = load i8, ptr %4187, align 1, !tbaa !51
   %4189 = add nsw i32 %4184, -1
@@ -6449,7 +6449,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4258 = lshr i32 %4257, 8
   %4259 = and i32 %4258, 31
   %4260 = zext nneg i32 %4259 to i64
-  %4261 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::X86OpcodeMM", ptr @_ZN6asmjit9_abi_1_103x86L11x86OpcodeMME, i64 %4260
+  %4261 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L11x86OpcodeMME, i64 %4260
   %4262 = getelementptr inbounds nuw i8, ptr %4261, i64 1
   %4263 = load i8, ptr %4262, align 1, !tbaa !51
   %4264 = add nsw i32 %4259, -1
@@ -6583,7 +6583,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4362 = lshr i32 %4308, 8
   %4363 = and i32 %4362, 31
   %4364 = zext nneg i32 %4363 to i64
-  %4365 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::X86OpcodeMM", ptr @_ZN6asmjit9_abi_1_103x86L11x86OpcodeMME, i64 %4364
+  %4365 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L11x86OpcodeMME, i64 %4364
   %4366 = getelementptr inbounds nuw i8, ptr %4365, i64 1
   %4367 = load i8, ptr %4366, align 1, !tbaa !51
   %4368 = add nsw i32 %4363, -1
@@ -6643,7 +6643,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4413 = lshr i32 %4385, 8
   %4414 = and i32 %4413, 31
   %4415 = zext nneg i32 %4414 to i64
-  %4416 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::X86OpcodeMM", ptr @_ZN6asmjit9_abi_1_103x86L11x86OpcodeMME, i64 %4415
+  %4416 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L11x86OpcodeMME, i64 %4415
   %4417 = getelementptr inbounds nuw i8, ptr %4416, i64 1
   %4418 = load i8, ptr %4417, align 1, !tbaa !51
   %4419 = add nsw i32 %4414, -1
@@ -6750,7 +6750,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4494 = lshr i32 %159, 8
   %4495 = and i32 %4494, 31
   %4496 = zext nneg i32 %4495 to i64
-  %4497 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::X86OpcodeMM", ptr @_ZN6asmjit9_abi_1_103x86L11x86OpcodeMME, i64 %4496
+  %4497 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L11x86OpcodeMME, i64 %4496
   %4498 = getelementptr inbounds nuw i8, ptr %4497, i64 1
   %4499 = load i8, ptr %4498, align 1, !tbaa !51
   %4500 = add nsw i32 %4495, -1
@@ -6855,7 +6855,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4583 = lshr i32 %4523, 8
   %4584 = and i32 %4583, 31
   %4585 = zext nneg i32 %4584 to i64
-  %4586 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::X86OpcodeMM", ptr @_ZN6asmjit9_abi_1_103x86L11x86OpcodeMME, i64 %4585
+  %4586 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L11x86OpcodeMME, i64 %4585
   %4587 = getelementptr inbounds nuw i8, ptr %4586, i64 1
   %4588 = load i8, ptr %4587, align 1, !tbaa !51
   %4589 = add nsw i32 %4584, -1
@@ -7473,7 +7473,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4998 = getelementptr inbounds nuw i8, ptr %4986, i64 240
   %4999 = zext i32 %4993 to i64
   %5000 = load ptr, ptr %4998, align 8, !tbaa !117
-  %5001 = getelementptr inbounds nuw ptr, ptr %5000, i64 %4999
+  %5001 = getelementptr inbounds nuw [8 x i8], ptr %5000, i64 %4999
   %5002 = load ptr, ptr %5001, align 8, !tbaa !28
   %5003 = icmp eq ptr %5002, null
   br i1 %5003, label %6022, label %5004, !prof !39
@@ -7618,7 +7618,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5098 = getelementptr inbounds nuw i8, ptr %5091, i64 240
   %5099 = zext i32 %5093 to i64
   %5100 = load ptr, ptr %5098, align 8, !tbaa !117
-  %5101 = getelementptr inbounds nuw ptr, ptr %5100, i64 %5099
+  %5101 = getelementptr inbounds nuw [8 x i8], ptr %5100, i64 %5099
   %5102 = load ptr, ptr %5101, align 8, !tbaa !28
   %5103 = icmp eq ptr %5102, null
   br i1 %5103, label %6022, label %5104, !prof !39
@@ -8141,7 +8141,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 5470:                                             ; preds = %5449
   %5471 = and i32 %5406, 15
   %5472 = zext nneg i32 %5471 to i64
-  %5473 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L12x86VEXPrefixE, i64 %5472
+  %5473 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L12x86VEXPrefixE, i64 %5472
   %5474 = load i32, ptr %5473, align 4, !tbaa !47
   %5475 = shl i32 %5349, 24
   %5476 = or i32 %5474, %5475
@@ -8387,7 +8387,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5664 = and i32 %5663, 3
   %5665 = or disjoint i32 %5662, %5664
   %5666 = zext nneg i32 %5665 to i64
-  %5667 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L12x86CDisp8SHLE, i64 %5666
+  %5667 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L12x86CDisp8SHLE, i64 %5666
   %5668 = load i32, ptr %5667, align 4, !tbaa !47
   %5669 = add i32 %5668, %5522
   br label %5670
@@ -8421,7 +8421,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 5690:                                             ; preds = %5675
   %5691 = and i32 %5612, 15
   %5692 = zext nneg i32 %5691 to i64
-  %5693 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L12x86VEXPrefixE, i64 %5692
+  %5693 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L12x86VEXPrefixE, i64 %5692
   %5694 = load i32, ptr %5693, align 4, !tbaa !47
   %5695 = shl i32 %5522, 24
   %5696 = or i32 %5694, %5695
@@ -8484,7 +8484,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5738 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %5739 = load i8, ptr %5738, align 1, !tbaa !61
   %5740 = zext i8 %5739 to i64
-  %5741 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %5740
+  %5741 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 %5740
   %5742 = load i32, ptr %5741, align 4, !tbaa !47
   %5743 = icmp eq i32 %5720, 0
   %5744 = select i1 %5743, i32 5, i32 6
@@ -8513,7 +8513,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5760 = getelementptr inbounds nuw i8, ptr %5753, i64 240
   %5761 = zext i32 %5755 to i64
   %5762 = load ptr, ptr %5760, align 8, !tbaa !117
-  %5763 = getelementptr inbounds nuw ptr, ptr %5762, i64 %5761
+  %5763 = getelementptr inbounds nuw [8 x i8], ptr %5762, i64 %5761
   %5764 = load ptr, ptr %5763, align 8, !tbaa !28
   %5765 = icmp eq ptr %5764, null
   br i1 %5765, label %6022, label %5766, !prof !39

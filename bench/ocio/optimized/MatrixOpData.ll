@@ -750,7 +750,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData7Offsets5scaleEd(ptr n
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load double, ptr %5, align 8, !tbaa !7
   %7 = fmul double %1, %6
   store double %7, ptr %5, align 8, !tbaa !7
@@ -794,8 +794,8 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdE6resizeEmm.exit: ; preds = %.noexc11
   %.01417.i = phi i64 [ %19, %18 ], [ 0, %.noexc3 ]
   %14 = mul i64 %.01417.i, %8
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr double, ptr %15, i64 %14
-  %17 = getelementptr double, ptr %16, i64 %.01417.i
+  %16 = getelementptr [8 x i8], ptr %15, i64 %14
+  %17 = getelementptr [8 x i8], ptr %16, i64 %.01417.i
   br label %20
 
 18:                                               ; preds = %23
@@ -862,8 +862,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData11MatrixArray4fillEv(p
   %.01417 = phi i64 [ %18, %17 ], [ 0, %1 ]
   %13 = mul i64 %.01417, %5
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr double, ptr %14, i64 %13
-  %16 = getelementptr double, ptr %15, i64 %.01417
+  %15 = getelementptr [8 x i8], ptr %14, i64 %13
+  %16 = getelementptr [8 x i8], ptr %15, i64 %.01417
   br label %19
 
 ._crit_edge:                                      ; preds = %17, %1
@@ -1018,7 +1018,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdE6resizeEmm.exit.i.i.i.i.i.i.i.i: ; preds = %.n
   %45 = load ptr, ptr %39, align 8, !noalias !30
   %.idx.i.i.i.i.i.i.i = shl i64 %.01417.i.i.i.i.i.i.i.i.i, 5
   %46 = getelementptr i8, ptr %45, i64 %.idx.i.i.i.i.i.i.i
-  %47 = getelementptr double, ptr %46, i64 %.01417.i.i.i.i.i.i.i.i.i
+  %47 = getelementptr [8 x i8], ptr %46, i64 %.01417.i.i.i.i.i.i.i.i.i
   br label %50
 
 48:                                               ; preds = %53
@@ -1055,8 +1055,8 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc43
 .preheader61:                                     ; preds = %.preheader61.preheader, %64
   %.02965 = phi i64 [ %65, %64 ], [ 0, %.preheader61.preheader ]
   %57 = shl i64 %.02965, 2
-  %58 = getelementptr double, ptr %18, i64 %57
-  %59 = getelementptr double, ptr %45, i64 %57
+  %58 = getelementptr [8 x i8], ptr %18, i64 %57
+  %59 = getelementptr [8 x i8], ptr %45, i64 %57
   br label %.preheader
 
 60:                                               ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i.i.i37, %.noexc.i.i.i.i40
@@ -1071,7 +1071,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc43
 
 .preheader:                                       ; preds = %.preheader61, %66
   %.02864 = phi i64 [ 0, %.preheader61 ], [ %68, %66 ]
-  %invariant.gep = getelementptr double, ptr %33, i64 %.02864
+  %invariant.gep = getelementptr [8 x i8], ptr %33, i64 %.02864
   br label %69
 
 64:                                               ; preds = %66
@@ -1080,7 +1080,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc43
   br i1 %exitcond67.not, label %_ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit45, label %.preheader61, !llvm.loop !44
 
 66:                                               ; preds = %69
-  %67 = getelementptr double, ptr %59, i64 %.02864
+  %67 = getelementptr [8 x i8], ptr %59, i64 %.02864
   store double %73, ptr %67, align 8, !tbaa !7
   %68 = add nuw i64 %.02864, 1
   %exitcond66.not = icmp eq i64 %68, 4
@@ -1089,7 +1089,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc43
 69:                                               ; preds = %.preheader, %69
   %.063 = phi i64 [ 0, %.preheader ], [ %74, %69 ]
   %.02762 = phi double [ 0.000000e+00, %.preheader ], [ %73, %69 ]
-  %70 = getelementptr double, ptr %58, i64 %.063
+  %70 = getelementptr [8 x i8], ptr %58, i64 %.063
   %71 = load double, ptr %70, align 8, !tbaa !7
   %gep.idx = shl i64 %.063, 5
   %gep = getelementptr i8, ptr %invariant.gep, i64 %gep.idx
@@ -1242,14 +1242,14 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev12MatrixOpData11MatrixArray5innerER
 .preheader:                                       ; preds = %.preheader.lr.ph, %12
   %.01620 = phi i64 [ 0, %.preheader.lr.ph ], [ %14, %12 ]
   %10 = mul i64 %.01620, %7
-  %11 = getelementptr double, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   br label %15
 
 ._crit_edge:                                      ; preds = %12, %3
   ret void
 
 12:                                               ; preds = %15
-  %13 = getelementptr inbounds nuw double, ptr %0, i64 %.01620
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01620
   store double %20, ptr %13, align 8, !tbaa !7
   %14 = add nuw i64 %.01620, 1
   %exitcond21.not = icmp eq i64 %14, %7
@@ -1258,9 +1258,9 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev12MatrixOpData11MatrixArray5innerER
 15:                                               ; preds = %.preheader, %15
   %.019 = phi i64 [ 0, %.preheader ], [ %21, %15 ]
   %.01518 = phi double [ 0.000000e+00, %.preheader ], [ %20, %15 ]
-  %16 = getelementptr double, ptr %11, i64 %.019
+  %16 = getelementptr [8 x i8], ptr %11, i64 %.019
   %17 = load double, ptr %16, align 8, !tbaa !7
-  %18 = getelementptr inbounds nuw double, ptr %2, i64 %.019
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.019
   %19 = load double, ptr %18, align 8, !tbaa !7
   %20 = tail call double @llvm.fmuladd.f64(double %17, double %19, double %.01518)
   %21 = add nuw i64 %.019, 1
@@ -1342,7 +1342,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdE6resizeEmm.exit.i.i.i.i.i.i.i.i: ; preds = %.n
   %32 = load ptr, ptr %26, align 8, !noalias !51
   %.idx.i.i.i.i.i.i.i = shl i64 %.01417.i.i.i.i.i.i.i.i.i, 5
   %33 = getelementptr i8, ptr %32, i64 %.idx.i.i.i.i.i.i.i
-  %34 = getelementptr double, ptr %33, i64 %.01417.i.i.i.i.i.i.i.i.i
+  %34 = getelementptr [8 x i8], ptr %33, i64 %.01417.i.i.i.i.i.i.i.i.i
   br label %37
 
 35:                                               ; preds = %40
@@ -1403,9 +1403,9 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
   %indvars.iv217 = phi i64 [ 0, %43 ], [ %indvars.iv.next218, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %43 ], [ %indvars.iv.next, %.loopexit ]
   %53 = shl nuw nsw i64 %indvars.iv217, 2
-  %54 = getelementptr double, ptr %20, i64 %53
-  %55 = getelementptr double, ptr %54, i64 %indvars.iv217
-  %invariant.gep = getelementptr double, ptr %20, i64 %indvars.iv217
+  %54 = getelementptr [8 x i8], ptr %20, i64 %53
+  %55 = getelementptr [8 x i8], ptr %54, i64 %indvars.iv217
+  %invariant.gep = getelementptr [8 x i8], ptr %20, i64 %indvars.iv217
   %56 = trunc nuw nsw i64 %indvars.iv217 to i32
   %57 = load double, ptr %55, align 8, !tbaa !7
   %58 = fcmp olt double %57, 0.000000e+00
@@ -1468,16 +1468,16 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
 76:                                               ; preds = %.preheader179, %76
   %indvars.iv205 = phi i64 [ 0, %.preheader179 ], [ %indvars.iv.next206, %76 ]
   %77 = add nuw i64 %indvars.iv205, %53
-  %78 = getelementptr inbounds nuw double, ptr %20, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %77
   %79 = load double, ptr %78, align 8, !tbaa !7
   %80 = add nuw i64 %indvars.iv205, %75
-  %81 = getelementptr inbounds nuw double, ptr %20, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %80
   %82 = load double, ptr %81, align 8, !tbaa !7
   store double %82, ptr %78, align 8, !tbaa !7
   store double %79, ptr %81, align 8, !tbaa !7
-  %83 = getelementptr inbounds nuw double, ptr %32, i64 %77
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %77
   %84 = load double, ptr %83, align 8, !tbaa !7
-  %85 = getelementptr inbounds nuw double, ptr %32, i64 %80
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %80
   %86 = load double, ptr %85, align 8, !tbaa !7
   store double %86, ptr %83, align 8, !tbaa !7
   store double %84, ptr %85, align 8, !tbaa !7
@@ -1491,7 +1491,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
 .lr.ph191:                                        ; preds = %.lr.ph191.preheader, %92
   %indvars.iv213 = phi i64 [ %indvars.iv.next214, %92 ], [ %indvars.iv, %.lr.ph191.preheader ]
   %87 = shl i64 %indvars.iv213, 2
-  %gep188 = getelementptr double, ptr %invariant.gep, i64 %87
+  %gep188 = getelementptr [8 x i8], ptr %invariant.gep, i64 %87
   %88 = load double, ptr %gep188, align 8, !tbaa !7
   %89 = load double, ptr %55, align 8, !tbaa !7
   %90 = fneg double %88
@@ -1506,16 +1506,16 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
 93:                                               ; preds = %.lr.ph191, %93
   %indvars.iv209 = phi i64 [ 0, %.lr.ph191 ], [ %indvars.iv.next210, %93 ]
   %94 = add nuw i64 %indvars.iv209, %53
-  %95 = getelementptr inbounds nuw double, ptr %20, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %94
   %96 = load double, ptr %95, align 8, !tbaa !7
   %97 = add i64 %indvars.iv209, %87
-  %98 = getelementptr inbounds nuw double, ptr %20, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %97
   %99 = load double, ptr %98, align 8, !tbaa !7
   %100 = tail call double @llvm.fmuladd.f64(double %91, double %96, double %99)
   store double %100, ptr %98, align 8, !tbaa !7
-  %101 = getelementptr inbounds nuw double, ptr %32, i64 %94
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %94
   %102 = load double, ptr %101, align 8, !tbaa !7
-  %103 = getelementptr inbounds nuw double, ptr %32, i64 %97
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %97
   %104 = load double, ptr %103, align 8, !tbaa !7
   %105 = tail call double @llvm.fmuladd.f64(double %91, double %102, double %104)
   store double %105, ptr %103, align 8, !tbaa !7
@@ -1550,18 +1550,18 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
   br label %.body.thread
 
 .preheader:                                       ; preds = %.preheader177
-  %invariant.gep195 = getelementptr double, ptr %20, i64 %indvars.iv233249
+  %invariant.gep195 = getelementptr [8 x i8], ptr %20, i64 %indvars.iv233249
   %.not201 = icmp eq i64 %indvars.iv233249, 0
   br i1 %.not201, label %_ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit, label %.lr.ph198
 
 .preheader177:                                    ; preds = %.preheader177.preheader, %.preheader177
   %indvars.iv221 = phi i64 [ %indvars.iv.next222, %.preheader177 ], [ 0, %.preheader177.preheader ]
   %114 = add i64 %indvars.iv221, %107
-  %115 = getelementptr inbounds nuw double, ptr %20, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %114
   %116 = load double, ptr %115, align 8, !tbaa !7
   %117 = fdiv double %116, %106
   store double %117, ptr %115, align 8, !tbaa !7
-  %118 = getelementptr inbounds nuw double, ptr %32, i64 %114
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %114
   %119 = load double, ptr %118, align 8, !tbaa !7
   %120 = fdiv double %119, %106
   store double %120, ptr %118, align 8, !tbaa !7
@@ -1572,8 +1572,8 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
 ._crit_edge199:                                   ; preds = %129
   %indvars.iv.next234 = add nsw i64 %indvars.iv233249, -1
   %121 = shl i64 %indvars.iv.next234, 2
-  %122 = getelementptr double, ptr %20, i64 %121
-  %123 = getelementptr double, ptr %122, i64 %indvars.iv.next234
+  %122 = getelementptr [8 x i8], ptr %20, i64 %121
+  %123 = getelementptr [8 x i8], ptr %122, i64 %indvars.iv.next234
   %124 = load double, ptr %123, align 8, !tbaa !7
   %125 = fcmp oeq double %124, 0.000000e+00
   br i1 %125, label %.preheader178._crit_edge, label %.preheader177.preheader, !llvm.loop !60
@@ -1581,7 +1581,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
 .lr.ph198:                                        ; preds = %.preheader, %129
   %indvars.iv229 = phi i64 [ %indvars.iv.next230, %129 ], [ 0, %.preheader ]
   %126 = shl i64 %indvars.iv229, 2
-  %gep196 = getelementptr double, ptr %invariant.gep195, i64 %126
+  %gep196 = getelementptr [8 x i8], ptr %invariant.gep195, i64 %126
   %127 = load double, ptr %gep196, align 8, !tbaa !7
   %128 = fneg double %127
   br label %130
@@ -1594,16 +1594,16 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
 130:                                              ; preds = %.lr.ph198, %130
   %indvars.iv225 = phi i64 [ 0, %.lr.ph198 ], [ %indvars.iv.next226, %130 ]
   %131 = add i64 %indvars.iv225, %107
-  %132 = getelementptr inbounds nuw double, ptr %20, i64 %131
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %131
   %133 = load double, ptr %132, align 8, !tbaa !7
   %134 = add i64 %indvars.iv225, %126
-  %135 = getelementptr inbounds nuw double, ptr %20, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %134
   %136 = load double, ptr %135, align 8, !tbaa !7
   %137 = tail call double @llvm.fmuladd.f64(double %128, double %133, double %136)
   store double %137, ptr %135, align 8, !tbaa !7
-  %138 = getelementptr inbounds nuw double, ptr %32, i64 %131
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %131
   %139 = load double, ptr %138, align 8, !tbaa !7
-  %140 = getelementptr inbounds nuw double, ptr %32, i64 %134
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %134
   %141 = load double, ptr %140, align 8, !tbaa !7
   %142 = tail call double @llvm.fmuladd.f64(double %128, double %139, double %141)
   store double %142, ptr %140, align 8, !tbaa !7
@@ -1675,8 +1675,8 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12MatrixOpData11Matri
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
   %.02133 = phi i64 [ 0, %.preheader.lr.ph ], [ %22, %.critedge ]
   %8 = mul i64 %.02133, %5
-  %9 = getelementptr double, ptr %7, i64 %8
-  %10 = getelementptr double, ptr %9, i64 %.02133
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
+  %10 = getelementptr [8 x i8], ptr %9, i64 %.02133
   br label %11
 
 11:                                               ; preds = %.preheader, %20
@@ -1690,7 +1690,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12MatrixOpData11Matri
   br i1 %15, label %.critedge27, label %20
 
 16:                                               ; preds = %11
-  %17 = getelementptr double, ptr %9, i64 %.031
+  %17 = getelementptr [8 x i8], ptr %9, i64 %.031
   %18 = load double, ptr %17, align 8, !tbaa !7
   %19 = fcmp une double %18, 0.000000e+00
   br i1 %19, label %.critedge27, label %20
@@ -2067,7 +2067,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i:
   %9 = load ptr, ptr %3, align 8
   %.idx = shl i64 %.01417.i.i, 5
   %10 = getelementptr i8, ptr %9, i64 %.idx
-  %11 = getelementptr double, ptr %10, i64 %.01417.i.i
+  %11 = getelementptr [8 x i8], ptr %10, i64 %.01417.i.i
   br label %14
 
 12:                                               ; preds = %17
@@ -2210,7 +2210,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i:
   %10 = load ptr, ptr %4, align 8
   %.idx = shl i64 %.01417.i.i, 5
   %11 = getelementptr i8, ptr %10, i64 %.idx
-  %12 = getelementptr double, ptr %11, i64 %.01417.i.i
+  %12 = getelementptr [8 x i8], ptr %11, i64 %.01417.i.i
   br label %15
 
 13:                                               ; preds = %18
@@ -2338,7 +2338,7 @@ _ZSt11make_sharedIN19OpenColorIO_v2_5dev12MatrixOpDataEJRKS1_EESt10shared_ptrINS
 define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData13setArrayValueEmd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(260) %0, i64 noundef %1, double noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8, !tbaa !9
-  %6 = getelementptr inbounds nuw double, ptr %5, i64 %1
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   store double %2, ptr %6, align 8, !tbaa !7
   ret void
 }
@@ -2347,7 +2347,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData13setArrayValueEmd(ptr
 define hidden noundef double @_ZNK19OpenColorIO_v2_5dev12MatrixOpData13getArrayValueEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(260) %0, i64 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8, !tbaa !9
-  %5 = getelementptr inbounds nuw double, ptr %4, i64 %1
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %1
   %6 = load double, ptr %5, align 8, !tbaa !7
   ret double %6
 }
@@ -2699,11 +2699,11 @@ _ZNK19OpenColorIO_v2_5dev12MatrixOpData7Offsets9isNotNullEv.exit.thread: ; preds
 .preheader.i:                                     ; preds = %38, %.preheader.lr.ph.i
   %.01620.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %40, %38 ]
   %36 = mul i64 %.01620.i, %33
-  %37 = getelementptr double, ptr %35, i64 %36
+  %37 = getelementptr [8 x i8], ptr %35, i64 %36
   br label %41
 
 38:                                               ; preds = %41
-  %39 = getelementptr inbounds nuw double, ptr %6, i64 %.01620.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01620.i
   store double %46, ptr %39, align 8, !tbaa !7, !alias.scope !105
   %40 = add nuw i64 %.01620.i, 1
   %exitcond21.not.i = icmp eq i64 %40, %33
@@ -2712,9 +2712,9 @@ _ZNK19OpenColorIO_v2_5dev12MatrixOpData7Offsets9isNotNullEv.exit.thread: ; preds
 41:                                               ; preds = %41, %.preheader.i
   %.019.i = phi i64 [ 0, %.preheader.i ], [ %47, %41 ]
   %.01518.i = phi double [ 0.000000e+00, %.preheader.i ], [ %46, %41 ]
-  %42 = getelementptr double, ptr %37, i64 %.019.i
+  %42 = getelementptr [8 x i8], ptr %37, i64 %.019.i
   %43 = load double, ptr %42, align 8, !tbaa !7, !noalias !105
-  %44 = getelementptr inbounds nuw double, ptr %17, i64 %.019.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.019.i
   %45 = load double, ptr %44, align 8, !tbaa !7, !noalias !105
   %46 = call double @llvm.fmuladd.f64(double %43, double %45, double %.01518.i)
   %47 = add nuw i64 %.019.i, 1
@@ -2728,7 +2728,7 @@ _ZNK19OpenColorIO_v2_5dev12MatrixOpData11MatrixArray5innerERKNS0_7OffsetsE.exit:
 
 48:                                               ; preds = %48, %_ZNK19OpenColorIO_v2_5dev12MatrixOpData11MatrixArray5innerERKNS0_7OffsetsE.exit
   %indvars.iv.i = phi i64 [ 0, %_ZNK19OpenColorIO_v2_5dev12MatrixOpData11MatrixArray5innerERKNS0_7OffsetsE.exit ], [ %indvars.iv.next.i, %48 ]
-  %49 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %50 = load double, ptr %49, align 8, !tbaa !7
   %51 = fneg double %50
   store double %51, ptr %49, align 8, !tbaa !7
@@ -2924,8 +2924,8 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12MatrixOpData15isUni
 .preheader.i:                                     ; preds = %.critedge.i, %.preheader.lr.ph.i
   %.02133.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %23, %.critedge.i ]
   %9 = mul i64 %.02133.i, %6
-  %10 = getelementptr double, ptr %8, i64 %9
-  %11 = getelementptr double, ptr %10, i64 %.02133.i
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
+  %11 = getelementptr [8 x i8], ptr %10, i64 %.02133.i
   br label %12
 
 12:                                               ; preds = %21, %.preheader.i
@@ -2939,7 +2939,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12MatrixOpData15isUni
   br i1 %16, label %_ZNK19OpenColorIO_v2_5dev12MatrixOpData11MatrixArray15isUnityDiagonalEv.exit, label %21
 
 17:                                               ; preds = %12
-  %18 = getelementptr double, ptr %10, i64 %.031.i
+  %18 = getelementptr [8 x i8], ptr %10, i64 %.031.i
   %19 = load double, ptr %18, align 8, !tbaa !7
   %20 = fcmp une double %19, 0.000000e+00
   br i1 %20, label %_ZNK19OpenColorIO_v2_5dev12MatrixOpData11MatrixArray15isUnityDiagonalEv.exit, label %21
@@ -3060,7 +3060,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12MatrixOpData10isIde
   br i1 %.not.i, label %66, label %62
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw double, ptr %59, i64 %.01216.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.01216.i
   %64 = load double, ptr %63, align 8, !tbaa !7
   %65 = fcmp une double %64, 0.000000e+00
   br i1 %65, label %.critedge25, label %66
@@ -3085,8 +3085,8 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12MatrixOpData10isIde
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
   %.01936 = phi i64 [ 0, %.preheader.lr.ph ], [ %87, %.critedge ]
   %73 = mul i64 %.01936, %71
-  %74 = getelementptr double, ptr %72, i64 %73
-  %75 = getelementptr double, ptr %74, i64 %.01936
+  %74 = getelementptr [8 x i8], ptr %72, i64 %73
+  %75 = getelementptr [8 x i8], ptr %74, i64 %.01936
   br label %76
 
 76:                                               ; preds = %.preheader, %85
@@ -3205,7 +3205,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12MatrixOpData10isDia
   br i1 %.not, label %20, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw double, ptr %13, i64 %.01216
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.01216
   %18 = load double, ptr %17, align 8, !tbaa !7
   %19 = fcmp une double %18, 0.000000e+00
   br i1 %19, label %.critedge, label %20
@@ -3354,7 +3354,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27
 
 36:                                               ; preds = %2
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %38 = getelementptr inbounds nuw double, ptr %37, i64 %1
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %1
   %39 = load double, ptr %38, align 8, !tbaa !7
   ret double %39
 
@@ -3462,7 +3462,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28
 
 37:                                               ; preds = %3
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %39 = getelementptr inbounds nuw double, ptr %38, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %1
   store double %2, ptr %39, align 8, !tbaa !7
   ret void
 
@@ -3607,11 +3607,11 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdEaSERKS1_.exit:  ; preds = %53
 .preheader.i:                                     ; preds = %72, %.preheader.lr.ph.i
   %.01620.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %74, %72 ]
   %70 = mul i64 %.01620.i, %67
-  %71 = getelementptr double, ptr %69, i64 %70
+  %71 = getelementptr [8 x i8], ptr %69, i64 %70
   br label %75
 
 72:                                               ; preds = %75
-  %73 = getelementptr inbounds nuw double, ptr %7, i64 %.01620.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.01620.i
   store double %80, ptr %73, align 8, !tbaa !7, !alias.scope !124
   %74 = add nuw i64 %.01620.i, 1
   %exitcond21.not.i = icmp eq i64 %74, %67
@@ -3620,9 +3620,9 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdEaSERKS1_.exit:  ; preds = %53
 75:                                               ; preds = %75, %.preheader.i
   %.019.i = phi i64 [ 0, %.preheader.i ], [ %81, %75 ]
   %.01518.i = phi double [ 0.000000e+00, %.preheader.i ], [ %80, %75 ]
-  %76 = getelementptr double, ptr %71, i64 %.019.i
+  %76 = getelementptr [8 x i8], ptr %71, i64 %.019.i
   %77 = load double, ptr %76, align 8, !tbaa !7, !noalias !124
-  %78 = getelementptr inbounds nuw double, ptr %63, i64 %.019.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.019.i
   %79 = load double, ptr %78, align 8, !tbaa !7, !noalias !124
   %80 = call double @llvm.fmuladd.f64(double %77, double %79, double %.01518.i)
   %81 = add nuw i64 %.019.i, 1
@@ -3672,12 +3672,12 @@ _ZNK19OpenColorIO_v2_5dev12MatrixOpData11MatrixArray5innerERKNS0_7OffsetsE.exit:
 97:                                               ; preds = %.lr.ph, %97
   %.03151 = phi i64 [ 0, %.lr.ph ], [ %108, %97 ]
   %.03250 = phi double [ 0.000000e+00, %.lr.ph ], [ %107, %97 ]
-  %98 = getelementptr inbounds nuw double, ptr %7, i64 %.03151
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.03151
   %99 = load double, ptr %98, align 8, !tbaa !7
   %100 = call double @llvm.fabs.f64(double %99)
   %101 = fcmp ogt double %.03250, %100
   %102 = select i1 %101, double %.03250, double %100
-  %103 = getelementptr inbounds nuw double, ptr %85, i64 %.03151
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.03151
   %104 = load double, ptr %103, align 8, !tbaa !7
   %105 = call double @llvm.fabs.f64(double %104)
   %106 = fcmp ogt double %102, %105
@@ -3696,9 +3696,9 @@ _ZN19OpenColorIO_v2_5dev12MatrixOpData10setOffsetsERKNS0_7OffsetsE.exit: ; preds
 
 111:                                              ; preds = %.lr.ph53, %111
   %.052 = phi i64 [ 0, %.lr.ph53 ], [ %117, %111 ]
-  %112 = getelementptr inbounds nuw double, ptr %86, i64 %.052
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %.052
   %113 = load double, ptr %112, align 8, !tbaa !7
-  %114 = getelementptr inbounds nuw double, ptr %7, i64 %.052
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.052
   %115 = load double, ptr %114, align 8, !tbaa !7
   %116 = fadd double %113, %115
   store double %116, ptr %114, align 8, !tbaa !7
@@ -3834,7 +3834,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData7cleanUpEd(ptr noundef
   %.062 = phi double [ 0.000000e+00, %.preheader58.lr.ph ], [ %23, %16 ]
   %.05261 = phi i64 [ 0, %.preheader58.lr.ph ], [ %17, %16 ]
   %10 = mul i64 %.05261, %8
-  %11 = getelementptr double, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   br label %18
 
 .preheader.lr.ph:                                 ; preds = %16
@@ -3852,7 +3852,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData7cleanUpEd(ptr noundef
 18:                                               ; preds = %.preheader58, %18
   %.160 = phi double [ %.062, %.preheader58 ], [ %23, %18 ]
   %.05459 = phi i64 [ 0, %.preheader58 ], [ %24, %18 ]
-  %19 = getelementptr double, ptr %11, i64 %.05459
+  %19 = getelementptr [8 x i8], ptr %11, i64 %.05459
   %20 = load double, ptr %19, align 8, !tbaa !7
   %21 = tail call double @llvm.fabs.f64(double %20)
   %22 = fcmp ogt double %.160, %21
@@ -3882,7 +3882,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData7cleanUpEd(ptr noundef
 33:                                               ; preds = %.preheader, %43
   %.05663 = phi i64 [ 0, %.preheader ], [ %44, %43 ]
   %34 = add i64 %.05663, %25
-  %35 = getelementptr inbounds nuw double, ptr %15, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %34
   %36 = load double, ptr %35, align 8, !tbaa !7
   %37 = tail call double @llvm.round.f64(double %36)
   %38 = fsub double %36, %37
@@ -3891,7 +3891,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData7cleanUpEd(ptr noundef
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds nuw double, ptr %26, i64 %34
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %34
   store double %37, ptr %42, align 8, !tbaa !7
   br label %43
 
@@ -3905,7 +3905,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData7cleanUpEd(ptr noundef
 
 45:                                               ; preds = %.lr.ph, %53
   %.05366 = phi i64 [ 0, %.lr.ph ], [ %54, %53 ]
-  %46 = getelementptr inbounds nuw double, ptr %30, i64 %.05366
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.05366
   %47 = load double, ptr %46, align 8, !tbaa !7
   %48 = tail call double @llvm.round.f64(double %47)
   %49 = fsub double %47, %48
@@ -4425,7 +4425,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData5scaleEdd(ptr noundef 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.07.i = phi i64 [ %18, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %15 = getelementptr inbounds nuw double, ptr %10, i64 %.07.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.07.i
   %16 = load double, ptr %15, align 8, !tbaa !7
   %17 = fmul double %4, %16
   store double %17, ptr %15, align 8, !tbaa !7
@@ -4439,7 +4439,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdE5scaleEd.exit:  ; preds = %.lr.ph.i, %3, %6
 
 20:                                               ; preds = %20, %_ZN19OpenColorIO_v2_5dev6ArrayTIdE5scaleEd.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN19OpenColorIO_v2_5dev6ArrayTIdE5scaleEd.exit ], [ %indvars.iv.next.i, %20 ]
-  %21 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   %22 = load double, ptr %21, align 8, !tbaa !7
   %23 = fmul double %2, %22
   store double %23, ptr %21, align 8, !tbaa !7
@@ -4486,7 +4486,7 @@ _ZN19OpenColorIO_v2_5dev6ArrayTIdED2Ev.exit:      ; preds = %1, %4
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev6ArrayTIdE14setDoubleValueEmd(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, double noundef %2) unnamed_addr #14 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !9
-  %6 = getelementptr inbounds nuw double, ptr %5, i64 %1
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   store double %2, ptr %6, align 8, !tbaa !7
   ret void
 }
@@ -4495,7 +4495,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev6ArrayTIdE14setDoubleVa
 define linkonce_odr hidden noundef double @_ZN19OpenColorIO_v2_5dev6ArrayTIdE14getDoubleValueEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #14 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !9
-  %5 = getelementptr inbounds nuw double, ptr %4, i64 %1
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %1
   %6 = load double, ptr %5, align 8, !tbaa !7
   ret double %6
 }
@@ -4538,7 +4538,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev6ArrayTIdE6resizeEmm(pt
   br i1 %22, label %23, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw double, ptr %13, i64 %10
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %10
   %.not.i.i = icmp eq ptr %12, %24
   br i1 %.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %25
 
@@ -4586,7 +4586,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12Matrix
   br i1 %.not.i, label %20, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw double, ptr %13, i64 %.01216.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.01216.i
   %18 = load double, ptr %17, align 8, !tbaa !7
   %19 = fcmp une double %18, 0.000000e+00
   br i1 %19, label %_ZNK19OpenColorIO_v2_5dev12MatrixOpData10isDiagonalEv.exit, label %20
@@ -4857,9 +4857,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !9
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !25
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !28
   br label %41
 
@@ -5131,7 +5131,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12
   %15 = load ptr, ptr %9, align 8
   %.idx.i.i.i.i = shl i64 %.01417.i.i.i.i.i.i, 5
   %16 = getelementptr i8, ptr %15, i64 %.idx.i.i.i.i
-  %17 = getelementptr double, ptr %16, i64 %.01417.i.i.i.i.i.i
+  %17 = getelementptr [8 x i8], ptr %16, i64 %.01417.i.i.i.i.i.i
   br label %20
 
 18:                                               ; preds = %23

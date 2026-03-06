@@ -289,11 +289,11 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.0256462 = phi i64 [ %88, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %83 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0256462
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0256462
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8, !tbaa !10
   %86 = call i64 @strtoll(ptr noundef captures(none) %85, ptr noundef null, i32 noundef 0) #11
-  %87 = getelementptr inbounds nuw i64, ptr %3, i64 %.0256462
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0256462
   store i64 %86, ptr %87, align 8, !tbaa !12
   %88 = add nuw nsw i64 %.0256462, 1
   %exitcond.not = icmp eq i64 %88, %82
@@ -439,10 +439,10 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 .lr.ph465:                                        ; preds = %.preheader461, %.lr.ph465
   %.1257464 = phi i64 [ %160, %.lr.ph465 ], [ 0, %.preheader461 ]
   %160 = add nuw nsw i64 %.1257464, 1
-  %161 = getelementptr inbounds nuw i64, ptr %3, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %160
   %162 = load i64, ptr %161, align 8, !tbaa !12
   %163 = trunc i64 %162 to i32
-  %164 = getelementptr inbounds nuw i32, ptr %8, i64 %.1257464
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.1257464
   store i32 %163, ptr %164, align 4, !tbaa !17
   %exitcond472.not = icmp eq i64 %160, %152
   br i1 %exitcond472.not, label %.lr.ph467, label %.lr.ph465, !llvm.loop !19
@@ -454,7 +454,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
 
 .lr.ph467:                                        ; preds = %.lr.ph465, %165
   %.2466 = phi i64 [ %166, %165 ], [ 0, %.lr.ph465 ]
-  %167 = getelementptr inbounds nuw i32, ptr %8, i64 %.2466
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.2466
   %168 = load i32, ptr %167, align 4, !tbaa !17
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %170, label %165
@@ -469,7 +469,7 @@ define dso_local range(i32 0, 6) i32 @main(i32 noundef %0, ptr noundef readonly 
   br label %.thread398
 
 ._crit_edge:                                      ; preds = %165, %.preheader461
-  %177 = getelementptr inbounds nuw i32, ptr %8, i64 %152
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %152
   store i32 0, ptr %177, align 4, !tbaa !17
   %178 = load ptr, ptr @stdout, align 8, !tbaa !8
   %179 = call i32 @H5D_btree_debug(ptr noundef nonnull %59, i64 noundef %.0254397, ptr noundef %178, i32 noundef 0, i32 noundef 50, i32 noundef %150, ptr noundef nonnull %8) #11
@@ -1187,7 +1187,7 @@ define internal fastcc noundef ptr @get_H5B2_class(i8 %.5.val) unnamed_addr #6 {
 
 switch.lookup:                                    ; preds = %0
   %6 = zext nneg i8 %.5.val to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_H5B2_class, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.get_H5B2_class, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 
@@ -1229,7 +1229,7 @@ define internal fastcc noundef ptr @get_H5EA_class(i8 %.5.val) unnamed_addr #6 {
 
 switch.lookup:                                    ; preds = %0
   %6 = zext nneg i8 %.5.val to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_H5EA_class, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.get_H5EA_class, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 
@@ -1259,7 +1259,7 @@ define internal fastcc noundef ptr @get_H5FA_class(i8 %.5.val) unnamed_addr #6 {
 
 switch.lookup:                                    ; preds = %0
   %6 = zext nneg i8 %.5.val to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_H5FA_class, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.get_H5FA_class, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 

@@ -383,7 +383,7 @@ _ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit19: ; preds = %96
 _ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE18get_extended_valueEv.exit: ; preds = %114, %118
   %119 = phi i64 [ %115, %114 ], [ %.pre, %118 ]
   %120 = and i64 %115, 63
-  %121 = getelementptr inbounds nuw i32, ptr %40, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !15
   %123 = mul i64 %119, 6364136223846793005
   %124 = load i64, ptr %4, align 8, !tbaa !22
@@ -500,7 +500,7 @@ _ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15sp
   %180 = phi i64 [ %163, %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE7advanceEmb.exit69 ], [ %.pre99, %179 ]
   %181 = phi i64 [ %176, %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE7advanceEmb.exit69 ], [ %.pre.i, %179 ]
   %182 = and i64 %176, 63
-  %183 = getelementptr inbounds nuw i32, ptr %40, i64 %182
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %182
   %184 = mul i64 %181, 6364136223846793005
   %185 = add i64 %180, %184
   store i64 %185, ptr %36, align 8, !tbaa !24
@@ -1028,7 +1028,7 @@ define linkonce_odr dso_local void @_ZN10pcg_detail8extendedILh6ELh16ENS_6engine
   %7 = add i64 %.013, %1
   %8 = trunc i64 %7 to i32
   %9 = lshr i64 %7, 32
-  %10 = getelementptr inbounds nuw i32, ptr %4, i64 %.01112
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.01112
   %11 = add nuw nsw i64 %.01112, 1
   %12 = tail call noundef zeroext i1 @_ZN10pcg_detail10inside_outINS_6engineIjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS_18default_multiplierIjEEEEE16external_advanceERjmjb(ptr noundef nonnull align 4 dereferenceable(4) %10, i64 noundef %11, i32 noundef %8, i1 noundef zeroext %2)
   %13 = zext i1 %12 to i64
@@ -1170,7 +1170,7 @@ define linkonce_odr dso_local void @_ZN10pcg_detail8extendedILh6ELh16ENS_6engine
 4:                                                ; preds = %1, %._crit_edge
   %.012 = phi i1 [ false, %1 ], [ %49, %._crit_edge ]
   %.0911 = phi i64 [ 0, %1 ], [ %29, %._crit_edge ]
-  %5 = getelementptr inbounds nuw i32, ptr %2, i64 %.0911
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.0911
   %6 = load i32, ptr %5, align 4, !tbaa !15
   br i1 %.012, label %7, label %._crit_edge
 
@@ -1201,7 +1201,7 @@ define linkonce_odr dso_local void @_ZN10pcg_detail8extendedILh6ELh16ENS_6engine
 ._crit_edge:                                      ; preds = %4, %7
   %27 = phi i32 [ %25, %7 ], [ %6, %4 ]
   %.1 = phi i1 [ %26, %7 ], [ false, %4 ]
-  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %.0911
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.0911
   %29 = add nuw nsw i64 %.0911, 1
   %30 = lshr i32 %27, 22
   %31 = xor i32 %30, %27

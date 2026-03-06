@@ -1944,7 +1944,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
 
 30:                                               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %31, i64 %27
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %27
   %33 = load ptr, ptr %32, align 8, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %35 = icmp eq ptr %33, %34
@@ -2176,7 +2176,7 @@ _ZNK6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEE12print_range_ERKN
 
 37:                                               ; preds = %_ZNK6spdlog5sinks14ansicolor_sinkINS_7details13console_mutexEE12print_range_ERKN3fmt3v1119basic_memory_bufferIcLm250ENS6_6detail9allocatorIcEEEEmm.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %39 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %38, i64 %34
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %34
   %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !39
@@ -4094,7 +4094,7 @@ define weak_odr dso_local void @_ZN6spdlog5sinks14ansicolor_sinkINS_7details17co
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %28 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %23
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %23
   %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = icmp eq ptr %29, %30
@@ -4295,7 +4295,7 @@ _ZNK6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEE12print_range_
 
 33:                                               ; preds = %_ZNK6spdlog5sinks14ansicolor_sinkINS_7details17console_nullmutexEE12print_range_ERKN3fmt3v1119basic_memory_bufferIcLm250ENS6_6detail9allocatorIcEEEEmm.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %35 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %34, i64 %30
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %30
   %36 = load ptr, ptr %35, align 8, !tbaa !41
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !39

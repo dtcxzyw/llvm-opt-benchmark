@@ -6,11 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%struct.VP8BitReader = type { i64, i32, i32, ptr, ptr, ptr, i32 }
-%struct.VP8MB = type { i8, i8 }
-%struct.VP8MBData = type { [384 x i16], i8, [16 x i8], i8, i32, i32, i8, i8, i8 }
-%struct.VP8QuantMatrix = type { [2 x i32], [2 x i32], [2 x i32], i32, i32 }
-%struct.VP8FInfo = type { i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [10 x i8] c"no object\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
@@ -800,7 +795,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnul
 
 17:                                               ; preds = %15
   %18 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 6) #14
-  %19 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   store i32 %18, ptr %19, align 4, !tbaa !32
   br label %20
 
@@ -817,7 +812,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnul
 
 23:                                               ; preds = %21
   %24 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 6) #14
-  %25 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv35
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv35
   store i32 %24, ptr %25, align 4, !tbaa !32
   br label %26
 
@@ -886,7 +881,7 @@ define internal fastcc range(i32 0, 8) i32 @ParsePartitions(ptr noundef nonnull 
   %22 = shl nuw nsw i64 %21, 16
   %23 = or disjoint i64 %22, %18
   %spec.select = tail call i64 @llvm.umin.i64(i64 %23, i64 %.04150)
-  %24 = getelementptr inbounds nuw %struct.VP8BitReader, ptr %15, i64 %.03951
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %.03951
   tail call void @VP8InitBitReader(ptr noundef nonnull %24, ptr noundef %.04249, i64 noundef %spec.select) #14
   %25 = getelementptr inbounds nuw i8, ptr %.04249, i64 %spec.select
   %26 = sub i64 %.04150, %spec.select
@@ -899,7 +894,7 @@ define internal fastcc range(i32 0, 8) i32 @ParsePartitions(ptr noundef nonnull 
   %.042.lcssa = phi ptr [ %13, %12 ], [ %25, %16 ]
   %.041.lcssa = phi i64 [ %14, %12 ], [ %26, %16 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %30 = getelementptr inbounds nuw %struct.VP8BitReader, ptr %29, i64 %9
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %29, i64 %9
   tail call void @VP8InitBitReader(ptr noundef nonnull %30, ptr noundef %.042.lcssa, i64 noundef %.041.lcssa) #14
   %31 = icmp ult ptr %.042.lcssa, %5
   br i1 %31, label %36, label %32
@@ -929,10 +924,10 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   %8 = load i32, ptr %7, align 8, !tbaa !77
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.VP8MB, ptr %5, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %5, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2912
   %12 = load ptr, ptr %11, align 8, !tbaa !78
-  %13 = getelementptr inbounds %struct.VP8MBData, ptr %12, i64 %9
+  %13 = getelementptr inbounds [800 x i8], ptr %12, i64 %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2800
   %15 = load i32, ptr %14, align 8, !tbaa !79
   %.not = icmp eq i32 %15, 0
@@ -950,7 +945,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 798
   %23 = load i8, ptr %22, align 2, !tbaa !82
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw %struct.VP8QuantMatrix, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(768) %13, i8 0, i64 768, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 768
   %27 = load i8, ptr %26, align 4, !tbaa !83
@@ -993,7 +988,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
 
 51:                                               ; preds = %51, %45
   %indvars.iv.i = phi i64 [ 0, %45 ], [ %indvars.iv.next.i, %51 ]
-  %52 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %indvars.iv.i
   store i16 %50, ptr %52, align 2, !tbaa !86
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 16
   %53 = icmp samesign ult i64 %indvars.iv.i, 240
@@ -1205,16 +1200,16 @@ ParseResiduals.exit:                              ; preds = %145, %151
   %173 = load ptr, ptr %172, align 8, !tbaa !99
   %174 = load i32, ptr %7, align 8, !tbaa !77
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds %struct.VP8FInfo, ptr %173, i64 %175
+  %176 = getelementptr inbounds [4 x i8], ptr %173, i64 %175
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 2924
   %178 = getelementptr inbounds nuw i8, ptr %13, i64 798
   %179 = load i8, ptr %178, align 2, !tbaa !82
   %180 = zext i8 %179 to i64
-  %181 = getelementptr inbounds nuw [2 x %struct.VP8FInfo], ptr %177, i64 %180
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %13, i64 768
   %183 = load i8, ptr %182, align 4, !tbaa !83
   %184 = zext i8 %183 to i64
-  %185 = getelementptr inbounds nuw %struct.VP8FInfo, ptr %181, i64 %184
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %181, i64 %184
   %186 = load i32, ptr %185, align 4
   store i32 %186, ptr %176, align 1
   %187 = getelementptr inbounds nuw i8, ptr %176, i64 2
@@ -1313,7 +1308,7 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
   %35 = load i32, ptr %28, align 8, !tbaa !27
   %36 = and i32 %35, %storemerge32.i
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %struct.VP8BitReader, ptr %27, i64 %37
+  %38 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %37
   %39 = tail call i32 @VP8ParseIntraModeRow(ptr noundef nonnull %29, ptr noundef nonnull %0) #14
   %.not25.i = icmp eq i32 %39, 0
   br i1 %.not25.i, label %43, label %.preheader.i
@@ -1466,7 +1461,7 @@ define internal range(i32 -2147483648, 17) i32 @GetCoeffsAlt(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %6
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %1, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds [11 x i8], ptr %10, i64 %11
@@ -1644,7 +1639,7 @@ VP8GetBitAlt.exit40:                              ; preds = %91, %94
 
 104:                                              ; preds = %VP8GetBitAlt.exit40
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %105 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
+  %105 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv.next
   %106 = load ptr, ptr %105, align 8, !tbaa !28
   %107 = icmp eq i64 %indvars.iv.next, 16
   br i1 %107, label %.loopexit, label %.preheader, !llvm.loop !127
@@ -1653,7 +1648,7 @@ VP8GetBitAlt.exit40:                              ; preds = %91, %94
   %109 = trunc nsw i64 %indvars.iv to i32
   %110 = add nsw i32 %109, 1
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds ptr, ptr %1, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %1, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !28
   %114 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %115 = load i8, ptr %114, align 1, !tbaa !31
@@ -1796,7 +1791,7 @@ VP8GetSigned.exit:                                ; preds = %159, %166, %172
   %191 = sub nsw i32 %190, %181
   %192 = icmp sgt i64 %indvars.iv, 0
   %193 = zext i1 %192 to i64
-  %194 = getelementptr inbounds nuw i32, ptr %3, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !32
   %196 = mul nsw i32 %191, %195
   %197 = trunc i32 %196 to i16
@@ -1805,7 +1800,7 @@ VP8GetSigned.exit:                                ; preds = %159, %166, %172
   %199 = getelementptr inbounds i8, ptr @kZigzag, i64 %198
   %200 = load i8, ptr %199, align 1, !tbaa !31
   %201 = zext i8 %200 to i64
-  %202 = getelementptr inbounds nuw i16, ptr %5, i64 %201
+  %202 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %201
   store i16 %197, ptr %202, align 2, !tbaa !86
   %203 = icmp slt i64 %indvars.iv, 15
   br i1 %203, label %17, label %.loopexit, !llvm.loop !142
@@ -1822,7 +1817,7 @@ define internal range(i32 -2147483648, 17) i32 @GetCoeffsFast(ptr noundef %0, pt
 
 .lr.ph:                                           ; preds = %6
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %1, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds [11 x i8], ptr %10, i64 %11
@@ -1982,7 +1977,7 @@ VP8GetBit.exit38:                                 ; preds = %80, %86
 
 94:                                               ; preds = %VP8GetBit.exit38
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %95 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
+  %95 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv.next
   %96 = load ptr, ptr %95, align 8, !tbaa !28
   %97 = icmp eq i64 %indvars.iv.next, 16
   br i1 %97, label %.loopexit, label %.preheader, !llvm.loop !157
@@ -1991,7 +1986,7 @@ VP8GetBit.exit38:                                 ; preds = %80, %86
   %99 = trunc nsw i64 %indvars.iv to i32
   %100 = add nsw i32 %99, 1
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds ptr, ptr %1, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %1, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !28
   %104 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %105 = load i8, ptr %104, align 1, !tbaa !31
@@ -2124,7 +2119,7 @@ VP8GetSigned.exit:                                ; preds = %143, %150, %156
   %175 = sub nsw i32 %174, %165
   %176 = icmp sgt i64 %indvars.iv, 0
   %177 = zext i1 %176 to i64
-  %178 = getelementptr inbounds nuw i32, ptr %3, i64 %177
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %177
   %179 = load i32, ptr %178, align 4, !tbaa !32
   %180 = mul nsw i32 %175, %179
   %181 = trunc i32 %180 to i16
@@ -2133,7 +2128,7 @@ VP8GetSigned.exit:                                ; preds = %143, %150, %156
   %183 = getelementptr inbounds i8, ptr @kZigzag, i64 %182
   %184 = load i8, ptr %183, align 1, !tbaa !31
   %185 = zext i8 %184 to i64
-  %186 = getelementptr inbounds nuw i16, ptr %5, i64 %185
+  %186 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %185
   store i16 %181, ptr %186, align 2, !tbaa !86
   %187 = icmp slt i64 %indvars.iv, 15
   br i1 %187, label %17, label %.loopexit, !llvm.loop !172
@@ -2826,7 +2821,7 @@ VP8GetBit.exit80:                                 ; preds = %369, %375
   %384 = select i1 %328, i32 2, i32 0
   %385 = or disjoint i32 %384, %378
   %386 = zext nneg i32 %385 to i64
-  %387 = getelementptr inbounds nuw ptr, ptr @kCat3456, i64 %386
+  %387 = getelementptr inbounds nuw [8 x i8], ptr @kCat3456, i64 %386
   %388 = load ptr, ptr %387, align 8, !tbaa !243
   %389 = load i8, ptr %388, align 1, !tbaa !31
   %.not3589 = icmp eq i8 %389, 0

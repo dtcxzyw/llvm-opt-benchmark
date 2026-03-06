@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._et_dissector_info = type { ptr }
 %struct._wmem_tree_key_t = type { i32, ptr }
 %struct._uuid_t = type { i16, i8, [16 x i8] }
-%struct._bt_uuid_t = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"SDP\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"UDP\00", align 1
@@ -6014,7 +6013,7 @@ define internal void @bt_uuids_post_update_cb() #1 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %2 = load ptr, ptr @bluetooth_uuids, align 8
   %3 = load ptr, ptr @bt_uuids, align 8
-  %4 = getelementptr %struct._bt_uuid_t, ptr %3, i64 %indvars.iv
+  %4 = getelementptr [16 x i8], ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8

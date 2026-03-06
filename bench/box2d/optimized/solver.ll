@@ -4,44 +4,15 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.b2WorkerContext = type { ptr, i32, ptr }
-%struct.b2GraphColor = type { %struct.b2BitSet, %struct.b2ContactSimArray, %struct.b2JointSimArray, %union.anon }
-%struct.b2BitSet = type { ptr, i32, i32 }
-%struct.b2ContactSimArray = type { ptr, i32, i32 }
-%struct.b2JointSimArray = type { ptr, i32, i32 }
-%union.anon = type { ptr }
-%struct.b2ContactSim = type { i32, i32, i32, i32, i32, float, float, float, float, %struct.b2Manifold, float, float, float, float, i32, %struct.b2SimplexCache }
-%struct.b2Manifold = type { %struct.b2Vec2, float, [2 x %struct.b2ManifoldPoint], i32 }
-%struct.b2Vec2 = type { float, float }
-%struct.b2ManifoldPoint = type { %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, i16, i8 }
-%struct.b2SimplexCache = type { i16, [3 x i8], [3 x i8] }
-%struct.b2JointSim = type { i32, i32, i32, i32, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, %union.anon.0 }
-%union.anon.0 = type { %struct.b2PrismaticJoint }
-%struct.b2PrismaticJoint = type { %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, float, float, float, float, float, float, i32, i32, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, %struct.b2Softness, i8, i8, i8 }
-%struct.b2Softness = type { float, float, float }
-%struct.b2SolverBlock = type { i32, i16, i16, %struct.b2AtomicInt }
-%struct.b2AtomicInt = type { i32 }
-%struct.b2TaskContext = type { %struct.b2BitSet, %struct.b2BitSet, %struct.b2BitSet, float, i32 }
-%struct.b2Shape = type { i32, i32, i32, i32, i32, i32, float, float, float, float, float, i32, %struct.b2AABB, %struct.b2AABB, %struct.b2Vec2, i32, %struct.b2Filter, ptr, i32, %union.anon.1, i16, i8, i8, i8, i8 }
-%struct.b2AABB = type { %struct.b2Vec2, %struct.b2Vec2 }
-%struct.b2Filter = type { i64, i64, i32 }
-%union.anon.1 = type { %struct.b2Polygon }
-%struct.b2Polygon = type { [8 x %struct.b2Vec2], [8 x %struct.b2Vec2], %struct.b2Vec2, float, i32 }
-%struct.b2ContactHitEvent = type { %struct.b2ShapeId, %struct.b2ShapeId, %struct.b2Vec2, %struct.b2Vec2, float }
-%struct.b2ShapeId = type { i32, i16, i16 }
-%struct.b2BodySim = type { %struct.b2Transform, %struct.b2Vec2, %struct.b2Rot, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, float, float, float, i32, i8, i8, i8, i8, i8 }
-%struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
-%struct.b2Rot = type { float, float }
-%struct.b2Body = type { [32 x i8], ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, float, float, float, float, i32, i32, i32, i16, i8, i8, i8, i8 }
-%struct.b2IslandSim = type { i32 }
-%struct.b2SolverStage = type { i32, ptr, i32, i32, %struct.b2AtomicInt }
-%struct.b2BodyState = type { %struct.b2Vec2, float, i32, %struct.b2Vec2, %struct.b2Rot }
-%struct.b2BodyMoveEvent = type { %struct.b2Transform, %struct.b2BodyId, ptr, i8 }
-%struct.b2BodyId = type { i32, i16, i16 }
-%struct.b2Island = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.b2ContinuousContext = type { ptr, ptr, ptr, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Sweep, float }
+%struct.b2Vec2 = type { float, float }
 %struct.b2Sweep = type { %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Rot, %struct.b2Rot }
+%struct.b2Rot = type { float, float }
 %struct.b2TOIInput = type { %struct.b2ShapeProxy, %struct.b2ShapeProxy, %struct.b2Sweep, %struct.b2Sweep, float }
 %struct.b2ShapeProxy = type { [8 x %struct.b2Vec2], i32, float }
+%struct.b2Manifold = type { %struct.b2Vec2, float, [2 x %struct.b2ManifoldPoint], i32 }
+%struct.b2ManifoldPoint = type { %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, i16, i8 }
+%struct.b2Filter = type { i64, i64, i32 }
 
 @.str = private unnamed_addr constant [14 x i8] c"bullet bodies\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"contact pointers\00", align 1
@@ -145,7 +116,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 59:                                               ; preds = %39, %59
   %indvars.iv = phi i64 [ 0, %39 ], [ %indvars.iv.next, %59 ]
   %.0771 = phi i32 [ 0, %39 ], [ %63, %59 ]
-  %60 = getelementptr inbounds nuw %struct.b2GraphColor, ptr %45, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [56 x i8], ptr %45, i64 %indvars.iv
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %62 = load i32, ptr %61, align 8, !tbaa !94
   %63 = add nsw i32 %62, %.0771
@@ -202,7 +173,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %.0672775 = phi i32 [ 0, %70 ], [ %.1673, %135 ]
   %.0674774 = phi i32 [ 0, %70 ], [ %.1675, %135 ]
   %.0676773 = phi i32 [ 0, %70 ], [ %.1677, %135 ]
-  %87 = getelementptr inbounds nuw %struct.b2GraphColor, ptr %45, i64 %indvars.iv914
+  %87 = getelementptr inbounds nuw [56 x i8], ptr %45, i64 %indvars.iv914
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = load i32, ptr %88, align 8, !tbaa !98
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 40
@@ -213,7 +184,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 94:                                               ; preds = %86
   %95 = sext i32 %.0676773 to i64
-  %96 = getelementptr inbounds i32, ptr %4, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %4, i64 %95
   %97 = trunc nuw nsw i64 %indvars.iv914 to i32
   store i32 %97, ptr %96, align 4, !tbaa !100
   %98 = icmp sgt i32 %89, 0
@@ -221,10 +192,10 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %100 = ashr i32 %99, 2
   %101 = add nsw i32 %100, 1
   %102 = select i1 %98, i32 %101, i32 0
-  %103 = getelementptr inbounds i32, ptr %5, i64 %95
+  %103 = getelementptr inbounds [4 x i8], ptr %5, i64 %95
   store i32 %102, ptr %103, align 4, !tbaa !100
   %104 = icmp sgt i32 %102, %71
-  %105 = getelementptr inbounds i32, ptr %6, i64 %95
+  %105 = getelementptr inbounds [4 x i8], ptr %6, i64 %95
   br i1 %104, label %106, label %108
 
 106:                                              ; preds = %94
@@ -249,12 +220,12 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 115:                                              ; preds = %110, %114, %106
   %.sink = phi i32 [ %113, %110 ], [ 0, %114 ], [ %56, %106 ]
-  %116 = getelementptr inbounds i32, ptr %7, i64 %95
+  %116 = getelementptr inbounds [4 x i8], ptr %7, i64 %95
   store i32 %.sink, ptr %116, align 4, !tbaa !100
-  %117 = getelementptr inbounds i32, ptr %8, i64 %95
+  %117 = getelementptr inbounds [4 x i8], ptr %8, i64 %95
   store i32 %91, ptr %117, align 4, !tbaa !100
   %118 = icmp sgt i32 %91, %71
-  %119 = getelementptr inbounds i32, ptr %9, i64 %95
+  %119 = getelementptr inbounds [4 x i8], ptr %9, i64 %95
   br i1 %118, label %120, label %122
 
 120:                                              ; preds = %115
@@ -279,7 +250,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 129:                                              ; preds = %124, %128, %120
   %.sink1115 = phi i32 [ %127, %124 ], [ 0, %128 ], [ %56, %120 ]
-  %130 = getelementptr inbounds i32, ptr %10, i64 %95
+  %130 = getelementptr inbounds [4 x i8], ptr %10, i64 %95
   store i32 %.sink1115, ptr %130, align 4, !tbaa !100
   %131 = add i32 %.sink, %.0672775
   %132 = add i32 %131, %.sink1115
@@ -308,10 +279,10 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %indvars.iv930 = phi i64 [ 0, %.lr.ph789.preheader ], [ %indvars.iv.next931, %._crit_edge784 ]
   %.0681787 = phi i32 [ 0, %.lr.ph789.preheader ], [ %.1682, %._crit_edge784 ]
   %.0683786 = phi i32 [ 0, %.lr.ph789.preheader ], [ %184, %._crit_edge784 ]
-  %142 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv930
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv930
   %143 = load i32, ptr %142, align 4, !tbaa !100
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds %struct.b2GraphColor, ptr %45, i64 %144
+  %145 = getelementptr inbounds [56 x i8], ptr %45, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %148 = load i32, ptr %147, align 8, !tbaa !98
@@ -336,7 +307,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %158 = shl nsw i32 %.0681787, 2
   %159 = sext i32 %158 to i64
   %wide.trip.count = zext nneg i32 %148 to i64
-  %invariant.gep = getelementptr ptr, ptr %74, i64 %159
+  %invariant.gep = getelementptr [8 x i8], ptr %74, i64 %159
   br label %174
 
 ._crit_edge:                                      ; preds = %174, %152
@@ -364,8 +335,8 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 174:                                              ; preds = %.lr.ph, %174
   %indvars.iv918 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next919, %174 ]
   %175 = load ptr, ptr %146, align 8, !tbaa !103
-  %176 = getelementptr inbounds nuw %struct.b2ContactSim, ptr %175, i64 %indvars.iv918
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv918
+  %176 = getelementptr inbounds nuw [176 x i8], ptr %175, i64 %indvars.iv918
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv918
   store ptr %176, ptr %gep, align 8, !tbaa !102
   %indvars.iv.next919 = add nuw nsw i64 %indvars.iv918, 1
   %exitcond921.not = icmp eq i64 %indvars.iv.next919, %wide.trip.count
@@ -386,7 +357,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 .lr.ph783.preheader:                              ; preds = %178
   %183 = sext i32 %.0683786 to i64
   %wide.trip.count928 = zext nneg i32 %181 to i64
-  %invariant.gep1112 = getelementptr ptr, ptr %76, i64 %183
+  %invariant.gep1112 = getelementptr [8 x i8], ptr %76, i64 %183
   br label %.lr.ph783
 
 ._crit_edge784:                                   ; preds = %.lr.ph783, %178
@@ -398,8 +369,8 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 .lr.ph783:                                        ; preds = %.lr.ph783.preheader, %.lr.ph783
   %indvars.iv925 = phi i64 [ 0, %.lr.ph783.preheader ], [ %indvars.iv.next926, %.lr.ph783 ]
   %185 = load ptr, ptr %179, align 8, !tbaa !106
-  %186 = getelementptr inbounds nuw %struct.b2JointSim, ptr %185, i64 %indvars.iv925
-  %gep1113 = getelementptr ptr, ptr %invariant.gep1112, i64 %indvars.iv925
+  %186 = getelementptr inbounds nuw [172 x i8], ptr %185, i64 %indvars.iv925
+  %gep1113 = getelementptr [8 x i8], ptr %invariant.gep1112, i64 %indvars.iv925
   store ptr %186, ptr %gep1113, align 8, !tbaa !107
   %indvars.iv.next926 = add nuw nsw i64 %indvars.iv925, 1
   %exitcond929.not = icmp eq i64 %indvars.iv.next926, %wide.trip.count928
@@ -478,7 +449,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %232 = sub nsw i32 %24, %231
   %233 = trunc i32 %232 to i16
   %234 = sext i32 %230 to i64
-  %235 = getelementptr inbounds %struct.b2SolverBlock, ptr %204, i64 %234
+  %235 = getelementptr inbounds [12 x i8], ptr %204, i64 %234
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 4
   store i16 %233, ptr %236, align 4, !tbaa !112
   %237 = icmp sgt i32 %.0692, 0
@@ -491,7 +462,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 239:                                              ; preds = %.lr.ph793, %239
   %indvars.iv936 = phi i64 [ 0, %.lr.ph793 ], [ %indvars.iv.next937, %239 ]
-  %240 = getelementptr inbounds nuw %struct.b2SolverBlock, ptr %204, i64 %indvars.iv936
+  %240 = getelementptr inbounds nuw [12 x i8], ptr %204, i64 %indvars.iv936
   %241 = trunc i64 %indvars.iv936 to i32
   %242 = mul i32 %.0668, %241
   store i32 %242, ptr %240, align 4, !tbaa !114
@@ -507,7 +478,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 246:                                              ; preds = %.lr.ph797, %246
   %indvars.iv941 = phi i64 [ 0, %.lr.ph797 ], [ %indvars.iv.next942, %246 ]
-  %247 = getelementptr inbounds nuw %struct.b2SolverBlock, ptr %208, i64 %indvars.iv941
+  %247 = getelementptr inbounds nuw [12 x i8], ptr %208, i64 %indvars.iv941
   %248 = trunc i64 %indvars.iv941 to i32
   %249 = mul i32 %.0691, %248
   store i32 %249, ptr %247, align 4, !tbaa !114
@@ -527,7 +498,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %255 = sub nsw i32 %63, %254
   %256 = trunc i32 %255 to i16
   %257 = zext nneg i32 %253 to i64
-  %258 = getelementptr inbounds nuw %struct.b2SolverBlock, ptr %208, i64 %257
+  %258 = getelementptr inbounds nuw [12 x i8], ptr %208, i64 %257
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 4
   store i16 %256, ptr %259, align 4, !tbaa !112
   br label %._crit_edge798
@@ -543,7 +514,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 262:                                              ; preds = %.lr.ph801, %262
   %indvars.iv946 = phi i64 [ 0, %.lr.ph801 ], [ %indvars.iv.next947, %262 ]
-  %263 = getelementptr inbounds nuw %struct.b2SolverBlock, ptr %206, i64 %indvars.iv946
+  %263 = getelementptr inbounds nuw [12 x i8], ptr %206, i64 %indvars.iv946
   %264 = trunc i64 %indvars.iv946 to i32
   %265 = mul i32 %.0689, %264
   store i32 %265, ptr %263, align 4, !tbaa !114
@@ -563,7 +534,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %271 = sub nsw i32 %.1675, %270
   %272 = trunc i32 %271 to i16
   %273 = zext nneg i32 %269 to i64
-  %274 = getelementptr inbounds nuw %struct.b2SolverBlock, ptr %206, i64 %273
+  %274 = getelementptr inbounds nuw [12 x i8], ptr %206, i64 %273
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 4
   store i16 %272, ptr %275, align 4, !tbaa !112
   br label %._crit_edge802
@@ -616,11 +587,11 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 .lr.ph814:                                        ; preds = %.lr.ph814.preheader, %._crit_edge810
   %indvars.iv961 = phi i64 [ 0, %.lr.ph814.preheader ], [ %indvars.iv.next962, %._crit_edge810 ]
   %.0699812 = phi ptr [ %210, %.lr.ph814.preheader ], [ %.2701, %._crit_edge810 ]
-  %291 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv961
+  %291 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv961
   store ptr %.0699812, ptr %291, align 8, !tbaa !125
-  %292 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv961
+  %292 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv961
   %293 = load i32, ptr %292, align 4, !tbaa !100
-  %294 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv961
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv961
   %295 = load i32, ptr %294, align 4, !tbaa !100
   %296 = icmp sgt i32 %293, 0
   br i1 %296, label %.lr.ph805, label %._crit_edge806
@@ -632,7 +603,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 298:                                              ; preds = %.lr.ph805, %298
   %indvars.iv951 = phi i64 [ 0, %.lr.ph805 ], [ %indvars.iv.next952, %298 ]
-  %299 = getelementptr inbounds nuw %struct.b2SolverBlock, ptr %.0699812, i64 %indvars.iv951
+  %299 = getelementptr inbounds nuw [12 x i8], ptr %.0699812, i64 %indvars.iv951
   %300 = trunc i64 %indvars.iv951 to i32
   %301 = mul i32 %295, %300
   store i32 %301, ptr %299, align 4, !tbaa !114
@@ -647,25 +618,25 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %exitcond955.not, label %._crit_edge806.thread, label %298, !llvm.loop !126
 
 ._crit_edge806.thread:                            ; preds = %298
-  %305 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv961
+  %305 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv961
   %306 = load i32, ptr %305, align 4, !tbaa !100
   %307 = add nsw i32 %293, -1
   %308 = mul nsw i32 %307, %295
   %309 = sub nsw i32 %306, %308
   %310 = trunc i32 %309 to i16
   %311 = zext nneg i32 %307 to i64
-  %312 = getelementptr inbounds nuw %struct.b2SolverBlock, ptr %.0699812, i64 %311
+  %312 = getelementptr inbounds nuw [12 x i8], ptr %.0699812, i64 %311
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 4
   store i16 %310, ptr %313, align 4, !tbaa !112
   %314 = zext nneg i32 %293 to i64
-  %315 = getelementptr inbounds nuw %struct.b2SolverBlock, ptr %.0699812, i64 %314
+  %315 = getelementptr inbounds nuw [12 x i8], ptr %.0699812, i64 %314
   br label %._crit_edge806
 
 ._crit_edge806:                                   ; preds = %.lr.ph814, %._crit_edge806.thread
   %.1700 = phi ptr [ %315, %._crit_edge806.thread ], [ %.0699812, %.lr.ph814 ]
-  %316 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv961
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv961
   %317 = load i32, ptr %316, align 4, !tbaa !100
-  %318 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv961
+  %318 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv961
   %319 = load i32, ptr %318, align 4, !tbaa !100
   %320 = icmp sgt i32 %317, 0
   br i1 %320, label %.lr.ph809, label %._crit_edge810
@@ -677,7 +648,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 322:                                              ; preds = %.lr.ph809, %322
   %indvars.iv956 = phi i64 [ 0, %.lr.ph809 ], [ %indvars.iv.next957, %322 ]
-  %323 = getelementptr inbounds nuw %struct.b2SolverBlock, ptr %.1700, i64 %indvars.iv956
+  %323 = getelementptr inbounds nuw [12 x i8], ptr %.1700, i64 %indvars.iv956
   %324 = trunc i64 %indvars.iv956 to i32
   %325 = mul i32 %319, %324
   store i32 %325, ptr %323, align 4, !tbaa !114
@@ -692,18 +663,18 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %exitcond960.not, label %._crit_edge810.thread, label %322, !llvm.loop !127
 
 ._crit_edge810.thread:                            ; preds = %322
-  %329 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv961
+  %329 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv961
   %330 = load i32, ptr %329, align 4, !tbaa !100
   %331 = add nsw i32 %317, -1
   %332 = mul nsw i32 %331, %319
   %333 = sub nsw i32 %330, %332
   %334 = trunc i32 %333 to i16
   %335 = zext nneg i32 %331 to i64
-  %336 = getelementptr inbounds nuw %struct.b2SolverBlock, ptr %.1700, i64 %335
+  %336 = getelementptr inbounds nuw [12 x i8], ptr %.1700, i64 %335
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 4
   store i16 %334, ptr %337, align 4, !tbaa !112
   %338 = zext nneg i32 %317 to i64
-  %339 = getelementptr inbounds nuw %struct.b2SolverBlock, ptr %.1700, i64 %338
+  %339 = getelementptr inbounds nuw [12 x i8], ptr %.1700, i64 %338
   br label %._crit_edge810
 
 ._crit_edge810:                                   ; preds = %._crit_edge806, %._crit_edge810.thread
@@ -720,18 +691,18 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %indvars.iv967 = phi i64 [ 0, %.lr.ph819.preheader ], [ %indvars.iv.next968, %.lr.ph819 ]
   %.0707817 = phi ptr [ %290, %.lr.ph819.preheader ], [ %353, %.lr.ph819 ]
   store i32 3, ptr %.0707817, align 8, !tbaa !119
-  %340 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv967
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv967
   %341 = load ptr, ptr %340, align 8, !tbaa !125
   %342 = getelementptr inbounds nuw i8, ptr %.0707817, i64 8
   store ptr %341, ptr %342, align 8, !tbaa !122
-  %343 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv967
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv967
   %344 = load i32, ptr %343, align 4, !tbaa !100
-  %345 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv967
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv967
   %346 = load i32, ptr %345, align 4, !tbaa !100
   %347 = add nsw i32 %346, %344
   %348 = getelementptr inbounds nuw i8, ptr %.0707817, i64 16
   store i32 %347, ptr %348, align 8, !tbaa !123
-  %349 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv967
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv967
   %350 = load i32, ptr %349, align 4, !tbaa !100
   %351 = getelementptr inbounds nuw i8, ptr %.0707817, i64 20
   store i32 %350, ptr %351, align 4, !tbaa !124
@@ -760,18 +731,18 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %indvars.iv973 = phi i64 [ 0, %.lr.ph822.preheader ], [ %indvars.iv.next974, %.lr.ph822 ]
   %.1708821 = phi ptr [ %353, %.lr.ph822.preheader ], [ %371, %.lr.ph822 ]
   store i32 4, ptr %.1708821, align 8, !tbaa !119
-  %358 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv973
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv973
   %359 = load ptr, ptr %358, align 8, !tbaa !125
   %360 = getelementptr inbounds nuw i8, ptr %.1708821, i64 8
   store ptr %359, ptr %360, align 8, !tbaa !122
-  %361 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv973
+  %361 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv973
   %362 = load i32, ptr %361, align 4, !tbaa !100
-  %363 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv973
+  %363 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv973
   %364 = load i32, ptr %363, align 4, !tbaa !100
   %365 = add nsw i32 %364, %362
   %366 = getelementptr inbounds nuw i8, ptr %.1708821, i64 16
   store i32 %365, ptr %366, align 8, !tbaa !123
-  %367 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv973
+  %367 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv973
   %368 = load i32, ptr %367, align 4, !tbaa !100
   %369 = getelementptr inbounds nuw i8, ptr %.1708821, i64 20
   store i32 %368, ptr %369, align 4, !tbaa !124
@@ -804,18 +775,18 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %.2709828 = phi ptr [ %.27098251081, %.lr.ph830.preheader ], [ %.2709, %.lr.ph830 ]
   %.1708.pn827 = phi ptr [ %371, %.lr.ph830.preheader ], [ %.2709828, %.lr.ph830 ]
   store i32 6, ptr %.2709828, align 8, !tbaa !119
-  %376 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv979
+  %376 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv979
   %377 = load ptr, ptr %376, align 8, !tbaa !125
   %378 = getelementptr inbounds nuw i8, ptr %.1708.pn827, i64 40
   store ptr %377, ptr %378, align 8, !tbaa !122
-  %379 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv979
+  %379 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv979
   %380 = load i32, ptr %379, align 4, !tbaa !100
-  %381 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv979
+  %381 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv979
   %382 = load i32, ptr %381, align 4, !tbaa !100
   %383 = add nsw i32 %382, %380
   %384 = getelementptr inbounds nuw i8, ptr %.1708.pn827, i64 48
   store i32 %383, ptr %384, align 8, !tbaa !123
-  %385 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv979
+  %385 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv979
   %386 = load i32, ptr %385, align 4, !tbaa !100
   %387 = getelementptr inbounds nuw i8, ptr %.1708.pn827, i64 52
   store i32 %386, ptr %387, align 4, !tbaa !124
@@ -877,18 +848,18 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %indvars.iv985 = phi i64 [ 0, %.lr.ph834.preheader ], [ %indvars.iv.next986, %.lr.ph834 ]
   %.3833 = phi ptr [ %.2709, %.lr.ph834.preheader ], [ %423, %.lr.ph834 ]
   store i32 7, ptr %.3833, align 8, !tbaa !119
-  %410 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv985
+  %410 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv985
   %411 = load ptr, ptr %410, align 8, !tbaa !125
   %412 = getelementptr inbounds nuw i8, ptr %.3833, i64 8
   store ptr %411, ptr %412, align 8, !tbaa !122
-  %413 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv985
+  %413 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv985
   %414 = load i32, ptr %413, align 4, !tbaa !100
-  %415 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv985
+  %415 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv985
   %416 = load i32, ptr %415, align 4, !tbaa !100
   %417 = add nsw i32 %416, %414
   %418 = getelementptr inbounds nuw i8, ptr %.3833, i64 16
   store i32 %417, ptr %418, align 8, !tbaa !123
-  %419 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv985
+  %419 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv985
   %420 = load i32, ptr %419, align 4, !tbaa !100
   %421 = getelementptr inbounds nuw i8, ptr %.3833, i64 20
   store i32 %420, ptr %421, align 4, !tbaa !124
@@ -905,7 +876,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 424:                                              ; preds = %.lr.ph839, %424
   %indvars.iv991 = phi i64 [ 0, %.lr.ph839 ], [ %indvars.iv.next992, %424 ]
-  %425 = getelementptr inbounds nuw %struct.b2WorkerContext, ptr %12, i64 %indvars.iv991
+  %425 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv991
   store ptr %1, ptr %425, align 8, !tbaa !142
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 8
   %427 = trunc nuw nsw i64 %indvars.iv991 to i32
@@ -968,7 +939,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 459:                                              ; preds = %.lr.ph843, %468
   %indvars.iv996 = phi i64 [ 0, %.lr.ph843 ], [ %indvars.iv.next997, %468 ]
-  %460 = getelementptr inbounds nuw %struct.b2WorkerContext, ptr %12, i64 %indvars.iv996
+  %460 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv996
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 16
   %462 = load ptr, ptr %461, align 8, !tbaa !146
   %.not752 = icmp eq ptr %462, null
@@ -1004,7 +975,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 477:                                              ; preds = %.lr.ph847, %477
   %indvars.iv1001 = phi i64 [ 0, %.lr.ph847 ], [ %indvars.iv.next1002, %477 ]
   %478 = load ptr, ptr %458, align 8, !tbaa !151
-  %479 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %478, i64 %indvars.iv1001
+  %479 = getelementptr inbounds nuw [56 x i8], ptr %478, i64 %indvars.iv1001
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 16
   call void @b2SetBitCountAndClear(ptr noundef nonnull %480, i32 noundef %24) #8
   %481 = getelementptr inbounds nuw i8, ptr %479, i64 32
@@ -1075,7 +1046,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 508:                                              ; preds = %491, %._crit_edge862
   %indvars.iv1013 = phi i64 [ 0, %491 ], [ %indvars.iv.next1014, %._crit_edge862 ]
-  %509 = getelementptr inbounds nuw %struct.b2GraphColor, ptr %45, i64 %indvars.iv1013
+  %509 = getelementptr inbounds nuw [56 x i8], ptr %45, i64 %indvars.iv1013
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 16
   %511 = getelementptr inbounds nuw i8, ptr %509, i64 24
   %512 = load i32, ptr %511, align 8, !tbaa !98
@@ -1094,7 +1065,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 .lr.ph861:                                        ; preds = %.lr.ph861.preheader, %.critedge
   %indvars.iv1008 = phi i64 [ 0, %.lr.ph861.preheader ], [ %indvars.iv.next1009, %.critedge ]
-  %515 = getelementptr inbounds nuw %struct.b2ContactSim, ptr %513, i64 %indvars.iv1008
+  %515 = getelementptr inbounds nuw [176 x i8], ptr %513, i64 %indvars.iv1008
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 164
   %517 = load i32, ptr %516, align 4, !tbaa !160
   %518 = and i32 %517, 1048576
@@ -1125,7 +1096,7 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 526:                                              ; preds = %.outer, %536
   %indvars.iv1004 = phi i64 [ %indvars.iv.next1005, %536 ], [ %indvars.iv1004.ph, %.outer ]
-  %527 = getelementptr inbounds nuw %struct.b2ManifoldPoint, ptr %525, i64 %indvars.iv1004
+  %527 = getelementptr inbounds nuw [48 x i8], ptr %525, i64 %indvars.iv1004
   %528 = getelementptr inbounds nuw i8, ptr %527, i64 40
   %529 = load float, ptr %528, align 4, !tbaa !165
   %530 = fneg float %529
@@ -1157,11 +1128,11 @@ define hidden void @b2Solve(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %540 = load i32, ptr %539, align 4, !tbaa !169
   %.val754 = load ptr, ptr %497, align 8, !tbaa !170
   %541 = sext i32 %540 to i64
-  %542 = getelementptr inbounds %struct.b2Shape, ptr %.val754, i64 %541
+  %542 = getelementptr inbounds [288 x i8], ptr %.val754, i64 %541
   %543 = getelementptr inbounds nuw i8, ptr %515, i64 16
   %544 = load i32, ptr %543, align 4, !tbaa !171
   %545 = sext i32 %544 to i64
-  %546 = getelementptr inbounds %struct.b2Shape, ptr %.val754, i64 %545
+  %546 = getelementptr inbounds [288 x i8], ptr %.val754, i64 %545
   %547 = load i32, ptr %542, align 8, !tbaa !172
   %548 = add nsw i32 %547, 1
   %549 = load i16, ptr %498, align 4, !tbaa !176
@@ -1189,7 +1160,7 @@ b2ContactHitEventArray_Push.exit:                 ; preds = %._crit_edge855.thre
   %564 = phi i32 [ %.pre.i, %559 ], [ %556, %._crit_edge855.thread ]
   %565 = load ptr, ptr %499, align 8, !tbaa !180
   %566 = sext i32 %564 to i64
-  %567 = getelementptr inbounds %struct.b2ContactHitEvent, ptr %565, i64 %566
+  %567 = getelementptr inbounds [36 x i8], ptr %565, i64 %566
   store i32 %548, ptr %567, align 4, !tbaa !100
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %567, i64 4
   store i16 %549, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !181
@@ -1261,7 +1232,7 @@ b2ContactHitEventArray_Push.exit:                 ; preds = %._crit_edge855.thre
 .lr.ph866:                                        ; preds = %577, %.lr.ph866
   %indvars.iv1017 = phi i64 [ %indvars.iv.next1018, %.lr.ph866 ], [ 1, %577 ]
   %595 = load ptr, ptr %579, align 8, !tbaa !151
-  %596 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %595, i64 %indvars.iv1017
+  %596 = getelementptr inbounds nuw [56 x i8], ptr %595, i64 %indvars.iv1017
   %597 = getelementptr inbounds nuw i8, ptr %596, i64 16
   call void @b2InPlaceUnion(ptr noundef nonnull %581, ptr noundef nonnull %597) #8
   %indvars.iv.next1018 = add nuw nsw i64 %indvars.iv1017, 1
@@ -1281,7 +1252,7 @@ b2ContactHitEventArray_Push.exit:                 ; preds = %._crit_edge855.thre
 
 605:                                              ; preds = %.lr.ph882, %._crit_edge879
   %indvars.iv1020 = phi i64 [ 0, %.lr.ph882 ], [ %indvars.iv.next1021, %._crit_edge879 ]
-  %606 = getelementptr inbounds nuw i64, ptr %586, i64 %indvars.iv1020
+  %606 = getelementptr inbounds nuw [8 x i8], ptr %586, i64 %indvars.iv1020
   %607 = load i64, ptr %606, align 8, !tbaa !87
   %.not749875 = icmp eq i64 %607, 0
   br i1 %.not749875, label %._crit_edge879, label %.lr.ph878
@@ -1289,17 +1260,17 @@ b2ContactHitEventArray_Push.exit:                 ; preds = %._crit_edge855.thre
 .lr.ph878:                                        ; preds = %605
   %608 = shl i64 %indvars.iv1020, 6
   %.masked = and i64 %608, 4294967232
-  %609 = getelementptr inbounds nuw %struct.b2BodySim, ptr %589, i64 %.masked
+  %609 = getelementptr inbounds nuw [100 x i8], ptr %589, i64 %.masked
   br label %610
 
 610:                                              ; preds = %.lr.ph878, %.loopexit766
   %.0705876 = phi i64 [ %607, %.lr.ph878 ], [ %667, %.loopexit766 ]
   %611 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0705876, i1 true)
-  %612 = getelementptr inbounds nuw %struct.b2BodySim, ptr %609, i64 %611
+  %612 = getelementptr inbounds nuw [100 x i8], ptr %609, i64 %611
   %613 = getelementptr inbounds nuw i8, ptr %612, i64 88
   %614 = load i32, ptr %613, align 4, !tbaa !190
   %615 = sext i32 %614 to i64
-  %616 = getelementptr inbounds %struct.b2Body, ptr %588, i64 %615
+  %616 = getelementptr inbounds [128 x i8], ptr %588, i64 %615
   %617 = getelementptr inbounds nuw i8, ptr %616, i64 56
   %618 = load i32, ptr %617, align 8, !tbaa !194
   %619 = getelementptr inbounds nuw i8, ptr %612, i64 93
@@ -1320,7 +1291,7 @@ b2ContactHitEventArray_Push.exit:                 ; preds = %._crit_edge855.thre
 .lr.ph874:                                        ; preds = %.preheader, %b2BufferMove.exit
   %.0697873 = phi i32 [ %649, %b2BufferMove.exit ], [ %618, %.preheader ]
   %626 = sext i32 %.0697873 to i64
-  %627 = getelementptr inbounds %struct.b2Shape, ptr %590, i64 %626
+  %627 = getelementptr inbounds [288 x i8], ptr %590, i64 %626
   %628 = getelementptr inbounds nuw i8, ptr %627, i64 88
   %629 = load i32, ptr %628, align 8, !tbaa !200
   %630 = add nsw i32 %629, 1
@@ -1347,7 +1318,7 @@ b2IntArray_Push.exit.i:                           ; preds = %637, %633
   %642 = phi i32 [ %.pre.i.i, %637 ], [ %634, %633 ]
   %643 = load ptr, ptr %592, align 8, !tbaa !203
   %644 = sext i32 %642 to i64
-  %645 = getelementptr inbounds i32, ptr %643, i64 %644
+  %645 = getelementptr inbounds [4 x i8], ptr %643, i64 %644
   store i32 %629, ptr %645, align 4, !tbaa !100
   %646 = load i32, ptr %593, align 8, !tbaa !201
   %647 = add nsw i32 %646, 1
@@ -1367,7 +1338,7 @@ b2BufferMove.exit:                                ; preds = %.lr.ph874, %b2IntAr
 .lr.ph871:                                        ; preds = %650, %663
   %.1698869 = phi i32 [ %665, %663 ], [ %618, %650 ]
   %651 = sext i32 %.1698869 to i64
-  %652 = getelementptr inbounds %struct.b2Shape, ptr %590, i64 %651
+  %652 = getelementptr inbounds [288 x i8], ptr %590, i64 %651
   %653 = getelementptr inbounds nuw i8, ptr %652, i64 281
   %654 = load i8, ptr %653, align 1, !tbaa !206, !range !197, !noundef !198
   %655 = trunc nuw i8 %654 to i1
@@ -1436,10 +1407,10 @@ b2BufferMove.exit:                                ; preds = %.lr.ph874, %b2IntAr
 
 .lr.ph891:                                        ; preds = %.lr.ph891.preheader, %.loopexit
   %indvars.iv1025 = phi i64 [ 0, %.lr.ph891.preheader ], [ %indvars.iv.next1026, %.loopexit ]
-  %686 = getelementptr inbounds nuw i32, ptr %683, i64 %indvars.iv1025
+  %686 = getelementptr inbounds nuw [4 x i8], ptr %683, i64 %indvars.iv1025
   %687 = load i32, ptr %686, align 4, !tbaa !100
   %688 = sext i32 %687 to i64
-  %689 = getelementptr inbounds %struct.b2BodySim, ptr %681, i64 %688
+  %689 = getelementptr inbounds [100 x i8], ptr %681, i64 %688
   %690 = getelementptr inbounds nuw i8, ptr %689, i64 96
   %691 = load i8, ptr %690, align 4, !tbaa !211, !range !197, !noundef !198
   %692 = icmp eq i8 %691, 0
@@ -1450,7 +1421,7 @@ b2BufferMove.exit:                                ; preds = %.lr.ph874, %b2IntAr
   %694 = getelementptr inbounds nuw i8, ptr %689, i64 88
   %695 = load i32, ptr %694, align 4, !tbaa !190
   %696 = sext i32 %695 to i64
-  %697 = getelementptr inbounds %struct.b2Body, ptr %680, i64 %696
+  %697 = getelementptr inbounds [128 x i8], ptr %680, i64 %696
   %698 = getelementptr inbounds nuw i8, ptr %697, i64 56
   %.0679884 = load i32, ptr %698, align 4, !tbaa !100
   %.not748885 = icmp eq i32 %.0679884, -1
@@ -1459,7 +1430,7 @@ b2BufferMove.exit:                                ; preds = %.lr.ph874, %b2IntAr
 .lr.ph888:                                        ; preds = %693, %712
   %.0679886 = phi i32 [ %.0679, %712 ], [ %.0679884, %693 ]
   %699 = sext i32 %.0679886 to i64
-  %700 = getelementptr inbounds %struct.b2Shape, ptr %682, i64 %699
+  %700 = getelementptr inbounds [288 x i8], ptr %682, i64 %699
   %701 = getelementptr inbounds nuw i8, ptr %700, i64 281
   %702 = load i8, ptr %701, align 1, !tbaa !206, !range !197, !noundef !198
   %703 = icmp eq i8 %702, 0
@@ -1521,7 +1492,7 @@ b2BufferMove.exit:                                ; preds = %.lr.ph874, %b2IntAr
 724:                                              ; preds = %.lr.ph896, %738
   %indvars.iv1030 = phi i64 [ 0, %.lr.ph896 ], [ %indvars.iv.next1031, %738 ]
   %.0671893 = phi float [ 0.000000e+00, %.lr.ph896 ], [ %.2, %738 ]
-  %725 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %.pre, i64 %indvars.iv1030
+  %725 = getelementptr inbounds nuw [56 x i8], ptr %.pre, i64 %indvars.iv1030
   %726 = getelementptr inbounds nuw i8, ptr %725, i64 52
   %727 = load i32, ptr %726, align 4, !tbaa !152
   %.not747 = icmp eq i32 %727, -1
@@ -1567,7 +1538,7 @@ b2BufferMove.exit:                                ; preds = %.lr.ph874, %b2IntAr
 .lr.ph900:                                        ; preds = %._crit_edge897, %.lr.ph900
   %indvars.iv1035 = phi i64 [ %indvars.iv.next1036, %.lr.ph900 ], [ 1, %._crit_edge897 ]
   %745 = load ptr, ptr %579, align 8, !tbaa !151
-  %746 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %745, i64 %indvars.iv1035
+  %746 = getelementptr inbounds nuw [56 x i8], ptr %745, i64 %indvars.iv1035
   %747 = getelementptr inbounds nuw i8, ptr %746, i64 32
   call void @b2InPlaceUnion(ptr noundef nonnull %723, ptr noundef nonnull %747) #8
   %indvars.iv.next1036 = add nuw nsw i64 %indvars.iv1035, 1
@@ -1595,7 +1566,7 @@ b2BufferMove.exit:                                ; preds = %.lr.ph874, %b2IntAr
 b2GetBit.exit:                                    ; preds = %753
   %757 = load ptr, ptr %739, align 8, !tbaa !185
   %758 = zext nneg i32 %755 to i64
-  %759 = getelementptr inbounds nuw i64, ptr %757, i64 %758
+  %759 = getelementptr inbounds nuw [8 x i8], ptr %757, i64 %758
   %760 = load i64, ptr %759, align 8, !tbaa !87
   %761 = and i64 %indvars.iv.next1039, 63
   %762 = shl nuw i64 1, %761
@@ -1604,7 +1575,7 @@ b2GetBit.exit:                                    ; preds = %753
   br i1 %.not765, label %b2GetBit.exit.thread, label %766
 
 b2GetBit.exit.thread:                             ; preds = %753, %b2GetBit.exit
-  %764 = getelementptr inbounds nuw %struct.b2IslandSim, ptr %740, i64 %indvars.iv.next1039
+  %764 = getelementptr inbounds nuw [4 x i8], ptr %740, i64 %indvars.iv.next1039
   %765 = load i32, ptr %764, align 4, !tbaa !219
   call void @b2TrySleepIsland(ptr noundef %0, i32 noundef %765) #8
   br label %766
@@ -1740,7 +1711,7 @@ define internal void @b2SolverTask(i32 %0, i32 %1, i32 %2, ptr noundef readonly 
 
 56:                                               ; preds = %.lr.ph226, %b2ExecuteMainStage.exit
   %indvars.iv = phi i64 [ 3, %.lr.ph226 ], [ %indvars.iv.next, %b2ExecuteMainStage.exit ]
-  %57 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i32, ptr %58, align 8, !tbaa !123
   switch i32 %59, label %63 [
@@ -1781,7 +1752,7 @@ GetWorkerStartIndex.exit.i.i:                     ; preds = %63
 .preheader41.i.i:                                 ; preds = %GetWorkerStartIndex.exit.i.i, %72
   %.0.i.i17.i = phi i32 [ %75, %GetWorkerStartIndex.exit.i.i ], [ 0, %72 ]
   %77 = sext i32 %.0.i.i17.i to i64
-  %78 = getelementptr inbounds %struct.b2SolverBlock, ptr %69, i64 %77
+  %78 = getelementptr inbounds [12 x i8], ptr %69, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = cmpxchg ptr %79, i32 %67, i32 %66 seq_cst seq_cst, align 4
   %81 = extractvalue { i32, i1 } %80, 1
@@ -1791,7 +1762,7 @@ GetWorkerStartIndex.exit.i.i:                     ; preds = %63
   %.036.lcssa.i.i = phi i32 [ 0, %.preheader41.i.i ], [ %88, %.lr.ph.i.i ]
   %.245.i.i = add nsw i32 %.fr.i, -1
   %82 = sext i32 %.245.i.i to i64
-  %83 = getelementptr inbounds %struct.b2SolverBlock, ptr %69, i64 %82
+  %83 = getelementptr inbounds [12 x i8], ptr %69, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = cmpxchg ptr %84, i32 %67, i32 %66 seq_cst seq_cst, align 4
   %86 = extractvalue { i32, i1 } %85, 1
@@ -1807,7 +1778,7 @@ GetWorkerStartIndex.exit.i.i:                     ; preds = %63
   %.not.i.i = icmp slt i32 %89, %.fr.i
   %spec.store.select.i.i = select i1 %.not.i.i, i32 %89, i32 0
   %90 = sext i32 %spec.store.select.i.i to i64
-  %91 = getelementptr inbounds %struct.b2SolverBlock, ptr %69, i64 %90
+  %91 = getelementptr inbounds [12 x i8], ptr %69, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = cmpxchg ptr %92, i32 %67, i32 %66 seq_cst seq_cst, align 4
   %94 = extractvalue { i32, i1 } %93, 1
@@ -1823,7 +1794,7 @@ GetWorkerStartIndex.exit.i.i:                     ; preds = %63
   %spec.select.i.i = select i1 %97, i32 %.fr.i, i32 %.247.i.i
   %.2.i.i = add nsw i32 %spec.select.i.i, -1
   %98 = sext i32 %.2.i.i to i64
-  %99 = getelementptr inbounds %struct.b2SolverBlock, ptr %69, i64 %98
+  %99 = getelementptr inbounds [12 x i8], ptr %69, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = cmpxchg ptr %100, i32 %67, i32 %66 seq_cst seq_cst, align 4
   %102 = extractvalue { i32, i1 } %101, 1
@@ -1869,7 +1840,7 @@ b2ExecuteMainStage.exit:                          ; preds = %56, %60, %._crit_ed
   %112 = add i32 %44, 65536
   %113 = or i32 %.1149.lcssa, %112
   %114 = zext i32 %.1149.lcssa to i64
-  %115 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %114
+  %115 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %114
   call fastcc void @b2ExecuteMainStage(ptr noundef nonnull %115, ptr noundef %8, i32 noundef %113)
   %116 = add nuw nsw i32 %.0242, 2
   %117 = call float @b2GetMillisecondsAndReset(ptr noundef nonnull %5) #8
@@ -1888,7 +1859,7 @@ b2ExecuteMainStage.exit:                          ; preds = %56, %60, %._crit_ed
 122:                                              ; preds = %.lr.ph232, %b2ExecuteMainStage.exit181
   %indvars.iv264 = phi i64 [ %55, %.lr.ph232 ], [ %indvars.iv.next265, %b2ExecuteMainStage.exit181 ]
   %.0146230 = phi i32 [ 0, %.lr.ph232 ], [ %174, %b2ExecuteMainStage.exit181 ]
-  %123 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %indvars.iv264
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv264
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load i32, ptr %124, align 8, !tbaa !123
   switch i32 %125, label %129 [
@@ -1929,7 +1900,7 @@ GetWorkerStartIndex.exit.i.i180:                  ; preds = %129
 .preheader41.i.i163:                              ; preds = %GetWorkerStartIndex.exit.i.i180, %138
   %.0.i.i17.i164 = phi i32 [ %141, %GetWorkerStartIndex.exit.i.i180 ], [ 0, %138 ]
   %143 = sext i32 %.0.i.i17.i164 to i64
-  %144 = getelementptr inbounds %struct.b2SolverBlock, ptr %135, i64 %143
+  %144 = getelementptr inbounds [12 x i8], ptr %135, i64 %143
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %146 = cmpxchg ptr %145, i32 %133, i32 %132 seq_cst seq_cst, align 4
   %147 = extractvalue { i32, i1 } %146, 1
@@ -1939,7 +1910,7 @@ GetWorkerStartIndex.exit.i.i180:                  ; preds = %129
   %.036.lcssa.i.i166 = phi i32 [ 0, %.preheader41.i.i163 ], [ %154, %.lr.ph.i.i175 ]
   %.245.i.i167 = add nsw i32 %.fr.i156, -1
   %148 = sext i32 %.245.i.i167 to i64
-  %149 = getelementptr inbounds %struct.b2SolverBlock, ptr %135, i64 %148
+  %149 = getelementptr inbounds [12 x i8], ptr %135, i64 %148
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = cmpxchg ptr %150, i32 %133, i32 %132 seq_cst seq_cst, align 4
   %152 = extractvalue { i32, i1 } %151, 1
@@ -1955,7 +1926,7 @@ GetWorkerStartIndex.exit.i.i180:                  ; preds = %129
   %.not.i.i178 = icmp slt i32 %155, %.fr.i156
   %spec.store.select.i.i179 = select i1 %.not.i.i178, i32 %155, i32 0
   %156 = sext i32 %spec.store.select.i.i179 to i64
-  %157 = getelementptr inbounds %struct.b2SolverBlock, ptr %135, i64 %156
+  %157 = getelementptr inbounds [12 x i8], ptr %135, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = cmpxchg ptr %158, i32 %133, i32 %132 seq_cst seq_cst, align 4
   %160 = extractvalue { i32, i1 } %159, 1
@@ -1971,7 +1942,7 @@ GetWorkerStartIndex.exit.i.i180:                  ; preds = %129
   %spec.select.i.i173 = select i1 %163, i32 %.fr.i156, i32 %.247.i.i171
   %.2.i.i174 = add nsw i32 %spec.select.i.i173, -1
   %164 = sext i32 %.2.i.i174 to i64
-  %165 = getelementptr inbounds %struct.b2SolverBlock, ptr %135, i64 %164
+  %165 = getelementptr inbounds [12 x i8], ptr %135, i64 %164
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = cmpxchg ptr %166, i32 %133, i32 %132 seq_cst seq_cst, align 4
   %168 = extractvalue { i32, i1 } %167, 1
@@ -2019,7 +1990,7 @@ b2ExecuteMainStage.exit181:                       ; preds = %122, %126, %._crit_
   %indvars.iv268 = phi i64 [ %114, %.lr.ph238 ], [ %indvars.iv.next269, %b2ExecuteMainStage.exit207 ]
   %.0145236 = phi i32 [ 0, %.lr.ph238 ], [ %232, %b2ExecuteMainStage.exit207 ]
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
-  %181 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %indvars.iv.next269
+  %181 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv.next269
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %183 = load i32, ptr %182, align 8, !tbaa !123
   switch i32 %183, label %187 [
@@ -2060,7 +2031,7 @@ GetWorkerStartIndex.exit.i.i206:                  ; preds = %187
 .preheader41.i.i189:                              ; preds = %GetWorkerStartIndex.exit.i.i206, %196
   %.0.i.i17.i190 = phi i32 [ %199, %GetWorkerStartIndex.exit.i.i206 ], [ 0, %196 ]
   %201 = sext i32 %.0.i.i17.i190 to i64
-  %202 = getelementptr inbounds %struct.b2SolverBlock, ptr %193, i64 %201
+  %202 = getelementptr inbounds [12 x i8], ptr %193, i64 %201
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %204 = cmpxchg ptr %203, i32 %191, i32 %190 seq_cst seq_cst, align 4
   %205 = extractvalue { i32, i1 } %204, 1
@@ -2070,7 +2041,7 @@ GetWorkerStartIndex.exit.i.i206:                  ; preds = %187
   %.036.lcssa.i.i192 = phi i32 [ 0, %.preheader41.i.i189 ], [ %212, %.lr.ph.i.i201 ]
   %.245.i.i193 = add nsw i32 %.fr.i182, -1
   %206 = sext i32 %.245.i.i193 to i64
-  %207 = getelementptr inbounds %struct.b2SolverBlock, ptr %193, i64 %206
+  %207 = getelementptr inbounds [12 x i8], ptr %193, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %209 = cmpxchg ptr %208, i32 %191, i32 %190 seq_cst seq_cst, align 4
   %210 = extractvalue { i32, i1 } %209, 1
@@ -2086,7 +2057,7 @@ GetWorkerStartIndex.exit.i.i206:                  ; preds = %187
   %.not.i.i204 = icmp slt i32 %213, %.fr.i182
   %spec.store.select.i.i205 = select i1 %.not.i.i204, i32 %213, i32 0
   %214 = sext i32 %spec.store.select.i.i205 to i64
-  %215 = getelementptr inbounds %struct.b2SolverBlock, ptr %193, i64 %214
+  %215 = getelementptr inbounds [12 x i8], ptr %193, i64 %214
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = cmpxchg ptr %216, i32 %191, i32 %190 seq_cst seq_cst, align 4
   %218 = extractvalue { i32, i1 } %217, 1
@@ -2102,7 +2073,7 @@ GetWorkerStartIndex.exit.i.i206:                  ; preds = %187
   %spec.select.i.i199 = select i1 %221, i32 %.fr.i182, i32 %.247.i.i197
   %.2.i.i200 = add nsw i32 %spec.select.i.i199, -1
   %222 = sext i32 %.2.i.i200 to i64
-  %223 = getelementptr inbounds %struct.b2SolverBlock, ptr %193, i64 %222
+  %223 = getelementptr inbounds [12 x i8], ptr %193, i64 %222
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %225 = cmpxchg ptr %224, i32 %191, i32 %190 seq_cst seq_cst, align 4
   %226 = extractvalue { i32, i1 } %225, 1
@@ -2145,7 +2116,7 @@ b2ExecuteMainStage.exit207:                       ; preds = %180, %184, %._crit_
   call void @b2StoreOverflowImpulses(ptr noundef %8) #8
   %238 = or i32 %233, 131072
   %239 = sext i32 %233 to i64
-  %240 = getelementptr inbounds %struct.b2SolverStage, ptr %12, i64 %239
+  %240 = getelementptr inbounds [32 x i8], ptr %12, i64 %239
   call fastcc void @b2ExecuteMainStage(ptr noundef %240, ptr noundef %8, i32 noundef %238)
   %241 = call float @b2GetMillisecondsAndReset(ptr noundef nonnull %5) #8
   %242 = getelementptr inbounds nuw i8, ptr %14, i64 1652
@@ -2162,7 +2133,7 @@ b2ExecuteMainStage.exit207:                       ; preds = %180, %184, %._crit_
   %.0143248 = phi i32 [ 0, %.lr.ph250 ], [ %250, %246 ]
   %247 = trunc nsw i64 %indvars.iv273 to i32
   %248 = or i32 %.0140.lcssa, %247
-  %249 = getelementptr inbounds %struct.b2SolverStage, ptr %12, i64 %indvars.iv273
+  %249 = getelementptr inbounds [32 x i8], ptr %12, i64 %indvars.iv273
   call fastcc void @b2ExecuteMainStage(ptr noundef %249, ptr noundef %8, i32 noundef %248)
   %indvars.iv.next274 = add nsw i64 %indvars.iv273, 1
   %250 = add nuw nsw i32 %.0143248, 1
@@ -2206,7 +2177,7 @@ b2ExecuteStage.exit:                              ; preds = %b2ExecuteStage.exit
   %263 = lshr i32 %.lcssa219, 16
   %264 = add nsw i32 %263, -1
   %265 = zext nneg i32 %262 to i64
-  %266 = getelementptr inbounds nuw %struct.b2SolverStage, ptr %12, i64 %265
+  %266 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %265
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 8
   %268 = load ptr, ptr %267, align 8, !tbaa !122
   %269 = getelementptr inbounds nuw i8, ptr %266, i64 16
@@ -2235,7 +2206,7 @@ GetWorkerStartIndex.exit.i:                       ; preds = %274, %272
 
 .preheader41.i:                                   ; preds = %GetWorkerStartIndex.exit.i
   %281 = sext i32 %.0.i.i to i64
-  %282 = getelementptr inbounds %struct.b2SolverBlock, ptr %268, i64 %281
+  %282 = getelementptr inbounds [12 x i8], ptr %268, i64 %281
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %284 = cmpxchg ptr %283, i32 %264, i32 %263 seq_cst seq_cst, align 4
   %285 = extractvalue { i32, i1 } %284, 1
@@ -2247,7 +2218,7 @@ GetWorkerStartIndex.exit.i:                       ; preds = %274, %272
   %spec.select44.i = select i1 %286, i32 %270, i32 %.0.i.i
   %.245.i = add nsw i32 %spec.select44.i, -1
   %287 = sext i32 %.245.i to i64
-  %288 = getelementptr inbounds %struct.b2SolverBlock, ptr %268, i64 %287
+  %288 = getelementptr inbounds [12 x i8], ptr %268, i64 %287
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 8
   %290 = cmpxchg ptr %289, i32 %264, i32 %263 seq_cst seq_cst, align 4
   %291 = extractvalue { i32, i1 } %290, 1
@@ -2263,7 +2234,7 @@ GetWorkerStartIndex.exit.i:                       ; preds = %274, %272
   %.not.i211 = icmp slt i32 %294, %270
   %spec.store.select.i = select i1 %.not.i211, i32 %294, i32 0
   %295 = sext i32 %spec.store.select.i to i64
-  %296 = getelementptr inbounds %struct.b2SolverBlock, ptr %268, i64 %295
+  %296 = getelementptr inbounds [12 x i8], ptr %268, i64 %295
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %298 = cmpxchg ptr %297, i32 %264, i32 %263 seq_cst seq_cst, align 4
   %299 = extractvalue { i32, i1 } %298, 1
@@ -2279,7 +2250,7 @@ GetWorkerStartIndex.exit.i:                       ; preds = %274, %272
   %spec.select.i = select i1 %302, i32 %270, i32 %.247.i
   %.2.i = add nsw i32 %spec.select.i, -1
   %303 = sext i32 %.2.i to i64
-  %304 = getelementptr inbounds %struct.b2SolverBlock, ptr %268, i64 %303
+  %304 = getelementptr inbounds [12 x i8], ptr %268, i64 %303
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %306 = cmpxchg ptr %305, i32 %264, i32 %263 seq_cst seq_cst, align 4
   %307 = extractvalue { i32, i1 } %306, 1
@@ -2318,7 +2289,7 @@ define internal void @b2FinalizeBodiesTask(i32 noundef %0, i32 noundef %1, i32 n
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 1304
   %19 = load ptr, ptr %18, align 8, !tbaa !151
   %20 = zext i32 %2 to i64
-  %21 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 1785
@@ -2352,8 +2323,8 @@ define internal void @b2FinalizeBodiesTask(i32 noundef %0, i32 noundef %1, i32 n
 
 45:                                               ; preds = %.lr.ph197, %._crit_edge
   %indvars.iv = phi i64 [ %44, %.lr.ph197 ], [ %indvars.iv.next, %._crit_edge ]
-  %46 = getelementptr inbounds %struct.b2BodyState, ptr %8, i64 %indvars.iv
-  %47 = getelementptr inbounds %struct.b2BodySim, ptr %10, i64 %indvars.iv
+  %46 = getelementptr inbounds [32 x i8], ptr %8, i64 %indvars.iv
+  %47 = getelementptr inbounds [100 x i8], ptr %10, i64 %indvars.iv
   %.sroa.057.0.copyload = load <2 x float>, ptr %46, align 4
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %49 = load float, ptr %48, align 4, !tbaa !245
@@ -2447,11 +2418,11 @@ define internal void @b2FinalizeBodiesTask(i32 noundef %0, i32 noundef %1, i32 n
   %104 = getelementptr inbounds nuw i8, ptr %47, i64 88
   %105 = load i32, ptr %104, align 4, !tbaa !190
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds %struct.b2Body, ptr %12, i64 %106
+  %107 = getelementptr inbounds [128 x i8], ptr %12, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 104
   %109 = trunc nsw i64 %indvars.iv to i32
   store i32 %109, ptr %108, align 8, !tbaa !249
-  %110 = getelementptr inbounds %struct.b2BodyMoveEvent, ptr %17, i64 %indvars.iv
+  %110 = getelementptr inbounds [40 x i8], ptr %17, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 4 dereferenceable(16) %47, i64 16, i1 false), !tbaa.struct !250
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load i32, ptr %104, align 4, !tbaa !190
@@ -2522,7 +2493,7 @@ define internal void @b2FinalizeBodiesTask(i32 noundef %0, i32 noundef %1, i32 n
   %150 = atomicrmw add ptr %38, i32 1 seq_cst, align 4
   %151 = load ptr, ptr %39, align 8, !tbaa !77
   %152 = sext i32 %150 to i64
-  %153 = getelementptr inbounds i32, ptr %151, i64 %152
+  %153 = getelementptr inbounds [4 x i8], ptr %151, i64 %152
   store i32 %109, ptr %153, align 4, !tbaa !100
   br label %168
 
@@ -2557,7 +2528,7 @@ define internal void @b2FinalizeBodiesTask(i32 noundef %0, i32 noundef %1, i32 n
   %170 = load i32, ptr %169, align 4, !tbaa !265
   %.val163 = load ptr, ptr %40, align 8, !tbaa !266
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds %struct.b2Island, ptr %.val163, i64 %171
+  %172 = getelementptr inbounds [56 x i8], ptr %.val163, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %107, i64 100
   %174 = load float, ptr %173, align 4, !tbaa !262
   %175 = fcmp olt float %174, 5.000000e-01
@@ -2572,7 +2543,7 @@ define internal void @b2FinalizeBodiesTask(i32 noundef %0, i32 noundef %1, i32 n
   %181 = zext nneg i32 %180 to i64
   %182 = shl nuw i64 1, %181
   %183 = zext nneg i32 %179 to i64
-  %184 = getelementptr inbounds nuw i64, ptr %.val164, i64 %183
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %.val164, i64 %183
   %185 = load i64, ptr %184, align 8, !tbaa !87
   %186 = or i64 %182, %185
   store i64 %186, ptr %184, align 8, !tbaa !87
@@ -2613,7 +2584,7 @@ define internal void @b2FinalizeBodiesTask(i32 noundef %0, i32 noundef %1, i32 n
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val165.us = load ptr, ptr %22, align 8, !tbaa !185
-  %203 = getelementptr inbounds nuw i64, ptr %.val165.us, i64 %202
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %.val165.us, i64 %202
   %.promoted = load i64, ptr %203, align 8, !tbaa !87
   %204 = or i64 %.promoted, %201
   store i64 %204, ptr %203, align 8, !tbaa !87
@@ -2623,7 +2594,7 @@ define internal void @b2FinalizeBodiesTask(i32 noundef %0, i32 noundef %1, i32 n
   %.0161194 = phi i32 [ %.0161, %235 ], [ %.0161192, %.lr.ph ]
   %.val = load ptr, ptr %43, align 8, !tbaa !170
   %205 = sext i32 %.0161194 to i64
-  %206 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %205
+  %206 = getelementptr inbounds [288 x i8], ptr %.val, i64 %205
   %207 = tail call { <2 x float>, <2 x float> } @b2ComputeShapeAABB(ptr noundef %206, <2 x float> %.sroa.024.0.copyload, <2 x float> %.sroa.425.0.copyload) #8
   %208 = extractvalue { <2 x float>, <2 x float> } %207, 0
   %209 = extractvalue { <2 x float>, <2 x float> } %207, 1
@@ -2674,7 +2645,7 @@ define internal void @b2FinalizeBodiesTask(i32 noundef %0, i32 noundef %1, i32 n
   %231 = getelementptr inbounds nuw i8, ptr %206, i64 281
   store i8 1, ptr %231, align 1, !tbaa !206
   %.val166 = load ptr, ptr %22, align 8, !tbaa !185
-  %232 = getelementptr inbounds nuw i64, ptr %.val166, i64 %202
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %.val166, i64 %202
   %233 = load i64, ptr %232, align 8, !tbaa !87
   %234 = or i64 %233, %201
   store i64 %234, ptr %232, align 8, !tbaa !87
@@ -2724,7 +2695,7 @@ define internal void @b2BulletBodyTask(i32 noundef %0, i32 noundef %1, i32 %2, p
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ %8, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %6, align 8, !tbaa !77
-  %11 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !100
   %13 = load ptr, ptr %7, align 8, !tbaa !222
   tail call fastcc void @b2SolveContinuous(ptr noundef %13, i32 noundef %12)
@@ -2784,7 +2755,7 @@ GetWorkerStartIndex.exit.i:                       ; preds = %9
 .preheader41.i:                                   ; preds = %18, %GetWorkerStartIndex.exit.i
   %.0.i.i17 = phi i32 [ %21, %GetWorkerStartIndex.exit.i ], [ 0, %18 ]
   %23 = sext i32 %.0.i.i17 to i64
-  %24 = getelementptr inbounds %struct.b2SolverBlock, ptr %14, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %14, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = cmpxchg ptr %25, i32 %12, i32 %11 seq_cst seq_cst, align 4
   %27 = extractvalue { i32, i1 } %26, 1
@@ -2794,7 +2765,7 @@ GetWorkerStartIndex.exit.i:                       ; preds = %9
   %.036.lcssa.i = phi i32 [ 0, %.preheader41.i ], [ %34, %.lr.ph.i ]
   %.245.i = add nsw i32 %.fr, -1
   %28 = sext i32 %.245.i to i64
-  %29 = getelementptr inbounds %struct.b2SolverBlock, ptr %14, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %14, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = cmpxchg ptr %30, i32 %12, i32 %11 seq_cst seq_cst, align 4
   %32 = extractvalue { i32, i1 } %31, 1
@@ -2810,7 +2781,7 @@ GetWorkerStartIndex.exit.i:                       ; preds = %9
   %.not.i = icmp slt i32 %35, %.fr
   %spec.store.select.i = select i1 %.not.i, i32 %35, i32 0
   %36 = sext i32 %spec.store.select.i to i64
-  %37 = getelementptr inbounds %struct.b2SolverBlock, ptr %14, i64 %36
+  %37 = getelementptr inbounds [12 x i8], ptr %14, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = cmpxchg ptr %38, i32 %12, i32 %11 seq_cst seq_cst, align 4
   %40 = extractvalue { i32, i1 } %39, 1
@@ -2826,7 +2797,7 @@ GetWorkerStartIndex.exit.i:                       ; preds = %9
   %spec.select.i = select i1 %43, i32 %.fr, i32 %.247.i
   %.2.i = add nsw i32 %spec.select.i, -1
   %44 = sext i32 %.2.i to i64
-  %45 = getelementptr inbounds %struct.b2SolverBlock, ptr %14, i64 %44
+  %45 = getelementptr inbounds [12 x i8], ptr %14, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = cmpxchg ptr %46, i32 %12, i32 %11 seq_cst seq_cst, align 4
   %48 = extractvalue { i32, i1 } %47, 1
@@ -2910,7 +2881,7 @@ define internal fastcc void @b2ExecuteBlock(ptr noundef readonly captures(none) 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %16, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %17 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv.i
+  %17 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !107
   tail call void @b2PrepareJoint(ptr noundef %18, ptr noundef nonnull %1) #8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -2952,8 +2923,8 @@ define internal fastcc void @b2ExecuteBlock(ptr noundef readonly captures(none) 
 
 39:                                               ; preds = %107, %.lr.ph.i57
   %indvars.iv.i58 = phi i64 [ %38, %.lr.ph.i57 ], [ %indvars.iv.next.i59, %107 ]
-  %40 = getelementptr inbounds %struct.b2BodySim, ptr %24, i64 %indvars.iv.i58
-  %41 = getelementptr inbounds %struct.b2BodyState, ptr %22, i64 %indvars.iv.i58
+  %40 = getelementptr inbounds [100 x i8], ptr %24, i64 %indvars.iv.i58
+  %41 = getelementptr inbounds [32 x i8], ptr %22, i64 %indvars.iv.i58
   %.sroa.016.0.copyload.i = load <2 x float>, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load float, ptr %42, align 4, !tbaa !245
@@ -3098,7 +3069,7 @@ define internal fastcc void @b2ExecuteBlock(ptr noundef readonly captures(none) 
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %129 = load ptr, ptr %128, align 8, !tbaa !132
   %130 = sext i32 %127 to i64
-  %131 = getelementptr inbounds %struct.b2GraphColor, ptr %129, i64 %130
+  %131 = getelementptr inbounds [56 x i8], ptr %129, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load ptr, ptr %132, align 8, !tbaa !106
   %134 = icmp sgt i16 %9, 0
@@ -3110,7 +3081,7 @@ define internal fastcc void @b2ExecuteBlock(ptr noundef readonly captures(none) 
 
 .lr.ph.i62:                                       ; preds = %.lr.ph.i62, %.lr.ph.preheader.i61
   %indvars.iv.i63 = phi i64 [ %135, %.lr.ph.preheader.i61 ], [ %indvars.iv.next.i64, %.lr.ph.i62 ]
-  %136 = getelementptr inbounds %struct.b2JointSim, ptr %133, i64 %indvars.iv.i63
+  %136 = getelementptr inbounds [172 x i8], ptr %133, i64 %indvars.iv.i63
   tail call void @b2SolveJoint(ptr noundef %136, ptr noundef nonnull %1, i1 noundef zeroext true) #8
   %indvars.iv.next.i64 = add nsw i64 %indvars.iv.i63, 1
   %lftr.wideiv.i65 = trunc i64 %indvars.iv.next.i64 to i32
@@ -3132,7 +3103,7 @@ define internal fastcc void @b2ExecuteBlock(ptr noundef readonly captures(none) 
 
 .lr.ph.i69:                                       ; preds = %.lr.ph.i69, %.lr.ph.preheader.i67
   %indvars.iv.i70 = phi i64 [ %141, %.lr.ph.preheader.i67 ], [ %indvars.iv.next.i76, %.lr.ph.i69 ]
-  %142 = getelementptr inbounds %struct.b2BodyState, ptr %.val56, i64 %indvars.iv.i70
+  %142 = getelementptr inbounds [32 x i8], ptr %.val56, i64 %indvars.iv.i70
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %145 = load float, ptr %144, align 4, !tbaa !245
@@ -3192,7 +3163,7 @@ define internal fastcc void @b2ExecuteBlock(ptr noundef readonly captures(none) 
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %175 = load ptr, ptr %174, align 8, !tbaa !132
   %176 = sext i32 %173 to i64
-  %177 = getelementptr inbounds %struct.b2GraphColor, ptr %175, i64 %176
+  %177 = getelementptr inbounds [56 x i8], ptr %175, i64 %176
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 32
   %179 = load ptr, ptr %178, align 8, !tbaa !106
   %180 = icmp sgt i16 %9, 0
@@ -3204,7 +3175,7 @@ define internal fastcc void @b2ExecuteBlock(ptr noundef readonly captures(none) 
 
 .lr.ph.i79:                                       ; preds = %.lr.ph.i79, %.lr.ph.preheader.i78
   %indvars.iv.i80 = phi i64 [ %181, %.lr.ph.preheader.i78 ], [ %indvars.iv.next.i81, %.lr.ph.i79 ]
-  %182 = getelementptr inbounds %struct.b2JointSim, ptr %179, i64 %indvars.iv.i80
+  %182 = getelementptr inbounds [172 x i8], ptr %179, i64 %indvars.iv.i80
   tail call void @b2SolveJoint(ptr noundef %182, ptr noundef nonnull %1, i1 noundef zeroext false) #8
   %indvars.iv.next.i81 = add nsw i64 %indvars.iv.i80, 1
   %lftr.wideiv.i82 = trunc i64 %indvars.iv.next.i81 to i32
@@ -3238,7 +3209,7 @@ define internal fastcc void @b2WarmStartJointsTask(i32 noundef %0, i32 noundef %
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !132
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds %struct.b2GraphColor, ptr %6, i64 %7
+  %8 = getelementptr inbounds [56 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !106
   %11 = icmp slt i32 %0, %1
@@ -3253,7 +3224,7 @@ define internal fastcc void @b2WarmStartJointsTask(i32 noundef %0, i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %12, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %13 = getelementptr inbounds %struct.b2JointSim, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds [172 x i8], ptr %10, i64 %indvars.iv
   tail call void @b2WarmStartJoint(ptr noundef %13, ptr noundef nonnull %2) #8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -3281,7 +3252,7 @@ define internal fastcc void @b2SolveContinuous(ptr noundef %0, i32 noundef %1) u
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 176
   %.val132 = load ptr, ptr %5, align 8, !tbaa !287
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.b2BodySim, ptr %.val132, i64 %6
+  %7 = getelementptr inbounds [100 x i8], ptr %.val132, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load <2 x float>, ptr %8, align 4, !noalias !288
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -3330,7 +3301,7 @@ define internal fastcc void @b2SolveContinuous(ptr noundef %0, i32 noundef %1) u
   %39 = load i32, ptr %38, align 4, !tbaa !190
   %.val133 = load ptr, ptr %37, align 8, !tbaa !291
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct.b2Body, ptr %.val133, i64 %40
+  %41 = getelementptr inbounds [128 x i8], ptr %.val133, i64 %40
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !292
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -3371,7 +3342,7 @@ define internal fastcc void @b2SolveContinuous(ptr noundef %0, i32 noundef %1) u
   %.0203 = phi i32 [ %49, %.lr.ph ], [ %60, %99 ]
   %.val131 = load ptr, ptr %52, align 8, !tbaa !170
   %57 = sext i32 %.0203 to i64
-  %58 = getelementptr inbounds %struct.b2Shape, ptr %.val131, i64 %57
+  %58 = getelementptr inbounds [288 x i8], ptr %.val131, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %60 = load i32, ptr %59, align 4, !tbaa !204
   store ptr %58, ptr %53, align 8, !tbaa !297
@@ -3517,7 +3488,7 @@ define internal fastcc void @b2SolveContinuous(ptr noundef %0, i32 noundef %1) u
   %.1211 = phi i32 [ %.1209, %.lr.ph213 ], [ %.1, %165 ]
   %.val130 = load ptr, ptr %135, align 8, !tbaa !170
   %138 = sext i32 %.1211 to i64
-  %139 = getelementptr inbounds %struct.b2Shape, ptr %.val130, i64 %138
+  %139 = getelementptr inbounds [288 x i8], ptr %.val130, i64 %138
   %140 = call { <2 x float>, <2 x float> } @b2ComputeShapeAABB(ptr noundef %139, <2 x float> %.sroa.02.4.vec.insert.i175, <2 x float> %.sroa.012.4.vec.insert.i.i) #8
   %141 = extractvalue { <2 x float>, <2 x float> } %140, 0
   %142 = extractvalue { <2 x float>, <2 x float> } %140, 1
@@ -3595,7 +3566,7 @@ define internal fastcc void @b2SolveContinuous(ptr noundef %0, i32 noundef %1) u
 173:                                              ; preds = %.lr.ph208, %203
   %.2206 = phi i32 [ %.2204, %.lr.ph208 ], [ %.2, %203 ]
   %174 = sext i32 %.2206 to i64
-  %175 = getelementptr inbounds %struct.b2Shape, ptr %.val129, i64 %174
+  %175 = getelementptr inbounds [288 x i8], ptr %.val129, i64 %174
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 64
   %177 = getelementptr inbounds nuw i8, ptr %175, i64 48
   %178 = load <2 x float>, ptr %176, align 8
@@ -3674,7 +3645,7 @@ define internal noundef zeroext i1 @b2ContinuousQueryCallback(i32 %0, i32 nounde
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1256
   %.val = load ptr, ptr %17, align 8, !tbaa !170
   %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %18
+  %19 = getelementptr inbounds [288 x i8], ptr %.val, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !302
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -3699,7 +3670,7 @@ define internal noundef zeroext i1 @b2ContinuousQueryCallback(i32 %0, i32 nounde
   %34 = load i32, ptr %20, align 4, !tbaa !302
   %.val134 = load ptr, ptr %33, align 8, !tbaa !291
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.b2Body, ptr %.val134, i64 %35
+  %36 = getelementptr inbounds [128 x i8], ptr %.val134, i64 %35
   %37 = tail call ptr @b2GetBodySim(ptr noundef nonnull %16, ptr noundef %36) #8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 93
   %39 = load i8, ptr %38, align 1, !tbaa !196, !range !197, !noundef !198
@@ -3711,7 +3682,7 @@ define internal noundef zeroext i1 @b2ContinuousQueryCallback(i32 %0, i32 nounde
   %43 = load i32, ptr %42, align 4, !tbaa !190
   %.val133 = load ptr, ptr %33, align 8, !tbaa !291
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %struct.b2Body, ptr %.val133, i64 %44
+  %45 = getelementptr inbounds [128 x i8], ptr %.val133, i64 %44
   %46 = tail call zeroext i1 @b2ShouldBodiesCollide(ptr noundef nonnull %16, ptr noundef %45, ptr noundef %36) #8
   br i1 %46, label %47, label %.critedge132
 

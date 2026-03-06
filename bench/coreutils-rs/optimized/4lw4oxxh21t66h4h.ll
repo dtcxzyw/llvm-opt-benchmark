@@ -23,7 +23,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 11:                                               ; preds = %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf932abf61c2ae30cE.exit.i.i", %6
   %.017.i.i = phi i64 [ %2, %6 ], [ %.0.i.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf932abf61c2ae30cE.exit.i.i" ]
   %.016.i.i = phi i64 [ 0, %6 ], [ %50, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf932abf61c2ae30cE.exit.i.i" ]
-  %12 = getelementptr inbounds { i8, [15 x i8] }, ptr %0, i64 %.016.i.i
+  %12 = getelementptr inbounds [16 x i8], ptr %0, i64 %.016.i.i
   %13 = load i8, ptr %12, align 8, !range !4, !alias.scope !5, !noundef !10
   %14 = icmp eq i8 %13, 2
   br i1 %14, label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf932abf61c2ae30cE.exit.i.i", label %15
@@ -206,7 +206,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 11:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h587a07265a5a9200E.exit.i", %6
   %.017.i = phi i64 [ %2, %6 ], [ %46, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h587a07265a5a9200E.exit.i" ]
   %.016.i = phi i64 [ 0, %6 ], [ %47, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h587a07265a5a9200E.exit.i" ]
-  %12 = getelementptr inbounds { i8, [15 x i8] }, ptr %0, i64 %.016.i
+  %12 = getelementptr inbounds [16 x i8], ptr %0, i64 %.016.i
   %13 = tail call { ptr, ptr } @_ZN5uu_tr9operation8Sequence7flatten17h458b5b7993860169E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12)
   %14 = extractvalue { ptr, ptr } %13, 0
   %15 = extractvalue { ptr, ptr } %13, 1
@@ -339,7 +339,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterM
 11:                                               ; preds = %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf932abf61c2ae30cE.exit.i", %6
   %.017.i = phi i64 [ %2, %6 ], [ %.0.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf932abf61c2ae30cE.exit.i" ]
   %.016.i = phi i64 [ 0, %6 ], [ %50, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf932abf61c2ae30cE.exit.i" ]
-  %12 = getelementptr inbounds { i8, [15 x i8] }, ptr %0, i64 %.016.i
+  %12 = getelementptr inbounds [16 x i8], ptr %0, i64 %.016.i
   %13 = load i8, ptr %12, align 8, !range !4, !alias.scope !65, !noundef !10
   %14 = icmp eq i8 %13, 2
   br i1 %14, label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf932abf61c2ae30cE.exit.i", label %15
@@ -955,7 +955,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 11:                                               ; preds = %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf932abf61c2ae30cE.exit", %6
   %.017 = phi i64 [ %2, %6 ], [ %.0.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf932abf61c2ae30cE.exit" ]
   %.016 = phi i64 [ 0, %6 ], [ %50, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf932abf61c2ae30cE.exit" ]
-  %12 = getelementptr inbounds { i8, [15 x i8] }, ptr %0, i64 %.016
+  %12 = getelementptr inbounds [16 x i8], ptr %0, i64 %.016
   %13 = load i8, ptr %12, align 8, !range !4, !alias.scope !173, !noundef !10
   %14 = icmp eq i8 %13, 2
   br i1 %14, label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf932abf61c2ae30cE.exit", label %15
@@ -1070,7 +1070,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 11:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h587a07265a5a9200E.exit", %6
   %.017 = phi i64 [ %2, %6 ], [ %46, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h587a07265a5a9200E.exit" ]
   %.016 = phi i64 [ 0, %6 ], [ %47, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h587a07265a5a9200E.exit" ]
-  %12 = getelementptr inbounds { i8, [15 x i8] }, ptr %0, i64 %.016
+  %12 = getelementptr inbounds [16 x i8], ptr %0, i64 %.016
   %13 = tail call { ptr, ptr } @_ZN5uu_tr9operation8Sequence7flatten17h458b5b7993860169E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12)
   %14 = extractvalue { ptr, ptr } %13, 0
   %15 = extractvalue { ptr, ptr } %13, 1

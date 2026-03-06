@@ -5716,7 +5716,7 @@ define hidden void @_ZN8settings14settings_store13SettingsStore19new_text_for_up
   %54 = add i64 %.sroa.01.0.i.i.i.i, %53
   %55 = and i64 %54, %45
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %46, i64 %56
+  %57 = getelementptr inbounds [32 x i8], ptr %46, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -32
   %.val3.i.i.i.i = load i64, ptr %58, align 8, !alias.scope !1395, !noalias !1404, !noundef !5
   %59 = getelementptr i8, ptr %57, i64 -24
@@ -6528,7 +6528,7 @@ define hidden void @_ZN8settings14settings_store13SettingsStore19new_text_for_up
   %55 = add i64 %.sroa.01.0.i.i.i.i, %54
   %56 = and i64 %55, %46
   %57 = sub nsw i64 0, %56
-  %58 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %47, i64 %57
+  %58 = getelementptr inbounds [32 x i8], ptr %47, i64 %57
   %59 = getelementptr inbounds i8, ptr %58, i64 -32
   %.val3.i.i.i.i = load i64, ptr %59, align 8, !alias.scope !1580, !noalias !1589, !noundef !5
   %60 = getelementptr i8, ptr %58, i64 -24
@@ -7372,7 +7372,7 @@ define hidden void @_ZN8settings14settings_store13SettingsStore19new_text_for_up
   %54 = add i64 %.sroa.01.0.i.i.i.i, %53
   %55 = and i64 %54, %45
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %46, i64 %56
+  %57 = getelementptr inbounds [32 x i8], ptr %46, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -32
   %.val3.i.i.i.i = load i64, ptr %58, align 8, !alias.scope !1771, !noalias !1780, !noundef !5
   %59 = getelementptr i8, ptr %57, i64 -24
@@ -8177,7 +8177,7 @@ define hidden void @_ZN8settings14settings_store13SettingsStore19new_text_for_up
   %54 = add i64 %.sroa.01.0.i.i.i.i, %53
   %55 = and i64 %54, %45
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %46, i64 %56
+  %57 = getelementptr inbounds [32 x i8], ptr %46, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -32
   %.val3.i.i.i.i = load i64, ptr %58, align 8, !alias.scope !1947, !noalias !1956, !noundef !5
   %59 = getelementptr i8, ptr %57, i64 -24
@@ -8982,7 +8982,7 @@ define hidden void @_ZN8settings14settings_store13SettingsStore19new_text_for_up
   %54 = add i64 %.sroa.01.0.i.i.i.i, %53
   %55 = and i64 %54, %45
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %46, i64 %56
+  %57 = getelementptr inbounds [32 x i8], ptr %46, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -32
   %.val3.i.i.i.i = load i64, ptr %58, align 8, !alias.scope !2122, !noalias !2131, !noundef !5
   %59 = getelementptr i8, ptr %57, i64 -24
@@ -9789,7 +9789,7 @@ define hidden void @_ZN8settings14settings_store13SettingsStore19new_text_for_up
   %54 = add i64 %.sroa.01.0.i.i.i.i, %53
   %55 = and i64 %54, %45
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %46, i64 %56
+  %57 = getelementptr inbounds [32 x i8], ptr %46, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 -32
   %.val3.i.i.i.i = load i64, ptr %58, align 8, !alias.scope !2306, !noalias !2315, !noundef !5
   %59 = getelementptr i8, ptr %57, i64 -24
@@ -18602,7 +18602,7 @@ define hidden noundef align 8 dereferenceable(80) ptr @_ZN8settings14settings_st
   %21 = add i64 %.sroa.01.0.i.i.i, %20
   %22 = and i64 %21, %12
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %13, i64 %23
+  %24 = getelementptr inbounds [32 x i8], ptr %13, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -32
   %.val3.i.i.i = load i64, ptr %25, align 8, !alias.scope !4077, !noalias !4086, !noundef !5
   %26 = getelementptr i8, ptr %24, i64 -24
@@ -18718,7 +18718,7 @@ define hidden noundef align 8 dereferenceable(3576) ptr @_ZN8settings14settings_
   %21 = add i64 %.sroa.01.0.i.i.i, %20
   %22 = and i64 %21, %12
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %13, i64 %23
+  %24 = getelementptr inbounds [32 x i8], ptr %13, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -32
   %.val3.i.i.i = load i64, ptr %25, align 8, !alias.scope !4114, !noalias !4123, !noundef !5
   %26 = getelementptr i8, ptr %24, i64 -24
@@ -18838,7 +18838,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9hashbrown3ma
   %23 = add i64 %.sroa.01.0.i.i, %22
   %24 = and i64 %23, %13
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %14, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %14, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -32
   %.val3.i.i = load i64, ptr %27, align 8, !alias.scope !4156, !noalias !4165, !noundef !5
   %28 = getelementptr i8, ptr %26, i64 -24
@@ -18910,7 +18910,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h76c2
   %19 = add i64 %.sroa.01.0.i, %18
   %20 = and i64 %19, %7
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %8, i64 %21
+  %22 = getelementptr inbounds [32 x i8], ptr %8, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -32
   %.val3.i = load i64, ptr %23, align 8, !alias.scope !4179, !noalias !4188, !noundef !5
   %24 = getelementptr i8, ptr %22, i64 -24

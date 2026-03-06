@@ -1101,7 +1101,7 @@ _ZN19uv_options_metadata9OptionSet6record17ha6a32f5812319acaE.exit: ; preds = %5
 46:                                               ; preds = %42
   %.sroa.0.0.copyload.i14 = load ptr, ptr %29, align 8, !noalias !210, !nonnull !4, !noundef !4
   %.sroa.43.0.copyload.i = load i64, ptr %.sroa.43.0..sroa_idx.i, align 8, !noalias !210
-  %47 = getelementptr inbounds { [18 x i64] }, ptr %.sroa.0.0.copyload.i14, i64 %.sroa.43.0.copyload.i
+  %47 = getelementptr inbounds [144 x i8], ptr %.sroa.0.0.copyload.i14, i64 %.sroa.43.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %15, ptr noundef nonnull align 8 dereferenceable(144) %47, i64 144, i1 false), !noalias !216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %47, ptr noundef nonnull align 8 dereferenceable(144) %26, i64 144, i1 false)
   br label %52
@@ -1250,7 +1250,7 @@ define void @"_ZN84_$LT$uv_options_metadata..SerializeVisitor$u20$as$u20$uv_opti
   %.sroa.0.0.copyload.i = load ptr, ptr %27, align 8, !noalias !237, !nonnull !4, !noundef !4
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.43.0.copyload.i = load i64, ptr %.sroa.43.0..sroa_idx.i, align 8, !noalias !237
-  %28 = getelementptr inbounds { [18 x i64] }, ptr %.sroa.0.0.copyload.i, i64 %.sroa.43.0.copyload.i
+  %28 = getelementptr inbounds [144 x i8], ptr %.sroa.0.0.copyload.i, i64 %.sroa.43.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 8 dereferenceable(144) %28, i64 144, i1 false), !noalias !243
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %28, ptr noundef nonnull align 8 dereferenceable(144) %3, i64 144, i1 false)
   br label %33

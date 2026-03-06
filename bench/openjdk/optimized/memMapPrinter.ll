@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.elapsedTimer = type <{ i64, i64, i8, [7 x i8] }>
 %struct.GCThreadClosure = type { %class.ThreadClosure, i8, i64, ptr, ptr }
 %class.ThreadClosure = type { ptr }
-%"struct.CachedNMTInformation::Range" = type { ptr, ptr }
 %class.CachedNMTInformation = type { %class.VirtualMemoryWalker, ptr, ptr, i64, i64, i64 }
 %class.VirtualMemoryWalker = type { ptr }
 %class.MappingPrintSession = type { ptr, ptr }
@@ -159,7 +158,7 @@ define hidden noundef zeroext i1 @_ZNK19MappingPrintSession25print_nmt_info_for_
   %12 = load ptr, ptr %11, align 8, !noalias !6
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i64, ptr %13, align 8, !noalias !6
-  %15 = getelementptr inbounds %"struct.CachedNMTInformation::Range", ptr %12, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !noalias !6
   %.not.i = icmp ugt ptr %2, %16
   br i1 %.not.i, label %18, label %17
@@ -183,7 +182,7 @@ define hidden noundef zeroext i1 @_ZNK19MappingPrintSession25print_nmt_info_for_
 25:                                               ; preds = %47, %.lr.ph.i
   %.014.i = phi i64 [ %19, %.lr.ph.i ], [ %49, %47 ]
   %26 = phi i32 [ 0, %.lr.ph.i ], [ %48, %47 ]
-  %27 = getelementptr inbounds %"struct.CachedNMTInformation::Range", ptr %12, i64 %.014.i
+  %27 = getelementptr inbounds [16 x i8], ptr %12, i64 %.014.i
   %28 = load ptr, ptr %27, align 8, !noalias !6
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8, !noalias !6
@@ -260,7 +259,7 @@ _ZNK20CachedNMTInformation6lookupEPKvS1_.exit:    ; preds = %47, %46
   br i1 %69, label %switch.hole_check, label %70
 
 70:                                               ; preds = %switch.hole_check, %67
-  %71 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %indvars.iv29
+  %71 = getelementptr inbounds nuw [16 x i8], ptr @_ZN7NMTUtil8_stringsE, i64 %indvars.iv29
   br label %_ZL26get_shortname_for_nmt_flag8MEMFLAGS.exit
 
 switch.hole_check:                                ; preds = %67
@@ -272,7 +271,7 @@ switch.hole_check:                                ; preds = %67
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %73 = and i64 %indvars.iv29, 31
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19MappingPrintSession25print_nmt_info_for_regionEPKvS1_, i64 %73
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK19MappingPrintSession25print_nmt_info_for_regionEPKvS1_, i64 %73
   br label %_ZL26get_shortname_for_nmt_flag8MEMFLAGS.exit
 
 _ZL26get_shortname_for_nmt_flag8MEMFLAGS.exit:    ; preds = %switch.lookup, %70
@@ -316,7 +315,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.i:  ; preds = %91
   %94 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %94, ptr %53, align 8
   %95 = load ptr, ptr %90, align 8
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv
   %97 = load ptr, ptr %96, align 8
   %.not.i14 = icmp eq ptr %97, null
   br i1 %.not.i14, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.i, label %98
@@ -703,7 +702,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20CachedNMTInformation18do_all
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = add i64 %10, -1
-  %15 = getelementptr inbounds %"struct.CachedNMTInformation::Range", ptr %13, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %3, %17
@@ -758,7 +757,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20CachedNMTInformation18do_all
 44:                                               ; preds = %43, %._crit_edge.i
   %45 = phi i64 [ %10, %._crit_edge.i ], [ %.pre12.i, %43 ]
   %46 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %40, %43 ]
-  %47 = getelementptr inbounds %"struct.CachedNMTInformation::Range", ptr %46, i64 %45
+  %47 = getelementptr inbounds [16 x i8], ptr %46, i64 %45
   store ptr %3, ptr %47, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %6, ptr %.sroa.2.0..sroa_idx.i, align 8

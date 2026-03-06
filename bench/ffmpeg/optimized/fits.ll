@@ -370,7 +370,7 @@ dict_set_if_not_null.exit97:                      ; preds = %75, %76
 90:                                               ; preds = %84
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %92 = zext i32 %87 to i64
-  %93 = getelementptr inbounds nuw i32, ptr %91, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %92
   %94 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %9, ptr noundef nonnull @.str.7, ptr noundef nonnull %93) #6
   %.not79 = icmp eq i32 %94, 1
   br i1 %.not79, label %98, label %95

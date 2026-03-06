@@ -530,14 +530,14 @@ define dso_local i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
 152:                                              ; preds = %.outer._crit_edge
   %153 = zext nneg i16 %rev.i to i32
   %154 = zext nneg i16 %rev.i to i64
-  %155 = getelementptr inbounds nuw ptr, ptr @tree_cmd_names, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr @tree_cmd_names, i64 %154
   %156 = load ptr, ptr %155, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_tree_cmd, i32 noundef %153, ptr noundef %156) #7
   br label %157
 
 157:                                              ; preds = %.outer._crit_edge._crit_edge, %152
   %.pre-phi = phi i64 [ %.pre, %.outer._crit_edge._crit_edge ], [ %154, %152 ]
-  %158 = getelementptr inbounds nuw ptr, ptr @tree_cmd_handlers, i64 %.pre-phi
+  %158 = getelementptr inbounds nuw [8 x i8], ptr @tree_cmd_handlers, i64 %.pre-phi
   %159 = load ptr, ptr %158, align 8
   %160 = tail call i32 %159(i32 noundef %0, ptr noundef %149) #7
   %.not81 = icmp eq ptr %149, null
@@ -934,7 +934,7 @@ define dso_local range(i32 -1, 1) i32 @tree_msg_to_spawned_sruns(i32 noundef %0,
   %8 = phi ptr [ %.pre21, %.lr.ph ], [ %21, %19 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.016 = phi i32 [ 0, %.lr.ph ], [ %.1, %19 ]
-  %9 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv
   %10 = load i16, ptr %9, align 2
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %19, label %12
@@ -1034,7 +1034,7 @@ define internal i32 @_handle_kvs_fence(i32 %0, ptr noundef %1) #0 {
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @tree_info, i64 48), align 8
   %32 = load i32, ptr %3, align 4
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %24, %35
   br i1 %36, label %37, label %44
@@ -1447,7 +1447,7 @@ define internal range(i32 -1, 1) i32 @_handle_spawn_resp(i32 %0, ptr noundef %1)
 .lr.ph.i:                                         ; preds = %46, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %46 ]
   %53 = load ptr, ptr %48, align 8
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, i32 noundef %55) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1507,7 +1507,7 @@ _send_task_spawn_resp_pmi20.exit:                 ; preds = %.loopexit.i, %60
   %81 = load i16, ptr %80, align 8
   %82 = add i32 %79, -1
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw i16, ptr %77, i64 %83
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %77, i64 %83
   store i16 %81, ptr %84, align 2
   %85 = load ptr, ptr %6, align 8
   %86 = call i32 @spawn_resp_send_to_stepd(ptr noundef %85, ptr noundef nonnull %7) #7
@@ -1991,7 +1991,7 @@ define internal fastcc void @_send_task_spawn_resp_pmi11(ptr noundef readonly ca
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, i32 noundef %25) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

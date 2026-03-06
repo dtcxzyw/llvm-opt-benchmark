@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/gistvacuum.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ItemIdData = type { i32 }
-
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [29 x i8] c"GiST VACUUM page set context\00", align 1
 @wal_level = external local_unnamed_addr global i32, align 4
@@ -158,7 +156,7 @@ define internal fastcc void @gistvacuumscan(ptr noundef readonly captures(none) 
   %69 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %70 = xor i32 %66, -1
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %69, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %71
   %73 = load ptr, ptr %72, align 8
   br label %BufferGetPage.exit.i
 
@@ -251,7 +249,7 @@ BufferGetPage.exit.i:                             ; preds = %74, %68
   %.195134.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %129 ]
   %.097133.i = phi i16 [ 1, %.lr.ph.i ], [ %130, %129 ]
   %119 = zext i16 %.097133.i to i64
-  %120 = getelementptr %struct.ItemIdData, ptr %117, i64 %119
+  %120 = getelementptr [4 x i8], ptr %117, i64 %119
   %.val112.i = load i32, ptr %120, align 4
   %121 = and i32 %.val112.i, 32767
   %122 = zext nneg i32 %121 to i64
@@ -262,7 +260,7 @@ BufferGetPage.exit.i:                             ; preds = %74, %68
 125:                                              ; preds = %118
   %126 = add i32 %.195134.i, 1
   %127 = sext i32 %.195134.i to i64
-  %128 = getelementptr inbounds i16, ptr %8, i64 %127
+  %128 = getelementptr inbounds [2 x i8], ptr %8, i64 %127
   store i16 %.097133.i, ptr %128, align 2
   br label %129
 
@@ -383,7 +381,7 @@ BufferGetPage.exit.i:                             ; preds = %74, %68
 
 191:                                              ; preds = %206, %.lr.ph138.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph138.i ], [ %indvars.iv.next.i, %206 ]
-  %192 = getelementptr %struct.ItemIdData, ptr %188, i64 %indvars.iv.i
+  %192 = getelementptr [4 x i8], ptr %188, i64 %indvars.iv.i
   %.val113.i = load i32, ptr %192, align 4
   %193 = and i32 %.val113.i, 32767
   %194 = zext nneg i32 %193 to i64
@@ -478,7 +476,7 @@ gistvacuumpage.exit:                              ; preds = %210, %.thread120.i
   %228 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %229 = xor i32 %225, -1
   %230 = zext nneg i32 %229 to i64
-  %231 = getelementptr inbounds nuw ptr, ptr %228, i64 %230
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %230
   %232 = load ptr, ptr %231, align 8
   br label %BufferGetPage.exit.i35
 
@@ -538,7 +536,7 @@ BufferGetPage.exit.i35:                           ; preds = %233, %227
   %.05980.i = phi i16 [ 1, %.lr.ph.i42 ], [ %280, %279 ]
   %.06079.i = phi i32 [ 0, %.lr.ph.i42 ], [ %.161.i, %279 ]
   %262 = zext i16 %.05980.i to i64
-  %263 = getelementptr %struct.ItemIdData, ptr %260, i64 %262
+  %263 = getelementptr [4 x i8], ptr %260, i64 %262
   %.val70.i = load i32, ptr %263, align 4
   %264 = and i32 %.val70.i, 32767
   %265 = zext nneg i32 %264 to i64
@@ -556,10 +554,10 @@ BufferGetPage.exit.i35:                           ; preds = %233, %227
 
 274:                                              ; preds = %261
   %275 = sext i32 %.06079.i to i64
-  %276 = getelementptr inbounds i32, ptr %7, i64 %275
+  %276 = getelementptr inbounds [4 x i8], ptr %7, i64 %275
   store i32 %271, ptr %276, align 4
   %277 = add nsw i32 %.06079.i, 1
-  %278 = getelementptr inbounds i16, ptr %6, i64 %275
+  %278 = getelementptr inbounds [2 x i8], ptr %6, i64 %275
   store i16 %.05980.i, ptr %278, align 2
   br label %279
 
@@ -598,21 +596,21 @@ BufferGetPage.exit.i35:                           ; preds = %233, %227
   br i1 %.not68.i, label %.thread.i41, label %295
 
 295:                                              ; preds = %290
-  %296 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i45
+  %296 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i45
   %297 = load i32, ptr %296, align 4
   %298 = load ptr, ptr %49, align 8
   %299 = call i32 @ReadBufferExtended(ptr noundef %215, i32 noundef 0, i32 noundef %297, i32 noundef 0, ptr noundef %298) #4
   call void @LockBuffer(i32 noundef %299, i32 noundef 2) #4
   call void @gistcheckpage(ptr noundef %215, i32 noundef %299) #4
   call void @LockBuffer(i32 noundef %225, i32 noundef 2) #4
-  %300 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.i45
+  %300 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv.i45
   %301 = load i16, ptr %300, align 2
   %302 = sub i16 %301, %.06281.i
   br i1 %226, label %303, label %307
 
 303:                                              ; preds = %295
   %304 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %305 = getelementptr inbounds nuw ptr, ptr %304, i64 %289
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %304, i64 %289
   %306 = load ptr, ptr %305, align 8
   br label %BufferGetPage.exit.i.i
 
@@ -630,7 +628,7 @@ BufferGetPage.exit.i.i:                           ; preds = %307, %303
   %312 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %313 = xor i32 %299, -1
   %314 = zext nneg i32 %313 to i64
-  %315 = getelementptr inbounds nuw ptr, ptr %312, i64 %314
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %314
   %316 = load ptr, ptr %315, align 8
   br label %BufferGetPage.exit58.i.i
 
@@ -699,7 +697,7 @@ BufferGetPage.exit58.i.i:                         ; preds = %317, %311
 356:                                              ; preds = %347
   %357 = zext i16 %302 to i64
   %358 = getelementptr i8, ptr %.0.i.i.i.i, i64 20
-  %359 = getelementptr %struct.ItemIdData, ptr %358, i64 %357
+  %359 = getelementptr [4 x i8], ptr %358, i64 %357
   %.val53.i.i = load i32, ptr %359, align 4
   %360 = and i32 %.val53.i.i, 32767
   %361 = zext nneg i32 %360 to i64

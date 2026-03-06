@@ -21,7 +21,7 @@ define hidden void @VULKAN_GetVertexShader(i32 noundef %0, ptr noundef writeonly
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @VULKAN_GetPixelShader(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @VULKAN_shaders, i64 %4
+  %5 = getelementptr inbounds nuw [32 x i8], ptr @VULKAN_shaders, i64 %4
   %6 = load ptr, ptr %5, align 16
   store ptr %6, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8

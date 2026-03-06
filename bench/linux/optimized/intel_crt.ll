@@ -637,7 +637,7 @@ define internal void @hsw_enable_crt(ptr noundef %0, ptr noundef %1, ptr noundef
   %53 = load ptr, ptr %27, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %55 = sext i32 %48 to i64
-  %56 = getelementptr i32, ptr %54, i64 %55
+  %56 = getelementptr [4 x i8], ptr %54, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %54, align 4
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 32
@@ -754,7 +754,7 @@ define internal void @hsw_post_disable_crt(ptr noundef %0, ptr noundef %1, ptr n
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %37 = sext i32 %30 to i64
-  %38 = getelementptr i32, ptr %36, i64 %37
+  %38 = getelementptr [4 x i8], ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = load i32, ptr %36, align 4
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 32
@@ -897,7 +897,7 @@ define internal void @pch_post_disable_crt(ptr readnone captures(none) %0, ptr n
   %33 = load ptr, ptr %7, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %35 = sext i32 %28 to i64
-  %36 = getelementptr i32, ptr %34, i64 %35
+  %36 = getelementptr [4 x i8], ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = load i32, ptr %34, align 4
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -986,7 +986,7 @@ define internal void @intel_disable_crt(ptr readnone captures(none) %0, ptr noun
   %33 = load ptr, ptr %7, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %35 = sext i32 %28 to i64
-  %36 = getelementptr i32, ptr %34, i64 %35
+  %36 = getelementptr [4 x i8], ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = load i32, ptr %34, align 4
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -1121,7 +1121,7 @@ define internal void @intel_enable_crt(ptr readnone captures(none) %0, ptr nound
   %33 = load ptr, ptr %7, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %35 = sext i32 %28 to i64
-  %36 = getelementptr i32, ptr %34, i64 %35
+  %36 = getelementptr [4 x i8], ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = load i32, ptr %34, align 4
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -1946,7 +1946,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = sext i32 %0 to i64
-  %12 = getelementptr i32, ptr %10, i64 %11
+  %12 = getelementptr [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = load i32, ptr %10, align 4
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -1960,7 +1960,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
   %23 = tail call i32 %22(ptr noundef nonnull %20, i32 %19, i1 noundef zeroext true) #5
   %24 = load ptr, ptr %8, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  %26 = getelementptr i32, ptr %25, i64 %11
+  %26 = getelementptr [4 x i8], ptr %25, i64 %11
   %27 = load i32, ptr %26, align 4
   %28 = load i32, ptr %25, align 4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -1972,7 +1972,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
   %35 = tail call i32 %34(ptr noundef nonnull %20, i32 %33, i1 noundef zeroext true) #5
   %36 = load ptr, ptr %8, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  %38 = getelementptr i32, ptr %37, i64 %11
+  %38 = getelementptr [4 x i8], ptr %37, i64 %11
   %39 = load i32, ptr %38, align 4
   %40 = load i32, ptr %37, align 4
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
@@ -1987,7 +1987,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
   %50 = lshr i32 %47, 16
   %51 = load ptr, ptr %8, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
-  %53 = getelementptr i32, ptr %52, i64 %11
+  %53 = getelementptr [4 x i8], ptr %52, i64 %11
   %54 = load i32, ptr %53, align 4
   %55 = load i32, ptr %52, align 4
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 32
@@ -2006,7 +2006,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
 66:                                               ; preds = %6
   %67 = load ptr, ptr %8, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 36
-  %69 = getelementptr i32, ptr %68, i64 %11
+  %69 = getelementptr [4 x i8], ptr %68, i64 %11
   %70 = load i32, ptr %69, align 4
   %71 = load i32, ptr %68, align 4
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 32
@@ -2018,7 +2018,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
   %78 = tail call i32 %77(ptr noundef nonnull %20, i32 %76, i1 noundef zeroext true) #5
   %79 = load ptr, ptr %8, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 36
-  %81 = getelementptr i32, ptr %80, i64 %11
+  %81 = getelementptr [4 x i8], ptr %80, i64 %11
   %82 = load i32, ptr %81, align 4
   %83 = load i32, ptr %80, align 4
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 32
@@ -2031,7 +2031,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
   tail call void %90(ptr noundef nonnull %20, i32 %88, i32 noundef %89, i1 noundef zeroext true) #5
   %91 = load ptr, ptr %8, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 36
-  %93 = getelementptr i32, ptr %92, i64 %11
+  %93 = getelementptr [4 x i8], ptr %92, i64 %11
   %94 = load i32, ptr %93, align 4
   %95 = load i32, ptr %92, align 4
   %96 = getelementptr inbounds nuw i8, ptr %91, i64 32
@@ -2051,7 +2051,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
   %109 = select i1 %108, i32 2, i32 1
   %110 = load ptr, ptr %8, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 36
-  %112 = getelementptr i32, ptr %111, i64 %11
+  %112 = getelementptr [4 x i8], ptr %111, i64 %11
   %113 = load i32, ptr %112, align 4
   %114 = load i32, ptr %111, align 4
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 32
@@ -2073,7 +2073,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
 126:                                              ; preds = %121
   %127 = load ptr, ptr %8, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 64
-  %129 = getelementptr i32, ptr %128, i64 %11
+  %129 = getelementptr [4 x i8], ptr %128, i64 %11
   %130 = load i32, ptr %129, align 4
   %131 = load i32, ptr %128, align 4
   %132 = getelementptr inbounds nuw i8, ptr %127, i64 32
@@ -2086,7 +2086,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
   %139 = and i32 %138, 65535
   %140 = load ptr, ptr %8, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 64
-  %142 = getelementptr i32, ptr %141, i64 %11
+  %142 = getelementptr [4 x i8], ptr %141, i64 %11
   %143 = load i32, ptr %142, align 4
   %144 = load i32, ptr %141, align 4
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 32
@@ -2107,7 +2107,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
 155:                                              ; preds = %155, %153
   %156 = load ptr, ptr %8, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 36
-  %158 = getelementptr i32, ptr %157, i64 %11
+  %158 = getelementptr [4 x i8], ptr %157, i64 %11
   %159 = load i32, ptr %158, align 4
   %160 = load i32, ptr %157, align 4
   %161 = getelementptr inbounds nuw i8, ptr %156, i64 32
@@ -2134,7 +2134,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
 178:                                              ; preds = %178, %169
   %179 = load ptr, ptr %8, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 36
-  %181 = getelementptr i32, ptr %180, i64 %11
+  %181 = getelementptr [4 x i8], ptr %180, i64 %11
   %182 = load i32, ptr %181, align 4
   %183 = load i32, ptr %180, align 4
   %184 = getelementptr inbounds nuw i8, ptr %179, i64 32
@@ -2163,7 +2163,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
   %203 = add i32 %196, %202
   %204 = load ptr, ptr %8, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 36
-  %206 = getelementptr i32, ptr %205, i64 %11
+  %206 = getelementptr [4 x i8], ptr %205, i64 %11
   %207 = load i32, ptr %206, align 4
   %208 = load i32, ptr %205, align 4
   %209 = getelementptr inbounds nuw i8, ptr %204, i64 32
@@ -2182,7 +2182,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
 218:                                              ; preds = %217
   %219 = load ptr, ptr %8, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 64
-  %221 = getelementptr i32, ptr %220, i64 %11
+  %221 = getelementptr [4 x i8], ptr %220, i64 %11
   %222 = load i32, ptr %221, align 4
   %223 = load i32, ptr %220, align 4
   %224 = getelementptr inbounds nuw i8, ptr %219, i64 32
@@ -2205,7 +2205,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
   %236 = phi i32 [ %109, %66 ], [ %234, %230 ]
   %237 = load ptr, ptr %8, align 8
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 64
-  %239 = getelementptr i32, ptr %238, i64 %11
+  %239 = getelementptr [4 x i8], ptr %238, i64 %11
   %240 = load i32, ptr %239, align 4
   %241 = load i32, ptr %238, align 4
   %242 = getelementptr inbounds nuw i8, ptr %237, i64 32

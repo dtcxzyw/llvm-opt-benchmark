@@ -11,14 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::vector.12" = type { %"struct.std::_Vector_base.13" }
-%"struct.std::_Vector_base.13" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.17" = type { %"struct.std::_Vector_base.18" }
-%"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt12__shared_ptrIN2cv8datasets10SLAM_kittiELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -309,7 +301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %49,
 
 120:                                              ; preds = %76, %120
   %indvars.iv = phi i64 [ 0, %76 ], [ %indvars.iv.next, %120 ]
-  %121 = getelementptr inbounds nuw %"class.std::vector.12", ptr %91, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %indvars.iv
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8, !tbaa !33
   %124 = load ptr, ptr %121, align 8, !tbaa !36
@@ -382,7 +374,7 @@ _ZNSt12__shared_ptrIN2cv8datasets10SLAM_kittiELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %indvars.iv87 = phi i64 [ 0, %92 ], [ %indvars.iv.next88, %._crit_edge ]
   %157 = trunc nuw nsw i64 %indvars.iv87 to i32
   %158 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %157)
-  %159 = getelementptr inbounds nuw %"class.std::vector.17", ptr %113, i64 %indvars.iv87
+  %159 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %indvars.iv87
   %160 = load ptr, ptr %159, align 8, !tbaa !54
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %162 = load ptr, ptr %161, align 8, !tbaa !54

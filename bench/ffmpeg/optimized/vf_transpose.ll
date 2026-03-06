@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
 %struct.ThreadData = type { ptr, ptr }
-%struct.TransVtable = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"transpose\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"Transpose input video.\00", align 1
@@ -263,7 +262,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
 29:                                               ; preds = %23, %26
   %30 = phi i32 [ %27, %26 ], [ 0, %23 ]
   %31 = phi i32 [ %28, %26 ], [ 0, %23 ]
-  %32 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv159
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv159
   %33 = load i32, ptr %32, align 4, !tbaa !58
   %34 = load i32, ptr %16, align 4, !tbaa !59
   %35 = load i32, ptr %17, align 8, !tbaa !60
@@ -278,14 +277,14 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   %44 = sdiv i32 %43, %3
   %45 = mul i32 %41, %.neg
   %46 = sdiv i32 %45, %3
-  %47 = getelementptr inbounds nuw %struct.TransVtable, ptr %19, i64 %indvars.iv159
-  %48 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv159
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv159
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv159
   %49 = load i32, ptr %48, align 4, !tbaa !58
-  %50 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv159
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv159
   %51 = load ptr, ptr %50, align 8, !tbaa !61
-  %52 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv159
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv159
   %53 = load ptr, ptr %52, align 8, !tbaa !61
-  %54 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv159
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv159
   %55 = load i32, ptr %54, align 4, !tbaa !58
   %56 = load i32, ptr %22, align 8, !tbaa !62
   %57 = and i32 %56, 1
@@ -580,7 +579,7 @@ define internal noundef i32 @config_props_output(ptr noundef captures(none) %0) 
 
 79:                                               ; preds = %66, %87
   %indvars.iv = phi i64 [ 0, %66 ], [ %indvars.iv.next, %87 ]
-  %80 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %81 = load i32, ptr %80, align 4, !tbaa !58
   %switch.tableidx = add i32 %81, -1
   %82 = icmp ult i32 %switch.tableidx, 8
@@ -591,12 +590,12 @@ define internal noundef i32 @config_props_output(ptr noundef captures(none) %0) 
   br i1 %or.cond, label %switch.lookup, label %87
 
 switch.lookup:                                    ; preds = %79
-  %83 = getelementptr inbounds nuw %struct.TransVtable, ptr %68, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %indvars.iv
   %84 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.config_props_output, i64 %84
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.config_props_output, i64 %84
   %switch.load = load ptr, ptr %switch.gep, align 8
   %85 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep77 = getelementptr inbounds nuw ptr, ptr @switch.table.config_props_output.1, i64 %85
+  %switch.gep77 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.config_props_output.1, i64 %85
   %switch.load78 = load ptr, ptr %switch.gep77, align 8
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %switch.load, ptr %86, align 8, !tbaa !63

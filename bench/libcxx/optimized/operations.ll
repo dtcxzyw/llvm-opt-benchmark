@@ -6944,13 +6944,13 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_17basic_string_viewIcN
 
 .noexc44:                                         ; preds = %_ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_17basic_string_viewIcNS_11char_traitsIcEEEEEEEEDaRT_m.exit.i.i.i.i
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 %153
-  %167 = getelementptr inbounds nuw %"class.std::__1::basic_string_view", ptr %165, i64 %.0.i.i.i.i
+  %167 = getelementptr inbounds nuw [16 x i8], ptr %165, i64 %.0.i.i.i.i
   store ptr %.sroa.0.0.i, ptr %166, align 8, !tbaa !246
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 8
   store i64 %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !72
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %169 = sub nsw i64 0, %154
-  %170 = getelementptr inbounds %"class.std::__1::basic_string_view", ptr %166, i64 %169
+  %170 = getelementptr inbounds [16 x i8], ptr %166, i64 %169
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %170, ptr align 8 %.sroa.081.0153, i64 %153, i1 false)
   %.not.i3.i.i.i = icmp eq ptr %.sroa.081.0153, null
   br i1 %.not.i3.i.i.i, label %172, label %171

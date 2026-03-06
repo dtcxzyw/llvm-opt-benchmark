@@ -1102,7 +1102,7 @@ define void @_ZN6icu_779SpoofImpl14addScriptCharsEPKcPNS_10UnicodeSetER10UErrorC
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %15 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !43
   %17 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet21applyIntPropertyValueE9UPropertyiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %6, i32 noundef 4106, i32 noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %18 unwind label %21
@@ -1450,7 +1450,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph:   ; preds = %9
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv
   %26 = load i16, ptr %25, align 2, !tbaa !49
   %27 = icmp ugt i16 %26, 127
   br i1 %27, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, label %24
@@ -1756,7 +1756,7 @@ define noundef range(i32 1, 257) i32 @_ZNK6icu_779SpoofData16confusableLookupEiR
   %11 = add nsw i32 %.020, %.021
   %12 = sdiv i32 %11, 2
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %9, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %9, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !53
   %16 = and i32 %15, 16777215
   %17 = icmp sgt i32 %16, %1
@@ -1771,7 +1771,7 @@ define noundef range(i32 1, 257) i32 @_ZNK6icu_779SpoofData16confusableLookupEiR
 
 22:                                               ; preds = %10
   %23 = sext i32 %.223 to i64
-  %24 = getelementptr inbounds i32, ptr %9, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %9, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !53
   %26 = and i32 %25, 16777215
   %.not = icmp eq i32 %26, %1
@@ -1786,7 +1786,7 @@ define noundef range(i32 1, 257) i32 @_ZNK6icu_779SpoofData16confusableLookupEiR
   %31 = add nuw nsw i32 %30, 1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load ptr, ptr %32, align 8, !tbaa !55
-  %34 = getelementptr inbounds i16, ptr %33, i64 %23
+  %34 = getelementptr inbounds [2 x i8], ptr %33, i64 %23
   %35 = load i16, ptr %34, align 2, !tbaa !56
   %36 = icmp eq i32 %30, 0
   br i1 %36, label %37, label %39
@@ -1802,7 +1802,7 @@ define noundef range(i32 1, 257) i32 @_ZNK6icu_779SpoofData16confusableLookupEiR
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !58
   %42 = zext i16 %35 to i64
-  %43 = getelementptr inbounds nuw i16, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %42
   %44 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %43, i32 noundef 0, i32 noundef %31)
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i unwind label %45
 
@@ -1842,7 +1842,7 @@ define noundef range(i32 0, 1114112) i32 @_ZN6icu_779SpoofImpl7ScanHexEPKDsiiR10
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %8, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02025 = phi i32 [ 0, %.lr.ph.preheader ], [ %16, %.lr.ph ]
-  %9 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds [2 x i8], ptr %0, i64 %indvars.iv
   %10 = load i16, ptr %9, align 2, !tbaa !49
   %11 = zext i16 %10 to i32
   %12 = icmp ugt i16 %10, 57
@@ -2554,7 +2554,7 @@ define noundef range(i32 0, 16777216) i32 @_ZNK6icu_779SpoofData11codePointAtEi(
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !52
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !53
   %8 = and i32 %7, 16777215
   ret i32 %8
@@ -2568,13 +2568,13 @@ define noundef range(i32 1, 257) i32 @_ZNK6icu_779SpoofData13appendValueToEiRNS_
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !52
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !53
   %10 = lshr i32 %9, 24
   %11 = add nuw nsw i32 %10, 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !55
-  %14 = getelementptr inbounds i16, ptr %13, i64 %7
+  %14 = getelementptr inbounds [2 x i8], ptr %13, i64 %7
   %15 = load i16, ptr %14, align 2, !tbaa !56
   %16 = icmp eq i32 %10, 0
   br i1 %16, label %17, label %19
@@ -2590,7 +2590,7 @@ define noundef range(i32 1, 257) i32 @_ZNK6icu_779SpoofData13appendValueToEiRNS_
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !58
   %22 = zext i16 %15 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %22
   %24 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %23, i32 noundef 0, i32 noundef %11)
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit unwind label %25
 

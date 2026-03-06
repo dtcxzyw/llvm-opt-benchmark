@@ -508,7 +508,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
   %.172106 = phi i32 [ %.27383, %86 ], [ %.071110, %.lr.ph113 ]
   %24 = add nsw i32 %.172106, 1
   %25 = sext i32 %.172106 to i64
-  %26 = getelementptr inbounds i16, ptr %1, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %1, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !17
   %28 = zext i16 %27 to i32
   %29 = and i32 %28, 64512
@@ -541,7 +541,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
   %45 = shl nuw nsw i32 %28, 10
   %46 = add nsw i32 %.172106, 2
   %47 = sext i32 %24 to i64
-  %48 = getelementptr inbounds i16, ptr %1, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %1, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !17
   %50 = zext i16 %49 to i32
   %51 = add nuw nsw i32 %45, %50

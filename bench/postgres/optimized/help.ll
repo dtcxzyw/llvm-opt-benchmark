@@ -764,7 +764,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
 
 32:                                               ; preds = %._crit_edge168.us
   %33 = sext i32 %49 to i64
-  %34 = getelementptr inbounds %struct._helpStruct, ptr @QL_HELP, i64 %33
+  %34 = getelementptr inbounds [40 x i8], ptr @QL_HELP, i64 %33
   %35 = load ptr, ptr %34, align 8
   %.not129.us = icmp eq ptr %35, null
   %spec.select131.us = select i1 %.not129.us, ptr @.str.259, ptr %35
@@ -783,7 +783,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
   %43 = mul i32 %42, %.zext
   %44 = add i32 %43, %.0111170.us
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds %struct._helpStruct, ptr @QL_HELP, i64 %45
+  %46 = getelementptr inbounds [40 x i8], ptr @QL_HELP, i64 %45
   %47 = load ptr, ptr %46, align 8
   %.not130.us = icmp eq ptr %47, null
   %spec.select.us = select i1 %.not130.us, ptr @.str.259, ptr %47
@@ -804,7 +804,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %.lr.ph172.split
-  %54 = getelementptr inbounds nuw %struct._helpStruct, ptr @QL_HELP, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [40 x i8], ptr @QL_HELP, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8
   %.not129 = icmp eq ptr %55, null
   %spec.select131 = select i1 %.not129, ptr @.str.259, ptr %55
@@ -913,7 +913,7 @@ sub_0:                                            ; preds = %.lr.ph152
   %.2 = phi i32 [ %87, %83 ], [ %.094151, %.tail ], [ %.094151, %sub_0 ]
   %90 = add i32 %.0108150, 1
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds %struct._helpStruct, ptr @QL_HELP, i64 %91
+  %92 = getelementptr inbounds [40 x i8], ptr @QL_HELP, i64 %91
   %93 = load ptr, ptr %92, align 8
   %.not123 = icmp eq ptr %93, null
   br i1 %.not123, label %._crit_edge, label %.lr.ph152, !llvm.loop !14
@@ -970,7 +970,7 @@ sub_0135:                                         ; preds = %.lr.ph162
 .tail134.thread:                                  ; preds = %sub_0135, %105, %.tail134
   %117 = add i32 %.1109160, 1
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds %struct._helpStruct, ptr @QL_HELP, i64 %118
+  %119 = getelementptr inbounds [40 x i8], ptr @QL_HELP, i64 %118
   %120 = load ptr, ptr %119, align 8
   %.not125 = icmp eq ptr %120, null
   br i1 %.not125, label %._crit_edge163, label %.lr.ph162, !llvm.loop !15

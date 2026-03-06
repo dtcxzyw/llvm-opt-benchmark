@@ -47,7 +47,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.20" = type { %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Point_" = type { i32, i32 }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -379,7 +378,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__n
   tail call void @_ZdlPv(ptr noundef nonnull %118) #24
   store ptr %135, ptr %21, align 8, !tbaa !4
   store ptr %140, ptr %97, align 8, !tbaa !10
-  %141 = getelementptr inbounds nuw %"class.cv::Point_", ptr %135, i64 %133
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %133
   store ptr %141, ptr %98, align 8, !tbaa !11
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit254
 
@@ -1155,7 +1154,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EEC2ERKS4_.exit.i: ; preds = %.noexc379, %.noe
   %480 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %.sroa.023.0.vec.insert.i)
   %481 = insertelement <2 x double> poison, double %479, i64 0
   %482 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %481)
-  %483 = getelementptr inbounds nuw %"class.cv::Point_", ptr %442, i64 %indvars.iv.i
+  %483 = getelementptr inbounds nuw [8 x i8], ptr %442, i64 %indvars.iv.i
   %484 = load i32, ptr %483, align 4, !tbaa !80, !noalias !77
   %485 = add nsw i32 %484, %480
   store i32 %485, ptr %483, align 4, !tbaa !80, !noalias !77
@@ -1198,8 +1197,8 @@ _ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i376: ; preds 
   %494 = icmp eq i64 %indvars.iv.next170.i, %493
   %495 = and i64 %indvars.iv.next170.i, 4294967295
   %496 = select i1 %494, i64 0, i64 %495
-  %497 = getelementptr inbounds nuw %"class.cv::Point_", ptr %442, i64 %496
-  %498 = getelementptr inbounds nuw %"class.cv::Point_", ptr %442, i64 %indvars.iv169.i
+  %497 = getelementptr inbounds nuw [8 x i8], ptr %442, i64 %496
+  %498 = getelementptr inbounds nuw [8 x i8], ptr %442, i64 %indvars.iv169.i
   %.val75.i = load i32, ptr %497, align 4, !tbaa !80, !noalias !77
   %499 = getelementptr i8, ptr %497, i64 4
   %.val76.i = load i32, ptr %499, align 4, !tbaa !82, !noalias !77
@@ -1348,7 +1347,7 @@ _ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i99.i: ; preds =
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i110.i: ; preds = %.lr.ph.i.i.i.i.i.i103.i, %.noexc112.i
   %.0.lcssa.i.i.i.i.i.i108.i = phi ptr [ %575, %.noexc112.i ], [ %579, %.lr.ph.i.i.i.i.i.i103.i ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.049.2121.i) #24, !noalias !77
-  %580 = getelementptr inbounds nuw %"class.cv::Point_", ptr %575, i64 %573
+  %580 = getelementptr inbounds nuw [8 x i8], ptr %575, i64 %573
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit113.i
 
 _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit129.thread.loopexit.i: ; preds = %_ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i99.i
@@ -1797,7 +1796,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43
   %694 = add nuw nsw i64 %693, %indvars.iv
   %695 = urem i64 %694, %689
   %696 = load ptr, ptr %23, align 8, !tbaa !4
-  %697 = getelementptr inbounds nuw %"class.cv::Point_", ptr %696, i64 %695
+  %697 = getelementptr inbounds nuw [8 x i8], ptr %696, i64 %695
   %698 = load ptr, ptr %278, align 8, !tbaa !11
   %.not.i435 = icmp eq ptr %688, %698
   br i1 %.not.i435, label %703, label %699
@@ -1870,7 +1869,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; p
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %723, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %716, ptr %24, align 8, !tbaa !4
   store ptr %722, ptr %277, align 8, !tbaa !10
-  %724 = getelementptr inbounds nuw %"class.cv::Point_", ptr %716, i64 %714
+  %724 = getelementptr inbounds nuw [8 x i8], ptr %716, i64 %714
   store ptr %724, ptr %278, align 8, !tbaa !11
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit
 
@@ -2003,7 +2002,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit454: ; preds
   %.sroa.0740.sroa.7.01143 = phi i32 [ %.sroa.0.sroa.7.0.i, %791 ], [ 0, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit454 ]
   %.sroa.8.01142 = phi i64 [ %.sroa.9.0.i, %791 ], [ 0, %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE9push_backERKS4_.exit454 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  %770 = getelementptr inbounds nuw %"class.std::vector", ptr %769, i64 %indvars.iv1205
+  %770 = getelementptr inbounds nuw [24 x i8], ptr %769, i64 %indvars.iv1205
   store i32 0, ptr %281, align 8, !tbaa !95
   store i32 0, ptr %282, align 4, !tbaa !96
   store i32 -2130509812, ptr %46, align 8, !tbaa !71
@@ -4028,7 +4027,7 @@ _ZNSt12_Vector_baseISt6vectorIN2cv6Point_IiEESaIS3_EESaIS5_EE13_M_deallocateEPS5
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !97
   store ptr %.0.lcssa.i.i.i.i32, ptr %4, align 8, !tbaa !100
-  %62 = getelementptr inbounds nuw %"class.std::vector", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %62, ptr %61, align 8, !tbaa !102
   ret void
 
@@ -4167,7 +4166,7 @@ _ZNSt12_Vector_baseISt6vectorIN2cv6Point_IiEESaIS3_EESaIS5_EE13_M_deallocateEPS5
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !97
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !100
-  %50 = getelementptr inbounds nuw %"class.std::vector", ptr %20, i64 %16
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %50, ptr %49, align 8, !tbaa !102
   ret void
 }

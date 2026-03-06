@@ -440,7 +440,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
 .preheader521:                                    ; preds = %.preheader521.lr.ph, %242
   %indvars.iv = phi i64 [ %220, %.preheader521.lr.ph ], [ %indvars.iv.next, %242 ]
   %.0430559 = phi i32 [ %218, %.preheader521.lr.ph ], [ %249, %242 ]
-  %221 = getelementptr inbounds ptr, ptr %.0429, i64 %indvars.iv
+  %221 = getelementptr inbounds [8 x i8], ptr %.0429, i64 %indvars.iv
   br label %222
 
 222:                                              ; preds = %.preheader521, %222
@@ -463,7 +463,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %233 = load i32, ptr %232, align 4, !tbaa !37
   %234 = add i32 %233, 1
   store i32 %234, ptr %232, align 4, !tbaa !37
-  %235 = getelementptr inbounds ptr, ptr %.0427, i64 %indvars.iv
+  %235 = getelementptr inbounds [8 x i8], ptr %.0427, i64 %indvars.iv
   br label %236
 
 236:                                              ; preds = %236, %228
@@ -507,7 +507,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
 .preheader519:                                    ; preds = %.preheader519.lr.ph, %277
   %indvars.iv645 = phi i64 [ %255, %.preheader519.lr.ph ], [ %indvars.iv.next646, %277 ]
   %.1431562 = phi i32 [ %253, %.preheader519.lr.ph ], [ %284, %277 ]
-  %256 = getelementptr inbounds ptr, ptr %.0428, i64 %indvars.iv645
+  %256 = getelementptr inbounds [8 x i8], ptr %.0428, i64 %indvars.iv645
   br label %257
 
 257:                                              ; preds = %.preheader519, %257
@@ -530,7 +530,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %268 = load i32, ptr %267, align 4, !tbaa !37
   %269 = add i32 %268, 1
   store i32 %269, ptr %267, align 4, !tbaa !37
-  %270 = getelementptr inbounds ptr, ptr %.0426, i64 %indvars.iv645
+  %270 = getelementptr inbounds [8 x i8], ptr %.0426, i64 %indvars.iv645
   br label %271
 
 271:                                              ; preds = %271, %263
@@ -621,7 +621,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
 310:                                              ; preds = %.lr.ph566
   %311 = load i32, ptr %17, align 4, !tbaa !3
   %312 = add nsw i32 %311, -1
-  %313 = getelementptr inbounds nuw i32, ptr %295, i64 %indvars.iv650
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %295, i64 %indvars.iv650
   store i32 %312, ptr %313, align 4, !tbaa !3
   %indvars.iv.next651 = add nuw nsw i64 %indvars.iv650, 1
   %314 = load i32, ptr %29, align 4, !tbaa !3
@@ -669,7 +669,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
 326:                                              ; preds = %.lr.ph569
   %327 = load i32, ptr %17, align 4, !tbaa !3
   %328 = add nsw i32 %327, -1
-  %329 = getelementptr inbounds nuw i32, ptr %303, i64 %indvars.iv653
+  %329 = getelementptr inbounds nuw [4 x i8], ptr %303, i64 %indvars.iv653
   store i32 %328, ptr %329, align 4, !tbaa !3
   %indvars.iv.next654 = add nuw nsw i64 %indvars.iv653, 1
   %330 = load i32, ptr %30, align 4, !tbaa !3
@@ -724,7 +724,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %353 = and i32 %.2445573, 1
   %.not510 = icmp eq i32 %353, 0
   %.0426..0428 = select i1 %.not510, ptr %.0426, ptr %.0428
-  %354 = getelementptr inbounds nuw ptr, ptr %.0426..0428, i64 %indvars.iv.next657
+  %354 = getelementptr inbounds nuw [8 x i8], ptr %.0426..0428, i64 %indvars.iv.next657
   %355 = load ptr, ptr %354, align 8, !tbaa !35
   %356 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef %.0447572, ptr noundef %355) #8
   %357 = icmp eq ptr %356, null
@@ -751,10 +751,10 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
 
 ._crit_edge577:                                   ; preds = %359, %349
   %.0447.lcssa = phi ptr [ %41, %349 ], [ %356, %359 ]
-  %368 = getelementptr inbounds nuw i32, ptr %295, i64 %indvars.iv665
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %295, i64 %indvars.iv665
   %369 = load i32, ptr %368, align 4, !tbaa !3
   %indvars.iv.next666 = add nuw nsw i64 %indvars.iv665, 1
-  %370 = getelementptr inbounds nuw i32, ptr %295, i64 %indvars.iv.next666
+  %370 = getelementptr inbounds nuw [4 x i8], ptr %295, i64 %indvars.iv.next666
   %371 = load i32, ptr %370, align 4, !tbaa !3
   %372 = icmp slt i32 %369, %371
   br i1 %372, label %.lr.ph588.preheader, label %._crit_edge589
@@ -765,7 +765,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
 
 .lr.ph588:                                        ; preds = %.lr.ph588.preheader, %421
   %indvars.iv662 = phi i64 [ %373, %.lr.ph588.preheader ], [ %indvars.iv.next663, %421 ]
-  %374 = getelementptr inbounds i32, ptr %303, i64 %indvars.iv662
+  %374 = getelementptr inbounds [4 x i8], ptr %303, i64 %indvars.iv662
   %375 = load i32, ptr %374, align 4, !tbaa !3
   store i32 %375, ptr %17, align 4, !tbaa !3
   %376 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %18) #8
@@ -812,7 +812,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %391 = and i32 %390, 1
   %.not509 = icmp eq i32 %391, 0
   %.0427..0429 = select i1 %.not509, ptr %.0427, ptr %.0429
-  %392 = getelementptr inbounds nuw ptr, ptr %.0427..0429, i64 %indvars.iv.next660
+  %392 = getelementptr inbounds nuw [8 x i8], ptr %.0427..0429, i64 %indvars.iv.next660
   %393 = load ptr, ptr %392, align 8, !tbaa !35
   %394 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef nonnull %.0449580, ptr noundef %393) #8
   %395 = icmp eq ptr %394, null
@@ -940,7 +940,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %451 = and i32 %.3446596, 1
   %.not507 = icmp eq i32 %451, 0
   %.0426..0428749 = select i1 %.not507, ptr %.0426, ptr %.0428
-  %452 = getelementptr inbounds nuw ptr, ptr %.0426..0428749, i64 %indvars.iv668
+  %452 = getelementptr inbounds nuw [8 x i8], ptr %.0426..0428749, i64 %indvars.iv668
   %453 = load ptr, ptr %452, align 8, !tbaa !35
   %454 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef %.1448595, ptr noundef %453) #8
   %455 = icmp eq ptr %454, null
@@ -1011,7 +1011,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %483 = and i32 %482, 1
   %.not506 = icmp eq i32 %483, 0
   %.0427..0429750 = select i1 %.not506, ptr %.0427, ptr %.0429
-  %484 = getelementptr inbounds nuw ptr, ptr %.0427..0429750, i64 %indvars.iv.next672
+  %484 = getelementptr inbounds nuw [8 x i8], ptr %.0427..0429750, i64 %indvars.iv.next672
   %485 = load ptr, ptr %484, align 8, !tbaa !35
   %486 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef nonnull %.1450602, ptr noundef %485) #8
   %487 = icmp eq ptr %486, null

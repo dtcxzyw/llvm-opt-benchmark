@@ -238,7 +238,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
   %112 = phi i32 [ %107, %106 ], [ %.pre.i, %109 ]
   %113 = load ptr, ptr %5, align 8, !tbaa !16
   %114 = zext i32 %112 to i64
-  %115 = getelementptr inbounds nuw ptr, ptr %113, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %114
   %116 = ptrtoint ptr %102 to i64
   store i64 %116, ptr %115, align 1
   %117 = load i32, ptr %52, align 8, !tbaa !19

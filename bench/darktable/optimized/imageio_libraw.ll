@@ -130,7 +130,7 @@ define void @_check_libraw_missing_support(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not.i12, label %15, label %20
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %struct.model_map, ptr @modelMap, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [40 x i8], ptr @modelMap, i64 %indvars.iv.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !14
   %19 = tail call i32 @g_strcmp0(ptr noundef nonnull %6, ptr noundef %18) #5
@@ -184,7 +184,7 @@ define range(i32 0, 2) i32 @dt_libraw_lookup_makermodel(ptr noundef %0, ptr noun
   br i1 %.not, label %11, label %16
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw %struct.model_map, ptr @modelMap, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [40 x i8], ptr @modelMap, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !14
   %15 = tail call i32 @g_strcmp0(ptr noundef %1, ptr noundef %14) #5
@@ -363,11 +363,11 @@ _supported_image.exit:                            ; preds = %13, %16
 
 61:                                               ; preds = %51, %61
   %.0134174 = phi i64 [ 0, %51 ], [ %67, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %58, i64 %.0134174
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %.0134174
   %63 = load i32, ptr %62, align 4, !tbaa !112
   %64 = add i32 %63, %55
   %65 = trunc i32 %64 to i16
-  %66 = getelementptr inbounds nuw i16, ptr %59, i64 %.0134174
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %.0134174
   store i16 %65, ptr %66, align 2, !tbaa !113
   %67 = add nuw nsw i64 %.0134174, 1
   %exitcond.not = icmp eq i64 %67, 4
@@ -380,9 +380,9 @@ _supported_image.exit:                            ; preds = %13, %16
 
 70:                                               ; preds = %.preheader173, %70
   %.0133175 = phi i64 [ 0, %.preheader173 ], [ %74, %70 ]
-  %71 = getelementptr inbounds nuw float, ptr %30, i64 %.0133175
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.0133175
   %72 = load float, ptr %71, align 4, !tbaa !67
-  %73 = getelementptr inbounds nuw float, ptr %60, i64 %.0133175
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %.0133175
   store float %72, ptr %73, align 4, !tbaa !67
   %74 = add nuw nsw i64 %.0133175, 1
   %exitcond178.not = icmp eq i64 %74, 4
@@ -390,8 +390,8 @@ _supported_image.exit:                            ; preds = %13, %16
 
 .preheader:                                       ; preds = %.preheader172, %111
   %indvars.iv182 = phi i64 [ 0, %.preheader172 ], [ %indvars.iv.next183, %111 ]
-  %75 = getelementptr inbounds nuw [3 x float], ptr %68, i64 %indvars.iv182
-  %76 = getelementptr inbounds nuw [3 x float], ptr %69, i64 %indvars.iv182
+  %75 = getelementptr inbounds nuw [12 x i8], ptr %68, i64 %indvars.iv182
+  %76 = getelementptr inbounds nuw [12 x i8], ptr %69, i64 %indvars.iv182
   br label %112
 
 77:                                               ; preds = %111
@@ -445,9 +445,9 @@ _supported_image.exit:                            ; preds = %13, %16
 
 112:                                              ; preds = %.preheader, %112
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %112 ]
-  %113 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv
   %114 = load float, ptr %113, align 4, !tbaa !67
-  %115 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv
   store float %114, ptr %115, align 4, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next, 3

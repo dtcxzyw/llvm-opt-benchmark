@@ -14,9 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SDL_MessageBoxDataX11 = type { ptr, i32, i64, i64, i8, i64, i64, i64, i32, i32, ptr, ptr, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, ptr, [8 x %struct.SDL_MessageBoxButtonDataX11], [5 x i32], ptr }
 %struct.SDL_MessageBoxButtonDataX11 = type { i32, i32, i32, i32, %struct.SDL_Rect, ptr }
 %struct.SDL_Rect = type { i32, i32, i32, i32 }
-%struct.SDL_MessageBoxButtonData = type { i32, i32, ptr }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
-%struct.TextLineData = type { i32, i32, ptr }
 
 @.str = private unnamed_addr constant [28 x i8] c"msgbox child process failed\00", align 1
 @.str.1 = private unnamed_addr constant [38 x i8] c"read from msgbox child process failed\00", align 1
@@ -322,7 +319,7 @@ define internal fastcc zeroext i1 @X11_ShowMessageBoxImpl(ptr noundef %0, ptr no
 
 61:                                               ; preds = %60, %58
   %indvars.iv.i = phi i64 [ 0, %58 ], [ %indvars.iv.next.i, %60 ]
-  %62 = getelementptr inbounds nuw ptr, ptr @g_MessageBoxFont, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr @g_MessageBoxFont, i64 %indvars.iv.i
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr @X11_XCreateFontSet, align 8
   %65 = load ptr, ptr %29, align 8
@@ -376,7 +373,7 @@ define internal fastcc zeroext i1 @X11_ShowMessageBoxImpl(ptr noundef %0, ptr no
 
 84:                                               ; preds = %84, %80
   %indvars.iv58.i = phi i64 [ 0, %80 ], [ %indvars.iv.next59.i, %84 ]
-  %85 = getelementptr inbounds nuw %struct.SDL_MessageBoxColor, ptr %g_default_colors..i, i64 %indvars.iv58.i
+  %85 = getelementptr inbounds nuw [3 x i8], ptr %g_default_colors..i, i64 %indvars.iv58.i
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
   %88 = shl nuw nsw i32 %87, 16
@@ -389,7 +386,7 @@ define internal fastcc zeroext i1 @X11_ShowMessageBoxImpl(ptr noundef %0, ptr no
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i32
   %97 = or disjoint i32 %93, %96
-  %98 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv58.i
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv58.i
   store i32 %97, ptr %98, align 4
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next59.i, 5
@@ -579,8 +576,8 @@ GetTextWidthHeight.exit.i:                        ; preds = %144, %136
   %.0154188.i = phi i32 [ 0, %.lr.ph.i ], [ %223, %GetTextWidthHeight.exit174.i ]
   %.0155187.i = phi i32 [ 64, %.lr.ph.i ], [ %222, %GetTextWidthHeight.exit174.i ]
   %186 = load ptr, ptr %176, align 8
-  %187 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %186, i64 %indvars.iv201.i
-  %188 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %177, i64 %indvars.iv201.i
+  %187 = getelementptr inbounds nuw [16 x i8], ptr %186, i64 %indvars.iv201.i
+  %188 = getelementptr inbounds nuw [40 x i8], ptr %177, i64 %indvars.iv201.i
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 32
   store ptr %187, ptr %189, align 8
   %190 = getelementptr inbounds nuw i8, ptr %187, i64 8
@@ -590,7 +587,7 @@ GetTextWidthHeight.exit.i:                        ; preds = %144, %136
   %194 = getelementptr inbounds nuw i8, ptr %188, i64 8
   store i32 %193, ptr %194, align 8
   %195 = load ptr, ptr %176, align 8
-  %196 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %195, i64 %indvars.iv201.i
+  %196 = getelementptr inbounds nuw [16 x i8], ptr %195, i64 %indvars.iv201.i
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %198 = load ptr, ptr %197, align 8
   %199 = call i64 @SDL_strlen_REAL(ptr noundef %198) #11
@@ -740,7 +737,7 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
 281:                                              ; preds = %281, %.lr.ph195.i
   %indvars.iv204.i = phi i64 [ 0, %.lr.ph195.i ], [ %indvars.iv.next205.i, %281 ]
   %.1152192.i = phi i32 [ %.0151.i, %.lr.ph195.i ], [ %.2153.i, %281 ]
-  %282 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %276, i64 %indvars.iv204.i
+  %282 = getelementptr inbounds nuw [40 x i8], ptr %276, i64 %indvars.iv204.i
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 16
   store i32 %.1152192.i, ptr %283, align 8
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 20
@@ -803,7 +800,7 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
   %311 = getelementptr inbounds nuw i8, ptr %295, i64 232
   %312 = load ptr, ptr %311, align 8
   %313 = sext i32 %.sink.i to i64
-  %314 = getelementptr inbounds %struct.Screen, ptr %312, i64 %313
+  %314 = getelementptr inbounds [128 x i8], ptr %312, i64 %313
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 16
   %316 = load i64, ptr %315, align 8
   %317 = getelementptr inbounds nuw i8, ptr %29, i64 64
@@ -906,7 +903,7 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
   %390 = load ptr, ptr %311, align 8
   %391 = load i32, ptr %307, align 8
   %392 = sext i32 %391 to i64
-  %393 = getelementptr inbounds %struct.Screen, ptr %390, i64 %392
+  %393 = getelementptr inbounds [128 x i8], ptr %390, i64 %392
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 16
   %395 = load i64, ptr %394, align 8
   %396 = call i32 %388(ptr noundef nonnull %295, i64 noundef %389, i64 noundef %395, i32 noundef %379, i32 noundef %387, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %12) #11
@@ -969,7 +966,7 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
   %433 = getelementptr inbounds nuw i8, ptr %295, i64 224
   %434 = load i32, ptr %433, align 8
   %435 = sext i32 %434 to i64
-  %436 = getelementptr inbounds %struct.Screen, ptr %432, i64 %435
+  %436 = getelementptr inbounds [128 x i8], ptr %432, i64 %435
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 16
   %438 = load i64, ptr %437, align 8
   %439 = call ptr %431(ptr noundef nonnull %295, i64 noundef %438) #11
@@ -996,7 +993,7 @@ GetTextWidthHeight.exit174.i:                     ; preds = %211, %203
   %456 = load ptr, ptr %311, align 8
   %457 = load i32, ptr %307, align 8
   %458 = sext i32 %457 to i64
-  %459 = getelementptr inbounds %struct.Screen, ptr %456, i64 %458
+  %459 = getelementptr inbounds [128 x i8], ptr %456, i64 %458
   %460 = getelementptr inbounds nuw i8, ptr %459, i64 24
   %461 = load i32, ptr %460, align 8
   %462 = load i32, ptr %317, align 8
@@ -1230,7 +1227,7 @@ X11_MessageBoxCreateWindow.exit:                  ; preds = %306
 
 .lr.ph.i.i:                                       ; preds = %592, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %592 ]
-  %578 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %29, i64 %indvars.iv.i.i
+  %578 = getelementptr inbounds nuw [40 x i8], ptr %29, i64 %indvars.iv.i.i
   %579 = getelementptr inbounds nuw i8, ptr %578, i64 160
   %580 = load i32, ptr %579, align 8
   %.not.i.i32 = icmp slt i32 %574, %580
@@ -1317,7 +1314,7 @@ X11_MessageBoxCreateWindow.exit:                  ; preds = %306
 
 .lr.ph.i28:                                       ; preds = %616, %.lr.ph.preheader.i
   %indvars.iv.i29 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i30, %616 ]
-  %617 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %29, i64 %indvars.iv.i29
+  %617 = getelementptr inbounds nuw [40 x i8], ptr %29, i64 %indvars.iv.i29
   %618 = getelementptr inbounds nuw i8, ptr %617, i64 176
   %619 = load ptr, ptr %618, align 8
   %620 = load i32, ptr %619, align 8
@@ -1351,7 +1348,7 @@ X11_MessageBoxCreateWindow.exit:                  ; preds = %306
 
 .lr.ph.i88.i:                                     ; preds = %648, %.lr.ph.preheader.i86.i
   %indvars.iv.i89.i = phi i64 [ 0, %.lr.ph.preheader.i86.i ], [ %indvars.iv.next.i95.i, %648 ]
-  %634 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %29, i64 %indvars.iv.i89.i
+  %634 = getelementptr inbounds nuw [40 x i8], ptr %29, i64 %indvars.iv.i89.i
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 160
   %636 = load i32, ptr %635, align 8
   %.not.i90.i = icmp slt i32 %630, %636
@@ -1414,7 +1411,7 @@ GetHitButtonIndex.exit97.i:                       ; preds = %648, %._crit_edge.l
 
 .lr.ph.i101.i:                                    ; preds = %675, %.lr.ph.preheader.i99.i
   %indvars.iv.i102.i = phi i64 [ 0, %.lr.ph.preheader.i99.i ], [ %indvars.iv.next.i108.i, %675 ]
-  %661 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %29, i64 %indvars.iv.i102.i
+  %661 = getelementptr inbounds nuw [40 x i8], ptr %29, i64 %indvars.iv.i102.i
   %662 = getelementptr inbounds nuw i8, ptr %661, i64 160
   %663 = load i32, ptr %662, align 8
   %.not.i103.i = icmp slt i32 %657, %663
@@ -1452,7 +1449,7 @@ GetHitButtonIndex.exit110.i:                      ; preds = %671
 
 678:                                              ; preds = %GetHitButtonIndex.exit110.i
   %679 = zext nneg i32 %654 to i64
-  %680 = getelementptr %struct.SDL_MessageBoxButtonDataX11, ptr %29, i64 %679
+  %680 = getelementptr [40 x i8], ptr %29, i64 %679
   %681 = getelementptr i8, ptr %680, i64 176
   %682 = load ptr, ptr %681, align 8
   %683 = getelementptr inbounds nuw i8, ptr %682, i64 4
@@ -1520,7 +1517,7 @@ GetHitButtonIndex.exit110.thread.i:               ; preds = %675, %678, %GetHitB
 .lr.ph.i112.i:                                    ; preds = %695, %741
   %indvars.iv.i113.i = phi i64 [ %indvars.iv.next.i114.i, %741 ], [ 0, %695 ]
   %712 = load ptr, ptr %550, align 8
-  %713 = getelementptr inbounds nuw %struct.TextLineData, ptr %712, i64 %indvars.iv.i113.i
+  %713 = getelementptr inbounds nuw [16 x i8], ptr %712, i64 %indvars.iv.i113.i
   %714 = load i32, ptr @SDL_X11_HAVE_UTF8, align 4
   %.not108.i.i = icmp eq i32 %714, 0
   br i1 %.not108.i.i, label %728, label %715
@@ -1565,7 +1562,7 @@ GetHitButtonIndex.exit110.thread.i:               ; preds = %675, %678, %GetHitB
 
 .lr.ph111.i.i:                                    ; preds = %.preheader.i.i, %818
   %indvars.iv113.i.i = phi i64 [ %indvars.iv.next114.i.i, %818 ], [ 0, %.preheader.i.i ]
-  %745 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonDataX11, ptr %555, i64 %indvars.iv113.i.i
+  %745 = getelementptr inbounds nuw [40 x i8], ptr %555, i64 %indvars.iv113.i.i
   %746 = getelementptr inbounds nuw i8, ptr %745, i64 32
   %747 = load ptr, ptr %746, align 8
   %748 = load i32, ptr %747, align 8

@@ -54,7 +54,7 @@ define hidden void @_ZN5nlsat9ineq_atomC2ENS_4atom4kindEjPKPN10polynomial10polyn
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !14
   %15 = ptrtoint ptr %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
@@ -62,7 +62,7 @@ define hidden void @_ZN5nlsat9ineq_atomC2ENS_4atom4kindEjPKPN10polynomial10polyn
   %18 = zext nneg i8 %17 to i64
   %19 = or i64 %18, %15
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store ptr %20, ptr %21, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -299,7 +299,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPKN5nlsat9ineq_at
   %.0383493 = phi i32 [ -1640531527, %.lr.ph ], [ %246, %193 ]
   %194 = add i64 %indvars.iv, 4294967295
   %195 = and i64 %194, 4294967295
-  %196 = getelementptr inbounds nuw ptr, ptr %6, i64 %195
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %195
   %197 = load ptr, ptr %196, align 8, !tbaa !14
   %198 = ptrtoint ptr %197 to i64
   %199 = and i64 %198, -8
@@ -307,7 +307,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPKN5nlsat9ineq_at
   %201 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %200)
   %202 = add i64 %indvars.iv, 4294967294
   %203 = and i64 %202, 4294967295
-  %204 = getelementptr inbounds nuw ptr, ptr %6, i64 %203
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %203
   %205 = load ptr, ptr %204, align 8, !tbaa !14
   %206 = ptrtoint ptr %205 to i64
   %207 = and i64 %206, -8
@@ -315,7 +315,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPKN5nlsat9ineq_at
   %209 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %208)
   %210 = add i32 %209, %.0381494
   %211 = add nsw i64 %indvars.iv, -3
-  %212 = getelementptr ptr, ptr %0, i64 %indvars.iv
+  %212 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   %213 = load ptr, ptr %212, align 8, !tbaa !14
   %214 = ptrtoint ptr %213 to i64
   %215 = and i64 %214, -8
@@ -464,9 +464,9 @@ define hidden noundef zeroext i1 @_ZNK5nlsat9ineq_atom7eq_procclEPKS0_S3_(ptr no
 
 13:                                               ; preds = %13, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !14
-  %16 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %.not17 = icmp eq ptr %15, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

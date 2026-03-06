@@ -360,7 +360,7 @@ _ZNK8rawspeed10ByteStream19peekRemainingBufferEv.exit: ; preds = %_ZN8rawspeed10
   %44 = icmp samesign ult i32 %1, %12
   %45 = mul nuw nsw i32 %15, %1
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw i16, ptr %5, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 608
   %49 = zext nneg i32 %10 to i64
   br label %51
@@ -738,7 +738,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialR
   tail call void @llvm.assume(i1 %213)
   tail call void @llvm.assume(i1 %43)
   tail call void @llvm.assume(i1 %44)
-  %214 = getelementptr inbounds nuw i16, ptr %47, i64 %212
+  %214 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %212
   %215 = load ptr, ptr %48, align 8, !tbaa !123
   %.not.i.i111 = icmp eq ptr %215, null
   br i1 %.not.i.i111, label %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit, label %216
@@ -772,7 +772,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialR
   br label %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit
 
 239:                                              ; preds = %216
-  %240 = getelementptr inbounds nuw i16, ptr %222, i64 %221
+  %240 = getelementptr inbounds nuw [2 x i8], ptr %222, i64 %221
   %241 = load i16, ptr %240, align 2, !tbaa !134
   br label %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit
 

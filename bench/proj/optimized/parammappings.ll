@@ -945,7 +945,7 @@ _ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE11_S_relocateEPS5_S
 
 _ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %34, %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i
   store ptr %33, ptr %3, align 8, !tbaa !25
-  %35 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %35, ptr %4, align 8, !tbaa !28
   br label %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE9push_backEOS5_.exit
 
@@ -1007,7 +1007,7 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKNS1_13MethodMa
 
 11:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8, !tbaa !35
   %.not56 = icmp eq ptr %13, null
   br i1 %.not56, label %.thread, label %.lr.ph, !llvm.loop !37
@@ -1028,7 +1028,7 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKNS1_13MethodMa
 18:                                               ; preds = %.lr.ph82
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %19 = load ptr, ptr %5, align 8, !tbaa !29
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.next94
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next94
   %21 = load ptr, ptr %20, align 8, !tbaa !35
   %.not58 = icmp eq ptr %21, null
   br i1 %.not58, label %.preheader, label %.lr.ph82, !llvm.loop !42
@@ -1054,7 +1054,7 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKNS1_13MethodMa
 28:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %29 = load ptr, ptr %5, align 8, !tbaa !29
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.next97
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.next97
   %31 = load ptr, ptr %30, align 8, !tbaa !35
   %.not59 = icmp eq ptr %31, null
   br i1 %.not59, label %.thread66, label %32, !llvm.loop !44
@@ -1273,7 +1273,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %39,
 .thread:                                          ; preds = %.critedge37..thread_crit_edge, %10
   %45 = phi ptr [ %.pre, %.critedge37..thread_crit_edge ], [ %11, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.next
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.next
   %47 = load ptr, ptr %46, align 8, !tbaa !35
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %.thread46, label %10, !llvm.loop !46

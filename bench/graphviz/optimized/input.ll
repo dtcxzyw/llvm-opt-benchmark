@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.1 = type { %struct.anon }
 %struct.anon = type { ptr, i64, i64, [7 x i8], i8 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.pointf_s = type { double, double }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @stdout = external local_unnamed_addr global ptr, align 8
@@ -462,7 +461,7 @@ dotneato_basename.exit:                           ; preds = %.critedge2.i, %9, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %52
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %52 ]
   %.0118261 = phi i64 [ 0, %.lr.ph.preheader ], [ %.1, %52 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !40
   %.not162 = icmp eq ptr %48, null
   br i1 %.not162, label %52, label %49
@@ -534,7 +533,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %.thread
   %.0119263 = phi i32 [ 1, %.thread205.thread ], [ %.0119263.ph, %.outer ]
   %storemerge139262 = phi i32 [ %320, %.thread205.thread ], [ %storemerge139262.ph, %.outer ]
   %71 = sext i32 %storemerge139262 to i64
-  %72 = getelementptr inbounds ptr, ptr %2, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %2, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !40
   %.not145 = icmp eq ptr %73, null
   br i1 %.not145, label %.thread205, label %sub_0
@@ -600,7 +599,7 @@ sub_0:                                            ; preds = %70
   br i1 %105, label %106, label %118
 
 106:                                              ; preds = %103
-  %107 = getelementptr inbounds ptr, ptr %2, i64 %71
+  %107 = getelementptr inbounds [8 x i8], ptr %2, i64 %71
   %108 = load ptr, ptr @Gvfilepath, align 8, !tbaa !40
   tail call void @free(ptr noundef %108) #24
   %109 = load ptr, ptr %107, align 8, !tbaa !40
@@ -703,7 +702,7 @@ gv_strdup.exit:                                   ; preds = %106
 151:                                              ; preds = %149
   %152 = add nsw i32 %storemerge139262, 1
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds ptr, ptr %2, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %2, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !40
   %156 = load i8, ptr %155, align 1, !tbaa !41
   switch i8 %156, label %getFlagOpt.exit [
@@ -762,7 +761,7 @@ getFlagOpt.exit:                                  ; preds = %151, %147
 181:                                              ; preds = %179
   %182 = add nsw i32 %storemerge139262, 1
   %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds ptr, ptr %2, i64 %183
+  %184 = getelementptr inbounds [8 x i8], ptr %2, i64 %183
   %185 = load ptr, ptr %184, align 8, !tbaa !40
   %186 = load i8, ptr %185, align 1, !tbaa !41
   switch i8 %186, label %getFlagOpt.exit168 [
@@ -837,7 +836,7 @@ getFlagOpt.exit168:                               ; preds = %181, %177
 220:                                              ; preds = %218
   %221 = add nsw i32 %storemerge139262, 1
   %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds ptr, ptr %2, i64 %222
+  %223 = getelementptr inbounds [8 x i8], ptr %2, i64 %222
   %224 = load ptr, ptr %223, align 8, !tbaa !40
   %225 = load i8, ptr %224, align 1, !tbaa !41
   switch i8 %225, label %getFlagOpt.exit171 [
@@ -905,9 +904,9 @@ use_library.exit:                                 ; preds = %244, %251, %253
   %.0.i.i.i = phi ptr [ null, %244 ], [ %246, %253 ], [ %246, %251 ]
   store ptr %.0.i.i.i, ptr @Lib, align 8, !tbaa !55
   store i64 %232, ptr @use_library.cnt, align 8, !tbaa !53
-  %256 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %231
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %231
   store ptr %.0.i170, ptr %256, align 8, !tbaa !40
-  %257 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %232
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %232
   store ptr null, ptr %257, align 8, !tbaa !40
   store ptr %.0.i.i.i, ptr %69, align 8, !tbaa !56
   br label %.thread205
@@ -924,7 +923,7 @@ use_library.exit:                                 ; preds = %244, %251, %253
 262:                                              ; preds = %260
   %263 = add nsw i32 %storemerge139262, 1
   %264 = sext i32 %263 to i64
-  %265 = getelementptr inbounds ptr, ptr %2, i64 %264
+  %265 = getelementptr inbounds [8 x i8], ptr %2, i64 %264
   %266 = load ptr, ptr %265, align 8, !tbaa !40
   %267 = load i8, ptr %266, align 1, !tbaa !41
   switch i8 %267, label %getFlagOpt.exit174 [
@@ -1031,7 +1030,7 @@ getFlagOpt.exit174:                               ; preds = %262, %258
 314:                                              ; preds = %118
   %315 = load ptr, ptr %66, align 8, !tbaa !52
   %316 = add i64 %.2264.ph, 1
-  %317 = getelementptr inbounds nuw ptr, ptr %315, i64 %.2264.ph
+  %317 = getelementptr inbounds nuw [8 x i8], ptr %315, i64 %.2264.ph
   store ptr %73, ptr %317, align 8, !tbaa !40
   br label %.thread205
 
@@ -1427,7 +1426,7 @@ define ptr @gvNextInputGraph(ptr noundef %0) local_unnamed_addr #3 {
 
 .preheader:                                       ; preds = %7
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds ptr, ptr %8, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %8, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !40
   store ptr %14, ptr @gvNextInputGraph.fn, align 8, !tbaa !40
   %.not1624 = icmp eq ptr %14, null
@@ -1464,7 +1463,7 @@ define ptr @gvNextInputGraph(ptr noundef %0) local_unnamed_addr #3 {
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %4, align 8, !tbaa !79
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %29, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !40
   store ptr %34, ptr @gvNextInputGraph.fn, align 8, !tbaa !40
   %.not16 = icmp eq ptr %34, null
@@ -2629,7 +2628,7 @@ define void @do_graph_label(ptr noundef %0) local_unnamed_addr #3 {
   %67 = shl i8 %64, 1
   %68 = and i8 %67, 2
   %. = zext nneg i8 %68 to i64
-  %69 = getelementptr inbounds nuw %struct.pointf_s, ptr %65, i64 %.
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %.
   store double %54, ptr %69, align 8, !tbaa !58
   %.sroa.7.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store double %55, ptr %.sroa.7.0..sroa_idx3, align 8, !tbaa !58
@@ -2639,9 +2638,9 @@ define void @do_graph_label(ptr noundef %0) local_unnamed_addr #3 {
   %71 = and i8 %64, 1
   %.not62 = icmp eq i8 %71, 0
   %.64 = select i1 %.not62, i64 3, i64 1
-  %72 = getelementptr inbounds nuw %struct.pointf_s, ptr %65, i64 %.64
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %.64
   store double %55, ptr %72, align 8, !tbaa !119
-  %73 = getelementptr inbounds nuw %struct.pointf_s, ptr %62, i64 %.64
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %.64
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 72
   store double %54, ptr %74, align 8, !tbaa !120
   br label %.critedge
@@ -2717,7 +2716,7 @@ define noundef nonnull ptr @charsetToStr(i32 noundef %0) local_unnamed_addr #3 {
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.charsetToStr, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.charsetToStr, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 

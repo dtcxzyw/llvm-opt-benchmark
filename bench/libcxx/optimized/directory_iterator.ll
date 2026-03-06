@@ -1007,12 +1007,12 @@ _ZNSt3__15stackINS_4__fs10filesystem12__dir_streamENS_5dequeIS3_NS_9allocatorIS3
   %61 = phi ptr [ %.pre5.i.i, %.noexc ], [ %43, %_ZNSt3__110shared_ptrINS_4__fs10filesystem28recursive_directory_iterator12__shared_impEED2B8ne210000Ev.exit ]
   %62 = phi ptr [ %.pre4.i.i, %.noexc ], [ %45, %_ZNSt3__110shared_ptrINS_4__fs10filesystem28recursive_directory_iterator12__shared_impEED2B8ne210000Ev.exit ]
   %63 = udiv i64 %.pre-phi.i.i, 36
-  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %63
   %65 = icmp ne ptr %61, %62
   call void @llvm.assume(i1 %65)
   %66 = load ptr, ptr %64, align 8, !tbaa !27
   %67 = urem i64 %.pre-phi.i.i, 36
-  %68 = getelementptr inbounds nuw %"class.std::__1::__fs::filesystem::__dir_stream", ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [112 x i8], ptr %66, i64 %67
   %69 = load ptr, ptr %7, align 16, !tbaa !36
   store ptr %69, ptr %68, align 16, !tbaa !36
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -1399,10 +1399,10 @@ _ZNSt3__15stackINS_4__fs10filesystem12__dir_streamENS_5dequeIS3_NS_9allocatorIS3
   %21 = add i64 %20, %19
   %22 = load ptr, ptr %16, align 8, !tbaa !89
   %23 = udiv i64 %21, 36
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = urem i64 %21, 36
-  %27 = getelementptr inbounds nuw %"class.std::__1::__fs::filesystem::__dir_stream", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [112 x i8], ptr %25, i64 %26
   %28 = invoke noundef zeroext i1 @_ZNSt3__14__fs10filesystem12__dir_stream7advanceERNS_10error_codeE(ptr noundef nonnull align 16 dereferenceable(112) %27, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %29 unwind label %30
 
@@ -1440,10 +1440,10 @@ _ZNSt3__15stackINS_4__fs10filesystem12__dir_streamENS_5dequeIS3_NS_9allocatorIS3
   %39 = add i64 %37, %38
   %40 = load ptr, ptr %16, align 8, !tbaa !89
   %41 = udiv i64 %39, 36
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !27
   %44 = urem i64 %39, 36
-  %45 = getelementptr inbounds nuw %"class.std::__1::__fs::filesystem::__dir_stream", ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [112 x i8], ptr %43, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %46, i64 24, i1 false), !tbaa.struct !52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
@@ -1599,10 +1599,10 @@ define dso_local noundef nonnull align 16 dereferenceable(80) ptr @_ZNKSt3__14__
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !89
   %11 = udiv i64 %8, 36
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !27
   %14 = urem i64 %8, 36
-  %15 = getelementptr inbounds nuw %"class.std::__1::__fs::filesystem::__dir_stream", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [112 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   ret ptr %16
 }
@@ -1691,10 +1691,10 @@ _ZNSt3__14__fs10filesystem6detail12ErrorHandlerIvEC2B8ne210000EPKcPNS_10error_co
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !89
   %27 = udiv i64 %24, 36
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !27
   %30 = urem i64 %24, 36
-  %31 = getelementptr inbounds nuw %"class.std::__1::__fs::filesystem::__dir_stream", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [112 x i8], ptr %29, i64 %30
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1870,12 +1870,12 @@ _ZNKSt3__14__fs10filesystem15directory_entry8__get_ftB8ne210000EPNS_10error_code
   %88 = phi ptr [ %.pre5.i.i, %.noexc ], [ %66, %63 ]
   %89 = phi ptr [ %.pre4.i.i, %.noexc ], [ %68, %63 ]
   %90 = udiv i64 %.pre-phi.i.i, 36
-  %91 = getelementptr inbounds nuw ptr, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %90
   %92 = icmp ne ptr %88, %89
   call void @llvm.assume(i1 %92)
   %93 = load ptr, ptr %91, align 8, !tbaa !27
   %94 = urem i64 %.pre-phi.i.i, 36
-  %95 = getelementptr inbounds nuw %"class.std::__1::__fs::filesystem::__dir_stream", ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [112 x i8], ptr %93, i64 %94
   store ptr %87, ptr %95, align 16, !tbaa !36
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4126,18 +4126,18 @@ _ZNSt3__15dequeINS_4__fs10filesystem12__dir_streamENS_9allocatorIS3_EEE3endB8ne2
 _ZNSt3__15dequeINS_4__fs10filesystem12__dir_streamENS_9allocatorIS3_EEE3endB8ne210000Ev.exit: ; preds = %1
   %9 = load i64, ptr %4, align 8, !tbaa !90
   %10 = udiv i64 %9, 36
-  %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = urem i64 %9, 36
-  %14 = getelementptr inbounds nuw %"class.std::__1::__fs::filesystem::__dir_stream", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [112 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i64, ptr %15, align 8, !tbaa !91
   %17 = add i64 %16, %9
   %18 = udiv i64 %17, 36
-  %19 = getelementptr inbounds nuw ptr, ptr %3, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !27
   %21 = urem i64 %17, 36
-  %22 = getelementptr inbounds nuw %"class.std::__1::__fs::filesystem::__dir_stream", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [112 x i8], ptr %20, i64 %21
   %23 = icmp eq ptr %14, %22
   br i1 %23, label %._crit_edge, label %.lr.ph
 
@@ -4364,7 +4364,7 @@ _ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.e
   %55 = ashr exact i64 %23, 3
   %56 = add nsw i64 %55, 1
   %.neg.i = sdiv i64 %56, -2
-  %57 = getelementptr inbounds ptr, ptr %48, i64 %.neg.i
+  %57 = getelementptr inbounds [8 x i8], ptr %48, i64 %.neg.i
   br label %61
 
 _ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEEC2B8ne210000EmmS7_.exit.i: ; preds = %54
@@ -4440,12 +4440,12 @@ _ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_
   %85 = ashr exact i64 %84, 3
   %86 = add nsw i64 %85, 1
   %87 = sdiv i64 %86, 2
-  %88 = getelementptr inbounds ptr, ptr %75, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %75, i64 %87
   %89 = ptrtoint ptr %73 to i64
   %90 = sub i64 %83, %89
   %91 = ashr exact i64 %90, 3
   %92 = sub nsw i64 0, %91
-  %93 = getelementptr inbounds ptr, ptr %88, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %88, i64 %92
   %.not.i.i.i.i.i.i.i28 = icmp eq ptr %75, %73
   br i1 %.not.i.i.i.i.i.i.i28, label %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEE13emplace_frontB8ne210000IJRS4_EEEvDpOT_.exit, label %94
 
@@ -4481,8 +4481,8 @@ _ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_
 .noexc31:                                         ; preds = %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEEC2B8ne210000EmmS7_.exit.i18
   %104 = add nuw nsw i64 %.sroa.speculated.i17, 3
   %105 = lshr i64 %104, 2
-  %106 = getelementptr inbounds nuw ptr, ptr %103, i64 %105
-  %107 = getelementptr inbounds nuw ptr, ptr %103, i64 %.sroa.speculated.i17
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %105
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %.sroa.speculated.i17
   %108 = ptrtoint ptr %75 to i64
   %109 = sub i64 %108, %96
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 %109
@@ -4569,7 +4569,7 @@ define linkonce_odr hidden void @_ZNSt3__114__split_bufferIPNS_4__fs10filesystem
   %17 = ashr exact i64 %16, 3
   %18 = add nsw i64 %17, 1
   %.neg = sdiv i64 %18, -2
-  %19 = getelementptr inbounds ptr, ptr %10, i64 %.neg
+  %19 = getelementptr inbounds [8 x i8], ptr %10, i64 %.neg
   %20 = ptrtoint ptr %4 to i64
   %21 = sub i64 %20, %15
   %.not.i.i.i.i.i.i = icmp eq ptr %4, %10
@@ -4583,7 +4583,7 @@ define linkonce_odr hidden void @_ZNSt3__114__split_bufferIPNS_4__fs10filesystem
 _ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit: ; preds = %14, %22
   %23 = phi ptr [ %10, %14 ], [ %.pre, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 %21
-  %25 = getelementptr inbounds ptr, ptr %23, i64 %.neg
+  %25 = getelementptr inbounds [8 x i8], ptr %23, i64 %.neg
   store ptr %25, ptr %9, align 8, !tbaa !89
   br label %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEED2B8ne210000Ev.exit
 
@@ -4604,8 +4604,8 @@ _ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_
   %33 = lshr i64 %.sroa.speculated, 2
   %34 = shl nuw i64 %.sroa.speculated, 3
   %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #28
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %.sroa.speculated
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.sroa.speculated
   %38 = ptrtoint ptr %10 to i64
   %39 = sub i64 %27, %38
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 %39
@@ -4668,7 +4668,7 @@ define linkonce_odr hidden void @_ZNSt3__114__split_bufferIPNS_4__fs10filesystem
   %17 = ashr exact i64 %16, 3
   %18 = add nsw i64 %17, 1
   %.neg = sdiv i64 %18, -2
-  %19 = getelementptr inbounds ptr, ptr %10, i64 %.neg
+  %19 = getelementptr inbounds [8 x i8], ptr %10, i64 %.neg
   %20 = ptrtoint ptr %4 to i64
   %21 = sub i64 %20, %15
   %.not.i.i.i.i.i.i = icmp eq ptr %4, %10
@@ -4682,7 +4682,7 @@ define linkonce_odr hidden void @_ZNSt3__114__split_bufferIPNS_4__fs10filesystem
 _ZNSt3__14moveB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit: ; preds = %14, %22
   %23 = phi ptr [ %10, %14 ], [ %.pre, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 %21
-  %25 = getelementptr inbounds ptr, ptr %23, i64 %.neg
+  %25 = getelementptr inbounds [8 x i8], ptr %23, i64 %.neg
   store ptr %25, ptr %9, align 8, !tbaa !89
   br label %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEED2B8ne210000Ev.exit
 
@@ -4703,8 +4703,8 @@ _ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_
   %33 = lshr i64 %.sroa.speculated, 2
   %34 = shl nuw i64 %.sroa.speculated, 3
   %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #28
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %.sroa.speculated
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.sroa.speculated
   %38 = ptrtoint ptr %10 to i64
   %39 = sub i64 %27, %38
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 %39
@@ -4767,12 +4767,12 @@ define linkonce_odr hidden void @_ZNSt3__114__split_bufferIPNS_4__fs10filesystem
   %17 = ashr exact i64 %16, 3
   %18 = add nsw i64 %17, 1
   %19 = sdiv i64 %18, 2
-  %20 = getelementptr inbounds ptr, ptr %9, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %9, i64 %19
   %21 = ptrtoint ptr %4 to i64
   %22 = sub i64 %15, %21
   %23 = ashr exact i64 %22, 3
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds ptr, ptr %20, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %20, i64 %24
   %.not.i.i.i.i.i.i = icmp eq ptr %9, %4
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt3__113move_backwardB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit, label %26
 
@@ -4783,7 +4783,7 @@ define linkonce_odr hidden void @_ZNSt3__114__split_bufferIPNS_4__fs10filesystem
 
 _ZNSt3__113move_backwardB8ne210000IPPNS_4__fs10filesystem12__dir_streamES5_EET0_T_S7_S6_.exit: ; preds = %14, %26
   %27 = phi ptr [ %9, %14 ], [ %.pre, %26 ]
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %19
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %19
   store ptr %28, ptr %8, align 8, !tbaa !88
   br label %_ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_EEED2B8ne210000Ev.exit
 
@@ -4805,8 +4805,8 @@ _ZNSt3__114__split_bufferIPNS_4__fs10filesystem12__dir_streamERNS_9allocatorIS4_
   %37 = lshr i64 %36, 2
   %38 = shl nuw i64 %.sroa.speculated, 3
   %39 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #28
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %.sroa.speculated
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.sroa.speculated
   %42 = ptrtoint ptr %9 to i64
   %43 = sub i64 %42, %30
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 %43
@@ -4894,10 +4894,10 @@ define linkonce_odr hidden void @_ZNSt3__15dequeINS_4__fs10filesystem12__dir_str
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !89
   %10 = udiv i64 %7, 36
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = urem i64 %7, 36
-  %14 = getelementptr inbounds nuw %"class.std::__1::__fs::filesystem::__dir_stream", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [112 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 16, !tbaa !36
   %.not.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i, label %17, label %_ZNSt3__14__fs10filesystem12__dir_stream5closeEv.exit.i.i.i

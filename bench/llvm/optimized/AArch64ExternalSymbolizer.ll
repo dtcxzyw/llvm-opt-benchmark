@@ -13,8 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"class.llvm::MCOperand" = type { i8, %union.anon.132 }
-%union.anon.132 = type { i64 }
 
 $_ZN4llvm11raw_ostreamlsEPKc = comdat any
 
@@ -237,7 +235,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i127:               ; preds = %_ZN4llvm11raw_ostre
   %111 = getelementptr inbounds nuw i8, ptr %103, i64 104
   %112 = load ptr, ptr %111, align 8, !tbaa !201
   %113 = zext i32 %110 to i64
-  %114 = getelementptr inbounds nuw i16, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %113
   %115 = load i16, ptr %114, align 2, !tbaa !216
   %116 = zext i16 %115 to i64
   %117 = load ptr, ptr %16, align 8, !tbaa !3
@@ -298,14 +296,14 @@ _ZN4llvm9StringRefC2EPKc.exit.i127:               ; preds = %_ZN4llvm11raw_ostre
   %153 = getelementptr inbounds nuw i8, ptr %147, i64 104
   %154 = load ptr, ptr %153, align 8, !tbaa !201
   %155 = zext i32 %152 to i64
-  %156 = getelementptr inbounds nuw i16, ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw [2 x i8], ptr %154, i64 %155
   %157 = load i16, ptr %156, align 2, !tbaa !216
   %158 = zext i16 %157 to i64
   %159 = shl nuw nsw i64 %158, 5
   %160 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %161 = load i32, ptr %160, align 8, !tbaa !200
   %162 = zext i32 %161 to i64
-  %163 = getelementptr inbounds nuw i16, ptr %154, i64 %162
+  %163 = getelementptr inbounds nuw [2 x i8], ptr %154, i64 %162
   %164 = load i16, ptr %163, align 2, !tbaa !216
   %165 = zext i16 %164 to i64
   %166 = load ptr, ptr %16, align 8, !tbaa !3
@@ -583,7 +581,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %287, %293
   %297 = phi i32 [ %290, %287 ], [ %.pre.i.i, %293 ]
   %298 = load ptr, ptr %288, align 8, !tbaa !199
   %299 = zext i32 %297 to i64
-  %300 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %298, i64 %299
+  %300 = getelementptr inbounds nuw [16 x i8], ptr %298, i64 %299
   store i8 5, ptr %300, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %300, i64 8
   store i64 %.fca.1.load.cast.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1

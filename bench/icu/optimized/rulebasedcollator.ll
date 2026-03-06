@@ -1529,7 +1529,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator8hashCodeEv(ptr noundef nonnul
   %31 = load ptr, ptr %26, align 8, !tbaa !80
   %32 = lshr i32 %23, 5
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i16, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !81
   %36 = zext i16 %35 to i32
   %37 = shl nuw nsw i32 %36, 2
@@ -1548,7 +1548,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator8hashCodeEv(ptr noundef nonnul
   %46 = lshr i32 %23, 5
   %47 = add nuw nsw i32 %45, %46
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw i16, ptr %43, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !81
   %51 = zext i16 %50 to i32
   %52 = shl nuw nsw i32 %51, 2
@@ -1575,7 +1575,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator8hashCodeEv(ptr noundef nonnul
   %64 = load ptr, ptr %26, align 8, !tbaa !80
   %65 = lshr i32 %23, 11
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw i16, ptr %64, i64 %66
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4160
   %69 = load i16, ptr %68, align 2, !tbaa !81
   %70 = zext i16 %69 to i32
@@ -1583,7 +1583,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator8hashCodeEv(ptr noundef nonnul
   %72 = and i32 %71, 63
   %73 = add nuw nsw i32 %72, %70
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw i16, ptr %64, i64 %74
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %74
   %76 = load i16, ptr %75, align 2, !tbaa !81
   %77 = zext i16 %76 to i32
   %78 = shl nuw nsw i32 %77, 2
@@ -1594,7 +1594,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator8hashCodeEv(ptr noundef nonnul
 _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %30, %42, %55, %60, %63
   %81 = phi i32 [ %39, %30 ], [ %54, %42 ], [ 128, %55 ], [ %62, %60 ], [ %80, %63 ]
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i32, ptr %28, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %28, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !12
   %85 = xor i32 %84, %.07
   br label %19, !llvm.loop !84
@@ -2618,7 +2618,7 @@ define noundef i32 @_ZN6icu_7717RuleBasedCollator14setVariableTopEPKDsiR10UError
   %.not39.not = icmp eq i8 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = sext i32 %.037 to i64
-  %31 = getelementptr inbounds i16, ptr %1, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %1, i64 %30
   br i1 %.not39.not, label %32, label %55
 
 32:                                               ; preds = %20
@@ -2789,7 +2789,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = sext i32 %5 to i64
   %13 = load ptr, ptr %11, align 8, !tbaa !116
-  %14 = getelementptr inbounds i64, ptr %13, i64 %12
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8, !tbaa !136
   br label %_ZN6icu_7717CollationIterator8CEBuffer9incLengthER10UErrorCode.exit.thread
 
@@ -2836,7 +2836,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = sext i32 %30 to i64
   %44 = load ptr, ptr %42, align 8, !tbaa !116
-  %45 = getelementptr inbounds i64, ptr %44, i64 %43
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %43
   store i64 %41, ptr %45, align 8, !tbaa !136
   br label %160
 
@@ -2856,7 +2856,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = sext i32 %52 to i64
   %56 = load ptr, ptr %54, align 8, !tbaa !116
-  %57 = getelementptr inbounds i64, ptr %56, i64 %55
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %55
   store i64 4311744768, ptr %57, align 8, !tbaa !136
   br label %160
 
@@ -2875,7 +2875,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %68 = load ptr, ptr %63, align 8, !tbaa !80
   %69 = lshr i32 %49, 5
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw i16, ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !81
   %73 = zext i16 %72 to i32
   %74 = shl nuw nsw i32 %73, 2
@@ -2894,7 +2894,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %83 = lshr i32 %49, 5
   %84 = add nuw nsw i32 %82, %83
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw i16, ptr %80, i64 %85
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %85
   %87 = load i16, ptr %86, align 2, !tbaa !81
   %88 = zext i16 %87 to i32
   %89 = shl nuw nsw i32 %88, 2
@@ -2921,7 +2921,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %101 = load ptr, ptr %63, align 8, !tbaa !80
   %102 = lshr i32 %49, 11
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw i16, ptr %101, i64 %103
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %101, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 4160
   %106 = load i16, ptr %105, align 2, !tbaa !81
   %107 = zext i16 %106 to i32
@@ -2929,7 +2929,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %109 = and i32 %108, 63
   %110 = add nuw nsw i32 %109, %107
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw i16, ptr %101, i64 %111
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %101, i64 %111
   %113 = load i16, ptr %112, align 2, !tbaa !81
   %114 = zext i16 %113 to i32
   %115 = shl nuw nsw i32 %114, 2
@@ -2940,7 +2940,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
 _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %67, %79, %92, %97, %100
   %118 = phi i32 [ %76, %67 ], [ %91, %79 ], [ 128, %92 ], [ %99, %97 ], [ %117, %100 ]
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i32, ptr %65, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %65, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !12
   %122 = and i32 %121, 255
   %123 = icmp samesign ult i32 %122, 192
@@ -2963,7 +2963,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %67, %79, %92, %97, 
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %138 = sext i32 %125 to i64
   %139 = load ptr, ptr %137, align 8, !tbaa !116
-  %140 = getelementptr inbounds i64, ptr %139, i64 %138
+  %140 = getelementptr inbounds [8 x i8], ptr %139, i64 %138
   store i64 %136, ptr %140, align 8, !tbaa !136
   br label %160
 
@@ -2990,7 +2990,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %67, %79, %92, %97, 
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %154 = sext i32 %147 to i64
   %155 = load ptr, ptr %153, align 8, !tbaa !116
-  %156 = getelementptr inbounds i64, ptr %155, i64 %154
+  %156 = getelementptr inbounds [8 x i8], ptr %155, i64 %154
   store i64 %152, ptr %156, align 8, !tbaa !136
   br label %160
 
@@ -3466,18 +3466,18 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
 
 30:                                               ; preds = %.lr.ph168
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
-  %31 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.next175
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv.next175
   %32 = load i16, ptr %31, align 2, !tbaa !140
-  %33 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.next175
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv.next175
   %34 = load i16, ptr %33, align 2, !tbaa !140
   %.not137 = icmp eq i16 %32, %34
   br i1 %.not137, label %.lr.ph168, label %.critedge158.thread191, !llvm.loop !142
 
 35:                                               ; preds = %17
   %36 = zext nneg i32 %2 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %1, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %36
   %38 = sext i32 %4 to i64
-  %39 = getelementptr inbounds i16, ptr %3, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %3, i64 %38
   %40 = icmp eq i32 %2, 0
   br i1 %40, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3495,9 +3495,9 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   br i1 %43, label %.critedge158, label %44
 
 44:                                               ; preds = %.lr.ph
-  %45 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %46 = load i16, ptr %45, align 2, !tbaa !140
-  %47 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   %48 = load i16, ptr %47, align 2, !tbaa !140
   %.not = icmp eq i16 %46, %48
   br i1 %.not, label %49, label %.critedge158.loopexit.split.loop.exit199
@@ -3547,7 +3547,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !24
   %73 = zext i32 %.1127197 to i64
-  %74 = getelementptr inbounds nuw i16, ptr %1, i64 %73
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %73
   %75 = load i16, ptr %74, align 2, !tbaa !140
   %76 = zext i16 %75 to i32
   %77 = tail call noundef signext i8 @_ZNK6icu_7713CollationData16isUnsafeBackwardEia(ptr noundef nonnull align 8 dereferenceable(140) %72, i32 noundef %76, i8 noundef signext %68)
@@ -3562,7 +3562,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !24
   %82 = zext i32 %.1127197 to i64
-  %83 = getelementptr inbounds nuw i16, ptr %3, i64 %82
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !140
   %85 = zext i16 %84 to i32
   %86 = tail call noundef signext i8 @_ZNK6icu_7713CollationData16isUnsafeBackwardEia(ptr noundef nonnull align 8 dereferenceable(140) %81, i32 noundef %85, i8 noundef signext %68)
@@ -3584,7 +3584,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %indvars.iv.next177 = add nsw i64 %indvars.iv176, -1
   %93 = load ptr, ptr %88, align 8, !tbaa !24
   %94 = and i64 %indvars.iv.next177, 4294967295
-  %95 = getelementptr inbounds nuw i16, ptr %1, i64 %94
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !140
   %97 = zext i16 %96 to i32
   %98 = tail call noundef signext i8 @_ZNK6icu_7713CollationData16isUnsafeBackwardEia(ptr noundef nonnull align 8 dereferenceable(140) %93, i32 noundef %97, i8 noundef signext %68)
@@ -3613,7 +3613,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
 
 107:                                              ; preds = %105
   %108 = sext i32 %.3129 to i64
-  %109 = getelementptr inbounds i16, ptr %1, i64 %108
+  %109 = getelementptr inbounds [2 x i8], ptr %1, i64 %108
   %110 = load i16, ptr %109, align 2, !tbaa !140
   %111 = icmp ult i16 %110, 384
   br i1 %111, label %112, label %.thread
@@ -3624,7 +3624,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
 
 114:                                              ; preds = %112
   %115 = sext i32 %.3129 to i64
-  %116 = getelementptr inbounds i16, ptr %3, i64 %115
+  %116 = getelementptr inbounds [2 x i8], ptr %3, i64 %115
   %117 = load i16, ptr %116, align 2, !tbaa !140
   %118 = icmp ult i16 %117, 384
   br i1 %118, label %119, label %.thread
@@ -3637,18 +3637,18 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %124 = load ptr, ptr %123, align 8, !tbaa !145
   %125 = getelementptr inbounds nuw i8, ptr %101, i64 84
   %126 = sext i32 %.3129 to i64
-  %127 = getelementptr inbounds i16, ptr %1, i64 %126
+  %127 = getelementptr inbounds [2 x i8], ptr %1, i64 %126
   br i1 %120, label %128, label %133
 
 128:                                              ; preds = %119
   %129 = sub nsw i32 %2, %.3129
-  %130 = getelementptr inbounds i16, ptr %3, i64 %126
+  %130 = getelementptr inbounds [2 x i8], ptr %3, i64 %126
   %131 = sub nsw i32 %4, %.3129
   %132 = tail call noundef i32 @_ZN6icu_7718CollationFastLatin12compareUTF16EPKtS2_iPKDsiS4_i(ptr noundef %124, ptr noundef nonnull %125, i32 noundef %103, ptr noundef %127, i32 noundef %129, ptr noundef %130, i32 noundef %131)
   br label %136
 
 133:                                              ; preds = %119
-  %134 = getelementptr inbounds i16, ptr %3, i64 %126
+  %134 = getelementptr inbounds [2 x i8], ptr %3, i64 %126
   %135 = tail call noundef i32 @_ZN6icu_7718CollationFastLatin12compareUTF16EPKtS2_iPKDsiS4_i(ptr noundef %124, ptr noundef nonnull %125, i32 noundef %103, ptr noundef %127, i32 noundef -1, ptr noundef %134, i32 noundef -1)
   br label %136
 
@@ -3669,7 +3669,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %.not144.not = icmp eq i32 %141, 0
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %143 = sext i32 %.3129 to i64
-  %144 = getelementptr inbounds i16, ptr %1, i64 %143
+  %144 = getelementptr inbounds [2 x i8], ptr %1, i64 %143
   br i1 %.not144.not, label %145, label %181
 
 145:                                              ; preds = %.thread
@@ -3705,7 +3705,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %161 = getelementptr inbounds nuw i8, ptr %7, i64 408
   store ptr %.0125190, ptr %161, align 8, !tbaa !126
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %162 = getelementptr inbounds i16, ptr %3, i64 %143
+  %162 = getelementptr inbounds [2 x i8], ptr %3, i64 %143
   %163 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %148, ptr %163, align 8, !tbaa !109
   %164 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -3804,7 +3804,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %207 = getelementptr inbounds nuw i8, ptr %9, i64 520
   store i8 1, ptr %207, align 8, !tbaa !134
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %208 = getelementptr inbounds i16, ptr %3, i64 %143
+  %208 = getelementptr inbounds [2 x i8], ptr %3, i64 %143
   %209 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %184, ptr %209, align 8, !tbaa !109
   %210 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -3889,8 +3889,8 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator9doCompareEPKDsiS2_iR10UErrorC
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 48
   %247 = load ptr, ptr %246, align 8, !tbaa !132
   %248 = sext i32 %.3129 to i64
-  %249 = getelementptr inbounds i16, ptr %1, i64 %248
-  %250 = getelementptr inbounds i16, ptr %3, i64 %248
+  %249 = getelementptr inbounds [2 x i8], ptr %1, i64 %248
+  %250 = getelementptr inbounds [2 x i8], ptr %3, i64 %248
   %251 = and i32 %239, 1
   %.not150.not = icmp eq i32 %251, 0
   br i1 %.not150.not, label %252, label %265
@@ -5166,7 +5166,7 @@ define linkonce_odr noundef signext i8 @_ZNK6icu_7713CollationData16isUnsafeBack
   %19 = load ptr, ptr %14, align 8, !tbaa !80
   %20 = lshr i32 %1, 5
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !81
   %24 = zext i16 %23 to i32
   %25 = shl nuw nsw i32 %24, 2
@@ -5185,7 +5185,7 @@ define linkonce_odr noundef signext i8 @_ZNK6icu_7713CollationData16isUnsafeBack
   %34 = lshr i32 %1, 5
   %35 = add nuw nsw i32 %33, %34
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw i16, ptr %31, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !81
   %39 = zext i16 %38 to i32
   %40 = shl nuw nsw i32 %39, 2
@@ -5212,7 +5212,7 @@ define linkonce_odr noundef signext i8 @_ZNK6icu_7713CollationData16isUnsafeBack
   %52 = load ptr, ptr %14, align 8, !tbaa !80
   %53 = lshr i32 %1, 11
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw i16, ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4160
   %57 = load i16, ptr %56, align 2, !tbaa !81
   %58 = zext i16 %57 to i32
@@ -5220,7 +5220,7 @@ define linkonce_odr noundef signext i8 @_ZNK6icu_7713CollationData16isUnsafeBack
   %60 = and i32 %59, 63
   %61 = add nuw nsw i32 %60, %58
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw i16, ptr %52, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !81
   %65 = zext i16 %64 to i32
   %66 = shl nuw nsw i32 %65, 2
@@ -5231,7 +5231,7 @@ define linkonce_odr noundef signext i8 @_ZNK6icu_7713CollationData16isUnsafeBack
 _ZNK6icu_7713CollationData7getCE32Ei.exit.i:      ; preds = %51, %48, %43, %30, %18
   %69 = phi i32 [ %27, %18 ], [ %42, %30 ], [ 128, %43 ], [ %50, %48 ], [ %68, %51 ]
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %16, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %16, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !12
   %73 = and i32 %72, 207
   %narrow.i.i = icmp eq i32 %73, 202
@@ -5282,7 +5282,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZN6icu_7712_GLOBAL__N_114c
   %21 = add nuw nsw i32 %13, 1
   store i32 %21, ptr %4, align 8, !tbaa !146
   %22 = zext nneg i32 %13 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !140
   %25 = zext i16 %24 to i32
   %26 = and i32 %25, 64512
@@ -5294,7 +5294,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZN6icu_7712_GLOBAL__N_114c
   %30 = add nuw nsw i32 %13, 2
   store i32 %30, ptr %4, align 8, !tbaa !146
   %31 = zext nneg i32 %21 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %20, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !140
   %34 = zext i16 %33 to i32
   %35 = add nsw i32 %29, -56613888
@@ -5328,7 +5328,7 @@ _ZN6icu_7712_GLOBAL__N_111NFDIterator13nextCodePointEv.exit: ; preds = %19, %28,
   %50 = add nuw nsw i32 %42, 1
   store i32 %50, ptr %7, align 8, !tbaa !146
   %51 = zext nneg i32 %42 to i64
-  %52 = getelementptr inbounds nuw i16, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %49, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !140
   %54 = zext i16 %53 to i32
   %55 = and i32 %54, 64512
@@ -5340,7 +5340,7 @@ _ZN6icu_7712_GLOBAL__N_111NFDIterator13nextCodePointEv.exit: ; preds = %19, %28,
   %59 = add nuw nsw i32 %42, 2
   store i32 %59, ptr %7, align 8, !tbaa !146
   %60 = zext nneg i32 %50 to i64
-  %61 = getelementptr inbounds nuw i16, ptr %49, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %49, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !140
   %63 = zext i16 %62 to i32
   %64 = add nsw i32 %58, -56613888
@@ -5612,7 +5612,7 @@ _ZN6icu_7716ReorderingBufferD2Ev.exit:            ; preds = %56, %58
   %86 = load i32, ptr %37, align 4
   %87 = select i1 %83, i32 %86, i32 %85
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i16, ptr %.0.i, i64 %88
+  %89 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %88
   br label %.sink.split
 
 .sink.split:                                      ; preds = %82, %26
@@ -6300,7 +6300,7 @@ define void @_ZNK6icu_7717RuleBasedCollator12writeSortKeyEPKDsiRNS_15SortKeyByte
 11:                                               ; preds = %5
   %12 = icmp sgt i32 %2, -1
   %13 = zext nneg i32 %2 to i64
-  %14 = getelementptr inbounds nuw i16, ptr %1, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %13
   %15 = select i1 %12, ptr %14, ptr null
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !33
@@ -7114,7 +7114,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
   %160 = load i32, ptr %159, align 4
   %161 = select i1 %156, i32 %160, i32 %158
   %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds i16, ptr %.0.i, i64 %162
+  %163 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %162
   invoke void @_ZNK6icu_7717RuleBasedCollator19writeIdenticalLevelEPKDsS2_RNS_15SortKeyByteSinkER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %.0.i, ptr noundef %163, ptr noundef nonnull align 8 dereferenceable(28) %8, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %164 unwind label %167
 
@@ -7230,7 +7230,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %9, %15, %17
   %24 = load i32, ptr %23, align 4
   %25 = select i1 %20, i32 %24, i32 %22
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %.0.i, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !33
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -7316,7 +7316,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_Z
   %65 = phi i32 [ %.pre.i, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i ], [ %60, %59 ]
   %66 = load ptr, ptr %56, align 8, !tbaa !207
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds i64, ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   store i64 %57, ptr %68, align 8, !tbaa !136
   %69 = add nsw i32 %65, 1
   store i32 %69, ptr %54, align 8, !tbaa !205
@@ -7425,7 +7425,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i32: ; preds = %
   %111 = phi i32 [ %.pre.i36, %_ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit._ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread_crit_edge.i35 ], [ %106, %105 ]
   %112 = load ptr, ptr %102, align 8, !tbaa !207
   %113 = sext i32 %111 to i64
-  %114 = getelementptr inbounds i64, ptr %112, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %112, i64 %113
   store i64 %103, ptr %114, align 8, !tbaa !136
   %115 = add nsw i32 %111, 1
   store i32 %115, ptr %100, align 8, !tbaa !205

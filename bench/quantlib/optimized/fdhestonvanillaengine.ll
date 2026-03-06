@@ -50,19 +50,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.QuantLib::Handle.88" = type { %"class.boost::shared_ptr.89" }
 %"class.boost::shared_ptr.89" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::shared_ptr.27" = type { ptr, %"class.boost::detail::shared_count" }
-%"struct.std::pair.82" = type { %"class.QuantLib::Option::arguments", %"class.QuantLib::OneAssetOption::results" }
-%"class.QuantLib::Option::arguments" = type { %"class.QuantLib::PricingEngine::arguments", %"class.boost::shared_ptr.18", %"class.boost::shared_ptr.19" }
-%"class.QuantLib::PricingEngine::arguments" = type { ptr }
-%"class.boost::shared_ptr.18" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.boost::shared_ptr.19" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.QuantLib::OneAssetOption::results" = type { %"class.QuantLib::Instrument::results", %"class.QuantLib::Greeks", %"class.QuantLib::MoreGreeks" }
-%"class.QuantLib::Instrument::results" = type { %"class.QuantLib::PricingEngine::results", double, double, %"class.QuantLib::Date", %"class.std::map" }
-%"class.QuantLib::PricingEngine::results" = type { ptr }
-%"class.std::map" = type { %"class.std::_Rb_tree.12" }
-%"class.std::_Rb_tree.12" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, boost::any>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, boost::any>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, boost::any>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, boost::any>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"class.QuantLib::Greeks" = type { %"class.QuantLib::PricingEngine::results", double, double, double, double, double, double }
-%"class.QuantLib::MoreGreeks" = type { %"class.QuantLib::PricingEngine::results", double, double, double, double, double }
 %"struct.QuantLib::FdmSchemeDesc" = type { i32, double, double }
 %"class.boost::shared_ptr.92" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.std::vector.29" = type { %"struct.std::_Vector_base.30" }
@@ -5119,7 +5106,7 @@ if.else.i:                                        ; preds = %invoke.cont157
   br i1 %cmp4.i, label %if.then5.i, label %invoke.cont163
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair.82", ptr %134, i64 %sub.ptr.div.i
+  %add.ptr.i = getelementptr inbounds nuw [224 x i8], ptr %134, i64 %sub.ptr.div.i
   %tobool.not.i.i = icmp eq ptr %133, %add.ptr.i
   br i1 %tobool.not.i.i, label %invoke.cont163, label %if.then.i.i264
 
@@ -5365,7 +5352,7 @@ lpad128:                                          ; preds = %if.then.i, %cond.fa
 for.body172:                                      ; preds = %for.body172.lr.ph, %invoke.cont232
   %i.0452 = phi i64 [ 0, %for.body172.lr.ph ], [ %inc, %invoke.cont232 ]
   %173 = load ptr, ptr %cachedArgs2results_, align 8, !tbaa !217
-  %add.ptr.i326 = getelementptr inbounds nuw %"struct.std::pair.82", ptr %173, i64 %i.0452
+  %add.ptr.i326 = getelementptr inbounds nuw [224 x i8], ptr %173, i64 %i.0452
   %exercise178 = getelementptr inbounds nuw i8, ptr %add.ptr.i326, i64 24
   %174 = load ptr, ptr %exercise174, align 8, !tbaa !112
   %175 = load ptr, ptr %pn3.i.i327, align 8, !tbaa !37
@@ -5434,13 +5421,13 @@ invoke.cont183:                                   ; preds = %cond.false.i343, %_
   %185 = load i32, ptr %type_.i346, align 8, !tbaa !192
   store i32 %185, ptr %ref.tmp181, align 4, !tbaa !221
   %186 = load ptr, ptr %strikes_, align 8, !tbaa !215
-  %add.ptr.i347 = getelementptr inbounds nuw double, ptr %186, i64 %i.0452
+  %add.ptr.i347 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %i.0452
   invoke void @_ZN5boost11make_sharedIN8QuantLib18PlainVanillaPayoffEJNS1_6Option4TypeERKdEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.84") align 8 %ref.tmp180, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp181, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i347)
           to label %invoke.cont189 unwind label %lpad182
 
 invoke.cont189:                                   ; preds = %invoke.cont183
   %187 = load ptr, ptr %cachedArgs2results_, align 8, !tbaa !217
-  %add.ptr.i348 = getelementptr inbounds nuw %"struct.std::pair.82", ptr %187, i64 %i.0452
+  %add.ptr.i348 = getelementptr inbounds nuw [224 x i8], ptr %187, i64 %i.0452
   %payoff193 = getelementptr inbounds nuw i8, ptr %add.ptr.i348, i64 8
   %188 = load ptr, ptr %ref.tmp180, align 8, !tbaa !187
   %189 = load ptr, ptr %pn3.i.i349, align 8, !tbaa !37
@@ -5538,11 +5525,11 @@ invoke.cont198:                                   ; preds = %cond.false.i382, %_
   %strike_.i386 = getelementptr inbounds nuw i8, ptr %204, i64 16
   %205 = load double, ptr %strike_.i386, align 8, !tbaa !124
   %206 = load ptr, ptr %strikes_, align 8, !tbaa !215
-  %add.ptr.i387 = getelementptr inbounds nuw double, ptr %206, i64 %i.0452
+  %add.ptr.i387 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %i.0452
   %207 = load double, ptr %add.ptr.i387, align 8, !tbaa !88
   %div = fdiv double %205, %207
   %208 = load ptr, ptr %cachedArgs2results_, align 8, !tbaa !217
-  %add.ptr.i388 = getelementptr inbounds nuw %"struct.std::pair.82", ptr %208, i64 %i.0452
+  %add.ptr.i388 = getelementptr inbounds nuw [224 x i8], ptr %208, i64 %i.0452
   %209 = load ptr, ptr %solver, align 8, !tbaa !196
   %cmp.not.i389 = icmp eq ptr %209, null
   br i1 %cmp.not.i389, label %cond.false.i390, label %invoke.cont208, !prof !106
@@ -13295,9 +13282,9 @@ if.then.i25:                                      ; preds = %_ZNSt6vectorISt4pai
 
 _ZNSt12_Vector_baseISt4pairIN8QuantLib6Option9argumentsENS1_14OneAssetOption7resultsEESaIS6_EE13_M_deallocateEPS6_m.exit27: ; preds = %_ZNSt6vectorISt4pairIN8QuantLib6Option9argumentsENS1_14OneAssetOption7resultsEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %if.then.i25
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !217
-  %add.ptr37 = getelementptr inbounds nuw %"struct.std::pair.82", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [224 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !216
-  %add.ptr40 = getelementptr inbounds nuw %"struct.std::pair.82", ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [224 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !260
   br label %if.end44
 

@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.Pg_magic_struct = type { i32, i32, i32, i32, i32, i32, [32 x i8] }
 %struct.Pg_finfo_record = type { i32 }
-%struct.EPlan = type { ptr, i32, ptr }
 
 @Pg_magic_func.Pg_magic_data = internal constant %struct.Pg_magic_struct { i32 56, i32 1800, i32 100, i32 32, i32 64, i32 1, [32 x i8] c"PostgreSQL\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }, align 4
 @pg_finfo_check_primary_key.my_finfo = internal constant %struct.Pg_finfo_record { i32 1 }, align 4
@@ -151,7 +150,7 @@ define i64 @check_primary_key(ptr noundef readonly captures(none) %0) local_unna
   %39 = lshr i16 %31, 1
   %40 = zext nneg i16 %39 to i32
   %41 = zext nneg i16 %39 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %33, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %45 = load ptr, ptr %44, align 8
@@ -187,14 +186,14 @@ define i64 @check_primary_key(ptr noundef readonly captures(none) %0) local_unna
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %86
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %86 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8
   %66 = call i32 @SPI_fnumber(ptr noundef %47, ptr noundef %65) #8
   %67 = icmp slt i32 %66, 1
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %.lr.ph
-  %69 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %70 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %71 = call i32 @errcode(i32 noundef 50360452) #8
   %72 = load ptr, ptr %69, align 8
@@ -205,7 +204,7 @@ define i64 @check_primary_key(ptr noundef readonly captures(none) %0) local_unna
 
 75:                                               ; preds = %.lr.ph
   %76 = call i64 @SPI_getbinval(ptr noundef %.071, ptr noundef %47, i32 noundef %66, ptr noundef nonnull %2) #8
-  %77 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   store i64 %76, ptr %77, align 8
   %78 = load i8, ptr %2, align 1, !range !3, !noundef !4
   %79 = trunc nuw i8 %78 to i1
@@ -218,7 +217,7 @@ define i64 @check_primary_key(ptr noundef readonly captures(none) %0) local_unna
 
 83:                                               ; preds = %80
   %84 = call i32 @SPI_gettypeid(ptr noundef %47, i32 noundef %66) #8
-  %85 = getelementptr inbounds nuw i32, ptr %.074, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %.074, i64 %indvars.iv
   store i32 %84, ptr %85, align 4
   br label %86
 
@@ -249,7 +248,7 @@ define i64 @check_primary_key(ptr noundef readonly captures(none) %0) local_unna
   %94 = zext nneg i32 %93 to i64
   %wide.trip.count101 = zext nneg i16 %39 to i64
   %95 = zext nneg i16 %39 to i64
-  %invariant.gep = getelementptr inbounds nuw ptr, ptr %33, i64 %95
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %95
   br label %96
 
 96:                                               ; preds = %.lr.ph91, %96
@@ -257,7 +256,7 @@ define i64 @check_primary_key(ptr noundef readonly captures(none) %0) local_unna
   %97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 %97
   %99 = sub i64 8192, %97
-  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv98
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv98
   %100 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %101 = load ptr, ptr %100, align 8
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
@@ -369,7 +368,7 @@ define internal fastcc ptr @find_plan(ptr noundef nonnull %0, ptr noundef captur
 
 9:                                                ; preds = %.preheader, %14
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
-  %10 = getelementptr inbounds nuw %struct.EPlan, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %0) #9
   %13 = icmp eq i32 %12, 0
@@ -389,7 +388,7 @@ define internal fastcc ptr @find_plan(ptr noundef nonnull %0, ptr noundef captur
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %18 = load ptr, ptr %1, align 8
   %19 = and i64 %indvars.iv, 4294967295
-  %20 = getelementptr inbounds nuw %struct.EPlan, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %19
   br label %34
 
 .thread:                                          ; preds = %14, %15
@@ -398,7 +397,7 @@ define internal fastcc ptr @find_plan(ptr noundef nonnull %0, ptr noundef captur
   %23 = mul nsw i64 %22, 24
   %24 = tail call ptr @repalloc(ptr noundef nonnull %8, i64 noundef %23) #8
   store ptr %24, ptr %1, align 8
-  %25 = getelementptr inbounds nuw %struct.EPlan, ptr %24, i64 %wide.trip.count
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %wide.trip.count
   br label %28
 
 26:                                               ; preds = %3
@@ -556,7 +555,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
   %57 = load ptr, ptr %56, align 8
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %55, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %59
   %61 = load i32, ptr %60, align 4
   %.fr = freeze i32 %61
   %sext = shl i32 %.fr, 24
@@ -638,7 +637,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %123
   %indvars.iv296 = phi i64 [ %indvars.iv.next297, %123 ], [ 0, %.lr.ph ]
-  %108 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv296
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv296
   %109 = load ptr, ptr %108, align 8
   %110 = call i32 @SPI_fnumber(ptr noundef %86, ptr noundef %109) #8
   %111 = icmp slt i32 %110, 1
@@ -646,7 +645,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
 
 112:                                              ; preds = %.lr.ph.split.us
   %113 = call i64 @SPI_getbinval(ptr noundef %28, ptr noundef %86, i32 noundef %110, ptr noundef nonnull %2) #8
-  %114 = getelementptr inbounds nuw i64, ptr %90, i64 %indvars.iv296
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv296
   store i64 %113, ptr %114, align 8
   %115 = load i8, ptr %2, align 1, !range !3, !noundef !4
   %116 = trunc nuw i8 %115 to i1
@@ -659,7 +658,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
 
 120:                                              ; preds = %117
   %121 = call i32 @SPI_gettypeid(ptr noundef %86, i32 noundef %110) #8
-  %122 = getelementptr inbounds nuw i32, ptr %.0191, i64 %indvars.iv296
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %.0191, i64 %indvars.iv296
   store i32 %121, ptr %122, align 4
   br label %123
 
@@ -671,7 +670,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
 .lr.ph.split:                                     ; preds = %.lr.ph, %161
   %indvars.iv = phi i64 [ %indvars.iv.next, %161 ], [ 0, %.lr.ph ]
   %.0192243 = phi i1 [ %.2194, %161 ], [ true, %.lr.ph ]
-  %124 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %125 = load ptr, ptr %124, align 8
   %126 = call i32 @SPI_fnumber(ptr noundef %86, ptr noundef %125) #8
   %127 = icmp slt i32 %126, 1
@@ -679,7 +678,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi i64 [ %indvars.iv296, %.lr.ph.split.us ], [ %indvars.iv, %.lr.ph.split ]
-  %128 = getelementptr inbounds nuw ptr, ptr %71, i64 %.us-phi
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.us-phi
   %129 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %130 = call i32 @errcode(i32 noundef 50360452) #8
   %131 = load ptr, ptr %128, align 8
@@ -690,7 +689,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
 
 134:                                              ; preds = %.lr.ph.split
   %135 = call i64 @SPI_getbinval(ptr noundef %28, ptr noundef %86, i32 noundef %126, ptr noundef nonnull %2) #8
-  %136 = getelementptr inbounds nuw i64, ptr %90, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv
   store i64 %135, ptr %136, align 8
   %137 = load i8, ptr %2, align 1, !range !3, !noundef !4
   %138 = trunc nuw i8 %137 to i1
@@ -730,7 +729,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
 
 156:                                              ; preds = %153
   %157 = call i32 @SPI_gettypeid(ptr noundef %86, i32 noundef %126) #8
-  %158 = getelementptr inbounds nuw i32, ptr %.0191, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %.0191, i64 %indvars.iv
   store i32 %157, ptr %158, align 4
   br label %161
 
@@ -746,7 +745,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
 
 ._crit_edge:                                      ; preds = %161, %123
   %.0192.lcssa = phi i1 [ true, %123 ], [ %.2194, %161 ]
-  %162 = getelementptr inbounds nuw ptr, ptr %71, i64 %88
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %88
   %163 = load i32, ptr %97, align 8
   %164 = icmp slt i32 %163, 1
   br i1 %164, label %.lr.ph265, label %249
@@ -790,7 +789,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
 
 .lr.ph255:                                        ; preds = %.lr.ph255.preheader, %202
   %indvars.iv308 = phi i64 [ 1, %.lr.ph255.preheader ], [ %indvars.iv.next309, %202 ]
-  %178 = getelementptr ptr, ptr %71, i64 %indvars.iv308
+  %178 = getelementptr [8 x i8], ptr %71, i64 %indvars.iv308
   %179 = getelementptr i8, ptr %178, i64 -8
   %180 = load ptr, ptr %179, align 8
   %181 = call i32 @SPI_fnumber(ptr noundef %86, ptr noundef %180) #8
@@ -833,7 +832,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
   %204 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
   %205 = getelementptr inbounds nuw i8, ptr %4, i64 %204
   %206 = sub i64 8192, %204
-  %207 = getelementptr inbounds nuw ptr, ptr %.0188263, i64 %indvars.iv308
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %.0188263, i64 %indvars.iv308
   %208 = load ptr, ptr %207, align 8
   %209 = icmp samesign ult i64 %indvars.iv308, %170
   %210 = select i1 %209, ptr @.str.34, ptr @.str.10
@@ -861,7 +860,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
   %215 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
   %216 = getelementptr inbounds nuw i8, ptr %4, i64 %215
   %217 = sub i64 8192, %215
-  %218 = getelementptr inbounds nuw ptr, ptr %.0188263, i64 %indvars.iv302
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %.0188263, i64 %indvars.iv302
   %219 = load ptr, ptr %218, align 8
   %220 = icmp samesign ult i64 %indvars.iv302, %170
   %221 = select i1 %220, ptr @.str.34, ptr @.str.10
@@ -884,7 +883,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
   %223 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
   %224 = getelementptr inbounds nuw i8, ptr %4, i64 %223
   %225 = sub i64 8192, %223
-  %226 = getelementptr inbounds nuw ptr, ptr %.0188263, i64 %indvars.iv314
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %.0188263, i64 %indvars.iv314
   %227 = load ptr, ptr %226, align 8
   %228 = icmp samesign ult i64 %indvars.iv314, %170
   %229 = select i1 %228, ptr @.str.9, ptr @.str.10
@@ -920,9 +919,9 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
 
 244:                                              ; preds = %239
   %245 = load ptr, ptr %169, align 8
-  %246 = getelementptr inbounds nuw ptr, ptr %245, i64 %indvars.iv320
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %indvars.iv320
   store ptr %232, ptr %246, align 8
-  %247 = getelementptr inbounds nuw ptr, ptr %.0188263, i64 %88
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %.0188263, i64 %88
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
   %exitcond325.not = icmp eq i64 %indvars.iv.next321, %wide.trip.count324
@@ -956,7 +955,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
   %259 = call fastcc ptr @find_plan(ptr noundef %3, ptr noundef nonnull @FPlans, ptr noundef nonnull @nFPlans)
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %261 = load ptr, ptr %260, align 8
-  %262 = getelementptr inbounds nuw ptr, ptr %261, i64 %indvars.iv332
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %indvars.iv332
   %263 = load ptr, ptr %262, align 8
   %264 = call i32 @SPI_execp(ptr noundef %263, ptr noundef %90, ptr noundef null, i64 noundef %252) #8
   %265 = icmp slt i32 %264, 0
@@ -968,7 +967,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
   br i1 %.not219.us, label %268, label %.split275.us
 
 268:                                              ; preds = %266
-  %269 = getelementptr inbounds nuw ptr, ptr %.0187268.us, i64 %88
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %.0187268.us, i64 %88
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %exitcond337.not = icmp eq i64 %indvars.iv.next333, %wide.trip.count336
@@ -988,7 +987,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
   %277 = call fastcc ptr @find_plan(ptr noundef %3, ptr noundef nonnull @FPlans, ptr noundef nonnull @nFPlans)
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %279 = load ptr, ptr %278, align 8
-  %280 = getelementptr inbounds nuw ptr, ptr %279, i64 %indvars.iv326
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %indvars.iv326
   %281 = load ptr, ptr %280, align 8
   %282 = call i32 @SPI_execp(ptr noundef %281, ptr noundef %90, ptr noundef null, i64 noundef %252) #8
   %283 = icmp slt i32 %282, 0
@@ -1022,7 +1021,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
   br label %297
 
 297:                                              ; preds = %287, %293
-  %298 = getelementptr inbounds nuw ptr, ptr %.0187268, i64 %88
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %.0187268, i64 %88
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %exitcond331.not = icmp eq i64 %indvars.iv.next327, %wide.trip.count336

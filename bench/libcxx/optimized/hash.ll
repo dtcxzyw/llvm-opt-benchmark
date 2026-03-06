@@ -22,7 +22,7 @@ define dso_local noundef i64 @_ZNSt3__112__next_primeEm(i64 noundef %0) local_un
   %.016.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.preheader ], [ @_ZNSt3__112_GLOBAL__N_112small_primesE, %1 ]
   %.01015.i.i.i.i = phi i64 [ %.111.i.i.i.i, %.preheader ], [ 48, %1 ]
   %3 = lshr i64 %.01015.i.i.i.i, 1
-  %4 = getelementptr inbounds nuw i32, ptr %.016.i.i.i.i, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %.016.i.i.i.i, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = zext i32 %5 to i64
   %7 = icmp samesign ugt i64 %0, %6
@@ -57,7 +57,7 @@ _ZNSt3__120__check_for_overflowB8ne210000ILm8EEENS_9enable_ifIXeqT_Li8EEvE4typeE
   %.016.i.i.i.i471 = phi ptr [ @_ZNSt3__112_GLOBAL__N_17indicesE, %_ZNSt3__120__check_for_overflowB8ne210000ILm8EEENS_9enable_ifIXeqT_Li8EEvE4typeEm.exit ], [ %.1.i.i.i.i475, %17 ]
   %.01015.i.i.i.i472 = phi i64 [ 48, %_ZNSt3__120__check_for_overflowB8ne210000ILm8EEENS_9enable_ifIXeqT_Li8EEvE4typeEm.exit ], [ %.111.i.i.i.i474, %17 ]
   %18 = lshr i64 %.01015.i.i.i.i472, 1
-  %19 = getelementptr inbounds nuw i32, ptr %.016.i.i.i.i471, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.016.i.i.i.i471, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !4
   %21 = zext i32 %20 to i64
   %22 = icmp ugt i64 %.recomposed, %21
@@ -93,7 +93,7 @@ _ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit477: ; preds = %17
 
 34:                                               ; preds = %29, %32
   %.0315509 = phi i64 [ 5, %29 ], [ %33, %32 ]
-  %35 = getelementptr inbounds nuw i32, ptr @_ZNSt3__112_GLOBAL__N_112small_primesE, i64 %.0315509
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @_ZNSt3__112_GLOBAL__N_112small_primesE, i64 %.0315509
   %36 = load i32, ptr %35, align 4, !tbaa !4
   %37 = zext i32 %36 to i64
   %38 = udiv i64 %31, %37
@@ -641,7 +641,7 @@ _ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit477: ; preds = %17
   %spec.select = add i64 %.0318, %379
   %spec.select468 = select i1 %378, i64 0, i64 %377
   %380 = mul i64 %spec.select, 210
-  %381 = getelementptr inbounds nuw i32, ptr @_ZNSt3__112_GLOBAL__N_17indicesE, i64 %spec.select468
+  %381 = getelementptr inbounds nuw [4 x i8], ptr @_ZNSt3__112_GLOBAL__N_17indicesE, i64 %spec.select468
   br label %29, !llvm.loop !11
 
 .thread485:                                       ; preds = %34, %369, %362, %355, %348, %341, %334, %327, %320, %313, %306, %299, %292, %285, %278, %271, %264, %257, %250, %243, %236, %229, %222, %215, %208, %201, %194, %187, %180, %173, %166, %159, %152, %145, %138, %131, %124, %117, %110, %103, %96, %89, %82, %75, %68, %61, %54, %47, %.preheader504, %_ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit

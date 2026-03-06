@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._phpdbg_param = type { i32, i64, i64, %struct.anon, %struct.anon.0, ptr, i64, ptr, ptr }
 %struct.anon = type { ptr, i64 }
 %struct.anon.0 = type { ptr, ptr }
-%union.yyalloc = type { %struct._phpdbg_param }
 
 @yypact = internal unnamed_addr constant [46 x i8] c"\FD\F2\F2\F2\F6\F1\F1\0C\F1\F1\F1\F1\18\07\F1\0B\F1\F1\F1\11\12\13\F1\16\FA\15\1A\F1\FD\F1\F1\F1\F1\F1\09\1B\F1\1F\F1\F1\1D\F1\F1\1E\F1\F1", align 16
 @yytranslate = internal unnamed_addr constant [278 x i8] c"\00\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16", align 16
@@ -138,7 +137,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 1 %.0511, i64 %16, i1 false)
   %24 = add nsw i64 %spec.store.select, 87
   %25 = sdiv i64 %24, 88
-  %26 = getelementptr inbounds %union.yyalloc, ptr %22, i64 %25
+  %26 = getelementptr inbounds [88 x i8], ptr %22, i64 %25
   %27 = mul i64 %16, 88
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr align 8 %.0498, i64 %27, i1 false)
   %.not537 = icmp eq ptr %.0511, %2
@@ -150,7 +149,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
 
 29:                                               ; preds = %23, %28
   %30 = getelementptr inbounds i8, ptr %22, i64 %15
-  %31 = getelementptr inbounds %struct._phpdbg_param, ptr %26, i64 %16
+  %31 = getelementptr inbounds [88 x i8], ptr %26, i64 %16
   %32 = getelementptr inbounds i8, ptr %31, i64 -88
   %33 = add nsw i64 %spec.store.select, -1
   %.not538 = icmp sgt i64 %33, %15
@@ -253,7 +252,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %82 = load i8, ptr %81, align 1, !tbaa !8
   %83 = sext i8 %82 to i64
   %84 = sub nsw i64 1, %83
-  %85 = getelementptr inbounds %struct._phpdbg_param, ptr %.2491, i64 %84
+  %85 = getelementptr inbounds [88 x i8], ptr %.2491, i64 %84
   %.sroa.0.0.copyload = load i32, ptr %85, align 8, !tbaa !10
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 4
   %.sroa.26.0.copyload = load i32, ptr %.sroa.26.0..sroa_idx, align 4
@@ -760,7 +759,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.sroa.26.0 = phi i32 [ %.sroa.26.0.copyload, %79 ], [ %.sroa.26.0.copyload55, %86 ], [ %.sroa.26.0.copyload57, %87 ], [ %.sroa.26.0.copyload, %214 ], [ %.sroa.26.0.copyload, %90 ], [ %.sroa.26.0.copyload, %94 ], [ %.sroa.26.0.copyload, %99 ], [ %.sroa.26.0.copyload, %104 ], [ %.sroa.26.0.copyload59, %109 ], [ %.sroa.26.0.copyload, %113 ], [ %.sroa.26.0.copyload, %118 ], [ %.sroa.26.0.copyload, %143 ], [ %.sroa.26.0.copyload, %166 ], [ %.sroa.26.0.copyload, %169 ], [ %.sroa.26.0.copyload, %174 ], [ %.sroa.26.0.copyload, %181 ], [ %.sroa.26.0.copyload, %188 ], [ %.sroa.26.0.copyload61, %193 ], [ %.sroa.26.0.copyload63, %194 ], [ %.sroa.26.0.copyload65, %195 ], [ %.sroa.26.0.copyload67, %196 ], [ %.sroa.26.0.copyload69, %197 ], [ %.sroa.26.0.copyload71, %198 ], [ %.sroa.26.0.copyload73, %199 ], [ %.sroa.26.0.copyload, %200 ], [ %.sroa.26.0.copyload, %203 ], [ %.sroa.26.0.copyload, %208 ], [ %.sroa.26.0.copyload, %213 ]
   %.sroa.0.0 = phi i32 [ %.sroa.0.0.copyload, %79 ], [ %.sroa.0.0.copyload43, %86 ], [ %.sroa.0.0.copyload44, %87 ], [ 15, %214 ], [ %.sroa.0.0.copyload, %90 ], [ %.sroa.0.0.copyload, %94 ], [ %.sroa.0.0.copyload, %99 ], [ %.sroa.0.0.copyload, %104 ], [ %.sroa.0.0.copyload45, %109 ], [ 2, %113 ], [ 3, %118 ], [ 2, %143 ], [ 3, %166 ], [ 4, %169 ], [ 8, %174 ], [ 7, %181 ], [ 12, %188 ], [ %.sroa.0.0.copyload46, %193 ], [ %.sroa.0.0.copyload47, %194 ], [ %.sroa.0.0.copyload48, %195 ], [ %.sroa.0.0.copyload49, %196 ], [ %.sroa.0.0.copyload50, %197 ], [ %.sroa.0.0.copyload51, %198 ], [ %.sroa.0.0.copyload52, %199 ], [ %.sroa.0.0.copyload, %200 ], [ 10, %203 ], [ 11, %208 ], [ 15, %213 ]
   %220 = sub nsw i64 0, %83
-  %221 = getelementptr inbounds %struct._phpdbg_param, ptr %.2491, i64 %220
+  %221 = getelementptr inbounds [88 x i8], ptr %.2491, i64 %220
   %222 = getelementptr inbounds i8, ptr %.2504, i64 %220
   %223 = getelementptr inbounds nuw i8, ptr %221, i64 88
   store i32 %.sroa.0.0, ptr %223, align 8, !tbaa !10
@@ -1006,7 +1005,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr noundef nonnull 
 26:                                               ; preds = %24
   %27 = add i32 %.1365.i.i, 1
   %28 = sext i32 %.1365.i.i to i64
-  %29 = getelementptr inbounds i32, ptr %4, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %4, i64 %28
   store i32 %20, ptr %29, align 4, !tbaa !10
   br label %30
 
@@ -1070,10 +1069,10 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %24, %.critedge.thre
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %yytnamerr.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %yytnamerr.exit.thread ]
   %.04921 = phi i64 [ %40, %.lr.ph.preheader ], [ %.15013, %yytnamerr.exit.thread ]
-  %41 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !10
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr @yytname, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr @yytname, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !12
   %46 = load i8, ptr %45, align 1, !tbaa !8
   %47 = icmp eq i8 %46, 34
@@ -1149,10 +1148,10 @@ yytnamerr.exit.thread:                            ; preds = %.preheader.split.us
 66:                                               ; preds = %61
   %67 = add nsw i32 %.0, 1
   %68 = sext i32 %.0 to i64
-  %69 = getelementptr inbounds i32, ptr %2, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %2, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !10
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr @yytname, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr @yytname, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !12
   %74 = load i8, ptr %73, align 1, !tbaa !8
   %75 = icmp eq i8 %74, 34

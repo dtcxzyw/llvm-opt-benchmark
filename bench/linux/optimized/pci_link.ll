@@ -92,14 +92,14 @@ define dso_local noundef i32 @acpi_irq_penalty_init() local_unnamed_addr #0 sect
 
 11:                                               ; preds = %21, %7
   %12 = phi i64 [ 0, %7 ], [ %22, %21 ]
-  %13 = getelementptr i32, ptr %9, i64 %12
+  %13 = getelementptr [4 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp ult i32 %14, 16
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %11
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr i32, ptr @acpi_isa_irq_penalty, i64 %17
+  %18 = getelementptr [4 x i8], ptr @acpi_isa_irq_penalty, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, %.zext
   store i32 %20, ptr %18, align 4
@@ -119,7 +119,7 @@ define dso_local noundef i32 @acpi_irq_penalty_init() local_unnamed_addr #0 sect
 
 29:                                               ; preds = %24
   %30 = zext nneg i32 %26 to i64
-  %31 = getelementptr i32, ptr @acpi_isa_irq_penalty, i64 %30
+  %31 = getelementptr [4 x i8], ptr @acpi_isa_irq_penalty, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, 256
   store i32 %33, ptr %31, align 4
@@ -201,7 +201,7 @@ define dso_local i32 @acpi_pci_link_allocate_irq(ptr noundef %0, i32 noundef %1,
 
 43:                                               ; preds = %48, %32
   %44 = phi i64 [ 0, %32 ], [ %49, %48 ]
-  %45 = getelementptr i32, ptr %34, i64 %44
+  %45 = getelementptr [4 x i8], ptr %34, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %33, %46
   br i1 %47, label %51, label %48
@@ -245,7 +245,7 @@ define dso_local i32 @acpi_pci_link_allocate_irq(ptr noundef %0, i32 noundef %1,
   %62 = phi i8 [ %29, %60 ], [ %.pre, %.thread28 ]
   %63 = zext i8 %62 to i64
   %64 = getelementptr i8, ptr %11, i64 28
-  %65 = getelementptr i32, ptr %64, i64 %63
+  %65 = getelementptr [4 x i8], ptr %64, i64 %63
   %66 = load i32, ptr %65, align 4
   br label %thread-pre-split32
 
@@ -283,7 +283,7 @@ thread-pre-split32:                               ; preds = %67, %.thread29
 
 82:                                               ; preds = %77
   %83 = sext i32 %79 to i64
-  %84 = getelementptr i32, ptr @acpi_isa_irq_penalty, i64 %83
+  %84 = getelementptr [4 x i8], ptr @acpi_isa_irq_penalty, i64 %83
   %85 = load i32, ptr %84, align 4
   br label %.loopexit39
 
@@ -318,7 +318,7 @@ thread-pre-split32:                               ; preds = %67, %.thread29
 104:                                              ; preds = %113, %101
   %105 = phi i64 [ 0, %101 ], [ %115, %113 ]
   %106 = phi i32 [ %96, %101 ], [ %114, %113 ]
-  %107 = getelementptr i32, ptr %102, i64 %105
+  %107 = getelementptr [4 x i8], ptr %102, i64 %105
   %108 = load i32, ptr %107, align 4
   %109 = icmp eq i32 %108, %79
   br i1 %109, label %110, label %113
@@ -339,7 +339,7 @@ thread-pre-split32:                               ; preds = %67, %.thread29
   %118 = icmp eq i32 %.pre58, %79
   %119 = select i1 %118, i32 %.pre60, i32 0
   %120 = add i32 %117, %119
-  %121 = getelementptr i32, ptr %75, i64 %80
+  %121 = getelementptr [4 x i8], ptr %75, i64 %80
   %122 = load i32, ptr %121, align 4
   %123 = icmp slt i32 %122, 16
   br i1 %123, label %129, label %135
@@ -347,7 +347,7 @@ thread-pre-split32:                               ; preds = %67, %.thread29
 .thread30:                                        ; preds = %86
   %124 = icmp eq i32 %.pre58, %79
   %125 = select i1 %124, i32 %.pre60, i32 0
-  %126 = getelementptr i32, ptr %75, i64 %80
+  %126 = getelementptr [4 x i8], ptr %75, i64 %80
   %127 = load i32, ptr %126, align 4
   %128 = icmp slt i32 %127, 16
   br i1 %128, label %129, label %.thread31
@@ -356,7 +356,7 @@ thread-pre-split32:                               ; preds = %67, %.thread29
   %130 = phi i32 [ %127, %.thread30 ], [ %122, %.loopexit39 ]
   %131 = phi i32 [ %125, %.thread30 ], [ %120, %.loopexit39 ]
   %132 = sext i32 %130 to i64
-  %133 = getelementptr i32, ptr @acpi_isa_irq_penalty, i64 %132
+  %133 = getelementptr [4 x i8], ptr @acpi_isa_irq_penalty, i64 %132
   %134 = load i32, ptr %133, align 4
   br label %.thread31
 
@@ -391,7 +391,7 @@ thread-pre-split32:                               ; preds = %67, %.thread29
 153:                                              ; preds = %162, %150
   %154 = phi i64 [ 0, %150 ], [ %164, %162 ]
   %155 = phi i32 [ %145, %150 ], [ %163, %162 ]
-  %156 = getelementptr i32, ptr %151, i64 %154
+  %156 = getelementptr [4 x i8], ptr %151, i64 %154
   %157 = load i32, ptr %156, align 4
   %158 = icmp eq i32 %157, %122
   br i1 %158, label %159, label %162
@@ -428,7 +428,7 @@ thread-pre-split32:                               ; preds = %67, %.thread29
 
 179:                                              ; preds = %.loopexit40
   %180 = sext i32 %177 to i64
-  %181 = getelementptr i32, ptr @acpi_isa_irq_penalty, i64 %180
+  %181 = getelementptr [4 x i8], ptr @acpi_isa_irq_penalty, i64 %180
   %182 = load i32, ptr %181, align 4
   br label %.loopexit34
 
@@ -465,7 +465,7 @@ thread-pre-split32:                               ; preds = %67, %.thread29
 203:                                              ; preds = %212, %200
   %204 = phi i64 [ 0, %200 ], [ %214, %212 ]
   %205 = phi i32 [ %195, %200 ], [ %213, %212 ]
-  %206 = getelementptr i32, ptr %201, i64 %204
+  %206 = getelementptr [4 x i8], ptr %201, i64 %204
   %207 = load i32, ptr %206, align 4
   %208 = icmp eq i32 %207, %177
   br i1 %208, label %209, label %212
@@ -501,7 +501,7 @@ thread-pre-split32:                               ; preds = %67, %.thread29
 
 227:                                              ; preds = %224
   %228 = zext nneg i32 %225 to i64
-  %229 = getelementptr i32, ptr @acpi_isa_irq_penalty, i64 %228
+  %229 = getelementptr [4 x i8], ptr @acpi_isa_irq_penalty, i64 %228
   %230 = load i32, ptr %229, align 4
   %231 = add i32 %230, 4096
   store i32 %231, ptr %229, align 4
@@ -658,7 +658,7 @@ define dso_local void @acpi_penalize_isa_irq(i32 noundef %0, i32 noundef %1) loc
   %5 = zext nneg i32 %0 to i64
   %6 = icmp eq i32 %1, 0
   %7 = select i1 %6, i32 4096, i32 1048576
-  %8 = getelementptr i32, ptr @acpi_isa_irq_penalty, i64 %5
+  %8 = getelementptr [4 x i8], ptr @acpi_isa_irq_penalty, i64 %5
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, %7
   store i32 %10, ptr %8, align 4
@@ -681,7 +681,7 @@ define dso_local zeroext i1 @acpi_isa_irq_available(i32 noundef %0) local_unname
   %6 = load i32, ptr @sci_irq, align 4
   %7 = load i32, ptr @sci_penalty, align 4
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i32, ptr @acpi_isa_irq_penalty, i64 %8
+  %9 = getelementptr [4 x i8], ptr @acpi_isa_irq_penalty, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %6, %0
   %12 = select i1 %11, i32 %7, i32 0
@@ -1071,14 +1071,14 @@ define internal fastcc void @acpi_irq_penalty_update(ptr noundef %0, i32 noundef
   br i1 %5, label %._crit_edge, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr i32, ptr @acpi_isa_irq_penalty, i64 %.pre
+  %15 = getelementptr [4 x i8], ptr @acpi_isa_irq_penalty, i64 %.pre
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, 1048576
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %13, %14
   %18 = phi i32 [ %17, %14 ], [ 0, %13 ]
-  %19 = getelementptr i32, ptr @acpi_isa_irq_penalty, i64 %.pre
+  %19 = getelementptr [4 x i8], ptr @acpi_isa_irq_penalty, i64 %.pre
   store i32 %18, ptr %19, align 4
   %20 = icmp ne i32 %8, 2
   br label %21
@@ -1243,7 +1243,7 @@ define internal noundef range(i32 0, 16388) i32 @acpi_pci_link_check_possible(pt
 
 18:                                               ; preds = %12
   %19 = zext i8 %16 to i32
-  %20 = getelementptr i32, ptr %10, i64 %14
+  %20 = getelementptr [4 x i8], ptr %10, i64 %14
   store i32 %19, ptr %20, align 4
   %21 = load i8, ptr %11, align 1
   %22 = add i8 %21, 1
@@ -1275,13 +1275,13 @@ define internal noundef range(i32 0, 16388) i32 @acpi_pci_link_check_possible(pt
 38:                                               ; preds = %48, %34
   %39 = phi i8 [ %32, %34 ], [ %49, %48 ]
   %40 = phi i64 [ 0, %34 ], [ %50, %48 ]
-  %41 = getelementptr i32, ptr %35, i64 %40
+  %41 = getelementptr [4 x i8], ptr %35, i64 %40
   %42 = load i32, ptr %41, align 1
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %48, label %44
 
 44:                                               ; preds = %38
-  %45 = getelementptr i32, ptr %36, i64 %40
+  %45 = getelementptr [4 x i8], ptr %36, i64 %40
   store i32 %42, ptr %45, align 4
   %46 = load i8, ptr %37, align 1
   %47 = add i8 %46, 1

@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.2 = type { ptr }
 %struct.AVOption = type { ptr, ptr, i32, i32, %union.anon.3, double, double, i32, ptr }
 %union.anon.3 = type { i64 }
-%struct.AC3Block = type { [7 x ptr], [7 x ptr], [7 x ptr], [7 x ptr], [7 x ptr], [7 x ptr], [7 x ptr], [7 x ptr], [7 x ptr], [7 x ptr], i8, i32, [4 x i8], i32, i32, [7 x i8], i32, [7 x i8], [7 x i8], i32, i32, [7 x i32] }
 
 @eac3_frame_expstr_index_tab = internal unnamed_addr global [3 x [4 x [4 x [4 x [4 x [4 x i8]]]]]] zeroinitializer, align 16
 @.str = private unnamed_addr constant [5 x i8] c"eac3\00", align 1
@@ -58,20 +57,20 @@ define void @ff_eac3_get_frame_exp_strategy(ptr noundef captures(none) initializ
   %17 = getelementptr inbounds nuw [6 x i8], ptr %12, i64 %indvars.iv
   %18 = load i8, ptr %17, align 2, !tbaa !28
   %19 = zext i8 %18 to i64
-  %20 = getelementptr [4 x [4 x [4 x [4 x [4 x i8]]]]], ptr @eac3_frame_expstr_index_tab, i64 %19
+  %20 = getelementptr [1024 x i8], ptr @eac3_frame_expstr_index_tab, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -1024
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !28
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [4 x [4 x [4 x [4 x i8]]]], ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [256 x i8], ptr %21, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %27 = load i8, ptr %26, align 2, !tbaa !28
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw [4 x [4 x [4 x i8]]], ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [64 x i8], ptr %25, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 3
   %31 = load i8, ptr %30, align 1, !tbaa !28
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw [4 x [4 x i8]], ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %35 = load i8, ptr %34, align 2, !tbaa !28
   %36 = zext i8 %35 to i64
@@ -131,7 +130,7 @@ define void @ff_eac3_set_cpl_states(ptr noundef captures(none) %0) local_unnamed
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %13 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 1, ptr %13, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -156,7 +155,7 @@ define void @ff_eac3_set_cpl_states(ptr noundef captures(none) %0) local_unnamed
   br i1 %.not3039, label %._crit_edge, label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %.lr.ph43.split
-  %19 = getelementptr inbounds nuw %struct.AC3Block, ptr %12, i64 %indvars.iv53
+  %19 = getelementptr inbounds nuw [648 x i8], ptr %12, i64 %indvars.iv53
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 580
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 592
   br label %22
@@ -167,7 +166,7 @@ define void @ff_eac3_set_cpl_states(ptr noundef captures(none) %0) local_unnamed
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv50
   %25 = load i8, ptr %24, align 1, !tbaa !28
   %.not31 = icmp eq i8 %25, 0
-  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv50
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv50
   br i1 %.not31, label %31, label %27
 
 27:                                               ; preds = %22
@@ -213,7 +212,7 @@ define void @ff_eac3_set_cpl_states(ptr noundef captures(none) %0) local_unnamed
 
 41:                                               ; preds = %.lr.ph45, %40
   %indvars.iv56 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next57, %40 ]
-  %42 = getelementptr inbounds nuw %struct.AC3Block, ptr %15, i64 %indvars.iv56
+  %42 = getelementptr inbounds nuw [648 x i8], ptr %15, i64 %indvars.iv56
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 576
   %44 = load i32, ptr %43, align 8, !tbaa !37
   %.not29 = icmp eq i32 %44, 0
@@ -2401,7 +2400,7 @@ put_bits.exit355:                                 ; preds = %1180, %1188, %1168
   %1195 = phi i32 [ %1189, %.lr.ph ], [ %1249, %1248 ]
   %1196 = phi i32 [ %.026.i.i353, %.lr.ph ], [ %1250, %1248 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %1248 ]
-  %1197 = getelementptr inbounds nuw %struct.AC3Block, ptr %1164, i64 %indvars.iv
+  %1197 = getelementptr inbounds nuw [648 x i8], ptr %1164, i64 %indvars.iv
   %1198 = getelementptr inbounds nuw i8, ptr %1197, i64 572
   %1199 = load i32, ptr %1198, align 4, !tbaa !88
   %1200 = icmp sgt i32 %1195, 1
@@ -2608,7 +2607,7 @@ put_bits.exit367:                                 ; preds = %1282, %1302
   %1310 = phi i32 [ %1255, %.lr.ph416 ], [ %1351, %._crit_edge ]
   %1311 = phi i32 [ %.pre443, %.lr.ph416 ], [ %1352, %._crit_edge ]
   %indvars.iv430 = phi i64 [ 0, %.lr.ph416 ], [ %indvars.iv.next431, %._crit_edge ]
-  %1312 = getelementptr inbounds nuw %struct.AC3Block, ptr %0, i64 %indvars.iv430
+  %1312 = getelementptr inbounds nuw [648 x i8], ptr %0, i64 %indvars.iv430
   %1313 = getelementptr inbounds nuw i8, ptr %1312, i64 1624
   %1314 = load i32, ptr %1313, align 8, !tbaa !37
   %.not155 = icmp eq i32 %1314, 0
@@ -3072,20 +3071,20 @@ define internal void @eac3_exponent_init() #5 {
   %3 = getelementptr inbounds nuw [6 x i8], ptr @ff_eac3_frm_expstr, i64 %indvars.iv
   %4 = load i8, ptr %3, align 2, !tbaa !28
   %5 = zext i8 %4 to i64
-  %6 = getelementptr [4 x [4 x [4 x [4 x [4 x i8]]]]], ptr @eac3_frame_expstr_index_tab, i64 %5
+  %6 = getelementptr [1024 x i8], ptr @eac3_frame_expstr_index_tab, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -1024
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %9 = load i8, ptr %8, align 1, !tbaa !28
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [4 x [4 x [4 x [4 x i8]]]], ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %13 = load i8, ptr %12, align 2, !tbaa !28
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw [4 x [4 x [4 x i8]]], ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %17 = load i8, ptr %16, align 1, !tbaa !28
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw [4 x [4 x i8]], ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %21 = load i8, ptr %20, align 2, !tbaa !28
   %22 = zext i8 %21 to i64

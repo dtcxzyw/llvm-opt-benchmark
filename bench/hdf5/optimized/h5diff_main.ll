@@ -48,7 +48,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 18:                                               ; preds = %2, %42
   %19 = phi i1 [ true, %2 ], [ false, %42 ]
   %indvars.iv = phi i64 [ 0, %2 ], [ 1, %42 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !17
   %.not23 = icmp eq ptr %21, null
   br i1 %.not23, label %42, label %22

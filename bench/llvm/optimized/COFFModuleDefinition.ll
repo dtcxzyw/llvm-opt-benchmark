@@ -361,7 +361,7 @@ _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
 _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %52, %_ZNSt6vectorIN4llvm6object5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %47, ptr %8, align 8, !tbaa !54
   store ptr %51, ptr %10, align 8, !tbaa !59
-  %53 = getelementptr inbounds nuw %"struct.llvm::object::Token", ptr %47, i64 %45
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %47, i64 %45
   store ptr %53, ptr %29, align 8, !tbaa !55
   br label %_ZN4llvm5ErrorD2Ev.exit8
 
@@ -958,7 +958,7 @@ _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
 _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %186, %_ZNSt6vectorIN4llvm6object5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %181, ptr %89, align 8, !tbaa !54
   store ptr %185, ptr %91, align 8, !tbaa !59
-  %187 = getelementptr inbounds nuw %"struct.llvm::object::Token", ptr %181, i64 %179
+  %187 = getelementptr inbounds nuw [24 x i8], ptr %181, i64 %179
   store ptr %187, ptr %163, align 8, !tbaa !55
   br label %_ZN4llvm6object6Parser5ungetEv.exit
 
@@ -1333,7 +1333,7 @@ _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
 _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i62: ; preds = %316, %_ZNSt6vectorIN4llvm6object5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i59
   store ptr %311, ptr %89, align 8, !tbaa !54
   store ptr %315, ptr %91, align 8, !tbaa !59
-  %317 = getelementptr inbounds nuw %"struct.llvm::object::Token", ptr %311, i64 %309
+  %317 = getelementptr inbounds nuw [24 x i8], ptr %311, i64 %309
   store ptr %317, ptr %259, align 8, !tbaa !55
   br label %_ZN4llvm6object6Parser5ungetEv.exit63
 
@@ -1455,7 +1455,7 @@ _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
 _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i78: ; preds = %361, %_ZNSt6vectorIN4llvm6object5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i75
   store ptr %356, ptr %89, align 8, !tbaa !54
   store ptr %360, ptr %91, align 8, !tbaa !59
-  %362 = getelementptr inbounds nuw %"struct.llvm::object::Token", ptr %356, i64 %354
+  %362 = getelementptr inbounds nuw [24 x i8], ptr %356, i64 %354
   store ptr %362, ptr %259, align 8, !tbaa !55
   br label %.backedge.backedge
 
@@ -1863,7 +1863,7 @@ _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
 _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i122: ; preds = %497, %_ZNSt6vectorIN4llvm6object5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i119
   store ptr %492, ptr %89, align 8, !tbaa !54
   store ptr %496, ptr %91, align 8, !tbaa !59
-  %498 = getelementptr inbounds nuw %"struct.llvm::object::Token", ptr %492, i64 %490
+  %498 = getelementptr inbounds nuw [24 x i8], ptr %492, i64 %490
   store ptr %498, ptr %259, align 8, !tbaa !55
   br label %_ZN4llvm6object6Parser5ungetEv.exit123
 
@@ -2053,7 +2053,7 @@ _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
 _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %44, %_ZNSt6vectorIN4llvm6object5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %39, ptr %7, align 8, !tbaa !54
   store ptr %43, ptr %9, align 8, !tbaa !59
-  %45 = getelementptr inbounds nuw %"struct.llvm::object::Token", ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %37
   store ptr %45, ptr %21, align 8, !tbaa !55
   br label %_ZN4llvm5ErrorD2Ev.exit9
 
@@ -2339,7 +2339,7 @@ _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
 _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %112, %_ZNSt6vectorIN4llvm6object5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %107, ptr %11, align 8, !tbaa !54
   store ptr %111, ptr %13, align 8, !tbaa !59
-  %113 = getelementptr inbounds nuw %"struct.llvm::object::Token", ptr %107, i64 %105
+  %113 = getelementptr inbounds nuw [24 x i8], ptr %107, i64 %105
   store ptr %113, ptr %89, align 8, !tbaa !55
   br label %.sink.split
 
@@ -2454,7 +2454,7 @@ _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
 _ZNSt6vectorIN4llvm6object5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i27: ; preds = %154, %_ZNSt6vectorIN4llvm6object5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i24
   store ptr %149, ptr %11, align 8, !tbaa !54
   store ptr %153, ptr %13, align 8, !tbaa !59
-  %155 = getelementptr inbounds nuw %"struct.llvm::object::Token", ptr %149, i64 %147
+  %155 = getelementptr inbounds nuw [24 x i8], ptr %149, i64 %147
   store ptr %155, ptr %131, align 8, !tbaa !55
   br label %_ZN4llvm6object6Parser5ungetEv.exit28
 
@@ -3035,7 +3035,7 @@ _ZNSt6vectorIN4llvm6object15COFFShortExportESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_
 _ZNSt12_Vector_baseIN4llvm6object15COFFShortExportESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4llvm6object15COFFShortExportESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %28
   store ptr %20, ptr %0, align 8, !tbaa !51
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !52
-  %32 = getelementptr inbounds nuw %"struct.llvm::object::COFFShortExport", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [168 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8, !tbaa !53
   ret void
 }

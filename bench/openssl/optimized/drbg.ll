@@ -1705,7 +1705,7 @@ define range(i32 0, 2) i32 @ossl_drbg_get_ctx_params_no_lock(ptr noundef readonl
 
 17:                                               ; preds = %15, %9
   %.1 = phi i64 [ %16, %15 ], [ %.015, %9 ]
-  %18 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %1, i64 %.1
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %.1
   %19 = load ptr, ptr %18, align 8, !tbaa !56
   %20 = icmp eq ptr %19, null
   %. = zext i1 %20 to i32

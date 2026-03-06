@@ -37,7 +37,7 @@ define void @appendNodelist(ptr noundef captures(none) %0, i64 noundef %1, ptr n
 
 17:                                               ; preds = %12
   %18 = load i64, ptr %6, align 8, !tbaa !10
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %18
   %20 = sub i64 %spec.select.i.i, %18
   %21 = shl i64 %20, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %19, i8 0, i64 %21, i1 false)
@@ -51,8 +51,8 @@ define void @appendNodelist(ptr noundef captures(none) %0, i64 noundef %1, ptr n
 27:                                               ; preds = %17
   %28 = sub i64 %18, %23
   %29 = sub i64 %spec.select.i.i, %28
-  %30 = getelementptr inbounds nuw ptr, ptr %15, i64 %29
-  %31 = getelementptr inbounds nuw ptr, ptr %15, i64 %23
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %23
   %32 = shl i64 %28, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %30, ptr nonnull align 8 %31, i64 %32, i1 false)
   store i64 %29, ptr %22, align 8, !tbaa !11
@@ -79,7 +79,7 @@ nodelist_append.exit:                             ; preds = %._crit_edge.i.i, %3
   %.promoted.i = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %34, %33 ]
   %42 = add i64 %.promoted.i, %41
   %43 = urem i64 %42, %40
-  %44 = getelementptr inbounds nuw ptr, ptr %39, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %43
   store ptr null, ptr %44, align 8, !tbaa !15
   %45 = add i64 %41, 1
   store i64 %45, ptr %4, align 8, !tbaa !3
@@ -101,7 +101,7 @@ nodelist_append.exit:                             ; preds = %._crit_edge.i.i, %3
   %.015.i = phi ptr [ %48, %.lr.ph.i ], [ %52, %50 ]
   %.011.in14.i = phi i64 [ %40, %.lr.ph.i ], [ %.011.i, %50 ]
   %.011.i = add i64 %.011.in14.i, -1
-  %51 = getelementptr inbounds nuw ptr, ptr %39, i64 %.011.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.011.i
   %52 = load ptr, ptr %51, align 8, !tbaa !15
   store ptr %.015.i, ptr %51, align 8, !tbaa !15
   %.not12.i = icmp eq i64 %.011.i, 0
@@ -120,9 +120,9 @@ nodelist_sync.exit:                               ; preds = %nodelist_append.exi
 55:                                               ; preds = %nodelist_sync.exit
   %56 = add i64 %1, 1
   %57 = urem i64 %56, %40
-  %58 = getelementptr inbounds nuw ptr, ptr %39, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %57
   %59 = urem i64 %1, %40
-  %60 = getelementptr inbounds nuw ptr, ptr %39, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %59
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %58, ptr align 8 %60, i64 %54, i1 false)
   %.pre = load ptr, ptr %0, align 8, !tbaa !12
   %.pre12 = load i64, ptr %46, align 8, !tbaa !11
@@ -135,7 +135,7 @@ nodelist_sync.exit:                               ; preds = %nodelist_append.exi
   %64 = phi ptr [ %.pre, %55 ], [ %39, %nodelist_sync.exit ]
   %65 = add i64 %63, %1
   %66 = urem i64 %65, %62
-  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %66
   store ptr %2, ptr %67, align 8, !tbaa !15
   ret void
 }
@@ -169,7 +169,7 @@ define void @realignNodelist(ptr noundef captures(none) %0, i64 noundef %1) loca
   %11 = phi ptr [ %.pre, %.lr.ph ], [ %46, %nodelist_push_back.exit ]
   %.06 = phi i64 [ %1, %.lr.ph ], [ %53, %nodelist_push_back.exit ]
   %12 = urem i64 %10, %9
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   %15 = add i64 %10, 1
   %16 = urem i64 %15, %9
@@ -191,7 +191,7 @@ define void @realignNodelist(ptr noundef captures(none) %0, i64 noundef %1) loca
 
 24:                                               ; preds = %20
   %25 = load i64, ptr %4, align 8, !tbaa !10
-  %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %25
   %27 = sub i64 %19, %25
   %28 = shl i64 %27, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %26, i8 0, i64 %28, i1 false)
@@ -204,8 +204,8 @@ define void @realignNodelist(ptr noundef captures(none) %0, i64 noundef %1) loca
 33:                                               ; preds = %24
   %34 = sub i64 %25, %29
   %35 = sub i64 %19, %34
-  %36 = getelementptr inbounds nuw ptr, ptr %22, i64 %35
-  %37 = getelementptr inbounds nuw ptr, ptr %22, i64 %29
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %35
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %38 = shl i64 %34, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull align 8 %37, i64 %38, i1 false)
   store i64 %35, ptr %3, align 8, !tbaa !11
@@ -232,7 +232,7 @@ nodelist_push_back.exit:                          ; preds = %7, %39
   %48 = phi i64 [ %40, %39 ], [ %16, %7 ]
   %49 = add i64 %48, %47
   %50 = urem i64 %49, %45
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %14, ptr %51, align 8, !tbaa !15
   %52 = add i64 %47, 1
   store i64 %52, ptr %5, align 8, !tbaa !3
@@ -267,7 +267,7 @@ nodelist_remove.exit.thread:                      ; preds = %4
   %.029.i = phi i64 [ 0, %.lr.ph.i ], [ %.01730.i, %.critedge.i ]
   %14 = add i64 %.029.i, %10
   %15 = urem i64 %14, %12
-  %16 = getelementptr inbounds nuw ptr, ptr %8, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %15
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %16, ptr noundef nonnull dereferenceable(8) %5, i64 8)
   %.not.i = icmp eq i32 %bcmp.i, 0
   %.01730.i = add i64 %.029.i, 1
@@ -282,7 +282,7 @@ nodelist_remove.exit.thread:                      ; preds = %4
   %.01831.i = phi ptr [ %20, %.lr.ph33.i ], [ %16, %.preheader.i ]
   %18 = add i64 %.01732.i, %10
   %19 = urem i64 %18, %12
-  %20 = getelementptr inbounds nuw ptr, ptr %8, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !15
   store ptr %21, ptr %.01831.i, align 8, !tbaa !15
   %.017.i = add nuw i64 %.01732.i, 1
@@ -317,7 +317,7 @@ nodelist_remove.exit:                             ; preds = %.lr.ph33.i, %.prehe
   %.020 = phi i64 [ 0, %.lr.ph ], [ %38, %.critedge ]
   %29 = add i64 %25, %.020
   %30 = urem i64 %29, %27
-  %31 = getelementptr inbounds nuw ptr, ptr %23, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !15
   %.not = icmp eq ptr %32, %2
   br i1 %.not, label %33, label %.critedge
@@ -365,12 +365,12 @@ define void @reverseAppend(ptr noundef captures(none) %0, ptr noundef captures(n
   %.016.i = phi i64 [ 0, %.lr.ph.i ], [ %19, %10 ]
   %11 = add i64 %.016.i, %7
   %12 = urem i64 %11, %9
-  %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   %15 = xor i64 %.016.i, -1
   %.reass.i = add i64 %invariant.op.i, %15
   %16 = urem i64 %.reass.i, %9
-  %17 = getelementptr inbounds nuw ptr, ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !15
   store ptr %18, ptr %13, align 8, !tbaa !15
   store ptr %14, ptr %17, align 8, !tbaa !15
@@ -401,7 +401,7 @@ nodelist_reverse.exit:                            ; preds = %10, %2
   %29 = add i64 %28, %.06.i
   %30 = load i64, ptr %21, align 8, !tbaa !10
   %31 = urem i64 %29, %30
-  %32 = getelementptr inbounds nuw ptr, ptr %27, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !15
   %34 = icmp eq i64 %26, %25
   br i1 %34, label %35, label %._crit_edge.i.i.i
@@ -427,7 +427,7 @@ nodelist_reverse.exit:                            ; preds = %10, %2
 
 43:                                               ; preds = %38
   %44 = load i64, ptr %23, align 8, !tbaa !10
-  %45 = getelementptr inbounds nuw ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %44
   %46 = sub i64 %spec.select.i.i.i, %44
   %47 = shl i64 %46, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %45, i8 0, i64 %47, i1 false)
@@ -440,8 +440,8 @@ nodelist_reverse.exit:                            ; preds = %10, %2
 52:                                               ; preds = %43
   %53 = sub i64 %44, %48
   %54 = sub i64 %spec.select.i.i.i, %53
-  %55 = getelementptr inbounds nuw ptr, ptr %41, i64 %54
-  %56 = getelementptr inbounds nuw ptr, ptr %41, i64 %48
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %48
   %57 = shl i64 %53, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %55, ptr nonnull align 8 %56, i64 %57, i1 false)
   store i64 %54, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !11
@@ -468,7 +468,7 @@ nodelist_append.exit.i:                           ; preds = %58, %._crit_edge.i.
   %67 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %59, %58 ]
   %68 = add i64 %67, %66
   %69 = urem i64 %68, %64
-  %70 = getelementptr inbounds nuw ptr, ptr %65, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %69
   store ptr %33, ptr %70, align 8, !tbaa !15
   %71 = add i64 %66, 1
   store i64 %71, ptr %22, align 8, !tbaa !3

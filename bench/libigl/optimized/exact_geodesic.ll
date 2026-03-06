@@ -15,23 +15,14 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %union.anon = type { i64, [8 x i8] }
 %"struct.igl::geodesic::IntervalWithStop" = type { %"class.igl::geodesic::Interval", double }
 %"class.igl::geodesic::Interval" = type { double, double, double, double, double, ptr, ptr, i32, i32 }
-%"class.igl::geodesic::IntervalList" = type { ptr, ptr }
 %"class.std::vector.89" = type { %"struct.std::_Vector_base.90" }
 %"struct.std::_Vector_base.90" = type { %"struct.std::_Vector_base<igl::geodesic::Vertex *, std::allocator<igl::geodesic::Vertex *>>::_Vector_impl" }
 %"struct.std::_Vector_base<igl::geodesic::Vertex *, std::allocator<igl::geodesic::Vertex *>>::_Vector_impl" = type { %"struct.std::_Vector_base<igl::geodesic::Vertex *, std::allocator<igl::geodesic::Vertex *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<igl::geodesic::Vertex *, std::allocator<igl::geodesic::Vertex *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { ptr, double }
-%"class.igl::geodesic::SurfacePoint" = type { %"class.igl::geodesic::Point3D", ptr }
-%"class.igl::geodesic::Point3D" = type { [3 x double] }
 %"class.std::vector.96" = type { %"struct.std::_Vector_base.97" }
 %"struct.std::_Vector_base.97" = type { %"struct.std::_Vector_base<igl::geodesic::Edge *, std::allocator<igl::geodesic::Edge *>>::_Vector_impl" }
 %"struct.std::_Vector_base<igl::geodesic::Edge *, std::allocator<igl::geodesic::Edge *>>::_Vector_impl" = type { %"struct.std::_Vector_base<igl::geodesic::Edge *, std::allocator<igl::geodesic::Edge *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<igl::geodesic::Edge *, std::allocator<igl::geodesic::Edge *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.igl::geodesic::SurfacePointWithIndex" = type <{ %"class.igl::geodesic::SurfacePoint", i32, [4 x i8] }>
-%"class.std::vector.101" = type { %"struct.std::_Vector_base.102" }
-%"struct.std::_Vector_base.102" = type { %"struct.std::_Vector_base<igl::geodesic::Interval, std::allocator<igl::geodesic::Interval>>::_Vector_impl" }
-%"struct.std::_Vector_base<igl::geodesic::Interval, std::allocator<igl::geodesic::Interval>>::_Vector_impl" = type { %"struct.std::_Vector_base<igl::geodesic::Interval, std::allocator<igl::geodesic::Interval>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<igl::geodesic::Interval, std::allocator<igl::geodesic::Interval>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.39" = type { %"struct.std::_Vector_base.40" }
 %"struct.std::_Vector_base.40" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
@@ -92,26 +83,26 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"struct.std::_Vector_base.28" = type { %"struct.std::_Vector_base<igl::geodesic::SurfacePointWithIndex *, std::allocator<igl::geodesic::SurfacePointWithIndex *>>::_Vector_impl" }
 %"struct.std::_Vector_base<igl::geodesic::SurfacePointWithIndex *, std::allocator<igl::geodesic::SurfacePointWithIndex *>>::_Vector_impl" = type { %"struct.std::_Vector_base<igl::geodesic::SurfacePointWithIndex *, std::allocator<igl::geodesic::SurfacePointWithIndex *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<igl::geodesic::SurfacePointWithIndex *, std::allocator<igl::geodesic::SurfacePointWithIndex *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.igl::geodesic::SurfacePointWithIndex" = type <{ %"class.igl::geodesic::SurfacePoint", i32, [4 x i8] }>
+%"class.igl::geodesic::SurfacePoint" = type { %"class.igl::geodesic::Point3D", ptr }
+%"class.igl::geodesic::Point3D" = type { [3 x double] }
 %"class.std::vector.32" = type { %"struct.std::_Vector_base.33" }
 %"struct.std::_Vector_base.33" = type { %"struct.std::_Vector_base<igl::geodesic::SurfacePoint, std::allocator<igl::geodesic::SurfacePoint>>::_Vector_impl" }
 %"struct.std::_Vector_base<igl::geodesic::SurfacePoint, std::allocator<igl::geodesic::SurfacePoint>>::_Vector_impl" = type { %"struct.std::_Vector_base<igl::geodesic::SurfacePoint, std::allocator<igl::geodesic::SurfacePoint>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<igl::geodesic::SurfacePoint, std::allocator<igl::geodesic::SurfacePoint>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.igl::geodesic::Vertex" = type <{ %"class.igl::geodesic::MeshElementBase", %"class.igl::geodesic::Point3D", i8, [7 x i8] }>
-%"class.igl::geodesic::MeshElementBase" = type { %"class.igl::geodesic::SimpleVector", %"class.igl::geodesic::SimpleVector.37", %"class.igl::geodesic::SimpleVector.38", i32, i32 }
-%"class.igl::geodesic::SimpleVector" = type { i32, ptr }
-%"class.igl::geodesic::SimpleVector.37" = type { i32, ptr }
-%"class.igl::geodesic::SimpleVector.38" = type { i32, ptr }
-%"class.igl::geodesic::Face" = type { %"class.igl::geodesic::MeshElementBase", [3 x double] }
-%"class.igl::geodesic::Edge" = type { %"class.igl::geodesic::MeshElementBase", double }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { %"class.igl::geodesic::SurfacePointWithIndex" }
+%"class.std::vector.101" = type { %"struct.std::_Vector_base.102" }
+%"struct.std::_Vector_base.102" = type { %"struct.std::_Vector_base<igl::geodesic::Interval, std::allocator<igl::geodesic::Interval>>::_Vector_impl" }
+%"struct.std::_Vector_base<igl::geodesic::Interval, std::allocator<igl::geodesic::Interval>>::_Vector_impl" = type { %"struct.std::_Vector_base<igl::geodesic::Interval, std::allocator<igl::geodesic::Interval>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<igl::geodesic::Interval, std::allocator<igl::geodesic::Interval>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.__gnu_cxx::__ops::_Iter_comp_val" = type { %"class.igl::geodesic::SurfacePointWithIndex" }
+%"struct.__gnu_cxx::__ops::_Val_comp_iter" = type { %"class.igl::geodesic::SurfacePointWithIndex" }
 %"class.std::vector.122" = type { %"struct.std::_Vector_base.123" }
 %"struct.std::_Vector_base.123" = type { %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl" }
 %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl" = type { %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.__gnu_cxx::__ops::_Iter_comp_val" = type { %"class.igl::geodesic::SurfacePointWithIndex" }
-%"struct.__gnu_cxx::__ops::_Val_comp_iter" = type { %"class.igl::geodesic::SurfacePointWithIndex" }
-%"struct.igl::geodesic::HalfEdge" = type { i32, i32, i32 }
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
+%"struct.igl::geodesic::HalfEdge" = type { i32, i32, i32 }
 
 $_ZN3igl8geodesic21GeodesicAlgorithmBase4nameB5cxx11Ev = comdat any
 
@@ -454,7 +445,7 @@ define linkonce_odr dso_local void @_ZN3igl8geodesic22GeodesicAlgorithmExact9pro
 
 82:                                               ; preds = %76, %74, %79, %71
   %83 = load ptr, ptr %64, align 8, !tbaa !91
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8, !tbaa !92
   %86 = load ptr, ptr %50, align 8, !tbaa !81
   %87 = load ptr, ptr %86, align 8, !tbaa !84
@@ -466,7 +457,7 @@ define linkonce_odr dso_local void @_ZN3igl8geodesic22GeodesicAlgorithmExact9pro
 
 92:                                               ; preds = %110, %82
   %indvars.iv.i = phi i64 [ 0, %82 ], [ %indvars.iv.next.i, %110 ]
-  %93 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv.i
   %94 = load ptr, ptr %93, align 8, !tbaa !76
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 48
   %96 = load i32, ptr %95, align 4, !tbaa !24
@@ -524,7 +515,7 @@ split:                                            ; preds = %97, %_ZN3igl8geodes
 
 124:                                              ; preds = %123, %split
   %indvars.iv.i96 = phi i64 [ 0, %split ], [ %indvars.iv.next.i97, %123 ]
-  %125 = getelementptr inbounds nuw ptr, ptr %122, i64 %indvars.iv.i96
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv.i96
   %126 = load ptr, ptr %125, align 8, !tbaa !84
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 48
   %128 = load i32, ptr %127, align 4, !tbaa !24
@@ -533,7 +524,7 @@ split:                                            ; preds = %97, %_ZN3igl8geodes
 
 130:                                              ; preds = %124
   %131 = getelementptr inbounds nuw i8, ptr %85, i64 56
-  %132 = getelementptr inbounds nuw double, ptr %131, i64 %indvars.iv.i96
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %indvars.iv.i96
   %133 = load double, ptr %132, align 8, !tbaa !77
   br label %_ZN3igl8geodesic4Face12vertex_angleEPNS0_6VertexE.exit
 
@@ -858,7 +849,7 @@ _ZN3igl8geodesic22GeodesicAlgorithmExact30construct_propagated_intervalsEbPNS0_4
   %298 = load i32, ptr %297, align 4, !tbaa !24
   %299 = zext i32 %298 to i64
   %300 = load ptr, ptr %23, align 8, !tbaa !103
-  %301 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %300, i64 %299
+  %301 = getelementptr inbounds nuw [16 x i8], ptr %300, i64 %299
   call void @_ZN3igl8geodesic22GeodesicAlgorithmExact21update_list_and_queueEPNS0_12IntervalListEPNS0_16IntervalWithStopEj(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %301, ptr noundef nonnull %5, i32 noundef %.0)
   br i1 %221, label %..critedge_crit_edge, label %_ZN3igl8geodesic22GeodesicAlgorithmExact29compute_propagated_parametersEdddddddbbbbPNS0_16IntervalWithStopE.exit129
 
@@ -879,7 +870,7 @@ _ZN3igl8geodesic22GeodesicAlgorithmExact30construct_propagated_intervalsEbPNS0_4
 
 309:                                              ; preds = %327, %.critedge
   %indvars.iv.i103 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next.i106, %327 ]
-  %310 = getelementptr inbounds nuw ptr, ptr %302, i64 %indvars.iv.i103
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %302, i64 %indvars.iv.i103
   %311 = load ptr, ptr %310, align 8, !tbaa !76
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 48
   %313 = load i32, ptr %312, align 4, !tbaa !24
@@ -937,7 +928,7 @@ split201:                                         ; preds = %314, %_ZN3igl8geode
 
 341:                                              ; preds = %340, %split201
   %indvars.iv.i111 = phi i64 [ 0, %split201 ], [ %indvars.iv.next.i112, %340 ]
-  %342 = getelementptr inbounds nuw ptr, ptr %339, i64 %indvars.iv.i111
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %indvars.iv.i111
   %343 = load ptr, ptr %342, align 8, !tbaa !84
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 48
   %345 = load i32, ptr %344, align 4, !tbaa !24
@@ -946,7 +937,7 @@ split201:                                         ; preds = %314, %_ZN3igl8geode
 
 347:                                              ; preds = %341
   %348 = getelementptr inbounds nuw i8, ptr %85, i64 56
-  %349 = getelementptr inbounds nuw double, ptr %348, i64 %indvars.iv.i111
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %348, i64 %indvars.iv.i111
   %350 = load double, ptr %349, align 8, !tbaa !77
   br label %_ZN3igl8geodesic4Face12vertex_angleEPNS0_6VertexE.exit114
 
@@ -1274,7 +1265,7 @@ _ZN3igl8geodesic22GeodesicAlgorithmExact30construct_propagated_intervalsEbPNS0_4
   %521 = load i32, ptr %520, align 4, !tbaa !24
   %522 = zext i32 %521 to i64
   %523 = load ptr, ptr %23, align 8, !tbaa !103
-  %524 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %523, i64 %522
+  %524 = getelementptr inbounds nuw [16 x i8], ptr %523, i64 %522
   call void @_ZN3igl8geodesic22GeodesicAlgorithmExact21update_list_and_queueEPNS0_12IntervalListEPNS0_16IntervalWithStopEj(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %524, ptr noundef nonnull %5, i32 noundef %.1)
   br label %_ZN3igl8geodesic22GeodesicAlgorithmExact29compute_propagated_parametersEdddddddbbbbPNS0_16IntervalWithStopE.exit129
 
@@ -1364,7 +1355,7 @@ _ZSt8_DestroyIPSt4pairIPN3igl8geodesic6VertexEdES5_EvT_S7_RSaIT0_E.exit.i.i: ; p
   br i1 %30, label %31, label %_ZNSt6vectorISt4pairIPN3igl8geodesic6VertexEdESaIS5_EE6resizeEm.exit
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw %"struct.std::pair", ptr %21, i64 %18
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %18
   %.not.i.i34 = icmp eq ptr %20, %32
   br i1 %.not.i.i34, label %_ZNSt6vectorISt4pairIPN3igl8geodesic6VertexEdESaIS5_EE6resizeEm.exit, label %_ZSt8_DestroyIPSt4pairIPN3igl8geodesic6VertexEdES5_EvT_S7_RSaIT0_E.exit.i.i35
 
@@ -1408,7 +1399,7 @@ _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorIS
   %46 = phi ptr [ %33, %.lr.ph44 ], [ %68, %._crit_edge ]
   %47 = phi i64 [ 0, %.lr.ph44 ], [ %66, %._crit_edge ]
   %.043 = phi i32 [ 0, %.lr.ph44 ], [ %65, %._crit_edge ]
-  %48 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePoint", ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %46, i64 %47
   %.not.i.i36 = icmp eq ptr %44, %45
   br i1 %.not.i.i36, label %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE5clearEv.exit, label %_ZSt8_DestroyIPPN3igl8geodesic6VertexES3_EvT_S5_RSaIT0_E.exit.i.i
 
@@ -1443,7 +1434,7 @@ _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE5clearEv.exit: ; preds = %43, %_ZSt8
   %.025.lcssa = phi ptr [ null, %.preheader ], [ %.126, %77 ]
   %.024.lcssa = phi double [ 1.000000e+100, %.preheader ], [ %.1, %77 ]
   %62 = load ptr, ptr %6, align 8, !tbaa !108
-  %63 = getelementptr inbounds nuw %"struct.std::pair", ptr %62, i64 %47
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %47
   store ptr %.025.lcssa, ptr %63, align 8, !tbaa !119
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store double %.024.lcssa, ptr %64, align 8, !tbaa !121
@@ -1470,7 +1461,7 @@ _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE5clearEv.exit: ; preds = %43, %_ZSt8
   %.02341 = phi i32 [ 0, %.lr.ph ], [ %94, %77 ]
   %.02440 = phi double [ 1.000000e+100, %.lr.ph ], [ %.1, %77 ]
   %.02539 = phi ptr [ null, %.lr.ph ], [ %.126, %77 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %52, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !84
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
   %82 = load double, ptr %81, align 8, !tbaa !77
@@ -1556,7 +1547,7 @@ _ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE5clearEv.exit.i: ; preds = %1
 .lr.ph.i:                                         ; preds = %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE5clearEv.exit.i, %.lr.ph.i
   %27 = phi i64 [ %30, %.lr.ph.i ], [ 0, %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE5clearEv.exit.i ]
   %.04.i = phi i32 [ %29, %.lr.ph.i ], [ 0, %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE5clearEv.exit.i ]
-  %28 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %22, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %27
   store ptr null, ptr %28, align 8, !tbaa !129
   %29 = add i32 %.04.i, 1
   %30 = zext i32 %29 to i64
@@ -1612,7 +1603,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EED2Ev.exit: ; preds = %_ZN3igl8geodesic
   %55 = phi ptr [ %36, %.lr.ph25 ], [ %69, %._crit_edge ]
   %56 = phi i64 [ 0, %.lr.ph25 ], [ %67, %._crit_edge ]
   %.023 = phi i32 [ 0, %.lr.ph25 ], [ %66, %._crit_edge ]
-  %57 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePointWithIndex", ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %55, i64 %56
   %.not.i.i = icmp eq ptr %53, %54
   br i1 %.not.i.i, label %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE5clearEv.exit, label %_ZSt8_DestroyIPPN3igl8geodesic4EdgeES3_EvT_S5_RSaIT0_E.exit.i.i
 
@@ -1660,7 +1651,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE5clearEv.exit: ; preds = %52, %_ZSt8_D
   %77 = phi ptr [ %187, %183 ], [ %61, %.lr.ph.split.preheader ]
   %78 = phi i64 [ %185, %183 ], [ 0, %.lr.ph.split.preheader ]
   %.01422 = phi i32 [ %184, %183 ], [ 0, %.lr.ph.split.preheader ]
-  %79 = getelementptr inbounds nuw ptr, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !76
   store ptr null, ptr %38, align 8, !tbaa !99
   store ptr %80, ptr %40, align 8, !tbaa !140
@@ -1838,7 +1829,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit10.i:      ; preds = %.thread63, %171, %1
   %179 = load i32, ptr %178, align 4, !tbaa !24
   %180 = zext i32 %179 to i64
   %181 = load ptr, ptr %19, align 8, !tbaa !103
-  %182 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %181, i64 %180
+  %182 = getelementptr inbounds nuw [16 x i8], ptr %181, i64 %180
   invoke void @_ZN3igl8geodesic22GeodesicAlgorithmExact21update_list_and_queueEPNS0_12IntervalListEPNS0_16IntervalWithStopEj(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %182, ptr noundef nonnull %2, i32 noundef 1)
           to label %183 unwind label %.split
 
@@ -1918,7 +1909,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8geodesic22GeodesicAlgo
 24:                                               ; preds = %.lr.ph, %103
   %25 = phi i64 [ %20, %.lr.ph ], [ %105, %103 ]
   %26 = phi i32 [ %.promoted, %.lr.ph ], [ %104, %103 ]
-  %27 = getelementptr inbounds nuw %"struct.std::pair", ptr %15, i64 %25
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %25
   %28 = load ptr, ptr %27, align 8, !tbaa !119
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8, !tbaa !94
@@ -1934,7 +1925,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl8geodesic22GeodesicAlgo
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %41 = load i32, ptr %40, align 8, !tbaa !24
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %23, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %42
   br i1 %39, label %44, label %70
 
 44:                                               ; preds = %24
@@ -2527,7 +2518,7 @@ _ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit186: ; preds = %
 
 261:                                              ; preds = %.lr.ph504, %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit320
   %indvars.iv526 = phi i64 [ 0, %.lr.ph504 ], [ %indvars.iv.next527, %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit320 ]
-  %262 = getelementptr inbounds nuw %"struct.igl::geodesic::IntervalWithStop", ptr %2, i64 %indvars.iv526
+  %262 = getelementptr inbounds nuw [72 x i8], ptr %2, i64 %indvars.iv526
   %.0137.pre = load ptr, ptr %1, align 8, !tbaa !75
   br label %263
 
@@ -2986,7 +2977,7 @@ _ZNSt6vectorIPN3igl8geodesic8IntervalESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit1
 _ZNSt6vectorIPN3igl8geodesic8IntervalESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %495, %_ZNSt6vectorIPN3igl8geodesic8IntervalESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %490, ptr %16, align 8, !tbaa !164
   store ptr %494, ptr %17, align 8, !tbaa !163
-  %496 = getelementptr inbounds nuw ptr, ptr %490, i64 %488
+  %496 = getelementptr inbounds nuw [8 x i8], ptr %490, i64 %488
   store ptr %496, ptr %25, align 8, !tbaa !165
   br label %_ZN3igl8geodesic15MemoryAllocatorINS0_8IntervalEE10deallocateEPS2_.exit
 
@@ -3321,7 +3312,7 @@ _ZNSt6vectorIS_IN3igl8geodesic8IntervalESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_
 _ZNSt6vectorIS_IN3igl8geodesic8IntervalESaIS2_EESaIS4_EE9push_backEOS4_.exit.i: ; preds = %648, %_ZNSt6vectorIS_IN3igl8geodesic8IntervalESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i
   store ptr %636, ptr %15, align 8, !tbaa !173
   store ptr %647, ptr %20, align 8, !tbaa !172
-  %652 = getelementptr inbounds nuw %"class.std::vector.101", ptr %636, i64 %634
+  %652 = getelementptr inbounds nuw [24 x i8], ptr %636, i64 %634
   store ptr %652, ptr %21, align 8, !tbaa !171
   br label %_ZNSt6vectorIN3igl8geodesic8IntervalESaIS2_EED2Ev.exit.i
 
@@ -3390,9 +3381,9 @@ _ZNSt6vectorIN3igl8geodesic8IntervalESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
 _ZNSt12_Vector_baseIN3igl8geodesic8IntervalESaIS2_EE13_M_deallocateEPS2_m.exit32.i.i: ; preds = %682, %_ZNSt6vectorIN3igl8geodesic8IntervalESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
   %.pre.pre = phi ptr [ %.pre.pre.pre, %682 ], [ %653, %_ZNSt6vectorIN3igl8geodesic8IntervalESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i ]
   store ptr %678, ptr %654, align 8, !tbaa !179
-  %684 = getelementptr inbounds nuw %"class.igl::geodesic::Interval", ptr %679, i64 %666
+  %684 = getelementptr inbounds nuw [64 x i8], ptr %679, i64 %666
   store ptr %684, ptr %657, align 8, !tbaa !181
-  %685 = getelementptr inbounds nuw %"class.igl::geodesic::Interval", ptr %678, i64 %676
+  %685 = getelementptr inbounds nuw [64 x i8], ptr %678, i64 %676
   store ptr %685, ptr %667, align 8, !tbaa !182
   br label %.noexc
 
@@ -3401,7 +3392,7 @@ _ZNSt12_Vector_baseIN3igl8geodesic8IntervalESaIS2_EE13_M_deallocateEPS2_m.exit32
   br i1 %687, label %688, label %.noexc
 
 688:                                              ; preds = %686
-  %689 = getelementptr inbounds nuw %"class.igl::geodesic::Interval", ptr %659, i64 %656
+  %689 = getelementptr inbounds nuw [64 x i8], ptr %659, i64 %656
   %.not.i4.i = icmp eq ptr %658, %689
   br i1 %.not.i4.i, label %.noexc, label %_ZSt8_DestroyIPN3igl8geodesic8IntervalES2_EvT_S4_RSaIT0_E.exit.i.i
 
@@ -3415,7 +3406,7 @@ _ZSt8_DestroyIPN3igl8geodesic8IntervalES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %6
   %692 = getelementptr inbounds i8, ptr %690, i64 -24
   %693 = zext i32 %691 to i64
   %694 = load ptr, ptr %692, align 8, !tbaa !179
-  %695 = getelementptr inbounds nuw %"class.igl::geodesic::Interval", ptr %694, i64 %693
+  %695 = getelementptr inbounds nuw [64 x i8], ptr %694, i64 %693
   %696 = add i32 %691, 1
   store i32 %696, ptr %18, align 8, !tbaa !169
   br label %_ZN3igl8geodesic15MemoryAllocatorINS0_8IntervalEE8allocateEv.exit
@@ -3428,7 +3419,7 @@ _ZSt8_DestroyIPN3igl8geodesic8IntervalES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %6
 
 _ZN3igl8geodesic15MemoryAllocatorINS0_8IntervalEE8allocateEv.exit: ; preds = %697, %.noexc
   %.0.i = phi ptr [ %695, %.noexc ], [ %699, %697 ]
-  %700 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %700 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   store ptr %.0.i, ptr %700, align 8, !tbaa !75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3739,7 +3730,7 @@ _ZNSt6vectorIPN3igl8geodesic8IntervalESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit1
 _ZNSt6vectorIPN3igl8geodesic8IntervalESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i271: ; preds = %848, %_ZNSt6vectorIPN3igl8geodesic8IntervalESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i269
   store ptr %843, ptr %16, align 8, !tbaa !164
   store ptr %847, ptr %17, align 8, !tbaa !163
-  %849 = getelementptr inbounds nuw ptr, ptr %843, i64 %841
+  %849 = getelementptr inbounds nuw [8 x i8], ptr %843, i64 %841
   store ptr %849, ptr %25, align 8, !tbaa !165
   br label %_ZN3igl8geodesic15MemoryAllocatorINS0_8IntervalEE10deallocateEPS2_.exit274
 
@@ -3766,15 +3757,15 @@ _ZN3igl8geodesic15MemoryAllocatorINS0_8IntervalEE10deallocateEPS2_.exit274: ; pr
   %855 = add i32 %281, -1
   %856 = zext i32 %855 to i64
   %wide.trip.count524 = zext i32 %281 to i64
-  %857 = getelementptr inbounds nuw i32, ptr %23, i64 %856
-  %858 = getelementptr inbounds nuw ptr, ptr %22, i64 %856
+  %857 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %856
+  %858 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %856
   br label %876
 
 859:                                              ; preds = %.lr.ph486, %872
   %indvars.iv515 = phi i64 [ 1, %.lr.ph486 ], [ %.pre550, %872 ]
-  %860 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv515
+  %860 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv515
   %861 = load ptr, ptr %860, align 8, !tbaa !75
-  %862 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv515
+  %862 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv515
   %863 = load i32, ptr %862, align 4, !tbaa !157
   %864 = icmp eq i32 %863, 0
   br i1 %864, label %865, label %866
@@ -3797,7 +3788,7 @@ _ZN3igl8geodesic15MemoryAllocatorINS0_8IntervalEE10deallocateEPS2_.exit274: ; pr
   br i1 %868, label %872, label %869
 
 869:                                              ; preds = %867
-  %870 = getelementptr inbounds nuw ptr, ptr %22, i64 %.pre550
+  %870 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.pre550
   %871 = load ptr, ptr %870, align 8, !tbaa !75
   br label %872
 
@@ -3805,7 +3796,7 @@ _ZN3igl8geodesic15MemoryAllocatorINS0_8IntervalEE10deallocateEPS2_.exit274: ; pr
   %.sink = phi ptr [ %871, %869 ], [ %.sroa.5.0.copyload, %867 ]
   %873 = getelementptr inbounds nuw i8, ptr %861, i64 40
   store ptr %.sink, ptr %873, align 8, !tbaa !75
-  %874 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv515
+  %874 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv515
   %875 = load double, ptr %874, align 8, !tbaa !77
   store double %875, ptr %861, align 8, !tbaa !77
   %exitcond520.not = icmp eq i64 %.pre550, %wide.trip.count519
@@ -3833,7 +3824,7 @@ _ZN3igl8geodesic15MemoryAllocatorINS0_8IntervalEE10deallocateEPS2_.exit274: ; pr
   br label %_ZNSt3setIPN3igl8geodesic8IntervalES2_SaIS3_EE6insertERKS3_.exit298
 
 883:                                              ; preds = %876, %878
-  %884 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv521
+  %884 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv521
   %885 = load ptr, ptr %884, align 8, !tbaa !75
   %886 = getelementptr inbounds nuw i8, ptr %885, i64 40
   %887 = load ptr, ptr %886, align 8, !tbaa !99
@@ -3913,7 +3904,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit10.i279:   ; preds = %919, %917
   %.1.i.sink.i277 = phi double [ %.1.i.i285, %_ZN3igl8geodesic8Interval6signalEd.exit.i283 ], [ %925, %922 ], [ %.1.i8.i281, %_ZN3igl8geodesic8Interval6signalEd.exit10.i279 ], [ 1.000000e+100, %883 ]
   %927 = getelementptr inbounds nuw i8, ptr %885, i64 32
   store double %.1.i.sink.i277, ptr %927, align 8, !tbaa !149
-  %928 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv521
+  %928 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv521
   %929 = load i32, ptr %928, align 4, !tbaa !157
   %930 = icmp eq i32 %929, 1
   %931 = icmp eq i32 %929, 0
@@ -4356,7 +4347,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %18 = mul i64 %15, 24
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #27
   store ptr %19, ptr %8, align 8, !tbaa !196
-  %20 = getelementptr inbounds nuw double, ptr %19, i64 %16
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %16
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %20, ptr %21, align 8, !tbaa !198
   store double 0.000000e+00, ptr %19, align 8, !tbaa !77
@@ -4407,7 +4398,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
 
 .noexc112:                                        ; preds = %36
   store ptr %38, ptr %9, align 8, !tbaa !204
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %33
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %33
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %39, ptr %40, align 8, !tbaa !206
   store i32 0, ptr %38, align 4, !tbaa !24
@@ -4473,14 +4464,14 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc112
   %70 = zext nneg i32 %62 to i64
   %71 = load ptr, ptr %0, align 8, !tbaa !210
   %72 = mul nsw i64 %15, %70
-  %73 = getelementptr double, ptr %71, i64 %69
-  %74 = getelementptr double, ptr %73, i64 %72
+  %73 = getelementptr [8 x i8], ptr %71, i64 %69
+  %74 = getelementptr [8 x i8], ptr %73, i64 %72
   %75 = load double, ptr %74, align 8, !tbaa !77
   br label %76
 
 76:                                               ; preds = %65, %68
   %77 = phi double [ %75, %68 ], [ 0.000000e+00, %65 ]
-  %78 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store double %77, ptr %78, align 8, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %51
@@ -4499,10 +4490,10 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc112
   %83 = urem i32 %80, 3
   %84 = zext nneg i32 %83 to i64
   %85 = mul nsw i64 %30, %84
-  %86 = getelementptr i32, ptr %57, i64 %82
-  %87 = getelementptr i32, ptr %86, i64 %85
+  %86 = getelementptr [4 x i8], ptr %57, i64 %82
+  %87 = getelementptr [4 x i8], ptr %86, i64 %85
   %88 = load i32, ptr %87, align 4, !tbaa !24
-  %89 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv364
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv364
   store i32 %88, ptr %89, align 4, !tbaa !24
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %exitcond368.not = icmp eq i64 %indvars.iv.next365, %56
@@ -4565,7 +4556,7 @@ _ZNSt12_Vector_baseIN3igl8geodesic12SurfacePointESaIS2_EE13_M_deallocateEPS2_m.e
   %119 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %118, ptr %12, align 8, !tbaa !113
   store ptr %118, ptr %119, align 8, !tbaa !110
-  %120 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePoint", ptr %118, i64 %112
+  %120 = getelementptr inbounds nuw [32 x i8], ptr %118, i64 %112
   store ptr %120, ptr %116, align 8, !tbaa !215
   br label %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE7reserveEm.exit
 
@@ -4587,11 +4578,11 @@ _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE7reserveEm.exit: ; preds = %11
   %128 = phi ptr [ %122, %.preheader280.lr.ph ], [ %190, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_6VertexEEEERS2_DpOT_.exit ]
   %indvars.iv369 = phi i64 [ 0, %.preheader280.lr.ph ], [ %indvars.iv.next370, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_6VertexEEEERS2_DpOT_.exit ]
   %129 = load ptr, ptr %2, align 8, !tbaa !216
-  %130 = getelementptr i32, ptr %129, i64 %indvars.iv369
+  %130 = getelementptr [4 x i8], ptr %129, i64 %indvars.iv369
   %131 = load i32, ptr %130, align 4, !tbaa !24
   %132 = sext i32 %131 to i64
   %133 = load ptr, ptr %10, align 8, !tbaa !217
-  %134 = getelementptr inbounds nuw %"class.igl::geodesic::Vertex", ptr %133, i64 %132
+  %134 = getelementptr inbounds nuw [88 x i8], ptr %133, i64 %132
   %.not.i = icmp eq ptr %128, %127
   br i1 %.not.i, label %159, label %148
 
@@ -4717,7 +4708,7 @@ _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
   %.pre = phi i64 [ %.pre.pre, %185 ], [ %.pre389, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i ]
   store ptr %171, ptr %12, align 8, !tbaa !113
   store ptr %184, ptr %124, align 8, !tbaa !110
-  %186 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePoint", ptr %171, i64 %169
+  %186 = getelementptr inbounds nuw [32 x i8], ptr %171, i64 %169
   store ptr %186, ptr %116, align 8, !tbaa !215
   br label %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_6VertexEEEERS2_DpOT_.exit
 
@@ -4745,11 +4736,11 @@ _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_6VertexEE
   %192 = phi ptr [ %135, %.preheader273.lr.ph ], [ %315, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_4FaceEEEERS2_DpOT_.exit ]
   %indvars.iv372 = phi i64 [ 0, %.preheader273.lr.ph ], [ %indvars.iv.next373, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_4FaceEEEERS2_DpOT_.exit ]
   %193 = load ptr, ptr %3, align 8, !tbaa !216
-  %194 = getelementptr i32, ptr %193, i64 %indvars.iv372
+  %194 = getelementptr [4 x i8], ptr %193, i64 %indvars.iv372
   %195 = load i32, ptr %194, align 4, !tbaa !24
   %196 = sext i32 %195 to i64
   %197 = load ptr, ptr %138, align 8, !tbaa !226
-  %198 = getelementptr inbounds nuw %"class.igl::geodesic::Face", ptr %197, i64 %196
+  %198 = getelementptr inbounds nuw [80 x i8], ptr %197, i64 %196
   %199 = load ptr, ptr %116, align 8, !tbaa !215
   %.not.i130 = icmp eq ptr %192, %199
   br i1 %.not.i130, label %255, label %212
@@ -4780,7 +4771,7 @@ _ZNSt12_Vector_baseIN3igl8geodesic12SurfacePointESaIS2_EE11_M_allocateEm.exit.i1
           to label %_ZNSt12_Vector_baseIN3igl8geodesic12SurfacePointESaIS2_EE13_M_deallocateEPS2_m.exit.i126 unwind label %328
 
 _ZNSt12_Vector_baseIN3igl8geodesic12SurfacePointESaIS2_EE13_M_deallocateEPS2_m.exit.i126: ; preds = %_ZNSt12_Vector_baseIN3igl8geodesic12SurfacePointESaIS2_EE11_M_allocateEm.exit.i118
-  %210 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePoint", ptr %209, i64 %204
+  %210 = getelementptr inbounds nuw [32 x i8], ptr %209, i64 %204
   br label %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE7reserveEm.exit129
 
 _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE7reserveEm.exit129: ; preds = %207, %_ZNSt12_Vector_baseIN3igl8geodesic12SurfacePointESaIS2_EE13_M_deallocateEPS2_m.exit.i126
@@ -4947,7 +4938,7 @@ _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 .noexc132:                                        ; preds = %313, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i186
   store ptr %268, ptr %12, align 8, !tbaa !113
   store ptr %312, ptr %139, align 8, !tbaa !110
-  %314 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePoint", ptr %268, i64 %266
+  %314 = getelementptr inbounds nuw [32 x i8], ptr %268, i64 %266
   store ptr %314, ptr %116, align 8, !tbaa !215
   br label %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_4FaceEEEERS2_DpOT_.exit
 
@@ -4976,11 +4967,11 @@ _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_4FaceEEEE
   %.sroa.15.0329 = phi ptr [ %.sroa.15.5, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_6VertexEEEERS2_DpOT_.exit136 ], [ %.sroa.15.4, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE7reserveEm.exit129 ]
   %.sroa.30.1328 = phi ptr [ %.sroa.30.7, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_6VertexEEEERS2_DpOT_.exit136 ], [ %.sroa.30.6, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE7reserveEm.exit129 ]
   %319 = load ptr, ptr %4, align 8, !tbaa !216
-  %320 = getelementptr i32, ptr %319, i64 %indvars.iv375
+  %320 = getelementptr [4 x i8], ptr %319, i64 %indvars.iv375
   %321 = load i32, ptr %320, align 4, !tbaa !24
   %322 = sext i32 %321 to i64
   %323 = load ptr, ptr %10, align 8, !tbaa !217
-  %324 = getelementptr inbounds nuw %"class.igl::geodesic::Vertex", ptr %323, i64 %322
+  %324 = getelementptr inbounds nuw [88 x i8], ptr %323, i64 %322
   %.not.i133 = icmp eq ptr %.sroa.15.0329, %.sroa.30.1328
   br i1 %.not.i133, label %340, label %330
 
@@ -5089,7 +5080,7 @@ _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 
 .noexc135:                                        ; preds = %365, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i207
   %.pre387 = phi i64 [ %.pre387.pre, %365 ], [ %.pre387392, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i207 ]
-  %366 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePoint", ptr %352, i64 %350
+  %366 = getelementptr inbounds nuw [32 x i8], ptr %352, i64 %350
   br label %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_6VertexEEEERS2_DpOT_.exit136
 
 _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_6VertexEEEERS2_DpOT_.exit136: ; preds = %.noexc135, %330
@@ -5119,11 +5110,11 @@ _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_6VertexEE
   %.sroa.15.2338 = phi ptr [ %.sroa.15.0.lcssa, %.preheader.lr.ph ], [ %.sroa.15.6, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_4FaceEEEERS2_DpOT_.exit140 ]
   %.sroa.30.4337 = phi ptr [ %.sroa.30.1.lcssa, %.preheader.lr.ph ], [ %.sroa.30.8, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_4FaceEEEERS2_DpOT_.exit140 ]
   %369 = load ptr, ptr %5, align 8, !tbaa !216
-  %370 = getelementptr i32, ptr %369, i64 %indvars.iv378
+  %370 = getelementptr [4 x i8], ptr %369, i64 %indvars.iv378
   %371 = load i32, ptr %370, align 4, !tbaa !24
   %372 = sext i32 %371 to i64
   %373 = load ptr, ptr %327, align 8, !tbaa !226
-  %374 = getelementptr inbounds nuw %"class.igl::geodesic::Face", ptr %373, i64 %372
+  %374 = getelementptr inbounds nuw [80 x i8], ptr %373, i64 %372
   %.not.i137 = icmp eq ptr %.sroa.15.2338, %.sroa.30.4337
   br i1 %.not.i137, label %416, label %375
 
@@ -5285,7 +5276,7 @@ _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
   br label %.noexc139
 
 .noexc139:                                        ; preds = %472, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i229
-  %473 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePoint", ptr %428, i64 %426
+  %473 = getelementptr inbounds nuw [32 x i8], ptr %428, i64 %426
   br label %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_4FaceEEEERS2_DpOT_.exit140
 
 _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE12emplace_backIJPNS1_4FaceEEEERS2_DpOT_.exit140: ; preds = %.noexc139, %375
@@ -5438,7 +5429,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
 
 524:                                              ; preds = %.lr.ph346, %.loopexit
   %indvars.iv381 = phi i64 [ 0, %.lr.ph346 ], [ %indvars.iv.next382, %.loopexit ]
-  %525 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePoint", ptr %.sroa.0.4.lcssa, i64 %indvars.iv381
+  %525 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.4.lcssa, i64 %indvars.iv381
   invoke void @_ZN3igl8geodesic22GeodesicAlgorithmExact10trace_backERNS0_12SurfacePointERSt6vectorIS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(512) %11, ptr noundef nonnull align 8 dereferenceable(32) %525, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %526 unwind label %556
 
@@ -5473,7 +5464,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   %.111.i = phi double [ %552, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.preheader.i ]
   %538 = add i32 %.012.i, 1
   %539 = zext i32 %538 to i64
-  %540 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePoint", ptr %527, i64 %539
+  %540 = getelementptr inbounds nuw [32 x i8], ptr %527, i64 %539
   %541 = load double, ptr %540, align 8, !tbaa !77
   %542 = fsub double %537, %541
   %543 = getelementptr inbounds nuw i8, ptr %540, i64 8
@@ -5493,7 +5484,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
 .loopexit:                                        ; preds = %.lr.ph.i, %526, %.preheader.i
   %.09.i = phi double [ 0.000000e+00, %526 ], [ 0.000000e+00, %.preheader.i ], [ %552, %.lr.ph.i ]
   %554 = load ptr, ptr %6, align 8, !tbaa !245
-  %555 = getelementptr inbounds nuw double, ptr %554, i64 %indvars.iv381
+  %555 = getelementptr inbounds nuw [8 x i8], ptr %554, i64 %indvars.iv381
   store double %.09.i, ptr %555, align 8, !tbaa !77
   %indvars.iv.next382 = add nuw i64 %indvars.iv381, 1
   %exitcond385.not = icmp eq i64 %indvars.iv.next382, %480
@@ -5753,7 +5744,7 @@ _ZNSt12_Vector_baseIN3igl8geodesic12IntervalListESaIS2_EEC2EmRKS3_.exit.i: ; pre
 
 .noexc20:                                         ; preds = %_ZNSt12_Vector_baseIN3igl8geodesic12IntervalListESaIS2_EEC2EmRKS3_.exit.i
   store ptr %43, ptr %33, align 8, !tbaa !103
-  %44 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %43, i64 %39
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %39
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %44, ptr %45, align 8, !tbaa !258
   br label %.lr.ph.i.i.i.i.i
@@ -5802,8 +5793,8 @@ _ZNSt12_Vector_baseIN3igl8geodesic12IntervalListESaIS2_EEC2EmRKS3_.exit.i: ; pre
 60:                                               ; preds = %.lr.ph, %60
   %61 = phi i64 [ 0, %.lr.ph ], [ %66, %60 ]
   %.022 = phi i32 [ 0, %.lr.ph ], [ %65, %60 ]
-  %62 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %48, i64 %61
-  %63 = getelementptr inbounds nuw %"class.igl::geodesic::Edge", ptr %57, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %61
+  %63 = getelementptr inbounds nuw [64 x i8], ptr %57, i64 %61
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %63, ptr %64, align 8, !tbaa !260
   store ptr null, ptr %62, align 8, !tbaa !129
@@ -5923,7 +5914,7 @@ _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %34, ptr %2, align 8, !tbaa !113
   store ptr %38, ptr %9, align 8, !tbaa !110
-  %40 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePoint", ptr %34, i64 %32
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %32
   store ptr %40, ptr %16, align 8, !tbaa !215
   br label %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE9push_backERKS2_.exit
 
@@ -5993,12 +5984,12 @@ _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE9push_backEOS2_.exit: ; preds 
   %.1 = phi double [ %.0140, %.lr.ph.i ], [ %.6, %.noexc43 ]
   %69 = phi i64 [ 0, %.lr.ph.i ], [ %227, %.noexc43 ]
   %.014.i = phi i32 [ 0, %.lr.ph.i ], [ %226, %.noexc43 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !76
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %73 = load i32, ptr %72, align 4, !tbaa !24
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %58, i64 %74
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !129
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !260
@@ -6382,7 +6373,7 @@ _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %270, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %265, ptr %2, align 8, !tbaa !113
   store ptr %269, ptr %9, align 8, !tbaa !110
-  %271 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePoint", ptr %265, i64 %263
+  %271 = getelementptr inbounds nuw [32 x i8], ptr %265, i64 %263
   store ptr %271, ptr %16, align 8, !tbaa !215
   br label %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE9push_backEOS2_.exit.backedge
 
@@ -6507,7 +6498,7 @@ _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i59: ; preds = %311, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i56
   store ptr %306, ptr %2, align 8, !tbaa !113
   store ptr %310, ptr %9, align 8, !tbaa !110
-  %312 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePoint", ptr %306, i64 %304
+  %312 = getelementptr inbounds nuw [32 x i8], ptr %306, i64 %304
   store ptr %312, ptr %16, align 8, !tbaa !215
   br label %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE9push_backEOS2_.exit.backedge
 
@@ -6631,7 +6622,7 @@ _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i75: ; preds = %362, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i72
   store ptr %357, ptr %2, align 8, !tbaa !113
   store ptr %361, ptr %9, align 8, !tbaa !110
-  %363 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePoint", ptr %357, i64 %355
+  %363 = getelementptr inbounds nuw [32 x i8], ptr %357, i64 %355
   store ptr %363, ptr %16, align 8, !tbaa !215
   br label %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE9push_backEOS2_.exit.backedge
 
@@ -6695,7 +6686,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EED2Ev.exit81: ; preds = %371, %373
   %381 = load i32, ptr %6, align 4, !tbaa !24
   %382 = load ptr, ptr %380, align 8, !tbaa !282
   %383 = zext i32 %381 to i64
-  %384 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePointWithIndex", ptr %382, i64 %383
+  %384 = getelementptr inbounds nuw [40 x i8], ptr %382, i64 %383
   %385 = getelementptr inbounds i8, ptr %379, i64 -32
   %386 = load double, ptr %385, align 8, !tbaa !77
   %387 = load double, ptr %384, align 8, !tbaa !77
@@ -6778,7 +6769,7 @@ _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i94: ; preds = %426, %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i91
   store ptr %421, ptr %2, align 8, !tbaa !113
   store ptr %425, ptr %9, align 8, !tbaa !110
-  %427 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePoint", ptr %421, i64 %419
+  %427 = getelementptr inbounds nuw [32 x i8], ptr %421, i64 %419
   store ptr %427, ptr %16, align 8, !tbaa !215
   br label %_ZNSt6vectorIN3igl8geodesic12SurfacePointESaIS2_EE9push_backERKS2_.exit95
 
@@ -7312,7 +7303,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit25: ; preds = %10
   %111 = phi i64 [ %117, %_ZN3igl8geodesic12IntervalList19number_of_intervalsEv.exit ], [ 0, %1 ]
   %.029 = phi i32 [ %115, %_ZN3igl8geodesic12IntervalList19number_of_intervalsEv.exit ], [ 0, %1 ]
   %.0928 = phi i32 [ %116, %_ZN3igl8geodesic12IntervalList19number_of_intervalsEv.exit ], [ 0, %1 ]
-  %112 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %5, i64 %111
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %111
   %.045.i = load ptr, ptr %112, align 8, !tbaa !75
   %.not6.i = icmp eq ptr %.045.i, null
   br i1 %.not6.i, label %_ZN3igl8geodesic12IntervalList19number_of_intervalsEv.exit, label %.lr.ph.i
@@ -7413,7 +7404,7 @@ _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.
 _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %34, %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %29, ptr %2, align 8, !tbaa !118
   store ptr %33, ptr %10, align 8, !tbaa !116
-  %35 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %35, ptr %12, align 8, !tbaa !114
   br label %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE9push_backEOS3_.exit
 
@@ -7483,7 +7474,7 @@ _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.
 _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %66, %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %60, ptr %2, align 8, !tbaa !118
   store ptr %65, ptr %40, align 8, !tbaa !116
-  %67 = getelementptr inbounds nuw ptr, ptr %60, i64 %58
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %58
   store ptr %67, ptr %42, align 8, !tbaa !114
   br label %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE9push_backERKS3_.exit
 
@@ -7546,7 +7537,7 @@ _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.
 _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i42: ; preds = %93, %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i40
   store ptr %87, ptr %2, align 8, !tbaa !118
   store ptr %92, ptr %40, align 8, !tbaa !116
-  %94 = getelementptr inbounds nuw ptr, ptr %87, i64 %85
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %85
   store ptr %94, ptr %42, align 8, !tbaa !114
   br label %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE9push_backERKS3_.exit43
 
@@ -7609,7 +7600,7 @@ _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.
 _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i50: ; preds = %120, %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i48
   store ptr %114, ptr %2, align 8, !tbaa !118
   store ptr %119, ptr %40, align 8, !tbaa !116
-  %121 = getelementptr inbounds nuw ptr, ptr %114, i64 %112
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %112
   store ptr %121, ptr %42, align 8, !tbaa !114
   br label %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE9push_backEOS3_.exit
 
@@ -7686,7 +7677,7 @@ _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gn
   %.pre = phi ptr [ %.pre.pre, %152 ], [ %125, %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i58 ]
   store ptr %146, ptr %2, align 8, !tbaa !118
   store ptr %151, ptr %126, align 8, !tbaa !116
-  %153 = getelementptr inbounds nuw ptr, ptr %146, i64 %144
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %144
   store ptr %153, ptr %128, align 8, !tbaa !114
   br label %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE9push_backERKS3_.exit61
 
@@ -7750,7 +7741,7 @@ _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.
 _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i68: ; preds = %180, %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i66
   store ptr %174, ptr %2, align 8, !tbaa !118
   store ptr %179, ptr %126, align 8, !tbaa !116
-  %181 = getelementptr inbounds nuw ptr, ptr %174, i64 %172
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %172
   store ptr %181, ptr %128, align 8, !tbaa !114
   br label %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE9push_backERKS3_.exit69
 
@@ -7773,7 +7764,7 @@ _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE9push_backERKS3_.exit69: ; preds = %
   %190 = phi ptr [ %183, %.lr.ph ], [ %236, %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE9push_backEOS3_.exit77 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE9push_backEOS3_.exit77 ]
   %191 = load ptr, ptr %186, align 8, !tbaa !91
-  %192 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %indvars.iv
   %193 = load ptr, ptr %192, align 8, !tbaa !92
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = load ptr, ptr %194, align 8, !tbaa !81
@@ -7786,7 +7777,7 @@ _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE9push_backERKS3_.exit69: ; preds = %
 
 201:                                              ; preds = %_ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.thread.i, %187
   %indvars.iv.i = phi i64 [ 0, %187 ], [ %indvars.iv.next.i, %_ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.thread.i ]
-  %202 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv.i
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %indvars.iv.i
   %203 = load ptr, ptr %202, align 8, !tbaa !84
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 48
   %205 = load i32, ptr %204, align 4, !tbaa !24
@@ -7862,7 +7853,7 @@ _ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_
   %.pre85 = phi i32 [ %.pre85.pre, %232 ], [ %.pre8588, %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i74 ]
   store ptr %227, ptr %2, align 8, !tbaa !118
   store ptr %231, ptr %126, align 8, !tbaa !116
-  %233 = getelementptr inbounds nuw ptr, ptr %227, i64 %225
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %225
   store ptr %233, ptr %128, align 8, !tbaa !114
   br label %_ZNSt6vectorIPN3igl8geodesic6VertexESaIS3_EE9push_backEOS3_.exit77
 
@@ -7971,9 +7962,9 @@ _ZNSt6vectorISt4pairIPN3igl8geodesic6VertexEdESaIS5_EE11_S_relocateEPS5_S8_S8_RS
 
 _ZNSt12_Vector_baseISt4pairIPN3igl8geodesic6VertexEdESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %_ZNSt6vectorISt4pairIPN3igl8geodesic6VertexEdESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !108
-  %33 = getelementptr inbounds nuw %"struct.std::pair", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !109
-  %34 = getelementptr inbounds nuw %"struct.std::pair", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !262
   br label %35
 
@@ -8040,7 +8031,7 @@ define linkonce_odr dso_local void @_ZN3igl8geodesic13SortedSources10initializeE
   br i1 %23, label %24, label %_ZNSt6vectorIN3igl8geodesic21SurfacePointWithIndexESaIS2_EE6resizeEm.exit
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePointWithIndex", ptr %14, i64 %11
+  %25 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %11
   %.not.i.i = icmp eq ptr %13, %25
   br i1 %.not.i.i, label %_ZNSt6vectorIN3igl8geodesic21SurfacePointWithIndexESaIS2_EE6resizeEm.exit, label %_ZSt8_DestroyIPN3igl8geodesic21SurfacePointWithIndexES2_EvT_S4_RSaIT0_E.exit.i.i
 
@@ -8075,7 +8066,7 @@ _ZNSt6vectorIN3igl8geodesic21SurfacePointWithIndexESaIS2_EE6resizeEm.exit: ; pre
   br i1 %40, label %41, label %_ZNSt6vectorIPN3igl8geodesic21SurfacePointWithIndexESaIS3_EE6resizeEm.exit
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw ptr, ptr %31, i64 %.pre-phi30
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.pre-phi30
   %.not.i.i16 = icmp eq ptr %30, %42
   br i1 %.not.i.i16, label %_ZNSt6vectorIPN3igl8geodesic21SurfacePointWithIndexESaIS3_EE6resizeEm.exit, label %_ZSt8_DestroyIPPN3igl8geodesic21SurfacePointWithIndexES3_EvT_S5_RSaIT0_E.exit.i.i
 
@@ -8119,13 +8110,13 @@ _ZNSt6vectorIPN3igl8geodesic21SurfacePointWithIndexESaIS3_EE6resizeEm.exit: ; pr
   %56 = phi i64 [ %64, %.lr.ph ], [ 0, %_ZNSt6vectorIPN3igl8geodesic21SurfacePointWithIndexESaIS3_EE6resizeEm.exit ]
   %.020 = phi i32 [ %63, %.lr.ph ], [ 0, %_ZNSt6vectorIPN3igl8geodesic21SurfacePointWithIndexESaIS3_EE6resizeEm.exit ]
   %57 = load ptr, ptr %0, align 8, !tbaa !282
-  %58 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePointWithIndex", ptr %57, i64 %56
-  %59 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePoint", ptr %55, i64 %56
+  %58 = getelementptr inbounds nuw [40 x i8], ptr %57, i64 %56
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %55, i64 %56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %58, ptr noundef nonnull align 8 dereferenceable(32) %59, i64 32, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 32
   store i32 %.020, ptr %60, align 8, !tbaa !331
   %61 = load ptr, ptr %28, align 8, !tbaa !287
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %56
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %56
   store ptr %58, ptr %62, align 8, !tbaa !282
   %63 = add i32 %.020, 1
   %64 = zext i32 %63 to i64
@@ -8218,9 +8209,9 @@ _ZNSt6vectorIN3igl8geodesic21SurfacePointWithIndexESaIS2_EE11_S_relocateEPS2_S5_
 
 _ZNSt12_Vector_baseIN3igl8geodesic21SurfacePointWithIndexESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIN3igl8geodesic21SurfacePointWithIndexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !133
-  %33 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePointWithIndex", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !132
-  %34 = getelementptr inbounds nuw %"class.igl::geodesic::SurfacePointWithIndex", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !289
   br label %35
 
@@ -8320,9 +8311,9 @@ _ZNSt6vectorIPN3igl8geodesic21SurfacePointWithIndexESaIS3_EE11_S_relocateEPS3_S6
 
 _ZNSt12_Vector_baseIPN3igl8geodesic21SurfacePointWithIndexESaIS3_EE13_M_deallocateEPS3_m.exit36: ; preds = %_ZNSt6vectorIPN3igl8geodesic21SurfacePointWithIndexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !287
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !329
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !288
   br label %41
 
@@ -8366,7 +8357,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
 
 .noexc18:                                         ; preds = %.noexc18, %.lr.ph._crit_edge
   %.010.i.i = phi i64 [ %17, %.lr.ph._crit_edge ], [ %20, %.noexc18 ]
-  %18 = getelementptr inbounds ptr, ptr %0, i64 %.010.i.i
+  %18 = getelementptr inbounds [8 x i8], ptr %0, i64 %.010.i.i
   %19 = load ptr, ptr %18, align 8, !tbaa !282
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.021, i64 40, i1 false)
   call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWithIndexESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIS4_EEEvT_T0_SF_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i, i64 noundef %.lcssa, ptr noundef %19, ptr noundef nonnull %5)
@@ -8564,7 +8555,7 @@ define linkonce_odr dso_local ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx
   %7 = sub i64 %5, %6
   %8 = ashr exact i64 %7, 3
   %9 = sdiv i64 %8, 2
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = getelementptr inbounds i8, ptr %1, i64 -8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
@@ -8764,9 +8755,9 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   %.039 = phi i64 [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit ], [ %1, %5 ]
   %9 = shl i64 %.039, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds ptr, ptr %0, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %0, i64 %12
   %14 = load ptr, ptr %11, align 8, !tbaa !282
   %15 = load ptr, ptr %13, align 8, !tbaa !282
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -8829,9 +8820,9 @@ _ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i: ; preds = %33, %_ZN3igl8geodes
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit: ; preds = %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i, %38
   %.0.i.i = phi i1 [ %37, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit12.i.i ], [ %43, %38 ]
   %spec.select = select i1 %.0.i.i, i64 %12, i64 %10
-  %44 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %44 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select
   %45 = load ptr, ptr %44, align 8, !tbaa !282
-  %46 = getelementptr inbounds ptr, ptr %0, i64 %.039
+  %46 = getelementptr inbounds [8 x i8], ptr %0, i64 %.039
   store ptr %45, ptr %46, align 8, !tbaa !282
   %47 = icmp slt i64 %spec.select, %7
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !346
@@ -8851,9 +8842,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIN
 54:                                               ; preds = %50
   %55 = shl nsw i64 %.0.lcssa, 1
   %56 = or disjoint i64 %55, 1
-  %57 = getelementptr inbounds ptr, ptr %0, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %0, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !282
-  %59 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %59 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   store ptr %58, ptr %59, align 8, !tbaa !282
   br label %60
 
@@ -8874,7 +8865,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIN
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %77
   %.0920.us.i = phi i64 [ %.09.us.i, %77 ], [ %.0918.i, %.lr.ph.i ]
   %.019.us.i = phi i64 [ %.0920.us.i, %77 ], [ %.1, %.lr.ph.i ]
-  %65 = getelementptr inbounds ptr, ptr %0, i64 %.0920.us.i
+  %65 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0920.us.i
   %66 = load ptr, ptr %65, align 8, !tbaa !282
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !219
@@ -8899,7 +8890,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS
   br i1 %76, label %77, label %.loopexit
 
 77:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.us.i
-  %78 = getelementptr inbounds ptr, ptr %0, i64 %.019.us.i
+  %78 = getelementptr inbounds [8 x i8], ptr %0, i64 %.019.us.i
   store ptr %66, ptr %78, align 8, !tbaa !282
   %.09.in.us.i = add nsw i64 %.0920.us.i, -1
   %.09.us.i = sdiv i64 %.09.in.us.i, 2
@@ -8916,7 +8907,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS
 .lr.ph.split.i.split.us:                          ; preds = %.lr.ph.split.i, %93
   %.0920.i.us = phi i64 [ %.09.i.us, %93 ], [ %.0918.i, %.lr.ph.split.i ]
   %.019.i.us = phi i64 [ %.0920.i.us, %93 ], [ %.1, %.lr.ph.split.i ]
-  %82 = getelementptr inbounds ptr, ptr %0, i64 %.0920.i.us
+  %82 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0920.i.us
   %83 = load ptr, ptr %82, align 8, !tbaa !282
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8, !tbaa !219
@@ -8941,7 +8932,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS
   br i1 %92, label %93, label %.loopexit
 
 93:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i.us, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i.us
-  %94 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.us
+  %94 = getelementptr inbounds [8 x i8], ptr %0, i64 %.019.i.us
   store ptr %83, ptr %94, align 8, !tbaa !282
   %.09.in.i.us = add nsw i64 %.0920.i.us, -1
   %.09.i.us = sdiv i64 %.09.in.i.us, 2
@@ -8951,7 +8942,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS
 .lr.ph.split.i.split:                             ; preds = %.lr.ph.split.i, %108
   %.0920.i = phi i64 [ %.09.i, %108 ], [ %.0918.i, %.lr.ph.split.i ]
   %.019.i = phi i64 [ %.0920.i, %108 ], [ %.1, %.lr.ph.split.i ]
-  %96 = getelementptr inbounds ptr, ptr %0, i64 %.0920.i
+  %96 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0920.i
   %97 = load ptr, ptr %96, align 8, !tbaa !282
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %99 = load ptr, ptr %98, align 8, !tbaa !219
@@ -8977,7 +8968,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS
   br i1 %107, label %108, label %.loopexit
 
 108:                                              ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i
-  %109 = getelementptr inbounds ptr, ptr %0, i64 %.019.i
+  %109 = getelementptr inbounds [8 x i8], ptr %0, i64 %.019.i
   store ptr %97, ptr %109, align 8, !tbaa !282
   %.09.in.i = add nsw i64 %.0920.i, -1
   %.09.i = sdiv i64 %.09.in.i, 2
@@ -8986,7 +8977,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS
 
 .loopexit:                                        ; preds = %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i, %108, %93, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i.us, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i.us, %77, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.us.i, %60
   %.0.lcssa.i = phi i64 [ %.1, %60 ], [ %.019.us.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.us.i ], [ %.019.i.us, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i.us ], [ %.019.us.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.us.i ], [ %.0920.us.i, %77 ], [ %.019.i.us, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i.us ], [ %.0920.i.us, %93 ], [ %.019.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3igl8geodesic21SurfacePointWithIndexEEclINS_17__normal_iteratorIPPS4_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i ], [ %.0920.i, %108 ], [ %.019.i, %_ZN3igl8geodesic12SurfacePoint4typeEv.exit10.i.i.i ]
-  %111 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i
+  %111 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i
   store ptr %3, ptr %111, align 8, !tbaa !282
   ret void
 }
@@ -9371,7 +9362,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3igl8geodesic21SurfacePointWithIndexEEclIN
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %.pn25, i64 16
   %43 = sub nsw i64 0, %39
-  %44 = getelementptr inbounds ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %42, i64 %43
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %44, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %38, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWithIndexESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
@@ -9534,7 +9525,7 @@ define linkonce_odr dso_local void @_ZN3igl8geodesic22GeodesicAlgorithmExact30li
   %16 = phi ptr [ %.pre, %.preheader34 ], [ %44, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backERKS3_.exit ]
   %indvars.iv = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backERKS3_.exit ]
   %17 = load ptr, ptr %6, align 8, !tbaa !94
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %.not.i = icmp eq ptr %16, %15
   br i1 %.not.i, label %22, label %19
 
@@ -9590,7 +9581,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.
 _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %41, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %35, ptr %2, align 8, !tbaa !138
   store ptr %40, ptr %7, align 8, !tbaa !136
-  %42 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   store ptr %42, ptr %8, align 8, !tbaa !134
   br label %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backERKS3_.exit
 
@@ -9659,7 +9650,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.
 _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i23: ; preds = %70, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i21
   store ptr %65, ptr %2, align 8, !tbaa !138
   store ptr %69, ptr %46, align 8, !tbaa !136
-  %71 = getelementptr inbounds nuw ptr, ptr %65, i64 %63
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   store ptr %71, ptr %48, align 8, !tbaa !134
   br label %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backERKS3_.exit24
 
@@ -9670,7 +9661,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_
   %75 = phi ptr [ %.pre44, %.lr.ph ], [ %104, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backERKS3_.exit32 ]
   %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next41, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backERKS3_.exit32 ]
   %76 = load ptr, ptr %11, align 8, !tbaa !94
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv40
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv40
   %.not.i25 = icmp eq ptr %75, %74
   br i1 %.not.i25, label %81, label %78
 
@@ -9728,7 +9719,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_
   %.pre46 = phi i32 [ %.pre46.pre, %100 ], [ %.pre4647, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i29 ]
   store ptr %94, ptr %2, align 8, !tbaa !138
   store ptr %99, ptr %12, align 8, !tbaa !136
-  %101 = getelementptr inbounds nuw ptr, ptr %94, i64 %92
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %101, ptr %13, align 8, !tbaa !134
   br label %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backERKS3_.exit32
 
@@ -9817,7 +9808,7 @@ _ZNSt12_Vector_baseISt6vectorIN3igl8geodesic8IntervalESaIS3_EESaIS5_EE13_M_deall
   store ptr %21, ptr %0, align 8, !tbaa !173
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store ptr %37, ptr %16, align 8, !tbaa !172
-  %38 = getelementptr inbounds nuw %"class.std::vector.101", ptr %21, i64 %7
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %7
   store ptr %38, ptr %8, align 8, !tbaa !171
   %.pre9 = ptrtoint ptr %21 to i64
   br label %_ZNSt6vectorIS_IN3igl8geodesic8IntervalESaIS2_EESaIS4_EE7reserveEm.exit
@@ -9911,7 +9902,7 @@ _ZNSt6vectorIPN3igl8geodesic8IntervalESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.
 _ZNSt12_Vector_baseIPN3igl8geodesic8IntervalESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; preds = %77, %_ZNSt6vectorIPN3igl8geodesic8IntervalESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   store ptr %76, ptr %62, align 8, !tbaa !164
   store ptr %76, ptr %64, align 8, !tbaa !163
-  %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %67
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %67
   store ptr %78, ptr %68, align 8, !tbaa !165
   br label %_ZNSt6vectorIPN3igl8geodesic8IntervalESaIS3_EE7reserveEm.exit
 
@@ -9990,9 +9981,9 @@ _ZNSt6vectorIN3igl8geodesic8IntervalESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
 
 _ZNSt12_Vector_baseIN3igl8geodesic8IntervalESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %33, %_ZNSt6vectorIN3igl8geodesic8IntervalESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !179
-  %35 = getelementptr inbounds nuw %"class.igl::geodesic::Interval", ptr %30, i64 %12
+  %35 = getelementptr inbounds nuw [64 x i8], ptr %30, i64 %12
   store ptr %35, ptr %3, align 8, !tbaa !181
-  %36 = getelementptr inbounds nuw %"class.igl::geodesic::Interval", ptr %29, i64 %27
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %29, i64 %27
   store ptr %36, ptr %13, align 8, !tbaa !182
   br label %_ZNSt6vectorIN3igl8geodesic8IntervalESaIS2_EE17_M_default_appendEm.exit
 
@@ -10001,7 +9992,7 @@ _ZNSt12_Vector_baseIN3igl8geodesic8IntervalESaIS2_EE13_M_deallocateEPS2_m.exit32
   br i1 %38, label %39, label %_ZNSt6vectorIN3igl8geodesic8IntervalESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw %"class.igl::geodesic::Interval", ptr %5, i64 %1
+  %40 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %40
   br i1 %.not.i4, label %_ZNSt6vectorIN3igl8geodesic8IntervalESaIS2_EE17_M_default_appendEm.exit, label %_ZSt8_DestroyIPN3igl8geodesic8IntervalES2_EvT_S4_RSaIT0_E.exit.i
 
@@ -10100,9 +10091,9 @@ _ZNSt6vectorIS_IN3igl8geodesic8IntervalESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_
 
 _ZNSt12_Vector_baseISt6vectorIN3igl8geodesic8IntervalESaIS3_EESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %_ZNSt6vectorIS_IN3igl8geodesic8IntervalESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !173
-  %42 = getelementptr inbounds nuw %"class.std::vector.101", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !172
-  %43 = getelementptr inbounds nuw %"class.std::vector.101", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8, !tbaa !171
   br label %44
 
@@ -10223,7 +10214,7 @@ _ZNSt6vectorIN3igl8geodesic8IntervalESaIS2_EED2Ev.exit4: ; preds = %31, %34
   %44 = getelementptr inbounds i8, ptr %43, i64 -24
   %45 = zext i32 %41 to i64
   %46 = load ptr, ptr %44, align 8, !tbaa !179
-  %47 = getelementptr inbounds nuw %"class.igl::geodesic::Interval", ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [64 x i8], ptr %46, i64 %45
   %48 = add i32 %41, 1
   store i32 %48, ptr %9, align 8, !tbaa !169
   br label %52
@@ -10291,10 +10282,10 @@ define linkonce_odr dso_local noundef i32 @_ZN3igl8geodesic22GeodesicAlgorithmEx
 
 36:                                               ; preds = %24
   %37 = zext nneg i32 %.0146 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %25, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %37
   store i32 0, ptr %38, align 4, !tbaa !157
   %39 = add nuw nsw i32 %.0146, 1
-  %40 = getelementptr inbounds nuw double, ptr %17, i64 %37
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %37
   store double %33, ptr %40, align 8, !tbaa !77
   %.pre = load ptr, ptr %28, align 8
   br label %41
@@ -10306,7 +10297,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3igl8geodesic22GeodesicAlgorithmEx
   %.in.i166 = select i1 %.not.i, ptr %43, ptr %27
   %44 = load double, ptr %.in.i166, align 8, !tbaa !77
   %45 = zext nneg i32 %.1 to i64
-  %46 = getelementptr inbounds nuw double, ptr %17, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store double %44, ptr %47, align 8, !tbaa !77
   br label %281
@@ -10452,7 +10443,7 @@ define linkonce_odr dso_local noundef i32 @_ZN3igl8geodesic22GeodesicAlgorithmEx
 ._crit_edge:                                      ; preds = %203
   %137 = add i8 %.1150, 1
   %138 = zext i8 %.1150 to i64
-  %139 = getelementptr inbounds nuw double, ptr %5, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %138
   store double %.sroa.speculated, ptr %139, align 8, !tbaa !77
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %140 = zext i8 %137 to i32
@@ -10482,7 +10473,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit.us.us.preheader: ; preds = %.lr.ph182.sp
 
 _ZN3igl8geodesic8Interval6signalEd.exit.us.us193: ; preds = %.lr.ph182.split.us.split, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us193
   %indvars.iv231 = phi i64 [ %indvars.iv.next232, %_ZN3igl8geodesic8Interval6signalEd.exit.us.us193 ], [ 0, %.lr.ph182.split.us.split ]
-  %150 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv231
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv231
   %151 = load double, ptr %150, align 8, !tbaa !77
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %153 = load double, ptr %152, align 8, !tbaa !77
@@ -10493,7 +10484,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit.us.us193: ; preds = %.lr.ph182.split.us.
   %.1.i172.us.us = fadd double %53, %157
   %158 = fcmp ult double %.1.i172.us.us, 1.000000e+100
   %159 = zext i1 %158 to i32
-  %160 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv231
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv231
   store i32 %159, ptr %160, align 4, !tbaa !157
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next232, %148
@@ -10501,7 +10492,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit.us.us193: ; preds = %.lr.ph182.split.us.
 
 _ZN3igl8geodesic8Interval6signalEd.exit.us:       ; preds = %.lr.ph182.split.us.split, %_ZN3igl8geodesic8Interval6signalEd.exit.us
   %indvars.iv226 = phi i64 [ %indvars.iv.next227, %_ZN3igl8geodesic8Interval6signalEd.exit.us ], [ 0, %.lr.ph182.split.us.split ]
-  %161 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv226
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv226
   %162 = load double, ptr %161, align 8, !tbaa !77
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %164 = load double, ptr %163, align 8, !tbaa !77
@@ -10513,7 +10504,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit.us:       ; preds = %.lr.ph182.split.us.
   %.1.i172.us = fadd double %53, %sqrt.i170.us
   %169 = fcmp ult double %.1.i172.us, 1.000000e+100
   %170 = zext i1 %169 to i32
-  %171 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv226
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv226
   store i32 %170, ptr %171, align 4, !tbaa !157
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next227, %148
@@ -10527,7 +10518,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit.us:       ; preds = %.lr.ph182.split.us.
 
 _ZN3igl8geodesic8Interval6signalEd.exit.us186.us: ; preds = %.lr.ph182.split.split.us, %_ZN3igl8geodesic8Interval6signalEd.exit.us186.us
   %indvars.iv221 = phi i64 [ %indvars.iv.next222, %_ZN3igl8geodesic8Interval6signalEd.exit.us186.us ], [ 0, %.lr.ph182.split.split.us ]
-  %172 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv221
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv221
   %173 = load double, ptr %172, align 8, !tbaa !77
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %175 = load double, ptr %174, align 8, !tbaa !77
@@ -10538,7 +10529,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit.us186.us: ; preds = %.lr.ph182.split.spl
   %.1.i.us.us = fadd double %51, %179
   %180 = fcmp ugt double %.1.i.us.us, 1.000000e+100
   %181 = zext i1 %180 to i32
-  %182 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv221
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv221
   store i32 %181, ptr %182, align 4, !tbaa !157
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %exitcond225.not = icmp eq i64 %indvars.iv.next222, %148
@@ -10546,7 +10537,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit.us186.us: ; preds = %.lr.ph182.split.spl
 
 _ZN3igl8geodesic8Interval6signalEd.exit.us186:    ; preds = %.lr.ph182.split.split.us, %_ZN3igl8geodesic8Interval6signalEd.exit.us186
   %indvars.iv216 = phi i64 [ %indvars.iv.next217, %_ZN3igl8geodesic8Interval6signalEd.exit.us186 ], [ 0, %.lr.ph182.split.split.us ]
-  %183 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv216
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv216
   %184 = load double, ptr %183, align 8, !tbaa !77
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %186 = load double, ptr %185, align 8, !tbaa !77
@@ -10558,7 +10549,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit.us186:    ; preds = %.lr.ph182.split.spl
   %.1.i.us = fadd double %51, %sqrt.i.us
   %191 = fcmp ugt double %.1.i.us, 1.000000e+100
   %192 = zext i1 %191 to i32
-  %193 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv216
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv216
   store i32 %192, ptr %193, align 4, !tbaa !157
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond220.not = icmp eq i64 %indvars.iv.next217, %148
@@ -10567,7 +10558,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit.us186:    ; preds = %.lr.ph182.split.spl
 194:                                              ; preds = %.lr.ph, %203
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %203 ]
   %.0149178 = phi i8 [ 1, %.lr.ph ], [ %.1150, %203 ]
-  %195 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %196 = load double, ptr %195, align 8, !tbaa !77
   %197 = fcmp ogt double %196, %135
   %198 = fcmp olt double %196, %136
@@ -10577,7 +10568,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit.us186:    ; preds = %.lr.ph182.split.spl
 199:                                              ; preds = %194
   %200 = add i8 %.0149178, 1
   %201 = zext i8 %.0149178 to i64
-  %202 = getelementptr inbounds nuw double, ptr %5, i64 %201
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %201
   store double %196, ptr %202, align 8, !tbaa !77
   br label %203
 
@@ -10596,7 +10587,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit.us186:    ; preds = %.lr.ph182.split.spl
 
 .lr.ph182.split.split:                            ; preds = %.lr.ph182.split, %_ZN3igl8geodesic8Interval6signalEd.exit174
   %indvars.iv211 = phi i64 [ %indvars.iv.next212, %_ZN3igl8geodesic8Interval6signalEd.exit174 ], [ 0, %.lr.ph182.split ]
-  %208 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv211
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv211
   %209 = load double, ptr %208, align 8, !tbaa !77
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %211 = load double, ptr %210, align 8, !tbaa !77
@@ -10634,7 +10625,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit174:       ; preds = %222, %220
   %.1.i172 = fadd double %53, %.pn.i171
   %224 = fcmp ugt double %.1.i, %.1.i172
   %225 = zext i1 %224 to i32
-  %226 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv211
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv211
   store i32 %225, ptr %226, align 4, !tbaa !157
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next212, %148
@@ -10680,7 +10671,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit174:       ; preds = %222, %220
 244:                                              ; preds = %.lr.ph201, %260
   %.0145199 = phi i64 [ 0, %.lr.ph201 ], [ %261, %260 ]
   %.3198 = phi i32 [ %.2, %.lr.ph201 ], [ %.4, %260 ]
-  %245 = getelementptr inbounds nuw i32, ptr %6, i64 %.0145199
+  %245 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0145199
   %246 = load i32, ptr %245, align 4, !tbaa !157
   %247 = icmp eq i32 %.3198, 0
   br i1 %247, label %253, label %248
@@ -10688,19 +10679,19 @@ _ZN3igl8geodesic8Interval6signalEd.exit174:       ; preds = %222, %220
 248:                                              ; preds = %244
   %249 = add i32 %.3198, -1
   %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds nuw i32, ptr %236, i64 %250
+  %251 = getelementptr inbounds nuw [4 x i8], ptr %236, i64 %250
   %252 = load i32, ptr %251, align 4, !tbaa !157
   %.not = icmp eq i32 %252, %246
   br i1 %.not, label %260, label %253
 
 253:                                              ; preds = %248, %244
   %254 = zext i32 %.3198 to i64
-  %255 = getelementptr inbounds nuw i32, ptr %236, i64 %254
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %236, i64 %254
   store i32 %246, ptr %255, align 4, !tbaa !157
-  %256 = getelementptr inbounds nuw double, ptr %5, i64 %.0145199
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0145199
   %257 = load double, ptr %256, align 8, !tbaa !77
   %258 = add i32 %.3198, 1
-  %259 = getelementptr inbounds nuw double, ptr %237, i64 %254
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %254
   store double %257, ptr %259, align 8, !tbaa !77
   br label %260
 
@@ -10718,7 +10709,7 @@ _ZN3igl8geodesic8Interval6signalEd.exit174:       ; preds = %222, %220
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %266 = add i32 %.3.lcssa, -1
   %267 = zext i32 %266 to i64
-  %268 = getelementptr inbounds nuw i32, ptr %265, i64 %267
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %265, i64 %267
   %269 = load i32, ptr %268, align 4, !tbaa !157
   %270 = icmp eq i32 %269, 1
   br i1 %270, label %271, label %278
@@ -10726,11 +10717,11 @@ _ZN3igl8geodesic8Interval6signalEd.exit174:       ; preds = %222, %220
 271:                                              ; preds = %264, %262
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %273 = zext i32 %.3.lcssa to i64
-  %274 = getelementptr inbounds nuw i32, ptr %272, i64 %273
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %272, i64 %273
   store i32 0, ptr %274, align 4, !tbaa !157
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %276 = add i32 %.3.lcssa, 1
-  %277 = getelementptr inbounds nuw double, ptr %275, i64 %273
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %273
   store double %241, ptr %277, align 8, !tbaa !77
   br label %278
 
@@ -10856,7 +10847,7 @@ _ZNSt6vectorIS_IN3igl8geodesic8IntervalESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_
 _ZNSt12_Vector_baseISt6vectorIN3igl8geodesic8IntervalESaIS3_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIS_IN3igl8geodesic8IntervalESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !173
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !172
-  %53 = getelementptr inbounds nuw %"class.std::vector.101", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !171
   ret void
 }
@@ -11068,7 +11059,7 @@ _ZNSt12_Vector_baseISt6vectorIPvSaIS1_EESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; 
   store ptr %21, ptr %0, align 8, !tbaa !291
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store ptr %37, ptr %16, align 8, !tbaa !294
-  %38 = getelementptr inbounds nuw %"class.std::vector.122", ptr %21, i64 %7
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %7
   store ptr %38, ptr %8, align 8, !tbaa !299
   %.pre7 = ptrtoint ptr %21 to i64
   br label %_ZNSt6vectorIS_IPvSaIS0_EESaIS2_EE7reserveEm.exit
@@ -11145,7 +11136,7 @@ _ZNSt6vectorIS_IPvSaIS0_EESaIS2_EE6resizeEm.exit: ; preds = %46, %48, %50, %_ZSt
   br i1 %73, label %74, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw ptr, ptr %64, i64 %61
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %61
   %.not.i.i6 = icmp eq ptr %63, %75
   br i1 %.not.i.i6, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit, label %_ZSt8_DestroyIPPvS0_EvT_S2_RSaIT0_E.exit.i.i
 
@@ -11294,9 +11285,9 @@ _ZNSt6vectorIS_IPvSaIS0_EESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %
 
 _ZNSt12_Vector_baseISt6vectorIPvSaIS1_EESaIS3_EE13_M_deallocateEPS3_m.exit37: ; preds = %_ZNSt6vectorIS_IPvSaIS0_EESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !291
-  %42 = getelementptr inbounds nuw %"class.std::vector.122", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !294
-  %43 = getelementptr inbounds nuw %"class.std::vector.122", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8, !tbaa !299
   br label %44
 
@@ -11393,9 +11384,9 @@ _ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt27__uni
 
 _ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m.exit36: ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !295
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !395
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !297
   br label %41
 
@@ -11565,7 +11556,7 @@ _ZN3igl8geodesic12SurfacePoint4typeEv.exit:       ; preds = %5
   %19 = load i32, ptr %18, align 4, !tbaa !24
   %20 = zext i32 %19 to i64
   %21 = load ptr, ptr %17, align 8, !tbaa !103
-  %22 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %20
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !81
   %25 = load ptr, ptr %24, align 8, !tbaa !84
@@ -11684,13 +11675,13 @@ _ZN3igl8geodesic8Interval6signalEd.exit:          ; preds = %_ZN3igl8geodesic12I
   %indvars.iv120 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next121, %103 ]
   %.1108 = phi ptr [ null, %.preheader ], [ %.2, %103 ]
   %86 = load ptr, ptr %70, align 8, !tbaa !94
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv120
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv120
   %88 = load ptr, ptr %87, align 8, !tbaa !76
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 48
   %90 = load i32, ptr %89, align 4, !tbaa !24
   %91 = zext i32 %90 to i64
   %92 = load ptr, ptr %71, align 8, !tbaa !103
-  %93 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %92, i64 %91
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %91
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -11778,12 +11769,12 @@ _ZN3igl8geodesic8Interval6signalEd.exit:          ; preds = %_ZN3igl8geodesic12I
   %135 = phi i32 [ %128, %.lr.ph ], [ %184, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit90.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit90.thread ]
   %.5106 = phi ptr [ null, %.lr.ph ], [ %.6, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit90.thread ]
-  %136 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv
   %137 = load ptr, ptr %136, align 8, !tbaa !76
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 48
   %139 = load i32, ptr %138, align 4, !tbaa !24
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %132, i64 %140
+  %141 = getelementptr inbounds nuw [16 x i8], ptr %132, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !81
   %144 = load ptr, ptr %143, align 8, !tbaa !84
@@ -11912,7 +11903,7 @@ _ZN3igl8geodesic12SurfacePoint4typeEv.exit:       ; preds = %2
   %10 = load i32, ptr %9, align 4, !tbaa !24
   %11 = zext i32 %10 to i64
   %12 = load ptr, ptr %8, align 8, !tbaa !103
-  %13 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !81
   %16 = load ptr, ptr %15, align 8, !tbaa !84
@@ -11988,12 +11979,12 @@ _ZN3igl8geodesic12IntervalList17covering_intervalEd.exit: ; preds = %38
 
 61:                                               ; preds = %.lr.ph, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit50.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3igl8geodesic12IntervalList17covering_intervalEd.exit50.thread ]
-  %62 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !76
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %65 = load i32, ptr %64, align 4, !tbaa !24
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %"class.igl::geodesic::IntervalList", ptr %58, i64 %66
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !81
   %70 = load ptr, ptr %69, align 8, !tbaa !84
@@ -12100,7 +12091,7 @@ _ZN3igl8geodesic12SurfacePoint4typeEv.exit:       ; preds = %_ZNSt6vectorIPN3igl
   %20 = phi ptr [ %7, %.lr.ph91 ], [ %66, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backEOS3_.exit ]
   %indvars.iv95 = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next96, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backEOS3_.exit ]
   %21 = load ptr, ptr %14, align 8, !tbaa !91
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv95
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv95
   %23 = load ptr, ptr %22, align 8, !tbaa !92
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !94
@@ -12109,7 +12100,7 @@ _ZN3igl8geodesic12SurfacePoint4typeEv.exit:       ; preds = %_ZNSt6vectorIPN3igl
 
 27:                                               ; preds = %_ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.thread.i, %17
   %indvars.iv.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i, %_ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.thread.i ]
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8, !tbaa !76
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !81
@@ -12189,7 +12180,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cx
   %.pre100 = phi i32 [ %.pre100.pre, %62 ], [ %.pre100105, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i ]
   store ptr %57, ptr %2, align 8, !tbaa !138
   store ptr %61, ptr %5, align 8, !tbaa !136
-  %63 = getelementptr inbounds nuw ptr, ptr %57, i64 %55
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %55
   store ptr %63, ptr %16, align 8, !tbaa !134
   br label %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backEOS3_.exit
 
@@ -12221,7 +12212,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backEOS3_.exit: ; preds = %43, %
   %77 = phi ptr [ %7, %.lr.ph ], [ %180, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backEOS3_.exit64 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backEOS3_.exit64 ]
   %78 = load ptr, ptr %71, align 8, !tbaa !91
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8, !tbaa !92
   %81 = load ptr, ptr %72, align 8, !tbaa !81
   %82 = load ptr, ptr %81, align 8, !tbaa !84
@@ -12233,7 +12224,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backEOS3_.exit: ; preds = %43, %
 
 87:                                               ; preds = %105, %75
   %indvars.iv.i36 = phi i64 [ 0, %75 ], [ %indvars.iv.next.i39, %105 ]
-  %88 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv.i36
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv.i36
   %89 = load ptr, ptr %88, align 8, !tbaa !76
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 48
   %91 = load i32, ptr %90, align 4, !tbaa !24
@@ -12322,7 +12313,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cx
   %.pre = phi ptr [ %.pre.pre, %127 ], [ %81, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i46 ]
   store ptr %122, ptr %2, align 8, !tbaa !138
   store ptr %126, ptr %5, align 8, !tbaa !136
-  %128 = getelementptr inbounds nuw ptr, ptr %122, i64 %120
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %120
   store ptr %128, ptr %74, align 8, !tbaa !134
   %.pre98 = load ptr, ptr %83, align 8, !tbaa !94
   br label %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backEOS3_.exit49
@@ -12341,7 +12332,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backEOS3_.exit49: ; preds = %108
 
 138:                                              ; preds = %156, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backEOS3_.exit49
   %indvars.iv.i50 = phi i64 [ 0, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backEOS3_.exit49 ], [ %indvars.iv.next.i53, %156 ]
-  %139 = getelementptr inbounds nuw ptr, ptr %132, i64 %indvars.iv.i50
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %indvars.iv.i50
   %140 = load ptr, ptr %139, align 8, !tbaa !76
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 48
   %142 = load i32, ptr %141, align 4, !tbaa !24
@@ -12425,7 +12416,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.
 _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i63: ; preds = %177, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i61
   store ptr %172, ptr %2, align 8, !tbaa !138
   store ptr %176, ptr %5, align 8, !tbaa !136
-  %178 = getelementptr inbounds nuw ptr, ptr %172, i64 %170
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %170
   store ptr %178, ptr %74, align 8, !tbaa !134
   br label %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backEOS3_.exit64
 
@@ -12499,7 +12490,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_
   %.pre101 = phi ptr [ %.pre101.pre, %209 ], [ %185, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i ]
   store ptr %203, ptr %2, align 8, !tbaa !138
   store ptr %208, ptr %5, align 8, !tbaa !136
-  %210 = getelementptr inbounds nuw ptr, ptr %203, i64 %201
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %201
   store ptr %210, ptr %186, align 8, !tbaa !134
   br label %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backERKS3_.exit
 
@@ -12565,7 +12556,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_
   %.pre102 = phi ptr [ %.pre102.pre, %237 ], [ %214, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i70 ]
   store ptr %231, ptr %2, align 8, !tbaa !138
   store ptr %236, ptr %5, align 8, !tbaa !136
-  %238 = getelementptr inbounds nuw ptr, ptr %231, i64 %229
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %229
   store ptr %238, ptr %186, align 8, !tbaa !134
   br label %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backERKS3_.exit73
 
@@ -12629,7 +12620,7 @@ _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.
 _ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i80: ; preds = %265, %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i78
   store ptr %259, ptr %2, align 8, !tbaa !138
   store ptr %264, ptr %5, align 8, !tbaa !136
-  %266 = getelementptr inbounds nuw ptr, ptr %259, i64 %257
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %257
   store ptr %266, ptr %186, align 8, !tbaa !134
   br label %_ZNSt6vectorIPN3igl8geodesic4EdgeESaIS3_EE9push_backERKS3_.exit81
 
@@ -13141,7 +13132,7 @@ _ZSt9__advanceIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWith
   %.016.i = phi i64 [ %.1.i, %93 ], [ %16, %63 ]
   %.sroa.011.015.i = phi ptr [ %.sroa.011.1.i, %93 ], [ %.sroa.059.076, %63 ]
   %64 = lshr i64 %.016.i, 1
-  %65 = getelementptr inbounds nuw ptr, ptr %.sroa.011.015.i, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.015.i, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !282
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !219
@@ -13220,7 +13211,7 @@ _ZSt9__advanceIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWith
   %.016.i41 = phi i64 [ %.1.i52, %128 ], [ %97, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWithIndexESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIS4_EEET_SE_SE_RKT0_T1_.exit ]
   %.sroa.011.015.i42 = phi ptr [ %.sroa.011.1.i51, %128 ], [ %95, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePointWithIndexESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_comp_valIS4_EEET_SE_SE_RKT0_T1_.exit ]
   %99 = lshr i64 %.016.i41, 1
-  %100 = getelementptr inbounds nuw ptr, ptr %.sroa.011.015.i42, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.011.015.i42, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !282
   br i1 %.not.i7.i.i, label %_ZN3igl8geodesic12SurfacePoint4typeEv.exit.i.i.i45, label %102
 
@@ -13347,7 +13338,7 @@ define linkonce_odr dso_local void @_ZN3igl8geodesic4Mesh20initialize_mesh_dataI
   br i1 %21, label %22, label %_ZNSt6vectorIN3igl8geodesic6VertexESaIS2_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"class.igl::geodesic::Vertex", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [88 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN3igl8geodesic6VertexESaIS2_EE6resizeEm.exit, label %_ZSt8_DestroyIPN3igl8geodesic6VertexES2_EvT_S4_RSaIT0_E.exit.i.i
 
@@ -13387,7 +13378,7 @@ _ZNSt6vectorIN3igl8geodesic6VertexESaIS2_EE6resizeEm.exit: ; preds = %18, %20, %
   br i1 %39, label %40, label %_ZNSt6vectorIN3igl8geodesic4FaceESaIS2_EE6resizeEm.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw %"class.igl::geodesic::Face", ptr %30, i64 %27
+  %41 = getelementptr inbounds nuw [80 x i8], ptr %30, i64 %27
   %.not.i.i39 = icmp eq ptr %29, %41
   br i1 %.not.i.i39, label %_ZNSt6vectorIN3igl8geodesic4FaceESaIS2_EE6resizeEm.exit, label %_ZSt8_DestroyIPN3igl8geodesic4FaceES2_EvT_S4_RSaIT0_E.exit.i.i
 
@@ -13401,25 +13392,25 @@ _ZNSt6vectorIN3igl8geodesic4FaceESaIS2_EE6resizeEm.exit: ; preds = %36, %38, %40
 
 42:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw %"class.igl::geodesic::Vertex", ptr %24, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [88 x i8], ptr %24, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %45 = trunc nuw i64 %indvars.iv to i32
   store i32 %45, ptr %44, align 4, !tbaa !24
   %46 = mul i32 %45, 3
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw double, ptr %25, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %47
   %49 = load double, ptr %48, align 8, !tbaa !77
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 56
   store double %49, ptr %50, align 8, !tbaa !77
   %51 = add i32 %46, 1
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw double, ptr %25, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %52
   %54 = load double, ptr %53, align 8, !tbaa !77
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 64
   store double %54, ptr %55, align 8, !tbaa !77
   %56 = add i32 %46, 2
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw double, ptr %25, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %57
   %59 = load double, ptr %58, align 8, !tbaa !77
   %60 = getelementptr inbounds nuw i8, ptr %43, i64 72
   store double %59, ptr %60, align 8, !tbaa !77
@@ -13434,7 +13425,7 @@ _ZNSt6vectorIN3igl8geodesic4FaceESaIS2_EE6resizeEm.exit: ; preds = %36, %38, %40
 .lr.ph43:                                         ; preds = %_ZNSt6vectorIN3igl8geodesic4FaceESaIS2_EE6resizeEm.exit, %69
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %69 ], [ 0, %_ZNSt6vectorIN3igl8geodesic4FaceESaIS2_EE6resizeEm.exit ]
   %61 = load ptr, ptr %26, align 8, !tbaa !226
-  %62 = getelementptr inbounds nuw %"class.igl::geodesic::Face", ptr %61, i64 %indvars.iv51
+  %62 = getelementptr inbounds nuw [80 x i8], ptr %61, i64 %indvars.iv51
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %64 = trunc nuw i64 %indvars.iv51 to i32
   store i32 %64, ptr %63, align 4, !tbaa !24
@@ -13455,12 +13446,12 @@ _ZNSt6vectorIN3igl8geodesic4FaceESaIS2_EE6resizeEm.exit: ; preds = %36, %38, %40
   %indvars.iv47 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next48, %70 ]
   %71 = add i64 %67, %indvars.iv47
   %72 = and i64 %71, 4294967295
-  %73 = getelementptr inbounds nuw i32, ptr %68, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !24
   %75 = zext i32 %74 to i64
   %76 = load ptr, ptr %0, align 8, !tbaa !217
-  %77 = getelementptr inbounds nuw %"class.igl::geodesic::Vertex", ptr %76, i64 %75
-  %78 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv47
+  %77 = getelementptr inbounds nuw [88 x i8], ptr %76, i64 %75
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv47
   store ptr %77, ptr %78, align 8, !tbaa !84
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 3
@@ -13491,7 +13482,7 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %1
 .noexc219:                                        ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
   %11 = shl nuw nsw i64 %9, 2
   %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #27
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %9
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %9
   store i32 0, ptr %12, align 4, !tbaa !24
   %14 = getelementptr i8, ptr %12, i64 4
   %15 = add nsw i64 %9, -1
@@ -13531,7 +13522,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
 .lr.ph:                                           ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, %31
   %27 = phi i64 [ %33, %31 ], [ 0, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ]
   %.0165381 = phi i32 [ %32, %31 ], [ 0, %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit ]
-  %28 = getelementptr inbounds nuw %"class.igl::geodesic::Face", ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw [80 x i8], ptr %21, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !81
   br label %35
@@ -13544,12 +13535,12 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
 
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !84
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = load i32, ptr %38, align 4, !tbaa !24
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %.sroa.0322.3, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0322.3, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !24
   %43 = add i32 %42, 1
   store i32 %43, ptr %41, align 4, !tbaa !24
@@ -13573,13 +13564,13 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPjmjET_
   %49 = phi ptr [ %5, %.lr.ph383 ], [ %60, %_ZN3igl8geodesic4Mesh17allocate_pointersEj.exit ]
   %50 = phi i64 [ 0, %.lr.ph383 ], [ %58, %_ZN3igl8geodesic4Mesh17allocate_pointersEj.exit ]
   %.0169382 = phi i32 [ 0, %.lr.ph383 ], [ %57, %_ZN3igl8geodesic4Mesh17allocate_pointersEj.exit ]
-  %51 = getelementptr inbounds nuw i32, ptr %.sroa.0322.3, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0322.3, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !24
   %53 = invoke noundef ptr @_ZN3igl8geodesic21SimlpeMemoryAllocatorIPvE8allocateEj(ptr noundef nonnull align 8 dereferenceable(36) %26, i32 noundef %52)
           to label %_ZN3igl8geodesic4Mesh17allocate_pointersEj.exit unwind label %_ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EED2Ev.exit269.thread
 
 _ZN3igl8geodesic4Mesh17allocate_pointersEj.exit:  ; preds = %48
-  %54 = getelementptr inbounds nuw %"class.igl::geodesic::Vertex", ptr %49, i64 %50
+  %54 = getelementptr inbounds nuw [88 x i8], ptr %49, i64 %50
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   store i32 %52, ptr %55, align 8, !tbaa !78
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 40
@@ -13617,7 +13608,7 @@ _ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: 
           to label %.noexc226 unwind label %_ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EED2Ev.exit269.thread594
 
 .noexc226:                                        ; preds = %71
-  %74 = getelementptr inbounds nuw %"struct.igl::geodesic::HalfEdge", ptr %73, i64 %70
+  %74 = getelementptr inbounds nuw [12 x i8], ptr %73, i64 %70
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %73, i8 0, i64 12, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %76 = add nsw i64 %70, -1
@@ -13640,7 +13631,7 @@ _ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: 
   %81 = phi ptr [ %90, %86 ], [ %68, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit ]
   %82 = phi i64 [ %88, %86 ], [ 0, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit ]
   %.0173385 = phi i32 [ %87, %86 ], [ 0, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit ]
-  %83 = getelementptr inbounds nuw %"class.igl::geodesic::Face", ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [80 x i8], ptr %81, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !81
   br label %96
@@ -13659,19 +13650,19 @@ _ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: 
 
 96:                                               ; preds = %.lr.ph386, %96
   %indvars.iv466 = phi i64 [ 0, %.lr.ph386 ], [ %indvars.iv.next467, %96 ]
-  %97 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv466
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv466
   %98 = load ptr, ptr %97, align 8, !tbaa !84
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 48
   %100 = load i32, ptr %99, align 4, !tbaa !24
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw i32, ptr %.sroa.0322.3, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0322.3, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !24
   %104 = add i32 %103, 1
   store i32 %104, ptr %102, align 4, !tbaa !24
   %105 = getelementptr inbounds nuw i8, ptr %98, i64 40
   %106 = load ptr, ptr %105, align 8, !tbaa !91
   %107 = zext i32 %103 to i64
-  %108 = getelementptr inbounds nuw ptr, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %107
   store ptr %83, ptr %108, align 8, !tbaa !92
   %indvars.iv.next467 = add nuw nsw i64 %indvars.iv466, 1
   %exitcond469.not = icmp eq i64 %indvars.iv.next467, 3
@@ -13728,7 +13719,7 @@ _ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EED2Ev.exit269.thread594: ; preds = %
   %119 = phi i64 [ %125, %123 ], [ 0, %_ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EEC2EmRKS3_.exit ]
   %.0177392 = phi i32 [ %143, %123 ], [ 0, %_ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EEC2EmRKS3_.exit ]
   %.0180391 = phi i32 [ %124, %123 ], [ 0, %_ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EEC2EmRKS3_.exit ]
-  %120 = getelementptr inbounds nuw %"class.igl::geodesic::Face", ptr %90, i64 %119
+  %120 = getelementptr inbounds nuw [80 x i8], ptr %90, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !81
   br label %127
@@ -13743,9 +13734,9 @@ _ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EED2Ev.exit269.thread594: ; preds = %
   %indvars.iv470 = phi i64 [ 0, %.lr.ph393 ], [ %indvars.iv.next471, %127 ]
   %.1178390 = phi i32 [ %.0177392, %.lr.ph393 ], [ %143, %127 ]
   %128 = zext i32 %.1178390 to i64
-  %129 = getelementptr inbounds nuw %"struct.igl::geodesic::HalfEdge", ptr %73, i64 %128
+  %129 = getelementptr inbounds nuw [12 x i8], ptr %73, i64 %128
   store i32 %.0180391, ptr %129, align 4, !tbaa !427
-  %130 = getelementptr inbounds nuw ptr, ptr %122, i64 %indvars.iv470
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv470
   %131 = load ptr, ptr %130, align 8, !tbaa !84
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 48
   %133 = load i32, ptr %132, align 4, !tbaa !24
@@ -13753,7 +13744,7 @@ _ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EED2Ev.exit269.thread594: ; preds = %
   %134 = icmp eq i64 %indvars.iv.next471, 3
   %135 = and i64 %indvars.iv.next471, 4294967295
   %136 = select i1 %134, i64 0, i64 %135
-  %137 = getelementptr inbounds nuw ptr, ptr %122, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !84
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
   %140 = load i32, ptr %139, align 4, !tbaa !24
@@ -13794,7 +13785,7 @@ _ZNSt6vectorIN3igl8geodesic8HalfEdgeESaIS2_EED2Ev.exit269.thread594: ; preds = %
   br i1 %157, label %158, label %_ZNSt6vectorIN3igl8geodesic4EdgeESaIS2_EE6resizeEm.exit
 
 158:                                              ; preds = %156
-  %159 = getelementptr inbounds nuw %"class.igl::geodesic::Edge", ptr %148, i64 %.0183.lcssa
+  %159 = getelementptr inbounds nuw [64 x i8], ptr %148, i64 %.0183.lcssa
   %.not.i.i230 = icmp eq ptr %147, %159
   br i1 %.not.i.i230, label %_ZNSt6vectorIN3igl8geodesic4EdgeESaIS2_EE6resizeEm.exit, label %_ZSt8_DestroyIPN3igl8geodesic4EdgeES2_EvT_S4_RSaIT0_E.exit.i.i
 
@@ -13819,10 +13810,10 @@ _ZNSt6vectorIN3igl8geodesic4EdgeESaIS2_EE6resizeEm.exit: ; preds = %154, %156, %
   %163 = phi i64 [ %180, %.lr.ph397 ], [ 1, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ]
   %.0183396 = phi i32 [ %spec.select359, %.lr.ph397 ], [ 1, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ]
   %.0186395 = phi i32 [ %179, %.lr.ph397 ], [ 1, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ]
-  %164 = getelementptr inbounds nuw %"struct.igl::geodesic::HalfEdge", ptr %.sroa.0296.0568576, i64 %163
+  %164 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.0296.0568576, i64 %163
   %165 = add i32 %.0186395, -1
   %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds nuw %"struct.igl::geodesic::HalfEdge", ptr %.sroa.0296.0568576, i64 %166
+  %167 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.0296.0568576, i64 %166
   %168 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %169 = load i32, ptr %168, align 4, !tbaa !429
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 4
@@ -13863,7 +13854,7 @@ _ZNSt6vectorIN3igl8geodesic4EdgeESaIS2_EE6resizeEm.exit: ; preds = %154, %156, %
   %.0189402 = phi i32 [ 0, %.lr.ph404 ], [ %265, %264 ]
   %190 = zext i32 %.0188403 to i64
   %191 = load ptr, ptr %145, align 8, !tbaa !252
-  %192 = getelementptr inbounds nuw %"class.igl::geodesic::Edge", ptr %191, i64 %190
+  %192 = getelementptr inbounds nuw [64 x i8], ptr %191, i64 %190
   %193 = add i32 %.0188403, 1
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 48
   store i32 %.0188403, ptr %194, align 4, !tbaa !24
@@ -13874,18 +13865,18 @@ _ZNSt6vectorIN3igl8geodesic4EdgeESaIS2_EE6resizeEm.exit: ; preds = %154, %156, %
   store i32 2, ptr %192, align 8, !tbaa !416
   %197 = getelementptr inbounds nuw i8, ptr %192, i64 8
   store ptr %195, ptr %197, align 8, !tbaa !81
-  %198 = getelementptr inbounds nuw %"struct.igl::geodesic::HalfEdge", ptr %.sroa.0296.0568576, i64 %189
+  %198 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.0296.0568576, i64 %189
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 4
   %200 = load i32, ptr %199, align 4, !tbaa !429
   %201 = zext i32 %200 to i64
   %202 = load ptr, ptr %0, align 8, !tbaa !217
-  %203 = getelementptr inbounds nuw %"class.igl::geodesic::Vertex", ptr %202, i64 %201
+  %203 = getelementptr inbounds nuw [88 x i8], ptr %202, i64 %201
   store ptr %203, ptr %195, align 8, !tbaa !84
   %204 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %205 = load i32, ptr %204, align 4, !tbaa !430
   %206 = zext i32 %205 to i64
   %207 = load ptr, ptr %0, align 8, !tbaa !217
-  %208 = getelementptr inbounds nuw %"class.igl::geodesic::Vertex", ptr %207, i64 %206
+  %208 = getelementptr inbounds nuw [88 x i8], ptr %207, i64 %206
   %209 = getelementptr inbounds nuw i8, ptr %195, i64 8
   store ptr %208, ptr %209, align 8, !tbaa !84
   %210 = getelementptr inbounds nuw i8, ptr %203, i64 56
@@ -13915,7 +13906,7 @@ _ZNSt6vectorIN3igl8geodesic4EdgeESaIS2_EE6resizeEm.exit: ; preds = %154, %156, %
 229:                                              ; preds = %196
   %230 = add i32 %.0189402, 1
   %231 = zext i32 %230 to i64
-  %232 = getelementptr inbounds nuw %"struct.igl::geodesic::HalfEdge", ptr %.sroa.0296.0568576, i64 %231
+  %232 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.0296.0568576, i64 %231
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 4
   %234 = load i32, ptr %233, align 4, !tbaa !429
   %235 = icmp eq i32 %200, %234
@@ -13938,12 +13929,12 @@ _ZN3igl8geodesic4Mesh17allocate_pointersEj.exit240: ; preds = %241
   %245 = load i32, ptr %198, align 4, !tbaa !427
   %246 = zext i32 %245 to i64
   %247 = load ptr, ptr %18, align 8, !tbaa !226
-  %248 = getelementptr inbounds nuw %"class.igl::geodesic::Face", ptr %247, i64 %246
+  %248 = getelementptr inbounds nuw [80 x i8], ptr %247, i64 %246
   store ptr %248, ptr %242, align 8, !tbaa !92
   %249 = load i32, ptr %232, align 4, !tbaa !427
   %250 = zext i32 %249 to i64
   %251 = load ptr, ptr %18, align 8, !tbaa !226
-  %252 = getelementptr inbounds nuw %"class.igl::geodesic::Face", ptr %251, i64 %250
+  %252 = getelementptr inbounds nuw [80 x i8], ptr %251, i64 %250
   %253 = getelementptr inbounds nuw i8, ptr %242, i64 8
   store ptr %252, ptr %253, align 8, !tbaa !92
   br label %264
@@ -13965,7 +13956,7 @@ _ZN3igl8geodesic4Mesh17allocate_pointersEj.exit242: ; preds = %256
   %260 = load i32, ptr %198, align 4, !tbaa !427
   %261 = zext i32 %260 to i64
   %262 = load ptr, ptr %18, align 8, !tbaa !226
-  %263 = getelementptr inbounds nuw %"class.igl::geodesic::Face", ptr %262, i64 %261
+  %263 = getelementptr inbounds nuw [80 x i8], ptr %262, i64 %261
   store ptr %263, ptr %257, align 8, !tbaa !92
   br label %264
 
@@ -13999,14 +13990,14 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit
 .lr.ph407:                                        ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit236, %.lr.ph407
   %277 = phi i64 [ %297, %.lr.ph407 ], [ 0, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit236 ]
   %.0192406 = phi i32 [ %296, %.lr.ph407 ], [ 0, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit236 ]
-  %278 = getelementptr inbounds nuw %"class.igl::geodesic::Edge", ptr %269, i64 %277
+  %278 = getelementptr inbounds nuw [64 x i8], ptr %269, i64 %277
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 8
   %280 = load ptr, ptr %279, align 8, !tbaa !81
   %281 = load ptr, ptr %280, align 8, !tbaa !84
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 48
   %283 = load i32, ptr %282, align 4, !tbaa !24
   %284 = zext i32 %283 to i64
-  %285 = getelementptr inbounds nuw i32, ptr %.sroa.0322.3, i64 %284
+  %285 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0322.3, i64 %284
   %286 = load i32, ptr %285, align 4, !tbaa !24
   %287 = add i32 %286, 1
   store i32 %287, ptr %285, align 4, !tbaa !24
@@ -14015,7 +14006,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 48
   %291 = load i32, ptr %290, align 4, !tbaa !24
   %292 = zext i32 %291 to i64
-  %293 = getelementptr inbounds nuw i32, ptr %.sroa.0322.3, i64 %292
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0322.3, i64 %292
   %294 = load i32, ptr %293, align 4, !tbaa !24
   %295 = add i32 %294, 1
   store i32 %295, ptr %293, align 4, !tbaa !24
@@ -14039,13 +14030,13 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit
   %304 = phi ptr [ %275, %.lr.ph409 ], [ %316, %_ZN3igl8geodesic4Mesh17allocate_pointersEj.exit249 ]
   %305 = phi i64 [ 0, %.lr.ph409 ], [ %314, %_ZN3igl8geodesic4Mesh17allocate_pointersEj.exit249 ]
   %.0191408 = phi i32 [ 0, %.lr.ph409 ], [ %313, %_ZN3igl8geodesic4Mesh17allocate_pointersEj.exit249 ]
-  %306 = getelementptr inbounds nuw i32, ptr %.sroa.0322.3, i64 %305
+  %306 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0322.3, i64 %305
   %307 = load i32, ptr %306, align 4, !tbaa !24
   %308 = invoke noundef ptr @_ZN3igl8geodesic21SimlpeMemoryAllocatorIPvE8allocateEj(ptr noundef nonnull align 8 dereferenceable(36) %276, i32 noundef %307)
           to label %_ZN3igl8geodesic4Mesh17allocate_pointersEj.exit249 unwind label %322
 
 _ZN3igl8geodesic4Mesh17allocate_pointersEj.exit249: ; preds = %303
-  %309 = getelementptr inbounds nuw %"class.igl::geodesic::Vertex", ptr %304, i64 %305
+  %309 = getelementptr inbounds nuw [88 x i8], ptr %304, i64 %305
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 16
   %311 = load i32, ptr %306, align 4, !tbaa !24
   store i32 %311, ptr %310, align 8, !tbaa !350
@@ -14087,7 +14078,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit
   %329 = phi ptr [ %338, %334 ], [ %325, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit247 ]
   %330 = phi i64 [ %336, %334 ], [ 0, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit247 ]
   %.0187412 = phi i32 [ %335, %334 ], [ 0, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit247 ]
-  %331 = getelementptr inbounds nuw %"class.igl::geodesic::Edge", ptr %329, i64 %330
+  %331 = getelementptr inbounds nuw [64 x i8], ptr %329, i64 %330
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
   %333 = load ptr, ptr %332, align 8, !tbaa !81
   br label %344
@@ -14107,19 +14098,19 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit
 344:                                              ; preds = %.lr.ph413, %344
   %345 = phi i1 [ true, %.lr.ph413 ], [ false, %344 ]
   %indvars.iv476 = phi i64 [ 0, %.lr.ph413 ], [ 1, %344 ]
-  %346 = getelementptr inbounds nuw ptr, ptr %333, i64 %indvars.iv476
+  %346 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %indvars.iv476
   %347 = load ptr, ptr %346, align 8, !tbaa !84
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 48
   %349 = load i32, ptr %348, align 4, !tbaa !24
   %350 = zext i32 %349 to i64
-  %351 = getelementptr inbounds nuw i32, ptr %.sroa.0322.3, i64 %350
+  %351 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0322.3, i64 %350
   %352 = load i32, ptr %351, align 4, !tbaa !24
   %353 = add i32 %352, 1
   store i32 %353, ptr %351, align 4, !tbaa !24
   %354 = getelementptr inbounds nuw i8, ptr %347, i64 24
   %355 = load ptr, ptr %354, align 8, !tbaa !94
   %356 = zext i32 %352 to i64
-  %357 = getelementptr inbounds nuw ptr, ptr %355, i64 %356
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %355, i64 %356
   store ptr %331, ptr %357, align 8, !tbaa !76
   br i1 %345, label %344, label %334, !llvm.loop !437
 
@@ -14194,8 +14185,8 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i: ; preds = %382, %_ZSt27__
   br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36.i
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36.i: ; preds = %383, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
-  %385 = getelementptr inbounds nuw i32, ptr %377, i64 %362
-  %386 = getelementptr inbounds nuw i32, ptr %376, i64 %374
+  %385 = getelementptr inbounds nuw [4 x i8], ptr %377, i64 %362
+  %386 = getelementptr inbounds nuw [4 x i8], ptr %376, i64 %374
   %.pre500 = ptrtoint ptr %376 to i64
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
@@ -14204,7 +14195,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36.i: ; preds = %383, %_ZNSt6
   br i1 %388, label %389, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 389:                                              ; preds = %387
-  %390 = getelementptr inbounds nuw i32, ptr %.sroa.0322.3, i64 %.lcssa371
+  %390 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0322.3, i64 %.lcssa371
   %.not.i.i250 = icmp eq ptr %.0.i.i.i.i.i, %390
   %spec.select360 = select i1 %.not.i.i250, ptr %.0.i.i.i.i.i, ptr %390
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -14217,7 +14208,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36.i: ; preds = %383, %_ZNSt6
           to label %_ZN3igl8geodesic4Mesh17allocate_pointersEj.exit253 unwind label %407
 
 _ZN3igl8geodesic4Mesh17allocate_pointersEj.exit253: ; preds = %391
-  %395 = getelementptr inbounds nuw %"class.igl::geodesic::Face", ptr %392, i64 %393
+  %395 = getelementptr inbounds nuw [80 x i8], ptr %392, i64 %393
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 16
   store i32 3, ptr %396, align 8, !tbaa !350
   %397 = getelementptr inbounds nuw i8, ptr %395, i64 24
@@ -14288,7 +14279,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit
   %426 = phi ptr [ %434, %._crit_edge421 ], [ %413, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit258 ]
   %427 = phi i64 [ %436, %._crit_edge421 ], [ 0, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit258 ]
   %.0179422 = phi i32 [ %435, %._crit_edge421 ], [ 0, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit258 ]
-  %428 = getelementptr inbounds nuw %"class.igl::geodesic::Edge", ptr %425, i64 %427
+  %428 = getelementptr inbounds nuw [64 x i8], ptr %425, i64 %427
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 32
   %430 = load i32, ptr %429, align 8, !tbaa !78
   %.not451 = icmp eq i32 %430, 0
@@ -14318,19 +14309,19 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_RKT0_.exit
 
 442:                                              ; preds = %.lr.ph420, %442
   %indvars.iv481 = phi i64 [ 0, %.lr.ph420 ], [ %indvars.iv.next482, %442 ]
-  %443 = getelementptr inbounds nuw ptr, ptr %432, i64 %indvars.iv481
+  %443 = getelementptr inbounds nuw [8 x i8], ptr %432, i64 %indvars.iv481
   %444 = load ptr, ptr %443, align 8, !tbaa !92
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 48
   %446 = load i32, ptr %445, align 4, !tbaa !24
   %447 = zext i32 %446 to i64
-  %448 = getelementptr inbounds nuw i32, ptr %.sroa.0322.4, i64 %447
+  %448 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0322.4, i64 %447
   %449 = load i32, ptr %448, align 4, !tbaa !24
   %450 = add i32 %449, 1
   store i32 %450, ptr %448, align 4, !tbaa !24
   %451 = getelementptr inbounds nuw i8, ptr %444, i64 24
   %452 = load ptr, ptr %451, align 8, !tbaa !94
   %453 = zext i32 %449 to i64
-  %454 = getelementptr inbounds nuw ptr, ptr %452, i64 %453
+  %454 = getelementptr inbounds nuw [8 x i8], ptr %452, i64 %453
   store ptr %428, ptr %454, align 8, !tbaa !76
   %indvars.iv.next482 = add nuw nsw i64 %indvars.iv481, 1
   %455 = load i32, ptr %429, align 8, !tbaa !78
@@ -14365,7 +14356,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge430
           to label %.noexc263 unwind label %526
 
 .noexc263:                                        ; preds = %466
-  %469 = getelementptr inbounds nuw double, ptr %468, i64 %463
+  %469 = getelementptr inbounds nuw [8 x i8], ptr %468, i64 %463
   store double 0.000000e+00, ptr %468, align 8, !tbaa !77
   %470 = add nsw i64 %463, -1
   %471 = icmp eq i64 %470, 0
@@ -14380,7 +14371,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc263
 473:                                              ; preds = %.lr.ph429, %481
   %474 = phi i64 [ 0, %.lr.ph429 ], [ %483, %481 ]
   %.0174428 = phi i32 [ 0, %.lr.ph429 ], [ %482, %481 ]
-  %475 = getelementptr inbounds nuw %"class.igl::geodesic::Face", ptr %416, i64 %474
+  %475 = getelementptr inbounds nuw [80 x i8], ptr %416, i64 %474
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 8
   %477 = load ptr, ptr %476, align 8, !tbaa !81
@@ -14406,7 +14397,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc263
   %487 = trunc nuw nsw i64 %486 to i32
   %488 = urem i32 %487, 3
   %489 = zext nneg i32 %488 to i64
-  %490 = getelementptr inbounds nuw ptr, ptr %477, i64 %489
+  %490 = getelementptr inbounds nuw [8 x i8], ptr %477, i64 %489
   %491 = load ptr, ptr %490, align 8, !tbaa !84
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 48
   %493 = load i32, ptr %492, align 4, !tbaa !24
@@ -14414,7 +14405,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc263
 
 494:                                              ; preds = %_ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.thread.i, %485
   %indvars.iv.i = phi i64 [ 0, %485 ], [ %indvars.iv.next.i, %_ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.thread.i ]
-  %495 = getelementptr inbounds nuw ptr, ptr %479, i64 %indvars.iv.i
+  %495 = getelementptr inbounds nuw [8 x i8], ptr %479, i64 %indvars.iv.i
   %496 = load ptr, ptr %495, align 8, !tbaa !76
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 8
   %498 = load ptr, ptr %497, align 8, !tbaa !81
@@ -14441,7 +14432,7 @@ _ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.thread.i: ; preds = %_ZN3igl8ge
 _ZN3igl8geodesic4Face13opposite_edgeEPNS0_6VertexE.exit: ; preds = %_ZN3igl8geodesic4Edge7belongsEPNS0_6VertexE.exit.i
   %508 = getelementptr inbounds nuw i8, ptr %496, i64 56
   %509 = load double, ptr %508, align 8, !tbaa !77
-  %510 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv484
+  %510 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv484
   store double %509, ptr %510, align 8, !tbaa !77
   %indvars.iv.next485 = add nuw nsw i64 %indvars.iv484, 1
   %exitcond487.not = icmp eq i64 %indvars.iv.next485, 3
@@ -14463,7 +14454,7 @@ _ZN3igl8geodesic4Face13opposite_edgeEPNS0_6VertexE.exit: ; preds = %_ZN3igl8geod
   %523 = fcmp ogt double %.sroa.speculated10.i.i, 1.000000e+00
   %.sroa.speculated.i.i = select i1 %523, double 1.000000e+00, double %.sroa.speculated10.i.i
   %524 = tail call noundef double @acos(double noundef %.sroa.speculated.i.i) #24, !tbaa !24
-  %525 = getelementptr inbounds nuw double, ptr %480, i64 %indvars.iv488
+  %525 = getelementptr inbounds nuw [8 x i8], ptr %480, i64 %indvars.iv488
   store double %524, ptr %525, align 8, !tbaa !77
   %indvars.iv.next489 = add nuw nsw i64 %indvars.iv488, 1
   %exitcond491.not = icmp eq i64 %indvars.iv.next489, 3
@@ -14484,7 +14475,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_
 
 .lr.ph435:                                        ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit, %532
   %indvars.iv496 = phi i64 [ %indvars.iv.next497, %532 ], [ 0, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit ]
-  %528 = getelementptr inbounds nuw %"class.igl::geodesic::Face", ptr %416, i64 %indvars.iv496
+  %528 = getelementptr inbounds nuw [80 x i8], ptr %416, i64 %indvars.iv496
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 8
   %530 = load ptr, ptr %529, align 8, !tbaa !81
   %531 = getelementptr inbounds nuw i8, ptr %528, i64 56
@@ -14498,14 +14489,14 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_
 
 535:                                              ; preds = %.lr.ph435, %535
   %indvars.iv492 = phi i64 [ 0, %.lr.ph435 ], [ %indvars.iv.next493, %535 ]
-  %536 = getelementptr inbounds nuw ptr, ptr %530, i64 %indvars.iv492
+  %536 = getelementptr inbounds nuw [8 x i8], ptr %530, i64 %indvars.iv492
   %537 = load ptr, ptr %536, align 8, !tbaa !84
-  %538 = getelementptr inbounds nuw double, ptr %531, i64 %indvars.iv492
+  %538 = getelementptr inbounds nuw [8 x i8], ptr %531, i64 %indvars.iv492
   %539 = load double, ptr %538, align 8, !tbaa !77
   %540 = getelementptr inbounds nuw i8, ptr %537, i64 48
   %541 = load i32, ptr %540, align 4, !tbaa !24
   %542 = zext i32 %541 to i64
-  %543 = getelementptr inbounds nuw double, ptr %.sroa.0276.0, i64 %542
+  %543 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0276.0, i64 %542
   %544 = load double, ptr %543, align 8, !tbaa !77
   %545 = fadd double %539, %544
   store double %545, ptr %543, align 8, !tbaa !77
@@ -14520,11 +14511,11 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_
 .lr.ph437:                                        ; preds = %.preheader361, %.lr.ph437
   %546 = phi i64 [ %557, %.lr.ph437 ], [ 0, %.preheader361 ]
   %.0164436 = phi i32 [ %556, %.lr.ph437 ], [ 0, %.preheader361 ]
-  %547 = getelementptr inbounds nuw %"class.igl::geodesic::Vertex", ptr %459, i64 %546
+  %547 = getelementptr inbounds nuw [88 x i8], ptr %459, i64 %546
   %548 = getelementptr inbounds nuw i8, ptr %547, i64 48
   %549 = load i32, ptr %548, align 4, !tbaa !24
   %550 = zext i32 %549 to i64
-  %551 = getelementptr inbounds nuw double, ptr %.sroa.0276.0, i64 %550
+  %551 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0276.0, i64 %550
   %552 = load double, ptr %551, align 8, !tbaa !77
   %553 = fcmp ogt double %552, 0x401921F8B52D7BFC
   %554 = getelementptr inbounds nuw i8, ptr %547, i64 80
@@ -14572,7 +14563,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN3igl8
 .lr.ph439:                                        ; preds = %.preheader, %582
   %569 = phi i64 [ %584, %582 ], [ 0, %.preheader ]
   %.0155438 = phi i32 [ %583, %582 ], [ 0, %.preheader ]
-  %570 = getelementptr inbounds nuw %"class.igl::geodesic::Edge", ptr %.lcssa370, i64 %569
+  %570 = getelementptr inbounds nuw [64 x i8], ptr %.lcssa370, i64 %569
   %571 = getelementptr inbounds nuw i8, ptr %570, i64 32
   %572 = load i32, ptr %571, align 8, !tbaa !78
   %573 = icmp eq i32 %572, 1
@@ -14753,9 +14744,9 @@ _ZNSt6vectorIN3igl8geodesic6VertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; 
 
 _ZNSt12_Vector_baseIN3igl8geodesic6VertexESaIS2_EE13_M_deallocateEPS2_m.exit41: ; preds = %_ZNSt6vectorIN3igl8geodesic6VertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %43
   store ptr %32, ptr %0, align 8, !tbaa !217
-  %45 = getelementptr inbounds nuw %"class.igl::geodesic::Vertex", ptr %33, i64 %1
+  %45 = getelementptr inbounds nuw [88 x i8], ptr %33, i64 %1
   store ptr %45, ptr %4, align 8, !tbaa !413
-  %46 = getelementptr inbounds nuw %"class.igl::geodesic::Vertex", ptr %32, i64 %30
+  %46 = getelementptr inbounds nuw [88 x i8], ptr %32, i64 %30
   store ptr %46, ptr %11, align 8, !tbaa !255
   br label %47
 
@@ -14880,9 +14871,9 @@ _ZNSt6vectorIN3igl8geodesic4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; pr
 
 _ZNSt12_Vector_baseIN3igl8geodesic4FaceESaIS2_EE13_M_deallocateEPS2_m.exit41: ; preds = %_ZNSt6vectorIN3igl8geodesic4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %47
   store ptr %34, ptr %0, align 8, !tbaa !226
-  %49 = getelementptr inbounds nuw %"class.igl::geodesic::Face", ptr %35, i64 %1
+  %49 = getelementptr inbounds nuw [80 x i8], ptr %35, i64 %1
   store ptr %49, ptr %4, align 8, !tbaa !414
-  %50 = getelementptr inbounds nuw %"class.igl::geodesic::Face", ptr %34, i64 %32
+  %50 = getelementptr inbounds nuw [80 x i8], ptr %34, i64 %32
   store ptr %50, ptr %11, align 8, !tbaa !251
   br label %51
 
@@ -14961,7 +14952,7 @@ _ZNSt6vectorIPvSaIS0_EED2Ev.exit:                 ; preds = %_ZNSt6vectorIS_IPvS
   br i1 %37, label %38, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw ptr, ptr %28, i64 %25
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %25
   %.not.i.i5 = icmp eq ptr %27, %39
   br i1 %.not.i.i5, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit, label %_ZSt8_DestroyIPPvS0_EvT_S2_RSaIT0_E.exit.i.i
 
@@ -15000,7 +14991,7 @@ _ZNSt6vectorIPvSaIS0_EED2Ev.exit7:                ; preds = %40, %43
   %53 = getelementptr inbounds i8, ptr %52, i64 -24
   %54 = zext i32 %50 to i64
   %55 = load ptr, ptr %53, align 8, !tbaa !295
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %54
   %57 = add i32 %50, %1
   store i32 %57, ptr %4, align 8, !tbaa !389
   ret ptr %56
@@ -15113,7 +15104,7 @@ _ZNSt6vectorIS_IPvSaIS0_EESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22: ; preds =
 _ZNSt12_Vector_baseISt6vectorIPvSaIS1_EESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIS_IPvSaIS0_EESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !291
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !294
-  %53 = getelementptr inbounds nuw %"class.std::vector.122", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !299
   ret void
 }
@@ -15336,7 +15327,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8H
   %77 = getelementptr inbounds nuw i8, ptr %.pn17.i23, i64 24
   %.neg22.i38 = udiv exact i64 %74, 12
   %.neg22.neg.i39 = sub nsw i64 0, %.neg22.i38
-  %78 = getelementptr inbounds %"struct.igl::geodesic::HalfEdge", ptr %77, i64 %.neg22.neg.i39
+  %78 = getelementptr inbounds [12 x i8], ptr %77, i64 %.neg22.neg.i39
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %78, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %74, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i37
 
@@ -15411,7 +15402,7 @@ define linkonce_odr dso_local ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx
   %11 = ptrtoint ptr %0 to i64
   %12 = sub i64 %10, %11
   %13 = sdiv i64 %12, 24
-  %14 = getelementptr inbounds %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %13
+  %14 = getelementptr inbounds [12 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = getelementptr inbounds i8, ptr %1, i64 -12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15589,9 +15580,9 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iter
   %.041.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph ]
   %15 = shl i64 %.041.i.i, 1
   %16 = add i64 %15, 2
-  %17 = getelementptr inbounds %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %16
+  %17 = getelementptr inbounds [12 x i8], ptr %0, i64 %16
   %18 = or disjoint i64 %15, 1
-  %19 = getelementptr inbounds %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %18
+  %19 = getelementptr inbounds [12 x i8], ptr %0, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !429
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -15605,8 +15596,8 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iter
   %30 = icmp ult i32 %21, %23
   %.0.i.i.i.i = select i1 %24, i1 %29, i1 %30
   %spec.select.i.i = select i1 %.0.i.i.i.i, i64 %18, i64 %16
-  %31 = getelementptr inbounds %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %spec.select.i.i
-  %32 = getelementptr inbounds %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %.041.i.i
+  %31 = getelementptr inbounds [12 x i8], ptr %0, i64 %spec.select.i.i
+  %32 = getelementptr inbounds [12 x i8], ptr %0, i64 %.041.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %32, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false), !tbaa.struct !422
   %33 = icmp slt i64 %spec.select.i.i, %13
   br i1 %33, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !479
@@ -15626,8 +15617,8 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iter
 .thread.i:                                        ; preds = %36
   %40 = shl nuw nsw i64 %.0.lcssa.i.i, 1
   %41 = or disjoint i64 %40, 1
-  %42 = getelementptr inbounds nuw %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %41
-  %43 = getelementptr inbounds %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %.0.lcssa.i.i
+  %42 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %41
+  %43 = getelementptr inbounds [12 x i8], ptr %0, i64 %.0.lcssa.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %43, ptr noundef nonnull align 4 dereferenceable(12) %42, i64 12, i1 false), !tbaa.struct !422
   br label %.lr.ph.i.i.preheader.i
 
@@ -15645,7 +15636,7 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iter
   %.020.i.i.i = phi i64 [ %.01021.i.i910.i, %53 ], [ %.1.i16.i, %.lr.ph.i.i.preheader.i ]
   %.01021.in.i.i.i = add nsw i64 %.020.i.i.i, -1
   %.01021.i.i910.i = lshr i64 %.01021.in.i.i.i, 1
-  %45 = getelementptr inbounds nuw %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %.01021.i.i910.i
+  %45 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.01021.i.i910.i
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !429
   %48 = icmp eq i32 %47, %.sroa.013.sroa.2.0.extract.trunc.i.i17.i
@@ -15657,14 +15648,14 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iter
   br i1 %.0.i.i.i.i.i, label %53, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit
 
 53:                                               ; preds = %.lr.ph.i.i.i
-  %54 = getelementptr inbounds %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %.020.i.i.i
+  %54 = getelementptr inbounds [12 x i8], ptr %0, i64 %.020.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %54, ptr noundef nonnull align 4 dereferenceable(12) %45, i64 12, i1 false), !tbaa.struct !422
   %.not11.i = icmp eq i64 %.01021.i.i910.i, 0
   br i1 %.not11.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !480
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit: ; preds = %.lr.ph.i.i.i, %53, %44
   %.0.lcssa.i.i.i = phi i64 [ 0, %44 ], [ %.020.i.i.i, %.lr.ph.i.i.i ], [ 0, %53 ]
-  %55 = getelementptr inbounds %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %.0.lcssa.i.i.i
+  %55 = getelementptr inbounds [12 x i8], ptr %0, i64 %.0.lcssa.i.i.i
   store i64 %.sroa.04.0.copyload.i, ptr %55, align 4
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 %.sroa.4.0.copyload.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i, align 4, !tbaa !24
@@ -15693,13 +15684,13 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds nuw %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %17
-  %19 = getelementptr inbounds nuw %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %17
+  %19 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %16
   br label %20
 
 20:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit, %8
   %.011 = phi i64 [ %11, %8 ], [ %58, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit ]
-  %21 = getelementptr inbounds %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %.011
+  %21 = getelementptr inbounds [12 x i8], ptr %0, i64 %.011
   %.sroa.04.0.copyload = load i64, ptr %21, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !24
@@ -15710,9 +15701,9 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %.041.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.011, %20 ]
   %23 = shl i64 %.041.i, 1
   %24 = add i64 %23, 2
-  %25 = getelementptr inbounds %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %0, i64 %24
   %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %0, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !429
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
@@ -15726,8 +15717,8 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %38 = icmp ult i32 %29, %31
   %.0.i.i.i = select i1 %32, i1 %37, i1 %38
   %spec.select.i = select i1 %.0.i.i.i, i64 %26, i64 %24
-  %39 = getelementptr inbounds %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %spec.select.i
-  %40 = getelementptr inbounds %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %.041.i
+  %39 = getelementptr inbounds [12 x i8], ptr %0, i64 %spec.select.i
+  %40 = getelementptr inbounds [12 x i8], ptr %0, i64 %.041.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %40, ptr noundef nonnull align 4 dereferenceable(12) %39, i64 12, i1 false), !tbaa.struct !422
   %41 = icmp slt i64 %spec.select.i, %13
   br i1 %41, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !479
@@ -15753,7 +15744,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   %.020.i.i = phi i64 [ %.01021.i.i, %54 ], [ %.1.i, %44 ]
   %.01021.in.i.i = add nsw i64 %.020.i.i, -1
   %.01021.i.i = sdiv i64 %.01021.in.i.i, 2
-  %46 = getelementptr inbounds nuw %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %.01021.i.i
+  %46 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.01021.i.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !429
   %49 = icmp eq i32 %48, %.sroa.013.sroa.2.0.extract.trunc.i.i
@@ -15765,14 +15756,14 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
   br i1 %.0.i.i.i.i, label %54, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit
 
 54:                                               ; preds = %.lr.ph.i.i
-  %55 = getelementptr inbounds nuw %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %.020.i.i
+  %55 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.020.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %55, ptr noundef nonnull align 4 dereferenceable(12) %46, i64 12, i1 false), !tbaa.struct !422
   %56 = icmp sgt i64 %.01021.i.i, %.011
   br i1 %56, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit, !llvm.loop !480
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit: ; preds = %.lr.ph.i.i, %54, %44
   %.0.lcssa.i.i = phi i64 [ %.1.i, %44 ], [ %.01021.i.i, %54 ], [ %.020.i.i, %.lr.ph.i.i ]
-  %57 = getelementptr inbounds nuw %"struct.igl::geodesic::HalfEdge", ptr %0, i64 %.0.lcssa.i.i
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.0.lcssa.i.i
   store i64 %.sroa.04.0.copyload, ptr %57, align 4
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 %.sroa.4.0.copyload, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i, align 4, !tbaa !24
@@ -15901,9 +15892,9 @@ _ZNSt6vectorIN3igl8geodesic4EdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; pr
 
 _ZNSt12_Vector_baseIN3igl8geodesic4EdgeESaIS2_EE13_M_deallocateEPS2_m.exit41: ; preds = %_ZNSt6vectorIN3igl8geodesic4EdgeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %47
   store ptr %34, ptr %0, align 8, !tbaa !252
-  %49 = getelementptr inbounds nuw %"class.igl::geodesic::Edge", ptr %35, i64 %1
+  %49 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 %1
   store ptr %49, ptr %4, align 8, !tbaa !257
-  %50 = getelementptr inbounds nuw %"class.igl::geodesic::Edge", ptr %34, i64 %32
+  %50 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 %32
   store ptr %50, ptr %11, align 8, !tbaa !254
   br label %51
 

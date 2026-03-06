@@ -3184,7 +3184,7 @@ _ZNSt6vectorIZ4mainE4TestSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit30.i.i: ; pred
 _ZNSt6vectorIZ4mainE4TestSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %78, %_ZNSt6vectorIZ4mainE4TestSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit30.i.i
   store ptr %41, ptr %0, align 8, !tbaa !42
   store ptr %77, ptr %3, align 8, !tbaa !100
-  %82 = getelementptr inbounds nuw %struct.Test, ptr %41, i64 %37
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %41, i64 %37
   store ptr %82, ptr %5, align 8, !tbaa !46
   br label %_ZNSt6vectorIZ4mainE4TestSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit
 

@@ -10,8 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5O_info2_t = type { i64, %struct.H5O_token_t, i32, i32, i64, i64, i64, i64, i64 }
 %struct.H5O_token_t = type { [16 x i8] }
 %struct.h5tools_str_t = type { ptr, i64, i64 }
-%struct.anon.3 = type { i64, i64, ptr, ptr, ptr }
-%struct.obj_t = type { %struct.H5O_token_t, ptr, i8, i8 }
 %struct.H5F_info2_t = type { %struct.anon, %struct.anon.0, %struct.anon.1 }
 %struct.anon = type { i32, i64, i64 }
 %struct.anon.0 = type { i32, i64, i64 }
@@ -1001,7 +999,7 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
 
 347:                                              ; preds = %346
   %348 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @table_list, i64 16), align 8, !tbaa !80
-  %349 = getelementptr inbounds nuw %struct.anon.3, ptr %348, i64 %.0.i
+  %349 = getelementptr inbounds nuw [40 x i8], ptr %348, i64 %.0.i
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 16
   %351 = load ptr, ptr %350, align 8, !tbaa !82
   store ptr %351, ptr @group_table, align 8, !tbaa !15
@@ -1650,7 +1648,7 @@ sub_0:                                            ; preds = %46, %49
   %.050 = phi i32 [ %107, %105 ], [ 0, %.preheader ]
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %81 = load ptr, ptr %80, align 8, !tbaa !101
-  %82 = getelementptr inbounds nuw %struct.obj_t, ptr %81, i64 %79
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %81, i64 %79
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 25
   %84 = load i8, ptr %83, align 1, !tbaa !102, !range !57, !noundef !68
   %85 = trunc nuw i8 %84 to i1
@@ -1666,7 +1664,7 @@ sub_0:                                            ; preds = %46, %49
   %91 = load ptr, ptr @type_table, align 8, !tbaa !15
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load ptr, ptr %92, align 8, !tbaa !101
-  %94 = getelementptr inbounds nuw %struct.obj_t, ptr %93, i64 %79
+  %94 = getelementptr inbounds nuw [32 x i8], ptr %93, i64 %79
   %95 = call i32 @H5Otoken_to_str(i64 noundef %89, ptr noundef %94, ptr noundef nonnull %11) #15
   %96 = load ptr, ptr %11, align 8, !tbaa !30
   %97 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.16, ptr noundef %96) #15
@@ -2053,13 +2051,13 @@ define dso_local void @dump_dataset(i64 noundef %0, ptr noundef %1, ptr noundef 
   %91 = load ptr, ptr @rawoutstream, align 8, !tbaa !17
   call void @h5tools_simple_prefix(ptr noundef %91, ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef 0, i32 noundef 0) #15
   %92 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #15
-  %93 = getelementptr inbounds nuw i64, ptr @packed_mask, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [8 x i8], ptr @packed_mask, i64 %indvars.iv
   %94 = load i64, ptr %93, align 8, !tbaa !110
   store i64 %94, ptr @packed_data_mask, align 8, !tbaa !110
-  %95 = getelementptr inbounds nuw i32, ptr @packed_offset, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [4 x i8], ptr @packed_offset, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !4
   store i32 %96, ptr @packed_data_offset, align 4, !tbaa !4
-  %97 = getelementptr inbounds nuw i32, ptr @packed_length, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [4 x i8], ptr @packed_length, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4, !tbaa !4
   store i32 %98, ptr @packed_data_length, align 4, !tbaa !4
   call void @h5tools_print_packed_bits(ptr noundef nonnull %7, i64 noundef %62) #15
@@ -2660,7 +2658,7 @@ define dso_local void @dump_fcontents(i64 noundef %0) local_unnamed_addr #0 {
   %.013 = phi i32 [ %30, %28 ], [ 0, %.preheader ]
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !101
-  %15 = getelementptr inbounds nuw %struct.obj_t, ptr %14, i64 %12
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 25
   %17 = load i8, ptr %16, align 1, !tbaa !102, !range !57, !noundef !68
   %18 = trunc nuw i8 %17 to i1
@@ -3398,7 +3396,7 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %60 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   store i64 1, ptr %60, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3439,7 +3437,7 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph177:                                        ; preds = %.lr.ph177.preheader, %.lr.ph177
   %indvars.iv187 = phi i64 [ 0, %.lr.ph177.preheader ], [ %indvars.iv.next188, %.lr.ph177 ]
-  %71 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv187
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv187
   store i64 1, ptr %71, align 8, !tbaa !33
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
@@ -3480,7 +3478,7 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph179:                                        ; preds = %.lr.ph179.preheader, %.lr.ph179
   %indvars.iv192 = phi i64 [ 0, %.lr.ph179.preheader ], [ %indvars.iv.next193, %.lr.ph179 ]
-  %82 = getelementptr inbounds nuw i64, ptr %80, i64 %indvars.iv192
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv192
   store i64 1, ptr %82, align 8, !tbaa !33
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count195
@@ -3543,15 +3541,15 @@ define dso_local void @handle_datasets(i64 noundef %0, ptr noundef %1, ptr nound
 
 105:                                              ; preds = %.lr.ph181, %116
   %indvars.iv197 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next198, %116 ]
-  %106 = getelementptr inbounds nuw i64, ptr %85, i64 %indvars.iv197
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv197
   %107 = load i64, ptr %106, align 8, !tbaa !33
   %108 = icmp ugt i64 %107, 1
   br i1 %108, label %109, label %116
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds nuw i64, ptr %84, i64 %indvars.iv197
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv197
   %111 = load i64, ptr %110, align 8, !tbaa !33
-  %112 = getelementptr inbounds nuw i64, ptr %83, i64 %indvars.iv197
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv197
   %113 = load i64, ptr %112, align 8, !tbaa !33
   %114 = icmp ult i64 %111, %113
   br i1 %114, label %115, label %116
@@ -4325,7 +4323,7 @@ define dso_local void @handle_datatypes(i64 noundef %0, ptr noundef %1, ptr read
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !101
-  %17 = getelementptr inbounds nuw %struct.obj_t, ptr %16, i64 %13
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %13
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 25
   %19 = load i8, ptr %18, align 1, !tbaa !102, !range !57, !noundef !68
   %20 = trunc nuw i8 %19 to i1
@@ -4476,7 +4474,7 @@ split:                                            ; preds = %.preheader, %.prehe
 79:                                               ; preds = %split
   %80 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %81 = load ptr, ptr %80, align 8, !tbaa !101
-  %82 = getelementptr inbounds nuw %struct.obj_t, ptr %81, i64 %.pre-phi
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %81, i64 %.pre-phi
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8, !tbaa !69
   %85 = call i64 @H5Dopen2(i64 noundef %0, ptr noundef %84, i64 noundef 0) #15
