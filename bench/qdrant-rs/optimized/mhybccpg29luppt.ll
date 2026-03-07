@@ -230,11 +230,10 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hc1bf6c2ae1441d9dE.exit.
   %71 = add i64 %70, -1
   store i64 %71, ptr %.sroa.5.0..sroa_idx, align 8
   %72 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %73 = invoke ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hf4dbda852b95975dE"(ptr nonnull %72, i64 %69)
+  %73 = invoke nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hf4dbda852b95975dE"(ptr nonnull %72, i64 %69)
           to label %.noexc3 unwind label %.loopexit.split-lp.loopexit
 
 .noexc3:                                          ; preds = %66
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %73) ]
   %74 = getelementptr inbounds i8, ptr %73, i64 -56
   %75 = invoke i64 @"_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17h3ca0e00e57d3c182E"(ptr nonnull align 8 %13, ptr nonnull align 8 %74)
           to label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h4719b322bc8343daE.exit" unwind label %.loopexit.split-lp.loopexit
@@ -295,8 +294,7 @@ _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17h0cd44c26f5acc96bE.exit:
 define i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h4719b322bc8343daE"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, i64 %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
-  %6 = tail call ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hf4dbda852b95975dE"(ptr nonnull %5, i64 %2)
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
+  %6 = tail call nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hf4dbda852b95975dE"(ptr nonnull %5, i64 %2)
   %7 = getelementptr inbounds i8, ptr %6, i64 -56
   %8 = tail call i64 @"_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17h3ca0e00e57d3c182E"(ptr nonnull align 8 %4, ptr nonnull align 8 %7)
   ret i64 %8
@@ -347,8 +345,7 @@ define zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_inser
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
-  %7 = tail call ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hf4dbda852b95975dE"(ptr nonnull %6, i64 %1)
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %7 = tail call nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hf4dbda852b95975dE"(ptr nonnull %6, i64 %1)
   %8 = getelementptr inbounds i8, ptr %7, i64 -56
   %9 = tail call zeroext i1 @"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h37f58f28e9d35d88E"(ptr nonnull align 8 %3, ptr nonnull align 8 %8)
   ret i1 %9

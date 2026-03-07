@@ -92,6 +92,7 @@ define void @_ZN5arrow4util13base64_encodeB5cxx11ESt17basic_string_viewIcSt11cha
   %38 = zext i8 %37 to i64
   %39 = load ptr, ptr @_ZN5arrow4utilL12base64_charsB5cxx11E, align 8, !tbaa !16, !noalias !3
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %38
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %40) ]
   %41 = load i8, ptr %40, align 1, !tbaa !15
   %42 = load i64, ptr %8, align 8, !tbaa !12, !alias.scope !3
   %43 = add i64 %42, 1
@@ -210,6 +211,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %.lo
   %79 = zext i8 %78 to i64
   %80 = load ptr, ptr @_ZN5arrow4utilL12base64_charsB5cxx11E, align 8, !tbaa !16, !noalias !3
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 %79
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %81) ]
   %82 = load i8, ptr %81, align 1, !tbaa !15
   %83 = load i64, ptr %8, align 8, !tbaa !12, !alias.scope !3
   %84 = add i64 %83, 1
@@ -319,6 +321,7 @@ define void @_ZN5arrow4util13base64_decodeB5cxx11ESt17basic_string_viewIcSt11cha
   %.02647 = phi i32 [ 0, %.lr.ph ], [ %.1, %.loopexit40 ]
   %14 = add i64 %.in, -1
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv62
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
   %16 = load i8, ptr %15, align 1, !tbaa !15
   %.not31 = icmp eq i8 %16, 61
   br i1 %.not31, label %.critedge, label %17

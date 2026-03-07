@@ -19,7 +19,7 @@ define dso_local void @_ZN3ozz9animation7offline12RawAnimationC2Ev(ptr noundef n
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, float noundef %1) local_unnamed_addr #1 align 2 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -43,6 +43,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
   %.0164.i = phi i64 [ %9, %8 ], [ 0, %.lr.ph.preheader.i ]
   %.0173.i = phi float [ %11, %8 ], [ -1.000000e+00, %.lr.ph.preheader.i ]
   %10 = getelementptr inbounds nuw [16 x i8], ptr %.val, i64 %.0164.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
   %11 = load float, ptr %10, align 4, !tbaa !24
   %12 = fcmp uge float %11, 0.000000e+00
   %13 = fcmp ule float %11, %1
@@ -75,6 +76,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
   %.0164.i12 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.preheader.i10 ]
   %.0173.i13 = phi float [ %24, %21 ], [ -1.000000e+00, %.lr.ph.preheader.i10 ]
   %23 = getelementptr inbounds nuw [20 x i8], ptr %.val5, i64 %.0164.i12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %23) ]
   %24 = load float, ptr %23, align 4, !tbaa !28
   %25 = fcmp uge float %24, 0.000000e+00
   %26 = fcmp ule float %24, %1
@@ -102,6 +104,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
   %.0164.i21 = phi i64 [ %39, %.lr.ph.i20 ], [ 0, %.lr.ph.preheader.i19 ]
   %.0173.i22 = phi float [ %35, %.lr.ph.i20 ], [ -1.000000e+00, %.lr.ph.preheader.i19 ]
   %34 = getelementptr inbounds nuw [16 x i8], ptr %.val7, i64 %.0164.i21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %34) ]
   %35 = load float, ptr %34, align 4, !tbaa !31
   %36 = fcmp uge float %35, 0.000000e+00
   %37 = fcmp ule float %35, %1
@@ -118,7 +121,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14Trans
   ret i1 %40
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8ValidateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load float, ptr %2, align 8, !tbaa !4
@@ -143,6 +146,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
 .lr.ph:                                           ; preds = %.preheader.preheader, %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit
   %.01027 = phi i64 [ %53, %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit ], [ 0, %.preheader.preheader ]
   %14 = getelementptr inbounds nuw [72 x i8], ptr %8, i64 %.01027
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %.val.i = load ptr, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.val4.i = load ptr, ptr %15, align 8
@@ -165,6 +169,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
   %.0164.i.i = phi i64 [ %21, %20 ], [ 0, %.lr.ph.preheader.i.i ]
   %.0173.i.i = phi float [ %23, %20 ], [ -1.000000e+00, %.lr.ph.preheader.i.i ]
   %22 = getelementptr inbounds nuw [16 x i8], ptr %.val.i, i64 %.0164.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
   %23 = load float, ptr %22, align 4, !tbaa !24
   %24 = fcmp uge float %23, 0.000000e+00
   %25 = fcmp ule float %23, %3
@@ -197,6 +202,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
   %.0164.i12.i = phi i64 [ %34, %33 ], [ 0, %.lr.ph.preheader.i10.i ]
   %.0173.i13.i = phi float [ %36, %33 ], [ -1.000000e+00, %.lr.ph.preheader.i10.i ]
   %35 = getelementptr inbounds nuw [20 x i8], ptr %.val5.i, i64 %.0164.i12.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %35) ]
   %36 = load float, ptr %35, align 4, !tbaa !28
   %37 = fcmp uge float %36, 0.000000e+00
   %38 = fcmp ule float %36, %3
@@ -229,6 +235,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
   %.0164.i21.i = phi i64 [ %47, %46 ], [ 0, %.lr.ph.preheader.i19.i ]
   %.0173.i22.i = phi float [ %49, %46 ], [ -1.000000e+00, %.lr.ph.preheader.i19.i ]
   %48 = getelementptr inbounds nuw [16 x i8], ptr %.val7.i, i64 %.0164.i21.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %48) ]
   %49 = load float, ptr %48, align 4, !tbaa !31
   %50 = fcmp uge float %49, 0.000000e+00
   %51 = fcmp ule float %49, %3
@@ -248,7 +255,7 @@ _ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define dso_local noundef i64 @_ZNK3ozz9animation7offline12RawAnimation4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #1 align 2 {
+define dso_local noundef i64 @_ZNK3ozz9animation7offline12RawAnimation4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = load ptr, ptr %0, align 8, !tbaa !35
@@ -305,11 +312,16 @@ define dso_local noundef i64 @_ZNK3ozz9animation7offline12RawAnimation4sizeEv(pt
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

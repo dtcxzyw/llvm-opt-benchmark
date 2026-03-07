@@ -2506,6 +2506,7 @@ invoke.cont9:                                     ; preds = %for.body
   call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   %7 = load ptr, ptr %dates, align 8, !tbaa !93
   %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %i.039
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i) ]
   store i64 %6, ptr %add.ptr.i, align 8, !tbaa !30
   %add.ptr.i12 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i10, i64 %i.039
   store double %fixing, ptr %add.ptr.i12, align 8, !tbaa !91
@@ -2796,6 +2797,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %noDuplicatedFixing.0204 = phi i1 [ %noDuplicatedFixing.1, %if.end74 ], [ true, %while.cond.preheader ]
   %dBegin.sroa.0.0203 = phi ptr [ %dBegin.sroa.0.1, %if.end74 ], [ %dBegin.coerce, %while.cond.preheader ]
   %vBegin.sroa.0.0202 = phi ptr [ %vBegin.sroa.0.1, %if.end74 ], [ %vBegin.coerce, %while.cond.preheader ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %dBegin.sroa.0.0203) ]
   %vtable23 = load ptr, ptr %this, align 8, !tbaa !35
   %vfn24 = getelementptr inbounds nuw i8, ptr %vtable23, i64 32
   %9 = load ptr, ptr %vfn24, align 8
@@ -2813,6 +2815,7 @@ invoke.cont31:                                    ; preds = %invoke.cont26
 if.then:                                          ; preds = %invoke.cont31
   %cmp = fcmp oeq double %10, 0x47EFFFFFE0000000
   %11 = select i1 %forceOverwrite, i1 true, i1 %cmp
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %vBegin.sroa.0.0202) ]
   %12 = load double, ptr %vBegin.sroa.0.0202, align 8, !tbaa !91
   br i1 %11, label %if.then36, label %if.else
 
@@ -2888,6 +2891,7 @@ if.else55:                                        ; preds = %if.end5.i, %_ZN8Qua
 if.else65:                                        ; preds = %invoke.cont31
   %24 = load i64, ptr %dBegin.sroa.0.0203, align 8, !tbaa !30
   store i64 %24, ptr %invalidDate, align 8, !tbaa !30
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %vBegin.sroa.0.0202) ]
   %25 = load double, ptr %vBegin.sroa.0.0202, align 8, !tbaa !91
   br label %if.end74
 
@@ -10660,9 +10664,9 @@ if.end12.i79:                                     ; preds = %if.else.i94, %while
   %spec.select17.i85 = select i1 %cmp.i.i4.i83, ptr %__y.0.lcssa24.i80, ptr null
   br label %cleanup76
 
-cleanup76:                                        ; preds = %if.end12.i79, %if.then.i90, %if.end12.i36, %if.then.i47, %if.end12.i, %if.then.i, %if.then60, %if.then30, %if.else42, %if.then47, %if.then17, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %if.then47 ], [ %spec.select, %if.then30 ], [ null, %land.lhs.true ], [ %spec.select112, %if.then60 ], [ null, %if.then.i ], [ %11, %if.then17 ], [ %__position.coerce, %if.else42 ], [ null, %if.then.i47 ], [ %spec.select.i, %if.end12.i ], [ %spec.select.i41, %if.end12.i36 ], [ %spec.select.i84, %if.end12.i79 ], [ null, %if.then.i90 ]
-  %retval.sroa.12.0 = phi ptr [ %16, %if.then47 ], [ %spec.select111, %if.then30 ], [ %1, %land.lhs.true ], [ %spec.select113, %if.then60 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %11, %if.then17 ], [ null, %if.else42 ], [ %__y.0.lcssa25.i48, %if.then.i47 ], [ %spec.select17.i, %if.end12.i ], [ %spec.select17.i42, %if.end12.i36 ], [ %spec.select17.i85, %if.end12.i79 ], [ %__y.0.lcssa25.i91, %if.then.i90 ]
+cleanup76:                                        ; preds = %if.then17, %if.end12.i79, %if.then.i90, %if.then47, %if.end12.i36, %if.then.i47, %if.end12.i, %if.then.i, %land.lhs.true, %if.then60, %if.then30, %if.else42
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ null, %if.then47 ], [ %spec.select, %if.then30 ], [ %spec.select112, %if.then60 ], [ null, %if.then.i90 ], [ null, %if.then.i ], [ %__position.coerce, %if.else42 ], [ null, %if.then.i47 ], [ %spec.select.i, %if.end12.i ], [ %spec.select.i41, %if.end12.i36 ], [ %spec.select.i84, %if.end12.i79 ], [ %11, %if.then17 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %16, %if.then47 ], [ %spec.select111, %if.then30 ], [ %spec.select113, %if.then60 ], [ %__y.0.lcssa25.i91, %if.then.i90 ], [ %__y.0.lcssa25.i, %if.then.i ], [ null, %if.else42 ], [ %__y.0.lcssa25.i48, %if.then.i47 ], [ %spec.select17.i, %if.end12.i ], [ %spec.select17.i42, %if.end12.i36 ], [ %spec.select17.i85, %if.end12.i79 ], [ %11, %if.then17 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

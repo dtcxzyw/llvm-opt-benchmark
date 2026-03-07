@@ -1179,21 +1179,21 @@ define void @_ZN3nix21makeStorePathAccessorENS_3refINS_5StoreEEERKNS_9StorePathE
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
-  %7 = load ptr, ptr %1, align 8
+  %7 = load ptr, ptr %1, align 8, !nonnull !16, !noundef !16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %8 = load ptr, ptr %7, align 8, !noalias !16
+  %8 = load ptr, ptr %7, align 8, !noalias !17
   %9 = getelementptr i8, ptr %8, i64 -24
-  %10 = load i64, ptr %9, align 8, !noalias !16
+  %10 = load i64, ptr %9, align 8, !noalias !17
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
-  call void @_ZNK3nix14StoreDirConfig14printStorePathB5cxx11ERKNS_9StorePathE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(344) %11, ptr noundef nonnull align 8 dereferenceable(32) %2), !noalias !16
-  %12 = load ptr, ptr %7, align 8, !noalias !16
+  call void @_ZNK3nix14StoreDirConfig14printStorePathB5cxx11ERKNS_9StorePathE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(344) %11, ptr noundef nonnull align 8 dereferenceable(32) %2), !noalias !17
+  %12 = load ptr, ptr %7, align 8, !noalias !17
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 336
-  %14 = load ptr, ptr %13, align 8, !noalias !16
+  %14 = load ptr, ptr %13, align 8, !noalias !17
   invoke void %14(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %15 unwind label %19
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %4, align 8, !noalias !16
+  %16 = load ptr, ptr %4, align 8, !noalias !17
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %_ZN3nix5Store10toRealPathB5cxx11ERKNS_9StorePathE.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -1390,7 +1390,7 @@ define void @_ZN3nix21getUnfilteredRootPathENS_9CanonPathE(ptr dead_on_unwind no
   %4 = alloca %"class.nix::CanonPath", align 8
   %5 = load atomic i8, ptr @_ZGVZN3nix21getUnfilteredRootPathENS_9CanonPathEE6rootFS acquire, align 8
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %7, label %12, !prof !19
+  br i1 %6, label %7, label %12, !prof !20
 
 7:                                                ; preds = %2
   %8 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3nix21getUnfilteredRootPathENS_9CanonPathEE6rootFS) #18
@@ -2655,7 +2655,8 @@ attributes #22 = { noreturn nounwind }
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZSt11make_sharedIN3nix15FSInputAccessorEJNSt10filesystem7__cxx114pathEEESt10shared_ptrIT_EDpOT0_: argument 0"}
 !15 = distinct !{!15, !"_ZSt11make_sharedIN3nix15FSInputAccessorEJNSt10filesystem7__cxx114pathEEESt10shared_ptrIT_EDpOT0_"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN3nix5Store10toRealPathB5cxx11ERKNS_9StorePathE: argument 0"}
-!18 = distinct !{!18, !"_ZN3nix5Store10toRealPathB5cxx11ERKNS_9StorePathE"}
-!19 = !{!"branch_weights", i32 1, i32 1048575}
+!16 = !{}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN3nix5Store10toRealPathB5cxx11ERKNS_9StorePathE: argument 0"}
+!19 = distinct !{!19, !"_ZN3nix5Store10toRealPathB5cxx11ERKNS_9StorePathE"}
+!20 = !{!"branch_weights", i32 1, i32 1048575}

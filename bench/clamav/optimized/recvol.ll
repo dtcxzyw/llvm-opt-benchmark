@@ -1719,6 +1719,7 @@ _ZN8RSEncode4InitEi.exit:                         ; preds = %._crit_edge
   %487 = mul nuw nsw i64 %indvars.iv876, %452
   %488 = load ptr, ptr %467, align 8, !tbaa !10
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 %487
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %489) ]
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %489, i8 0, i64 %452, i1 false)
   br label %508
 
@@ -1726,6 +1727,7 @@ _ZN8RSEncode4InitEi.exit:                         ; preds = %._crit_edge
   %491 = mul nuw nsw i64 %indvars.iv876, %452
   %492 = load ptr, ptr %467, align 8, !tbaa !10
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 %491
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %493) ]
   %494 = load ptr, ptr %484, align 8, !tbaa !14
   %495 = getelementptr inbounds nuw i8, ptr %494, i64 32
   %496 = load ptr, ptr %495, align 8
@@ -1741,6 +1743,7 @@ _ZN8RSEncode4InitEi.exit:                         ; preds = %._crit_edge
   %501 = load ptr, ptr %467, align 8, !tbaa !10
   %502 = getelementptr i8, ptr %501, i64 %491
   %503 = getelementptr i8, ptr %502, i64 %500
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %503) ]
   %504 = sub nsw i64 %452, %500
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %503, i8 0, i64 %504, i1 false)
   br label %507
@@ -1790,7 +1793,7 @@ _ZN8RSEncode4InitEi.exit:                         ; preds = %._crit_edge
   %.2314 = phi i32 [ %.0312, %511 ], [ %510, %514 ]
   %517 = zext nneg i32 %.2300 to i64
   %518 = add nuw nsw i64 %.0315, %517
-  %519 = load ptr, ptr %467, align 8, !tbaa !10
+  %519 = load ptr, ptr %467, align 8, !tbaa !10, !nonnull !82, !noundef !82
   store ptr %519, ptr %469, align 8, !tbaa !26
   store i32 0, ptr %470, align 8, !tbaa !18
   store i32 %.2300, ptr %471, align 4, !tbaa !24
@@ -1883,6 +1886,7 @@ _ZN8RSEncode4InitEi.exit:                         ; preds = %._crit_edge
   %560 = mul nuw nsw i64 %indvars.iv881, %452
   %561 = load ptr, ptr %467, align 8, !tbaa !10
   %562 = getelementptr inbounds nuw i8, ptr %561, i64 %560
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %562) ]
   %563 = invoke noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8256) %559, ptr noundef nonnull %562, i64 noundef %517)
           to label %566 unwind label %564
 
@@ -2642,6 +2646,7 @@ define void @_ZN11RecVolumes5D2Ev(ptr noundef nonnull readonly align 8 captures(
   %.0613 = phi i32 [ %29, %27 ], [ 0, %11 ]
   %19 = load ptr, ptr %0, align 8, !tbaa !149
   %20 = getelementptr inbounds nuw [8224 x i8], ptr %19, i64 %18
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %20) ]
   %21 = load ptr, ptr %20, align 8, !tbaa !150
   %22 = icmp eq ptr %21, null
   br i1 %22, label %27, label %23
@@ -3249,6 +3254,7 @@ _ZN5ArrayI10RecVolItemE3AddEm.exit.i:             ; preds = %149, %139
 153:                                              ; preds = %.lr.ph465, %153
   %.0223464 = phi i64 [ %129, %.lr.ph465 ], [ %155, %153 ]
   %154 = getelementptr inbounds nuw [8224 x i8], ptr %150, i64 %.0223464
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %154) ]
   store ptr null, ptr %154, align 8, !tbaa !150
   %155 = add nuw nsw i64 %.0223464, 1
   %exitcond.not = icmp eq i64 %155, %130
@@ -3412,6 +3418,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i294:     ; preds = %205
   %.3371466 = phi i32 [ %.0370.ph, %.lr.ph469 ], [ %.4, %262 ]
   %212 = load ptr, ptr %0, align 8, !tbaa !149
   %213 = getelementptr inbounds nuw [8224 x i8], ptr %212, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %213) ]
   %214 = load ptr, ptr %213, align 8, !tbaa !150
   %.not260 = icmp eq ptr %214, null
   br i1 %.not260, label %248, label %215
@@ -3685,6 +3692,7 @@ _Z5uiMsgIJEEv14UIMESSAGE_CODEDpOT_.exit332:       ; preds = %_ZN10uiMsgStoreC2E1
   %.0219471 = phi i64 [ 0, %.lr.ph473 ], [ %spec.select, %386 ]
   %312 = load ptr, ptr %0, align 8, !tbaa !149
   %313 = getelementptr inbounds nuw [8224 x i8], ptr %312, i64 %indvars.iv537
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %313) ]
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8208
   %315 = load i64, ptr %314, align 8, !tbaa !181
   %spec.select = call i64 @llvm.umax.i64(i64 %315, i64 %.0219471)
@@ -3953,6 +3961,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i353:     ; preds = %360
   %indvars.iv540 = phi i64 [ 0, %.lr.ph479 ], [ %indvars.iv.next541, %412 ]
   %398 = phi i32 [ 0, %.lr.ph479 ], [ %413, %412 ]
   %399 = getelementptr inbounds nuw [8224 x i8], ptr %391, i64 %indvars.iv540
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %399) ]
   %400 = load ptr, ptr %399, align 8, !tbaa !150
   %.not253 = icmp eq ptr %400, null
   br i1 %.not253, label %405, label %401
@@ -4242,6 +4251,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i359:     ; preds = %422
   %indvars.iv550 = phi i64 [ %indvars.iv.next551, %541 ], [ 0, %.preheader ]
   %531 = load ptr, ptr %0, align 8, !tbaa !149
   %532 = getelementptr inbounds nuw [8224 x i8], ptr %531, i64 %indvars.iv550
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %532) ]
   %533 = load ptr, ptr %532, align 8, !tbaa !150
   %.not244 = icmp eq ptr %533, null
   br i1 %.not244, label %541, label %534
@@ -4369,8 +4379,8 @@ define noundef range(i32 0, 65536) i32 @_ZN11RecVolumes510ReadHeaderEP4Fileb(ptr
           to label %24 unwind label %29
 
 24:                                               ; preds = %22
-  %25 = load ptr, ptr %5, align 8, !tbaa !10
-  %26 = invoke noundef i32 @_Z5CRC32jPKvm(i32 noundef %23, ptr noundef %25, i64 noundef %17)
+  %25 = load ptr, ptr %5, align 8, !tbaa !10, !nonnull !82, !noundef !82
+  %26 = invoke noundef i32 @_Z5CRC32jPKvm(i32 noundef %23, ptr noundef nonnull %25, i64 noundef %17)
           to label %27 unwind label %29
 
 27:                                               ; preds = %24
@@ -4469,6 +4479,7 @@ define noundef range(i32 0, 65536) i32 @_ZN11RecVolumes510ReadHeaderEP4Fileb(ptr
 70:                                               ; preds = %.lr.ph, %70
   %.02657 = phi i64 [ %58, %.lr.ph ], [ %72, %70 ]
   %71 = getelementptr inbounds nuw [8224 x i8], ptr %64, i64 %.02657
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %71) ]
   store ptr null, ptr %71, align 8, !tbaa !150
   %72 = add nuw nsw i64 %.02657, 1
   %exitcond.not = icmp eq i64 %72, %62
@@ -4482,6 +4493,7 @@ define noundef range(i32 0, 65536) i32 @_ZN11RecVolumes510ReadHeaderEP4Fileb(ptr
 74:                                               ; preds = %.lr.ph59
   %75 = load ptr, ptr %0, align 8, !tbaa !149
   %76 = getelementptr inbounds nuw [8224 x i8], ptr %75, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %76) ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8208
   store i64 %73, ptr %77, align 8, !tbaa !181
   %78 = invoke noundef i32 @_ZN7RawRead4Get4Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
@@ -4490,6 +4502,7 @@ define noundef range(i32 0, 65536) i32 @_ZN11RecVolumes510ReadHeaderEP4Fileb(ptr
 79:                                               ; preds = %74
   %80 = load ptr, ptr %0, align 8, !tbaa !149
   %81 = getelementptr inbounds nuw [8224 x i8], ptr %80, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %81) ]
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8200
   store i32 %78, ptr %82, align 8, !tbaa !178
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4507,6 +4520,7 @@ define noundef range(i32 0, 65536) i32 @_ZN11RecVolumes510ReadHeaderEP4Fileb(ptr
   %88 = zext i16 %46 to i64
   %89 = load ptr, ptr %0, align 8, !tbaa !149
   %90 = getelementptr inbounds nuw [8224 x i8], ptr %89, i64 %88
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %90) ]
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8200
   store i32 %54, ptr %91, align 8, !tbaa !178
   br label %92
@@ -5224,14 +5238,14 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #14
+
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

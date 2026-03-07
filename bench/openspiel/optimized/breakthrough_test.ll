@@ -560,7 +560,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit25.i: 
           to label %171 unwind label %356
 
 171:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit25.i
-  %172 = load ptr, ptr %10, align 8
+  %172 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   invoke void @_ZN10open_spiel7testing20NoChanceOutcomesTestERKNS_4GameE(ptr noundef nonnull align 8 dereferenceable(280) %172)
           to label %173 unwind label %358
 
@@ -685,7 +685,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30.i: 
           to label %_ZNSt8functionIFvRKN10open_spiel5StateEEEC2IPS4_vEEOT_.exit.i unwind label %363
 
 _ZNSt8functionIFvRKN10open_spiel5StateEEEC2IPS4_vEEOT_.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30.i
-  %219 = load ptr, ptr %13, align 8
+  %219 = load ptr, ptr %13, align 8, !nonnull !5, !noundef !5
   %220 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %220, align 8
   %221 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -908,7 +908,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit48.i: 
           to label %311 unwind label %376
 
 311:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit48.i
-  %312 = load ptr, ptr %18, align 8
+  %312 = load ptr, ptr %18, align 8, !nonnull !5, !noundef !5
   invoke void @_ZN10open_spiel7testing21RandomSimTestWithUndoERKNS_4GameEi(ptr noundef nonnull align 8 dereferenceable(280) %312, i32 noundef 1)
           to label %313 unwind label %378
 
@@ -1487,3 +1487,4 @@ attributes #15 = { noreturn }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = !{}

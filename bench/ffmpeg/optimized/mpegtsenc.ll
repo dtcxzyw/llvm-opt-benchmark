@@ -4313,7 +4313,7 @@ retransmit_si_info.exit:                          ; preds = %880, %.critedge68.i
   br label %1011
 
 .lr.ph:                                           ; preds = %.preheader, %1008
-  %.pre560563 = phi i32 [ %.pre560564, %1008 ], [ %974, %.preheader ]
+  %.pre560564 = phi i32 [ %.pre560565, %1008 ], [ %974, %.preheader ]
   %975 = phi i32 [ %1009, %1008 ], [ %974, %.preheader ]
   %.0294517 = phi i32 [ %978, %1008 ], [ 0, %.preheader ]
   %.0295516 = phi i64 [ %.1296, %1008 ], [ 9223372036854775807, %.preheader ]
@@ -4366,7 +4366,7 @@ retransmit_si_info.exit:                          ; preds = %880, %.critedge68.i
   br label %1004
 
 1004:                                             ; preds = %993, %996, %989
-  %.pre560 = phi i32 [ %.pre560.pre, %996 ], [ %.pre560563, %989 ], [ %.pre560563, %993 ]
+  %.pre560 = phi i32 [ %.pre560.pre, %996 ], [ %.pre560564, %989 ], [ %.pre560564, %993 ]
   %1005 = phi i64 [ %.pre559, %996 ], [ %988, %989 ], [ %988, %993 ]
   %1006 = phi i64 [ %.pre, %996 ], [ %991, %989 ], [ %.386, %993 ]
   %.3335 = phi i32 [ %.1333514, %996 ], [ %.1333514, %989 ], [ 1, %993 ]
@@ -4376,7 +4376,7 @@ retransmit_si_info.exit:                          ; preds = %880, %.critedge68.i
   br label %1008
 
 1008:                                             ; preds = %1004, %.lr.ph
-  %.pre560564 = phi i32 [ %.pre560, %1004 ], [ %.pre560563, %.lr.ph ]
+  %.pre560565 = phi i32 [ %.pre560, %1004 ], [ %.pre560564, %.lr.ph ]
   %1009 = phi i32 [ %.pre560, %1004 ], [ %975, %.lr.ph ]
   %.2334 = phi i32 [ %.3335, %1004 ], [ %.1333514, %.lr.ph ]
   %.3300 = phi i64 [ %.4301, %1004 ], [ %.2299515, %.lr.ph ]
@@ -4531,7 +4531,7 @@ set_af_flag.exit:                                 ; preds = %1062
   %not.or.cond9 = xor i1 %or.cond9, true
   %or.cond11 = select i1 %not.or.cond9, i1 true, i1 %1080
   %or.cond13 = select i1 %or.cond11, i1 true, i1 %29
-  br i1 %or.cond13, label %get_ts_payload_start.exit416, label %1081
+  br i1 %or.cond13, label %1093, label %1081
 
 1081:                                             ; preds = %1075
   %1082 = load i64, ptr %105, align 8, !tbaa !160
@@ -4539,36 +4539,37 @@ set_af_flag.exit:                                 ; preds = %1062
   %spec.select390 = select i1 %.not372, i32 %.4336, i32 1
   %1083 = and i8 %1076, 32
   %1084 = icmp eq i8 %1083, 0
-  br i1 %1084, label %1086, label %._crit_edge.i410
+  br i1 %1084, label %1087, label %._crit_edge.i410
 
 ._crit_edge.i410:                                 ; preds = %1081
   %.pre.i412 = load i8, ptr %121, align 1, !tbaa !21
   %1085 = or i8 %.pre.i412, 64
-  br label %1088
+  %.pre561 = load i8, ptr %119, align 4
+  %1086 = zext i8 %.pre561 to i64
+  br label %set_af_flag.exit413
 
-1086:                                             ; preds = %1081
-  %1087 = or disjoint i8 %1076, 32
-  store i8 %1087, ptr %117, align 1, !tbaa !21
+1087:                                             ; preds = %1081
+  %1088 = or disjoint i8 %1076, 32
+  store i8 %1088, ptr %117, align 1, !tbaa !21
   store i8 1, ptr %119, align 4, !tbaa !21
-  br label %1088
+  br label %set_af_flag.exit413
 
-1088:                                             ; preds = %1086, %._crit_edge.i410
-  %1089 = phi i8 [ %1076, %._crit_edge.i410 ], [ %1087, %1086 ]
-  %1090 = phi i8 [ %1085, %._crit_edge.i410 ], [ 64, %1086 ]
-  store i8 %1090, ptr %121, align 1, !tbaa !21
-  %1091 = load i8, ptr %119, align 4, !tbaa !21
-  %1092 = zext i8 %1091 to i64
-  %1093 = getelementptr inbounds nuw i8, ptr %121, i64 %1092
-  br label %get_ts_payload_start.exit416
+set_af_flag.exit413:                              ; preds = %._crit_edge.i410, %1087
+  %1089 = phi i64 [ %1086, %._crit_edge.i410 ], [ 1, %1087 ]
+  %1090 = phi i8 [ %1076, %._crit_edge.i410 ], [ %1088, %1087 ]
+  %1091 = phi i8 [ %1085, %._crit_edge.i410 ], [ 64, %1087 ]
+  store i8 %1091, ptr %121, align 1, !tbaa !21
+  %1092 = getelementptr inbounds nuw i8, ptr %121, i64 %1089
+  br label %1093
 
-get_ts_payload_start.exit416:                     ; preds = %1088, %1075
-  %1094 = phi i8 [ %1076, %1075 ], [ %1089, %1088 ]
-  %.5337 = phi i32 [ %.4336, %1075 ], [ %spec.select390, %1088 ]
-  %.1317 = phi ptr [ %.0316, %1075 ], [ %1093, %1088 ]
+1093:                                             ; preds = %set_af_flag.exit413, %1075
+  %1094 = phi i8 [ %1076, %1075 ], [ %1090, %set_af_flag.exit413 ]
+  %.5337 = phi i32 [ %.4336, %1075 ], [ %spec.select390, %set_af_flag.exit413 ]
+  %.1317 = phi ptr [ %.0316, %1075 ], [ %1092, %set_af_flag.exit413 ]
   %.not373 = icmp eq i32 %.5337, 0
   br i1 %.not373, label %1132, label %1095
 
-1095:                                             ; preds = %get_ts_payload_start.exit416
+1095:                                             ; preds = %1093
   %1096 = and i8 %1094, 32
   %1097 = icmp eq i8 %1096, 0
   br i1 %1097, label %1100, label %._crit_edge.i417
@@ -4576,8 +4577,8 @@ get_ts_payload_start.exit416:                     ; preds = %1088, %1075
 ._crit_edge.i417:                                 ; preds = %1095
   %.pre.i419 = load i8, ptr %121, align 1, !tbaa !21
   %1098 = or i8 %.pre.i419, 16
-  %.pre561 = load i8, ptr %119, align 4
-  %1099 = zext i8 %.pre561 to i64
+  %.pre562 = load i8, ptr %119, align 4
+  %1099 = zext i8 %.pre562 to i64
   br label %set_af_flag.exit420
 
 1100:                                             ; preds = %1095
@@ -4601,11 +4602,11 @@ set_af_flag.exit420:                              ; preds = %._crit_edge.i417, %
 
 1109:                                             ; preds = %set_af_flag.exit420
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.78) #12
-  %.pre562 = load i8, ptr %117, align 1, !tbaa !21
+  %.pre563 = load i8, ptr %117, align 1, !tbaa !21
   br label %1110
 
 1110:                                             ; preds = %1109, %set_af_flag.exit420
-  %1111 = phi i8 [ %.pre562, %1109 ], [ %1103, %set_af_flag.exit420 ]
+  %1111 = phi i8 [ %.pre563, %1109 ], [ %1103, %set_af_flag.exit420 ]
   %1112 = lshr i64 %1106, 25
   %1113 = trunc i64 %1112 to i8
   %.sroa.gep555 = getelementptr inbounds nuw i8, ptr %1105, i64 1
@@ -4648,8 +4649,8 @@ get_ts_payload_start.exit427:                     ; preds = %1110
   %1131 = getelementptr inbounds nuw i8, ptr %121, i64 %1130
   br label %1132
 
-1132:                                             ; preds = %get_ts_payload_start.exit427, %get_ts_payload_start.exit416
-  %.2318 = phi ptr [ %1131, %get_ts_payload_start.exit427 ], [ %.1317, %get_ts_payload_start.exit416 ]
+1132:                                             ; preds = %get_ts_payload_start.exit427, %1093
+  %.2318 = phi ptr [ %1131, %get_ts_payload_start.exit427 ], [ %.1317, %1093 ]
   br i1 %1063, label %1133, label %1286
 
 1133:                                             ; preds = %1132
@@ -4765,32 +4766,32 @@ get_pes_stream_id.exit:                           ; preds = %1158
   %1174 = getelementptr inbounds nuw i8, ptr %1170, i64 4
   %1175 = load i32, ptr %1174, align 4, !tbaa !55
   %1176 = icmp eq i32 %1175, 116
-  br i1 %1176, label %1177, label %.thread603
+  br i1 %1176, label %1177, label %.thread604
 
 1177:                                             ; preds = %1173
   %1178 = or disjoint i32 %.1329, 1
   %1179 = add nuw nsw i32 %.1340, 3
-  br label %.thread603
+  br label %.thread604
 
 1180:                                             ; preds = %1163
   %1181 = load i32, ptr %115, align 8, !tbaa !88
   %.not377 = icmp ne i32 %1181, 0
   %1182 = icmp eq i32 %1171, 1
   %or.cond494 = and i1 %1182, %.not377
-  br i1 %or.cond494, label %1183, label %.thread603
+  br i1 %or.cond494, label %1183, label %.thread604
 
 1183:                                             ; preds = %1180
   %1184 = getelementptr inbounds nuw i8, ptr %1170, i64 4
   %1185 = load i32, ptr %1184, align 4, !tbaa !55
   %1186 = icmp eq i32 %1185, 86019
-  br i1 %1186, label %1187, label %.thread603
+  br i1 %1186, label %1187, label %.thread604
 
 1187:                                             ; preds = %1183
   %1188 = or disjoint i32 %.1329, 1
   %1189 = add nuw nsw i32 %.1340, 3
-  br label %.thread603
+  br label %.thread604
 
-.thread603:                                       ; preds = %1173, %1177, %1187, %1183, %1180
+.thread604:                                       ; preds = %1173, %1177, %1187, %1183, %1180
   %.3342 = phi i32 [ %1189, %1187 ], [ %.1340, %1183 ], [ %.1340, %1180 ], [ %.1340, %1173 ], [ %1179, %1177 ]
   %.3331 = phi i32 [ %1188, %1187 ], [ %.1329, %1183 ], [ %.1329, %1180 ], [ %.1329, %1173 ], [ %1178, %1177 ]
   %.not502 = phi i1 [ false, %1187 ], [ true, %1183 ], [ true, %1180 ], [ true, %1173 ], [ false, %1177 ]
@@ -4826,9 +4827,9 @@ get_pes_stream_id.exit:                           ; preds = %1158
   %1209 = trunc nuw nsw i32 %.4343 to i8
   %1210 = getelementptr inbounds nuw i8, ptr %.2318, i64 9
   store i8 %1209, ptr %1208, align 1, !tbaa !21
-  br i1 %1165, label %.thread609, label %1211
+  br i1 %1165, label %.thread610, label %1211
 
-1211:                                             ; preds = %.thread603
+1211:                                             ; preds = %.thread604
   %1212 = lshr i32 %.3331, 2
   %1213 = and i32 %1212, 240
   %1214 = lshr i64 %spec.select394476, 29
@@ -4858,7 +4859,7 @@ get_pes_stream_id.exit:                           ; preds = %1158
   %1233 = or disjoint i8 %1232, 1
   store i8 %1233, ptr %1231, align 1, !tbaa !21
   %1234 = getelementptr inbounds nuw i8, ptr %.2318, i64 14
-  br i1 %or.cond397, label %.thread609, label %1235
+  br i1 %or.cond397, label %.thread610, label %1235
 
 1235:                                             ; preds = %1211
   %1236 = lshr i64 %spec.select393474, 29
@@ -4886,13 +4887,13 @@ get_pes_stream_id.exit:                           ; preds = %1158
   %1253 = or disjoint i8 %1252, 1
   store i8 %1253, ptr %1251, align 1, !tbaa !21
   %1254 = getelementptr inbounds nuw i8, ptr %.2318, i64 19
-  br label %.thread609
+  br label %.thread610
 
-.thread609:                                       ; preds = %.thread603, %1235, %1211
-  %.5321 = phi ptr [ %1254, %1235 ], [ %1234, %1211 ], [ %1210, %.thread603 ]
+.thread610:                                       ; preds = %.thread604, %1235, %1211
+  %.5321 = phi ptr [ %1254, %1235 ], [ %1234, %1211 ], [ %1210, %.thread604 ]
   br i1 %.not502, label %.thread477, label %1255
 
-1255:                                             ; preds = %.thread609
+1255:                                             ; preds = %.thread610
   %1256 = load ptr, ptr %24, align 8, !tbaa !54
   %1257 = getelementptr inbounds nuw i8, ptr %1256, i64 4
   %1258 = load i32, ptr %1257, align 4, !tbaa !55
@@ -4930,8 +4931,8 @@ get_pes_stream_id.exit:                           ; preds = %1158
   store i8 113, ptr %1273, align 1, !tbaa !21
   br label %.thread477
 
-.thread477:                                       ; preds = %.thread609, %1271, %1266, %1264
-  %.7 = phi ptr [ %1274, %1271 ], [ %.6, %1266 ], [ %.6, %1264 ], [ %.5321, %.thread609 ]
+.thread477:                                       ; preds = %.thread610, %1271, %1266, %1264
+  %.7 = phi ptr [ %1274, %1271 ], [ %.6, %1266 ], [ %.6, %1264 ], [ %.5321, %.thread610 ]
   br i1 %28, label %.thread480, label %1277
 
 .thread480:                                       ; preds = %.thread477
@@ -5033,7 +5034,7 @@ get_pes_stream_id.exit:                           ; preds = %1158
   %1325 = zext nneg i32 %1324 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1323, ptr align 1 %.0286533, i64 %1325, i1 false)
   store i8 -1, ptr %126, align 1, !tbaa !21
-  %.pre566 = sext i32 %spec.select401 to i64
+  %.pre567 = sext i32 %spec.select401 to i64
   br label %1330
 
 1326:                                             ; preds = %1318
@@ -5044,7 +5045,7 @@ get_pes_stream_id.exit:                           ; preds = %1158
   br label %1330
 
 1330:                                             ; preds = %1326, %1320
-  %.pre-phi = phi i64 [ %1327, %1326 ], [ %.pre566, %1320 ]
+  %.pre-phi = phi i64 [ %1327, %1326 ], [ %.pre567, %1320 ]
   %1331 = getelementptr inbounds i8, ptr %.0286533, i64 %.pre-phi
   %1332 = sub nsw i32 %.2, %spec.select401
   %1333 = load ptr, ptr %22, align 8, !tbaa !38

@@ -58,7 +58,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm22generatorPrototypeNextEPvRNS0_7Runtim
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp13.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %1 = load ptr, ptr %args, align 8, !noalias !4
+  %1 = load ptr, ptr %args, align 8, !noalias !4, !nonnull !7, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp13.i)
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %1, align 8
@@ -279,7 +279,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm31generatorPrototypeReturnOrThrowEPvRNS
 entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp13.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %0 = load ptr, ptr %args, align 8, !noalias !7
+  %0 = load ptr, ptr %args, align 8, !noalias !8, !nonnull !7, !noundef !7
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp13.i)
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %0, align 8
@@ -552,6 +552,7 @@ attributes #3 = { nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
 !6 = distinct !{!6, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
-!9 = distinct !{!9, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!7 = !{}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!10 = distinct !{!10, !"_ZNK6hermes2vm10NativeArgs5beginEv"}

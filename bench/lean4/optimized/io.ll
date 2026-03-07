@@ -99,7 +99,7 @@ $_ZTVN4lean19unreachable_reachedE = comdat any
 @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE = external unnamed_addr constant { [16 x ptr] }, align 8
 @_ZTVSt15basic_streambufIcSt11char_traitsIcEE = external unnamed_addr constant { [16 x ptr] }, align 8
 @switch.table.lean_io_prim_handle_mk = private unnamed_addr constant [4 x i32] [i32 524865, i32 524993, i32 524290, i32 525377], align 4
-@switch.table.lean_io_prim_handle_mk.13 = private unnamed_addr constant [4 x ptr] [ptr @.str.2, ptr @.str.2, ptr @.str.3, ptr @.str.4], align 8
+@switch.table.lean_io_prim_handle_mk.12 = private unnamed_addr constant [4 x ptr] [ptr @.str.2, ptr @.str.2, ptr @.str.3, ptr @.str.4], align 8
 
 ; Function Attrs: mustprogress uwtable
 define void @lean_io_result_show_error(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -310,6 +310,7 @@ define noalias nonnull ptr @lean_get_stdin(ptr noundef readnone captures(none) %
 
 _ZN4leanL24get_stream_current_stdinEv.exit:       ; preds = %1, %4
   %7 = phi ptr [ %.pre.i, %4 ], [ %3, %1 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -374,6 +375,7 @@ define noalias nonnull ptr @lean_get_stdout(ptr noundef readnone captures(none) 
 
 _ZN4leanL25get_stream_current_stdoutEv.exit:      ; preds = %1, %4
   %7 = phi ptr [ %.pre.i, %4 ], [ %3, %1 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -438,6 +440,7 @@ define noalias nonnull ptr @lean_get_stderr(ptr noundef readnone captures(none) 
 
 _ZN4leanL25get_stream_current_stderrEv.exit:      ; preds = %1, %4
   %7 = phi ptr [ %.pre.i, %4 ], [ %3, %1 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -502,6 +505,7 @@ define noalias nonnull ptr @lean_get_set_stdin(ptr noundef %0, ptr noundef readn
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %5, %2
   %8 = phi ptr [ %.pre.i, %5 ], [ %4, %2 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   store ptr %0, ptr %8, align 8, !tbaa !42
   tail call void @lean_inc_heartbeat()
@@ -544,6 +548,7 @@ define noalias nonnull ptr @lean_get_set_stdout(ptr noundef %0, ptr noundef read
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %5, %2
   %8 = phi ptr [ %.pre.i, %5 ], [ %4, %2 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   store ptr %0, ptr %8, align 8, !tbaa !42
   tail call void @lean_inc_heartbeat()
@@ -584,6 +589,7 @@ define noalias nonnull ptr @lean_get_set_stderr(ptr noundef %0, ptr noundef read
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %5, %2
   %8 = phi ptr [ %.pre.i, %5 ], [ %4, %2 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   store ptr %0, ptr %8, align 8, !tbaa !42
   tail call void @lean_inc_heartbeat()
@@ -1415,7 +1421,7 @@ switch.lookup:                                    ; preds = %3
 
 switch.lookup36:                                  ; preds = %17
   %19 = zext nneg i8 %switch.tableidx35 to i64
-  %switch.gep37 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.lean_io_prim_handle_mk.13, i64 %19
+  %switch.gep37 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.lean_io_prim_handle_mk.12, i64 %19
   %switch.load38 = load ptr, ptr %switch.gep37, align 8
   br label %20
 

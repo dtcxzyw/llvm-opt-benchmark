@@ -599,6 +599,7 @@ define hidden { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$
   store i16 %20, ptr %6, align 8, !alias.scope !77
   %21 = sub nsw i64 0, %19
   %22 = getelementptr inbounds [32 x i8], ptr %16, i64 %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
   %23 = add i64 %3, -1
   store i64 %23, ptr %2, align 8
   %24 = getelementptr inbounds i8, ptr %22, i64 -32
@@ -659,6 +660,7 @@ define hidden { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$
   store i16 %20, ptr %6, align 8, !alias.scope !80
   %21 = sub nsw i64 0, %19
   %22 = getelementptr inbounds [12 x i8], ptr %16, i64 %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
   %23 = add i64 %3, -1
   store i64 %23, ptr %2, align 8
   %24 = getelementptr inbounds i8, ptr %22, i64 -12
@@ -718,6 +720,7 @@ define hidden { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$
   store i16 %20, ptr %6, align 8, !alias.scope !83
   %21 = sub nsw i64 0, %19
   %22 = getelementptr inbounds [8 x i8], ptr %16, i64 %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
   %23 = add i64 %3, -1
   store i64 %23, ptr %2, align 8
   %24 = getelementptr inbounds i8, ptr %22, i64 -8
@@ -778,6 +781,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   store i16 %22, ptr %8, align 8, !alias.scope !86
   %23 = sub nsw i64 0, %21
   %24 = getelementptr inbounds [48 x i8], ptr %18, i64 %23
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %24) ]
   %25 = add i64 %4, -1
   store i64 %25, ptr %3, align 8
   %26 = getelementptr inbounds i8, ptr %24, i64 -48
@@ -839,6 +843,7 @@ define hidden void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u
   store i16 %22, ptr %8, align 8, !alias.scope !89
   %23 = sub nsw i64 0, %21
   %24 = getelementptr inbounds [48 x i8], ptr %18, i64 %23
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %24) ]
   %25 = add i64 %4, -1
   store i64 %25, ptr %3, align 8
   %26 = getelementptr inbounds i8, ptr %24, i64 -48
@@ -2508,6 +2513,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h235d4ce
   %28 = and i16 %25, %.lcssa.i.i
   %29 = sub nsw i64 0, %27
   %30 = getelementptr inbounds [32 x i8], ptr %.sroa.06.1.i, i64 %29
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   %31 = add i64 %.sroa.108.015.i, -1
   %32 = getelementptr inbounds i8, ptr %30, i64 -32
   tail call void @"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17he37a124145e50268E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %32), !noalias !306
@@ -2628,6 +2634,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h3e0309a
   %28 = and i16 %25, %.lcssa.i.i
   %29 = sub nsw i64 0, %27
   %30 = getelementptr inbounds [48 x i8], ptr %.sroa.06.1.i, i64 %29
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   %31 = add i64 %.sroa.108.015.i, -1
   %32 = getelementptr inbounds i8, ptr %30, i64 -48
   tail call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf784466cc816aa33E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %32), !noalias !315
@@ -2783,6 +2790,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hf42d3da
   %28 = and i16 %25, %.lcssa.i.i
   %29 = sub nsw i64 0, %27
   %30 = getelementptr inbounds [48 x i8], ptr %.sroa.06.1.i, i64 %29
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   %31 = add i64 %.sroa.108.015.i, -1
   %32 = getelementptr inbounds i8, ptr %30, i64 -24
   tail call void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$elfshaker..repo..pack..SnapshotId$GT$$GT$17h7a7382a18142bab8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32), !noalias !324
@@ -2910,6 +2918,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h6d26b9
   store i16 %21, ptr %5, align 8, !alias.scope !333
   %22 = sub nsw i64 0, %20
   %23 = getelementptr inbounds [48 x i8], ptr %17, i64 %22
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %23) ]
   %24 = add i64 %8, -1
   store i64 %24, ptr %2, align 8
   %25 = getelementptr inbounds i8, ptr %23, i64 -48
@@ -2972,6 +2981,7 @@ define hidden void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17hfb0eb2
   store i16 %21, ptr %5, align 8, !alias.scope !336
   %22 = sub nsw i64 0, %20
   %23 = getelementptr inbounds [48 x i8], ptr %17, i64 %22
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %23) ]
   %24 = add i64 %8, -1
   store i64 %24, ptr %2, align 8
   %25 = getelementptr inbounds i8, ptr %23, i64 -24

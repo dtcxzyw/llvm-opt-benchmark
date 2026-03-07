@@ -1286,6 +1286,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit267
 
 303:                                              ; preds = %299
   %304 = inttoptr i64 %.sroa.2.0.copyload to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %304) ]
   br label %.loopexit
 
 305:                                              ; preds = %301
@@ -1909,9 +1910,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit251
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %248
 
-248:                                              ; preds = %235, %209, %182, %.loopexit, %333, %"_ZN103_$LT$awc..client..connection..Connection$LT$A$C$B$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h14e60693425fc345E.exit", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258", %.critedge210
-  %.sroa.7.1 = phi ptr [ null, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ %183, %182 ], [ undef, %"_ZN103_$LT$awc..client..connection..Connection$LT$A$C$B$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h14e60693425fc345E.exit" ], [ null, %.critedge210 ], [ %334, %333 ], [ %.sroa.7.3, %.loopexit ], [ null, %209 ], [ null, %235 ]
-  %.sroa.0.1 = phi i64 [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ 0, %182 ], [ %180, %"_ZN103_$LT$awc..client..connection..Connection$LT$A$C$B$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h14e60693425fc345E.exit" ], [ 0, %.critedge210 ], [ 0, %333 ], [ %.sroa.0.3, %.loopexit ], [ 0, %209 ], [ 0, %235 ]
+248:                                              ; preds = %182, %235, %209, %.loopexit, %333, %"_ZN103_$LT$awc..client..connection..Connection$LT$A$C$B$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h14e60693425fc345E.exit", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258", %.critedge210
+  %.sroa.7.1 = phi ptr [ null, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ undef, %"_ZN103_$LT$awc..client..connection..Connection$LT$A$C$B$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h14e60693425fc345E.exit" ], [ null, %235 ], [ null, %.critedge210 ], [ %334, %333 ], [ %.sroa.7.3, %.loopexit ], [ null, %209 ], [ %183, %182 ]
+  %.sroa.0.1 = phi i64 [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ %180, %"_ZN103_$LT$awc..client..connection..Connection$LT$A$C$B$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h14e60693425fc345E.exit" ], [ 0, %235 ], [ 0, %.critedge210 ], [ 0, %333 ], [ %.sroa.0.3, %.loopexit ], [ 0, %209 ], [ 0, %182 ]
   %249 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %250 = insertvalue { i64, ptr } %249, ptr %.sroa.7.1, 1
   ret { i64, ptr } %250
@@ -2149,6 +2150,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit267
 
 331:                                              ; preds = %327
   %332 = inttoptr i64 %.sroa.2.0.copyload to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %332) ]
   br label %.loopexit
 
 333:                                              ; preds = %329
@@ -2724,9 +2726,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit251
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %229
 
-229:                                              ; preds = %216, %190, %163, %.loopexit, %320, %"_ZN102_$LT$awc..client..connection..H1Connection$LT$Io$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h3dfc97246f5a4ccdE.exit", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258", %.critedge210
-  %.sroa.7.1 = phi ptr [ null, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ %164, %163 ], [ undef, %"_ZN102_$LT$awc..client..connection..H1Connection$LT$Io$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h3dfc97246f5a4ccdE.exit" ], [ null, %.critedge210 ], [ %321, %320 ], [ %.sroa.7.3, %.loopexit ], [ null, %190 ], [ null, %216 ]
-  %.sroa.0.1 = phi i64 [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ 0, %163 ], [ %161, %"_ZN102_$LT$awc..client..connection..H1Connection$LT$Io$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h3dfc97246f5a4ccdE.exit" ], [ 0, %.critedge210 ], [ 0, %320 ], [ %.sroa.0.3, %.loopexit ], [ 0, %190 ], [ 0, %216 ]
+229:                                              ; preds = %163, %216, %190, %.loopexit, %320, %"_ZN102_$LT$awc..client..connection..H1Connection$LT$Io$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h3dfc97246f5a4ccdE.exit", %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258", %.critedge210
+  %.sroa.7.1 = phi ptr [ null, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ undef, %"_ZN102_$LT$awc..client..connection..H1Connection$LT$Io$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h3dfc97246f5a4ccdE.exit" ], [ null, %216 ], [ null, %.critedge210 ], [ %321, %320 ], [ %.sroa.7.3, %.loopexit ], [ null, %190 ], [ %164, %163 ]
+  %.sroa.0.1 = phi i64 [ 0, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit258" ], [ %161, %"_ZN102_$LT$awc..client..connection..H1Connection$LT$Io$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_flush17h3dfc97246f5a4ccdE.exit" ], [ 0, %216 ], [ 0, %.critedge210 ], [ 0, %320 ], [ %.sroa.0.3, %.loopexit ], [ 0, %190 ], [ 0, %163 ]
   %230 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %231 = insertvalue { i64, ptr } %230, ptr %.sroa.7.1, 1
   ret { i64, ptr } %231
@@ -2979,6 +2981,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit267
 
 318:                                              ; preds = %314
   %319 = inttoptr i64 %.sroa.2.0.copyload to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %319) ]
   br label %.loopexit
 
 320:                                              ; preds = %316

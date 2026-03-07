@@ -6568,6 +6568,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %Vec_WrdStart.exit
 
 Vec_WecPushLevel.exit:                            ; preds = %Vec_IntAlloc.exit.thread.i, %Vec_IntAlloc.exit.i, %45
   store i32 1, ptr %13, align 4, !tbaa !86
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %48 = icmp sgt i32 %.val135, 0
   br i1 %48, label %.lr.ph.i, label %Abc_NtkFinLocalSetup.exit
 

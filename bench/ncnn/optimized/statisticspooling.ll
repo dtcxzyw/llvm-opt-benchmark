@@ -24,7 +24,7 @@ declare void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4ncnn17StatisticsPoolingD0Ev(ptr noundef nonnull align 8 dereferenceable(212) %0) unnamed_addr #1 comdat align 2 {
   tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(212) %0) #5
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #11
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #12
   ret void
 }
 
@@ -204,6 +204,7 @@ define internal void @_ZNK4ncnn17StatisticsPooling7forwardERKNS_3MatERS1_RKNS_6O
 ._crit_edge.us:                                   ; preds = %43
   %47 = fmul fast float %46, %41
   %48 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv42
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %48) ]
   store float %47, ptr %48, align 4, !tbaa !45
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next43 to i32
@@ -302,6 +303,7 @@ define internal void @_ZNK4ncnn17StatisticsPooling7forwardERKNS_3MatERS1_RKNS_6O
   %.reass.us = mul i64 %factor.op.mul, %43
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 %.reass.us
   %45 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %43
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %45) ]
   %46 = load float, ptr %45, align 4, !tbaa !45
   br label %47
 
@@ -322,6 +324,7 @@ define internal void @_ZNK4ncnn17StatisticsPooling7forwardERKNS_3MatERS1_RKNS_6O
   %53 = call fast float @llvm.sqrt.f32(float %52)
   %54 = sext i32 %41 to i64
   %55 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %54
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %55) ]
   store float %53, ptr %55, align 4, !tbaa !45
   %56 = add nuw i32 %.03344.us, 1
   %exitcond49.not = icmp eq i32 %.03344.us, %22
@@ -332,6 +335,7 @@ define internal void @_ZNK4ncnn17StatisticsPooling7forwardERKNS_3MatERS1_RKNS_6O
   %57 = add i32 %.03344, %14
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %58
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %59) ]
   store float 0.000000e+00, ptr %59, align 4, !tbaa !45
   %60 = add nuw i32 %.03344, 1
   %exitcond.not = icmp eq i32 %.03344, %22
@@ -370,8 +374,11 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #10
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
@@ -383,8 +390,9 @@ attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync no
 attributes #7 = { nobuiltin nounwind "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { builtin nounwind }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

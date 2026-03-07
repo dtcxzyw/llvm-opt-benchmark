@@ -38,6 +38,7 @@ for.cond.i:                                       ; preds = %for.body.i, %if.end
   br i1 %cmp.i.not.i, label %_ZN12_GLOBAL__N_115OSGlobalManager4FindEj.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %it.sroa.0.0.i) ]
   %mOSGlobalID.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.0.i, i64 16
   %2 = load i32, ptr %mOSGlobalID.i, align 8
   %cmp.i = icmp eq i32 %2, %id
@@ -95,10 +96,10 @@ entry:
   br i1 %tobool.not, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @getpid() #12
+  %call = tail call i32 @getpid() #13
   %conv = sext i32 %call to i64
   %call1 = call noundef i32 (ptr, ptr, ...) @_ZN2EA4StdC7SprintfEPcPKcz(ptr noundef nonnull %uniqueName, ptr noundef nonnull @.str, i64 noundef %conv)
-  %call3 = call ptr (ptr, i32, ...) @sem_open(ptr noundef nonnull %uniqueName, i32 noundef 64, i32 noundef 420, i32 noundef 1) #12
+  %call3 = call ptr (ptr, i32, ...) @sem_open(ptr noundef nonnull %uniqueName, i32 noundef 64, i32 noundef 420, i32 noundef 1) #13
   %cmp = icmp eq ptr %call3, null
   br i1 %cmp, label %return, label %if.end
 
@@ -108,7 +109,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp6, label %if.then7, label %if.end32
 
 if.then7:                                         ; preds = %if.end
-  %call9 = call ptr @getenv(ptr noundef nonnull %uniqueName) #12
+  %call9 = call ptr @getenv(ptr noundef nonnull %uniqueName) #13
   %tobool10.not = icmp eq ptr %call9, null
   br i1 %tobool10.not, label %if.else, label %land.lhs.true
 
@@ -118,13 +119,13 @@ land.lhs.true:                                    ; preds = %if.then7
   br i1 %tobool11.not, label %if.else, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true
-  %call13 = call i64 @strtoull(ptr noundef nonnull captures(none) %call9, ptr noundef null, i32 noundef 16) #12
+  %call13 = call i64 @strtoull(ptr noundef nonnull captures(none) %call9, ptr noundef null, i32 noundef 16) #13
   %2 = inttoptr i64 %call13 to ptr
   store ptr %2, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
   br label %if.end23
 
 if.else:                                          ; preds = %land.lhs.true, %if.then7
-  %call.i = call ptr @mmap(ptr noundef null, i64 noundef 72, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #12
+  %call.i = call ptr @mmap(ptr noundef null, i64 noundef 72, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #13
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.end23.thread, label %if.then16
 
@@ -143,7 +144,7 @@ if.then16:                                        ; preds = %if.else
   store ptr %call.i, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
   %4 = ptrtoint ptr %call.i to i64
   %call18 = call noundef i32 (ptr, ptr, ...) @_ZN2EA4StdC7SprintfEPcPKcz(ptr noundef nonnull %buffer, ptr noundef nonnull @.str.4, i64 noundef %4)
-  %call21 = call i32 @setenv(ptr noundef nonnull %uniqueName, ptr noundef nonnull %buffer, i32 noundef 1) #12
+  %call21 = call i32 @setenv(ptr noundef nonnull %uniqueName, ptr noundef nonnull %buffer, i32 noundef 1) #13
   %.pr = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
   br label %if.end23
 
@@ -158,9 +159,9 @@ if.then25:                                        ; preds = %if.end23
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end23.thread, %if.then25, %if.end23
-  %call28 = call i32 @sem_post(ptr noundef nonnull %call3) #12
-  %call29 = call i32 @sem_close(ptr noundef nonnull %call3) #12
-  %call31 = call i32 @sem_unlink(ptr noundef nonnull %uniqueName) #12
+  %call28 = call i32 @sem_post(ptr noundef nonnull %call3) #13
+  %call29 = call i32 @sem_close(ptr noundef nonnull %call3) #13
+  %call31 = call i32 @sem_unlink(ptr noundef nonnull %uniqueName) #13
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end27, %if.end
@@ -192,8 +193,8 @@ if.then4.i:                                       ; preds = %if.then1.i
 
 if.then.i.i:                                      ; preds = %if.then4.i
   %mcsLock.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 24
-  call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i.i.i) #12
-  %call.i.i = call i32 @munmap(ptr noundef nonnull %11, i64 noundef 72) #12
+  call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i.i.i) #13
+  %call.i.i = call i32 @munmap(ptr noundef nonnull %11, i64 noundef 72) #13
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then4.i, %if.then1.i
@@ -202,10 +203,10 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
 
 if.end5.i:                                        ; preds = %if.end.i, %if.then.i6
   store i8 0, ptr %uniqueName.i, align 16
-  %call6.i = call i32 @getpid() #12
+  %call6.i = call i32 @getpid() #13
   %conv.i = sext i32 %call6.i to i64
   %call7.i = call noundef i32 (ptr, ptr, ...) @_ZN2EA4StdC7SprintfEPcPKcz(ptr noundef nonnull %uniqueName.i, ptr noundef nonnull @.str, i64 noundef %conv.i)
-  %call9.i = call i32 @unsetenv(ptr noundef nonnull %uniqueName.i) #12
+  %call9.i = call i32 @unsetenv(ptr noundef nonnull %uniqueName.i) #13
   br label %_ZN12_GLOBAL__N_122ShutdownOSGlobalSystemEv.exit
 
 _ZN12_GLOBAL__N_122ShutdownOSGlobalSystemEv.exit: ; preds = %if.then34, %if.end5.i
@@ -241,6 +242,7 @@ for.cond.i:                                       ; preds = %for.body.i, %if.end
   br i1 %cmp.i.not.i, label %if.then2, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %it.sroa.0.0.i) ]
   %mOSGlobalID.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.0.i, i64 16
   %2 = load i32, ptr %mOSGlobalID.i, align 8
   %cmp.i = icmp eq i32 %2, %id
@@ -344,8 +346,8 @@ if.then4.i:                                       ; preds = %if.then1.i
 
 if.then.i.i:                                      ; preds = %if.then4.i
   %mcsLock.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
-  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i.i.i) #12
-  %call.i.i6 = tail call i32 @munmap(ptr noundef nonnull %10, i64 noundef 72) #12
+  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i.i.i) #13
+  %call.i.i6 = tail call i32 @munmap(ptr noundef nonnull %10, i64 noundef 72) #13
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then4.i, %if.then1.i
@@ -354,10 +356,10 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
 
 if.end5.i:                                        ; preds = %if.end.i, %if.then.i
   store i8 0, ptr %uniqueName.i, align 16
-  %call6.i = tail call i32 @getpid() #12
+  %call6.i = tail call i32 @getpid() #13
   %conv.i = sext i32 %call6.i to i64
   %call7.i = call noundef i32 (ptr, ptr, ...) @_ZN2EA4StdC7SprintfEPcPKcz(ptr noundef nonnull %uniqueName.i, ptr noundef nonnull @.str, i64 noundef %conv.i)
-  %call9.i = call i32 @unsetenv(ptr noundef nonnull %uniqueName.i) #12
+  %call9.i = call i32 @unsetenv(ptr noundef nonnull %uniqueName.i) #13
   br label %_ZN12_GLOBAL__N_122ShutdownOSGlobalSystemEv.exit
 
 _ZN12_GLOBAL__N_122ShutdownOSGlobalSystemEv.exit: ; preds = %if.then5, %if.end5.i
@@ -395,8 +397,8 @@ if.then4.i:                                       ; preds = %if.then1.i
 
 if.then.i.i:                                      ; preds = %if.then4.i
   %mcsLock.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i.i.i) #12
-  %call.i.i = tail call i32 @munmap(ptr noundef nonnull %3, i64 noundef 72) #12
+  tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i.i.i) #13
+  %call.i.i = tail call i32 @munmap(ptr noundef nonnull %3, i64 noundef 72) #13
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then4.i, %if.then1.i
@@ -405,13 +407,13 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
 
 if.end5.i:                                        ; preds = %if.end.i, %if.then.i
   store i8 0, ptr %uniqueName.i, align 16
-  %call6.i = tail call i32 @getpid() #12
+  %call6.i = tail call i32 @getpid() #13
   %conv.i = sext i32 %call6.i to i64
   %call7.i1 = invoke noundef i32 (ptr, ptr, ...) @_ZN2EA4StdC7SprintfEPcPKcz(ptr noundef nonnull %uniqueName.i, ptr noundef nonnull @.str, i64 noundef %conv.i)
           to label %call7.i.noexc unwind label %terminate.lpad
 
 call7.i.noexc:                                    ; preds = %if.end5.i
-  %call9.i = call i32 @unsetenv(ptr noundef nonnull %uniqueName.i) #12
+  %call9.i = call i32 @unsetenv(ptr noundef nonnull %uniqueName.i) #13
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %call7.i.noexc, %entry
@@ -422,7 +424,7 @@ terminate.lpad:                                   ; preds = %if.end5.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #13
+  call void @__clang_call_terminate(ptr %5) #14
   unreachable
 }
 
@@ -479,8 +481,8 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
@@ -495,7 +497,7 @@ entry:
   store i64 2147483647, ptr @_ZN2EA6ThreadL12kTimeoutNoneE, align 8
   store i64 2147483647, ptr getelementptr inbounds nuw (i8, ptr @_ZN2EA6ThreadL12kTimeoutNoneE, i64 8), align 8
   %call.i.i = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118InitOSGlobalSystemEv()
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_123AutoinitOSGlobalManagerD2Ev, ptr nonnull @_ZN12_GLOBAL__N_124gAutoinitOSGlobalManagerE, ptr nonnull @__dso_handle) #12
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_123AutoinitOSGlobalManagerD2Ev, ptr nonnull @_ZN12_GLOBAL__N_124gAutoinitOSGlobalManagerE, ptr nonnull @__dso_handle) #13
   ret void
 }
 
@@ -504,6 +506,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -517,8 +522,9 @@ attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #9 = { cold nofree noreturn }
 attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

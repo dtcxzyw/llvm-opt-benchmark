@@ -865,6 +865,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34, %101
   %.sroa.065.077 = phi ptr [ %102, %101 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.065.077) ]
   %100 = load ptr, ptr %.sroa.065.077, align 8, !tbaa !47
   invoke void @_ZN11flatbuffers7lobster16LobsterGenerator7GenEnumERKNS_7EnumDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(312) %100, ptr noundef nonnull %1)
           to label %101 unwind label %106
@@ -890,6 +891,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
 
 .lr.ph81:                                         ; preds = %._crit_edge, %110
   %.sroa.061.079 = phi ptr [ %111, %110 ], [ %79, %._crit_edge ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.061.079) ]
   %109 = load ptr, ptr %.sroa.061.079, align 8, !tbaa !50
   invoke void @_ZN11flatbuffers7lobster16LobsterGenerator16GenStructPreDeclERKNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(328) %109, ptr noundef nonnull %1)
           to label %110 unwind label %115
@@ -920,6 +922,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
 
 .lr.ph87:                                         ; preds = %._crit_edge82, %123
   %.sroa.057.085 = phi ptr [ %124, %123 ], [ %.pre, %._crit_edge82 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.057.085) ]
   %122 = load ptr, ptr %.sroa.057.085, align 8, !tbaa !50
   invoke void @_ZN11flatbuffers7lobster16LobsterGenerator9GenStructERKNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(328) %122, ptr noundef nonnull %1)
           to label %123 unwind label %128
@@ -2229,6 +2232,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %_ZN
 
 119:                                              ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136
   %.sroa.0161.0275 = phi ptr [ %76, %.lr.ph ], [ %308, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0161.0275) ]
   %120 = load ptr, ptr %.sroa.0161.0275, align 8, !tbaa !114
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
   call void @_ZN11flatbuffers10GenCommentERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_PKNS_13CommentConfigEPKc(ptr noundef nonnull align 8 dereferenceable(24) %121, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @.str.40)
@@ -3410,6 +3414,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZN
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56, %109
   %103 = phi ptr [ %110, %109 ], [ %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56 ]
   %.sroa.0133.0137 = phi ptr [ %111, %109 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0133.0137) ]
   %104 = load ptr, ptr %.sroa.0133.0137, align 8, !tbaa !185
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 272
   %106 = load i8, ptr %105, align 8, !tbaa !187, !range !104, !noundef !105
@@ -12645,6 +12650,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1437: ; preds = %_
 2982:                                             ; preds = %.lr.ph, %3237
   %2983 = phi ptr [ %2958, %.lr.ph ], [ %3238, %3237 ]
   %.sroa.01629.01804 = phi ptr [ %2960, %.lr.ph ], [ %3239, %3237 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.01629.01804) ]
   %2984 = load ptr, ptr %.sroa.01629.01804, align 8, !tbaa !114
   %2985 = getelementptr inbounds nuw i8, ptr %2984, i64 160
   %2986 = load i64, ptr %2985, align 8, !tbaa !141
@@ -14660,6 +14666,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit208: ; preds = %_Z
 328:                                              ; preds = %.lr.ph, %872
   %329 = phi ptr [ %179, %.lr.ph ], [ %873, %872 ]
   %.sroa.0834.02422 = phi ptr [ %178, %.lr.ph ], [ %874, %872 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0834.02422) ]
   %330 = load ptr, ptr %.sroa.0834.02422, align 8, !tbaa !185
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 272
   %332 = load i8, ptr %331, align 8, !tbaa !187, !range !104, !noundef !105
@@ -16328,6 +16335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit433: ; preds = %
 875:                                              ; preds = %.lr.ph2425, %1749
   %876 = phi ptr [ %224, %.lr.ph2425 ], [ %1750, %1749 ]
   %.sroa.0829.02424 = phi ptr [ %223, %.lr.ph2425 ], [ %1751, %1749 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0829.02424) ]
   %877 = load ptr, ptr %.sroa.0829.02424, align 8, !tbaa !185
   %878 = getelementptr inbounds nuw i8, ptr %877, i64 272
   %879 = load i8, ptr %878, align 8, !tbaa !187, !range !104, !noundef !105
@@ -19413,6 +19421,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers7lobster16LobsterGenerator17
 
 40:                                               ; preds = %.lr.ph, %278
   %.sroa.0115.0189 = phi ptr [ %16, %.lr.ph ], [ %279, %278 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0115.0189) ]
   %41 = load ptr, ptr %.sroa.0115.0189, align 8, !tbaa !185
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 200
   %43 = load i32, ptr %42, align 8, !tbaa !237

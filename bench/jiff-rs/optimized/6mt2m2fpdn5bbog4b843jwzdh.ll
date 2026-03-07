@@ -10202,6 +10202,7 @@ define internal fastcc void @_ZN4jiff2tz8timezone8TimeZone22to_ambiguous_timesta
   %19 = tail call noundef i64 @_ZN5alloc4sync11data_offset17h92b7e6d7f1e1ebdcE(ptr noundef %18)
   %20 = sub nsw i64 0, %19
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %21) ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
@@ -10214,6 +10215,7 @@ define internal fastcc void @_ZN4jiff2tz8timezone8TimeZone22to_ambiguous_timesta
   %25 = tail call noundef i64 @_ZN5alloc4sync11data_offset17h06196d248641f88aE(ptr noundef %24)
   %26 = sub nsw i64 0, %25
   %27 = getelementptr inbounds i8, ptr %24, i64 %26
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %27) ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %.sroa.0.0.copyload = load i32, ptr %1, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -10332,6 +10334,7 @@ define internal fastcc void @_ZN4jiff5zoned5Zoned3new17h68851bfd65d9f17bE(ptr de
 .noexc4:                                          ; preds = %14
   %17 = sub nsw i64 0, %16
   %18 = getelementptr inbounds i8, ptr %15, i64 %17
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %18) ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = invoke noundef i32 @"_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TIMESTAMPS$C$STARTS$C$ENDS$C$INFOS$GT$9to_offset17ha32bd5048e127ddbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %19, i64 noundef %1, i32 noundef %2)
           to label %_ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit unwind label %28
@@ -10344,6 +10347,7 @@ define internal fastcc void @_ZN4jiff5zoned5Zoned3new17h68851bfd65d9f17bE(ptr de
 .noexc6:                                          ; preds = %21
   %24 = sub nsw i64 0, %23
   %25 = getelementptr inbounds i8, ptr %22, i64 %24
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %25) ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = invoke noundef i32 @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTimeZone$LT$ABBREV$GT$$GT$9to_offset17h5bbef20897e11649E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(88) %26, i64 noundef %1, i32 noundef %2)
           to label %_ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit unwind label %28

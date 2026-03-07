@@ -487,6 +487,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i.
   %.0185 = phi i64 [ 0, %.lr.ph ], [ %452, %451 ]
   %51 = load ptr, ptr %1, align 8, !tbaa !17
   %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %.0185
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %52) ]
   %53 = load i32, ptr %52, align 4, !tbaa !12
   switch i32 %53, label %203 [
     i32 34, label %54
@@ -1024,6 +1025,7 @@ _ZN7jsonnet8internalL11decode_utf8ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %storemerge6.i = phi i64 [ %361, %357 ], [ 0, %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit ]
   %.val.i = load ptr, ptr %7, align 8, !tbaa !74, !noalias !75
   %262 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %storemerge6.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %262) ]
   %263 = load i8, ptr %262, align 1, !tbaa !18
   %264 = sext i8 %263 to i32
   %265 = icmp sgt i8 %263, -1
@@ -1073,6 +1075,7 @@ _ZN7jsonnet8internalL11decode_utf8ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 291:                                              ; preds = %285
   %292 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %284
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %292) ]
   %293 = load i8, ptr %292, align 1, !tbaa !18
   %294 = zext i8 %293 to i32
   %295 = and i32 %294, 192
@@ -1109,6 +1112,7 @@ _ZN7jsonnet8internalL11decode_utf8ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 314:                                              ; preds = %308
   %315 = add i64 %storemerge6.i, 2
   %316 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %315
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %316) ]
   %317 = load i8, ptr %316, align 1, !tbaa !18
   %318 = sext i8 %317 to i32
   %319 = and i32 %318, 192
@@ -1117,6 +1121,7 @@ _ZN7jsonnet8internalL11decode_utf8ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 320:                                              ; preds = %314
   %321 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %307
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %321) ]
   %322 = load i8, ptr %321, align 1, !tbaa !18
   %323 = zext i8 %322 to i32
   %324 = and i32 %323, 192

@@ -97,6 +97,7 @@ define weak_odr dso_local void @_ZN3igl10svd3x3_sseIfEEvRKN5Eigen6MatrixIT_Li12E
   %indvars.iv = phi i64 [ 0, %.preheader1480 ], [ %indvars.iv.next, %60 ]
   %.idx1540 = mul i64 %indvars.iv, 12
   %gep1546 = getelementptr i8, ptr %gep1549, i64 %.idx1540
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %gep1546) ]
   %61 = load float, ptr %gep1546, align 4, !tbaa !10
   %62 = getelementptr inbounds nuw [4 x i8], ptr %gep, i64 %indvars.iv
   store float %61, ptr %62, align 4, !tbaa !10
@@ -816,10 +817,12 @@ define weak_odr dso_local void @_ZN3igl10svd3x3_sseIfEEvRKN5Eigen6MatrixIT_Li12E
   %716 = mul nuw nsw i64 %indvars.iv1519, 3
   %717 = add nuw nsw i64 %716, %indvars.iv1528
   %gep1497 = getelementptr [4 x i8], ptr %invariant.gep1496, i64 %717
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %gep1497) ]
   store float %715, ptr %gep1497, align 4, !tbaa !10
   %718 = getelementptr inbounds nuw [4 x i8], ptr %710, i64 %indvars.iv1519
   %719 = load float, ptr %718, align 4, !tbaa !10
   %gep1499 = getelementptr [4 x i8], ptr %invariant.gep1498, i64 %717
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %gep1499) ]
   store float %719, ptr %gep1499, align 4, !tbaa !10
   %indvars.iv.next1520 = add nuw nsw i64 %indvars.iv1519, 1
   %exitcond1522.not = icmp eq i64 %indvars.iv.next1520, 4
@@ -849,6 +852,7 @@ define weak_odr dso_local void @_ZN3igl10svd3x3_sseIfEEvRKN5Eigen6MatrixIT_Li12E
   %725 = load float, ptr %724, align 4, !tbaa !10
   %.idx1541 = mul i64 %indvars.iv1532, 12
   %gep1550 = getelementptr i8, ptr %invariant.gep, i64 %.idx1541
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %gep1550) ]
   store float %725, ptr %gep1550, align 4, !tbaa !10
   %indvars.iv.next1533 = add nuw nsw i64 %indvars.iv1532, 1
   %exitcond1535.not = icmp eq i64 %indvars.iv.next1533, 4
@@ -869,9 +873,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #3
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

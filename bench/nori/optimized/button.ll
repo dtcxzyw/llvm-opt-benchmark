@@ -182,7 +182,7 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i15:          ; preds = %_ZN7nanogui5ArrayIf
 54:                                               ; preds = %4
   %55 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #12
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #13
   resume { ptr, i32 } %55
 }
 
@@ -221,7 +221,7 @@ define hidden i64 @_ZNK7nanogui6Button14preferred_sizeEP10NVGcontext(ptr noundef
   tail call void @nvgFontSize(ptr noundef %1, float noundef %16)
   tail call void @nvgFontFace(ptr noundef %1, ptr noundef nonnull @.str)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %18 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #12
+  %18 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #13
   %19 = tail call float @nvgTextBounds(ptr noundef %1, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %18, ptr noundef null, ptr noundef null)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %21 = load i32, ptr %20, align 8
@@ -245,7 +245,7 @@ define hidden i64 @_ZNK7nanogui6Button14preferred_sizeEP10NVGcontext(ptr noundef
   tail call void @nvgFontSize(ptr noundef %1, float noundef %32)
   %33 = load i32, ptr %20, align 8
   call void @_ZN7nanogui4utf8B5cxx11Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, i32 noundef %33)
-  %34 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  %34 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   %35 = invoke float @nvgTextBounds(ptr noundef %1, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %34, ptr noundef null, ptr noundef null)
           to label %36 unwind label %41
 
@@ -254,13 +254,13 @@ define hidden i64 @_ZNK7nanogui6Button14preferred_sizeEP10NVGcontext(ptr noundef
   %38 = load i32, ptr %37, align 4
   %39 = sitofp i32 %38 to float
   %40 = call float @llvm.fmuladd.f32(float %39, float 0x3FC3333340000000, float %35)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   br label %51
 
 41:                                               ; preds = %24
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   resume { ptr, i32 } %42
 
 43:                                               ; preds = %22
@@ -379,6 +379,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Button18mouse_button_eventERKNS_5A
 
 .lr.ph:                                           ; preds = %36, %.thread
   %.sroa.090.0116 = phi ptr [ %64, %.thread ], [ %40, %36 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.090.0116) ]
   %43 = load ptr, ptr %.sroa.090.0116, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.thread, label %45
@@ -405,11 +406,11 @@ _ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopex
 
 _ZN7nanogui3refINS_6ButtonEED2Ev.exit:            ; preds = %_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit, %_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit, %_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit ], [ %lpad.loopexit108, %_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit ], [ %lpad.loopexit112, %_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %0, i1 noundef zeroext true) #12
+  call void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %0, i1 noundef zeroext true) #13
   resume { ptr, i32 } %lpad.phi
 
 45:                                               ; preds = %.lr.ph
-  %46 = call ptr @__dynamic_cast(ptr nonnull %43, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6ButtonE, i64 0) #12
+  %46 = call ptr @__dynamic_cast(ptr nonnull %43, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6ButtonE, i64 0) #13
   %47 = icmp ne ptr %46, %0
   %48 = icmp ne ptr %46, null
   %or.cond = and i1 %47, %48
@@ -455,6 +456,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %60
 
 .preheader:                                       ; preds = %30, %81
   %.sroa.086.0114 = phi ptr [ %82, %81 ], [ %32, %30 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.086.0114) ]
   %65 = load ptr, ptr %.sroa.086.0114, align 8
   %.not52 = icmp eq ptr %65, %0
   br i1 %.not52, label %81, label %66
@@ -515,12 +517,13 @@ _ZNKSt8functionIFvbEEclEb.exit65:                 ; preds = %77
 
 .lr.ph119:                                        ; preds = %85, %.thread96
   %.sroa.082.0118 = phi ptr [ %113, %.thread96 ], [ %89, %85 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.082.0118) ]
   %92 = load ptr, ptr %.sroa.082.0118, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %.thread96, label %94
 
 94:                                               ; preds = %.lr.ph119
-  %95 = call ptr @__dynamic_cast(ptr nonnull %92, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6ButtonE, i64 0) #12
+  %95 = call ptr @__dynamic_cast(ptr nonnull %92, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6ButtonE, i64 0) #13
   %96 = icmp ne ptr %95, %0
   %97 = icmp ne ptr %95, null
   %or.cond3 = and i1 %96, %97
@@ -565,7 +568,7 @@ _ZNKSt8functionIFvbEEclEb.exit70:                 ; preds = %109
   br i1 %.not103, label %._crit_edge, label %.lr.ph119
 
 ._crit_edge:                                      ; preds = %.thread96, %85
-  %114 = call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7nanogui6ButtonE, ptr nonnull @_ZTIN7nanogui11PopupButtonE, i64 0) #12
+  %114 = call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7nanogui6ButtonE, ptr nonnull @_ZTIN7nanogui11PopupButtonE, i64 0) #13
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 312
   %116 = load ptr, ptr %115, align 8
   invoke void @_ZN7nanogui6Widget13request_focusEv(ptr noundef nonnull align 8 dereferenceable(140) %116)
@@ -679,7 +682,7 @@ _ZNKSt8functionIFvbEEclEb.exit79:                 ; preds = %160
 
 _ZN7nanogui3refINS_6ButtonEED2Ev.exit81:          ; preds = %15, %_ZNKSt8functionIFvbEEclEb.exit79, %5, %19, %14, %154
   %.0 = phi i1 [ true, %154 ], [ true, %_ZNKSt8functionIFvbEEclEb.exit79 ], [ false, %15 ], [ false, %14 ], [ false, %19 ], [ false, %5 ]
-  call void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %0, i1 noundef zeroext true) #12
+  call void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %0, i1 noundef zeroext true) #13
   ret i1 %.0
 }
 
@@ -897,7 +900,7 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.preheader.critedge: ; preds =
   call void @nvgFontSize(ptr noundef %1, float noundef %127)
   call void @nvgFontFace(ptr noundef %1, ptr noundef nonnull @.str)
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %129 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %128) #12
+  %129 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %128) #13
   %130 = call float @nvgTextBounds(ptr noundef %1, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %129, ptr noundef null, ptr noundef null)
   %131 = load i32, ptr %29, align 8
   %132 = sitofp i32 %131 to float
@@ -958,14 +961,14 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.preheader.critedge: ; preds =
           to label %173 unwind label %176
 
 173:                                              ; preds = %172
-  %174 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  %174 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   %175 = invoke float @nvgTextBounds(ptr noundef %1, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %174, ptr noundef null, ptr noundef null)
           to label %187 unwind label %176
 
 176:                                              ; preds = %230, %229, %223, %219, %192, %187, %178, %173, %172, %164
   %177 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   resume { ptr, i32 } %177
 
 178:                                              ; preds = %161
@@ -985,7 +988,7 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.preheader.critedge: ; preds =
 187:                                              ; preds = %179, %173
   %.099 = phi float [ %180, %179 ], [ %171, %173 ]
   %.0 = phi float [ %186, %179 ], [ %175, %173 ]
-  %188 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull @.str.2) #12
+  %188 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull @.str.2) #13
   %.not151 = icmp eq i32 %188, 0
   %189 = load i32, ptr %41, align 4
   %190 = sitofp i32 %189 to float
@@ -1045,7 +1048,7 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.preheader.critedge: ; preds =
 
 219:                                              ; preds = %216
   %220 = fadd float %147, 1.000000e+00
-  %221 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  %221 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   %222 = invoke float @nvgText(ptr noundef %1, float noundef %.sroa.0.0, float noundef %220, ptr noundef %221, ptr noundef null)
           to label %231 unwind label %176
 
@@ -1067,7 +1070,7 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.preheader.critedge: ; preds =
           to label %231 unwind label %176
 
 231:                                              ; preds = %230, %219
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   br label %232
 
 232:                                              ; preds = %231, %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.preheader.critedge
@@ -1081,11 +1084,11 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.preheader.critedge: ; preds =
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %233, i64 208
   %.sroa.22.0.copyload = load <2 x float>, ptr %.sroa.22.0..sroa_idx, align 4
   call void @nvgFillColor(ptr noundef %1, <2 x float> %.sroa.01.0.copyload, <2 x float> %.sroa.22.0.copyload)
-  %235 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %128) #12
+  %235 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %128) #13
   %236 = call float @nvgText(ptr noundef %1, float noundef %.sroa.0115.0, float noundef %147, ptr noundef %235, ptr noundef null)
   call void @nvgFillColor(ptr noundef %1, <2 x float> %.sroa.017.0, <2 x float> %.sroa.4.0)
   %237 = fadd float %147, 1.000000e+00
-  %238 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %128) #12
+  %238 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %128) #13
   %239 = call float @nvgText(ptr noundef %1, float noundef %.sroa.0115.0, float noundef %237, ptr noundef %238, ptr noundef null)
   ret void
 }
@@ -1128,7 +1131,7 @@ define linkonce_odr hidden void @_ZN7nanogui6ButtonD2Ev(ptr noundef nonnull alig
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
   br label %_ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit: ; preds = %1, %4
@@ -1146,7 +1149,7 @@ _ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit: ; preds = %1, %4
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #14
+  tail call void @__clang_call_terminate(ptr %12) #15
   unreachable
 
 _ZNSt8functionIFvbEED2Ev.exit:                    ; preds = %_ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit, %7
@@ -1164,13 +1167,13 @@ _ZNSt8functionIFvbEED2Ev.exit:                    ; preds = %_ZNSt6vectorIPN7nan
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #14
+  tail call void @__clang_call_terminate(ptr %20) #15
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNSt8functionIFvbEED2Ev.exit, %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #12
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #13
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #13
   ret void
 }
 
@@ -1183,7 +1186,7 @@ define linkonce_odr hidden void @_ZN7nanogui6ButtonD0Ev(ptr noundef nonnull alig
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit.i, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
   br label %_ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit.i
 
 _ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit.i: ; preds = %4, %1
@@ -1201,7 +1204,7 @@ _ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit.i: ; preds = %4, %1
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #14
+  tail call void @__clang_call_terminate(ptr %12) #15
   unreachable
 
 _ZNSt8functionIFvbEED2Ev.exit.i:                  ; preds = %7, %_ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev.exit.i
@@ -1219,14 +1222,14 @@ _ZNSt8functionIFvbEED2Ev.exit.i:                  ; preds = %7, %_ZNSt6vectorIPN
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #14
+  tail call void @__clang_call_terminate(ptr %20) #15
   unreachable
 
 _ZN7nanogui6ButtonD2Ev.exit:                      ; preds = %_ZNSt8functionIFvbEED2Ev.exit.i, %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #12
-  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) #12
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #13
+  tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }
 
@@ -1250,8 +1253,8 @@ declare void @_ZN7nanogui6Widget14perform_layoutEP10NVGcontext(ptr noundef nonnu
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
-  tail call void @_ZSt9terminatev() #14
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
@@ -1274,11 +1277,14 @@ declare void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 derefere
 ; Function Attrs: nounwind
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
@@ -1291,10 +1297,11 @@ attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #8 = { cold nofree noreturn }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { builtin nounwind }
-attributes #14 = { noreturn nounwind }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { builtin nounwind }
+attributes #15 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -6192,12 +6192,13 @@ define internal fastcc range(i32 0, 2) i32 @obj_traverse_replace_i(i64 noundef %
   store i64 %26, ptr %27, align 8, !tbaa !244
   %28 = add i64 %26, 24
   %29 = inttoptr i64 %28 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %29) ]
   store ptr %29, ptr %23, align 8, !tbaa !243
   br label %obj_traverse_replace_rec.exit
 
 obj_traverse_replace_rec.exit:                    ; preds = %20, %25
   %30 = phi ptr [ %29, %25 ], [ %24, %20 ]
-  %31 = call i32 @rb_st_lookup(ptr noundef %30, i64 noundef %0, ptr noundef nonnull %4) #18
+  %31 = call i32 @rb_st_lookup(ptr noundef nonnull %30, i64 noundef %0, ptr noundef nonnull %4) #18
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %34, label %32, !prof !156
 
@@ -6217,13 +6218,14 @@ obj_traverse_replace_rec.exit:                    ; preds = %20, %25
   store i64 %37, ptr %38, align 8, !tbaa !244
   %39 = add i64 %37, 24
   %40 = inttoptr i64 %39 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %40) ]
   store ptr %40, ptr %23, align 8, !tbaa !243
   br label %obj_traverse_replace_rec.exit200
 
 obj_traverse_replace_rec.exit200:                 ; preds = %34, %36
   %41 = phi ptr [ %40, %36 ], [ %35, %34 ]
   %42 = load i64, ptr %4, align 8, !tbaa !80
-  %43 = call i32 @rb_st_insert(ptr noundef %41, i64 noundef %0, i64 noundef %42) #18
+  %43 = call i32 @rb_st_insert(ptr noundef nonnull %41, i64 noundef %0, i64 noundef %42) #18
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %45 = load i8, ptr %44, align 8, !tbaa !235, !range !98, !noundef !99
   %46 = trunc nuw i8 %45 to i1
@@ -7972,12 +7974,13 @@ define internal fastcc range(i32 0, 2) i32 @obj_traverse_i(i64 noundef %0, ptr n
   store i64 %19, ptr %20, align 8, !tbaa !273
   %21 = add i64 %19, 24
   %22 = inttoptr i64 %21 to ptr
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
   store ptr %22, ptr %16, align 8, !tbaa !272
   br label %obj_traverse_rec.exit
 
 obj_traverse_rec.exit:                            ; preds = %15, %18
   %23 = phi ptr [ %22, %18 ], [ %17, %15 ]
-  %24 = tail call i32 @rb_st_insert(ptr noundef %23, i64 noundef %0, i64 noundef 1) #18
+  %24 = tail call i32 @rb_st_insert(ptr noundef nonnull %23, i64 noundef %0, i64 noundef 1) #18
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %25, label %103, !prof !156
 

@@ -197,7 +197,7 @@ declare void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12btBox2dShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #11
+  tail call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #12
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
           to label %_ZN12btBox2dShapedlEPv.exit unwind label %2
 
@@ -205,7 +205,7 @@ define linkonce_odr dso_local void @_ZN12btBox2dShapeD0Ev(ptr noundef nonnull al
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #12
+  tail call void @__clang_call_terminate(ptr %4) #13
   unreachable
 
 _ZN12btBox2dShapedlEPv.exit:                      ; preds = %1
@@ -484,6 +484,7 @@ define linkonce_odr dso_local void @_ZNK12btBox2dShape49batchedUnitVectorGetSupp
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %11 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
   %12 = load float, ptr %10, align 4, !tbaa !7
   %13 = load float, ptr %5, align 8, !tbaa !7
   %14 = fneg float %13
@@ -791,8 +792,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #12
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #13
   unreachable
 }
 
@@ -811,6 +812,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #11
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -822,8 +826,9 @@ attributes #7 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "
 attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { cold nofree noreturn }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

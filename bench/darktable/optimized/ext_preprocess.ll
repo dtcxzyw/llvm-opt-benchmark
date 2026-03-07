@@ -44,9 +44,9 @@ define void @_ZN6LibRaw10bad_pixelsEPKc(ptr noundef nonnull align 8 dereferencea
   br i1 %.not48, label %19, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call ptr @__cxa_allocate_exception(i64 4) #11
+  %18 = tail call ptr @__cxa_allocate_exception(i64 4) #12
   store i32 6, ptr %18, align 16, !tbaa !73
-  tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #12
+  tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #13
   unreachable
 
 19:                                               ; preds = %13, %10
@@ -79,7 +79,7 @@ define void @_ZN6LibRaw10bad_pixelsEPKc(ptr noundef nonnull align 8 dereferencea
   br label %126
 
 31:                                               ; preds = %.lr.ph85, %.backedge
-  %32 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 35) #13
+  %32 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 35) #14
   %.not54 = icmp eq ptr %32, null
   br i1 %.not54, label %34, label %33
 
@@ -88,7 +88,7 @@ define void @_ZN6LibRaw10bad_pixelsEPKc(ptr noundef nonnull align 8 dereferencea
   br label %34
 
 34:                                               ; preds = %33, %31
-  %35 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4) #11
+  %35 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4) #12
   %.not55 = icmp eq i32 %35, 3
   br i1 %.not55, label %36, label %.backedge
 
@@ -245,9 +245,9 @@ define void @_ZN6LibRaw10bad_pixelsEPKc(ptr noundef nonnull align 8 dereferencea
   br i1 %.not53, label %126, label %124
 
 124:                                              ; preds = %120
-  %125 = call ptr @__cxa_allocate_exception(i64 4) #11
+  %125 = call ptr @__cxa_allocate_exception(i64 4) #12
   store i32 6, ptr %125, align 16, !tbaa !73
-  call void @__cxa_throw(ptr nonnull %125, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #12
+  call void @__cxa_throw(ptr nonnull %125, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #13
   unreachable
 
 126:                                              ; preds = %._crit_edge86, %120, %2, %.thread
@@ -298,9 +298,9 @@ define void @_ZN6LibRaw8subtractEPKc(ptr noundef nonnull align 8 captures(none) 
   br i1 %.not67, label %12, label %10
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @__cxa_allocate_exception(i64 4) #11
+  %11 = tail call ptr @__cxa_allocate_exception(i64 4) #12
   store i32 6, ptr %11, align 16, !tbaa !73
-  tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #12
+  tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #13
   unreachable
 
 12:                                               ; preds = %6, %2
@@ -382,7 +382,7 @@ define void @_ZN6LibRaw8subtractEPKc(ptr noundef nonnull align 8 captures(none) 
   br label %.outer
 
 40:                                               ; preds = %32
-  %41 = tail call i32 @isspace(i32 noundef %26) #13
+  %41 = tail call i32 @isspace(i32 noundef %26) #14
   %.not80 = icmp eq i32 %41, 0
   br i1 %.not80, label %.outer, label %42
 
@@ -442,7 +442,7 @@ define void @_ZN6LibRaw8subtractEPKc(ptr noundef nonnull align 8 captures(none) 
 .noexc:                                           ; preds = %68
   %69 = zext i16 %51 to i64
   %70 = shl nuw nsw i64 %69, 1
-  %71 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %70) #14
+  %71 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %70) #15
   tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %71, i8 0, i64 %70, i1 false), !tbaa !86
   %72 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %69
   %73 = ptrtoint ptr %72 to i64
@@ -498,6 +498,7 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc, %68
   %104 = getelementptr inbounds nuw [2 x i8], ptr %97, i64 %103
   %105 = load i16, ptr %104, align 2, !tbaa !86
   %106 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.085.0, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %106) ]
   %107 = load i16, ptr %106, align 2, !tbaa !86
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %107)
   %spec.select92 = tail call i16 @llvm.usub.sat.i16(i16 %105, i16 %rev.i)
@@ -535,9 +536,9 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc, %68
   br i1 %.not74, label %131, label %124
 
 124:                                              ; preds = %123
-  %125 = tail call ptr @__cxa_allocate_exception(i64 4) #11
+  %125 = tail call ptr @__cxa_allocate_exception(i64 4) #12
   store i32 6, ptr %125, align 16, !tbaa !73
-  invoke void @__cxa_throw(ptr nonnull %125, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #12
+  invoke void @__cxa_throw(ptr nonnull %125, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #13
           to label %135 unwind label %126
 
 126:                                              ; preds = %124, %119
@@ -549,7 +550,7 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc, %68
 128:                                              ; preds = %126
   %129 = ptrtoint ptr %.sroa.085.0 to i64
   %130 = sub i64 %.sroa.12.0, %129
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.085.0, i64 noundef %130) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.085.0, i64 noundef %130) #16
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 131:                                              ; preds = %123, %._crit_edge110
@@ -559,7 +560,7 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc, %68
 132:                                              ; preds = %131
   %133 = ptrtoint ptr %.sroa.085.0 to i64
   %134 = sub i64 %.sroa.12.0, %133
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.085.0, i64 noundef %134) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.085.0, i64 noundef %134) #16
   br label %_ZNSt6vectorItSaItEED2Ev.exit84
 
 _ZNSt6vectorItSaItEED2Ev.exit84:                  ; preds = %132, %131, %63, %.critedge.thread, %14
@@ -603,6 +604,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #10
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #11
+
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.usub.sat.i16(i16, i16) #10
 
@@ -617,11 +621,12 @@ attributes #7 = { nobuiltin allocsize(0) "approx-func-fp-math"="true" "no-signed
 attributes #8 = { nobuiltin nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { builtin allocsize(0) }
-attributes #15 = { builtin nounwind }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { builtin allocsize(0) }
+attributes #16 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

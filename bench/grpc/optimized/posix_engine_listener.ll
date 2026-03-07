@@ -2559,7 +2559,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12l
   %3 = alloca %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !159
+  %5 = load ptr, ptr %4, align 8, !tbaa !159, !nonnull !77, !noundef !77
   call void @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 1 %5)
   %6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2024072212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120) %3)
           to label %7 unwind label %10
@@ -4426,6 +4426,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit9:          ; preds = %35, %_ZN4absl12lts_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4absl12lts_2024072222internal_any_invocable12LocalInvokerILb0EvRZN17grpc_event_engine12experimental23PosixEngineListenerImpl23AsyncConnectionAcceptorC1ESt10shared_ptrINS4_11EventEngineEES7_IS5_ENS4_24ListenerSocketsContainer14ListenerSocketEEUlNS0_6StatusEE_JSD_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   tail call void @_ZSt13__invoke_implIvRZN17grpc_event_engine12experimental23PosixEngineListenerImpl23AsyncConnectionAcceptorC1ESt10shared_ptrINS1_11EventEngineEES4_IS2_ENS1_24ListenerSocketsContainer14ListenerSocketEEUlN4absl12lts_202407226StatusEE_JSC_EET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
@@ -4719,6 +4720,7 @@ declare void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBuf
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZN4absl12lts_2024072222internal_any_invocable12LocalInvokerILb0EvRZN17grpc_event_engine12experimental23PosixEngineListenerImpl23AsyncConnectionAcceptor14NotifyOnAcceptENS0_6StatusEE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE"(ptr noundef readonly captures(none) %0) #3 {
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %2 = load ptr, ptr %0, align 8, !tbaa !215
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 208
   store atomic i8 0, ptr %3 seq_cst, align 1

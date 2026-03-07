@@ -498,9 +498,9 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES4_S4_EES5_Lm0ELm3EE6__lessERKS5_S8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !nonnull !13, !noundef !13
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !nonnull !13, !noundef !13
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = load ptr, ptr %6, align 8
@@ -625,9 +625,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokenltERKS0_.exit.thread12: ; preds = 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES4_S4_EES5_Lm1ELm3EE6__lessERKS5_S8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !nonnull !13, !noundef !13
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !nonnull !13, !noundef !13
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = load ptr, ptr %6, align 8
@@ -753,8 +753,8 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES4_S4_EES5_Lm2ELm3EE6__lessERKS5_S8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %0, align 8
-  %4 = load ptr, ptr %1, align 8
+  %3 = load ptr, ptr %0, align 8, !nonnull !13, !noundef !13
+  %4 = load ptr, ptr %1, align 8, !nonnull !13, !noundef !13
   %5 = load ptr, ptr %3, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = load ptr, ptr %4, align 8
@@ -909,3 +909,4 @@ attributes #17 = { noreturn nounwind }
 !10 = distinct !{!10, !11, !"_ZSt3tieIJKN32pxrInternal_v0_24__pxrReserved__7TfTokenES2_S2_EESt5tupleIJDpRT_EES6_: argument 0"}
 !11 = distinct !{!11, !"_ZSt3tieIJKN32pxrInternal_v0_24__pxrReserved__7TfTokenES2_S2_EESt5tupleIJDpRT_EES6_"}
 !12 = distinct !{!12, !5}
+!13 = !{}

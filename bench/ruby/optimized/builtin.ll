@@ -61,7 +61,7 @@ define hidden void @rb_load_with_builtin_functions(ptr noundef %0, ptr noundef %
   %5 = sext i32 %3 to i64
   %6 = getelementptr [24 x i8], ptr @builtin_binary, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !11
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %0) #6
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %0) #5
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %bin4feature.exit.i, label %.lr.ph.i.preheader
 
@@ -77,7 +77,7 @@ bin4feature.exit.i:                               ; preds = %2
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %bin4feature.exit11.i
   %11 = phi ptr [ %18, %bin4feature.exit11.i ], [ @.str.3, %.lr.ph.i.preheader ]
   %.013.i = phi ptr [ %17, %bin4feature.exit11.i ], [ @builtin_binary, %.lr.ph.i.preheader ]
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %0) #6
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %0) #5
   %.not.i10.i = icmp eq i32 %12, 0
   br i1 %.not.i10.i, label %13, label %bin4feature.exit11.i
 
@@ -104,7 +104,7 @@ builtin_lookup.exit:                              ; preds = %bin4feature.exit11.
   br i1 %.not, label %21, label %22
 
 21:                                               ; preds = %builtin_lookup.exit
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str, ptr noundef nonnull %0) #7
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str, ptr noundef nonnull %0) #6
   unreachable
 
 22:                                               ; preds = %builtin_lookup.exit
@@ -115,15 +115,14 @@ builtin_lookup.exit:                              ; preds = %bin4feature.exit11.
   br i1 %.not10, label %27, label %26
 
 26:                                               ; preds = %22
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.1) #7
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.1) #6
   unreachable
 
 27:                                               ; preds = %22
   store ptr %1, ptr %24, align 8, !tbaa !22
-  %28 = tail call ptr @rb_iseq_ibf_load_bytes(ptr noundef nonnull %.09.lcssa.i, i64 noundef %.0) #8
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %28) ]
+  %28 = tail call nonnull ptr @rb_iseq_ibf_load_bytes(ptr noundef nonnull %.09.lcssa.i, i64 noundef %.0) #7
   store ptr null, ptr %24, align 8, !tbaa !22
-  %29 = tail call i64 @rb_iseq_eval(ptr noundef nonnull %28) #8
+  %29 = tail call i64 @rb_iseq_eval(ptr noundef nonnull %28) #7
   ret void
 }
 
@@ -132,18 +131,15 @@ declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @rb_iseq_ibf_load_bytes(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
-
 declare i64 @rb_iseq_eval(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define hidden void @rb_free_loaded_builtin_table() local_unnamed_addr #4 {
+define hidden void @rb_free_loaded_builtin_table() local_unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define hidden void @Init_builtin() local_unnamed_addr #4 {
+define hidden void @Init_builtin() local_unnamed_addr #3 {
   ret void
 }
 
@@ -154,17 +150,16 @@ define hidden void @Init_builtin_features() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { cold noreturn nounwind }
-attributes #8 = { nounwind }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) }
+attributes #6 = { cold noreturn nounwind }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

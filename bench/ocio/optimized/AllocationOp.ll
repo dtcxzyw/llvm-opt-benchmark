@@ -69,7 +69,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev14AllocationData10getCacheIDB5cxx11
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %50
 
 20:                                               ; preds = %11
-  %21 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #13
+  %21 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #14
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %10, i64 noundef %21)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %50
 
@@ -123,7 +123,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9: ; preds = %_ZStls
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %42
   %46 = load i64, ptr %28, align 8, !tbaa !41, !alias.scope !38
   %47 = add i64 %46, 1
-  call void @_ZdlPvm(ptr noundef %44, i64 noundef %47) #14
+  call void @_ZdlPvm(ptr noundef %44, i64 noundef %47) #15
   br label %.body
 
 48:                                               ; preds = %._crit_edge
@@ -138,6 +138,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 .lr.ph:                                           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12
   %.sroa.013.017 = phi ptr [ %56, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 ], [ %25, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.013.017) ]
   %52 = load float, ptr %.sroa.013.017, align 4, !tbaa !46
   %53 = fpext float %52 to double
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %53)
@@ -176,21 +177,21 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; pred
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
   %69 = load i64, ptr %67, align 8, !tbaa !41
   %70 = add i64 %69, 1
-  call void @_ZdlPvm(ptr noundef %66, i64 noundef %70) #14
+  call void @_ZdlPvm(ptr noundef %66, i64 noundef %70) #15
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %64, align 8, !tbaa !3
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %71) #13
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %71) #14
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %72) #13
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %72) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 .body:                                            ; preds = %42, %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %57
   %.pn = phi { ptr, i32 } [ %58, %57 ], [ %51, %50 ], [ %43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %43, %42 ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #13
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -225,7 +226,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit
   %11 = load i64, ptr %9, align 8, !tbaa !41
   %12 = add i64 %11, 1
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef %12) #14
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef %12) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -243,7 +244,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZStl
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4: ; preds = %13
   %18 = load i64, ptr %16, align 8, !tbaa !41
   %19 = add i64 %18, 1
-  call void @_ZdlPvm(ptr noundef %15, i64 noundef %19) #14
+  call void @_ZdlPvm(ptr noundef %15, i64 noundef %19) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4
@@ -292,6 +293,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19CreateAllocationOpsERNS_10OpRcPtrV
   br i1 %25, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %17
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %21) ]
   %26 = load float, ptr %21, align 4, !tbaa !46
   %27 = fpext float %26 to double
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -338,6 +340,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19CreateAllocationOpsERNS_10OpRcPtrV
   br i1 %43, label %.preheader39, label %.loopexit40
 
 .preheader39:                                     ; preds = %34
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %38) ]
   %44 = load float, ptr %38, align 4, !tbaa !46
   %45 = fpext float %44 to double
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -409,18 +412,18 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19CreateAllocationOpsERNS_10OpRcPtrV
   br label %66
 
 61:                                               ; preds = %3
-  %62 = tail call ptr @__cxa_allocate_exception(i64 16) #13
+  %62 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull @.str.3)
           to label %63 unwind label %64
 
 63:                                               ; preds = %61
-  tail call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #16
   unreachable
 
 64:                                               ; preds = %61
   %65 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %62) #13
+  tail call void @__cxa_free_exception(ptr nonnull %62) #14
   resume { ptr, i32 } %65
 
 66:                                               ; preds = %60, %.loopexit, %3
@@ -474,7 +477,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERK
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_AllocationOp.cpp() #10 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   ret void
 }
 
@@ -484,8 +487,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #12
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #12
+declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -499,10 +505,11 @@ attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { builtin nounwind }
-attributes #15 = { noreturn }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { builtin nounwind }
+attributes #16 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 

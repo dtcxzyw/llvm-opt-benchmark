@@ -7,7 +7,7 @@ $_ZNSt3__122__throw_overflow_errorB8ne210000EPKc = comdat any
 
 $_ZNSt14overflow_errorC2B8ne210000EPKc = comdat any
 
-@_ZNSt3__112_GLOBAL__N_112small_primesE = internal unnamed_addr constant [48 x i32] [i32 0, i32 2, i32 3, i32 5, i32 7, i32 11, i32 13, i32 17, i32 19, i32 23, i32 29, i32 31, i32 37, i32 41, i32 43, i32 47, i32 53, i32 59, i32 61, i32 67, i32 71, i32 73, i32 79, i32 83, i32 89, i32 97, i32 101, i32 103, i32 107, i32 109, i32 113, i32 127, i32 131, i32 137, i32 139, i32 149, i32 151, i32 157, i32 163, i32 167, i32 173, i32 179, i32 181, i32 191, i32 193, i32 197, i32 199, i32 211], align 16
+@_ZNSt3__112_GLOBAL__N_112small_primesE = internal constant [48 x i32] [i32 0, i32 2, i32 3, i32 5, i32 7, i32 11, i32 13, i32 17, i32 19, i32 23, i32 29, i32 31, i32 37, i32 41, i32 43, i32 47, i32 53, i32 59, i32 61, i32 67, i32 71, i32 73, i32 79, i32 83, i32 89, i32 97, i32 101, i32 103, i32 107, i32 109, i32 113, i32 127, i32 131, i32 137, i32 139, i32 149, i32 151, i32 157, i32 163, i32 167, i32 173, i32 179, i32 181, i32 191, i32 193, i32 197, i32 199, i32 211], align 16
 @_ZNSt3__112_GLOBAL__N_17indicesE = internal constant [48 x i32] [i32 1, i32 11, i32 13, i32 17, i32 19, i32 23, i32 29, i32 31, i32 37, i32 41, i32 43, i32 47, i32 53, i32 59, i32 61, i32 67, i32 71, i32 73, i32 79, i32 83, i32 89, i32 97, i32 101, i32 103, i32 107, i32 109, i32 113, i32 121, i32 127, i32 131, i32 137, i32 139, i32 143, i32 149, i32 151, i32 157, i32 163, i32 167, i32 169, i32 173, i32 179, i32 181, i32 187, i32 191, i32 193, i32 197, i32 199, i32 209], align 16
 @.str = private unnamed_addr constant [22 x i8] c"__next_prime overflow\00", align 1
 @_ZTISt14overflow_error = external constant ptr
@@ -23,6 +23,7 @@ define dso_local noundef i64 @_ZNSt3__112__next_primeEm(i64 noundef %0) local_un
   %.01015.i.i.i.i = phi i64 [ %.111.i.i.i.i, %.preheader ], [ 48, %1 ]
   %3 = lshr i64 %.01015.i.i.i.i, 1
   %4 = getelementptr inbounds nuw [4 x i8], ptr %.016.i.i.i.i, i64 %3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = zext i32 %5 to i64
   %7 = icmp samesign ugt i64 %0, %6
@@ -44,7 +45,7 @@ _ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit: ; preds = %.preheader
   br i1 %13, label %14, label %_ZNSt3__120__check_for_overflowB8ne210000ILm8EEENS_9enable_ifIXeqT_Li8EEvE4typeEm.exit
 
 14:                                               ; preds = %12
-  tail call void @_ZNSt3__122__throw_overflow_errorB8ne210000EPKc(ptr noundef nonnull @.str) #5
+  tail call void @_ZNSt3__122__throw_overflow_errorB8ne210000EPKc(ptr noundef nonnull @.str) #6
   unreachable
 
 _ZNSt3__120__check_for_overflowB8ne210000ILm8EEENS_9enable_ifIXeqT_Li8EEvE4typeEm.exit: ; preds = %12
@@ -58,6 +59,7 @@ _ZNSt3__120__check_for_overflowB8ne210000ILm8EEENS_9enable_ifIXeqT_Li8EEvE4typeE
   %.01015.i.i.i.i472 = phi i64 [ 48, %_ZNSt3__120__check_for_overflowB8ne210000ILm8EEENS_9enable_ifIXeqT_Li8EEvE4typeEm.exit ], [ %.111.i.i.i.i474, %17 ]
   %18 = lshr i64 %.01015.i.i.i.i472, 1
   %19 = getelementptr inbounds nuw [4 x i8], ptr %.016.i.i.i.i471, i64 %18
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   %20 = load i32, ptr %19, align 4, !tbaa !4
   %21 = zext i32 %20 to i64
   %22 = icmp ugt i64 %.recomposed, %21
@@ -651,18 +653,18 @@ _ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit477: ; preds = %17
 
 ; Function Attrs: inlinehint mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZNSt3__122__throw_overflow_errorB8ne210000EPKc(ptr noundef %0) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
-  %2 = tail call ptr @__cxa_allocate_exception(i64 16) #6
+  %2 = tail call ptr @__cxa_allocate_exception(i64 16) #7
   invoke void @_ZNSt14overflow_errorC2B8ne210000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %0)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTISt14overflow_error, ptr nonnull @_ZNSt14overflow_errorD1Ev) #5
+  tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTISt14overflow_error, ptr nonnull @_ZNSt14overflow_errorD1Ev) #6
   unreachable
 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %2) #6
+  tail call void @__cxa_free_exception(ptr nonnull %2) #7
   resume { ptr, i32 } %5
 }
 
@@ -687,13 +689,17 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #3
 
 declare void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #4
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #5
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { inlinehint mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold noreturn }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn }
-attributes #6 = { nounwind }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { noreturn }
+attributes #7 = { nounwind }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3}

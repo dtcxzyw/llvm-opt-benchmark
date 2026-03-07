@@ -30,7 +30,7 @@ define hidden void @_ZN5ceres8internal9CorrectorC2EdPKd(ptr noundef nonnull writ
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load double, ptr %8, align 8, !tbaa !4
-  %10 = tail call double @sqrt(double noundef %9) #9, !tbaa !8
+  %10 = tail call double @sqrt(double noundef %9) #10, !tbaa !8
   store double %10, ptr %0, align 8, !tbaa !10
   %11 = fcmp oeq double %1, 0.000000e+00
   br i1 %11, label %21, label %17
@@ -41,8 +41,8 @@ define hidden void @_ZN5ceres8internal9CorrectorC2EdPKd(ptr noundef nonnull writ
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !18
-  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.3, i32 noundef 42, i64 %16, ptr %14) #10
-  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #11
+  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.3, i32 noundef 42, i64 %16, ptr %14) #11
+  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
   unreachable
 
 17:                                               ; preds = %7
@@ -66,7 +66,7 @@ define hidden void @_ZN5ceres8internal9CorrectorC2EdPKd(ptr noundef nonnull writ
   %28 = fmul double %27, %19
   %29 = fdiv double %28, %24
   %30 = fadd double %29, 1.000000e+00
-  %31 = tail call double @sqrt(double noundef %30) #9, !tbaa !8
+  %31 = tail call double @sqrt(double noundef %30) #10, !tbaa !8
   %32 = fsub double 1.000000e+00, %31
   %33 = fsub double 1.000000e+00, %32
   %34 = fdiv double %10, %33
@@ -81,8 +81,8 @@ define hidden void @_ZN5ceres8internal9CorrectorC2EdPKd(ptr noundef nonnull writ
   %39 = load ptr, ptr %38, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !18
-  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.3, i32 noundef 93, i64 %41, ptr %39) #10
-  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #11
+  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.3, i32 noundef 93, i64 %41, ptr %39) #11
+  call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #12
   unreachable
 
 42:                                               ; preds = %26, %21
@@ -103,7 +103,7 @@ declare void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalD1Ev(ptr noun
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @_ZN5ceres8internal9Corrector16CorrectResidualsEiPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
@@ -131,6 +131,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i: ; preds
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %21, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i ]
   %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.05.i.i.i.i.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %18) ]
   %19 = load double, ptr %18, align 8, !tbaa !4
   %20 = fmul double %6, %19
   store double %20, ptr %18, align 8, !tbaa !4
@@ -154,6 +155,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .lr.ph.i17.i.i.i.i.i.i:                           ; preds = %._crit_edge.i.i.i.i.i.i, %.lr.ph.i17.i.i.i.i.i.i
   %.05.i18.i.i.i.i.i.i = phi i64 [ %29, %.lr.ph.i17.i.i.i.i.i.i ], [ %16, %._crit_edge.i.i.i.i.i.i ]
   %26 = getelementptr inbounds [8 x i8], ptr %2, i64 %.05.i18.i.i.i.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %26) ]
   %27 = load double, ptr %26, align 8, !tbaa !4
   %28 = fmul double %6, %27
   store double %28, ptr %26, align 8, !tbaa !4
@@ -164,6 +166,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
   %.021.i.i.i.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i ]
   %30 = getelementptr inbounds [8 x i8], ptr %2, i64 %.021.i.i.i.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   %31 = load <2 x double>, ptr %30, align 16, !tbaa !27
   %32 = fmul <2 x double> %24, %31
   store <2 x double> %32, ptr %30, align 16, !tbaa !27
@@ -175,7 +178,7 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideIL
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @_ZN5ceres8internal9Corrector15CorrectJacobianEiiPdS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load double, ptr %6, align 8, !tbaa !21
@@ -265,6 +268,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i: ; preds
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i ]
   %43 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.05.i.i.i.i.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %43) ]
   %44 = load double, ptr %43, align 8, !tbaa !4
   %45 = fmul double %31, %44
   store double %45, ptr %43, align 8, !tbaa !4
@@ -288,6 +292,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .lr.ph.i17.i.i.i.i.i.i:                           ; preds = %._crit_edge.i.i.i.i.i.i, %.lr.ph.i17.i.i.i.i.i.i
   %.05.i18.i.i.i.i.i.i = phi i64 [ %54, %.lr.ph.i17.i.i.i.i.i.i ], [ %41, %._crit_edge.i.i.i.i.i.i ]
   %51 = getelementptr inbounds [8 x i8], ptr %4, i64 %.05.i18.i.i.i.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %51) ]
   %52 = load double, ptr %51, align 8, !tbaa !4
   %53 = fmul double %31, %52
   store double %53, ptr %51, align 8, !tbaa !4
@@ -298,6 +303,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
   %.021.i.i.i.i.i.i = phi i64 [ %58, %.lr.ph.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i ]
   %55 = getelementptr inbounds [8 x i8], ptr %4, i64 %.021.i.i.i.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %55) ]
   %56 = load <2 x double>, ptr %55, align 16, !tbaa !27
   %57 = fmul <2 x double> %49, %56
   store <2 x double> %57, ptr %55, align 16, !tbaa !27
@@ -320,18 +326,22 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #8
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #9
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { cold }
-attributes #11 = { noreturn nounwind }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { nounwind }
+attributes #11 = { cold }
+attributes #12 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

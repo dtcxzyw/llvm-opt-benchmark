@@ -61,7 +61,7 @@ define dso_local void @_ZN19btContactConstraintD2Ev(ptr nonnull readnone align 8
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define dso_local void @_ZN19btContactConstraintD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
-  tail call void @llvm.trap() #13
+  tail call void @llvm.trap() #14
   unreachable
 }
 
@@ -488,7 +488,7 @@ define linkonce_odr dso_local void @_ZN11btRigidBody12applyImpulseERK9btVector3S
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define dso_local void @_Z22resolveSingleBilateralR11btRigidBodyRK9btVector3S0_S3_fS3_Rff(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(744) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(744) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %3, float noundef %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %5, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %6, float noundef %7) local_unnamed_addr #9 {
   %9 = load float, ptr %5, align 4, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -682,6 +682,11 @@ define dso_local void @_Z22resolveSingleBilateralR11btRigidBodyRK9btVector3S0_S3
   %196 = tail call noundef float @llvm.fmuladd.f32(float %188, float %172, float %195)
   %197 = fadd float %193, %196
   %198 = fdiv float 1.000000e+00, %197
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %47) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %98) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %98) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %48) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %71) ]
   %199 = fmul float %11, %96
   %200 = tail call float @llvm.fmuladd.f32(float %9, float %95, float %199)
   %201 = tail call noundef float @llvm.fmuladd.f32(float %15, float %97, float %200)
@@ -718,6 +723,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #13
+
 attributes #0 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -727,11 +735,12 @@ attributes #5 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: wr
 attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { noreturn nounwind }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

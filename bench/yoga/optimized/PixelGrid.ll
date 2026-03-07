@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define hidden noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %0, double noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = fmul double %0, %1
-  %6 = tail call double @fmod(double noundef %5, double noundef 1.000000e+00) #5, !tbaa !4
+  %6 = tail call double @fmod(double noundef %5, double noundef 1.000000e+00) #6, !tbaa !4
   %7 = fcmp olt double %6, 0.000000e+00
   %8 = fadd double %6, 1.000000e+00
   %.0 = select i1 %7, double %8, double %6
@@ -106,7 +106,7 @@ define hidden void @_ZN8facebook4yoga29roundLayoutResultsToPixelGridEPNS0_4NodeE
   %27 = and i8 %26, 16
   %28 = icmp ne i8 %27, 0
   %29 = fmul double %21, %9
-  %30 = tail call double @fmod(double noundef %29, double noundef 1.000000e+00) #5, !tbaa !4
+  %30 = tail call double @fmod(double noundef %29, double noundef 1.000000e+00) #6, !tbaa !4
   %31 = fcmp olt double %30, 0.000000e+00
   %32 = fadd double %30, 1.000000e+00
   %.0.i = select i1 %31, double %32, double %30
@@ -165,7 +165,7 @@ _ZN8facebook4yoga21roundValueToPixelGridEddbb.exit: ; preds = %35, %40, %_ZN8fac
   %57 = select i1 %or.cond36.i, float 0x7FF8000000000000, float %56
   tail call void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_12PhysicalEdgeE(ptr noundef nonnull align 8 dereferenceable(584) %0, float noundef %57, i32 noundef 0)
   %58 = fmul double %21, %12
-  %59 = tail call double @fmod(double noundef %58, double noundef 1.000000e+00) #5, !tbaa !4
+  %59 = tail call double @fmod(double noundef %58, double noundef 1.000000e+00) #6, !tbaa !4
   %60 = fcmp olt double %59, 0.000000e+00
   %61 = fadd double %59, 1.000000e+00
   %.0.i56 = select i1 %60, double %61, double %59
@@ -270,7 +270,7 @@ _ZN8facebook4yoga13inexactEqualsEdd.exit68:       ; preds = %100, %104, %106
   %109 = and i1 %28, %97
   %110 = and i1 %28, %.0.i65
   %111 = fmul double %25, %21
-  %112 = tail call double @fmod(double noundef %111, double noundef 1.000000e+00) #5, !tbaa !4
+  %112 = tail call double @fmod(double noundef %111, double noundef 1.000000e+00) #6, !tbaa !4
   %113 = fcmp olt double %112, 0.000000e+00
   %114 = fadd double %112, 1.000000e+00
   %.0.i69 = select i1 %113, double %114, double %112
@@ -335,7 +335,7 @@ _ZN8facebook4yoga21roundValueToPixelGridEddbb.exit77: ; preds = %117, %122, %126
   %141 = fptrunc double %140 to float
   %142 = select i1 %or.cond36.i75, float 0x7FF8000000000000, float %141
   %143 = fmul double %13, %21
-  %144 = tail call double @fmod(double noundef %143, double noundef 1.000000e+00) #5, !tbaa !4
+  %144 = tail call double @fmod(double noundef %143, double noundef 1.000000e+00) #6, !tbaa !4
   %145 = fcmp olt double %144, 0.000000e+00
   %146 = fadd double %144, 1.000000e+00
   %.0.i78 = select i1 %145, double %146, double %144
@@ -397,7 +397,7 @@ _ZN8facebook4yoga21roundValueToPixelGridEddbb.exit86: ; preds = %149, %154, %_ZN
   %173 = and i1 %28, %108
   %174 = and i1 %28, %.0.i67
   %175 = fmul double %23, %21
-  %176 = tail call double @fmod(double noundef %175, double noundef 1.000000e+00) #5, !tbaa !4
+  %176 = tail call double @fmod(double noundef %175, double noundef 1.000000e+00) #6, !tbaa !4
   %177 = fcmp olt double %176, 0.000000e+00
   %178 = fadd double %176, 1.000000e+00
   %.0.i87 = select i1 %177, double %178, double %176
@@ -462,7 +462,7 @@ _ZN8facebook4yoga21roundValueToPixelGridEddbb.exit95: ; preds = %181, %186, %190
   %205 = fptrunc double %204 to float
   %206 = select i1 %or.cond36.i93, float 0x7FF8000000000000, float %205
   %207 = fmul double %14, %21
-  %208 = tail call double @fmod(double noundef %207, double noundef 1.000000e+00) #5, !tbaa !4
+  %208 = tail call double @fmod(double noundef %207, double noundef 1.000000e+00) #6, !tbaa !4
   %209 = fcmp olt double %208, 0.000000e+00
   %210 = fadd double %208, 1.000000e+00
   %.0.i96 = select i1 %209, double %210, double %208
@@ -536,6 +536,7 @@ _ZN8facebook4yoga21roundValueToPixelGridEddbb.exit104: ; preds = %213, %218, %_Z
 
 .lr.ph:                                           ; preds = %237, %.lr.ph
   %.sroa.0105.0108 = phi ptr [ %244, %.lr.ph ], [ %239, %237 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0105.0108) ]
   %243 = load ptr, ptr %.sroa.0105.0108, align 8, !tbaa !60
   tail call void @_ZN8facebook4yoga29roundLayoutResultsToPixelGridEPNS0_4NodeEdd(ptr noundef %243, double noundef %13, double noundef %14)
   %244 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0108, i64 8
@@ -555,12 +556,16 @@ declare void @_ZN8facebook4yoga4Node18setLayoutDimensionEfNS0_9DimensionE(ptr no
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #4
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #5
+
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { nounwind }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3}

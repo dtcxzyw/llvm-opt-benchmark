@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3igl9is_planarERKN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !4
@@ -30,6 +30,7 @@ define dso_local noundef zeroext i1 @_ZN3igl9is_planarERKN5Eigen6MatrixIdLin1ELi
 12:                                               ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %gep) ]
   %13 = load double, ptr %gep, align 8, !tbaa !13
   %14 = fcmp oeq double %13, 0.000000e+00
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -44,7 +45,11 @@ define dso_local noundef zeroext i1 @_ZN3igl9is_planarERKN5Eigen6MatrixIdLin1ELi
 
 declare i32 @__gxx_personality_v0(...)
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #1
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -117,7 +117,7 @@ define weak_odr void @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt1
 21:                                               ; preds = %.noexc.i
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7Imf_3_49AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  call void @_ZN7Imf_3_49AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   resume { ptr, i32 } %22
 }
 
@@ -140,18 +140,18 @@ define weak_odr void @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt1
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
   %6 = load i64, ptr %4, align 8, !tbaa !16
   %7 = add i64 %6, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %7) #17
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %7) #18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZN7Imf_3_49AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  tail call void @_ZN7Imf_3_49AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat($_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED5Ev) align 2 {
-  tail call void @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #17
+  tail call void @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #18
   ret void
 }
 
@@ -182,7 +182,7 @@ define noundef nonnull ptr @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_strin
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE16makeNewAttributeEv() #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
+  %1 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   invoke void @_ZN7Imf_3_49AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %2 unwind label %6
@@ -200,7 +200,7 @@ define weak_odr noundef ptr @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stri
 6:                                                ; preds = %0
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 40) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 40) #18
   resume { ptr, i32 } %7
 }
 
@@ -212,7 +212,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZNK7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4copyEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
+  %2 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   invoke void @_ZN7Imf_3_49AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2)
           to label %3 unwind label %14
@@ -225,17 +225,17 @@ define weak_odr noundef ptr @_ZNK7Imf_3_414TypedAttributeINSt7__cxx1112basic_str
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %6, align 8, !tbaa !14
   store i8 0, ptr %5, align 8, !tbaa !16
-  %7 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %0, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #16
+  %7 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %0, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #17
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread.i.i.i, label %_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE.exit
 
 .thread.i.i.i:                                    ; preds = %3
-  %9 = tail call ptr @__cxa_allocate_exception(i64 72) #16
+  %9 = tail call ptr @__cxa_allocate_exception(i64 72) #17
   invoke void @_ZN7Iex_3_47TypeExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull @.str)
           to label %10 unwind label %11
 
 10:                                               ; preds = %.thread.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN7Iex_3_47TypeExcE, ptr nonnull @_ZN7Iex_3_47TypeExcD1Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN7Iex_3_47TypeExcE, ptr nonnull @_ZN7Iex_3_47TypeExcD1Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %14, %11
@@ -245,7 +245,7 @@ common.resume:                                    ; preds = %14, %11
 11:                                               ; preds = %.thread.i.i.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %9) #16
+  tail call void @__cxa_free_exception(ptr nonnull %9) #17
   br label %common.resume
 
 _ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE.exit: ; preds = %3
@@ -256,29 +256,29 @@ _ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 14:                                               ; preds = %1
   %15 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 40) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 40) #18
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13copyValueFromERKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %1, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #16
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %1, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread.i.i, label %_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4castERKNS_9AttributeE.exit
 
 .thread.i.i:                                      ; preds = %2
-  %5 = tail call ptr @__cxa_allocate_exception(i64 72) #16
+  %5 = tail call ptr @__cxa_allocate_exception(i64 72) #17
   invoke void @_ZN7Iex_3_47TypeExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str)
           to label %6 unwind label %7
 
 6:                                                ; preds = %.thread.i.i
-  tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN7Iex_3_47TypeExcE, ptr nonnull @_ZN7Iex_3_47TypeExcD1Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN7Iex_3_47TypeExcE, ptr nonnull @_ZN7Iex_3_47TypeExcD1Ev) #20
   unreachable
 
 7:                                                ; preds = %.thread.i.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %5) #16
+  tail call void @__cxa_free_exception(ptr nonnull %5) #17
   resume { ptr, i32 } %8
 
 _ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4castERKNS_9AttributeE.exit: ; preds = %2
@@ -290,23 +290,23 @@ _ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4castERKNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #16
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.thread.i, label %_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4castEPKNS_9AttributeE.exit
 
 .thread.i:                                        ; preds = %1
-  %4 = tail call ptr @__cxa_allocate_exception(i64 72) #16
+  %4 = tail call ptr @__cxa_allocate_exception(i64 72) #17
   invoke void @_ZN7Iex_3_47TypeExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull @.str)
           to label %5 unwind label %6
 
 5:                                                ; preds = %.thread.i
-  tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN7Iex_3_47TypeExcE, ptr nonnull @_ZN7Iex_3_47TypeExcD1Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN7Iex_3_47TypeExcE, ptr nonnull @_ZN7Iex_3_47TypeExcD1Ev) #20
   unreachable
 
 6:                                                ; preds = %.thread.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %4) #16
+  tail call void @__cxa_free_exception(ptr nonnull %4) #17
   resume { ptr, i32 } %7
 
 _ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4castEPKNS_9AttributeE.exit: ; preds = %1
@@ -319,23 +319,23 @@ define weak_odr noundef ptr @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stri
   br i1 %2, label %.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #16
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #17
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %10
 
 .thread:                                          ; preds = %1, %3
-  %6 = tail call ptr @__cxa_allocate_exception(i64 72) #16
+  %6 = tail call ptr @__cxa_allocate_exception(i64 72) #17
   invoke void @_ZN7Iex_3_47TypeExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull @.str)
           to label %7 unwind label %8
 
 7:                                                ; preds = %.thread
-  tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN7Iex_3_47TypeExcE, ptr nonnull @_ZN7Iex_3_47TypeExcD1Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN7Iex_3_47TypeExcE, ptr nonnull @_ZN7Iex_3_47TypeExcD1Ev) #20
   unreachable
 
 8:                                                ; preds = %.thread
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %6) #16
+  tail call void @__cxa_free_exception(ptr nonnull %6) #17
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -363,23 +363,23 @@ define weak_odr noundef ptr @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stri
   br i1 %2, label %.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #16
+  %4 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #17
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %10
 
 .thread:                                          ; preds = %1, %3
-  %6 = tail call ptr @__cxa_allocate_exception(i64 72) #16
+  %6 = tail call ptr @__cxa_allocate_exception(i64 72) #17
   invoke void @_ZN7Iex_3_47TypeExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull @.str)
           to label %7 unwind label %8
 
 7:                                                ; preds = %.thread
-  tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN7Iex_3_47TypeExcE, ptr nonnull @_ZN7Iex_3_47TypeExcD1Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN7Iex_3_47TypeExcE, ptr nonnull @_ZN7Iex_3_47TypeExcD1Ev) #20
   unreachable
 
 8:                                                ; preds = %.thread
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %6) #16
+  tail call void @__cxa_free_exception(ptr nonnull %6) #17
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %3
@@ -388,23 +388,23 @@ define weak_odr noundef ptr @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stri
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4castERNS_9AttributeE(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #16
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7Imf_3_49AttributeE, ptr nonnull @_ZTIN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0) #17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.thread.i, label %_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4castEPNS_9AttributeE.exit
 
 .thread.i:                                        ; preds = %1
-  %4 = tail call ptr @__cxa_allocate_exception(i64 72) #16
+  %4 = tail call ptr @__cxa_allocate_exception(i64 72) #17
   invoke void @_ZN7Iex_3_47TypeExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull @.str)
           to label %5 unwind label %6
 
 5:                                                ; preds = %.thread.i
-  tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN7Iex_3_47TypeExcE, ptr nonnull @_ZN7Iex_3_47TypeExcD1Ev) #19
+  tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTIN7Iex_3_47TypeExcE, ptr nonnull @_ZN7Iex_3_47TypeExcD1Ev) #20
   unreachable
 
 6:                                                ; preds = %.thread.i
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %4) #16
+  tail call void @__cxa_free_exception(ptr nonnull %4) #17
   resume { ptr, i32 } %7
 
 _ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4castEPNS_9AttributeE.exit: ; preds = %1
@@ -448,6 +448,7 @@ define void @_ZNK7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_tr
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %10 = load ptr, ptr %5, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
   %12 = load i8, ptr %11, align 1, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %12, ptr %4, align 1, !tbaa !16
@@ -480,6 +481,7 @@ define void @_ZN7Imf_3_414TypedAttributeINSt7__cxx1112basic_stringIcSt11char_tra
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   %10 = load ptr, ptr %1, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
@@ -501,7 +503,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERK
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_ImfStringAttribute.cpp() #14 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
   ret void
 }
 
@@ -510,6 +512,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #16
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -527,10 +532,11 @@ attributes #12 = { cold noreturn }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nounwind }
-attributes #17 = { builtin nounwind }
-attributes #18 = { builtin allocsize(0) }
-attributes #19 = { noreturn }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #17 = { nounwind }
+attributes #18 = { builtin nounwind }
+attributes #19 = { builtin allocsize(0) }
+attributes #20 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 

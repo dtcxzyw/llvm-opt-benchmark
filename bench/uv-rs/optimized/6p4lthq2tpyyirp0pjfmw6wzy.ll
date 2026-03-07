@@ -1490,7 +1490,6 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg12value_parser17h31820b2ef3
           to label %29 unwind label %27
 
 9:                                                ; preds = %3
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false), !noalias !412
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 200
   tail call void @llvm.experimental.noalias.scope.decl(metadata !413)

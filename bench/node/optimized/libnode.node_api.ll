@@ -6445,6 +6445,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt5queueIPvSt5de
   %18 = phi ptr [ %17, %for.body.lr.ph.i.i.i.i ], [ %storemerge.i.i.i.i.i.i, %_ZNSt5queueIPvSt5dequeIS0_SaIS0_EEE3popEv.exit.i.i.i.i ]
   %19 = load ptr, ptr %call_js_cb.i.i.i.i, align 8
   %20 = load ptr, ptr %context.i.i.i.i, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %18) ]
   %21 = load ptr, ptr %18, align 8
   call void %19(ptr noundef null, ptr noundef null, ptr noundef %20, ptr noundef %21) #22
   %22 = load ptr, ptr %_M_start.i.i.i.i.i.i, align 8
@@ -6807,6 +6808,7 @@ if.else.i.i:                                      ; preds = %while.body.i
   br i1 %cmp.not.not.i.i, label %if.then13.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.else.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   %10 = load ptr, ptr %9, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 -8
   %cmp.not.i.i.i.i = icmp eq ptr %9, %add.ptr.i.i.i.i
@@ -7314,9 +7316,9 @@ if.then.i.i.i.i.i19:                              ; preds = %if.else
   br label %if.end65
 
 if.else31:                                        ; preds = %entry
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %2, i64 %__nodes_to_add)
+  %4 = tail call i64 @llvm.umax.i64(i64 %2, i64 %__nodes_to_add)
   %add37 = add i64 %2, 2
-  %add38 = add i64 %add37, %.sroa.speculated
+  %add38 = add i64 %add37, %4
   %cmp.i.i.i = icmp ugt i64 %add38, 1152921504606846975
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt11_Deque_baseIPvSaIS0_EE15_M_allocate_mapEm.exit
 
@@ -7351,8 +7353,8 @@ if.then.i.i.i.i.i28:                              ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPPvS2_ET0_T_S4_S3_.exit30
 
 _ZSt4copyIPPPvS2_ET0_T_S4_S3_.exit30:             ; preds = %_ZNSt11_Deque_baseIPvSaIS0_EE15_M_allocate_mapEm.exit, %if.then.i.i.i.i.i28
-  %4 = load ptr, ptr %this, align 8
-  tail call void @_ZdlPv(ptr noundef %4) #25
+  %5 = load ptr, ptr %this, align 8
+  tail call void @_ZdlPv(ptr noundef %5) #25
   store ptr %call5.i.i.i, ptr %this, align 8
   store i64 %add38, ptr %_M_map_size, align 8
   br label %if.end65
@@ -7360,19 +7362,19 @@ _ZSt4copyIPPPvS2_ET0_T_S4_S3_.exit30:             ; preds = %_ZNSt11_Deque_baseI
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPPvS2_ET0_T_S4_S3_.exit30
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPvS2_ET0_T_S4_S3_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
-  %5 = load ptr, ptr %__new_nstart.0, align 8
+  %6 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 512
+  store ptr %6, ptr %_M_first.i, align 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 512
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
-  %6 = load ptr, ptr %add.ptr71, align 8
+  %7 = load ptr, ptr %add.ptr71, align 8
   %_M_first.i32 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr %6, ptr %_M_first.i32, align 8
-  %add.ptr.i33 = getelementptr inbounds nuw i8, ptr %6, i64 512
+  store ptr %7, ptr %_M_first.i32, align 8
+  %add.ptr.i33 = getelementptr inbounds nuw i8, ptr %7, i64 512
   %_M_last.i34 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i33, ptr %_M_last.i34, align 8
   ret void
@@ -7931,17 +7933,17 @@ entry:
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #17
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #19
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #20
+declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21
@@ -7964,9 +7966,9 @@ attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #15 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #21 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { nounwind }
 attributes #23 = { noreturn nounwind }

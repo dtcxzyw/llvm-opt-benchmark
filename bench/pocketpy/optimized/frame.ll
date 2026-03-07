@@ -487,6 +487,7 @@ define noundef zeroext i1 @_ZN4pkpy5Frame25jump_to_exception_handlerEPNS_10Value
   %12 = sext i32 %11 to i64
   %13 = load ptr, ptr %10, align 8
   %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %12
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %14) ]
   %.02134 = load i32, ptr %14, align 4
   %15 = icmp sgt i32 %.02134, -1
   br i1 %15, label %.lr.ph, label %.loopexit
@@ -506,6 +507,7 @@ define noundef zeroext i1 @_ZN4pkpy5Frame25jump_to_exception_handlerEPNS_10Value
   %.02135 = phi i32 [ %.02134, %.lr.ph ], [ %.021, %18 ]
   %22 = zext nneg i32 %.02135 to i64
   %23 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %22
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %23) ]
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 4
   br i1 %25, label %26, label %18
@@ -520,6 +522,7 @@ define noundef zeroext i1 @_ZN4pkpy5Frame25jump_to_exception_handlerEPNS_10Value
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 304
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %22
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %34) ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %3, align 4
@@ -605,6 +608,7 @@ define noundef zeroext i1 @_ZN4pkpy5Frame25jump_to_exception_handlerEPNS_10Value
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 304
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw [24 x i8], ptr %79, i64 %22
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %80) ]
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load i32, ptr %81, align 4
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -723,7 +727,7 @@ declare void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) 
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define noundef i32 @_ZN4pkpy5Frame11_exit_blockEPNS_10ValueStackEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -731,6 +735,7 @@ define noundef i32 @_ZN4pkpy5Frame11_exit_blockEPNS_10ValueStackEi(ptr noundef n
   %7 = sext i32 %2 to i64
   %8 = load ptr, ptr %6, align 8
   %9 = getelementptr inbounds [24 x i8], ptr %8, i64 %7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, -3
   %or.cond = icmp eq i32 %11, 1
@@ -749,6 +754,7 @@ define noundef i32 @_ZN4pkpy5Frame11_exit_blockEPNS_10ValueStackEi(ptr noundef n
 16:                                               ; preds = %3, %12
   %17 = phi ptr [ %8, %3 ], [ %.pre6, %12 ]
   %18 = getelementptr inbounds [24 x i8], ptr %17, i64 %7
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %18) ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   ret i32 %20
@@ -763,6 +769,7 @@ define void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnu
   %8 = sext i32 %7 to i64
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds [4 x i8], ptr %9, i64 %8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %12, align 4
@@ -793,6 +800,7 @@ define void @_ZN4pkpy5Frame14jump_abs_breakEPNS_10ValueStackEi(ptr noundef nonnu
   %27 = zext nneg i32 %.020 to i64
   %28 = load ptr, ptr %26, align 8
   %29 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %27
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %29) ]
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, -3
   %or.cond.i = icmp eq i32 %31, 1
@@ -811,6 +819,7 @@ _ZN4pkpy5Frame11_exit_blockEPNS_10ValueStackEi.exit: ; preds = %24, %32
   %35 = phi ptr [ %25, %24 ], [ %.pre.i, %32 ]
   %36 = phi ptr [ %28, %24 ], [ %.pre6.i, %32 ]
   %37 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %27
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %37) ]
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %39, -1
@@ -819,6 +828,7 @@ _ZN4pkpy5Frame11_exit_blockEPNS_10ValueStackEi.exit: ; preds = %24, %32
 41:                                               ; preds = %3
   %42 = load ptr, ptr %6, align 8
   %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %13
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %43) ]
   %44 = load i32, ptr %43, align 4
   %45 = icmp sgt i32 %11, -1
   %46 = icmp ne i32 %11, %44
@@ -836,6 +846,7 @@ _ZN4pkpy5Frame11_exit_blockEPNS_10ValueStackEi.exit: ; preds = %24, %32
   %52 = zext nneg i32 %.121 to i64
   %53 = load ptr, ptr %51, align 8
   %54 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %52
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %54) ]
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, -3
   %or.cond.i15 = icmp eq i32 %56, 1
@@ -854,6 +865,7 @@ _ZN4pkpy5Frame11_exit_blockEPNS_10ValueStackEi.exit19: ; preds = %49, %57
   %60 = phi ptr [ %50, %49 ], [ %.pre.i16, %57 ]
   %61 = phi ptr [ %53, %49 ], [ %.pre6.i18, %57 ]
   %62 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %52
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %62) ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = icmp sgt i32 %64, -1
@@ -1854,7 +1866,7 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold noreturn }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { cold nofree noreturn }
 attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

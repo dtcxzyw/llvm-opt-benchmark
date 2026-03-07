@@ -3170,6 +3170,7 @@ _ZNSt6vectorI6b2Vec2SaIS0_EE6resizeEm.exit27:     ; preds = %32, %30, %29, %27
   %85 = fadd float %84, 0.000000e+00
   %86 = load ptr, ptr %3, align 8, !tbaa !152
   %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %87) ]
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %87, align 4
   %88 = fsub float %74, %52
   %.sroa.02.0.vec.insert.i = insertelement <2 x float> poison, float %88, i64 0
@@ -3177,6 +3178,7 @@ _ZNSt6vectorI6b2Vec2SaIS0_EE6resizeEm.exit27:     ; preds = %32, %30, %29, %27
   %.sroa.02.4.vec.insert.i = insertelement <2 x float> %.sroa.02.0.vec.insert.i, float %89, i64 1
   %90 = load ptr, ptr %4, align 8, !tbaa !152
   %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %91) ]
   store <2 x float> %.sroa.02.4.vec.insert.i, ptr %91, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10000
@@ -3572,10 +3574,12 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast4StepER8Settings(ptr nound
   %37 = sext i32 %36 to i64
   %38 = load ptr, ptr %10, align 8, !tbaa !152
   %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %37
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %39) ]
   %.sroa.082.0.copyload = load <2 x float>, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %41 = load ptr, ptr %40, align 8, !tbaa !152
   %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %37
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %42) ]
   %.sroa.078.0.copyload = load <2 x float>, ptr %42, align 4
   %.sroa.02.4.vec.insert.i = fadd <2 x float> %.sroa.082.0.copyload, %.sroa.078.0.copyload
   call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.082.0.copyload, <2 x float> %.sroa.02.4.vec.insert.i, i32 noundef 16777215)
@@ -3592,9 +3596,11 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast4StepER8Settings(ptr nound
   %.sroa.498.0204 = phi <2 x float> [ zeroinitializer, %.lr.ph210 ], [ %.sroa.498.1, %43 ]
   %44 = load ptr, ptr %10, align 8, !tbaa !152
   %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv235
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %45) ]
   %.sroa.091.0.copyload = load <2 x float>, ptr %45, align 4
   %46 = load ptr, ptr %24, align 8, !tbaa !152
   %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv235
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %47) ]
   %.sroa.090.0.copyload = load <2 x float>, ptr %47, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.089.0.copyload = load i32, ptr %25, align 4
@@ -3665,10 +3671,12 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast4StepER8Settings(ptr nound
   %76 = sext i32 %75 to i64
   %77 = load ptr, ptr %10, align 8, !tbaa !152
   %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %76
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %78) ]
   %.sroa.050.0.copyload = load <2 x float>, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %80 = load ptr, ptr %79, align 8, !tbaa !152
   %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %76
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %81) ]
   %.sroa.045.0.copyload = load <2 x float>, ptr %81, align 4
   %foldExtExtBinop260 = fadd <2 x float> %.sroa.050.0.copyload, %.sroa.045.0.copyload
   %foldExtExtBinop262 = fadd <2 x float> %.sroa.050.0.copyload, %.sroa.045.0.copyload
@@ -3688,9 +3696,11 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast4StepER8Settings(ptr nound
   %.sroa.071.0188 = phi <2 x float> [ zeroinitializer, %.lr.ph195 ], [ %.sroa.071.1, %82 ]
   %83 = load ptr, ptr %10, align 8, !tbaa !152
   %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv231
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %84) ]
   %.sroa.063.0.copyload = load <2 x float>, ptr %84, align 4
   %85 = load ptr, ptr %65, align 8, !tbaa !152
   %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv231
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %86) ]
   %.sroa.062.0.copyload = load <2 x float>, ptr %86, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.059.0.copyload = load i32, ptr %66, align 4
@@ -3778,6 +3788,7 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast4StepER8Settings(ptr nound
   %123 = sext i32 %122 to i64
   %124 = load ptr, ptr %10, align 8, !tbaa !152
   %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %123
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %125) ]
   %.sroa.09.0.copyload = load <2 x float>, ptr %125, align 4
   %.sroa.01.0.vec.extract.i153 = extractelement <2 x float> %.sroa.09.0.copyload, i64 0
   %126 = fsub float %.sroa.01.0.vec.extract.i153, %110
@@ -3804,6 +3815,7 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast4StepER8Settings(ptr nound
   %.3139178 = phi i32 [ 0, %.lr.ph ], [ %145, %143 ]
   %132 = load ptr, ptr %10, align 8, !tbaa !152
   %133 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %133) ]
   %.sroa.024.0.copyload = load <2 x float>, ptr %133, align 4
   %.sroa.01.0.vec.extract.i165 = extractelement <2 x float> %.sroa.024.0.copyload, i64 0
   %134 = fsub float %.sroa.01.0.vec.extract.i165, %110
@@ -4013,7 +4025,7 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast8UpdateUIEv(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorI6b2Vec2SaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %48, label %3
+  br i1 %.not, label %49, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4059,7 +4071,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI6b2Vec2SaIS0_EE17_M_default_app
 _ZSt27__uninitialized_default_n_aIP6b2Vec2mS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %19
   %.0.i.i.i = phi ptr [ %20, %19 ], [ %24, %.lr.ph.i.i.i.i.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !151
-  br label %48
+  br label %49
 
 27:                                               ; preds = %3
   %28 = icmp ult i64 %17, %1
@@ -4070,57 +4082,57 @@ _ZSt27__uninitialized_default_n_aIP6b2Vec2mS0_ET_S2_T0_RSaIT1_E.exit: ; preds = 
   unreachable
 
 _ZNKSt6vectorI6b2Vec2SaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %27
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %10, i64 %1)
-  %30 = add nuw nsw i64 %.sroa.speculated.i, %10
-  %31 = tail call i64 @llvm.umin.i64(i64 %30, i64 1152921504606846975)
-  %32 = shl nuw nsw i64 %31, 3
-  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #19
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %9
-  store i64 0, ptr %34, align 4
-  %35 = add nsw i64 %1, -1
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %_ZSt27__uninitialized_default_n_aIP6b2Vec2mS0_ET_S2_T0_RSaIT1_E.exit35, label %37
+  %30 = tail call i64 @llvm.umax.i64(i64 %10, i64 %1)
+  %31 = add nuw nsw i64 %30, %10
+  %32 = tail call i64 @llvm.umin.i64(i64 %31, i64 1152921504606846975)
+  %33 = shl nuw nsw i64 %32, 3
+  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #19
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %9
+  store i64 0, ptr %35, align 4
+  %36 = add nsw i64 %1, -1
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %_ZSt27__uninitialized_default_n_aIP6b2Vec2mS0_ET_S2_T0_RSaIT1_E.exit35, label %38
 
-37:                                               ; preds = %_ZNKSt6vectorI6b2Vec2SaIS0_EE12_M_check_lenEmPKc.exit
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %.idx.i.i.i.i.i30 = shl nuw nsw i64 %35, 3
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i.i.i30
+38:                                               ; preds = %_ZNKSt6vectorI6b2Vec2SaIS0_EE12_M_check_lenEmPKc.exit
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %.idx.i.i.i.i.i30 = shl nuw nsw i64 %36, 3
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i.i.i.i.i30
   br label %.lr.ph.i.i.i.i.i.i.i31
 
-.lr.ph.i.i.i.i.i.i.i31:                           ; preds = %.lr.ph.i.i.i.i.i.i.i31, %37
-  %.06.i.i.i.i.i.i.i32 = phi ptr [ %41, %.lr.ph.i.i.i.i.i.i.i31 ], [ %38, %37 ]
-  %40 = load i64, ptr %34, align 4
-  store i64 %40, ptr %.06.i.i.i.i.i.i.i32, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i32, i64 8
-  %.not.i.i.i.i.i.i.i33 = icmp eq ptr %41, %39
+.lr.ph.i.i.i.i.i.i.i31:                           ; preds = %.lr.ph.i.i.i.i.i.i.i31, %38
+  %.06.i.i.i.i.i.i.i32 = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i.i31 ], [ %39, %38 ]
+  %41 = load i64, ptr %35, align 4
+  store i64 %41, ptr %.06.i.i.i.i.i.i.i32, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i32, i64 8
+  %.not.i.i.i.i.i.i.i33 = icmp eq ptr %42, %40
   br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt27__uninitialized_default_n_aIP6b2Vec2mS0_ET_S2_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i.i.i.i.i31, !llvm.loop !169
 
 _ZSt27__uninitialized_default_n_aIP6b2Vec2mS0_ET_S2_T0_RSaIT1_E.exit35: ; preds = %.lr.ph.i.i.i.i.i.i.i31, %_ZNKSt6vectorI6b2Vec2SaIS0_EE12_M_check_lenEmPKc.exit
-  %42 = icmp sgt i64 %9, 0
-  br i1 %42, label %43, label %_ZNSt6vectorI6b2Vec2SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
+  %43 = icmp sgt i64 %9, 0
+  br i1 %43, label %44, label %_ZNSt6vectorI6b2Vec2SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
 
-43:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP6b2Vec2mS0_ET_S2_T0_RSaIT1_E.exit35
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %33, ptr align 4 %6, i64 %9, i1 false)
+44:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP6b2Vec2mS0_ET_S2_T0_RSaIT1_E.exit35
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %34, ptr align 4 %6, i64 %9, i1 false)
   br label %_ZNSt6vectorI6b2Vec2SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
 
-_ZNSt6vectorI6b2Vec2SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt27__uninitialized_default_n_aIP6b2Vec2mS0_ET_S2_T0_RSaIT1_E.exit35, %43
+_ZNSt6vectorI6b2Vec2SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt27__uninitialized_default_n_aIP6b2Vec2mS0_ET_S2_T0_RSaIT1_E.exit35, %44
   %.not.i37 = icmp eq ptr %6, null
-  br i1 %.not.i37, label %_ZNSt12_Vector_baseI6b2Vec2SaIS0_EE13_M_deallocateEPS0_m.exit38, label %44
+  br i1 %.not.i37, label %_ZNSt12_Vector_baseI6b2Vec2SaIS0_EE13_M_deallocateEPS0_m.exit38, label %45
 
-44:                                               ; preds = %_ZNSt6vectorI6b2Vec2SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
-  %45 = sub i64 %13, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %45) #20
+45:                                               ; preds = %_ZNSt6vectorI6b2Vec2SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
+  %46 = sub i64 %13, %8
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %46) #20
   br label %_ZNSt12_Vector_baseI6b2Vec2SaIS0_EE13_M_deallocateEPS0_m.exit38
 
-_ZNSt12_Vector_baseI6b2Vec2SaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds = %_ZNSt6vectorI6b2Vec2SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %44
-  store ptr %33, ptr %0, align 8, !tbaa !152
-  %46 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %1
-  store ptr %46, ptr %4, align 8, !tbaa !151
-  %47 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
-  store ptr %47, ptr %11, align 8, !tbaa !154
-  br label %48
+_ZNSt12_Vector_baseI6b2Vec2SaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds = %_ZNSt6vectorI6b2Vec2SaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %45
+  store ptr %34, ptr %0, align 8, !tbaa !152
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %1
+  store ptr %47, ptr %4, align 8, !tbaa !151
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
+  store ptr %48, ptr %11, align 8, !tbaa !154
+  br label %49
 
-48:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP6b2Vec2mS0_ET_S2_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseI6b2Vec2SaIS0_EE13_M_deallocateEPS0_m.exit38, %2
+49:                                               ; preds = %_ZSt27__uninitialized_default_n_aIP6b2Vec2mS0_ET_S2_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseI6b2Vec2SaIS0_EE13_M_deallocateEPS0_m.exit38, %2
   ret void
 }
 
@@ -4285,10 +4297,10 @@ declare void @llvm.assume(i1 noundef) #16
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+declare i64 @llvm.umax.i64(i64, i64) #18
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

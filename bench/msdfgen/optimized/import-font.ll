@@ -902,6 +902,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIN7msdf
   %8 = phi ptr [ %20, %for.body ], [ %6, %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit ]
   %9 = load ptr, ptr %axes, align 8
   %add.ptr.i12 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i12) ]
   %axis7 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %axis7, align 8
   %arrayidx = getelementptr inbounds nuw [48 x i8], ptr %10, i64 %indvars.iv
@@ -1032,10 +1033,10 @@ if.then.i:                                        ; preds = %if.else
   unreachable
 
 _ZNKSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %3 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
-  %mul.i.i.i = shl nuw nsw i64 %3, 5
+  %3 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
+  %add.i = add nuw nsw i64 %3, %sub.ptr.div.i
+  %4 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 288230376151711743)
+  %mul.i.i.i = shl nuw nsw i64 %4, 5
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #16
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, i8 0, i64 32, i1 false)
@@ -1076,7 +1077,7 @@ _ZNSt12_Vector_baseIN7msdfgen17FontVariationAxisESaIS1_EE13_M_deallocateEPS1_m.e
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds nuw [32 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -1100,10 +1101,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
+declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare i64 @llvm.umax.i64(i64, i64) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

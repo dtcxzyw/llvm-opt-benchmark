@@ -298,6 +298,7 @@ _ZNSt6vectorIP13disasm_insn_tSaIS1_EED2Ev.exit:   ; preds = %._crit_edge, %67
 
 .lr.ph:                                           ; preds = %61, %98
   %.sroa.0162.0289 = phi ptr [ %99, %98 ], [ %62, %61 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0162.0289) ]
   %97 = load ptr, ptr %.sroa.0162.0289, align 8, !tbaa !35
   invoke void @_ZN14disassembler_t8add_insnEP13disasm_insn_t(ptr noundef nonnull align 8 dereferenceable(6144) %47, ptr noundef %97)
           to label %98 unwind label %101
@@ -451,6 +452,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit.thread: ; 
 167:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit
   %168 = add i64 %159, 5
   %169 = getelementptr inbounds nuw i8, ptr %149, i64 %168
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %169) ]
   %170 = load i8, ptr %169, align 1, !tbaa !12
   %171 = icmp eq i8 %170, 48
   br i1 %171, label %172, label %178
@@ -458,6 +460,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit.thread: ; 
 172:                                              ; preds = %167
   %173 = getelementptr i8, ptr %149, i64 %159
   %174 = getelementptr i8, ptr %173, i64 6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %174) ]
   %175 = load i8, ptr %174, align 1, !tbaa !12
   switch i8 %175, label %178 [
     i8 120, label %176
@@ -723,7 +726,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   store i64 0, ptr %118, align 8, !tbaa !9, !noalias !68
   store i8 0, ptr %117, align 8, !tbaa !12, !noalias !68
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %257 = load ptr, ptr %4, align 8, !tbaa !60
+  %257 = load ptr, ptr %4, align 8, !tbaa !60, !nonnull !25, !noundef !25
   %258 = ptrtoint ptr %185 to i64
   %259 = ptrtoint ptr %257 to i64
   %260 = sub i64 %258, %259
@@ -792,7 +795,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i70
   br label %278
 
 277:                                              ; preds = %._crit_edge.i.i.i69
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %274, ptr align 1 %265, i64 %266, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %274, ptr nonnull align 1 %265, i64 %266, i1 false)
   br label %278
 
 278:                                              ; preds = %277, %275, %._crit_edge.i.i.i69
@@ -1753,7 +1756,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_0E9_M_invokeERKS
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #18 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
@@ -1785,7 +1788,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_1E9_M_invokeERKS
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPKcEZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #18 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ4mainE3$_1E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
@@ -1864,7 +1867,7 @@ attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #15 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

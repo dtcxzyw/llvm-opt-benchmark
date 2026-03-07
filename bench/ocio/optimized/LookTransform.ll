@@ -859,6 +859,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12BuildLookOpsERNS_10OpRcPtrVecERSt1
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %16
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
   tail call fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113RunLookTokensERNS_10OpRcPtrVecERSt10shared_ptrIKNS_10ColorSpaceEEbRKNS_6ConfigERKS3_IKNS_7ContextEERKSt6vectorINS_15LookParseResult5TokenESaISI_EE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(24) %12)
   br label %219
 
@@ -1041,6 +1042,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit
 _ZN19OpenColorIO_v2_5dev10OpRcPtrVec5clearEv.exit: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev10ColorSpaceEEaSERKS3_.exit, %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i.i.i
   %93 = load ptr, ptr %11, align 8, !tbaa !53
   %94 = getelementptr inbounds nuw [24 x i8], ptr %93, i64 %32
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %94) ]
   invoke fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113RunLookTokensERNS_10OpRcPtrVecERSt10shared_ptrIKNS_10ColorSpaceEEbRKNS_6ConfigERKS3_IKNS_7ContextEERKSt6vectorINS_15LookParseResult5TokenESaISI_EE(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(24) %94)
           to label %130 unwind label %95
 
@@ -1076,6 +1078,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %103, %1
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit46: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %108 = load ptr, ptr %11, align 8, !tbaa !53
   %109 = getelementptr inbounds nuw [24 x i8], ptr %108, i64 %32
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke void @_ZN19OpenColorIO_v2_5dev15LookParseResult9serializeERSoRKSt6vectorINS0_5TokenESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %109)
           to label %110 unwind label %105
 
@@ -1581,7 +1584,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %30 = load ptr, ptr %0, align 8, !tbaa !63
+  %30 = load ptr, ptr %0, align 8, !tbaa !63, !nonnull !39, !noundef !39
   %31 = invoke noundef ptr @_ZN19OpenColorIO_v2_5dev21LooksResultColorSpaceERKNS_6ConfigERKSt10shared_ptrIKNS_7ContextEERKNS_15LookParseResultE(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %32 unwind label %68
 
@@ -2633,6 +2636,7 @@ define internal fastcc void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113RunLookToke
   %47 = phi i64 [ 0, %.lr.ph ], [ %556, %552 ]
   %.067292 = phi i32 [ 0, %.lr.ph ], [ %555, %552 ]
   %48 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %47
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %48) ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !32
   %51 = icmp eq i64 %50, 0
@@ -2795,6 +2799,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %93
 104:                                              ; preds = %103
   %105 = load ptr, ptr %5, align 8, !tbaa !66
   %106 = getelementptr inbounds nuw [40 x i8], ptr %105, i64 %47
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %106) ]
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %108 = load i32, ptr %107, align 8, !tbaa !89
   switch i32 %108, label %385 [
@@ -3553,6 +3558,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit151: ; preds = %392
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit153: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit151
   %395 = load ptr, ptr %5, align 8, !tbaa !66
   %396 = getelementptr inbounds nuw [40 x i8], ptr %395, i64 %47
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %396) ]
   %397 = load ptr, ptr %396, align 8, !tbaa !45
   %398 = getelementptr inbounds nuw i8, ptr %396, i64 8
   %399 = load i64, ptr %398, align 8, !tbaa !32
@@ -4241,6 +4247,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %90,
 98:                                               ; preds = %.lr.ph90, %._crit_edge
   %.388 = phi i1 [ %narrow, %.lr.ph90 ], [ %.4.lcssa, %._crit_edge ]
   %.sroa.072.087 = phi ptr [ %57, %.lr.ph90 ], [ %102, %._crit_edge ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.072.087) ]
   %99 = load ptr, ptr %.sroa.072.087, align 8, !tbaa !84
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.072.087, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !84
@@ -4256,6 +4263,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %90,
 .lr.ph:                                           ; preds = %98, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev4LookELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %.485 = phi i1 [ %.5, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev4LookELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.388, %98 ]
   %.sroa.068.084 = phi ptr [ %138, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev4LookELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %99, %98 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.068.084) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %103 = load ptr, ptr %.sroa.068.084, align 8, !tbaa !45
   invoke void @_ZNK19OpenColorIO_v2_5dev6Config7getLookEPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.40") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %103)

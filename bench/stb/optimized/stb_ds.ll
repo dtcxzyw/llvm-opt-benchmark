@@ -41,7 +41,7 @@ define ptr @stbds_arrgrowf(ptr noundef captures(address_is_null, ret: address, p
   %15 = select i1 %.not, ptr null, ptr %14
   %16 = mul i64 %.1, %1
   %17 = add i64 %16, 32
-  %18 = tail call ptr @realloc(ptr noundef %15, i64 noundef %17) #20
+  %18 = tail call ptr @realloc(ptr noundef %15, i64 noundef %17) #21
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   br i1 %.not, label %20, label %22
 
@@ -70,7 +70,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @stbds_arrfreef(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
-  tail call void @free(ptr noundef nonnull %2) #21
+  tail call void @free(ptr noundef nonnull %2) #22
   ret void
 }
 
@@ -579,11 +579,11 @@ define range(i32 0, 2) i32 @stbds_is_key_equal(ptr noundef readonly captures(non
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr %11, align 8, !tbaa !36
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %13) #22
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %13) #23
   br label %17
 
 15:                                               ; preds = %7
-  %16 = tail call i32 @memcmp(ptr noundef %2, ptr noundef %11, i64 noundef %3) #22
+  %16 = tail call i32 @memcmp(ptr noundef %2, ptr noundef %11, i64 noundef %3) #23
   br label %17
 
 17:                                               ; preds = %15, %12
@@ -627,7 +627,7 @@ define void @stbds_hmfree_func(ptr noundef captures(address_is_null) %0, i64 nou
   %14 = mul i64 %.013, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !36
-  tail call void @free(ptr noundef %16) #21
+  tail call void @free(ptr noundef %16) #22
   %17 = add nuw i64 %.013, 1
   %18 = load i64, ptr %5, align 8, !tbaa !3
   %19 = icmp ult i64 %17, %18
@@ -647,7 +647,7 @@ define void @stbds_hmfree_func(ptr noundef captures(address_is_null) %0, i64 nou
 .lr.ph.i:                                         ; preds = %.loopexit, %.lr.ph.i
   %.07.i = phi ptr [ %23, %.lr.ph.i ], [ %22, %.loopexit ]
   %23 = load ptr, ptr %.07.i, align 8, !tbaa !41
-  tail call void @free(ptr noundef nonnull %.07.i) #21
+  tail call void @free(ptr noundef nonnull %.07.i) #22
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %stbds_strreset.exit, label %.lr.ph.i, !llvm.loop !43
 
@@ -658,8 +658,8 @@ stbds_strreset.exit:                              ; preds = %.lr.ph.i, %.loopexi
 
 24:                                               ; preds = %stbds_strreset.exit, %4
   %25 = phi ptr [ %.pre14, %stbds_strreset.exit ], [ null, %4 ]
-  tail call void @free(ptr noundef %25) #21
-  tail call void @free(ptr noundef nonnull %5) #21
+  tail call void @free(ptr noundef %25) #22
+  tail call void @free(ptr noundef nonnull %5) #22
   br label %26
 
 26:                                               ; preds = %2, %24
@@ -675,7 +675,7 @@ define void @stbds_strreset(ptr noundef captures(none) %0) local_unnamed_addr #1
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.07 = phi ptr [ %3, %.lr.ph ], [ %2, %1 ]
   %3 = load ptr, ptr %.07, align 8, !tbaa !41
-  tail call void @free(ptr noundef nonnull %.07) #21
+  tail call void @free(ptr noundef nonnull %.07) #22
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
@@ -834,7 +834,7 @@ stbds_is_key_equal.exit.us:                       ; preds = %.split.us
   %107 = mul i64 %106, %1
   %gep.us = getelementptr i8, ptr %invariant.gep, i64 %107
   %108 = load ptr, ptr %gep.us, align 8, !tbaa !36
-  %109 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %108) #22
+  %109 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %108) #23
   %.0.in.i.not.us = icmp eq i32 %109, 0
   br i1 %.0.in.i.not.us, label %.split82.us, label %110
 
@@ -867,7 +867,7 @@ stbds_is_key_equal.exit71.us:                     ; preds = %.lr.ph.split.us
   %119 = mul i64 %118, %1
   %gep85.us = getelementptr i8, ptr %invariant.gep, i64 %119
   %120 = load ptr, ptr %gep85.us, align 8, !tbaa !36
-  %121 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %120) #22
+  %121 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %120) #23
   %.0.in.i69.not.us = icmp eq i32 %121, 0
   br i1 %.0.in.i69.not.us, label %.split88.us, label %122
 
@@ -1101,7 +1101,7 @@ define ptr @stbds_hmput_default(ptr noundef captures(address, ret: address, prov
   %19 = select i1 %.not.i, ptr null, ptr %18
   %20 = mul i64 %.1.i, %1
   %21 = add i64 %20, 32
-  %22 = tail call ptr @realloc(ptr noundef %19, i64 noundef %21) #20
+  %22 = tail call ptr @realloc(ptr noundef %19, i64 noundef %21) #21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   br i1 %.not.i, label %24, label %._crit_edge
 
@@ -1218,7 +1218,7 @@ define ptr @stbds_hmput_key(ptr noundef captures(address, ret: address, provenan
   %49 = load i64, ptr %48, align 8, !tbaa !18
   %50 = shl i64 %49, 1
   %51 = tail call ptr @stbds_make_hash_index(i64 noundef %50, ptr noundef nonnull %19)
-  tail call void @free(ptr noundef nonnull %19) #21
+  tail call void @free(ptr noundef nonnull %19) #22
   br label %52
 
 52:                                               ; preds = %.split171, %47
@@ -1386,7 +1386,7 @@ stbds_is_key_equal.exit.us:                       ; preds = %.split.us
   %159 = mul i64 %158, %1
   %160 = getelementptr inbounds nuw i8, ptr %.0159, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !36
-  %162 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %161) #22
+  %162 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %161) #23
   %.0.in.i.not.us = icmp eq i32 %162, 0
   br i1 %.0.in.i.not.us, label %.split259.us, label %163
 
@@ -1479,11 +1479,11 @@ stbds_is_key_equal.exit.thread:                   ; preds = %.split
 
 199:                                              ; preds = %194
   %200 = load ptr, ptr %198, align 8, !tbaa !36
-  %201 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %200) #22
+  %201 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %200) #23
   br label %stbds_is_key_equal.exit189
 
 202:                                              ; preds = %194
-  %203 = tail call i32 @memcmp(ptr noundef readonly %2, ptr noundef readonly %198, i64 noundef %3) #22
+  %203 = tail call i32 @memcmp(ptr noundef readonly %2, ptr noundef readonly %198, i64 noundef %3) #23
   br label %stbds_is_key_equal.exit189
 
 stbds_is_key_equal.exit189:                       ; preds = %199, %202
@@ -1566,7 +1566,7 @@ stbds_is_key_equal.exit189:                       ; preds = %199, %202
   %.1.i321.ph = select i1 %239, i64 %238, i64 %spec.store.select.i
   %240 = mul i64 %.1.i321.ph, %1
   %241 = add i64 %240, 32
-  %242 = tail call ptr @realloc(ptr noundef nonnull %17, i64 noundef %241) #20
+  %242 = tail call ptr @realloc(ptr noundef nonnull %17, i64 noundef %241) #21
   br label %247
 
 243:                                              ; preds = %228
@@ -1616,7 +1616,7 @@ stbds_arrgrowf.exit:                              ; preds = %247, %232
   ]
 
 267:                                              ; preds = %stbds_arrgrowf.exit
-  %268 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #22
+  %268 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #23
   %269 = add i64 %268, 1
   %malloc.i192 = tail call noalias noundef ptr @malloc(i64 %269)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %malloc.i192, ptr nonnull readonly align 1 %2, i64 %269, i1 false)
@@ -1630,7 +1630,7 @@ stbds_arrgrowf.exit:                              ; preds = %247, %232
 
 274:                                              ; preds = %stbds_arrgrowf.exit
   %275 = getelementptr inbounds nuw i8, ptr %54, i64 72
-  %276 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #22
+  %276 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #23
   %277 = add i64 %276, 1
   %278 = getelementptr inbounds nuw i8, ptr %54, i64 80
   %279 = load i64, ptr %278, align 8, !tbaa !49
@@ -1702,6 +1702,7 @@ stbds_arrgrowf.exit:                              ; preds = %247, %232
 
 stbds_stralloc.exit:                              ; preds = %295, %297, %301
   %.1.i193 = phi ptr [ %307, %301 ], [ %293, %295 ], [ %293, %297 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.1.i193) ]
   %309 = mul i64 %254, %1
   %310 = getelementptr inbounds nuw i8, ptr %.1160, i64 %309
   store ptr %.1.i193, ptr %310, align 8, !tbaa !36
@@ -1736,7 +1737,7 @@ stbds_stralloc.exit:                              ; preds = %295, %297, %301
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @stbds_strdup(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
+  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
   %3 = add i64 %2, 1
   %malloc = tail call ptr @malloc(i64 %3)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %malloc, ptr nonnull align 1 %0, i64 %3, i1 false)
@@ -1745,7 +1746,7 @@ define noalias noundef ptr @stbds_strdup(ptr noundef readonly captures(none) %0)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define nonnull ptr @stbds_stralloc(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #15 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
   %4 = add i64 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !49
@@ -1932,7 +1933,7 @@ define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_nul
   %43 = mul i64 %27, %1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !36
-  tail call void @free(ptr noundef %45) #21
+  tail call void @free(ptr noundef %45) #22
   br label %46
 
 46:                                               ; preds = %42, %38
@@ -2011,7 +2012,7 @@ define noundef ptr @stbds_hmdel_key(ptr noundef returned captures(address_is_nul
   %.sink100 = phi i64 [ %80, %79 ], [ %88, %86 ]
   %89 = tail call ptr @stbds_make_hash_index(i64 noundef %.sink100, ptr noundef nonnull %13)
   store ptr %89, ptr %12, align 8, !tbaa !37
-  tail call void @free(ptr noundef nonnull %13) #21
+  tail call void @free(ptr noundef nonnull %13) #22
   br label %90
 
 90:                                               ; preds = %.sink.split, %8, %81, %16, %6
@@ -2036,6 +2037,9 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #17
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #20
+
 attributes #0 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2056,9 +2060,10 @@ attributes #16 = { mustprogress nofree nounwind willreturn memory(readwrite, arg
 attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #20 = { nounwind allocsize(1) }
-attributes #21 = { nounwind }
-attributes #22 = { nounwind willreturn memory(read) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #21 = { nounwind allocsize(1) }
+attributes #22 = { nounwind }
+attributes #23 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -1552,6 +1552,7 @@ _ZNSolsEPFRSoS_E.exit134:                         ; preds = %.noexc245
   %.01011249 = phi i64 [ %.1102, %2031 ], [ 0, %.preheader ]
   %.01041248 = phi i64 [ %2032, %2031 ], [ 0, %.preheader ]
   %557 = getelementptr inbounds nuw [32 x i8], ptr %556, i64 %.01041248
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %557) ]
   %558 = load ptr, ptr %557, align 8, !tbaa !60
   %559 = invoke noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef %558, ptr noundef nonnull %517)
           to label %560 unwind label %561
@@ -1571,7 +1572,7 @@ _ZNSolsEPFRSoS_E.exit134:                         ; preds = %.noexc245
           to label %565 unwind label %648
 
 565:                                              ; preds = %563
-  %566 = load ptr, ptr %65, align 8, !tbaa !52
+  %566 = load ptr, ptr %65, align 8, !tbaa !52, !nonnull !51, !noundef !51
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   invoke void @_ZN3ozz3log3LogC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %41)
           to label %.noexc unwind label %650
@@ -1985,7 +1986,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE9_M_creat
           to label %707 unwind label %769
 
 707:                                              ; preds = %703
-  %708 = load ptr, ptr %65, align 8, !tbaa !52
+  %708 = load ptr, ptr %65, align 8, !tbaa !52, !nonnull !51, !noundef !51
   %709 = invoke noundef zeroext i1 @_ZN3ozz9animation7offline18ProcessMotionTrackERNS1_11OzzImporterEPKcRKNS1_12RawAnimationERKNS0_8SkeletonERKN4Json5ValueENS_10EndiannessEPS6_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %558, ptr noundef nonnull align 8 dereferenceable(64) %69, ptr noundef nonnull align 8 dereferenceable(56) %708, ptr noundef nonnull align 8 dereferenceable(32) %706, i32 noundef %2, ptr noundef nonnull %72)
           to label %710 unwind label %769
 
@@ -2482,6 +2483,7 @@ _ZNK4Json18ValueConstIteratordeEv.exit.i:         ; preds = %859
   %.0106516.i = phi i1 [ false, %.lr.ph.i ], [ %.1107.i, %1012 ]
   %884 = load ptr, ptr %843, align 8, !tbaa !109
   %885 = getelementptr inbounds nuw [8 x i8], ptr %884, i64 %indvars.iv.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %885) ]
   %886 = load ptr, ptr %885, align 8, !tbaa !113
   %887 = invoke noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef %886, ptr noundef %871)
           to label %888 unwind label %1002
@@ -3079,6 +3081,7 @@ _ZNSolsEPFRSoS_E.exit200.i:                       ; preds = %.noexc342.i
   %.03317.i.i = phi i64 [ %1108, %.lr.ph.i.i ], [ 0, %1091 ]
   %.03416.i.i = phi i64 [ %1117, %.lr.ph.i.i ], [ 0, %1091 ]
   %.sroa.09.015.i.i = phi ptr [ %1118, %.lr.ph.i.i ], [ %.val165.i, %1091 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.09.015.i.i) ]
   %1092 = getelementptr inbounds nuw i8, ptr %.sroa.09.015.i.i, i64 8
   %1093 = load ptr, ptr %1092, align 8, !tbaa !119
   %1094 = load ptr, ptr %.sroa.09.015.i.i, align 8, !tbaa !83
@@ -3142,6 +3145,7 @@ _ZNSolsEPFRSoS_E.exit200.i:                       ; preds = %.noexc342.i
   %.03624.i.i = phi i64 [ %1144, %.lr.ph26.i.i ], [ 0, %.preheader.i.i ]
   %.03723.i.i = phi i64 [ %1153, %.lr.ph26.i.i ], [ 0, %.preheader.i.i ]
   %.sroa.05.022.i.i = phi ptr [ %1154, %.lr.ph26.i.i ], [ %.val.i, %.preheader.i.i ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.05.022.i.i) ]
   %1128 = getelementptr inbounds nuw i8, ptr %.sroa.05.022.i.i, i64 8
   %1129 = load ptr, ptr %1128, align 8, !tbaa !119
   %1130 = load ptr, ptr %.sroa.05.022.i.i, align 8, !tbaa !83
@@ -3875,6 +3879,7 @@ _ZNSt6vectorIN3ozz4math9TransformENS0_12StdAllocatorIS2_EEEC2EmRKS4_.exit.i.i: ;
   %indvars.iv39.i.i = phi i64 [ 0, %.lr.ph.i215.i ], [ %indvars.iv.next40.i.i, %.critedge.i.i ]
   %1413 = load ptr, ptr %1411, align 8, !tbaa !131, !noalias !123
   %1414 = getelementptr inbounds nuw [160 x i8], ptr %1413, i64 %indvars.iv39.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1414) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !123
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !123
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !123
@@ -3960,6 +3965,7 @@ _ZNSt6vectorIN3ozz4math9TransformENS0_12StdAllocatorIS2_EEEC2EmRKS4_.exit.i.i: ;
 
 1468:                                             ; preds = %1459
   %1469 = getelementptr inbounds nuw [40 x i8], ptr %1406, i64 %1460
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1469) ]
   %1470 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.i.i
   %1471 = load <4 x float>, ptr %1470, align 16, !tbaa !35, !noalias !123
   %1472 = extractelement <4 x float> %1471, i64 0
@@ -6761,6 +6767,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdA
 .lr.ph.i:                                         ; preds = %_ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEEC2EmRKS6_.exit, %_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12RawAnimation10JointTrackEEEE9constructIS5_JRKS5_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS6_PT_DpOSB_.exit.i
   %.016.i = phi ptr [ %26, %_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12RawAnimation10JointTrackEEEE9constructIS5_JRKS5_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS6_PT_DpOSB_.exit.i ], [ %19, %_ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEEC2EmRKS6_.exit ]
   %.sroa.010.015.i = phi ptr [ %25, %_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12RawAnimation10JointTrackEEEE9constructIS5_JRKS5_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS6_PT_DpOSB_.exit.i ], [ %23, %_ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEEC2EmRKS6_.exit ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.010.015.i) ]
   invoke void @_ZN3ozz9animation7offline12RawAnimation10JointTrackC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(72) %.016.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.010.015.i)
           to label %_ZNSt16allocator_traitsIN3ozz12StdAllocatorINS0_9animation7offline12RawAnimation10JointTrackEEEE9constructIS5_JRKS5_EEEDTcl12_S_constructfp_fp0_spclsr3stdE7forwardIT0_Efp1_EEERS6_PT_DpOSB_.exit.i unwind label %27
 
@@ -6939,6 +6946,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12
 .lr.ph.i.i:                                       ; preds = %_ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEEC2EmRKS6_.exit.i, %.lr.ph.i.i
   %.015.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %19, %_ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEEC2EmRKS6_.exit.i ]
   %.sroa.010.014.i.i = phi ptr [ %25, %.lr.ph.i.i ], [ %23, %_ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEEC2EmRKS6_.exit.i ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.010.014.i.i) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.015.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.010.014.i.i, i64 16, i1 false), !tbaa.struct !152
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 16
@@ -6994,6 +7002,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12Std
 .lr.ph.i.i9:                                      ; preds = %_ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEEC2EmRKS6_.exit.i, %.lr.ph.i.i9
   %.015.i.i10 = phi ptr [ %52, %.lr.ph.i.i9 ], [ %45, %_ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEEC2EmRKS6_.exit.i ]
   %.sroa.010.014.i.i11 = phi ptr [ %51, %.lr.ph.i.i9 ], [ %49, %_ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEEC2EmRKS6_.exit.i ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.010.014.i.i11) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.015.i.i10, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.010.014.i.i11, i64 20, i1 false), !tbaa.struct !157
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i11, i64 20
   %52 = getelementptr inbounds nuw i8, ptr %.015.i.i10, i64 20
@@ -7049,6 +7058,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllo
 .lr.ph.i.i16:                                     ; preds = %_ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEEC2EmRKS6_.exit.i, %.lr.ph.i.i16
   %.015.i.i17 = phi ptr [ %78, %.lr.ph.i.i16 ], [ %71, %_ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEEC2EmRKS6_.exit.i ]
   %.sroa.010.014.i.i18 = phi ptr [ %77, %.lr.ph.i.i16 ], [ %75, %_ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEEC2EmRKS6_.exit.i ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.010.014.i.i18) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.015.i.i17, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.010.014.i.i18, i64 16, i1 false), !tbaa.struct !152
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i18, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %.015.i.i17, i64 16

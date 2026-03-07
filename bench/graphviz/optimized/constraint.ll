@@ -1460,8 +1460,7 @@ define internal fastcc noundef ptr @mkConstraintG(ptr noundef %0, ptr noundef re
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0111.lcssa = phi i32 [ 0, %3 ], [ %spec.select, %.lr.ph ]
-  %12 = tail call ptr @dtflatten(ptr noundef %0) #17
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
+  %12 = tail call nonnull ptr @dtflatten(ptr noundef %0) #17
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = shl nuw i32 %.0111.lcssa, 1
   %15 = add i32 %14, -1

@@ -14,7 +14,7 @@ define i32 @libdeflate_adler32(i32 noundef %0, ptr noundef %1, i64 noundef %2) l
 
 5:                                                ; preds = %3
   %6 = load volatile ptr, ptr @adler32_impl, align 8, !tbaa !4
-  %7 = tail call i32 %6(i32 noundef %0, ptr noundef nonnull %1, i64 noundef %2) #12
+  %7 = tail call i32 %6(i32 noundef %0, ptr noundef nonnull %1, i64 noundef %2) #13
   br label %8
 
 8:                                                ; preds = %3, %5
@@ -29,7 +29,7 @@ define internal i32 @dispatch_adler32(i32 noundef %0, ptr noundef %1, i64 nounde
   br i1 %5, label %6, label %get_x86_cpu_features.exit.i
 
 6:                                                ; preds = %3
-  tail call void @libdeflate_init_x86_cpu_features() #12
+  tail call void @libdeflate_init_x86_cpu_features() #13
   br label %get_x86_cpu_features.exit.i
 
 get_x86_cpu_features.exit.i:                      ; preds = %6, %3
@@ -54,8 +54,9 @@ get_x86_cpu_features.exit.i:                      ; preds = %6, %3
 
 arch_select_adler32_func.exit:                    ; preds = %get_x86_cpu_features.exit.i, %9, %11
   %.0.i = phi ptr [ %spec.select.i, %11 ], [ @adler32_x86_avx512_vl512_vnni, %get_x86_cpu_features.exit.i ], [ @adler32_x86_avx512_vl256_vnni, %9 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i) ]
   store volatile ptr %.0.i, ptr @adler32_impl, align 8, !tbaa !4
-  %14 = tail call i32 %.0.i(i32 noundef %0, ptr noundef %1, i64 noundef %2) #12
+  %14 = tail call i32 %.0.i(i32 noundef %0, ptr noundef %1, i64 noundef %2) #13
   ret i32 %14
 }
 
@@ -1178,6 +1179,9 @@ declare <32 x i8> @llvm.masked.load.v32i8.p0(ptr captures(none), <32 x i1>, <32 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #12
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512f,+avx512vnni,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512f,+avx512vl,+avx512vnni,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,-amx-avx512,-avx10.1-512,-avx10.2-512,-evex512" "tune-cpu"="generic" }
@@ -1190,7 +1194,8 @@ attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read) }
 attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}
