@@ -465,8 +465,8 @@ for.body:                                         ; preds = %entry, %for.inc14
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %__begin1.sroa.0.018) ]
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.018, i64 16
   %0 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.not = icmp eq i8 %0, 33
-  br i1 %cmp.i.i.i.i.i.i.i.i.not, label %if.end, label %for.end16
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %0, 33
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end, label %for.end16
 
 if.end:                                           ; preds = %for.body
   %call6 = tail call noundef i32 @_ZNK6hermes7PhiInst13getNumEntriesEv(ptr noundef nonnull align 8 dereferenceable(132) %__begin1.sroa.0.018) #3
@@ -572,8 +572,8 @@ for.body24:                                       ; preds = %if.then14, %for.inc
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %__begin3.sroa.0.040) ]
   %add.ptr.i.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.040, i64 16
   %7 = load i8, ptr %add.ptr.i.i.i.i.i.i29, align 8
-  %cmp.i.i.i.i.i.i.i.i30.not = icmp eq i8 %7, 33
-  br i1 %cmp.i.i.i.i.i.i.i.i30.not, label %if.end29, label %for.end41
+  %cmp.i.i.i.i.i.i.i.i30 = icmp eq i8 %7, 33
+  br i1 %cmp.i.i.i.i.i.i.i.i30, label %if.end29, label %for.end41
 
 if.end29:                                         ; preds = %for.body24
   %call30 = tail call noundef i32 @_ZNK6hermes7PhiInst13getNumEntriesEv(ptr noundef nonnull align 8 dereferenceable(132) %__begin3.sroa.0.040) #3

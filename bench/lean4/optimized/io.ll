@@ -99,7 +99,7 @@ $_ZTVN4lean19unreachable_reachedE = comdat any
 @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE = external unnamed_addr constant { [16 x ptr] }, align 8
 @_ZTVSt15basic_streambufIcSt11char_traitsIcEE = external unnamed_addr constant { [16 x ptr] }, align 8
 @switch.table.lean_io_prim_handle_mk = private unnamed_addr constant [4 x i32] [i32 524865, i32 524993, i32 524290, i32 525377], align 4
-@switch.table.lean_io_prim_handle_mk.12 = private unnamed_addr constant [4 x ptr] [ptr @.str.2, ptr @.str.2, ptr @.str.3, ptr @.str.4], align 8
+@switch.table.lean_io_prim_handle_mk.13 = private unnamed_addr constant [4 x ptr] [ptr @.str.2, ptr @.str.2, ptr @.str.3, ptr @.str.4], align 8
 
 ; Function Attrs: mustprogress uwtable
 define void @lean_io_result_show_error(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1421,7 +1421,7 @@ switch.lookup:                                    ; preds = %3
 
 switch.lookup36:                                  ; preds = %17
   %19 = zext nneg i8 %switch.tableidx35 to i64
-  %switch.gep37 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.lean_io_prim_handle_mk.12, i64 %19
+  %switch.gep37 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.lean_io_prim_handle_mk.13, i64 %19
   %switch.load38 = load ptr, ptr %switch.gep37, align 8
   br label %20
 

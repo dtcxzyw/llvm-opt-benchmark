@@ -4505,11 +4505,11 @@ _ZN7globset4glob6Parser5error17hb73d7314fde73b61E.exit.i120.i: ; preds = %733
   br label %_ZN7globset4glob6Parser15parse_backslash17h2dd3976d556977bbE.exitthread-pre-split.i
 
 _ZN7globset4glob6Parser15parse_backslash17h2dd3976d556977bbE.exitthread-pre-split.i: ; preds = %.noexc79, %.noexc78
-  %.pr487.i = load i64, ptr %49, align 8, !noalias !391
+  %.pr486.i = load i64, ptr %49, align 8, !noalias !391
   br label %_ZN7globset4glob6Parser15parse_backslash17h2dd3976d556977bbE.exit.i
 
 _ZN7globset4glob6Parser15parse_backslash17h2dd3976d556977bbE.exit.i: ; preds = %_ZN7globset4glob6Parser15parse_backslash17h2dd3976d556977bbE.exitthread-pre-split.i, %_ZN7globset4glob6Parser5error17hb73d7314fde73b61E.exit.i120.i
-  %742 = phi i64 [ %.pr487.i, %_ZN7globset4glob6Parser15parse_backslash17h2dd3976d556977bbE.exitthread-pre-split.i ], [ %739, %_ZN7globset4glob6Parser5error17hb73d7314fde73b61E.exit.i120.i ]
+  %742 = phi i64 [ %.pr486.i, %_ZN7globset4glob6Parser15parse_backslash17h2dd3976d556977bbE.exitthread-pre-split.i ], [ %739, %_ZN7globset4glob6Parser5error17hb73d7314fde73b61E.exit.i120.i ]
   %743 = icmp eq i64 %742, -9223372036854775807
   br i1 %743, label %758, label %759
 

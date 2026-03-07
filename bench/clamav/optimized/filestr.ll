@@ -110,7 +110,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %_ZN5ArrayIhEC2Em.ex
   %40 = add i64 %.sroa.48.0.ph, 32
   %41 = add i64 %40, %39
   %..i = call i64 @llvm.umax.i64(i64 %36, i64 %41)
-  %42 = call ptr @realloc(ptr noundef nonnull %.sroa.0226.0.ph, i64 noundef %..i) #10
+  %42 = call ptr @realloc(ptr noundef nonnull %.sroa.0226.0.ph, i64 noundef %..i) #9
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %_ZN5ArrayIhEC2Em.exit.outer.backedge
 
@@ -151,7 +151,7 @@ _ZN5ArrayIhEC2Em.exit.outer.backedge:             ; preds = %44, %38
   %51 = add nuw nsw i64 %.sroa.48.0.ph, 32
   %52 = add nuw nsw i64 %51, %50
   %..i.i = call i64 @llvm.umax.i64(i64 %29, i64 %52)
-  %53 = call ptr @realloc(ptr noundef nonnull %.sroa.0226.0.ph, i64 noundef %..i.i) #10
+  %53 = call ptr @realloc(ptr noundef nonnull %.sroa.0226.0.ph, i64 noundef %..i.i) #9
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %_ZN5ArrayIhE5AllocEm.exit
 
@@ -343,7 +343,7 @@ _Z18DetectTextEncodingPKhm.exit.thread:           ; preds = %119, %.thread279, %
   %135 = add nuw nsw i64 %.sroa.48.3, 32
   %136 = add nuw nsw i64 %135, %134
   %..i.i149 = call i64 @llvm.umax.i64(i64 %132, i64 %136)
-  %137 = call ptr @realloc(ptr noundef %.sroa.0226.7, i64 noundef %..i.i149) #10
+  %137 = call ptr @realloc(ptr noundef %.sroa.0226.7, i64 noundef %..i.i149) #9
   %138 = icmp eq ptr %137, null
   br i1 %138, label %139, label %140
 
@@ -419,7 +419,7 @@ _Z18DetectTextEncodingPKhm.exit.thread301:        ; preds = %_Z18DetectTextEncod
   %159 = add nuw nsw i64 %158, %157
   %..i.i166 = call i64 @llvm.umax.i64(i64 %156, i64 %159)
   %160 = shl nuw nsw i64 %..i.i166, 2
-  %161 = call ptr @realloc(ptr noundef %.sroa.0.0325349, i64 noundef %160) #10
+  %161 = call ptr @realloc(ptr noundef %.sroa.0.0325349, i64 noundef %160) #9
   %162 = icmp eq ptr %161, null
   br i1 %162, label %163, label %_ZN5ArrayIwE5AllocEm.exit173
 
@@ -494,7 +494,7 @@ _Z18DetectTextEncodingPKhm.exit.thread301.thread329: ; preds = %.noexc145, %_Z18
   %190 = add i64 %.sroa.48.1321, 32
   %191 = add i64 %190, %189
   %..i.i179 = call i64 @llvm.umax.i64(i64 %186, i64 %191)
-  %192 = call ptr @realloc(ptr noundef %.sroa.0226.2328, i64 noundef %..i.i179) #10
+  %192 = call ptr @realloc(ptr noundef %.sroa.0226.2328, i64 noundef %..i.i179) #9
   %193 = icmp eq ptr %192, null
   br i1 %193, label %194, label %195
 
@@ -516,7 +516,7 @@ _Z18DetectTextEncodingPKhm.exit.thread301.thread329: ; preds = %.noexc145, %_Z18
   %201 = add nsw i64 %200, %199
   %..i.i189 = call i64 @llvm.umax.i64(i64 %186, i64 %201)
   %202 = shl i64 %..i.i189, 2
-  %203 = call ptr @realloc(ptr noundef %.sroa.0.3, i64 noundef %202) #10
+  %203 = call ptr @realloc(ptr noundef %.sroa.0.3, i64 noundef %202) #9
   %204 = icmp eq ptr %203, null
   br i1 %204, label %205, label %_ZN5ArrayIwE5AllocEm.exit196
 
@@ -625,7 +625,7 @@ _ZN5ArrayIwE5AllocEm.exit196:                     ; preds = %195, %205, %198
   br i1 %228, label %229, label %237
 
 229:                                              ; preds = %226
-  %230 = call i64 @wcslen(ptr noundef nonnull %.094383) #11
+  %230 = call i64 @wcslen(ptr noundef nonnull %.094383) #10
   %231 = getelementptr [4 x i8], ptr %.094383, i64 %230
   %232 = getelementptr i8, ptr %231, i64 -4
   %233 = load i32, ptr %232, align 4, !tbaa !3
@@ -674,12 +674,12 @@ thread-pre-split:                                 ; preds = %229, %235, %._crit_
   br label %.preheader
 
 _ZN5ArrayIwED2Ev.exit:                            ; preds = %242, %.preheader, %208
-  call void @free(ptr noundef nonnull %.sroa.0.4) #12
+  call void @free(ptr noundef nonnull %.sroa.0.4) #11
   %.not.i198 = icmp eq ptr %.sroa.0226.5, null
   br i1 %.not.i198, label %_ZN5ArrayIhED2Ev.exit, label %244
 
 244:                                              ; preds = %_ZN5ArrayIwED2Ev.exit
-  call void @free(ptr noundef nonnull %.sroa.0226.5) #12
+  call void @free(ptr noundef nonnull %.sroa.0226.5) #11
   br label %_ZN5ArrayIhED2Ev.exit
 
 245:                                              ; preds = %240, %171, %146
@@ -690,7 +690,7 @@ _ZN5ArrayIwED2Ev.exit:                            ; preds = %242, %.preheader, %
   br i1 %.not.i199, label %_ZN5ArrayIwED2Ev.exit200, label %246
 
 246:                                              ; preds = %245
-  call void @free(ptr noundef nonnull %.sroa.0.2) #12
+  call void @free(ptr noundef nonnull %.sroa.0.2) #11
   br label %_ZN5ArrayIwED2Ev.exit200
 
 _ZN5ArrayIwED2Ev.exit200:                         ; preds = %245, %246
@@ -700,19 +700,19 @@ _ZN5ArrayIwED2Ev.exit200:                         ; preds = %245, %246
 _ZN5ArrayIwED2Ev.exit200.thread:                  ; preds = %.loopexit364.loopexit, %.loopexit364.loopexit.split-lp, %.loopexit.split-lp, %121, %_ZN5ArrayIwED2Ev.exit200
   %.pn132312 = phi { ptr, i32 } [ %.pn128, %_ZN5ArrayIwED2Ev.exit200 ], [ %122, %121 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit441, %.loopexit364.loopexit ], [ %lpad.loopexit.split-lp442, %.loopexit364.loopexit.split-lp ]
   %.sroa.0226.1311 = phi ptr [ %.sroa.0226.4, %_ZN5ArrayIwED2Ev.exit200 ], [ %.sroa.0226.7, %121 ], [ %.sroa.0226.0.ph, %.loopexit.split-lp ], [ %.sroa.0226.0.ph, %.loopexit364.loopexit.split-lp ], [ %.sroa.0226.0.ph, %.loopexit364.loopexit ]
-  call void @free(ptr noundef nonnull %.sroa.0226.1311) #12
+  call void @free(ptr noundef nonnull %.sroa.0226.1311) #11
   br label %_ZN5ArrayIhED2Ev.exit202
 
 _ZN5ArrayIhED2Ev.exit:                            ; preds = %.thread, %244, %_ZN5ArrayIwED2Ev.exit, %22
   %.1 = phi i1 [ false, %22 ], [ true, %244 ], [ false, %.thread ], [ true, %_ZN5ArrayIwED2Ev.exit ]
-  call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %10) #12
+  call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %10) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.1
 
 _ZN5ArrayIhED2Ev.exit202:                         ; preds = %45, %_ZN5ArrayIwED2Ev.exit200, %_ZN5ArrayIwED2Ev.exit200.thread, %23
   %.pn132.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %46, %45 ], [ %.pn128, %_ZN5ArrayIwED2Ev.exit200 ], [ %.pn132312, %_ZN5ArrayIwED2Ev.exit200.thread ]
-  call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %10) #12
+  call void @_ZN4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(8256) %10) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn132.pn.pn

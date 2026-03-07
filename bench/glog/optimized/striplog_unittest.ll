@@ -113,7 +113,7 @@ define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamC2EPcil(ptr nou
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, i8 0, i64 48, i1 false)
-  tail call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #21
+  tail call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #20
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN6google12base_logging12LogStreamBufE, i64 16), ptr %23, align 8, !tbaa !4
   %26 = sext i32 %3 to i64
   %27 = getelementptr inbounds i8, ptr %2, i64 %26
@@ -142,7 +142,7 @@ define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamC2EPcil(ptr nou
   %41 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %23, align 8, !tbaa !4
-  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #21
+  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #20
   resume { ptr, i32 } %41
 }
 
@@ -156,7 +156,7 @@ declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamC1EPcil(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  tail call void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #21
+  tail call void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr null, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -178,7 +178,7 @@ define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamC1EPcil(ptr nou
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
-  tail call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #21
+  tail call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #20
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN6google12base_logging12LogStreamBufE, i64 16), ptr %11, align 8, !tbaa !4
   %14 = sext i32 %2 to i64
   %15 = getelementptr inbounds i8, ptr %1, i64 %14
@@ -212,12 +212,12 @@ define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamC1EPcil(ptr nou
   %31 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %11, align 8, !tbaa !4
-  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #21
+  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #20
   br label %32
 
 32:                                               ; preds = %30, %28
   %.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %31, %30 ]
-  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #21
+  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #20
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -258,7 +258,7 @@ define hidden noundef i32 @_Z13CheckNoReturnb(i1 noundef zeroext %0) local_unnam
           to label %9 unwind label %16
 
 9:                                                ; preds = %7
-  call void @_ZN6google15NullStreamFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %3) #21
+  call void @_ZN6google15NullStreamFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %3) #20
   unreachable
 
 10:                                               ; preds = %6
@@ -272,7 +272,7 @@ define hidden noundef i32 @_Z13CheckNoReturnb(i1 noundef zeroext %0) local_unnam
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %10
   %14 = load i64, ptr %4, align 8, !tbaa !44
   %15 = add i64 %14, 1
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef %15) #22
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef %15) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -282,7 +282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %10, %
 16:                                               ; preds = %7
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15NullStreamFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %3) #21
+  call void @_ZN6google15NullStreamFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %3) #20
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4: ; preds = %1
@@ -296,7 +296,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google15NullStreamFatalC1Ev(ptr noundef nonnull align 8 dereferenceable(91) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #21
+  tail call void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #20
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVSt9basic_iosIcSt11char_traitsIcEE, i64 16), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr null, ptr %3, align 8, !tbaa !23
@@ -317,7 +317,7 @@ define linkonce_odr hidden void @_ZN6google15NullStreamFatalC1Ev(ptr noundef non
 8:                                                ; preds = %1
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #21
+  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #20
   resume { ptr, i32 } %9
 }
 
@@ -338,7 +338,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
   %5 = alloca %"class.google::NullStream", align 8
   %6 = alloca %"class.google::NullStream", align 8
   %7 = alloca %"class.google::NullStreamFatal", align 8
-  %8 = tail call ptr @signal(i32 noundef 6, ptr noundef nonnull @_ZN12_GLOBAL__N_112handle_abortEi) #21
+  %8 = tail call ptr @signal(i32 noundef 6, ptr noundef nonnull @_ZN12_GLOBAL__N_112handle_abortEi) #20
   store i8 1, ptr @_ZN3fLB17FLAGS_logtostderrE, align 1, !tbaa !46
   %9 = load ptr, ptr %1, align 8, !tbaa !47
   tail call void @_ZN6google17InitGoogleLoggingEPKc(ptr noundef %9)
@@ -357,7 +357,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
           to label %15 unwind label %25
 
 15:                                               ; preds = %13
-  call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %3) #21
+  call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6google10NullStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(91) %4)
@@ -372,7 +372,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
           to label %_ZNSolsEPFRSoS_E.exit unwind label %29
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %17
-  call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %4) #21
+  call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6google10NullStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(91) %5)
@@ -380,7 +380,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %17
           to label %20 unwind label %32
 
 20:                                               ; preds = %_ZNSolsEPFRSoS_E.exit
-  call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %5) #21
+  call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6google10NullStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(91) %6)
@@ -388,7 +388,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %17
           to label %22 unwind label %34
 
 22:                                               ; preds = %20
-  call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %6) #21
+  call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %7, i8 0, i64 360, i1 false)
@@ -397,13 +397,13 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %17
           to label %24 unwind label %36
 
 24:                                               ; preds = %22
-  call void @_ZN6google15NullStreamFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %7) #21
+  call void @_ZN6google15NullStreamFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %7) #20
   unreachable
 
 25:                                               ; preds = %13
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %3) #21
+  call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %38
 
@@ -419,28 +419,28 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %17
 
 31:                                               ; preds = %29, %27
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
-  call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %4) #21
+  call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
 32:                                               ; preds = %_ZNSolsEPFRSoS_E.exit
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %5) #21
+  call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 34:                                               ; preds = %20
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %6) #21
+  call void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 36:                                               ; preds = %22
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15NullStreamFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %7) #21
+  call void @_ZN6google15NullStreamFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %7) #20
   unreachable
 
 38:                                               ; preds = %34, %32, %31, %25
@@ -453,7 +453,7 @@ declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_112handle_abortEi(i32 %0) #12 {
-  tail call void @exit(i32 noundef 1) #23
+  tail call void @exit(i32 noundef 1) #22
   unreachable
 }
 
@@ -469,8 +469,8 @@ define linkonce_odr hidden void @_ZN6google10NullStreamD1Ev(ptr noundef nonnull 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %3, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
-  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #21
+  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #20
   ret void
 }
 
@@ -497,8 +497,8 @@ define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamD1Ev(ptr nounde
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %3, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
-  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #21
+  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #20
   ret void
 }
 
@@ -510,9 +510,9 @@ define linkonce_odr hidden void @_ZN6google10LogMessage9LogStreamD0Ev(ptr nounde
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %3, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
-  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 352) #22
+  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
+  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 352) #21
   ret void
 }
 
@@ -528,8 +528,8 @@ define linkonce_odr hidden void @_ZTv0_n24_N6google10LogMessage9LogStreamD1Ev(pt
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %7, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #21
-  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6) #21
+  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #20
+  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6) #20
   ret void
 }
 
@@ -545,9 +545,9 @@ define linkonce_odr hidden void @_ZTv0_n24_N6google10LogMessage9LogStreamD0Ev(pt
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %7, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #21
-  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(88) %5, i64 noundef 352) #22
+  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #20
+  tail call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(88) %5, i64 noundef 352) #21
   ret void
 }
 
@@ -555,8 +555,8 @@ define linkonce_odr hidden void @_ZTv0_n24_N6google10LogMessage9LogStreamD0Ev(pt
 define linkonce_odr hidden void @_ZN6google12base_logging12LogStreamBufD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #13 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #22
+  tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #21
   ret void
 }
 
@@ -617,14 +617,14 @@ declare void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(216
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_striplog_unittest.cc() #18 section ".text.startup" {
-  %1 = tail call ptr @getenv(ptr noundef nonnull @.str) #21
+  %1 = tail call ptr @getenv(ptr noundef nonnull @.str) #20
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %__cxx_global_var_init.exit, label %2
 
 2:                                                ; preds = %0
   %3 = load i8, ptr %1, align 1, !tbaa !44
   %4 = sext i8 %3 to i32
-  %5 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %4, i64 noundef 6) #24
+  %5 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %4, i64 noundef 6) #23
   %6 = icmp ne ptr %5, null
   %7 = zext i1 %6 to i8
   br label %__cxx_global_var_init.exit
@@ -649,7 +649,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #20
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

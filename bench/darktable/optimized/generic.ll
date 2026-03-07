@@ -260,9 +260,9 @@ define void @_ZN6LibRaw15packed_load_rawEv(ptr noundef nonnull align 8 dereferen
   br i1 %.not77, label %._crit_edge66, label %.lr.ph65
 
 82:                                               ; preds = %75
-  %83 = tail call ptr @__cxa_allocate_exception(i64 4) #7
+  %83 = tail call ptr @__cxa_allocate_exception(i64 4) #6
   store i32 4, ptr %83, align 16, !tbaa !90
-  tail call void @__cxa_throw(ptr nonnull %83, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #8
+  tail call void @__cxa_throw(ptr nonnull %83, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #7
   unreachable
 
 .lr.ph65:                                         ; preds = %.preheader, %144
@@ -402,7 +402,7 @@ define void @_ZN6LibRaw18eight_bit_load_rawEv(ptr noundef nonnull align 8 derefe
 
 .noexc:                                           ; preds = %1
   %5 = zext i16 %4 to i64
-  %6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #9
+  %6 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #8
   %7 = getelementptr i8, ptr %6, i64 %5
   store i8 0, ptr %6, align 1, !tbaa !96
   %8 = add nsw i64 %5, -1
@@ -466,7 +466,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %10, %.noexc, %1
   %33 = ptrtoint ptr %.sroa.11.0 to i64
   %34 = ptrtoint ptr %.sroa.015.0 to i64
   %35 = sub i64 %33, %34
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.015.0, i64 noundef %35) #10
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.015.0, i64 noundef %35) #9
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 36:                                               ; preds = %._crit_edge26, %25
@@ -519,7 +519,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %10, %.noexc, %1
   %62 = ptrtoint ptr %.sroa.11.0 to i64
   %63 = ptrtoint ptr %.sroa.015.0 to i64
   %64 = sub i64 %62, %63
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.015.0, i64 noundef %64) #10
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.015.0, i64 noundef %64) #9
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit14
 
 _ZNSt6vectorIhSaIhEED2Ev.exit14:                  ; preds = %._crit_edge23, %61

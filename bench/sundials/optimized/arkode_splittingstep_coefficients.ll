@@ -36,7 +36,7 @@ define noalias noundef ptr @SplittingStepCoefficients_Alloc(i32 noundef %0, i32 
   br i1 %or.cond3, label %.loopexit, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13
+  %8 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #14
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10
 
@@ -50,10 +50,10 @@ define noalias noundef ptr @SplittingStepCoefficients_Alloc(i32 noundef %0, i32 
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 0, ptr %14, align 4, !tbaa !13
   %15 = zext nneg i32 %0 to i64
-  %16 = tail call noalias nonnull ptr @calloc(i64 noundef %15, i64 noundef 8) #14
+  %16 = tail call noalias nonnull ptr @calloc(i64 noundef %15, i64 noundef 8) #15
   store ptr %16, ptr %8, align 8, !tbaa !14
   %17 = shl nuw nsw i64 %15, 3
-  %18 = tail call noalias ptr @malloc(i64 noundef %17) #13
+  %18 = tail call noalias ptr @malloc(i64 noundef %17) #14
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !15
   %20 = icmp eq ptr %18, null
@@ -64,14 +64,14 @@ define noalias noundef ptr @SplittingStepCoefficients_Alloc(i32 noundef %0, i32 
   %22 = mul nuw nsw i32 %21, %0
   %23 = zext nneg i32 %22 to i64
   %24 = shl nuw nsw i64 %23, 3
-  %25 = tail call noalias nonnull ptr @malloc(i64 noundef %24) #13
+  %25 = tail call noalias nonnull ptr @malloc(i64 noundef %24) #14
   %26 = zext nneg i32 %21 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %27 = mul nuw nsw i32 %22, %2
   %28 = zext nneg i32 %27 to i64
-  %29 = tail call noalias ptr @calloc(i64 noundef %28, i64 noundef 8) #14
+  %29 = tail call noalias ptr @calloc(i64 noundef %28, i64 noundef 8) #15
   %30 = icmp eq ptr %29, null
   br i1 %30, label %37, label %.preheader.preheader
 
@@ -93,7 +93,7 @@ define noalias noundef ptr @SplittingStepCoefficients_Alloc(i32 noundef %0, i32 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 37:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %16) #15
+  tail call void @free(ptr noundef nonnull %16) #16
   %38 = load ptr, ptr %18, align 8, !tbaa !16
   %.not19.i65 = icmp eq ptr %38, null
   br i1 %.not19.i65, label %.loopexit.sink.split, label %39
@@ -104,13 +104,13 @@ define noalias noundef ptr @SplittingStepCoefficients_Alloc(i32 noundef %0, i32 
   br i1 %.not20.i66, label %42, label %41
 
 41:                                               ; preds = %39
-  tail call void @free(ptr noundef nonnull %40) #15
+  tail call void @free(ptr noundef nonnull %40) #16
   %.pre21.i68 = load ptr, ptr %18, align 8, !tbaa !16
   br label %42
 
 42:                                               ; preds = %41, %39
   %43 = phi ptr [ %.pre21.i68, %41 ], [ %38, %39 ]
-  tail call void @free(ptr noundef %43) #15
+  tail call void @free(ptr noundef %43) #16
   br label %.loopexit.sink.split
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge86
@@ -138,8 +138,8 @@ define noalias noundef ptr @SplittingStepCoefficients_Alloc(i32 noundef %0, i32 
 
 .loopexit.sink.split:                             ; preds = %37, %42, %10
   %.sink = phi ptr [ %16, %10 ], [ %18, %42 ], [ %18, %37 ]
-  tail call void @free(ptr noundef nonnull %.sink) #15
-  tail call void @free(ptr noundef nonnull %8) #15
+  tail call void @free(ptr noundef nonnull %.sink) #16
+  tail call void @free(ptr noundef nonnull %8) #16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge86, %.loopexit.sink.split, %7, %3
@@ -169,7 +169,7 @@ define void @SplittingStepCoefficients_Destroy(ptr noundef captures(address_is_n
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void @free(ptr noundef nonnull %7) #15
+  tail call void @free(ptr noundef nonnull %7) #16
   br label %9
 
 9:                                                ; preds = %8, %6
@@ -189,24 +189,24 @@ define void @SplittingStepCoefficients_Destroy(ptr noundef captures(address_is_n
   br i1 %.not20, label %17, label %16
 
 16:                                               ; preds = %14
-  tail call void @free(ptr noundef nonnull %15) #15
+  tail call void @free(ptr noundef nonnull %15) #16
   %.pre = load ptr, ptr %10, align 8, !tbaa !15
   %.pre21 = load ptr, ptr %.pre, align 8, !tbaa !16
   br label %17
 
 17:                                               ; preds = %16, %14
   %18 = phi ptr [ %.pre21, %16 ], [ %13, %14 ]
-  tail call void @free(ptr noundef %18) #15
+  tail call void @free(ptr noundef %18) #16
   %.pre22 = load ptr, ptr %10, align 8, !tbaa !15
   br label %19
 
 19:                                               ; preds = %17, %12
   %20 = phi ptr [ %.pre22, %17 ], [ %11, %12 ]
-  tail call void @free(ptr noundef %20) #15
+  tail call void @free(ptr noundef %20) #16
   br label %21
 
 21:                                               ; preds = %19, %9
-  tail call void @free(ptr noundef nonnull %4) #15
+  tail call void @free(ptr noundef nonnull %4) #16
   store ptr null, ptr %0, align 8, !tbaa !19
   br label %22
 
@@ -348,7 +348,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
   br i1 %exitcond.not.i, label %SplittingStepCoefficients_LieTrotter.exit, label %13
 
 15:                                               ; preds = %1
-  %16 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 0) #15
+  %16 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 0) #16
   %17 = add nsw i32 %16, 1
   %18 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %17, i32 noundef 2)
   %19 = icmp eq ptr %18, null
@@ -478,7 +478,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 85:                                               ; preds = %1
-  %86 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 1) #15
+  %86 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 1) #16
   %87 = add nsw i32 %86, 1
   %88 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %87, i32 noundef 2)
   %89 = icmp eq ptr %88, null
@@ -496,7 +496,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 97:                                               ; preds = %1
-  %98 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 2) #15
+  %98 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 2) #16
   %99 = add nsw i32 %98, 1
   %100 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %99, i32 noundef 2)
   %101 = icmp eq ptr %100, null
@@ -514,7 +514,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 109:                                              ; preds = %1
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 183, ptr noundef nonnull @__func__.SplittingStepCoefficients_LoadCoefficients, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #15
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 183, ptr noundef nonnull @__func__.SplittingStepCoefficients_LoadCoefficients, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #16
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 SplittingStepCoefficients_LieTrotter.exit:        ; preds = %67, %._crit_edge.us.i.i, %13, %102, %97, %90, %85, %46, %15, %2, %1, %109, %69, %33
@@ -560,7 +560,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LieTrotter(i32 noundef %0)
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @SplittingStepCoefficients_Strang(i32 noundef %0) local_unnamed_addr #6 {
   %2 = add nsw i32 %0, -1
-  %3 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 0) #15
+  %3 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 0) #16
   %4 = mul nsw i32 %3, %2
   %5 = add nsw i32 %4, 1
   %6 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %5, i32 noundef %0)
@@ -702,7 +702,7 @@ define noalias noundef ptr @SplittingStepCoefficients_TripleJump(i32 noundef %0,
   %6 = add nsw i32 %0, -1
   %7 = lshr exact i32 %1, 1
   %8 = add nsw i32 %7, -1
-  %9 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef %8) #15
+  %9 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef %8) #16
   %10 = mul nsw i32 %9, %6
   %11 = add nsw i32 %10, 1
   %12 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %11, i32 noundef %0)
@@ -729,12 +729,12 @@ declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
-  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(22) @.str.2, ptr noundef nonnull dereferenceable(1) %0) #16
+  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(22) @.str.2, ptr noundef nonnull dereferenceable(1) %0) #17
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %SplittingStepCoefficients_LieTrotter.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(35) @.str.3, ptr noundef nonnull dereferenceable(1) %0) #16
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(35) @.str.3, ptr noundef nonnull dereferenceable(1) %0) #17
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %20
 
@@ -764,12 +764,12 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br i1 %exitcond.not.i, label %SplittingStepCoefficients_LieTrotter.exit, label %18
 
 20:                                               ; preds = %4
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str.4, ptr noundef nonnull dereferenceable(1) %0) #16
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str.4, ptr noundef nonnull dereferenceable(1) %0) #17
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %41
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 0) #15
+  %24 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 0) #16
   %25 = add nsw i32 %24, 1
   %26 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %25, i32 noundef 2)
   %27 = icmp eq ptr %26, null
@@ -807,7 +807,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br i1 %exitcond69.not.i.i, label %SplittingStepCoefficients_LieTrotter.exit, label %.preheader.us.i.i
 
 41:                                               ; preds = %20
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(28) @.str.5, ptr noundef nonnull dereferenceable(1) %0) #16
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(28) @.str.5, ptr noundef nonnull dereferenceable(1) %0) #17
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %57
 
@@ -833,7 +833,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 57:                                               ; preds = %41
-  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str.6, ptr noundef nonnull dereferenceable(1) %0) #16
+  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str.6, ptr noundef nonnull dereferenceable(1) %0) #17
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %83
 
@@ -883,7 +883,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br i1 %exitcond50.not.i, label %SplittingStepCoefficients_LieTrotter.exit, label %81
 
 83:                                               ; preds = %57
-  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(28) @.str.7, ptr noundef nonnull dereferenceable(1) %0) #16
+  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(28) @.str.7, ptr noundef nonnull dereferenceable(1) %0) #17
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %102
 
@@ -914,12 +914,12 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 102:                                              ; preds = %83
-  %103 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(31) @.str.8, ptr noundef nonnull dereferenceable(1) %0) #16
+  %103 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(31) @.str.8, ptr noundef nonnull dereferenceable(1) %0) #17
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %117
 
 105:                                              ; preds = %102
-  %106 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 1) #15
+  %106 = tail call i32 @SUNIpowerI(i32 noundef 3, i32 noundef 1) #16
   %107 = add nsw i32 %106, 1
   %108 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %107, i32 noundef 2)
   %109 = icmp eq ptr %108, null
@@ -937,7 +937,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 117:                                              ; preds = %102
-  %118 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(31) @.str.9, ptr noundef nonnull dereferenceable(1) %0) #16
+  %118 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(31) @.str.9, ptr noundef nonnull dereferenceable(1) %0) #17
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %122
 
@@ -946,7 +946,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 122:                                              ; preds = %117
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 201, ptr noundef nonnull @__func__.SplittingStepCoefficients_LoadCoefficientsByName, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #15
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 201, ptr noundef nonnull @__func__.SplittingStepCoefficients_LoadCoefficientsByName, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #16
   br label %SplittingStepCoefficients_LieTrotter.exit
 
 SplittingStepCoefficients_LieTrotter.exit:        ; preds = %81, %._crit_edge.us.i.i, %18, %110, %105, %60, %23, %7, %1, %122, %120, %86, %44
@@ -964,7 +964,7 @@ define noundef ptr @SplittingStepCoefficients_IDToName(i32 noundef %0) local_unn
   br i1 %2, label %switch.lookup, label %3
 
 3:                                                ; preds = %1
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 223, ptr noundef nonnull @__func__.SplittingStepCoefficients_IDToName, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #15
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 223, ptr noundef nonnull @__func__.SplittingStepCoefficients_IDToName, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #16
   br label %5
 
 switch.lookup:                                    ; preds = %1
@@ -1093,7 +1093,7 @@ define noalias noundef ptr @SplittingStepCoefficients_SuzukiFractal(i32 noundef 
   %6 = add nsw i32 %0, -1
   %7 = lshr exact i32 %1, 1
   %8 = add nsw i32 %7, -1
-  %9 = tail call i32 @SUNIpowerI(i32 noundef 5, i32 noundef %8) #15
+  %9 = tail call i32 @SUNIpowerI(i32 noundef 5, i32 noundef %8) #16
   %10 = mul nsw i32 %9, %6
   %11 = add nsw i32 %10, 1
   %12 = tail call ptr @SplittingStepCoefficients_Alloc(i32 noundef 1, i32 noundef %11, i32 noundef %0)
@@ -1147,16 +1147,16 @@ define void @SplittingStepCoefficients_Write(ptr noundef readonly captures(addre
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !3
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.10, i32 noundef %20) #15
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.10, i32 noundef %20) #16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load i32, ptr %22, align 4, !tbaa !11
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i32 noundef %23) #15
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i32 noundef %23) #16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !12
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.12, i32 noundef %26) #15
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.12, i32 noundef %26) #16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %29 = load i32, ptr %28, align 4, !tbaa !13
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.13, i32 noundef %29) #15
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.13, i32 noundef %29) #16
   %31 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 10, i64 1, ptr nonnull %1)
   %32 = load i32, ptr %19, align 8, !tbaa !3
   %33 = icmp sgt i32 %32, 0
@@ -1173,7 +1173,7 @@ define void @SplittingStepCoefficients_Write(ptr noundef readonly captures(addre
   %36 = load ptr, ptr %0, align 8, !tbaa !14
   %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load double, ptr %37, align 8, !tbaa !21
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, double noundef %38) #15
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, double noundef %38) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = load i32, ptr %19, align 8, !tbaa !3
   %41 = sext i32 %40 to i64
@@ -1183,7 +1183,7 @@ define void @SplittingStepCoefficients_Write(ptr noundef readonly captures(addre
 .lr.ph62:                                         ; preds = %._crit_edge, %._crit_edge59
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %._crit_edge59 ], [ 0, %._crit_edge ]
   %43 = trunc nuw nsw i64 %indvars.iv70 to i32
-  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.17, i32 noundef %43) #15
+  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.17, i32 noundef %43) #16
   %45 = load i32, ptr %22, align 4, !tbaa !11
   %.not55 = icmp slt i32 %45, 0
   br i1 %.not55, label %._crit_edge59, label %.lr.ph58
@@ -1220,7 +1220,7 @@ define void @SplittingStepCoefficients_Write(ptr noundef readonly captures(addre
   %58 = load ptr, ptr %57, align 8, !tbaa !18
   %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv64
   %60 = load double, ptr %59, align 8, !tbaa !21
-  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, double noundef %60) #15
+  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, double noundef %60) #16
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %62 = load i32, ptr %25, align 8, !tbaa !12
   %63 = sext i32 %62 to i64
@@ -1289,7 +1289,7 @@ define internal fastcc ptr @SplittingStepCoefficients_ComposeStrangHelper(i32 no
   %27 = add nsw i32 %1, -1
   %28 = sitofp i32 %27 to double
   %29 = fdiv double 1.000000e+00, %28
-  %30 = tail call double @SUNRpowerR(double noundef %26, double noundef %29) #15
+  %30 = tail call double @SUNRpowerR(double noundef %26, double noundef %29) #16
   %31 = fsub double %26, %30
   %32 = fdiv double %7, %31
   %33 = add nsw i32 %1, -2

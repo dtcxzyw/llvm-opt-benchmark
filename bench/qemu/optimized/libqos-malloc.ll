@@ -54,7 +54,7 @@ define dso_local void @alloc_destroy(ptr noundef readonly captures(none) %0) loc
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %.032, i64 16
   %13 = load i64, ptr %12, align 8
-  %14 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %9, i32 noundef 1, ptr noundef nonnull @.str, i64 noundef %11, i64 noundef %13) #8
+  %14 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %9, i32 noundef 1, ptr noundef nonnull @.str, i64 noundef %11, i64 noundef %13) #7
   %.pre = load i32, ptr %0, align 8
   br label %15
 
@@ -65,11 +65,11 @@ define dso_local void @alloc_destroy(ptr noundef readonly captures(none) %0) loc
   br i1 %.not30, label %19, label %18
 
 18:                                               ; preds = %15
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.alloc_destroy, ptr noundef null) #9
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.alloc_destroy, ptr noundef null) #8
   unreachable
 
 19:                                               ; preds = %15
-  tail call void @g_free(ptr noundef nonnull %.032) #8
+  tail call void @g_free(ptr noundef nonnull %.032) #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !4
 
@@ -110,20 +110,20 @@ define dso_local void @alloc_destroy(ptr noundef readonly captures(none) %0) loc
 
 39:                                               ; preds = %34, %30
   %40 = load ptr, ptr @stderr, align 8
-  %41 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %40, i32 noundef 1, ptr noundef nonnull @.str.2) #8
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 242, ptr noundef nonnull @__func__.alloc_destroy, ptr noundef null) #9
+  %41 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %40, i32 noundef 1, ptr noundef nonnull @.str.2) #7
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 242, ptr noundef nonnull @__func__.alloc_destroy, ptr noundef null) #8
   unreachable
 
 42:                                               ; preds = %34, %25
-  tail call void @g_free(ptr noundef nonnull %.134) #8
+  tail call void @g_free(ptr noundef nonnull %.134) #7
   %.not26 = icmp eq ptr %26, null
   br i1 %.not26, label %.critedge2, label %25, !llvm.loop !6
 
 .critedge2:                                       ; preds = %42, %.critedge
   %43 = load ptr, ptr %2, align 8
-  tail call void @g_free(ptr noundef %43) #8
+  tail call void @g_free(ptr noundef %43) #7
   %44 = load ptr, ptr %20, align 8
-  tail call void @g_free(ptr noundef %44) #8
+  tail call void @g_free(ptr noundef %44) #7
   ret void
 }
 
@@ -159,7 +159,7 @@ define dso_local i64 @guest_alloc(ptr noundef readonly captures(none) %0, i64 no
 17:                                               ; preds = %3
   %18 = sitofp i64 %14 to x86_fp80
   %19 = sitofp i64 %16 to x86_fp80
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 264, ptr noundef nonnull @__func__.guest_alloc, ptr noundef nonnull @.str.3, x86_fp80 noundef %18, ptr noundef nonnull @.str.4, x86_fp80 noundef %19, i8 noundef signext 105) #8
+  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 264, ptr noundef nonnull @__func__.guest_alloc, ptr noundef nonnull @.str.3, x86_fp80 noundef %18, ptr noundef nonnull @.str.4, x86_fp80 noundef %19, i8 noundef signext 105) #7
   br label %20
 
 20:                                               ; preds = %3, %17
@@ -169,7 +169,7 @@ define dso_local i64 @guest_alloc(ptr noundef readonly captures(none) %0, i64 no
 21:                                               ; preds = %20
   %22 = uitofp nneg i64 %11 to x86_fp80
   %23 = uitofp nneg i64 %1 to x86_fp80
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 265, ptr noundef nonnull @__func__.guest_alloc, ptr noundef nonnull @.str.5, x86_fp80 noundef %22, ptr noundef nonnull @.str.6, x86_fp80 noundef %23, i8 noundef signext 105) #8
+  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 265, ptr noundef nonnull @__func__.guest_alloc, ptr noundef nonnull @.str.5, x86_fp80 noundef %22, ptr noundef nonnull @.str.6, x86_fp80 noundef %23, i8 noundef signext 105) #7
   br label %24
 
 24:                                               ; preds = %20, %21
@@ -191,8 +191,8 @@ define dso_local i64 @guest_alloc(ptr noundef readonly captures(none) %0, i64 no
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr @stderr, align 8
-  %33 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %32, i32 noundef 1, ptr noundef nonnull @.str.10) #8
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 184, ptr noundef nonnull @__func__.mlist_alloc, ptr noundef null) #9
+  %33 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %32, i32 noundef 1, ptr noundef nonnull @.str.10) #7
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 184, ptr noundef nonnull @__func__.mlist_alloc, ptr noundef null) #8
   unreachable
 
 mlist_find_space.exit.i:                          ; preds = %28
@@ -203,7 +203,7 @@ mlist_find_space.exit.i:                          ; preds = %28
 35:                                               ; preds = %mlist_find_space.exit.i
   %36 = sitofp i64 %30 to x86_fp80
   %37 = uitofp nneg i64 %11 to x86_fp80
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 134, ptr noundef nonnull @__func__.mlist_fulfill, ptr noundef nonnull @.str.12, x86_fp80 noundef %36, ptr noundef nonnull @.str.6, x86_fp80 noundef %37, i8 noundef signext 105) #8
+  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 134, ptr noundef nonnull @__func__.mlist_fulfill, ptr noundef nonnull @.str.12, x86_fp80 noundef %36, ptr noundef nonnull @.str.6, x86_fp80 noundef %37, i8 noundef signext 105) #7
   %.pre.i.i = load i64, ptr %34, align 8
   br label %38
 
@@ -243,7 +243,7 @@ mlist_find_space.exit.i:                          ; preds = %28
   br i1 %.not.i.i.i, label %mlist_new.exit.thread.i.i, label %55
 
 55:                                               ; preds = %52
-  %56 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #10
+  %56 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #9
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store i64 %41, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -262,7 +262,7 @@ mlist_new.exit.i.i:                               ; preds = %55, %49
   br label %63
 
 mlist_new.exit.thread.i.i:                        ; preds = %mlist_new.exit.i.i, %52
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef nonnull @__func__.mlist_sort_insert, ptr noundef nonnull @.str.13) #9
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef nonnull @__func__.mlist_sort_insert, ptr noundef nonnull @.str.13) #8
   unreachable
 
 63:                                               ; preds = %64, %.preheader.i.i.i
@@ -340,7 +340,7 @@ define internal fastcc void @mlist_check(ptr noundef readonly captures(none) %0)
 9:                                                ; preds = %.lr.ph
   %10 = sitofp i64 %7 to x86_fp80
   %11 = sitofp i64 %.04160 to x86_fp80
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 161, ptr noundef nonnull @__func__.mlist_check, ptr noundef nonnull @.str.14, x86_fp80 noundef %10, ptr noundef nonnull @.str.15, x86_fp80 noundef %11, i8 noundef signext 105) #8
+  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 161, ptr noundef nonnull @__func__.mlist_check, ptr noundef nonnull @.str.14, x86_fp80 noundef %10, ptr noundef nonnull @.str.15, x86_fp80 noundef %11, i8 noundef signext 105) #7
   %.pre = load i64, ptr %6, align 8
   br label %12
 
@@ -352,7 +352,7 @@ define internal fastcc void @mlist_check(ptr noundef readonly captures(none) %0)
 14:                                               ; preds = %12
   %15 = sitofp i64 %13 to x86_fp80
   %16 = sitofp i64 %.04359 to x86_fp80
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 162, ptr noundef nonnull @__func__.mlist_check, ptr noundef nonnull @.str.16, x86_fp80 noundef %15, ptr noundef nonnull @.str.6, x86_fp80 noundef %16, i8 noundef signext 105) #8
+  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 162, ptr noundef nonnull @__func__.mlist_check, ptr noundef nonnull @.str.16, x86_fp80 noundef %15, ptr noundef nonnull @.str.6, x86_fp80 noundef %16, i8 noundef signext 105) #7
   %.pre70 = load i64, ptr %6, align 8
   br label %17
 
@@ -391,7 +391,7 @@ define internal fastcc void @mlist_check(ptr noundef readonly captures(none) %0)
 28:                                               ; preds = %.lr.ph68
   %29 = sitofp i64 %26 to x86_fp80
   %30 = sitofp i64 %.14265 to x86_fp80
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 170, ptr noundef nonnull @__func__.mlist_check, ptr noundef nonnull @.str.14, x86_fp80 noundef %29, ptr noundef nonnull @.str.15, x86_fp80 noundef %30, i8 noundef signext 105) #8
+  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 170, ptr noundef nonnull @__func__.mlist_check, ptr noundef nonnull @.str.14, x86_fp80 noundef %29, ptr noundef nonnull @.str.15, x86_fp80 noundef %30, i8 noundef signext 105) #7
   %.pre72 = load i64, ptr %25, align 8
   br label %31
 
@@ -403,7 +403,7 @@ define internal fastcc void @mlist_check(ptr noundef readonly captures(none) %0)
 33:                                               ; preds = %31
   %34 = sitofp i64 %32 to x86_fp80
   %35 = sitofp i64 %.14464 to x86_fp80
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 171, ptr noundef nonnull @__func__.mlist_check, ptr noundef nonnull @.str.16, x86_fp80 noundef %34, ptr noundef nonnull @.str.6, x86_fp80 noundef %35, i8 noundef signext 105) #8
+  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 171, ptr noundef nonnull @__func__.mlist_check, ptr noundef nonnull @.str.16, x86_fp80 noundef %34, ptr noundef nonnull @.str.6, x86_fp80 noundef %35, i8 noundef signext 105) #7
   %.pre73 = load i64, ptr %25, align 8
   br label %36
 
@@ -444,8 +444,8 @@ define dso_local void @guest_free(ptr noundef readonly captures(none) %0, i64 no
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %12, i32 noundef 1, ptr noundef nonnull @.str.17, i64 noundef range(i64 1, 0) %1) #8
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 202, ptr noundef nonnull @__func__.mlist_free, ptr noundef null) #9
+  %13 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %12, i32 noundef 1, ptr noundef nonnull @.str.17, i64 noundef range(i64 1, 0) %1) #7
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 202, ptr noundef nonnull @__func__.mlist_free, ptr noundef null) #8
   unreachable
 
 mlist_find_key.exit.i:                            ; preds = %7
@@ -466,7 +466,7 @@ mlist_find_key.exit.i:                            ; preds = %7
   br i1 %22, label %23, label %.preheader.i.i, !prof !13
 
 23:                                               ; preds = %mlist_find_key.exit.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef nonnull @__func__.mlist_sort_insert, ptr noundef nonnull @.str.13) #9
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef nonnull @__func__.mlist_sort_insert, ptr noundef nonnull @.str.13) #8
   unreachable
 
 .preheader.i.i:                                   ; preds = %mlist_find_key.exit.i, %24
@@ -585,11 +585,11 @@ mlist_join.exit.i.i:                              ; preds = %61
   %74 = load ptr, ptr %.017.i.i, align 8
   store ptr %74, ptr %72, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.017.i.i, i8 0, i64 16, i1 false)
-  tail call void @g_free(ptr noundef nonnull %.017.i.i) #8
+  tail call void @g_free(ptr noundef nonnull %.017.i.i) #7
   br label %75
 
 .split31.us.i.i:                                  ; preds = %.split.us.split.us.split.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 78, ptr noundef nonnull @__func__.mlist_join, ptr noundef nonnull @.str.19) #9
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 78, ptr noundef nonnull @__func__.mlist_join, ptr noundef nonnull @.str.19) #8
   unreachable
 
 75:                                               ; preds = %mlist_join.exit.i.i, %61, %.split.split.i.i
@@ -624,11 +624,11 @@ mlist_join.exit29.i.i:                            ; preds = %76
   %90 = load ptr, ptr %60, align 8
   store ptr %90, ptr %88, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
-  tail call void @g_free(ptr noundef nonnull %60) #8
+  tail call void @g_free(ptr noundef nonnull %60) #7
   br label %91
 
 .split33.us.i.i:                                  ; preds = %.split.us.split.us.split.split.split.i.i, %.split.us.split.us.split.us.split.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 78, ptr noundef nonnull @__func__.mlist_join, ptr noundef nonnull @.str.19) #9
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 78, ptr noundef nonnull @__func__.mlist_join, ptr noundef nonnull @.str.19) #8
   unreachable
 
 91:                                               ; preds = %mlist_join.exit29.i.i, %76, %75
@@ -657,10 +657,10 @@ define dso_local void @alloc_init(ptr noundef captures(none) initializes((0, 4),
   store i64 %2, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %3, ptr %7, align 8
-  %8 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #10
+  %8 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %8, ptr %9, align 8
-  %10 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #10
+  %10 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %10, ptr %11, align 8
   %12 = load ptr, ptr %9, align 8
@@ -680,7 +680,7 @@ define dso_local void @alloc_init(ptr noundef captures(none) initializes((0, 4),
 
 20:                                               ; preds = %5
   %21 = sub i64 %19, %18
-  %22 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #10
+  %22 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #9
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 %18, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -731,7 +731,7 @@ define dso_local void @migrate_allocator(ptr noundef captures(none) %0, ptr noun
 8:                                                ; preds = %2
   %9 = uitofp i64 %4 to x86_fp80
   %10 = uitofp i64 %6 to x86_fp80
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__func__.migrate_allocator, ptr noundef nonnull @.str.7, x86_fp80 noundef %9, ptr noundef nonnull @.str.8, x86_fp80 noundef %10, i8 noundef signext 120) #8
+  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__func__.migrate_allocator, ptr noundef nonnull @.str.7, x86_fp80 noundef %9, ptr noundef nonnull @.str.8, x86_fp80 noundef %10, i8 noundef signext 120) #7
   br label %11
 
 11:                                               ; preds = %2, %8
@@ -745,7 +745,7 @@ define dso_local void @migrate_allocator(ptr noundef captures(none) %0, ptr noun
 17:                                               ; preds = %11
   %18 = uitofp i64 %13 to x86_fp80
   %19 = uitofp i64 %15 to x86_fp80
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 321, ptr noundef nonnull @__func__.migrate_allocator, ptr noundef nonnull @.str.9, x86_fp80 noundef %18, ptr noundef nonnull @.str.8, x86_fp80 noundef %19, i8 noundef signext 120) #8
+  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 321, ptr noundef nonnull @__func__.migrate_allocator, ptr noundef nonnull @.str.9, x86_fp80 noundef %18, ptr noundef nonnull @.str.8, x86_fp80 noundef %19, i8 noundef signext 120) #7
   br label %20
 
 20:                                               ; preds = %11, %17
@@ -758,7 +758,7 @@ define dso_local void @migrate_allocator(ptr noundef captures(none) %0, ptr noun
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %.059 = phi ptr [ %24, %.lr.ph ], [ %23, %20 ]
   %24 = load ptr, ptr %.059, align 8
-  tail call void @g_free(ptr noundef nonnull %.059) #8
+  tail call void @g_free(ptr noundef nonnull %.059) #7
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !15
 
@@ -772,7 +772,7 @@ define dso_local void @migrate_allocator(ptr noundef captures(none) %0, ptr noun
 .lr.ph62:                                         ; preds = %.critedge, %.lr.ph62
   %.161 = phi ptr [ %28, %.lr.ph62 ], [ %27, %.critedge ]
   %28 = load ptr, ptr %.161, align 8
-  tail call void @g_free(ptr noundef nonnull %.161) #8
+  tail call void @g_free(ptr noundef nonnull %.161) #7
   %.not56 = icmp eq ptr %28, null
   br i1 %.not56, label %.critedge2.loopexit, label %.lr.ph62, !llvm.loop !16
 
@@ -807,7 +807,7 @@ define dso_local void @migrate_allocator(ptr noundef captures(none) %0, ptr noun
 
 42:                                               ; preds = %.critedge2
   %43 = sub i64 %41, %40
-  %44 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #10
+  %44 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #9
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i64 %40, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -839,17 +839,17 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #7
+declare i64 @llvm.usub.sat.i64(i64, i64) #6
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #3 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }

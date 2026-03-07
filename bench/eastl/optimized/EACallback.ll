@@ -174,7 +174,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i.i, %if.
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #20
+  tail call void @__clang_call_terminate(ptr %8) #19
   unreachable
 }
 
@@ -183,7 +183,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #20
+  tail call void @_ZSt9terminatev() #19
   unreachable
 }
 
@@ -275,11 +275,11 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i.i, %i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #20
+  tail call void @__clang_call_terminate(ptr %8) #19
   unreachable
 
 _ZN2EA4StdC8CallbackD2Ev.exit:                    ; preds = %entry, %if.then.i, %call2.i.noexc.i, %if.then6.i.i, %if.then.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -517,7 +517,7 @@ entry:
   br i1 %or.cond, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #20
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %entry
@@ -582,7 +582,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %7) #20
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %if.then
@@ -707,7 +707,7 @@ ehcleanup15:                                      ; preds = %lpad4, %ehcleanup, 
   br i1 %or.cond.i, label %_ZN2EA4StdC15CallbackManager14CallbackVectorD2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %ehcleanup15
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %7) #20
   br label %_ZN2EA4StdC15CallbackManager14CallbackVectorD2Ev.exit
 
 _ZN2EA4StdC15CallbackManager14CallbackVectorD2Ev.exit: ; preds = %ehcleanup15, %delete.notnull.i
@@ -749,7 +749,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %or.cond.i, label %_ZN2EA4StdC15CallbackManager14CallbackVectorD2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %invoke.cont
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #20
   br label %_ZN2EA4StdC15CallbackManager14CallbackVectorD2Ev.exit
 
 _ZN2EA4StdC15CallbackManager14CallbackVectorD2Ev.exit: ; preds = %invoke.cont, %delete.notnull.i
@@ -759,7 +759,7 @@ terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #20
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 }
 
@@ -889,18 +889,18 @@ invoke.cont.i:                                    ; preds = %entry
   br i1 %or.cond.i.i, label %_ZN2EA4StdC15CallbackManagerD2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %invoke.cont.i
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #20
   br label %_ZN2EA4StdC15CallbackManagerD2Ev.exit
 
 terminate.lpad.i:                                 ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #20
+  tail call void @__clang_call_terminate(ptr %2) #19
   unreachable
 
 _ZN2EA4StdC15CallbackManagerD2Ev.exit:            ; preds = %invoke.cont.i, %delete.notnull.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -1483,7 +1483,7 @@ if.then.i:                                        ; preds = %if.then14
   br i1 %or.cond.i, label %if.end.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then.i
-  tail call void @_ZdaPv(ptr noundef nonnull %10) #21
+  tail call void @_ZdaPv(ptr noundef nonnull %10) #20
   br label %if.end.i
 
 if.end.i:                                         ; preds = %delete.notnull.i, %if.then.i
@@ -1668,12 +1668,12 @@ for.body.preheader:                               ; preds = %if.then3
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   br label %for.body
 
-for.cond:                                         ; preds = %for.body
+for.body:                                         ; preds = %for.body
   %inc = add nuw i64 %i.012, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %if.end12.thread, label %for.body, !llvm.loop !10
 
-for.body:                                         ; preds = %for.body.preheader, %for.cond
+if.end12.thread:                                  ; preds = %for.body.preheader, %if.end12.thread
   %i.012 = phi i64 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
   %arrayidx.i = getelementptr inbounds [8 x i8], ptr %2, i64 %i.012
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %arrayidx.i) ]
@@ -1791,13 +1791,13 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #18
+declare i64 @llvm.smin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

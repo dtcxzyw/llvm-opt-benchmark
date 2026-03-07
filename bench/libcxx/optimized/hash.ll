@@ -45,7 +45,7 @@ _ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit: ; preds = %.preheader
   br i1 %13, label %14, label %_ZNSt3__120__check_for_overflowB8ne210000ILm8EEENS_9enable_ifIXeqT_Li8EEvE4typeEm.exit
 
 14:                                               ; preds = %12
-  tail call void @_ZNSt3__122__throw_overflow_errorB8ne210000EPKc(ptr noundef nonnull @.str) #6
+  tail call void @_ZNSt3__122__throw_overflow_errorB8ne210000EPKc(ptr noundef nonnull @.str) #5
   unreachable
 
 _ZNSt3__120__check_for_overflowB8ne210000ILm8EEENS_9enable_ifIXeqT_Li8EEvE4typeEm.exit: ; preds = %12
@@ -653,18 +653,18 @@ _ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit477: ; preds = %17
 
 ; Function Attrs: inlinehint mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZNSt3__122__throw_overflow_errorB8ne210000EPKc(ptr noundef %0) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
-  %2 = tail call ptr @__cxa_allocate_exception(i64 16) #7
+  %2 = tail call ptr @__cxa_allocate_exception(i64 16) #6
   invoke void @_ZNSt14overflow_errorC2B8ne210000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %0)
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTISt14overflow_error, ptr nonnull @_ZNSt14overflow_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTISt14overflow_error, ptr nonnull @_ZNSt14overflow_errorD1Ev) #5
   unreachable
 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %2) #7
+  tail call void @__cxa_free_exception(ptr nonnull %2) #6
   resume { ptr, i32 } %5
 }
 

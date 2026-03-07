@@ -732,10 +732,10 @@ _ZN4core3ops8function6FnOnce9call_once17h97e7e6d832835524E.exit.i: ; preds = %13
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noalias noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17hf45cfb43b91670a0E(i64 noundef range(i64 0, 25) %0, i64 noundef range(i64 1, 9) %1) unnamed_addr #0 {
   %3 = icmp eq i64 %0, 0
-  br i1 %3, label %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit.thread, label %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit
+  br i1 %3, label %4, label %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit
 
-_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit.thread: ; preds = %2
-  %4 = getelementptr i8, ptr null, i64 %1
+4:                                                ; preds = %2
+  %5 = getelementptr i8, ptr null, i64 %1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
   br label %8
 
@@ -745,11 +745,11 @@ _ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit: ; preds = %2
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
 
-8:                                                ; preds = %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit.thread, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit
+10:                                               ; preds = %4, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit
   %.sroa.0.0.i7 = phi ptr [ %4, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit.thread ], [ %6, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit ]
   ret ptr %.sroa.0.0.i7
 
-9:                                                ; preds = %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit
+11:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.exit
   tail call void @_ZN5alloc5alloc18handle_alloc_error17hc735483c05842e7cE(i64 noundef %1, i64 noundef %0) #19
   unreachable
 }

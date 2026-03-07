@@ -14,7 +14,7 @@ define i32 @libdeflate_adler32(i32 noundef %0, ptr noundef %1, i64 noundef %2) l
 
 5:                                                ; preds = %3
   %6 = load volatile ptr, ptr @adler32_impl, align 8, !tbaa !4
-  %7 = tail call i32 %6(i32 noundef %0, ptr noundef nonnull %1, i64 noundef %2) #13
+  %7 = tail call i32 %6(i32 noundef %0, ptr noundef nonnull %1, i64 noundef %2) #12
   br label %8
 
 8:                                                ; preds = %3, %5
@@ -29,7 +29,7 @@ define internal i32 @dispatch_adler32(i32 noundef %0, ptr noundef %1, i64 nounde
   br i1 %5, label %6, label %get_x86_cpu_features.exit.i
 
 6:                                                ; preds = %3
-  tail call void @libdeflate_init_x86_cpu_features() #13
+  tail call void @libdeflate_init_x86_cpu_features() #12
   br label %get_x86_cpu_features.exit.i
 
 get_x86_cpu_features.exit.i:                      ; preds = %6, %3
@@ -56,7 +56,7 @@ arch_select_adler32_func.exit:                    ; preds = %get_x86_cpu_feature
   %.0.i = phi ptr [ %spec.select.i, %11 ], [ @adler32_x86_avx512_vl512_vnni, %get_x86_cpu_features.exit.i ], [ @adler32_x86_avx512_vl256_vnni, %9 ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i) ]
   store volatile ptr %.0.i, ptr @adler32_impl, align 8, !tbaa !4
-  %14 = tail call i32 %.0.i(i32 noundef %0, ptr noundef %1, i64 noundef %2) #13
+  %14 = tail call i32 %.0.i(i32 noundef %0, ptr noundef %1, i64 noundef %2) #12
   ret i32 %14
 }
 

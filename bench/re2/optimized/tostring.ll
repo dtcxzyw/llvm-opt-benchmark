@@ -1188,8 +1188,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__num_elements) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %div14 = lshr i64 %__num_elements, 4
-  %add3 = add nuw nsw i64 %div14, 3
+  %div16 = lshr i64 %__num_elements, 4
+  %add3 = add nuw nsw i64 %div16, 3
   %cmp.i = icmp ugt i64 %__num_elements, 95
   %0 = select i1 %cmp.i, i64 %add3, i64 8
   %_M_map_size = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1202,7 +1202,7 @@ if.end.i.i.i:                                     ; preds = %entry
   unreachable
 
 _ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE15_M_allocate_mapEm.exit: ; preds = %entry
-  %add = add nuw nsw i64 %div14, 1
+  %add = add nuw nsw i64 %div16, 1
   %mul.i.i.i = shl nuw nsw i64 %0, 3
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   store ptr %call5.i.i2.i, ptr %this, align 8
@@ -2099,9 +2099,9 @@ if.then.i.i.i.i.i19:                              ; preds = %if.else
   br label %if.end65
 
 if.else31:                                        ; preds = %entry
-  %4 = tail call i64 @llvm.umax.i64(i64 %2, i64 %__nodes_to_add)
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %2, i64 %__nodes_to_add)
   %add37 = add i64 %2, 2
-  %add38 = add i64 %add37, %4
+  %add38 = add i64 %add37, %.sroa.speculated
   %cmp.i.i.i = icmp ugt i64 %add38, 1152921504606846975
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE15_M_allocate_mapEm.exit
 
@@ -2136,8 +2136,8 @@ if.then.i.i.i.i.i28:                              ; preds = %_ZNSt11_Deque_baseI
   br label %_ZSt4copyIPPN3re29WalkStateIiEES4_ET0_T_S6_S5_.exit30
 
 _ZSt4copyIPPN3re29WalkStateIiEES4_ET0_T_S6_S5_.exit30: ; preds = %_ZNSt11_Deque_baseIN3re29WalkStateIiEESaIS2_EE15_M_allocate_mapEm.exit, %if.then.i.i.i.i.i28
-  %5 = load ptr, ptr %this, align 8
-  tail call void @_ZdlPv(ptr noundef %5) #17
+  %4 = load ptr, ptr %this, align 8
+  tail call void @_ZdlPv(ptr noundef %4) #17
   store ptr %call5.i.i2.i, ptr %this, align 8
   store i64 %add38, ptr %_M_map_size, align 8
   br label %if.end65
@@ -2145,19 +2145,19 @@ _ZSt4copyIPPN3re29WalkStateIiEES4_ET0_T_S6_S5_.exit30: ; preds = %_ZNSt11_Deque_
 if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPN3re29WalkStateIiEES4_ET0_T_S6_S5_.exit30
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN3re29WalkStateIiEES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
-  %6 = load ptr, ptr %__new_nstart.0, align 8
+  %5 = load ptr, ptr %__new_nstart.0, align 8
   %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr %6, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 512
+  store ptr %5, ptr %_M_first.i, align 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
-  %7 = load ptr, ptr %add.ptr71, align 8
+  %6 = load ptr, ptr %add.ptr71, align 8
   %_M_first.i32 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr %7, ptr %_M_first.i32, align 8
-  %add.ptr.i33 = getelementptr inbounds nuw i8, ptr %7, i64 512
+  store ptr %6, ptr %_M_first.i32, align 8
+  %add.ptr.i33 = getelementptr inbounds nuw i8, ptr %6, i64 512
   %_M_last.i34 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i33, ptr %_M_last.i34, align 8
   ret void
@@ -2174,10 +2174,10 @@ declare noundef zeroext i1 @_ZN4absl7debian219str_format_internal13FormatArgImpl
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15

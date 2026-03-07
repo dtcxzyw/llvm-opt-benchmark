@@ -36,8 +36,8 @@ define void @_ZN3g2o7csparse7CSparseD2Ev(ptr noundef nonnull align 8 captures(no
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3g2o7csparse7CSparse4ImplESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN3g2o7csparse7CSparse4ImplEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN3g2o7csparse7CSparse4ImplEEclEPS3_.exit.i: ; preds = %1
-  tail call void @_ZN3g2o7csparse7CSparse4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 96) #22
+  tail call void @_ZN3g2o7csparse7CSparse4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 96) #21
   br label %_ZNSt10unique_ptrIN3g2o7csparse7CSparse4ImplESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3g2o7csparse7CSparse4ImplESt14default_deleteIS3_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN3g2o7csparse7CSparse4ImplEEclEPS3_.exit.i
@@ -120,20 +120,20 @@ define noundef zeroext i1 @_ZN3g2o7csparse7CSparse3amdERKNS1_10SparseViewERN5Eig
   br i1 %.not.i.i, label %38, label %31
 
 31:                                               ; preds = %26
-  call void @free(ptr noundef %.pre) #21
+  call void @free(ptr noundef %.pre) #20
   %32 = icmp sgt i32 %27, 0
   br i1 %32, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i, label %.sink.split.i.i
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i: ; preds = %31
   %33 = shl nuw nsw i64 %28, 2
-  %34 = call noalias ptr @malloc(i64 noundef %33) #23
+  %34 = call noalias ptr @malloc(i64 noundef %33) #22
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %.sink.split.i.i
 
 36:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i
-  %37 = call ptr @__cxa_allocate_exception(i64 8) #21
+  %37 = call ptr @__cxa_allocate_exception(i64 8) #20
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %37, align 8, !tbaa !41
-  call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
+  call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #23
   unreachable
 
 .sink.split.i.i:                                  ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i, %31
@@ -259,7 +259,7 @@ define noundef zeroext i1 @_ZNK3g2o7csparse7CSparse5solveEPdS2_(ptr noundef nonn
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %10
-  tail call void @_ZdaPv(ptr noundef nonnull %15) #22
+  tail call void @_ZdaPv(ptr noundef nonnull %15) #21
   %.pre.i = load i32, ptr %5, align 8, !tbaa !53
   br label %18
 
@@ -269,7 +269,7 @@ define noundef zeroext i1 @_ZNK3g2o7csparse7CSparse5solveEPdS2_(ptr noundef nonn
   %21 = icmp slt i32 %19, 0
   %22 = shl nsw i64 %20, 3
   %23 = select i1 %21, i64 -1, i64 %22
-  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #20
+  %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #19
   store ptr %24, ptr %14, align 8, !tbaa !54
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !55
@@ -277,7 +277,7 @@ define noundef zeroext i1 @_ZNK3g2o7csparse7CSparse5solveEPdS2_(ptr noundef nonn
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %18
-  tail call void @_ZdaPv(ptr noundef nonnull %26) #22
+  tail call void @_ZdaPv(ptr noundef nonnull %26) #21
   %.pre4.i = load i32, ptr %5, align 8, !tbaa !53
   br label %29
 
@@ -288,7 +288,7 @@ define noundef zeroext i1 @_ZNK3g2o7csparse7CSparse5solveEPdS2_(ptr noundef nonn
   %33 = icmp slt i32 %30, 0
   %34 = shl nsw i64 %32, 2
   %35 = select i1 %33, i64 -1, i64 %34
-  %36 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %35) #20
+  %36 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %35) #19
   store ptr %36, ptr %25, align 8, !tbaa !55
   %.pre7.pre = load ptr, ptr %0, align 8, !tbaa !14
   br label %_ZN3g2o7csparse7CSparse4Impl16prepareWorkspaceEv.exit
@@ -497,7 +497,7 @@ define noundef zeroext i1 @_ZN3g2o7csparse7CSparse9factorizeEv(ptr noundef nonnu
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %8
-  tail call void @_ZdaPv(ptr noundef nonnull %13) #22
+  tail call void @_ZdaPv(ptr noundef nonnull %13) #21
   %.pre.i = load i32, ptr %3, align 8, !tbaa !53
   br label %16
 
@@ -507,7 +507,7 @@ define noundef zeroext i1 @_ZN3g2o7csparse7CSparse9factorizeEv(ptr noundef nonnu
   %19 = icmp slt i32 %17, 0
   %20 = shl nsw i64 %18, 3
   %21 = select i1 %19, i64 -1, i64 %20
-  %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #20
+  %22 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #19
   store ptr %22, ptr %12, align 8, !tbaa !54
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !55
@@ -515,7 +515,7 @@ define noundef zeroext i1 @_ZN3g2o7csparse7CSparse9factorizeEv(ptr noundef nonnu
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %16
-  tail call void @_ZdaPv(ptr noundef nonnull %24) #22
+  tail call void @_ZdaPv(ptr noundef nonnull %24) #21
   %.pre4.i = load i32, ptr %3, align 8, !tbaa !53
   br label %27
 
@@ -526,7 +526,7 @@ define noundef zeroext i1 @_ZN3g2o7csparse7CSparse9factorizeEv(ptr noundef nonnu
   %31 = icmp slt i32 %28, 0
   %32 = shl nsw i64 %30, 2
   %33 = select i1 %31, i64 -1, i64 %32
-  %34 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %33) #20
+  %34 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %33) #19
   store ptr %34, ptr %23, align 8, !tbaa !55
   %.pre = load ptr, ptr %0, align 8, !tbaa !14
   br label %_ZN3g2o7csparse7CSparse4Impl16prepareWorkspaceEv.exit
@@ -586,8 +586,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
-  tail call void @_ZSt9terminatev() #25
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
+  tail call void @_ZSt9terminatev() #24
   unreachable
 }
 
@@ -646,7 +646,7 @@ define linkonce_odr void @_ZN3g2o7csparse7CSparse4ImplD2Ev(ptr noundef nonnull a
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %12
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #22
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #21
   br label %17
 
 17:                                               ; preds = %16, %12
@@ -657,7 +657,7 @@ define linkonce_odr void @_ZN3g2o7csparse7CSparse4ImplD2Ev(ptr noundef nonnull a
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %17
-  tail call void @_ZdaPv(ptr noundef nonnull %19) #22
+  tail call void @_ZdaPv(ptr noundef nonnull %19) #21
   br label %22
 
 22:                                               ; preds = %21, %17
@@ -668,7 +668,7 @@ define linkonce_odr void @_ZN3g2o7csparse7CSparse4ImplD2Ev(ptr noundef nonnull a
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %22
-  tail call void @_ZdaPv(ptr noundef nonnull %24) #22
+  tail call void @_ZdaPv(ptr noundef nonnull %24) #21
   br label %27
 
 27:                                               ; preds = %26, %22
@@ -678,7 +678,7 @@ define linkonce_odr void @_ZN3g2o7csparse7CSparse4ImplD2Ev(ptr noundef nonnull a
   br i1 %30, label %32, label %31
 
 31:                                               ; preds = %27
-  tail call void @_ZdaPv(ptr noundef nonnull %29) #22
+  tail call void @_ZdaPv(ptr noundef nonnull %29) #21
   br label %32
 
 32:                                               ; preds = %31, %27
@@ -688,7 +688,7 @@ define linkonce_odr void @_ZN3g2o7csparse7CSparse4ImplD2Ev(ptr noundef nonnull a
   br i1 %35, label %_ZN3g2o7csparse10CSparseExtD2Ev.exit, label %36
 
 36:                                               ; preds = %32
-  tail call void @_ZdaPv(ptr noundef nonnull %34) #22
+  tail call void @_ZdaPv(ptr noundef nonnull %34) #21
   br label %_ZN3g2o7csparse10CSparseExtD2Ev.exit
 
 _ZN3g2o7csparse10CSparseExtD2Ev.exit:             ; preds = %32, %36
@@ -698,7 +698,7 @@ _ZN3g2o7csparse10CSparseExtD2Ev.exit:             ; preds = %32, %36
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #25
+  tail call void @__clang_call_terminate(ptr %39) #24
   unreachable
 }
 
@@ -726,7 +726,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

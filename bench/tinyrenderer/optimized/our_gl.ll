@@ -1011,36 +1011,36 @@ _ZdvILi4EE3vecIXT_EERKS1_RKd.exit54:              ; preds = %84
   %98 = fcmp olt double %92, %97
   %99 = select i1 %98, double %92, double %97
   %100 = fptosi double %99 to i32
-  %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
-  store i32 %101, ptr %11, align 4, !tbaa !16
+  %.sroa.speculated81 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
+  store i32 %.sroa.speculated81, ptr %11, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %102 = fcmp olt double %80, %66
-  %103 = select i1 %102, double %80, double %66
-  %104 = fcmp olt double %94, %103
-  %105 = select i1 %104, double %94, double %103
-  %106 = fptosi double %105 to i32
-  %107 = tail call i32 @llvm.smax.i32(i32 %106, i32 0)
-  store i32 %107, ptr %12, align 4, !tbaa !16
+  %101 = fcmp olt double %80, %66
+  %102 = select i1 %101, double %80, double %66
+  %103 = fcmp olt double %94, %102
+  %104 = select i1 %103, double %94, double %102
+  %105 = fptosi double %104 to i32
+  %.sroa.speculated76 = tail call i32 @llvm.smax.i32(i32 %105, i32 0)
+  store i32 %.sroa.speculated76, ptr %12, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %108 = tail call noundef i32 @_ZNK8TGAImage5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %109 = add nsw i32 %108, -1
-  %110 = fcmp olt double %64, %78
-  %111 = select i1 %110, double %78, double %64
-  %112 = fcmp olt double %111, %92
-  %113 = select i1 %112, double %92, double %111
-  %114 = fptosi double %113 to i32
-  %115 = tail call i32 @llvm.smin.i32(i32 %109, i32 %114)
-  store i32 %115, ptr %13, align 4, !tbaa !16
+  %106 = tail call noundef i32 @_ZNK8TGAImage5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
+  %107 = add nsw i32 %106, -1
+  %108 = fcmp olt double %64, %78
+  %109 = select i1 %108, double %78, double %64
+  %110 = fcmp olt double %109, %92
+  %111 = select i1 %110, double %92, double %109
+  %112 = fptosi double %111 to i32
+  %.sroa.speculated71 = tail call i32 @llvm.smin.i32(i32 %107, i32 %112)
+  store i32 %.sroa.speculated71, ptr %13, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %116 = tail call noundef i32 @_ZNK8TGAImage6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %117 = add nsw i32 %116, -1
-  %118 = fcmp olt double %66, %80
-  %119 = select i1 %118, double %80, double %66
-  %120 = fcmp olt double %119, %94
-  %121 = select i1 %120, double %94, double %119
-  %122 = fptosi double %121 to i32
-  %123 = tail call i32 @llvm.smin.i32(i32 %117, i32 %122)
-  store i32 %123, ptr %14, align 4, !tbaa !16
+  %113 = tail call noundef i32 @_ZNK8TGAImage6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
+  %114 = add nsw i32 %113, -1
+  %115 = fcmp olt double %66, %80
+  %116 = select i1 %115, double %80, double %66
+  %117 = fcmp olt double %116, %94
+  %118 = select i1 %117, double %94, double %116
+  %119 = fptosi double %118 to i32
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %114, i32 %119)
+  store i32 %.sroa.speculated, ptr %14, align 4, !tbaa !16
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 10, ptr nonnull @_Z9rasterizePK3vecILi4EERK7IShaderR8TGAImageRSt6vectorIdSaIdEE.omp_outlined, ptr nonnull %13, ptr nonnull %11, ptr nonnull %12, ptr nonnull %14, ptr nonnull %7, ptr nonnull %6, ptr nonnull %5, ptr nonnull %3, ptr nonnull %2, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1636,7 +1636,7 @@ _ZNK3vecILi3EEixEi.exit8.i:                       ; preds = %_ZNK3vecILi3EEixEi.
   %229 = landingpad { ptr, i32 }
           catch ptr null
   %230 = extractvalue { ptr, i32 } %229, 0
-  call void @__clang_call_terminate(ptr %230) #19
+  call void @__clang_call_terminate(ptr %230) #18
   unreachable
 }
 
@@ -1648,7 +1648,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #19
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -1685,7 +1685,7 @@ declare i32 @llvm.umin.i32(i32, i32) #16
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #18
+declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16

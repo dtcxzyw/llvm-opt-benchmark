@@ -44,9 +44,9 @@ define void @_ZN6LibRaw10bad_pixelsEPKc(ptr noundef nonnull align 8 dereferencea
   br i1 %.not48, label %19, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call ptr @__cxa_allocate_exception(i64 4) #12
+  %18 = tail call ptr @__cxa_allocate_exception(i64 4) #11
   store i32 6, ptr %18, align 16, !tbaa !73
-  tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #13
+  tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #12
   unreachable
 
 19:                                               ; preds = %13, %10
@@ -79,7 +79,7 @@ define void @_ZN6LibRaw10bad_pixelsEPKc(ptr noundef nonnull align 8 dereferencea
   br label %126
 
 31:                                               ; preds = %.lr.ph85, %.backedge
-  %32 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 35) #14
+  %32 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 35) #13
   %.not54 = icmp eq ptr %32, null
   br i1 %.not54, label %34, label %33
 
@@ -88,7 +88,7 @@ define void @_ZN6LibRaw10bad_pixelsEPKc(ptr noundef nonnull align 8 dereferencea
   br label %34
 
 34:                                               ; preds = %33, %31
-  %35 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4) #12
+  %35 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4) #11
   %.not55 = icmp eq i32 %35, 3
   br i1 %.not55, label %36, label %.backedge
 
@@ -245,9 +245,9 @@ define void @_ZN6LibRaw10bad_pixelsEPKc(ptr noundef nonnull align 8 dereferencea
   br i1 %.not53, label %126, label %124
 
 124:                                              ; preds = %120
-  %125 = call ptr @__cxa_allocate_exception(i64 4) #12
+  %125 = call ptr @__cxa_allocate_exception(i64 4) #11
   store i32 6, ptr %125, align 16, !tbaa !73
-  call void @__cxa_throw(ptr nonnull %125, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #13
+  call void @__cxa_throw(ptr nonnull %125, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #12
   unreachable
 
 126:                                              ; preds = %._crit_edge86, %120, %2, %.thread
@@ -298,9 +298,9 @@ define void @_ZN6LibRaw8subtractEPKc(ptr noundef nonnull align 8 captures(none) 
   br i1 %.not67, label %12, label %10
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @__cxa_allocate_exception(i64 4) #12
+  %11 = tail call ptr @__cxa_allocate_exception(i64 4) #11
   store i32 6, ptr %11, align 16, !tbaa !73
-  tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #13
+  tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #12
   unreachable
 
 12:                                               ; preds = %6, %2
@@ -382,7 +382,7 @@ define void @_ZN6LibRaw8subtractEPKc(ptr noundef nonnull align 8 captures(none) 
   br label %.outer
 
 40:                                               ; preds = %32
-  %41 = tail call i32 @isspace(i32 noundef %26) #14
+  %41 = tail call i32 @isspace(i32 noundef %26) #13
   %.not80 = icmp eq i32 %41, 0
   br i1 %.not80, label %.outer, label %42
 
@@ -442,7 +442,7 @@ define void @_ZN6LibRaw8subtractEPKc(ptr noundef nonnull align 8 captures(none) 
 .noexc:                                           ; preds = %68
   %69 = zext i16 %51 to i64
   %70 = shl nuw nsw i64 %69, 1
-  %71 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %70) #15
+  %71 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %70) #14
   tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %71, i8 0, i64 %70, i1 false), !tbaa !86
   %72 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %69
   %73 = ptrtoint ptr %72 to i64
@@ -536,9 +536,9 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc, %68
   br i1 %.not74, label %131, label %124
 
 124:                                              ; preds = %123
-  %125 = tail call ptr @__cxa_allocate_exception(i64 4) #12
+  %125 = tail call ptr @__cxa_allocate_exception(i64 4) #11
   store i32 6, ptr %125, align 16, !tbaa !73
-  invoke void @__cxa_throw(ptr nonnull %125, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #13
+  invoke void @__cxa_throw(ptr nonnull %125, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #12
           to label %135 unwind label %126
 
 126:                                              ; preds = %124, %119
@@ -550,7 +550,7 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc, %68
 128:                                              ; preds = %126
   %129 = ptrtoint ptr %.sroa.085.0 to i64
   %130 = sub i64 %.sroa.12.0, %129
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.085.0, i64 noundef %130) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.085.0, i64 noundef %130) #15
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 131:                                              ; preds = %123, %._crit_edge110
@@ -560,7 +560,7 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc, %68
 132:                                              ; preds = %131
   %133 = ptrtoint ptr %.sroa.085.0 to i64
   %134 = sub i64 %.sroa.12.0, %133
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.085.0, i64 noundef %134) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.085.0, i64 noundef %134) #15
   br label %_ZNSt6vectorItSaItEED2Ev.exit84
 
 _ZNSt6vectorItSaItEED2Ev.exit84:                  ; preds = %132, %131, %63, %.critedge.thread, %14

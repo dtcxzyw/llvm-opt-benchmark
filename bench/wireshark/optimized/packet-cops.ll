@@ -1904,7 +1904,7 @@ dissect_cops_object.exit:                         ; preds = %108, %110, %115, %1
 
 356:                                              ; preds = %351
   %357 = call ptr @wmem_file_scope()
-  %358 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %357, i64 noundef 8) #11
+  %358 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %357, i64 noundef 8) #10
   %359 = call ptr @wmem_file_scope()
   %360 = call noalias ptr @wmem_map_new(ptr noundef %359, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
   store ptr %360, ptr %358, align 8
@@ -1953,7 +1953,7 @@ dissect_cops_object.exit:                         ; preds = %108, %110, %115, %1
 
 382:                                              ; preds = %374
   %383 = call ptr @wmem_file_scope()
-  %384 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %383, i64 noundef 32) #11
+  %384 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %383, i64 noundef 32) #10
   store ptr %384, ptr %8, align 8
   store i8 %13, ptr %384, align 8
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 1
@@ -2376,7 +2376,7 @@ define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef
   %58 = add i32 %.073, 4
   %59 = add nsw i32 %31, -4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %9, i8 noundef 0, i64 noundef 208, i1 noundef false) #12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %9, i8 noundef 0, i64 noundef 208, i1 noundef false) #11
   store ptr %1, ptr %27, align 8
   switch i8 %39, label %244 [
     i8 2, label %60
@@ -2475,7 +2475,7 @@ define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef
   %96 = add i32 %.035.lcssa.i.i, %91
   %97 = zext i32 %96 to i64
   %98 = shl nuw nsw i64 %97, 2
-  %99 = call noalias ptr @wmem_alloc(ptr noundef %95, i64 noundef %98) #11
+  %99 = call noalias ptr @wmem_alloc(ptr noundef %95, i64 noundef %98) #10
   store ptr %99, ptr %11, align 8
   %100 = zext i32 %.035.lcssa.i.i to i64
   %101 = getelementptr [4 x i8], ptr %99, i64 %100
@@ -2515,7 +2515,7 @@ define internal fastcc void @dissect_cops_pr_objects(ptr noundef %0, ptr noundef
   br i1 %113, label %115, label %114
 
 114:                                              ; preds = %112
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.707, ptr noundef nonnull @.str.708, i32 noundef 1562, ptr noundef nonnull @.str.709) #13
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.707, ptr noundef nonnull @.str.708, i32 noundef 1562, ptr noundef nonnull @.str.709) #12
   unreachable
 
 115:                                              ; preds = %112

@@ -287,9 +287,9 @@ define hidden noalias noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17hf4
   %4 = icmp ult i64 %1, -9223372036854775807
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq i64 %0, 0
-  br i1 %5, label %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit.thread, label %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit
+  br i1 %5, label %8, label %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit
 
-_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit.thread: ; preds = %2
+8:                                                ; preds = %2
   %6 = getelementptr i8, ptr null, i64 %1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   br label %10
@@ -300,11 +300,11 @@ _ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
 
-10:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit.thread, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit
+12:                                               ; preds = %8, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit
   %.sroa.0.0.i7 = phi ptr [ %6, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit.thread ], [ %8, %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit ]
   ret ptr %.sroa.0.0.i7
 
-11:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit
+13:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee874E.llvm.13367099715250013183.exit
   tail call void @_ZN5alloc5alloc18handle_alloc_error17hc735483c05842e7cE(i64 noundef %1, i64 noundef %0) #21
   unreachable
 }

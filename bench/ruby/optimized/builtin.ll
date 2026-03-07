@@ -61,7 +61,7 @@ define hidden void @rb_load_with_builtin_functions(ptr noundef %0, ptr noundef %
   %5 = sext i32 %3 to i64
   %6 = getelementptr [24 x i8], ptr @builtin_binary, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !11
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %0) #5
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %0) #6
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %bin4feature.exit.i, label %.lr.ph.i.preheader
 
@@ -77,7 +77,7 @@ bin4feature.exit.i:                               ; preds = %2
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %bin4feature.exit11.i
   %11 = phi ptr [ %18, %bin4feature.exit11.i ], [ @.str.3, %.lr.ph.i.preheader ]
   %.013.i = phi ptr [ %17, %bin4feature.exit11.i ], [ @builtin_binary, %.lr.ph.i.preheader ]
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %0) #5
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %0) #6
   %.not.i10.i = icmp eq i32 %12, 0
   br i1 %.not.i10.i, label %13, label %bin4feature.exit11.i
 
@@ -104,7 +104,7 @@ builtin_lookup.exit:                              ; preds = %bin4feature.exit11.
   br i1 %.not, label %21, label %22
 
 21:                                               ; preds = %builtin_lookup.exit
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str, ptr noundef nonnull %0) #6
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str, ptr noundef nonnull %0) #7
   unreachable
 
 22:                                               ; preds = %builtin_lookup.exit
@@ -115,14 +115,14 @@ builtin_lookup.exit:                              ; preds = %bin4feature.exit11.
   br i1 %.not10, label %27, label %26
 
 26:                                               ; preds = %22
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.1) #6
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.1) #7
   unreachable
 
 27:                                               ; preds = %22
   store ptr %1, ptr %24, align 8, !tbaa !22
-  %28 = tail call nonnull ptr @rb_iseq_ibf_load_bytes(ptr noundef nonnull %.09.lcssa.i, i64 noundef %.0) #7
+  %28 = tail call nonnull ptr @rb_iseq_ibf_load_bytes(ptr noundef nonnull %.09.lcssa.i, i64 noundef %.0) #8
   store ptr null, ptr %24, align 8, !tbaa !22
-  %29 = tail call i64 @rb_iseq_eval(ptr noundef nonnull %28) #7
+  %29 = tail call i64 @rb_iseq_eval(ptr noundef nonnull %28) #8
   ret void
 }
 
@@ -150,7 +150,7 @@ define hidden void @Init_builtin_features() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
