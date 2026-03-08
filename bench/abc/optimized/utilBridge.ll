@@ -32,8 +32,8 @@ define noalias noundef ptr @Gia_ManToBridgeVec(ptr noundef readonly captures(non
   %.val76 = load i32, ptr %6, align 4, !tbaa !31
   %.not = icmp eq ptr %.val.fr, null
   %7 = icmp slt i32 %.val76, 1
-  %or.cond102 = or i1 %.not, %7
-  br i1 %or.cond102, label %.critedge.preheader, label %.lr.ph.split.preheader
+  %or.cond104 = or i1 %.not, %7
+  br i1 %or.cond104, label %.critedge.preheader, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %1
   %8 = getelementptr i8, ptr %5, i64 8
@@ -47,31 +47,31 @@ define noalias noundef ptr @Gia_ManToBridgeVec(ptr noundef readonly captures(non
   %10 = load i32, ptr %9, align 8, !tbaa !33
   %11 = icmp slt i32 %10, 1
   %or.cond = or i1 %11, %.not
-  br i1 %or.cond, label %.critedge2, label %.lr.ph109.split.preheader
+  br i1 %or.cond, label %.critedge2, label %.lr.ph111.split.preheader
 
-.lr.ph109.split.preheader:                        ; preds = %.critedge.preheader
-  %wide.trip.count132 = zext nneg i32 %10 to i64
-  br label %.lr.ph109.split
+.lr.ph111.split.preheader:                        ; preds = %.critedge.preheader
+  %wide.trip.count134 = zext nneg i32 %10 to i64
+  br label %.lr.ph111.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %.0104 = phi i32 [ 2, %.lr.ph.split.preheader ], [ %16, %.lr.ph.split ]
+  %.0106 = phi i32 [ 2, %.lr.ph.split.preheader ], [ %16, %.lr.ph.split ]
   %12 = getelementptr inbounds nuw [4 x i8], ptr %.val80.val, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !34
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds [12 x i8], ptr %.val.fr, i64 %14
-  %16 = add nuw nsw i32 %.0104, 1
-  %17 = shl nuw nsw i32 %.0104, 1
+  %16 = add nuw nsw i32 %.0106, 1
+  %17 = shl nuw nsw i32 %.0106, 1
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %17, ptr %18, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.preheader, label %.lr.ph.split, !llvm.loop !35
 
-.lr.ph109.split:                                  ; preds = %.lr.ph109.split.preheader, %.critedge
-  %indvars.iv129 = phi i64 [ 0, %.lr.ph109.split.preheader ], [ %indvars.iv.next130, %.critedge ]
-  %.1108 = phi i32 [ %.0.lcssa, %.lr.ph109.split.preheader ], [ %.2, %.critedge ]
-  %19 = getelementptr inbounds nuw [12 x i8], ptr %.val.fr, i64 %indvars.iv129
+.lr.ph111.split:                                  ; preds = %.lr.ph111.split.preheader, %.critedge
+  %indvars.iv131 = phi i64 [ 0, %.lr.ph111.split.preheader ], [ %indvars.iv.next132, %.critedge ]
+  %.1110 = phi i32 [ %.0.lcssa, %.lr.ph111.split.preheader ], [ %.2, %.critedge ]
+  %19 = getelementptr inbounds nuw [12 x i8], ptr %.val.fr, i64 %indvars.iv131
   %.val81 = load i64, ptr %19, align 4
   %20 = and i64 %.val81, 2147483648
   %.not.i = icmp ne i64 %20, 0
@@ -80,18 +80,18 @@ define noalias noundef ptr @Gia_ManToBridgeVec(ptr noundef readonly captures(non
   %narrow.i.not = or i1 %.not.i, %22
   br i1 %narrow.i.not, label %.critedge, label %23
 
-23:                                               ; preds = %.lr.ph109.split
-  %24 = add nsw i32 %.1108, 1
-  %25 = shl nsw i32 %.1108, 1
+23:                                               ; preds = %.lr.ph111.split
+  %24 = add nsw i32 %.1110, 1
+  %25 = shl nsw i32 %.1110, 1
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %25, ptr %26, align 4, !tbaa !28
   br label %.critedge
 
-.critedge:                                        ; preds = %23, %.lr.ph109.split
-  %.2 = phi i32 [ %24, %23 ], [ %.1108, %.lr.ph109.split ]
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
-  br i1 %exitcond133.not, label %.critedge2, label %.lr.ph109.split, !llvm.loop !37
+.critedge:                                        ; preds = %23, %.lr.ph111.split
+  %.2 = phi i32 [ %24, %23 ], [ %.1110, %.lr.ph111.split ]
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
+  br i1 %exitcond135.not, label %.critedge2, label %.lr.ph111.split, !llvm.loop !37
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %27 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
@@ -103,7 +103,8 @@ define noalias noundef ptr @Gia_ManToBridgeVec(ptr noundef readonly captures(non
   store ptr %29, ptr %30, align 8, !tbaa !41
   %31 = getelementptr i8, ptr %0, i64 16
   %.val83 = load i32, ptr %31, align 8, !tbaa !42
-  %32 = sub nsw i32 %.val76, %.val83
+  %.val84.val = load i32, ptr %6, align 4, !tbaa !31
+  %32 = sub nsw i32 %.val84.val, %.val83
   tail call fastcc void @Gia_AigerWriteUnsigned(ptr noundef nonnull %27, i32 noundef %32)
   %.val85 = load i32, ptr %31, align 8, !tbaa !42
   tail call fastcc void @Gia_AigerWriteUnsigned(ptr noundef nonnull %27, i32 noundef %.val85)
@@ -121,17 +122,17 @@ define noalias noundef ptr @Gia_ManToBridgeVec(ptr noundef readonly captures(non
   tail call fastcc void @Gia_AigerWriteUnsigned(ptr noundef nonnull %27, i32 noundef %41)
   %42 = load i32, ptr %9, align 8, !tbaa !33
   %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.lr.ph111, label %.critedge4
+  br i1 %43, label %.lr.ph113, label %.critedge4
 
-.lr.ph111:                                        ; preds = %.critedge2, %70
+.lr.ph113:                                        ; preds = %.critedge2, %70
   %44 = phi i32 [ %71, %70 ], [ %42, %.critedge2 ]
-  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %70 ], [ 0, %.critedge2 ]
+  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %70 ], [ 0, %.critedge2 ]
   %.val78 = load ptr, ptr %2, align 8, !tbaa !3
-  %45 = getelementptr inbounds nuw [12 x i8], ptr %.val78, i64 %indvars.iv134
+  %45 = getelementptr inbounds nuw [12 x i8], ptr %.val78, i64 %indvars.iv136
   %.not71 = icmp eq ptr %.val78, null
   br i1 %.not71, label %.critedge4, label %46
 
-46:                                               ; preds = %.lr.ph111
+46:                                               ; preds = %.lr.ph113
   %.val82 = load i64, ptr %45, align 4
   %47 = and i64 %.val82, 2147483648
   %.not.i97 = icmp ne i64 %47, 0
@@ -167,30 +168,30 @@ define noalias noundef ptr @Gia_ManToBridgeVec(ptr noundef readonly captures(non
 
 70:                                               ; preds = %50, %46
   %71 = phi i32 [ %.pre, %50 ], [ %44, %46 ]
-  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %72 = sext i32 %71 to i64
-  %73 = icmp slt i64 %indvars.iv.next135, %72
-  br i1 %73, label %.lr.ph111, label %.critedge4, !llvm.loop !44
+  %73 = icmp slt i64 %indvars.iv.next137, %72
+  br i1 %73, label %.lr.ph113, label %.critedge4, !llvm.loop !44
 
-.critedge4:                                       ; preds = %.lr.ph111, %70, %.critedge2
-  %.val86113 = load i32, ptr %31, align 8, !tbaa !42
-  %74 = icmp sgt i32 %.val86113, 0
-  br i1 %74, label %.lr.ph116, label %.critedge6
+.critedge4:                                       ; preds = %.lr.ph113, %70, %.critedge2
+  %.val86115 = load i32, ptr %31, align 8, !tbaa !42
+  %74 = icmp sgt i32 %.val86115, 0
+  br i1 %74, label %.lr.ph118, label %.critedge6
 
-.lr.ph116:                                        ; preds = %.critedge4, %75
-  %.val86115 = phi i32 [ %.val86, %75 ], [ %.val86113, %.critedge4 ]
-  %.3114 = phi i32 [ %97, %75 ], [ 0, %.critedge4 ]
+.lr.ph118:                                        ; preds = %.critedge4, %75
+  %.val86117 = phi i32 [ %.val86, %75 ], [ %.val86115, %.critedge4 ]
+  %.3116 = phi i32 [ %97, %75 ], [ 0, %.critedge4 ]
   %.val93 = load ptr, ptr %2, align 8, !tbaa !3
   %.not72 = icmp eq ptr %.val93, null
   br i1 %.not72, label %.critedge6, label %75
 
-75:                                               ; preds = %.lr.ph116
+75:                                               ; preds = %.lr.ph118
   %.val88 = load ptr, ptr %36, align 8, !tbaa !43
   %76 = getelementptr i8, ptr %.val88, i64 8
   %.val94.val = load ptr, ptr %76, align 8, !tbaa !32
   %77 = getelementptr i8, ptr %.val88, i64 4
   %.val88.val = load i32, ptr %77, align 4, !tbaa !31
-  %78 = sub i32 %.3114, %.val86115
+  %78 = sub i32 %.3116, %.val86117
   %79 = add i32 %78, %.val88.val
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds [4 x i8], ptr %.val94.val, i64 %80
@@ -210,36 +211,36 @@ define noalias noundef ptr @Gia_ManToBridgeVec(ptr noundef readonly captures(non
   %95 = shl i32 %94, 2
   %96 = or disjoint i32 %95, 2
   tail call fastcc void @Gia_AigerWriteUnsigned(ptr noundef nonnull %27, i32 noundef %96)
-  %97 = add nuw nsw i32 %.3114, 1
+  %97 = add nuw nsw i32 %.3116, 1
   %.val86 = load i32, ptr %31, align 8, !tbaa !42
   %98 = icmp slt i32 %97, %.val86
-  br i1 %98, label %.lr.ph116, label %.critedge6, !llvm.loop !45
+  br i1 %98, label %.lr.ph118, label %.critedge6, !llvm.loop !45
 
-.critedge6:                                       ; preds = %.lr.ph116, %75, %.critedge4
-  %.val86.lcssa = phi i32 [ %.val86113, %.critedge4 ], [ %.val86, %75 ], [ %.val86115, %.lr.ph116 ]
+.critedge6:                                       ; preds = %.lr.ph118, %75, %.critedge4
+  %.val86.lcssa = phi i32 [ %.val86115, %.critedge4 ], [ %.val86, %75 ], [ %.val86117, %.lr.ph118 ]
   %.val90 = load ptr, ptr %36, align 8, !tbaa !43
   %99 = getelementptr i8, ptr %.val90, i64 4
   %.val90.val = load i32, ptr %99, align 4, !tbaa !31
   %100 = sub nsw i32 %.val90.val, %.val86.lcssa
   tail call fastcc void @Gia_AigerWriteUnsigned(ptr noundef nonnull %27, i32 noundef %100)
-  %.val91120 = load i32, ptr %31, align 8, !tbaa !42
-  %.val92121 = load ptr, ptr %36, align 8, !tbaa !43
-  %101 = getelementptr i8, ptr %.val92121, i64 4
-  %.val92.val122 = load i32, ptr %101, align 4, !tbaa !31
-  %102 = icmp sgt i32 %.val92.val122, %.val91120
-  br i1 %102, label %.lr.ph125, label %.critedge8
+  %.val91122 = load i32, ptr %31, align 8, !tbaa !42
+  %.val92123 = load ptr, ptr %36, align 8, !tbaa !43
+  %101 = getelementptr i8, ptr %.val92123, i64 4
+  %.val92.val124 = load i32, ptr %101, align 4, !tbaa !31
+  %102 = icmp sgt i32 %.val92.val124, %.val91122
+  br i1 %102, label %.lr.ph127, label %.critedge8
 
-.lr.ph125:                                        ; preds = %.critedge6, %103
-  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %103 ], [ 0, %.critedge6 ]
-  %.val92124 = phi ptr [ %.val92, %103 ], [ %.val92121, %.critedge6 ]
+.lr.ph127:                                        ; preds = %.critedge6, %103
+  %indvars.iv139 = phi i64 [ %indvars.iv.next140, %103 ], [ 0, %.critedge6 ]
+  %.val92126 = phi ptr [ %.val92, %103 ], [ %.val92123, %.critedge6 ]
   %.val95 = load ptr, ptr %2, align 8, !tbaa !3
   %.not73 = icmp eq ptr %.val95, null
   br i1 %.not73, label %.critedge8, label %103
 
-103:                                              ; preds = %.lr.ph125
-  %104 = getelementptr i8, ptr %.val92124, i64 8
+103:                                              ; preds = %.lr.ph127
+  %104 = getelementptr i8, ptr %.val92126, i64 8
   %.val96.val = load ptr, ptr %104, align 8, !tbaa !32
-  %105 = getelementptr inbounds nuw [4 x i8], ptr %.val96.val, i64 %indvars.iv137
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.val96.val, i64 %indvars.iv139
   %106 = load i32, ptr %105, align 4, !tbaa !34
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds [12 x i8], ptr %.val95, i64 %107
@@ -255,17 +256,17 @@ define noalias noundef ptr @Gia_ManToBridgeVec(ptr noundef readonly captures(non
   %118 = xor i32 %114, %117
   %119 = xor i32 %118, 1
   tail call fastcc void @Gia_AigerWriteUnsigned(ptr noundef nonnull %27, i32 noundef %119)
-  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
+  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %.val91 = load i32, ptr %31, align 8, !tbaa !42
   %.val92 = load ptr, ptr %36, align 8, !tbaa !43
   %120 = getelementptr i8, ptr %.val92, i64 4
   %.val92.val = load i32, ptr %120, align 4, !tbaa !31
   %121 = sub nsw i32 %.val92.val, %.val91
   %122 = sext i32 %121 to i64
-  %123 = icmp slt i64 %indvars.iv.next138, %122
-  br i1 %123, label %.lr.ph125, label %.critedge8, !llvm.loop !46
+  %123 = icmp slt i64 %indvars.iv.next140, %122
+  br i1 %123, label %.lr.ph127, label %.critedge8, !llvm.loop !46
 
-.critedge8:                                       ; preds = %.lr.ph125, %103, %.critedge6
+.critedge8:                                       ; preds = %.lr.ph127, %103, %.critedge6
   ret ptr %27
 }
 
@@ -2073,33 +2074,35 @@ define range(i32 0, 2) i32 @Gia_ManFromBridgeReadPackage(ptr noundef captures(no
   %16 = ashr exact i64 %sext, 32
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #19
   store ptr %17, ptr %3, align 8, !tbaa !76
-  %18 = tail call i64 @fread(ptr noundef %17, i64 noundef %16, i64 noundef 1, ptr noundef %0)
-  %19 = and i64 %18, 4294967295
-  %.not15 = icmp eq i64 %19, 1
-  br i1 %.not15, label %25, label %20
+  %18 = load i32, ptr %2, align 4, !tbaa !34
+  %19 = sext i32 %18 to i64
+  %20 = tail call i64 @fread(ptr noundef %17, i64 noundef %19, i64 noundef 1, ptr noundef %0)
+  %21 = and i64 %20, 4294967295
+  %.not15 = icmp eq i64 %21, 1
+  br i1 %.not15, label %27, label %22
 
-20:                                               ; preds = %8
-  %21 = load i32, ptr %2, align 4, !tbaa !34
-  %.not16 = icmp eq i32 %21, 0
-  br i1 %.not16, label %25, label %22
-
-22:                                               ; preds = %20
-  %23 = load ptr, ptr %3, align 8, !tbaa !76
-  %.not17 = icmp eq ptr %23, null
-  br i1 %.not17, label %.sink.split, label %24
+22:                                               ; preds = %8
+  %23 = load i32, ptr %2, align 4, !tbaa !34
+  %.not16 = icmp eq i32 %23, 0
+  br i1 %.not16, label %27, label %24
 
 24:                                               ; preds = %22
-  tail call void @free(ptr noundef nonnull %23) #21
+  %25 = load ptr, ptr %3, align 8, !tbaa !76
+  %.not17 = icmp eq ptr %25, null
+  br i1 %.not17, label %.sink.split, label %26
+
+26:                                               ; preds = %24
+  tail call void @free(ptr noundef nonnull %25) #21
   store ptr null, ptr %3, align 8, !tbaa !76
   br label %.sink.split
 
-.sink.split:                                      ; preds = %24, %22, %4
-  %str.sink = phi ptr [ @str.1, %4 ], [ @str, %22 ], [ @str, %24 ]
+.sink.split:                                      ; preds = %26, %24, %4
+  %str.sink = phi ptr [ @str.1, %4 ], [ @str, %24 ], [ @str, %26 ]
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.sink)
-  br label %25
+  br label %27
 
-25:                                               ; preds = %.sink.split, %8, %20
-  %.0 = phi i32 [ 1, %20 ], [ 1, %8 ], [ 0, %.sink.split ]
+27:                                               ; preds = %.sink.split, %8, %22
+  %.0 = phi i32 [ 1, %22 ], [ 1, %8 ], [ 0, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -2110,7 +2113,7 @@ declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i6
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -2247,7 +2250,7 @@ declare void @Gia_ManPrintStats(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 declare void @Gia_AigerWrite(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: inlinehint nounwind uwtable
@@ -2458,9 +2461,9 @@ attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #6 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

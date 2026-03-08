@@ -4612,9 +4612,10 @@ hostrange_count.exit:                             ; preds = %1
 
 30:                                               ; preds = %20
   %31 = icmp ugt i16 %2, 1
-  %32 = icmp eq i32 %24, %3
-  %or.cond44 = and i1 %31, %32
-  br i1 %or.cond44, label %.lr.ph.preheader.i, label %63
+  %.pre = load i32, ptr %23, align 8
+  %32 = icmp eq i32 %.pre, %3
+  %or.cond56 = select i1 %31, i1 %32, i1 false
+  br i1 %or.cond56, label %.lr.ph.preheader.i, label %63
 
 .lr.ph.preheader.i:                               ; preds = %30
   %33 = zext i16 %2 to i64
@@ -4652,7 +4653,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
   br label %50
 
 50:                                               ; preds = %.preheader, %50
-  %indvars.iv47 = phi i64 [ %49, %.preheader ], [ %indvars.iv.next48, %50 ]
+  %indvars.iv46 = phi i64 [ %49, %.preheader ], [ %indvars.iv.next47, %50 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
@@ -4660,14 +4661,14 @@ hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds i8, ptr %48, i64 %53
   %55 = load i8, ptr %54, align 1
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %56 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv47
+  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
+  %56 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv46
   store i8 %55, ptr %56, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %57, label %50, !llvm.loop !53
 
 57:                                               ; preds = %50
-  %58 = and i64 %indvars.iv.next48, 4294967295
+  %58 = and i64 %indvars.iv.next47, 4294967295
   %59 = getelementptr inbounds nuw i8, ptr %28, i64 %58
   store i8 0, ptr %59, align 1
   br label %60
@@ -4682,7 +4683,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
 63:                                               ; preds = %30
   %64 = add i64 %16, -1
   store i64 %64, ptr %15, align 8
-  %65 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %28, i64 noundef %27, ptr noundef nonnull @.str.20, ptr noundef nonnull %21, i32 noundef %24, i64 noundef %16) #22
+  %65 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %28, i64 noundef %27, ptr noundef nonnull @.str.20, ptr noundef nonnull %21, i32 noundef %.pre, i64 noundef %16) #22
   br label %66
 
 66:                                               ; preds = %hostrange_count.exit, %63, %60, %7
@@ -4750,9 +4751,10 @@ hostrange_count.exit:                             ; preds = %6
 
 32:                                               ; preds = %22
   %33 = icmp sgt i32 %.0, 1
-  %34 = icmp eq i32 %26, %.0
-  %or.cond47 = and i1 %33, %34
-  br i1 %or.cond47, label %.lr.ph.preheader.i, label %64
+  %.pre = load i32, ptr %25, align 8
+  %34 = icmp eq i32 %.pre, %.0
+  %or.cond59 = select i1 %33, i1 %34, i1 false
+  br i1 %or.cond59, label %.lr.ph.preheader.i, label %64
 
 .lr.ph.preheader.i:                               ; preds = %32
   %35 = zext nneg i32 %.0 to i64
@@ -4789,7 +4791,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
   br label %52
 
 52:                                               ; preds = %.lr.ph, %52
-  %indvars.iv50 = phi i64 [ %51, %.lr.ph ], [ %indvars.iv.next51, %52 ]
+  %indvars.iv49 = phi i64 [ %51, %.lr.ph ], [ %indvars.iv.next50, %52 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
@@ -4797,14 +4799,14 @@ hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds i8, ptr %50, i64 %55
   %57 = load i8, ptr %56, align 1
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %58 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv50
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %58 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv49
   store i8 %57, ptr %58, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %35
   br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %52
-  %59 = and i64 %indvars.iv.next51, 4294967295
+  %59 = and i64 %indvars.iv.next50, 4294967295
   %60 = getelementptr inbounds nuw i8, ptr %30, i64 %59
   store i8 0, ptr %60, align 1
   br label %61
@@ -4819,7 +4821,7 @@ hostlist_parse_int_to_array.exit:                 ; preds = %.lr.ph.i
 64:                                               ; preds = %32
   %65 = add i64 %20, 1
   store i64 %65, ptr %19, align 8
-  %66 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %30, i64 noundef %29, ptr noundef nonnull @.str.20, ptr noundef nonnull %23, i32 noundef %26, i64 noundef %20) #22
+  %66 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %30, i64 noundef %29, ptr noundef nonnull @.str.20, ptr noundef nonnull %23, i32 noundef %.pre, i64 noundef %20) #22
   br label %67
 
 67:                                               ; preds = %hostrange_count.exit, %64, %61, %10
@@ -5875,10 +5877,10 @@ define dso_local noalias noundef nonnull ptr @hostlist_ranged_string_malloc(ptr 
   ret ptr %.013
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 declare void @log_oom(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -6338,7 +6340,7 @@ declare ptr @llvm.stacksave.p0() #14
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.stackrestore.p0(ptr) #14
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
@@ -8214,13 +8216,13 @@ attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

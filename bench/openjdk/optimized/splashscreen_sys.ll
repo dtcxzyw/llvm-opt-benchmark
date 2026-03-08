@@ -128,7 +128,7 @@ declare ptr @iconv_open(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 declare i64 @iconv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -197,7 +197,7 @@ define hidden void @SplashInitFrameShape(ptr noundef %0, i32 noundef %1) local_u
 
 .thread52:                                        ; preds = %39
   store ptr null, ptr %8, align 8
-  br label %47
+  br label %50
 
 42:                                               ; preds = %39
   %43 = zext nneg i32 %40 to i64
@@ -205,17 +205,20 @@ define hidden void @SplashInitFrameShape(ptr noundef %0, i32 noundef %1) local_u
   %45 = call noalias ptr @malloc(i64 noundef %44) #19
   store ptr %45, ptr %8, align 8
   %.not49 = icmp eq ptr %45, null
-  br i1 %.not49, label %47, label %46
+  br i1 %.not49, label %50, label %46
 
 46:                                               ; preds = %42
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %45, ptr nonnull align 2 %38, i64 %44, i1 false)
-  br label %47
+  %47 = load i32, ptr %9, align 8
+  %48 = sext i32 %47 to i64
+  %49 = shl nsw i64 %48, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %45, ptr nonnull align 2 %38, i64 %49, i1 false)
+  br label %50
 
-47:                                               ; preds = %.thread52, %46, %42
+50:                                               ; preds = %.thread52, %46, %42
   call void @free(ptr noundef nonnull %38) #17
   br label %.thread
 
-.thread:                                          ; preds = %32, %15, %29, %2, %47
+.thread:                                          ; preds = %32, %15, %29, %2, %50
   ret void
 }
 
@@ -1902,7 +1905,7 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

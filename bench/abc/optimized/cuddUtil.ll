@@ -47,25 +47,26 @@ define range(i32 0, 2) i32 @Cudd_PrintMinterm(ptr noundef %0, ptr noundef %1) lo
   %13 = shl nsw i64 %12, 2
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #25
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %17, label %.preheader
+  br i1 %15, label %18, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %16 = icmp sgt i32 %11, 0
-  br i1 %16, label %.lr.ph.preheader, label %._crit_edge
+  %16 = load i32, ptr %10, align 8, !tbaa !26
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %11 to i64
+  %wide.trip.count = zext nneg i32 %16 to i64
   br label %.lr.ph
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %18, align 8, !tbaa !27
-  br label %20
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  store i32 1, ptr %19, align 8, !tbaa !27
+  br label %21
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %19 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
-  store i32 2, ptr %19, align 4, !tbaa !28
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
+  store i32 2, ptr %20, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
@@ -73,14 +74,14 @@ define range(i32 0, 2) i32 @Cudd_PrintMinterm(ptr noundef %0, ptr noundef %1) lo
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   tail call fastcc void @ddPrintMintermAux(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %14)
   tail call void @free(ptr noundef nonnull %14) #26
-  br label %20
+  br label %21
 
-20:                                               ; preds = %._crit_edge, %17
-  %.015 = phi i32 [ 0, %17 ], [ 1, %._crit_edge ]
+21:                                               ; preds = %._crit_edge, %18
+  %.015 = phi i32 [ 0, %18 ], [ 1, %._crit_edge ]
   ret i32 %.015
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
@@ -575,20 +576,21 @@ cuddP.exit.thread:                                ; preds = %43, %cuddP.exit
   %62 = shl nsw i64 %61, 2
   %63 = tail call noalias ptr @malloc(i64 noundef %62) #25
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %67, label %.preheader.i
+  br i1 %64, label %68, label %.preheader.i
 
 .preheader.i:                                     ; preds = %52
-  %65 = icmp sgt i32 %60, 0
-  br i1 %65, label %.lr.ph.preheader.i, label %Cudd_PrintMinterm.exit
+  %65 = load i32, ptr %59, align 8, !tbaa !26
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %.lr.ph.preheader.i, label %Cudd_PrintMinterm.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = zext nneg i32 %60 to i64
+  %wide.trip.count.i = zext nneg i32 %65 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %66 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv.i
-  store i32 2, ptr %66, align 4, !tbaa !28
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv.i
+  store i32 2, ptr %67, align 4, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Cudd_PrintMinterm.exit, label %.lr.ph.i, !llvm.loop !29
@@ -596,24 +598,24 @@ cuddP.exit.thread:                                ; preds = %43, %cuddP.exit
 Cudd_PrintMinterm.exit:                           ; preds = %.lr.ph.i, %.preheader.i
   tail call fastcc void @ddPrintMintermAux(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %63)
   tail call void @free(ptr noundef nonnull %63) #26
-  br label %69
+  br label %70
 
-67:                                               ; preds = %52
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %68, align 8, !tbaa !27
-  br label %69
+68:                                               ; preds = %52
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  store i32 1, ptr %69, align 8, !tbaa !27
+  br label %70
 
-69:                                               ; preds = %Cudd_PrintMinterm.exit, %67
-  %70 = phi i32 [ 0, %67 ], [ %.4, %Cudd_PrintMinterm.exit ]
-  %71 = load ptr, ptr %39, align 8, !tbaa !32
-  %fputc = tail call i32 @fputc(i32 10, ptr %71)
+70:                                               ; preds = %Cudd_PrintMinterm.exit, %68
+  %71 = phi i32 [ 0, %68 ], [ %.4, %Cudd_PrintMinterm.exit ]
+  %72 = load ptr, ptr %39, align 8, !tbaa !32
+  %fputc = tail call i32 @fputc(i32 10, ptr %72)
   br label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %69, %49, %6, %23
-  %.sink.in = phi ptr [ %7, %6 ], [ %24, %23 ], [ %39, %49 ], [ %39, %69 ]
-  %.040.ph = phi i32 [ 0, %6 ], [ 1, %23 ], [ %.4, %49 ], [ %70, %69 ]
+.thread.sink.split:                               ; preds = %70, %49, %6, %23
+  %.sink.in = phi ptr [ %7, %6 ], [ %24, %23 ], [ %39, %49 ], [ %39, %70 ]
+  %.040.ph = phi i32 [ 0, %6 ], [ 1, %23 ], [ %.4, %49 ], [ %71, %70 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !32
-  %72 = tail call i32 @fflush(ptr noundef %.sink)
+  %73 = tail call i32 @fflush(ptr noundef %.sink)
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %22, %27
@@ -6277,7 +6279,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @llvm.umax.i64(i64, i64) #23
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

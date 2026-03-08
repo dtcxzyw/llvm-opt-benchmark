@@ -35,7 +35,7 @@ define hidden noalias noundef ptr @AccelGlyphCache_Init(i32 noundef %0, i32 noun
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 declare void @J2dTraceImpl(i32 noundef, i8 noundef zeroext, ptr noundef, ...) local_unnamed_addr #2
@@ -141,36 +141,35 @@ define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) loca
   %67 = fadd float %59, %66
   %68 = getelementptr inbounds nuw i8, ptr %40, i64 64
   store float %67, ptr %68, align 8
-  br i1 %21, label %.thread129, label %71
+  br i1 %21, label %69, label %70
 
-.thread129:                                       ; preds = %42
+69:                                               ; preds = %42
   store ptr %40, ptr %0, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %40, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
-  br label %139
+  br label %74
 
-71:                                               ; preds = %42
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store ptr %40, ptr %74, align 8
-  %.pr110.pre = load i8, ptr %17, align 4
-  %75 = icmp eq i8 %.pr110.pre, 0
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %40, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false)
-  br i1 %75, label %139, label %.preheader
+70:                                               ; preds = %42
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  store ptr %40, ptr %73, align 8
+  br label %74
 
-.preheader:                                       ; preds = %16, %.thread106, %71
-  %.090128 = phi ptr [ %40, %71 ], [ null, %.thread106 ], [ null, %16 ]
+74:                                               ; preds = %69, %70
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %40, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
+  %.pr110 = load i8, ptr %17, align 4
+  %77 = icmp eq i8 %.pr110, 0
+  br i1 %77, label %139, label %.preheader
+
+.preheader:                                       ; preds = %16, %.thread106, %74
+  %.090127 = phi ptr [ %40, %74 ], [ null, %.thread106 ], [ null, %16 ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %79
 
 79:                                               ; preds = %.preheader, %89
-  %.2 = phi ptr [ null, %89 ], [ %.090128, %.preheader ]
+  %.2 = phi ptr [ null, %89 ], [ %.090127, %.preheader ]
   %80 = load ptr, ptr %0, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8
@@ -281,8 +280,8 @@ AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %116, %96
   store float %137, ptr %138, align 8
   br label %139
 
-139:                                              ; preds = %.thread129, %AccelGlyphCache_RemoveCellInfo.exit, %71
-  %.1 = phi ptr [ %.3, %AccelGlyphCache_RemoveCellInfo.exit ], [ %40, %71 ], [ %40, %.thread129 ]
+139:                                              ; preds = %AccelGlyphCache_RemoveCellInfo.exit, %74
+  %.1 = phi ptr [ %.3, %AccelGlyphCache_RemoveCellInfo.exit ], [ %40, %74 ]
   %140 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   store ptr %1, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -573,7 +572,7 @@ define hidden noundef ptr @AccelGlyphCache_GetCellInfoForCache(ptr noundef reado
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -110,16 +110,16 @@ declare noundef i32 @posix_memalign(ptr noundef, i64 noundef, i64 noundef) unnam
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) uwtable
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) uwtable
 declare noalias noundef ptr @malloc(i64 noundef) unnamed_addr #6
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef ptr @_ZN3std3sys5alloc16realloc_fallback17h752fc3e27de6111eE(ptr noalias noundef nonnull readonly align 1, ptr noundef, i64 noundef range(i64 1, -9223372036854775807), i64 noundef, i64 noundef) unnamed_addr #2
 
-; Function Attrs: mustprogress nounwind nonlazybind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nounwind nonlazybind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) uwtable
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) unnamed_addr #7
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -142,9 +142,9 @@ attributes #1 = { mustprogress nounwind nonlazybind willreturn memory(argmem: re
 attributes #2 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree nounwind nonlazybind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) uwtable "alloc-family"="malloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { mustprogress nofree nounwind nonlazybind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) uwtable "alloc-family"="malloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { mustprogress nounwind nonlazybind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "alloc-family"="malloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { mustprogress nofree nounwind nonlazybind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) uwtable "alloc-family"="malloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { mustprogress nofree nounwind nonlazybind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) uwtable "alloc-family"="malloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { mustprogress nounwind nonlazybind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) uwtable "alloc-family"="malloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nounwind nonlazybind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "alloc-family"="malloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

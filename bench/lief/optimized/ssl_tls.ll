@@ -582,7 +582,7 @@ ssl_clear_peer_cert.exit:                         ; preds = %3, %6
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 declare void @mbedtls_x509_crt_init(ptr noundef) local_unnamed_addr #2
@@ -3965,7 +3965,7 @@ define internal fastcc i32 @ssl_session_load(ptr noundef captures(address_is_nul
   %32 = sub i64 %14, %31
   switch i32 %22, label %ssl_tls12_session_load.exit [
     i32 771, label %33
-    i32 772, label %138
+    i32 772, label %143
   ]
 
 33:                                               ; preds = %18
@@ -4056,239 +4056,244 @@ define internal fastcc i32 @ssl_session_load(ptr noundef captures(address_is_nul
 82:                                               ; preds = %80, %54
   %83 = phi i8 [ %.pre, %80 ], [ %25, %54 ]
   %.089.i = phi ptr [ %81, %80 ], [ %68, %54 ]
-  switch i8 %83, label %127 [
-    i8 0, label %84
-    i8 1, label %119
-  ]
+  %84 = icmp eq i8 %83, 0
+  br i1 %84, label %85, label %121
 
-84:                                               ; preds = %82
-  %85 = ptrtoint ptr %.089.i to i64
-  %86 = sub i64 %14, %85
-  %87 = icmp ult i64 %86, 3
-  br i1 %87, label %ssl_tls12_session_load.exit, label %88
+85:                                               ; preds = %82
+  %86 = ptrtoint ptr %.089.i to i64
+  %87 = sub i64 %14, %86
+  %88 = icmp ult i64 %87, 3
+  br i1 %88, label %ssl_tls12_session_load.exit, label %89
 
-88:                                               ; preds = %84
-  %89 = load i8, ptr %.089.i, align 1, !tbaa !80
-  %90 = zext i8 %89 to i64
-  %91 = shl nuw nsw i64 %90, 16
-  %92 = getelementptr inbounds nuw i8, ptr %.089.i, i64 1
-  %93 = load i8, ptr %92, align 1, !tbaa !80
-  %94 = zext i8 %93 to i64
-  %95 = shl nuw nsw i64 %94, 8
-  %96 = or disjoint i64 %95, %91
-  %97 = getelementptr inbounds nuw i8, ptr %.089.i, i64 2
-  %98 = load i8, ptr %97, align 1, !tbaa !80
-  %99 = zext i8 %98 to i64
-  %100 = or disjoint i64 %96, %99
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %100, ptr %101, align 8, !tbaa !61
-  %102 = getelementptr inbounds nuw i8, ptr %.089.i, i64 3
-  %.not99.i = icmp eq i64 %100, 0
-  br i1 %.not99.i, label %112, label %103
+89:                                               ; preds = %85
+  %90 = load i8, ptr %.089.i, align 1, !tbaa !80
+  %91 = zext i8 %90 to i64
+  %92 = shl nuw nsw i64 %91, 16
+  %93 = getelementptr inbounds nuw i8, ptr %.089.i, i64 1
+  %94 = load i8, ptr %93, align 1, !tbaa !80
+  %95 = zext i8 %94 to i64
+  %96 = shl nuw nsw i64 %95, 8
+  %97 = or disjoint i64 %96, %92
+  %98 = getelementptr inbounds nuw i8, ptr %.089.i, i64 2
+  %99 = load i8, ptr %98, align 1, !tbaa !80
+  %100 = zext i8 %99 to i64
+  %101 = or disjoint i64 %97, %100
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i64 %101, ptr %102, align 8, !tbaa !61
+  %103 = getelementptr inbounds nuw i8, ptr %.089.i, i64 3
+  %.not99.i = icmp eq i64 %101, 0
+  br i1 %.not99.i, label %113, label %104
 
-103:                                              ; preds = %88
-  %104 = ptrtoint ptr %102 to i64
-  %105 = sub i64 %14, %104
-  %106 = icmp ugt i64 %100, %105
-  br i1 %106, label %ssl_tls12_session_load.exit, label %107
+104:                                              ; preds = %89
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %14, %105
+  %107 = icmp ugt i64 %101, %106
+  br i1 %107, label %ssl_tls12_session_load.exit, label %108
 
-107:                                              ; preds = %103
-  %108 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %100) #29
-  store ptr %108, ptr %52, align 8, !tbaa !48
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %ssl_tls12_session_load.exit, label %110
+108:                                              ; preds = %104
+  %109 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %101) #29
+  store ptr %109, ptr %52, align 8, !tbaa !48
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %ssl_tls12_session_load.exit, label %111
 
-110:                                              ; preds = %107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr nonnull align 1 %102, i64 %100, i1 false)
-  %111 = getelementptr inbounds nuw i8, ptr %102, i64 %100
-  br label %112
+111:                                              ; preds = %108
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr nonnull align 1 %103, i64 %101, i1 false)
+  %112 = getelementptr inbounds nuw i8, ptr %103, i64 %101
+  br label %113
 
-112:                                              ; preds = %110, %88
-  %.3.i = phi ptr [ %111, %110 ], [ %102, %88 ]
-  %113 = ptrtoint ptr %.3.i to i64
-  %114 = sub i64 %14, %113
-  %115 = icmp ult i64 %114, 4
-  br i1 %115, label %ssl_tls12_session_load.exit, label %.thread107.i
+113:                                              ; preds = %111, %89
+  %.3.i = phi ptr [ %112, %111 ], [ %103, %89 ]
+  %114 = ptrtoint ptr %.3.i to i64
+  %115 = sub i64 %14, %114
+  %116 = icmp ult i64 %115, 4
+  br i1 %116, label %ssl_tls12_session_load.exit, label %117
 
-.thread107.i:                                     ; preds = %112
+117:                                              ; preds = %113
   %.0.copyload.i103.i = load i32, ptr %.3.i, align 1
-  %116 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i103.i)
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %116, ptr %117, align 8, !tbaa !215
-  %118 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
-  br label %127
+  %118 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i103.i)
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i32 %118, ptr %119, align 8, !tbaa !215
+  %120 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
+  %.pr.i = load i8, ptr %26, align 2, !tbaa !62
+  br label %121
 
-119:                                              ; preds = %82
-  %120 = ptrtoint ptr %.089.i to i64
-  %121 = sub i64 %14, %120
-  %122 = icmp ult i64 %121, 8
-  br i1 %122, label %ssl_tls12_session_load.exit, label %123
+121:                                              ; preds = %117, %82
+  %122 = phi i8 [ %.pr.i, %117 ], [ %83, %82 ]
+  %.2.i = phi ptr [ %120, %117 ], [ %.089.i, %82 ]
+  %123 = icmp eq i8 %122, 1
+  br i1 %123, label %124, label %132
 
-123:                                              ; preds = %119
-  %.0.copyload.i101.i = load i64, ptr %.089.i, align 1
-  %124 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i101.i)
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i64 %124, ptr %125, align 8, !tbaa !216
-  %126 = getelementptr inbounds nuw i8, ptr %.089.i, i64 8
-  br label %127
+124:                                              ; preds = %121
+  %125 = ptrtoint ptr %.2.i to i64
+  %126 = sub i64 %14, %125
+  %127 = icmp ult i64 %126, 8
+  br i1 %127, label %ssl_tls12_session_load.exit, label %128
 
-127:                                              ; preds = %123, %.thread107.i, %82
-  %.4.i = phi ptr [ %126, %123 ], [ %.089.i, %82 ], [ %118, %.thread107.i ]
-  %128 = icmp eq ptr %5, %.4.i
-  br i1 %128, label %ssl_tls12_session_load.exit, label %129
+128:                                              ; preds = %124
+  %.0.copyload.i101.i = load i64, ptr %.2.i, align 1
+  %129 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i101.i)
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i64 %129, ptr %130, align 8, !tbaa !216
+  %131 = getelementptr inbounds nuw i8, ptr %.2.i, i64 8
+  br label %132
 
-129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
-  %131 = load i8, ptr %.4.i, align 1, !tbaa !80
-  store i8 %131, ptr %0, align 8, !tbaa !209
-  %132 = icmp eq ptr %5, %130
-  br i1 %132, label %ssl_tls12_session_load.exit, label %133
+132:                                              ; preds = %128, %121
+  %.4.i = phi ptr [ %131, %128 ], [ %.2.i, %121 ]
+  %133 = icmp eq ptr %5, %.4.i
+  br i1 %133, label %ssl_tls12_session_load.exit, label %134
 
-133:                                              ; preds = %129
-  %134 = getelementptr inbounds nuw i8, ptr %.4.i, i64 2
-  %135 = load i8, ptr %130, align 1, !tbaa !80
-  %136 = zext i8 %135 to i32
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 %136, ptr %137, align 8, !tbaa !217
-  %.not100.i = icmp eq ptr %134, %5
+134:                                              ; preds = %132
+  %135 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
+  %136 = load i8, ptr %.4.i, align 1, !tbaa !80
+  store i8 %136, ptr %0, align 8, !tbaa !209
+  %137 = icmp eq ptr %5, %135
+  br i1 %137, label %ssl_tls12_session_load.exit, label %138
+
+138:                                              ; preds = %134
+  %139 = getelementptr inbounds nuw i8, ptr %.4.i, i64 2
+  %140 = load i8, ptr %135, align 1, !tbaa !80
+  %141 = zext i8 %140 to i32
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i32 %141, ptr %142, align 8, !tbaa !217
+  %.not100.i = icmp eq ptr %139, %5
   %..i = select i1 %.not100.i, i32 0, i32 -28928
   br label %ssl_tls12_session_load.exit
 
-138:                                              ; preds = %18
-  %139 = icmp slt i64 %32, 6
-  br i1 %139, label %ssl_tls12_session_load.exit, label %140
+143:                                              ; preds = %18
+  %144 = icmp slt i64 %32, 6
+  br i1 %144, label %ssl_tls12_session_load.exit, label %145
 
-140:                                              ; preds = %138
+145:                                              ; preds = %143
   %.0.copyload.i85.i = load i32, ptr %30, align 1
-  %141 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i85.i)
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 %141, ptr %142, align 8, !tbaa !219
-  %143 = getelementptr inbounds nuw i8, ptr %.027, i64 8
-  %144 = load i8, ptr %143, align 1, !tbaa !80
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  store i8 %144, ptr %145, align 4, !tbaa !220
-  %146 = getelementptr inbounds nuw i8, ptr %.027, i64 9
-  %147 = load i8, ptr %146, align 1, !tbaa !80
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 165
-  store i8 %147, ptr %148, align 1, !tbaa !218
+  %146 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i85.i)
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i32 %146, ptr %147, align 8, !tbaa !219
+  %148 = getelementptr inbounds nuw i8, ptr %.027, i64 8
+  %149 = load i8, ptr %148, align 1, !tbaa !80
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  store i8 %149, ptr %150, align 4, !tbaa !220
+  %151 = getelementptr inbounds nuw i8, ptr %.027, i64 9
+  %152 = load i8, ptr %151, align 1, !tbaa !80
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 165
+  store i8 %152, ptr %153, align 1, !tbaa !218
   %gepdiff.i = add nsw i64 %32, -6
-  %149 = zext i8 %147 to i64
-  %150 = icmp samesign ult i64 %gepdiff.i, %149
-  %151 = icmp ugt i8 %147, 48
-  %or.cond.i = or i1 %151, %150
-  br i1 %or.cond.i, label %ssl_tls12_session_load.exit, label %152
+  %154 = zext i8 %152 to i64
+  %155 = icmp samesign ult i64 %gepdiff.i, %154
+  %156 = icmp ugt i8 %152, 48
+  %or.cond.i = or i1 %156, %155
+  br i1 %or.cond.i, label %ssl_tls12_session_load.exit, label %157
 
-152:                                              ; preds = %140
-  %153 = getelementptr inbounds nuw i8, ptr %.027, i64 10
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 166
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %154, ptr nonnull align 1 %153, i64 %149, i1 false)
-  %155 = getelementptr inbounds nuw i8, ptr %153, i64 %149
+157:                                              ; preds = %145
+  %158 = getelementptr inbounds nuw i8, ptr %.027, i64 10
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 166
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %159, ptr nonnull align 1 %158, i64 %154, i1 false)
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 %154
   switch i8 %25, label %ssl_tls12_session_load.exit [
-    i8 1, label %156
-    i8 0, label %160
+    i8 1, label %161
+    i8 0, label %165
   ]
 
-156:                                              ; preds = %152
-  %gepdiff80.i = sub nsw i64 %gepdiff.i, %149
-  %157 = icmp slt i64 %gepdiff80.i, 8
-  br i1 %157, label %ssl_tls12_session_load.exit, label %.thread.i
+161:                                              ; preds = %157
+  %gepdiff80.i = sub nsw i64 %gepdiff.i, %154
+  %162 = icmp slt i64 %gepdiff80.i, 8
+  br i1 %162, label %ssl_tls12_session_load.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %156
-  %.0.copyload.i83.i = load i64, ptr %155, align 1
-  %158 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i83.i)
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i64 %158, ptr %159, align 8, !tbaa !216
+.thread.i:                                        ; preds = %161
+  %.0.copyload.i83.i = load i64, ptr %160, align 1
+  %163 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i83.i)
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i64 %163, ptr %164, align 8, !tbaa !216
   br label %ssl_tls12_session_load.exit
 
-160:                                              ; preds = %152
-  %gepdiff91.i = sub nsw i64 %gepdiff.i, %149
-  %161 = icmp slt i64 %gepdiff91.i, 2
-  br i1 %161, label %ssl_tls12_session_load.exit, label %162
-
-162:                                              ; preds = %160
-  %.0.copyload.i82.i = load i16, ptr %155, align 1
-  %163 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i82.i)
-  %164 = zext i16 %163 to i64
-  %165 = getelementptr inbounds nuw i8, ptr %155, i64 2
-  %.neg94.i = add nsw i64 %32, -8
-  %gepdiff92.i = sub nsw i64 %.neg94.i, %149
-  %166 = icmp slt i64 %gepdiff92.i, %164
+165:                                              ; preds = %157
+  %gepdiff91.i = sub nsw i64 %gepdiff.i, %154
+  %166 = icmp slt i64 %gepdiff91.i, 2
   br i1 %166, label %ssl_tls12_session_load.exit, label %167
 
-167:                                              ; preds = %162
-  %.not.i30 = icmp eq i16 %.0.copyload.i82.i, 0
-  br i1 %.not.i30, label %174, label %168
-
-168:                                              ; preds = %167
-  %169 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %164) #29
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr %169, ptr %170, align 8, !tbaa !47
-  %171 = icmp eq ptr %169, null
+167:                                              ; preds = %165
+  %.0.copyload.i82.i = load i16, ptr %160, align 1
+  %168 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i82.i)
+  %169 = zext i16 %168 to i64
+  %170 = getelementptr inbounds nuw i8, ptr %160, i64 2
+  %.neg94.i = add nsw i64 %32, -8
+  %gepdiff92.i = sub nsw i64 %.neg94.i, %154
+  %171 = icmp slt i64 %gepdiff92.i, %169
   br i1 %171, label %ssl_tls12_session_load.exit, label %172
 
-172:                                              ; preds = %168
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %169, ptr nonnull align 1 %165, i64 %164, i1 false)
-  %173 = getelementptr inbounds nuw i8, ptr %165, i64 %164
-  br label %174
+172:                                              ; preds = %167
+  %.not.i30 = icmp eq i16 %.0.copyload.i82.i, 0
+  br i1 %.not.i30, label %179, label %173
 
-174:                                              ; preds = %172, %167
-  %.174.i = phi ptr [ %173, %172 ], [ %165, %167 ]
-  %175 = ptrtoint ptr %.174.i to i64
-  %176 = sub i64 %14, %175
-  %177 = icmp slt i64 %176, 8
-  br i1 %177, label %ssl_tls12_session_load.exit, label %178
+173:                                              ; preds = %172
+  %174 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %169) #29
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store ptr %174, ptr %175, align 8, !tbaa !47
+  %176 = icmp eq ptr %174, null
+  br i1 %176, label %ssl_tls12_session_load.exit, label %177
 
-178:                                              ; preds = %174
+177:                                              ; preds = %173
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %174, ptr nonnull align 1 %170, i64 %169, i1 false)
+  %178 = getelementptr inbounds nuw i8, ptr %170, i64 %169
+  br label %179
+
+179:                                              ; preds = %177, %172
+  %.174.i = phi ptr [ %178, %177 ], [ %170, %172 ]
+  %180 = ptrtoint ptr %.174.i to i64
+  %181 = sub i64 %14, %180
+  %182 = icmp slt i64 %181, 8
+  br i1 %182, label %ssl_tls12_session_load.exit, label %183
+
+183:                                              ; preds = %179
   %.0.copyload.i84.i = load i64, ptr %.174.i, align 1
-  %179 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i84.i)
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i64 %179, ptr %180, align 8, !tbaa !221
-  %181 = getelementptr inbounds nuw i8, ptr %.174.i, i64 8
-  %182 = ptrtoint ptr %181 to i64
-  %183 = sub i64 %14, %182
-  %184 = icmp slt i64 %183, 4
-  br i1 %184, label %ssl_tls12_session_load.exit, label %185
+  %184 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i84.i)
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store i64 %184, ptr %185, align 8, !tbaa !221
+  %186 = getelementptr inbounds nuw i8, ptr %.174.i, i64 8
+  %187 = ptrtoint ptr %186 to i64
+  %188 = sub i64 %14, %187
+  %189 = icmp slt i64 %188, 4
+  br i1 %189, label %ssl_tls12_session_load.exit, label %190
 
-185:                                              ; preds = %178
-  %.0.copyload.i86.i = load i32, ptr %181, align 1
-  %186 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i86.i)
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %186, ptr %187, align 8, !tbaa !215
-  %188 = getelementptr inbounds nuw i8, ptr %.174.i, i64 12
-  %189 = ptrtoint ptr %188 to i64
-  %190 = sub i64 %14, %189
-  %191 = icmp slt i64 %190, 2
-  br i1 %191, label %ssl_tls12_session_load.exit, label %192
+190:                                              ; preds = %183
+  %.0.copyload.i86.i = load i32, ptr %186, align 1
+  %191 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i86.i)
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i32 %191, ptr %192, align 8, !tbaa !215
+  %193 = getelementptr inbounds nuw i8, ptr %.174.i, i64 12
+  %194 = ptrtoint ptr %193 to i64
+  %195 = sub i64 %14, %194
+  %196 = icmp slt i64 %195, 2
+  br i1 %196, label %ssl_tls12_session_load.exit, label %197
 
-192:                                              ; preds = %185
-  %.0.copyload.i.i31 = load i16, ptr %188, align 1
-  %193 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i31)
-  %194 = zext i16 %193 to i64
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %194, ptr %195, align 8, !tbaa !61
-  %196 = getelementptr inbounds nuw i8, ptr %.174.i, i64 14
-  %197 = ptrtoint ptr %196 to i64
-  %198 = sub i64 %14, %197
-  %199 = icmp slt i64 %198, %194
-  br i1 %199, label %ssl_tls12_session_load.exit, label %200
-
-200:                                              ; preds = %192
-  %.not81.i = icmp eq i16 %.0.copyload.i.i31, 0
-  br i1 %.not81.i, label %ssl_tls12_session_load.exit, label %201
-
-201:                                              ; preds = %200
-  %202 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %194) #29
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %202, ptr %203, align 8, !tbaa !48
-  %204 = icmp eq ptr %202, null
+197:                                              ; preds = %190
+  %.0.copyload.i.i31 = load i16, ptr %193, align 1
+  %198 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i31)
+  %199 = zext i16 %198 to i64
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i64 %199, ptr %200, align 8, !tbaa !61
+  %201 = getelementptr inbounds nuw i8, ptr %.174.i, i64 14
+  %202 = ptrtoint ptr %201 to i64
+  %203 = sub i64 %14, %202
+  %204 = icmp slt i64 %203, %199
   br i1 %204, label %ssl_tls12_session_load.exit, label %205
 
-205:                                              ; preds = %201
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %202, ptr nonnull align 1 %196, i64 %194, i1 false)
+205:                                              ; preds = %197
+  %.not81.i = icmp eq i16 %.0.copyload.i.i31, 0
+  br i1 %.not81.i, label %ssl_tls12_session_load.exit, label %206
+
+206:                                              ; preds = %205
+  %207 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %199) #29
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store ptr %207, ptr %208, align 8, !tbaa !48
+  %209 = icmp eq ptr %207, null
+  br i1 %209, label %ssl_tls12_session_load.exit, label %210
+
+210:                                              ; preds = %206
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %207, ptr nonnull align 1 %201, i64 %199, i1 false)
   br label %ssl_tls12_session_load.exit
 
-ssl_tls12_session_load.exit:                      ; preds = %205, %201, %200, %192, %185, %178, %174, %168, %162, %160, %.thread.i, %156, %152, %140, %138, %133, %129, %127, %119, %112, %107, %103, %84, %77, %71, %69, %39, %35, %33, %18, %13, %10, %8, %4
-  %.0 = phi i32 [ -28928, %8 ], [ -24320, %10 ], [ -28928, %13 ], [ -28928, %18 ], [ -28928, %69 ], [ -27648, %4 ], [ -28928, %129 ], [ -28928, %33 ], [ -28928, %35 ], [ -28928, %39 ], [ -28928, %84 ], [ -28928, %103 ], [ -32512, %107 ], [ -28928, %112 ], [ -28928, %119 ], [ -28928, %127 ], [ %..i, %133 ], [ -32512, %71 ], [ %76, %77 ], [ 0, %152 ], [ -28928, %138 ], [ -28928, %140 ], [ -28928, %156 ], [ 0, %205 ], [ 0, %200 ], [ 0, %.thread.i ], [ -28928, %192 ], [ -28928, %185 ], [ -28928, %178 ], [ -28928, %174 ], [ -32512, %168 ], [ -28928, %162 ], [ -28928, %160 ], [ -32512, %201 ]
+ssl_tls12_session_load.exit:                      ; preds = %210, %206, %205, %197, %190, %183, %179, %173, %167, %165, %.thread.i, %161, %157, %145, %143, %138, %134, %132, %124, %113, %108, %104, %85, %77, %71, %69, %39, %35, %33, %18, %13, %10, %8, %4
+  %.0 = phi i32 [ -28928, %8 ], [ -24320, %10 ], [ -28928, %13 ], [ -28928, %18 ], [ -28928, %69 ], [ -27648, %4 ], [ -28928, %134 ], [ -28928, %33 ], [ -28928, %35 ], [ -28928, %39 ], [ -28928, %85 ], [ -28928, %104 ], [ -32512, %108 ], [ -28928, %113 ], [ -28928, %124 ], [ -28928, %132 ], [ %..i, %138 ], [ -32512, %71 ], [ %76, %77 ], [ 0, %157 ], [ -28928, %143 ], [ -28928, %145 ], [ -28928, %161 ], [ 0, %210 ], [ 0, %205 ], [ 0, %.thread.i ], [ -28928, %197 ], [ -28928, %190 ], [ -28928, %183 ], [ -28928, %179 ], [ -32512, %173 ], [ -28928, %167 ], [ -28928, %165 ], [ -32512, %206 ]
   ret i32 %.0
 }
 
@@ -9348,118 +9353,124 @@ define internal fastcc i32 @tls_prf_generic(i32 noundef range(i32 9, 11) %0, ptr
   call void @mbedtls_md_init(ptr noundef nonnull %10) #28
   %11 = call ptr @mbedtls_md_info_from_type(i32 noundef %0) #28
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %51, label %13
+  br i1 %12, label %55, label %13
 
 13:                                               ; preds = %8
   %14 = call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %11) #28
   %15 = zext i8 %14 to i64
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #30
-  %17 = add i64 %16, %5
-  %18 = add i64 %17, %15
+  %17 = add i64 %5, %15
+  %18 = add i64 %17, %16
   %19 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %18) #29
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread95, label %21
 
 .thread95:                                        ; preds = %13
   call void @mbedtls_md_free(ptr noundef nonnull %10) #28
-  br label %50
+  br label %54
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %15
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %3, i64 %16, i1 false)
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %4, i64 %5, i1 false)
-  %24 = call i32 @mbedtls_md_setup(ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 1) #28
-  %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %25, label %.thread
+  %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #30
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %15
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %3, i64 %22, i1 false)
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %22
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %4, i64 %5, i1 false)
+  %25 = add i64 %22, %5
+  %26 = call i32 @mbedtls_md_setup(ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 1) #28
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %27, label %.thread
 
-25:                                               ; preds = %21
-  %26 = call i32 @mbedtls_md_hmac_starts(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %2) #28
-  %.not82 = icmp eq i32 %26, 0
-  br i1 %.not82, label %27, label %.thread
-
-27:                                               ; preds = %25
-  %28 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %10, ptr noundef nonnull %22, i64 noundef %17) #28
-  %.not83 = icmp eq i32 %28, 0
-  br i1 %.not83, label %29, label %.thread
+27:                                               ; preds = %21
+  %28 = call i32 @mbedtls_md_hmac_starts(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %2) #28
+  %.not82 = icmp eq i32 %28, 0
+  br i1 %.not82, label %29, label %.thread
 
 29:                                               ; preds = %27
-  %30 = call i32 @mbedtls_md_hmac_finish(ptr noundef nonnull %10, ptr noundef nonnull %19) #28
-  %.not84 = icmp eq i32 %30, 0
+  %30 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %10, ptr noundef nonnull %23, i64 noundef %25) #28
+  %.not83 = icmp eq i32 %30, 0
+  br i1 %.not83, label %31, label %.thread
+
+31:                                               ; preds = %29
+  %32 = call i32 @mbedtls_md_hmac_finish(ptr noundef nonnull %10, ptr noundef nonnull %19) #28
+  %.not84 = icmp eq i32 %32, 0
   br i1 %.not84, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %29
+.preheader:                                       ; preds = %31
   %.not102 = icmp eq i64 %7, 0
   br i1 %.not102, label %.thread, label %.lr.ph99
 
-.loopexit:                                        ; preds = %.lr.ph, %48
-  %31 = icmp ult i64 %44, %7
-  br i1 %31, label %.lr.ph99, label %.thread, !llvm.loop !295
+.lr.ph99:                                         ; preds = %.preheader
+  %33 = add i64 %25, %15
+  br label %35
 
-.lr.ph99:                                         ; preds = %.preheader, %.loopexit
-  %.06498 = phi i64 [ %44, %.loopexit ], [ 0, %.preheader ]
+.loopexit:                                        ; preds = %.lr.ph, %52
+  %34 = icmp ult i64 %48, %7
+  br i1 %34, label %35, label %.thread, !llvm.loop !295
+
+35:                                               ; preds = %.lr.ph99, %.loopexit
+  %.06498 = phi i64 [ 0, %.lr.ph99 ], [ %48, %.loopexit ]
   %scevgep = getelementptr i8, ptr %6, i64 %.06498
-  %32 = call i32 @mbedtls_md_hmac_reset(ptr noundef nonnull %10) #28
-  %.not85 = icmp eq i32 %32, 0
-  br i1 %.not85, label %33, label %.thread
-
-33:                                               ; preds = %.lr.ph99
-  %34 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %10, ptr noundef nonnull %19, i64 noundef %18) #28
-  %.not86 = icmp eq i32 %34, 0
-  br i1 %.not86, label %35, label %.thread
-
-35:                                               ; preds = %33
-  %36 = call i32 @mbedtls_md_hmac_finish(ptr noundef nonnull %10, ptr noundef nonnull %9) #28
-  %.not87 = icmp eq i32 %36, 0
-  br i1 %.not87, label %37, label %.thread
+  %36 = call i32 @mbedtls_md_hmac_reset(ptr noundef nonnull %10) #28
+  %.not85 = icmp eq i32 %36, 0
+  br i1 %.not85, label %37, label %.thread
 
 37:                                               ; preds = %35
-  %38 = call i32 @mbedtls_md_hmac_reset(ptr noundef nonnull %10) #28
-  %.not88 = icmp eq i32 %38, 0
-  br i1 %.not88, label %39, label %.thread
+  %38 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %10, ptr noundef nonnull %19, i64 noundef %33) #28
+  %.not86 = icmp eq i32 %38, 0
+  br i1 %.not86, label %39, label %.thread
 
 39:                                               ; preds = %37
-  %40 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %10, ptr noundef nonnull %19, i64 noundef %15) #28
-  %.not89 = icmp eq i32 %40, 0
-  br i1 %.not89, label %41, label %.thread
+  %40 = call i32 @mbedtls_md_hmac_finish(ptr noundef nonnull %10, ptr noundef nonnull %9) #28
+  %.not87 = icmp eq i32 %40, 0
+  br i1 %.not87, label %41, label %.thread
 
 41:                                               ; preds = %39
-  %42 = call i32 @mbedtls_md_hmac_finish(ptr noundef nonnull %10, ptr noundef nonnull %19) #28
-  %.not90 = icmp eq i32 %42, 0
-  br i1 %.not90, label %43, label %.thread
+  %42 = call i32 @mbedtls_md_hmac_reset(ptr noundef nonnull %10) #28
+  %.not88 = icmp eq i32 %42, 0
+  br i1 %.not88, label %43, label %.thread
 
 43:                                               ; preds = %41
-  %44 = add i64 %.06498, %15
-  %45 = icmp ugt i64 %44, %7
-  br i1 %45, label %46, label %48
+  %44 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %10, ptr noundef nonnull %19, i64 noundef %15) #28
+  %.not89 = icmp eq i32 %44, 0
+  br i1 %.not89, label %45, label %.thread
 
-46:                                               ; preds = %43
-  %47 = urem i64 %7, %15
-  br label %48
+45:                                               ; preds = %43
+  %46 = call i32 @mbedtls_md_hmac_finish(ptr noundef nonnull %10, ptr noundef nonnull %19) #28
+  %.not90 = icmp eq i32 %46, 0
+  br i1 %.not90, label %47, label %.thread
 
-48:                                               ; preds = %43, %46
-  %49 = phi i64 [ %47, %46 ], [ %15, %43 ]
-  %.not103 = icmp eq i64 %49, 0
+47:                                               ; preds = %45
+  %48 = add i64 %.06498, %15
+  %49 = icmp ugt i64 %48, %7
+  br i1 %49, label %50, label %52
+
+50:                                               ; preds = %47
+  %51 = urem i64 %7, %15
+  br label %52
+
+52:                                               ; preds = %47, %50
+  %53 = phi i64 [ %51, %50 ], [ %15, %47 ]
+  %.not103 = icmp eq i64 %53, 0
   br i1 %.not103, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %48
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep, ptr nonnull align 16 %9, i64 %49, i1 false), !tbaa !80
+.lr.ph:                                           ; preds = %52
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep, ptr nonnull align 16 %9, i64 %53, i1 false), !tbaa !80
   br label %.loopexit
 
-.thread:                                          ; preds = %.loopexit, %.lr.ph99, %33, %35, %37, %39, %41, %.preheader, %21, %25, %27, %29
-  %.093 = phi i32 [ 0, %.preheader ], [ %24, %21 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %42, %41 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ 0, %.loopexit ], [ %32, %.lr.ph99 ]
+.thread:                                          ; preds = %.loopexit, %35, %37, %39, %41, %43, %45, %.preheader, %21, %27, %29, %31
+  %.093 = phi i32 [ 0, %.preheader ], [ %26, %21 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %46, %45 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ 0, %.loopexit ], [ %36, %35 ]
   call void @mbedtls_md_free(ptr noundef nonnull %10) #28
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %19, i64 noundef %18) #28
-  br label %50
+  br label %54
 
-50:                                               ; preds = %.thread95, %.thread
+54:                                               ; preds = %.thread95, %.thread
   %.094 = phi i32 [ %.093, %.thread ], [ -32512, %.thread95 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 64) #28
   call void @free(ptr noundef %19) #28
-  br label %51
+  br label %55
 
-51:                                               ; preds = %8, %50
-  %.063 = phi i32 [ %.094, %50 ], [ -27648, %8 ]
+55:                                               ; preds = %8, %54
+  %.063 = phi i32 [ %.094, %54 ], [ -27648, %8 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.063
@@ -9634,7 +9645,7 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

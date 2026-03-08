@@ -937,7 +937,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_look(ptr noundef nonnull %0) unn
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !tbaa !27
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %30
+  br i1 %5, label %6, label %32
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -946,125 +946,127 @@ define internal fastcc range(i32 -1, 1) i32 @gz_look(ptr noundef nonnull %0) unn
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %10, ptr %11, align 8, !tbaa !43
-  %12 = shl i32 %8, 1
-  %13 = zext i32 %12 to i64
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #15
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %14, ptr %15, align 8, !tbaa !34
-  %16 = icmp eq ptr %10, null
-  %17 = icmp eq ptr %14, null
-  %or.cond = or i1 %16, %17
-  br i1 %or.cond, label %18, label %23
+  %12 = load i32, ptr %7, align 4, !tbaa !42
+  %13 = shl i32 %12, 1
+  %14 = zext i32 %13 to i64
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %15, ptr %16, align 8, !tbaa !34
+  %17 = icmp eq ptr %10, null
+  %18 = icmp eq ptr %15, null
+  %or.cond = or i1 %17, %18
+  br i1 %or.cond, label %19, label %24
 
-18:                                               ; preds = %6
-  br i1 %17, label %20, label %19
+19:                                               ; preds = %6
+  br i1 %18, label %21, label %20
 
-19:                                               ; preds = %18
-  tail call void @free(ptr noundef nonnull %14) #12
-  br label %20
+20:                                               ; preds = %19
+  tail call void @free(ptr noundef nonnull %15) #12
+  br label %21
 
-20:                                               ; preds = %19, %18
-  br i1 %16, label %22, label %21
+21:                                               ; preds = %20, %19
+  br i1 %17, label %23, label %22
 
-21:                                               ; preds = %20
+22:                                               ; preds = %21
   tail call void @free(ptr noundef nonnull %10) #12
-  br label %22
+  br label %23
 
-22:                                               ; preds = %21, %20
+23:                                               ; preds = %22, %21
   tail call void @MOZ_Z_gz_error(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str.4) #12
-  br label %66
+  br label %68
 
-23:                                               ; preds = %6
-  store i32 %8, ptr %3, align 8, !tbaa !27
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 0, ptr %25, align 8, !tbaa !21
+24:                                               ; preds = %6
+  %25 = load i32, ptr %7, align 4, !tbaa !42
+  store i32 %25, ptr %3, align 8, !tbaa !27
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i32 0, ptr %27, align 8, !tbaa !21
   store ptr null, ptr %2, align 8, !tbaa !44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
-  %26 = tail call i32 @MOZ_Z_inflateInit2_(ptr noundef nonnull %2, i32 noundef 31, ptr noundef nonnull @.str.6, i32 noundef 120) #12
-  %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %30, label %27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
+  %28 = tail call i32 @MOZ_Z_inflateInit2_(ptr noundef nonnull %2, i32 noundef 31, ptr noundef nonnull @.str.6, i32 noundef 120) #12
+  %.not = icmp eq i32 %28, 0
+  br i1 %.not, label %32, label %29
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %15, align 8, !tbaa !34
-  tail call void @free(ptr noundef %28) #12
-  %29 = load ptr, ptr %11, align 8, !tbaa !43
-  tail call void @free(ptr noundef %29) #12
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %16, align 8, !tbaa !34
+  tail call void @free(ptr noundef %30) #12
+  %31 = load ptr, ptr %11, align 8, !tbaa !43
+  tail call void @free(ptr noundef %31) #12
   store i32 0, ptr %3, align 8, !tbaa !27
   tail call void @MOZ_Z_gz_error(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str.4) #12
-  br label %66
+  br label %68
 
-30:                                               ; preds = %23, %1
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %32 = load i32, ptr %31, align 8, !tbaa !24
-  %33 = icmp ult i32 %32, 2
-  br i1 %33, label %34, label %.thread
+32:                                               ; preds = %24, %1
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %34 = load i32, ptr %33, align 8, !tbaa !24
+  %35 = icmp ult i32 %34, 2
+  br i1 %35, label %36, label %.thread
 
-34:                                               ; preds = %30
-  %35 = tail call fastcc i32 @gz_avail(ptr noundef %0)
-  %36 = icmp eq i32 %35, -1
-  br i1 %36, label %66, label %37
+36:                                               ; preds = %32
+  %37 = tail call fastcc i32 @gz_avail(ptr noundef %0)
+  %38 = icmp eq i32 %37, -1
+  br i1 %38, label %68, label %39
 
-37:                                               ; preds = %34
-  %38 = load i32, ptr %31, align 8, !tbaa !24
-  switch i32 %38, label %.thread [
-    i32 0, label %66
-    i32 1, label %51
+39:                                               ; preds = %36
+  %40 = load i32, ptr %33, align 8, !tbaa !24
+  switch i32 %40, label %.thread [
+    i32 0, label %68
+    i32 1, label %53
   ]
 
-.thread:                                          ; preds = %37, %30
-  %39 = phi i32 [ %38, %37 ], [ %32, %30 ]
-  %40 = load ptr, ptr %2, align 8, !tbaa !45
-  %41 = load i8, ptr %40, align 1, !tbaa !38
-  %42 = icmp eq i8 %41, 31
-  br i1 %42, label %43, label %51
+.thread:                                          ; preds = %39, %32
+  %41 = phi i32 [ %40, %39 ], [ %34, %32 ]
+  %42 = load ptr, ptr %2, align 8, !tbaa !45
+  %43 = load i8, ptr %42, align 1, !tbaa !38
+  %44 = icmp eq i8 %43, 31
+  br i1 %44, label %45, label %53
 
-43:                                               ; preds = %.thread
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 1
-  %45 = load i8, ptr %44, align 1, !tbaa !38
-  %46 = icmp eq i8 %45, -117
-  br i1 %46, label %47, label %51
+45:                                               ; preds = %.thread
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 1
+  %47 = load i8, ptr %46, align 1, !tbaa !38
+  %48 = icmp eq i8 %47, -117
+  br i1 %48, label %49, label %53
 
-47:                                               ; preds = %43
-  %48 = tail call i32 @MOZ_Z_inflateReset(ptr noundef nonnull %2) #12
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 2, ptr %49, align 4, !tbaa !26
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 0, ptr %50, align 8, !tbaa !41
-  br label %66
+49:                                               ; preds = %45
+  %50 = tail call i32 @MOZ_Z_inflateReset(ptr noundef nonnull %2) #12
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 2, ptr %51, align 4, !tbaa !26
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 0, ptr %52, align 8, !tbaa !41
+  br label %68
 
-51:                                               ; preds = %37, %43, %.thread
-  %52 = phi i32 [ %39, %43 ], [ %39, %.thread ], [ %38, %37 ]
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %54 = load i32, ptr %53, align 8, !tbaa !41
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %58
+53:                                               ; preds = %39, %45, %.thread
+  %54 = phi i32 [ %41, %45 ], [ %41, %.thread ], [ %40, %39 ]
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %56 = load i32, ptr %55, align 8, !tbaa !41
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %60
 
-56:                                               ; preds = %51
-  store i32 0, ptr %31, align 8, !tbaa !24
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 1, ptr %57, align 8, !tbaa !20
+58:                                               ; preds = %53
+  store i32 0, ptr %33, align 8, !tbaa !24
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 1, ptr %59, align 8, !tbaa !20
   store i32 0, ptr %0, align 8, !tbaa !17
-  br label %66
+  br label %68
 
-58:                                               ; preds = %51
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %60 = load ptr, ptr %59, align 8, !tbaa !34
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %60, ptr %61, align 8, !tbaa !18
-  %62 = load ptr, ptr %2, align 8, !tbaa !45
-  %63 = zext i32 %52 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr align 1 %62, i64 %63, i1 false)
-  %64 = load i32, ptr %31, align 8, !tbaa !24
-  store i32 %64, ptr %0, align 8, !tbaa !17
-  store i32 0, ptr %31, align 8, !tbaa !24
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 1, ptr %65, align 4, !tbaa !26
-  store i32 1, ptr %53, align 8, !tbaa !41
-  br label %66
+60:                                               ; preds = %53
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %62 = load ptr, ptr %61, align 8, !tbaa !34
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %62, ptr %63, align 8, !tbaa !18
+  %64 = load ptr, ptr %2, align 8, !tbaa !45
+  %65 = zext i32 %54 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %64, i64 %65, i1 false)
+  %66 = load i32, ptr %33, align 8, !tbaa !24
+  store i32 %66, ptr %0, align 8, !tbaa !17
+  store i32 0, ptr %33, align 8, !tbaa !24
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 1, ptr %67, align 4, !tbaa !26
+  store i32 1, ptr %55, align 8, !tbaa !41
+  br label %68
 
-66:                                               ; preds = %37, %34, %58, %56, %47, %27, %22
-  %.0 = phi i32 [ -1, %22 ], [ -1, %27 ], [ 0, %58 ], [ -1, %34 ], [ 0, %47 ], [ 0, %56 ], [ %38, %37 ]
+68:                                               ; preds = %39, %36, %60, %58, %49, %29, %23
+  %.0 = phi i32 [ -1, %23 ], [ -1, %29 ], [ 0, %60 ], [ -1, %36 ], [ 0, %49 ], [ 0, %58 ], [ %40, %39 ]
   ret i32 %.0
 }
 
@@ -1238,7 +1240,7 @@ gz_load.exit:                                     ; preds = %42
 
 declare i32 @MOZ_Z_inflate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 declare i32 @MOZ_Z_inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1268,7 +1270,7 @@ attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

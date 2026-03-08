@@ -1008,95 +1008,95 @@ placeFixed.exit.i:                                ; preds = %528, %._crit_edge.i
   unreachable
 
 gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit
-  %.pre = load i32, ptr %8, align 8, !tbaa !3
-  %577 = icmp eq i32 %.pre, 4
-  br i1 %577, label %585, label %616
+  %577 = load i32, ptr %8, align 8, !tbaa !3
+  %578 = icmp eq i32 %577, 4
+  br i1 %578, label %586, label %617
 
 gv_calloc.exit:                                   ; preds = %570, %gv_calloc.exit
-  %.03754 = phi i64 [ %584, %gv_calloc.exit ], [ 0, %570 ]
-  %578 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.03754
-  %579 = load ptr, ptr %578, align 8, !tbaa !16
-  tail call void @compute_bb(ptr noundef %579) #23
-  %580 = getelementptr inbounds nuw [32 x i8], ptr %571, i64 %.03754
-  %581 = getelementptr inbounds nuw i8, ptr %579, i64 16
-  %582 = load ptr, ptr %581, align 8, !tbaa !21
-  %583 = getelementptr inbounds nuw i8, ptr %582, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %580, ptr noundef nonnull align 8 dereferenceable(32) %583, i64 32, i1 false), !tbaa.struct !51
-  %584 = add nuw i64 %.03754, 1
-  %exitcond.not = icmp eq i64 %584, %0
+  %.03754 = phi i64 [ %585, %gv_calloc.exit ], [ 0, %570 ]
+  %579 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.03754
+  %580 = load ptr, ptr %579, align 8, !tbaa !16
+  tail call void @compute_bb(ptr noundef %580) #23
+  %581 = getelementptr inbounds nuw [32 x i8], ptr %571, i64 %.03754
+  %582 = getelementptr inbounds nuw i8, ptr %580, i64 16
+  %583 = load ptr, ptr %582, align 8, !tbaa !21
+  %584 = getelementptr inbounds nuw i8, ptr %583, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %581, ptr noundef nonnull align 8 dereferenceable(32) %584, i64 32, i1 false), !tbaa.struct !51
+  %585 = add nuw i64 %.03754, 1
+  %exitcond.not = icmp eq i64 %585, %0
   br i1 %exitcond.not, label %gv_calloc.exit._crit_edge, label %gv_calloc.exit, !llvm.loop !105
 
-585:                                              ; preds = %gv_calloc.exit._crit_edge
-  %586 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %587 = load i32, ptr %586, align 8, !tbaa !106
-  %588 = and i32 %587, 2
-  %.not = icmp eq i32 %588, 0
-  br i1 %.not, label %.loopexit, label %589
+586:                                              ; preds = %gv_calloc.exit._crit_edge
+  %587 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %588 = load i32, ptr %587, align 8, !tbaa !106
+  %589 = and i32 %588, 2
+  %.not = icmp eq i32 %589, 0
+  br i1 %.not, label %.loopexit, label %590
 
-589:                                              ; preds = %585
-  %590 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef 4) #22
-  %591 = icmp eq ptr %590, null
-  br i1 %591, label %592, label %.lr.ph56.preheader
+590:                                              ; preds = %586
+  %591 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef 4) #22
+  %592 = icmp eq ptr %591, null
+  br i1 %592, label %593, label %.lr.ph56.preheader
 
-592:                                              ; preds = %589
-  %593 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %594 = shl nuw nsw i64 %0, 2
-  %595 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %593, ptr noundef nonnull @.str.28, i64 noundef %594) #20
+593:                                              ; preds = %590
+  %594 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %595 = shl nuw nsw i64 %0, 2
+  %596 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %594, ptr noundef nonnull @.str.28, i64 noundef %595) #20
   tail call fastcc void @graphviz_exit() #21
   unreachable
 
-.lr.ph56.preheader:                               ; preds = %589
-  %596 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %590, ptr %596, align 8, !tbaa !107
+.lr.ph56.preheader:                               ; preds = %590
+  %597 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %591, ptr %597, align 8, !tbaa !107
   br label %.lr.ph56
 
-.lr.ph56:                                         ; preds = %.lr.ph56.preheader, %608
-  %.055 = phi i64 [ %609, %608 ], [ 0, %.lr.ph56.preheader ]
-  %597 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.055
-  %598 = load ptr, ptr %597, align 8, !tbaa !16
-  %599 = call ptr @agget(ptr noundef %598, ptr noundef nonnull @.str) #23
-  %.not44 = icmp eq ptr %599, null
-  br i1 %.not44, label %608, label %600
+.lr.ph56:                                         ; preds = %.lr.ph56.preheader, %609
+  %.055 = phi i64 [ %610, %609 ], [ 0, %.lr.ph56.preheader ]
+  %598 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.055
+  %599 = load ptr, ptr %598, align 8, !tbaa !16
+  %600 = call ptr @agget(ptr noundef %599, ptr noundef nonnull @.str) #23
+  %.not44 = icmp eq ptr %600, null
+  br i1 %.not44, label %609, label %601
 
-600:                                              ; preds = %.lr.ph56
-  %601 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %599, ptr noundef nonnull @.str.1, ptr noundef nonnull %5) #23
-  %602 = icmp sgt i32 %601, 0
-  %603 = load i32, ptr %5, align 4
-  %604 = icmp sgt i32 %603, -1
-  %or.cond = select i1 %602, i1 %604, i1 false
-  br i1 %or.cond, label %605, label %608
+601:                                              ; preds = %.lr.ph56
+  %602 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %600, ptr noundef nonnull @.str.1, ptr noundef nonnull %5) #23
+  %603 = icmp sgt i32 %602, 0
+  %604 = load i32, ptr %5, align 4
+  %605 = icmp sgt i32 %604, -1
+  %or.cond = select i1 %603, i1 %605, i1 false
+  br i1 %or.cond, label %606, label %609
 
-605:                                              ; preds = %600
-  %606 = load ptr, ptr %596, align 8, !tbaa !107
-  %607 = getelementptr inbounds nuw [4 x i8], ptr %606, i64 %.055
-  store i32 %603, ptr %607, align 4, !tbaa !108
-  br label %608
+606:                                              ; preds = %601
+  %607 = load ptr, ptr %597, align 8, !tbaa !107
+  %608 = getelementptr inbounds nuw [4 x i8], ptr %607, i64 %.055
+  store i32 %604, ptr %608, align 4, !tbaa !108
+  br label %609
 
-608:                                              ; preds = %.lr.ph56, %600, %605
-  %609 = add nuw i64 %.055, 1
-  %exitcond61.not = icmp eq i64 %609, %0
+609:                                              ; preds = %.lr.ph56, %601, %606
+  %610 = add nuw i64 %.055, 1
+  %exitcond61.not = icmp eq i64 %610, %0
   br i1 %exitcond61.not, label %.loopexit, label %.lr.ph56, !llvm.loop !109
 
-.loopexit:                                        ; preds = %608, %585
-  %610 = call fastcc ptr @arrayRects(i64 noundef %0, ptr noundef nonnull %571, ptr noundef %3)
-  %611 = load i32, ptr %586, align 8, !tbaa !106
-  %612 = and i32 %611, 2
-  %.not43 = icmp eq i32 %612, 0
-  br i1 %.not43, label %616, label %613
+.loopexit:                                        ; preds = %609, %586
+  %611 = call fastcc ptr @arrayRects(i64 noundef %0, ptr noundef nonnull %571, ptr noundef %3)
+  %612 = load i32, ptr %587, align 8, !tbaa !106
+  %613 = and i32 %612, 2
+  %.not43 = icmp eq i32 %613, 0
+  br i1 %.not43, label %617, label %614
 
-613:                                              ; preds = %.loopexit
-  %614 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %615 = load ptr, ptr %614, align 8, !tbaa !107
-  call void @free(ptr noundef %615) #23
-  br label %616
+614:                                              ; preds = %.loopexit
+  %615 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %616 = load ptr, ptr %615, align 8, !tbaa !107
+  call void @free(ptr noundef %616) #23
+  br label %617
 
-616:                                              ; preds = %.loopexit, %613, %gv_calloc.exit._crit_edge
-  %.039 = phi ptr [ %610, %613 ], [ %610, %.loopexit ], [ null, %gv_calloc.exit._crit_edge ]
+617:                                              ; preds = %.loopexit, %614, %gv_calloc.exit._crit_edge
+  %.039 = phi ptr [ %611, %614 ], [ %611, %.loopexit ], [ null, %gv_calloc.exit._crit_edge ]
   call void @free(ptr noundef nonnull %571) #23
   br label %polyGraphs.exit
 
-polyGraphs.exit:                                  ; preds = %.preheader.i, %551, %90, %4, %616
-  %.038 = phi ptr [ %.039, %616 ], [ null, %4 ], [ null, %90 ], [ %496, %551 ], [ %496, %.preheader.i ]
+polyGraphs.exit:                                  ; preds = %.preheader.i, %551, %90, %4, %617
+  %.038 = phi ptr [ %.039, %617 ], [ null, %4 ], [ null, %90 ], [ %496, %551 ], [ %496, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.038
 }
@@ -3584,7 +3584,7 @@ define internal fastcc void @graphviz_exit() unnamed_addr #12 {
   unreachable
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree noreturn nounwind
@@ -3681,7 +3681,7 @@ attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

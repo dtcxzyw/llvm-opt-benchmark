@@ -216,8 +216,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl22biharmonic_coordinatesIN5
   store i64 -1, ptr %34, align 8, !tbaa !9
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %37 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %35, i8 0, i64 56, i1 false)
+  %37 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   store ptr %37, ptr %36, align 8, !tbaa !17
   %.not6.i = icmp eq ptr %37, null
   br i1 %.not6.i, label %38, label %43
@@ -254,8 +254,8 @@ common.resume:                                    ; preds = %_ZN5Eigen12SparseMa
   store i64 -1, ptr %45, align 8, !tbaa !9
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %48 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %46, i8 0, i64 56, i1 false)
+  %48 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   store ptr %48, ptr %47, align 8, !tbaa !17
   %.not6.i281 = icmp eq ptr %48, null
   br i1 %.not6.i281, label %49, label %54
@@ -286,8 +286,8 @@ common.resume:                                    ; preds = %_ZN5Eigen12SparseMa
   store i64 -1, ptr %56, align 8, !tbaa !9
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %59 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %57, i8 0, i64 56, i1 false)
+  %59 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   store ptr %59, ptr %58, align 8, !tbaa !17
   %.not6.i287 = icmp eq ptr %59, null
   br i1 %.not6.i287, label %60, label %65
@@ -329,8 +329,8 @@ common.resume:                                    ; preds = %_ZN5Eigen12SparseMa
   store i64 -1, ptr %69, align 8, !tbaa !9
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %71 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %72 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %70, i8 0, i64 56, i1 false)
+  %72 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   store ptr %72, ptr %71, align 8, !tbaa !17
   %.not6.i293 = icmp eq ptr %72, null
   br i1 %.not6.i293, label %73, label %78
@@ -583,7 +583,7 @@ _ZN5Eigen14DiagonalMatrixIdLin1ELin1EEC2INS_15DiagonalWrapperIKNS_13MatrixWrappe
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i.i: ; preds = %153
   %155 = shl nuw i64 %151, 3
-  %156 = call noalias ptr @malloc(i64 noundef %155) #24
+  %156 = call noalias ptr @malloc(i64 noundef %155) #24, !noalias !42
   %157 = icmp eq ptr %156, null
   br i1 %157, label %.invoke, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i.i.i
 
@@ -615,7 +615,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i.i.i: ; preds 
   store ptr %9, ptr %163, align 8, !tbaa !50, !alias.scope !52
   %164 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i8 0, ptr %164, align 8, !alias.scope !52
-  %165 = call noalias ptr @malloc(i64 noundef %155) #24
+  %165 = call noalias ptr @malloc(i64 noundef %155) #24, !noalias !52
   %166 = icmp eq ptr %165, null
   br i1 %166, label %167, label %169
 
@@ -1196,7 +1196,7 @@ _ZN5Eigen14DiagonalMatrixIdLin1ELin1EEaSINS_15DiagonalWrapperIKNS_6MatrixIdLin1E
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i.i235: ; preds = %429
   %431 = shl nuw i64 %427, 3
-  %432 = call noalias ptr @malloc(i64 noundef %431) #24
+  %432 = call noalias ptr @malloc(i64 noundef %431) #24, !noalias !72
   %433 = icmp eq ptr %432, null
   br i1 %433, label %.invoke609, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i.i.i240
 
@@ -1233,7 +1233,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i.i.i240: ; pre
   %440 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i8 0, ptr %440, align 8, !alias.scope !80
   %441 = shl nuw i64 %427, 3
-  %442 = call noalias ptr @malloc(i64 noundef %441) #24
+  %442 = call noalias ptr @malloc(i64 noundef %441) #24, !noalias !80
   %443 = icmp eq ptr %442, null
   br i1 %443, label %444, label %446
 
@@ -1311,7 +1311,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i.i.i240: ; pre
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i.i245: ; preds = %467
   %469 = shl nuw i64 %465, 3
-  %470 = call noalias ptr @malloc(i64 noundef %469) #24
+  %470 = call noalias ptr @malloc(i64 noundef %469) #24, !noalias !82
   %471 = icmp eq ptr %470, null
   br i1 %471, label %.invoke611, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i.i.i250
 
@@ -1347,7 +1347,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i.i.i250: ; pre
   store ptr %9, ptr %479, align 8, !tbaa !50, !alias.scope !90
   %480 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i8 0, ptr %480, align 8, !alias.scope !90
-  %481 = call noalias ptr @malloc(i64 noundef %469) #24
+  %481 = call noalias ptr @malloc(i64 noundef %469) #24, !noalias !90
   %482 = icmp eq ptr %481, null
   br i1 %482, label %483, label %485
 
@@ -2042,8 +2042,8 @@ _ZNK5Eigen9DenseBaseINS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEENS_
   store i64 -1, ptr %746, align 8, !tbaa !9
   %747 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %748 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %749 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %747, i8 0, i64 56, i1 false)
+  %749 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   store ptr %749, ptr %748, align 8, !tbaa !17
   %.not6.i310 = icmp eq ptr %749, null
   br i1 %.not6.i310, label %750, label %755
@@ -2729,7 +2729,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal17CompressedStorageIdiED2E
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -13618,7 +13618,7 @@ declare i32 @llvm.smax.i32(i32, i32) #20
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #20
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
@@ -13635,7 +13635,7 @@ attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wid
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { cold noreturn }
@@ -13649,7 +13649,7 @@ attributes #18 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "n
 attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #22 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #22 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #24 = { nounwind allocsize(0) }
 attributes #25 = { nounwind }

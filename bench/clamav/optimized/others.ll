@@ -681,7 +681,7 @@ define noundef ptr @cl_engine_new() local_unnamed_addr #2 {
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #4
@@ -1762,10 +1762,10 @@ define noundef ptr @cl_engine_settings_copy(ptr noundef readonly %0) local_unnam
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
@@ -3130,21 +3130,21 @@ define range(i32 -1, 1) i32 @cli_rmdirs(ptr noundef %0) local_unnamed_addr #2 {
   %6 = tail call i32 @chmod(ptr noundef %0, i32 noundef 448) #24
   %7 = tail call ptr @opendir(ptr noundef %0)
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %69, label %.preheader
+  br i1 %.not, label %73, label %.preheader
 
 .preheader:                                       ; preds = %1
   %8 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %3) #24
-  %.not3672 = icmp eq i32 %8, -1
-  br i1 %.not3672, label %._crit_edge74, label %.lr.ph73
+  %.not3673 = icmp eq i32 %8, -1
+  br i1 %.not3673, label %._crit_edge75, label %.lr.ph74
 
-.lr.ph73:                                         ; preds = %.preheader
+.lr.ph74:                                         ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %10
 
-10:                                               ; preds = %.lr.ph73, %._crit_edge
+10:                                               ; preds = %.lr.ph74, %._crit_edge
   %11 = tail call i32 @rmdir(ptr noundef %0) #24
   %.not37 = icmp eq i32 %11, 0
-  br i1 %.not37, label %._crit_edge74, label %12
+  br i1 %.not37, label %._crit_edge75, label %12
 
 12:                                               ; preds = %10
   %13 = tail call ptr @__errno_location() #27
@@ -3159,42 +3159,42 @@ define range(i32 -1, 1) i32 @cli_rmdirs(ptr noundef %0) local_unnamed_addr #2 {
   %16 = call ptr @cli_strerror(i32 noundef %14, ptr noundef nonnull %5, i64 noundef 128) #24
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.87, ptr noundef %0, ptr noundef %16) #24
   %17 = call i32 @closedir(ptr noundef nonnull %7)
-  br label %69
+  br label %73
 
 18:                                               ; preds = %12, %12, %12
   %19 = tail call ptr @readdir(ptr noundef nonnull %7) #24
-  %.not4171 = icmp eq ptr %19, null
-  br i1 %.not4171, label %._crit_edge, label %.lr.ph
+  %.not4172 = icmp eq ptr %19, null
+  br i1 %.not4172, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %18, %65
-  %20 = phi ptr [ %66, %65 ], [ %19, %18 ]
+.lr.ph:                                           ; preds = %18, %69
+  %20 = phi ptr [ %70, %69 ], [ %19, %18 ]
   %21 = load i64, ptr %20, align 8, !tbaa !198
   %.not42 = icmp eq i64 %21, 0
-  br i1 %.not42, label %65, label %sub_0
+  br i1 %.not42, label %69, label %sub_0
 
 sub_0:                                            ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 19
   %23 = load i8, ptr %22, align 1
-  %.not76 = icmp eq i8 %23, 46
-  br i1 %.not76, label %.tail, label %.tail51.thread
+  %.not77 = icmp eq i8 %23, 46
+  br i1 %.not77, label %.tail, label %.tail51.thread
 
 .tail:                                            ; preds = %sub_0
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %65, label %sub_153
+  br i1 %26, label %69, label %sub_153
 
 sub_153:                                          ; preds = %.tail
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %28 = load i8, ptr %27, align 1
-  %.not78 = icmp eq i8 %28, 46
-  br i1 %.not78, label %.tail51, label %.tail51.thread
+  %.not79 = icmp eq i8 %28, 46
+  br i1 %.not79, label %.tail51, label %.tail51.thread
 
 .tail51:                                          ; preds = %sub_153
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 21
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 0
-  br i1 %31, label %65, label %.tail51.thread
+  br i1 %31, label %69, label %.tail51.thread
 
 .tail51.thread:                                   ; preds = %sub_0, %sub_153, %.tail51
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
@@ -3203,88 +3203,92 @@ sub_153:                                          ; preds = %.tail
   %35 = add i64 %34, %33
   %36 = tail call noalias ptr @malloc(i64 noundef %35) #26
   %.not45 = icmp eq ptr %36, null
-  br i1 %.not45, label %37, label %39
+  br i1 %.not45, label %37, label %43
 
 37:                                               ; preds = %.tail51.thread
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.90, i64 noundef %35) #24
-  %38 = tail call i32 @closedir(ptr noundef nonnull %7)
-  br label %69
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
+  %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #28
+  %40 = add i64 %38, 2
+  %41 = add i64 %40, %39
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.90, i64 noundef %41) #24
+  %42 = tail call i32 @closedir(ptr noundef nonnull %7)
+  br label %73
 
-39:                                               ; preds = %.tail51.thread
-  %40 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) @.str.91, ptr noundef nonnull %0, ptr noundef nonnull %22) #24
-  %41 = call i32 @lstat(ptr noundef nonnull %36, ptr noundef nonnull %4) #24
-  %.not46 = icmp eq i32 %41, -1
-  br i1 %.not46, label %cli_unlink.exit.thread, label %42
+43:                                               ; preds = %.tail51.thread
+  %44 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) @.str.91, ptr noundef nonnull %0, ptr noundef nonnull %22) #24
+  %45 = call i32 @lstat(ptr noundef nonnull %36, ptr noundef nonnull %4) #24
+  %.not46 = icmp eq i32 %45, -1
+  br i1 %.not46, label %cli_unlink.exit.thread, label %46
 
-42:                                               ; preds = %39
-  %43 = load i32, ptr %9, align 8, !tbaa !201
-  %44 = and i32 %43, 61440
-  %45 = icmp eq i32 %44, 16384
-  br i1 %45, label %46, label %58
+46:                                               ; preds = %43
+  %47 = load i32, ptr %9, align 8, !tbaa !201
+  %48 = and i32 %47, 61440
+  %49 = icmp eq i32 %48, 16384
+  br i1 %49, label %50, label %62
 
-46:                                               ; preds = %42
-  %47 = tail call i32 @rmdir(ptr noundef nonnull %36) #24
-  %48 = icmp eq i32 %47, -1
-  br i1 %48, label %49, label %cli_unlink.exit.thread
+50:                                               ; preds = %46
+  %51 = tail call i32 @rmdir(ptr noundef nonnull %36) #24
+  %52 = icmp eq i32 %51, -1
+  br i1 %52, label %53, label %cli_unlink.exit.thread
 
-49:                                               ; preds = %46
-  %50 = load i32, ptr %13, align 4, !tbaa !6
-  %51 = icmp eq i32 %50, 13
-  br i1 %51, label %52, label %54
+53:                                               ; preds = %50
+  %54 = load i32, ptr %13, align 4, !tbaa !6
+  %55 = icmp eq i32 %54, 13
+  br i1 %55, label %56, label %58
 
-52:                                               ; preds = %49
+56:                                               ; preds = %53
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.92) #24
-  %53 = tail call i32 @closedir(ptr noundef nonnull %7)
+  %57 = tail call i32 @closedir(ptr noundef nonnull %7)
   tail call void @free(ptr noundef nonnull %36) #24
-  br label %69
+  br label %73
 
-54:                                               ; preds = %49
-  %55 = tail call i32 @cli_rmdirs(ptr noundef nonnull %36)
-  %.not48 = icmp eq i32 %55, 0
-  br i1 %.not48, label %cli_unlink.exit.thread, label %56
+58:                                               ; preds = %53
+  %59 = tail call i32 @cli_rmdirs(ptr noundef nonnull %36)
+  %.not48 = icmp eq i32 %59, 0
+  br i1 %.not48, label %cli_unlink.exit.thread, label %60
 
-56:                                               ; preds = %54
+60:                                               ; preds = %58
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.93, ptr noundef nonnull %36) #24
   tail call void @free(ptr noundef nonnull %36) #24
-  %57 = tail call i32 @closedir(ptr noundef nonnull %7)
-  br label %69
+  %61 = tail call i32 @closedir(ptr noundef nonnull %7)
+  br label %73
 
-58:                                               ; preds = %42
-  %59 = tail call i32 @unlink(ptr noundef nonnull %36) #24
-  %60 = icmp eq i32 %59, -1
-  br i1 %60, label %61, label %cli_unlink.exit.thread
+62:                                               ; preds = %46
+  %63 = tail call i32 @unlink(ptr noundef nonnull %36) #24
+  %64 = icmp eq i32 %63, -1
+  br i1 %64, label %65, label %cli_unlink.exit.thread
 
-61:                                               ; preds = %58
+65:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %62 = load i32, ptr %13, align 4, !tbaa !6
-  %63 = call ptr @cli_strerror(i32 noundef %62, ptr noundef nonnull %2, i64 noundef 128) #24
-  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.77, ptr noundef nonnull %36, ptr noundef %63) #24
+  %66 = load i32, ptr %13, align 4, !tbaa !6
+  %67 = call ptr @cli_strerror(i32 noundef %66, ptr noundef nonnull %2, i64 noundef 128) #24
+  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.77, ptr noundef nonnull %36, ptr noundef %67) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @free(ptr noundef nonnull %36) #24
-  %64 = call i32 @closedir(ptr noundef nonnull %7)
+  %68 = call i32 @closedir(ptr noundef nonnull %7)
+  br label %73
+
+cli_unlink.exit.thread:                           ; preds = %62, %58, %50, %43
+  tail call void @free(ptr noundef nonnull %36) #24
   br label %69
 
-cli_unlink.exit.thread:                           ; preds = %58, %54, %46, %39
-  tail call void @free(ptr noundef nonnull %36) #24
-  br label %65
-
-65:                                               ; preds = %.tail, %.tail51, %cli_unlink.exit.thread, %.lr.ph
-  %66 = tail call ptr @readdir(ptr noundef nonnull %7) #24
-  %.not41 = icmp eq ptr %66, null
+69:                                               ; preds = %.tail, %.tail51, %cli_unlink.exit.thread, %.lr.ph
+  %70 = tail call ptr @readdir(ptr noundef nonnull %7) #24
+  %.not41 = icmp eq ptr %70, null
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %65, %18
+._crit_edge:                                      ; preds = %69, %18
   tail call void @rewinddir(ptr noundef nonnull %7) #24
-  %67 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %3) #24
-  %.not36 = icmp eq i32 %67, -1
-  br i1 %.not36, label %._crit_edge74, label %10
+  %71 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %3) #24
+  %.not36 = icmp eq i32 %71, -1
+  br i1 %.not36, label %._crit_edge75, label %10
 
-._crit_edge74:                                    ; preds = %10, %._crit_edge, %.preheader
-  %68 = tail call i32 @closedir(ptr noundef nonnull %7)
-  br label %69
+._crit_edge75:                                    ; preds = %10, %._crit_edge, %.preheader
+  %72 = tail call i32 @closedir(ptr noundef nonnull %7)
+  br label %73
 
-69:                                               ; preds = %1, %._crit_edge74, %61, %56, %52, %37, %15
-  %.0 = phi i32 [ -1, %15 ], [ -1, %61 ], [ -1, %52 ], [ -1, %56 ], [ -1, %37 ], [ 0, %._crit_edge74 ], [ -1, %1 ]
+73:                                               ; preds = %1, %._crit_edge75, %65, %60, %56, %37, %15
+  %.0 = phi i32 [ -1, %15 ], [ -1, %65 ], [ -1, %56 ], [ -1, %60 ], [ -1, %37 ], [ 0, %._crit_edge75 ], [ -1, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3632,10 +3636,10 @@ attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

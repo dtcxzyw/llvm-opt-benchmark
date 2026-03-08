@@ -27,10 +27,10 @@ define noalias noundef ptr @Extra_bddImageStart(ptr noundef %0, ptr noundef %1, 
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %8
-  %13 = tail call ptr @Cudd_Support(ptr noundef nonnull %0, ptr noundef %1) #10
-  tail call void @Cudd_Ref(ptr noundef %13) #10
-  %14 = tail call ptr @Cudd_bddComputeCube(ptr noundef nonnull %0, ptr noundef %5, ptr noundef null, i32 noundef %4) #10
-  tail call void @Cudd_Ref(ptr noundef %14) #10
+  %13 = tail call ptr @Cudd_Support(ptr noundef nonnull %0, ptr noundef %1) #11
+  tail call void @Cudd_Ref(ptr noundef %13) #11
+  %14 = tail call ptr @Cudd_bddComputeCube(ptr noundef nonnull %0, ptr noundef %5, ptr noundef null, i32 noundef %4) #11
+  tail call void @Cudd_Ref(ptr noundef %14) #11
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %15 = load i32, ptr %9, align 8, !tbaa !3
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %2, i32 noundef %15, i32 noundef %4)
@@ -69,15 +69,15 @@ define noalias noundef ptr @Extra_bddImageStart(ptr noundef %0, ptr noundef %1, 
 
 Extra_bddImagePrintLatchDependency.exit:          ; preds = %.lr.ph35.i, %._crit_edge.i
   tail call fastcc void @Extra_bddImagePrintLatchDependencyOne(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %13, ptr noundef %14, i32 noundef %2)
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %13) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %14) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %13) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %14) #11
   br label %29
 
 29:                                               ; preds = %Extra_bddImagePrintLatchDependency.exit, %8, %7
   %30 = add nsw i32 %2, 1
   %31 = sext i32 %30 to i64
   %32 = shl nsw i64 %31, 3
-  %33 = tail call noalias ptr @malloc(i64 noundef %32) #11
+  %33 = tail call noalias ptr @malloc(i64 noundef %32) #12
   %34 = icmp sgt i32 %2, 0
   br i1 %34, label %.lr.ph.preheader.i, label %Extra_CreateParts.exit
 
@@ -87,25 +87,25 @@ Extra_bddImagePrintLatchDependency.exit:          ; preds = %.lr.ph35.i, %._crit
 
 .lr.ph.i64:                                       ; preds = %.lr.ph.i64, %.lr.ph.preheader.i
   %indvars.iv.i65 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i66, %.lr.ph.i64 ]
-  %35 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #11
+  %35 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i65
   store ptr %35, ptr %36, align 8, !tbaa !28
   %37 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i65
   %38 = load ptr, ptr %37, align 8, !tbaa !26
   store ptr %38, ptr %35, align 8, !tbaa !30
-  tail call void @Cudd_Ref(ptr noundef %38) #10
+  tail call void @Cudd_Ref(ptr noundef %38) #11
   %39 = load ptr, ptr %35, align 8, !tbaa !30
-  %40 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %39) #10
+  %40 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %39) #11
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %40, ptr %41, align 8, !tbaa !33
-  tail call void @Cudd_Ref(ptr noundef %40) #10
+  tail call void @Cudd_Ref(ptr noundef %40) #11
   %42 = load ptr, ptr %41, align 8, !tbaa !33
-  %43 = tail call i32 @Extra_bddSuppSize(ptr noundef %0, ptr noundef %42) #10
+  %43 = tail call i32 @Extra_bddSuppSize(ptr noundef %0, ptr noundef %42) #11
   %44 = trunc i32 %43 to i16
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i16 %44, ptr %45, align 4, !tbaa !34
   %46 = load ptr, ptr %35, align 8, !tbaa !30
-  %47 = tail call i32 @Cudd_DagSize(ptr noundef %46) #10
+  %47 = tail call i32 @Cudd_DagSize(ptr noundef %46) #11
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 %47, ptr %48, align 8, !tbaa !35
   %49 = trunc i64 %indvars.iv.i65 to i16
@@ -116,30 +116,30 @@ Extra_bddImagePrintLatchDependency.exit:          ; preds = %.lr.ph35.i, %._crit
   br i1 %exitcond.not.i67, label %Extra_CreateParts.exit, label %.lr.ph.i64, !llvm.loop !37
 
 Extra_CreateParts.exit:                           ; preds = %.lr.ph.i64, %29
-  %51 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #11
+  %51 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   %52 = sext i32 %2 to i64
   %53 = getelementptr inbounds [8 x i8], ptr %33, i64 %52
   store ptr %51, ptr %53, align 8, !tbaa !28
   store ptr %1, ptr %51, align 8, !tbaa !30
-  tail call void @Cudd_Ref(ptr noundef %1) #10
+  tail call void @Cudd_Ref(ptr noundef %1) #11
   %54 = load ptr, ptr %51, align 8, !tbaa !30
-  %55 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %54) #10
+  %55 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %54) #11
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %55, ptr %56, align 8, !tbaa !33
-  tail call void @Cudd_Ref(ptr noundef %55) #10
+  tail call void @Cudd_Ref(ptr noundef %55) #11
   %57 = load ptr, ptr %56, align 8, !tbaa !33
-  %58 = tail call i32 @Extra_bddSuppSize(ptr noundef %0, ptr noundef %57) #10
+  %58 = tail call i32 @Extra_bddSuppSize(ptr noundef %0, ptr noundef %57) #11
   %59 = trunc i32 %58 to i16
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 20
   store i16 %59, ptr %60, align 4, !tbaa !34
   %61 = load ptr, ptr %51, align 8, !tbaa !30
-  %62 = tail call i32 @Cudd_DagSize(ptr noundef %61) #10
+  %62 = tail call i32 @Cudd_DagSize(ptr noundef %61) #11
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store i32 %62, ptr %63, align 8, !tbaa !35
   %64 = trunc i32 %2 to i16
   %65 = getelementptr inbounds nuw i8, ptr %51, i64 22
   store i16 %64, ptr %65, align 2, !tbaa !36
-  %66 = tail call noalias ptr @malloc(i64 noundef %32) #11
+  %66 = tail call noalias ptr @malloc(i64 noundef %32) #12
   %67 = icmp sgt i32 %2, -1
   br i1 %67, label %.lr.ph.preheader.i69, label %._crit_edge.i68
 
@@ -160,35 +160,39 @@ Extra_CreateParts.exit:                           ; preds = %.lr.ph.i64, %29
   br i1 %exitcond.not.i74, label %._crit_edge.i68, label %.lr.ph.i71, !llvm.loop !38
 
 ._crit_edge.i68:                                  ; preds = %.lr.ph.i71, %Extra_CreateParts.exit
-  %73 = tail call ptr @Cudd_VectorSupport(ptr noundef %0, ptr noundef %66, i32 noundef range(i32 -2147483647, -2147483648) %30) #10
-  tail call void @Cudd_Ref(ptr noundef %73) #10
+  %73 = tail call ptr @Cudd_VectorSupport(ptr noundef %0, ptr noundef %66, i32 noundef range(i32 -2147483647, -2147483648) %30) #11
+  tail call void @Cudd_Ref(ptr noundef %73) #11
   %.not.i = icmp eq ptr %66, null
   br i1 %.not.i, label %75, label %74
 
 74:                                               ; preds = %._crit_edge.i68
-  tail call void @free(ptr noundef nonnull %66) #10
+  tail call void @free(ptr noundef nonnull %66) #11
   br label %75
 
 75:                                               ; preds = %74, %._crit_edge.i68
-  %76 = tail call ptr @Cudd_bddComputeCube(ptr noundef %0, ptr noundef %5, ptr noundef null, i32 noundef %4) #10
-  tail call void @Cudd_Ref(ptr noundef %76) #10
-  %77 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %0, ptr noundef %73, ptr noundef %76) #10
-  tail call void @Cudd_Ref(ptr noundef %77) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %73) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %76) #10
-  %78 = tail call i32 @Extra_bddSuppSize(ptr noundef %0, ptr noundef %77) #10
+  %76 = tail call ptr @Cudd_bddComputeCube(ptr noundef %0, ptr noundef %5, ptr noundef null, i32 noundef %4) #11
+  tail call void @Cudd_Ref(ptr noundef %76) #11
+  %77 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %0, ptr noundef %73, ptr noundef %76) #11
+  tail call void @Cudd_Ref(ptr noundef %77) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %73) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %76) #11
+  %78 = tail call i32 @Extra_bddSuppSize(ptr noundef %0, ptr noundef %77) #11
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %80 = load i32, ptr %79, align 8, !tbaa !3
   %81 = sext i32 %80 to i64
   %82 = shl nsw i64 %81, 3
-  %calloc.i = tail call ptr @calloc(i64 1, i64 %82)
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %84 = load ptr, ptr %83, align 8, !tbaa !39
-  %.not7484.i = icmp eq ptr %77, %84
+  %83 = tail call noalias ptr @malloc(i64 noundef %82) #12
+  %84 = load i32, ptr %79, align 8, !tbaa !3
+  %85 = sext i32 %84 to i64
+  %86 = shl nsw i64 %85, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %83, i8 0, i64 %86, i1 false)
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %88 = load ptr, ptr %87, align 8, !tbaa !39
+  %.not7484.i = icmp eq ptr %77, %88
   br i1 %.not7484.i, label %Extra_CreateVars.exit, label %.lr.ph87.i
 
 .lr.ph87.i:                                       ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 344
   br i1 %67, label %.lr.ph81.us.preheader.i, label %.lr.ph87.split.i
 
 .lr.ph81.us.preheader.i:                          ; preds = %.lr.ph87.i
@@ -196,87 +200,87 @@ Extra_CreateParts.exit:                           ; preds = %.lr.ph.i64, %29
   br label %.lr.ph81.us.i
 
 .lr.ph81.us.i:                                    ; preds = %._crit_edge82.us.i, %.lr.ph81.us.preheader.i
-  %86 = phi ptr [ %114, %._crit_edge82.us.i ], [ %84, %.lr.ph81.us.preheader.i ]
-  %.06985.us.i = phi ptr [ %113, %._crit_edge82.us.i ], [ %77, %.lr.ph81.us.preheader.i ]
-  %87 = load i32, ptr %.06985.us.i, align 8, !tbaa !40
-  %88 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #11
-  %89 = sext i32 %87 to i64
-  %90 = getelementptr inbounds [8 x i8], ptr %calloc.i, i64 %89
-  store ptr %88, ptr %90, align 8, !tbaa !41
-  store i32 %87, ptr %88, align 8, !tbaa !43
-  tail call void @Cudd_Ref(ptr noundef %86) #10
-  br label %91
+  %90 = phi ptr [ %118, %._crit_edge82.us.i ], [ %88, %.lr.ph81.us.preheader.i ]
+  %.06985.us.i = phi ptr [ %117, %._crit_edge82.us.i ], [ %77, %.lr.ph81.us.preheader.i ]
+  %91 = load i32, ptr %.06985.us.i, align 8, !tbaa !40
+  %92 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
+  %93 = sext i32 %91 to i64
+  %94 = getelementptr inbounds [8 x i8], ptr %83, i64 %93
+  store ptr %92, ptr %94, align 8, !tbaa !41
+  store i32 %91, ptr %92, align 8, !tbaa !43
+  tail call void @Cudd_Ref(ptr noundef %90) #11
+  br label %95
 
-91:                                               ; preds = %108, %.lr.ph81.us.i
-  %indvars.iv91.i = phi i64 [ 0, %.lr.ph81.us.i ], [ %indvars.iv.next92.i, %108 ]
-  %.079.us.i = phi i32 [ 0, %.lr.ph81.us.i ], [ %.1.us.i, %108 ]
-  %.07077.us.i = phi ptr [ %86, %.lr.ph81.us.i ], [ %.171.us.i, %108 ]
-  %92 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv91.i
-  %93 = load ptr, ptr %92, align 8, !tbaa !28
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !33
-  %96 = load ptr, ptr %85, align 8, !tbaa !45
-  %97 = load i32, ptr %.06985.us.i, align 8, !tbaa !40
-  %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %98
-  %100 = load ptr, ptr %99, align 8, !tbaa !26
-  %101 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %95, ptr noundef %100) #10
-  %.not75.us.i = icmp eq i32 %101, 0
-  br i1 %.not75.us.i, label %108, label %102
+95:                                               ; preds = %112, %.lr.ph81.us.i
+  %indvars.iv91.i = phi i64 [ 0, %.lr.ph81.us.i ], [ %indvars.iv.next92.i, %112 ]
+  %.079.us.i = phi i32 [ 0, %.lr.ph81.us.i ], [ %.1.us.i, %112 ]
+  %.07077.us.i = phi ptr [ %90, %.lr.ph81.us.i ], [ %.171.us.i, %112 ]
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv91.i
+  %97 = load ptr, ptr %96, align 8, !tbaa !28
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %99 = load ptr, ptr %98, align 8, !tbaa !33
+  %100 = load ptr, ptr %89, align 8, !tbaa !45
+  %101 = load i32, ptr %.06985.us.i, align 8, !tbaa !40
+  %102 = zext i32 %101 to i64
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %102
+  %104 = load ptr, ptr %103, align 8, !tbaa !26
+  %105 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %99, ptr noundef %104) #11
+  %.not75.us.i = icmp eq i32 %105, 0
+  br i1 %.not75.us.i, label %112, label %106
 
-102:                                              ; preds = %91
-  %103 = load ptr, ptr %85, align 8, !tbaa !45
-  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv91.i
-  %105 = load ptr, ptr %104, align 8, !tbaa !26
-  %106 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.07077.us.i, ptr noundef %105) #10
-  tail call void @Cudd_Ref(ptr noundef %106) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.07077.us.i) #10
-  %107 = add nsw i32 %.079.us.i, 1
-  br label %108
+106:                                              ; preds = %95
+  %107 = load ptr, ptr %89, align 8, !tbaa !45
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv91.i
+  %109 = load ptr, ptr %108, align 8, !tbaa !26
+  %110 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.07077.us.i, ptr noundef %109) #11
+  tail call void @Cudd_Ref(ptr noundef %110) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.07077.us.i) #11
+  %111 = add nsw i32 %.079.us.i, 1
+  br label %112
 
-108:                                              ; preds = %102, %91
-  %.171.us.i = phi ptr [ %106, %102 ], [ %.07077.us.i, %91 ]
-  %.1.us.i = phi i32 [ %107, %102 ], [ %.079.us.i, %91 ]
+112:                                              ; preds = %106, %95
+  %.171.us.i = phi ptr [ %110, %106 ], [ %.07077.us.i, %95 ]
+  %.1.us.i = phi i32 [ %111, %106 ], [ %.079.us.i, %95 ]
   %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
   %exitcond95.not.i = icmp eq i64 %indvars.iv.next92.i, %wide.trip.count94.i
-  br i1 %exitcond95.not.i, label %._crit_edge82.us.i, label %91, !llvm.loop !46
+  br i1 %exitcond95.not.i, label %._crit_edge82.us.i, label %95, !llvm.loop !46
 
-._crit_edge82.us.i:                               ; preds = %108
-  %109 = load ptr, ptr %90, align 8, !tbaa !41
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  store ptr %.171.us.i, ptr %110, align 8, !tbaa !47
-  %111 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  store i32 %.1.us.i, ptr %111, align 8, !tbaa !48
-  %112 = getelementptr inbounds nuw i8, ptr %.06985.us.i, i64 16
-  %113 = load ptr, ptr %112, align 8, !tbaa !49
-  %114 = load ptr, ptr %83, align 8, !tbaa !39
-  %.not74.us.i = icmp eq ptr %113, %114
+._crit_edge82.us.i:                               ; preds = %112
+  %113 = load ptr, ptr %94, align 8, !tbaa !41
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  store ptr %.171.us.i, ptr %114, align 8, !tbaa !47
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  store i32 %.1.us.i, ptr %115, align 8, !tbaa !48
+  %116 = getelementptr inbounds nuw i8, ptr %.06985.us.i, i64 16
+  %117 = load ptr, ptr %116, align 8, !tbaa !49
+  %118 = load ptr, ptr %87, align 8, !tbaa !39
+  %.not74.us.i = icmp eq ptr %117, %118
   br i1 %.not74.us.i, label %Extra_CreateVars.exit, label %.lr.ph81.us.i, !llvm.loop !50
 
 .lr.ph87.split.i:                                 ; preds = %.lr.ph87.i, %.lr.ph87.split.i
-  %115 = phi ptr [ %124, %.lr.ph87.split.i ], [ %84, %.lr.ph87.i ]
-  %.06985.i = phi ptr [ %123, %.lr.ph87.split.i ], [ %77, %.lr.ph87.i ]
-  %116 = load i32, ptr %.06985.i, align 8, !tbaa !40
-  %117 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #11
-  %118 = sext i32 %116 to i64
-  %119 = getelementptr inbounds [8 x i8], ptr %calloc.i, i64 %118
-  store ptr %117, ptr %119, align 8, !tbaa !41
-  store i32 %116, ptr %117, align 8, !tbaa !43
-  tail call void @Cudd_Ref(ptr noundef %115) #10
-  %120 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  store ptr %115, ptr %120, align 8, !tbaa !47
-  %121 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  store i32 0, ptr %121, align 8, !tbaa !48
-  %122 = getelementptr inbounds nuw i8, ptr %.06985.i, i64 16
-  %123 = load ptr, ptr %122, align 8, !tbaa !49
-  %124 = load ptr, ptr %83, align 8, !tbaa !39
-  %.not74.i = icmp eq ptr %123, %124
+  %119 = phi ptr [ %128, %.lr.ph87.split.i ], [ %88, %.lr.ph87.i ]
+  %.06985.i = phi ptr [ %127, %.lr.ph87.split.i ], [ %77, %.lr.ph87.i ]
+  %120 = load i32, ptr %.06985.i, align 8, !tbaa !40
+  %121 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
+  %122 = sext i32 %120 to i64
+  %123 = getelementptr inbounds [8 x i8], ptr %83, i64 %122
+  store ptr %121, ptr %123, align 8, !tbaa !41
+  store i32 %120, ptr %121, align 8, !tbaa !43
+  tail call void @Cudd_Ref(ptr noundef %119) #11
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  store ptr %119, ptr %124, align 8, !tbaa !47
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  store i32 0, ptr %125, align 8, !tbaa !48
+  %126 = getelementptr inbounds nuw i8, ptr %.06985.i, i64 16
+  %127 = load ptr, ptr %126, align 8, !tbaa !49
+  %128 = load ptr, ptr %87, align 8, !tbaa !39
+  %.not74.i = icmp eq ptr %127, %128
   br i1 %.not74.i, label %Extra_CreateVars.exit, label %.lr.ph87.split.i, !llvm.loop !50
 
 Extra_CreateVars.exit:                            ; preds = %.lr.ph87.split.i, %._crit_edge82.us.i, %75
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %77) #10
-  %125 = load i32, ptr %79, align 8, !tbaa !3
-  %126 = tail call noalias ptr @malloc(i64 noundef %32) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %77) #11
+  %129 = load i32, ptr %79, align 8, !tbaa !3
+  %130 = tail call noalias ptr @malloc(i64 noundef %32) #12
   br i1 %67, label %.lr.ph.preheader.i77, label %.preheader103.i
 
 .lr.ph.preheader.i77:                             ; preds = %Extra_CreateVars.exit
@@ -284,531 +288,534 @@ Extra_CreateVars.exit:                            ; preds = %.lr.ph87.split.i, %
   br label %.lr.ph.i79
 
 .preheader103.i:                                  ; preds = %.lr.ph.i79, %Extra_CreateVars.exit
-  %127 = icmp sgt i32 %125, 0
-  br i1 %127, label %.lr.ph106.i, label %.preheader.i
+  %131 = icmp sgt i32 %129, 0
+  br i1 %131, label %.lr.ph106.i, label %.preheader.i
 
 .lr.ph106.i:                                      ; preds = %.preheader103.i
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %wide.trip.count113.i = zext nneg i32 %125 to i64
-  br label %134
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %wide.trip.count113.i = zext nneg i32 %129 to i64
+  br label %138
 
 .lr.ph.i79:                                       ; preds = %.lr.ph.i79, %.lr.ph.preheader.i77
-  %indvars.iv.i80 = phi i64 [ 0, %.lr.ph.preheader.i77 ], [ %indvars.iv.next.i82, %.lr.ph.i79 ]
-  %calloc.i81 = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
-  %129 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv.i80
-  store ptr %calloc.i81, ptr %129, align 8, !tbaa !51
-  store ptr %0, ptr %calloc.i81, align 8, !tbaa !53
-  %130 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i80
-  %131 = load ptr, ptr %130, align 8, !tbaa !28
-  %132 = getelementptr inbounds nuw i8, ptr %calloc.i81, i64 40
-  store ptr %131, ptr %132, align 8, !tbaa !56
-  %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i80, 1
-  %exitcond.not.i83 = icmp eq i64 %indvars.iv.next.i82, %wide.trip.count.i78
-  br i1 %exitcond.not.i83, label %.preheader103.i, label %.lr.ph.i79, !llvm.loop !57
+  %indvars.iv.i80 = phi i64 [ 0, %.lr.ph.preheader.i77 ], [ %indvars.iv.next.i81, %.lr.ph.i79 ]
+  %calloc.i = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv.i80
+  store ptr %calloc.i, ptr %133, align 8, !tbaa !51
+  store ptr %0, ptr %calloc.i, align 8, !tbaa !53
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i80
+  %135 = load ptr, ptr %134, align 8, !tbaa !28
+  %136 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40
+  store ptr %135, ptr %136, align 8, !tbaa !56
+  %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
+  %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i78
+  br i1 %exitcond.not.i82, label %.preheader103.i, label %.lr.ph.i79, !llvm.loop !57
 
-.preheader.i:                                     ; preds = %160, %.preheader103.i
+.preheader.i:                                     ; preds = %164, %.preheader103.i
   br i1 %67, label %.lr.ph108.i, label %Extra_CreateNodes.exit
 
 .lr.ph108.i:                                      ; preds = %.preheader.i
-  %133 = zext nneg i32 %2 to i64
+  %137 = zext nneg i32 %2 to i64
   %wide.trip.count118.i = zext nneg i32 %30 to i64
-  br label %161
+  br label %165
 
-134:                                              ; preds = %160, %.lr.ph106.i
-  %indvars.iv110.i = phi i64 [ 0, %.lr.ph106.i ], [ %indvars.iv.next111.i, %160 ]
-  %135 = getelementptr inbounds nuw [8 x i8], ptr %calloc.i, i64 %indvars.iv110.i
-  %136 = load ptr, ptr %135, align 8, !tbaa !41
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %160, label %138
-
-138:                                              ; preds = %134
-  %139 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  %140 = load i32, ptr %139, align 8, !tbaa !48
-  %141 = icmp sgt i32 %140, 1
-  br i1 %141, label %160, label %142
+138:                                              ; preds = %164, %.lr.ph106.i
+  %indvars.iv110.i = phi i64 [ 0, %.lr.ph106.i ], [ %indvars.iv.next111.i, %164 ]
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv110.i
+  %140 = load ptr, ptr %139, align 8, !tbaa !41
+  %141 = icmp eq ptr %140, null
+  br i1 %141, label %164, label %142
 
 142:                                              ; preds = %138
-  %143 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  %144 = load ptr, ptr %143, align 8, !tbaa !47
-  %145 = load i32, ptr %144, align 8, !tbaa !40
-  %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds [8 x i8], ptr %126, i64 %146
-  %148 = load ptr, ptr %147, align 8, !tbaa !51
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %150 = load ptr, ptr %149, align 8, !tbaa !58
-  %151 = icmp eq ptr %150, null
-  %152 = load ptr, ptr %128, align 8, !tbaa !45
-  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv110.i
-  %154 = load ptr, ptr %153, align 8, !tbaa !26
-  br i1 %151, label %155, label %156
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 16
+  %144 = load i32, ptr %143, align 8, !tbaa !48
+  %145 = icmp sgt i32 %144, 1
+  br i1 %145, label %164, label %146
 
-155:                                              ; preds = %142
-  store ptr %154, ptr %149, align 8, !tbaa !58
-  tail call void @Cudd_Ref(ptr noundef %154) #10
-  br label %158
+146:                                              ; preds = %142
+  %147 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %148 = load ptr, ptr %147, align 8, !tbaa !47
+  %149 = load i32, ptr %148, align 8, !tbaa !40
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds [8 x i8], ptr %130, i64 %150
+  %152 = load ptr, ptr %151, align 8, !tbaa !51
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  %154 = load ptr, ptr %153, align 8, !tbaa !58
+  %155 = icmp eq ptr %154, null
+  %156 = load ptr, ptr %132, align 8, !tbaa !45
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv110.i
+  %158 = load ptr, ptr %157, align 8, !tbaa !26
+  br i1 %155, label %159, label %160
 
-156:                                              ; preds = %142
-  %157 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef nonnull %150, ptr noundef %154) #10
-  store ptr %157, ptr %149, align 8, !tbaa !58
-  tail call void @Cudd_Ref(ptr noundef %157) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %150) #10
-  br label %158
+159:                                              ; preds = %146
+  store ptr %158, ptr %153, align 8, !tbaa !58
+  tail call void @Cudd_Ref(ptr noundef %158) #11
+  br label %162
 
-158:                                              ; preds = %155, %156
-  %159 = load ptr, ptr %143, align 8, !tbaa !47
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %159) #10
-  tail call void @free(ptr noundef nonnull %136) #10
-  store ptr null, ptr %135, align 8, !tbaa !41
-  br label %160
+160:                                              ; preds = %146
+  %161 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef nonnull %154, ptr noundef %158) #11
+  store ptr %161, ptr %153, align 8, !tbaa !58
+  tail call void @Cudd_Ref(ptr noundef %161) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %154) #11
+  br label %162
 
-160:                                              ; preds = %158, %138, %134
+162:                                              ; preds = %159, %160
+  %163 = load ptr, ptr %147, align 8, !tbaa !47
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %163) #11
+  tail call void @free(ptr noundef nonnull %140) #11
+  store ptr null, ptr %139, align 8, !tbaa !41
+  br label %164
+
+164:                                              ; preds = %162, %142, %138
   %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
   %exitcond114.not.i = icmp eq i64 %indvars.iv.next111.i, %wide.trip.count113.i
-  br i1 %exitcond114.not.i, label %.preheader.i, label %134, !llvm.loop !59
+  br i1 %exitcond114.not.i, label %.preheader.i, label %138, !llvm.loop !59
 
-161:                                              ; preds = %._crit_edge, %.lr.ph108.i
+165:                                              ; preds = %._crit_edge, %.lr.ph108.i
   %indvars.iv115.i = phi i64 [ 0, %.lr.ph108.i ], [ %indvars.iv.next116.i, %._crit_edge ]
-  %162 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv115.i
-  %163 = load ptr, ptr %162, align 8, !tbaa !51
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %165 = load ptr, ptr %164, align 8, !tbaa !58
-  %.not.i76 = icmp eq ptr %165, null
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv115.i
+  %167 = load ptr, ptr %166, align 8, !tbaa !51
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  %169 = load ptr, ptr %168, align 8, !tbaa !58
+  %.not.i76 = icmp eq ptr %169, null
   %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv115.i
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !28
-  br i1 %.not.i76, label %._crit_edge, label %166
+  br i1 %.not.i76, label %._crit_edge, label %170
 
-166:                                              ; preds = %161
-  %167 = load ptr, ptr %.pre, align 8, !tbaa !30
-  %168 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %0, ptr noundef %167, ptr noundef nonnull %165) #10
-  store ptr %168, ptr %.pre, align 8, !tbaa !30
-  tail call void @Cudd_Ref(ptr noundef %168) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %167) #10
-  %169 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %170 = load ptr, ptr %169, align 8, !tbaa !33
-  %171 = load ptr, ptr %164, align 8, !tbaa !58
-  %172 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %0, ptr noundef %170, ptr noundef %171) #10
-  store ptr %172, ptr %169, align 8, !tbaa !33
-  tail call void @Cudd_Ref(ptr noundef %172) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %170) #10
-  %173 = load ptr, ptr %169, align 8, !tbaa !33
-  %174 = tail call i32 @Extra_bddSuppSize(ptr noundef %0, ptr noundef %173) #10
-  %175 = trunc i32 %174 to i16
-  %176 = getelementptr inbounds nuw i8, ptr %.pre, i64 20
-  store i16 %175, ptr %176, align 4, !tbaa !34
-  %177 = load ptr, ptr %.pre, align 8, !tbaa !30
-  %178 = tail call i32 @Cudd_DagSize(ptr noundef %177) #10
-  %179 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  store i32 %178, ptr %179, align 8, !tbaa !35
-  %180 = icmp samesign ult i64 %indvars.iv115.i, %133
-  br i1 %180, label %181, label %._crit_edge
+170:                                              ; preds = %165
+  %171 = load ptr, ptr %.pre, align 8, !tbaa !30
+  %172 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %0, ptr noundef %171, ptr noundef nonnull %169) #11
+  store ptr %172, ptr %.pre, align 8, !tbaa !30
+  tail call void @Cudd_Ref(ptr noundef %172) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %171) #11
+  %173 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %174 = load ptr, ptr %173, align 8, !tbaa !33
+  %175 = load ptr, ptr %168, align 8, !tbaa !58
+  %176 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %0, ptr noundef %174, ptr noundef %175) #11
+  store ptr %176, ptr %173, align 8, !tbaa !33
+  tail call void @Cudd_Ref(ptr noundef %176) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %174) #11
+  %177 = load ptr, ptr %173, align 8, !tbaa !33
+  %178 = tail call i32 @Extra_bddSuppSize(ptr noundef %0, ptr noundef %177) #11
+  %179 = trunc i32 %178 to i16
+  %180 = getelementptr inbounds nuw i8, ptr %.pre, i64 20
+  store i16 %179, ptr %180, align 4, !tbaa !34
+  %181 = load ptr, ptr %.pre, align 8, !tbaa !30
+  %182 = tail call i32 @Cudd_DagSize(ptr noundef %181) #11
+  %183 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
+  store i32 %182, ptr %183, align 8, !tbaa !35
+  %184 = icmp samesign ult i64 %indvars.iv115.i, %137
+  br i1 %184, label %185, label %._crit_edge
 
-181:                                              ; preds = %166
-  %182 = load ptr, ptr %164, align 8, !tbaa !58
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %182) #10
-  store ptr null, ptr %164, align 8, !tbaa !58
+185:                                              ; preds = %170
+  %186 = load ptr, ptr %168, align 8, !tbaa !58
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %186) #11
+  store ptr null, ptr %168, align 8, !tbaa !58
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %161, %181, %166
-  %183 = load ptr, ptr %.pre, align 8, !tbaa !30
-  %184 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  store ptr %183, ptr %184, align 8, !tbaa !60
-  tail call void @Cudd_Ref(ptr noundef %183) #10
+._crit_edge:                                      ; preds = %165, %185, %170
+  %187 = load ptr, ptr %.pre, align 8, !tbaa !30
+  %188 = getelementptr inbounds nuw i8, ptr %167, i64 16
+  store ptr %187, ptr %188, align 8, !tbaa !60
+  tail call void @Cudd_Ref(ptr noundef %187) #11
   %indvars.iv.next116.i = add nuw nsw i64 %indvars.iv115.i, 1
   %exitcond119.not.i = icmp eq i64 %indvars.iv.next116.i, %wide.trip.count118.i
-  br i1 %exitcond119.not.i, label %Extra_CreateNodes.exit, label %161, !llvm.loop !61
+  br i1 %exitcond119.not.i, label %Extra_CreateNodes.exit, label %165, !llvm.loop !61
 
 Extra_CreateNodes.exit:                           ; preds = %._crit_edge, %.preheader.i
   %calloc = tail call dereferenceable_or_null(40) ptr @calloc(i64 1, i64 40)
-  %185 = getelementptr inbounds [8 x i8], ptr %126, i64 %52
-  %186 = load ptr, ptr %185, align 8, !tbaa !51
-  %187 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
-  store ptr %186, ptr %187, align 8, !tbaa !62
-  %188 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  store i32 %6, ptr %188, align 8, !tbaa !64
-  %189 = load i32, ptr %79, align 8, !tbaa !3
-  %190 = icmp sgt i32 %189, 0
-  br i1 %190, label %.lr.ph34.i.i.lr.ph, label %.critedge
+  %189 = getelementptr inbounds [8 x i8], ptr %130, i64 %52
+  %190 = load ptr, ptr %189, align 8, !tbaa !51
+  %191 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
+  store ptr %190, ptr %191, align 8, !tbaa !62
+  %192 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
+  store i32 %6, ptr %192, align 8, !tbaa !64
+  %193 = load i32, ptr %79, align 8, !tbaa !3
+  %194 = icmp sgt i32 %193, 0
+  br i1 %194, label %.lr.ph34.i.i.lr.ph, label %.critedge
 
 .lr.ph34.i.i.lr.ph:                               ; preds = %Extra_CreateNodes.exit
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 344
   br label %.lr.ph34.i.i
 
 .lr.ph34.i.i:                                     ; preds = %.lr.ph34.i.i.lr.ph, %Extra_BuildTreeNode.exit
-  %192 = phi i32 [ %189, %.lr.ph34.i.i.lr.ph ], [ %329, %Extra_BuildTreeNode.exit ]
-  %wide.trip.count.i.i = zext nneg i32 %192 to i64
-  br label %193
+  %196 = phi i32 [ %193, %.lr.ph34.i.i.lr.ph ], [ %333, %Extra_BuildTreeNode.exit ]
+  %wide.trip.count.i.i = zext nneg i32 %196 to i64
+  br label %197
 
-193:                                              ; preds = %214, %.lr.ph34.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph34.i.i ], [ %indvars.iv.next.i.i, %214 ]
-  %.01932.i.i = phi double [ 1.000000e+14, %.lr.ph34.i.i ], [ %.1.i.i, %214 ]
-  %.02130.i.i = phi i32 [ -1, %.lr.ph34.i.i ], [ %.122.i.i, %214 ]
-  %194 = getelementptr inbounds nuw [8 x i8], ptr %calloc.i, i64 %indvars.iv.i.i
-  %195 = load ptr, ptr %194, align 8, !tbaa !41
-  %.not.i.i = icmp eq ptr %195, null
-  br i1 %.not.i.i, label %214, label %196
+197:                                              ; preds = %218, %.lr.ph34.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph34.i.i ], [ %indvars.iv.next.i.i, %218 ]
+  %.01932.i.i = phi double [ 1.000000e+14, %.lr.ph34.i.i ], [ %.1.i.i, %218 ]
+  %.02130.i.i = phi i32 [ -1, %.lr.ph34.i.i ], [ %.122.i.i, %218 ]
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv.i.i
+  %199 = load ptr, ptr %198, align 8, !tbaa !41
+  %.not.i.i = icmp eq ptr %199, null
+  br i1 %.not.i.i, label %218, label %200
 
-196:                                              ; preds = %193
-  %197 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  %198 = load ptr, ptr %83, align 8, !tbaa !39
-  %.02326.i.i = load ptr, ptr %197, align 8, !tbaa !49
-  %.not2527.i.i = icmp eq ptr %.02326.i.i, %198
+200:                                              ; preds = %197
+  %201 = getelementptr inbounds nuw i8, ptr %199, i64 8
+  %202 = load ptr, ptr %87, align 8, !tbaa !39
+  %.02326.i.i = load ptr, ptr %201, align 8, !tbaa !49
+  %.not2527.i.i = icmp eq ptr %.02326.i.i, %202
   br i1 %.not2527.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %196, %.lr.ph.i.i
-  %.02329.i.i = phi ptr [ %.023.i.i, %.lr.ph.i.i ], [ %.02326.i.i, %196 ]
-  %.028.i.i = phi double [ %209, %.lr.ph.i.i ], [ 0.000000e+00, %196 ]
-  %199 = load i32, ptr %.02329.i.i, align 8, !tbaa !40
-  %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %200
-  %202 = load ptr, ptr %201, align 8, !tbaa !51
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 40
-  %204 = load ptr, ptr %203, align 8, !tbaa !56
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %206 = load i32, ptr %205, align 8, !tbaa !35
-  %207 = mul nsw i32 %206, %206
-  %208 = uitofp nneg i32 %207 to double
-  %209 = fadd double %.028.i.i, %208
-  %210 = getelementptr inbounds nuw i8, ptr %.02329.i.i, i64 16
-  %.023.i.i = load ptr, ptr %210, align 8, !tbaa !49
-  %.not25.i.i = icmp eq ptr %.023.i.i, %198
+.lr.ph.i.i:                                       ; preds = %200, %.lr.ph.i.i
+  %.02329.i.i = phi ptr [ %.023.i.i, %.lr.ph.i.i ], [ %.02326.i.i, %200 ]
+  %.028.i.i = phi double [ %213, %.lr.ph.i.i ], [ 0.000000e+00, %200 ]
+  %203 = load i32, ptr %.02329.i.i, align 8, !tbaa !40
+  %204 = zext i32 %203 to i64
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %204
+  %206 = load ptr, ptr %205, align 8, !tbaa !51
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 40
+  %208 = load ptr, ptr %207, align 8, !tbaa !56
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
+  %210 = load i32, ptr %209, align 8, !tbaa !35
+  %211 = mul nsw i32 %210, %210
+  %212 = uitofp nneg i32 %211 to double
+  %213 = fadd double %.028.i.i, %212
+  %214 = getelementptr inbounds nuw i8, ptr %.02329.i.i, i64 16
+  %.023.i.i = load ptr, ptr %214, align 8, !tbaa !49
+  %.not25.i.i = icmp eq ptr %.023.i.i, %202
   br i1 %.not25.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !65
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %196
-  %.0.lcssa.i.i = phi double [ 0.000000e+00, %196 ], [ %209, %.lr.ph.i.i ]
-  %211 = fcmp ogt double %.01932.i.i, %.0.lcssa.i.i
-  br i1 %211, label %212, label %214
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %200
+  %.0.lcssa.i.i = phi double [ 0.000000e+00, %200 ], [ %213, %.lr.ph.i.i ]
+  %215 = fcmp ogt double %.01932.i.i, %.0.lcssa.i.i
+  br i1 %215, label %216, label %218
 
-212:                                              ; preds = %._crit_edge.i.i
-  %213 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  br label %214
+216:                                              ; preds = %._crit_edge.i.i
+  %217 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  br label %218
 
-214:                                              ; preds = %212, %._crit_edge.i.i, %193
-  %.122.i.i = phi i32 [ %213, %212 ], [ %.02130.i.i, %._crit_edge.i.i ], [ %.02130.i.i, %193 ]
-  %.1.i.i = phi double [ %.0.lcssa.i.i, %212 ], [ %.01932.i.i, %._crit_edge.i.i ], [ %.01932.i.i, %193 ]
+218:                                              ; preds = %216, %._crit_edge.i.i, %197
+  %.122.i.i = phi i32 [ %217, %216 ], [ %.02130.i.i, %._crit_edge.i.i ], [ %.02130.i.i, %197 ]
+  %.1.i.i = phi double [ %.0.lcssa.i.i, %216 ], [ %.01932.i.i, %._crit_edge.i.i ], [ %.01932.i.i, %197 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Extra_FindBestVariable.exit.i, label %193, !llvm.loop !66
+  br i1 %exitcond.not.i.i, label %Extra_FindBestVariable.exit.i, label %197, !llvm.loop !66
 
-Extra_FindBestVariable.exit.i:                    ; preds = %214
-  %215 = icmp eq i32 %.122.i.i, -1
-  br i1 %215, label %.critedge.thread, label %216
+Extra_FindBestVariable.exit.i:                    ; preds = %218
+  %219 = icmp eq i32 %.122.i.i, -1
+  br i1 %219, label %.critedge.thread, label %220
 
-216:                                              ; preds = %Extra_FindBestVariable.exit.i
-  %217 = sext i32 %.122.i.i to i64
-  %218 = getelementptr inbounds [8 x i8], ptr %calloc.i, i64 %217
-  %219 = load ptr, ptr %218, align 8, !tbaa !41
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %221 = load ptr, ptr %220, align 8, !tbaa !47
-  %222 = tail call i32 @Extra_bddSuppSize(ptr noundef %0, ptr noundef %221) #10
-  %223 = getelementptr inbounds nuw i8, ptr %219, i64 16
-  %224 = load i32, ptr %223, align 8, !tbaa !48
-  %225 = icmp eq i32 %224, 2
-  %226 = load ptr, ptr %220, align 8, !tbaa !47
-  br i1 %225, label %.lr.ph.preheader.i84, label %268
+220:                                              ; preds = %Extra_FindBestVariable.exit.i
+  %221 = sext i32 %.122.i.i to i64
+  %222 = getelementptr inbounds [8 x i8], ptr %83, i64 %221
+  %223 = load ptr, ptr %222, align 8, !tbaa !41
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
+  %225 = load ptr, ptr %224, align 8, !tbaa !47
+  %226 = tail call i32 @Extra_bddSuppSize(ptr noundef %0, ptr noundef %225) #11
+  %227 = getelementptr inbounds nuw i8, ptr %223, i64 16
+  %228 = load i32, ptr %227, align 8, !tbaa !48
+  %229 = icmp eq i32 %228, 2
+  %230 = load ptr, ptr %224, align 8, !tbaa !47
+  br i1 %229, label %.lr.ph.preheader.i83, label %272
 
-.lr.ph.preheader.i84:                             ; preds = %216
-  %227 = load i32, ptr %226, align 8, !tbaa !40
-  %228 = getelementptr inbounds nuw i8, ptr %226, i64 16
-  %229 = load ptr, ptr %228, align 8, !tbaa !49
-  %230 = load i32, ptr %229, align 8, !tbaa !40
-  %231 = sext i32 %227 to i64
-  %232 = getelementptr inbounds [8 x i8], ptr %126, i64 %231
-  %233 = load ptr, ptr %232, align 8, !tbaa !51
-  %234 = sext i32 %230 to i64
-  %235 = getelementptr inbounds [8 x i8], ptr %126, i64 %234
-  %236 = load ptr, ptr %235, align 8, !tbaa !51
-  %237 = load ptr, ptr %191, align 8, !tbaa !45
-  %238 = load i32, ptr %219, align 8, !tbaa !43
-  %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds [8 x i8], ptr %237, i64 %239
-  %241 = load ptr, ptr %240, align 8, !tbaa !26
-  tail call void @Cudd_Ref(ptr noundef %241) #10
-  %242 = zext i32 %.122.i.i to i64
-  br label %.lr.ph.i85
+.lr.ph.preheader.i83:                             ; preds = %220
+  %231 = load i32, ptr %230, align 8, !tbaa !40
+  %232 = getelementptr inbounds nuw i8, ptr %230, i64 16
+  %233 = load ptr, ptr %232, align 8, !tbaa !49
+  %234 = load i32, ptr %233, align 8, !tbaa !40
+  %235 = sext i32 %231 to i64
+  %236 = getelementptr inbounds [8 x i8], ptr %130, i64 %235
+  %237 = load ptr, ptr %236, align 8, !tbaa !51
+  %238 = sext i32 %234 to i64
+  %239 = getelementptr inbounds [8 x i8], ptr %130, i64 %238
+  %240 = load ptr, ptr %239, align 8, !tbaa !51
+  %241 = load ptr, ptr %195, align 8, !tbaa !45
+  %242 = load i32, ptr %223, align 8, !tbaa !43
+  %243 = sext i32 %242 to i64
+  %244 = getelementptr inbounds [8 x i8], ptr %241, i64 %243
+  %245 = load ptr, ptr %244, align 8, !tbaa !26
+  tail call void @Cudd_Ref(ptr noundef %245) #11
+  %246 = zext i32 %.122.i.i to i64
+  br label %.lr.ph.i84
 
-.lr.ph.i85:                                       ; preds = %262, %.lr.ph.preheader.i84
-  %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.preheader.i84 ], [ %indvars.iv.next.i87, %262 ]
-  %.0112136.i = phi ptr [ %241, %.lr.ph.preheader.i84 ], [ %.1113.i, %262 ]
-  %243 = getelementptr inbounds nuw [8 x i8], ptr %calloc.i, i64 %indvars.iv.i86
-  %244 = load ptr, ptr %243, align 8, !tbaa !41
-  %.not121.i = icmp eq ptr %244, null
-  %.not122.i = icmp eq i64 %indvars.iv.i86, %242
+.lr.ph.i84:                                       ; preds = %266, %.lr.ph.preheader.i83
+  %indvars.iv.i85 = phi i64 [ 0, %.lr.ph.preheader.i83 ], [ %indvars.iv.next.i86, %266 ]
+  %.0112136.i = phi ptr [ %245, %.lr.ph.preheader.i83 ], [ %.1113.i, %266 ]
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv.i85
+  %248 = load ptr, ptr %247, align 8, !tbaa !41
+  %.not121.i = icmp eq ptr %248, null
+  %.not122.i = icmp eq i64 %indvars.iv.i85, %246
   %or.cond.i = or i1 %.not122.i, %.not121.i
-  br i1 %or.cond.i, label %262, label %245
+  br i1 %or.cond.i, label %266, label %249
 
-245:                                              ; preds = %.lr.ph.i85
-  %246 = getelementptr inbounds nuw i8, ptr %244, i64 8
-  %247 = load ptr, ptr %246, align 8, !tbaa !47
-  %248 = load ptr, ptr %218, align 8, !tbaa !41
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
-  %250 = load ptr, ptr %249, align 8, !tbaa !47
-  %251 = icmp eq ptr %247, %250
-  br i1 %251, label %252, label %262
+249:                                              ; preds = %.lr.ph.i84
+  %250 = getelementptr inbounds nuw i8, ptr %248, i64 8
+  %251 = load ptr, ptr %250, align 8, !tbaa !47
+  %252 = load ptr, ptr %222, align 8, !tbaa !41
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
+  %254 = load ptr, ptr %253, align 8, !tbaa !47
+  %255 = icmp eq ptr %251, %254
+  br i1 %255, label %256, label %266
 
-252:                                              ; preds = %245
-  %253 = load ptr, ptr %191, align 8, !tbaa !45
-  %254 = load i32, ptr %244, align 8, !tbaa !43
-  %255 = sext i32 %254 to i64
-  %256 = getelementptr inbounds [8 x i8], ptr %253, i64 %255
-  %257 = load ptr, ptr %256, align 8, !tbaa !26
-  %258 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.0112136.i, ptr noundef %257) #10
-  tail call void @Cudd_Ref(ptr noundef %258) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0112136.i) #10
-  %259 = load ptr, ptr %243, align 8, !tbaa !41
-  %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
-  %261 = load ptr, ptr %260, align 8, !tbaa !47
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %261) #10
-  tail call void @free(ptr noundef nonnull %259) #10
-  store ptr null, ptr %243, align 8, !tbaa !41
-  br label %262
+256:                                              ; preds = %249
+  %257 = load ptr, ptr %195, align 8, !tbaa !45
+  %258 = load i32, ptr %248, align 8, !tbaa !43
+  %259 = sext i32 %258 to i64
+  %260 = getelementptr inbounds [8 x i8], ptr %257, i64 %259
+  %261 = load ptr, ptr %260, align 8, !tbaa !26
+  %262 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.0112136.i, ptr noundef %261) #11
+  tail call void @Cudd_Ref(ptr noundef %262) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0112136.i) #11
+  %263 = load ptr, ptr %247, align 8, !tbaa !41
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
+  %265 = load ptr, ptr %264, align 8, !tbaa !47
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %265) #11
+  tail call void @free(ptr noundef nonnull %263) #11
+  store ptr null, ptr %247, align 8, !tbaa !41
+  br label %266
 
-262:                                              ; preds = %252, %245, %.lr.ph.i85
-  %.1113.i = phi ptr [ %258, %252 ], [ %.0112136.i, %.lr.ph.i85 ], [ %.0112136.i, %245 ]
-  %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
-  %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, %wide.trip.count.i.i
-  br i1 %exitcond.not.i88, label %263, label %.lr.ph.i85, !llvm.loop !67
+266:                                              ; preds = %256, %249, %.lr.ph.i84
+  %.1113.i = phi ptr [ %262, %256 ], [ %.0112136.i, %.lr.ph.i84 ], [ %.0112136.i, %249 ]
+  %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i85, 1
+  %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, %wide.trip.count.i.i
+  br i1 %exitcond.not.i87, label %267, label %.lr.ph.i84, !llvm.loop !67
 
-263:                                              ; preds = %262
-  %264 = load ptr, ptr %218, align 8, !tbaa !41
-  %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
-  %266 = load ptr, ptr %265, align 8, !tbaa !47
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %266) #10
-  tail call void @free(ptr noundef nonnull %264) #10
-  store ptr null, ptr %218, align 8, !tbaa !41
-  %267 = tail call fastcc ptr @Extra_CombineTwoNodes(ptr noundef %0, ptr noundef %.1113.i, ptr noundef %233, ptr noundef %236)
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1113.i) #10
-  br label %298
+267:                                              ; preds = %266
+  %268 = load ptr, ptr %222, align 8, !tbaa !41
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load ptr, ptr %269, align 8, !tbaa !47
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %270) #11
+  tail call void @free(ptr noundef nonnull %268) #11
+  store ptr null, ptr %222, align 8, !tbaa !41
+  %271 = tail call fastcc ptr @Extra_CombineTwoNodes(ptr noundef %0, ptr noundef %.1113.i, ptr noundef %237, ptr noundef %240)
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1113.i) #11
+  br label %302
 
-268:                                              ; preds = %216
-  %269 = load ptr, ptr %83, align 8, !tbaa !39
-  %.not29.i.i = icmp eq ptr %226, %269
+272:                                              ; preds = %220
+  %273 = load ptr, ptr %87, align 8, !tbaa !39
+  %.not29.i.i = icmp eq ptr %230, %273
   br i1 %.not29.i.i, label %Extra_FindBestPartitions.exit.i, label %.lr.ph.i124.i
 
-.lr.ph.i124.i:                                    ; preds = %268, %281
-  %.034.i.i = phi ptr [ %283, %281 ], [ %226, %268 ]
-  %.01933.i.i = phi i32 [ %.1.i125.i, %281 ], [ 1000000, %268 ]
-  %.02032.i.i = phi i32 [ %.121.i.i, %281 ], [ 1000000, %268 ]
-  %.02231.i.i = phi i32 [ %.123.i.i, %281 ], [ -1, %268 ]
-  %.02430.i.i = phi i32 [ %.125.i.i, %281 ], [ -1, %268 ]
-  %270 = load i32, ptr %.034.i.i, align 8, !tbaa !40
-  %271 = zext i32 %270 to i64
-  %272 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %271
-  %273 = load ptr, ptr %272, align 8, !tbaa !51
-  %274 = getelementptr inbounds nuw i8, ptr %273, i64 40
-  %275 = load ptr, ptr %274, align 8, !tbaa !56
-  %276 = getelementptr inbounds nuw i8, ptr %275, i64 16
-  %277 = load i32, ptr %276, align 8, !tbaa !35
-  %278 = icmp sgt i32 %.02032.i.i, %277
-  br i1 %278, label %281, label %279
+.lr.ph.i124.i:                                    ; preds = %272, %285
+  %.034.i.i = phi ptr [ %287, %285 ], [ %230, %272 ]
+  %.01933.i.i = phi i32 [ %.1.i125.i, %285 ], [ 1000000, %272 ]
+  %.02032.i.i = phi i32 [ %.121.i.i, %285 ], [ 1000000, %272 ]
+  %.02231.i.i = phi i32 [ %.123.i.i, %285 ], [ -1, %272 ]
+  %.02430.i.i = phi i32 [ %.125.i.i, %285 ], [ -1, %272 ]
+  %274 = load i32, ptr %.034.i.i, align 8, !tbaa !40
+  %275 = zext i32 %274 to i64
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %275
+  %277 = load ptr, ptr %276, align 8, !tbaa !51
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 40
+  %279 = load ptr, ptr %278, align 8, !tbaa !56
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 16
+  %281 = load i32, ptr %280, align 8, !tbaa !35
+  %282 = icmp sgt i32 %.02032.i.i, %281
+  br i1 %282, label %285, label %283
 
-279:                                              ; preds = %.lr.ph.i124.i
-  %280 = icmp sgt i32 %.01933.i.i, %277
-  %spec.select.i.i = select i1 %280, i32 %270, i32 %.02231.i.i
-  %spec.select28.i.i = tail call i32 @llvm.smin.i32(i32 %.01933.i.i, i32 %277)
-  br label %281
+283:                                              ; preds = %.lr.ph.i124.i
+  %284 = icmp sgt i32 %.01933.i.i, %281
+  %spec.select.i.i = select i1 %284, i32 %274, i32 %.02231.i.i
+  %spec.select28.i.i = tail call i32 @llvm.smin.i32(i32 %.01933.i.i, i32 %281)
+  br label %285
 
-281:                                              ; preds = %279, %.lr.ph.i124.i
-  %.125.i.i = phi i32 [ %.02430.i.i, %279 ], [ %270, %.lr.ph.i124.i ]
-  %.123.i.i = phi i32 [ %spec.select.i.i, %279 ], [ %.02430.i.i, %.lr.ph.i124.i ]
-  %.121.i.i = phi i32 [ %.02032.i.i, %279 ], [ %277, %.lr.ph.i124.i ]
-  %.1.i125.i = phi i32 [ %spec.select28.i.i, %279 ], [ %.02032.i.i, %.lr.ph.i124.i ]
-  %282 = getelementptr inbounds nuw i8, ptr %.034.i.i, i64 16
-  %283 = load ptr, ptr %282, align 8, !tbaa !49
-  %.not.i126.i = icmp eq ptr %283, %269
+285:                                              ; preds = %283, %.lr.ph.i124.i
+  %.125.i.i = phi i32 [ %.02430.i.i, %283 ], [ %274, %.lr.ph.i124.i ]
+  %.123.i.i = phi i32 [ %spec.select.i.i, %283 ], [ %.02430.i.i, %.lr.ph.i124.i ]
+  %.121.i.i = phi i32 [ %.02032.i.i, %283 ], [ %281, %.lr.ph.i124.i ]
+  %.1.i125.i = phi i32 [ %spec.select28.i.i, %283 ], [ %.02032.i.i, %.lr.ph.i124.i ]
+  %286 = getelementptr inbounds nuw i8, ptr %.034.i.i, i64 16
+  %287 = load ptr, ptr %286, align 8, !tbaa !49
+  %.not.i126.i = icmp eq ptr %287, %273
   br i1 %.not.i126.i, label %Extra_FindBestPartitions.exit.loopexit.i, label %.lr.ph.i124.i, !llvm.loop !68
 
-Extra_FindBestPartitions.exit.loopexit.i:         ; preds = %281
-  %284 = sext i32 %.125.i.i to i64
-  %285 = sext i32 %.123.i.i to i64
+Extra_FindBestPartitions.exit.loopexit.i:         ; preds = %285
+  %288 = sext i32 %.125.i.i to i64
+  %289 = sext i32 %.123.i.i to i64
   br label %Extra_FindBestPartitions.exit.i
 
-Extra_FindBestPartitions.exit.i:                  ; preds = %Extra_FindBestPartitions.exit.loopexit.i, %268
-  %.024.lcssa.i.i = phi i64 [ -1, %268 ], [ %284, %Extra_FindBestPartitions.exit.loopexit.i ]
-  %.022.lcssa.i.i = phi i64 [ -1, %268 ], [ %285, %Extra_FindBestPartitions.exit.loopexit.i ]
-  %286 = getelementptr inbounds [8 x i8], ptr %126, i64 %.024.lcssa.i.i
-  %287 = load ptr, ptr %286, align 8, !tbaa !51
-  %288 = getelementptr inbounds [8 x i8], ptr %126, i64 %.022.lcssa.i.i
-  %289 = load ptr, ptr %288, align 8, !tbaa !51
-  %290 = load ptr, ptr %191, align 8, !tbaa !45
-  %291 = getelementptr inbounds [8 x i8], ptr %290, i64 %.024.lcssa.i.i
-  %292 = load ptr, ptr %291, align 8, !tbaa !26
-  %293 = getelementptr inbounds [8 x i8], ptr %290, i64 %.022.lcssa.i.i
-  %294 = load ptr, ptr %293, align 8, !tbaa !26
-  %295 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %292, ptr noundef %294) #10
-  tail call void @Cudd_Ref(ptr noundef %295) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %295) #10
-  %296 = load ptr, ptr %83, align 8, !tbaa !39
-  %297 = tail call fastcc ptr @Extra_CombineTwoNodes(ptr noundef %0, ptr noundef %296, ptr noundef %287, ptr noundef %289)
-  br label %298
+Extra_FindBestPartitions.exit.i:                  ; preds = %Extra_FindBestPartitions.exit.loopexit.i, %272
+  %.024.lcssa.i.i = phi i64 [ -1, %272 ], [ %288, %Extra_FindBestPartitions.exit.loopexit.i ]
+  %.022.lcssa.i.i = phi i64 [ -1, %272 ], [ %289, %Extra_FindBestPartitions.exit.loopexit.i ]
+  %290 = getelementptr inbounds [8 x i8], ptr %130, i64 %.024.lcssa.i.i
+  %291 = load ptr, ptr %290, align 8, !tbaa !51
+  %292 = getelementptr inbounds [8 x i8], ptr %130, i64 %.022.lcssa.i.i
+  %293 = load ptr, ptr %292, align 8, !tbaa !51
+  %294 = load ptr, ptr %195, align 8, !tbaa !45
+  %295 = getelementptr inbounds [8 x i8], ptr %294, i64 %.024.lcssa.i.i
+  %296 = load ptr, ptr %295, align 8, !tbaa !26
+  %297 = getelementptr inbounds [8 x i8], ptr %294, i64 %.022.lcssa.i.i
+  %298 = load ptr, ptr %297, align 8, !tbaa !26
+  %299 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %296, ptr noundef %298) #11
+  tail call void @Cudd_Ref(ptr noundef %299) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %299) #11
+  %300 = load ptr, ptr %87, align 8, !tbaa !39
+  %301 = tail call fastcc ptr @Extra_CombineTwoNodes(ptr noundef %0, ptr noundef %300, ptr noundef %291, ptr noundef %293)
+  br label %302
 
-298:                                              ; preds = %Extra_FindBestPartitions.exit.i, %263
-  %.pre-phi144.i = phi i64 [ %.022.lcssa.i.i, %Extra_FindBestPartitions.exit.i ], [ %234, %263 ]
-  %.pre-phi.i = phi i64 [ %.024.lcssa.i.i, %Extra_FindBestPartitions.exit.i ], [ %231, %263 ]
-  %.0114.i = phi ptr [ %297, %Extra_FindBestPartitions.exit.i ], [ %267, %263 ]
-  %.0110.i = phi ptr [ %289, %Extra_FindBestPartitions.exit.i ], [ %236, %263 ]
-  %299 = getelementptr inbounds [8 x i8], ptr %126, i64 %.pre-phi.i
-  store ptr %.0114.i, ptr %299, align 8, !tbaa !51
-  %300 = getelementptr inbounds [8 x i8], ptr %126, i64 %.pre-phi144.i
-  store ptr null, ptr %300, align 8, !tbaa !51
-  %301 = getelementptr inbounds nuw i8, ptr %.0110.i, i64 40
-  %302 = load ptr, ptr %301, align 8, !tbaa !56
-  %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
-  %.0111138.i = load ptr, ptr %303, align 8, !tbaa !49
-  %304 = load ptr, ptr %83, align 8, !tbaa !39
-  %.not120139.i = icmp eq ptr %.0111138.i, %304
+302:                                              ; preds = %Extra_FindBestPartitions.exit.i, %267
+  %.pre-phi144.i = phi i64 [ %.022.lcssa.i.i, %Extra_FindBestPartitions.exit.i ], [ %238, %267 ]
+  %.pre-phi.i = phi i64 [ %.024.lcssa.i.i, %Extra_FindBestPartitions.exit.i ], [ %235, %267 ]
+  %.0114.i = phi ptr [ %301, %Extra_FindBestPartitions.exit.i ], [ %271, %267 ]
+  %.0110.i = phi ptr [ %293, %Extra_FindBestPartitions.exit.i ], [ %240, %267 ]
+  %303 = getelementptr inbounds [8 x i8], ptr %130, i64 %.pre-phi.i
+  store ptr %.0114.i, ptr %303, align 8, !tbaa !51
+  %304 = getelementptr inbounds [8 x i8], ptr %130, i64 %.pre-phi144.i
+  store ptr null, ptr %304, align 8, !tbaa !51
+  %305 = getelementptr inbounds nuw i8, ptr %.0110.i, i64 40
+  %306 = load ptr, ptr %305, align 8, !tbaa !56
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
+  %.0111138.i = load ptr, ptr %307, align 8, !tbaa !49
+  %308 = load ptr, ptr %87, align 8, !tbaa !39
+  %.not120139.i = icmp eq ptr %.0111138.i, %308
   br i1 %.not120139.i, label %Extra_BuildTreeNode.exit, label %.lr.ph142.i
 
-.lr.ph142.i:                                      ; preds = %298, %326
-  %305 = phi ptr [ %327, %326 ], [ %304, %298 ]
-  %.0111140.i = phi ptr [ %.0111.i, %326 ], [ %.0111138.i, %298 ]
-  %306 = load i32, ptr %.0111140.i, align 8, !tbaa !40
-  %307 = zext i32 %306 to i64
-  %308 = getelementptr inbounds nuw [8 x i8], ptr %calloc.i, i64 %307
-  %309 = load ptr, ptr %308, align 8, !tbaa !41
-  %310 = icmp eq ptr %309, null
-  br i1 %310, label %326, label %311
+.lr.ph142.i:                                      ; preds = %302, %330
+  %309 = phi ptr [ %331, %330 ], [ %308, %302 ]
+  %.0111140.i = phi ptr [ %.0111.i, %330 ], [ %.0111138.i, %302 ]
+  %310 = load i32, ptr %.0111140.i, align 8, !tbaa !40
+  %311 = zext i32 %310 to i64
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %311
+  %313 = load ptr, ptr %312, align 8, !tbaa !41
+  %314 = icmp eq ptr %313, null
+  br i1 %314, label %330, label %315
 
-311:                                              ; preds = %.lr.ph142.i
-  %312 = getelementptr inbounds nuw i8, ptr %309, i64 8
-  %313 = load ptr, ptr %312, align 8, !tbaa !47
-  %314 = load ptr, ptr %191, align 8, !tbaa !45
-  %315 = getelementptr inbounds [8 x i8], ptr %314, i64 %.pre-phi144.i
-  %316 = load ptr, ptr %315, align 8, !tbaa !26
-  %317 = tail call ptr @Cudd_bddExistAbstract(ptr noundef nonnull %0, ptr noundef %313, ptr noundef %316) #10
-  store ptr %317, ptr %312, align 8, !tbaa !47
-  tail call void @Cudd_Ref(ptr noundef %317) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %313) #10
-  %318 = load ptr, ptr %312, align 8, !tbaa !47
-  %319 = load ptr, ptr %191, align 8, !tbaa !45
-  %320 = getelementptr inbounds [8 x i8], ptr %319, i64 %.pre-phi.i
-  %321 = load ptr, ptr %320, align 8, !tbaa !26
-  %322 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %318, ptr noundef %321) #10
-  store ptr %322, ptr %312, align 8, !tbaa !47
-  tail call void @Cudd_Ref(ptr noundef %322) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %318) #10
-  %323 = load ptr, ptr %312, align 8, !tbaa !47
-  %324 = tail call i32 @Extra_bddSuppSize(ptr noundef nonnull %0, ptr noundef %323) #10
-  %325 = getelementptr inbounds nuw i8, ptr %309, i64 16
-  store i32 %324, ptr %325, align 8, !tbaa !48
-  %.pre.i = load ptr, ptr %83, align 8, !tbaa !39
-  br label %326
+315:                                              ; preds = %.lr.ph142.i
+  %316 = getelementptr inbounds nuw i8, ptr %313, i64 8
+  %317 = load ptr, ptr %316, align 8, !tbaa !47
+  %318 = load ptr, ptr %195, align 8, !tbaa !45
+  %319 = getelementptr inbounds [8 x i8], ptr %318, i64 %.pre-phi144.i
+  %320 = load ptr, ptr %319, align 8, !tbaa !26
+  %321 = tail call ptr @Cudd_bddExistAbstract(ptr noundef nonnull %0, ptr noundef %317, ptr noundef %320) #11
+  store ptr %321, ptr %316, align 8, !tbaa !47
+  tail call void @Cudd_Ref(ptr noundef %321) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %317) #11
+  %322 = load ptr, ptr %316, align 8, !tbaa !47
+  %323 = load ptr, ptr %195, align 8, !tbaa !45
+  %324 = getelementptr inbounds [8 x i8], ptr %323, i64 %.pre-phi.i
+  %325 = load ptr, ptr %324, align 8, !tbaa !26
+  %326 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %322, ptr noundef %325) #11
+  store ptr %326, ptr %316, align 8, !tbaa !47
+  tail call void @Cudd_Ref(ptr noundef %326) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %322) #11
+  %327 = load ptr, ptr %316, align 8, !tbaa !47
+  %328 = tail call i32 @Extra_bddSuppSize(ptr noundef nonnull %0, ptr noundef %327) #11
+  %329 = getelementptr inbounds nuw i8, ptr %313, i64 16
+  store i32 %328, ptr %329, align 8, !tbaa !48
+  %.pre.i = load ptr, ptr %87, align 8, !tbaa !39
+  br label %330
 
-326:                                              ; preds = %311, %.lr.ph142.i
-  %327 = phi ptr [ %305, %.lr.ph142.i ], [ %.pre.i, %311 ]
-  %328 = getelementptr inbounds nuw i8, ptr %.0111140.i, i64 16
-  %.0111.i = load ptr, ptr %328, align 8, !tbaa !49
-  %.not120.i = icmp eq ptr %.0111.i, %327
+330:                                              ; preds = %315, %.lr.ph142.i
+  %331 = phi ptr [ %309, %.lr.ph142.i ], [ %.pre.i, %315 ]
+  %332 = getelementptr inbounds nuw i8, ptr %.0111140.i, i64 16
+  %.0111.i = load ptr, ptr %332, align 8, !tbaa !49
+  %.not120.i = icmp eq ptr %.0111.i, %331
   br i1 %.not120.i, label %Extra_BuildTreeNode.exit, label %.lr.ph142.i, !llvm.loop !69
 
-Extra_BuildTreeNode.exit:                         ; preds = %326, %298
-  %329 = load i32, ptr %79, align 8, !tbaa !3
-  %330 = icmp sgt i32 %329, 0
-  br i1 %330, label %.lr.ph34.i.i, label %.critedge, !llvm.loop !70
+Extra_BuildTreeNode.exit:                         ; preds = %330, %302
+  %333 = load i32, ptr %79, align 8, !tbaa !3
+  %334 = icmp sgt i32 %333, 0
+  br i1 %334, label %.lr.ph34.i.i, label %.critedge, !llvm.loop !70
 
 .critedge:                                        ; preds = %Extra_BuildTreeNode.exit, %Extra_CreateNodes.exit
-  %.not58 = icmp eq ptr %calloc.i, null
-  br i1 %.not58, label %331, label %.critedge.thread
+  %.not58 = icmp eq ptr %83, null
+  br i1 %.not58, label %335, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %Extra_FindBestVariable.exit.i, %.critedge
-  tail call void @free(ptr noundef nonnull %calloc.i) #10
-  br label %331
+  tail call void @free(ptr noundef nonnull %83) #11
+  br label %335
 
-331:                                              ; preds = %.critedge, %.critedge.thread
-  %wide.trip.count.i93 = zext nneg i32 %30 to i64
-  br i1 %67, label %.lr.ph.i94.us, label %.split
+335:                                              ; preds = %.critedge, %.critedge.thread
+  %wide.trip.count.i92 = zext nneg i32 %30 to i64
+  br i1 %67, label %.lr.ph.i93.us, label %.split
 
-.lr.ph.i94.us:                                    ; preds = %331, %.lr.ph.i94.us.backedge
-  %indvars.iv.i95.us = phi i64 [ %indvars.iv.i95.us.be, %.lr.ph.i94.us.backedge ], [ 0, %331 ]
-  %.02732.i.us = phi i32 [ %.02732.i.us.be, %.lr.ph.i94.us.backedge ], [ -1, %331 ]
-  %332 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv.i95.us
-  %333 = load ptr, ptr %332, align 8, !tbaa !51
-  %.not.i96.us = icmp eq ptr %333, null
-  br i1 %.not.i96.us, label %346, label %334
+.lr.ph.i93.us:                                    ; preds = %335, %.lr.ph.i93.us.backedge
+  %indvars.iv.i94.us = phi i64 [ %indvars.iv.i94.us.be, %.lr.ph.i93.us.backedge ], [ 0, %335 ]
+  %.02732.i.us = phi i32 [ %.02732.i.us.be, %.lr.ph.i93.us.backedge ], [ -1, %335 ]
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv.i94.us
+  %337 = load ptr, ptr %336, align 8, !tbaa !51
+  %.not.i95.us = icmp eq ptr %337, null
+  br i1 %.not.i95.us, label %350, label %338
 
-334:                                              ; preds = %.lr.ph.i94.us
-  %335 = icmp eq i32 %.02732.i.us, -1
-  %336 = trunc nuw nsw i64 %indvars.iv.i95.us to i32
-  br i1 %335, label %346, label %337
+338:                                              ; preds = %.lr.ph.i93.us
+  %339 = icmp eq i32 %.02732.i.us, -1
+  %340 = trunc nuw nsw i64 %indvars.iv.i94.us to i32
+  br i1 %339, label %350, label %341
 
-337:                                              ; preds = %334
-  %338 = load ptr, ptr %83, align 8, !tbaa !39
-  %339 = sext i32 %.02732.i.us to i64
-  %340 = getelementptr inbounds [8 x i8], ptr %126, i64 %339
-  %341 = load ptr, ptr %340, align 8, !tbaa !51
-  %342 = and i64 %indvars.iv.i95.us, 4294967295
-  %343 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %342
-  %344 = load ptr, ptr %343, align 8, !tbaa !51
-  %345 = tail call fastcc ptr @Extra_CombineTwoNodes(ptr noundef %0, ptr noundef %338, ptr noundef %341, ptr noundef %344)
-  store ptr %345, ptr %340, align 8, !tbaa !51
-  store ptr null, ptr %343, align 8, !tbaa !51
+341:                                              ; preds = %338
+  %342 = load ptr, ptr %87, align 8, !tbaa !39
+  %343 = sext i32 %.02732.i.us to i64
+  %344 = getelementptr inbounds [8 x i8], ptr %130, i64 %343
+  %345 = load ptr, ptr %344, align 8, !tbaa !51
+  %346 = and i64 %indvars.iv.i94.us, 4294967295
+  %347 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %346
+  %348 = load ptr, ptr %347, align 8, !tbaa !51
+  %349 = tail call fastcc ptr @Extra_CombineTwoNodes(ptr noundef %0, ptr noundef %342, ptr noundef %345, ptr noundef %348)
+  store ptr %349, ptr %344, align 8, !tbaa !51
+  store ptr null, ptr %347, align 8, !tbaa !51
   br label %Extra_MergeTopNodes.exit.us
 
-346:                                              ; preds = %334, %.lr.ph.i94.us
-  %.1.i.us = phi i32 [ %.02732.i.us, %.lr.ph.i94.us ], [ %336, %334 ]
-  %indvars.iv.next.i97.us = add nuw nsw i64 %indvars.iv.i95.us, 1
-  %exitcond.not.i98.us = icmp eq i64 %indvars.iv.next.i97.us, %wide.trip.count.i93
-  br i1 %exitcond.not.i98.us, label %._crit_edge.loopexit.i.us, label %.lr.ph.i94.us.backedge
+350:                                              ; preds = %338, %.lr.ph.i93.us
+  %.1.i.us = phi i32 [ %.02732.i.us, %.lr.ph.i93.us ], [ %340, %338 ]
+  %indvars.iv.next.i96.us = add nuw nsw i64 %indvars.iv.i94.us, 1
+  %exitcond.not.i97.us = icmp eq i64 %indvars.iv.next.i96.us, %wide.trip.count.i92
+  br i1 %exitcond.not.i97.us, label %._crit_edge.loopexit.i.us, label %.lr.ph.i93.us.backedge
 
-.lr.ph.i94.us.backedge:                           ; preds = %346, %Extra_MergeTopNodes.exit.us
-  %indvars.iv.i95.us.be = phi i64 [ %indvars.iv.next.i97.us, %346 ], [ 0, %Extra_MergeTopNodes.exit.us ]
-  %.02732.i.us.be = phi i32 [ %.1.i.us, %346 ], [ -1, %Extra_MergeTopNodes.exit.us ]
-  br label %.lr.ph.i94.us, !llvm.loop !71
+.lr.ph.i93.us.backedge:                           ; preds = %350, %Extra_MergeTopNodes.exit.us
+  %indvars.iv.i94.us.be = phi i64 [ %indvars.iv.next.i96.us, %350 ], [ 0, %Extra_MergeTopNodes.exit.us ]
+  %.02732.i.us.be = phi i32 [ %.1.i.us, %350 ], [ -1, %Extra_MergeTopNodes.exit.us ]
+  br label %.lr.ph.i93.us, !llvm.loop !71
 
-._crit_edge.loopexit.i.us:                        ; preds = %346
-  %347 = sext i32 %.1.i.us to i64
-  %348 = getelementptr inbounds [8 x i8], ptr %126, i64 %347
-  %349 = load ptr, ptr %348, align 8, !tbaa !51
-  store ptr null, ptr %348, align 8, !tbaa !51
+._crit_edge.loopexit.i.us:                        ; preds = %350
+  %351 = sext i32 %.1.i.us to i64
+  %352 = getelementptr inbounds [8 x i8], ptr %130, i64 %351
+  %353 = load ptr, ptr %352, align 8, !tbaa !51
+  store ptr null, ptr %352, align 8, !tbaa !51
   br label %Extra_MergeTopNodes.exit.us
 
-Extra_MergeTopNodes.exit.us:                      ; preds = %._crit_edge.loopexit.i.us, %337
-  %.028.i.us = phi ptr [ %349, %._crit_edge.loopexit.i.us ], [ null, %337 ]
+Extra_MergeTopNodes.exit.us:                      ; preds = %._crit_edge.loopexit.i.us, %341
+  %.028.i.us = phi ptr [ %353, %._crit_edge.loopexit.i.us ], [ null, %341 ]
   store ptr %.028.i.us, ptr %calloc, align 8, !tbaa !72
-  %350 = icmp eq ptr %.028.i.us, null
-  br i1 %350, label %.lr.ph.i94.us.backedge, label %.loopexit
+  %354 = icmp eq ptr %.028.i.us, null
+  br i1 %354, label %.lr.ph.i93.us.backedge, label %.loopexit
 
-.split:                                           ; preds = %331
-  %351 = getelementptr inbounds i8, ptr %126, i64 -8
-  %.promoted = load ptr, ptr %351, align 8, !tbaa !51
-  br label %._crit_edge.i91
+.split:                                           ; preds = %335
+  %355 = getelementptr inbounds i8, ptr %130, i64 -8
+  %.promoted = load ptr, ptr %355, align 8, !tbaa !51
+  br label %._crit_edge.i90
 
-._crit_edge.i91:                                  ; preds = %._crit_edge.i91, %.split
-  %352 = phi ptr [ null, %._crit_edge.i91 ], [ %.promoted, %.split ]
-  %353 = icmp eq ptr %352, null
-  br i1 %353, label %._crit_edge.i91, label %.preheader.split, !llvm.loop !71
+._crit_edge.i90:                                  ; preds = %._crit_edge.i90, %.split
+  %356 = phi ptr [ null, %._crit_edge.i90 ], [ %.promoted, %.split ]
+  %357 = icmp eq ptr %356, null
+  br i1 %357, label %._crit_edge.i90, label %.preheader.split, !llvm.loop !71
 
-.preheader.split:                                 ; preds = %._crit_edge.i91
-  store ptr %352, ptr %calloc, align 8, !tbaa !72
+.preheader.split:                                 ; preds = %._crit_edge.i90
+  store ptr %356, ptr %calloc, align 8, !tbaa !72
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Extra_MergeTopNodes.exit.us, %.preheader.split
-  %.us-phi = phi ptr [ %352, %.preheader.split ], [ %.028.i.us, %Extra_MergeTopNodes.exit.us ]
-  tail call void @free(ptr noundef nonnull %126) #10
-  %354 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) #10
-  %355 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
-  store ptr %354, ptr %355, align 8, !tbaa !73
-  tail call void @Cudd_Ref(ptr noundef %354) #10
+  %.us-phi = phi ptr [ %356, %.preheader.split ], [ %.028.i.us, %Extra_MergeTopNodes.exit.us ]
+  tail call void @free(ptr noundef nonnull %130) #11
+  %358 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) #11
+  %359 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
+  store ptr %358, ptr %359, align 8, !tbaa !73
+  tail call void @Cudd_Ref(ptr noundef %358) #11
   tail call fastcc void @Extra_DeleteParts_rec(ptr noundef nonnull %.us-phi)
   %.not61 = icmp eq ptr %33, null
-  br i1 %.not61, label %357, label %356
+  br i1 %.not61, label %361, label %360
 
-356:                                              ; preds = %.loopexit
-  tail call void @free(ptr noundef nonnull %33) #10
-  br label %357
+360:                                              ; preds = %.loopexit
+  tail call void @free(ptr noundef nonnull %33) #11
+  br label %361
 
-357:                                              ; preds = %.loopexit, %356
+361:                                              ; preds = %.loopexit, %360
   ret ptr %calloc
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-declare ptr @Cudd_Support(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Cudd_Support(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #3
+declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Extra_DeleteParts_rec(ptr noundef captures(none) %0) unnamed_addr #0 {
@@ -836,17 +843,17 @@ define internal fastcc void @Extra_DeleteParts_rec(ptr noundef captures(none) %0
   %11 = load ptr, ptr %10, align 8, !tbaa !56
   %12 = load ptr, ptr %0, align 8, !tbaa !53
   %13 = load ptr, ptr %11, align 8, !tbaa !30
-  tail call void @Cudd_RecursiveDeref(ptr noundef %12, ptr noundef %13) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %12, ptr noundef %13) #11
   %14 = load ptr, ptr %0, align 8, !tbaa !53
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !33
-  tail call void @Cudd_RecursiveDeref(ptr noundef %14, ptr noundef %16) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %14, ptr noundef %16) #11
   %17 = load ptr, ptr %10, align 8, !tbaa !56
   %.not15 = icmp eq ptr %17, null
   br i1 %.not15, label %19, label %18
 
 18:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %17) #10
+  tail call void @free(ptr noundef nonnull %17) #11
   store ptr null, ptr %10, align 8, !tbaa !56
   br label %19
 
@@ -863,16 +870,16 @@ define ptr @Extra_bddImageCompute(ptr noundef %0, ptr noundef %1) local_unnamed_
   %7 = load i32, ptr %6, align 4, !tbaa !76
   %8 = add nsw i32 %7, 1
   store i32 %8, ptr %6, align 4, !tbaa !76
-  %9 = tail call ptr @Cudd_Support(ptr noundef %5, ptr noundef %1) #10
-  tail call void @Cudd_Ref(ptr noundef %9) #10
+  %9 = tail call ptr @Cudd_Support(ptr noundef %5, ptr noundef %1) #11
+  tail call void @Cudd_Ref(ptr noundef %9) #11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !73
   %.not = icmp eq ptr %9, %11
   br i1 %.not, label %23, label %12
 
 12:                                               ; preds = %2
-  %13 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %5, ptr noundef %9, ptr noundef %11) #10
-  tail call void @Cudd_Ref(ptr noundef %13) #10
+  %13 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %5, ptr noundef %9, ptr noundef %11) #11
+  tail call void @Cudd_Ref(ptr noundef %13) #11
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !39
   %.not43 = icmp eq ptr %13, %15
@@ -882,31 +889,31 @@ define ptr @Extra_bddImageCompute(ptr noundef %0, ptr noundef %1) local_unnamed_
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str)
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.2)
   %19 = load ptr, ptr %10, align 8, !tbaa !73
-  tail call void @Extra_bddPrint(ptr noundef nonnull %5, ptr noundef %19) #10
+  tail call void @Extra_bddPrint(ptr noundef nonnull %5, ptr noundef %19) #11
   %putchar = tail call i32 @putchar(i32 10)
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
   %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull @.str.5)
-  tail call void @Extra_bddPrint(ptr noundef nonnull %5, ptr noundef %9) #10
+  tail call void @Extra_bddPrint(ptr noundef nonnull %5, ptr noundef %9) #11
   %putchar44 = tail call i32 @putchar(i32 10)
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %5, ptr noundef %9) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %5, ptr noundef %13) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %5, ptr noundef %9) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %5, ptr noundef %13) #11
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %40
 
 22:                                               ; preds = %12
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %5, ptr noundef %13) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %5, ptr noundef %13) #11
   br label %23
 
 23:                                               ; preds = %22, %2
-  tail call void @Cudd_RecursiveDeref(ptr noundef %5, ptr noundef %9) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %5, ptr noundef %9) #11
   %24 = load ptr, ptr %3, align 8, !tbaa !62
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !60
-  tail call void @Cudd_RecursiveDeref(ptr noundef %5, ptr noundef %26) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %5, ptr noundef %26) #11
   %27 = load ptr, ptr %3, align 8, !tbaa !62
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %1, ptr %28, align 8, !tbaa !60
-  tail call void @Cudd_Ref(ptr noundef %1) #10
+  tail call void @Cudd_Ref(ptr noundef %1) #11
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %29, align 4, !tbaa !77
   %30 = load ptr, ptr %0, align 8, !tbaa !72
@@ -932,14 +939,14 @@ define ptr @Extra_bddImageCompute(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret ptr %.0
 }
 
-declare ptr @Cudd_bddExistAbstract(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Cudd_bddExistAbstract(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
-declare void @Extra_bddPrint(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @Extra_bddPrint(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Extra_bddImageCompute_rec(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
@@ -958,10 +965,10 @@ define internal fastcc void @Extra_bddImageCompute_rec(ptr noundef %0, ptr nound
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !60
-  %13 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %3, ptr noundef %12, ptr noundef nonnull %9) #10
+  %13 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %3, ptr noundef %12, ptr noundef nonnull %9) #11
   store ptr %13, ptr %11, align 8, !tbaa !60
-  tail call void @Cudd_Ref(ptr noundef %13) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %3, ptr noundef %12) #10
+  tail call void @Cudd_Ref(ptr noundef %13) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef %3, ptr noundef %12) #11
   br label %45
 
 14:                                               ; preds = %2
@@ -982,7 +989,7 @@ define internal fastcc void @Extra_bddImageCompute_rec(ptr noundef %0, ptr nound
   br i1 %.not41, label %22, label %21
 
 21:                                               ; preds = %18
-  tail call void @Cudd_RecursiveDeref(ptr noundef %3, ptr noundef nonnull %20) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %3, ptr noundef nonnull %20) #11
   br label %22
 
 22:                                               ; preds = %21, %18
@@ -999,17 +1006,17 @@ define internal fastcc void @Extra_bddImageCompute_rec(ptr noundef %0, ptr nound
   br i1 %.not42, label %33, label %31
 
 31:                                               ; preds = %22
-  %32 = tail call ptr @Cudd_bddAndAbstract(ptr noundef %3, ptr noundef %27, ptr noundef %30, ptr noundef nonnull %24) #10
+  %32 = tail call ptr @Cudd_bddAndAbstract(ptr noundef %3, ptr noundef %27, ptr noundef %30, ptr noundef nonnull %24) #11
   br label %35
 
 33:                                               ; preds = %22
-  %34 = tail call ptr @Cudd_bddAnd(ptr noundef %3, ptr noundef %27, ptr noundef %30) #10
+  %34 = tail call ptr @Cudd_bddAnd(ptr noundef %3, ptr noundef %27, ptr noundef %30) #11
   br label %35
 
 35:                                               ; preds = %33, %31
   %storemerge = phi ptr [ %34, %33 ], [ %32, %31 ]
   store ptr %storemerge, ptr %19, align 8, !tbaa !60
-  tail call void @Cudd_Ref(ptr noundef %storemerge) #10
+  tail call void @Cudd_Ref(ptr noundef %storemerge) #11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i32, ptr %36, align 8, !tbaa !64
   %.not43 = icmp eq i32 %37, 0
@@ -1017,7 +1024,7 @@ define internal fastcc void @Extra_bddImageCompute_rec(ptr noundef %0, ptr nound
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr %19, align 8, !tbaa !60
-  %40 = tail call i32 @Cudd_DagSize(ptr noundef %39) #10
+  %40 = tail call i32 @Cudd_DagSize(ptr noundef %39) #11
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %42 = load i32, ptr %41, align 4, !tbaa !77
   %43 = icmp slt i32 %42, %40
@@ -1041,13 +1048,13 @@ define void @Extra_bddImageTreeDelete(ptr noundef captures(none) %0) local_unnam
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8, !tbaa !72
   %6 = load ptr, ptr %5, align 8, !tbaa !53
-  tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %3) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %3) #11
   br label %7
 
 7:                                                ; preds = %4, %1
   %8 = load ptr, ptr %0, align 8, !tbaa !72
   tail call fastcc void @Extra_bddImageTreeDelete_rec(ptr noundef %8)
-  tail call void @free(ptr noundef nonnull %0) #10
+  tail call void @free(ptr noundef nonnull %0) #11
   ret void
 }
 
@@ -1080,7 +1087,7 @@ define internal fastcc void @Extra_bddImageTreeDelete_rec(ptr noundef captures(n
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %0, align 8, !tbaa !53
-  tail call void @Cudd_RecursiveDeref(ptr noundef %13, ptr noundef nonnull %11) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %13, ptr noundef nonnull %11) #11
   br label %14
 
 14:                                               ; preds = %12, %9
@@ -1091,16 +1098,16 @@ define internal fastcc void @Extra_bddImageTreeDelete_rec(ptr noundef captures(n
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %0, align 8, !tbaa !53
-  tail call void @Cudd_RecursiveDeref(ptr noundef %18, ptr noundef nonnull %16) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %18, ptr noundef nonnull %16) #11
   br label %19
 
 19:                                               ; preds = %17, %14
-  tail call void @free(ptr noundef nonnull %0) #10
+  tail call void @free(ptr noundef nonnull %0) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define ptr @Extra_bddImageRead(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define ptr @Extra_bddImageRead(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8, !tbaa !72
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !60
@@ -1109,27 +1116,27 @@ define ptr @Extra_bddImageRead(ptr noundef readonly captures(none) %0) local_unn
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Extra_bddImageStart2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
-  %8 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %8 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   store ptr %0, ptr %8, align 8, !tbaa !79
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %10 = load ptr, ptr %9, align 8, !tbaa !45
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = load i32, ptr %11, align 8, !tbaa !3
-  %13 = tail call ptr @Extra_bddComputeCube(ptr noundef %0, ptr noundef %10, i32 noundef %12) #10
-  tail call void @Cudd_Ref(ptr noundef %13) #10
-  %14 = tail call ptr @Extra_bddComputeCube(ptr noundef %0, ptr noundef %5, i32 noundef %4) #10
-  tail call void @Cudd_Ref(ptr noundef %14) #10
-  %15 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %0, ptr noundef %13, ptr noundef %14) #10
+  %13 = tail call ptr @Extra_bddComputeCube(ptr noundef %0, ptr noundef %10, i32 noundef %12) #11
+  tail call void @Cudd_Ref(ptr noundef %13) #11
+  %14 = tail call ptr @Extra_bddComputeCube(ptr noundef %0, ptr noundef %5, i32 noundef %4) #11
+  tail call void @Cudd_Ref(ptr noundef %14) #11
+  %15 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %0, ptr noundef %13, ptr noundef %14) #11
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !81
-  tail call void @Cudd_Ref(ptr noundef %15) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %13) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %14) #10
+  tail call void @Cudd_Ref(ptr noundef %15) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %13) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %14) #11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8, !tbaa !39
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !82
-  tail call void @Cudd_Ref(ptr noundef %18) #10
+  tail call void @Cudd_Ref(ptr noundef %18) #11
   %20 = icmp sgt i32 %2, 0
   br i1 %20, label %.lr.ph, label %Extra_bddImageCompute2.exit
 
@@ -1142,9 +1149,9 @@ define noalias noundef ptr @Extra_bddImageStart2(ptr noundef %0, ptr noundef %1,
   %22 = phi ptr [ %18, %.lr.ph ], [ %25, %21 ]
   %23 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !26
-  %25 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %22, ptr noundef %24) #10
-  tail call void @Cudd_Ref(ptr noundef %25) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %22) #10
+  %25 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %22, ptr noundef %24) #11
+  tail call void @Cudd_Ref(ptr noundef %25) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %22) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.Extra_bddImageCompute2.exit_crit_edge, label %21, !llvm.loop !83
@@ -1156,15 +1163,15 @@ define noalias noundef ptr @Extra_bddImageStart2(ptr noundef %0, ptr noundef %1,
 Extra_bddImageCompute2.exit:                      ; preds = %.Extra_bddImageCompute2.exit_crit_edge, %7
   %26 = phi ptr [ %25, %.Extra_bddImageCompute2.exit_crit_edge ], [ %18, %7 ]
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %28 = tail call ptr @Cudd_bddAndAbstract(ptr noundef nonnull %0, ptr noundef %26, ptr noundef %1, ptr noundef %15) #10
+  %28 = tail call ptr @Cudd_bddAndAbstract(ptr noundef nonnull %0, ptr noundef %26, ptr noundef %1, ptr noundef %15) #11
   store ptr %28, ptr %27, align 8, !tbaa !84
-  tail call void @Cudd_Ref(ptr noundef %28) #10
+  tail call void @Cudd_Ref(ptr noundef %28) #11
   ret ptr %8
 }
 
-declare ptr @Extra_bddComputeCube(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Extra_bddComputeCube(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Cudd_bddAnd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Cudd_bddAnd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_bddImageCompute2(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1175,7 +1182,7 @@ define ptr @Extra_bddImageCompute2(ptr noundef captures(none) %0, ptr noundef %1
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8, !tbaa !79
-  tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %4) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %4) #11
   br label %7
 
 7:                                                ; preds = %5, %2
@@ -1184,14 +1191,14 @@ define ptr @Extra_bddImageCompute2(ptr noundef captures(none) %0, ptr noundef %1
   %10 = load ptr, ptr %9, align 8, !tbaa !82
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !81
-  %13 = tail call ptr @Cudd_bddAndAbstract(ptr noundef %8, ptr noundef %10, ptr noundef %1, ptr noundef %12) #10
+  %13 = tail call ptr @Cudd_bddAndAbstract(ptr noundef %8, ptr noundef %10, ptr noundef %1, ptr noundef %12) #11
   store ptr %13, ptr %3, align 8, !tbaa !84
-  tail call void @Cudd_Ref(ptr noundef %13) #10
+  tail call void @Cudd_Ref(ptr noundef %13) #11
   %14 = load ptr, ptr %3, align 8, !tbaa !84
   ret ptr %14
 }
 
-declare ptr @Cudd_bddAndAbstract(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @Cudd_bddAndAbstract(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @Extra_bddImageTreeDelete2(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1202,7 +1209,7 @@ define void @Extra_bddImageTreeDelete2(ptr noundef captures(none) %0) local_unna
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8, !tbaa !79
-  tail call void @Cudd_RecursiveDeref(ptr noundef %5, ptr noundef nonnull %3) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %5, ptr noundef nonnull %3) #11
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -1213,7 +1220,7 @@ define void @Extra_bddImageTreeDelete2(ptr noundef captures(none) %0) local_unna
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %0, align 8, !tbaa !79
-  tail call void @Cudd_RecursiveDeref(ptr noundef %10, ptr noundef nonnull %8) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %10, ptr noundef nonnull %8) #11
   br label %11
 
 11:                                               ; preds = %9, %6
@@ -1224,30 +1231,30 @@ define void @Extra_bddImageTreeDelete2(ptr noundef captures(none) %0) local_unna
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %0, align 8, !tbaa !79
-  tail call void @Cudd_RecursiveDeref(ptr noundef %15, ptr noundef nonnull %13) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %15, ptr noundef nonnull %13) #11
   br label %16
 
 16:                                               ; preds = %14, %11
-  tail call void @free(ptr noundef nonnull %0) #10
+  tail call void @free(ptr noundef nonnull %0) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Extra_bddImageRead2(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define ptr @Extra_bddImageRead2(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !84
   ret ptr %3
 }
 
-declare i32 @Extra_bddSuppSize(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Extra_bddSuppSize(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @Cudd_DagSize(ptr noundef) local_unnamed_addr #3
+declare i32 @Cudd_DagSize(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Cudd_VectorSupport(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Cudd_VectorSupport(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @Cudd_bddComputeCube(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @Cudd_bddComputeCube(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @Cudd_bddLeq(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @Cudd_bddLeq(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @Extra_CombineTwoNodes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -1258,24 +1265,24 @@ define internal fastcc noalias noundef ptr @Extra_CombineTwoNodes(ptr noundef %0
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !56
   %10 = load ptr, ptr %9, align 8, !tbaa !30
-  %11 = tail call ptr @Cudd_bddAndAbstract(ptr noundef %0, ptr noundef %7, ptr noundef %10, ptr noundef %1) #10
+  %11 = tail call ptr @Cudd_bddAndAbstract(ptr noundef %0, ptr noundef %7, ptr noundef %10, ptr noundef %1) #11
   store ptr %11, ptr %calloc, align 8, !tbaa !30
-  tail call void @Cudd_Ref(ptr noundef %11) #10
+  tail call void @Cudd_Ref(ptr noundef %11) #11
   %12 = load ptr, ptr %5, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !33
   %15 = load ptr, ptr %8, align 8, !tbaa !56
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !33
-  %18 = tail call ptr @Cudd_bddAndAbstract(ptr noundef %0, ptr noundef %14, ptr noundef %17, ptr noundef %1) #10
+  %18 = tail call ptr @Cudd_bddAndAbstract(ptr noundef %0, ptr noundef %14, ptr noundef %17, ptr noundef %1) #11
   %19 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !33
-  tail call void @Cudd_Ref(ptr noundef %18) #10
-  %20 = tail call i32 @Extra_bddSuppSize(ptr noundef %0, ptr noundef %18) #10
+  tail call void @Cudd_Ref(ptr noundef %18) #11
+  %20 = tail call i32 @Extra_bddSuppSize(ptr noundef %0, ptr noundef %18) #11
   %21 = trunc i32 %20 to i16
   %22 = getelementptr inbounds nuw i8, ptr %calloc, i64 20
   store i16 %21, ptr %22, align 4, !tbaa !34
-  %23 = tail call i32 @Cudd_DagSize(ptr noundef %11) #10
+  %23 = tail call i32 @Cudd_DagSize(ptr noundef %11) #11
   %24 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   store i32 %23, ptr %24, align 8, !tbaa !35
   %25 = getelementptr inbounds nuw i8, ptr %calloc, i64 22
@@ -1292,10 +1299,10 @@ define internal fastcc noalias noundef ptr @Extra_CombineTwoNodes(ptr noundef %0
   %30 = load ptr, ptr %29, align 8, !tbaa !60
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !60
-  %33 = tail call ptr @Cudd_bddAndAbstract(ptr noundef %0, ptr noundef %30, ptr noundef %32, ptr noundef %1) #10
+  %33 = tail call ptr @Cudd_bddAndAbstract(ptr noundef %0, ptr noundef %30, ptr noundef %32, ptr noundef %1) #11
   %34 = getelementptr inbounds nuw i8, ptr %calloc40, i64 16
   store ptr %33, ptr %34, align 8, !tbaa !60
-  tail call void @Cudd_Ref(ptr noundef %33) #10
+  tail call void @Cudd_Ref(ptr noundef %33) #11
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8, !tbaa !39
   %.not = icmp eq ptr %1, %36
@@ -1304,7 +1311,7 @@ define internal fastcc noalias noundef ptr @Extra_CombineTwoNodes(ptr noundef %0
 37:                                               ; preds = %4
   %38 = getelementptr inbounds nuw i8, ptr %calloc40, i64 8
   store ptr %1, ptr %38, align 8, !tbaa !58
-  tail call void @Cudd_Ref(ptr noundef %1) #10
+  tail call void @Cudd_Ref(ptr noundef %1) #11
   br label %39
 
 39:                                               ; preds = %37, %4
@@ -1313,8 +1320,8 @@ define internal fastcc noalias noundef ptr @Extra_CombineTwoNodes(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Extra_bddImagePrintLatchDependencyOne(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
-  %6 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) #10
-  tail call void @Cudd_Ref(ptr noundef %6) #10
+  %6 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) #11
+  tail call void @Cudd_Ref(ptr noundef %6) #11
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load i32, ptr %8, align 8, !tbaa !3
@@ -1330,7 +1337,7 @@ define internal fastcc void @Extra_bddImagePrintLatchDependencyOne(ptr noundef %
   %13 = load ptr, ptr %11, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !26
-  %16 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %15) #10
+  %16 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %15) #11
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %27, label %17
 
@@ -1338,7 +1345,7 @@ define internal fastcc void @Extra_bddImagePrintLatchDependencyOne(ptr noundef %
   %18 = load ptr, ptr %11, align 8, !tbaa !45
   %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !26
-  %21 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %20) #10
+  %21 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %20) #11
   %.not21 = icmp eq i32 %21, 0
   br i1 %.not21, label %22, label %27
 
@@ -1346,7 +1353,7 @@ define internal fastcc void @Extra_bddImagePrintLatchDependencyOne(ptr noundef %
   %23 = load ptr, ptr %11, align 8, !tbaa !45
   %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !26
-  %26 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %25) #10
+  %26 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %25) #11
   %.not22 = icmp eq i32 %26, 0
   %. = select i1 %.not22, i32 105, i32 110
   br label %27
@@ -1362,34 +1369,35 @@ define internal fastcc void @Extra_bddImagePrintLatchDependencyOne(ptr noundef %
 
 ._crit_edge:                                      ; preds = %27, %5
   %putchar = tail call i32 @putchar(i32 10)
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %6) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %6) #11
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #7
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #8
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind }
-attributes #8 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(0) }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind }
+attributes #9 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
+attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -112,7 +112,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_support_format_7zip(ptr nou
 
 declare i32 @__archive_check_magic(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -907,170 +907,171 @@ slurp_central_directory.exit:                     ; preds = %26, %skip_sfx.exit.
   %317 = load i32, ptr %316, align 4, !tbaa !110
   %318 = and i32 %317, 7
   %.not160 = icmp eq i32 %318, 0
-  br i1 %.not160, label %339, label %319
+  br i1 %.not160, label %340, label %319
 
 319:                                              ; preds = %314
   %320 = call noalias dereferenceable_or_null(22) ptr @malloc(i64 noundef 22) #21
   %.not161 = icmp eq ptr %320, null
-  br i1 %.not161, label %339, label %321
+  br i1 %.not161, label %340, label %321
 
 321:                                              ; preds = %319
-  %322 = and i32 %317, 1
-  %.not162 = icmp eq i32 %322, 0
-  br i1 %.not162, label %325, label %323
+  %322 = load i32, ptr %316, align 4, !tbaa !110
+  %323 = and i32 %322, 1
+  %.not162 = icmp eq i32 %323, 0
+  br i1 %.not162, label %326, label %324
 
-323:                                              ; preds = %321
+324:                                              ; preds = %321
   store i64 34177693753045548, ptr %320, align 1
-  %324 = getelementptr inbounds nuw i8, ptr %320, i64 7
-  br label %325
+  %325 = getelementptr inbounds nuw i8, ptr %320, i64 7
+  br label %326
 
-325:                                              ; preds = %323, %321
-  %.0137 = phi ptr [ %324, %323 ], [ %320, %321 ]
-  %326 = and i32 %317, 2
-  %.not163 = icmp eq i32 %326, 0
-  br i1 %.not163, label %329, label %327
+326:                                              ; preds = %324, %321
+  %.0137 = phi ptr [ %325, %324 ], [ %320, %321 ]
+  %327 = and i32 %322, 2
+  %.not163 = icmp eq i32 %327, 0
+  br i1 %.not163, label %330, label %328
 
-327:                                              ; preds = %325
+328:                                              ; preds = %326
   store i64 31073729293936684, ptr %.0137, align 1
-  %328 = getelementptr inbounds nuw i8, ptr %.0137, i64 7
-  br label %329
+  %329 = getelementptr inbounds nuw i8, ptr %.0137, i64 7
+  br label %330
 
-329:                                              ; preds = %327, %325
-  %.1138 = phi ptr [ %328, %327 ], [ %.0137, %325 ]
-  %330 = and i32 %317, 4
-  %.not164 = icmp eq i32 %330, 0
-  br i1 %.not164, label %333, label %331
+330:                                              ; preds = %328, %326
+  %.1138 = phi ptr [ %329, %328 ], [ %.0137, %326 ]
+  %331 = and i32 %322, 4
+  %.not164 = icmp eq i32 %331, 0
+  br i1 %.not164, label %334, label %332
 
-331:                                              ; preds = %329
+332:                                              ; preds = %330
   store i64 30792323289412396, ptr %.1138, align 1
-  %332 = getelementptr inbounds nuw i8, ptr %.1138, i64 7
-  br label %333
+  %333 = getelementptr inbounds nuw i8, ptr %.1138, i64 7
+  br label %334
 
-333:                                              ; preds = %331, %329
-  %.2139 = phi ptr [ %332, %331 ], [ %.1138, %329 ]
-  %334 = icmp ugt ptr %.2139, %320
-  br i1 %334, label %335, label %338
+334:                                              ; preds = %332, %330
+  %.2139 = phi ptr [ %333, %332 ], [ %.1138, %330 ]
+  %335 = icmp ugt ptr %.2139, %320
+  br i1 %335, label %336, label %339
 
-335:                                              ; preds = %333
-  %336 = getelementptr inbounds nuw i8, ptr %320, i64 1
-  %337 = call ptr @archive_entry_copy_fflags_text(ptr noundef %1, ptr noundef nonnull %336) #18
-  br label %338
-
-338:                                              ; preds = %335, %333
-  call void @free(ptr noundef nonnull %320) #18
+336:                                              ; preds = %334
+  %337 = getelementptr inbounds nuw i8, ptr %320, i64 1
+  %338 = call ptr @archive_entry_copy_fflags_text(ptr noundef %1, ptr noundef nonnull %337) #18
   br label %339
 
-339:                                              ; preds = %319, %338, %314
-  %340 = getelementptr inbounds nuw i8, ptr %11, i64 192
-  %341 = load i64, ptr %340, align 8, !tbaa !109
-  %342 = icmp eq i64 %341, 0
-  br i1 %342, label %343, label %.thread243
+339:                                              ; preds = %336, %334
+  call void @free(ptr noundef nonnull %320) #18
+  br label %340
 
-343:                                              ; preds = %339
+340:                                              ; preds = %319, %339, %314
+  %341 = getelementptr inbounds nuw i8, ptr %11, i64 192
+  %342 = load i64, ptr %341, align 8, !tbaa !109
+  %343 = icmp eq i64 %342, 0
+  br i1 %343, label %344, label %.thread243
+
+344:                                              ; preds = %340
   store i8 1, ptr %230, align 8, !tbaa !87
-  %344 = load i32, ptr %279, align 8, !tbaa !99
-  %345 = and i32 %344, 61440
-  %346 = icmp eq i32 %345, 40960
-  br i1 %346, label %._crit_edge.thread, label %375
+  %345 = load i32, ptr %279, align 8, !tbaa !99
+  %346 = and i32 %345, 61440
+  %347 = icmp eq i32 %346, 40960
+  br i1 %347, label %._crit_edge.thread, label %376
 
-.thread243:                                       ; preds = %339
-  %347 = load i32, ptr %279, align 8, !tbaa !99
-  %348 = and i32 %347, 61440
-  %349 = icmp eq i32 %348, 40960
-  br i1 %349, label %.lr.ph201, label %375
+.thread243:                                       ; preds = %340
+  %348 = load i32, ptr %279, align 8, !tbaa !99
+  %349 = and i32 %348, 61440
+  %350 = icmp eq i32 %349, 40960
+  br i1 %350, label %.lr.ph201, label %376
 
-.lr.ph201:                                        ; preds = %.thread243, %360
-  %.0133200 = phi i64 [ %363, %360 ], [ 0, %.thread243 ]
-  %.0135199 = phi ptr [ %357, %360 ], [ null, %.thread243 ]
+.lr.ph201:                                        ; preds = %.thread243, %361
+  %.0133200 = phi i64 [ %364, %361 ], [ 0, %.thread243 ]
+  %.0135199 = phi ptr [ %358, %361 ], [ null, %.thread243 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %350 = call i32 @archive_read_format_7zip_read_data(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
-  %351 = icmp slt i32 %350, -20
-  br i1 %351, label %352, label %353
+  %351 = call i32 @archive_read_format_7zip_read_data(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %352 = icmp slt i32 %351, -20
+  br i1 %352, label %353, label %354
 
-352:                                              ; preds = %.lr.ph201
+353:                                              ; preds = %.lr.ph201
   call void @free(ptr noundef %.0135199) #18
   br label %.thread
 
-353:                                              ; preds = %.lr.ph201
-  %354 = load i64, ptr %7, align 8, !tbaa !38
-  %355 = add i64 %.0133200, 1
-  %356 = add i64 %355, %354
-  %357 = call ptr @realloc(ptr noundef %.0135199, i64 noundef %356) #22
-  %358 = icmp eq ptr %357, null
-  br i1 %358, label %359, label %360
+354:                                              ; preds = %.lr.ph201
+  %355 = load i64, ptr %7, align 8, !tbaa !38
+  %356 = add i64 %.0133200, 1
+  %357 = add i64 %356, %355
+  %358 = call ptr @realloc(ptr noundef %.0135199, i64 noundef %357) #22
+  %359 = icmp eq ptr %358, null
+  br i1 %359, label %360, label %361
 
-359:                                              ; preds = %353
+360:                                              ; preds = %354
   call void @free(ptr noundef %.0135199) #18
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.12) #18
   br label %.thread
 
-.thread:                                          ; preds = %352, %359
-  %.4.ph = phi i32 [ -30, %359 ], [ %350, %352 ]
+.thread:                                          ; preds = %353, %360
+  %.4.ph = phi i32 [ -30, %360 ], [ %351, %353 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread176
 
-360:                                              ; preds = %353
-  %361 = getelementptr inbounds nuw i8, ptr %357, i64 %.0133200
-  %362 = load ptr, ptr %6, align 8, !tbaa !111
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %361, ptr align 1 %362, i64 %354, i1 false)
-  %363 = add i64 %354, %.0133200
+361:                                              ; preds = %354
+  %362 = getelementptr inbounds nuw i8, ptr %358, i64 %.0133200
+  %363 = load ptr, ptr %6, align 8, !tbaa !111
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %362, ptr align 1 %363, i64 %355, i1 false)
+  %364 = add i64 %355, %.0133200
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %364 = load i64, ptr %340, align 8, !tbaa !109
-  %.not165 = icmp eq i64 %364, 0
+  %365 = load i64, ptr %341, align 8, !tbaa !109
+  %.not165 = icmp eq i64 %365, 0
   br i1 %.not165, label %._crit_edge, label %.lr.ph201, !llvm.loop !112
 
-._crit_edge:                                      ; preds = %360
-  %365 = icmp eq i64 %363, 0
-  br i1 %365, label %._crit_edge.thread, label %369
+._crit_edge:                                      ; preds = %361
+  %366 = icmp eq i64 %364, 0
+  br i1 %366, label %._crit_edge.thread, label %370
 
-._crit_edge.thread:                               ; preds = %343, %._crit_edge
-  %.0135.lcssa247 = phi ptr [ %357, %._crit_edge ], [ null, %343 ]
-  %366 = load i32, ptr %279, align 8, !tbaa !99
-  %367 = and i32 %366, -61441
-  %368 = or disjoint i32 %367, 32768
-  store i32 %368, ptr %279, align 8, !tbaa !99
-  call void @archive_entry_set_mode(ptr noundef %1, i32 noundef %368) #18
-  br label %374
-
-369:                                              ; preds = %._crit_edge
-  %370 = getelementptr inbounds nuw i8, ptr %357, i64 %363
-  store i8 0, ptr %370, align 1, !tbaa !37
-  %371 = call ptr @archive_string_conversion_from_charset(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef 1) #18
-  %.not166 = icmp eq ptr %371, null
-  br i1 %.not166, label %.thread173, label %372
-
-.thread173:                                       ; preds = %369
-  call void @free(ptr noundef nonnull %357) #18
-  br label %.thread176
-
-372:                                              ; preds = %369
-  %373 = call i32 @_archive_entry_copy_symlink_l(ptr noundef %1, ptr noundef nonnull %357, i64 noundef %363, ptr noundef nonnull %371) #18
-  br label %374
-
-374:                                              ; preds = %._crit_edge.thread, %372
-  %.0135.lcssa246 = phi ptr [ %.0135.lcssa247, %._crit_edge.thread ], [ %357, %372 ]
-  call void @free(ptr noundef %.0135.lcssa246) #18
-  call void @archive_entry_set_size(ptr noundef %1, i64 noundef 0) #18
+._crit_edge.thread:                               ; preds = %344, %._crit_edge
+  %.0135.lcssa247 = phi ptr [ %358, %._crit_edge ], [ null, %344 ]
+  %367 = load i32, ptr %279, align 8, !tbaa !99
+  %368 = and i32 %367, -61441
+  %369 = or disjoint i32 %368, 32768
+  store i32 %369, ptr %279, align 8, !tbaa !99
+  call void @archive_entry_set_mode(ptr noundef %1, i32 noundef %369) #18
   br label %375
 
-375:                                              ; preds = %.thread243, %374, %343
-  %376 = getelementptr inbounds nuw i8, ptr %11, i64 20688
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %376, ptr noundef nonnull align 1 dereferenceable(6) @.str.5, i64 6, i1 false)
-  store ptr %376, ptr %18, align 8, !tbaa !58
+370:                                              ; preds = %._crit_edge
+  %371 = getelementptr inbounds nuw i8, ptr %358, i64 %364
+  store i8 0, ptr %371, align 1, !tbaa !37
+  %372 = call ptr @archive_string_conversion_from_charset(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef 1) #18
+  %.not166 = icmp eq ptr %372, null
+  br i1 %.not166, label %.thread173, label %373
+
+.thread173:                                       ; preds = %370
+  call void @free(ptr noundef nonnull %358) #18
+  br label %.thread176
+
+373:                                              ; preds = %370
+  %374 = call i32 @_archive_entry_copy_symlink_l(ptr noundef %1, ptr noundef nonnull %358, i64 noundef %364, ptr noundef nonnull %372) #18
+  br label %375
+
+375:                                              ; preds = %._crit_edge.thread, %373
+  %.0135.lcssa246 = phi ptr [ %.0135.lcssa247, %._crit_edge.thread ], [ %358, %373 ]
+  call void @free(ptr noundef %.0135.lcssa246) #18
+  call void @archive_entry_set_size(ptr noundef %1, i64 noundef 0) #18
+  br label %376
+
+376:                                              ; preds = %.thread243, %375, %344
+  %377 = getelementptr inbounds nuw i8, ptr %11, i64 20688
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %377, ptr noundef nonnull align 1 dereferenceable(6) @.str.5, i64 6, i1 false)
+  store ptr %377, ptr %18, align 8, !tbaa !58
   br label %.thread176
 
 .critedge168:                                     ; preds = %slurp_central_directory.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread176
 
-.thread176:                                       ; preds = %.thread173, %.thread, %375, %236, %221, %.critedge168, %274
-  %.1 = phi i32 [ %.089.i, %.critedge168 ], [ 1, %221 ], [ -30, %274 ], [ -30, %236 ], [ %.0140, %375 ], [ -30, %.thread173 ], [ %.4.ph, %.thread ]
+.thread176:                                       ; preds = %.thread173, %.thread, %376, %236, %221, %.critedge168, %274
+  %.1 = phi i32 [ %.089.i, %.critedge168 ], [ 1, %221 ], [ -30, %274 ], [ -30, %236 ], [ %.0140, %376 ], [ -30, %.thread173 ], [ %.4.ph, %.thread ]
   ret i32 %.1
 }
 
@@ -1506,12 +1507,12 @@ declare void @archive_entry_set_atime(ptr noundef, i64 noundef, i64 noundef) loc
 
 declare void @archive_entry_set_size(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 declare ptr @archive_entry_copy_fflags_text(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -8340,14 +8341,14 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #17
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

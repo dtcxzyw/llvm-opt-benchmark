@@ -24,7 +24,7 @@ define range(i32 -67108864, 67108865) i32 @Cudd_ApaNumberOfDigits(i32 noundef %0
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite, errnomem: write) uwtable
 define noalias noundef ptr @Cudd_NewApaNumber(i32 noundef %0) local_unnamed_addr #1 {
   %2 = sext i32 %0 to i64
   %3 = shl nsw i64 %2, 2
@@ -32,7 +32,7 @@ define noalias noundef ptr @Cudd_NewApaNumber(i32 noundef %0) local_unnamed_addr
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -878,161 +878,167 @@ define noalias noundef ptr @Cudd_ApaCountMinterm(ptr noundef readonly captures(n
   %17 = shl nsw i64 %16, 2
   %18 = tail call noalias noundef ptr @malloc(i64 noundef %17) #18
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %90, label %20
+  br i1 %19, label %96, label %20
 
 20:                                               ; preds = %4
-  %21 = icmp sgt i32 %spec.select.i, 0
-  br i1 %21, label %.lr.ph.preheader.i, label %._crit_edge.i
+  %21 = load i32, ptr %3, align 4, !tbaa !3
+  %22 = icmp sgt i32 %21, 0
+  br i1 %22, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %20
-  %22 = zext nneg i32 %spec.select.i to i64
-  %23 = shl nuw nsw i64 %22, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %18, i8 0, i64 %23, i1 false), !tbaa !3
+  %23 = zext nneg i32 %21 to i64
+  %24 = shl nuw nsw i64 %23, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %18, i8 0, i64 %24, i1 false), !tbaa !3
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %20
-  %24 = add nsw i32 %spec.select.i, -1
   %.neg.i = sdiv i32 %2, -32
-  %25 = add nsw i32 %24, %.neg.i
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %Cudd_ApaPowerOfTwo.exit, label %27
+  %25 = add nsw i32 %.neg.i, -1
+  %26 = add i32 %25, %21
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %Cudd_ApaPowerOfTwo.exit, label %28
 
-27:                                               ; preds = %._crit_edge.i
-  %28 = and i32 %2, 31
-  %29 = shl nuw i32 1, %28
-  %30 = zext nneg i32 %25 to i64
-  %31 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %30
-  store i32 %29, ptr %31, align 4, !tbaa !3
+28:                                               ; preds = %._crit_edge.i
+  %29 = and i32 %2, 31
+  %30 = shl nuw i32 1, %29
+  %31 = zext nneg i32 %26 to i64
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %31
+  store i32 %30, ptr %32, align 4, !tbaa !3
   br label %Cudd_ApaPowerOfTwo.exit
 
-Cudd_ApaPowerOfTwo.exit:                          ; preds = %._crit_edge.i, %27
-  %32 = tail call noalias noundef ptr @malloc(i64 noundef %17) #18
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %35
+Cudd_ApaPowerOfTwo.exit:                          ; preds = %._crit_edge.i, %28
+  %33 = sext i32 %21 to i64
+  %34 = shl nsw i64 %33, 2
+  %35 = tail call noalias noundef ptr @malloc(i64 noundef %34) #18
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %38
 
-34:                                               ; preds = %Cudd_ApaPowerOfTwo.exit
+37:                                               ; preds = %Cudd_ApaPowerOfTwo.exit
   tail call void @free(ptr noundef nonnull %18) #19
-  br label %90
+  br label %96
 
-35:                                               ; preds = %Cudd_ApaPowerOfTwo.exit
-  %36 = icmp sgt i32 %spec.select.i, 1
-  br i1 %36, label %.lr.ph.preheader.i70, label %Cudd_ApaSetToLiteral.exit
+38:                                               ; preds = %Cudd_ApaPowerOfTwo.exit
+  %39 = load i32, ptr %3, align 4, !tbaa !3
+  %40 = add i32 %39, -1
+  %41 = icmp sgt i32 %39, 1
+  br i1 %41, label %.lr.ph.preheader.i70, label %Cudd_ApaSetToLiteral.exit
 
-.lr.ph.preheader.i70:                             ; preds = %35
-  %37 = zext nneg i32 %24 to i64
-  %38 = shl nuw nsw i64 %37, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %32, i8 0, i64 %38, i1 false), !tbaa !3
+.lr.ph.preheader.i70:                             ; preds = %38
+  %42 = zext nneg i32 %40 to i64
+  %43 = shl nuw nsw i64 %42, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %35, i8 0, i64 %43, i1 false), !tbaa !3
   br label %Cudd_ApaSetToLiteral.exit
 
-Cudd_ApaSetToLiteral.exit:                        ; preds = %35, %.lr.ph.preheader.i70
-  %39 = sext i32 %24 to i64
-  %40 = getelementptr inbounds [4 x i8], ptr %32, i64 %39
-  store i32 0, ptr %40, align 4, !tbaa !3
-  %41 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #19
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %44
+Cudd_ApaSetToLiteral.exit:                        ; preds = %38, %.lr.ph.preheader.i70
+  %44 = sext i32 %40 to i64
+  %45 = getelementptr inbounds [4 x i8], ptr %35, i64 %44
+  store i32 0, ptr %45, align 4, !tbaa !3
+  %46 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #19
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %49
 
-43:                                               ; preds = %Cudd_ApaSetToLiteral.exit
+48:                                               ; preds = %Cudd_ApaSetToLiteral.exit
   tail call void @free(ptr noundef nonnull %18) #19
-  tail call void @free(ptr noundef nonnull %32) #19
-  br label %90
+  tail call void @free(ptr noundef nonnull %35) #19
+  br label %96
 
-44:                                               ; preds = %Cudd_ApaSetToLiteral.exit
-  %45 = ptrtoint ptr %1 to i64
-  %46 = and i64 %45, -2
-  %47 = inttoptr i64 %46 to ptr
-  %48 = load i32, ptr %3, align 4, !tbaa !3
-  %49 = tail call fastcc ptr @cuddApaCountMintermAux(ptr noundef %47, i32 noundef %48, ptr noundef %18, ptr noundef %32, ptr noundef %41)
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %53
+49:                                               ; preds = %Cudd_ApaSetToLiteral.exit
+  %50 = ptrtoint ptr %1 to i64
+  %51 = and i64 %50, -2
+  %52 = inttoptr i64 %51 to ptr
+  %53 = load i32, ptr %3, align 4, !tbaa !3
+  %54 = tail call fastcc ptr @cuddApaCountMintermAux(ptr noundef %52, i32 noundef %53, ptr noundef %18, ptr noundef %35, ptr noundef %46)
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %58
 
-51:                                               ; preds = %44
+56:                                               ; preds = %49
   tail call void @free(ptr noundef nonnull %18) #19
-  tail call void @free(ptr noundef nonnull %32) #19
-  %52 = tail call i32 @st__foreach(ptr noundef nonnull %41, ptr noundef nonnull @cuddApaStCountfree, ptr noundef null) #19
-  tail call void @st__free_table(ptr noundef nonnull %41) #19
-  br label %90
+  tail call void @free(ptr noundef nonnull %35) #19
+  %57 = tail call i32 @st__foreach(ptr noundef nonnull %46, ptr noundef nonnull @cuddApaStCountfree, ptr noundef null) #19
+  tail call void @st__free_table(ptr noundef nonnull %46) #19
+  br label %96
 
-53:                                               ; preds = %44
-  %54 = load i32, ptr %3, align 4, !tbaa !3
-  %55 = sext i32 %54 to i64
-  %56 = shl nsw i64 %55, 2
-  %57 = tail call noalias noundef ptr @malloc(i64 noundef %56) #18
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %65
+58:                                               ; preds = %49
+  %59 = load i32, ptr %3, align 4, !tbaa !3
+  %60 = sext i32 %59 to i64
+  %61 = shl nsw i64 %60, 2
+  %62 = tail call noalias noundef ptr @malloc(i64 noundef %61) #18
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %64, label %70
 
-59:                                               ; preds = %53
+64:                                               ; preds = %58
   tail call void @free(ptr noundef nonnull %18) #19
-  tail call void @free(ptr noundef nonnull %32) #19
-  %60 = tail call i32 @st__foreach(ptr noundef nonnull %41, ptr noundef nonnull @cuddApaStCountfree, ptr noundef null) #19
-  tail call void @st__free_table(ptr noundef nonnull %41) #19
-  %61 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %62 = load i32, ptr %61, align 4, !tbaa !43
-  %63 = icmp eq i32 %62, 1
-  br i1 %63, label %64, label %90
+  tail call void @free(ptr noundef nonnull %35) #19
+  %65 = tail call i32 @st__foreach(ptr noundef nonnull %46, ptr noundef nonnull @cuddApaStCountfree, ptr noundef null) #19
+  tail call void @st__free_table(ptr noundef nonnull %46) #19
+  %66 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %67 = load i32, ptr %66, align 4, !tbaa !43
+  %68 = icmp eq i32 %67, 1
+  br i1 %68, label %69, label %96
 
-64:                                               ; preds = %59
-  tail call void @free(ptr noundef nonnull %49) #19
-  br label %90
+69:                                               ; preds = %64
+  tail call void @free(ptr noundef nonnull %54) #19
+  br label %96
 
-65:                                               ; preds = %53
-  %66 = and i64 %45, 1
-  %.not = icmp eq i64 %66, 0
-  %67 = icmp sgt i32 %54, 0
-  br i1 %.not, label %83, label %68
+70:                                               ; preds = %58
+  %71 = and i64 %50, 1
+  %.not = icmp eq i64 %71, 0
+  %72 = load i32, ptr %3, align 4, !tbaa !3
+  %73 = icmp sgt i32 %72, 0
+  br i1 %.not, label %89, label %74
 
-68:                                               ; preds = %65
-  br i1 %67, label %.lr.ph.preheader.i72, label %Cudd_ApaSubtract.exit
+74:                                               ; preds = %70
+  br i1 %73, label %.lr.ph.preheader.i72, label %Cudd_ApaSubtract.exit
 
-.lr.ph.preheader.i72:                             ; preds = %68
-  %69 = zext nneg i32 %54 to i64
+.lr.ph.preheader.i72:                             ; preds = %74
+  %75 = zext nneg i32 %72 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i72
-  %indvars.iv.i = phi i64 [ %69, %.lr.ph.preheader.i72 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.013.i = phi i64 [ 4294967296, %.lr.ph.preheader.i72 ], [ %79, %.lr.ph.i ]
+  %indvars.iv.i = phi i64 [ %75, %.lr.ph.preheader.i72 ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %.013.i = phi i64 [ 4294967296, %.lr.ph.preheader.i72 ], [ %85, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %70 = lshr i64 %.013.i, 32
-  %71 = add nuw nsw i64 %70, 4294967295
-  %72 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.next.i
-  %73 = load i32, ptr %72, align 4, !tbaa !3
-  %74 = zext i32 %73 to i64
-  %75 = add nuw nsw i64 %71, %74
-  %76 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.next.i
-  %77 = load i32, ptr %76, align 4, !tbaa !3
-  %78 = zext i32 %77 to i64
-  %79 = sub nuw nsw i64 %75, %78
-  %80 = trunc i64 %79 to i32
-  %81 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.next.i
-  store i32 %80, ptr %81, align 4, !tbaa !3
-  %82 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %82, label %.lr.ph.i, label %Cudd_ApaSubtract.exit, !llvm.loop !10
+  %76 = lshr i64 %.013.i, 32
+  %77 = add nuw nsw i64 %76, 4294967295
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.next.i
+  %79 = load i32, ptr %78, align 4, !tbaa !3
+  %80 = zext i32 %79 to i64
+  %81 = add nuw nsw i64 %77, %80
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.next.i
+  %83 = load i32, ptr %82, align 4, !tbaa !3
+  %84 = zext i32 %83 to i64
+  %85 = sub nuw nsw i64 %81, %84
+  %86 = trunc i64 %85 to i32
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.next.i
+  store i32 %86, ptr %87, align 4, !tbaa !3
+  %88 = icmp samesign ugt i64 %indvars.iv.i, 1
+  br i1 %88, label %.lr.ph.i, label %Cudd_ApaSubtract.exit, !llvm.loop !10
 
-83:                                               ; preds = %65
-  br i1 %67, label %.lr.ph.preheader.i74, label %Cudd_ApaSubtract.exit
+89:                                               ; preds = %70
+  br i1 %73, label %.lr.ph.preheader.i74, label %Cudd_ApaSubtract.exit
 
-.lr.ph.preheader.i74:                             ; preds = %83
-  %wide.trip.count.i = zext nneg i32 %54 to i64
-  %84 = shl nuw nsw i64 %wide.trip.count.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %57, ptr nonnull align 4 %49, i64 %84, i1 false), !tbaa !3
+.lr.ph.preheader.i74:                             ; preds = %89
+  %wide.trip.count.i = zext nneg i32 %72 to i64
+  %90 = shl nuw nsw i64 %wide.trip.count.i, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %62, ptr nonnull align 4 %54, i64 %90, i1 false), !tbaa !3
   br label %Cudd_ApaSubtract.exit
 
-Cudd_ApaSubtract.exit:                            ; preds = %.lr.ph.i, %.lr.ph.preheader.i74, %83, %68
+Cudd_ApaSubtract.exit:                            ; preds = %.lr.ph.i, %.lr.ph.preheader.i74, %89, %74
   tail call void @free(ptr noundef nonnull %18) #19
-  tail call void @free(ptr noundef nonnull %32) #19
-  %85 = tail call i32 @st__foreach(ptr noundef nonnull %41, ptr noundef nonnull @cuddApaStCountfree, ptr noundef null) #19
-  tail call void @st__free_table(ptr noundef nonnull %41) #19
-  %86 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %87 = load i32, ptr %86, align 4, !tbaa !43
-  %88 = icmp eq i32 %87, 1
-  br i1 %88, label %89, label %90
+  tail call void @free(ptr noundef nonnull %35) #19
+  %91 = tail call i32 @st__foreach(ptr noundef nonnull %46, ptr noundef nonnull @cuddApaStCountfree, ptr noundef null) #19
+  tail call void @st__free_table(ptr noundef nonnull %46) #19
+  %92 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %93 = load i32, ptr %92, align 4, !tbaa !43
+  %94 = icmp eq i32 %93, 1
+  br i1 %94, label %95, label %96
 
-89:                                               ; preds = %Cudd_ApaSubtract.exit
-  tail call void @free(ptr noundef nonnull %49) #19
-  br label %90
+95:                                               ; preds = %Cudd_ApaSubtract.exit
+  tail call void @free(ptr noundef nonnull %54) #19
+  br label %96
 
-90:                                               ; preds = %Cudd_ApaSubtract.exit, %89, %59, %64, %4, %51, %43, %34
-  %.0 = phi ptr [ null, %59 ], [ null, %34 ], [ null, %43 ], [ null, %51 ], [ null, %4 ], [ null, %64 ], [ %57, %89 ], [ %57, %Cudd_ApaSubtract.exit ]
+96:                                               ; preds = %Cudd_ApaSubtract.exit, %95, %64, %69, %4, %56, %48, %37
+  %.0 = phi ptr [ null, %64 ], [ null, %37 ], [ null, %48 ], [ null, %56 ], [ null, %4 ], [ null, %69 ], [ %62, %95 ], [ %62, %Cudd_ApaSubtract.exit ]
   ret ptr %.0
 }
 
@@ -1424,8 +1430,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

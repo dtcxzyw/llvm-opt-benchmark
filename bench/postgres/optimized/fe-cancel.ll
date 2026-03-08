@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @PQcancelCreate(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pqMakeEmptyPGconn() #16
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %60, label %4
+  br i1 %3, label %62, label %4
 
 4:                                                ; preds = %1
   %.not = icmp eq ptr %0, null
@@ -36,7 +36,7 @@ define ptr @PQcancelCreate(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %4
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str) #16
-  br label %60
+  br label %62
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 520
@@ -46,17 +46,17 @@ define ptr @PQcancelCreate(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.1) #16
-  br label %60
+  br label %62
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 344
   store i8 1, ptr %12, align 8
   %13 = tail call zeroext i1 @pqCopyPGconn(ptr noundef nonnull %0, ptr noundef nonnull %2) #16
-  br i1 %13, label %14, label %60
+  br i1 %13, label %14, label %62
 
 14:                                               ; preds = %11
   %15 = tail call zeroext i1 @pqConnectOptions2(ptr noundef nonnull %2) #16
-  br i1 %15, label %16, label %60
+  br i1 %15, label %16, label %62
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 936
@@ -76,7 +76,7 @@ define ptr @PQcancelCreate(ptr noundef %0) local_unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 480
   store ptr %25, ptr %26, align 8
   %.not53 = icmp eq ptr %25, null
-  br i1 %.not53, label %58, label %27
+  br i1 %.not53, label %60, label %27
 
 27:                                               ; preds = %16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 480
@@ -101,7 +101,7 @@ define ptr @PQcancelCreate(ptr noundef %0) local_unnamed_addr #0 {
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %35, ptr %36, align 8
   %.not55 = icmp eq ptr %35, null
-  br i1 %.not55, label %58, label %37
+  br i1 %.not55, label %60, label %37
 
 37:                                               ; preds = %34, %27
   %.not56 = icmp eq ptr %.sroa.5.0.copyload, null
@@ -112,7 +112,7 @@ define ptr @PQcancelCreate(ptr noundef %0) local_unnamed_addr #0 {
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %39, ptr %40, align 8
   %.not57 = icmp eq ptr %39, null
-  br i1 %.not57, label %58, label %41
+  br i1 %.not57, label %60, label %41
 
 41:                                               ; preds = %38, %37
   %.not58 = icmp eq ptr %.sroa.7.0.copyload, null
@@ -123,7 +123,7 @@ define ptr @PQcancelCreate(ptr noundef %0) local_unnamed_addr #0 {
   %44 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %43, ptr %44, align 8
   %.not59 = icmp eq ptr %43, null
-  br i1 %.not59, label %58, label %45
+  br i1 %.not59, label %60, label %45
 
 45:                                               ; preds = %42, %41
   %.not60 = icmp eq ptr %.sroa.9.0.copyload, null
@@ -134,33 +134,35 @@ define ptr @PQcancelCreate(ptr noundef %0) local_unnamed_addr #0 {
   %48 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %47, ptr %48, align 8
   %.not61 = icmp eq ptr %47, null
-  br i1 %.not61, label %58, label %49
+  br i1 %.not61, label %60, label %49
 
 49:                                               ; preds = %46, %45
-  %50 = tail call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 1, i64 noundef 144) #17
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 888
-  store ptr %50, ptr %51, align 8
-  %.not62 = icmp eq ptr %50, null
-  br i1 %.not62, label %58, label %52
+  %50 = load i32, ptr %24, align 8
+  %51 = sext i32 %50 to i64
+  %52 = tail call noalias ptr @calloc(i64 noundef %51, i64 noundef 144) #17
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 888
+  store ptr %52, ptr %53, align 8
+  %.not62 = icmp eq ptr %52, null
+  br i1 %.not62, label %60, label %54
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %53, ptr noundef nonnull align 8 dereferenceable(136) %54, i64 136, i1 false)
-  %55 = load i16, ptr %54, align 8
-  %56 = zext i16 %55 to i32
-  store i32 %56, ptr %50, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  store i32 14, ptr %57, align 8
-  br label %60
-
-58:                                               ; preds = %49, %46, %42, %38, %34, %16
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %55, ptr noundef nonnull align 8 dereferenceable(136) %56, i64 136, i1 false)
+  %57 = load i16, ptr %56, align 8
+  %58 = zext i16 %57 to i32
+  store i32 %58, ptr %52, align 8
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  store i32 1, ptr %59, align 8
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.2) #16
-  br label %60
+  store i32 14, ptr %59, align 8
+  br label %62
 
-60:                                               ; preds = %14, %11, %1, %58, %52, %10, %5
+60:                                               ; preds = %49, %46, %42, %38, %34, %16
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 416
+  store i32 1, ptr %61, align 8
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.2) #16
+  br label %62
+
+62:                                               ; preds = %14, %11, %1, %60, %54, %10, %5
   ret ptr %2
 }
 
@@ -174,13 +176,13 @@ declare zeroext i1 @pqConnectOptions2(ptr noundef) local_unnamed_addr #1
 
 declare void @pqReleaseConnHosts(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
@@ -442,7 +444,7 @@ define noundef ptr @PQgetCancel(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 declare zeroext i1 @pqParseIntParam(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -720,11 +722,11 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

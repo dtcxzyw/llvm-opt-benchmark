@@ -222,70 +222,72 @@ define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef nonnull initial
 
 9:                                                ; preds = %1
   tail call void @MOZ_Z_gz_error(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str.1) #14
-  br label %37
+  br label %39
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i32, ptr %11, align 8, !tbaa !26
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %14, label %.thread
+  %13 = load i32, ptr %3, align 4, !tbaa !25
+  br i1 %.not, label %15, label %.thread
 
 .thread:                                          ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %4, ptr %13, align 8, !tbaa !15
-  br label %37
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %13, ptr %14, align 8, !tbaa !15
+  br label %39
 
-14:                                               ; preds = %10
-  %15 = tail call noalias ptr @malloc(i64 noundef %5) #15
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %15, ptr %16, align 8, !tbaa !27
-  %17 = icmp eq ptr %15, null
-  br i1 %17, label %18, label %19
+15:                                               ; preds = %10
+  %16 = zext i32 %13 to i64
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #15
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %17, ptr %18, align 8, !tbaa !27
+  %19 = icmp eq ptr %17, null
+  br i1 %19, label %20, label %21
 
-18:                                               ; preds = %14
+20:                                               ; preds = %15
   tail call void @free(ptr noundef nonnull %6) #14
   tail call void @MOZ_Z_gz_error(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str.1) #14
-  br label %37
+  br label %39
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  %22 = load i32, ptr %21, align 8, !tbaa !28
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %24 = load i32, ptr %23, align 4, !tbaa !29
-  %25 = tail call i32 @MOZ_Z_deflateInit2_(ptr noundef nonnull %2, i32 noundef %22, i32 noundef 8, i32 noundef 31, i32 noundef 8, i32 noundef %24, ptr noundef nonnull @.str.2, i32 noundef 120) #14
-  %.not30 = icmp eq i32 %25, 0
-  br i1 %.not30, label %29, label %26
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
+  %24 = load i32, ptr %23, align 8, !tbaa !28
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %26 = load i32, ptr %25, align 4, !tbaa !29
+  %27 = tail call i32 @MOZ_Z_deflateInit2_(ptr noundef nonnull %2, i32 noundef %24, i32 noundef 8, i32 noundef 31, i32 noundef 8, i32 noundef %26, ptr noundef nonnull @.str.2, i32 noundef 120) #14
+  %.not30 = icmp eq i32 %27, 0
+  br i1 %.not30, label %31, label %28
 
-26:                                               ; preds = %19
-  %27 = load ptr, ptr %16, align 8, !tbaa !27
-  tail call void @free(ptr noundef %27) #14
-  %28 = load ptr, ptr %7, align 8, !tbaa !21
-  tail call void @free(ptr noundef %28) #14
+28:                                               ; preds = %21
+  %29 = load ptr, ptr %18, align 8, !tbaa !27
+  tail call void @free(ptr noundef %29) #14
+  %30 = load ptr, ptr %7, align 8, !tbaa !21
+  tail call void @free(ptr noundef %30) #14
   tail call void @MOZ_Z_gz_error(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str.1) #14
-  br label %37
+  br label %39
 
-29:                                               ; preds = %19
+31:                                               ; preds = %21
   %.pr = load i32, ptr %11, align 8, !tbaa !26
-  %30 = load i32, ptr %3, align 4, !tbaa !25
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %30, ptr %31, align 8, !tbaa !15
+  %32 = load i32, ptr %3, align 4, !tbaa !25
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %32, ptr %33, align 8, !tbaa !15
   %.not31 = icmp eq i32 %.pr, 0
-  br i1 %.not31, label %32, label %37
+  br i1 %.not31, label %34, label %39
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 %30, ptr %33, align 8, !tbaa !30
-  %34 = load ptr, ptr %16, align 8, !tbaa !27
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %34, ptr %35, align 8, !tbaa !31
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %34, ptr %36, align 8, !tbaa !32
-  br label %37
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i32 %32, ptr %35, align 8, !tbaa !30
+  %36 = load ptr, ptr %18, align 8, !tbaa !27
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %36, ptr %37, align 8, !tbaa !31
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %36, ptr %38, align 8, !tbaa !32
+  br label %39
 
-37:                                               ; preds = %.thread, %29, %32, %26, %18, %9
-  %.0 = phi i32 [ -1, %9 ], [ -1, %26 ], [ -1, %18 ], [ 0, %32 ], [ 0, %29 ], [ 0, %.thread ]
+39:                                               ; preds = %.thread, %31, %34, %28, %20, %9
+  %.0 = phi i32 [ -1, %9 ], [ -1, %28 ], [ -1, %20 ], [ 0, %34 ], [ 0, %31 ], [ 0, %.thread ]
   ret i32 %.0
 }
 
@@ -1260,7 +1262,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 declare i32 @MOZ_Z_deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1300,7 +1302,7 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

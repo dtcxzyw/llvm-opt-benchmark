@@ -799,7 +799,7 @@ define internal void @aes_gcm_cleanup(ptr noundef readonly captures(address) %0)
 define internal range(i32 -1, 2) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !10
-  switch i32 %1, label %165 [
+  switch i32 %1, label %167 [
     i32 0, label %7
     i32 9, label %18
     i32 17, label %36
@@ -827,11 +827,11 @@ define internal range(i32 -1, 2) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef %
   store i32 -1, ptr %16, align 4, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 656
   store i32 0, ptr %17, align 8, !tbaa !35
-  br label %165
+  br label %167
 
 18:                                               ; preds = %4
   %19 = icmp slt i32 %2, 1
-  br i1 %19, label %165, label %20
+  br i1 %19, label %167, label %20
 
 20:                                               ; preds = %18
   %21 = icmp samesign ugt i32 %2, 16
@@ -859,23 +859,23 @@ define internal range(i32 -1, 2) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef %
   %33 = tail call noalias ptr @malloc(i64 noundef %32) #11
   store ptr %33, ptr %27, align 8, !tbaa !30
   %.not111 = icmp eq ptr %33, null
-  br i1 %.not111, label %165, label %34
+  br i1 %.not111, label %167, label %34
 
 34:                                               ; preds = %31, %22, %20
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 648
   store i32 %2, ptr %35, align 8, !tbaa !31
-  br label %165
+  br label %167
 
 36:                                               ; preds = %4
   %37 = add i32 %2, -17
   %or.cond = icmp ult i32 %37, -16
-  br i1 %or.cond, label %165, label %38
+  br i1 %or.cond, label %167, label %38
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %40 = load i32, ptr %39, align 4, !tbaa !21
   %.not109 = icmp eq i32 %40, 0
-  br i1 %.not109, label %41, label %165
+  br i1 %.not109, label %41, label %167
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -883,30 +883,30 @@ define internal range(i32 -1, 2) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef %
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %42, ptr align 1 %3, i64 %43, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 652
   store i32 %2, ptr %44, align 4, !tbaa !33
-  br label %165
+  br label %167
 
 45:                                               ; preds = %4
   %46 = add i32 %2, -17
   %or.cond3 = icmp ult i32 %46, -16
-  br i1 %or.cond3, label %165, label %47
+  br i1 %or.cond3, label %167, label %47
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %49 = load i32, ptr %48, align 4, !tbaa !21
   %.not108 = icmp eq i32 %49, 0
-  br i1 %.not108, label %165, label %50
+  br i1 %.not108, label %167, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 652
   %52 = load i32, ptr %51, align 4, !tbaa !33
   %53 = icmp slt i32 %52, 0
-  br i1 %53, label %165, label %54
+  br i1 %53, label %167, label %54
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %56 = zext nneg i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 4 %55, i64 %56, i1 false)
-  br label %165
+  br label %167
 
 57:                                               ; preds = %4
   %58 = icmp eq i32 %2, -1
@@ -921,18 +921,18 @@ define internal range(i32 -1, 2) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef %
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr align 1 %3, i64 %64, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 656
   store i32 1, ptr %65, align 8, !tbaa !35
-  br label %165
+  br label %167
 
 66:                                               ; preds = %57
   %67 = icmp slt i32 %2, 4
-  br i1 %67, label %165, label %68
+  br i1 %67, label %167, label %68
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 648
   %70 = load i32, ptr %69, align 8, !tbaa !31
   %71 = sub nsw i32 %70, %2
   %72 = icmp slt i32 %71, 8
-  br i1 %72, label %165, label %73
+  br i1 %72, label %167, label %73
 
 73:                                               ; preds = %68
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 640
@@ -952,24 +952,24 @@ define internal range(i32 -1, 2) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef %
   %84 = sext i32 %83 to i64
   %85 = tail call i32 @RAND_bytes(ptr noundef nonnull %81, i64 noundef %84) #10
   %.not107 = icmp eq i32 %85, 0
-  br i1 %.not107, label %165, label %86
+  br i1 %.not107, label %167, label %86
 
 86:                                               ; preds = %79, %73
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 656
   store i32 1, ptr %87, align 8, !tbaa !35
-  br label %165
+  br label %167
 
 88:                                               ; preds = %4
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 656
   %90 = load i32, ptr %89, align 8, !tbaa !35
   %91 = icmp eq i32 %90, 0
-  br i1 %91, label %165, label %92
+  br i1 %91, label %167, label %92
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %94 = load i32, ptr %93, align 8, !tbaa !32
   %95 = icmp eq i32 %94, 0
-  br i1 %95, label %165, label %96
+  br i1 %95, label %167, label %96
 
 96:                                               ; preds = %92
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 256
@@ -1012,25 +1012,25 @@ define internal range(i32 -1, 2) i32 @aes_gcm_ctrl(ptr noundef %0, i32 noundef %
 ctr64_inc.exit:                                   ; preds = %116
   %120 = getelementptr inbounds nuw i8, ptr %6, i64 252
   store i32 1, ptr %120, align 4, !tbaa !29
-  br label %165
+  br label %167
 
 121:                                              ; preds = %4
   %122 = getelementptr inbounds nuw i8, ptr %6, i64 656
   %123 = load i32, ptr %122, align 8, !tbaa !35
   %124 = icmp eq i32 %123, 0
-  br i1 %124, label %165, label %125
+  br i1 %124, label %167, label %125
 
 125:                                              ; preds = %121
   %126 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %127 = load i32, ptr %126, align 8, !tbaa !32
   %128 = icmp eq i32 %127, 0
-  br i1 %128, label %165, label %129
+  br i1 %128, label %167, label %129
 
 129:                                              ; preds = %125
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %131 = load i32, ptr %130, align 4, !tbaa !21
   %.not105 = icmp eq i32 %131, 0
-  br i1 %.not105, label %132, label %165
+  br i1 %.not105, label %132, label %167
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %6, i64 640
@@ -1050,7 +1050,7 @@ ctr64_inc.exit:                                   ; preds = %116
   tail call void @CRYPTO_gcm128_setiv(ptr noundef nonnull %142, ptr noundef nonnull %6, ptr noundef %143, i64 noundef %145) #10
   %146 = getelementptr inbounds nuw i8, ptr %6, i64 252
   store i32 1, ptr %146, align 4, !tbaa !29
-  br label %165
+  br label %167
 
 147:                                              ; preds = %4
   %148 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1065,7 +1065,7 @@ ctr64_inc.exit:                                   ; preds = %116
   %155 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %156 = getelementptr inbounds nuw i8, ptr %149, i64 640
   store ptr %155, ptr %156, align 8, !tbaa !30
-  br label %165
+  br label %167
 
 157:                                              ; preds = %147
   %158 = getelementptr inbounds nuw i8, ptr %6, i64 648
@@ -1075,14 +1075,16 @@ ctr64_inc.exit:                                   ; preds = %116
   %162 = getelementptr inbounds nuw i8, ptr %149, i64 640
   store ptr %161, ptr %162, align 8, !tbaa !30
   %.not = icmp eq ptr %161, null
-  br i1 %.not, label %165, label %163
+  br i1 %.not, label %167, label %163
 
 163:                                              ; preds = %157
   %164 = load ptr, ptr %150, align 8, !tbaa !30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %161, ptr align 1 %164, i64 %160, i1 false)
-  br label %165
+  %165 = load i32, ptr %158, align 8, !tbaa !31
+  %166 = sext i32 %165 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %161, ptr align 1 %164, i64 %166, i1 false)
+  br label %167
 
-165:                                              ; preds = %4, %157, %163, %154, %121, %125, %129, %88, %92, %79, %66, %68, %45, %47, %50, %36, %38, %31, %18, %132, %ctr64_inc.exit, %86, %59, %54, %41, %34, %7
+167:                                              ; preds = %4, %157, %163, %154, %121, %125, %129, %88, %92, %79, %66, %68, %45, %47, %50, %36, %38, %31, %18, %132, %ctr64_inc.exit, %86, %59, %54, %41, %34, %7
   %.0 = phi i32 [ 1, %154 ], [ 1, %7 ], [ 0, %121 ], [ 1, %34 ], [ 0, %18 ], [ 0, %31 ], [ 1, %41 ], [ 0, %36 ], [ 1, %54 ], [ 1, %59 ], [ 0, %45 ], [ 1, %86 ], [ 0, %66 ], [ 0, %79 ], [ 1, %ctr64_inc.exit ], [ 0, %88 ], [ 1, %132 ], [ 0, %38 ], [ 0, %50 ], [ 0, %47 ], [ 0, %68 ], [ 0, %92 ], [ 0, %129 ], [ 0, %125 ], [ 0, %157 ], [ 1, %163 ], [ -1, %4 ]
   ret i32 %.0
 }
@@ -1113,7 +1115,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -2191,7 +2193,7 @@ attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

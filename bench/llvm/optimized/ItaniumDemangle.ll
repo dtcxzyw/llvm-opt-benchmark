@@ -1036,7 +1036,7 @@ $_ZTVN4llvm16itanium_demangle13ReferenceTypeE = comdat any
 @.str.294 = private unnamed_addr constant [2 x i8] c"&\00", align 1
 @.str.295 = private unnamed_addr constant [3 x i8] c"&&\00", align 1
 @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv = private unnamed_addr constant [6 x ptr] [ptr @.str.187, ptr @.str.188, ptr @.str.188, ptr @.str.189, ptr @.str.190, ptr @.str.191], align 8
-@switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.216 = private unnamed_addr constant [6 x i64] [i64 9, i64 12, i64 12, i64 13, i64 13, i64 14], align 8
+@switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.213 = private unnamed_addr constant [6 x i64] [i64 9, i64 12, i64 12, i64 13, i64 13, i64 14], align 8
 
 @_ZN4llvm23ItaniumPartialDemanglerC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm23ItaniumPartialDemanglerC2Ev
 @_ZN4llvm23ItaniumPartialDemanglerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm23ItaniumPartialDemanglerD2Ev
@@ -2572,7 +2572,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm23ItaniumPartialDemangler6isDataEv
   ret i1 %8
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind
@@ -2727,23 +2727,23 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %9 = ptrtoint ptr %.val to i64
   %10 = sub i64 %8, %9
   %.not.i.not = icmp eq ptr %.val36, %.val
-  br i1 %.not.i.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit59.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
+  br i1 %.not.i.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit57.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit: ; preds = %2
   %11 = load i8, ptr %.val, align 1, !tbaa !3
-  switch i8 %11, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit59.thread [
-    i8 71, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit106
+  switch i8 %11, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit57.thread [
+    i8 71, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit104
     i8 84, label %12
   ]
 
 12:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
-  %.not.i101 = icmp ugt i64 %10, 1
-  br i1 %.not.i101, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103.thread
+  %.not.i99 = icmp ugt i64 %10, 1
+  br i1 %.not.i99, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101.thread
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103: ; preds = %12
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101: ; preds = %12
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !3
-  switch i8 %14, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103.thread [
+  switch i8 %14, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101.thread [
     i8 65, label %15
     i8 86, label %21
     i8 84, label %27
@@ -2755,7 +2755,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
     i8 72, label %81
   ]
 
-15:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103
+15:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %16, ptr %0, align 16, !tbaa !9
   %17 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseTemplateArgEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
@@ -2766,7 +2766,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %20 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA31_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %17)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
 
-21:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103
+21:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %22, ptr %0, align 16, !tbaa !9
   %23 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
@@ -2777,7 +2777,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %26 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA12_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %23)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
 
-27:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103
+27:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %28, ptr %0, align 16, !tbaa !9
   %29 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
@@ -2788,7 +2788,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %32 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA9_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %29)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
 
-33:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103
+33:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101
   %34 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %34, ptr %0, align 16, !tbaa !9
   %35 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
@@ -2799,7 +2799,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %38 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA14_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %35)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
 
-39:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103
+39:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101
   %40 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %40, ptr %0, align 16, !tbaa !9
   %41 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
@@ -2810,7 +2810,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %44 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA19_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %41)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
 
-45:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103
+45:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101
   %46 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %46, ptr %0, align 16, !tbaa !9
   %47 = call fastcc noundef zeroext i1 @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseCallOffsetEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
@@ -2829,7 +2829,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %54 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA27_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %51)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
 
-55:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103
+55:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101
   %56 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %56, ptr %0, align 16, !tbaa !9
   %57 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
@@ -2845,8 +2845,8 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 63:                                               ; preds = %59
   %64 = load ptr, ptr %0, align 16, !tbaa !9
   %65 = load ptr, ptr %7, align 8, !tbaa !25
-  %.not.i98 = icmp eq ptr %64, %65
-  br i1 %.not.i98, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit, label %66
+  %.not.i96 = icmp eq ptr %64, %65
+  br i1 %.not.i96, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit, label %66
 
 66:                                               ; preds = %63
   %67 = load i8, ptr %64, align 1, !tbaa !3
@@ -2864,7 +2864,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %74 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_21CtorVtableSpecialNameEJRPNS0_4NodeESB_EEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %71, ptr nonnull %57)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
 
-75:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103
+75:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101
   %76 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %76, ptr %0, align 16, !tbaa !9
   %77 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseNameEPNS6_9NameStateE(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef null)
@@ -2875,7 +2875,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %80 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA34_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef nonnull align 1 dereferenceable(34) @.str.18, ptr nonnull %77)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
 
-81:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103
+81:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101
   %82 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %82, ptr %0, align 16, !tbaa !9
   %83 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseNameEPNS6_9NameStateE(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef null)
@@ -2886,29 +2886,29 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %86 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA41_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %83)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103.thread: ; preds = %12, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101.thread: ; preds = %12, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101
   %87 = getelementptr inbounds nuw i8, ptr %.val, i64 1
   store ptr %87, ptr %0, align 16, !tbaa !9
-  %.not.i95.not = icmp eq ptr %.val36, %87
-  br i1 %.not.i95.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit97, label %88
+  %.not.i93.not = icmp eq ptr %.val36, %87
+  br i1 %.not.i93.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit95, label %88
 
-88:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103.thread
+88:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101.thread
   %89 = load i8, ptr %87, align 1, !tbaa !3
   %90 = icmp eq i8 %89, 118
-  br label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit97
+  br label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit95
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit97: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103.thread, %88
-  %.0.i96 = phi i1 [ %90, %88 ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit103.thread ]
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit95: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101.thread, %88
+  %.0.i94 = phi i1 [ %90, %88 ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit101.thread ]
   %91 = call fastcc noundef zeroext i1 @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseCallOffsetEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
   br i1 %91, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit, label %92
 
-92:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit97
+92:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit95
   %93 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E13parseEncodingEb(ptr noundef nonnull align 16 dereferenceable(4928) %0, i1 noundef zeroext true)
   %94 = icmp eq ptr %93, null
   br i1 %94, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit, label %95
 
 95:                                               ; preds = %92
-  br i1 %.0.i96, label %96, label %98
+  br i1 %.0.i94, label %96, label %98
 
 96:                                               ; preds = %95
   %97 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA18_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %93)
@@ -2918,11 +2918,11 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %99 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA22_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %93)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit106: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
-  %.not.i92 = icmp ugt i64 %10, 1
-  br i1 %.not.i92, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit94, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit104: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
+  %.not.i90 = icmp ugt i64 %10, 1
+  br i1 %.not.i90, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit92, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit94: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit106
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit92: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit104
   %100 = getelementptr inbounds nuw i8, ptr %.val, i64 1
   %101 = load i8, ptr %100, align 1, !tbaa !3
   switch i8 %101, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit [
@@ -2931,7 +2931,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
     i8 73, label %152
   ]
 
-102:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit94
+102:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit92
   %103 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %103, ptr %0, align 16, !tbaa !9
   %104 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseNameEPNS6_9NameStateE(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef null)
@@ -2950,22 +2950,22 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 113:                                              ; preds = %106
   %114 = call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #24
   %115 = icmp eq ptr %114, null
-  br i1 %115, label %116, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i91
+  br i1 %115, label %116, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i89
 
 116:                                              ; preds = %113
   call void @_ZSt9terminatev() #23
   unreachable
 
-_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i91: ; preds = %113
+_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i89: ; preds = %113
   store ptr %108, ptr %114, align 8, !tbaa !60
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i64 0, ptr %117, align 8, !tbaa !63
   store ptr %114, ptr %107, align 16, !tbaa !50
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA20_KcRPNS0_4NodeEEEESD_DpOT0_.exit
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA20_KcRPNS0_4NodeEEEESD_DpOT0_.exit: ; preds = %106, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i91
-  %118 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i91 ], [ %110, %106 ]
-  %119 = phi ptr [ %114, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i91 ], [ %108, %106 ]
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA20_KcRPNS0_4NodeEEEESD_DpOT0_.exit: ; preds = %106, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i89
+  %118 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i89 ], [ %110, %106 ]
+  %119 = phi ptr [ %114, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i89 ], [ %108, %106 ]
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = add nsw i64 %118, 48
   store i64 %121, ptr %120, align 8, !tbaa !63
@@ -2981,13 +2981,13 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle11SpecialNameE, i64 16), ptr %123, align 8, !tbaa !55
   %129 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store i64 19, ptr %129, align 8, !tbaa !72
-  %.sroa.2.0..sroa_idx.i.i.i90 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  store ptr @.str.22, ptr %.sroa.2.0..sroa_idx.i.i.i90, align 8, !tbaa !73
+  %.sroa.2.0..sroa_idx.i.i.i88 = getelementptr inbounds nuw i8, ptr %123, i64 24
+  store ptr @.str.22, ptr %.sroa.2.0..sroa_idx.i.i.i88, align 8, !tbaa !73
   %130 = getelementptr inbounds nuw i8, ptr %123, i64 32
   store ptr %104, ptr %130, align 8, !tbaa !99
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
 
-131:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit94
+131:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit92
   %132 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %132, ptr %0, align 16, !tbaa !9
   %133 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseNameEPNS6_9NameStateE(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef null)
@@ -2995,25 +2995,25 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %134, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit, label %135
 
 135:                                              ; preds = %131
-  %.val25.i86 = load ptr, ptr %0, align 16, !tbaa !9
-  %.val26.i87 = load ptr, ptr %7, align 8, !tbaa !25
-  %.not.i.not.i = icmp eq ptr %.val26.i87, %.val25.i86
-  br i1 %.not.i.not.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E10parseSeqIdEPm.exit, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i88
+  %.val25.i84 = load ptr, ptr %0, align 16, !tbaa !9
+  %.val26.i85 = load ptr, ptr %7, align 8, !tbaa !25
+  %.not.i.not.i = icmp eq ptr %.val26.i85, %.val25.i84
+  br i1 %.not.i.not.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E10parseSeqIdEPm.exit, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i86
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i88: ; preds = %135
-  %136 = load i8, ptr %.val25.i86, align 1, !tbaa !3
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i86: ; preds = %135
+  %136 = load i8, ptr %.val25.i84, align 1, !tbaa !3
   %137 = icmp sgt i8 %136, 47
   br i1 %137, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit29.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E10parseSeqIdEPm.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit29.i: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i88
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit29.i: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i86
   %138 = icmp samesign ult i8 %136, 58
   %139 = add nsw i8 %136, -65
   %or.cond71.i = icmp ult i8 %139, 26
-  %or.cond129 = select i1 %138, i1 true, i1 %or.cond71.i
-  br i1 %or.cond129, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit38.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E10parseSeqIdEPm.exit
+  %or.cond127 = select i1 %138, i1 true, i1 %or.cond71.i
+  br i1 %or.cond127, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit38.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E10parseSeqIdEPm.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit38.i: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit29.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit44.i
-  %.val176264.i = phi ptr [ %144, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit44.i ], [ %.val25.i86, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit29.i ]
+  %.val176264.i = phi ptr [ %144, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit44.i ], [ %.val25.i84, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit29.i ]
   %140 = load i8, ptr %.val176264.i, align 1, !tbaa !3
   %141 = icmp sgt i8 %140, 47
   br i1 %141, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit41.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E10parseSeqIdEPm.exit
@@ -3021,40 +3021,40 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit41.i: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit38.i
   %142 = icmp samesign ult i8 %140, 58
   %143 = add nsw i8 %140, -65
-  %or.cond.i89 = icmp ult i8 %143, 26
-  %or.cond202 = select i1 %142, i1 true, i1 %or.cond.i89
-  br i1 %or.cond202, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit44.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E10parseSeqIdEPm.exit
+  %or.cond.i87 = icmp ult i8 %143, 26
+  %or.cond200 = select i1 %142, i1 true, i1 %or.cond.i87
+  br i1 %or.cond200, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit44.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E10parseSeqIdEPm.exit
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit44.i: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit41.i
   %144 = getelementptr inbounds nuw i8, ptr %.val176264.i, i64 1
   store ptr %144, ptr %0, align 16, !tbaa !9
-  %.not.i36.not.i = icmp eq ptr %.val26.i87, %144
+  %.not.i36.not.i = icmp eq ptr %.val26.i85, %144
   br i1 %.not.i36.not.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E10parseSeqIdEPm.exit, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit38.i, !llvm.loop !101
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E10parseSeqIdEPm.exit: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit38.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit44.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit41.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit29.i, %135, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i88
-  %145 = phi ptr [ %.val25.i86, %135 ], [ %.val25.i86, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i88 ], [ %.val25.i86, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit29.i ], [ %144, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit44.i ], [ %.val176264.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit41.i ], [ %.val176264.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit38.i ]
-  %.07.i = phi i1 [ true, %135 ], [ true, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i88 ], [ true, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit29.i ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit41.i ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit44.i ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit38.i ]
-  %.not.i83 = icmp eq ptr %145, %.val26.i87
-  br i1 %.not.i83, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit85, label %146
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E10parseSeqIdEPm.exit: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit38.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit44.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit41.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit29.i, %135, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i86
+  %145 = phi ptr [ %.val25.i84, %135 ], [ %.val25.i84, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i86 ], [ %.val25.i84, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit29.i ], [ %144, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit44.i ], [ %.val176264.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit41.i ], [ %.val176264.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit38.i ]
+  %.07.i = phi i1 [ true, %135 ], [ true, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i86 ], [ true, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit29.i ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit41.i ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit44.i ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit38.i ]
+  %.not.i81 = icmp eq ptr %145, %.val26.i85
+  br i1 %.not.i81, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit83, label %146
 
 146:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E10parseSeqIdEPm.exit
   %147 = load i8, ptr %145, align 1, !tbaa !3
   %148 = icmp eq i8 %147, 95
-  br i1 %148, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit85.thread, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit85
+  br i1 %148, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit83.thread, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit83
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit85.thread: ; preds = %146
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit83.thread: ; preds = %146
   %149 = getelementptr inbounds nuw i8, ptr %145, i64 1
   store ptr %149, ptr %0, align 16, !tbaa !9
   br label %150
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit85: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E10parseSeqIdEPm.exit, %146
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit83: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E10parseSeqIdEPm.exit, %146
   br i1 %.07.i, label %150, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
 
-150:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit85.thread, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit85
+150:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit83.thread, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit83
   %151 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA25_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %133)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
 
-152:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit94
+152:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit92
   %153 = getelementptr inbounds nuw i8, ptr %.val, i64 2
   store ptr %153, ptr %0, align 16, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3077,22 +3077,22 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 164:                                              ; preds = %157
   %165 = call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #24
   %166 = icmp eq ptr %165, null
-  br i1 %166, label %167, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i82
+  br i1 %166, label %167, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i80
 
 167:                                              ; preds = %164
   call void @_ZSt9terminatev() #23
   unreachable
 
-_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i82: ; preds = %164
+_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i80: ; preds = %164
   store ptr %159, ptr %165, align 8, !tbaa !60
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 8
   store i64 0, ptr %168, align 8, !tbaa !63
   store ptr %165, ptr %158, align 16, !tbaa !50
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit: ; preds = %157, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i82
-  %169 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i82 ], [ %161, %157 ]
-  %170 = phi ptr [ %165, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i82 ], [ %159, %157 ]
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA24_KcRPNS0_10ModuleNameEEEEPNS0_4NodeEDpOT0_.exit: ; preds = %157, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i80
+  %169 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i80 ], [ %161, %157 ]
+  %170 = phi ptr [ %165, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i80 ], [ %159, %157 ]
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = add nsw i64 %169, 48
   store i64 %172, ptr %171, align 8, !tbaa !63
@@ -3119,7 +3119,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit59.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit, %2
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit57.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %.val41 = load ptr, ptr %183, align 16, !tbaa !39
@@ -3144,7 +3144,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %195 = icmp eq ptr %194, null
   br i1 %195, label %.critedge30, label %196
 
-196:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit59.thread
+196:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit57.thread
   %.val43 = load i64, ptr %188, align 8, !tbaa !108
   %197 = load ptr, ptr %184, align 8, !tbaa !40
   %198 = load ptr, ptr %183, align 16, !tbaa !39
@@ -3165,8 +3165,8 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %209 = load ptr, ptr %205, align 8, !tbaa !37
-  %.not.i61 = icmp eq ptr %209, null
-  br i1 %.not.i61, label %.critedge30, label %.lr.ph4.i
+  %.not.i59 = icmp eq ptr %209, null
+  br i1 %.not.i59, label %.critedge30, label %.lr.ph4.i
 
 .lr.ph4.i:                                        ; preds = %.lr.ph.split.i
   %210 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %.val43
@@ -3185,18 +3185,18 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 .critedge.preheader.i:                            ; preds = %.lr.ph4.i
   %221 = add nsw i64 %202, -1
-  br label %.critedge.i62
+  br label %.critedge.i60
 
-222:                                              ; preds = %.critedge.i62
+222:                                              ; preds = %.critedge.i60
   %223 = add nuw i64 %.0122313.i, 1
   %224 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %223
   %225 = load ptr, ptr %224, align 8, !tbaa !42
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %227 = load i64, ptr %226, align 8, !tbaa !110
   %.not14.i = icmp ult i64 %227, %220
-  br i1 %.not14.i, label %.critedge.i62, label %.critedge30
+  br i1 %.not14.i, label %.critedge.i60, label %.critedge30
 
-.critedge.i62:                                    ; preds = %222, %.critedge.preheader.i
+.critedge.i60:                                    ; preds = %222, %.critedge.preheader.i
   %.0122313.i = phi i64 [ %223, %222 ], [ %.val43, %.critedge.preheader.i ]
   %228 = phi ptr [ %225, %222 ], [ %211, %.critedge.preheader.i ]
   %229 = phi i64 [ %227, %222 ], [ %213, %.critedge.preheader.i ]
@@ -3207,7 +3207,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %exitcond.not.i = icmp eq i64 %.0122313.i, %221
   br i1 %exitcond.not.i, label %.loopexit, label %222, !llvm.loop !113
 
-.loopexit:                                        ; preds = %.critedge.i62, %196
+.loopexit:                                        ; preds = %.critedge.i60, %196
   %233 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %.val43
   store ptr %233, ptr %184, align 8, !tbaa !40
   %.val44.val = load ptr, ptr %0, align 16, !tbaa !9
@@ -3228,8 +3228,8 @@ _ZZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 .preheader:                                       ; preds = %_ZZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E13parseEncodingEbENKUlvE_clEv.exit, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E7consumeEv.exit
   %236 = phi ptr [ %237, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E7consumeEv.exit ], [ %.val44.val, %_ZZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E13parseEncodingEbENKUlvE_clEv.exit ]
-  %.not.i63 = icmp eq ptr %236, %.val44.val47
-  br i1 %.not.i63, label %.critedge30, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E7consumeEv.exit
+  %.not.i61 = icmp eq ptr %236, %.val44.val47
+  br i1 %.not.i61, label %.critedge30, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E7consumeEv.exit
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E7consumeEv.exit: ; preds = %.preheader
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 1
@@ -3266,10 +3266,10 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br label %258
 
 258:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %246
-  %259 = phi ptr [ %.pre215, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ %.val44.val47, %246 ]
-  %260 = phi ptr [ %.pre214, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ %247, %246 ]
-  %.not.i64 = icmp eq ptr %260, %259
-  br i1 %.not.i64, label %264, label %261
+  %259 = phi ptr [ %.pre213, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ %.val44.val47, %246 ]
+  %260 = phi ptr [ %.pre212, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ %247, %246 ]
+  %.not.i62 = icmp eq ptr %260, %259
+  br i1 %.not.i62, label %264, label %261
 
 261:                                              ; preds = %258
   %262 = load i8, ptr %260, align 1, !tbaa !3
@@ -3340,8 +3340,8 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
   store ptr %292, ptr %249, align 8, !tbaa !27
   store ptr %265, ptr %291, align 8, !tbaa !29
-  %.pre214 = load ptr, ptr %0, align 16, !tbaa !9
-  %.pre215 = load ptr, ptr %7, align 8, !tbaa !25
+  %.pre212 = load ptr, ptr %0, align 16, !tbaa !9
+  %.pre213 = load ptr, ptr %7, align 8, !tbaa !25
   br label %258, !llvm.loop !115
 
 293:                                              ; preds = %261
@@ -3354,7 +3354,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread: ; preds = %244, %239, %293
-  %.0117 = phi ptr [ %298, %293 ], [ null, %239 ], [ null, %244 ]
+  %.0115 = phi ptr [ %298, %293 ], [ null, %239 ], [ null, %244 ]
   %299 = load i8, ptr %5, align 8, !tbaa !103, !range !116, !noundef !117
   %300 = trunc nuw i8 %299 to i1
   %.not = xor i1 %300, true
@@ -3369,20 +3369,20 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %305, label %.critedge30, label %306
 
 306:                                              ; preds = %303, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
-  %.0116 = phi ptr [ %304, %303 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread ]
+  %.0114 = phi ptr [ %304, %303 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %307 = load ptr, ptr %0, align 16, !tbaa !9
   %308 = load ptr, ptr %7, align 8, !tbaa !25
-  %.not.i66 = icmp eq ptr %307, %308
-  br i1 %.not.i66, label %313, label %309
+  %.not.i64 = icmp eq ptr %307, %308
+  br i1 %.not.i64, label %313, label %309
 
 309:                                              ; preds = %306
   %310 = load i8, ptr %307, align 1, !tbaa !3
   %311 = icmp eq i8 %310, 118
-  br i1 %311, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit68, label %313
+  br i1 %311, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit66, label %313
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit68: ; preds = %309
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit66: ; preds = %309
   %312 = getelementptr inbounds nuw i8, ptr %307, i64 1
   store ptr %312, ptr %0, align 16, !tbaa !9
   br label %392
@@ -3403,7 +3403,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %327
 
-327:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i73, %313
+327:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i71, %313
   %328 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
   %329 = icmp eq ptr %328, null
   br i1 %329, label %.critedge32, label %330
@@ -3465,10 +3465,10 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 360:                                              ; preds = %330, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit
   %361 = phi ptr [ %.pre, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit ], [ %331, %330 ]
-  %.0115 = phi ptr [ %353, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit ], [ %328, %330 ]
+  %.0113 = phi ptr [ %353, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_23ExplicitObjectParameterEJRPNS0_4NodeEEEESA_DpOT0_.exit ], [ %328, %330 ]
   %362 = load ptr, ptr %325, align 16, !tbaa !28
   %363 = icmp eq ptr %361, %362
-  br i1 %363, label %364, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit72
+  br i1 %363, label %364, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit70
 
 364:                                              ; preds = %360
   %365 = load ptr, ptr %314, align 16, !tbaa !26
@@ -3490,45 +3490,45 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   unreachable
 
 376:                                              ; preds = %372
-  %.not.i.i.i.i.i.i.i70 = icmp eq ptr %361, %326
-  br i1 %.not.i.i.i.i.i.i.i70, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i71, label %377
+  %.not.i.i.i.i.i.i.i68 = icmp eq ptr %361, %326
+  br i1 %.not.i.i.i.i.i.i.i68, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i69, label %377
 
 377:                                              ; preds = %376
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %373, ptr align 8 %365, i64 %368, i1 false)
-  br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i71
+  br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i69
 
-_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i71: ; preds = %377, %376
+_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i69: ; preds = %377, %376
   store ptr %373, ptr %314, align 16, !tbaa !26
-  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i69
+  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i67
 
 378:                                              ; preds = %364
   %379 = call ptr @realloc(ptr noundef %365, i64 noundef %371) #22
   store ptr %379, ptr %314, align 16, !tbaa !26
   %380 = icmp eq ptr %379, null
-  br i1 %380, label %381, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i69
+  br i1 %380, label %381, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i67
 
 381:                                              ; preds = %378
   call void @abort() #23
   unreachable
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i69: ; preds = %378, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i71
-  %382 = phi ptr [ %379, %378 ], [ %373, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i71 ]
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i67: ; preds = %378, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i69
+  %382 = phi ptr [ %379, %378 ], [ %373, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i69 ]
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 %368
   %384 = getelementptr inbounds nuw [8 x i8], ptr %382, i64 %369
   store ptr %384, ptr %325, align 16, !tbaa !28
-  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit72
+  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit70
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit72: ; preds = %360, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i69
-  %385 = phi ptr [ %383, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i69 ], [ %361, %360 ]
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit70: ; preds = %360, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i67
+  %385 = phi ptr [ %383, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i67 ], [ %361, %360 ]
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
   store ptr %386, ptr %315, align 8, !tbaa !27
-  store ptr %.0115, ptr %385, align 8, !tbaa !29
+  store ptr %.0113, ptr %385, align 8, !tbaa !29
   %.val45.val = load ptr, ptr %0, align 16, !tbaa !9
   %.val45.val46 = load ptr, ptr %7, align 8, !tbaa !25
   %387 = icmp eq ptr %.val45.val46, %.val45.val
-  br i1 %387, label %.critedge, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i73
+  br i1 %387, label %.critedge, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i71
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i73: ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit72
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i71: ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit70
   %388 = load i8, ptr %.val45.val, align 1, !tbaa !3
   switch i8 %388, label %327 [
     i8 69, label %.critedge
@@ -3537,27 +3537,27 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
     i8 81, label %.critedge
   ]
 
-.critedge:                                        ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i73, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i73, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i73, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i73, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit72
+.critedge:                                        ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i71, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i71, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i71, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i71, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit70
   %389 = call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %321)
   %390 = extractvalue { ptr, i64 } %389, 0
   %391 = extractvalue { ptr, i64 } %389, 1
   store ptr %390, ptr %6, align 8, !tbaa !93
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %391, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !72
-  %.pre140 = load ptr, ptr %0, align 16, !tbaa !9
-  %.pre141 = load ptr, ptr %7, align 8, !tbaa !25
+  %.pre138 = load ptr, ptr %0, align 16, !tbaa !9
+  %.pre139 = load ptr, ptr %7, align 8, !tbaa !25
   br label %392
 
-392:                                              ; preds = %.critedge, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit68
-  %393 = phi ptr [ %.pre141, %.critedge ], [ %308, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit68 ]
-  %394 = phi ptr [ %.pre140, %.critedge ], [ %312, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit68 ]
-  %.not.i79 = icmp eq ptr %394, %393
-  br i1 %.not.i79, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit81.thread, label %395
+392:                                              ; preds = %.critedge, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit66
+  %393 = phi ptr [ %.pre139, %.critedge ], [ %308, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit66 ]
+  %394 = phi ptr [ %.pre138, %.critedge ], [ %312, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit66 ]
+  %.not.i77 = icmp eq ptr %394, %393
+  br i1 %.not.i77, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit79.thread, label %395
 
 395:                                              ; preds = %392
   %396 = load i8, ptr %394, align 1, !tbaa !3
   %397 = icmp eq i8 %396, 81
-  br i1 %397, label %398, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit81.thread
+  br i1 %397, label %398, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit79.thread
 
 398:                                              ; preds = %395
   %399 = getelementptr inbounds nuw i8, ptr %394, i64 1
@@ -3568,27 +3568,25 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %402 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
   store i8 %401, ptr %400, align 2, !tbaa !120
   %.not26 = icmp eq ptr %402, null
-  br i1 %.not26, label %.critedge32, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit81.thread
+  br i1 %.not26, label %.critedge32, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit79.thread
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit81.thread: ; preds = %392, %395, %398
-  %.0114 = phi ptr [ %402, %398 ], [ null, %395 ], [ null, %392 ]
-  %.val55 = load i32, ptr %186, align 4
-  %.val56 = load i8, ptr %187, align 8
-  %403 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_16FunctionEncodingEJRPNS0_4NodeESB_RNS0_9NodeArrayESB_SB_RNS0_10QualifiersERNS0_15FunctionRefQualEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr %.0116, ptr nonnull %194, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr %.0117, ptr %.0114, i32 %.val55, i8 %.val56)
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit79.thread: ; preds = %392, %395, %398
+  %.0112 = phi ptr [ %402, %398 ], [ null, %395 ], [ null, %392 ]
+  %403 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_16FunctionEncodingEJRPNS0_4NodeESB_RNS0_9NodeArrayESB_SB_RNS0_10QualifiersERNS0_15FunctionRefQualEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr %.0114, ptr nonnull %194, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr %.0115, ptr %.0112, ptr noundef nonnull align 4 dereferenceable(4) %186, ptr noundef nonnull align 1 dereferenceable(1) %187)
   br label %.critedge32
 
-.critedge32:                                      ; preds = %327, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit81.thread, %398
-  %.11 = phi ptr [ %403, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit81.thread ], [ null, %398 ], [ null, %327 ]
+.critedge32:                                      ; preds = %327, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit79.thread, %398
+  %.11 = phi ptr [ %403, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit79.thread ], [ null, %398 ], [ null, %327 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge30
 
-.critedge30:                                      ; preds = %222, %.preheader, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E7consumeEv.exit, %264, %.lr.ph4.i, %.lr.ph.split.i, %.lr.ph.i, %303, %.critedge32, %.loopexit, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit59.thread
-  %.1 = phi ptr [ %194, %.loopexit ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit59.thread ], [ null, %303 ], [ null, %.lr.ph4.i ], [ %194, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i ], [ %194, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i ], [ %194, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i ], [ null, %264 ], [ %194, %.preheader ], [ %.11, %.critedge32 ], [ null, %.lr.ph.i ], [ null, %.lr.ph.split.i ], [ %194, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E7consumeEv.exit ], [ null, %222 ]
+.critedge30:                                      ; preds = %222, %.preheader, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E7consumeEv.exit, %264, %.lr.ph4.i, %.lr.ph.split.i, %.lr.ph.i, %303, %.critedge32, %.loopexit, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit57.thread
+  %.1 = phi ptr [ %194, %.loopexit ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit57.thread ], [ null, %303 ], [ null, %.lr.ph4.i ], [ %194, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i ], [ %194, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i ], [ %194, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i ], [ null, %264 ], [ %194, %.preheader ], [ %.11, %.critedge32 ], [ null, %.lr.ph.i ], [ null, %.lr.ph.split.i ], [ %194, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E7consumeEv.exit ], [ null, %222 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit106, %63, %66, %182, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit94, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit97, %48, %45, %19, %15, %25, %21, %31, %27, %37, %33, %43, %39, %53, %50, %69, %73, %59, %55, %79, %75, %85, %81, %98, %96, %92, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA20_KcRPNS0_4NodeEEEESD_DpOT0_.exit, %102, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit85, %150, %131, %.critedge30
-  %.0 = phi ptr [ %.1, %.critedge30 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit97 ], [ null, %45 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit94 ], [ null, %15 ], [ null, %21 ], [ null, %27 ], [ null, %33 ], [ %.16.i, %182 ], [ null, %39 ], [ null, %50 ], [ null, %69 ], [ null, %75 ], [ null, %63 ], [ null, %102 ], [ null, %48 ], [ null, %81 ], [ %20, %19 ], [ %26, %25 ], [ %32, %31 ], [ %38, %37 ], [ %44, %43 ], [ %54, %53 ], [ null, %59 ], [ null, %55 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit85 ], [ %74, %73 ], [ %80, %79 ], [ %86, %85 ], [ %99, %98 ], [ %97, %96 ], [ null, %92 ], [ %123, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA20_KcRPNS0_4NodeEEEESD_DpOT0_.exit ], [ null, %131 ], [ %151, %150 ], [ null, %66 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit106 ]
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseSpecialNameEv.exit: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit104, %63, %66, %182, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit92, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit95, %48, %45, %19, %15, %25, %21, %31, %27, %37, %33, %43, %39, %53, %50, %69, %73, %59, %55, %79, %75, %85, %81, %98, %96, %92, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA20_KcRPNS0_4NodeEEEESD_DpOT0_.exit, %102, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit83, %150, %131, %.critedge30
+  %.0 = phi ptr [ %.1, %.critedge30 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit95 ], [ null, %45 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit92 ], [ null, %15 ], [ null, %21 ], [ null, %27 ], [ null, %33 ], [ %.16.i, %182 ], [ null, %39 ], [ null, %50 ], [ null, %69 ], [ null, %75 ], [ null, %63 ], [ null, %102 ], [ null, %48 ], [ null, %81 ], [ %20, %19 ], [ %26, %25 ], [ %32, %31 ], [ %38, %37 ], [ %44, %43 ], [ %54, %53 ], [ null, %59 ], [ null, %55 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit83 ], [ %74, %73 ], [ %80, %79 ], [ %86, %85 ], [ %99, %98 ], [ %97, %96 ], [ null, %92 ], [ %123, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11SpecialNameEJRA20_KcRPNS0_4NodeEEEESD_DpOT0_.exit ], [ null, %131 ], [ %151, %150 ], [ null, %66 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit104 ]
   call fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18SaveTemplateParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -7210,67 +7208,69 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_16FunctionEncodingEJRPNS0_4NodeESB_RNS0_9NodeArrayESB_SB_RNS0_10QualifiersERNS0_15FunctionRefQualEEEESA_DpOT0_(ptr noundef nonnull align 16 captures(none) dereferenceable(4928) %0, ptr %.0.val, ptr %.0.val1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr %.0.val3, ptr %.0.val5, i32 %.0.val7, i8 %.0.val9) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
-  %4 = load ptr, ptr %3, align 16, !tbaa !50
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !63
-  %7 = add i64 %6, -4000
-  %8 = icmp ult i64 %7, -4080
-  br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_RNS3_9NodeArrayES7_S7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEEPT_DpOT0_.exit
+define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_16FunctionEncodingEJRPNS0_4NodeESB_RNS0_9NodeArrayESB_SB_RNS0_10QualifiersERNS0_15FunctionRefQualEEEESA_DpOT0_(ptr noundef nonnull align 16 captures(none) dereferenceable(4928) %0, ptr %.0.val, ptr %.0.val1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr %.0.val3, ptr %.0.val5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #12 align 2 {
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4912
+  %6 = load ptr, ptr %5, align 16, !tbaa !50
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load i64, ptr %7, align 8, !tbaa !63
+  %9 = add i64 %8, -4000
+  %10 = icmp ult i64 %9, -4080
+  br i1 %10, label %11, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_RNS3_9NodeArrayES7_S7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEEPT_DpOT0_.exit
 
-9:                                                ; preds = %2
-  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #24
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
+11:                                               ; preds = %4
+  %12 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #24
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
-12:                                               ; preds = %9
+14:                                               ; preds = %11
   tail call void @_ZSt9terminatev() #23
   unreachable
 
-_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
-  store ptr %4, ptr %10, align 8, !tbaa !60
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %13, align 8, !tbaa !63
-  store ptr %10, ptr %3, align 16, !tbaa !50
+_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %11
+  store ptr %6, ptr %12, align 8, !tbaa !60
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 0, ptr %15, align 8, !tbaa !63
+  store ptr %12, ptr %5, align 16, !tbaa !50
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_RNS3_9NodeArrayES7_S7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEEPT_DpOT0_.exit
 
-_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_RNS3_9NodeArrayES7_S7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEEPT_DpOT0_.exit: ; preds = %2, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
-  %14 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %6, %2 ]
-  %15 = phi ptr [ %10, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %4, %2 ]
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = add nsw i64 %14, 80
-  store i64 %17, ptr %16, align 8, !tbaa !63
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %19 = getelementptr inbounds i8, ptr %18, i64 %14
+_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_RNS3_9NodeArrayES7_S7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEEPT_DpOT0_.exit: ; preds = %4, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
+  %16 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %8, %4 ]
+  %17 = phi ptr [ %12, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %6, %4 ]
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = add nsw i64 %16, 80
+  store i64 %19, ptr %18, align 8, !tbaa !63
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %21 = getelementptr inbounds i8, ptr %20, i64 %16
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !93
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !72
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i8 19, ptr %20, align 8, !tbaa !64
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 9
-  %22 = load i16, ptr %21, align 1
-  %23 = and i16 %22, -4096
-  %24 = or disjoint i16 %23, 256
-  store i16 %24, ptr %21, align 1
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle16FunctionEncodingE, i64 16), ptr %19, align 8, !tbaa !55
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %.0.val, ptr %25, align 8, !tbaa !95
-  %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr %.0.val1, ptr %26, align 8, !tbaa !80
-  %27 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr %.sroa.0.0.copyload.i, ptr %27, align 8, !tbaa !93
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %22 = load i32, ptr %2, align 4, !tbaa !136
+  %23 = load i8, ptr %3, align 1, !tbaa !137
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i8 19, ptr %24, align 8, !tbaa !64
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 9
+  %26 = load i16, ptr %25, align 1
+  %27 = and i16 %26, -4096
+  %28 = or disjoint i16 %27, 256
+  store i16 %28, ptr %25, align 1
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle16FunctionEncodingE, i64 16), ptr %21, align 8, !tbaa !55
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store ptr %.0.val, ptr %29, align 8, !tbaa !95
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  store ptr %.0.val1, ptr %30, align 8, !tbaa !80
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store ptr %.sroa.0.0.copyload.i, ptr %31, align 8, !tbaa !93
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !72
-  %28 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  store ptr %.0.val3, ptr %28, align 8, !tbaa !136
-  %29 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  store ptr %.0.val5, ptr %29, align 8, !tbaa !137
-  %30 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  store i32 %.0.val7, ptr %30, align 8, !tbaa !96
-  %31 = getelementptr inbounds nuw i8, ptr %19, i64 68
-  store i8 %.0.val9, ptr %31, align 4, !tbaa !97
-  ret ptr %19
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  store ptr %.0.val3, ptr %32, align 8, !tbaa !138
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 56
+  store ptr %.0.val5, ptr %33, align 8, !tbaa !139
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 64
+  store i32 %22, ptr %34, align 8, !tbaa !96
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 68
+  store i8 %23, ptr %35, align 4, !tbaa !97
+  ret ptr %21
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -8031,9 +8031,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle21CtorVtabl
   store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle21CtorVtableSpecialNameE, i64 16), ptr %18, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %24, align 8, !tbaa !138
+  store ptr %.0.val, ptr %24, align 8, !tbaa !140
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr %.0.val1, ptr %25, align 8, !tbaa !140
+  store ptr %.0.val1, ptr %25, align 8, !tbaa !142
   ret ptr %18
 }
 
@@ -8328,11 +8328,11 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %45, ptr %42, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10ModuleNameE, i64 16), ptr %40, align 8, !tbaa !55
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store ptr %.val, ptr %46, align 8, !tbaa !141
+  store ptr %.val, ptr %46, align 8, !tbaa !143
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr %23, ptr %47, align 8, !tbaa !143
+  store ptr %23, ptr %47, align 8, !tbaa !145
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  store i8 %.0.i9, ptr %48, align 8, !tbaa !144
+  store i8 %.0.i9, ptr %48, align 8, !tbaa !146
   store ptr %40, ptr %1, align 8, !tbaa !102
   %49 = load ptr, ptr %8, align 16, !tbaa !27
   %50 = load ptr, ptr %9, align 8, !tbaa !28
@@ -8402,7 +8402,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   ret i1 %.0.i12
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: cold nofree noreturn nounwind
@@ -8558,7 +8558,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 24
   store i64 %19, ptr %3, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !138
+  %21 = load ptr, ptr %20, align 8, !tbaa !140
   %22 = load ptr, ptr %21, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -8611,7 +8611,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i8: ; preds = %._ZN4llvm16i
   %45 = add i64 %44, 4
   store i64 %45, ptr %3, align 8, !tbaa !57
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !140
+  %47 = load ptr, ptr %46, align 8, !tbaa !142
   %48 = load ptr, ptr %47, align 8, !tbaa !55
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load ptr, ptr %49, align 8
@@ -8946,7 +8946,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle8NameTypeD0Ev(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle10ModuleName9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !141
+  %4 = load ptr, ptr %3, align 8, !tbaa !143
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit, label %5
 
@@ -8969,7 +8969,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle10ModuleName9printLe
   br label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit
 
 _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; preds = %11, %5, %2
-  %15 = load ptr, ptr %3, align 8, !tbaa !141
+  %15 = load ptr, ptr %3, align 8, !tbaa !143
   %.not4 = icmp ne ptr %15, null
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i8, ptr %16, align 8, !range !116
@@ -9018,7 +9018,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit: ; preds = %19, %._ZN4llvm16it
 
 36:                                               ; preds = %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit, %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !143
+  %38 = load ptr, ptr %37, align 8, !tbaa !145
   %39 = load ptr, ptr %38, align 8, !tbaa !55
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load ptr, ptr %40, align 8
@@ -9437,7 +9437,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE9push_backERKS3_.exit
   br i1 %144, label %.split75.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %142, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE9push_backERKS3_.exit.us
-  br label %.split.us, !llvm.loop !145
+  br label %.split.us, !llvm.loop !147
 
 .split:                                           ; preds = %.split.backedge, %.split.preheader
   %.not.i20 = phi i1 [ %42, %.split.preheader ], [ %.not.i30, %.split.backedge ]
@@ -9539,7 +9539,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br i1 %.not.i30, label %.split.backedge, label %180
 
 .split.backedge:                                  ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit29, %180
-  br label %.split, !llvm.loop !145
+  br label %.split, !llvm.loop !147
 
 180:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit29
   %181 = load i8, ptr %178, align 1, !tbaa !3
@@ -9625,7 +9625,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %215, i64 24
   store i64 %199, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !72
   %222 = getelementptr inbounds nuw i8, ptr %215, i64 32
-  store ptr %.0, ptr %222, align 8, !tbaa !146
+  store ptr %.0, ptr %222, align 8, !tbaa !148
   br label %.critedge
 
 .critedge:                                        ; preds = %149, %67, %189, %192, %2, %6, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_12TemplateArgsEJNS0_9NodeArrayERPNS0_4NodeEEEESB_DpOT0_.exit, %.split75.us
@@ -9919,7 +9919,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i40: ; preds = %90
   %108 = getelementptr inbounds nuw i8, ptr %101, i64 24
   store ptr null, ptr %108, align 8, !tbaa !112
   %109 = getelementptr inbounds nuw i8, ptr %101, i64 32
-  store i8 0, ptr %109, align 8, !tbaa !148
+  store i8 0, ptr %109, align 8, !tbaa !150
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %112 = load ptr, ptr %111, align 8, !tbaa !40
@@ -10141,7 +10141,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 24
   store ptr @.str.31, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !73
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  store ptr %16, ptr %49, align 8, !tbaa !149
+  store ptr %16, ptr %49, align 8, !tbaa !151
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit.thread
@@ -10248,7 +10248,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %26
   %42 = or disjoint i16 %41, 1344
   store i16 %42, ptr %39, align 1
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 12
-  store i32 %.035, ptr %43, align 4, !tbaa !151
+  store i32 %.035, ptr %43, align 4, !tbaa !153
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle19SpecialSubstitutionE, i64 16), ptr %37, align 8, !tbaa !55
   %44 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12parseAbiTagsEPNS0_4NodeE(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef nonnull %37)
   %.not9 = icmp eq ptr %44, %37
@@ -10587,7 +10587,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit54: ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %78
   %81 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE(ptr noundef nonnull align 16 dereferenceable(4928) %0)
   %.not20.not = icmp eq ptr %81, null
-  br i1 %.not20.not, label %.critedge23, label %48, !llvm.loop !154
+  br i1 %.not20.not, label %.critedge23, label %48, !llvm.loop !156
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %76, i64 1
@@ -10823,7 +10823,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i63: ; preds = %169
   store i16 %184, ptr %181, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle12ModuleEntityE, i64 16), ptr %179, align 8, !tbaa !55
   %185 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  store ptr %160, ptr %185, align 8, !tbaa !155
+  store ptr %160, ptr %185, align 8, !tbaa !157
   %186 = getelementptr inbounds nuw i8, ptr %179, i64 24
   store ptr %.0125, ptr %186, align 8, !tbaa !86
   br label %188
@@ -11095,7 +11095,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8NameTypeEJ
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle24ForwardTemplateReference19hasRHSComponentSlowERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i8, ptr %3, align 8, !tbaa !148, !range !116, !noundef !117
+  %4 = load i8, ptr %3, align 8, !tbaa !150, !range !116, !noundef !117
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %19, label %6
 
@@ -11133,7 +11133,7 @@ _ZNK4llvm16itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle24ForwardTemplateReference12hasArraySlowERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i8, ptr %3, align 8, !tbaa !148, !range !116, !noundef !117
+  %4 = load i8, ptr %3, align 8, !tbaa !150, !range !116, !noundef !117
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %21, label %6
 
@@ -11173,7 +11173,7 @@ _ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit: ; preds = %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle24ForwardTemplateReference15hasFunctionSlowERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i8, ptr %3, align 8, !tbaa !148, !range !116, !noundef !117
+  %4 = load i8, ptr %3, align 8, !tbaa !150, !range !116, !noundef !117
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %21, label %6
 
@@ -11213,7 +11213,7 @@ _ZNK4llvm16itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit: ; preds
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvm16itanium_demangle24ForwardTemplateReference13getSyntaxNodeERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i8, ptr %3, align 8, !tbaa !148, !range !116, !noundef !117
+  %4 = load i8, ptr %3, align 8, !tbaa !150, !range !116, !noundef !117
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %13, label %6
 
@@ -11236,7 +11236,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm16itanium_demangle24ForwardTemp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle24ForwardTemplateReference9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i8, ptr %3, align 8, !tbaa !148, !range !116, !noundef !117
+  %4 = load i8, ptr %3, align 8, !tbaa !150, !range !116, !noundef !117
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %12, label %6
 
@@ -11258,7 +11258,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle24ForwardTemplateRef
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle24ForwardTemplateReference10printRightERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i8, ptr %3, align 8, !tbaa !148, !range !116, !noundef !117
+  %4 = load i8, ptr %3, align 8, !tbaa !150, !range !116, !noundef !117
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %12, label %6
 
@@ -11285,1837 +11285,1845 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle24ForwardTemplateRefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0) unnamed_addr #1 align 2 {
-  %2 = alloca %"class.std::basic_string_view", align 8
-  %3 = alloca %"class.llvm::itanium_demangle::NodeArray", align 8
-  %4 = alloca ptr, align 8
+  %2 = alloca i8, align 1
+  %3 = alloca %"class.std::basic_string_view", align 8
+  %4 = alloca %"class.llvm::itanium_demangle::NodeArray", align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = load ptr, ptr %0, align 16, !tbaa !9
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !25
-  %10 = ptrtoint ptr %9 to i64
-  %11 = ptrtoint ptr %7 to i64
-  %12 = sub i64 %10, %11
-  %13 = icmp ult i64 %12, 2
-  br i1 %13, label %.critedge83, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  %7 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %8 = load ptr, ptr %0, align 16, !tbaa !9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !25
+  %11 = ptrtoint ptr %10 to i64
+  %12 = ptrtoint ptr %8 to i64
+  %13 = sub i64 %11, %12
+  %14 = icmp ult i64 %13, 2
+  br i1 %14, label %.critedge83, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %1
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %7, ptr noundef nonnull readonly dereferenceable(2) @.str.32, i64 2)
-  %14 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %14, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %.preheader.i
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %8, ptr noundef nonnull readonly dereferenceable(2) @.str.32, i64 2)
+  %15 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %15, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread578
+
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread578: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  store i8 0, ptr %2, align 1, !tbaa !120
+  br label %.preheader.i
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store ptr %15, ptr %0, align 16, !tbaa !9
-  %.pre471 = ptrtoint ptr %15 to i64
-  %.pre472 = sub i64 %10, %.pre471
-  %16 = icmp ult i64 %.pre472, 2
-  br i1 %16, label %.critedge83, label %.preheader.i
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store ptr %16, ptr %0, align 16, !tbaa !9
+  %.pre467 = ptrtoint ptr %16 to i64
+  %.pre468 = sub i64 %11, %.pre467
+  store i8 1, ptr %2, align 1, !tbaa !120
+  %17 = icmp ult i64 %.pre468, 2
+  br i1 %17, label %.critedge83, label %.preheader.i
 
-.preheader.i:                                     ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %17 = phi i8 [ 1, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
-  %18 = phi ptr [ %15, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %7, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
-  %.pre-phi473586 = phi i64 [ %.pre472, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %12, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
-  %19 = load i8, ptr %18, align 1, !tbaa !3
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  br label %21
+.preheader.i:                                     ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread578, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit
+  %18 = phi i8 [ 0, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread578 ], [ 1, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
+  %19 = phi ptr [ %8, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread578 ], [ %16, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
+  %.pre-phi469582 = phi i64 [ %13, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread578 ], [ %.pre468, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
+  %20 = load i8, ptr %19, align 1, !tbaa !3
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  br label %22
 
-21:                                               ; preds = %.thread24.i, %.preheader.i
-  %.01030.i = phi i64 [ 62, %.preheader.i ], [ %34, %.thread24.i ]
-  %.01229.i = phi i64 [ 0, %.preheader.i ], [ %33, %.thread24.i ]
-  %22 = add i64 %.01229.i, %.01030.i
-  %23 = lshr i64 %22, 1
-  %24 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E3OpsE, i64 %23
-  %.val15.i = load i8, ptr %24, align 16, !tbaa !3
-  %25 = getelementptr i8, ptr %24, i64 1
-  %.val16.i = load i8, ptr %25, align 1
-  %26 = icmp slt i8 %.val15.i, %19
-  br i1 %26, label %.thread.i, label %28
+22:                                               ; preds = %.thread24.i, %.preheader.i
+  %.01030.i = phi i64 [ 62, %.preheader.i ], [ %35, %.thread24.i ]
+  %.01229.i = phi i64 [ 0, %.preheader.i ], [ %34, %.thread24.i ]
+  %23 = add i64 %.01229.i, %.01030.i
+  %24 = lshr i64 %23, 1
+  %25 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E3OpsE, i64 %24
+  %.val15.i = load i8, ptr %25, align 16, !tbaa !3
+  %26 = getelementptr i8, ptr %25, i64 1
+  %.val16.i = load i8, ptr %26, align 1
+  %27 = icmp slt i8 %.val15.i, %20
+  br i1 %27, label %.thread.i, label %29
 
-.thread.i:                                        ; preds = %21
-  %27 = add nuw i64 %23, 1
+.thread.i:                                        ; preds = %22
+  %28 = add nuw i64 %24, 1
   br label %.thread24.i
 
-28:                                               ; preds = %21
-  %29 = icmp eq i8 %.val15.i, %19
-  br i1 %29, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i, label %.thread24.i
+29:                                               ; preds = %22
+  %30 = icmp eq i8 %.val15.i, %20
+  br i1 %30, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i, label %.thread24.i
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i: ; preds = %28
-  %30 = load i8, ptr %20, align 1, !tbaa !3
-  %31 = icmp slt i8 %.val16.i, %30
-  %cond.fr19.i = freeze i1 %31
-  %32 = add nuw i64 %23, 1
-  %spec.select.i = select i1 %cond.fr19.i, i64 %32, i64 %.01229.i
-  %spec.select28.i = select i1 %cond.fr19.i, i64 %.01030.i, i64 %23
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i: ; preds = %29
+  %31 = load i8, ptr %21, align 1, !tbaa !3
+  %32 = icmp slt i8 %.val16.i, %31
+  %cond.fr19.i = freeze i1 %32
+  %33 = add nuw i64 %24, 1
+  %spec.select.i = select i1 %cond.fr19.i, i64 %33, i64 %.01229.i
+  %spec.select28.i = select i1 %cond.fr19.i, i64 %.01030.i, i64 %24
   br label %.thread24.i
 
-.thread24.i:                                      ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i, %28, %.thread.i
-  %33 = phi i64 [ %.01229.i, %28 ], [ %spec.select.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i ], [ %27, %.thread.i ]
-  %34 = phi i64 [ %23, %28 ], [ %spec.select28.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i ], [ %.01030.i, %.thread.i ]
-  %.not.i = icmp eq i64 %34, %33
-  br i1 %.not.i, label %35, label %21, !llvm.loop !156
+.thread24.i:                                      ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i, %29, %.thread.i
+  %34 = phi i64 [ %.01229.i, %29 ], [ %spec.select.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i ], [ %28, %.thread.i ]
+  %35 = phi i64 [ %24, %29 ], [ %spec.select28.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i ], [ %.01030.i, %.thread.i ]
+  %.not.i = icmp eq i64 %35, %34
+  br i1 %.not.i, label %36, label %22, !llvm.loop !158
 
-35:                                               ; preds = %.thread24.i
-  %36 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E3OpsE, i64 %33
-  %.val17.i = load i8, ptr %36, align 16, !tbaa !3
-  %37 = icmp eq i8 %.val17.i, %19
-  br i1 %37, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
+36:                                               ; preds = %.thread24.i
+  %37 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E3OpsE, i64 %34
+  %.val17.i = load i8, ptr %37, align 16, !tbaa !3
+  %38 = icmp eq i8 %.val17.i, %20
+  br i1 %38, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i: ; preds = %35
-  %38 = getelementptr i8, ptr %36, i64 1
-  %.val18.i = load i8, ptr %38, align 1
-  %39 = load i8, ptr %20, align 1, !tbaa !3
-  %.not27.i = icmp eq i8 %.val18.i, %39
-  br i1 %.not27.i, label %40, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i: ; preds = %36
+  %39 = getelementptr i8, ptr %37, i64 1
+  %.val18.i = load i8, ptr %39, align 1
+  %40 = load i8, ptr %21, align 1, !tbaa !3
+  %.not27.i = icmp eq i8 %.val18.i, %40
+  br i1 %.not27.i, label %41, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
 
-40:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i
-  %41 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store ptr %41, ptr %0, align 16, !tbaa !9
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %42 = getelementptr i8, ptr %36, i64 2
-  %.val111 = load i8, ptr %42, align 2, !tbaa !157
-  %43 = getelementptr i8, ptr %36, i64 8
-  %.val112 = load ptr, ptr %43, align 8, !tbaa !159
-  %44 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val112) #21
-  %45 = and i64 %33, 1152921504606846975
-  %46 = shl nuw i64 1, %45
-  %47 = and i64 %46, 414331165718019679
-  %.not = icmp eq i64 %47, 0
-  br i1 %.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit, label %48
+41:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i
+  %42 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store ptr %42, ptr %0, align 16, !tbaa !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %43 = getelementptr i8, ptr %37, i64 2
+  %.val111 = load i8, ptr %43, align 2, !tbaa !159
+  %44 = getelementptr i8, ptr %37, i64 8
+  %.val112 = load ptr, ptr %44, align 8, !tbaa !161
+  %45 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val112) #21
+  %46 = and i64 %34, 1152921504606846975
+  %47 = shl nuw i64 1, %46
+  %48 = and i64 %47, 414331165718019679
+  %.not = icmp eq i64 %48, 0
+  br i1 %.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit, label %49
 
-48:                                               ; preds = %40
-  %49 = getelementptr inbounds nuw i8, ptr %.val112, i64 8
-  %50 = add i64 %44, -8
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
+49:                                               ; preds = %41
+  %50 = getelementptr inbounds nuw i8, ptr %.val112, i64 8
+  %51 = add i64 %45, -8
+  %52 = icmp eq i64 %51, 0
+  br i1 %52, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
 
-_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i: ; preds = %48
-  %52 = load i8, ptr %49, align 1, !tbaa !3
-  %53 = icmp eq i8 %52, 32
-  br i1 %53, label %54, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
+_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i: ; preds = %49
+  %53 = load i8, ptr %50, align 1, !tbaa !3
+  %54 = icmp eq i8 %53, 32
+  br i1 %54, label %55, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
 
-54:                                               ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
-  %55 = getelementptr inbounds nuw i8, ptr %.val112, i64 9
-  %56 = add i64 %44, -9
+55:                                               ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i
+  %56 = getelementptr inbounds nuw i8, ptr %.val112, i64 9
+  %57 = add i64 %45, -9
   br label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit: ; preds = %40, %48, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i, %54
-  %.sroa.7.0.i = phi ptr [ %55, %54 ], [ %49, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i ], [ %.val112, %40 ], [ %49, %48 ]
-  %.sroa.0.0.i = phi i64 [ %56, %54 ], [ %50, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i ], [ %44, %40 ], [ 0, %48 ]
-  store i64 %.sroa.0.0.i, ptr %2, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %.sroa.7.0.i, ptr %57, align 8
-  switch i8 %.val111, label %521 [
-    i8 2, label %58
-    i8 0, label %69
-    i8 1, label %101
-    i8 3, label %122
-    i8 4, label %133
-    i8 5, label %144
-    i8 6, label %262
-    i8 7, label %296
-    i8 8, label %355
-    i8 9, label %458
-    i8 11, label %472
-    i8 12, label %483
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit: ; preds = %41, %49, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i, %55
+  %.sroa.7.0.i = phi ptr [ %56, %55 ], [ %50, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i ], [ %.val112, %41 ], [ %50, %49 ]
+  %.sroa.0.0.i = phi i64 [ %57, %55 ], [ %51, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i ], [ %45, %41 ], [ 0, %49 ]
+  store i64 %.sroa.0.0.i, ptr %3, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %.sroa.7.0.i, ptr %58, align 8
+  switch i8 %.val111, label %522 [
+    i8 2, label %59
+    i8 0, label %70
+    i8 1, label %102
+    i8 3, label %123
+    i8 4, label %134
+    i8 5, label %145
+    i8 6, label %263
+    i8 7, label %297
+    i8 8, label %356
+    i8 9, label %459
+    i8 11, label %473
+    i8 12, label %484
     i8 10, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
   ]
 
-58:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
-  %59 = getelementptr i8, ptr %36, i64 3
-  %.val114 = load i8, ptr %59, align 1
-  %60 = ashr i8 %.val114, 1
-  %61 = sext i8 %60 to i32
-  %62 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %64
+59:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
+  %60 = getelementptr i8, ptr %37, i64 3
+  %.val114 = load i8, ptr %60, align 1
+  %61 = ashr i8 %.val114, 1
+  %62 = sext i8 %61 to i32
+  %63 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %65
 
-64:                                               ; preds = %58
-  %65 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %67
+65:                                               ; preds = %59
+  %66 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %68
 
-67:                                               ; preds = %64
-  %68 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10BinaryExprEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEESB_RNS9_4PrecEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %62, i64 %.sroa.0.0.i, ptr nonnull %.sroa.7.0.i, ptr nonnull %65, i32 %61)
+68:                                               ; preds = %65
+  %69 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10BinaryExprEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEESB_RNS9_4PrecEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %63, i64 %.sroa.0.0.i, ptr nonnull %.sroa.7.0.i, ptr nonnull %66, i32 %62)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
-69:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
-  %70 = getelementptr i8, ptr %36, i64 3
-  %.val115 = load i8, ptr %70, align 1
-  %71 = lshr i8 %.val115, 1
-  %72 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %74
+70:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
+  %71 = getelementptr i8, ptr %37, i64 3
+  %.val115 = load i8, ptr %71, align 1
+  %72 = lshr i8 %.val115, 1
+  %73 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %75
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 4912
-  %76 = load ptr, ptr %75, align 16, !tbaa !50
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load i64, ptr %77, align 8, !tbaa !63
-  %79 = add i64 %78, -4032
-  %80 = icmp ult i64 %79, -4080
-  br i1 %80, label %81, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeERNSE_4PrecEEEESF_DpOT0_.exit
+75:                                               ; preds = %70
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 4912
+  %77 = load ptr, ptr %76, align 16, !tbaa !50
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load i64, ptr %78, align 8, !tbaa !63
+  %80 = add i64 %79, -4032
+  %81 = icmp ult i64 %80, -4080
+  br i1 %81, label %82, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeERNSE_4PrecEEEESF_DpOT0_.exit
 
-81:                                               ; preds = %74
-  %82 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #24
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %84, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i291
+82:                                               ; preds = %75
+  %83 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #24
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %85, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i290
 
-84:                                               ; preds = %81
+85:                                               ; preds = %82
   tail call void @_ZSt9terminatev() #23
   unreachable
 
-_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i291: ; preds = %81
-  store ptr %76, ptr %82, align 8, !tbaa !60
-  %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store i64 0, ptr %85, align 8, !tbaa !63
-  store ptr %82, ptr %75, align 16, !tbaa !50
+_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i290: ; preds = %82
+  store ptr %77, ptr %83, align 8, !tbaa !60
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  store i64 0, ptr %86, align 8, !tbaa !63
+  store ptr %83, ptr %76, align 16, !tbaa !50
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeERNSE_4PrecEEEESF_DpOT0_.exit
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeERNSE_4PrecEEEESF_DpOT0_.exit: ; preds = %74, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i291
-  %86 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i291 ], [ %78, %74 ]
-  %87 = phi ptr [ %82, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i291 ], [ %76, %74 ]
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = add nsw i64 %86, 48
-  store i64 %89, ptr %88, align 8, !tbaa !63
-  %90 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %91 = getelementptr inbounds i8, ptr %90, i64 %86
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i8 66, ptr %92, align 8, !tbaa !64
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 9
-  %94 = load i16, ptr %93, align 1
-  %95 = zext nneg i8 %71 to i16
-  %96 = and i16 %94, -4096
-  %97 = or disjoint i16 %96, %95
-  %98 = or i16 %97, 1344
-  store i16 %98, ptr %93, align 1
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10PrefixExprE, i64 16), ptr %91, align 8, !tbaa !55
-  %99 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store i64 %.sroa.0.0.i, ptr %99, align 8, !tbaa !72
-  %.sroa.2.0..sroa_idx.i.i.i290 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  store ptr %.sroa.7.0.i, ptr %.sroa.2.0..sroa_idx.i.i.i290, align 8, !tbaa !73
-  %100 = getelementptr inbounds nuw i8, ptr %91, i64 32
-  store ptr %72, ptr %100, align 8, !tbaa !160
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeERNSE_4PrecEEEESF_DpOT0_.exit: ; preds = %75, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i290
+  %87 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i290 ], [ %79, %75 ]
+  %88 = phi ptr [ %83, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i290 ], [ %77, %75 ]
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %90 = add nsw i64 %87, 48
+  store i64 %90, ptr %89, align 8, !tbaa !63
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %92 = getelementptr inbounds i8, ptr %91, i64 %87
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store i8 66, ptr %93, align 8, !tbaa !64
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 9
+  %95 = load i16, ptr %94, align 1
+  %96 = zext nneg i8 %72 to i16
+  %97 = and i16 %95, -4096
+  %98 = or disjoint i16 %97, %96
+  %99 = or i16 %98, 1344
+  store i16 %99, ptr %94, align 1
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10PrefixExprE, i64 16), ptr %92, align 8, !tbaa !55
+  %100 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store i64 %.sroa.0.0.i, ptr %100, align 8, !tbaa !72
+  %.sroa.2.0..sroa_idx.i.i.i289 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  store ptr %.sroa.7.0.i, ptr %.sroa.2.0..sroa_idx.i.i.i289, align 8, !tbaa !73
+  %101 = getelementptr inbounds nuw i8, ptr %92, i64 32
+  store ptr %73, ptr %101, align 8, !tbaa !162
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
-101:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
-  %.not.i195 = icmp eq ptr %41, %9
-  br i1 %.not.i195, label %114, label %102
+102:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
+  %.not.i194 = icmp eq ptr %42, %10
+  br i1 %.not.i194, label %115, label %103
 
-102:                                              ; preds = %101
-  %103 = load i8, ptr %41, align 1, !tbaa !3
-  %104 = icmp eq i8 %103, 95
-  br i1 %104, label %105, label %114
+103:                                              ; preds = %102
+  %104 = load i8, ptr %42, align 1, !tbaa !3
+  %105 = icmp eq i8 %104, 95
+  br i1 %105, label %106, label %115
 
-105:                                              ; preds = %102
-  %106 = getelementptr inbounds nuw i8, ptr %18, i64 3
-  store ptr %106, ptr %0, align 16, !tbaa !9
-  %107 = getelementptr i8, ptr %36, i64 3
-  %.val116 = load i8, ptr %107, align 1
-  %108 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %110
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds nuw i8, ptr %19, i64 3
+  store ptr %107, ptr %0, align 16, !tbaa !9
+  %108 = getelementptr i8, ptr %37, i64 3
+  %.val116 = load i8, ptr %108, align 1
+  %109 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %111
 
-110:                                              ; preds = %105
-  %111 = ashr i8 %.val116, 1
-  %112 = sext i8 %111 to i32
-  %113 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeERNSE_4PrecEEEESF_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 %.sroa.0.0.i, ptr nonnull %.sroa.7.0.i, ptr nonnull %108, i32 %112)
+111:                                              ; preds = %106
+  %112 = ashr i8 %.val116, 1
+  %113 = sext i8 %112 to i32
+  %114 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeERNSE_4PrecEEEESF_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 %.sroa.0.0.i, ptr nonnull %.sroa.7.0.i, ptr nonnull %109, i32 %113)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
-114:                                              ; preds = %102, %101
-  %115 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %116 = icmp eq ptr %115, null
-  br i1 %116, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %117
+115:                                              ; preds = %103, %102
+  %116 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %117 = icmp eq ptr %116, null
+  br i1 %117, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %118
 
-117:                                              ; preds = %114
-  %118 = getelementptr i8, ptr %36, i64 3
-  %.val117 = load i8, ptr %118, align 1
-  %119 = ashr i8 %.val117, 1
-  %120 = sext i8 %119 to i32
-  %121 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11PostfixExprEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEENS9_4PrecEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %115, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 %120)
+118:                                              ; preds = %115
+  %119 = getelementptr i8, ptr %37, i64 3
+  %.val117 = load i8, ptr %119, align 1
+  %120 = ashr i8 %.val117, 1
+  %121 = sext i8 %120 to i32
+  %122 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_11PostfixExprEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEENS9_4PrecEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %116, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 %121)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
-122:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
-  %123 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %125
+123:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
+  %124 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %125 = icmp eq ptr %124, null
+  br i1 %125, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %126
 
-125:                                              ; preds = %122
-  %126 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %128
+126:                                              ; preds = %123
+  %127 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %129
 
-128:                                              ; preds = %125
-  %129 = getelementptr i8, ptr %36, i64 3
-  %.val118 = load i8, ptr %129, align 1
-  %130 = ashr i8 %.val118, 1
-  %131 = sext i8 %130 to i32
-  %132 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_18ArraySubscriptExprEJRPNS0_4NodeESB_NS9_4PrecEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %123, ptr nonnull %126, i32 %131)
+129:                                              ; preds = %126
+  %130 = getelementptr i8, ptr %37, i64 3
+  %.val118 = load i8, ptr %130, align 1
+  %131 = ashr i8 %.val118, 1
+  %132 = sext i8 %131 to i32
+  %133 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_18ArraySubscriptExprEJRPNS0_4NodeESB_NS9_4PrecEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %124, ptr nonnull %127, i32 %132)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
-133:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
-  %134 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %135 = icmp eq ptr %134, null
-  br i1 %135, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %136
+134:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
+  %135 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %137
 
-136:                                              ; preds = %133
-  %137 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %138 = icmp eq ptr %137, null
-  br i1 %138, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %139
+137:                                              ; preds = %134
+  %138 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %139 = icmp eq ptr %138, null
+  br i1 %139, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %140
 
-139:                                              ; preds = %136
-  %140 = getelementptr i8, ptr %36, i64 3
-  %.val119 = load i8, ptr %140, align 1
-  %141 = ashr i8 %.val119, 1
-  %142 = sext i8 %141 to i32
-  %143 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10MemberExprEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEESB_NS9_4PrecEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %134, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %137, i32 %142)
+140:                                              ; preds = %137
+  %141 = getelementptr i8, ptr %37, i64 3
+  %.val119 = load i8, ptr %141, align 1
+  %142 = ashr i8 %.val119, 1
+  %143 = sext i8 %142 to i32
+  %144 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10MemberExprEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEESB_NS9_4PrecEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %135, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nonnull %138, i32 %143)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
-144:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %147 = load ptr, ptr %146, align 8, !tbaa !27
-  %148 = load ptr, ptr %145, align 16, !tbaa !26
-  %149 = ptrtoint ptr %147 to i64
+145:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %148 = load ptr, ptr %147, align 8, !tbaa !27
+  %149 = load ptr, ptr %146, align 16, !tbaa !26
   %150 = ptrtoint ptr %148 to i64
-  %151 = sub i64 %149, %150
-  %152 = ashr exact i64 %151, 3
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %155
+  %151 = ptrtoint ptr %149 to i64
+  %152 = sub i64 %150, %151
+  %153 = ashr exact i64 %152, 3
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %156
 
-155:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %144
-  %156 = phi ptr [ %.pre468, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ %9, %144 ]
-  %157 = phi ptr [ %.pre467, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ %41, %144 ]
-  %.not.i203 = icmp eq ptr %157, %156
-  br i1 %.not.i203, label %161, label %158
+156:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %145
+  %157 = phi ptr [ %.pre464, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ %10, %145 ]
+  %158 = phi ptr [ %.pre463, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ %42, %145 ]
+  %.not.i202 = icmp eq ptr %158, %157
+  br i1 %.not.i202, label %162, label %159
 
-158:                                              ; preds = %155
-  %159 = load i8, ptr %157, align 1, !tbaa !3
-  %160 = icmp eq i8 %159, 95
-  br i1 %160, label %190, label %161
+159:                                              ; preds = %156
+  %160 = load i8, ptr %158, align 1, !tbaa !3
+  %161 = icmp eq i8 %160, 95
+  br i1 %161, label %191, label %162
 
-161:                                              ; preds = %158, %155
-  %162 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %.not77 = icmp eq ptr %162, null
-  br i1 %.not77, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %163
+162:                                              ; preds = %159, %156
+  %163 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %.not77 = icmp eq ptr %163, null
+  br i1 %.not77, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %164
 
-163:                                              ; preds = %161
-  %164 = load ptr, ptr %146, align 8, !tbaa !27
-  %165 = load ptr, ptr %153, align 16, !tbaa !28
-  %166 = icmp eq ptr %164, %165
-  br i1 %166, label %167, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
+164:                                              ; preds = %162
+  %165 = load ptr, ptr %147, align 8, !tbaa !27
+  %166 = load ptr, ptr %154, align 16, !tbaa !28
+  %167 = icmp eq ptr %165, %166
+  br i1 %167, label %168, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
-167:                                              ; preds = %163
-  %168 = load ptr, ptr %145, align 16, !tbaa !26
-  %169 = ptrtoint ptr %164 to i64
-  %170 = ptrtoint ptr %168 to i64
-  %171 = sub i64 %169, %170
-  %172 = ashr exact i64 %171, 2
-  %173 = icmp eq ptr %168, %154
-  %174 = shl i64 %171, 1
-  br i1 %173, label %175, label %181
+168:                                              ; preds = %164
+  %169 = load ptr, ptr %146, align 16, !tbaa !26
+  %170 = ptrtoint ptr %165 to i64
+  %171 = ptrtoint ptr %169 to i64
+  %172 = sub i64 %170, %171
+  %173 = ashr exact i64 %172, 2
+  %174 = icmp eq ptr %169, %155
+  %175 = shl i64 %172, 1
+  br i1 %174, label %176, label %182
 
-175:                                              ; preds = %167
-  %176 = tail call noalias ptr @malloc(i64 noundef %174) #24
-  %177 = icmp eq ptr %176, null
-  br i1 %177, label %178, label %179
+176:                                              ; preds = %168
+  %177 = tail call noalias ptr @malloc(i64 noundef %175) #24
+  %178 = icmp eq ptr %177, null
+  br i1 %178, label %179, label %180
 
-178:                                              ; preds = %175
+179:                                              ; preds = %176
   tail call void @abort() #23
   unreachable
 
-179:                                              ; preds = %175
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %164, %154
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i, label %180
+180:                                              ; preds = %176
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %165, %155
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i, label %181
 
-180:                                              ; preds = %179
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %176, ptr align 8 %168, i64 %171, i1 false)
+181:                                              ; preds = %180
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr align 8 %169, i64 %172, i1 false)
   br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
 
-_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %180, %179
-  store ptr %176, ptr %145, align 16, !tbaa !26
+_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %181, %180
+  store ptr %177, ptr %146, align 16, !tbaa !26
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
-181:                                              ; preds = %167
-  %182 = tail call ptr @realloc(ptr noundef %168, i64 noundef %174) #22
-  store ptr %182, ptr %145, align 16, !tbaa !26
-  %183 = icmp eq ptr %182, null
-  br i1 %183, label %184, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
+182:                                              ; preds = %168
+  %183 = tail call ptr @realloc(ptr noundef %169, i64 noundef %175) #22
+  store ptr %183, ptr %146, align 16, !tbaa !26
+  %184 = icmp eq ptr %183, null
+  br i1 %184, label %185, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
 
-184:                                              ; preds = %181
+185:                                              ; preds = %182
   tail call void @abort() #23
   unreachable
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %181, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
-  %185 = phi ptr [ %182, %181 ], [ %176, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 %171
-  %187 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %172
-  store ptr %187, ptr %153, align 16, !tbaa !28
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %182, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
+  %186 = phi ptr [ %183, %182 ], [ %177, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 %172
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %173
+  store ptr %188, ptr %154, align 16, !tbaa !28
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit: ; preds = %163, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
-  %188 = phi ptr [ %186, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %164, %163 ]
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  store ptr %189, ptr %146, align 8, !tbaa !27
-  store ptr %162, ptr %188, align 8, !tbaa !29
-  %.pre467 = load ptr, ptr %0, align 16, !tbaa !9
-  %.pre468 = load ptr, ptr %8, align 8, !tbaa !25
-  br label %155, !llvm.loop !162
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit: ; preds = %164, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
+  %189 = phi ptr [ %187, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %165, %164 ]
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  store ptr %190, ptr %147, align 8, !tbaa !27
+  store ptr %163, ptr %189, align 8, !tbaa !29
+  %.pre463 = load ptr, ptr %0, align 16, !tbaa !9
+  %.pre464 = load ptr, ptr %9, align 8, !tbaa !25
+  br label %156, !llvm.loop !164
 
-190:                                              ; preds = %158
-  %191 = getelementptr inbounds nuw i8, ptr %157, i64 1
-  store ptr %191, ptr %0, align 16, !tbaa !9
-  %192 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %152)
-  %193 = extractvalue { ptr, i64 } %192, 0
-  %194 = extractvalue { ptr, i64 } %192, 1
-  %195 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %196 = icmp eq ptr %195, null
-  br i1 %196, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %197
+191:                                              ; preds = %159
+  %192 = getelementptr inbounds nuw i8, ptr %158, i64 1
+  store ptr %192, ptr %0, align 16, !tbaa !9
+  %193 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %153)
+  %194 = extractvalue { ptr, i64 } %193, 0
+  %195 = extractvalue { ptr, i64 } %193, 1
+  %196 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %197 = icmp eq ptr %196, null
+  br i1 %197, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %198
 
-197:                                              ; preds = %190
-  %198 = load ptr, ptr %0, align 16, !tbaa !9
-  %199 = load ptr, ptr %8, align 8, !tbaa !25
-  %200 = ptrtoint ptr %199 to i64
-  %201 = ptrtoint ptr %198 to i64
-  %202 = sub i64 %200, %201
-  %203 = icmp ult i64 %202, 2
-  br i1 %203, label %.split428, label %204
+198:                                              ; preds = %191
+  %199 = load ptr, ptr %0, align 16, !tbaa !9
+  %200 = load ptr, ptr %9, align 8, !tbaa !25
+  %201 = ptrtoint ptr %200 to i64
+  %202 = ptrtoint ptr %199 to i64
+  %203 = sub i64 %201, %202
+  %204 = icmp ult i64 %203, 2
+  br i1 %204, label %.split424, label %205
 
-204:                                              ; preds = %197
-  %bcmp.i.i.i626 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %198, ptr noundef nonnull dereferenceable(2) @.str.33, i64 2)
-  %205 = icmp eq i32 %bcmp.i.i.i626, 0
-  br i1 %205, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit627, label %.split428
+205:                                              ; preds = %198
+  %bcmp.i.i.i622 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %199, ptr noundef nonnull dereferenceable(2) @.str.33, i64 2)
+  %206 = icmp eq i32 %bcmp.i.i.i622, 0
+  br i1 %206, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit623, label %.split424
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit627: ; preds = %204
-  %206 = getelementptr inbounds nuw i8, ptr %198, i64 2
-  store ptr %206, ptr %0, align 16, !tbaa !9
-  %207 = load ptr, ptr %146, align 8, !tbaa !27
-  %208 = load ptr, ptr %145, align 16, !tbaa !26
-  %209 = ptrtoint ptr %207 to i64
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit623: ; preds = %205
+  %207 = getelementptr inbounds nuw i8, ptr %199, i64 2
+  store ptr %207, ptr %0, align 16, !tbaa !9
+  %208 = load ptr, ptr %147, align 8, !tbaa !27
+  %209 = load ptr, ptr %146, align 16, !tbaa !26
   %210 = ptrtoint ptr %208 to i64
-  %211 = sub i64 %209, %210
-  br label %.split428.us
+  %211 = ptrtoint ptr %209 to i64
+  %212 = sub i64 %210, %211
+  br label %.split424.us
 
-.split428.us:                                     ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit627, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit212.us
-  %212 = phi ptr [ %199, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit627 ], [ %.pre745, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit212.us ]
-  %213 = phi ptr [ %206, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit627 ], [ %.pre744, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit212.us ]
-  %.not.i206.us = icmp eq ptr %213, %212
-  br i1 %.not.i206.us, label %217, label %214
+.split424.us:                                     ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit623, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit211.us
+  %213 = phi ptr [ %200, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit623 ], [ %.pre741, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit211.us ]
+  %214 = phi ptr [ %207, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit623 ], [ %.pre740, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit211.us ]
+  %.not.i205.us = icmp eq ptr %214, %213
+  br i1 %.not.i205.us, label %218, label %215
 
-214:                                              ; preds = %.split428.us
-  %215 = load i8, ptr %213, align 1, !tbaa !3
-  %216 = icmp eq i8 %215, 69
-  br i1 %216, label %.split430.us, label %217
+215:                                              ; preds = %.split424.us
+  %216 = load i8, ptr %214, align 1, !tbaa !3
+  %217 = icmp eq i8 %216, 69
+  br i1 %217, label %.split426.us, label %218
 
-217:                                              ; preds = %214, %.split428.us
-  %218 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %.not76.us = icmp eq ptr %218, null
-  br i1 %.not76.us, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %219
+218:                                              ; preds = %215, %.split424.us
+  %219 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %.not76.us = icmp eq ptr %219, null
+  br i1 %.not76.us, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %220
 
-219:                                              ; preds = %217
-  %220 = load ptr, ptr %146, align 8, !tbaa !27
-  %221 = load ptr, ptr %153, align 16, !tbaa !28
-  %222 = icmp eq ptr %220, %221
-  br i1 %222, label %223, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit212.us
+220:                                              ; preds = %218
+  %221 = load ptr, ptr %147, align 8, !tbaa !27
+  %222 = load ptr, ptr %154, align 16, !tbaa !28
+  %223 = icmp eq ptr %221, %222
+  br i1 %223, label %224, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit211.us
 
-223:                                              ; preds = %219
-  %224 = load ptr, ptr %145, align 16, !tbaa !26
-  %225 = ptrtoint ptr %220 to i64
-  %226 = ptrtoint ptr %224 to i64
-  %227 = sub i64 %225, %226
-  %228 = ashr exact i64 %227, 2
-  %229 = icmp eq ptr %224, %154
-  %230 = shl i64 %227, 1
-  br i1 %229, label %234, label %231
+224:                                              ; preds = %220
+  %225 = load ptr, ptr %146, align 16, !tbaa !26
+  %226 = ptrtoint ptr %221 to i64
+  %227 = ptrtoint ptr %225 to i64
+  %228 = sub i64 %226, %227
+  %229 = ashr exact i64 %228, 2
+  %230 = icmp eq ptr %225, %155
+  %231 = shl i64 %228, 1
+  br i1 %230, label %235, label %232
 
-231:                                              ; preds = %223
-  %232 = tail call ptr @realloc(ptr noundef %224, i64 noundef %230) #22
-  store ptr %232, ptr %145, align 16, !tbaa !26
-  %233 = icmp eq ptr %232, null
-  br i1 %233, label %.split433.us, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i209.us
+232:                                              ; preds = %224
+  %233 = tail call ptr @realloc(ptr noundef %225, i64 noundef %231) #22
+  store ptr %233, ptr %146, align 16, !tbaa !26
+  %234 = icmp eq ptr %233, null
+  br i1 %234, label %.split429.us, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i208.us
 
-234:                                              ; preds = %223
-  %235 = tail call noalias ptr @malloc(i64 noundef %230) #24
-  %236 = icmp eq ptr %235, null
-  br i1 %236, label %.split435.us, label %237
+235:                                              ; preds = %224
+  %236 = tail call noalias ptr @malloc(i64 noundef %231) #24
+  %237 = icmp eq ptr %236, null
+  br i1 %237, label %.split431.us, label %238
 
-237:                                              ; preds = %234
-  %.not.i.i.i.i.i.i.i210.us = icmp eq ptr %220, %154
-  br i1 %.not.i.i.i.i.i.i.i210.us, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i211.us, label %238
+238:                                              ; preds = %235
+  %.not.i.i.i.i.i.i.i209.us = icmp eq ptr %221, %155
+  br i1 %.not.i.i.i.i.i.i.i209.us, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i210.us, label %239
 
-238:                                              ; preds = %237
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %235, ptr align 8 %224, i64 %227, i1 false)
-  br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i211.us
+239:                                              ; preds = %238
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %236, ptr align 8 %225, i64 %228, i1 false)
+  br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i210.us
 
-_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i211.us: ; preds = %238, %237
-  store ptr %235, ptr %145, align 16, !tbaa !26
-  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i209.us
+_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i210.us: ; preds = %239, %238
+  store ptr %236, ptr %146, align 16, !tbaa !26
+  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i208.us
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i209.us: ; preds = %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i211.us, %231
-  %239 = phi ptr [ %232, %231 ], [ %235, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i211.us ]
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 %227
-  %241 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %228
-  store ptr %241, ptr %153, align 16, !tbaa !28
-  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit212.us
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i208.us: ; preds = %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i210.us, %232
+  %240 = phi ptr [ %233, %232 ], [ %236, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i210.us ]
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 %228
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %229
+  store ptr %242, ptr %154, align 16, !tbaa !28
+  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit211.us
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit212.us: ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i209.us, %219
-  %242 = phi ptr [ %240, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i209.us ], [ %220, %219 ]
-  %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
-  store ptr %243, ptr %146, align 8, !tbaa !27
-  store ptr %218, ptr %242, align 8, !tbaa !29
-  %.pre744 = load ptr, ptr %0, align 16, !tbaa !9
-  %.pre745 = load ptr, ptr %8, align 8, !tbaa !25
-  br label %.split428.us, !llvm.loop !163
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit211.us: ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i208.us, %220
+  %243 = phi ptr [ %241, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i208.us ], [ %221, %220 ]
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
+  store ptr %244, ptr %147, align 8, !tbaa !27
+  store ptr %219, ptr %243, align 8, !tbaa !29
+  %.pre740 = load ptr, ptr %0, align 16, !tbaa !9
+  %.pre741 = load ptr, ptr %9, align 8, !tbaa !25
+  br label %.split424.us, !llvm.loop !165
 
-.split428:                                        ; preds = %197, %204
-  %.not.i206 = icmp eq ptr %198, %199
-  br i1 %.not.i206, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %244
+.split424:                                        ; preds = %198, %205
+  %.not.i205 = icmp eq ptr %199, %200
+  br i1 %.not.i205, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %245
 
-244:                                              ; preds = %.split428
-  %245 = load ptr, ptr %146, align 8, !tbaa !27
-  %246 = ptrtoint ptr %245 to i64
-  %247 = load ptr, ptr %145, align 16, !tbaa !26
-  %248 = ptrtoint ptr %247 to i64
-  %249 = sub i64 %246, %248
-  %250 = load i8, ptr %198, align 1, !tbaa !3
-  %251 = icmp eq i8 %250, 69
-  br i1 %251, label %.split430.us, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
+245:                                              ; preds = %.split424
+  %246 = load ptr, ptr %147, align 8, !tbaa !27
+  %247 = ptrtoint ptr %246 to i64
+  %248 = load ptr, ptr %146, align 16, !tbaa !26
+  %249 = ptrtoint ptr %248 to i64
+  %250 = sub i64 %247, %249
+  %251 = load i8, ptr %199, align 1, !tbaa !3
+  %252 = icmp eq i8 %251, 69
+  br i1 %252, label %.split426.us, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
-.split435.us:                                     ; preds = %234
+.split431.us:                                     ; preds = %235
   tail call void @abort() #23
   unreachable
 
-.split433.us:                                     ; preds = %231
+.split429.us:                                     ; preds = %232
   tail call void @abort() #23
   unreachable
 
-.split430.us:                                     ; preds = %214, %244
-  %.in683 = phi i64 [ %249, %244 ], [ %211, %214 ]
-  %.us-phi431 = phi ptr [ %198, %244 ], [ %213, %214 ]
-  %252 = ashr exact i64 %.in683, 3
-  %253 = getelementptr inbounds nuw i8, ptr %.us-phi431, i64 1
-  store ptr %253, ptr %0, align 16, !tbaa !9
-  %254 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %252)
-  %255 = extractvalue { ptr, i64 } %254, 0
-  %256 = extractvalue { ptr, i64 } %254, 1
-  %257 = getelementptr i8, ptr %36, i64 3
-  %.val135 = load i8, ptr %257, align 1
-  %258 = and i8 %.val135, 1
-  %259 = ashr i8 %.val135, 1
-  %260 = sext i8 %259 to i32
-  %261 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_7NewExprEJRNS0_9NodeArrayERPNS0_4NodeESA_RbbNSB_4PrecEEEESC_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr %193, i64 %194, ptr nonnull %195, ptr %255, i64 %256, i8 %17, i8 %258, i32 %260)
+.split426.us:                                     ; preds = %215, %245
+  %.in679 = phi i64 [ %250, %245 ], [ %212, %215 ]
+  %.us-phi427 = phi ptr [ %199, %245 ], [ %214, %215 ]
+  %253 = ashr exact i64 %.in679, 3
+  %254 = getelementptr inbounds nuw i8, ptr %.us-phi427, i64 1
+  store ptr %254, ptr %0, align 16, !tbaa !9
+  %255 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %253)
+  %256 = extractvalue { ptr, i64 } %255, 0
+  %257 = extractvalue { ptr, i64 } %255, 1
+  %258 = getelementptr i8, ptr %37, i64 3
+  %.val135 = load i8, ptr %258, align 1
+  %259 = and i8 %.val135, 1
+  %260 = ashr i8 %.val135, 1
+  %261 = sext i8 %260 to i32
+  %262 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_7NewExprEJRNS0_9NodeArrayERPNS0_4NodeESA_RbbNSB_4PrecEEEESC_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr %194, i64 %195, ptr nonnull %196, ptr %256, i64 %257, ptr noundef nonnull align 1 dereferenceable(1) %2, i8 %259, i32 %261)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
-262:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
-  %263 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %264 = icmp eq ptr %263, null
-  br i1 %264, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %265
+263:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
+  %264 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %265 = icmp eq ptr %264, null
+  br i1 %265, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %266
 
-265:                                              ; preds = %262
-  %266 = getelementptr i8, ptr %36, i64 3
-  %.val136 = load i8, ptr %266, align 1
-  %267 = and i8 %.val136, 1
-  %268 = lshr i8 %.val136, 1
-  %269 = getelementptr inbounds nuw i8, ptr %0, i64 4912
-  %270 = load ptr, ptr %269, align 16, !tbaa !50
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
-  %272 = load i64, ptr %271, align 8, !tbaa !63
-  %273 = add i64 %272, -4048
-  %274 = icmp ult i64 %273, -4080
-  br i1 %274, label %275, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit
+266:                                              ; preds = %263
+  %267 = getelementptr i8, ptr %37, i64 3
+  %.val136 = load i8, ptr %267, align 1
+  %268 = and i8 %.val136, 1
+  %269 = lshr i8 %.val136, 1
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 4912
+  %271 = load ptr, ptr %270, align 16, !tbaa !50
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
+  %273 = load i64, ptr %272, align 8, !tbaa !63
+  %274 = add i64 %273, -4048
+  %275 = icmp ult i64 %274, -4080
+  br i1 %275, label %276, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit
 
-275:                                              ; preds = %265
-  %276 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #24
-  %277 = icmp eq ptr %276, null
-  br i1 %277, label %278, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
+276:                                              ; preds = %266
+  %277 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #24
+  %278 = icmp eq ptr %277, null
+  br i1 %278, label %279, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
 
-278:                                              ; preds = %275
+279:                                              ; preds = %276
   tail call void @_ZSt9terminatev() #23
   unreachable
 
-_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %275
-  store ptr %270, ptr %276, align 8, !tbaa !60
-  %279 = getelementptr inbounds nuw i8, ptr %276, i64 8
-  store i64 0, ptr %279, align 8, !tbaa !63
-  store ptr %276, ptr %269, align 16, !tbaa !50
+_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %276
+  store ptr %271, ptr %277, align 8, !tbaa !60
+  %280 = getelementptr inbounds nuw i8, ptr %277, i64 8
+  store i64 0, ptr %280, align 8, !tbaa !63
+  store ptr %277, ptr %270, align 16, !tbaa !50
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit: ; preds = %265, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
-  %280 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %272, %265 ]
-  %281 = phi ptr [ %276, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %270, %265 ]
-  %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
-  %283 = add nsw i64 %280, 32
-  store i64 %283, ptr %282, align 8, !tbaa !63
-  %284 = getelementptr inbounds nuw i8, ptr %281, i64 16
-  %285 = getelementptr inbounds i8, ptr %284, i64 %280
-  %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
-  store i8 65, ptr %286, align 8, !tbaa !64
-  %287 = getelementptr inbounds nuw i8, ptr %285, i64 9
-  %288 = load i16, ptr %287, align 1
-  %289 = zext nneg i8 %268 to i16
-  %290 = and i16 %288, -4096
-  %291 = or disjoint i16 %290, %289
-  %292 = or i16 %291, 1344
-  store i16 %292, ptr %287, align 1
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10DeleteExprE, i64 16), ptr %285, align 8, !tbaa !55
-  %293 = getelementptr inbounds nuw i8, ptr %285, i64 16
-  store ptr %263, ptr %293, align 8, !tbaa !164
-  %294 = getelementptr inbounds nuw i8, ptr %285, i64 24
-  store i8 %17, ptr %294, align 8, !tbaa !166
-  %295 = getelementptr inbounds nuw i8, ptr %285, i64 25
-  store i8 %267, ptr %295, align 1, !tbaa !167
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit: ; preds = %266, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
+  %281 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %273, %266 ]
+  %282 = phi ptr [ %277, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %271, %266 ]
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
+  %284 = add nsw i64 %281, 32
+  store i64 %284, ptr %283, align 8, !tbaa !63
+  %285 = getelementptr inbounds nuw i8, ptr %282, i64 16
+  %286 = getelementptr inbounds i8, ptr %285, i64 %281
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
+  store i8 65, ptr %287, align 8, !tbaa !64
+  %288 = getelementptr inbounds nuw i8, ptr %286, i64 9
+  %289 = load i16, ptr %288, align 1
+  %290 = zext nneg i8 %269 to i16
+  %291 = and i16 %289, -4096
+  %292 = or disjoint i16 %291, %290
+  %293 = or i16 %292, 1344
+  store i16 %293, ptr %288, align 1
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10DeleteExprE, i64 16), ptr %286, align 8, !tbaa !55
+  %294 = getelementptr inbounds nuw i8, ptr %286, i64 16
+  store ptr %264, ptr %294, align 8, !tbaa !166
+  %295 = getelementptr inbounds nuw i8, ptr %286, i64 24
+  store i8 %18, ptr %295, align 8, !tbaa !168
+  %296 = getelementptr inbounds nuw i8, ptr %286, i64 25
+  store i8 %268, ptr %296, align 1, !tbaa !169
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
-296:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
-  %297 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %298 = icmp eq ptr %297, null
-  br i1 %298, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %299
+297:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
+  %298 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %299 = icmp eq ptr %298, null
+  br i1 %299, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %300
 
-299:                                              ; preds = %296
-  %300 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %301 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %302 = load ptr, ptr %301, align 8, !tbaa !27
-  %303 = load ptr, ptr %300, align 16, !tbaa !26
-  %304 = ptrtoint ptr %302 to i64
+300:                                              ; preds = %297
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %303 = load ptr, ptr %302, align 8, !tbaa !27
+  %304 = load ptr, ptr %301, align 16, !tbaa !26
   %305 = ptrtoint ptr %303 to i64
-  %306 = sub i64 %304, %305
-  %307 = ashr exact i64 %306, 3
-  %308 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %309 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %310
+  %306 = ptrtoint ptr %304 to i64
+  %307 = sub i64 %305, %306
+  %308 = ashr exact i64 %307, 3
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %311
 
-310:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit219, %299
-  %311 = load ptr, ptr %0, align 16, !tbaa !9
-  %312 = load ptr, ptr %8, align 8, !tbaa !25
-  %.not.i213 = icmp eq ptr %311, %312
-  br i1 %.not.i213, label %316, label %313
+311:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit218, %300
+  %312 = load ptr, ptr %0, align 16, !tbaa !9
+  %313 = load ptr, ptr %9, align 8, !tbaa !25
+  %.not.i212 = icmp eq ptr %312, %313
+  br i1 %.not.i212, label %317, label %314
 
-313:                                              ; preds = %310
-  %314 = load i8, ptr %311, align 1, !tbaa !3
-  %315 = icmp eq i8 %314, 69
-  br i1 %315, label %345, label %316
+314:                                              ; preds = %311
+  %315 = load i8, ptr %312, align 1, !tbaa !3
+  %316 = icmp eq i8 %315, 69
+  br i1 %316, label %346, label %317
 
-316:                                              ; preds = %313, %310
-  %317 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %.not75 = icmp eq ptr %317, null
-  br i1 %.not75, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %318
+317:                                              ; preds = %314, %311
+  %318 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %.not75 = icmp eq ptr %318, null
+  br i1 %.not75, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %319
 
-318:                                              ; preds = %316
-  %319 = load ptr, ptr %301, align 8, !tbaa !27
-  %320 = load ptr, ptr %308, align 16, !tbaa !28
-  %321 = icmp eq ptr %319, %320
-  br i1 %321, label %322, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit219
+319:                                              ; preds = %317
+  %320 = load ptr, ptr %302, align 8, !tbaa !27
+  %321 = load ptr, ptr %309, align 16, !tbaa !28
+  %322 = icmp eq ptr %320, %321
+  br i1 %322, label %323, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit218
 
-322:                                              ; preds = %318
-  %323 = load ptr, ptr %300, align 16, !tbaa !26
-  %324 = ptrtoint ptr %319 to i64
-  %325 = ptrtoint ptr %323 to i64
-  %326 = sub i64 %324, %325
-  %327 = ashr exact i64 %326, 2
-  %328 = icmp eq ptr %323, %309
-  %329 = shl i64 %326, 1
-  br i1 %328, label %330, label %336
+323:                                              ; preds = %319
+  %324 = load ptr, ptr %301, align 16, !tbaa !26
+  %325 = ptrtoint ptr %320 to i64
+  %326 = ptrtoint ptr %324 to i64
+  %327 = sub i64 %325, %326
+  %328 = ashr exact i64 %327, 2
+  %329 = icmp eq ptr %324, %310
+  %330 = shl i64 %327, 1
+  br i1 %329, label %331, label %337
 
-330:                                              ; preds = %322
-  %331 = tail call noalias ptr @malloc(i64 noundef %329) #24
-  %332 = icmp eq ptr %331, null
-  br i1 %332, label %333, label %334
+331:                                              ; preds = %323
+  %332 = tail call noalias ptr @malloc(i64 noundef %330) #24
+  %333 = icmp eq ptr %332, null
+  br i1 %333, label %334, label %335
 
-333:                                              ; preds = %330
+334:                                              ; preds = %331
   tail call void @abort() #23
   unreachable
 
-334:                                              ; preds = %330
-  %.not.i.i.i.i.i.i.i217 = icmp eq ptr %319, %309
-  br i1 %.not.i.i.i.i.i.i.i217, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i218, label %335
+335:                                              ; preds = %331
+  %.not.i.i.i.i.i.i.i216 = icmp eq ptr %320, %310
+  br i1 %.not.i.i.i.i.i.i.i216, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i217, label %336
 
-335:                                              ; preds = %334
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %331, ptr align 8 %323, i64 %326, i1 false)
-  br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i218
+336:                                              ; preds = %335
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %332, ptr align 8 %324, i64 %327, i1 false)
+  br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i217
 
-_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i218: ; preds = %335, %334
-  store ptr %331, ptr %300, align 16, !tbaa !26
-  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i216
+_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i217: ; preds = %336, %335
+  store ptr %332, ptr %301, align 16, !tbaa !26
+  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i215
 
-336:                                              ; preds = %322
-  %337 = tail call ptr @realloc(ptr noundef %323, i64 noundef %329) #22
-  store ptr %337, ptr %300, align 16, !tbaa !26
-  %338 = icmp eq ptr %337, null
-  br i1 %338, label %339, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i216
+337:                                              ; preds = %323
+  %338 = tail call ptr @realloc(ptr noundef %324, i64 noundef %330) #22
+  store ptr %338, ptr %301, align 16, !tbaa !26
+  %339 = icmp eq ptr %338, null
+  br i1 %339, label %340, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i215
 
-339:                                              ; preds = %336
+340:                                              ; preds = %337
   tail call void @abort() #23
   unreachable
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i216: ; preds = %336, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i218
-  %340 = phi ptr [ %337, %336 ], [ %331, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i218 ]
-  %341 = getelementptr inbounds nuw i8, ptr %340, i64 %326
-  %342 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %327
-  store ptr %342, ptr %308, align 16, !tbaa !28
-  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit219
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i215: ; preds = %337, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i217
+  %341 = phi ptr [ %338, %337 ], [ %332, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i217 ]
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 %327
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %341, i64 %328
+  store ptr %343, ptr %309, align 16, !tbaa !28
+  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit218
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit219: ; preds = %318, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i216
-  %343 = phi ptr [ %341, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i216 ], [ %319, %318 ]
-  %344 = getelementptr inbounds nuw i8, ptr %343, i64 8
-  store ptr %344, ptr %301, align 8, !tbaa !27
-  store ptr %317, ptr %343, align 8, !tbaa !29
-  br label %310, !llvm.loop !168
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit218: ; preds = %319, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i215
+  %344 = phi ptr [ %342, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i215 ], [ %320, %319 ]
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 8
+  store ptr %345, ptr %302, align 8, !tbaa !27
+  store ptr %318, ptr %344, align 8, !tbaa !29
+  br label %311, !llvm.loop !170
 
-345:                                              ; preds = %313
-  %346 = getelementptr inbounds nuw i8, ptr %311, i64 1
-  store ptr %346, ptr %0, align 16, !tbaa !9
-  %347 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %307)
-  %348 = extractvalue { ptr, i64 } %347, 0
-  %349 = extractvalue { ptr, i64 } %347, 1
-  %350 = getelementptr i8, ptr %36, i64 3
-  %.val137 = load i8, ptr %350, align 1
-  %351 = and i8 %.val137, 1
-  %352 = ashr i8 %.val137, 1
-  %353 = sext i8 %352 to i32
-  %354 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8CallExprEJRPNS0_4NodeENS0_9NodeArrayEbNS9_4PrecEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %297, ptr %348, i64 %349, i8 %351, i32 %353)
+346:                                              ; preds = %314
+  %347 = getelementptr inbounds nuw i8, ptr %312, i64 1
+  store ptr %347, ptr %0, align 16, !tbaa !9
+  %348 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %308)
+  %349 = extractvalue { ptr, i64 } %348, 0
+  %350 = extractvalue { ptr, i64 } %348, 1
+  %351 = getelementptr i8, ptr %37, i64 3
+  %.val137 = load i8, ptr %351, align 1
+  %352 = and i8 %.val137, 1
+  %353 = ashr i8 %.val137, 1
+  %354 = sext i8 %353 to i32
+  %355 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8CallExprEJRPNS0_4NodeENS0_9NodeArrayEbNS9_4PrecEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %298, ptr %349, i64 %350, i8 %352, i32 %354)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
-355:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
-  %356 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %357 = load i8, ptr %356, align 8, !tbaa !120, !range !116, !noundef !117
-  store i8 0, ptr %356, align 8, !tbaa !120
-  %358 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  store i8 %357, ptr %356, align 8, !tbaa !120
-  %359 = icmp eq ptr %358, null
-  br i1 %359, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %360
+356:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %358 = load i8, ptr %357, align 8, !tbaa !120, !range !116, !noundef !117
+  store i8 0, ptr %357, align 8, !tbaa !120
+  %359 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  store i8 %358, ptr %357, align 8, !tbaa !120
+  %360 = icmp eq ptr %359, null
+  br i1 %360, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %361
 
-360:                                              ; preds = %355
-  %361 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %362 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %363 = load ptr, ptr %362, align 8, !tbaa !27
-  %364 = load ptr, ptr %361, align 16, !tbaa !26
-  %365 = ptrtoint ptr %363 to i64
+361:                                              ; preds = %356
+  %362 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %363 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %364 = load ptr, ptr %363, align 8, !tbaa !27
+  %365 = load ptr, ptr %362, align 16, !tbaa !26
   %366 = ptrtoint ptr %364 to i64
-  %367 = sub i64 %365, %366
-  %368 = ashr exact i64 %367, 3
-  %369 = load ptr, ptr %0, align 16, !tbaa !9
-  %370 = load ptr, ptr %8, align 8, !tbaa !25
-  %.not.i220 = icmp eq ptr %369, %370
-  br i1 %.not.i220, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit222.split.thread, label %371
+  %367 = ptrtoint ptr %365 to i64
+  %368 = sub i64 %366, %367
+  %369 = ashr exact i64 %368, 3
+  %370 = load ptr, ptr %0, align 16, !tbaa !9
+  %371 = load ptr, ptr %9, align 8, !tbaa !25
+  %.not.i219 = icmp eq ptr %370, %371
+  br i1 %.not.i219, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit221.split.thread, label %372
 
-371:                                              ; preds = %360
-  %372 = load i8, ptr %369, align 1, !tbaa !3
-  %373 = icmp eq i8 %372, 95
-  br i1 %373, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit222.split.us.preheader, label %410
+372:                                              ; preds = %361
+  %373 = load i8, ptr %370, align 1, !tbaa !3
+  %374 = icmp eq i8 %373, 95
+  br i1 %374, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit221.split.us.preheader, label %411
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit222.split.us.preheader: ; preds = %371
-  %374 = getelementptr inbounds nuw i8, ptr %369, i64 1
-  store ptr %374, ptr %0, align 16, !tbaa !9
-  %375 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %376 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit222.split.us
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit221.split.us.preheader: ; preds = %372
+  %375 = getelementptr inbounds nuw i8, ptr %370, i64 1
+  store ptr %375, ptr %0, align 16, !tbaa !9
+  %376 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit221.split.us
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit222.split.us: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit222.split.us.preheader, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit229.us
-  %377 = phi ptr [ %370, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit222.split.us.preheader ], [ %.pre466, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit229.us ]
-  %378 = phi ptr [ %374, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit222.split.us.preheader ], [ %.pre, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit229.us ]
-  %.not.i223.us = icmp eq ptr %378, %377
-  br i1 %.not.i223.us, label %382, label %379
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit221.split.us: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit221.split.us.preheader, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit228.us
+  %378 = phi ptr [ %371, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit221.split.us.preheader ], [ %.pre462, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit228.us ]
+  %379 = phi ptr [ %375, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit221.split.us.preheader ], [ %.pre, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit228.us ]
+  %.not.i222.us = icmp eq ptr %379, %378
+  br i1 %.not.i222.us, label %383, label %380
 
-379:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit222.split.us
-  %380 = load i8, ptr %378, align 1, !tbaa !3
-  %381 = icmp eq i8 %380, 69
-  br i1 %381, label %.split.us, label %382
+380:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit221.split.us
+  %381 = load i8, ptr %379, align 1, !tbaa !3
+  %382 = icmp eq i8 %381, 69
+  br i1 %382, label %.split.us, label %383
 
-382:                                              ; preds = %379, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit222.split.us
-  %383 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %384 = icmp eq ptr %383, null
-  br i1 %384, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %385
+383:                                              ; preds = %380, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit221.split.us
+  %384 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %385 = icmp eq ptr %384, null
+  br i1 %385, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %386
 
-385:                                              ; preds = %382
-  %386 = load ptr, ptr %362, align 8, !tbaa !27
-  %387 = load ptr, ptr %375, align 16, !tbaa !28
-  %388 = icmp eq ptr %386, %387
-  br i1 %388, label %389, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit229.us
+386:                                              ; preds = %383
+  %387 = load ptr, ptr %363, align 8, !tbaa !27
+  %388 = load ptr, ptr %376, align 16, !tbaa !28
+  %389 = icmp eq ptr %387, %388
+  br i1 %389, label %390, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit228.us
 
-389:                                              ; preds = %385
-  %390 = load ptr, ptr %361, align 16, !tbaa !26
-  %391 = ptrtoint ptr %386 to i64
-  %392 = ptrtoint ptr %390 to i64
-  %393 = sub i64 %391, %392
-  %394 = ashr exact i64 %393, 2
-  %395 = icmp eq ptr %390, %376
-  %396 = shl i64 %393, 1
-  br i1 %395, label %400, label %397
+390:                                              ; preds = %386
+  %391 = load ptr, ptr %362, align 16, !tbaa !26
+  %392 = ptrtoint ptr %387 to i64
+  %393 = ptrtoint ptr %391 to i64
+  %394 = sub i64 %392, %393
+  %395 = ashr exact i64 %394, 2
+  %396 = icmp eq ptr %391, %377
+  %397 = shl i64 %394, 1
+  br i1 %396, label %401, label %398
 
-397:                                              ; preds = %389
-  %398 = tail call ptr @realloc(ptr noundef %390, i64 noundef %396) #22
-  store ptr %398, ptr %361, align 16, !tbaa !26
-  %399 = icmp eq ptr %398, null
-  br i1 %399, label %.split425.us, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i226.us
+398:                                              ; preds = %390
+  %399 = tail call ptr @realloc(ptr noundef %391, i64 noundef %397) #22
+  store ptr %399, ptr %362, align 16, !tbaa !26
+  %400 = icmp eq ptr %399, null
+  br i1 %400, label %.split421.us, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i225.us
 
-400:                                              ; preds = %389
-  %401 = tail call noalias ptr @malloc(i64 noundef %396) #24
-  %402 = icmp eq ptr %401, null
-  br i1 %402, label %.split427.us, label %403
+401:                                              ; preds = %390
+  %402 = tail call noalias ptr @malloc(i64 noundef %397) #24
+  %403 = icmp eq ptr %402, null
+  br i1 %403, label %.split423.us, label %404
 
-403:                                              ; preds = %400
-  %.not.i.i.i.i.i.i.i227.us = icmp eq ptr %386, %376
-  br i1 %.not.i.i.i.i.i.i.i227.us, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i228.us, label %404
+404:                                              ; preds = %401
+  %.not.i.i.i.i.i.i.i226.us = icmp eq ptr %387, %377
+  br i1 %.not.i.i.i.i.i.i.i226.us, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i227.us, label %405
 
-404:                                              ; preds = %403
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %401, ptr align 8 %390, i64 %393, i1 false)
-  br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i228.us
+405:                                              ; preds = %404
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %402, ptr align 8 %391, i64 %394, i1 false)
+  br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i227.us
 
-_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i228.us: ; preds = %404, %403
-  store ptr %401, ptr %361, align 16, !tbaa !26
-  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i226.us
+_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i227.us: ; preds = %405, %404
+  store ptr %402, ptr %362, align 16, !tbaa !26
+  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i225.us
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i226.us: ; preds = %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i228.us, %397
-  %405 = phi ptr [ %398, %397 ], [ %401, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i228.us ]
-  %406 = getelementptr inbounds nuw i8, ptr %405, i64 %393
-  %407 = getelementptr inbounds nuw [8 x i8], ptr %405, i64 %394
-  store ptr %407, ptr %375, align 16, !tbaa !28
-  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit229.us
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i225.us: ; preds = %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i227.us, %398
+  %406 = phi ptr [ %399, %398 ], [ %402, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i227.us ]
+  %407 = getelementptr inbounds nuw i8, ptr %406, i64 %394
+  %408 = getelementptr inbounds nuw [8 x i8], ptr %406, i64 %395
+  store ptr %408, ptr %376, align 16, !tbaa !28
+  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit228.us
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit229.us: ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i226.us, %385
-  %408 = phi ptr [ %406, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i226.us ], [ %386, %385 ]
-  %409 = getelementptr inbounds nuw i8, ptr %408, i64 8
-  store ptr %409, ptr %362, align 8, !tbaa !27
-  store ptr %383, ptr %408, align 8, !tbaa !29
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit228.us: ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i225.us, %386
+  %409 = phi ptr [ %407, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i225.us ], [ %387, %386 ]
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 8
+  store ptr %410, ptr %363, align 8, !tbaa !27
+  store ptr %384, ptr %409, align 8, !tbaa !29
   %.pre = load ptr, ptr %0, align 16, !tbaa !9
-  %.pre466 = load ptr, ptr %8, align 8, !tbaa !25
-  br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit222.split.us
+  %.pre462 = load ptr, ptr %9, align 8, !tbaa !25
+  br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit221.split.us
 
-410:                                              ; preds = %371
-  %411 = icmp eq i8 %372, 69
-  br i1 %411, label %.split.us, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit222.split.thread
+411:                                              ; preds = %372
+  %412 = icmp eq i8 %373, 69
+  br i1 %412, label %.split.us, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit221.split.thread
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit222.split.thread: ; preds = %360, %410
-  %412 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %413 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %414 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %415 = icmp eq ptr %414, null
-  br i1 %415, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %416
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit221.split.thread: ; preds = %361, %411
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %414 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %415 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %416 = icmp eq ptr %415, null
+  br i1 %416, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %417
 
-416:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit222.split.thread
-  %417 = load ptr, ptr %362, align 8, !tbaa !27
-  %418 = load ptr, ptr %412, align 16, !tbaa !28
-  %419 = icmp eq ptr %417, %418
-  br i1 %419, label %420, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit229
+417:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit221.split.thread
+  %418 = load ptr, ptr %363, align 8, !tbaa !27
+  %419 = load ptr, ptr %413, align 16, !tbaa !28
+  %420 = icmp eq ptr %418, %419
+  br i1 %420, label %421, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit228
 
-420:                                              ; preds = %416
-  %421 = load ptr, ptr %361, align 16, !tbaa !26
-  %422 = ptrtoint ptr %417 to i64
-  %423 = ptrtoint ptr %421 to i64
-  %424 = sub i64 %422, %423
-  %425 = ashr exact i64 %424, 2
-  %426 = icmp eq ptr %421, %413
-  %427 = shl i64 %424, 1
-  br i1 %426, label %428, label %433
+421:                                              ; preds = %417
+  %422 = load ptr, ptr %362, align 16, !tbaa !26
+  %423 = ptrtoint ptr %418 to i64
+  %424 = ptrtoint ptr %422 to i64
+  %425 = sub i64 %423, %424
+  %426 = ashr exact i64 %425, 2
+  %427 = icmp eq ptr %422, %414
+  %428 = shl i64 %425, 1
+  br i1 %427, label %429, label %434
 
-428:                                              ; preds = %420
-  %429 = tail call noalias ptr @malloc(i64 noundef %427) #24
-  %430 = icmp eq ptr %429, null
-  br i1 %430, label %.split427.us, label %431
+429:                                              ; preds = %421
+  %430 = tail call noalias ptr @malloc(i64 noundef %428) #24
+  %431 = icmp eq ptr %430, null
+  br i1 %431, label %.split423.us, label %432
 
-.split427.us:                                     ; preds = %400, %428
+.split423.us:                                     ; preds = %401, %429
   tail call void @abort() #23
   unreachable
 
-431:                                              ; preds = %428
-  %.not.i.i.i.i.i.i.i227 = icmp eq ptr %417, %413
-  br i1 %.not.i.i.i.i.i.i.i227, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i228, label %432
+432:                                              ; preds = %429
+  %.not.i.i.i.i.i.i.i226 = icmp eq ptr %418, %414
+  br i1 %.not.i.i.i.i.i.i.i226, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i227, label %433
 
-432:                                              ; preds = %431
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %429, ptr align 8 %421, i64 %424, i1 false)
-  br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i228
+433:                                              ; preds = %432
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %430, ptr align 8 %422, i64 %425, i1 false)
+  br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i227
 
-_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i228: ; preds = %432, %431
-  store ptr %429, ptr %361, align 16, !tbaa !26
-  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i226
+_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i227: ; preds = %433, %432
+  store ptr %430, ptr %362, align 16, !tbaa !26
+  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i225
 
-433:                                              ; preds = %420
-  %434 = tail call ptr @realloc(ptr noundef %421, i64 noundef %427) #22
-  store ptr %434, ptr %361, align 16, !tbaa !26
-  %435 = icmp eq ptr %434, null
-  br i1 %435, label %.split425.us, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i226
+434:                                              ; preds = %421
+  %435 = tail call ptr @realloc(ptr noundef %422, i64 noundef %428) #22
+  store ptr %435, ptr %362, align 16, !tbaa !26
+  %436 = icmp eq ptr %435, null
+  br i1 %436, label %.split421.us, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i225
 
-.split425.us:                                     ; preds = %397, %433
+.split421.us:                                     ; preds = %398, %434
   tail call void @abort() #23
   unreachable
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i226: ; preds = %433, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i228
-  %436 = phi ptr [ %434, %433 ], [ %429, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i228 ]
-  %437 = getelementptr inbounds nuw i8, ptr %436, i64 %424
-  %438 = getelementptr inbounds nuw [8 x i8], ptr %436, i64 %425
-  store ptr %438, ptr %412, align 16, !tbaa !28
-  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit229
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i225: ; preds = %434, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i227
+  %437 = phi ptr [ %435, %434 ], [ %430, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i227 ]
+  %438 = getelementptr inbounds nuw i8, ptr %437, i64 %425
+  %439 = getelementptr inbounds nuw [8 x i8], ptr %437, i64 %426
+  store ptr %439, ptr %413, align 16, !tbaa !28
+  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit228
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit229: ; preds = %416, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i226
-  %439 = phi ptr [ %437, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i226 ], [ %417, %416 ]
-  %440 = getelementptr inbounds nuw i8, ptr %439, i64 8
-  store ptr %440, ptr %362, align 8, !tbaa !27
-  store ptr %414, ptr %439, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %441 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %368)
-  %442 = extractvalue { ptr, i64 } %441, 0
-  store ptr %442, ptr %3, align 8
-  %443 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %444 = extractvalue { ptr, i64 } %441, 1
-  store i64 %444, ptr %443, align 8
-  br label %450
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit228: ; preds = %417, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i225
+  %440 = phi ptr [ %438, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i225 ], [ %418, %417 ]
+  %441 = getelementptr inbounds nuw i8, ptr %440, i64 8
+  store ptr %441, ptr %363, align 8, !tbaa !27
+  store ptr %415, ptr %440, align 8, !tbaa !29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %442 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %369)
+  %443 = extractvalue { ptr, i64 } %442, 0
+  store ptr %443, ptr %4, align 8
+  %444 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %445 = extractvalue { ptr, i64 } %442, 1
+  store i64 %445, ptr %444, align 8
+  br label %451
 
-.split.us:                                        ; preds = %379, %410
-  %.us-phi = phi ptr [ %369, %410 ], [ %378, %379 ]
-  %445 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 1
-  store ptr %445, ptr %0, align 16, !tbaa !9
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %446 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %368)
-  %447 = extractvalue { ptr, i64 } %446, 0
-  store ptr %447, ptr %3, align 8
-  %448 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %449 = extractvalue { ptr, i64 } %446, 1
-  store i64 %449, ptr %448, align 8
-  br i1 %373, label %452, label %450
+.split.us:                                        ; preds = %380, %411
+  %.us-phi = phi ptr [ %370, %411 ], [ %379, %380 ]
+  %446 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 1
+  store ptr %446, ptr %0, align 16, !tbaa !9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %447 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %369)
+  %448 = extractvalue { ptr, i64 } %447, 0
+  store ptr %448, ptr %4, align 8
+  %449 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %450 = extractvalue { ptr, i64 } %447, 1
+  store i64 %450, ptr %449, align 8
+  br i1 %374, label %453, label %451
 
-450:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit229, %.split.us
-  %451 = phi i64 [ %444, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit229 ], [ %449, %.split.us ]
-  %.not74 = icmp eq i64 %451, 1
-  br i1 %.not74, label %452, label %457
+451:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit228, %.split.us
+  %452 = phi i64 [ %445, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit228 ], [ %450, %.split.us ]
+  %.not74 = icmp eq i64 %452, 1
+  br i1 %.not74, label %453, label %458
 
-452:                                              ; preds = %450, %.split.us
-  %453 = getelementptr i8, ptr %36, i64 3
-  %.val123 = load i8, ptr %453, align 1
-  %454 = ashr i8 %.val123, 1
-  %455 = sext i8 %454 to i32
-  %456 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_14ConversionExprEJRPNS0_4NodeERNS0_9NodeArrayENS9_4PrecEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %358, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 %455)
-  br label %457
+453:                                              ; preds = %451, %.split.us
+  %454 = getelementptr i8, ptr %37, i64 3
+  %.val123 = load i8, ptr %454, align 1
+  %455 = ashr i8 %.val123, 1
+  %456 = sext i8 %455 to i32
+  %457 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_14ConversionExprEJRPNS0_4NodeERNS0_9NodeArrayENS9_4PrecEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %359, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 %456)
+  br label %458
 
-457:                                              ; preds = %450, %452
-  %.22 = phi ptr [ %456, %452 ], [ null, %450 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+458:                                              ; preds = %451, %453
+  %.22 = phi ptr [ %457, %453 ], [ null, %451 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
-458:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
-  %459 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %460 = icmp eq ptr %459, null
-  br i1 %460, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %461
+459:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
+  %460 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %461 = icmp eq ptr %460, null
+  br i1 %461, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %462
 
-461:                                              ; preds = %458
-  %462 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %463 = icmp eq ptr %462, null
-  br i1 %463, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %464
+462:                                              ; preds = %459
+  %463 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %464 = icmp eq ptr %463, null
+  br i1 %464, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %465
 
-464:                                              ; preds = %461
-  %465 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %466 = icmp eq ptr %465, null
-  br i1 %466, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %467
+465:                                              ; preds = %462
+  %466 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %467 = icmp eq ptr %466, null
+  br i1 %467, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %468
 
-467:                                              ; preds = %464
-  %468 = getelementptr i8, ptr %36, i64 3
-  %.val124 = load i8, ptr %468, align 1
-  %469 = ashr i8 %.val124, 1
-  %470 = sext i8 %469 to i32
-  %471 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_15ConditionalExprEJRPNS0_4NodeESB_SB_NS9_4PrecEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %459, ptr nonnull %462, ptr nonnull %465, i32 %470)
+468:                                              ; preds = %465
+  %469 = getelementptr i8, ptr %37, i64 3
+  %.val124 = load i8, ptr %469, align 1
+  %470 = ashr i8 %.val124, 1
+  %471 = sext i8 %470 to i32
+  %472 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_15ConditionalExprEJRPNS0_4NodeESB_SB_NS9_4PrecEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %460, ptr nonnull %463, ptr nonnull %466, i32 %471)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
-472:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
-  %473 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %474 = icmp eq ptr %473, null
-  br i1 %474, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %475
+473:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
+  %474 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %475 = icmp eq ptr %474, null
+  br i1 %475, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %476
 
-475:                                              ; preds = %472
-  %476 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %477 = icmp eq ptr %476, null
-  br i1 %477, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %478
+476:                                              ; preds = %473
+  %477 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %478 = icmp eq ptr %477, null
+  br i1 %478, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %479
 
-478:                                              ; preds = %475
-  %479 = getelementptr i8, ptr %36, i64 3
-  %.val125 = load i8, ptr %479, align 1
-  %480 = ashr i8 %.val125, 1
-  %481 = sext i8 %480 to i32
-  %482 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8CastExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeESG_NSE_4PrecEEEESF_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %473, ptr nonnull %476, i32 %481)
+479:                                              ; preds = %476
+  %480 = getelementptr i8, ptr %37, i64 3
+  %.val125 = load i8, ptr %480, align 1
+  %481 = ashr i8 %.val125, 1
+  %482 = sext i8 %481 to i32
+  %483 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8CastExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeESG_NSE_4PrecEEEESF_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nonnull %474, ptr nonnull %477, i32 %482)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
-483:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
-  %484 = getelementptr i8, ptr %36, i64 3
-  %.val138 = load i8, ptr %484, align 1
-  %485 = trunc i8 %.val138 to i1
-  br i1 %485, label %486, label %488
+484:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
+  %485 = getelementptr i8, ptr %37, i64 3
+  %.val138 = load i8, ptr %485, align 1
+  %486 = trunc i8 %.val138 to i1
+  br i1 %486, label %487, label %489
 
-486:                                              ; preds = %483
-  %487 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  br label %490
+487:                                              ; preds = %484
+  %488 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  br label %491
 
-488:                                              ; preds = %483
-  %489 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  br label %490
+489:                                              ; preds = %484
+  %490 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  br label %491
 
-490:                                              ; preds = %488, %486
-  %491 = phi ptr [ %487, %486 ], [ %489, %488 ]
-  %.not73 = icmp eq ptr %491, null
-  br i1 %.not73, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %492
+491:                                              ; preds = %489, %487
+  %492 = phi ptr [ %488, %487 ], [ %490, %489 ]
+  %.not73 = icmp eq ptr %492, null
+  br i1 %.not73, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit, label %493
 
-492:                                              ; preds = %490
-  %493 = lshr i8 %.val138, 1
-  %494 = getelementptr inbounds nuw i8, ptr %0, i64 4912
-  %495 = load ptr, ptr %494, align 16, !tbaa !50
-  %496 = getelementptr inbounds nuw i8, ptr %495, i64 8
-  %497 = load i64, ptr %496, align 8, !tbaa !63
-  %498 = add i64 %497, -4016
-  %499 = icmp ult i64 %498, -4080
-  br i1 %499, label %500, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeENSE_4PrecEEEESF_DpOT0_.exit
+493:                                              ; preds = %491
+  %494 = lshr i8 %.val138, 1
+  %495 = getelementptr inbounds nuw i8, ptr %0, i64 4912
+  %496 = load ptr, ptr %495, align 16, !tbaa !50
+  %497 = getelementptr inbounds nuw i8, ptr %496, i64 8
+  %498 = load i64, ptr %497, align 8, !tbaa !63
+  %499 = add i64 %498, -4016
+  %500 = icmp ult i64 %499, -4080
+  br i1 %500, label %501, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeENSE_4PrecEEEESF_DpOT0_.exit
 
-500:                                              ; preds = %492
-  %501 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #24
-  %502 = icmp eq ptr %501, null
-  br i1 %502, label %503, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i230
+501:                                              ; preds = %493
+  %502 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #24
+  %503 = icmp eq ptr %502, null
+  br i1 %503, label %504, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i229
 
-503:                                              ; preds = %500
+504:                                              ; preds = %501
   tail call void @_ZSt9terminatev() #23
   unreachable
 
-_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i230: ; preds = %500
-  store ptr %495, ptr %501, align 8, !tbaa !60
-  %504 = getelementptr inbounds nuw i8, ptr %501, i64 8
-  store i64 0, ptr %504, align 8, !tbaa !63
-  store ptr %501, ptr %494, align 16, !tbaa !50
+_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i229: ; preds = %501
+  store ptr %496, ptr %502, align 8, !tbaa !60
+  %505 = getelementptr inbounds nuw i8, ptr %502, i64 8
+  store i64 0, ptr %505, align 8, !tbaa !63
+  store ptr %502, ptr %495, align 16, !tbaa !50
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeENSE_4PrecEEEESF_DpOT0_.exit
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeENSE_4PrecEEEESF_DpOT0_.exit: ; preds = %492, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i230
-  %505 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i230 ], [ %497, %492 ]
-  %506 = phi ptr [ %501, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i230 ], [ %495, %492 ]
-  %507 = getelementptr inbounds nuw i8, ptr %506, i64 8
-  %508 = add nsw i64 %505, 64
-  store i64 %508, ptr %507, align 8, !tbaa !63
-  %509 = getelementptr inbounds nuw i8, ptr %506, i64 16
-  %510 = getelementptr inbounds i8, ptr %509, i64 %505
-  %511 = getelementptr inbounds nuw i8, ptr %510, i64 8
-  store i8 60, ptr %511, align 8, !tbaa !64
-  %512 = getelementptr inbounds nuw i8, ptr %510, i64 9
-  %513 = load i16, ptr %512, align 1
-  %514 = zext nneg i8 %493 to i16
-  %515 = and i16 %513, -4096
-  %516 = or disjoint i16 %515, %514
-  %517 = or i16 %516, 1344
-  store i16 %517, ptr %512, align 1
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %510, align 8, !tbaa !55
-  %518 = getelementptr inbounds nuw i8, ptr %510, i64 16
-  store i64 %.sroa.0.0.i, ptr %518, align 8, !tbaa !72
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %510, i64 24
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeENSE_4PrecEEEESF_DpOT0_.exit: ; preds = %493, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i229
+  %506 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i229 ], [ %498, %493 ]
+  %507 = phi ptr [ %502, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i229 ], [ %496, %493 ]
+  %508 = getelementptr inbounds nuw i8, ptr %507, i64 8
+  %509 = add nsw i64 %506, 64
+  store i64 %509, ptr %508, align 8, !tbaa !63
+  %510 = getelementptr inbounds nuw i8, ptr %507, i64 16
+  %511 = getelementptr inbounds i8, ptr %510, i64 %506
+  %512 = getelementptr inbounds nuw i8, ptr %511, i64 8
+  store i8 60, ptr %512, align 8, !tbaa !64
+  %513 = getelementptr inbounds nuw i8, ptr %511, i64 9
+  %514 = load i16, ptr %513, align 1
+  %515 = zext nneg i8 %494 to i16
+  %516 = and i16 %514, -4096
+  %517 = or disjoint i16 %516, %515
+  %518 = or i16 %517, 1344
+  store i16 %518, ptr %513, align 1
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle13EnclosingExprE, i64 16), ptr %511, align 8, !tbaa !55
+  %519 = getelementptr inbounds nuw i8, ptr %511, i64 16
+  store i64 %.sroa.0.0.i, ptr %519, align 8, !tbaa !72
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %511, i64 24
   store ptr %.sroa.7.0.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !73
-  %519 = getelementptr inbounds nuw i8, ptr %510, i64 32
-  store ptr %491, ptr %519, align 8, !tbaa !149
-  %520 = getelementptr inbounds nuw i8, ptr %510, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %520, i8 0, i64 16, i1 false)
+  %520 = getelementptr inbounds nuw i8, ptr %511, i64 32
+  store ptr %492, ptr %520, align 8, !tbaa !151
+  %521 = getelementptr inbounds nuw i8, ptr %511, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %521, i8 0, i64 16, i1 false)
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
 
-521:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
+522:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
   unreachable
 
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit: ; preds = %382, %316, %161, %217, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit222.split.thread, %.split428, %244, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeENSE_4PrecEEEESF_DpOT0_.exit, %490, %472, %475, %478, %458, %467, %464, %461, %355, %457, %296, %345, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit, %262, %190, %.split430.us, %133, %136, %139, %122, %125, %128, %117, %114, %110, %105, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeERNSE_4PrecEEEESF_DpOT0_.exit, %69, %58, %67, %64, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
-  %.0 = phi ptr [ null, %136 ], [ null, %64 ], [ null, %69 ], [ null, %105 ], [ null, %114 ], [ null, %125 ], [ %510, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeENSE_4PrecEEEESF_DpOT0_.exit ], [ null, %217 ], [ null, %262 ], [ null, %161 ], [ %.22, %457 ], [ null, %464 ], [ null, %475 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit ], [ null, %58 ], [ %68, %67 ], [ %91, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeERNSE_4PrecEEEESF_DpOT0_.exit ], [ %113, %110 ], [ %121, %117 ], [ null, %122 ], [ %132, %128 ], [ null, %133 ], [ %143, %139 ], [ null, %190 ], [ null, %316 ], [ %261, %.split430.us ], [ %285, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit ], [ null, %296 ], [ %354, %345 ], [ null, %355 ], [ null, %490 ], [ null, %458 ], [ null, %461 ], [ %471, %467 ], [ null, %472 ], [ %482, %478 ], [ null, %244 ], [ null, %.split428 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit222.split.thread ], [ null, %382 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit: ; preds = %383, %317, %162, %218, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit221.split.thread, %.split424, %245, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeENSE_4PrecEEEESF_DpOT0_.exit, %491, %473, %476, %479, %459, %468, %465, %462, %356, %458, %297, %346, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit, %263, %191, %.split426.us, %134, %137, %140, %123, %126, %129, %118, %115, %111, %106, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeERNSE_4PrecEEEESF_DpOT0_.exit, %70, %59, %68, %65, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit
+  %.0 = phi ptr [ null, %137 ], [ null, %65 ], [ null, %70 ], [ null, %106 ], [ null, %115 ], [ null, %126 ], [ %511, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeENSE_4PrecEEEESF_DpOT0_.exit ], [ null, %218 ], [ null, %263 ], [ null, %162 ], [ %.22, %458 ], [ null, %465 ], [ null, %476 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit ], [ null, %59 ], [ %69, %68 ], [ %92, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10PrefixExprEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeERNSE_4PrecEEEESF_DpOT0_.exit ], [ %114, %111 ], [ %122, %118 ], [ null, %123 ], [ %133, %129 ], [ null, %134 ], [ %144, %140 ], [ null, %191 ], [ null, %317 ], [ %262, %.split426.us ], [ %286, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10DeleteExprEJRPNS0_4NodeERbbNS9_4PrecEEEESA_DpOT0_.exit ], [ null, %297 ], [ %355, %346 ], [ null, %356 ], [ null, %491 ], [ null, %459 ], [ null, %462 ], [ %472, %468 ], [ null, %473 ], [ %483, %479 ], [ null, %245 ], [ null, %.split424 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit221.split.thread ], [ null, %383 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge83
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit: ; preds = %35, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i
-  switch i8 %19, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i248 [
-    i8 76, label %522
-    i8 84, label %524
-    i8 102, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit241
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit: ; preds = %36, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i
+  switch i8 %20, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i247 [
+    i8 76, label %523
+    i8 84, label %525
+    i8 102, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit240
   ]
 
-522:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
-  %523 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseExprPrimaryEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+523:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
+  %524 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseExprPrimaryEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
   br label %.critedge83
 
-524:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
-  %525 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18parseTemplateParamEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+525:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
+  %526 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18parseTemplateParamEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
   br label %.critedge83
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit241: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
-  %526 = load i8, ptr %20, align 1, !tbaa !3
-  %527 = icmp eq i8 %526, 112
-  br i1 %527, label %532, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit244
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit240: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
+  %527 = load i8, ptr %21, align 1, !tbaa !3
+  %528 = icmp eq i8 %527, 112
+  br i1 %528, label %533, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit243
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit244: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit241
-  %528 = icmp eq i8 %526, 76
-  %.not.i245 = icmp ne i64 %.pre-phi473586, 2
-  %or.cond = and i1 %.not.i245, %528
-  br i1 %or.cond, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit247, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit247.thread
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit243: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit240
+  %529 = icmp eq i8 %527, 76
+  %.not.i244 = icmp ne i64 %.pre-phi469582, 2
+  %or.cond = and i1 %.not.i244, %529
+  br i1 %or.cond, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit246, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit246.thread
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit247: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit244
-  %529 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  %530 = load i8, ptr %529, align 1, !tbaa !3
-  %531 = sext i8 %530 to i32
-  %isdigittmp = add nsw i32 %531, -48
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit246: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit243
+  %530 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  %531 = load i8, ptr %530, align 1, !tbaa !3
+  %532 = sext i8 %531 to i32
+  %isdigittmp = add nsw i32 %532, -48
   %isdigit = icmp ult i32 %isdigittmp, 10
-  br i1 %isdigit, label %532, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit247.thread
+  br i1 %isdigit, label %533, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit246.thread
 
-532:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit247, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit241
-  %533 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18parseFunctionParamEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+533:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit246, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit240
+  %534 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18parseFunctionParamEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
   br label %.critedge83
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit247.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit247, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit244
-  %.not.i.i = icmp eq ptr %18, %9
-  br i1 %.not.i.i, label %.critedge83, label %534
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit246.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit246, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit243
+  %.not.i.i = icmp eq ptr %19, %10
+  br i1 %.not.i.i, label %.critedge83, label %535
 
-534:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit247.thread
-  store ptr %20, ptr %0, align 16, !tbaa !9
-  %.not.i23.not.i = icmp eq ptr %9, %20
+535:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit246.thread
+  store ptr %21, ptr %0, align 16, !tbaa !9
+  %.not.i23.not.i = icmp eq ptr %10, %21
   br i1 %.not.i23.not.i, label %.critedge83, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i: ; preds = %534
-  %535 = load i8, ptr %20, align 1, !tbaa !3
-  switch i8 %535, label %.critedge83 [
-    i8 76, label %536
-    i8 82, label %537
-    i8 108, label %538
-    i8 114, label %539
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i: ; preds = %535
+  %536 = load i8, ptr %21, align 1, !tbaa !3
+  switch i8 %536, label %.critedge83 [
+    i8 76, label %537
+    i8 82, label %538
+    i8 108, label %539
+    i8 114, label %540
   ]
-
-536:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i
-  br label %539
 
 537:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i
-  br label %539
+  br label %540
 
 538:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i
-  br label %539
+  br label %540
 
-539:                                              ; preds = %538, %537, %536, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i
-  %.033.i = phi i8 [ 1, %536 ], [ 0, %537 ], [ 1, %538 ], [ 0, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i ]
-  %.08.i = phi i1 [ true, %536 ], [ true, %537 ], [ false, %538 ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i ]
-  %540 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store ptr %540, ptr %0, align 16, !tbaa !9
-  %541 = ptrtoint ptr %540 to i64
-  %542 = sub i64 %10, %541
-  %543 = icmp ult i64 %542, 2
-  br i1 %543, label %.critedge83, label %.preheader.i.i
+539:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i
+  br label %540
 
-.preheader.i.i:                                   ; preds = %539
-  %544 = load i8, ptr %540, align 1, !tbaa !3
-  %545 = getelementptr inbounds nuw i8, ptr %18, i64 3
-  br label %546
+540:                                              ; preds = %539, %538, %537, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i
+  %.033.i = phi i8 [ 1, %537 ], [ 0, %538 ], [ 1, %539 ], [ 0, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i ]
+  %.08.i = phi i1 [ true, %537 ], [ true, %538 ], [ false, %539 ], [ false, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i ]
+  %541 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store ptr %541, ptr %0, align 16, !tbaa !9
+  %542 = ptrtoint ptr %541 to i64
+  %543 = sub i64 %11, %542
+  %544 = icmp ult i64 %543, 2
+  br i1 %544, label %.critedge83, label %.preheader.i.i
 
-546:                                              ; preds = %.thread24.i.i, %.preheader.i.i
-  %.01030.i.i = phi i64 [ 62, %.preheader.i.i ], [ %559, %.thread24.i.i ]
-  %.01229.i.i = phi i64 [ 0, %.preheader.i.i ], [ %558, %.thread24.i.i ]
-  %547 = add i64 %.01229.i.i, %.01030.i.i
-  %548 = lshr i64 %547, 1
-  %549 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E3OpsE, i64 %548
-  %.val15.i.i = load i8, ptr %549, align 16, !tbaa !3
-  %550 = getelementptr i8, ptr %549, i64 1
-  %.val16.i.i = load i8, ptr %550, align 1
-  %551 = icmp slt i8 %.val15.i.i, %544
-  br i1 %551, label %.thread.i.i, label %553
+.preheader.i.i:                                   ; preds = %540
+  %545 = load i8, ptr %541, align 1, !tbaa !3
+  %546 = getelementptr inbounds nuw i8, ptr %19, i64 3
+  br label %547
 
-.thread.i.i:                                      ; preds = %546
-  %552 = add nuw i64 %548, 1
+547:                                              ; preds = %.thread24.i.i, %.preheader.i.i
+  %.01030.i.i = phi i64 [ 62, %.preheader.i.i ], [ %560, %.thread24.i.i ]
+  %.01229.i.i = phi i64 [ 0, %.preheader.i.i ], [ %559, %.thread24.i.i ]
+  %548 = add i64 %.01229.i.i, %.01030.i.i
+  %549 = lshr i64 %548, 1
+  %550 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E3OpsE, i64 %549
+  %.val15.i.i = load i8, ptr %550, align 16, !tbaa !3
+  %551 = getelementptr i8, ptr %550, i64 1
+  %.val16.i.i = load i8, ptr %551, align 1
+  %552 = icmp slt i8 %.val15.i.i, %545
+  br i1 %552, label %.thread.i.i, label %554
+
+.thread.i.i:                                      ; preds = %547
+  %553 = add nuw i64 %549, 1
   br label %.thread24.i.i
 
-553:                                              ; preds = %546
-  %554 = icmp eq i8 %.val15.i.i, %544
-  br i1 %554, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i.i, label %.thread24.i.i
+554:                                              ; preds = %547
+  %555 = icmp eq i8 %.val15.i.i, %545
+  br i1 %555, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i.i, label %.thread24.i.i
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i.i: ; preds = %553
-  %555 = load i8, ptr %545, align 1, !tbaa !3
-  %556 = icmp slt i8 %.val16.i.i, %555
-  %cond.fr19.i.i = freeze i1 %556
-  %557 = add nuw i64 %548, 1
-  %spec.select.i.i = select i1 %cond.fr19.i.i, i64 %557, i64 %.01229.i.i
-  %spec.select28.i.i = select i1 %cond.fr19.i.i, i64 %.01030.i.i, i64 %548
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i.i: ; preds = %554
+  %556 = load i8, ptr %546, align 1, !tbaa !3
+  %557 = icmp slt i8 %.val16.i.i, %556
+  %cond.fr19.i.i = freeze i1 %557
+  %558 = add nuw i64 %549, 1
+  %spec.select.i.i = select i1 %cond.fr19.i.i, i64 %558, i64 %.01229.i.i
+  %spec.select28.i.i = select i1 %cond.fr19.i.i, i64 %.01030.i.i, i64 %549
   br label %.thread24.i.i
 
-.thread24.i.i:                                    ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i.i, %553, %.thread.i.i
-  %558 = phi i64 [ %.01229.i.i, %553 ], [ %spec.select.i.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i.i ], [ %552, %.thread.i.i ]
-  %559 = phi i64 [ %548, %553 ], [ %spec.select28.i.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i.i ], [ %.01030.i.i, %.thread.i.i ]
-  %.not.i25.i = icmp eq i64 %559, %558
-  br i1 %.not.i25.i, label %560, label %546, !llvm.loop !156
+.thread24.i.i:                                    ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i.i, %554, %.thread.i.i
+  %559 = phi i64 [ %.01229.i.i, %554 ], [ %spec.select.i.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i.i ], [ %553, %.thread.i.i ]
+  %560 = phi i64 [ %549, %554 ], [ %spec.select28.i.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i.i ], [ %.01030.i.i, %.thread.i.i ]
+  %.not.i25.i = icmp eq i64 %560, %559
+  br i1 %.not.i25.i, label %561, label %547, !llvm.loop !158
 
-560:                                              ; preds = %.thread24.i.i
-  %561 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E3OpsE, i64 %558
-  %.val17.i.i = load i8, ptr %561, align 16, !tbaa !3
-  %562 = icmp eq i8 %.val17.i.i, %544
-  br i1 %562, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i.i, label %.critedge83
+561:                                              ; preds = %.thread24.i.i
+  %562 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E3OpsE, i64 %559
+  %.val17.i.i = load i8, ptr %562, align 16, !tbaa !3
+  %563 = icmp eq i8 %.val17.i.i, %545
+  br i1 %563, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i.i, label %.critedge83
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i.i: ; preds = %560
-  %563 = getelementptr i8, ptr %561, i64 1
-  %.val18.i.i = load i8, ptr %563, align 1
-  %564 = load i8, ptr %545, align 1, !tbaa !3
-  %.not27.i.i = icmp eq i8 %.val18.i.i, %564
-  br i1 %.not27.i.i, label %565, label %.critedge83
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i.i: ; preds = %561
+  %564 = getelementptr i8, ptr %562, i64 1
+  %.val18.i.i = load i8, ptr %564, align 1
+  %565 = load i8, ptr %546, align 1, !tbaa !3
+  %.not27.i.i = icmp eq i8 %.val18.i.i, %565
+  br i1 %.not27.i.i, label %566, label %.critedge83
 
-565:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i.i
-  %566 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store ptr %566, ptr %0, align 16, !tbaa !9
-  %567 = getelementptr i8, ptr %561, i64 2
-  %.val16.i882 = load i8, ptr %567, align 2, !tbaa !157
-  switch i8 %.val16.i882, label %.critedge83 [
+566:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i.i
+  %567 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  store ptr %567, ptr %0, align 16, !tbaa !9
+  %568 = getelementptr i8, ptr %562, i64 2
+  %.val16.i878 = load i8, ptr %568, align 2, !tbaa !159
+  switch i8 %.val16.i878, label %.critedge83 [
     i8 2, label %.critedge.i
-    i8 4, label %568
+    i8 4, label %569
   ]
 
-568:                                              ; preds = %565
-  %569 = getelementptr i8, ptr %561, i64 8
-  %.val17.i883 = load ptr, ptr %569, align 8, !tbaa !159
-  %570 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val17.i883) #21
-  %571 = getelementptr inbounds nuw i8, ptr %.val17.i883, i64 %570
-  %572 = getelementptr inbounds i8, ptr %571, i64 -1
-  %573 = load i8, ptr %572, align 1, !tbaa !3
-  %.not.i884 = icmp eq i8 %573, 42
-  br i1 %.not.i884, label %.critedge.i, label %.critedge83
+569:                                              ; preds = %566
+  %570 = getelementptr i8, ptr %562, i64 8
+  %.val17.i879 = load ptr, ptr %570, align 8, !tbaa !161
+  %571 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val17.i879) #21
+  %572 = getelementptr inbounds nuw i8, ptr %.val17.i879, i64 %571
+  %573 = getelementptr inbounds i8, ptr %572, i64 -1
+  %574 = load i8, ptr %573, align 1, !tbaa !3
+  %.not.i880 = icmp eq i8 %574, 42
+  br i1 %.not.i880, label %.critedge.i, label %.critedge83
 
-.critedge.i:                                      ; preds = %568, %565
-  %574 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %575 = icmp eq ptr %574, null
-  br i1 %575, label %.critedge83, label %576
+.critedge.i:                                      ; preds = %569, %566
+  %575 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %576 = icmp eq ptr %575, null
+  br i1 %576, label %.critedge83, label %577
 
-576:                                              ; preds = %.critedge.i
-  br i1 %.08.i, label %577, label %.thread.i885
+577:                                              ; preds = %.critedge.i
+  br i1 %.08.i, label %578, label %.thread.i881
 
-577:                                              ; preds = %576
-  %578 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %579 = icmp eq ptr %578, null
-  br i1 %579, label %.critedge83, label %580
+578:                                              ; preds = %577
+  %579 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %580 = icmp eq ptr %579, null
+  br i1 %580, label %.critedge83, label %581
 
-580:                                              ; preds = %577
-  %581 = trunc nuw i8 %.033.i to i1
-  %spec.select.i886 = select i1 %581, ptr %574, ptr %578
-  %spec.select43.i = select i1 %581, ptr %578, ptr %574
-  br label %.thread.i885
+581:                                              ; preds = %578
+  %582 = trunc nuw i8 %.033.i to i1
+  %spec.select.i882 = select i1 %582, ptr %575, ptr %579
+  %spec.select43.i = select i1 %582, ptr %579, ptr %575
+  br label %.thread.i881
 
-.thread.i885:                                     ; preds = %580, %576
-  %.136.i = phi ptr [ null, %576 ], [ %spec.select.i886, %580 ]
-  %.034.i = phi ptr [ %574, %576 ], [ %spec.select43.i, %580 ]
-  %582 = getelementptr i8, ptr %561, i64 8
-  %.val14.i = load ptr, ptr %582, align 8, !tbaa !159
-  %583 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val14.i) #21
-  %584 = and i64 %558, 1152921504606846975
-  %585 = shl nuw i64 1, %584
-  %586 = and i64 %585, 414331165718019679
-  %.not44.i = icmp eq i64 %586, 0
-  br i1 %.not44.i, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i, label %587
+.thread.i881:                                     ; preds = %581, %577
+  %.136.i = phi ptr [ null, %577 ], [ %spec.select.i882, %581 ]
+  %.034.i = phi ptr [ %575, %577 ], [ %spec.select43.i, %581 ]
+  %583 = getelementptr i8, ptr %562, i64 8
+  %.val14.i = load ptr, ptr %583, align 8, !tbaa !161
+  %584 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val14.i) #21
+  %585 = and i64 %559, 1152921504606846975
+  %586 = shl nuw i64 1, %585
+  %587 = and i64 %586, 414331165718019679
+  %.not44.i = icmp eq i64 %587, 0
+  br i1 %.not44.i, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i, label %588
 
-587:                                              ; preds = %.thread.i885
-  %588 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 8
-  %589 = add i64 %583, -8
-  %590 = icmp eq i64 %589, 0
-  br i1 %590, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
+588:                                              ; preds = %.thread.i881
+  %589 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 8
+  %590 = add i64 %584, -8
+  %591 = icmp eq i64 %590, 0
+  br i1 %591, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
 
-_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i: ; preds = %587
-  %591 = load i8, ptr %588, align 1, !tbaa !3
-  %592 = icmp eq i8 %591, 32
-  br i1 %592, label %593, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i
+_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i: ; preds = %588
+  %592 = load i8, ptr %589, align 1, !tbaa !3
+  %593 = icmp eq i8 %592, 32
+  br i1 %593, label %594, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i
 
-593:                                              ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
-  %594 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 9
-  %595 = add i64 %583, -9
+594:                                              ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i
+  %595 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 9
+  %596 = add i64 %584, -9
   br label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i: ; preds = %593, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i, %587, %.thread.i885
-  %.sroa.7.0.i.i = phi ptr [ %594, %593 ], [ %588, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i ], [ %.val14.i, %.thread.i885 ], [ %588, %587 ]
-  %.sroa.0.0.i.i = phi i64 [ %595, %593 ], [ %589, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i ], [ %583, %.thread.i885 ], [ 0, %587 ]
-  %596 = getelementptr inbounds nuw i8, ptr %0, i64 4912
-  %597 = load ptr, ptr %596, align 16, !tbaa !50
-  %598 = getelementptr inbounds nuw i8, ptr %597, i64 8
-  %599 = load i64, ptr %598, align 8, !tbaa !63
-  %600 = add i64 %599, -4016
-  %601 = icmp ult i64 %600, -4080
-  br i1 %601, label %602, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8FoldExprEJRbSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeESG_EEESF_DpOT0_.exit.i
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i: ; preds = %594, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i, %588, %.thread.i881
+  %.sroa.7.0.i.i = phi ptr [ %595, %594 ], [ %589, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i ], [ %.val14.i, %.thread.i881 ], [ %589, %588 ]
+  %.sroa.0.0.i.i = phi i64 [ %596, %594 ], [ %590, %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.i.i ], [ %584, %.thread.i881 ], [ 0, %588 ]
+  %597 = getelementptr inbounds nuw i8, ptr %0, i64 4912
+  %598 = load ptr, ptr %597, align 16, !tbaa !50
+  %599 = getelementptr inbounds nuw i8, ptr %598, i64 8
+  %600 = load i64, ptr %599, align 8, !tbaa !63
+  %601 = add i64 %600, -4016
+  %602 = icmp ult i64 %601, -4080
+  br i1 %602, label %603, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8FoldExprEJRbSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeESG_EEESF_DpOT0_.exit.i
 
-602:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i
-  %603 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #24
-  %604 = icmp eq ptr %603, null
-  br i1 %604, label %605, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i
+603:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i
+  %604 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #24
+  %605 = icmp eq ptr %604, null
+  br i1 %605, label %606, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i
 
-605:                                              ; preds = %602
+606:                                              ; preds = %603
   tail call void @_ZSt9terminatev() #23
   unreachable
 
-_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i: ; preds = %602
-  store ptr %597, ptr %603, align 8, !tbaa !60
-  %606 = getelementptr inbounds nuw i8, ptr %603, i64 8
-  store i64 0, ptr %606, align 8, !tbaa !63
-  store ptr %603, ptr %596, align 16, !tbaa !50
+_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i: ; preds = %603
+  store ptr %598, ptr %604, align 8, !tbaa !60
+  %607 = getelementptr inbounds nuw i8, ptr %604, i64 8
+  store i64 0, ptr %607, align 8, !tbaa !63
+  store ptr %604, ptr %597, align 16, !tbaa !50
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8FoldExprEJRbSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeESG_EEESF_DpOT0_.exit.i
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8FoldExprEJRbSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeESG_EEESF_DpOT0_.exit.i: ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i
-  %607 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i ], [ %599, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i ]
-  %608 = phi ptr [ %603, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i ], [ %597, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i ]
-  %609 = getelementptr inbounds nuw i8, ptr %608, i64 8
-  %610 = add nsw i64 %607, 64
-  store i64 %610, ptr %609, align 8, !tbaa !63
-  %611 = getelementptr inbounds nuw i8, ptr %608, i64 16
-  %612 = getelementptr inbounds i8, ptr %611, i64 %607
-  %613 = getelementptr inbounds nuw i8, ptr %612, i64 8
-  store i8 71, ptr %613, align 8, !tbaa !64
-  %614 = getelementptr inbounds nuw i8, ptr %612, i64 9
-  %615 = load i16, ptr %614, align 1
-  %616 = and i16 %615, -4096
-  %617 = or disjoint i16 %616, 1344
-  store i16 %617, ptr %614, align 1
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle8FoldExprE, i64 16), ptr %612, align 8, !tbaa !55
-  %618 = getelementptr inbounds nuw i8, ptr %612, i64 16
-  store ptr %.034.i, ptr %618, align 8, !tbaa !169
-  %619 = getelementptr inbounds nuw i8, ptr %612, i64 24
-  store ptr %.136.i, ptr %619, align 8, !tbaa !171
-  %620 = getelementptr inbounds nuw i8, ptr %612, i64 32
-  store i64 %.sroa.0.0.i.i, ptr %620, align 8, !tbaa !72
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %612, i64 40
+  %608 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i ], [ %600, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i ]
+  %609 = phi ptr [ %604, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i ], [ %598, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfo9getSymbolEv.exit.i ]
+  %610 = getelementptr inbounds nuw i8, ptr %609, i64 8
+  %611 = add nsw i64 %608, 64
+  store i64 %611, ptr %610, align 8, !tbaa !63
+  %612 = getelementptr inbounds nuw i8, ptr %609, i64 16
+  %613 = getelementptr inbounds i8, ptr %612, i64 %608
+  %614 = getelementptr inbounds nuw i8, ptr %613, i64 8
+  store i8 71, ptr %614, align 8, !tbaa !64
+  %615 = getelementptr inbounds nuw i8, ptr %613, i64 9
+  %616 = load i16, ptr %615, align 1
+  %617 = and i16 %616, -4096
+  %618 = or disjoint i16 %617, 1344
+  store i16 %618, ptr %615, align 1
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle8FoldExprE, i64 16), ptr %613, align 8, !tbaa !55
+  %619 = getelementptr inbounds nuw i8, ptr %613, i64 16
+  store ptr %.034.i, ptr %619, align 8, !tbaa !171
+  %620 = getelementptr inbounds nuw i8, ptr %613, i64 24
+  store ptr %.136.i, ptr %620, align 8, !tbaa !173
+  %621 = getelementptr inbounds nuw i8, ptr %613, i64 32
+  store i64 %.sroa.0.0.i.i, ptr %621, align 8, !tbaa !72
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %613, i64 40
   store ptr %.sroa.7.0.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !73
-  %621 = getelementptr inbounds nuw i8, ptr %612, i64 48
-  store i8 %.033.i, ptr %621, align 8, !tbaa !172
+  %622 = getelementptr inbounds nuw i8, ptr %613, i64 48
+  store i8 %.033.i, ptr %622, align 8, !tbaa !174
   br label %.critedge83
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i248: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
-  %bcmp.i.i.i249 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull readonly dereferenceable(2) @.str.34, i64 2)
-  %622 = icmp eq i32 %bcmp.i.i.i249, 0
-  br i1 %622, label %623, label %676
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i247: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
+  %bcmp.i.i.i248 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %19, ptr noundef nonnull readonly dereferenceable(2) @.str.34, i64 2)
+  %623 = icmp eq i32 %bcmp.i.i.i248, 0
+  br i1 %623, label %624, label %677
 
-623:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i248
-  %624 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store ptr %624, ptr %0, align 16, !tbaa !9
-  %625 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %626 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %627 = load ptr, ptr %626, align 8, !tbaa !27
-  %628 = load ptr, ptr %625, align 16, !tbaa !26
-  %629 = ptrtoint ptr %627 to i64
+624:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i247
+  %625 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store ptr %625, ptr %0, align 16, !tbaa !9
+  %626 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %627 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %628 = load ptr, ptr %627, align 8, !tbaa !27
+  %629 = load ptr, ptr %626, align 16, !tbaa !26
   %630 = ptrtoint ptr %628 to i64
-  %631 = sub i64 %629, %630
-  %632 = ashr exact i64 %631, 3
-  %633 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %634 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %635
+  %631 = ptrtoint ptr %629 to i64
+  %632 = sub i64 %630, %631
+  %633 = ashr exact i64 %632, 3
+  %634 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %635 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %636
 
-635:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit259, %623
-  %636 = phi ptr [ %.pre470, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit259 ], [ %9, %623 ]
-  %637 = phi ptr [ %.pre469, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit259 ], [ %624, %623 ]
-  %.not.i253 = icmp eq ptr %637, %636
-  br i1 %.not.i253, label %641, label %638
+636:                                              ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit258, %624
+  %637 = phi ptr [ %.pre466, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit258 ], [ %10, %624 ]
+  %638 = phi ptr [ %.pre465, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit258 ], [ %625, %624 ]
+  %.not.i252 = icmp eq ptr %638, %637
+  br i1 %.not.i252, label %642, label %639
 
-638:                                              ; preds = %635
-  %639 = load i8, ptr %637, align 1, !tbaa !3
-  %640 = icmp eq i8 %639, 69
-  br i1 %640, label %670, label %641
+639:                                              ; preds = %636
+  %640 = load i8, ptr %638, align 1, !tbaa !3
+  %641 = icmp eq i8 %640, 69
+  br i1 %641, label %671, label %642
 
-641:                                              ; preds = %638, %635
-  %642 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBracedExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %.not72 = icmp eq ptr %642, null
-  br i1 %.not72, label %.critedge83, label %643
+642:                                              ; preds = %639, %636
+  %643 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBracedExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %.not72 = icmp eq ptr %643, null
+  br i1 %.not72, label %.critedge83, label %644
 
-643:                                              ; preds = %641
-  %644 = load ptr, ptr %626, align 8, !tbaa !27
-  %645 = load ptr, ptr %633, align 16, !tbaa !28
-  %646 = icmp eq ptr %644, %645
-  br i1 %646, label %647, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit259
+644:                                              ; preds = %642
+  %645 = load ptr, ptr %627, align 8, !tbaa !27
+  %646 = load ptr, ptr %634, align 16, !tbaa !28
+  %647 = icmp eq ptr %645, %646
+  br i1 %647, label %648, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit258
 
-647:                                              ; preds = %643
-  %648 = load ptr, ptr %625, align 16, !tbaa !26
-  %649 = ptrtoint ptr %644 to i64
-  %650 = ptrtoint ptr %648 to i64
-  %651 = sub i64 %649, %650
-  %652 = ashr exact i64 %651, 2
-  %653 = icmp eq ptr %648, %634
-  %654 = shl i64 %651, 1
-  br i1 %653, label %655, label %661
+648:                                              ; preds = %644
+  %649 = load ptr, ptr %626, align 16, !tbaa !26
+  %650 = ptrtoint ptr %645 to i64
+  %651 = ptrtoint ptr %649 to i64
+  %652 = sub i64 %650, %651
+  %653 = ashr exact i64 %652, 2
+  %654 = icmp eq ptr %649, %635
+  %655 = shl i64 %652, 1
+  br i1 %654, label %656, label %662
 
-655:                                              ; preds = %647
-  %656 = tail call noalias ptr @malloc(i64 noundef %654) #24
-  %657 = icmp eq ptr %656, null
-  br i1 %657, label %658, label %659
+656:                                              ; preds = %648
+  %657 = tail call noalias ptr @malloc(i64 noundef %655) #24
+  %658 = icmp eq ptr %657, null
+  br i1 %658, label %659, label %660
 
-658:                                              ; preds = %655
+659:                                              ; preds = %656
   tail call void @abort() #23
   unreachable
 
-659:                                              ; preds = %655
-  %.not.i.i.i.i.i.i.i257 = icmp eq ptr %644, %634
-  br i1 %.not.i.i.i.i.i.i.i257, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i258, label %660
+660:                                              ; preds = %656
+  %.not.i.i.i.i.i.i.i256 = icmp eq ptr %645, %635
+  br i1 %.not.i.i.i.i.i.i.i256, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i257, label %661
 
-660:                                              ; preds = %659
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %656, ptr align 8 %648, i64 %651, i1 false)
-  br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i258
+661:                                              ; preds = %660
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %657, ptr align 8 %649, i64 %652, i1 false)
+  br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i257
 
-_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i258: ; preds = %660, %659
-  store ptr %656, ptr %625, align 16, !tbaa !26
-  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i256
+_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i257: ; preds = %661, %660
+  store ptr %657, ptr %626, align 16, !tbaa !26
+  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i255
 
-661:                                              ; preds = %647
-  %662 = tail call ptr @realloc(ptr noundef %648, i64 noundef %654) #22
-  store ptr %662, ptr %625, align 16, !tbaa !26
-  %663 = icmp eq ptr %662, null
-  br i1 %663, label %664, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i256
+662:                                              ; preds = %648
+  %663 = tail call ptr @realloc(ptr noundef %649, i64 noundef %655) #22
+  store ptr %663, ptr %626, align 16, !tbaa !26
+  %664 = icmp eq ptr %663, null
+  br i1 %664, label %665, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i255
 
-664:                                              ; preds = %661
+665:                                              ; preds = %662
   tail call void @abort() #23
   unreachable
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i256: ; preds = %661, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i258
-  %665 = phi ptr [ %662, %661 ], [ %656, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i258 ]
-  %666 = getelementptr inbounds nuw i8, ptr %665, i64 %651
-  %667 = getelementptr inbounds nuw [8 x i8], ptr %665, i64 %652
-  store ptr %667, ptr %633, align 16, !tbaa !28
-  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit259
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i255: ; preds = %662, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i257
+  %666 = phi ptr [ %663, %662 ], [ %657, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i257 ]
+  %667 = getelementptr inbounds nuw i8, ptr %666, i64 %652
+  %668 = getelementptr inbounds nuw [8 x i8], ptr %666, i64 %653
+  store ptr %668, ptr %634, align 16, !tbaa !28
+  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit258
 
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit259: ; preds = %643, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i256
-  %668 = phi ptr [ %666, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i256 ], [ %644, %643 ]
-  %669 = getelementptr inbounds nuw i8, ptr %668, i64 8
-  store ptr %669, ptr %626, align 8, !tbaa !27
-  store ptr %642, ptr %668, align 8, !tbaa !29
-  %.pre469 = load ptr, ptr %0, align 16, !tbaa !9
-  %.pre470 = load ptr, ptr %8, align 8, !tbaa !25
-  br label %635, !llvm.loop !173
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit258: ; preds = %644, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i255
+  %669 = phi ptr [ %667, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i255 ], [ %645, %644 ]
+  %670 = getelementptr inbounds nuw i8, ptr %669, i64 8
+  store ptr %670, ptr %627, align 8, !tbaa !27
+  store ptr %643, ptr %669, align 8, !tbaa !29
+  %.pre465 = load ptr, ptr %0, align 16, !tbaa !9
+  %.pre466 = load ptr, ptr %9, align 8, !tbaa !25
+  br label %636, !llvm.loop !175
 
-670:                                              ; preds = %638
-  %671 = getelementptr inbounds nuw i8, ptr %637, i64 1
-  store ptr %671, ptr %0, align 16, !tbaa !9
-  %672 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %632)
-  %673 = extractvalue { ptr, i64 } %672, 0
-  %674 = extractvalue { ptr, i64 } %672, 1
-  %675 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_12InitListExprEJDnNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr %673, i64 %674)
+671:                                              ; preds = %639
+  %672 = getelementptr inbounds nuw i8, ptr %638, i64 1
+  store ptr %672, ptr %0, align 16, !tbaa !9
+  %673 = tail call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %633)
+  %674 = extractvalue { ptr, i64 } %673, 0
+  %675 = extractvalue { ptr, i64 } %673, 1
+  %676 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_12InitListExprEJDnNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr %674, i64 %675)
   br label %.critedge83
 
-676:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i248
-  %677 = ptrtoint ptr %18 to i64
-  %678 = sub i64 %10, %677
-  %679 = icmp ult i64 %678, 2
-  br i1 %679, label %.thread, label %680
+677:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i247
+  %678 = ptrtoint ptr %19 to i64
+  %679 = sub i64 %11, %678
+  %680 = icmp ult i64 %679, 2
+  br i1 %680, label %.thread, label %681
 
-680:                                              ; preds = %676
-  %bcmp.i.i.i629 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.35, i64 2)
-  %681 = icmp eq i32 %bcmp.i.i.i629, 0
-  br i1 %681, label %682, label %685
+681:                                              ; preds = %677
+  %bcmp.i.i.i625 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %19, ptr noundef nonnull dereferenceable(2) @.str.35, i64 2)
+  %682 = icmp eq i32 %bcmp.i.i.i625, 0
+  br i1 %682, label %683, label %686
 
-682:                                              ; preds = %680
-  %683 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store ptr %683, ptr %0, align 16, !tbaa !9
-  %684 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E34parsePointerToMemberConversionExprENS0_4Node4PrecE(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+683:                                              ; preds = %681
+  %684 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store ptr %684, ptr %0, align 16, !tbaa !9
+  %685 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E34parsePointerToMemberConversionExprENS0_4Node4PrecE(ptr noundef nonnull align 16 dereferenceable(4928) %0)
   br label %.critedge83
 
-685:                                              ; preds = %680
-  %bcmp.i.i.i634 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.36, i64 2)
-  %686 = icmp eq i32 %bcmp.i.i.i634, 0
-  br i1 %686, label %687, label %.thread
+686:                                              ; preds = %681
+  %bcmp.i.i.i630 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %19, ptr noundef nonnull dereferenceable(2) @.str.36, i64 2)
+  %687 = icmp eq i32 %bcmp.i.i.i630, 0
+  br i1 %687, label %688, label %.thread
 
-687:                                              ; preds = %685
-  %688 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store ptr %688, ptr %0, align 16, !tbaa !9
-  %689 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %690 = icmp eq ptr %689, null
-  br i1 %690, label %.critedge83, label %691
+688:                                              ; preds = %686
+  %689 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store ptr %689, ptr %0, align 16, !tbaa !9
+  %690 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %691 = icmp eq ptr %690, null
+  br i1 %691, label %.critedge83, label %692
 
-691:                                              ; preds = %687
-  %692 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRA10_KcRPNS0_4NodeENSC_4PrecEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %689, i32 2)
+692:                                              ; preds = %688
+  %693 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRA10_KcRPNS0_4NodeENSC_4PrecEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %690, i32 2)
   br label %.critedge83
 
-.thread:                                          ; preds = %676, %685
-  %.not.i260.not = icmp eq ptr %9, %18
-  br i1 %.not.i260.not, label %.thread852, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit262
+.thread:                                          ; preds = %677, %686
+  %.not.i259.not = icmp eq ptr %10, %19
+  br i1 %.not.i259.not, label %.thread848, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit261
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit262: ; preds = %.thread
-  %693 = icmp eq i8 %19, 114
-  %.not.i263 = icmp ugt i64 %678, 1
-  %or.cond393 = and i1 %.not.i263, %693
-  br i1 %or.cond393, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit265, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit262.thread
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit261: ; preds = %.thread
+  %694 = icmp eq i8 %20, 114
+  %.not.i262 = icmp ugt i64 %679, 1
+  %or.cond389 = and i1 %.not.i262, %694
+  br i1 %or.cond389, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit264, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit261.thread
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit265: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit262
-  %694 = load i8, ptr %20, align 1, !tbaa !3
-  switch i8 %694, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit262.thread.thread844 [
-    i8 113, label %695
-    i8 81, label %695
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit264: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit261
+  %695 = load i8, ptr %21, align 1, !tbaa !3
+  switch i8 %695, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit261.thread.thread840 [
+    i8 113, label %696
+    i8 81, label %696
   ]
 
-695:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit265, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit265
-  %696 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E17parseRequiresExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+696:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit264, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit264
+  %697 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E17parseRequiresExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
   br label %.critedge83
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit262.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit262
-  br i1 %679, label %.thread851, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit262.thread.thread844
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit261.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit261
+  br i1 %680, label %.thread847, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit261.thread.thread840
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit262.thread.thread844: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit265, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit262.thread
-  %bcmp.i.i.i639 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.38, i64 2)
-  %697 = icmp eq i32 %bcmp.i.i.i639, 0
-  br i1 %697, label %698, label %701
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit261.thread.thread840: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit264, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit261.thread
+  %bcmp.i.i.i635 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %19, ptr noundef nonnull dereferenceable(2) @.str.38, i64 2)
+  %698 = icmp eq i32 %bcmp.i.i.i635, 0
+  br i1 %698, label %699, label %702
 
-698:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit262.thread.thread844
-  %699 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store ptr %699, ptr %0, align 16, !tbaa !9
-  %700 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18parseSubobjectExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+699:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit261.thread.thread840
+  %700 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store ptr %700, ptr %0, align 16, !tbaa !9
+  %701 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18parseSubobjectExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
   br label %.critedge83
 
-701:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit262.thread.thread844
-  %bcmp.i.i.i644 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.39, i64 2)
-  %702 = icmp eq i32 %bcmp.i.i.i644, 0
-  br i1 %702, label %703, label %709
+702:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit261.thread.thread840
+  %bcmp.i.i.i640 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %19, ptr noundef nonnull dereferenceable(2) @.str.39, i64 2)
+  %703 = icmp eq i32 %bcmp.i.i.i640, 0
+  br i1 %703, label %704, label %710
 
-703:                                              ; preds = %701
-  %704 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store ptr %704, ptr %0, align 16, !tbaa !9
-  %705 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %706 = icmp eq ptr %705, null
-  br i1 %706, label %.critedge83, label %707
+704:                                              ; preds = %702
+  %705 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store ptr %705, ptr %0, align 16, !tbaa !9
+  %706 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %707 = icmp eq ptr %706, null
+  br i1 %707, label %.critedge83, label %708
 
-707:                                              ; preds = %703
-  %708 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_22ParameterPackExpansionEJRPNS0_4NodeEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %705)
+708:                                              ; preds = %704
+  %709 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_22ParameterPackExpansionEJRPNS0_4NodeEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %706)
   br label %.critedge83
 
-709:                                              ; preds = %701
-  %bcmp.i.i.i649 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.40, i64 2)
-  %710 = icmp eq i32 %bcmp.i.i.i649, 0
-  br i1 %710, label %711, label %724
+710:                                              ; preds = %702
+  %bcmp.i.i.i645 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %19, ptr noundef nonnull dereferenceable(2) @.str.40, i64 2)
+  %711 = icmp eq i32 %bcmp.i.i.i645, 0
+  br i1 %711, label %712, label %725
 
-711:                                              ; preds = %709
-  %712 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store ptr %712, ptr %0, align 16, !tbaa !9
-  %.not.i269.not = icmp eq ptr %9, %712
-  br i1 %.not.i269.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit271.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit271
+712:                                              ; preds = %710
+  %713 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store ptr %713, ptr %0, align 16, !tbaa !9
+  %.not.i268.not = icmp eq ptr %10, %713
+  br i1 %.not.i268.not, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit270.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit270
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit271: ; preds = %711
-  %713 = load i8, ptr %712, align 1, !tbaa !3
-  %714 = icmp eq i8 %713, 84
-  br i1 %714, label %715, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit271.thread
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit270: ; preds = %712
+  %714 = load i8, ptr %713, align 1, !tbaa !3
+  %715 = icmp eq i8 %714, 84
+  br i1 %715, label %716, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit270.thread
 
-715:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit271
-  %716 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18parseTemplateParamEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %717 = icmp eq ptr %716, null
-  br i1 %717, label %.critedge83, label %718
+716:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit270
+  %717 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18parseTemplateParamEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %718 = icmp eq ptr %717, null
+  br i1 %718, label %.critedge83, label %719
 
-718:                                              ; preds = %715
-  %719 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_19SizeofParamPackExprEJRPNS0_4NodeEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %716)
+719:                                              ; preds = %716
+  %720 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_19SizeofParamPackExprEJRPNS0_4NodeEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %717)
   br label %.critedge83
 
-_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit271.thread: ; preds = %711, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit271
-  %720 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18parseFunctionParamEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %721 = icmp eq ptr %720, null
-  br i1 %721, label %.critedge83, label %722
+_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit270.thread: ; preds = %712, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit270
+  %721 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18parseFunctionParamEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %722 = icmp eq ptr %721, null
+  br i1 %722, label %.critedge83, label %723
 
-722:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit271.thread
-  %723 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRA11_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %720)
+723:                                              ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit270.thread
+  %724 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRA11_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %721)
   br label %.critedge83
 
-724:                                              ; preds = %709
-  %bcmp.i.i.i654 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.42, i64 2)
-  %725 = icmp eq i32 %bcmp.i.i.i654, 0
-  br i1 %725, label %726, label %752
+725:                                              ; preds = %710
+  %bcmp.i.i.i650 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %19, ptr noundef nonnull dereferenceable(2) @.str.42, i64 2)
+  %726 = icmp eq i32 %bcmp.i.i.i650, 0
+  br i1 %726, label %727, label %753
 
-726:                                              ; preds = %724
-  %727 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store ptr %727, ptr %0, align 16, !tbaa !9
-  %728 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %729 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %730 = load ptr, ptr %729, align 8, !tbaa !27
-  %731 = load ptr, ptr %728, align 16, !tbaa !26
-  %732 = ptrtoint ptr %730 to i64
+727:                                              ; preds = %725
+  %728 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store ptr %728, ptr %0, align 16, !tbaa !9
+  %729 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %730 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %731 = load ptr, ptr %730, align 8, !tbaa !27
+  %732 = load ptr, ptr %729, align 16, !tbaa !26
   %733 = ptrtoint ptr %731 to i64
-  %734 = sub i64 %732, %733
-  %735 = ashr exact i64 %734, 3
-  br label %736
+  %734 = ptrtoint ptr %732 to i64
+  %735 = sub i64 %733, %734
+  %736 = ashr exact i64 %735, 3
+  br label %737
 
-736:                                              ; preds = %744, %726
-  %737 = phi ptr [ %.pre743, %744 ], [ %9, %726 ]
-  %738 = phi ptr [ %.pre742, %744 ], [ %727, %726 ]
-  %.not.i272 = icmp eq ptr %738, %737
-  br i1 %.not.i272, label %742, label %739
+737:                                              ; preds = %745, %727
+  %738 = phi ptr [ %.pre739, %745 ], [ %10, %727 ]
+  %739 = phi ptr [ %.pre738, %745 ], [ %728, %727 ]
+  %.not.i271 = icmp eq ptr %739, %738
+  br i1 %.not.i271, label %743, label %740
 
-739:                                              ; preds = %736
-  %740 = load i8, ptr %738, align 1, !tbaa !3
-  %741 = icmp eq i8 %740, 69
-  br i1 %741, label %745, label %742
+740:                                              ; preds = %737
+  %741 = load i8, ptr %739, align 1, !tbaa !3
+  %742 = icmp eq i8 %741, 69
+  br i1 %742, label %746, label %743
 
-742:                                              ; preds = %739, %736
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %743 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseTemplateArgEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  store ptr %743, ptr %4, align 8, !tbaa !29
-  %.not71 = icmp eq ptr %743, null
-  br i1 %.not71, label %.critedge85, label %744
-
-744:                                              ; preds = %742
-  call void @_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(280) %728, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre742 = load ptr, ptr %0, align 16, !tbaa !9
-  %.pre743 = load ptr, ptr %8, align 8, !tbaa !25
-  br label %736, !llvm.loop !174
-
-745:                                              ; preds = %739
-  %746 = getelementptr inbounds nuw i8, ptr %738, i64 1
-  store ptr %746, ptr %0, align 16, !tbaa !9
-  %747 = call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %735)
-  %748 = extractvalue { ptr, i64 } %747, 0
-  %749 = extractvalue { ptr, i64 } %747, 1
-  %750 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13NodeArrayNodeEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr %748, i64 %749)
-  %751 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRA11_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %750)
-  br label %.critedge83
-
-.critedge85:                                      ; preds = %742
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.critedge83
-
-752:                                              ; preds = %724
-  %bcmp.i.i.i659 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.43, i64 2)
-  %753 = icmp eq i32 %bcmp.i.i.i659, 0
-  br i1 %753, label %754, label %782
-
-754:                                              ; preds = %752
-  %755 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store ptr %755, ptr %0, align 16, !tbaa !9
-  %756 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %757 = icmp eq ptr %756, null
-  br i1 %757, label %.critedge83, label %758
-
-758:                                              ; preds = %754
-  %759 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %760 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %761 = load ptr, ptr %760, align 8, !tbaa !27
-  %762 = load ptr, ptr %759, align 16, !tbaa !26
-  %763 = ptrtoint ptr %761 to i64
-  %764 = ptrtoint ptr %762 to i64
-  %765 = sub i64 %763, %764
-  %766 = ashr exact i64 %765, 3
-  br label %767
-
-767:                                              ; preds = %775, %758
-  %768 = load ptr, ptr %0, align 16, !tbaa !9
-  %769 = load ptr, ptr %8, align 8, !tbaa !25
-  %.not.i275 = icmp eq ptr %768, %769
-  br i1 %.not.i275, label %773, label %770
-
-770:                                              ; preds = %767
-  %771 = load i8, ptr %768, align 1, !tbaa !3
-  %772 = icmp eq i8 %771, 69
-  br i1 %772, label %776, label %773
-
-773:                                              ; preds = %770, %767
+743:                                              ; preds = %740, %737
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %774 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBracedExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  store ptr %774, ptr %5, align 8, !tbaa !29
-  %.not69 = icmp eq ptr %774, null
-  br i1 %.not69, label %.critedge87, label %775
+  %744 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseTemplateArgEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  store ptr %744, ptr %5, align 8, !tbaa !29
+  %.not71 = icmp eq ptr %744, null
+  br i1 %.not71, label %.critedge85, label %745
 
-775:                                              ; preds = %773
-  call void @_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(280) %759, ptr noundef nonnull align 8 dereferenceable(8) %5)
+745:                                              ; preds = %743
+  call void @_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(280) %729, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %767, !llvm.loop !175
+  %.pre738 = load ptr, ptr %0, align 16, !tbaa !9
+  %.pre739 = load ptr, ptr %9, align 8, !tbaa !25
+  br label %737, !llvm.loop !176
 
-776:                                              ; preds = %770
-  %777 = getelementptr inbounds nuw i8, ptr %768, i64 1
-  store ptr %777, ptr %0, align 16, !tbaa !9
-  %778 = call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %766)
-  %779 = extractvalue { ptr, i64 } %778, 0
-  %780 = extractvalue { ptr, i64 } %778, 1
-  %781 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_12InitListExprEJRPNS0_4NodeENS0_9NodeArrayEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %756, ptr %779, i64 %780)
+746:                                              ; preds = %740
+  %747 = getelementptr inbounds nuw i8, ptr %739, i64 1
+  store ptr %747, ptr %0, align 16, !tbaa !9
+  %748 = call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %736)
+  %749 = extractvalue { ptr, i64 } %748, 0
+  %750 = extractvalue { ptr, i64 } %748, 1
+  %751 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13NodeArrayNodeEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr %749, i64 %750)
+  %752 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13EnclosingExprEJRA11_KcRPNS0_4NodeEEEESD_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %751)
   br label %.critedge83
 
-.critedge87:                                      ; preds = %773
+.critedge85:                                      ; preds = %743
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge83
 
-782:                                              ; preds = %752
-  %bcmp.i.i.i664 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.44, i64 2)
-  %783 = icmp eq i32 %bcmp.i.i.i664, 0
-  br i1 %783, label %784, label %787
+753:                                              ; preds = %725
+  %bcmp.i.i.i655 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %19, ptr noundef nonnull dereferenceable(2) @.str.43, i64 2)
+  %754 = icmp eq i32 %bcmp.i.i.i655, 0
+  br i1 %754, label %755, label %783
 
-784:                                              ; preds = %782
-  %785 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store ptr %785, ptr %0, align 16, !tbaa !9
-  %786 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8NameTypeEJRA6_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef nonnull align 1 dereferenceable(6) @.str.45)
-  br label %.critedge83
+755:                                              ; preds = %753
+  %756 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store ptr %756, ptr %0, align 16, !tbaa !9
+  %757 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %758 = icmp eq ptr %757, null
+  br i1 %758, label %.critedge83, label %759
 
-787:                                              ; preds = %782
-  %bcmp.i.i.i669 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %18, ptr noundef nonnull dereferenceable(2) @.str.46, i64 2)
-  %788 = icmp eq i32 %bcmp.i.i.i669, 0
-  br i1 %788, label %789, label %.thread851
+759:                                              ; preds = %755
+  %760 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %761 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %762 = load ptr, ptr %761, align 8, !tbaa !27
+  %763 = load ptr, ptr %760, align 16, !tbaa !26
+  %764 = ptrtoint ptr %762 to i64
+  %765 = ptrtoint ptr %763 to i64
+  %766 = sub i64 %764, %765
+  %767 = ashr exact i64 %766, 3
+  br label %768
 
-789:                                              ; preds = %787
-  %790 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store ptr %790, ptr %0, align 16, !tbaa !9
-  %791 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %792 = icmp eq ptr %791, null
-  br i1 %792, label %.critedge83, label %793
+768:                                              ; preds = %776, %759
+  %769 = load ptr, ptr %0, align 16, !tbaa !9
+  %770 = load ptr, ptr %9, align 8, !tbaa !25
+  %.not.i274 = icmp eq ptr %769, %770
+  br i1 %.not.i274, label %774, label %771
 
-793:                                              ; preds = %789
-  %794 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_9ThrowExprEJRPNS0_4NodeEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %791)
-  br label %.critedge83
+771:                                              ; preds = %768
+  %772 = load i8, ptr %769, align 1, !tbaa !3
+  %773 = icmp eq i8 %772, 69
+  br i1 %773, label %777, label %774
 
-.thread851:                                       ; preds = %787, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit262.thread
-  %795 = icmp eq i8 %19, 117
-  br i1 %795, label %796, label %.thread852
-
-796:                                              ; preds = %.thread851
-  store ptr %20, ptr %0, align 16, !tbaa !9
-  %797 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %.not67 = icmp eq ptr %797, null
-  br i1 %.not67, label %.critedge83, label %798
-
-798:                                              ; preds = %796
+774:                                              ; preds = %771, %768
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr null, ptr %6, align 8, !tbaa !29
-  %799 = load ptr, ptr %797, align 8, !tbaa !55
-  %800 = getelementptr inbounds nuw i8, ptr %799, i64 56
-  %801 = load ptr, ptr %800, align 8
-  %802 = tail call { i64, ptr } %801(ptr noundef nonnull align 8 dereferenceable(11) %797) #21
-  %803 = extractvalue { i64, ptr } %802, 0
-  %804 = icmp eq i64 %803, 8
-  br i1 %804, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
+  %775 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBracedExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  store ptr %775, ptr %6, align 8, !tbaa !29
+  %.not69 = icmp eq ptr %775, null
+  br i1 %.not69, label %.critedge87, label %776
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %798
-  %805 = extractvalue { i64, ptr } %802, 1
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %805, ptr noundef nonnull dereferenceable(8) @.str.47, i64 8)
-  %806 = icmp eq i32 %bcmp.i, 0
-  br i1 %806, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
+776:                                              ; preds = %774
+  call void @_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(280) %760, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %768, !llvm.loop !177
 
-_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %807 = load ptr, ptr %0, align 16, !tbaa !9
-  %808 = load ptr, ptr %8, align 8, !tbaa !25
-  %.not.i281 = icmp eq ptr %807, %808
-  br i1 %.not.i281, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread, label %809
+777:                                              ; preds = %771
+  %778 = getelementptr inbounds nuw i8, ptr %769, i64 1
+  store ptr %778, ptr %0, align 16, !tbaa !9
+  %779 = call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %767)
+  %780 = extractvalue { ptr, i64 } %779, 0
+  %781 = extractvalue { ptr, i64 } %779, 1
+  %782 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_12InitListExprEJRPNS0_4NodeENS0_9NodeArrayEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %757, ptr %780, i64 %781)
+  br label %.critedge83
 
-809:                                              ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
-  %810 = load i8, ptr %807, align 1, !tbaa !3
-  switch i8 %810, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread [
-    i8 116, label %811
-    i8 122, label %814
-  ]
-
-811:                                              ; preds = %809
-  %812 = getelementptr inbounds nuw i8, ptr %807, i64 1
-  store ptr %812, ptr %0, align 16, !tbaa !9
-  %813 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  br label %826
-
-814:                                              ; preds = %809
-  %815 = getelementptr inbounds nuw i8, ptr %807, i64 1
-  store ptr %815, ptr %0, align 16, !tbaa !9
-  %816 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  br label %826
-
-_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread: ; preds = %809, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %798
-  %817 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %818 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %819 = load ptr, ptr %818, align 8, !tbaa !27
-  %820 = load ptr, ptr %817, align 16, !tbaa !26
-  %821 = ptrtoint ptr %819 to i64
-  %822 = ptrtoint ptr %820 to i64
-  %823 = sub i64 %821, %822
-  %824 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %825 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %836
-
-826:                                              ; preds = %811, %814
-  %storemerge = phi ptr [ %813, %811 ], [ %816, %814 ]
-  store ptr %storemerge, ptr %6, align 8, !tbaa !29
-  %827 = icmp eq ptr %storemerge, null
-  br i1 %827, label %.critedge89, label %828
-
-828:                                              ; preds = %826
-  %829 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %830 = load ptr, ptr %829, align 8, !tbaa !27
-  %831 = ptrtoint ptr %830 to i64
-  %832 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %833 = load ptr, ptr %832, align 16, !tbaa !26
-  %834 = ptrtoint ptr %833 to i64
-  %835 = sub i64 %831, %834
-  call void @_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(280) %832, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  br label %872
-
-836:                                              ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit890
-  %837 = load ptr, ptr %0, align 16, !tbaa !9
-  %838 = load ptr, ptr %8, align 8, !tbaa !25
-  %.not.i287 = icmp eq ptr %837, %838
-  br i1 %.not.i287, label %843, label %839
-
-839:                                              ; preds = %836
-  %840 = load i8, ptr %837, align 1, !tbaa !3
-  %841 = icmp eq i8 %840, 69
-  br i1 %841, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit289, label %843
-
-_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit289: ; preds = %839
-  %842 = getelementptr inbounds nuw i8, ptr %837, i64 1
-  store ptr %842, ptr %0, align 16, !tbaa !9
-  br label %872
-
-843:                                              ; preds = %839, %836
-  %844 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseTemplateArgEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
-  %.not68 = icmp eq ptr %844, null
-  br i1 %.not68, label %.critedge89, label %845
-
-845:                                              ; preds = %843
-  %846 = load ptr, ptr %818, align 8, !tbaa !27
-  %847 = load ptr, ptr %824, align 16, !tbaa !28
-  %848 = icmp eq ptr %846, %847
-  br i1 %848, label %849, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit890
-
-849:                                              ; preds = %845
-  %850 = load ptr, ptr %817, align 16, !tbaa !26
-  %851 = ptrtoint ptr %846 to i64
-  %852 = ptrtoint ptr %850 to i64
-  %853 = sub i64 %851, %852
-  %854 = ashr exact i64 %853, 2
-  %855 = icmp eq ptr %850, %825
-  %856 = shl i64 %853, 1
-  br i1 %855, label %857, label %863
-
-857:                                              ; preds = %849
-  %858 = tail call noalias ptr @malloc(i64 noundef %856) #24
-  %859 = icmp eq ptr %858, null
-  br i1 %859, label %860, label %861
-
-860:                                              ; preds = %857
-  tail call void @abort() #23
-  unreachable
-
-861:                                              ; preds = %857
-  %.not.i.i.i.i.i.i.i888 = icmp eq ptr %846, %825
-  br i1 %.not.i.i.i.i.i.i.i888, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i889, label %862
-
-862:                                              ; preds = %861
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %858, ptr align 8 %850, i64 %853, i1 false)
-  br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i889
-
-_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i889: ; preds = %862, %861
-  store ptr %858, ptr %817, align 16, !tbaa !26
-  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i887
-
-863:                                              ; preds = %849
-  %864 = tail call ptr @realloc(ptr noundef %850, i64 noundef %856) #22
-  store ptr %864, ptr %817, align 16, !tbaa !26
-  %865 = icmp eq ptr %864, null
-  br i1 %865, label %866, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i887
-
-866:                                              ; preds = %863
-  tail call void @abort() #23
-  unreachable
-
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i887: ; preds = %863, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i889
-  %867 = phi ptr [ %864, %863 ], [ %858, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i889 ]
-  %868 = getelementptr inbounds nuw i8, ptr %867, i64 %853
-  %869 = getelementptr inbounds nuw [8 x i8], ptr %867, i64 %854
-  store ptr %869, ptr %824, align 16, !tbaa !28
-  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit890
-
-_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit890: ; preds = %845, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i887
-  %870 = phi ptr [ %868, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i887 ], [ %846, %845 ]
-  %871 = getelementptr inbounds nuw i8, ptr %870, i64 8
-  store ptr %871, ptr %818, align 8, !tbaa !27
-  store ptr %844, ptr %870, align 8, !tbaa !29
-  br label %836, !llvm.loop !176
-
-872:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit289, %828
-  %.in = phi i64 [ %823, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit289 ], [ %835, %828 ]
-  %873 = ashr exact i64 %.in, 3
-  %874 = call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %873)
-  %875 = extractvalue { ptr, i64 } %874, 0
-  %876 = extractvalue { ptr, i64 } %874, 1
-  %877 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8CallExprEJRPNS0_4NodeENS0_9NodeArrayEbNS9_4PrecEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %797, ptr %875, i64 %876, i8 0, i32 1)
-  br label %.critedge89
-
-.critedge89:                                      ; preds = %843, %826, %872
-  %.47 = phi ptr [ null, %826 ], [ %877, %872 ], [ null, %843 ]
+.critedge87:                                      ; preds = %774
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge83
 
-.thread852:                                       ; preds = %.thread, %.thread851
-  %878 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseUnresolvedNameEb(ptr noundef nonnull align 16 dereferenceable(4928) %0, i1 noundef zeroext %14)
+783:                                              ; preds = %753
+  %bcmp.i.i.i660 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %19, ptr noundef nonnull dereferenceable(2) @.str.44, i64 2)
+  %784 = icmp eq i32 %bcmp.i.i.i660, 0
+  br i1 %784, label %785, label %788
+
+785:                                              ; preds = %783
+  %786 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store ptr %786, ptr %0, align 16, !tbaa !9
+  %787 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8NameTypeEJRA6_KcEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef nonnull align 1 dereferenceable(6) @.str.45)
   br label %.critedge83
 
-.critedge83:                                      ; preds = %641, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8FoldExprEJRbSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeESG_EEESF_DpOT0_.exit.i, %577, %.critedge.i, %568, %565, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i.i, %560, %539, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i, %534, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit247.thread, %1, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit, %.critedge89, %796, %793, %789, %754, %.critedge87, %776, %722, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit271.thread, %718, %715, %707, %703, %691, %687, %745, %.critedge85, %670, %.thread852, %784, %698, %695, %682, %532, %524, %522, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
-  %.29 = phi ptr [ %.0, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit ], [ %878, %.thread852 ], [ %523, %522 ], [ %525, %524 ], [ %533, %532 ], [ null, %560 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %684, %682 ], [ null, %796 ], [ %696, %695 ], [ %700, %698 ], [ null, %687 ], [ null, %703 ], [ null, %715 ], [ %751, %745 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit271.thread ], [ %786, %784 ], [ %781, %776 ], [ null, %789 ], [ null, %.critedge85 ], [ %675, %670 ], [ %692, %691 ], [ %708, %707 ], [ %719, %718 ], [ %723, %722 ], [ null, %754 ], [ null, %.critedge87 ], [ %794, %793 ], [ %.47, %.critedge89 ], [ null, %1 ], [ null, %577 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i ], [ null, %534 ], [ null, %565 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit247.thread ], [ null, %568 ], [ null, %.critedge.i ], [ %612, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8FoldExprEJRbSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeESG_EEESF_DpOT0_.exit.i ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i.i ], [ null, %539 ], [ null, %641 ]
+788:                                              ; preds = %783
+  %bcmp.i.i.i665 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %19, ptr noundef nonnull dereferenceable(2) @.str.46, i64 2)
+  %789 = icmp eq i32 %bcmp.i.i.i665, 0
+  br i1 %789, label %790, label %.thread847
+
+790:                                              ; preds = %788
+  %791 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store ptr %791, ptr %0, align 16, !tbaa !9
+  %792 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %793 = icmp eq ptr %792, null
+  br i1 %793, label %.critedge83, label %794
+
+794:                                              ; preds = %790
+  %795 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_9ThrowExprEJRPNS0_4NodeEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %792)
+  br label %.critedge83
+
+.thread847:                                       ; preds = %788, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit261.thread
+  %796 = icmp eq i8 %20, 117
+  br i1 %796, label %797, label %.thread848
+
+797:                                              ; preds = %.thread847
+  store ptr %21, ptr %0, align 16, !tbaa !9
+  %798 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseSourceNameEPNS6_9NameStateE(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %.not67 = icmp eq ptr %798, null
+  br i1 %.not67, label %.critedge83, label %799
+
+799:                                              ; preds = %797
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  store ptr null, ptr %7, align 8, !tbaa !29
+  %800 = load ptr, ptr %798, align 8, !tbaa !55
+  %801 = getelementptr inbounds nuw i8, ptr %800, i64 56
+  %802 = load ptr, ptr %801, align 8
+  %803 = tail call { i64, ptr } %802(ptr noundef nonnull align 8 dereferenceable(11) %798) #21
+  %804 = extractvalue { i64, ptr } %803, 0
+  %805 = icmp eq i64 %804, 8
+  br i1 %805, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
+
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %799
+  %806 = extractvalue { i64, ptr } %803, 1
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %806, ptr noundef nonnull dereferenceable(8) @.str.47, i64 8)
+  %807 = icmp eq i32 %bcmp.i, 0
+  br i1 %807, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread
+
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  %808 = load ptr, ptr %0, align 16, !tbaa !9
+  %809 = load ptr, ptr %9, align 8, !tbaa !25
+  %.not.i280 = icmp eq ptr %808, %809
+  br i1 %.not.i280, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread, label %810
+
+810:                                              ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+  %811 = load i8, ptr %808, align 1, !tbaa !3
+  switch i8 %811, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread [
+    i8 116, label %812
+    i8 122, label %815
+  ]
+
+812:                                              ; preds = %810
+  %813 = getelementptr inbounds nuw i8, ptr %808, i64 1
+  store ptr %813, ptr %0, align 16, !tbaa !9
+  %814 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  br label %827
+
+815:                                              ; preds = %810
+  %816 = getelementptr inbounds nuw i8, ptr %808, i64 1
+  store ptr %816, ptr %0, align 16, !tbaa !9
+  %817 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseExprEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  br label %827
+
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread: ; preds = %810, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %799
+  %818 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %819 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %820 = load ptr, ptr %819, align 8, !tbaa !27
+  %821 = load ptr, ptr %818, align 16, !tbaa !26
+  %822 = ptrtoint ptr %820 to i64
+  %823 = ptrtoint ptr %821 to i64
+  %824 = sub i64 %822, %823
+  %825 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %826 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %837
+
+827:                                              ; preds = %812, %815
+  %storemerge = phi ptr [ %814, %812 ], [ %817, %815 ]
+  store ptr %storemerge, ptr %7, align 8, !tbaa !29
+  %828 = icmp eq ptr %storemerge, null
+  br i1 %828, label %.critedge89, label %829
+
+829:                                              ; preds = %827
+  %830 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %831 = load ptr, ptr %830, align 8, !tbaa !27
+  %832 = ptrtoint ptr %831 to i64
+  %833 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %834 = load ptr, ptr %833, align 16, !tbaa !26
+  %835 = ptrtoint ptr %834 to i64
+  %836 = sub i64 %832, %835
+  call void @_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(280) %833, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  br label %873
+
+837:                                              ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit.thread, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit886
+  %838 = load ptr, ptr %0, align 16, !tbaa !9
+  %839 = load ptr, ptr %9, align 8, !tbaa !25
+  %.not.i286 = icmp eq ptr %838, %839
+  br i1 %.not.i286, label %844, label %840
+
+840:                                              ; preds = %837
+  %841 = load i8, ptr %838, align 1, !tbaa !3
+  %842 = icmp eq i8 %841, 69
+  br i1 %842, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit288, label %844
+
+_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit288: ; preds = %840
+  %843 = getelementptr inbounds nuw i8, ptr %838, i64 1
+  store ptr %843, ptr %0, align 16, !tbaa !9
+  br label %873
+
+844:                                              ; preds = %840, %837
+  %845 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E16parseTemplateArgEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
+  %.not68 = icmp eq ptr %845, null
+  br i1 %.not68, label %.critedge89, label %846
+
+846:                                              ; preds = %844
+  %847 = load ptr, ptr %819, align 8, !tbaa !27
+  %848 = load ptr, ptr %825, align 16, !tbaa !28
+  %849 = icmp eq ptr %847, %848
+  br i1 %849, label %850, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit886
+
+850:                                              ; preds = %846
+  %851 = load ptr, ptr %818, align 16, !tbaa !26
+  %852 = ptrtoint ptr %847 to i64
+  %853 = ptrtoint ptr %851 to i64
+  %854 = sub i64 %852, %853
+  %855 = ashr exact i64 %854, 2
+  %856 = icmp eq ptr %851, %826
+  %857 = shl i64 %854, 1
+  br i1 %856, label %858, label %864
+
+858:                                              ; preds = %850
+  %859 = tail call noalias ptr @malloc(i64 noundef %857) #24
+  %860 = icmp eq ptr %859, null
+  br i1 %860, label %861, label %862
+
+861:                                              ; preds = %858
+  tail call void @abort() #23
+  unreachable
+
+862:                                              ; preds = %858
+  %.not.i.i.i.i.i.i.i884 = icmp eq ptr %847, %826
+  br i1 %.not.i.i.i.i.i.i.i884, label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i885, label %863
+
+863:                                              ; preds = %862
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %859, ptr align 8 %851, i64 %854, i1 false)
+  br label %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i885
+
+_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i885: ; preds = %863, %862
+  store ptr %859, ptr %818, align 16, !tbaa !26
+  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i883
+
+864:                                              ; preds = %850
+  %865 = tail call ptr @realloc(ptr noundef %851, i64 noundef %857) #22
+  store ptr %865, ptr %818, align 16, !tbaa !26
+  %866 = icmp eq ptr %865, null
+  br i1 %866, label %867, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i883
+
+867:                                              ; preds = %864
+  tail call void @abort() #23
+  unreachable
+
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i883: ; preds = %864, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i885
+  %868 = phi ptr [ %865, %864 ], [ %859, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i885 ]
+  %869 = getelementptr inbounds nuw i8, ptr %868, i64 %854
+  %870 = getelementptr inbounds nuw [8 x i8], ptr %868, i64 %855
+  store ptr %870, ptr %825, align 16, !tbaa !28
+  br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit886
+
+_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit886: ; preds = %846, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i883
+  %871 = phi ptr [ %869, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i883 ], [ %847, %846 ]
+  %872 = getelementptr inbounds nuw i8, ptr %871, i64 8
+  store ptr %872, ptr %819, align 8, !tbaa !27
+  store ptr %845, ptr %871, align 8, !tbaa !29
+  br label %837, !llvm.loop !178
+
+873:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit288, %829
+  %.in = phi i64 [ %824, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit288 ], [ %836, %829 ]
+  %874 = ashr exact i64 %.in, 3
+  %875 = call fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 16 dereferenceable(4928) %0, i64 noundef %874)
+  %876 = extractvalue { ptr, i64 } %875, 0
+  %877 = extractvalue { ptr, i64 } %875, 1
+  %878 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8CallExprEJRPNS0_4NodeENS0_9NodeArrayEbNS9_4PrecEEEESA_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr nonnull %798, ptr %876, i64 %877, i8 0, i32 1)
+  br label %.critedge89
+
+.critedge89:                                      ; preds = %844, %827, %873
+  %.47 = phi ptr [ null, %827 ], [ %878, %873 ], [ null, %844 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %.critedge83
+
+.thread848:                                       ; preds = %.thread, %.thread847
+  %879 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseUnresolvedNameEb(ptr noundef nonnull align 16 dereferenceable(4928) %0, i1 noundef zeroext %15)
+  br label %.critedge83
+
+.critedge83:                                      ; preds = %642, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8FoldExprEJRbSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeESG_EEESF_DpOT0_.exit.i, %578, %.critedge.i, %569, %566, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i.i, %561, %540, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i, %535, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit246.thread, %1, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit, %.critedge89, %797, %794, %790, %755, %.critedge87, %777, %723, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit270.thread, %719, %716, %708, %704, %692, %688, %746, %.critedge85, %671, %.thread848, %785, %699, %696, %683, %533, %525, %523, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit
+  %.29 = phi ptr [ %.0, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseBinaryExprESt17basic_string_viewIcSt11char_traitsIcEENS0_4Node4PrecE.exit ], [ %879, %.thread848 ], [ %524, %523 ], [ %526, %525 ], [ %534, %533 ], [ null, %561 ], [ null, %1 ], [ %685, %683 ], [ null, %797 ], [ %697, %696 ], [ %701, %699 ], [ null, %688 ], [ null, %704 ], [ null, %716 ], [ %752, %746 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit270.thread ], [ %787, %785 ], [ %782, %777 ], [ null, %790 ], [ null, %.critedge85 ], [ %676, %671 ], [ %693, %692 ], [ %709, %708 ], [ %720, %719 ], [ %724, %723 ], [ null, %755 ], [ null, %.critedge87 ], [ %795, %794 ], [ %.47, %.critedge89 ], [ null, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ null, %578 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i ], [ null, %535 ], [ null, %566 ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit246.thread ], [ null, %569 ], [ null, %.critedge.i ], [ %613, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8FoldExprEJRbSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeESG_EEESF_DpOT0_.exit.i ], [ null, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoneEPKc.exit.i.i ], [ null, %540 ], [ null, %642 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.29
 }
 
@@ -13168,7 +13176,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11PostfixEx
   store i16 %27, ptr %21, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle11PostfixExprE, i64 16), ptr %19, align 8, !tbaa !55
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %.0.val, ptr %28, align 8, !tbaa !177
+  store ptr %.0.val, ptr %28, align 8, !tbaa !179
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %.sroa.0.0.copyload.i, ptr %29, align 8, !tbaa !72
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -13222,9 +13230,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle18ArraySubs
   store i16 %26, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle18ArraySubscriptExprE, i64 16), ptr %18, align 8, !tbaa !55
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %27, align 8, !tbaa !179
+  store ptr %.0.val, ptr %27, align 8, !tbaa !181
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr %.0.val1, ptr %28, align 8, !tbaa !181
+  store ptr %.0.val1, ptr %28, align 8, !tbaa !183
   ret ptr %18
 }
 
@@ -13277,78 +13285,77 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle10MemberExp
   store i16 %27, ptr %21, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10MemberExprE, i64 16), ptr %19, align 8, !tbaa !55
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %.0.val, ptr %28, align 8, !tbaa !182
+  store ptr %.0.val, ptr %28, align 8, !tbaa !184
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %.sroa.0.0.copyload.i, ptr %29, align 8, !tbaa !72
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !73
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store ptr %.0.val1, ptr %30, align 8, !tbaa !184
+  store ptr %.0.val1, ptr %30, align 8, !tbaa !186
   ret ptr %19
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_7NewExprEJRNS0_9NodeArrayERPNS0_4NodeESA_RbbNSB_4PrecEEEESC_DpOT0_(ptr noundef nonnull align 16 captures(none) dereferenceable(4928) %0, ptr %.0.val, i64 %.8.val, ptr %.0.val1, ptr %.0.val3, i64 %.8.val5, i8 %.0.val7, i8 %.0.val9, i32 %.0.val11) unnamed_addr #12 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4912
-  %3 = load ptr, ptr %2, align 16, !tbaa !50
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !63
-  %6 = add i64 %5, -4016
-  %7 = icmp ult i64 %6, -4080
-  br i1 %7, label %8, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle7NewExprEJRNS3_9NodeArrayERPNS3_4NodeES6_RbbNS7_4PrecEEEEPT_DpOT0_.exit
+define internal fastcc noundef nonnull ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_7NewExprEJRNS0_9NodeArrayERPNS0_4NodeESA_RbbNSB_4PrecEEEESC_DpOT0_(ptr noundef nonnull align 16 captures(none) dereferenceable(4928) %0, ptr %.0.val, i64 %.8.val, ptr %.0.val1, ptr %.0.val3, i64 %.8.val5, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1, i8 %.0.val7, i32 %.0.val9) unnamed_addr #12 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4912
+  %4 = load ptr, ptr %3, align 16, !tbaa !50
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = load i64, ptr %5, align 8, !tbaa !63
+  %7 = add i64 %6, -4016
+  %8 = icmp ult i64 %7, -4080
+  br i1 %8, label %9, label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle7NewExprEJRNS3_9NodeArrayERPNS3_4NodeES6_RbbNS7_4PrecEEEEPT_DpOT0_.exit
 
-8:                                                ; preds = %1
-  %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #24
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
+9:                                                ; preds = %2
+  %10 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #24
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
 
-11:                                               ; preds = %8
+12:                                               ; preds = %9
   tail call void @_ZSt9terminatev() #23
   unreachable
 
-_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %8
-  store ptr %3, ptr %9, align 8, !tbaa !60
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 0, ptr %12, align 8, !tbaa !63
-  store ptr %9, ptr %2, align 16, !tbaa !50
+_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %9
+  store ptr %4, ptr %10, align 8, !tbaa !60
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 0, ptr %13, align 8, !tbaa !63
+  store ptr %10, ptr %3, align 16, !tbaa !50
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle7NewExprEJRNS3_9NodeArrayERPNS3_4NodeES6_RbbNS7_4PrecEEEEPT_DpOT0_.exit
 
-_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle7NewExprEJRNS3_9NodeArrayERPNS3_4NodeES6_RbbNS7_4PrecEEEEPT_DpOT0_.exit: ; preds = %1, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
-  %13 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %5, %1 ]
-  %14 = phi ptr [ %9, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %3, %1 ]
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = add nsw i64 %13, 64
-  store i64 %16, ptr %15, align 8, !tbaa !63
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %18 = getelementptr inbounds i8, ptr %17, i64 %13
-  %19 = and i8 %.0.val7, 1
-  %20 = and i8 %.0.val9, 1
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
+_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle7NewExprEJRNS3_9NodeArrayERPNS3_4NodeES6_RbbNS7_4PrecEEEEPT_DpOT0_.exit: ; preds = %2, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
+  %14 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %6, %2 ]
+  %15 = phi ptr [ %10, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %4, %2 ]
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = add nsw i64 %14, 64
+  store i64 %17, ptr %16, align 8, !tbaa !63
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %19 = getelementptr inbounds i8, ptr %18, i64 %14
+  %20 = load i8, ptr %1, align 1, !tbaa !120, !range !116, !noundef !117
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 64, ptr %21, align 8, !tbaa !64
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 9
-  %23 = trunc i32 %.0.val11 to i16
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 9
+  %23 = trunc i32 %.0.val9 to i16
   %24 = load i16, ptr %22, align 1
   %25 = and i16 %23, 63
   %26 = and i16 %24, -4096
   %27 = or disjoint i16 %25, %26
   %28 = or disjoint i16 %27, 1344
   store i16 %28, ptr %22, align 1
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle7NewExprE, i64 16), ptr %18, align 8, !tbaa !55
-  %29 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle7NewExprE, i64 16), ptr %19, align 8, !tbaa !55
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %.0.val, ptr %29, align 8, !tbaa !93
-  %.sroa.25.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %.sroa.25.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %.8.val, ptr %.sroa.25.0..sroa_idx.i.i, align 8, !tbaa !72
-  %30 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr %.0.val1, ptr %30, align 8, !tbaa !185
-  %31 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  store ptr %.0.val1, ptr %30, align 8, !tbaa !187
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store ptr %.0.val3, ptr %31, align 8, !tbaa !93
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 48
   store i64 %.8.val5, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !72
-  %32 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  store i8 %19, ptr %32, align 8, !tbaa !187
-  %33 = getelementptr inbounds nuw i8, ptr %18, i64 57
-  store i8 %20, ptr %33, align 1, !tbaa !188
-  ret ptr %18
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 56
+  store i8 %20, ptr %32, align 8, !tbaa !189
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 57
+  store i8 %.0.val7, ptr %33, align 1, !tbaa !190
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
@@ -13385,26 +13392,25 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8CallExprEJ
   store i64 %16, ptr %15, align 8, !tbaa !63
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = getelementptr inbounds i8, ptr %17, i64 %13
-  %19 = and i8 %.0.val3, 1
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i8 63, ptr %20, align 8, !tbaa !64
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 9
-  %22 = trunc i32 %.0.val5 to i16
-  %23 = load i16, ptr %21, align 1
-  %24 = and i16 %22, 63
-  %25 = and i16 %23, -4096
-  %26 = or disjoint i16 %24, %25
-  %27 = or disjoint i16 %26, 1344
-  store i16 %27, ptr %21, align 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i8 63, ptr %19, align 8, !tbaa !64
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 9
+  %21 = trunc i32 %.0.val5 to i16
+  %22 = load i16, ptr %20, align 1
+  %23 = and i16 %21, 63
+  %24 = and i16 %22, -4096
+  %25 = or disjoint i16 %23, %24
+  %26 = or disjoint i16 %25, 1344
+  store i16 %26, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle8CallExprE, i64 16), ptr %18, align 8, !tbaa !55
-  %28 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %28, align 8, !tbaa !189
-  %29 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr %.0.val1, ptr %29, align 8, !tbaa !93
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr %.0.val, ptr %27, align 8, !tbaa !191
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store ptr %.0.val1, ptr %28, align 8, !tbaa !93
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i64 %.8.val, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !72
-  %30 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store i8 %19, ptr %30, align 8, !tbaa !191
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  store i8 %.0.val3, ptr %29, align 8, !tbaa !193
   ret ptr %18
 }
 
@@ -13457,7 +13463,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle14Conversio
   store i16 %27, ptr %21, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle14ConversionExprE, i64 16), ptr %19, align 8, !tbaa !55
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %.0.val, ptr %28, align 8, !tbaa !192
+  store ptr %.0.val, ptr %28, align 8, !tbaa !194
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %.sroa.0.0.copyload.i, ptr %29, align 8, !tbaa !93
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -13511,11 +13517,11 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle15Condition
   store i16 %26, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle15ConditionalExprE, i64 16), ptr %18, align 8, !tbaa !55
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %27, align 8, !tbaa !194
+  store ptr %.0.val, ptr %27, align 8, !tbaa !196
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr %.0.val1, ptr %28, align 8, !tbaa !196
+  store ptr %.0.val1, ptr %28, align 8, !tbaa !198
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr %.0.val3, ptr %29, align 8, !tbaa !197
+  store ptr %.0.val3, ptr %29, align 8, !tbaa !199
   ret ptr %18
 }
 
@@ -13572,9 +13578,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8CastExprEJ
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !73
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr %.0.val, ptr %29, align 8, !tbaa !198
+  store ptr %.0.val, ptr %29, align 8, !tbaa !200
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store ptr %.0.val1, ptr %30, align 8, !tbaa !200
+  store ptr %.0.val1, ptr %30, align 8, !tbaa !202
   ret ptr %19
 }
 
@@ -14660,11 +14666,11 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %39, ptr %36, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10BracedExprE, i64 16), ptr %34, align 8, !tbaa !55
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %12, ptr %40, align 8, !tbaa !201
+  store ptr %12, ptr %40, align 8, !tbaa !203
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr %15, ptr %41, align 8, !tbaa !203
+  store ptr %15, ptr %41, align 8, !tbaa !205
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  store i8 0, ptr %42, align 8, !tbaa !204
+  store i8 0, ptr %42, align 8, !tbaa !206
   br label %113
 
 43:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit16
@@ -14721,11 +14727,11 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %72, ptr %69, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10BracedExprE, i64 16), ptr %67, align 8, !tbaa !55
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store ptr %45, ptr %73, align 8, !tbaa !201
+  store ptr %45, ptr %73, align 8, !tbaa !203
   %74 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  store ptr %48, ptr %74, align 8, !tbaa !203
+  store ptr %48, ptr %74, align 8, !tbaa !205
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  store i8 1, ptr %75, align 8, !tbaa !204
+  store i8 1, ptr %75, align 8, !tbaa !206
   br label %113
 
 76:                                               ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit16
@@ -14787,11 +14793,11 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %108, ptr %105, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle15BracedRangeExprE, i64 16), ptr %103, align 8, !tbaa !55
   %109 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  store ptr %78, ptr %109, align 8, !tbaa !205
+  store ptr %78, ptr %109, align 8, !tbaa !207
   %110 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  store ptr %81, ptr %110, align 8, !tbaa !207
+  store ptr %81, ptr %110, align 8, !tbaa !209
   %111 = getelementptr inbounds nuw i8, ptr %103, i64 32
-  store ptr %84, ptr %111, align 8, !tbaa !208
+  store ptr %84, ptr %111, align 8, !tbaa !210
   br label %113
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.thread: ; preds = %1, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit16, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
@@ -14846,7 +14852,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle12InitListE
   store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle12InitListExprE, i64 16), ptr %18, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr null, ptr %24, align 8, !tbaa !209
+  store ptr null, ptr %24, align 8, !tbaa !211
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %.0.val, ptr %25, align 8, !tbaa !93
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -14972,9 +14978,9 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %53, ptr %50, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle29PointerToMemberConversionExprE, i64 16), ptr %48, align 8, !tbaa !55
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %2, ptr %54, align 8, !tbaa !211
+  store ptr %2, ptr %54, align 8, !tbaa !213
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store ptr %4, ptr %55, align 8, !tbaa !213
+  store ptr %4, ptr %55, align 8, !tbaa !215
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store i64 %.sroa.0.0.i, ptr %56, align 8, !tbaa !72
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %48, i64 40
@@ -15036,7 +15042,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle13Enclosing
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr @.str.37, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !73
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr %.0.val, ptr %28, align 8, !tbaa !149
+  store ptr %.0.val, ptr %28, align 8, !tbaa !151
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   ret ptr %18
@@ -15150,7 +15156,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   store ptr %29, ptr %55, align 8, !tbaa !29
   %.pre = load ptr, ptr %0, align 16, !tbaa !9
   %.pre101 = load ptr, ptr %3, align 8, !tbaa !25
-  br label %22, !llvm.loop !214
+  br label %22, !llvm.loop !216
 
 .critedge.thread:                                 ; preds = %25
   %57 = getelementptr inbounds nuw i8, ptr %24, i64 1
@@ -15280,11 +15286,11 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %118, ptr %115, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle15ExprRequirementE, i64 16), ptr %113, align 8, !tbaa !55
   %119 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  store ptr %80, ptr %119, align 8, !tbaa !215
+  store ptr %80, ptr %119, align 8, !tbaa !217
   %120 = getelementptr inbounds nuw i8, ptr %113, i64 24
-  store i8 %.0.i48, ptr %120, align 8, !tbaa !217
+  store i8 %.0.i48, ptr %120, align 8, !tbaa !219
   %121 = getelementptr inbounds nuw i8, ptr %113, i64 32
-  store ptr %.075, ptr %121, align 8, !tbaa !218
+  store ptr %.075, ptr %121, align 8, !tbaa !220
   br label %180
 
 122:                                              ; preds = %.lr.ph
@@ -15340,7 +15346,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %149, ptr %146, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle15TypeRequirementE, i64 16), ptr %144, align 8, !tbaa !55
   %150 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  store ptr %127, ptr %150, align 8, !tbaa !219
+  store ptr %127, ptr %150, align 8, !tbaa !221
   br label %180
 
 151:                                              ; preds = %122
@@ -15396,7 +15402,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %178, ptr %175, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle17NestedRequirementE, i64 16), ptr %173, align 8, !tbaa !55
   %179 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  store ptr %156, ptr %179, align 8, !tbaa !221
+  store ptr %156, ptr %179, align 8, !tbaa !223
   br label %180
 
 180:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_15ExprRequirementEJRPNS0_4NodeERbSB_EEESA_DpOT0_.exit, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_15TypeRequirementEJRPNS0_4NodeEEEESA_DpOT0_.exit, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_17NestedRequirementEJRPNS0_4NodeEEEESA_DpOT0_.exit
@@ -15471,7 +15477,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit67: ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit64, %209
   %.not.i44 = icmp eq ptr %207, %208
-  br i1 %.not.i44, label %.critedge, label %.lr.ph, !llvm.loop !223
+  br i1 %.not.i44, label %.critedge, label %.lr.ph, !llvm.loop !225
 
 212:                                              ; preds = %209
   %213 = getelementptr inbounds nuw i8, ptr %207, i64 1
@@ -15764,7 +15770,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %105 = load ptr, ptr %0, align 16, !tbaa !9
   %106 = load ptr, ptr %7, align 8, !tbaa !25
   %.not.i10 = icmp eq ptr %105, %106
-  br i1 %.not.i10, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit33.thread, label %38, !llvm.loop !224
+  br i1 %.not.i10, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit33.thread, label %38, !llvm.loop !226
 
 ._crit_edge:                                      ; preds = %38, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E11parseNumberEb.exit
   %107 = phi ptr [ %26, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E11parseNumberEb.exit ], [ %40, %38 ]
@@ -15840,9 +15846,9 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %143, ptr %140, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle13SubobjectExprE, i64 16), ptr %138, align 8, !tbaa !55
   %144 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  store ptr %2, ptr %144, align 8, !tbaa !225
+  store ptr %2, ptr %144, align 8, !tbaa !227
   %145 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  store ptr %4, ptr %145, align 8, !tbaa !227
+  store ptr %4, ptr %145, align 8, !tbaa !229
   %146 = getelementptr inbounds nuw i8, ptr %138, i64 32
   store i64 %.sroa.0.0.i, ptr %146, align 8, !tbaa !72
   %.sroa.2.0..sroa_idx.i.i.i34 = getelementptr inbounds nuw i8, ptr %138, i64 40
@@ -15852,7 +15858,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %.sroa.441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %138, i64 56
   store i64 %121, ptr %.sroa.441.0..sroa_idx, align 8, !tbaa !72
   %148 = getelementptr inbounds nuw i8, ptr %138, i64 64
-  store i8 %.0.i29, ptr %148, align 8, !tbaa !228
+  store i8 %.0.i29, ptr %148, align 8, !tbaa !230
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit33.thread
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit33.thread: ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit30, %114, %3, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13SubobjectExprEJRPNS0_4NodeESB_RSt17basic_string_viewIcSt11char_traitsIcEENS0_9NodeArrayERbEEESA_DpOT0_.exit, %1
@@ -15903,7 +15909,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle22Parameter
   store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %18, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %24, align 8, !tbaa !229
+  store ptr %.0.val, ptr %24, align 8, !tbaa !231
   ret ptr %18
 }
 
@@ -15950,7 +15956,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle19SizeofPar
   store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle19SizeofParamPackExprE, i64 16), ptr %18, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %24, align 8, !tbaa !231
+  store ptr %.0.val, ptr %24, align 8, !tbaa !233
   ret ptr %18
 }
 
@@ -16001,7 +16007,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle13Enclosing
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr @.str.41, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !73
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr %.0.val, ptr %25, align 8, !tbaa !149
+  store ptr %.0.val, ptr %25, align 8, !tbaa !151
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   ret ptr %18
@@ -16099,7 +16105,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle12InitListE
   store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle12InitListExprE, i64 16), ptr %18, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %24, align 8, !tbaa !209
+  store ptr %.0.val, ptr %24, align 8, !tbaa !211
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %.0.val1, ptr %25, align 8, !tbaa !93
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -16200,7 +16206,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle9ThrowExprE
   store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle9ThrowExprE, i64 16), ptr %18, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %24, align 8, !tbaa !233
+  store ptr %.0.val, ptr %24, align 8, !tbaa !235
   ret ptr %18
 }
 
@@ -16353,10 +16359,10 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %77, ptr %74, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %72, align 8, !tbaa !55
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  store ptr %.1, ptr %78, align 8, !tbaa !235
+  store ptr %.1, ptr %78, align 8, !tbaa !237
   %79 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store ptr %54, ptr %79, align 8, !tbaa !237
-  br label %47, !llvm.loop !238
+  store ptr %54, ptr %79, align 8, !tbaa !239
+  br label %47, !llvm.loop !240
 
 80:                                               ; preds = %50
   %81 = getelementptr inbounds nuw i8, ptr %48, i64 1
@@ -16406,9 +16412,9 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %105, ptr %102, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %100, align 8, !tbaa !55
   %106 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  store ptr %.1, ptr %106, align 8, !tbaa !235
+  store ptr %.1, ptr %106, align 8, !tbaa !237
   %107 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store ptr %82, ptr %107, align 8, !tbaa !237
+  store ptr %82, ptr %107, align 8, !tbaa !239
   br label %.critedge
 
 108:                                              ; preds = %2
@@ -16468,7 +16474,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %135, ptr %132, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle19GlobalQualifiedNameE, i64 16), ptr %130, align 8, !tbaa !55
   %136 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  store ptr %111, ptr %136, align 8, !tbaa !239
+  store ptr %111, ptr %136, align 8, !tbaa !241
   br label %.critedge
 
 137:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i52
@@ -16536,9 +16542,9 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %165, ptr %162, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %160, align 8, !tbaa !55
   %166 = getelementptr inbounds nuw i8, ptr %160, i64 16
-  store ptr %.396.us, ptr %166, align 8, !tbaa !235
+  store ptr %.396.us, ptr %166, align 8, !tbaa !237
   %167 = getelementptr inbounds nuw i8, ptr %160, i64 24
-  store ptr %144, ptr %167, align 8, !tbaa !237
+  store ptr %144, ptr %167, align 8, !tbaa !239
   br label %185
 
 168:                                              ; preds = %.lr.ph.split.us
@@ -16573,7 +16579,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %183, ptr %180, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle19GlobalQualifiedNameE, i64 16), ptr %178, align 8, !tbaa !55
   %184 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  store ptr %144, ptr %184, align 8, !tbaa !239
+  store ptr %144, ptr %184, align 8, !tbaa !241
   br label %185
 
 185:                                              ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_19GlobalQualifiedNameEJRPNS0_4NodeEEEESA_DpOT0_.exit64.us, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13QualifiedNameEJRPNS0_4NodeESB_EEESA_DpOT0_.exit62.us
@@ -16591,7 +16597,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit67.us: ; preds = %188, %185
   %191 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E13parseSimpleIdEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
   %192 = icmp eq ptr %191, null
-  br i1 %192, label %.critedge, label %.lr.ph.split.us, !llvm.loop !241
+  br i1 %192, label %.critedge, label %.lr.ph.split.us, !llvm.loop !243
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit67
   %193 = phi ptr [ %224, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit67 ], [ %141, %.lr.ph ]
@@ -16640,9 +16646,9 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %214, ptr %211, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %209, align 8, !tbaa !55
   %215 = getelementptr inbounds nuw i8, ptr %209, i64 16
-  store ptr %.396, ptr %215, align 8, !tbaa !235
+  store ptr %.396, ptr %215, align 8, !tbaa !237
   %216 = getelementptr inbounds nuw i8, ptr %209, i64 24
-  store ptr %193, ptr %216, align 8, !tbaa !237
+  store ptr %193, ptr %216, align 8, !tbaa !239
   br label %217
 
 .split98.us:                                      ; preds = %169
@@ -16671,7 +16677,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit67: ; preds = %217, %220
   %224 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E13parseSimpleIdEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
   %225 = icmp eq ptr %224, null
-  br i1 %225, label %.critedge, label %.lr.ph.split, !llvm.loop !241
+  br i1 %225, label %.critedge, label %.lr.ph.split, !llvm.loop !243
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit60.thread: ; preds = %137, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit60
   %226 = tail call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseUnresolvedTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
@@ -16789,9 +16795,9 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %283, ptr %280, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle13QualifiedNameE, i64 16), ptr %278, align 8, !tbaa !55
   %284 = getelementptr inbounds nuw i8, ptr %278, i64 16
-  store ptr %.579, ptr %284, align 8, !tbaa !235
+  store ptr %.579, ptr %284, align 8, !tbaa !237
   %285 = getelementptr inbounds nuw i8, ptr %278, i64 24
-  store ptr %259, ptr %285, align 8, !tbaa !237
+  store ptr %259, ptr %285, align 8, !tbaa !239
   br label %.critedge
 
 .critedge:                                        ; preds = %53, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit67, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit67.us, %.preheader, %110, %231, %18, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13QualifiedNameEJRPNS0_4NodeESB_EEESA_DpOT0_.exit74, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit70.thread, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_19GlobalQualifiedNameEJRPNS0_4NodeEEEESA_DpOT0_.exit, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13QualifiedNameEJRPNS0_4NodeESB_EEESA_DpOT0_.exit51, %80, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit60.thread, %11
@@ -16845,13 +16851,13 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle10BinaryExp
   store i16 %26, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10BinaryExprE, i64 16), ptr %18, align 8, !tbaa !55
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %27, align 8, !tbaa !242
+  store ptr %.0.val, ptr %27, align 8, !tbaa !244
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 %.0.val1, ptr %28, align 8, !tbaa !72
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %.8.val, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !73
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store ptr %.0.val3, ptr %29, align 8, !tbaa !244
+  store ptr %.0.val3, ptr %29, align 8, !tbaa !246
   ret ptr %18
 }
 
@@ -16929,7 +16935,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %29 = ashr exact i16 %28, 10
   %30 = icmp eq i16 %28, 17408
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !242
+  %32 = load ptr, ptr %31, align 8, !tbaa !244
   %narrow = select i1 %30, i16 15, i16 %29
   %spec.select = sext i16 %narrow to i32
   %33 = xor i1 %30, true
@@ -17069,7 +17075,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i36: ; preds = %._ZN4llvm16
   %88 = add i64 %87, 1
   store i64 %88, ptr %73, align 8, !tbaa !57
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %90 = load ptr, ptr %89, align 8, !tbaa !244
+  %90 = load ptr, ptr %89, align 8, !tbaa !246
   %91 = load i16, ptr %26, align 1
   %92 = shl i16 %91, 10
   %93 = ashr exact i16 %92, 10
@@ -17176,7 +17182,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle10PrefixExp
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %.8.val, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !73
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr %.0.val1, ptr %28, align 8, !tbaa !160
+  store ptr %.0.val1, ptr %28, align 8, !tbaa !162
   ret ptr %18
 }
 
@@ -17229,7 +17235,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %2, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !160
+  %23 = load ptr, ptr %22, align 8, !tbaa !162
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %25 = load i16, ptr %24, align 1
   %26 = shl i16 %25, 10
@@ -17248,7 +17254,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle10PrefixExprD0Ev(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle11PostfixExpr9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !177
+  %4 = load ptr, ptr %3, align 8, !tbaa !179
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = shl i16 %6, 10
@@ -17313,7 +17319,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle11PostfixExprD0Ev(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle18ArraySubscriptExpr9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !179
+  %4 = load ptr, ptr %3, align 8, !tbaa !181
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = shl i16 %6, 10
@@ -17360,7 +17366,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %2, %._ZN4l
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %25
   store i8 91, ptr %27, align 1, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !181
+  %29 = load ptr, ptr %28, align 8, !tbaa !183
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %29, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 19, i1 noundef zeroext false)
   %30 = load i32, ptr %10, align 8, !tbaa !54
   %31 = add i32 %30, -1
@@ -17410,7 +17416,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle18ArraySubscriptExprD
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle10MemberExpr9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !182
+  %4 = load ptr, ptr %3, align 8, !tbaa !184
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = shl i16 %6, 10
@@ -17464,7 +17470,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %2, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = load ptr, ptr %29, align 8, !tbaa !184
+  %30 = load ptr, ptr %29, align 8, !tbaa !186
   %31 = load i16, ptr %5, align 1
   %32 = shl i16 %31, 10
   %33 = ashr exact i16 %32, 10
@@ -17482,7 +17488,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle10MemberExprD0Ev(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle7NewExpr9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(58) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load i8, ptr %3, align 8, !tbaa !187, !range !116, !noundef !117
+  %4 = load i8, ptr %3, align 8, !tbaa !189, !range !116, !noundef !117
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !57
@@ -17561,7 +17567,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i14: ; preds = %._ZN4llvm16
   %40 = add i64 %39, 3
   store i64 %40, ptr %25, align 8, !tbaa !57
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %42 = load i8, ptr %41, align 1, !tbaa !188, !range !116, !noundef !117
+  %42 = load i8, ptr %41, align 1, !tbaa !190, !range !116, !noundef !117
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit25
 
@@ -17604,7 +17610,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %59 = phi i64 [ %58, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i21 ], [ %40, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i14 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %62 = load i64, ptr %61, align 8, !tbaa !245
+  %62 = load i64, ptr %61, align 8, !tbaa !247
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %123, label %64
 
@@ -17645,7 +17651,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %64, %._ZN4
   store i64 %.pre-phi.i.i, ptr %25, align 8, !tbaa !57
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 %77
   store i8 40, ptr %79, align 1, !tbaa !3
-  %80 = load i64, ptr %61, align 8, !tbaa !245
+  %80 = load i64, ptr %61, align 8, !tbaa !247
   %.not13.i = icmp eq i64 %80, 0
   %.pre79 = load i64, ptr %25, align 8, !tbaa !57
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -17693,7 +17699,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %97 = phi i64 [ %96, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %81, %.lr.ph.i ]
-  %98 = load ptr, ptr %60, align 8, !tbaa !246
+  %98 = load ptr, ptr %60, align 8, !tbaa !248
   %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %.01214.i
   %100 = load ptr, ptr %99, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %100, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -17709,7 +17715,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %105 = phi i64 [ %81, %103 ], [ %101, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %.1.i = phi i1 [ %.015.i, %103 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %106 = add i64 %.01214.i, 1
-  %107 = load i64, ptr %61, align 8, !tbaa !245
+  %107 = load i64, ptr %61, align 8, !tbaa !247
   %.not.i28 = icmp eq i64 %106, %107
   br i1 %.not.i28, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i, !llvm.loop !94
 
@@ -17788,7 +17794,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i39: ; preds = %._ZN4llvm16
   %138 = add i64 %137, 1
   store i64 %138, ptr %25, align 8, !tbaa !57
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %140 = load ptr, ptr %139, align 8, !tbaa !185
+  %140 = load ptr, ptr %139, align 8, !tbaa !187
   %141 = load ptr, ptr %140, align 8, !tbaa !55
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 32
   %143 = load ptr, ptr %142, align 8
@@ -17809,7 +17815,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i39: ; preds = %._ZN4llvm16
 _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i39, %146
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %152 = load i64, ptr %151, align 8, !tbaa !245
+  %152 = load i64, ptr %151, align 8, !tbaa !247
   %153 = icmp eq i64 %152, 0
   br i1 %153, label %214, label %154
 
@@ -17851,7 +17857,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit51: ; preds = %154, %._
   store i64 %.pre-phi.i.i46, ptr %25, align 8, !tbaa !57
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 %168
   store i8 40, ptr %170, align 1, !tbaa !3
-  %171 = load i64, ptr %151, align 8, !tbaa !245
+  %171 = load i64, ptr %151, align 8, !tbaa !247
   %.not13.i52 = icmp eq i64 %171, 0
   %.pre81 = load i64, ptr %25, align 8, !tbaa !57
   br i1 %.not13.i52, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit65, label %.lr.ph.i53
@@ -17899,7 +17905,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i58: ; preds = %._ZN4llvm
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i59: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i58, %.lr.ph.i53
   %188 = phi i64 [ %187, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i58 ], [ %172, %.lr.ph.i53 ]
-  %189 = load ptr, ptr %150, align 8, !tbaa !246
+  %189 = load ptr, ptr %150, align 8, !tbaa !248
   %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %.01214.i56
   %191 = load ptr, ptr %190, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %191, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -17915,7 +17921,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %196 = phi i64 [ %172, %194 ], [ %192, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i59 ]
   %.1.i60 = phi i1 [ %.015.i55, %194 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i59 ]
   %197 = add i64 %.01214.i56, 1
-  %198 = load i64, ptr %151, align 8, !tbaa !245
+  %198 = load i64, ptr %151, align 8, !tbaa !247
   %.not.i61 = icmp eq i64 %197, %198
   br i1 %.not.i61, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit65, label %.lr.ph.i53, !llvm.loop !94
 
@@ -17971,7 +17977,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle7NewExprD0Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle10DeleteExpr9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(26) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i8, ptr %3, align 8, !tbaa !166, !range !116, !noundef !117
+  %4 = load i8, ptr %3, align 8, !tbaa !168, !range !116, !noundef !117
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !57
@@ -18050,7 +18056,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i8: ; preds = %._ZN4llvm16i
   %40 = add i64 %39, 6
   store i64 %40, ptr %25, align 8, !tbaa !57
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %42 = load i8, ptr %41, align 1, !tbaa !167, !range !116, !noundef !117
+  %42 = load i8, ptr %41, align 1, !tbaa !169, !range !116, !noundef !117
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit19
 
@@ -18124,7 +18130,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit: ; preds = %_ZN4llvm16itanium_
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 %69
   store i8 32, ptr %71, align 1, !tbaa !3
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %73 = load ptr, ptr %72, align 8, !tbaa !164
+  %73 = load ptr, ptr %72, align 8, !tbaa !166
   %74 = load ptr, ptr %73, align 8, !tbaa !55
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %76 = load ptr, ptr %75, align 8
@@ -18155,7 +18161,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle10DeleteExprD0Ev(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle8CallExpr9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i8, ptr %3, align 8, !tbaa !191, !range !116, !noundef !117
+  %4 = load i8, ptr %3, align 8, !tbaa !193, !range !116, !noundef !117
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %25
 
@@ -18203,7 +18209,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %6, %._ZN4l
 
 25:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit, %2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !189
+  %27 = load ptr, ptr %26, align 8, !tbaa !191
   %28 = load ptr, ptr %27, align 8, !tbaa !55
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8
@@ -18222,7 +18228,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %6, %._ZN4l
   br label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit
 
 _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; preds = %25, %33
-  %37 = load i8, ptr %3, align 8, !tbaa !191, !range !116, !noundef !117
+  %37 = load i8, ptr %3, align 8, !tbaa !193, !range !116, !noundef !117
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %39, label %58
 
@@ -18310,7 +18316,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit19: ; preds = %58, %._Z
   store i8 40, ptr %76, align 1, !tbaa !3
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %79 = load i64, ptr %78, align 8, !tbaa !245
+  %79 = load i64, ptr %78, align 8, !tbaa !247
   %.not13.i = icmp eq i64 %79, 0
   %.pre = load i64, ptr %62, align 8, !tbaa !57
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -18358,7 +18364,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %96 = phi i64 [ %95, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %80, %.lr.ph.i ]
-  %97 = load ptr, ptr %77, align 8, !tbaa !246
+  %97 = load ptr, ptr %77, align 8, !tbaa !248
   %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.01214.i
   %99 = load ptr, ptr %98, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %99, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -18374,7 +18380,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %104 = phi i64 [ %80, %102 ], [ %100, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %.1.i = phi i1 [ %.015.i, %102 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %105 = add i64 %.01214.i, 1
-  %106 = load i64, ptr %78, align 8, !tbaa !245
+  %106 = load i64, ptr %78, align 8, !tbaa !247
   %.not.i21 = icmp eq i64 %105, %106
   br i1 %.not.i21, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i, !llvm.loop !94
 
@@ -18466,7 +18472,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %2, %._ZN4l
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %18
   store i8 40, ptr %20, align 1, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !192
+  %22 = load ptr, ptr %21, align 8, !tbaa !194
   %23 = load ptr, ptr %22, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
@@ -18559,7 +18565,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit19: ; preds = %_ZN4llvm
   store i8 40, ptr %61, align 1, !tbaa !3
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %64 = load i64, ptr %63, align 8, !tbaa !245
+  %64 = load i64, ptr %63, align 8, !tbaa !247
   %.not13.i = icmp eq i64 %64, 0
   %.pre = load i64, ptr %6, align 8, !tbaa !57
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -18607,7 +18613,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %81 = phi i64 [ %80, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %65, %.lr.ph.i ]
-  %82 = load ptr, ptr %62, align 8, !tbaa !246
+  %82 = load ptr, ptr %62, align 8, !tbaa !248
   %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.01214.i
   %84 = load ptr, ptr %83, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %84, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -18623,7 +18629,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %89 = phi i64 [ %65, %87 ], [ %85, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %.1.i = phi i1 [ %.015.i, %87 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %90 = add i64 %.01214.i, 1
-  %91 = load i64, ptr %63, align 8, !tbaa !245
+  %91 = load i64, ptr %63, align 8, !tbaa !247
   %.not.i21 = icmp eq i64 %90, %91
   br i1 %.not.i21, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i, !llvm.loop !94
 
@@ -18676,7 +18682,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle14ConversionExprD0Ev(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle15ConditionalExpr9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !194
+  %4 = load ptr, ptr %3, align 8, !tbaa !196
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = shl i16 %6, 10
@@ -18719,7 +18725,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %26 = add i64 %25, 3
   store i64 %26, ptr %10, align 8, !tbaa !57
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !196
+  %28 = load ptr, ptr %27, align 8, !tbaa !198
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %28, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 19, i1 noundef zeroext false)
   %29 = load i64, ptr %10, align 8, !tbaa !57
   %30 = add i64 %29, 3
@@ -18755,7 +18761,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i8: ; preds = %._ZN4llvm16i
   %43 = add i64 %42, 3
   store i64 %43, ptr %10, align 8, !tbaa !57
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %45 = load ptr, ptr %44, align 8, !tbaa !197
+  %45 = load ptr, ptr %44, align 8, !tbaa !199
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %45, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 17, i1 noundef zeroext true)
   ret void
 }
@@ -18853,7 +18859,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i11: ; preds = %._ZN4llvm16
   %38 = add i64 %37, 1
   store i64 %38, ptr %23, align 8, !tbaa !57
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %40 = load ptr, ptr %39, align 8, !tbaa !198
+  %40 = load ptr, ptr %39, align 8, !tbaa !200
   %41 = load ptr, ptr %40, align 8, !tbaa !55
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load ptr, ptr %42, align 8
@@ -18926,7 +18932,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZN4llvm16
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 %69
   store i8 40, ptr %71, align 1, !tbaa !3
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %73 = load ptr, ptr %72, align 8, !tbaa !200
+  %73 = load ptr, ptr %72, align 8, !tbaa !202
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %73, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 19, i1 noundef zeroext false)
   %74 = load i32, ptr %21, align 8, !tbaa !54
   %75 = add i32 %74, -1
@@ -19061,7 +19067,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZN4llvm16
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 %35
   store i8 40, ptr %37, align 1, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !149
+  %39 = load ptr, ptr %38, align 8, !tbaa !151
   %40 = load ptr, ptr %39, align 8, !tbaa !55
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
@@ -19332,7 +19338,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle8BoolExprEJ
   store i16 %25, ptr %22, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle8BoolExprE, i64 16), ptr %18, align 8, !tbaa !55
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 11
-  store i8 %20, ptr %26, align 1, !tbaa !247
+  store i8 %20, ptr %26, align 1, !tbaa !249
   ret ptr %18
 }
 
@@ -19379,7 +19385,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle13StringLit
   store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle13StringLiteralE, i64 16), ptr %18, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %24, align 8, !tbaa !249
+  store ptr %.0.val, ptr %24, align 8, !tbaa !251
   ret ptr %18
 }
 
@@ -19582,9 +19588,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i29: ; preds = %_ZNSt11char_tra
   %73 = load i64, ptr %64, align 16, !tbaa !72
   store i64 %72, ptr %64, align 16, !tbaa !72
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %0, ptr %3, align 8, !tbaa !251
+  store ptr %0, ptr %3, align 8, !tbaa !253
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %72, ptr %74, align 8, !tbaa !253
+  store i64 %72, ptr %74, align 8, !tbaa !255
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.ptr2.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %.ptr2.i.i, ptr %75, align 8, !tbaa !31
@@ -19774,7 +19780,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   %158 = ptrtoint ptr %.val22 to i64
   %159 = sub i64 %157, %158
   %.not.i.not.i = icmp eq ptr %.val23, %.val22
-  br i1 %.not.i.not.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19isTemplateParamDeclEv.exit.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i, !llvm.loop !254
+  br i1 %.not.i.not.i, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19isTemplateParamDeclEv.exit.thread, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i, !llvm.loop !256
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19isTemplateParamDeclEv.exit.thread: ; preds = %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19isTemplateParamDeclEv.exit, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E23ScopedTemplateParamListC2EPS6_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -19923,7 +19929,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 .critedge132.backedge:                            ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit, %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit46
   %216 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9parseTypeEv(ptr noundef nonnull align 16 dereferenceable(4928) %0)
   %.not9 = icmp eq ptr %216, null
-  br i1 %.not9, label %.critedge16, label %187, !llvm.loop !255
+  br i1 %.not9, label %.critedge16, label %187, !llvm.loop !257
 
 .critedge:                                        ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit42.thread
   %.0118200 = phi ptr [ %.0118204, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit42.thread ], [ %.0118201, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit ], [ %.0118201, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit ]
@@ -20037,9 +20043,9 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 .critedge14:                                      ; preds = %128, %.critedge16
   %.4 = phi ptr [ %.5, %.critedge16 ], [ null, %128 ]
-  %258 = load ptr, ptr %3, align 8, !tbaa !251
+  %258 = load ptr, ptr %3, align 8, !tbaa !253
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 664
-  %260 = load i64, ptr %74, align 8, !tbaa !253
+  %260 = load i64, ptr %74, align 8, !tbaa !255
   %261 = load ptr, ptr %259, align 8, !tbaa !34
   %262 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %260
   %263 = getelementptr inbounds nuw i8, ptr %258, i64 672
@@ -20196,7 +20202,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle10LambdaExp
   store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10LambdaExprE, i64 16), ptr %18, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %24, align 8, !tbaa !256
+  store ptr %.0.val, ptr %24, align 8, !tbaa !258
   ret ptr %18
 }
 
@@ -20246,7 +20252,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11EnumLiter
   store i16 %24, ptr %21, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle11EnumLiteralE, i64 16), ptr %19, align 8, !tbaa !55
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %.0.val, ptr %25, align 8, !tbaa !258
+  store ptr %.0.val, ptr %25, align 8, !tbaa !260
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %.sroa.0.0.copyload.i, ptr %26, align 8, !tbaa !72
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -20574,7 +20580,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle14IntegerLiteralD0Ev(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle8BoolExpr9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %4 = load i8, ptr %3, align 1, !tbaa !247, !range !116, !noundef !117
+  %4 = load i8, ptr %3, align 1, !tbaa !249, !range !116, !noundef !117
   %5 = trunc nuw i8 %4 to i1
   %. = select i1 %5, i64 4, i64 5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -20660,7 +20666,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplIf
   %.add = add nuw nsw i64 %.0.idx24, 2
   %20 = getelementptr inbounds nuw i8, ptr %.01823, i64 1
   %.not = icmp eq i64 %.add, 8
-  br i1 %.not, label %21, label %11, !llvm.loop !260
+  br i1 %.not, label %21, label %11, !llvm.loop !262
 
 21:                                               ; preds = %11
   %22 = icmp ult ptr %3, %.01823
@@ -20677,7 +20683,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplIf
   %.0913.i.i.add = add nuw nsw i64 %.0913.i.i.idx, 1
   %.0.i.i = getelementptr inbounds i8, ptr %.014.i.i, i64 -1
   %exitcond.not = icmp eq i64 %.0913.i.i.add, 2
-  br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %.lr.ph.i.i, !llvm.loop !261
+  br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %.lr.ph.i.i, !llvm.loop !263
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -20786,7 +20792,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplId
   %.add = add nuw nsw i64 %.0.idx24, 2
   %20 = getelementptr inbounds nuw i8, ptr %.01823, i64 1
   %.not = icmp eq i64 %.add, 16
-  br i1 %.not, label %21, label %11, !llvm.loop !262
+  br i1 %.not, label %21, label %11, !llvm.loop !264
 
 21:                                               ; preds = %11
   %22 = icmp ult ptr %3, %.01823
@@ -20803,7 +20809,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplId
   %.0913.i.i.add = add nuw nsw i64 %.0913.i.i.idx, 1
   %.0.i.i = getelementptr inbounds i8, ptr %.014.i.i, i64 -1
   %exitcond.not = icmp eq i64 %.0913.i.i.add, 4
-  br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %.lr.ph.i.i, !llvm.loop !261
+  br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %.lr.ph.i.i, !llvm.loop !263
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -20905,7 +20911,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplIe
   %.add = add nuw nsw i64 %.0.idx24, 2
   %20 = getelementptr inbounds nuw i8, ptr %.01823, i64 1
   %.not = icmp eq i64 %.add, 20
-  br i1 %.not, label %21, label %11, !llvm.loop !263
+  br i1 %.not, label %21, label %11, !llvm.loop !265
 
 21:                                               ; preds = %11
   %22 = icmp ult ptr %3, %.01823
@@ -20922,7 +20928,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplIe
   %.0913.i.i.add = add nuw nsw i64 %.0913.i.i.idx, 1
   %.0.i.i = getelementptr inbounds i8, ptr %.014.i.i, i64 -1
   %exitcond.not = icmp eq i64 %.0913.i.i.add, 5
-  br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %.lr.ph.i.i, !llvm.loop !261
+  br i1 %exitcond.not, label %_ZSt7reverseIPcEvT_S1_.exit, label %.lr.ph.i.i, !llvm.loop !263
 
 _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -21024,7 +21030,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 2
   store i64 %19, ptr %3, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !249
+  %21 = load ptr, ptr %20, align 8, !tbaa !251
   %22 = load ptr, ptr %21, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -21149,7 +21155,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %22
   store i16 %38, ptr %35, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle21TypeTemplateParamDeclE, i64 16), ptr %33, align 8, !tbaa !55
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %15, ptr %39, align 8, !tbaa !264
+  store ptr %15, ptr %39, align 8, !tbaa !266
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit56.thread
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i28: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -21210,9 +21216,9 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33: ; preds = %54
   store i16 %70, ptr %67, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle32ConstrainedTypeTemplateParamDeclE, i64 16), ptr %65, align 8, !tbaa !55
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store ptr %45, ptr %71, align 8, !tbaa !266
+  store ptr %45, ptr %71, align 8, !tbaa !268
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store ptr %47, ptr %72, align 8, !tbaa !268
+  store ptr %47, ptr %72, align 8, !tbaa !270
   br label %73
 
 73:                                               ; preds = %41, %59
@@ -21275,9 +21281,9 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %101, ptr %98, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle24NonTypeTemplateParamDeclE, i64 16), ptr %96, align 8, !tbaa !55
   %102 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  store ptr %77, ptr %102, align 8, !tbaa !269
+  store ptr %77, ptr %102, align 8, !tbaa !271
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  store ptr %78, ptr %103, align 8, !tbaa !271
+  store ptr %78, ptr %103, align 8, !tbaa !273
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit56.thread
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i40: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i34
@@ -21298,7 +21304,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i40: ; preds = %_ZNSt11char_tra
   %114 = sub i64 %112, %113
   %115 = ashr exact i64 %114, 3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %0, ptr %4, align 8, !tbaa !251
+  store ptr %0, ptr %4, align 8, !tbaa !253
   %116 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 672
@@ -21308,7 +21314,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i40: ; preds = %_ZNSt11char_tra
   %122 = ptrtoint ptr %120 to i64
   %123 = sub i64 %121, %122
   %124 = ashr exact i64 %123, 3
-  store i64 %124, ptr %116, align 8, !tbaa !253
+  store i64 %124, ptr %116, align 8, !tbaa !255
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.ptr2.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %.ptr2.i.i, ptr %125, align 8, !tbaa !31
@@ -21538,20 +21544,20 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %230, ptr %227, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle25TemplateTemplateParamDeclE, i64 16), ptr %225, align 8, !tbaa !55
   %231 = getelementptr inbounds nuw i8, ptr %225, i64 16
-  store ptr %107, ptr %231, align 8, !tbaa !272
+  store ptr %107, ptr %231, align 8, !tbaa !274
   %232 = getelementptr inbounds nuw i8, ptr %225, i64 24
   store ptr %207, ptr %232, align 8, !tbaa !93
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %225, i64 32
   store i64 %208, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !72
   %233 = getelementptr inbounds nuw i8, ptr %225, i64 40
-  store ptr %.173, ptr %233, align 8, !tbaa !274
+  store ptr %.173, ptr %233, align 8, !tbaa !276
   br label %.thread
 
 .thread:                                          ; preds = %160, %200, %203, %194, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_25TemplateTemplateParamDeclEJRPNS0_4NodeERNS0_9NodeArrayESB_EEESA_DpOT0_.exit
   %.9 = phi ptr [ %225, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_25TemplateTemplateParamDeclEJRPNS0_4NodeERNS0_9NodeArrayESB_EEESA_DpOT0_.exit ], [ null, %200 ], [ null, %194 ], [ null, %203 ], [ null, %160 ]
-  %234 = load ptr, ptr %4, align 8, !tbaa !251
+  %234 = load ptr, ptr %4, align 8, !tbaa !253
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 664
-  %236 = load i64, ptr %116, align 8, !tbaa !253
+  %236 = load i64, ptr %116, align 8, !tbaa !255
   %237 = load ptr, ptr %235, align 8, !tbaa !34
   %238 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %236
   %239 = getelementptr inbounds nuw i8, ptr %234, i64 672
@@ -21642,15 +21648,15 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle15ClosureTy
   %.sroa.24.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 %.sroa.22.0.copyload.i, ptr %.sroa.24.0..sroa_idx.i.i, align 8, !tbaa !72
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store ptr %.0.val, ptr %28, align 8, !tbaa !275
+  store ptr %.0.val, ptr %28, align 8, !tbaa !277
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store ptr %.0.val1, ptr %29, align 8, !tbaa !93
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 48
   store i64 %.8.val, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !72
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  store ptr %.0.val3, ptr %30, align 8, !tbaa !277
+  store ptr %.0.val3, ptr %30, align 8, !tbaa !279
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !278
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !280
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %21
 }
@@ -21879,9 +21885,9 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %13
   store i16 %29, ptr %26, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle26SyntheticTemplateParamNameE, i64 16), ptr %24, align 8, !tbaa !55
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  store i32 %0, ptr %30, align 4, !tbaa !279
+  store i32 %0, ptr %30, align 4, !tbaa !281
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i32 %5, ptr %31, align 8, !tbaa !282
+  store i32 %5, ptr %31, align 8, !tbaa !284
   %32 = load ptr, ptr %.8.val, align 8, !tbaa !37
   %.not1 = icmp eq ptr %32, null
   br i1 %.not1, label %63, label %33
@@ -21997,7 +22003,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle21TemplateP
   store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle21TemplateParamPackDeclE, i64 16), ptr %18, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %24, align 8, !tbaa !283
+  store ptr %.0.val, ptr %24, align 8, !tbaa !285
   ret ptr %18
 }
 
@@ -22005,7 +22011,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle21TemplateP
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle26SyntheticTemplateParamName9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca %"struct.std::array", align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !279
+  %5 = load i32, ptr %4, align 4, !tbaa !281
   switch i32 %5, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit [
     i32 0, label %6
     i32 1, label %24
@@ -22128,7 +22134,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i14: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i14, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i7, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i, %2
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %61 = load i32, ptr %60, align 8, !tbaa !282
+  %61 = load i32, ptr %60, align 8, !tbaa !284
   %.not = icmp eq i32 %61, 0
   br i1 %.not, label %89, label %62
 
@@ -22149,7 +22155,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   store i8 %68, ptr %.ptr.i.i.i, align 1, !tbaa !3
   %69 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp samesign ult i64 %.08.i.i.i, 10
-  br i1 %.not.i.i.i, label %70, label %65, !llvm.loop !285
+  br i1 %.not.i.i.i, label %70, label %65, !llvm.loop !287
 
 70:                                               ; preds = %65
   %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %3, i64 %.0.add.i.i.i
@@ -22252,7 +22258,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle21TypeTemplateParamDecl10printRightERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !264
+  %4 = load ptr, ptr %3, align 8, !tbaa !266
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -22283,7 +22289,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle21TypeTemplateParamDe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle32ConstrainedTypeTemplateParamDecl9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !266
+  %4 = load ptr, ptr %3, align 8, !tbaa !268
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -22343,7 +22349,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle32ConstrainedTypeTemplateParamDecl10printRightERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !268
+  %4 = load ptr, ptr %3, align 8, !tbaa !270
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -22374,12 +22380,12 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle32ConstrainedTypeTemp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle24NonTypeTemplateParamDecl9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !271
+  %4 = load ptr, ptr %3, align 8, !tbaa !273
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(11) %4, ptr noundef nonnull align 8 dereferenceable(36) %1) #21
-  %8 = load ptr, ptr %3, align 8, !tbaa !271
+  %8 = load ptr, ptr %3, align 8, !tbaa !273
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %10 = load i16, ptr %9, align 1
   %11 = trunc i16 %10 to i8
@@ -22440,7 +22446,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle24NonTypeTemplateParamDecl10printRightERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !269
+  %4 = load ptr, ptr %3, align 8, !tbaa !271
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -22460,7 +22466,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle24NonTypeTemplatePar
 
 _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; preds = %2, %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !271
+  %15 = load ptr, ptr %14, align 8, !tbaa !273
   %16 = load ptr, ptr %15, align 8, !tbaa !55
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load ptr, ptr %17, align 8
@@ -22516,7 +22522,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   store i64 %21, ptr %5, align 8, !tbaa !57
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load i64, ptr %23, align 8, !tbaa !245
+  %24 = load i64, ptr %23, align 8, !tbaa !247
   %.not13.i = icmp eq i64 %24, 0
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
 
@@ -22563,7 +22569,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %41 = phi i64 [ %40, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %25, %.lr.ph.i ]
-  %42 = load ptr, ptr %22, align 8, !tbaa !246
+  %42 = load ptr, ptr %22, align 8, !tbaa !248
   %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.01214.i
   %44 = load ptr, ptr %43, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %44, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -22579,7 +22585,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %49 = phi i64 [ %25, %47 ], [ %45, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %.1.i = phi i1 [ %.015.i, %47 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %50 = add i64 %.01214.i, 1
-  %51 = load i64, ptr %23, align 8, !tbaa !245
+  %51 = load i64, ptr %23, align 8, !tbaa !247
   %.not.i6 = icmp eq i64 %50, %51
   br i1 %.not.i6, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i, !llvm.loop !94
 
@@ -22624,7 +22630,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i9: ; preds = %._ZN4llvm16i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle25TemplateTemplateParamDecl10printRightERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !272
+  %4 = load ptr, ptr %3, align 8, !tbaa !274
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -22644,7 +22650,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle25TemplateTemplatePa
 
 _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; preds = %2, %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !274
+  %15 = load ptr, ptr %14, align 8, !tbaa !276
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit7, label %16
 
@@ -22684,7 +22690,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %32 = load i64, ptr %17, align 8, !tbaa !57
   %33 = add i64 %32, 10
   store i64 %33, ptr %17, align 8, !tbaa !57
-  %34 = load ptr, ptr %14, align 8, !tbaa !274
+  %34 = load ptr, ptr %14, align 8, !tbaa !276
   %35 = load ptr, ptr %34, align 8, !tbaa !55
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
@@ -22715,7 +22721,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle25TemplateTemplatePar
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle21TemplateParamPackDecl9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !283
+  %4 = load ptr, ptr %3, align 8, !tbaa !285
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -22761,7 +22767,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle21TemplateParamPackDecl10printRightERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !283
+  %4 = load ptr, ptr %3, align 8, !tbaa !285
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -22902,7 +22908,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle15ClosureTypeNameD0Ev
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle15ClosureTypeName15printDeclaratorERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i64, ptr %4, align 8, !tbaa !245
+  %5 = load i64, ptr %4, align 8, !tbaa !247
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %70, label %7
 
@@ -22945,7 +22951,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %25 = load i64, ptr %10, align 8, !tbaa !57
   %26 = add i64 %25, 1
   store i64 %26, ptr %10, align 8, !tbaa !57
-  %27 = load i64, ptr %4, align 8, !tbaa !245
+  %27 = load i64, ptr %4, align 8, !tbaa !247
   %.not13.i = icmp eq i64 %27, 0
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
 
@@ -22992,7 +22998,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %44 = phi i64 [ %43, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %28, %.lr.ph.i ]
-  %45 = load ptr, ptr %3, align 8, !tbaa !246
+  %45 = load ptr, ptr %3, align 8, !tbaa !248
   %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.01214.i
   %47 = load ptr, ptr %46, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %47, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -23008,7 +23014,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %52 = phi i64 [ %28, %50 ], [ %48, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %.1.i = phi i1 [ %.015.i, %50 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %53 = add i64 %.01214.i, 1
-  %54 = load i64, ptr %4, align 8, !tbaa !245
+  %54 = load i64, ptr %4, align 8, !tbaa !247
   %.not.i15 = icmp eq i64 %53, %54
   br i1 %.not.i15, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i, !llvm.loop !94
 
@@ -23051,7 +23057,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i18: ; preds = %._ZN4llvm16
 
 70:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i18, %2
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %72 = load ptr, ptr %71, align 8, !tbaa !275
+  %72 = load ptr, ptr %71, align 8, !tbaa !277
   %.not = icmp eq ptr %72, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !57
@@ -23091,7 +23097,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i25: ; preds = %._ZN4llvm16
   %87 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !57
   %88 = add i64 %87, 10
   store i64 %88, ptr %.phi.trans.insert, align 8, !tbaa !57
-  %89 = load ptr, ptr %71, align 8, !tbaa !275
+  %89 = load ptr, ptr %71, align 8, !tbaa !277
   %90 = load ptr, ptr %89, align 8, !tbaa !55
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %92 = load ptr, ptr %91, align 8
@@ -23187,7 +23193,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZN4llvm16
   store i8 40, ptr %131, align 1, !tbaa !3
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %134 = load i64, ptr %133, align 8, !tbaa !245
+  %134 = load i64, ptr %133, align 8, !tbaa !247
   %.not13.i41 = icmp eq i64 %134, 0
   %.pre80 = load i64, ptr %118, align 8, !tbaa !57
   br i1 %.not13.i41, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit54, label %.lr.ph.i42
@@ -23235,7 +23241,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i47: ; preds = %._ZN4llvm
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i48: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i47, %.lr.ph.i42
   %151 = phi i64 [ %150, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i47 ], [ %135, %.lr.ph.i42 ]
-  %152 = load ptr, ptr %132, align 8, !tbaa !246
+  %152 = load ptr, ptr %132, align 8, !tbaa !248
   %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %.01214.i45
   %154 = load ptr, ptr %153, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %154, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -23251,7 +23257,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %159 = phi i64 [ %135, %157 ], [ %155, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i48 ]
   %.1.i49 = phi i1 [ %.015.i44, %157 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i48 ]
   %160 = add i64 %.01214.i45, 1
-  %161 = load i64, ptr %133, align 8, !tbaa !245
+  %161 = load i64, ptr %133, align 8, !tbaa !247
   %.not.i50 = icmp eq i64 %160, %161
   br i1 %.not.i50, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit54, label %.lr.ph.i42, !llvm.loop !94
 
@@ -23293,7 +23299,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %_ZNK4llv
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 %174
   store i8 41, ptr %176, align 1, !tbaa !3
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %178 = load ptr, ptr %177, align 8, !tbaa !277
+  %178 = load ptr, ptr %177, align 8, !tbaa !279
   %.not13 = icmp eq ptr %178, null
   br i1 %.not13, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit70, label %179
 
@@ -23331,7 +23337,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i63: ; preds = %._ZN4llvm16
   %193 = load i64, ptr %118, align 8, !tbaa !57
   %194 = add i64 %193, 10
   store i64 %194, ptr %118, align 8, !tbaa !57
-  %195 = load ptr, ptr %177, align 8, !tbaa !277
+  %195 = load ptr, ptr %177, align 8, !tbaa !279
   %196 = load ptr, ptr %195, align 8, !tbaa !55
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load ptr, ptr %197, align 8
@@ -23391,7 +23397,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 2
   store i64 %19, ptr %3, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !256
+  %21 = load ptr, ptr %20, align 8, !tbaa !258
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 8, !tbaa !64
   %24 = icmp eq i8 %23, 52
@@ -23487,7 +23493,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %2, %._ZN4l
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %18
   store i8 40, ptr %20, align 1, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !258
+  %22 = load ptr, ptr %21, align 8, !tbaa !260
   %23 = load ptr, ptr %22, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
@@ -23820,9 +23826,9 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle13FunctionParamD0Ev(p
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle8FoldExpr9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = alloca %class.anon.11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %1, ptr %3, align 8, !tbaa !286
+  store ptr %1, ptr %3, align 8, !tbaa !288
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %0, ptr %4, align 8, !tbaa !288
+  store ptr %0, ptr %4, align 8, !tbaa !290
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !54
   %7 = add i32 %6, 1
@@ -23863,7 +23869,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %2, %._ZN4l
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %20
   store i8 40, ptr %22, align 1, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %24 = load i8, ptr %23, align 8, !tbaa !172, !range !116, !noundef !117
+  %24 = load i8, ptr %23, align 8, !tbaa !174, !range !116, !noundef !117
   %25 = trunc nuw i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
@@ -24032,7 +24038,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i35: ; preds = %._ZN4llvm
   %91 = load i64, ptr %8, align 8, !tbaa !57
   %92 = add i64 %91, 3
   store i64 %92, ptr %8, align 8, !tbaa !57
-  %93 = load i8, ptr %23, align 8, !tbaa !172, !range !116, !noundef !117
+  %93 = load i8, ptr %23, align 8, !tbaa !174, !range !116, !noundef !117
   %94 = trunc nuw i8 %93 to i1
   %95 = load ptr, ptr %26, align 8
   %.not11 = icmp ne ptr %95, null
@@ -24148,7 +24154,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i56: ; preds = %._ZN4llvm
   %140 = load i64, ptr %8, align 8, !tbaa !57
   %141 = add i64 %140, 1
   store i64 %141, ptr %8, align 8, !tbaa !57
-  %142 = load i8, ptr %23, align 8, !tbaa !172, !range !116, !noundef !117
+  %142 = load i8, ptr %23, align 8, !tbaa !174, !range !116, !noundef !117
   %143 = trunc nuw i8 %142 to i1
   br i1 %143, label %144, label %145
 
@@ -24157,7 +24163,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i56: ; preds = %._ZN4llvm
   br label %147
 
 145:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i56
-  %146 = load ptr, ptr %26, align 8, !tbaa !171
+  %146 = load ptr, ptr %26, align 8, !tbaa !173
   call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %146, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 3, i1 noundef zeroext true)
   br label %147
 
@@ -24212,8 +24218,8 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle8FoldExprD0Ev(ptr nou
 define linkonce_odr hidden void @_ZZNK4llvm16itanium_demangle8FoldExpr9printLeftERNS0_12OutputBufferEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #15 comdat align 2 {
   %2 = alloca %"class.llvm::itanium_demangle::ParameterPackExpansion", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !288
-  %5 = load ptr, ptr %0, align 8, !tbaa !291
+  %4 = load ptr, ptr %3, align 8, !tbaa !290
+  %5 = load ptr, ptr %0, align 8, !tbaa !293
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !54
   %8 = add i32 %7, 1
@@ -24255,15 +24261,15 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %1, %._ZN4l
   store i8 40, ptr %23, align 1, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !169
+  %25 = load ptr, ptr %24, align 8, !tbaa !171
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 42, ptr %26, align 8, !tbaa !64
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i16 1344, ptr %27, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %2, align 8, !tbaa !55
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %25, ptr %28, align 8, !tbaa !229
-  %29 = load ptr, ptr %0, align 8, !tbaa !291
+  store ptr %25, ptr %28, align 8, !tbaa !231
+  %29 = load ptr, ptr %0, align 8, !tbaa !293
   call void @_ZNK4llvm16itanium_demangle22ParameterPackExpansion9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(11) %2, ptr noundef nonnull align 8 dereferenceable(36) %29) #21
   %30 = load i16, ptr %27, align 1
   %.mask3.i = and i16 %30, 192
@@ -24279,7 +24285,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %1, %._ZN4l
 
 _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %35 = load ptr, ptr %0, align 8, !tbaa !291
+  %35 = load ptr, ptr %0, align 8, !tbaa !293
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load i32, ptr %36, align 8, !tbaa !54
   %38 = add i32 %37, -1
@@ -24333,7 +24339,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle22ParameterPackExpan
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !57
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !229
+  %10 = load ptr, ptr %9, align 8, !tbaa !231
   %11 = load ptr, ptr %10, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
@@ -24438,7 +24444,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i21: ; preds = %._ZN4llvm16
   %55 = add i64 %54, 2
   store i64 %55, ptr %7, align 8, !tbaa !57
   store i32 %.035, ptr %3, align 8, !tbaa !51
-  %56 = load ptr, ptr %9, align 8, !tbaa !229
+  %56 = load ptr, ptr %9, align 8, !tbaa !231
   %57 = load ptr, ptr %56, align 8, !tbaa !55
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %59 = load ptr, ptr %58, align 8
@@ -24459,7 +24465,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i21: ; preds = %._ZN4llvm16
 _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit28: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i21, %62
   %66 = add nuw i32 %.035, 1
   %exitcond.not = icmp eq i32 %66, %20
-  br i1 %exitcond.not, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %40, !llvm.loop !292
+  br i1 %exitcond.not, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %40, !llvm.loop !294
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.sink.split: ; preds = %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i
   %.sink = phi i64 [ %39, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i ], [ %8, %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit ]
@@ -24481,7 +24487,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle22ParameterPackExpans
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle10BracedExpr9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i8, ptr %3, align 8, !tbaa !204, !range !116, !noundef !117
+  %4 = load i8, ptr %3, align 8, !tbaa !206, !range !116, !noundef !117
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !57
@@ -24522,7 +24528,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit: ; preds = %12, %._ZN4llvm16it
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %19
   store i8 91, ptr %21, align 1, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !201
+  %23 = load ptr, ptr %22, align 8, !tbaa !203
   %24 = load ptr, ptr %23, align 8, !tbaa !55
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
@@ -24606,7 +24612,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit22: ; preds = %46, %._ZN4llvm16
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 %53
   store i8 46, ptr %55, align 1, !tbaa !3
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !201
+  %57 = load ptr, ptr %56, align 8, !tbaa !203
   %58 = load ptr, ptr %57, align 8, !tbaa !55
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8
@@ -24626,7 +24632,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit22: ; preds = %46, %._ZN4llvm16
 
 _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit25: ; preds = %63, %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit22, %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit15
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %68 = load ptr, ptr %67, align 8, !tbaa !203
+  %68 = load ptr, ptr %67, align 8, !tbaa !205
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load i8, ptr %69, align 8, !tbaa !64
   %.off = add i8 %70, -81
@@ -24669,7 +24675,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %87 = load i64, ptr %72, align 8, !tbaa !57
   %88 = add i64 %87, 3
   store i64 %88, ptr %72, align 8, !tbaa !57
-  %.pre = load ptr, ptr %67, align 8, !tbaa !203
+  %.pre = load ptr, ptr %67, align 8, !tbaa !205
   br label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit25, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i
@@ -24739,7 +24745,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit: ; preds = %2, %._ZN4llvm16ita
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %15
   store i8 91, ptr %17, align 1, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !205
+  %19 = load ptr, ptr %18, align 8, !tbaa !207
   %20 = load ptr, ptr %19, align 8, !tbaa !55
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -24792,7 +24798,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %43 = add i64 %42, 5
   store i64 %43, ptr %3, align 8, !tbaa !57
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !207
+  %45 = load ptr, ptr %44, align 8, !tbaa !209
   %46 = load ptr, ptr %45, align 8, !tbaa !55
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load ptr, ptr %47, align 8
@@ -24845,7 +24851,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit23: ; preds = %_ZNK4llvm16itani
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %65
   store i8 93, ptr %67, align 1, !tbaa !3
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %69 = load ptr, ptr %68, align 8, !tbaa !208
+  %69 = load ptr, ptr %68, align 8, !tbaa !210
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i8, ptr %70, align 8, !tbaa !64
   %.off = add i8 %71, -81
@@ -24886,7 +24892,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i26: ; preds = %._ZN4llvm16
   %86 = load i64, ptr %3, align 8, !tbaa !57
   %87 = add i64 %86, 3
   store i64 %87, ptr %3, align 8, !tbaa !57
-  %.pre = load ptr, ptr %68, align 8, !tbaa !208
+  %.pre = load ptr, ptr %68, align 8, !tbaa !210
   br label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit30
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit30: ; preds = %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit23, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i26
@@ -24921,7 +24927,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle15BracedRangeExprD0Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle12InitListExpr9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !209
+  %4 = load ptr, ptr %3, align 8, !tbaa !211
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit, label %5
 
@@ -24934,7 +24940,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle12InitListExpr9print
   br i1 %10, label %80, label %11
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr %3, align 8, !tbaa !209
+  %12 = load ptr, ptr %3, align 8, !tbaa !211
   %13 = load ptr, ptr %12, align 8, !tbaa !55
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
@@ -24990,7 +24996,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit: ; preds = %_ZNK4llvm16itanium
   store i8 123, ptr %36, align 1, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load i64, ptr %38, align 8, !tbaa !245
+  %39 = load i64, ptr %38, align 8, !tbaa !247
   %.not13.i = icmp eq i64 %39, 0
   %.pre = load i64, ptr %22, align 8, !tbaa !57
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -25038,7 +25044,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %56 = phi i64 [ %55, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %40, %.lr.ph.i ]
-  %57 = load ptr, ptr %37, align 8, !tbaa !246
+  %57 = load ptr, ptr %37, align 8, !tbaa !248
   %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.01214.i
   %59 = load ptr, ptr %58, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %59, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -25054,7 +25060,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %64 = phi i64 [ %40, %62 ], [ %60, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %.1.i = phi i1 [ %.015.i, %62 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %65 = add i64 %.01214.i, 1
-  %66 = load i64, ptr %38, align 8, !tbaa !245
+  %66 = load i64, ptr %38, align 8, !tbaa !247
   %.not.i7 = icmp eq i64 %65, %66
   br i1 %.not.i7, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i, !llvm.loop !94
 
@@ -25146,7 +25152,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %2, %._ZN4l
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %18
   store i8 40, ptr %20, align 1, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !211
+  %22 = load ptr, ptr %21, align 8, !tbaa !213
   %23 = load ptr, ptr %22, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
@@ -25238,7 +25244,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit19: ; preds = %_ZN4llvm
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %59
   store i8 40, ptr %61, align 1, !tbaa !3
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %63 = load ptr, ptr %62, align 8, !tbaa !213
+  %63 = load ptr, ptr %62, align 8, !tbaa !215
   %64 = load ptr, ptr %63, align 8, !tbaa !55
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
@@ -25340,7 +25346,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 1
   store i64 %19, ptr %3, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load i8, ptr %20, align 8, !tbaa !217, !range !116, !noundef !117
+  %21 = load i8, ptr %20, align 8, !tbaa !219, !range !116, !noundef !117
   %22 = trunc nuw i8 %21 to i1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -25389,7 +25395,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %25, %._ZN4
 
 41:                                               ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i, %_ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !215
+  %43 = load ptr, ptr %42, align 8, !tbaa !217
   %44 = load ptr, ptr %43, align 8, !tbaa !55
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load ptr, ptr %45, align 8
@@ -25408,7 +25414,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %25, %._ZN4
   br label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit
 
 _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; preds = %41, %49
-  %53 = load i8, ptr %20, align 8, !tbaa !217, !range !116, !noundef !117
+  %53 = load i8, ptr %20, align 8, !tbaa !219, !range !116, !noundef !117
   %54 = trunc nuw i8 %53 to i1
   %55 = load ptr, ptr %23, align 8
   %.not9 = icmp ne ptr %55, null
@@ -25453,7 +25459,7 @@ _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; preds = %41,
   store i64 %.pre-phi.i.i18, ptr %3, align 8, !tbaa !57
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 %71
   store i8 125, ptr %73, align 1, !tbaa !3
-  %.pre = load i8, ptr %20, align 8, !tbaa !217, !range !116
+  %.pre = load i8, ptr %20, align 8, !tbaa !219, !range !116
   %74 = trunc nuw i8 %.pre to i1
   br i1 %74, label %75, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit29
 
@@ -25494,7 +25500,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i25: ; preds = %._ZN4llvm16
   br label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit29
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit29: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i25, %70
-  %.pr = load ptr, ptr %23, align 8, !tbaa !218
+  %.pr = load ptr, ptr %23, align 8, !tbaa !220
   %.not10 = icmp eq ptr %.pr, null
   br i1 %.not10, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit39, label %91
 
@@ -25532,7 +25538,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i32: ; preds = %._ZN4llvm16
   %105 = load i64, ptr %3, align 8, !tbaa !57
   %106 = add i64 %105, 4
   store i64 %106, ptr %3, align 8, !tbaa !57
-  %107 = load ptr, ptr %23, align 8, !tbaa !218
+  %107 = load ptr, ptr %23, align 8, !tbaa !220
   %108 = load ptr, ptr %107, align 8, !tbaa !55
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %110 = load ptr, ptr %109, align 8
@@ -25631,7 +25637,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 10
   store i64 %19, ptr %3, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !219
+  %21 = load ptr, ptr %20, align 8, !tbaa !221
   %22 = load ptr, ptr %21, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -25730,7 +25736,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 10
   store i64 %19, ptr %3, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !221
+  %21 = load ptr, ptr %20, align 8, !tbaa !223
   %22 = load ptr, ptr %21, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -25830,7 +25836,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   store i64 %19, ptr %3, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load i64, ptr %21, align 8, !tbaa !245
+  %22 = load i64, ptr %21, align 8, !tbaa !247
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %96, label %24
 
@@ -25904,7 +25910,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZN4llvm16
   store i64 %.pre-phi.i.i, ptr %3, align 8, !tbaa !57
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %50
   store i8 40, ptr %52, align 1, !tbaa !3
-  %53 = load i64, ptr %21, align 8, !tbaa !245
+  %53 = load i64, ptr %21, align 8, !tbaa !247
   %.not13.i = icmp eq i64 %53, 0
   %.pre = load i64, ptr %3, align 8, !tbaa !57
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -25952,7 +25958,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %70 = phi i64 [ %69, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %54, %.lr.ph.i ]
-  %71 = load ptr, ptr %20, align 8, !tbaa !246
+  %71 = load ptr, ptr %20, align 8, !tbaa !248
   %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.01214.i
   %73 = load ptr, ptr %72, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %73, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -25968,7 +25974,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %78 = phi i64 [ %54, %76 ], [ %74, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %.1.i = phi i1 [ %.015.i, %76 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %79 = add i64 %.01214.i, 1
-  %80 = load i64, ptr %21, align 8, !tbaa !245
+  %80 = load i64, ptr %21, align 8, !tbaa !247
   %.not.i24 = icmp eq i64 %79, %80
   br i1 %.not.i24, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i, !llvm.loop !94
 
@@ -26084,9 +26090,9 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit47: ; preds = %_ZN4llvm
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 %123
   store i8 123, ptr %125, align 1, !tbaa !3
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %127 = load ptr, ptr %126, align 8, !tbaa !246
+  %127 = load ptr, ptr %126, align 8, !tbaa !248
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %129 = load i64, ptr %128, align 8, !tbaa !245
+  %129 = load i64, ptr %128, align 8, !tbaa !247
   %.idx = shl nuw nsw i64 %129, 3
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 %.idx
   %.not64 = icmp eq i64 %129, 0
@@ -26199,7 +26205,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle12RequiresExprD0Ev(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13SubobjectExpr9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !227
+  %4 = load ptr, ptr %3, align 8, !tbaa !229
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -26254,7 +26260,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %30 = add i64 %29, 2
   store i64 %30, ptr %14, align 8, !tbaa !57
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !225
+  %32 = load ptr, ptr %31, align 8, !tbaa !227
   %33 = load ptr, ptr %32, align 8, !tbaa !55
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -26578,14 +26584,14 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZN4llvm16
   store i8 40, ptr %35, align 1, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !231
+  %37 = load ptr, ptr %36, align 8, !tbaa !233
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 42, ptr %38, align 8, !tbaa !64
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i16 1344, ptr %39, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle22ParameterPackExpansionE, i64 16), ptr %3, align 8, !tbaa !55
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %37, ptr %40, align 8, !tbaa !229
+  store ptr %37, ptr %40, align 8, !tbaa !231
   call void @_ZNK4llvm16itanium_demangle22ParameterPackExpansion9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(36) %1)
   %41 = load i32, ptr %21, align 8, !tbaa !54
   %42 = add i32 %41, -1
@@ -26637,7 +26643,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle19SizeofParamPackExpr
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13NodeArrayNode9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i64, ptr %4, align 8, !tbaa !245
+  %5 = load i64, ptr %4, align 8, !tbaa !247
   %.not13.i = icmp eq i64 %5, 0
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
 
@@ -26690,7 +26696,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %8
   %25 = phi i64 [ %24, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %9, %8 ]
-  %26 = load ptr, ptr %3, align 8, !tbaa !246
+  %26 = load ptr, ptr %3, align 8, !tbaa !248
   %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.01214.i
   %28 = load ptr, ptr %27, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %28, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -26706,7 +26712,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %33 = phi i64 [ %9, %31 ], [ %29, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %.1.i = phi i1 [ %.015.i, %31 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %34 = add i64 %.01214.i, 1
-  %35 = load i64, ptr %4, align 8, !tbaa !245
+  %35 = load i64, ptr %4, align 8, !tbaa !247
   %.not.i = icmp eq i64 %34, %35
   br i1 %.not.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %8, !llvm.loop !94
 
@@ -26758,7 +26764,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 6
   store i64 %19, ptr %3, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !233
+  %21 = load ptr, ptr %20, align 8, !tbaa !235
   %22 = load ptr, ptr %21, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -27124,7 +27130,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %43, ptr %40, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle8DtorNameE, i64 16), ptr %38, align 8, !tbaa !55
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store ptr %storemerge.i, ptr %44, align 8, !tbaa !293
+  store ptr %storemerge.i, ptr %44, align 8, !tbaa !295
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseDestructorNameEv.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i8: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -27213,7 +27219,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13QualifiedName9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !235
+  %4 = load ptr, ptr %3, align 8, !tbaa !237
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -27268,7 +27274,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %30 = add i64 %29, 2
   store i64 %30, ptr %14, align 8, !tbaa !57
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !237
+  %32 = load ptr, ptr %31, align 8, !tbaa !239
   %33 = load ptr, ptr %32, align 8, !tbaa !55
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -27293,7 +27299,7 @@ _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit7: ; preds = %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { i64, ptr } @_ZNK4llvm16itanium_demangle13QualifiedName11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !237
+  %3 = load ptr, ptr %2, align 8, !tbaa !239
   %4 = load ptr, ptr %3, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -27356,7 +27362,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %22 = phi i64 [ %.01229.i, %17 ], [ %spec.select.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i ], [ %16, %.thread.i ]
   %23 = phi i64 [ %12, %17 ], [ %spec.select28.i, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoltEPKc.exit.i ], [ %.01030.i, %.thread.i ]
   %.not.i = icmp eq i64 %23, %22
-  br i1 %.not.i, label %24, label %10, !llvm.loop !156
+  br i1 %.not.i, label %24, label %10, !llvm.loop !158
 
 24:                                               ; preds = %.thread24.i
   %25 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E3OpsE, i64 %22
@@ -27442,7 +27448,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %68, ptr %65, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle22ConversionOperatorTypeE, i64 16), ptr %63, align 8, !tbaa !55
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  store ptr %42, ptr %69, align 8, !tbaa !295
+  store ptr %42, ptr %69, align 8, !tbaa !297
   br label %70
 
 70:                                               ; preds = %33, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_22ConversionOperatorTypeEJRPNS0_4NodeEEEESA_DpOT0_.exit
@@ -27470,7 +27476,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 79:                                               ; preds = %76, %74
   %80 = getelementptr i8, ptr %25, i64 8
-  %.val25 = load ptr, ptr %80, align 8, !tbaa !159
+  %.val25 = load ptr, ptr %80, align 8, !tbaa !161
   %81 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val25) #21
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %83 = load ptr, ptr %82, align 16, !tbaa !50
@@ -27572,7 +27578,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %132, ptr %129, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle15LiteralOperatorE, i64 16), ptr %127, align 8, !tbaa !55
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  store ptr %108, ptr %133, align 8, !tbaa !297
+  store ptr %108, ptr %133, align 8, !tbaa !299
   br label %.thread
 
 .thread63:                                        ; preds = %2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -27645,7 +27651,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %167, ptr %164, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle22ConversionOperatorTypeE, i64 16), ptr %162, align 8, !tbaa !55
   %168 = getelementptr inbounds nuw i8, ptr %162, i64 16
-  store ptr %143, ptr %168, align 8, !tbaa !295
+  store ptr %143, ptr %168, align 8, !tbaa !297
   br label %.thread
 
 .thread:                                          ; preds = %137, %.thread63, %134, %71, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8NameTypeEJSt17basic_string_viewIcSt11char_traitsIcEEEEEPNS0_4NodeEDpOT0_.exit, %76, %70, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_22ConversionOperatorTypeEJRPNS0_4NodeEEEESA_DpOT0_.exit65, %141, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_15LiteralOperatorEJRPNS0_4NodeEEEESA_DpOT0_.exit, %106, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit
@@ -27691,7 +27697,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 1
   store i64 %19, ptr %3, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !293
+  %21 = load ptr, ptr %20, align 8, !tbaa !295
   %22 = load ptr, ptr %21, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -27743,7 +27749,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 9
   store i64 %19, ptr %3, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !295
+  %21 = load ptr, ptr %20, align 8, !tbaa !297
   %22 = load ptr, ptr %21, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -27809,7 +27815,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 11
   store i64 %19, ptr %3, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !297
+  %21 = load ptr, ptr %20, align 8, !tbaa !299
   %22 = load ptr, ptr %21, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -27875,7 +27881,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 2
   store i64 %19, ptr %3, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !239
+  %21 = load ptr, ptr %20, align 8, !tbaa !241
   %22 = load ptr, ptr %21, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -27900,7 +27906,7 @@ _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; preds = %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { i64, ptr } @_ZNK4llvm16itanium_demangle19GlobalQualifiedName11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !239
+  %3 = load ptr, ptr %2, align 8, !tbaa !241
   %4 = load ptr, ptr %3, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -28025,7 +28031,7 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %36
   store i16 %55, ptr %51, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10AbiTagAttrE, i64 16), ptr %47, align 8, !tbaa !55
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store ptr %.0416, ptr %56, align 8, !tbaa !299
+  store ptr %.0416, ptr %56, align 8, !tbaa !301
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 %23, ptr %57, align 8, !tbaa !72
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %47, i64 32
@@ -28078,7 +28084,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %19 = add i64 %18, 5
   store i64 %19, ptr %3, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %21 = load i32, ptr %20, align 4, !tbaa !151
+  %21 = load i32, ptr %20, align 4, !tbaa !153
   switch i32 %21, label %24 [
     i32 0, label %27
     i32 1, label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.i
@@ -28148,7 +28154,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { i64, ptr } @_ZNK4llvm16itanium_demangle19SpecialSubstitution11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !151
+  %3 = load i32, ptr %2, align 4, !tbaa !153
   switch i32 %3, label %6 [
     i32 0, label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit.thread8
     i32 1, label %_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.exit
@@ -28275,7 +28281,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i7: ; preds = %._ZN4llvm1
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit11: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i7
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %43 = load i32, ptr %42, align 4, !tbaa !151
+  %43 = load i32, ptr %42, align 4, !tbaa !153
   %44 = icmp ugt i32 %43, 1
   br i1 %44, label %45, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit32
 
@@ -28313,7 +28319,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i14: ; preds = %._ZN4llvm
   %59 = load i64, ptr %3, align 8, !tbaa !57
   %60 = add i64 %59, 29
   store i64 %60, ptr %3, align 8, !tbaa !57
-  %.pr = load i32, ptr %42, align 4, !tbaa !151
+  %.pr = load i32, ptr %42, align 4, !tbaa !153
   %61 = icmp eq i32 %.pr, 2
   br i1 %61, label %62, label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit25
 
@@ -28396,12 +28402,12 @@ _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_trait
 define linkonce_odr hidden { i64, ptr } @_ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
 switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %2 = load i32, ptr %1, align 4, !tbaa !151
+  %2 = load i32, ptr %1, align 4, !tbaa !153
   %3 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.216, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.213, i64 %4
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %switch.load2, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %switch.load, 1
@@ -28417,7 +28423,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle27ExpandedSpecialSubs
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle10AbiTagAttr9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !299
+  %4 = load ptr, ptr %3, align 8, !tbaa !301
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -28539,7 +28545,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i14: ; preds = %._ZN4llvm16
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { i64, ptr } @_ZNK4llvm16itanium_demangle10AbiTagAttr11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !299
+  %3 = load ptr, ptr %2, align 8, !tbaa !301
   %4 = load ptr, ptr %3, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -28596,7 +28602,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %2, %._ZN4l
   store i8 91, ptr %20, align 1, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load i64, ptr %22, align 8, !tbaa !245
+  %23 = load i64, ptr %22, align 8, !tbaa !247
   %.not13.i = icmp eq i64 %23, 0
   %.pre = load i64, ptr %6, align 8, !tbaa !57
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -28644,7 +28650,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %40 = phi i64 [ %39, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %24, %.lr.ph.i ]
-  %41 = load ptr, ptr %21, align 8, !tbaa !246
+  %41 = load ptr, ptr %21, align 8, !tbaa !248
   %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.01214.i
   %43 = load ptr, ptr %42, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %43, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -28660,7 +28666,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %48 = phi i64 [ %24, %46 ], [ %44, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %.1.i = phi i1 [ %.015.i, %46 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %49 = add i64 %.01214.i, 1
-  %50 = load i64, ptr %22, align 8, !tbaa !245
+  %50 = load i64, ptr %22, align 8, !tbaa !247
   %.not.i = icmp eq i64 %49, %50
   br i1 %.not.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i, !llvm.loop !94
 
@@ -28745,7 +28751,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle27ExpandedS
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = getelementptr inbounds i8, ptr %17, i64 %13
   %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 12
-  %20 = load i32, ptr %19, align 4, !tbaa !151
+  %20 = load i32, ptr %19, align 4, !tbaa !153
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i8 47, ptr %21, align 8, !tbaa !64
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 9
@@ -28755,7 +28761,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle27ExpandedS
   store i16 %25, ptr %22, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle27ExpandedSpecialSubstitutionE, i64 16), ptr %18, align 8, !tbaa !55
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  store i32 %20, ptr %26, align 4, !tbaa !151
+  store i32 %20, ptr %26, align 4, !tbaa !153
   ret ptr %18
 }
 
@@ -28793,28 +28799,27 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle12CtorDtorN
   store i64 %16, ptr %15, align 8, !tbaa !63
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = getelementptr inbounds i8, ptr %17, i64 %13
-  %19 = and i8 %.0.val1, 1
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i8 49, ptr %20, align 8, !tbaa !64
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 9
-  %22 = load i16, ptr %21, align 1
-  %23 = and i16 %22, -4096
-  %24 = or disjoint i16 %23, 1344
-  store i16 %24, ptr %21, align 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i8 49, ptr %19, align 8, !tbaa !64
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 9
+  %21 = load i16, ptr %20, align 1
+  %22 = and i16 %21, -4096
+  %23 = or disjoint i16 %22, 1344
+  store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle12CtorDtorNameE, i64 16), ptr %18, align 8, !tbaa !55
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %25, align 8, !tbaa !301
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i8 %19, ptr %26, align 8, !tbaa !303
-  %27 = getelementptr inbounds nuw i8, ptr %18, i64 28
-  store i32 %.0.val3, ptr %27, align 4, !tbaa !304
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr %.0.val, ptr %24, align 8, !tbaa !303
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store i8 %.0.val1, ptr %25, align 8, !tbaa !305
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 28
+  store i32 %.0.val3, ptr %26, align 4, !tbaa !306
   ret ptr %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle12CtorDtorName9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i8, ptr %3, align 8, !tbaa !303, !range !116, !noundef !117
+  %4 = load i8, ptr %3, align 8, !tbaa !305, !range !116, !noundef !117
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
@@ -28858,7 +28863,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i, %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !301
+  %25 = load ptr, ptr %24, align 8, !tbaa !303
   %26 = load ptr, ptr %25, align 8, !tbaa !55
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %28 = load ptr, ptr %27, align 8
@@ -28974,7 +28979,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit: ; preds = %_ZNK4llvm16itanium
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %26
   store i8 64, ptr %28, align 1, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !155
+  %30 = load ptr, ptr %29, align 8, !tbaa !157
   %31 = load ptr, ptr %30, align 8, !tbaa !55
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load ptr, ptr %32, align 8
@@ -29016,7 +29021,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle12ModuleEntityD0Ev(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle20MemberLikeFriendName9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !305
+  %4 = load ptr, ptr %3, align 8, !tbaa !307
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -29071,7 +29076,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %30 = add i64 %29, 9
   store i64 %30, ptr %14, align 8, !tbaa !57
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !307
+  %32 = load ptr, ptr %31, align 8, !tbaa !309
   %33 = load ptr, ptr %32, align 8, !tbaa !55
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -29096,7 +29101,7 @@ _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit7: ; preds = %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { i64, ptr } @_ZNK4llvm16itanium_demangle20MemberLikeFriendName11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !307
+  %3 = load ptr, ptr %2, align 8, !tbaa !309
   %4 = load ptr, ptr %3, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -29168,7 +29173,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %30 = add i64 %29, 2
   store i64 %30, ptr %14, align 8, !tbaa !57
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !308
+  %32 = load ptr, ptr %31, align 8, !tbaa !310
   %33 = load ptr, ptr %32, align 8, !tbaa !55
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -29193,7 +29198,7 @@ _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit7: ; preds = %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { i64, ptr } @_ZNK4llvm16itanium_demangle10NestedName11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !308
+  %3 = load ptr, ptr %2, align 8, !tbaa !310
   %4 = load ptr, ptr %3, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -29302,7 +29307,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle9LocalNameE
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %.0.val, ptr %24, align 8, !tbaa !91
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr %.0.val1, ptr %25, align 8, !tbaa !309
+  store ptr %.0.val1, ptr %25, align 8, !tbaa !311
   ret ptr %18
 }
 
@@ -29364,7 +29369,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %30 = add i64 %29, 2
   store i64 %30, ptr %14, align 8, !tbaa !57
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !309
+  %32 = load ptr, ptr %31, align 8, !tbaa !311
   %33 = load ptr, ptr %32, align 8, !tbaa !55
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
@@ -29458,7 +29463,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle13ParameterPackC2ENS0
   %36 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32
   %37 = add nsw i64 %.047.i.i.i.i, -1
   %38 = icmp sgt i64 %.047.i.i.i.i, 1
-  br i1 %38, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !310
+  br i1 %38, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !312
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %35
   %39 = and i64 %2, 3
@@ -29579,7 +29584,7 @@ _ZSt6all_ofIPPN4llvm16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArra
   %90 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i14, i64 32
   %91 = add nsw i64 %.047.i.i.i.i13, -1
   %92 = icmp sgt i64 %.047.i.i.i.i13, 1
-  br i1 %92, label %.lr.ph.i.i.i.i12, label %._crit_edge.loopexit.i.i.i.i19, !llvm.loop !311
+  br i1 %92, label %.lr.ph.i.i.i.i12, label %._crit_edge.loopexit.i.i.i.i19, !llvm.loop !313
 
 ._crit_edge.loopexit.i.i.i.i19:                   ; preds = %89
   %93 = and i64 %2, 3
@@ -29701,7 +29706,7 @@ _ZSt6all_ofIPPN4llvm16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArra
   %141 = getelementptr inbounds nuw i8, ptr %.02952.i.i.i.i, i64 32
   %142 = add nsw i64 %.053.i.i.i.i, -1
   %143 = icmp sgt i64 %.053.i.i.i.i, 1
-  br i1 %143, label %.lr.ph.i.i.i.i30, label %._crit_edge.loopexit.i.i.i.i31, !llvm.loop !312
+  br i1 %143, label %.lr.ph.i.i.i.i30, label %._crit_edge.loopexit.i.i.i.i31, !llvm.loop !314
 
 ._crit_edge.loopexit.i.i.i.i31:                   ; preds = %140
   %144 = and i64 %2, 3
@@ -29788,13 +29793,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13Para
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !51
   %.phi.trans.insert5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre6 = load i64, ptr %.phi.trans.insert5, align 8, !tbaa !245
+  %.pre6 = load i64, ptr %.phi.trans.insert5, align 8, !tbaa !247
   %6 = zext i32 %.pre to i64
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !245
+  %9 = load i64, ptr %8, align 8, !tbaa !247
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -29809,7 +29814,7 @@ _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12Outpu
 
 15:                                               ; preds = %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !246
+  %17 = load ptr, ptr %16, align 8, !tbaa !248
   %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -29845,13 +29850,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13Para
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !51
   %.phi.trans.insert5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre6 = load i64, ptr %.phi.trans.insert5, align 8, !tbaa !245
+  %.pre6 = load i64, ptr %.phi.trans.insert5, align 8, !tbaa !247
   %6 = zext i32 %.pre to i64
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !245
+  %9 = load i64, ptr %8, align 8, !tbaa !247
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -29866,7 +29871,7 @@ _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12Outpu
 
 15:                                               ; preds = %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !246
+  %17 = load ptr, ptr %16, align 8, !tbaa !248
   %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -29904,13 +29909,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13Para
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !51
   %.phi.trans.insert5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre6 = load i64, ptr %.phi.trans.insert5, align 8, !tbaa !245
+  %.pre6 = load i64, ptr %.phi.trans.insert5, align 8, !tbaa !247
   %6 = zext i32 %.pre to i64
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !245
+  %9 = load i64, ptr %8, align 8, !tbaa !247
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -29925,7 +29930,7 @@ _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12Outpu
 
 15:                                               ; preds = %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !246
+  %17 = load ptr, ptr %16, align 8, !tbaa !248
   %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 9
@@ -29963,13 +29968,13 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm16itanium_demangle13ParameterPa
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !51
   %.phi.trans.insert5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre6 = load i64, ptr %.phi.trans.insert5, align 8, !tbaa !245
+  %.pre6 = load i64, ptr %.phi.trans.insert5, align 8, !tbaa !247
   %6 = zext i32 %.pre to i64
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !245
+  %9 = load i64, ptr %8, align 8, !tbaa !247
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -29984,7 +29989,7 @@ _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12Outpu
 
 15:                                               ; preds = %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !246
+  %17 = load ptr, ptr %16, align 8, !tbaa !248
   %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !29
   %20 = load ptr, ptr %19, align 8, !tbaa !55
@@ -30009,13 +30014,13 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13ParameterPack9prin
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !51
   %.phi.trans.insert5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre6 = load i64, ptr %.phi.trans.insert5, align 8, !tbaa !245
+  %.pre6 = load i64, ptr %.phi.trans.insert5, align 8, !tbaa !247
   %6 = zext i32 %.pre to i64
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !245
+  %9 = load i64, ptr %8, align 8, !tbaa !247
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -30030,7 +30035,7 @@ _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12Outpu
 
 15:                                               ; preds = %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !246
+  %17 = load ptr, ptr %16, align 8, !tbaa !248
   %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !29
   %20 = load ptr, ptr %19, align 8, !tbaa !55
@@ -30054,13 +30059,13 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13ParameterPack10pri
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !51
   %.phi.trans.insert5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre6 = load i64, ptr %.phi.trans.insert5, align 8, !tbaa !245
+  %.pre6 = load i64, ptr %.phi.trans.insert5, align 8, !tbaa !247
   %6 = zext i32 %.pre to i64
   br label %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !245
+  %9 = load i64, ptr %8, align 8, !tbaa !247
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %3, align 4, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -30075,7 +30080,7 @@ _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12Outpu
 
 15:                                               ; preds = %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !246
+  %17 = load ptr, ptr %16, align 8, !tbaa !248
   %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !29
   %20 = load ptr, ptr %19, align 8, !tbaa !55
@@ -30136,7 +30141,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   store i64 %21, ptr %5, align 8, !tbaa !57
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load i64, ptr %23, align 8, !tbaa !245
+  %24 = load i64, ptr %23, align 8, !tbaa !247
   %.not13.i = icmp eq i64 %24, 0
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
 
@@ -30183,7 +30188,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %41 = phi i64 [ %40, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %25, %.lr.ph.i ]
-  %42 = load ptr, ptr %22, align 8, !tbaa !246
+  %42 = load ptr, ptr %22, align 8, !tbaa !248
   %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.01214.i
   %44 = load ptr, ptr %43, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %44, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -30199,7 +30204,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %49 = phi i64 [ %25, %47 ], [ %45, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %.1.i = phi i1 [ %.015.i, %47 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %50 = add i64 %.01214.i, 1
-  %51 = load i64, ptr %23, align 8, !tbaa !245
+  %51 = load i64, ptr %23, align 8, !tbaa !247
   %.not.i6 = icmp eq i64 %50, %51
   br i1 %.not.i6, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i, !llvm.loop !94
 
@@ -30313,7 +30318,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle20NameWithTemplateArg
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle20TemplateArgumentPack9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i64, ptr %4, align 8, !tbaa !245
+  %5 = load i64, ptr %4, align 8, !tbaa !247
   %.not13.i = icmp eq i64 %5, 0
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
 
@@ -30366,7 +30371,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %8
   %25 = phi i64 [ %24, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %9, %8 ]
-  %26 = load ptr, ptr %3, align 8, !tbaa !246
+  %26 = load ptr, ptr %3, align 8, !tbaa !248
   %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.01214.i
   %28 = load ptr, ptr %27, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %28, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -30382,7 +30387,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %33 = phi i64 [ %9, %31 ], [ %29, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %.1.i = phi i1 [ %.015.i, %31 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %34 = add i64 %.01214.i, 1
-  %35 = load i64, ptr %4, align 8, !tbaa !245
+  %35 = load i64, ptr %4, align 8, !tbaa !247
   %.not.i = icmp eq i64 %34, %35
   br i1 %.not.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %8, !llvm.loop !94
 
@@ -30466,7 +30471,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   store i64 %19, ptr %3, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load i64, ptr %21, align 8, !tbaa !245
+  %22 = load i64, ptr %21, align 8, !tbaa !247
   %.not13.i = icmp eq i64 %22, 0
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
 
@@ -30513,7 +30518,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %39 = phi i64 [ %38, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %23, %.lr.ph.i ]
-  %40 = load ptr, ptr %20, align 8, !tbaa !246
+  %40 = load ptr, ptr %20, align 8, !tbaa !248
   %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.01214.i
   %42 = load ptr, ptr %41, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %42, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -30529,7 +30534,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %47 = phi i64 [ %23, %45 ], [ %43, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %.1.i = phi i1 [ %.015.i, %45 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %48 = add i64 %.01214.i, 1
-  %49 = load i64, ptr %21, align 8, !tbaa !245
+  %49 = load i64, ptr %21, align 8, !tbaa !247
   %.not.i5 = icmp eq i64 %48, %49
   br i1 %.not.i5, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i, !llvm.loop !94
 
@@ -30785,7 +30790,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %2, %._ZN4l
   store i8 40, ptr %20, align 1, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = load i64, ptr %22, align 8, !tbaa !245
+  %23 = load i64, ptr %22, align 8, !tbaa !247
   %.not13.i = icmp eq i64 %23, 0
   %.pre = load i64, ptr %6, align 8, !tbaa !57
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -30833,7 +30838,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %40 = phi i64 [ %39, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %24, %.lr.ph.i ]
-  %41 = load ptr, ptr %21, align 8, !tbaa !246
+  %41 = load ptr, ptr %21, align 8, !tbaa !248
   %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.01214.i
   %43 = load ptr, ptr %42, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %43, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -30849,7 +30854,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %48 = phi i64 [ %24, %46 ], [ %44, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %.1.i = phi i1 [ %.015.i, %46 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %49 = add i64 %.01214.i, 1
-  %50 = load i64, ptr %22, align 8, !tbaa !245
+  %50 = load i64, ptr %22, align 8, !tbaa !247
   %.not.i = icmp eq i64 %49, %50
   br i1 %.not.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i, !llvm.loop !94
 
@@ -31114,7 +31119,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit51: ; preds = %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit51.sink.split, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit44
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %161 = load ptr, ptr %160, align 8, !tbaa !136
+  %161 = load ptr, ptr %160, align 8, !tbaa !138
   %.not18 = icmp eq ptr %161, null
   br i1 %.not18, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit, label %162
 
@@ -31138,7 +31143,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
 
 _ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit: ; preds = %168, %162, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit51
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %173 = load ptr, ptr %172, align 8, !tbaa !137
+  %173 = load ptr, ptr %172, align 8, !tbaa !139
   %.not19 = icmp eq ptr %173, null
   br i1 %.not19, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit69, label %174
 
@@ -31176,7 +31181,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i62: ; preds = %._ZN4llvm16
   %188 = load i64, ptr %6, align 8, !tbaa !57
   %189 = add i64 %188, 10
   store i64 %189, ptr %6, align 8, !tbaa !57
-  %190 = load ptr, ptr %172, align 8, !tbaa !137
+  %190 = load ptr, ptr %172, align 8, !tbaa !139
   %191 = load ptr, ptr %190, align 8, !tbaa !55
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 32
   %193 = load ptr, ptr %192, align 8
@@ -31528,7 +31533,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %89, ptr %86, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle12NoexceptSpecE, i64 16), ptr %84, align 8, !tbaa !55
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  store ptr %58, ptr %90, align 8, !tbaa !313
+  store ptr %58, ptr %90, align 8, !tbaa !315
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit44.thread
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i40: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i33
@@ -31628,7 +31633,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   store ptr %111, ptr %137, align 8, !tbaa !29
   %.pre = load ptr, ptr %0, align 16, !tbaa !9
   %.pre148 = load ptr, ptr %3, align 8, !tbaa !25
-  br label %104, !llvm.loop !315
+  br label %104, !llvm.loop !317
 
 139:                                              ; preds = %107
   %140 = getelementptr inbounds nuw i8, ptr %106, i64 1
@@ -31851,7 +31856,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit80, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit66
-  br label %.backedge, !llvm.loop !316
+  br label %.backedge, !llvm.loop !318
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit63: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i72, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i67, %201
   %.sink206 = phi i64 [ 1, %201 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i67 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i72 ]
@@ -31902,17 +31907,17 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %267, ptr %264, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle12FunctionTypeE, i64 16), ptr %262, align 8, !tbaa !55
   %268 = getelementptr inbounds nuw i8, ptr %262, i64 16
-  store ptr %186, ptr %268, align 8, !tbaa !317
+  store ptr %186, ptr %268, align 8, !tbaa !319
   %269 = getelementptr inbounds nuw i8, ptr %262, i64 24
   store ptr %244, ptr %269, align 8, !tbaa !93
   %.sroa.2.0..sroa_idx.i.i.i81 = getelementptr inbounds nuw i8, ptr %262, i64 32
   store i64 %245, ptr %.sroa.2.0..sroa_idx.i.i.i81, align 8, !tbaa !72
   %270 = getelementptr inbounds nuw i8, ptr %262, i64 40
-  store i32 %.2.i, ptr %270, align 8, !tbaa !319
+  store i32 %.2.i, ptr %270, align 8, !tbaa !321
   %271 = getelementptr inbounds nuw i8, ptr %262, i64 44
-  store i8 %.099, ptr %271, align 4, !tbaa !320
+  store i8 %.099, ptr %271, align 4, !tbaa !322
   %272 = getelementptr inbounds nuw i8, ptr %262, i64 48
-  store ptr %.098, ptr %272, align 8, !tbaa !321
+  store ptr %.098, ptr %272, align 8, !tbaa !323
   br label %.critedge22
 
 .critedge22:                                      ; preds = %110, %.thread185, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit54, %176, %60, %63, %56, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit60, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_12FunctionTypeEJRPNS0_4NodeERNS0_9NodeArrayERNS0_10QualifiersERNS0_15FunctionRefQualESB_EEESA_DpOT0_.exit
@@ -32092,7 +32097,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %73, ptr %70, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle13ObjCProtoNameE, i64 16), ptr %68, align 8, !tbaa !55
   %74 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store ptr %49, ptr %74, align 8, !tbaa !322
+  store ptr %49, ptr %74, align 8, !tbaa !324
   %75 = getelementptr inbounds nuw i8, ptr %68, i64 24
   store i64 %41, ptr %75, align 8, !tbaa !72
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %68, i64 32
@@ -32161,13 +32166,13 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %106, ptr %103, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle17VendorExtQualTypeE, i64 16), ptr %101, align 8, !tbaa !55
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  store ptr %82, ptr %107, align 8, !tbaa !324
+  store ptr %82, ptr %107, align 8, !tbaa !326
   %108 = getelementptr inbounds nuw i8, ptr %101, i64 24
   store i64 %19, ptr %108, align 8, !tbaa !72
   %.sroa.2.0..sroa_idx.i.i.i33 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store ptr %15, ptr %.sroa.2.0..sroa_idx.i.i.i33, align 8, !tbaa !73
   %109 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  store ptr %.052, ptr %109, align 8, !tbaa !326
+  store ptr %.052, ptr %109, align 8, !tbaa !328
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseBareSourceNameEv.exit.thread
 
 110:                                              ; preds = %5
@@ -32269,9 +32274,9 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %157, ptr %153, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle8QualTypeE, i64 16), ptr %149, align 8, !tbaa !55
   %158 = getelementptr inbounds nuw i8, ptr %149, i64 12
-  store i32 %.2.i, ptr %158, align 4, !tbaa !327
+  store i32 %.2.i, ptr %158, align 4, !tbaa !329
   %159 = getelementptr inbounds nuw i8, ptr %149, i64 16
-  store ptr %129, ptr %159, align 8, !tbaa !329
+  store ptr %129, ptr %159, align 8, !tbaa !331
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseBareSourceNameEv.exit.thread
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseBareSourceNameEv.exit.thread: ; preds = %8, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.i.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E20parsePositiveIntegerEPm.exit.i, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E17parseCVQualifiersEv.exit, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_8QualTypeEJRPNS0_4NodeERNS0_10QualifiersEEEESA_DpOT0_.exit, %131, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseBareSourceNameEv.exit, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_13ObjCProtoNameEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEEEEESA_DpOT0_.exit, %48, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseBareSourceNameEv.exit27.thread, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E19parseBareSourceNameEv.exit27, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_17VendorExtQualTypeEJRPNS0_4NodeERSt17basic_string_viewIcSt11char_traitsIcEESB_EEESA_DpOT0_.exit, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.thread, %79
@@ -32679,7 +32684,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle15Transform
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !73
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr %.0.val, ptr %26, align 8, !tbaa !330
+  store ptr %.0.val, ptr %26, align 8, !tbaa !332
   ret ptr %19
 }
 
@@ -32726,7 +32731,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle12BinaryFPT
   store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle12BinaryFPTypeE, i64 16), ptr %18, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %24, align 8, !tbaa !332
+  store ptr %.0.val, ptr %24, align 8, !tbaa !334
   ret ptr %18
 }
 
@@ -32964,19 +32969,18 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle10BitIntTyp
   store i64 %16, ptr %15, align 8, !tbaa !63
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = getelementptr inbounds i8, ptr %17, i64 %13
-  %19 = and i8 %.0.val1, 1
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i8 32, ptr %20, align 8, !tbaa !64
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 9
-  %22 = load i16, ptr %21, align 1
-  %23 = and i16 %22, -4096
-  %24 = or disjoint i16 %23, 1344
-  store i16 %24, ptr %21, align 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i8 32, ptr %19, align 8, !tbaa !64
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 9
+  %21 = load i16, ptr %20, align 1
+  %22 = and i16 %21, -4096
+  %23 = or disjoint i16 %22, 1344
+  store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10BitIntTypeE, i64 16), ptr %18, align 8, !tbaa !55
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %25, align 8, !tbaa !334
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i8 %19, ptr %26, align 8, !tbaa !336
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr %.0.val, ptr %24, align 8, !tbaa !336
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store i8 %.0.val1, ptr %25, align 8, !tbaa !338
   ret ptr %18
 }
 
@@ -33026,7 +33030,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQu
   store i16 %24, ptr %21, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %19, align 8, !tbaa !55
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %.0.val, ptr %25, align 8, !tbaa !337
+  store ptr %.0.val, ptr %25, align 8, !tbaa !339
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %.sroa.0.0.copyload.i, ptr %26, align 8, !tbaa !72
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -33236,9 +33240,9 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %97, ptr %94, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10VectorTypeE, i64 16), ptr %92, align 8, !tbaa !55
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  store ptr %74, ptr %98, align 8, !tbaa !339
+  store ptr %74, ptr %98, align 8, !tbaa !341
   %99 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  store ptr %65, ptr %99, align 8, !tbaa !341
+  store ptr %65, ptr %99, align 8, !tbaa !343
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
 
 100:                                              ; preds = %63
@@ -33290,9 +33294,9 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   store i16 %125, ptr %122, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10VectorTypeE, i64 16), ptr %120, align 8, !tbaa !55
   %126 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  store ptr %102, ptr %126, align 8, !tbaa !339
+  store ptr %102, ptr %126, align 8, !tbaa !341
   %127 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  store ptr null, ptr %127, align 8, !tbaa !341
+  store ptr null, ptr %127, align 8, !tbaa !343
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread
 
 _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread: ; preds = %66, %69, %32, %47, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %1, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10VectorTypeEJRPNS0_4NodeEDnEEESA_DpOT0_.exit, %100, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit.thread, %72, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_10VectorTypeEJRPNS0_4NodeESB_EEESA_DpOT0_.exit, %55, %58, %61
@@ -33385,7 +33389,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %.sroa.8.0, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !73
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  store ptr %14, ptr %41, align 8, !tbaa !342
+  store ptr %14, ptr %41, align 8, !tbaa !344
   br label %.thread30
 
 .thread30:                                        ; preds = %.thread, %12, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4makeINS0_22ElaboratedTypeSpefTypeEJRSt17basic_string_viewIcSt11char_traitsIcEERPNS0_4NodeEEEESF_DpOT0_.exit
@@ -33440,7 +33444,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle11PointerTy
   store i16 %27, ptr %23, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle11PointerTypeE, i64 16), ptr %18, align 8, !tbaa !55
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %28, align 8, !tbaa !344
+  store ptr %.0.val, ptr %28, align 8, !tbaa !346
   ret ptr %18
 }
 
@@ -33491,11 +33495,11 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle13Reference
   store i16 %27, ptr %23, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle13ReferenceTypeE, i64 16), ptr %18, align 8, !tbaa !55
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %28, align 8, !tbaa !346
+  store ptr %.0.val, ptr %28, align 8, !tbaa !348
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i32 %.0.val1, ptr %29, align 8, !tbaa !349
+  store i32 %.0.val1, ptr %29, align 8, !tbaa !351
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 28
-  store i8 0, ptr %30, align 4, !tbaa !350
+  store i8 0, ptr %30, align 4, !tbaa !352
   ret ptr %18
 }
 
@@ -33542,7 +33546,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQu
   store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %18, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %24, align 8, !tbaa !337
+  store ptr %.0.val, ptr %24, align 8, !tbaa !339
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 8, ptr %25, align 8, !tbaa !72
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -33593,7 +33597,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle20PostfixQu
   store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle20PostfixQualifiedTypeE, i64 16), ptr %18, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %24, align 8, !tbaa !337
+  store ptr %.0.val, ptr %24, align 8, !tbaa !339
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 10, ptr %25, align 8, !tbaa !72
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -33675,7 +33679,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZN4llvm16
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %32
   store i8 40, ptr %34, align 1, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !313
+  %36 = load ptr, ptr %35, align 8, !tbaa !315
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %36, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 19, i1 noundef zeroext false)
   %37 = load i32, ptr %20, align 8, !tbaa !54
   %38 = add i32 %37, -1
@@ -33797,7 +33801,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZN4llvm16
   store i8 40, ptr %34, align 1, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load i64, ptr %36, align 8, !tbaa !245
+  %37 = load i64, ptr %36, align 8, !tbaa !247
   %.not13.i = icmp eq i64 %37, 0
   %.pre = load i64, ptr %3, align 8, !tbaa !57
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -33845,7 +33849,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %54 = phi i64 [ %53, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %38, %.lr.ph.i ]
-  %55 = load ptr, ptr %35, align 8, !tbaa !246
+  %55 = load ptr, ptr %35, align 8, !tbaa !248
   %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.01214.i
   %57 = load ptr, ptr %56, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %57, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -33861,7 +33865,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %62 = phi i64 [ %38, %60 ], [ %58, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %.1.i = phi i1 [ %.015.i, %60 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %63 = add i64 %.01214.i, 1
-  %64 = load i64, ptr %36, align 8, !tbaa !245
+  %64 = load i64, ptr %36, align 8, !tbaa !247
   %.not.i7 = icmp eq i64 %63, %64
   br i1 %.not.i7, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i, !llvm.loop !94
 
@@ -33924,7 +33928,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle12Func
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle12FunctionType9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !317
+  %4 = load ptr, ptr %3, align 8, !tbaa !319
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -34010,7 +34014,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %2, %._ZN4l
   store i8 40, ptr %20, align 1, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load i64, ptr %22, align 8, !tbaa !245
+  %23 = load i64, ptr %22, align 8, !tbaa !247
   %.not13.i = icmp eq i64 %23, 0
   %.pre = load i64, ptr %6, align 8, !tbaa !57
   br i1 %.not13.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i
@@ -34058,7 +34062,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %40 = phi i64 [ %39, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %24, %.lr.ph.i ]
-  %41 = load ptr, ptr %21, align 8, !tbaa !246
+  %41 = load ptr, ptr %21, align 8, !tbaa !248
   %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.01214.i
   %43 = load ptr, ptr %42, align 8, !tbaa !29
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %43, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
@@ -34074,7 +34078,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   %48 = phi i64 [ %24, %46 ], [ %44, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %.1.i = phi i1 [ %.015.i, %46 ], [ false, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i ]
   %49 = add i64 %.01214.i, 1
-  %50 = load i64, ptr %22, align 8, !tbaa !245
+  %50 = load i64, ptr %22, align 8, !tbaa !247
   %.not.i = icmp eq i64 %49, %50
   br i1 %.not.i, label %_ZNK4llvm16itanium_demangle9NodeArray14printWithCommaERNS0_12OutputBufferE.exit, label %.lr.ph.i, !llvm.loop !94
 
@@ -34116,13 +34120,13 @@ _ZN4llvm16itanium_demangle12OutputBuffer10printCloseEc.exit: ; preds = %_ZNK4llv
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 %63
   store i8 41, ptr %65, align 1, !tbaa !3
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !317
+  %67 = load ptr, ptr %66, align 8, !tbaa !319
   %68 = load ptr, ptr %67, align 8, !tbaa !55
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %70 = load ptr, ptr %69, align 8
   tail call void %70(ptr noundef nonnull align 8 dereferenceable(11) %67, ptr noundef nonnull align 8 dereferenceable(36) %1) #21
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %72 = load i32, ptr %71, align 8, !tbaa !319
+  %72 = load i32, ptr %71, align 8, !tbaa !321
   %73 = and i32 %72, 1
   %.not = icmp eq i32 %73, 0
   br i1 %.not, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %74
@@ -34161,7 +34165,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %88 = load i64, ptr %6, align 8, !tbaa !57
   %89 = add i64 %88, 6
   store i64 %89, ptr %6, align 8, !tbaa !57
-  %.pre67 = load i32, ptr %71, align 8, !tbaa !319
+  %.pre67 = load i32, ptr %71, align 8, !tbaa !321
   br label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i, %_ZN4llvm16itanium_demangle12OutputBuffer10printCloseEc.exit
@@ -34204,7 +34208,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i28: ; preds = %._ZN4llvm16
   %106 = load i64, ptr %6, align 8, !tbaa !57
   %107 = add i64 %106, 9
   store i64 %107, ptr %6, align 8, !tbaa !57
-  %.pre68 = load i32, ptr %71, align 8, !tbaa !319
+  %.pre68 = load i32, ptr %71, align 8, !tbaa !321
   br label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit32
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit32: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i28, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -34251,7 +34255,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i35: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit39: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i35, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit32
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %127 = load i8, ptr %126, align 4, !tbaa !320
+  %127 = load i8, ptr %126, align 4, !tbaa !322
   switch i8 %127, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit46 [
     i8 1, label %128
     i8 2, label %142
@@ -34332,7 +34336,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit46: ; preds = %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit46.sink.split, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit39
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %159 = load ptr, ptr %158, align 8, !tbaa !321
+  %159 = load ptr, ptr %158, align 8, !tbaa !323
   %.not14 = icmp eq ptr %159, null
   br i1 %.not14, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit, label %160
 
@@ -34370,7 +34374,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit: ; preds = %160, %._ZN4llvm16i
   store i64 %.pre-phi.i, ptr %6, align 8, !tbaa !57
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 %171
   store i8 32, ptr %173, align 1, !tbaa !3
-  %174 = load ptr, ptr %158, align 8, !tbaa !321
+  %174 = load ptr, ptr %158, align 8, !tbaa !323
   %175 = load ptr, ptr %174, align 8, !tbaa !55
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 32
   %177 = load ptr, ptr %176, align 8
@@ -34401,7 +34405,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle12FunctionTypeD0Ev(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13ObjCProtoName9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !322
+  %4 = load ptr, ptr %3, align 8, !tbaa !324
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -34543,7 +34547,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle13ObjCProtoNameD0Ev(p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle17VendorExtQualType9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !324
+  %4 = load ptr, ptr %3, align 8, !tbaa !326
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -34641,7 +34645,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i8: ; preds = %._ZN4llvm16i
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit12: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %48 = load ptr, ptr %47, align 8, !tbaa !326
+  %48 = load ptr, ptr %47, align 8, !tbaa !328
   %.not = icmp eq ptr %48, null
   br i1 %.not, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit15, label %49
 
@@ -34676,7 +34680,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle17VendorExtQualTypeD0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle8QualType19hasRHSComponentSlowERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !329
+  %4 = load ptr, ptr %3, align 8, !tbaa !331
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = trunc i16 %6 to i8
@@ -34702,7 +34706,7 @@ _ZNK4llvm16itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle8QualType12hasArraySlowERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !329
+  %4 = load ptr, ptr %3, align 8, !tbaa !331
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = lshr i16 %6, 8
@@ -34730,7 +34734,7 @@ _ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit: ; preds = %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle8QualType15hasFunctionSlowERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !329
+  %4 = load ptr, ptr %3, align 8, !tbaa !331
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = lshr i16 %6, 10
@@ -34758,7 +34762,7 @@ _ZNK4llvm16itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit: ; preds
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle8QualType9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !329
+  %4 = load ptr, ptr %3, align 8, !tbaa !331
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -34770,7 +34774,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle8QualType9printLeftE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle8QualType10printRightERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !329
+  %4 = load ptr, ptr %3, align 8, !tbaa !331
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
@@ -34787,7 +34791,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle8QualTypeD0Ev(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle8QualType10printQualsERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !327
+  %4 = load i32, ptr %3, align 4, !tbaa !329
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %6
@@ -34828,7 +34832,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %22 = load i64, ptr %7, align 8, !tbaa !57
   %23 = add i64 %22, 6
   store i64 %23, ptr %7, align 8, !tbaa !57
-  %.pre = load i32, ptr %3, align 4, !tbaa !327
+  %.pre = load i32, ptr %3, align 4, !tbaa !329
   br label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i, %2
@@ -34873,7 +34877,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i8: ; preds = %._ZN4llvm16i
   %42 = load i64, ptr %27, align 8, !tbaa !57
   %43 = add i64 %42, 9
   store i64 %43, ptr %27, align 8, !tbaa !57
-  %.pre24 = load i32, ptr %3, align 4, !tbaa !327
+  %.pre24 = load i32, ptr %3, align 4, !tbaa !329
   br label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit12
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit12: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i8, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -35008,7 +35012,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit: ; preds = %_ZN4llvm16itanium_
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %32
   store i8 40, ptr %34, align 1, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !330
+  %36 = load ptr, ptr %35, align 8, !tbaa !332
   %37 = load ptr, ptr %36, align 8, !tbaa !55
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
@@ -35107,7 +35111,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 6
   store i64 %19, ptr %3, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !332
+  %21 = load ptr, ptr %20, align 8, !tbaa !334
   %22 = load ptr, ptr %21, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -35138,7 +35142,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle12BinaryFPTypeD0Ev(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle10BitIntType9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i8, ptr %3, align 8, !tbaa !336, !range !116, !noundef !117
+  %4 = load i8, ptr %3, align 8, !tbaa !338, !range !116, !noundef !117
   %5 = trunc nuw i8 %4 to i1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !57
@@ -35253,7 +35257,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer9printOpenEc.exit: ; preds = %_ZN4llvm16
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %51
   store i8 40, ptr %53, align 1, !tbaa !3
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !334
+  %55 = load ptr, ptr %54, align 8, !tbaa !336
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %55, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 19, i1 noundef zeroext false)
   %56 = load i32, ptr %39, align 8, !tbaa !54
   %57 = add i32 %56, -1
@@ -35303,7 +35307,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle10BitIntTypeD0Ev(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle20PostfixQualifiedType9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !337
+  %4 = load ptr, ptr %3, align 8, !tbaa !339
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -35406,7 +35410,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle15PixelVect
   store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle15PixelVectorTypeE, i64 16), ptr %18, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %24, align 8, !tbaa !351
+  store ptr %.0.val, ptr %24, align 8, !tbaa !353
   ret ptr %18
 }
 
@@ -35453,9 +35457,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle10VectorTyp
   store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle10VectorTypeE, i64 16), ptr %18, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %24, align 8, !tbaa !339
+  store ptr %.0.val, ptr %24, align 8, !tbaa !341
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr %.0.val1, ptr %25, align 8, !tbaa !341
+  store ptr %.0.val1, ptr %25, align 8, !tbaa !343
   ret ptr %18
 }
 
@@ -35497,7 +35501,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %19 = add i64 %18, 13
   store i64 %19, ptr %3, align 8, !tbaa !57
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !351
+  %21 = load ptr, ptr %20, align 8, !tbaa !353
   %22 = load ptr, ptr %21, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -35561,7 +35565,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle15PixelVectorTypeD0Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle10VectorType9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !339
+  %4 = load ptr, ptr %3, align 8, !tbaa !341
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -35616,7 +35620,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   %30 = add i64 %29, 8
   store i64 %30, ptr %14, align 8, !tbaa !57
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !341
+  %32 = load ptr, ptr %31, align 8, !tbaa !343
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit8, label %33
 
@@ -35724,9 +35728,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle9ArrayTypeE
   store i16 %23, ptr %20, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle9ArrayTypeE, i64 16), ptr %18, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %24, align 8, !tbaa !353
+  store ptr %.0.val, ptr %24, align 8, !tbaa !355
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr %.0.val1, ptr %25, align 8, !tbaa !355
+  store ptr %.0.val1, ptr %25, align 8, !tbaa !357
   ret ptr %18
 }
 
@@ -35743,7 +35747,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle9Array
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle9ArrayType9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !353
+  %4 = load ptr, ptr %3, align 8, !tbaa !355
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -35834,7 +35838,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i10: ; preds = %._ZN4llvm16
   %40 = add i64 %39, 1
   store i64 %40, ptr %4, align 8, !tbaa !57
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !355
+  %42 = load ptr, ptr %41, align 8, !tbaa !357
   %.not7 = icmp eq ptr %42, null
   br i1 %.not7, label %_ZNK4llvm16itanium_demangle4Node5printERNS0_12OutputBufferE.exit, label %43
 
@@ -35891,7 +35895,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i18: ; preds = %._ZN4llvm16
   %67 = add i64 %66, 1
   store i64 %67, ptr %4, align 8, !tbaa !57
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %69 = load ptr, ptr %68, align 8, !tbaa !353
+  %69 = load ptr, ptr %68, align 8, !tbaa !355
   %70 = load ptr, ptr %69, align 8, !tbaa !55
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
   %72 = load ptr, ptr %71, align 8
@@ -35902,7 +35906,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i18: ; preds = %._ZN4llvm16
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle9ArrayType19printInitListAsTypeERNS0_12OutputBufferERKNS0_9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !353
+  %5 = load ptr, ptr %4, align 8, !tbaa !355
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i8, ptr %6, align 8, !tbaa !64
   %8 = icmp eq i8 %7, 8
@@ -35973,9 +35977,9 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit: ; preds = %2, %._ZN4llvm16ita
   store i64 %.pre-phi.i, ptr %3, align 8, !tbaa !57
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %15
   store i8 34, ptr %17, align 1, !tbaa !3
-  %18 = load ptr, ptr %0, align 8, !tbaa !246
+  %18 = load ptr, ptr %0, align 8, !tbaa !248
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !245
+  %20 = load i64, ptr %19, align 8, !tbaa !247
   %.idx = shl nuw nsw i64 %20, 3
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %.not263 = icmp eq i64 %20, 0
@@ -36729,16 +36733,16 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvm16itanium_demangle19PointerTo
   store i16 %27, ptr %23, align 1
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN4llvm16itanium_demangle19PointerToMemberTypeE, i64 16), ptr %18, align 8, !tbaa !55
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %.0.val, ptr %28, align 8, !tbaa !356
+  store ptr %.0.val, ptr %28, align 8, !tbaa !358
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr %.0.val1, ptr %29, align 8, !tbaa !358
+  store ptr %.0.val1, ptr %29, align 8, !tbaa !360
   ret ptr %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle19PointerToMemberType19hasRHSComponentSlowERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !358
+  %4 = load ptr, ptr %3, align 8, !tbaa !360
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = trunc i16 %6 to i8
@@ -36764,12 +36768,12 @@ _ZNK4llvm16itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle19PointerToMemberType9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !358
+  %4 = load ptr, ptr %3, align 8, !tbaa !360
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(11) %4, ptr noundef nonnull align 8 dereferenceable(36) %1) #21
-  %8 = load ptr, ptr %3, align 8, !tbaa !358
+  %8 = load ptr, ptr %3, align 8, !tbaa !360
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %10 = load i16, ptr %9, align 1
   %11 = lshr i16 %10, 8
@@ -36788,7 +36792,7 @@ _ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit: ; preds = %
   br i1 %17, label %28, label %_ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit._crit_edge
 
 _ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit._crit_edge: ; preds = %_ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit
-  %.pre = load ptr, ptr %3, align 8, !tbaa !358
+  %.pre = load ptr, ptr %3, align 8, !tbaa !360
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 9
   %.pre30 = load i16, ptr %.phi.trans.insert, align 1
   br label %18
@@ -36889,7 +36893,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i13: ; preds = %._ZN4llvm16
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i13, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %65 = load ptr, ptr %64, align 8, !tbaa !356
+  %65 = load ptr, ptr %64, align 8, !tbaa !358
   %66 = load ptr, ptr %65, align 8, !tbaa !55
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = load ptr, ptr %67, align 8
@@ -36949,7 +36953,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i21: ; preds = %._ZN4llvm16
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle19PointerToMemberType10printRightERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !358
+  %4 = load ptr, ptr %3, align 8, !tbaa !360
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = lshr i16 %6, 8
@@ -36968,7 +36972,7 @@ _ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit: ; preds = %
   br i1 %13, label %24, label %_ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit._crit_edge
 
 _ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit._crit_edge: ; preds = %_ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit
-  %.pre = load ptr, ptr %3, align 8, !tbaa !358
+  %.pre = load ptr, ptr %3, align 8, !tbaa !360
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 9
   %.pre8 = load i16, ptr %.phi.trans.insert, align 1
   br label %14
@@ -37030,7 +37034,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   br label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %14, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i, %_ZNK4llvm16itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
-  %42 = load ptr, ptr %3, align 8, !tbaa !358
+  %42 = load ptr, ptr %3, align 8, !tbaa !360
   %43 = load ptr, ptr %42, align 8, !tbaa !55
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8
@@ -37128,7 +37132,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit: ; preds = %_ZN4llvm16itanium_
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %32
   store i8 32, ptr %34, align 1, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !342
+  %36 = load ptr, ptr %35, align 8, !tbaa !344
   %37 = load ptr, ptr %36, align 8, !tbaa !55
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
@@ -37159,7 +37163,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle22ElaboratedTypeSpefT
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle11PointerType19hasRHSComponentSlowERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !344
+  %4 = load ptr, ptr %3, align 8, !tbaa !346
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = trunc i16 %6 to i8
@@ -37185,7 +37189,7 @@ _ZNK4llvm16itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle11PointerType9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !344
+  %4 = load ptr, ptr %3, align 8, !tbaa !346
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !64
   %.not = icmp eq i8 %6, 11
@@ -37193,7 +37197,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle11PointerType9printL
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !322
+  %9 = load ptr, ptr %8, align 8, !tbaa !324
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i8, ptr %10, align 8, !tbaa !64
   %12 = icmp eq i8 %11, 8
@@ -37217,7 +37221,7 @@ _ZNK4llvm16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit.thread: ; preds 
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(11) %4, ptr noundef nonnull align 8 dereferenceable(36) %1) #21
-  %20 = load ptr, ptr %3, align 8, !tbaa !344
+  %20 = load ptr, ptr %3, align 8, !tbaa !346
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 9
   %22 = load i16, ptr %21, align 1
   %23 = lshr i16 %22, 8
@@ -37274,7 +37278,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   br label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNK4llvm16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit.thread, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i, %_ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit
-  %48 = load ptr, ptr %3, align 8, !tbaa !344
+  %48 = load ptr, ptr %3, align 8, !tbaa !346
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 9
   %50 = load i16, ptr %49, align 1
   %51 = lshr i16 %50, 8
@@ -37293,7 +37297,7 @@ _ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit15: ; preds =
   br i1 %57, label %68, label %_ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit15._crit_edge
 
 _ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit15._crit_edge: ; preds = %_ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit15
-  %.pre = load ptr, ptr %3, align 8, !tbaa !344
+  %.pre = load ptr, ptr %3, align 8, !tbaa !346
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 9
   %.pre61 = load i16, ptr %.phi.trans.insert, align 1
   br label %58
@@ -37513,7 +37517,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle11PointerType10printRightERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !344
+  %4 = load ptr, ptr %3, align 8, !tbaa !346
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !64
   %.not = icmp eq i8 %6, 11
@@ -37521,7 +37525,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle11PointerType10print
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !322
+  %9 = load ptr, ptr %8, align 8, !tbaa !324
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i8, ptr %10, align 8, !tbaa !64
   %12 = icmp eq i8 %11, 8
@@ -37559,7 +37563,7 @@ _ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit: ; preds = %
   br i1 %25, label %36, label %_ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit._crit_edge
 
 _ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit._crit_edge: ; preds = %_ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit
-  %.pre = load ptr, ptr %3, align 8, !tbaa !344
+  %.pre = load ptr, ptr %3, align 8, !tbaa !346
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 9
   %.pre8 = load i16, ptr %.phi.trans.insert, align 1
   br label %26
@@ -37621,7 +37625,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i: ; preds = %._ZN4llvm16it
   br label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %26, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i, %_ZNK4llvm16itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
-  %54 = load ptr, ptr %3, align 8, !tbaa !344
+  %54 = load ptr, ptr %3, align 8, !tbaa !346
   %55 = load ptr, ptr %54, align 8, !tbaa !55
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %57 = load ptr, ptr %56, align 8
@@ -37641,7 +37645,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle11PointerTypeD0Ev(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13ReferenceType19hasRHSComponentSlowERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(29) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !346
+  %4 = load ptr, ptr %3, align 8, !tbaa !348
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = trunc i16 %6 to i8
@@ -37667,7 +37671,7 @@ _ZNK4llvm16itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13ReferenceType9printLeftERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(29) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %4 = load i8, ptr %3, align 4, !tbaa !350, !range !116, !noundef !117
+  %4 = load i8, ptr %3, align 4, !tbaa !352, !range !116, !noundef !117
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %96, label %6
 
@@ -37867,7 +37871,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle13ReferenceType10printRightERNS0_12OutputBufferE(ptr noundef nonnull align 8 dereferenceable(29) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %4 = load i8, ptr %3, align 4, !tbaa !350, !range !116, !noundef !117
+  %4 = load i8, ptr %3, align 4, !tbaa !352, !range !116, !noundef !117
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %50, label %6
 
@@ -37986,16 +37990,16 @@ define linkonce_odr hidden { i32, ptr } @_ZNK4llvm16itanium_demangle13ReferenceT
   %3 = alloca %"class.llvm::itanium_demangle::PODSmallVector.23", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %4, align 8, !tbaa !359
+  %6 = load i32, ptr %4, align 8, !tbaa !361
   %7 = load ptr, ptr %5, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.ptr2.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %.ptr2.i, ptr %3, align 8, !tbaa !360
+  store ptr %.ptr2.i, ptr %3, align 8, !tbaa !362
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.ptr2.i, ptr %8, align 8, !tbaa !362
+  store ptr %.ptr2.i, ptr %8, align 8, !tbaa !364
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store ptr %10, ptr %9, align 8, !tbaa !363
+  store ptr %10, ptr %9, align 8, !tbaa !365
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr2.i, i8 0, i64 64, i1 false), !tbaa !29
   %11 = load ptr, ptr %7, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -38010,14 +38014,14 @@ define linkonce_odr hidden { i32, ptr } @_ZNK4llvm16itanium_demangle13ReferenceT
   %17 = phi ptr [ %63, %59 ], [ %14, %2 ]
   %.sroa.0.016 = phi i32 [ %.sroa.speculated, %59 ], [ %6, %2 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !346
+  %19 = load ptr, ptr %18, align 8, !tbaa !348
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %21 = load i32, ptr %20, align 8, !tbaa !359
+  %21 = load i32, ptr %20, align 8, !tbaa !361
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %21, i32 %.sroa.0.016)
-  %22 = load ptr, ptr %8, align 8, !tbaa !362
-  %23 = load ptr, ptr %9, align 8, !tbaa !363
+  %22 = load ptr, ptr %8, align 8, !tbaa !364
+  %23 = load ptr, ptr %9, align 8, !tbaa !365
   %24 = icmp eq ptr %22, %23
-  %.pre = load ptr, ptr %3, align 8, !tbaa !360
+  %.pre = load ptr, ptr %3, align 8, !tbaa !362
   br i1 %24, label %25, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE9push_backERKS4_.exit
 
 25:                                               ; preds = %.lr.ph
@@ -38047,12 +38051,12 @@ define linkonce_odr hidden { i32, ptr } @_ZNK4llvm16itanium_demangle13ReferenceT
   br label %_ZSt4copyIPPKN4llvm16itanium_demangle4NodeES5_ET0_T_S7_S6_.exit.i.i
 
 _ZSt4copyIPPKN4llvm16itanium_demangle4NodeES5_ET0_T_S7_S6_.exit.i.i: ; preds = %37, %36
-  store ptr %33, ptr %3, align 8, !tbaa !360
+  store ptr %33, ptr %3, align 8, !tbaa !362
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE7reserveEm.exit.i
 
 38:                                               ; preds = %25
   %39 = call ptr @realloc(ptr noundef %.pre, i64 noundef %31) #22
-  store ptr %39, ptr %3, align 8, !tbaa !360
+  store ptr %39, ptr %3, align 8, !tbaa !362
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE7reserveEm.exit.i
 
@@ -38064,14 +38068,14 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE7reserveEm.exit.i: ;
   %42 = phi ptr [ %39, %38 ], [ %33, %_ZSt4copyIPPKN4llvm16itanium_demangle4NodeES5_ET0_T_S7_S6_.exit.i.i ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %28
   %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %29
-  store ptr %44, ptr %9, align 8, !tbaa !363
+  store ptr %44, ptr %9, align 8, !tbaa !365
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE9push_backERKS4_.exit
 
 _ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE9push_backERKS4_.exit: ; preds = %.lr.ph, %_ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE7reserveEm.exit.i
   %45 = phi ptr [ %42, %_ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE7reserveEm.exit.i ], [ %.pre, %.lr.ph ]
   %46 = phi ptr [ %43, %_ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE7reserveEm.exit.i ], [ %22, %.lr.ph ]
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store ptr %47, ptr %8, align 8, !tbaa !362
+  store ptr %47, ptr %8, align 8, !tbaa !364
   store ptr %19, ptr %46, align 8, !tbaa !29
   %48 = ptrtoint ptr %47 to i64
   %49 = ptrtoint ptr %45 to i64
@@ -38101,7 +38105,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE9push_backERKS4_.exi
 ._crit_edge:                                      ; preds = %59, %53, %2
   %.sroa.0.1.ph = phi i32 [ %6, %2 ], [ %.sroa.speculated, %53 ], [ %.sroa.speculated, %59 ]
   %.sroa.5.1.ph = phi ptr [ %7, %2 ], [ %19, %59 ], [ null, %53 ]
-  %66 = load ptr, ptr %3, align 8, !tbaa !360
+  %66 = load ptr, ptr %3, align 8, !tbaa !362
   %67 = icmp eq ptr %66, %.ptr2.i
   br i1 %67, label %_ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EED2Ev.exit, label %68
 
@@ -38141,14 +38145,14 @@ attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #17 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -38301,231 +38305,233 @@ attributes #27 = { nounwind willreturn memory(read) }
 !133 = !{!134, !30, i64 16}
 !134 = !{!"_ZTSN4llvm16itanium_demangle25TemplateParamQualifiedArgE", !65, i64 0, !30, i64 16, !30, i64 24}
 !135 = !{!134, !30, i64 24}
-!136 = !{!81, !30, i64 48}
-!137 = !{!81, !30, i64 56}
-!138 = !{!139, !30, i64 16}
-!139 = !{!"_ZTSN4llvm16itanium_demangle21CtorVtableSpecialNameE", !65, i64 0, !30, i64 16, !30, i64 24}
-!140 = !{!139, !30, i64 24}
-!141 = !{!142, !88, i64 16}
-!142 = !{!"_ZTSN4llvm16itanium_demangle10ModuleNameE", !65, i64 0, !88, i64 16, !30, i64 24, !20, i64 32}
-!143 = !{!142, !30, i64 24}
-!144 = !{!142, !20, i64 32}
-!145 = distinct !{!145, !7}
-!146 = !{!147, !30, i64 32}
-!147 = !{!"_ZTSN4llvm16itanium_demangle12TemplateArgsE", !65, i64 0, !82, i64 16, !30, i64 32}
-!148 = !{!111, !20, i64 32}
-!149 = !{!150, !30, i64 32}
-!150 = !{!"_ZTSN4llvm16itanium_demangle13EnclosingExprE", !65, i64 0, !71, i64 16, !30, i64 32, !71, i64 40}
-!151 = !{!152, !153, i64 12}
-!152 = !{!"_ZTSN4llvm16itanium_demangle27ExpandedSpecialSubstitutionE", !65, i64 0, !153, i64 12}
-!153 = !{!"_ZTSN4llvm16itanium_demangle14SpecialSubKindE", !4, i64 0}
-!154 = distinct !{!154, !7}
-!155 = !{!87, !88, i64 16}
+!136 = !{!83, !83, i64 0}
+!137 = !{!84, !84, i64 0}
+!138 = !{!81, !30, i64 48}
+!139 = !{!81, !30, i64 56}
+!140 = !{!141, !30, i64 16}
+!141 = !{!"_ZTSN4llvm16itanium_demangle21CtorVtableSpecialNameE", !65, i64 0, !30, i64 16, !30, i64 24}
+!142 = !{!141, !30, i64 24}
+!143 = !{!144, !88, i64 16}
+!144 = !{!"_ZTSN4llvm16itanium_demangle10ModuleNameE", !65, i64 0, !88, i64 16, !30, i64 24, !20, i64 32}
+!145 = !{!144, !30, i64 24}
+!146 = !{!144, !20, i64 32}
+!147 = distinct !{!147, !7}
+!148 = !{!149, !30, i64 32}
+!149 = !{!"_ZTSN4llvm16itanium_demangle12TemplateArgsE", !65, i64 0, !82, i64 16, !30, i64 32}
+!150 = !{!111, !20, i64 32}
+!151 = !{!152, !30, i64 32}
+!152 = !{!"_ZTSN4llvm16itanium_demangle13EnclosingExprE", !65, i64 0, !71, i64 16, !30, i64 32, !71, i64 40}
+!153 = !{!154, !155, i64 12}
+!154 = !{!"_ZTSN4llvm16itanium_demangle27ExpandedSpecialSubstitutionE", !65, i64 0, !155, i64 12}
+!155 = !{!"_ZTSN4llvm16itanium_demangle14SpecialSubKindE", !4, i64 0}
 !156 = distinct !{!156, !7}
-!157 = !{!158, !4, i64 2}
-!158 = !{!"_ZTSN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoE", !4, i64 0, !4, i64 2, !20, i64 3, !67, i64 3, !11, i64 8}
-!159 = !{!158, !11, i64 8}
-!160 = !{!161, !30, i64 32}
-!161 = !{!"_ZTSN4llvm16itanium_demangle10PrefixExprE", !65, i64 0, !71, i64 16, !30, i64 32}
-!162 = distinct !{!162, !7}
-!163 = distinct !{!163, !7}
-!164 = !{!165, !30, i64 16}
-!165 = !{!"_ZTSN4llvm16itanium_demangle10DeleteExprE", !65, i64 0, !30, i64 16, !20, i64 24, !20, i64 25}
-!166 = !{!165, !20, i64 24}
-!167 = !{!165, !20, i64 25}
-!168 = distinct !{!168, !7}
-!169 = !{!170, !30, i64 16}
-!170 = !{!"_ZTSN4llvm16itanium_demangle8FoldExprE", !65, i64 0, !30, i64 16, !30, i64 24, !71, i64 32, !20, i64 48}
-!171 = !{!170, !30, i64 24}
-!172 = !{!170, !20, i64 48}
-!173 = distinct !{!173, !7}
-!174 = distinct !{!174, !7}
+!157 = !{!87, !88, i64 16}
+!158 = distinct !{!158, !7}
+!159 = !{!160, !4, i64 2}
+!160 = !{!"_ZTSN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E12OperatorInfoE", !4, i64 0, !4, i64 2, !20, i64 3, !67, i64 3, !11, i64 8}
+!161 = !{!160, !11, i64 8}
+!162 = !{!163, !30, i64 32}
+!163 = !{!"_ZTSN4llvm16itanium_demangle10PrefixExprE", !65, i64 0, !71, i64 16, !30, i64 32}
+!164 = distinct !{!164, !7}
+!165 = distinct !{!165, !7}
+!166 = !{!167, !30, i64 16}
+!167 = !{!"_ZTSN4llvm16itanium_demangle10DeleteExprE", !65, i64 0, !30, i64 16, !20, i64 24, !20, i64 25}
+!168 = !{!167, !20, i64 24}
+!169 = !{!167, !20, i64 25}
+!170 = distinct !{!170, !7}
+!171 = !{!172, !30, i64 16}
+!172 = !{!"_ZTSN4llvm16itanium_demangle8FoldExprE", !65, i64 0, !30, i64 16, !30, i64 24, !71, i64 32, !20, i64 48}
+!173 = !{!172, !30, i64 24}
+!174 = !{!172, !20, i64 48}
 !175 = distinct !{!175, !7}
 !176 = distinct !{!176, !7}
-!177 = !{!178, !30, i64 16}
-!178 = !{!"_ZTSN4llvm16itanium_demangle11PostfixExprE", !65, i64 0, !30, i64 16, !71, i64 24}
+!177 = distinct !{!177, !7}
+!178 = distinct !{!178, !7}
 !179 = !{!180, !30, i64 16}
-!180 = !{!"_ZTSN4llvm16itanium_demangle18ArraySubscriptExprE", !65, i64 0, !30, i64 16, !30, i64 24}
-!181 = !{!180, !30, i64 24}
-!182 = !{!183, !30, i64 16}
-!183 = !{!"_ZTSN4llvm16itanium_demangle10MemberExprE", !65, i64 0, !30, i64 16, !71, i64 24, !30, i64 40}
-!184 = !{!183, !30, i64 40}
-!185 = !{!186, !30, i64 32}
-!186 = !{!"_ZTSN4llvm16itanium_demangle7NewExprE", !65, i64 0, !82, i64 16, !30, i64 32, !82, i64 40, !20, i64 56, !20, i64 57}
-!187 = !{!186, !20, i64 56}
-!188 = !{!186, !20, i64 57}
-!189 = !{!190, !30, i64 16}
-!190 = !{!"_ZTSN4llvm16itanium_demangle8CallExprE", !65, i64 0, !30, i64 16, !82, i64 24, !20, i64 40}
-!191 = !{!190, !20, i64 40}
-!192 = !{!193, !30, i64 16}
-!193 = !{!"_ZTSN4llvm16itanium_demangle14ConversionExprE", !65, i64 0, !30, i64 16, !82, i64 24}
+!180 = !{!"_ZTSN4llvm16itanium_demangle11PostfixExprE", !65, i64 0, !30, i64 16, !71, i64 24}
+!181 = !{!182, !30, i64 16}
+!182 = !{!"_ZTSN4llvm16itanium_demangle18ArraySubscriptExprE", !65, i64 0, !30, i64 16, !30, i64 24}
+!183 = !{!182, !30, i64 24}
+!184 = !{!185, !30, i64 16}
+!185 = !{!"_ZTSN4llvm16itanium_demangle10MemberExprE", !65, i64 0, !30, i64 16, !71, i64 24, !30, i64 40}
+!186 = !{!185, !30, i64 40}
+!187 = !{!188, !30, i64 32}
+!188 = !{!"_ZTSN4llvm16itanium_demangle7NewExprE", !65, i64 0, !82, i64 16, !30, i64 32, !82, i64 40, !20, i64 56, !20, i64 57}
+!189 = !{!188, !20, i64 56}
+!190 = !{!188, !20, i64 57}
+!191 = !{!192, !30, i64 16}
+!192 = !{!"_ZTSN4llvm16itanium_demangle8CallExprE", !65, i64 0, !30, i64 16, !82, i64 24, !20, i64 40}
+!193 = !{!192, !20, i64 40}
 !194 = !{!195, !30, i64 16}
-!195 = !{!"_ZTSN4llvm16itanium_demangle15ConditionalExprE", !65, i64 0, !30, i64 16, !30, i64 24, !30, i64 32}
-!196 = !{!195, !30, i64 24}
-!197 = !{!195, !30, i64 32}
-!198 = !{!199, !30, i64 32}
-!199 = !{!"_ZTSN4llvm16itanium_demangle8CastExprE", !65, i64 0, !71, i64 16, !30, i64 32, !30, i64 40}
-!200 = !{!199, !30, i64 40}
-!201 = !{!202, !30, i64 16}
-!202 = !{!"_ZTSN4llvm16itanium_demangle10BracedExprE", !65, i64 0, !30, i64 16, !30, i64 24, !20, i64 32}
-!203 = !{!202, !30, i64 24}
-!204 = !{!202, !20, i64 32}
-!205 = !{!206, !30, i64 16}
-!206 = !{!"_ZTSN4llvm16itanium_demangle15BracedRangeExprE", !65, i64 0, !30, i64 16, !30, i64 24, !30, i64 32}
-!207 = !{!206, !30, i64 24}
-!208 = !{!206, !30, i64 32}
-!209 = !{!210, !30, i64 16}
-!210 = !{!"_ZTSN4llvm16itanium_demangle12InitListExprE", !65, i64 0, !30, i64 16, !82, i64 24}
+!195 = !{!"_ZTSN4llvm16itanium_demangle14ConversionExprE", !65, i64 0, !30, i64 16, !82, i64 24}
+!196 = !{!197, !30, i64 16}
+!197 = !{!"_ZTSN4llvm16itanium_demangle15ConditionalExprE", !65, i64 0, !30, i64 16, !30, i64 24, !30, i64 32}
+!198 = !{!197, !30, i64 24}
+!199 = !{!197, !30, i64 32}
+!200 = !{!201, !30, i64 32}
+!201 = !{!"_ZTSN4llvm16itanium_demangle8CastExprE", !65, i64 0, !71, i64 16, !30, i64 32, !30, i64 40}
+!202 = !{!201, !30, i64 40}
+!203 = !{!204, !30, i64 16}
+!204 = !{!"_ZTSN4llvm16itanium_demangle10BracedExprE", !65, i64 0, !30, i64 16, !30, i64 24, !20, i64 32}
+!205 = !{!204, !30, i64 24}
+!206 = !{!204, !20, i64 32}
+!207 = !{!208, !30, i64 16}
+!208 = !{!"_ZTSN4llvm16itanium_demangle15BracedRangeExprE", !65, i64 0, !30, i64 16, !30, i64 24, !30, i64 32}
+!209 = !{!208, !30, i64 24}
+!210 = !{!208, !30, i64 32}
 !211 = !{!212, !30, i64 16}
-!212 = !{!"_ZTSN4llvm16itanium_demangle29PointerToMemberConversionExprE", !65, i64 0, !30, i64 16, !30, i64 24, !71, i64 32}
-!213 = !{!212, !30, i64 24}
-!214 = distinct !{!214, !7}
-!215 = !{!216, !30, i64 16}
-!216 = !{!"_ZTSN4llvm16itanium_demangle15ExprRequirementE", !65, i64 0, !30, i64 16, !20, i64 24, !30, i64 32}
-!217 = !{!216, !20, i64 24}
-!218 = !{!216, !30, i64 32}
-!219 = !{!220, !30, i64 16}
-!220 = !{!"_ZTSN4llvm16itanium_demangle15TypeRequirementE", !65, i64 0, !30, i64 16}
+!212 = !{!"_ZTSN4llvm16itanium_demangle12InitListExprE", !65, i64 0, !30, i64 16, !82, i64 24}
+!213 = !{!214, !30, i64 16}
+!214 = !{!"_ZTSN4llvm16itanium_demangle29PointerToMemberConversionExprE", !65, i64 0, !30, i64 16, !30, i64 24, !71, i64 32}
+!215 = !{!214, !30, i64 24}
+!216 = distinct !{!216, !7}
+!217 = !{!218, !30, i64 16}
+!218 = !{!"_ZTSN4llvm16itanium_demangle15ExprRequirementE", !65, i64 0, !30, i64 16, !20, i64 24, !30, i64 32}
+!219 = !{!218, !20, i64 24}
+!220 = !{!218, !30, i64 32}
 !221 = !{!222, !30, i64 16}
-!222 = !{!"_ZTSN4llvm16itanium_demangle17NestedRequirementE", !65, i64 0, !30, i64 16}
-!223 = distinct !{!223, !7}
-!224 = distinct !{!224, !7}
-!225 = !{!226, !30, i64 16}
-!226 = !{!"_ZTSN4llvm16itanium_demangle13SubobjectExprE", !65, i64 0, !30, i64 16, !30, i64 24, !71, i64 32, !82, i64 48, !20, i64 64}
-!227 = !{!226, !30, i64 24}
-!228 = !{!226, !20, i64 64}
-!229 = !{!230, !30, i64 16}
-!230 = !{!"_ZTSN4llvm16itanium_demangle22ParameterPackExpansionE", !65, i64 0, !30, i64 16}
+!222 = !{!"_ZTSN4llvm16itanium_demangle15TypeRequirementE", !65, i64 0, !30, i64 16}
+!223 = !{!224, !30, i64 16}
+!224 = !{!"_ZTSN4llvm16itanium_demangle17NestedRequirementE", !65, i64 0, !30, i64 16}
+!225 = distinct !{!225, !7}
+!226 = distinct !{!226, !7}
+!227 = !{!228, !30, i64 16}
+!228 = !{!"_ZTSN4llvm16itanium_demangle13SubobjectExprE", !65, i64 0, !30, i64 16, !30, i64 24, !71, i64 32, !82, i64 48, !20, i64 64}
+!229 = !{!228, !30, i64 24}
+!230 = !{!228, !20, i64 64}
 !231 = !{!232, !30, i64 16}
-!232 = !{!"_ZTSN4llvm16itanium_demangle19SizeofParamPackExprE", !65, i64 0, !30, i64 16}
+!232 = !{!"_ZTSN4llvm16itanium_demangle22ParameterPackExpansionE", !65, i64 0, !30, i64 16}
 !233 = !{!234, !30, i64 16}
-!234 = !{!"_ZTSN4llvm16itanium_demangle9ThrowExprE", !65, i64 0, !30, i64 16}
+!234 = !{!"_ZTSN4llvm16itanium_demangle19SizeofParamPackExprE", !65, i64 0, !30, i64 16}
 !235 = !{!236, !30, i64 16}
-!236 = !{!"_ZTSN4llvm16itanium_demangle13QualifiedNameE", !65, i64 0, !30, i64 16, !30, i64 24}
-!237 = !{!236, !30, i64 24}
-!238 = distinct !{!238, !7}
-!239 = !{!240, !30, i64 16}
-!240 = !{!"_ZTSN4llvm16itanium_demangle19GlobalQualifiedNameE", !65, i64 0, !30, i64 16}
-!241 = distinct !{!241, !7}
-!242 = !{!243, !30, i64 16}
-!243 = !{!"_ZTSN4llvm16itanium_demangle10BinaryExprE", !65, i64 0, !30, i64 16, !71, i64 24, !30, i64 40}
-!244 = !{!243, !30, i64 40}
-!245 = !{!82, !21, i64 8}
-!246 = !{!82, !14, i64 0}
-!247 = !{!248, !20, i64 11}
-!248 = !{!"_ZTSN4llvm16itanium_demangle8BoolExprE", !65, i64 0, !20, i64 11}
-!249 = !{!250, !30, i64 16}
-!250 = !{!"_ZTSN4llvm16itanium_demangle13StringLiteralE", !65, i64 0, !30, i64 16}
-!251 = !{!252, !126, i64 0}
-!252 = !{!"_ZTSN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E23ScopedTemplateParamListE", !126, i64 0, !21, i64 8, !15, i64 16}
-!253 = !{!252, !21, i64 8}
-!254 = distinct !{!254, !7}
-!255 = distinct !{!255, !7}
-!256 = !{!257, !30, i64 16}
-!257 = !{!"_ZTSN4llvm16itanium_demangle10LambdaExprE", !65, i64 0, !30, i64 16}
+!236 = !{!"_ZTSN4llvm16itanium_demangle9ThrowExprE", !65, i64 0, !30, i64 16}
+!237 = !{!238, !30, i64 16}
+!238 = !{!"_ZTSN4llvm16itanium_demangle13QualifiedNameE", !65, i64 0, !30, i64 16, !30, i64 24}
+!239 = !{!238, !30, i64 24}
+!240 = distinct !{!240, !7}
+!241 = !{!242, !30, i64 16}
+!242 = !{!"_ZTSN4llvm16itanium_demangle19GlobalQualifiedNameE", !65, i64 0, !30, i64 16}
+!243 = distinct !{!243, !7}
+!244 = !{!245, !30, i64 16}
+!245 = !{!"_ZTSN4llvm16itanium_demangle10BinaryExprE", !65, i64 0, !30, i64 16, !71, i64 24, !30, i64 40}
+!246 = !{!245, !30, i64 40}
+!247 = !{!82, !21, i64 8}
+!248 = !{!82, !14, i64 0}
+!249 = !{!250, !20, i64 11}
+!250 = !{!"_ZTSN4llvm16itanium_demangle8BoolExprE", !65, i64 0, !20, i64 11}
+!251 = !{!252, !30, i64 16}
+!252 = !{!"_ZTSN4llvm16itanium_demangle13StringLiteralE", !65, i64 0, !30, i64 16}
+!253 = !{!254, !126, i64 0}
+!254 = !{!"_ZTSN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E23ScopedTemplateParamListE", !126, i64 0, !21, i64 8, !15, i64 16}
+!255 = !{!254, !21, i64 8}
+!256 = distinct !{!256, !7}
+!257 = distinct !{!257, !7}
 !258 = !{!259, !30, i64 16}
-!259 = !{!"_ZTSN4llvm16itanium_demangle11EnumLiteralE", !65, i64 0, !30, i64 16, !71, i64 24}
-!260 = distinct !{!260, !7}
-!261 = distinct !{!261, !7}
+!259 = !{!"_ZTSN4llvm16itanium_demangle10LambdaExprE", !65, i64 0, !30, i64 16}
+!260 = !{!261, !30, i64 16}
+!261 = !{!"_ZTSN4llvm16itanium_demangle11EnumLiteralE", !65, i64 0, !30, i64 16, !71, i64 24}
 !262 = distinct !{!262, !7}
 !263 = distinct !{!263, !7}
-!264 = !{!265, !30, i64 16}
-!265 = !{!"_ZTSN4llvm16itanium_demangle21TypeTemplateParamDeclE", !65, i64 0, !30, i64 16}
+!264 = distinct !{!264, !7}
+!265 = distinct !{!265, !7}
 !266 = !{!267, !30, i64 16}
-!267 = !{!"_ZTSN4llvm16itanium_demangle32ConstrainedTypeTemplateParamDeclE", !65, i64 0, !30, i64 16, !30, i64 24}
-!268 = !{!267, !30, i64 24}
-!269 = !{!270, !30, i64 16}
-!270 = !{!"_ZTSN4llvm16itanium_demangle24NonTypeTemplateParamDeclE", !65, i64 0, !30, i64 16, !30, i64 24}
-!271 = !{!270, !30, i64 24}
-!272 = !{!273, !30, i64 16}
-!273 = !{!"_ZTSN4llvm16itanium_demangle25TemplateTemplateParamDeclE", !65, i64 0, !30, i64 16, !82, i64 24, !30, i64 40}
-!274 = !{!273, !30, i64 40}
-!275 = !{!276, !30, i64 32}
-!276 = !{!"_ZTSN4llvm16itanium_demangle15ClosureTypeNameE", !65, i64 0, !82, i64 16, !30, i64 32, !82, i64 40, !30, i64 56, !71, i64 64}
-!277 = !{!276, !30, i64 56}
-!278 = !{i64 0, i64 8, !72, i64 8, i64 8, !73}
-!279 = !{!280, !281, i64 12}
-!280 = !{!"_ZTSN4llvm16itanium_demangle26SyntheticTemplateParamNameE", !65, i64 0, !281, i64 12, !49, i64 16}
-!281 = !{!"_ZTSN4llvm16itanium_demangle17TemplateParamKindE", !4, i64 0}
-!282 = !{!280, !49, i64 16}
-!283 = !{!284, !30, i64 16}
-!284 = !{!"_ZTSN4llvm16itanium_demangle21TemplateParamPackDeclE", !65, i64 0, !30, i64 16}
-!285 = distinct !{!285, !7}
-!286 = !{!287, !287, i64 0}
-!287 = !{!"p1 _ZTSN4llvm16itanium_demangle12OutputBufferE", !12, i64 0}
-!288 = !{!289, !290, i64 8}
-!289 = !{!"_ZTSZNK4llvm16itanium_demangle8FoldExpr9printLeftERNS0_12OutputBufferEEUlvE_", !287, i64 0, !290, i64 8}
-!290 = !{!"p1 _ZTSN4llvm16itanium_demangle8FoldExprE", !12, i64 0}
-!291 = !{!289, !287, i64 0}
-!292 = distinct !{!292, !7}
-!293 = !{!294, !30, i64 16}
-!294 = !{!"_ZTSN4llvm16itanium_demangle8DtorNameE", !65, i64 0, !30, i64 16}
+!267 = !{!"_ZTSN4llvm16itanium_demangle21TypeTemplateParamDeclE", !65, i64 0, !30, i64 16}
+!268 = !{!269, !30, i64 16}
+!269 = !{!"_ZTSN4llvm16itanium_demangle32ConstrainedTypeTemplateParamDeclE", !65, i64 0, !30, i64 16, !30, i64 24}
+!270 = !{!269, !30, i64 24}
+!271 = !{!272, !30, i64 16}
+!272 = !{!"_ZTSN4llvm16itanium_demangle24NonTypeTemplateParamDeclE", !65, i64 0, !30, i64 16, !30, i64 24}
+!273 = !{!272, !30, i64 24}
+!274 = !{!275, !30, i64 16}
+!275 = !{!"_ZTSN4llvm16itanium_demangle25TemplateTemplateParamDeclE", !65, i64 0, !30, i64 16, !82, i64 24, !30, i64 40}
+!276 = !{!275, !30, i64 40}
+!277 = !{!278, !30, i64 32}
+!278 = !{!"_ZTSN4llvm16itanium_demangle15ClosureTypeNameE", !65, i64 0, !82, i64 16, !30, i64 32, !82, i64 40, !30, i64 56, !71, i64 64}
+!279 = !{!278, !30, i64 56}
+!280 = !{i64 0, i64 8, !72, i64 8, i64 8, !73}
+!281 = !{!282, !283, i64 12}
+!282 = !{!"_ZTSN4llvm16itanium_demangle26SyntheticTemplateParamNameE", !65, i64 0, !283, i64 12, !49, i64 16}
+!283 = !{!"_ZTSN4llvm16itanium_demangle17TemplateParamKindE", !4, i64 0}
+!284 = !{!282, !49, i64 16}
+!285 = !{!286, !30, i64 16}
+!286 = !{!"_ZTSN4llvm16itanium_demangle21TemplateParamPackDeclE", !65, i64 0, !30, i64 16}
+!287 = distinct !{!287, !7}
+!288 = !{!289, !289, i64 0}
+!289 = !{!"p1 _ZTSN4llvm16itanium_demangle12OutputBufferE", !12, i64 0}
+!290 = !{!291, !292, i64 8}
+!291 = !{!"_ZTSZNK4llvm16itanium_demangle8FoldExpr9printLeftERNS0_12OutputBufferEEUlvE_", !289, i64 0, !292, i64 8}
+!292 = !{!"p1 _ZTSN4llvm16itanium_demangle8FoldExprE", !12, i64 0}
+!293 = !{!291, !289, i64 0}
+!294 = distinct !{!294, !7}
 !295 = !{!296, !30, i64 16}
-!296 = !{!"_ZTSN4llvm16itanium_demangle22ConversionOperatorTypeE", !65, i64 0, !30, i64 16}
+!296 = !{!"_ZTSN4llvm16itanium_demangle8DtorNameE", !65, i64 0, !30, i64 16}
 !297 = !{!298, !30, i64 16}
-!298 = !{!"_ZTSN4llvm16itanium_demangle15LiteralOperatorE", !65, i64 0, !30, i64 16}
+!298 = !{!"_ZTSN4llvm16itanium_demangle22ConversionOperatorTypeE", !65, i64 0, !30, i64 16}
 !299 = !{!300, !30, i64 16}
-!300 = !{!"_ZTSN4llvm16itanium_demangle10AbiTagAttrE", !65, i64 0, !30, i64 16, !71, i64 24}
+!300 = !{!"_ZTSN4llvm16itanium_demangle15LiteralOperatorE", !65, i64 0, !30, i64 16}
 !301 = !{!302, !30, i64 16}
-!302 = !{!"_ZTSN4llvm16itanium_demangle12CtorDtorNameE", !65, i64 0, !30, i64 16, !20, i64 24, !49, i64 28}
-!303 = !{!302, !20, i64 24}
-!304 = !{!302, !49, i64 28}
-!305 = !{!306, !30, i64 16}
-!306 = !{!"_ZTSN4llvm16itanium_demangle20MemberLikeFriendNameE", !65, i64 0, !30, i64 16, !30, i64 24}
-!307 = !{!306, !30, i64 24}
-!308 = !{!90, !30, i64 24}
-!309 = !{!92, !30, i64 24}
-!310 = distinct !{!310, !7}
-!311 = distinct !{!311, !7}
+!302 = !{!"_ZTSN4llvm16itanium_demangle10AbiTagAttrE", !65, i64 0, !30, i64 16, !71, i64 24}
+!303 = !{!304, !30, i64 16}
+!304 = !{!"_ZTSN4llvm16itanium_demangle12CtorDtorNameE", !65, i64 0, !30, i64 16, !20, i64 24, !49, i64 28}
+!305 = !{!304, !20, i64 24}
+!306 = !{!304, !49, i64 28}
+!307 = !{!308, !30, i64 16}
+!308 = !{!"_ZTSN4llvm16itanium_demangle20MemberLikeFriendNameE", !65, i64 0, !30, i64 16, !30, i64 24}
+!309 = !{!308, !30, i64 24}
+!310 = !{!90, !30, i64 24}
+!311 = !{!92, !30, i64 24}
 !312 = distinct !{!312, !7}
-!313 = !{!314, !30, i64 16}
-!314 = !{!"_ZTSN4llvm16itanium_demangle12NoexceptSpecE", !65, i64 0, !30, i64 16}
-!315 = distinct !{!315, !7}
-!316 = distinct !{!316, !7}
-!317 = !{!318, !30, i64 16}
-!318 = !{!"_ZTSN4llvm16itanium_demangle12FunctionTypeE", !65, i64 0, !30, i64 16, !82, i64 24, !83, i64 40, !84, i64 44, !30, i64 48}
-!319 = !{!318, !83, i64 40}
-!320 = !{!318, !84, i64 44}
-!321 = !{!318, !30, i64 48}
-!322 = !{!323, !30, i64 16}
-!323 = !{!"_ZTSN4llvm16itanium_demangle13ObjCProtoNameE", !65, i64 0, !30, i64 16, !71, i64 24}
+!313 = distinct !{!313, !7}
+!314 = distinct !{!314, !7}
+!315 = !{!316, !30, i64 16}
+!316 = !{!"_ZTSN4llvm16itanium_demangle12NoexceptSpecE", !65, i64 0, !30, i64 16}
+!317 = distinct !{!317, !7}
+!318 = distinct !{!318, !7}
+!319 = !{!320, !30, i64 16}
+!320 = !{!"_ZTSN4llvm16itanium_demangle12FunctionTypeE", !65, i64 0, !30, i64 16, !82, i64 24, !83, i64 40, !84, i64 44, !30, i64 48}
+!321 = !{!320, !83, i64 40}
+!322 = !{!320, !84, i64 44}
+!323 = !{!320, !30, i64 48}
 !324 = !{!325, !30, i64 16}
-!325 = !{!"_ZTSN4llvm16itanium_demangle17VendorExtQualTypeE", !65, i64 0, !30, i64 16, !71, i64 24, !30, i64 40}
-!326 = !{!325, !30, i64 40}
-!327 = !{!328, !83, i64 12}
-!328 = !{!"_ZTSN4llvm16itanium_demangle8QualTypeE", !65, i64 0, !83, i64 12, !30, i64 16}
-!329 = !{!328, !30, i64 16}
-!330 = !{!331, !30, i64 32}
-!331 = !{!"_ZTSN4llvm16itanium_demangle15TransformedTypeE", !65, i64 0, !71, i64 16, !30, i64 32}
-!332 = !{!333, !30, i64 16}
-!333 = !{!"_ZTSN4llvm16itanium_demangle12BinaryFPTypeE", !65, i64 0, !30, i64 16}
+!325 = !{!"_ZTSN4llvm16itanium_demangle13ObjCProtoNameE", !65, i64 0, !30, i64 16, !71, i64 24}
+!326 = !{!327, !30, i64 16}
+!327 = !{!"_ZTSN4llvm16itanium_demangle17VendorExtQualTypeE", !65, i64 0, !30, i64 16, !71, i64 24, !30, i64 40}
+!328 = !{!327, !30, i64 40}
+!329 = !{!330, !83, i64 12}
+!330 = !{!"_ZTSN4llvm16itanium_demangle8QualTypeE", !65, i64 0, !83, i64 12, !30, i64 16}
+!331 = !{!330, !30, i64 16}
+!332 = !{!333, !30, i64 32}
+!333 = !{!"_ZTSN4llvm16itanium_demangle15TransformedTypeE", !65, i64 0, !71, i64 16, !30, i64 32}
 !334 = !{!335, !30, i64 16}
-!335 = !{!"_ZTSN4llvm16itanium_demangle10BitIntTypeE", !65, i64 0, !30, i64 16, !20, i64 24}
-!336 = !{!335, !20, i64 24}
-!337 = !{!338, !30, i64 16}
-!338 = !{!"_ZTSN4llvm16itanium_demangle20PostfixQualifiedTypeE", !65, i64 0, !30, i64 16, !71, i64 24}
+!335 = !{!"_ZTSN4llvm16itanium_demangle12BinaryFPTypeE", !65, i64 0, !30, i64 16}
+!336 = !{!337, !30, i64 16}
+!337 = !{!"_ZTSN4llvm16itanium_demangle10BitIntTypeE", !65, i64 0, !30, i64 16, !20, i64 24}
+!338 = !{!337, !20, i64 24}
 !339 = !{!340, !30, i64 16}
-!340 = !{!"_ZTSN4llvm16itanium_demangle10VectorTypeE", !65, i64 0, !30, i64 16, !30, i64 24}
-!341 = !{!340, !30, i64 24}
-!342 = !{!343, !30, i64 32}
-!343 = !{!"_ZTSN4llvm16itanium_demangle22ElaboratedTypeSpefTypeE", !65, i64 0, !71, i64 16, !30, i64 32}
-!344 = !{!345, !30, i64 16}
-!345 = !{!"_ZTSN4llvm16itanium_demangle11PointerTypeE", !65, i64 0, !30, i64 16}
+!340 = !{!"_ZTSN4llvm16itanium_demangle20PostfixQualifiedTypeE", !65, i64 0, !30, i64 16, !71, i64 24}
+!341 = !{!342, !30, i64 16}
+!342 = !{!"_ZTSN4llvm16itanium_demangle10VectorTypeE", !65, i64 0, !30, i64 16, !30, i64 24}
+!343 = !{!342, !30, i64 24}
+!344 = !{!345, !30, i64 32}
+!345 = !{!"_ZTSN4llvm16itanium_demangle22ElaboratedTypeSpefTypeE", !65, i64 0, !71, i64 16, !30, i64 32}
 !346 = !{!347, !30, i64 16}
-!347 = !{!"_ZTSN4llvm16itanium_demangle13ReferenceTypeE", !65, i64 0, !30, i64 16, !348, i64 24, !20, i64 28}
-!348 = !{!"_ZTSN4llvm16itanium_demangle13ReferenceKindE", !4, i64 0}
-!349 = !{!347, !348, i64 24}
-!350 = !{!347, !20, i64 28}
-!351 = !{!352, !30, i64 16}
-!352 = !{!"_ZTSN4llvm16itanium_demangle15PixelVectorTypeE", !65, i64 0, !30, i64 16}
+!347 = !{!"_ZTSN4llvm16itanium_demangle11PointerTypeE", !65, i64 0, !30, i64 16}
+!348 = !{!349, !30, i64 16}
+!349 = !{!"_ZTSN4llvm16itanium_demangle13ReferenceTypeE", !65, i64 0, !30, i64 16, !350, i64 24, !20, i64 28}
+!350 = !{!"_ZTSN4llvm16itanium_demangle13ReferenceKindE", !4, i64 0}
+!351 = !{!349, !350, i64 24}
+!352 = !{!349, !20, i64 28}
 !353 = !{!354, !30, i64 16}
-!354 = !{!"_ZTSN4llvm16itanium_demangle9ArrayTypeE", !65, i64 0, !30, i64 16, !30, i64 24}
-!355 = !{!354, !30, i64 24}
-!356 = !{!357, !30, i64 16}
-!357 = !{!"_ZTSN4llvm16itanium_demangle19PointerToMemberTypeE", !65, i64 0, !30, i64 16, !30, i64 24}
-!358 = !{!357, !30, i64 24}
-!359 = !{!348, !348, i64 0}
-!360 = !{!361, !14, i64 0}
-!361 = !{!"_ZTSN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EEE", !14, i64 0, !14, i64 8, !14, i64 16, !4, i64 24}
-!362 = !{!361, !14, i64 8}
-!363 = !{!361, !14, i64 16}
+!354 = !{!"_ZTSN4llvm16itanium_demangle15PixelVectorTypeE", !65, i64 0, !30, i64 16}
+!355 = !{!356, !30, i64 16}
+!356 = !{!"_ZTSN4llvm16itanium_demangle9ArrayTypeE", !65, i64 0, !30, i64 16, !30, i64 24}
+!357 = !{!356, !30, i64 24}
+!358 = !{!359, !30, i64 16}
+!359 = !{!"_ZTSN4llvm16itanium_demangle19PointerToMemberTypeE", !65, i64 0, !30, i64 16, !30, i64 24}
+!360 = !{!359, !30, i64 24}
+!361 = !{!350, !350, i64 0}
+!362 = !{!363, !14, i64 0}
+!363 = !{!"_ZTSN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EEE", !14, i64 0, !14, i64 8, !14, i64 16, !4, i64 24}
+!364 = !{!363, !14, i64 8}
+!365 = !{!363, !14, i64 16}

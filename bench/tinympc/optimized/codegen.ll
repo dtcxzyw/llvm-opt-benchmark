@@ -532,8 +532,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit319: 
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 32
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %174)
   %175 = mul nsw i32 %52, %52
-  %.not584 = icmp eq i32 %52, 0
-  br i1 %.not584, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit326, label %.lr.ph.i320
+  %.not597 = icmp eq i32 %52, 0
+  br i1 %.not597, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit326, label %.lr.ph.i320
 
 .lr.ph.i320:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit319
   %176 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -575,8 +575,8 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit326: 
   %197 = load ptr, ptr %143, align 8, !tbaa !84
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 56
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %198)
-  %.not585 = icmp eq i32 %54, 0
-  br i1 %.not585, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit333, label %.lr.ph.i327
+  %.not598 = icmp eq i32 %54, 0
+  br i1 %.not598, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit333, label %.lr.ph.i327
 
 .lr.ph.i327:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit326
   %199 = mul nsw i32 %54, %54
@@ -619,7 +619,7 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit333: 
   %221 = load ptr, ptr %143, align 8, !tbaa !84
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 80
   call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %222)
-  br i1 %.not584, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit340, label %.lr.ph.i334
+  br i1 %.not597, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit340, label %.lr.ph.i334
 
 .lr.ph.i334:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit333
   %223 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -1260,7 +1260,7 @@ _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit424: 
   %555 = getelementptr inbounds nuw i8, ptr %553, i64 312
   %556 = load i64, ptr %555, align 8, !tbaa !227
   %557 = icmp sgt i64 %556, 0
-  br i1 %557, label %558, label %.thread
+  br i1 %557, label %558, label %.noexc.i.i.thread584
 
 558:                                              ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit424
   %559 = icmp samesign ugt i64 %556, 2305843009213693951
@@ -1276,7 +1276,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i520: ; preds = %558
   %561 = shl nuw i64 %556, 3
   %562 = call noalias ptr @malloc(i64 noundef %561) #25
   %563 = icmp eq ptr %562, null
-  br i1 %563, label %.noexc522, label %568
+  br i1 %563, label %.noexc522, label %.noexc.i.i
 
 .noexc522:                                        ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i520
   %564 = call ptr @__cxa_allocate_exception(i64 8) #21
@@ -1284,589 +1284,587 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i520: ; preds = %558
   call void @__cxa_throw(ptr nonnull %564, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #20
   unreachable
 
-.thread:                                          ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit424
+.noexc.i.i.thread584:                             ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit424
   %565 = load ptr, ptr %554, align 8, !tbaa !228
   %.nonneg = sub i64 0, %556
   %566 = and i64 %.nonneg, -2
   %567 = sub i64 0, %566
   br label %._crit_edge.i.i.i.i.i.i.i
 
-568:                                              ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i520
-  %569 = load ptr, ptr %554, align 8, !tbaa !228
-  %.not586 = icmp eq i64 %556, 1
-  br i1 %.not586, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.preheader
+.noexc.i.i:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i520
+  %568 = load ptr, ptr %554, align 8, !tbaa !228
+  %.not630 = icmp eq i64 %556, 1
+  br i1 %.not630, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.i.i.i.preheader:                   ; preds = %568
-  %570 = and i64 %556, 2305843009213693950
-  %571 = call i64 @llvm.usub.sat.i64(i64 %570, i64 2)
-  %572 = shl nuw i64 %571, 3
-  %573 = add nuw i64 %572, 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %562, ptr noundef nonnull align 16 dereferenceable(1) %569, i64 %573, i1 false), !tbaa !32
+.lr.ph.i.i.i.i.i.i.i.preheader:                   ; preds = %.noexc.i.i
+  %569 = and i64 %556, 2305843009213693950
+  %570 = call i64 @llvm.umax.i64(i64 %569, i64 2)
+  %571 = shl nuw i64 %570, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %562, ptr noundef nonnull align 16 dereferenceable(1) %568, i64 %571, i1 false), !tbaa !32
   br label %._crit_edge.i.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.preheader, %.thread, %568
-  %574 = phi i64 [ %567, %.thread ], [ 0, %568 ], [ %570, %.lr.ph.i.i.i.i.i.i.i.preheader ]
-  %575 = phi ptr [ %565, %.thread ], [ %569, %568 ], [ %569, %.lr.ph.i.i.i.i.i.i.i.preheader ]
-  %.sroa.0555.3576 = phi ptr [ null, %.thread ], [ %562, %568 ], [ %562, %.lr.ph.i.i.i.i.i.i.i.preheader ]
-  %576 = icmp slt i64 %574, %556
-  br i1 %576, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit
+._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.preheader, %.noexc.i.i.thread584, %.noexc.i.i
+  %572 = phi ptr [ %568, %.lr.ph.i.i.i.i.i.i.i.preheader ], [ %565, %.noexc.i.i.thread584 ], [ %568, %.noexc.i.i ]
+  %573 = phi i64 [ %569, %.lr.ph.i.i.i.i.i.i.i.preheader ], [ %567, %.noexc.i.i.thread584 ], [ 0, %.noexc.i.i ]
+  %.sroa.0555.1577 = phi ptr [ %562, %.lr.ph.i.i.i.i.i.i.i.preheader ], [ null, %.noexc.i.i.thread584 ], [ %562, %.noexc.i.i ]
+  %574 = icmp slt i64 %573, %556
+  br i1 %574, label %.lr.ph.i.i.i.i.i.i.i.i.preheader, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %577 = shl i64 %574, 3
-  %scevgep = getelementptr i8, ptr %.sroa.0555.3576, i64 %577
-  %scevgep588 = getelementptr i8, ptr %575, i64 %577
-  %578 = sub i64 %556, %574
-  %579 = shl i64 %578, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %scevgep588, i64 %579, i1 false), !tbaa !71
+  %575 = shl i64 %573, 3
+  %scevgep = getelementptr i8, ptr %.sroa.0555.1577, i64 %575
+  %scevgep599 = getelementptr i8, ptr %572, i64 %575
+  %576 = sub i64 %556, %573
+  %577 = shl i64 %576, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 8 %scevgep599, i64 %577, i1 false), !tbaa !71
   br label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit
 
 _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %._crit_edge.i.i.i.i.i.i.i
-  %580 = icmp sgt i32 %52, 0
-  br i1 %580, label %.lr.ph.i425, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit431
+  %578 = icmp sgt i32 %52, 0
+  br i1 %578, label %.lr.ph.i425, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit431
 
 .lr.ph.i425:                                      ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit
-  %581 = add nsw i32 %52, -1
-  %582 = zext nneg i32 %581 to i64
+  %579 = add nsw i32 %52, -1
+  %580 = zext nneg i32 %579 to i64
   %wide.trip.count.i426 = zext nneg i32 %52 to i64
-  br label %583
+  br label %581
 
-583:                                              ; preds = %589, %.lr.ph.i425
-  %indvars.iv.i427 = phi i64 [ 0, %.lr.ph.i425 ], [ %indvars.iv.next.i428, %589 ]
-  %584 = getelementptr [8 x i8], ptr %.sroa.0555.3576, i64 %indvars.iv.i427
-  %585 = load double, ptr %584, align 8, !tbaa !71
-  %586 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %585) #21
-  %587 = icmp samesign ult i64 %indvars.iv.i427, %582
-  br i1 %587, label %588, label %589
+581:                                              ; preds = %587, %.lr.ph.i425
+  %indvars.iv.i427 = phi i64 [ 0, %.lr.ph.i425 ], [ %indvars.iv.next.i428, %587 ]
+  %582 = getelementptr [8 x i8], ptr %.sroa.0555.1577, i64 %indvars.iv.i427
+  %583 = load double, ptr %582, align 8, !tbaa !71
+  %584 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %583) #21
+  %585 = icmp samesign ult i64 %indvars.iv.i427, %580
+  br i1 %585, label %586, label %587
 
-588:                                              ; preds = %583
+586:                                              ; preds = %581
   %fputc.i430 = call i32 @fputc(i32 44, ptr nonnull %58)
-  br label %589
+  br label %587
 
-589:                                              ; preds = %588, %583
+587:                                              ; preds = %586, %581
   %indvars.iv.next.i428 = add nuw nsw i64 %indvars.iv.i427, 1
   %exitcond.not.i429 = icmp eq i64 %indvars.iv.next.i428, %wide.trip.count.i426
-  br i1 %exitcond.not.i429, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit431, label %583, !llvm.loop !72
+  br i1 %exitcond.not.i429, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit431, label %581, !llvm.loop !72
 
-_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit431: ; preds = %589, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit
-  call void @free(ptr noundef %.sroa.0555.3576) #21
-  %590 = call i64 @fwrite(ptr nonnull @.str.62, i64 19, i64 1, ptr nonnull %58)
-  %591 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.61, i32 noundef %54) #21
-  %592 = load ptr, ptr %50, align 8, !tbaa !36
-  %593 = getelementptr inbounds nuw i8, ptr %592, i64 320
-  %594 = getelementptr inbounds nuw i8, ptr %592, i64 328
-  %595 = load i64, ptr %594, align 8, !tbaa !227
-  %596 = icmp sgt i64 %595, 0
-  br i1 %596, label %597, label %.thread578
+_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit431: ; preds = %587, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit
+  call void @free(ptr noundef %.sroa.0555.1577) #21
+  %588 = call i64 @fwrite(ptr nonnull @.str.62, i64 19, i64 1, ptr nonnull %58)
+  %589 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.61, i32 noundef %54) #21
+  %590 = load ptr, ptr %50, align 8, !tbaa !36
+  %591 = getelementptr inbounds nuw i8, ptr %590, i64 320
+  %592 = getelementptr inbounds nuw i8, ptr %590, i64 328
+  %593 = load i64, ptr %592, align 8, !tbaa !227
+  %594 = icmp sgt i64 %593, 0
+  br i1 %594, label %595, label %.noexc.i.i436.thread589
 
-597:                                              ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit431
-  %598 = icmp samesign ugt i64 %595, 2305843009213693951
-  br i1 %598, label %.noexc535, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i534
+595:                                              ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit431
+  %596 = icmp samesign ugt i64 %593, 2305843009213693951
+  br i1 %596, label %.noexc535, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i534
 
-.noexc535:                                        ; preds = %597
-  %599 = call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %599, align 8, !tbaa !3
-  call void @__cxa_throw(ptr nonnull %599, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #20
+.noexc535:                                        ; preds = %595
+  %597 = call ptr @__cxa_allocate_exception(i64 8) #21
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %597, align 8, !tbaa !3
+  call void @__cxa_throw(ptr nonnull %597, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #20
   unreachable
 
-_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i534: ; preds = %597
-  %600 = shl nuw i64 %595, 3
-  %601 = call noalias ptr @malloc(i64 noundef %600) #25
-  %602 = icmp eq ptr %601, null
-  br i1 %602, label %.noexc536, label %607
+_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i534: ; preds = %595
+  %598 = shl nuw i64 %593, 3
+  %599 = call noalias ptr @malloc(i64 noundef %598) #25
+  %600 = icmp eq ptr %599, null
+  br i1 %600, label %.noexc536, label %.noexc.i.i436
 
 .noexc536:                                        ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i534
-  %603 = call ptr @__cxa_allocate_exception(i64 8) #21
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %603, align 8, !tbaa !3
-  call void @__cxa_throw(ptr nonnull %603, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #20
+  %601 = call ptr @__cxa_allocate_exception(i64 8) #21
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %601, align 8, !tbaa !3
+  call void @__cxa_throw(ptr nonnull %601, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #20
   unreachable
 
-.thread578:                                       ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit431
-  %604 = load ptr, ptr %593, align 8, !tbaa !228
-  %.nonneg581 = sub i64 0, %595
-  %605 = and i64 %.nonneg581, -2
-  %606 = sub i64 0, %605
+.noexc.i.i436.thread589:                          ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit431
+  %602 = load ptr, ptr %591, align 8, !tbaa !228
+  %.nonneg592 = sub i64 0, %593
+  %603 = and i64 %.nonneg592, -2
+  %604 = sub i64 0, %603
   br label %._crit_edge.i.i.i.i.i.i.i439
 
-607:                                              ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i534
-  %608 = load ptr, ptr %593, align 8, !tbaa !228
-  %.not587 = icmp eq i64 %595, 1
-  br i1 %.not587, label %._crit_edge.i.i.i.i.i.i.i439, label %.lr.ph.i.i.i.i.i.i.i443.preheader
+.noexc.i.i436:                                    ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i534
+  %605 = load ptr, ptr %591, align 8, !tbaa !228
+  %.not631 = icmp eq i64 %593, 1
+  br i1 %.not631, label %._crit_edge.i.i.i.i.i.i.i439, label %.lr.ph.i.i.i.i.i.i.i443.preheader
 
-.lr.ph.i.i.i.i.i.i.i443.preheader:                ; preds = %607
-  %609 = and i64 %595, 2305843009213693950
-  %610 = call i64 @llvm.usub.sat.i64(i64 %609, i64 2)
-  %611 = shl nuw i64 %610, 3
-  %612 = add nuw i64 %611, 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %601, ptr noundef nonnull align 16 dereferenceable(1) %608, i64 %612, i1 false), !tbaa !32
+.lr.ph.i.i.i.i.i.i.i443.preheader:                ; preds = %.noexc.i.i436
+  %606 = and i64 %593, 2305843009213693950
+  %607 = call i64 @llvm.umax.i64(i64 %606, i64 2)
+  %608 = shl nuw i64 %607, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %599, ptr noundef nonnull align 16 dereferenceable(1) %605, i64 %608, i1 false), !tbaa !32
   br label %._crit_edge.i.i.i.i.i.i.i439
 
-._crit_edge.i.i.i.i.i.i.i439:                     ; preds = %.lr.ph.i.i.i.i.i.i.i443.preheader, %.thread578, %607
-  %613 = phi i64 [ %606, %.thread578 ], [ 0, %607 ], [ %609, %.lr.ph.i.i.i.i.i.i.i443.preheader ]
-  %614 = phi ptr [ %604, %.thread578 ], [ %608, %607 ], [ %608, %.lr.ph.i.i.i.i.i.i.i443.preheader ]
-  %.sroa.0.3580 = phi ptr [ null, %.thread578 ], [ %601, %607 ], [ %601, %.lr.ph.i.i.i.i.i.i.i443.preheader ]
-  %615 = icmp slt i64 %613, %595
-  br i1 %615, label %.lr.ph.i.i.i.i.i.i.i.i440.preheader, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit445
+._crit_edge.i.i.i.i.i.i.i439:                     ; preds = %.lr.ph.i.i.i.i.i.i.i443.preheader, %.noexc.i.i436.thread589, %.noexc.i.i436
+  %609 = phi ptr [ %605, %.lr.ph.i.i.i.i.i.i.i443.preheader ], [ %602, %.noexc.i.i436.thread589 ], [ %605, %.noexc.i.i436 ]
+  %610 = phi i64 [ %606, %.lr.ph.i.i.i.i.i.i.i443.preheader ], [ %604, %.noexc.i.i436.thread589 ], [ 0, %.noexc.i.i436 ]
+  %.sroa.0.1581 = phi ptr [ %599, %.lr.ph.i.i.i.i.i.i.i443.preheader ], [ null, %.noexc.i.i436.thread589 ], [ %599, %.noexc.i.i436 ]
+  %611 = icmp slt i64 %610, %593
+  br i1 %611, label %.lr.ph.i.i.i.i.i.i.i.i440.preheader, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit445
 
 .lr.ph.i.i.i.i.i.i.i.i440.preheader:              ; preds = %._crit_edge.i.i.i.i.i.i.i439
-  %616 = shl i64 %613, 3
-  %scevgep590 = getelementptr i8, ptr %.sroa.0.3580, i64 %616
-  %scevgep591 = getelementptr i8, ptr %614, i64 %616
-  %617 = sub i64 %595, %613
-  %618 = shl i64 %617, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep590, ptr align 8 %scevgep591, i64 %618, i1 false), !tbaa !71
+  %612 = shl i64 %610, 3
+  %scevgep601 = getelementptr i8, ptr %.sroa.0.1581, i64 %612
+  %scevgep602 = getelementptr i8, ptr %609, i64 %612
+  %613 = sub i64 %593, %610
+  %614 = shl i64 %613, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep601, ptr align 8 %scevgep602, i64 %614, i1 false), !tbaa !71
   br label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit445
 
 _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit445: ; preds = %.lr.ph.i.i.i.i.i.i.i.i440.preheader, %._crit_edge.i.i.i.i.i.i.i439
-  %619 = icmp sgt i32 %54, 0
-  br i1 %619, label %.lr.ph.i446, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit452
+  %615 = icmp sgt i32 %54, 0
+  br i1 %615, label %.lr.ph.i446, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit452
 
 .lr.ph.i446:                                      ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit445
-  %620 = add nsw i32 %54, -1
-  %621 = zext nneg i32 %620 to i64
+  %616 = add nsw i32 %54, -1
+  %617 = zext nneg i32 %616 to i64
   %wide.trip.count.i447 = zext nneg i32 %54 to i64
-  br label %622
+  br label %618
 
-622:                                              ; preds = %628, %.lr.ph.i446
-  %indvars.iv.i448 = phi i64 [ 0, %.lr.ph.i446 ], [ %indvars.iv.next.i449, %628 ]
-  %623 = getelementptr [8 x i8], ptr %.sroa.0.3580, i64 %indvars.iv.i448
-  %624 = load double, ptr %623, align 8, !tbaa !71
-  %625 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %624) #21
-  %626 = icmp samesign ult i64 %indvars.iv.i448, %621
-  br i1 %626, label %627, label %628
+618:                                              ; preds = %624, %.lr.ph.i446
+  %indvars.iv.i448 = phi i64 [ 0, %.lr.ph.i446 ], [ %indvars.iv.next.i449, %624 ]
+  %619 = getelementptr [8 x i8], ptr %.sroa.0.1581, i64 %indvars.iv.i448
+  %620 = load double, ptr %619, align 8, !tbaa !71
+  %621 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %620) #21
+  %622 = icmp samesign ult i64 %indvars.iv.i448, %617
+  br i1 %622, label %623, label %624
 
-627:                                              ; preds = %622
+623:                                              ; preds = %618
   %fputc.i451 = call i32 @fputc(i32 44, ptr nonnull %58)
-  br label %628
+  br label %624
 
-628:                                              ; preds = %627, %622
+624:                                              ; preds = %623, %618
   %indvars.iv.next.i449 = add nuw nsw i64 %indvars.iv.i448, 1
   %exitcond.not.i450 = icmp eq i64 %indvars.iv.next.i449, %wide.trip.count.i447
-  br i1 %exitcond.not.i450, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit452, label %622, !llvm.loop !72
+  br i1 %exitcond.not.i450, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit452, label %618, !llvm.loop !72
 
-_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit452: ; preds = %628, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit445
-  call void @free(ptr noundef %.sroa.0.3580) #21
-  %629 = call i64 @fwrite(ptr nonnull @.str.63, i64 19, i64 1, ptr nonnull %58)
-  %630 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %52) #21
-  %631 = load ptr, ptr %50, align 8, !tbaa !36
-  %632 = getelementptr inbounds nuw i8, ptr %631, i64 336
-  call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %632)
-  br i1 %.not584, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit459, label %.lr.ph.i453
+_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit452: ; preds = %624, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS0_IdLin1ELi1ELi0ELin1ELi1EEEEERKNS_9EigenBaseIT_EE.exit445
+  call void @free(ptr noundef %.sroa.0.1581) #21
+  %625 = call i64 @fwrite(ptr nonnull @.str.63, i64 19, i64 1, ptr nonnull %58)
+  %626 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %52) #21
+  %627 = load ptr, ptr %50, align 8, !tbaa !36
+  %628 = getelementptr inbounds nuw i8, ptr %627, i64 336
+  call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %628)
+  br i1 %.not597, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit459, label %.lr.ph.i453
 
 .lr.ph.i453:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit452
-  %633 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %634 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %635 = add nsw i32 %175, -1
-  %636 = zext nneg i32 %635 to i64
+  %629 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %630 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %631 = add nsw i32 %175, -1
+  %632 = zext nneg i32 %631 to i64
   %wide.trip.count.i454 = zext nneg i32 %175 to i64
-  br label %637
+  br label %633
 
-637:                                              ; preds = %650, %.lr.ph.i453
-  %indvars.iv.i455 = phi i64 [ 0, %.lr.ph.i453 ], [ %indvars.iv.next.i456, %650 ]
-  %638 = load i64, ptr %633, align 8, !tbaa !65, !noalias !229
-  %639 = load i64, ptr %634, align 8, !tbaa !69, !noalias !229
-  %640 = load ptr, ptr %38, align 8, !tbaa !70
-  %641 = sdiv i64 %indvars.iv.i455, %639
-  %642 = srem i64 %indvars.iv.i455, %639
-  %643 = mul nsw i64 %642, %638
-  %644 = getelementptr [8 x i8], ptr %640, i64 %641
-  %645 = getelementptr [8 x i8], ptr %644, i64 %643
-  %646 = load double, ptr %645, align 8, !tbaa !71
-  %647 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %646) #21
-  %648 = icmp samesign ult i64 %indvars.iv.i455, %636
-  br i1 %648, label %649, label %650
+633:                                              ; preds = %646, %.lr.ph.i453
+  %indvars.iv.i455 = phi i64 [ 0, %.lr.ph.i453 ], [ %indvars.iv.next.i456, %646 ]
+  %634 = load i64, ptr %629, align 8, !tbaa !65, !noalias !229
+  %635 = load i64, ptr %630, align 8, !tbaa !69, !noalias !229
+  %636 = load ptr, ptr %38, align 8, !tbaa !70
+  %637 = sdiv i64 %indvars.iv.i455, %635
+  %638 = srem i64 %indvars.iv.i455, %635
+  %639 = mul nsw i64 %638, %634
+  %640 = getelementptr [8 x i8], ptr %636, i64 %637
+  %641 = getelementptr [8 x i8], ptr %640, i64 %639
+  %642 = load double, ptr %641, align 8, !tbaa !71
+  %643 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %642) #21
+  %644 = icmp samesign ult i64 %indvars.iv.i455, %632
+  br i1 %644, label %645, label %646
 
-649:                                              ; preds = %637
+645:                                              ; preds = %633
   %fputc.i458 = call i32 @fputc(i32 44, ptr nonnull %58)
-  br label %650
+  br label %646
 
-650:                                              ; preds = %649, %637
+646:                                              ; preds = %645, %633
   %indvars.iv.next.i456 = add nuw nsw i64 %indvars.iv.i455, 1
   %exitcond.not.i457 = icmp eq i64 %indvars.iv.next.i456, %wide.trip.count.i454
-  br i1 %exitcond.not.i457, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit459, label %637, !llvm.loop !72
+  br i1 %exitcond.not.i457, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit459, label %633, !llvm.loop !72
 
-_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit459: ; preds = %650, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit452
-  %651 = load ptr, ptr %38, align 8, !tbaa !70
-  call void @free(ptr noundef %651) #21
-  %652 = call i64 @fwrite(ptr nonnull @.str.64, i64 22, i64 1, ptr nonnull %58)
-  %653 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %54) #21
-  %654 = load ptr, ptr %50, align 8, !tbaa !36
-  %655 = getelementptr inbounds nuw i8, ptr %654, i64 360
-  call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %655)
+_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit459: ; preds = %646, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit452
+  %647 = load ptr, ptr %38, align 8, !tbaa !70
+  call void @free(ptr noundef %647) #21
+  %648 = call i64 @fwrite(ptr nonnull @.str.64, i64 22, i64 1, ptr nonnull %58)
+  %649 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %54) #21
+  %650 = load ptr, ptr %50, align 8, !tbaa !36
+  %651 = getelementptr inbounds nuw i8, ptr %650, i64 360
+  call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %651)
   br i1 %151, label %.lr.ph.i460, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit466
 
 .lr.ph.i460:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit459
-  %656 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %657 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %658 = add nsw i32 %150, -1
-  %659 = zext nneg i32 %658 to i64
+  %652 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %653 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %654 = add nsw i32 %150, -1
+  %655 = zext nneg i32 %654 to i64
   %wide.trip.count.i461 = zext nneg i32 %150 to i64
-  br label %660
+  br label %656
 
-660:                                              ; preds = %673, %.lr.ph.i460
-  %indvars.iv.i462 = phi i64 [ 0, %.lr.ph.i460 ], [ %indvars.iv.next.i463, %673 ]
-  %661 = load i64, ptr %656, align 8, !tbaa !65, !noalias !232
-  %662 = load i64, ptr %657, align 8, !tbaa !69, !noalias !232
-  %663 = load ptr, ptr %39, align 8, !tbaa !70
-  %664 = sdiv i64 %indvars.iv.i462, %662
-  %665 = srem i64 %indvars.iv.i462, %662
-  %666 = mul nsw i64 %665, %661
-  %667 = getelementptr [8 x i8], ptr %663, i64 %664
-  %668 = getelementptr [8 x i8], ptr %667, i64 %666
-  %669 = load double, ptr %668, align 8, !tbaa !71
-  %670 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %669) #21
-  %671 = icmp samesign ult i64 %indvars.iv.i462, %659
-  br i1 %671, label %672, label %673
+656:                                              ; preds = %669, %.lr.ph.i460
+  %indvars.iv.i462 = phi i64 [ 0, %.lr.ph.i460 ], [ %indvars.iv.next.i463, %669 ]
+  %657 = load i64, ptr %652, align 8, !tbaa !65, !noalias !232
+  %658 = load i64, ptr %653, align 8, !tbaa !69, !noalias !232
+  %659 = load ptr, ptr %39, align 8, !tbaa !70
+  %660 = sdiv i64 %indvars.iv.i462, %658
+  %661 = srem i64 %indvars.iv.i462, %658
+  %662 = mul nsw i64 %661, %657
+  %663 = getelementptr [8 x i8], ptr %659, i64 %660
+  %664 = getelementptr [8 x i8], ptr %663, i64 %662
+  %665 = load double, ptr %664, align 8, !tbaa !71
+  %666 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %665) #21
+  %667 = icmp samesign ult i64 %indvars.iv.i462, %655
+  br i1 %667, label %668, label %669
 
-672:                                              ; preds = %660
+668:                                              ; preds = %656
   %fputc.i465 = call i32 @fputc(i32 44, ptr nonnull %58)
-  br label %673
+  br label %669
 
-673:                                              ; preds = %672, %660
+669:                                              ; preds = %668, %656
   %indvars.iv.next.i463 = add nuw nsw i64 %indvars.iv.i462, 1
   %exitcond.not.i464 = icmp eq i64 %indvars.iv.next.i463, %wide.trip.count.i461
-  br i1 %exitcond.not.i464, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit466, label %660, !llvm.loop !72
+  br i1 %exitcond.not.i464, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit466, label %656, !llvm.loop !72
 
-_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit466: ; preds = %673, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit459
-  %674 = load ptr, ptr %39, align 8, !tbaa !70
-  call void @free(ptr noundef %674) #21
-  %675 = call i64 @fwrite(ptr nonnull @.str.65, i64 22, i64 1, ptr nonnull %58)
-  %676 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %56) #21
-  %677 = load ptr, ptr %50, align 8, !tbaa !36
-  %678 = getelementptr inbounds nuw i8, ptr %677, i64 384
-  call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %678)
+_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit466: ; preds = %669, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit459
+  %670 = load ptr, ptr %39, align 8, !tbaa !70
+  call void @free(ptr noundef %670) #21
+  %671 = call i64 @fwrite(ptr nonnull @.str.65, i64 22, i64 1, ptr nonnull %58)
+  %672 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %56) #21
+  %673 = load ptr, ptr %50, align 8, !tbaa !36
+  %674 = getelementptr inbounds nuw i8, ptr %673, i64 384
+  call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %674)
   br i1 %91, label %.lr.ph.i467, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit480.critedge
 
 .lr.ph.i467:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit466
-  %679 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %680 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %681 = add nsw i32 %90, -1
-  %682 = zext nneg i32 %681 to i64
+  %675 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %676 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %677 = add nsw i32 %90, -1
+  %678 = zext nneg i32 %677 to i64
   %wide.trip.count.i468 = zext nneg i32 %90 to i64
-  br label %683
+  br label %679
 
-683:                                              ; preds = %696, %.lr.ph.i467
-  %indvars.iv.i469 = phi i64 [ 0, %.lr.ph.i467 ], [ %indvars.iv.next.i470, %696 ]
-  %684 = load i64, ptr %679, align 8, !tbaa !65, !noalias !235
-  %685 = load i64, ptr %680, align 8, !tbaa !69, !noalias !235
-  %686 = load ptr, ptr %40, align 8, !tbaa !70
-  %687 = sdiv i64 %indvars.iv.i469, %685
-  %688 = srem i64 %indvars.iv.i469, %685
-  %689 = mul nsw i64 %688, %684
-  %690 = getelementptr [8 x i8], ptr %686, i64 %687
-  %691 = getelementptr [8 x i8], ptr %690, i64 %689
-  %692 = load double, ptr %691, align 8, !tbaa !71
-  %693 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %692) #21
-  %694 = icmp samesign ult i64 %indvars.iv.i469, %682
-  br i1 %694, label %695, label %696
+679:                                              ; preds = %692, %.lr.ph.i467
+  %indvars.iv.i469 = phi i64 [ 0, %.lr.ph.i467 ], [ %indvars.iv.next.i470, %692 ]
+  %680 = load i64, ptr %675, align 8, !tbaa !65, !noalias !235
+  %681 = load i64, ptr %676, align 8, !tbaa !69, !noalias !235
+  %682 = load ptr, ptr %40, align 8, !tbaa !70
+  %683 = sdiv i64 %indvars.iv.i469, %681
+  %684 = srem i64 %indvars.iv.i469, %681
+  %685 = mul nsw i64 %684, %680
+  %686 = getelementptr [8 x i8], ptr %682, i64 %683
+  %687 = getelementptr [8 x i8], ptr %686, i64 %685
+  %688 = load double, ptr %687, align 8, !tbaa !71
+  %689 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %688) #21
+  %690 = icmp samesign ult i64 %indvars.iv.i469, %678
+  br i1 %690, label %691, label %692
 
-695:                                              ; preds = %683
+691:                                              ; preds = %679
   %fputc.i472 = call i32 @fputc(i32 44, ptr nonnull %58)
-  br label %696
+  br label %692
 
-696:                                              ; preds = %695, %683
+692:                                              ; preds = %691, %679
   %indvars.iv.next.i470 = add nuw nsw i64 %indvars.iv.i469, 1
   %exitcond.not.i471 = icmp eq i64 %indvars.iv.next.i470, %wide.trip.count.i468
-  br i1 %exitcond.not.i471, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit473, label %683, !llvm.loop !72
+  br i1 %exitcond.not.i471, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit473, label %679, !llvm.loop !72
 
-_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit473: ; preds = %696
-  %697 = load ptr, ptr %40, align 8, !tbaa !70
-  call void @free(ptr noundef %697) #21
-  %698 = call i64 @fwrite(ptr nonnull @.str.66, i64 23, i64 1, ptr nonnull %58)
-  %699 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %56) #21
-  %700 = load ptr, ptr %50, align 8, !tbaa !36
-  %701 = getelementptr inbounds nuw i8, ptr %700, i64 408
-  call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %701)
-  %702 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %703 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  br label %704
+_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit473: ; preds = %692
+  %693 = load ptr, ptr %40, align 8, !tbaa !70
+  call void @free(ptr noundef %693) #21
+  %694 = call i64 @fwrite(ptr nonnull @.str.66, i64 23, i64 1, ptr nonnull %58)
+  %695 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %56) #21
+  %696 = load ptr, ptr %50, align 8, !tbaa !36
+  %697 = getelementptr inbounds nuw i8, ptr %696, i64 408
+  call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %697)
+  %698 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %699 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  br label %700
 
-704:                                              ; preds = %717, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit473
-  %indvars.iv.i476 = phi i64 [ 0, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit473 ], [ %indvars.iv.next.i477, %717 ]
-  %705 = load i64, ptr %702, align 8, !tbaa !65, !noalias !238
-  %706 = load i64, ptr %703, align 8, !tbaa !69, !noalias !238
-  %707 = load ptr, ptr %41, align 8, !tbaa !70
-  %708 = sdiv i64 %indvars.iv.i476, %706
-  %709 = srem i64 %indvars.iv.i476, %706
-  %710 = mul nsw i64 %709, %705
-  %711 = getelementptr [8 x i8], ptr %707, i64 %708
-  %712 = getelementptr [8 x i8], ptr %711, i64 %710
-  %713 = load double, ptr %712, align 8, !tbaa !71
-  %714 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %713) #21
-  %715 = icmp samesign ult i64 %indvars.iv.i476, %682
-  br i1 %715, label %716, label %717
+700:                                              ; preds = %713, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit473
+  %indvars.iv.i476 = phi i64 [ 0, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit473 ], [ %indvars.iv.next.i477, %713 ]
+  %701 = load i64, ptr %698, align 8, !tbaa !65, !noalias !238
+  %702 = load i64, ptr %699, align 8, !tbaa !69, !noalias !238
+  %703 = load ptr, ptr %41, align 8, !tbaa !70
+  %704 = sdiv i64 %indvars.iv.i476, %702
+  %705 = srem i64 %indvars.iv.i476, %702
+  %706 = mul nsw i64 %705, %701
+  %707 = getelementptr [8 x i8], ptr %703, i64 %704
+  %708 = getelementptr [8 x i8], ptr %707, i64 %706
+  %709 = load double, ptr %708, align 8, !tbaa !71
+  %710 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %709) #21
+  %711 = icmp samesign ult i64 %indvars.iv.i476, %678
+  br i1 %711, label %712, label %713
 
-716:                                              ; preds = %704
+712:                                              ; preds = %700
   %fputc.i479 = call i32 @fputc(i32 44, ptr nonnull %58)
-  br label %717
+  br label %713
 
-717:                                              ; preds = %716, %704
+713:                                              ; preds = %712, %700
   %indvars.iv.next.i477 = add nuw nsw i64 %indvars.iv.i476, 1
   %exitcond.not.i478 = icmp eq i64 %indvars.iv.next.i477, %wide.trip.count.i468
-  br i1 %exitcond.not.i478, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit480, label %704, !llvm.loop !72
+  br i1 %exitcond.not.i478, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit480, label %700, !llvm.loop !72
 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit480.critedge: ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit466
-  %718 = load ptr, ptr %40, align 8, !tbaa !70
-  call void @free(ptr noundef %718) #21
-  %719 = call i64 @fwrite(ptr nonnull @.str.66, i64 23, i64 1, ptr nonnull %58)
-  %720 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %56) #21
-  %721 = load ptr, ptr %50, align 8, !tbaa !36
-  %722 = getelementptr inbounds nuw i8, ptr %721, i64 408
-  call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %722)
+  %714 = load ptr, ptr %40, align 8, !tbaa !70
+  call void @free(ptr noundef %714) #21
+  %715 = call i64 @fwrite(ptr nonnull @.str.66, i64 23, i64 1, ptr nonnull %58)
+  %716 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %56) #21
+  %717 = load ptr, ptr %50, align 8, !tbaa !36
+  %718 = getelementptr inbounds nuw i8, ptr %717, i64 408
+  call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %718)
   br label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit480
 
-_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit480: ; preds = %717, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit480.critedge
-  %723 = load ptr, ptr %41, align 8, !tbaa !70
-  call void @free(ptr noundef %723) #21
-  %724 = call i64 @fwrite(ptr nonnull @.str.67, i64 23, i64 1, ptr nonnull %58)
-  %725 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %112) #21
-  %726 = load ptr, ptr %50, align 8, !tbaa !36
-  %727 = getelementptr inbounds nuw i8, ptr %726, i64 432
-  call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %727)
+_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit480: ; preds = %713, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit480.critedge
+  %719 = load ptr, ptr %41, align 8, !tbaa !70
+  call void @free(ptr noundef %719) #21
+  %720 = call i64 @fwrite(ptr nonnull @.str.67, i64 23, i64 1, ptr nonnull %58)
+  %721 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %112) #21
+  %722 = load ptr, ptr %50, align 8, !tbaa !36
+  %723 = getelementptr inbounds nuw i8, ptr %722, i64 432
+  call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %723)
   br i1 %119, label %.lr.ph.i481, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit494.critedge
 
 .lr.ph.i481:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit480
-  %728 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %729 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %730 = add nsw i32 %118, -1
-  %731 = zext nneg i32 %730 to i64
+  %724 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %725 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %726 = add nsw i32 %118, -1
+  %727 = zext nneg i32 %726 to i64
   %wide.trip.count.i482 = zext nneg i32 %118 to i64
-  br label %732
+  br label %728
 
-732:                                              ; preds = %745, %.lr.ph.i481
-  %indvars.iv.i483 = phi i64 [ 0, %.lr.ph.i481 ], [ %indvars.iv.next.i484, %745 ]
-  %733 = load i64, ptr %728, align 8, !tbaa !65, !noalias !241
-  %734 = load i64, ptr %729, align 8, !tbaa !69, !noalias !241
-  %735 = load ptr, ptr %42, align 8, !tbaa !70
-  %736 = sdiv i64 %indvars.iv.i483, %734
-  %737 = srem i64 %indvars.iv.i483, %734
-  %738 = mul nsw i64 %737, %733
-  %739 = getelementptr [8 x i8], ptr %735, i64 %736
-  %740 = getelementptr [8 x i8], ptr %739, i64 %738
-  %741 = load double, ptr %740, align 8, !tbaa !71
-  %742 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %741) #21
-  %743 = icmp samesign ult i64 %indvars.iv.i483, %731
-  br i1 %743, label %744, label %745
+728:                                              ; preds = %741, %.lr.ph.i481
+  %indvars.iv.i483 = phi i64 [ 0, %.lr.ph.i481 ], [ %indvars.iv.next.i484, %741 ]
+  %729 = load i64, ptr %724, align 8, !tbaa !65, !noalias !241
+  %730 = load i64, ptr %725, align 8, !tbaa !69, !noalias !241
+  %731 = load ptr, ptr %42, align 8, !tbaa !70
+  %732 = sdiv i64 %indvars.iv.i483, %730
+  %733 = srem i64 %indvars.iv.i483, %730
+  %734 = mul nsw i64 %733, %729
+  %735 = getelementptr [8 x i8], ptr %731, i64 %732
+  %736 = getelementptr [8 x i8], ptr %735, i64 %734
+  %737 = load double, ptr %736, align 8, !tbaa !71
+  %738 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %737) #21
+  %739 = icmp samesign ult i64 %indvars.iv.i483, %727
+  br i1 %739, label %740, label %741
 
-744:                                              ; preds = %732
+740:                                              ; preds = %728
   %fputc.i486 = call i32 @fputc(i32 44, ptr nonnull %58)
-  br label %745
+  br label %741
 
-745:                                              ; preds = %744, %732
+741:                                              ; preds = %740, %728
   %indvars.iv.next.i484 = add nuw nsw i64 %indvars.iv.i483, 1
   %exitcond.not.i485 = icmp eq i64 %indvars.iv.next.i484, %wide.trip.count.i482
-  br i1 %exitcond.not.i485, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit487, label %732, !llvm.loop !72
+  br i1 %exitcond.not.i485, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit487, label %728, !llvm.loop !72
 
-_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit487: ; preds = %745
-  %746 = load ptr, ptr %42, align 8, !tbaa !70
-  call void @free(ptr noundef %746) #21
-  %747 = call i64 @fwrite(ptr nonnull @.str.68, i64 23, i64 1, ptr nonnull %58)
-  %748 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %112) #21
-  %749 = load ptr, ptr %50, align 8, !tbaa !36
-  %750 = getelementptr inbounds nuw i8, ptr %749, i64 456
-  call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %750)
-  %751 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %752 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  br label %753
+_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit487: ; preds = %741
+  %742 = load ptr, ptr %42, align 8, !tbaa !70
+  call void @free(ptr noundef %742) #21
+  %743 = call i64 @fwrite(ptr nonnull @.str.68, i64 23, i64 1, ptr nonnull %58)
+  %744 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %112) #21
+  %745 = load ptr, ptr %50, align 8, !tbaa !36
+  %746 = getelementptr inbounds nuw i8, ptr %745, i64 456
+  call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %746)
+  %747 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %748 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  br label %749
 
-753:                                              ; preds = %766, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit487
-  %indvars.iv.i490 = phi i64 [ 0, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit487 ], [ %indvars.iv.next.i491, %766 ]
-  %754 = load i64, ptr %751, align 8, !tbaa !65, !noalias !244
-  %755 = load i64, ptr %752, align 8, !tbaa !69, !noalias !244
-  %756 = load ptr, ptr %43, align 8, !tbaa !70
-  %757 = sdiv i64 %indvars.iv.i490, %755
-  %758 = srem i64 %indvars.iv.i490, %755
-  %759 = mul nsw i64 %758, %754
-  %760 = getelementptr [8 x i8], ptr %756, i64 %757
-  %761 = getelementptr [8 x i8], ptr %760, i64 %759
-  %762 = load double, ptr %761, align 8, !tbaa !71
-  %763 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %762) #21
-  %764 = icmp samesign ult i64 %indvars.iv.i490, %731
-  br i1 %764, label %765, label %766
+749:                                              ; preds = %762, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit487
+  %indvars.iv.i490 = phi i64 [ 0, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit487 ], [ %indvars.iv.next.i491, %762 ]
+  %750 = load i64, ptr %747, align 8, !tbaa !65, !noalias !244
+  %751 = load i64, ptr %748, align 8, !tbaa !69, !noalias !244
+  %752 = load ptr, ptr %43, align 8, !tbaa !70
+  %753 = sdiv i64 %indvars.iv.i490, %751
+  %754 = srem i64 %indvars.iv.i490, %751
+  %755 = mul nsw i64 %754, %750
+  %756 = getelementptr [8 x i8], ptr %752, i64 %753
+  %757 = getelementptr [8 x i8], ptr %756, i64 %755
+  %758 = load double, ptr %757, align 8, !tbaa !71
+  %759 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %758) #21
+  %760 = icmp samesign ult i64 %indvars.iv.i490, %727
+  br i1 %760, label %761, label %762
 
-765:                                              ; preds = %753
+761:                                              ; preds = %749
   %fputc.i493 = call i32 @fputc(i32 44, ptr nonnull %58)
-  br label %766
+  br label %762
 
-766:                                              ; preds = %765, %753
+762:                                              ; preds = %761, %749
   %indvars.iv.next.i491 = add nuw nsw i64 %indvars.iv.i490, 1
   %exitcond.not.i492 = icmp eq i64 %indvars.iv.next.i491, %wide.trip.count.i482
-  br i1 %exitcond.not.i492, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit494, label %753, !llvm.loop !72
+  br i1 %exitcond.not.i492, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit494, label %749, !llvm.loop !72
 
 _ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit494.critedge: ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit480
-  %767 = load ptr, ptr %42, align 8, !tbaa !70
-  call void @free(ptr noundef %767) #21
-  %768 = call i64 @fwrite(ptr nonnull @.str.68, i64 23, i64 1, ptr nonnull %58)
-  %769 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %112) #21
-  %770 = load ptr, ptr %50, align 8, !tbaa !36
-  %771 = getelementptr inbounds nuw i8, ptr %770, i64 456
-  call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %771)
+  %763 = load ptr, ptr %42, align 8, !tbaa !70
+  call void @free(ptr noundef %763) #21
+  %764 = call i64 @fwrite(ptr nonnull @.str.68, i64 23, i64 1, ptr nonnull %58)
+  %765 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %112) #21
+  %766 = load ptr, ptr %50, align 8, !tbaa !36
+  %767 = getelementptr inbounds nuw i8, ptr %766, i64 456
+  call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %767)
   br label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit494
 
-_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit494: ; preds = %766, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit494.critedge
-  %772 = load ptr, ptr %43, align 8, !tbaa !70
-  call void @free(ptr noundef %772) #21
-  %773 = call i64 @fwrite(ptr nonnull @.str.69, i64 23, i64 1, ptr nonnull %58)
-  %774 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %56) #21
+_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit494: ; preds = %762, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit494.critedge
+  %768 = load ptr, ptr %43, align 8, !tbaa !70
+  call void @free(ptr noundef %768) #21
+  %769 = call i64 @fwrite(ptr nonnull @.str.69, i64 23, i64 1, ptr nonnull %58)
+  %770 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %52, i32 noundef %56) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i64 %86, ptr %45, align 8, !tbaa !54, !alias.scope !247
-  %775 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i64 %87, ptr %775, align 8, !tbaa !54, !alias.scope !247
-  %776 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store double 0.000000e+00, ptr %776, align 8, !tbaa !63, !alias.scope !247
+  %771 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store i64 %87, ptr %771, align 8, !tbaa !54, !alias.scope !247
+  %772 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store double 0.000000e+00, ptr %772, align 8, !tbaa !63, !alias.scope !247
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 1 dereferenceable(1) %45)
   br i1 %91, label %.lr.ph.i495, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit501
 
 .lr.ph.i495:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit494
-  %777 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %778 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %779 = add nsw i32 %90, -1
-  %780 = zext nneg i32 %779 to i64
+  %773 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %774 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %775 = add nsw i32 %90, -1
+  %776 = zext nneg i32 %775 to i64
   %wide.trip.count.i496 = zext nneg i32 %90 to i64
-  br label %781
+  br label %777
 
-781:                                              ; preds = %794, %.lr.ph.i495
-  %indvars.iv.i497 = phi i64 [ 0, %.lr.ph.i495 ], [ %indvars.iv.next.i498, %794 ]
-  %782 = load i64, ptr %777, align 8, !tbaa !65, !noalias !254
-  %783 = load i64, ptr %778, align 8, !tbaa !69, !noalias !254
-  %784 = load ptr, ptr %44, align 8, !tbaa !70
-  %785 = sdiv i64 %indvars.iv.i497, %783
-  %786 = srem i64 %indvars.iv.i497, %783
-  %787 = mul nsw i64 %786, %782
-  %788 = getelementptr [8 x i8], ptr %784, i64 %785
-  %789 = getelementptr [8 x i8], ptr %788, i64 %787
-  %790 = load double, ptr %789, align 8, !tbaa !71
-  %791 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %790) #21
-  %792 = icmp samesign ult i64 %indvars.iv.i497, %780
-  br i1 %792, label %793, label %794
+777:                                              ; preds = %790, %.lr.ph.i495
+  %indvars.iv.i497 = phi i64 [ 0, %.lr.ph.i495 ], [ %indvars.iv.next.i498, %790 ]
+  %778 = load i64, ptr %773, align 8, !tbaa !65, !noalias !254
+  %779 = load i64, ptr %774, align 8, !tbaa !69, !noalias !254
+  %780 = load ptr, ptr %44, align 8, !tbaa !70
+  %781 = sdiv i64 %indvars.iv.i497, %779
+  %782 = srem i64 %indvars.iv.i497, %779
+  %783 = mul nsw i64 %782, %778
+  %784 = getelementptr [8 x i8], ptr %780, i64 %781
+  %785 = getelementptr [8 x i8], ptr %784, i64 %783
+  %786 = load double, ptr %785, align 8, !tbaa !71
+  %787 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %786) #21
+  %788 = icmp samesign ult i64 %indvars.iv.i497, %776
+  br i1 %788, label %789, label %790
 
-793:                                              ; preds = %781
+789:                                              ; preds = %777
   %fputc.i500 = call i32 @fputc(i32 44, ptr nonnull %58)
-  br label %794
+  br label %790
 
-794:                                              ; preds = %793, %781
+790:                                              ; preds = %789, %777
   %indvars.iv.next.i498 = add nuw nsw i64 %indvars.iv.i497, 1
   %exitcond.not.i499 = icmp eq i64 %indvars.iv.next.i498, %wide.trip.count.i496
-  br i1 %exitcond.not.i499, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit501, label %781, !llvm.loop !72
+  br i1 %exitcond.not.i499, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit501, label %777, !llvm.loop !72
 
-_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit501: ; preds = %794, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit494
-  %795 = load ptr, ptr %44, align 8, !tbaa !70
-  call void @free(ptr noundef %795) #21
+_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit501: ; preds = %790, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit494
+  %791 = load ptr, ptr %44, align 8, !tbaa !70
+  call void @free(ptr noundef %791) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
-  %796 = call i64 @fwrite(ptr nonnull @.str.70, i64 22, i64 1, ptr nonnull %58)
-  %797 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %112) #21
+  %792 = call i64 @fwrite(ptr nonnull @.str.70, i64 22, i64 1, ptr nonnull %58)
+  %793 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.27, i32 noundef %54, i32 noundef %112) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i64 %114, ptr %47, align 8, !tbaa !54, !alias.scope !257
-  %798 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i64 %115, ptr %798, align 8, !tbaa !54, !alias.scope !257
-  %799 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store double 0.000000e+00, ptr %799, align 8, !tbaa !63, !alias.scope !257
+  %794 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store i64 %115, ptr %794, align 8, !tbaa !54, !alias.scope !257
+  %795 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  store double 0.000000e+00, ptr %795, align 8, !tbaa !63, !alias.scope !257
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 1 dereferenceable(1) %47)
   br i1 %119, label %.lr.ph.i502, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit508
 
 .lr.ph.i502:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit501
-  %800 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %801 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %802 = add nsw i32 %118, -1
-  %803 = zext nneg i32 %802 to i64
+  %796 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %797 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %798 = add nsw i32 %118, -1
+  %799 = zext nneg i32 %798 to i64
   %wide.trip.count.i503 = zext nneg i32 %118 to i64
-  br label %804
+  br label %800
 
-804:                                              ; preds = %817, %.lr.ph.i502
-  %indvars.iv.i504 = phi i64 [ 0, %.lr.ph.i502 ], [ %indvars.iv.next.i505, %817 ]
-  %805 = load i64, ptr %800, align 8, !tbaa !65, !noalias !264
-  %806 = load i64, ptr %801, align 8, !tbaa !69, !noalias !264
-  %807 = load ptr, ptr %46, align 8, !tbaa !70
-  %808 = sdiv i64 %indvars.iv.i504, %806
-  %809 = srem i64 %indvars.iv.i504, %806
-  %810 = mul nsw i64 %809, %805
-  %811 = getelementptr [8 x i8], ptr %807, i64 %808
-  %812 = getelementptr [8 x i8], ptr %811, i64 %810
-  %813 = load double, ptr %812, align 8, !tbaa !71
-  %814 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %813) #21
-  %815 = icmp samesign ult i64 %indvars.iv.i504, %803
-  br i1 %815, label %816, label %817
+800:                                              ; preds = %813, %.lr.ph.i502
+  %indvars.iv.i504 = phi i64 [ 0, %.lr.ph.i502 ], [ %indvars.iv.next.i505, %813 ]
+  %801 = load i64, ptr %796, align 8, !tbaa !65, !noalias !264
+  %802 = load i64, ptr %797, align 8, !tbaa !69, !noalias !264
+  %803 = load ptr, ptr %46, align 8, !tbaa !70
+  %804 = sdiv i64 %indvars.iv.i504, %802
+  %805 = srem i64 %indvars.iv.i504, %802
+  %806 = mul nsw i64 %805, %801
+  %807 = getelementptr [8 x i8], ptr %803, i64 %804
+  %808 = getelementptr [8 x i8], ptr %807, i64 %806
+  %809 = load double, ptr %808, align 8, !tbaa !71
+  %810 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %809) #21
+  %811 = icmp samesign ult i64 %indvars.iv.i504, %799
+  br i1 %811, label %812, label %813
 
-816:                                              ; preds = %804
+812:                                              ; preds = %800
   %fputc.i507 = call i32 @fputc(i32 44, ptr nonnull %58)
-  br label %817
+  br label %813
 
-817:                                              ; preds = %816, %804
+813:                                              ; preds = %812, %800
   %indvars.iv.next.i505 = add nuw nsw i64 %indvars.iv.i504, 1
   %exitcond.not.i506 = icmp eq i64 %indvars.iv.next.i505, %wide.trip.count.i503
-  br i1 %exitcond.not.i506, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit508, label %804, !llvm.loop !72
+  br i1 %exitcond.not.i506, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit508, label %800, !llvm.loop !72
 
-_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit508: ; preds = %817, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit501
-  %818 = load ptr, ptr %46, align 8, !tbaa !70
-  call void @free(ptr noundef %818) #21
+_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit508: ; preds = %813, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit501
+  %814 = load ptr, ptr %46, align 8, !tbaa !70
+  call void @free(ptr noundef %814) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
-  %819 = call i64 @fwrite(ptr nonnull @.str.71, i64 22, i64 1, ptr nonnull %58)
-  %820 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.61, i32 noundef %54) #21
+  %815 = call i64 @fwrite(ptr nonnull @.str.71, i64 22, i64 1, ptr nonnull %58)
+  %816 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.61, i32 noundef %54) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store i64 %114, ptr %49, align 8, !tbaa !54, !alias.scope !267
-  %821 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i64 1, ptr %821, align 8, !tbaa !54, !alias.scope !267
-  %822 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store double 0.000000e+00, ptr %822, align 8, !tbaa !63, !alias.scope !267
+  %817 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store i64 1, ptr %817, align 8, !tbaa !54, !alias.scope !267
+  %818 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  store double 0.000000e+00, ptr %818, align 8, !tbaa !63, !alias.scope !267
   call void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEES2_EEEERKNS_9DenseBaseIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 1 dereferenceable(1) %49)
-  br i1 %619, label %.lr.ph.i509, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit515
+  br i1 %615, label %.lr.ph.i509, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit515
 
 .lr.ph.i509:                                      ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit508
-  %823 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %824 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %825 = add nsw i32 %54, -1
-  %826 = zext nneg i32 %825 to i64
+  %819 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %820 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %821 = add nsw i32 %54, -1
+  %822 = zext nneg i32 %821 to i64
   %wide.trip.count.i510 = zext nneg i32 %54 to i64
-  br label %827
+  br label %823
 
-827:                                              ; preds = %840, %.lr.ph.i509
-  %indvars.iv.i511 = phi i64 [ 0, %.lr.ph.i509 ], [ %indvars.iv.next.i512, %840 ]
-  %828 = load i64, ptr %823, align 8, !tbaa !65, !noalias !274
-  %829 = load i64, ptr %824, align 8, !tbaa !69, !noalias !274
-  %830 = load ptr, ptr %48, align 8, !tbaa !70
-  %831 = sdiv i64 %indvars.iv.i511, %829
-  %832 = srem i64 %indvars.iv.i511, %829
-  %833 = mul nsw i64 %832, %828
-  %834 = getelementptr [8 x i8], ptr %830, i64 %831
-  %835 = getelementptr [8 x i8], ptr %834, i64 %833
-  %836 = load double, ptr %835, align 8, !tbaa !71
-  %837 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %836) #21
-  %838 = icmp samesign ult i64 %indvars.iv.i511, %826
-  br i1 %838, label %839, label %840
+823:                                              ; preds = %836, %.lr.ph.i509
+  %indvars.iv.i511 = phi i64 [ 0, %.lr.ph.i509 ], [ %indvars.iv.next.i512, %836 ]
+  %824 = load i64, ptr %819, align 8, !tbaa !65, !noalias !274
+  %825 = load i64, ptr %820, align 8, !tbaa !69, !noalias !274
+  %826 = load ptr, ptr %48, align 8, !tbaa !70
+  %827 = sdiv i64 %indvars.iv.i511, %825
+  %828 = srem i64 %indvars.iv.i511, %825
+  %829 = mul nsw i64 %828, %824
+  %830 = getelementptr [8 x i8], ptr %826, i64 %827
+  %831 = getelementptr [8 x i8], ptr %830, i64 %829
+  %832 = load double, ptr %831, align 8, !tbaa !71
+  %833 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.106, double noundef %832) #21
+  %834 = icmp samesign ult i64 %indvars.iv.i511, %822
+  br i1 %834, label %835, label %836
 
-839:                                              ; preds = %827
+835:                                              ; preds = %823
   %fputc.i514 = call i32 @fputc(i32 44, ptr nonnull %58)
-  br label %840
+  br label %836
 
-840:                                              ; preds = %839, %827
+836:                                              ; preds = %835, %823
   %indvars.iv.next.i512 = add nuw nsw i64 %indvars.iv.i511, 1
   %exitcond.not.i513 = icmp eq i64 %indvars.iv.next.i512, %wide.trip.count.i510
-  br i1 %exitcond.not.i513, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit515, label %827, !llvm.loop !72
+  br i1 %exitcond.not.i513, label %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit515, label %823, !llvm.loop !72
 
-_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit515: ; preds = %840, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit508
-  %841 = load ptr, ptr %48, align 8, !tbaa !70
-  call void @free(ptr noundef %841) #21
+_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit515: ; preds = %836, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit508
+  %837 = load ptr, ptr %48, align 8, !tbaa !70
+  call void @free(ptr noundef %837) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
-  %842 = call i64 @fwrite(ptr nonnull @.str.72, i64 20, i64 1, ptr nonnull %58)
-  %843 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.73, double noundef 0.000000e+00) #21
-  %844 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.74, double noundef 0.000000e+00) #21
-  %845 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.75, double noundef 0.000000e+00) #21
-  %846 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.76, double noundef 0.000000e+00) #21
-  %847 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.77, i32 noundef 0) #21
-  %848 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.78, i32 noundef 0) #21
-  %849 = call i64 @fwrite(ptr nonnull @.str.29, i64 4, i64 1, ptr nonnull %58)
-  %850 = call i64 @fwrite(ptr nonnull @.str.79, i64 65, i64 1, ptr nonnull %58)
-  %851 = call i64 @fwrite(ptr nonnull @.str.14, i64 19, i64 1, ptr nonnull %58)
-  %852 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr nonnull %58)
-  %853 = call i64 @fwrite(ptr nonnull @.str.16, i64 8, i64 1, ptr nonnull %58)
-  %854 = call i32 @fclose(ptr noundef nonnull %58)
+  %838 = call i64 @fwrite(ptr nonnull @.str.72, i64 20, i64 1, ptr nonnull %58)
+  %839 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.73, double noundef 0.000000e+00) #21
+  %840 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.74, double noundef 0.000000e+00) #21
+  %841 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.75, double noundef 0.000000e+00) #21
+  %842 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.76, double noundef 0.000000e+00) #21
+  %843 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.77, i32 noundef 0) #21
+  %844 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %58, ptr noundef nonnull @.str.78, i32 noundef 0) #21
+  %845 = call i64 @fwrite(ptr nonnull @.str.29, i64 4, i64 1, ptr nonnull %58)
+  %846 = call i64 @fwrite(ptr nonnull @.str.79, i64 65, i64 1, ptr nonnull %58)
+  %847 = call i64 @fwrite(ptr nonnull @.str.14, i64 19, i64 1, ptr nonnull %58)
+  %848 = call i64 @fwrite(ptr nonnull @.str.18, i64 2, i64 1, ptr nonnull %58)
+  %849 = call i64 @fwrite(ptr nonnull @.str.16, i64 8, i64 1, ptr nonnull %58)
+  %850 = call i32 @fclose(ptr noundef nonnull %58)
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %857, label %855
+  br i1 %.not, label %853, label %851
 
-855:                                              ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit515
-  %856 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, ptr noundef nonnull %4)
-  br label %857
+851:                                              ; preds = %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit515
+  %852 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, ptr noundef nonnull %4)
+  br label %853
 
-857:                                              ; preds = %855, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit515
+853:                                              ; preds = %851, %_ZL12print_matrixP8_IO_FILEN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEi.exit515
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
@@ -2228,7 +2226,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i: ; preds = %13
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
@@ -2315,7 +2313,7 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #19
+declare i64 @llvm.umax.i64(i64, i64) #19
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2332,7 +2330,7 @@ attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { cold noreturn }
-attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }

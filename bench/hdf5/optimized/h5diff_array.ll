@@ -7496,7 +7496,7 @@ define internal fastcc void @get_member_types(i64 noundef %0, ptr noundef captur
   %or.cond3 = icmp ult i32 %7, 2
   br i1 %or.cond3, label %8, label %11
 
-common.ret50:                                     ; preds = %13, %11, %2, %.lr.ph, %8
+common.ret50:                                     ; preds = %13, %11, %2, %16, %.lr.ph, %8
   ret void
 
 8:                                                ; preds = %5
@@ -7512,48 +7512,54 @@ common.ret50:                                     ; preds = %13, %11, %2, %.lr.p
 13:                                               ; preds = %11
   %14 = tail call i32 @H5Tget_nmembers(i64 noundef %0) #16
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph.preheader, label %common.ret50
+  br i1 %15, label %16, label %common.ret50
 
-.lr.ph.preheader:                                 ; preds = %13
+16:                                               ; preds = %13
   store i32 %14, ptr %1, align 8, !tbaa !61
-  %16 = zext nneg i32 %14 to i64
-  %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 8) #19
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %17, ptr %18, align 8, !tbaa !66
-  %19 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 8) #19
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %19, ptr %20, align 8, !tbaa !65
-  %21 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 8) #19
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %21, ptr %22, align 8, !tbaa !67
-  br label %.lr.ph
+  %17 = zext nneg i32 %14 to i64
+  %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 8) #19
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %18, ptr %19, align 8, !tbaa !66
+  %20 = load i32, ptr %1, align 8, !tbaa !61
+  %21 = zext i32 %20 to i64
+  %22 = tail call noalias ptr @calloc(i64 noundef %21, i64 noundef 8) #19
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %22, ptr %23, align 8, !tbaa !65
+  %24 = load i32, ptr %1, align 8, !tbaa !61
+  %25 = zext i32 %24 to i64
+  %26 = tail call noalias ptr @calloc(i64 noundef %25, i64 noundef 8) #19
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %26, ptr %27, align 8, !tbaa !67
+  %28 = load i32, ptr %1, align 8, !tbaa !61
+  %.not = icmp eq i32 %28, 0
+  br i1 %.not, label %common.ret50, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %23 = trunc nuw i64 %indvars.iv to i32
-  %24 = tail call i64 @H5Tget_member_type(i64 noundef %0, i32 noundef %23) #16
-  %25 = load ptr, ptr %18, align 8, !tbaa !66
-  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
-  store i64 %24, ptr %26, align 8, !tbaa !15
-  %27 = tail call i64 @H5Tget_member_offset(i64 noundef %0, i32 noundef %23) #16
-  %28 = load ptr, ptr %20, align 8, !tbaa !65
-  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
-  store i64 %27, ptr %29, align 8, !tbaa !15
-  %30 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #20
-  %31 = load ptr, ptr %22, align 8, !tbaa !67
+.lr.ph:                                           ; preds = %16, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %16 ]
+  %29 = trunc nuw i64 %indvars.iv to i32
+  %30 = tail call i64 @H5Tget_member_type(i64 noundef %0, i32 noundef %29) #16
+  %31 = load ptr, ptr %19, align 8, !tbaa !66
   %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
-  store ptr %30, ptr %32, align 8, !tbaa !68
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
-  %33 = load ptr, ptr %18, align 8, !tbaa !66
-  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
-  %35 = load i64, ptr %34, align 8, !tbaa !15
-  %36 = load ptr, ptr %32, align 8, !tbaa !68
-  tail call fastcc void @get_member_types(i64 noundef %35, ptr noundef %36)
+  store i64 %30, ptr %32, align 8, !tbaa !15
+  %33 = tail call i64 @H5Tget_member_offset(i64 noundef %0, i32 noundef %29) #16
+  %34 = load ptr, ptr %23, align 8, !tbaa !65
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
+  store i64 %33, ptr %35, align 8, !tbaa !15
+  %36 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #20
+  %37 = load ptr, ptr %27, align 8, !tbaa !67
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
+  store ptr %36, ptr %38, align 8, !tbaa !68
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 32, i1 false)
+  %39 = load ptr, ptr %19, align 8, !tbaa !66
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
+  %41 = load i64, ptr %40, align 8, !tbaa !15
+  %42 = load ptr, ptr %38, align 8, !tbaa !68
+  tail call fastcc void @get_member_types(i64 noundef %41, ptr noundef %42)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = load i32, ptr %1, align 8, !tbaa !61
-  %38 = zext i32 %37 to i64
-  %39 = icmp samesign ult i64 %indvars.iv.next, %38
-  br i1 %39, label %.lr.ph, label %common.ret50, !llvm.loop !88
+  %43 = load i32, ptr %1, align 8, !tbaa !61
+  %44 = zext i32 %43 to i64
+  %45 = icmp samesign ult i64 %indvars.iv.next, %44
+  br i1 %45, label %.lr.ph, label %common.ret50, !llvm.loop !88
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9034,7 +9040,7 @@ declare i64 @H5Sget_select_hyper_nblocks(i64 noundef) local_unnamed_addr #1
 
 declare i64 @H5Sget_select_elem_npoints(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 declare i32 @H5Sget_select_hyper_blocklist(i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
@@ -11278,7 +11284,7 @@ define internal fastcc void @ull2float(i64 noundef %0, ptr noundef nonnull write
 
 declare i64 @H5Pcreate(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 declare i32 @H5Tconvert(i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -11332,9 +11338,9 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #13 = { nofree nounwind }

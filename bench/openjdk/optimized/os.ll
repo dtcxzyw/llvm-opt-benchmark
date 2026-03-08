@@ -1552,7 +1552,7 @@ define hidden noundef ptr @_ZN2os6mallocEm8MEMFLAGSRK15NativeCallStack(i64 nound
   %20 = load i32, ptr @_ZN10NMTPreInit16_num_mallocs_preE, align 4
   %21 = add i32 %20, 1
   store i32 %21, ptr @_ZN10NMTPreInit16_num_mallocs_preE, align 4
-  br label %67
+  br label %69
 
 _ZN10NMTPreInit13handle_mallocEPPvm.exit:         ; preds = %3
   %22 = icmp sgt i32 %4, 1
@@ -1576,14 +1576,14 @@ _ZN10NMTPreInit13handle_mallocEPPvm.exit:         ; preds = %3
   %34 = add i64 %33, %5
   %35 = load i64, ptr @_ZN18MallocLimitHandler7_limitsE, align 8
   %36 = icmp ugt i64 %34, %35
-  br i1 %36, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split
+  br i1 %36, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
 37:                                               ; preds = %25
   %38 = zext i8 %1 to i64
   %39 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 %38
   %40 = load i64, ptr %39, align 8
   %.not19.i.i.i = icmp eq i64 %40, 0
-  br i1 %.not19.i.i.i, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split, label %41
+  br i1 %.not19.i.i.i, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw [64 x i8], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %38
@@ -1594,58 +1594,56 @@ _ZN10NMTPreInit13handle_mallocEPPvm.exit:         ; preds = %3
   %47 = add i64 %46, %44
   %48 = add i64 %47, %5
   %49 = icmp ugt i64 %48, %40
-  br i1 %49, label %50, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split
+  br i1 %49, label %50, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
 50:                                               ; preds = %41
   %51 = tail call noundef zeroext i1 @_ZN19MallocMemorySummary22category_limit_reachedE8MEMFLAGSmmPK11malloclimit(i8 noundef zeroext %1, i64 noundef %5, i64 noundef %47, ptr noundef nonnull %39) #29
-  br i1 %51, label %67, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split
+  br i1 %51, label %69, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
 _ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit: ; preds = %27
   %52 = tail call noundef zeroext i1 @_ZN19MallocMemorySummary19total_limit_reachedEmmPK11malloclimit(i64 noundef %5, i64 noundef %33, ptr noundef nonnull @_ZN18MallocLimitHandler7_limitsE) #29
-  br i1 %52, label %67, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split
+  br i1 %52, label %69, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
 
-_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split: ; preds = %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %50, %27, %41, %37
-  %.pr = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
-  br label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
-
-_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread: ; preds = %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split, %_ZN10NMTPreInit13handle_mallocEPPvm.exit
-  %53 = phi i32 [ %.pr, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.threadthread-pre-split ], [ %4, %_ZN10NMTPreInit13handle_mallocEPPvm.exit ]
+_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread: ; preds = %37, %41, %27, %_ZN10NMTPreInit13handle_mallocEPPvm.exit, %50, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit
+  %53 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %54 = icmp sgt i32 %53, 1
   %55 = select i1 %54, i64 18, i64 0
   %56 = add i64 %55, %5
   %57 = icmp ult i64 %56, %5
-  br i1 %57, label %67, label %58
+  br i1 %57, label %69, label %58
 
 58:                                               ; preds = %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread
   %59 = tail call noalias ptr @malloc(i64 noundef %56) #32
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %67, label %61
+  br i1 %60, label %69, label %61
 
 61:                                               ; preds = %58
-  br i1 %54, label %62, label %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit
+  %62 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
+  %63 = icmp sgt i32 %62, 1
+  br i1 %63, label %64, label %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit
 
-62:                                               ; preds = %61
-  %63 = tail call noundef ptr @_ZN13MallocTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack(ptr noundef nonnull %59, i64 noundef %5, i8 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #29
+64:                                               ; preds = %61
+  %65 = tail call noundef ptr @_ZN13MallocTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack(ptr noundef nonnull %59, i64 noundef %5, i8 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #29
   br label %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit
 
-_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit: ; preds = %61, %62
-  %.0.i19 = phi ptr [ %63, %62 ], [ %59, %61 ]
-  %64 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %66, label %67
+_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit: ; preds = %61, %64
+  %.0.i19 = phi ptr [ %65, %64 ], [ %59, %61 ]
+  %66 = load i8, ptr @_ZN9CDSConfig26_is_dumping_static_archiveE, align 1
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %68, label %69
 
-66:                                               ; preds = %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit
+68:                                               ; preds = %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.i19, i8 0, i64 %5, i1 false)
-  br label %67
+  br label %69
 
-67:                                               ; preds = %50, %66, %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit, %58, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %11
-  %.0 = phi ptr [ %19, %11 ], [ null, %58 ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread ], [ %.0.i19, %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit ], [ %.0.i19, %66 ], [ null, %50 ]
+69:                                               ; preds = %50, %68, %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit, %58, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit, %11
+  %.0 = phi ptr [ %19, %11 ], [ null, %58 ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit ], [ null, %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread ], [ %.0.i19, %_ZN10MemTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack.exit ], [ %.0.i19, %68 ], [ null, %50 ]
   ret ptr %.0
 }
 
 declare void @_ZN15NativeCallStackC1Ei(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1937,7 +1935,7 @@ _ZN10NMTPreInit13handle_mallocEPPvm.exit:         ; preds = %57, %_ZN10NMTPreIni
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5842,9 +5840,9 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nounwind memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -205,32 +205,34 @@ _ZN9hb_blob_t25try_make_writable_inplaceEv.exit:  ; preds = %7
   br i1 %.not8, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.thread, label %14
 
 14:                                               ; preds = %9
-  %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %_ZL9hb_memcpyPvPKvm.exit, label %15
+  %15 = load i32, ptr %2, align 8
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %_ZL9hb_memcpyPvPKvm.exit, label %16
 
-15:                                               ; preds = %14
-  %16 = load ptr, ptr %11, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr readonly align 1 %16, i64 range(i64 0, 4294967296) %12, i1 false), !alias.scope !10
+16:                                               ; preds = %14
+  %17 = zext i32 %15 to i64
+  %18 = load ptr, ptr %11, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr readonly align 1 %18, i64 range(i64 0, 4294967296) %17, i1 false), !alias.scope !10
   br label %_ZL9hb_memcpyPvPKvm.exit
 
-_ZL9hb_memcpyPvPKvm.exit:                         ; preds = %14, %15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load ptr, ptr %17, align 8
-  %.not.i10 = icmp eq ptr %18, null
-  br i1 %.not.i10, label %_ZN9hb_blob_t17destroy_user_dataEv.exit, label %19
+_ZL9hb_memcpyPvPKvm.exit:                         ; preds = %14, %16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %.not.i10 = icmp eq ptr %20, null
+  br i1 %.not.i10, label %_ZN9hb_blob_t17destroy_user_dataEv.exit, label %21
 
-19:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load ptr, ptr %20, align 8
-  tail call void %18(ptr noundef %21)
+21:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %23 = load ptr, ptr %22, align 8
+  tail call void %20(ptr noundef %23)
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit:          ; preds = %_ZL9hb_memcpyPvPKvm.exit, %19
+_ZN9hb_blob_t17destroy_user_dataEv.exit:          ; preds = %_ZL9hb_memcpyPvPKvm.exit, %21
   store i32 2, ptr %6, align 4
   store ptr %13, ptr %11, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %13, ptr %22, align 8
-  store ptr @free, ptr %17, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %13, ptr %24, align 8
+  store ptr @free, ptr %19, align 8
   br label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.thread
 
 _ZN9hb_blob_t25try_make_writable_inplaceEv.exit.thread: ; preds = %.thread, %7, %9, %5, %_ZN9hb_blob_t17destroy_user_dataEv.exit
@@ -611,18 +613,18 @@ define hidden ptr @hb_blob_get_data_writable(ptr noundef captures(none) %0, ptr 
 
 .thread.i:                                        ; preds = %5
   store i32 2, ptr %8, align 4
-  br label %27
+  br label %29
 
 9:                                                ; preds = %5
   %.pre.i = load i32, ptr %8, align 4
   switch i32 %.pre.i, label %12 [
-    i32 2, label %27
+    i32 2, label %29
     i32 3, label %10
   ]
 
 10:                                               ; preds = %9
   %11 = tail call noundef zeroext i1 @_ZN9hb_blob_t30try_make_writable_inplace_unixEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
-  br i1 %11, label %27, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i
+  br i1 %11, label %29, label %_ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i
 
 _ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i: ; preds = %10
   store i32 1, ptr %8, align 4
@@ -638,58 +640,60 @@ _ZN9hb_blob_t25try_make_writable_inplaceEv.exit.i: ; preds = %10
   br i1 %.not8.i, label %_ZN9hb_blob_t17try_make_writableEv.exit, label %17
 
 17:                                               ; preds = %12
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i, label %18
+  %18 = load i32, ptr %6, align 8
+  %.not.i.i = icmp eq i32 %18, 0
+  br i1 %.not.i.i, label %_ZL9hb_memcpyPvPKvm.exit.i, label %19
 
-18:                                               ; preds = %17
-  %19 = load ptr, ptr %14, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr readonly align 1 %19, i64 range(i64 0, 4294967296) %15, i1 false), !alias.scope !16
+19:                                               ; preds = %17
+  %20 = zext i32 %18 to i64
+  %21 = load ptr, ptr %14, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr readonly align 1 %21, i64 range(i64 0, 4294967296) %20, i1 false), !alias.scope !16
   br label %_ZL9hb_memcpyPvPKvm.exit.i
 
-_ZL9hb_memcpyPvPKvm.exit.i:                       ; preds = %18, %17
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = load ptr, ptr %20, align 8
-  %.not.i10.i = icmp eq ptr %21, null
-  br i1 %.not.i10.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i, label %22
+_ZL9hb_memcpyPvPKvm.exit.i:                       ; preds = %19, %17
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %23 = load ptr, ptr %22, align 8
+  %.not.i10.i = icmp eq ptr %23, null
+  br i1 %.not.i10.i, label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i, label %24
 
-22:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load ptr, ptr %23, align 8
-  tail call void %21(ptr noundef %24)
+24:                                               ; preds = %_ZL9hb_memcpyPvPKvm.exit.i
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %26 = load ptr, ptr %25, align 8
+  tail call void %23(ptr noundef %26)
   br label %_ZN9hb_blob_t17destroy_user_dataEv.exit.i
 
-_ZN9hb_blob_t17destroy_user_dataEv.exit.i:        ; preds = %22, %_ZL9hb_memcpyPvPKvm.exit.i
+_ZN9hb_blob_t17destroy_user_dataEv.exit.i:        ; preds = %24, %_ZL9hb_memcpyPvPKvm.exit.i
   store i32 2, ptr %8, align 4
   store ptr %16, ptr %14, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %16, ptr %25, align 8
-  store ptr @free, ptr %20, align 8
-  br label %27
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %16, ptr %27, align 8
+  store ptr @free, ptr %22, align 8
+  br label %29
 
 _ZN9hb_blob_t17try_make_writableEv.exit:          ; preds = %12, %2
   %.not10 = icmp eq ptr %1, null
-  br i1 %.not10, label %33, label %26
+  br i1 %.not10, label %35, label %28
 
-26:                                               ; preds = %_ZN9hb_blob_t17try_make_writableEv.exit
+28:                                               ; preds = %_ZN9hb_blob_t17try_make_writableEv.exit
   store i32 0, ptr %1, align 4
-  br label %33
+  br label %35
 
-27:                                               ; preds = %9, %10, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i, %.thread.i
+29:                                               ; preds = %9, %10, %_ZN9hb_blob_t17destroy_user_dataEv.exit.i, %.thread.i
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %30, label %28
+  br i1 %.not, label %32, label %30
 
-28:                                               ; preds = %27
-  %29 = load i32, ptr %6, align 8
-  store i32 %29, ptr %1, align 4
-  br label %30
+30:                                               ; preds = %29
+  %31 = load i32, ptr %6, align 8
+  store i32 %31, ptr %1, align 4
+  br label %32
 
-30:                                               ; preds = %28, %27
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8
-  br label %33
+32:                                               ; preds = %30, %29
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = load ptr, ptr %33, align 8
+  br label %35
 
-33:                                               ; preds = %_ZN9hb_blob_t17try_make_writableEv.exit, %26, %30
-  %.0 = phi ptr [ %32, %30 ], [ null, %26 ], [ null, %_ZN9hb_blob_t17try_make_writableEv.exit ]
+35:                                               ; preds = %_ZN9hb_blob_t17try_make_writableEv.exit, %28, %32
+  %.0 = phi ptr [ %34, %32 ], [ null, %28 ], [ null, %_ZN9hb_blob_t17try_make_writableEv.exit ]
   ret ptr %.0
 }
 
@@ -766,7 +770,7 @@ define hidden noundef zeroext i1 @_ZN9hb_blob_t25try_make_writable_inplaceEv(ptr
   ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -891,7 +895,7 @@ declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr no
 ; Function Attrs: nofree nounwind
 declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
@@ -906,7 +910,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1246,12 +1250,12 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { cold nofree noreturn }

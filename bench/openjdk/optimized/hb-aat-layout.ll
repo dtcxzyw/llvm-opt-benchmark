@@ -4201,7 +4201,7 @@ _ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE
   ret ptr %.07
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
@@ -6791,7 +6791,7 @@ _ZN24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES_IS0_ImLj0EE
   ret i1 %73
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -10279,7 +10279,7 @@ _ZN11hb_vector_tIS_IN12hb_aat_map_t13range_flags_tELb1EELb0EE14realloc_vectorIS2
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 
 declare i32 @hb_language_matches(ptr noundef, ptr noundef) local_unnamed_addr #7
@@ -28255,8 +28255,8 @@ _ZN21hb_sanitize_context_t16start_processingEv.exit.i: ; preds = %40, %30
   store i32 0, ptr %43, align 4
   br label %_ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit
 
-common.resume:                                    ; preds = %233, %44
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %234, %233 ]
+common.resume:                                    ; preds = %235, %44
+  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %236, %235 ]
   tail call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %20) #20
   resume { ptr, i32 } %common.resume.op
 
@@ -28272,7 +28272,7 @@ _ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit:    ; preds = %28, %_ZN21hb_saniti
   %48 = load ptr, ptr %16, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 272
   %50 = invoke noundef ptr @_ZNK16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %49)
-          to label %51 unwind label %233
+          to label %51 unwind label %235
 
 51:                                               ; preds = %_ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit
   %52 = load ptr, ptr %50, align 8
@@ -28288,7 +28288,7 @@ _ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit:    ; preds = %28, %_ZN21hb_saniti
   %58 = load ptr, ptr %16, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 272
   %60 = invoke noundef nonnull align 8 dereferenceable(536) ptr @_ZNK16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %59)
-          to label %_ZNK16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_EdeIS1_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_vEE5valueEvE4typeELPv0EEERKS8_v.exit unwind label %233
+          to label %_ZNK16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_EdeIS1_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_vEE5valueEvE4typeELPv0EEERKS8_v.exit unwind label %235
 
 _ZNK16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_EdeIS1_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_vEE5valueEvE4typeELPv0EEERKS8_v.exit: ; preds = %51
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -28542,34 +28542,36 @@ _ZN24hb_set_digest_combiner_tI28hb_set_digest_bits_pattern_tImLj4EES_IS0_ImLj0EE
   store i32 %221, ptr %222, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store i32 0, ptr %6, align 8
-  %223 = zext i1 %111 to i8
-  store i8 %223, ptr %8, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  store i8 1, ptr %224, align 1
+  %223 = load i32, ptr %14, align 8
+  %224 = icmp eq i32 %223, 1
+  %225 = zext i1 %224 to i8
+  store i8 %225, ptr %8, align 8
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  store i8 1, ptr %226, align 1
   store i32 1, ptr %7, align 4
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  store i8 0, ptr %225, align 2
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 35
-  store i8 0, ptr %226, align 1
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %0, ptr %227, align 8
-  %228 = load i32, ptr %220, align 8
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %228, ptr %229, align 8
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 34
+  store i8 0, ptr %227, align 2
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 35
+  store i8 0, ptr %228, align 1
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %0, ptr %229, align 8
+  %230 = load i32, ptr %220, align 8
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i32 %230, ptr %231, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store i32 0, ptr %10, align 8
   store i8 1, ptr %12, align 8
-  %230 = getelementptr inbounds nuw i8, ptr %0, i64 97
-  store i8 1, ptr %230, align 1
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 97
+  store i8 1, ptr %232, align 1
   store i32 -1, ptr %11, align 4
-  %231 = getelementptr inbounds nuw i8, ptr %0, i64 98
-  store i8 0, ptr %231, align 2
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 99
-  store i8 0, ptr %232, align 1
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 98
+  store i8 0, ptr %233, align 2
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 99
+  store i8 0, ptr %234, align 1
   ret void
 
-233:                                              ; preds = %51, %_ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit
-  %234 = landingpad { ptr, i32 }
+235:                                              ; preds = %51, %_ZN21hb_sanitize_context_tC2EP9hb_blob_t.exit
+  %236 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 }
@@ -35122,10 +35124,10 @@ attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

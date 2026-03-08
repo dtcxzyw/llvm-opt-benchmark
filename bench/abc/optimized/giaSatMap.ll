@@ -1607,7 +1607,7 @@ define noalias noundef ptr @Sbm_ManAlloc(i32 noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
@@ -2019,7 +2019,6 @@ Vec_WecSizeSize.exit160:                          ; preds = %56, %Vec_WecSizeSiz
 
 73:                                               ; preds = %72
   %74 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %71, i64 noundef 64) #18
-  %.pre.pre = load i32, ptr %67, align 4, !tbaa !13
   br label %Vec_IntGrow.exit.i
 
 75:                                               ; preds = %72
@@ -2027,10 +2026,10 @@ Vec_WecSizeSize.exit160:                          ; preds = %56, %Vec_WecSizeSiz
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %75, %73
-  %.pre = phi i32 [ %.pre.pre, %73 ], [ 0, %75 ]
   %77 = phi ptr [ %74, %73 ], [ %76, %75 ]
   store ptr %77, ptr %70, align 8, !tbaa !22
   store i32 16, ptr %66, align 8, !tbaa !21
+  %.pre = load i32, ptr %67, align 4, !tbaa !13
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %64, %Vec_IntGrow.exit.i
@@ -2078,9 +2077,9 @@ Vec_IntPush.exit167.sink.split:                   ; preds = %89
   %97 = shl nuw nsw i32 %93, 1
   %98 = zext nneg i32 %97 to i64
   %99 = shl nuw nsw i64 %98, 2
-  %.sink240 = select i1 %96, i64 64, i64 %99
+  %.sink239 = select i1 %96, i64 64, i64 %99
   %.sink = select i1 %96, i32 16, i32 %97
-  %100 = call ptr @realloc(ptr noundef nonnull %90, i64 noundef %.sink240) #18
+  %100 = call ptr @realloc(ptr noundef nonnull %90, i64 noundef %.sink239) #18
   store ptr %100, ptr %.phi.trans.insert.i162, align 8, !tbaa !22
   store i32 %.sink, ptr %66, align 8, !tbaa !21
   br label %Vec_IntPush.exit167
@@ -2114,11 +2113,11 @@ Vec_IntPush.exit174.sink.split:                   ; preds = %106
   %115 = shl nuw nsw i32 %111, 1
   %116 = zext nneg i32 %115 to i64
   %117 = shl nuw nsw i64 %116, 2
-  %.sink243 = select i1 %114, i64 64, i64 %117
-  %.sink241 = select i1 %114, i32 16, i32 %115
-  %118 = call ptr @realloc(ptr noundef nonnull %107, i64 noundef %.sink243) #18
+  %.sink242 = select i1 %114, i64 64, i64 %117
+  %.sink240 = select i1 %114, i32 16, i32 %115
+  %118 = call ptr @realloc(ptr noundef nonnull %107, i64 noundef %.sink242) #18
   store ptr %118, ptr %.phi.trans.insert.i169, align 8, !tbaa !22
-  store i32 %.sink241, ptr %66, align 8, !tbaa !21
+  store i32 %.sink240, ptr %66, align 8, !tbaa !21
   br label %Vec_IntPush.exit174
 
 Vec_IntPush.exit174:                              ; preds = %Vec_IntPush.exit174.sink.split, %106
@@ -2387,10 +2386,10 @@ Abc_Clock.exit180:                                ; preds = %Abc_Clock.exit178, 
 
 declare i32 @Nf_ManExtractWindow(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: inlinehint nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -2790,10 +2789,10 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { inlinehint nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }

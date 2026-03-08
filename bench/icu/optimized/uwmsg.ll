@@ -225,7 +225,7 @@ fetchErrorName.exit:                              ; preds = %7, %10
   %.0.in.i = select i1 %17, ptr %16, ptr %13
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !11
   %.not = icmp eq ptr %.0.i, null
-  br i1 %.not, label %18, label %48
+  br i1 %.not, label %18, label %49
 
 18:                                               ; preds = %fetchErrorName.exit
   %19 = load ptr, ptr @gBundle, align 8, !tbaa !8
@@ -244,7 +244,7 @@ fetchErrorName.exit:                              ; preds = %7, %10
   %27 = icmp sgt i32 %26, 0
   %28 = icmp eq ptr %25, null
   %or.cond = select i1 %27, i1 true, i1 %28
-  br i1 %or.cond, label %.thread, label %39
+  br i1 %or.cond, label %.thread, label %40
 
 .thread:                                          ; preds = %23, %21, %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -262,32 +262,33 @@ fetchErrorName.exit:                              ; preds = %7, %10
   %34 = shl i64 %33, 1
   %35 = add i64 %34, 2
   %36 = call noalias ptr @malloc(i64 noundef %35) #10
-  %37 = trunc i64 %33 to i32
-  %38 = add i32 %37, 1
-  call void @u_charsToUChars_77(ptr noundef nonnull %.020, ptr noundef %36, i32 noundef %38) #8
+  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.020) #9
+  %38 = trunc i64 %37 to i32
+  %39 = add i32 %38, 1
+  call void @u_charsToUChars_77(ptr noundef nonnull %.020, ptr noundef %36, i32 noundef %39) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %39
+  br label %40
 
-39:                                               ; preds = %23, %32
+40:                                               ; preds = %23, %32
   %.2 = phi ptr [ %36, %32 ], [ %25, %23 ]
-  %40 = icmp sgt i32 %0, -1
-  br i1 %40, label %41, label %44
+  %41 = icmp sgt i32 %0, -1
+  br i1 %41, label %42, label %45
 
-41:                                               ; preds = %39
-  %42 = load ptr, ptr @gErrMessages, align 8, !tbaa !17
-  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %12
-  store ptr %.2, ptr %43, align 8, !tbaa !11
-  br label %48
+42:                                               ; preds = %40
+  %43 = load ptr, ptr @gErrMessages, align 8, !tbaa !17
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %12
+  store ptr %.2, ptr %44, align 8, !tbaa !11
+  br label %49
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr @gInfoMessages, align 8, !tbaa !17
-  %46 = getelementptr [8 x i8], ptr %45, i64 %14
-  %47 = getelementptr i8, ptr %46, i64 1024
-  store ptr %.2, ptr %47, align 8, !tbaa !11
-  br label %48
+45:                                               ; preds = %40
+  %46 = load ptr, ptr @gInfoMessages, align 8, !tbaa !17
+  %47 = getelementptr [8 x i8], ptr %46, i64 %14
+  %48 = getelementptr i8, ptr %47, i64 1024
+  store ptr %.2, ptr %48, align 8, !tbaa !11
+  br label %49
 
-48:                                               ; preds = %41, %44, %fetchErrorName.exit
-  %.0 = phi ptr [ %.0.i, %fetchErrorName.exit ], [ %.2, %44 ], [ %.2, %41 ]
+49:                                               ; preds = %42, %45, %fetchErrorName.exit
+  %.0 = phi ptr [ %.0.i, %fetchErrorName.exit ], [ %.2, %45 ], [ %.2, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
@@ -298,7 +299,7 @@ declare ptr @u_errorName_77(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind
 declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -321,17 +322,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #7 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { nounwind allocsize(0) }

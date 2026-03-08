@@ -62,45 +62,46 @@ cuddComputeFloorLog2.exit:                        ; preds = %.lr.ph.i, %3
   store i32 %34, ptr %35, align 4, !tbaa !31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %2, ptr %36, align 4, !tbaa !32
-  %37 = shl i32 %5, 2
-  %.54 = tail call i32 @llvm.umin.i32(i32 %37, i32 %2)
+  %37 = load i32, ptr %4, align 8, !tbaa !3
+  %38 = shl i32 %37, 2
+  %.54 = tail call i32 @llvm.umin.i32(i32 %38, i32 %2)
   %.neg = shl i32 -2, %.0.lcssa.i
-  %38 = add i32 %.neg, %.54
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %38, ptr %39, align 8, !tbaa !33
+  %39 = add i32 %.54, %.neg
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i32 %39, ptr %40, align 8, !tbaa !33
   tail call void @Cudd_SetMinHit(ptr noundef nonnull %0, i32 noundef 30) #15
-  %40 = uitofp i32 %11 to double
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %42 = load double, ptr %41, align 8, !tbaa !34
-  %43 = tail call double @llvm.fmuladd.f64(double %40, double %42, double 1.000000e+00)
-  %44 = fptosi double %43 to i32
-  %45 = sitofp i32 %44 to double
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store double %45, ptr %46, align 8, !tbaa !35
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store double 0.000000e+00, ptr %47, align 8, !tbaa !36
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  store double 0.000000e+00, ptr %48, align 8, !tbaa !37
-  %49 = fneg double %45
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  store double %49, ptr %50, align 8, !tbaa !38
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false)
-  %52 = load ptr, ptr %26, align 8, !tbaa !28
+  %41 = uitofp i32 %11 to double
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %43 = load double, ptr %42, align 8, !tbaa !34
+  %44 = tail call double @llvm.fmuladd.f64(double %41, double %43, double 1.000000e+00)
+  %45 = fptosi double %44 to i32
+  %46 = sitofp i32 %45 to double
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store double %46, ptr %47, align 8, !tbaa !35
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store double 0.000000e+00, ptr %48, align 8, !tbaa !36
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  store double 0.000000e+00, ptr %49, align 8, !tbaa !37
+  %50 = fneg double %46
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  store double %50, ptr %51, align 8, !tbaa !38
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 32, i1 false)
+  %53 = load ptr, ptr %26, align 8, !tbaa !28
   %wide.trip.count = zext i32 %11 to i64
-  br label %53
+  br label %54
 
-53:                                               ; preds = %20, %53
-  %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %53 ]
-  %54 = getelementptr inbounds nuw [40 x i8], ptr %52, i64 %indvars.iv
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
+54:                                               ; preds = %20, %54
+  %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %54 ]
+  %55 = getelementptr inbounds nuw [40 x i8], ptr %53, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
-  br i1 %exitcond.not, label %.loopexit, label %53, !llvm.loop !39
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
+  br i1 %exitcond.not, label %.loopexit, label %54, !llvm.loop !39
 
-.loopexit:                                        ; preds = %53, %18
-  %.0 = phi i32 [ 0, %18 ], [ 1, %53 ]
+.loopexit:                                        ; preds = %54, %18
+  %.0 = phi i32 [ 0, %18 ], [ 1, %54 ]
   ret i32 %.0
 }
 
@@ -122,7 +123,7 @@ define i32 @cuddComputeFloorLog2(i32 noundef %0) local_unnamed_addr #1 {
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 declare void @Cudd_SetMinHit(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -1298,7 +1299,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

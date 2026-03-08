@@ -459,8 +459,8 @@ define range(i32 0, 2) i32 @Map_LibraryReadFileTreeStr(ptr noundef %0, ptr nound
 
 Vec_StrGets.exit:                                 ; preds = %16, %23
   %.2 = phi i32 [ %21, %16 ], [ %24, %23 ]
-  %.ptr381 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i.add
-  store i8 0, ptr %.ptr381, align 1, !tbaa !21
+  %.ptr380 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i.add
+  store i8 0, ptr %.ptr380, align 1, !tbaa !21
   br label %28
 
 28:                                               ; preds = %Vec_StrGets.exit, %.critedge
@@ -550,8 +550,8 @@ Vec_StrGets.exit:                                 ; preds = %16, %23
 
 Vec_StrGets.exit137:                              ; preds = %60, %53
   %.3 = phi i32 [ %58, %53 ], [ %61, %60 ]
-  %.ptr341376 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i135.add
-  store i8 0, ptr %.ptr341376, align 1, !tbaa !21
+  %.ptr340375 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i135.add
+  store i8 0, ptr %.ptr340375, align 1, !tbaa !21
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %65) #17
   %67 = load i32, ptr %65, align 8, !tbaa !40
@@ -612,8 +612,8 @@ Vec_StrGets.exit137:                              ; preds = %60, %53
 
 Vec_StrGets.exit145:                              ; preds = %87, %80
   %.4 = phi i32 [ %85, %80 ], [ %88, %87 ]
-  %.ptr342371 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i143.add
-  store i8 0, ptr %.ptr342371, align 1, !tbaa !21
+  %.ptr341370 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i143.add
+  store i8 0, ptr %.ptr341370, align 1, !tbaa !21
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %93 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %92) #17
   %94 = load i32, ptr %92, align 8, !tbaa !41
@@ -674,8 +674,8 @@ Vec_StrGets.exit145:                              ; preds = %87, %80
 
 Vec_StrGets.exit153:                              ; preds = %114, %107
   %.5 = phi i32 [ %112, %107 ], [ %115, %114 ]
-  %.ptr343366 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i151.add
-  store i8 0, ptr %.ptr343366, align 1, !tbaa !21
+  %.ptr342365 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i151.add
+  store i8 0, ptr %.ptr342365, align 1, !tbaa !21
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %120 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %119) #17
   %121 = load i32, ptr %119, align 4, !tbaa !25
@@ -755,17 +755,13 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %160 = sext i32 %145 to i64
   %161 = icmp slt i64 %indvars.iv.next316, %160
-  br i1 %161, label %135, label %._crit_edge248.loopexit, !llvm.loop !45
+  br i1 %161, label %135, label %._crit_edge248, !llvm.loop !45
 
-._crit_edge248.loopexit:                          ; preds = %._crit_edge244
-  %.pre = load i32, ptr %119, align 4, !tbaa !25
-  br label %._crit_edge248
-
-._crit_edge248:                                   ; preds = %._crit_edge248.loopexit, %125
-  %162 = phi i32 [ %121, %125 ], [ %.pre, %._crit_edge248.loopexit ]
-  %.lcssa = phi i32 [ %131, %125 ], [ %145, %._crit_edge248.loopexit ]
-  %163 = load ptr, ptr @stdout, align 8, !tbaa !46
-  %164 = call ptr @Extra_ProgressBarStart(ptr noundef %163, i32 noundef %162) #17
+._crit_edge248:                                   ; preds = %._crit_edge244, %125
+  %.lcssa = phi i32 [ %131, %125 ], [ %145, %._crit_edge244 ]
+  %162 = load ptr, ptr @stdout, align 8, !tbaa !46
+  %163 = load i32, ptr %119, align 4, !tbaa !25
+  %164 = call ptr @Extra_ProgressBarStart(ptr noundef %162, i32 noundef %163) #17
   %.val36.i155250257 = load i32, ptr %7, align 4, !tbaa !35
   %165 = icmp eq i32 %.5, %.val36.i155250257
   br i1 %165, label %.outer._crit_edge, label %.preheader.i156.lr.ph.lr.ph
@@ -853,8 +849,8 @@ Vec_StrGets.exit153:                              ; preds = %114, %107
 
 Vec_StrGets.exit161:                              ; preds = %186, %193
   %.6 = phi i32 [ %191, %186 ], [ %194, %193 ]
-  %.ptr344353 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i159.add
-  store i8 0, ptr %.ptr344353, align 1, !tbaa !21
+  %.ptr343352 = getelementptr inbounds nuw i8, ptr %5, i64 %.02944.i159.add
+  store i8 0, ptr %.ptr343352, align 1, !tbaa !21
   br label %198
 
 198:                                              ; preds = %Vec_StrGets.exit161, %.critedge2
@@ -918,11 +914,11 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %209, %213
 
 221:                                              ; preds = %.loopexit194
   %222 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.0108.ph208, i32 noundef %220)
-  %.pre328 = load i32, ptr %119, align 4, !tbaa !25
+  %.pre = load i32, ptr %119, align 4, !tbaa !25
   br label %223
 
 223:                                              ; preds = %221, %.loopexit194
-  %224 = phi i32 [ %.pre328, %221 ], [ %.0108.ph208, %.loopexit194 ]
+  %224 = phi i32 [ %.pre, %221 ], [ %.0108.ph208, %.loopexit194 ]
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.0108.ph208, ptr %225, align 4, !tbaa !50
   %226 = icmp sgt i32 %224, 0
@@ -971,7 +967,7 @@ declare ptr @Mio_LibraryReadName(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind
 declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 declare ptr @Extra_ProgressBarStart(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1974,7 +1970,7 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

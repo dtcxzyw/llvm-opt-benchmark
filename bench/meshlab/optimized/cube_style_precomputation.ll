@@ -1276,8 +1276,8 @@ _ZN3igl18per_vertex_normalsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1
   store i64 -1, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %32 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %30, i8 0, i64 56, i1 false)
+  %32 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %32, ptr %31, align 8
   %.not6.i = icmp eq ptr %32, null
   br i1 %.not6.i, label %33, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit
@@ -2017,8 +2017,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit._
   store i64 -1, ptr %389, align 8
   %390 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %391 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %392 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %390, i8 0, i64 56, i1 false)
+  %392 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %392, ptr %391, align 8
   %.not6.i207 = icmp eq ptr %392, null
   br i1 %.not6.i207, label %393, label %398
@@ -2411,8 +2411,8 @@ _ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE5clearEv.exit: ; pr
   store i64 -1, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %40 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, i8 0, i64 56, i1 false)
+  %40 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %40, ptr %39, align 8
   %.not6.i = icmp eq ptr %40, null
   br i1 %.not6.i, label %41, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit
@@ -2475,8 +2475,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit:         ; preds = %56, %60
   store i64 -1, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %64 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %62, i8 0, i64 56, i1 false)
+  %64 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %64, ptr %63, align 8
   %.not6.i24 = icmp eq ptr %64, null
   br i1 %.not6.i24, label %65, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit19
@@ -4244,8 +4244,8 @@ define linkonce_odr void @_ZN3igl8arap_rhsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELi
   store i64 -1, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %36 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 56, i1 false)
+  %36 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %36, ptr %35, align 8
   %.not6.i = icmp eq ptr %36, null
   br i1 %.not6.i, label %37, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit
@@ -4279,8 +4279,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit:         ; preds = %32
   store i64 -1, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %46 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %44, i8 0, i64 56, i1 false)
+  %46 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %46, ptr %45, align 8
   %.not6.i204 = icmp eq ptr %46, null
   br i1 %.not6.i204, label %47, label %52
@@ -4310,8 +4310,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit:         ; preds = %32
   store i64 -1, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %57 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %55, i8 0, i64 56, i1 false)
+  %57 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %57, ptr %56, align 8
   %.not6.i210 = icmp eq ptr %57, null
   br i1 %.not6.i210, label %58, label %63
@@ -4381,8 +4381,8 @@ _ZN3igl17arap_linear_blockIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1EL
   store i64 -1, ptr %69, align 8, !alias.scope !106
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %71 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %72 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %70, i8 0, i64 56, i1 false)
+  %72 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %72, ptr %71, align 8
   %.not6.i216 = icmp eq ptr %72, null
   br i1 %.not6.i216, label %73, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i
@@ -4422,8 +4422,8 @@ _ZN3igl7repdiagIN5Eigen12SparseMatrixIdLi0EiEEEET_RKS4_i.exit: ; preds = %_ZN5Ei
   store i64 -1, ptr %81, align 8, !alias.scope !109
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %83 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %84 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %82, i8 0, i64 56, i1 false)
+  %84 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %84, ptr %83, align 8
   %.not6.i222 = icmp eq ptr %84, null
   br i1 %.not6.i222, label %85, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i83
@@ -4463,8 +4463,8 @@ _ZN3igl7repdiagIN5Eigen12SparseMatrixIdLi0EiEEEET_RKS4_i.exit86: ; preds = %_ZN5
   store i64 -1, ptr %93, align 8, !alias.scope !112
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %95 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %96 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %94, i8 0, i64 56, i1 false)
+  %96 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %96, ptr %95, align 8
   %.not6.i228 = icmp eq ptr %96, null
   br i1 %.not6.i228, label %97, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i89
@@ -4626,8 +4626,8 @@ _ZN3igl17arap_linear_blockIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1EL
   store i64 -1, ptr %147, align 8, !alias.scope !115
   %148 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %149 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %150 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %148, i8 0, i64 56, i1 false)
+  %150 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %150, ptr %149, align 8
   %.not6.i234 = icmp eq ptr %150, null
   br i1 %.not6.i234, label %151, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i101
@@ -4667,8 +4667,8 @@ _ZN3igl7repdiagIN5Eigen12SparseMatrixIdLi0EiEEEET_RKS4_i.exit104: ; preds = %_ZN
   store i64 -1, ptr %159, align 8, !alias.scope !118
   %160 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %161 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %162 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %160, i8 0, i64 56, i1 false)
+  %162 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %162, ptr %161, align 8
   %.not6.i240 = icmp eq ptr %162, null
   br i1 %.not6.i240, label %163, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i107
@@ -4708,8 +4708,8 @@ _ZN3igl7repdiagIN5Eigen12SparseMatrixIdLi0EiEEEET_RKS4_i.exit110: ; preds = %_ZN
   store i64 -1, ptr %171, align 8, !alias.scope !121
   %172 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %173 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %174 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %172, i8 0, i64 56, i1 false)
+  %174 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %174, ptr %173, align 8
   %.not6.i246 = icmp eq ptr %174, null
   br i1 %.not6.i246, label %175, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i113
@@ -4749,8 +4749,8 @@ _ZN3igl3catIN5Eigen12SparseMatrixIdLi0EiEEEET_iRKS4_S6_.exit116: ; preds = %_ZN5
   store i64 -1, ptr %183, align 8, !alias.scope !124
   %184 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %185 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %186 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %184, i8 0, i64 56, i1 false)
+  %186 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %186, ptr %185, align 8
   %.not6.i252 = icmp eq ptr %186, null
   br i1 %.not6.i252, label %187, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i119
@@ -4790,8 +4790,8 @@ _ZN3igl7repdiagIN5Eigen12SparseMatrixIdLi0EiEEEET_RKS4_i.exit122: ; preds = %_ZN
   store i64 -1, ptr %195, align 8, !alias.scope !127
   %196 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %197 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %198 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %196, i8 0, i64 56, i1 false)
+  %198 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %198, ptr %197, align 8
   %.not6.i258 = icmp eq ptr %198, null
   br i1 %.not6.i258, label %199, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i125
@@ -5016,8 +5016,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit134:      ; preds = %246, %250
   store i64 -1, ptr %280, align 8, !alias.scope !130
   %281 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %282 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %283 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %281, i8 0, i64 56, i1 false)
+  %283 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %283, ptr %282, align 8
   %.not6.i271 = icmp eq ptr %283, null
   br i1 %.not6.i271, label %284, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i140
@@ -5057,8 +5057,8 @@ _ZN3igl7repdiagIN5Eigen12SparseMatrixIdLi0EiEEEET_RKS4_i.exit143: ; preds = %_ZN
   store i64 -1, ptr %292, align 8, !alias.scope !133
   %293 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %294 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %295 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %293, i8 0, i64 56, i1 false)
+  %295 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %295, ptr %294, align 8
   %.not6.i278 = icmp eq ptr %295, null
   br i1 %.not6.i278, label %296, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i146
@@ -5098,8 +5098,8 @@ _ZN3igl3catIN5Eigen12SparseMatrixIdLi0EiEEEET_iRKS4_S6_.exit149: ; preds = %_ZN5
   store i64 -1, ptr %304, align 8, !alias.scope !136
   %305 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %306 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %307 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %305, i8 0, i64 56, i1 false)
+  %307 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %307, ptr %306, align 8
   %.not6.i285 = icmp eq ptr %307, null
   br i1 %.not6.i285, label %308, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i152
@@ -5139,8 +5139,8 @@ _ZN3igl7repdiagIN5Eigen12SparseMatrixIdLi0EiEEEET_RKS4_i.exit155: ; preds = %_ZN
   store i64 -1, ptr %316, align 8, !alias.scope !139
   %317 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %318 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %319 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %317, i8 0, i64 56, i1 false)
+  %319 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %319, ptr %318, align 8
   %.not6.i292 = icmp eq ptr %319, null
   br i1 %.not6.i292, label %320, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i158
@@ -5180,8 +5180,8 @@ _ZN3igl3catIN5Eigen12SparseMatrixIdLi0EiEEEET_iRKS4_S6_.exit161: ; preds = %_ZN5
   store i64 -1, ptr %328, align 8, !alias.scope !142
   %329 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %330 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %331 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %329, i8 0, i64 56, i1 false)
+  %331 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %331, ptr %330, align 8
   %.not6.i299 = icmp eq ptr %331, null
   br i1 %.not6.i299, label %332, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i164
@@ -5221,8 +5221,8 @@ _ZN3igl3catIN5Eigen12SparseMatrixIdLi0EiEEEET_iRKS4_S6_.exit167: ; preds = %_ZN5
   store i64 -1, ptr %340, align 8, !alias.scope !145
   %341 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %342 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %343 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %341, i8 0, i64 56, i1 false)
+  %343 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %343, ptr %342, align 8
   %.not6.i306 = icmp eq ptr %343, null
   br i1 %.not6.i306, label %344, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i170
@@ -5262,8 +5262,8 @@ _ZN3igl7repdiagIN5Eigen12SparseMatrixIdLi0EiEEEET_RKS4_i.exit173: ; preds = %_ZN
   store i64 -1, ptr %352, align 8, !alias.scope !148
   %353 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %354 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %355 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %353, i8 0, i64 56, i1 false)
+  %355 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %355, ptr %354, align 8
   %.not6.i313 = icmp eq ptr %355, null
   br i1 %.not6.i313, label %356, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i176
@@ -5303,8 +5303,8 @@ _ZN3igl3catIN5Eigen12SparseMatrixIdLi0EiEEEET_iRKS4_S6_.exit179: ; preds = %_ZN5
   store i64 -1, ptr %364, align 8, !alias.scope !151
   %365 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %366 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %367 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %365, i8 0, i64 56, i1 false)
+  %367 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %367, ptr %366, align 8
   %.not6.i320 = icmp eq ptr %367, null
   br i1 %.not6.i320, label %368, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i182
@@ -6274,8 +6274,8 @@ _ZN5Eigen5BlockINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0EEaSIS2_EERS3_RK
   store i64 -1, ptr %224, align 8
   %225 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %226 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %227 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %225, i8 0, i64 56, i1 false)
+  %227 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %227, ptr %226, align 8
   %.not6.i = icmp eq ptr %227, null
   br i1 %.not6.i, label %228, label %233
@@ -6589,8 +6589,8 @@ _ZN5Eigen12SparseMatrixIdLi1EiED2Ev.exit:         ; preds = %334, %338
   store i64 -1, ptr %357, align 8
   %358 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %359 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %360 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %358, i8 0, i64 56, i1 false)
+  %360 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %360, ptr %359, align 8
   %.not6.i394 = icmp eq ptr %360, null
   br i1 %.not6.i394, label %361, label %366
@@ -6672,8 +6672,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiEC2INS_9TransposeIKS1_EEEERKNS_16SparseMatrixBaseI
   store i64 -1, ptr %389, align 8, !alias.scope !174
   %390 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %391 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %392 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %390, i8 0, i64 56, i1 false)
+  %392 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %392, ptr %391, align 8
   %.not6.i407 = icmp eq ptr %392, null
   br i1 %.not6.i407, label %393, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i
@@ -6713,8 +6713,8 @@ _ZN3igl3catIN5Eigen12SparseMatrixIdLi0EiEEEET_iRKS4_S6_.exit: ; preds = %_ZN5Eig
   store i64 -1, ptr %401, align 8, !alias.scope !177
   %402 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %403 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %404 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %402, i8 0, i64 56, i1 false)
+  %404 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %404, ptr %403, align 8
   %.not6.i414 = icmp eq ptr %404, null
   br i1 %.not6.i414, label %405, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i251
@@ -6754,8 +6754,8 @@ _ZN3igl3catIN5Eigen12SparseMatrixIdLi0EiEEEET_iRKS4_S6_.exit254: ; preds = %_ZN5
   store i64 -1, ptr %413, align 8, !alias.scope !180
   %414 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %415 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %416 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %414, i8 0, i64 56, i1 false)
+  %416 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %416, ptr %415, align 8
   %.not6.i421 = icmp eq ptr %416, null
   br i1 %.not6.i421, label %417, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit.i257
@@ -6874,8 +6874,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit263:      ; preds = %455, %459
   store i64 -1, ptr %461, align 8
   %462 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %463 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %464 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %462, i8 0, i64 56, i1 false)
+  %464 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %464, ptr %463, align 8
   %.not6.i428 = icmp eq ptr %464, null
   br i1 %.not6.i428, label %465, label %470
@@ -6905,8 +6905,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit263:      ; preds = %455, %459
   store i64 -1, ptr %472, align 8
   %473 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %474 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %475 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %473, i8 0, i64 56, i1 false)
+  %475 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %475, ptr %474, align 8
   %.not6.i435 = icmp eq ptr %475, null
   br i1 %.not6.i435, label %476, label %481
@@ -7154,8 +7154,8 @@ _ZN5Eigen13SimplicialLLTINS_12SparseMatrixIdLi0EiEELi1ENS_11AMDOrderingIiEEE7com
   store i64 -1, ptr %565, align 8
   %566 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %567 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %568 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %566, i8 0, i64 56, i1 false)
+  %568 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %568, ptr %567, align 8
   %.not6.i442 = icmp eq ptr %568, null
   br i1 %.not6.i442, label %569, label %574
@@ -7372,8 +7372,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit291:      ; preds = %633, %637
   %652 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %653 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %654 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %655 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %652, i8 0, i64 56, i1 false)
+  %655 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %655, ptr %654, align 8
   %.not6.i449 = icmp eq ptr %655, null
   br i1 %.not6.i449, label %656, label %661
@@ -7404,8 +7404,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit291:      ; preds = %633, %637
   %664 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %665 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %666 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %667 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %664, i8 0, i64 56, i1 false)
+  %667 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %667, ptr %666, align 8
   %.not6.i456 = icmp eq ptr %667, null
   br i1 %.not6.i456, label %668, label %673
@@ -8078,8 +8078,8 @@ _ZN5Eigen13SimplicialLLTINS_12SparseMatrixIdLi0EiEELi1ENS_11AMDOrderingIiEEE7com
   store i64 -1, ptr %943, align 8
   %944 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %945 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %946 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %944, i8 0, i64 56, i1 false)
+  %946 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %946, ptr %945, align 8
   %.not6.i490 = icmp eq ptr %946, null
   br i1 %.not6.i490, label %947, label %952
@@ -8113,8 +8113,8 @@ _ZN5Eigen13SimplicialLLTINS_12SparseMatrixIdLi0EiEELi1ENS_11AMDOrderingIiEEE7com
   store i64 -1, ptr %955, align 8
   %956 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %957 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %958 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %956, i8 0, i64 56, i1 false)
+  %958 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %958, ptr %957, align 8
   %.not6.i497 = icmp eq ptr %958, null
   br i1 %.not6.i497, label %959, label %964
@@ -9735,7 +9735,7 @@ define linkonce_odr void @_ZN5Eigen12SparseMatrixIdLi0EiE6resizeEll(ptr noundef 
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
@@ -49782,8 +49782,8 @@ define linkonce_odr void @_ZN5Eigen22SimplicialCholeskyBaseINS_13SimplicialLLTIN
   store i64 -1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %12 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 56, i1 false)
+  %12 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %12, ptr %11, align 8
   %.not6.i = icmp eq ptr %12, null
   br i1 %.not6.i, label %13, label %18
@@ -50552,8 +50552,8 @@ define linkonce_odr void @_ZN5Eigen11AMDOrderingIiEclINS_12SparseMatrixIdLi0EiEE
   store i64 -1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %8 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
+  %8 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %8, ptr %7, align 8
   %.not6.i = icmp eq ptr %8, null
   br i1 %.not6.i, label %9, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit
@@ -51123,8 +51123,8 @@ define linkonce_odr void @_ZN5Eigen8internal25ordering_helper_at_plus_aINS_12Spa
   store i64 -1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %9 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
+  %9 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #35
   store ptr %9, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %10, label %15
@@ -52737,7 +52737,7 @@ _ZN5Eigen8internal27conditional_aligned_reallocILb1EEEPvS2_mm.exit: ; preds = %1
   ret ptr %13
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress uwtable
@@ -75013,7 +75013,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #32
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #32
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #33
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
@@ -75037,7 +75037,7 @@ attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold nofree noreturn }
 attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { cold noreturn }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -75054,14 +75054,14 @@ attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(err
 attributes #23 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
 attributes #28 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { nofree nosync nounwind memory(none) }
 attributes #30 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #31 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #32 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #33 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #33 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
 attributes #34 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #35 = { nounwind allocsize(0) }
 attributes #36 = { noreturn }

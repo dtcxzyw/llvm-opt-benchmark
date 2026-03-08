@@ -31,7 +31,7 @@ define range(i32 -9997, 1) i32 @SUNHashMap_New(i32 noundef %0, ptr noundef write
   ret i32 %.017
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -367,7 +367,7 @@ define range(i32 -9999, 1) i32 @SUNHashMap_Sort(ptr noundef readonly captures(ad
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
-  br i1 %or.cond, label %6, label %19
+  br i1 %or.cond, label %6, label %21
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -377,33 +377,35 @@ define range(i32 -9999, 1) i32 @SUNHashMap_Sort(ptr noundef readonly captures(ad
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #10
   store ptr %11, ptr %1, align 8, !tbaa !22
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %19, label %.preheader
+  br i1 %.not, label %21, label %.preheader
 
 .preheader:                                       ; preds = %6
-  %12 = icmp sgt i32 %8, 0
-  br i1 %12, label %.lr.ph, label %._crit_edge
+  %12 = load i32, ptr %7, align 4, !tbaa !12
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !13
-  %wide.trip.count = zext nneg i32 %8 to i64
-  br label %15
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !13
+  %wide.trip.count = zext nneg i32 %12 to i64
+  br label %16
 
-15:                                               ; preds = %.lr.ph, %15
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8, !tbaa !14
-  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
-  store ptr %17, ptr %18, align 8, !tbaa !14
+16:                                               ; preds = %.lr.ph, %16
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
+  %18 = load ptr, ptr %17, align 8, !tbaa !14
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
+  store ptr %18, ptr %19, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %15
+  br i1 %exitcond.not, label %._crit_edge, label %16
 
-._crit_edge:                                      ; preds = %15, %.preheader
-  tail call void @qsort(ptr noundef nonnull %11, i64 noundef %9, i64 noundef 8, ptr noundef nonnull %2) #11
-  br label %19
+._crit_edge:                                      ; preds = %16, %.preheader
+  %20 = sext i32 %12 to i64
+  tail call void @qsort(ptr noundef nonnull %11, i64 noundef %20, i64 noundef 8, ptr noundef nonnull %2) #11
+  br label %21
 
-19:                                               ; preds = %6, %3, %._crit_edge
+21:                                               ; preds = %6, %3, %._crit_edge
   %.016 = phi i32 [ 0, %._crit_edge ], [ -9999, %3 ], [ -9988, %6 ]
   ret i32 %.016
 }
@@ -411,11 +413,11 @@ define range(i32 -9999, 1) i32 @SUNHashMap_Sort(ptr noundef readonly captures(ad
 ; Function Attrs: nofree
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 attributes #0 = { mustprogress nounwind willreturn memory(readwrite, argmem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -423,7 +425,7 @@ attributes #5 = { nofree norecurse nounwind memory(read, argmem: readwrite, inac
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #9 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
 attributes #10 = { nounwind allocsize(0) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(read) }

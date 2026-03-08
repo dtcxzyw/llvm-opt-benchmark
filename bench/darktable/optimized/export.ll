@@ -1520,7 +1520,7 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 declare void @dt_action_insert_sorted(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -3247,14 +3247,14 @@ declare i32 @sqlite3_bind_blob(ptr noundef, i32 noundef, ptr noundef, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #1 {
-  switch i32 %3, label %106 [
+  switch i32 %3, label %107 [
     i32 1, label %7
     i32 2, label %36
     i32 3, label %43
-    i32 4, label %69
-    i32 5, label %75
-    i32 6, label %91
-    i32 7, label %97
+    i32 4, label %70
+    i32 5, label %76
+    i32 6, label %92
+    i32 7, label %98
   ]
 
 7:                                                ; preds = %6
@@ -3277,7 +3277,7 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
 
 22:                                               ; preds = %7
   tail call void @free(ptr noundef %9) #19
-  br label %106
+  br label %107
 
 23:                                               ; preds = %7
   %24 = getelementptr i8, ptr %16, i64 %17
@@ -3298,7 +3298,7 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %25, i64 %35, i1 false)
   store i64 %8, ptr %5, align 8, !tbaa !134
   store i32 2, ptr %4, align 4, !tbaa !116
-  br label %106
+  br label %107
 
 36:                                               ; preds = %6
   %37 = add i64 %2, 4
@@ -3311,7 +3311,7 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull align 1 %41, i64 %42, i1 false)
   store i64 %37, ptr %5, align 8, !tbaa !134
   store i32 3, ptr %4, align 4, !tbaa !116
-  br label %106
+  br label %107
 
 43:                                               ; preds = %6
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3362,95 +3362,96 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
   %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0177) #21
   %63 = add i64 %62, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull align 1 %.0177, i64 %63, i1 false)
-  %64 = add i64 %45, 17
-  %65 = getelementptr i8, ptr %59, i64 %62
-  %66 = getelementptr i8, ptr %65, i64 21
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 %64
-  %68 = sub i64 %2, %64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %66, ptr nonnull align 1 %67, i64 %68, i1 false)
+  %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #21
+  %65 = add i64 %64, 17
+  %66 = getelementptr i8, ptr %59, i64 %62
+  %67 = getelementptr i8, ptr %66, i64 21
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 %65
+  %69 = sub i64 %2, %65
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr nonnull align 1 %68, i64 %69, i1 false)
   store i64 %.0175, ptr %5, align 8, !tbaa !134
   store i32 4, ptr %4, align 4, !tbaa !116
-  br label %106
+  br label %107
 
-69:                                               ; preds = %6
-  %70 = add i64 %2, 4
-  %71 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %70) #24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %71, ptr noundef nonnull align 1 dereferenceable(12) %1, i64 12, i1 false)
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %74 = add i64 %2, -12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull align 1 %73, i64 %74, i1 false)
-  store i64 %70, ptr %5, align 8, !tbaa !134
+70:                                               ; preds = %6
+  %71 = add i64 %2, 4
+  %72 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %71) #24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %72, ptr noundef nonnull align 1 dereferenceable(12) %1, i64 12, i1 false)
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %75 = add i64 %2, -12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull align 1 %74, i64 %75, i1 false)
+  store i64 %71, ptr %5, align 8, !tbaa !134
   store i32 5, ptr %4, align 4, !tbaa !116
-  br label %106
+  br label %107
 
-75:                                               ; preds = %6
-  %76 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.119) #19
-  %77 = tail call i32 @dt_lib_export_metadata_default_flags() #19
-  %.not = icmp eq i32 %76, 0
-  %78 = select i1 %.not, i32 0, i32 262144
-  %79 = or i32 %78, %77
-  %80 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.120, i32 noundef %79) #19
-  %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #21
-  %82 = shl i64 %81, 32
-  %sext = add i64 %82, 4294967296
-  %83 = ashr exact i64 %sext, 32
-  %84 = add i64 %83, %2
-  %85 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %84) #24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %85, ptr noundef nonnull align 1 dereferenceable(24) %1, i64 24, i1 false)
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr nonnull align 1 %80, i64 %83, i1 false)
-  %87 = getelementptr i8, ptr %85, i64 %83
-  %88 = getelementptr i8, ptr %87, i64 24
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %90 = add i64 %2, -24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr nonnull align 1 %89, i64 %90, i1 false)
-  tail call void @g_free(ptr noundef nonnull %80) #19
-  store i64 %84, ptr %5, align 8, !tbaa !134
+76:                                               ; preds = %6
+  %77 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.119) #19
+  %78 = tail call i32 @dt_lib_export_metadata_default_flags() #19
+  %.not = icmp eq i32 %77, 0
+  %79 = select i1 %.not, i32 0, i32 262144
+  %80 = or i32 %79, %78
+  %81 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.120, i32 noundef %80) #19
+  %82 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #21
+  %83 = shl i64 %82, 32
+  %sext = add i64 %83, 4294967296
+  %84 = ashr exact i64 %sext, 32
+  %85 = add i64 %84, %2
+  %86 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %85) #24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %86, ptr noundef nonnull align 1 dereferenceable(24) %1, i64 24, i1 false)
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr nonnull align 1 %81, i64 %84, i1 false)
+  %88 = getelementptr i8, ptr %86, i64 %84
+  %89 = getelementptr i8, ptr %88, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %91 = add i64 %2, -24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr nonnull align 1 %90, i64 %91, i1 false)
+  tail call void @g_free(ptr noundef nonnull %81) #19
+  store i64 %85, ptr %5, align 8, !tbaa !134
   store i32 6, ptr %4, align 4, !tbaa !116
-  br label %106
+  br label %107
 
-91:                                               ; preds = %6
-  %92 = add i64 %2, 4
-  %93 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %92) #24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %93, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 20
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %96 = add i64 %2, -16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr nonnull align 1 %95, i64 %96, i1 false)
-  store i64 %92, ptr %5, align 8, !tbaa !134
+92:                                               ; preds = %6
+  %93 = add i64 %2, 4
+  %94 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %93) #24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %94, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 20
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %97 = add i64 %2, -16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr nonnull align 1 %96, i64 %97, i1 false)
+  store i64 %93, ptr %5, align 8, !tbaa !134
   store i32 7, ptr %4, align 4, !tbaa !116
-  br label %106
+  br label %107
 
-97:                                               ; preds = %6
-  %98 = tail call i32 @dt_confgen_get_int(ptr noundef nonnull @.str.8, i32 noundef 0) #19
-  %99 = add i64 %2, 12
-  %100 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %99) #24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %100, ptr noundef nonnull align 1 dereferenceable(28) %1, i64 28, i1 false)
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  store i32 %98, ptr %101, align 1
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 36
-  store i32 3157553, ptr %102, align 1
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 40
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %105 = add i64 %2, -28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %103, ptr nonnull align 1 %104, i64 %105, i1 false)
-  store i64 %99, ptr %5, align 8, !tbaa !134
+98:                                               ; preds = %6
+  %99 = tail call i32 @dt_confgen_get_int(ptr noundef nonnull @.str.8, i32 noundef 0) #19
+  %100 = add i64 %2, 12
+  %101 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %100) #24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %101, ptr noundef nonnull align 1 dereferenceable(28) %1, i64 28, i1 false)
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
+  store i32 %99, ptr %102, align 1
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 36
+  store i32 3157553, ptr %103, align 1
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %106 = add i64 %2, -28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %104, ptr nonnull align 1 %105, i64 %106, i1 false)
+  store i64 %100, ptr %5, align 8, !tbaa !134
   store i32 8, ptr %4, align 4, !tbaa !116
-  br label %106
+  br label %107
 
-106:                                              ; preds = %6, %22, %23, %97, %91, %75, %69, %58, %36
-  %.1 = phi ptr [ null, %22 ], [ %38, %36 ], [ %59, %58 ], [ %71, %69 ], [ %85, %75 ], [ %93, %91 ], [ %100, %97 ], [ %9, %23 ], [ null, %6 ]
+107:                                              ; preds = %6, %22, %23, %98, %92, %76, %70, %58, %36
+  %.1 = phi ptr [ null, %22 ], [ %38, %36 ], [ %59, %58 ], [ %72, %70 ], [ %86, %76 ], [ %94, %92 ], [ %101, %98 ], [ %9, %23 ], [ null, %6 ]
   ret ptr %.1
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 declare i32 @dt_lib_export_metadata_default_flags() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @get_params(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
+define noalias noundef ptr @get_params(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = tail call ptr (...) @dt_imageio_get_format() #19
@@ -3458,7 +3459,7 @@ define noalias noundef ptr @get_params(ptr noundef readonly captures(none) %0, p
   %7 = icmp ne ptr %5, null
   %8 = icmp ne ptr %6, null
   %or.cond = select i1 %7, i1 %8, i1 false
-  br i1 %or.cond, label %9, label %143
+  br i1 %or.cond, label %9, label %144
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 112
@@ -3653,36 +3654,37 @@ define noalias noundef ptr @get_params(ptr noundef readonly captures(none) %0, p
 
 133:                                              ; preds = %128, %129
   %.1 = phi i32 [ %132, %129 ], [ %.0154, %128 ]
-  %.not176 = icmp eq i32 %.1, %76
-  br i1 %.not176, label %135, label %134, !prof !143
+  %134 = load i32, ptr %1, align 4, !tbaa !116
+  %.not176 = icmp eq i32 %.1, %134
+  br i1 %.not176, label %136, label %135, !prof !143
 
-134:                                              ; preds = %133
+135:                                              ; preds = %133
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef 2423, ptr noundef nonnull @__func__.get_params, ptr noundef nonnull @.str.122) #25
   unreachable
 
-135:                                              ; preds = %133
+136:                                              ; preds = %133
   tail call void @g_free(ptr noundef nonnull %38) #19
   tail call void @g_free(ptr noundef nonnull %.1158) #19
   tail call void @g_free(ptr noundef %44) #19
-  br i1 %.not166, label %139, label %136
+  br i1 %.not166, label %140, label %137
 
-136:                                              ; preds = %135
-  %137 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %138 = load ptr, ptr %137, align 8, !tbaa !144
-  tail call void %138(ptr noundef nonnull %5, ptr noundef nonnull %15) #19
-  br label %139
+137:                                              ; preds = %136
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %139 = load ptr, ptr %138, align 8, !tbaa !144
+  tail call void %139(ptr noundef nonnull %5, ptr noundef nonnull %15) #19
+  br label %140
 
-139:                                              ; preds = %136, %135
-  br i1 %.not, label %143, label %140
+140:                                              ; preds = %137, %136
+  br i1 %.not, label %144, label %141
 
-140:                                              ; preds = %139
-  %141 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %142 = load ptr, ptr %141, align 8, !tbaa !145
-  tail call void %142(ptr noundef nonnull %6, ptr noundef nonnull %21) #19
-  br label %143
+141:                                              ; preds = %140
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  %143 = load ptr, ptr %142, align 8, !tbaa !145
+  tail call void %143(ptr noundef nonnull %6, ptr noundef nonnull %21) #19
+  br label %144
 
-143:                                              ; preds = %139, %140, %2
-  %.0 = phi ptr [ null, %2 ], [ %78, %140 ], [ %78, %139 ]
+144:                                              ; preds = %140, %141, %2
+  %.0 = phi ptr [ null, %2 ], [ %78, %141 ], [ %78, %140 ]
   ret ptr %.0
 }
 
@@ -4846,11 +4848,11 @@ attributes #2 = { nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math
 attributes #3 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #8 = { nofree nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { noreturn "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #13 = { inlinehint nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }

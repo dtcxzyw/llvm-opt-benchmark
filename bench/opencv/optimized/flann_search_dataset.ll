@@ -16406,7 +16406,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit180:          ; preds = %289, %286
   resume { ptr, i32 } %.pn96
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
@@ -18540,7 +18540,6 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %49
   %83 = load ptr, ptr @stderr, align 8, !tbaa !244
   %84 = tail call i64 @fwrite(ptr nonnull @.str.64, i64 27, i64 1, ptr %83) #38
   %.pre = load ptr, ptr %2, align 8, !tbaa !283
-  %.pre27 = load i32, ptr %67, align 8, !tbaa !274
   br label %_ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_7HammingIhEEE10KMeansNodeEEEPT_m.exit
 
 85:                                               ; preds = %74
@@ -18567,12 +18566,12 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %49
   br label %_ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_7HammingIhEEE10KMeansNodeEEEPT_m.exit
 
 _ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_7HammingIhEEE10KMeansNodeEEEPT_m.exit: ; preds = %.thread.i.i24, %91
-  %98 = phi i32 [ %68, %91 ], [ %.pre27, %.thread.i.i24 ]
-  %99 = phi ptr [ %45, %91 ], [ %.pre, %.thread.i.i24 ]
+  %98 = phi ptr [ %45, %91 ], [ %.pre, %.thread.i.i24 ]
   %.1.i.i22 = phi ptr [ %93, %91 ], [ null, %.thread.i.i24 ]
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  store ptr %.1.i.i22, ptr %100, align 8, !tbaa !371
-  %101 = icmp sgt i32 %98, 0
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
+  store ptr %.1.i.i22, ptr %99, align 8, !tbaa !371
+  %100 = load i32, ptr %67, align 8, !tbaa !274
+  %101 = icmp sgt i32 %100, 0
   br i1 %101, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_7HammingIhEEE10KMeansNodeEEEPT_m.exit, %.lr.ph
@@ -24842,7 +24841,6 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %38
   %72 = load ptr, ptr @stderr, align 8, !tbaa !244
   %73 = tail call i64 @fwrite(ptr nonnull @.str.64, i64 27, i64 1, ptr %72) #38
   %.pre = load ptr, ptr %2, align 8, !tbaa !302
-  %.pre23 = load i32, ptr %56, align 4, !tbaa !295
   br label %_ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_7HammingIhEEE4NodeEEEPT_m.exit
 
 74:                                               ; preds = %63
@@ -24869,12 +24867,12 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %38
   br label %_ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_7HammingIhEEE4NodeEEEPT_m.exit
 
 _ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_7HammingIhEEE4NodeEEEPT_m.exit: ; preds = %.thread.i.i20, %80
-  %87 = phi i32 [ %57, %80 ], [ %.pre23, %.thread.i.i20 ]
-  %88 = phi ptr [ %34, %80 ], [ %.pre, %.thread.i.i20 ]
+  %87 = phi ptr [ %34, %80 ], [ %.pre, %.thread.i.i20 ]
   %.1.i.i18 = phi ptr [ %82, %80 ], [ null, %.thread.i.i20 ]
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store ptr %.1.i.i18, ptr %89, align 8, !tbaa !545
-  %90 = icmp sgt i32 %87, 0
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  store ptr %.1.i.i18, ptr %88, align 8, !tbaa !545
+  %89 = load i32, ptr %56, align 4, !tbaa !295
+  %90 = icmp sgt i32 %89, 0
   br i1 %90, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_7HammingIhEEE4NodeEEEPT_m.exit, %.lr.ph
@@ -30737,7 +30735,7 @@ attributes #20 = { cold noreturn }
 attributes #21 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #26 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

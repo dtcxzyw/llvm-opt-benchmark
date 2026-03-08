@@ -1225,37 +1225,39 @@ _ZN7testing15AssertionResultD2Ev.exit34:          ; preds = %195, %_ZNKSt14defau
 
 212:                                              ; preds = %207
   %.not9.i.i.i = icmp eq ptr %211, null
-  br i1 %.not9.i.i.i, label %.thread25.i.i, label %214
+  br i1 %.not9.i.i.i, label %215, label %213
 
-.thread25.i.i:                                    ; preds = %212
-  %213 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #22
-  store ptr %213, ptr %210, align 8, !tbaa !73
+213:                                              ; preds = %212
+  %214 = call dereferenceable_or_null(8) ptr @realloc(ptr noundef nonnull %211, i64 noundef 8) #21
+  br label %217
+
+215:                                              ; preds = %212
+  %216 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #22
+  br label %217
+
+217:                                              ; preds = %215, %213
+  %218 = phi ptr [ %214, %213 ], [ %216, %215 ]
+  store ptr %218, ptr %210, align 8, !tbaa !73
   store i32 1, ptr %157, align 8, !tbaa !70
-  br label %.lr.ph.i.i
+  %.pre.i.i = load i32, ptr %204, align 4, !tbaa !75
+  %219 = icmp slt i32 %.pre.i.i, 1
+  br i1 %219, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-214:                                              ; preds = %212
-  %215 = call dereferenceable_or_null(8) ptr @realloc(ptr noundef nonnull %211, i64 noundef 8) #21
-  %.pre.pre.i.i = load i32, ptr %204, align 4, !tbaa !75
-  store ptr %215, ptr %210, align 8, !tbaa !73
-  store i32 1, ptr %157, align 8, !tbaa !70
-  %216 = icmp slt i32 %.pre.pre.i.i, 1
-  br i1 %216, label %.lr.ph.i.i, label %._crit_edge.i.i
-
-.lr.ph.i.i:                                       ; preds = %214, %.thread25.i.i, %207
-  %217 = phi ptr [ %213, %.thread25.i.i ], [ %215, %214 ], [ %211, %207 ]
-  %218 = phi i32 [ %205, %.thread25.i.i ], [ %.pre.pre.i.i, %214 ], [ %205, %207 ]
-  %219 = sext i32 %218 to i64
-  %220 = shl nsw i64 %219, 3
-  %scevgep.i.i = getelementptr i8, ptr %217, i64 %220
-  %221 = sub i32 0, %218
-  %222 = zext i32 %221 to i64
-  %223 = shl nuw nsw i64 %222, 3
-  %224 = add nuw nsw i64 %223, 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i, i8 0, i64 %224, i1 false), !tbaa !74
+.lr.ph.i.i:                                       ; preds = %217, %207
+  %220 = phi ptr [ %218, %217 ], [ %211, %207 ]
+  %221 = phi i32 [ %.pre.i.i, %217 ], [ %205, %207 ]
+  %222 = sext i32 %221 to i64
+  %223 = shl nsw i64 %222, 3
+  %scevgep.i.i = getelementptr i8, ptr %220, i64 %223
+  %224 = sub i32 0, %221
+  %225 = zext i32 %224 to i64
+  %226 = shl nuw nsw i64 %225, 3
+  %227 = add nuw nsw i64 %226, 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i, i8 0, i64 %227, i1 false), !tbaa !74
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %214
-  %.val5.i = phi ptr [ %217, %.lr.ph.i.i ], [ %215, %214 ]
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %217
+  %.val5.i = phi ptr [ %220, %.lr.ph.i.i ], [ %218, %217 ]
   store i32 1, ptr %204, align 4, !tbaa !75
   br label %_ZL15Vec_WrdGetEntryP10Vec_Wrd_t_i.exit
 
@@ -1268,78 +1270,78 @@ _ZL15Vec_WrdGetEntryP10Vec_Wrd_t_i.exit:          ; preds = %._ZL16Vec_WrdFillEx
   call void @_ZN7testing8internal11CmpHelperEQImiEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %12, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %225 = load i8, ptr %12, align 8, !tbaa !20, !range !60, !noundef !61
-  %226 = trunc nuw i8 %225 to i1
-  br i1 %226, label %237, label %227
+  %228 = load i8, ptr %12, align 8, !tbaa !20, !range !60, !noundef !61
+  %229 = trunc nuw i8 %228 to i1
+  br i1 %229, label %240, label %230
 
-227:                                              ; preds = %_ZL15Vec_WrdGetEntryP10Vec_Wrd_t_i.exit
+230:                                              ; preds = %_ZL15Vec_WrdGetEntryP10Vec_Wrd_t_i.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %228 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %229 = load ptr, ptr %228, align 8, !tbaa !38
-  %.not.i.i36 = icmp eq ptr %229, null
-  br i1 %.not.i.i36, label %_ZNK7testing15AssertionResult15failure_messageEv.exit37, label %230
+  %231 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %232 = load ptr, ptr %231, align 8, !tbaa !38
+  %.not.i.i36 = icmp eq ptr %232, null
+  br i1 %.not.i.i36, label %_ZNK7testing15AssertionResult15failure_messageEv.exit37, label %233
 
-230:                                              ; preds = %227
-  %231 = load ptr, ptr %229, align 8, !tbaa !31
+233:                                              ; preds = %230
+  %234 = load ptr, ptr %232, align 8, !tbaa !31
   br label %_ZNK7testing15AssertionResult15failure_messageEv.exit37
 
-_ZNK7testing15AssertionResult15failure_messageEv.exit37: ; preds = %227, %230
-  %232 = phi ptr [ %231, %230 ], [ @.str.20, %227 ]
-  call void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef 1, ptr noundef nonnull @.str.3, i32 noundef 49, ptr noundef %232) #19
+_ZNK7testing15AssertionResult15failure_messageEv.exit37: ; preds = %230, %233
+  %235 = phi ptr [ %234, %233 ], [ @.str.20, %230 ]
+  call void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 noundef 1, ptr noundef nonnull @.str.3, i32 noundef 49, ptr noundef %235) #19
   call void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %15) #19
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %233 = load ptr, ptr %15, align 8, !tbaa !36
-  %.not.i.i38 = icmp eq ptr %233, null
+  %236 = load ptr, ptr %15, align 8, !tbaa !36
+  %.not.i.i38 = icmp eq ptr %236, null
   br i1 %.not.i.i38, label %_ZN7testing7MessageD2Ev.exit40, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i39
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i39: ; preds = %_ZNK7testing15AssertionResult15failure_messageEv.exit37
-  %234 = load ptr, ptr %233, align 8, !tbaa !4
-  %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  %236 = load ptr, ptr %235, align 8
-  call void %236(ptr noundef nonnull align 8 dereferenceable(128) %233) #19
+  %237 = load ptr, ptr %236, align 8, !tbaa !4
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
+  %239 = load ptr, ptr %238, align 8
+  call void %239(ptr noundef nonnull align 8 dereferenceable(128) %236) #19
   br label %_ZN7testing7MessageD2Ev.exit40
 
 _ZN7testing7MessageD2Ev.exit40:                   ; preds = %_ZNK7testing15AssertionResult15failure_messageEv.exit37, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i39
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %237
+  br label %240
 
-237:                                              ; preds = %_ZL15Vec_WrdGetEntryP10Vec_Wrd_t_i.exit, %_ZN7testing7MessageD2Ev.exit40
-  %238 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %239 = load ptr, ptr %238, align 8, !tbaa !38
-  %.not.i.i41 = icmp eq ptr %239, null
-  br i1 %.not.i.i41, label %_ZN7testing15AssertionResultD2Ev.exit45, label %240
+240:                                              ; preds = %_ZL15Vec_WrdGetEntryP10Vec_Wrd_t_i.exit, %_ZN7testing7MessageD2Ev.exit40
+  %241 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %242 = load ptr, ptr %241, align 8, !tbaa !38
+  %.not.i.i41 = icmp eq ptr %242, null
+  br i1 %.not.i.i41, label %_ZN7testing15AssertionResultD2Ev.exit45, label %243
 
-240:                                              ; preds = %237
-  %241 = load ptr, ptr %239, align 8, !tbaa !31
-  %242 = getelementptr inbounds nuw i8, ptr %239, i64 16
-  %243 = icmp eq ptr %241, %242
-  br i1 %243, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i42
+243:                                              ; preds = %240
+  %244 = load ptr, ptr %242, align 8, !tbaa !31
+  %245 = getelementptr inbounds nuw i8, ptr %242, i64 16
+  %246 = icmp eq ptr %244, %245
+  br i1 %246, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i42
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i42: ; preds = %240
-  %244 = load i64, ptr %242, align 8, !tbaa !35
-  %245 = add i64 %244, 1
-  call void @_ZdlPvm(ptr noundef %241, i64 noundef %245) #20
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i42: ; preds = %243
+  %247 = load i64, ptr %245, align 8, !tbaa !35
+  %248 = add i64 %247, 1
+  call void @_ZdlPvm(ptr noundef %244, i64 noundef %248) #20
   br label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i43
 
-_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i43: ; preds = %240, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i42
-  call void @_ZdlPvm(ptr noundef nonnull %239, i64 noundef 32) #20
+_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i43: ; preds = %243, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i42
+  call void @_ZdlPvm(ptr noundef nonnull %242, i64 noundef 32) #20
   br label %_ZN7testing15AssertionResultD2Ev.exit45
 
-_ZN7testing15AssertionResultD2Ev.exit45:          ; preds = %237, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i43
+_ZN7testing15AssertionResultD2Ev.exit45:          ; preds = %240, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i43
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %246 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %247 = load ptr, ptr %246, align 8, !tbaa !73
-  %.not.i46 = icmp eq ptr %247, null
-  br i1 %.not.i46, label %_ZL11Vec_WrdFreeP10Vec_Wrd_t_.exit, label %248
+  %249 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %250 = load ptr, ptr %249, align 8, !tbaa !73
+  %.not.i46 = icmp eq ptr %250, null
+  br i1 %.not.i46, label %_ZL11Vec_WrdFreeP10Vec_Wrd_t_.exit, label %251
 
-248:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit45
-  call void @free(ptr noundef nonnull %247) #19
+251:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit45
+  call void @free(ptr noundef nonnull %250) #19
   br label %_ZL11Vec_WrdFreeP10Vec_Wrd_t_.exit
 
-_ZL11Vec_WrdFreeP10Vec_Wrd_t_.exit:               ; preds = %_ZN7testing15AssertionResultD2Ev.exit45, %248
+_ZL11Vec_WrdFreeP10Vec_Wrd_t_.exit:               ; preds = %_ZN7testing15AssertionResultD2Ev.exit45, %251
   call void @free(ptr noundef nonnull %157) #19
   call void @Gia_ManStop(ptr noundef nonnull %17) #19
   ret void
@@ -1597,10 +1599,10 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2478,8 +2480,8 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

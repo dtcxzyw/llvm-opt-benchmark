@@ -429,7 +429,7 @@ define noundef ptr @Msat_SolverAlloc(i32 noundef %0, double noundef %1, double n
   ret ptr %calloc125
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -482,7 +482,6 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
 
 20:                                               ; preds = %13
   %21 = tail call ptr @realloc(ptr noundef nonnull %16, i64 noundef %19) #13
-  %.pre = load i32, ptr %3, align 4, !tbaa !23
   br label %24
 
 22:                                               ; preds = %13
@@ -490,23 +489,23 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
   br label %24
 
 24:                                               ; preds = %22, %20
-  %25 = phi i32 [ %.pre, %20 ], [ %17, %22 ]
-  %26 = phi ptr [ %21, %20 ], [ %23, %22 ]
-  store ptr %26, ptr %15, align 8, !tbaa !42
-  %27 = icmp slt i32 %4, %25
+  %25 = phi ptr [ %21, %20 ], [ %23, %22 ]
+  store ptr %25, ptr %15, align 8, !tbaa !42
+  %26 = load i32, ptr %3, align 4, !tbaa !23
+  %27 = icmp slt i32 %4, %26
   br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %24
   %28 = load ptr, ptr %5, align 8, !tbaa !50
   %29 = sext i32 %4 to i64
-  %wide.trip.count = sext i32 %25 to i64
+  %wide.trip.count = sext i32 %26 to i64
   br label %30
 
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %31 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv
   store double 0.000000e+00, ptr %31, align 8, !tbaa !51
-  %32 = getelementptr inbounds [4 x i8], ptr %26, i64 %indvars.iv
+  %32 = getelementptr inbounds [4 x i8], ptr %25, i64 %indvars.iv
   store float 1.000000e+00, ptr %32, align 4, !tbaa !52
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -516,7 +515,7 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %34 = load ptr, ptr %33, align 8, !tbaa !27
   %.not106 = icmp eq ptr %34, null
-  %35 = sext i32 %25 to i64
+  %35 = sext i32 %26 to i64
   %36 = shl nsw i64 %35, 2
   br i1 %.not106, label %39, label %37
 
@@ -541,7 +540,6 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
 
 48:                                               ; preds = %41
   %49 = tail call ptr @realloc(ptr noundef nonnull %44, i64 noundef %47) #13
-  %.pre158 = load i32, ptr %3, align 4, !tbaa !23
   br label %52
 
 50:                                               ; preds = %41
@@ -549,10 +547,10 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
   br label %52
 
 52:                                               ; preds = %50, %48
-  %53 = phi i32 [ %.pre158, %48 ], [ %45, %50 ]
-  %54 = phi ptr [ %49, %48 ], [ %51, %50 ]
-  store ptr %54, ptr %43, align 8, !tbaa !31
-  %55 = icmp slt i32 %4, %53
+  %53 = phi ptr [ %49, %48 ], [ %51, %50 ]
+  store ptr %53, ptr %43, align 8, !tbaa !31
+  %54 = load i32, ptr %3, align 4, !tbaa !23
+  %55 = icmp slt i32 %4, %54
   br i1 %55, label %.lr.ph119, label %._crit_edge120
 
 .lr.ph119:                                        ; preds = %52
@@ -571,7 +569,7 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
   br i1 %62, label %58, label %._crit_edge120, !llvm.loop !67
 
 ._crit_edge120:                                   ; preds = %58, %52
-  %.lcssa114 = phi i32 [ %53, %52 ], [ %60, %58 ]
+  %.lcssa114 = phi i32 [ %54, %52 ], [ %60, %58 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %64 = load ptr, ptr %63, align 8, !tbaa !56
   tail call void @Msat_OrderSetBounds(ptr noundef %64, i32 noundef %.lcssa114) #11
@@ -586,7 +584,6 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
 
 71:                                               ; preds = %._crit_edge120
   %72 = tail call ptr @realloc(ptr noundef nonnull %66, i64 noundef %70) #13
-  %.pre159 = load i32, ptr %3, align 4, !tbaa !23
   br label %75
 
 73:                                               ; preds = %._crit_edge120
@@ -594,10 +591,10 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
   br label %75
 
 75:                                               ; preds = %73, %71
-  %76 = phi i32 [ %.pre159, %71 ], [ %67, %73 ]
-  %77 = phi ptr [ %72, %71 ], [ %74, %73 ]
-  store ptr %77, ptr %65, align 8, !tbaa !30
-  %78 = icmp slt i32 %4, %76
+  %76 = phi ptr [ %72, %71 ], [ %74, %73 ]
+  store ptr %76, ptr %65, align 8, !tbaa !30
+  %77 = load i32, ptr %3, align 4, !tbaa !23
+  %78 = icmp slt i32 %4, %77
   br i1 %78, label %.lr.ph124.preheader, label %._crit_edge125
 
 .lr.ph124.preheader:                              ; preds = %75
@@ -654,7 +651,6 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
 
 108:                                              ; preds = %101
   %109 = tail call ptr @realloc(ptr noundef nonnull %104, i64 noundef %107) #13
-  %.pre160 = load i32, ptr %3, align 4, !tbaa !23
   br label %112
 
 110:                                              ; preds = %101
@@ -662,23 +658,23 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
   br label %112
 
 112:                                              ; preds = %110, %108
-  %113 = phi i32 [ %.pre160, %108 ], [ %105, %110 ]
-  %114 = phi ptr [ %109, %108 ], [ %111, %110 ]
-  store ptr %114, ptr %103, align 8, !tbaa !25
-  %115 = icmp slt i32 %4, %113
+  %113 = phi ptr [ %109, %108 ], [ %111, %110 ]
+  store ptr %113, ptr %103, align 8, !tbaa !25
+  %114 = load i32, ptr %3, align 4, !tbaa !23
+  %115 = icmp slt i32 %4, %114
   br i1 %115, label %.lr.ph128, label %._crit_edge129
 
 .lr.ph128:                                        ; preds = %112
   %116 = load ptr, ptr %92, align 8, !tbaa !26
   %117 = sext i32 %4 to i64
-  %wide.trip.count153 = sext i32 %113 to i64
+  %wide.trip.count153 = sext i32 %114 to i64
   br label %118
 
 118:                                              ; preds = %.lr.ph128, %118
   %indvars.iv150 = phi i64 [ %117, %.lr.ph128 ], [ %indvars.iv.next151, %118 ]
   %119 = getelementptr inbounds [8 x i8], ptr %116, i64 %indvars.iv150
   store ptr null, ptr %119, align 8, !tbaa !69
-  %120 = getelementptr inbounds [4 x i8], ptr %114, i64 %indvars.iv150
+  %120 = getelementptr inbounds [4 x i8], ptr %113, i64 %indvars.iv150
   store i32 -1, ptr %120, align 4, !tbaa !28
   %indvars.iv.next151 = add nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
@@ -688,13 +684,12 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %122 = load ptr, ptr %121, align 8, !tbaa !35
   %.not111 = icmp eq ptr %122, null
-  %123 = sext i32 %113 to i64
+  %123 = sext i32 %114 to i64
   %124 = shl nsw i64 %123, 2
   br i1 %.not111, label %127, label %125
 
 125:                                              ; preds = %._crit_edge129
   %126 = tail call ptr @realloc(ptr noundef nonnull %122, i64 noundef %124) #13
-  %.pre161 = load i32, ptr %3, align 4, !tbaa !23
   br label %129
 
 127:                                              ; preds = %._crit_edge129
@@ -702,18 +697,18 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
   br label %129
 
 129:                                              ; preds = %127, %125
-  %130 = phi i32 [ %.pre161, %125 ], [ %113, %127 ]
-  %131 = phi ptr [ %126, %125 ], [ %128, %127 ]
-  store ptr %131, ptr %121, align 8, !tbaa !35
-  %132 = icmp slt i32 %4, %130
+  %130 = phi ptr [ %126, %125 ], [ %128, %127 ]
+  store ptr %130, ptr %121, align 8, !tbaa !35
+  %131 = load i32, ptr %3, align 4, !tbaa !23
+  %132 = icmp slt i32 %4, %131
   br i1 %132, label %.lr.ph133.preheader, label %._crit_edge134
 
 .lr.ph133.preheader:                              ; preds = %129
   %133 = sext i32 %4 to i64
   %134 = shl nsw i64 %133, 2
-  %scevgep = getelementptr i8, ptr %131, i64 %134
+  %scevgep = getelementptr i8, ptr %130, i64 %134
   %135 = xor i32 %4, -1
-  %136 = add i32 %130, %135
+  %136 = add i32 %131, %135
   %137 = zext i32 %136 to i64
   %138 = shl nuw nsw i64 %137, 2
   %139 = add nuw nsw i64 %138, 4
@@ -723,7 +718,7 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
 ._crit_edge134:                                   ; preds = %.lr.ph133.preheader, %129
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %141 = load ptr, ptr %140, align 8, !tbaa !60
-  tail call void @Msat_IntVecGrow(ptr noundef %141, i32 noundef %130) #11
+  tail call void @Msat_IntVecGrow(ptr noundef %141, i32 noundef %131) #11
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %143 = load ptr, ptr %142, align 8, !tbaa !24
   %144 = load i32, ptr %3, align 4, !tbaa !23
@@ -753,7 +748,7 @@ define void @Msat_SolverResize(ptr noundef captures(none) %0, i32 noundef %1) lo
   ret void
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare void @Msat_OrderSetBounds(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1223,7 +1218,7 @@ define void @Msat_SolverPrepare(ptr noundef captures(none) %0, ptr noundef %1) l
 
 declare void @Msat_OrderClean(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1232,11 +1227,11 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #10 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind allocsize(0) }
 attributes #13 = { nounwind allocsize(1) }

@@ -85,10 +85,10 @@ GifBitSize.exit24:                                ; preds = %17
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -169,131 +169,133 @@ GifMakeMapObject.exit:                            ; preds = %21
   store i32 %.0.i21.i, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i8 0, ptr %26, align 8
-  %27 = icmp sgt i32 %4, 0
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre = load ptr, ptr %28, align 8
-  br i1 %27, label %.lr.ph, label %GifMakeMapObject.exit..preheader91_crit_edge
+  %27 = load i32, ptr %0, align 8
+  %28 = icmp sgt i32 %27, 0
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.pre = load ptr, ptr %29, align 8
+  br i1 %28, label %.lr.ph, label %GifMakeMapObject.exit..preheader91_crit_edge
 
 GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.exit
-  %.pre136 = sext i32 %4 to i64
+  %.pre136 = sext i32 %27 to i64
   br label %.preheader91
 
 .lr.ph:                                           ; preds = %GifMakeMapObject.exit
-  %29 = zext nneg i32 %4 to i64
-  br label %35
+  %30 = zext nneg i32 %27 to i64
+  br label %36
 
-.preheader91:                                     ; preds = %35, %GifMakeMapObject.exit..preheader91_crit_edge
-  %.pre-phi = phi i64 [ %.pre136, %GifMakeMapObject.exit..preheader91_crit_edge ], [ %29, %35 ]
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = getelementptr [3 x i8], ptr %.pre, i64 %.pre-phi
-  %32 = getelementptr i8, ptr %31, i64 -3
-  %33 = load i8, ptr %32, align 1
-  %34 = icmp eq i8 %33, 0
-  br i1 %34, label %.lr.ph98, label %.critedge
+.preheader91:                                     ; preds = %36, %GifMakeMapObject.exit..preheader91_crit_edge
+  %.pre-phi = phi i64 [ %.pre136, %GifMakeMapObject.exit..preheader91_crit_edge ], [ %30, %36 ]
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %32 = getelementptr [3 x i8], ptr %.pre, i64 %.pre-phi
+  %33 = getelementptr i8, ptr %32, i64 -3
+  %34 = load i8, ptr %33, align 1
+  %35 = icmp eq i8 %34, 0
+  br i1 %35, label %.lr.ph98, label %.critedge
 
-35:                                               ; preds = %.lr.ph, %35
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw [3 x i8], ptr %16, i64 %indvars.iv
-  %37 = getelementptr inbounds nuw [3 x i8], ptr %.pre, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %36, ptr noundef nonnull align 1 dereferenceable(3) %37, i64 3, i1 false)
+36:                                               ; preds = %.lr.ph, %36
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
+  %37 = getelementptr inbounds nuw [3 x i8], ptr %16, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [3 x i8], ptr %.pre, i64 %indvars.iv
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %37, ptr noundef nonnull align 1 dereferenceable(3) %38, i64 3, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = icmp samesign ult i64 %indvars.iv.next, %29
-  br i1 %38, label %35, label %.preheader91, !llvm.loop !8
+  %39 = icmp samesign ult i64 %indvars.iv.next, %30
+  br i1 %39, label %36, label %.preheader91, !llvm.loop !8
 
-.lr.ph98:                                         ; preds = %.preheader91, %47
-  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %47 ], [ %.pre-phi, %.preheader91 ]
-  %39 = phi ptr [ %48, %47 ], [ %31, %.preheader91 ]
-  %40 = getelementptr i8, ptr %39, i64 -2
-  %41 = load i8, ptr %40, align 1
-  %42 = icmp eq i8 %41, 0
-  br i1 %42, label %43, label %.critedge.loopexit
+.lr.ph98:                                         ; preds = %.preheader91, %48
+  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %48 ], [ %.pre-phi, %.preheader91 ]
+  %40 = phi ptr [ %49, %48 ], [ %32, %.preheader91 ]
+  %41 = getelementptr i8, ptr %40, i64 -2
+  %42 = load i8, ptr %41, align 1
+  %43 = icmp eq i8 %42, 0
+  br i1 %43, label %44, label %.critedge.loopexit
 
-43:                                               ; preds = %.lr.ph98
-  %44 = getelementptr i8, ptr %39, i64 -1
-  %45 = load i8, ptr %44, align 1
-  %46 = icmp eq i8 %45, 0
-  br i1 %46, label %47, label %.critedge.loopexit
+44:                                               ; preds = %.lr.ph98
+  %45 = getelementptr i8, ptr %40, i64 -1
+  %46 = load i8, ptr %45, align 1
+  %47 = icmp eq i8 %46, 0
+  br i1 %47, label %48, label %.critedge.loopexit
 
-47:                                               ; preds = %43
+48:                                               ; preds = %44
   %indvars.iv.next119 = add nsw i64 %indvars.iv118, -1
-  %48 = getelementptr [3 x i8], ptr %.pre, i64 %indvars.iv.next119
-  %49 = getelementptr i8, ptr %48, i64 -3
-  %50 = load i8, ptr %49, align 1
-  %51 = icmp eq i8 %50, 0
-  br i1 %51, label %.lr.ph98, label %.critedge.loopexit, !llvm.loop !9
+  %49 = getelementptr [3 x i8], ptr %.pre, i64 %indvars.iv.next119
+  %50 = getelementptr i8, ptr %49, i64 -3
+  %51 = load i8, ptr %50, align 1
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %.lr.ph98, label %.critedge.loopexit, !llvm.loop !9
 
-.critedge.loopexit:                               ; preds = %.lr.ph98, %47, %43
-  %.076.lcssa.ph.in = phi i64 [ %indvars.iv118, %43 ], [ %indvars.iv.next119, %47 ], [ %indvars.iv118, %.lr.ph98 ]
+.critedge.loopexit:                               ; preds = %.lr.ph98, %48, %44
+  %.076.lcssa.ph.in = phi i64 [ %indvars.iv118, %44 ], [ %indvars.iv.next119, %48 ], [ %indvars.iv118, %.lr.ph98 ]
   %.076.lcssa.ph = trunc i64 %.076.lcssa.ph.in to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader91
-  %.076.lcssa = phi i32 [ %4, %.preheader91 ], [ %.076.lcssa.ph, %.critedge.loopexit ]
-  %52 = icmp sgt i32 %5, 0
-  %53 = icmp slt i32 %.076.lcssa, 257
-  %54 = and i1 %52, %53
-  br i1 %54, label %.preheader90.lr.ph, label %._crit_edge108
+  %.076.lcssa = phi i32 [ %27, %.preheader91 ], [ %.076.lcssa.ph, %.critedge.loopexit ]
+  %53 = load i32, ptr %1, align 8
+  %54 = icmp sgt i32 %53, 0
+  %55 = icmp slt i32 %.076.lcssa, 257
+  %56 = and i1 %54, %55
+  br i1 %56, label %.preheader90.lr.ph, label %._crit_edge108
 
 .preheader90.lr.ph:                               ; preds = %.critedge
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.preheader90
 
-.preheader90:                                     ; preds = %.preheader90.lr.ph, %71
-  %indvars.iv125 = phi i64 [ 0, %.preheader90.lr.ph ], [ %indvars.iv.next126, %71 ]
-  %.177106 = phi i32 [ %.076.lcssa, %.preheader90.lr.ph ], [ %.2, %71 ]
-  %56 = load i32, ptr %0, align 8
-  %57 = icmp sgt i32 %56, 0
-  %.pre135 = load ptr, ptr %55, align 8
-  br i1 %57, label %.lr.ph105, label %._crit_edge
+.preheader90:                                     ; preds = %.preheader90.lr.ph, %73
+  %indvars.iv125 = phi i64 [ 0, %.preheader90.lr.ph ], [ %indvars.iv.next126, %73 ]
+  %.177106 = phi i32 [ %.076.lcssa, %.preheader90.lr.ph ], [ %.2, %73 ]
+  %58 = load i32, ptr %0, align 8
+  %59 = icmp sgt i32 %58, 0
+  %.pre135 = load ptr, ptr %57, align 8
+  br i1 %59, label %.lr.ph105, label %._crit_edge
 
 .lr.ph105:                                        ; preds = %.preheader90
-  %58 = load ptr, ptr %30, align 8
-  %59 = getelementptr inbounds nuw [3 x i8], ptr %.pre135, i64 %indvars.iv125
-  %wide.trip.count = zext nneg i32 %56 to i64
-  br label %60
+  %60 = load ptr, ptr %31, align 8
+  %61 = getelementptr inbounds nuw [3 x i8], ptr %.pre135, i64 %indvars.iv125
+  %wide.trip.count = zext nneg i32 %58 to i64
+  br label %62
 
-60:                                               ; preds = %.lr.ph105, %63
-  %indvars.iv121 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next122, %63 ]
-  %61 = getelementptr inbounds nuw [3 x i8], ptr %58, i64 %indvars.iv121
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %61, ptr noundef nonnull dereferenceable(3) %59, i64 3)
-  %62 = icmp eq i32 %bcmp, 0
-  br i1 %62, label %64, label %63
+62:                                               ; preds = %.lr.ph105, %65
+  %indvars.iv121 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next122, %65 ]
+  %63 = getelementptr inbounds nuw [3 x i8], ptr %60, i64 %indvars.iv121
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %63, ptr noundef nonnull dereferenceable(3) %61, i64 3)
+  %64 = icmp eq i32 %bcmp, 0
+  br i1 %64, label %66, label %65
 
-63:                                               ; preds = %60
+65:                                               ; preds = %62
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %62, !llvm.loop !10
 
-64:                                               ; preds = %60
-  %65 = trunc i64 %indvars.iv121 to i8
-  br label %71
+66:                                               ; preds = %62
+  %67 = trunc i64 %indvars.iv121 to i8
+  br label %73
 
-._crit_edge:                                      ; preds = %63, %.preheader90
-  %66 = sext i32 %.177106 to i64
-  %67 = getelementptr inbounds [3 x i8], ptr %16, i64 %66
-  %68 = getelementptr inbounds nuw [3 x i8], ptr %.pre135, i64 %indvars.iv125
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %67, ptr noundef nonnull align 1 dereferenceable(3) %68, i64 3, i1 false)
-  %69 = add nsw i32 %.177106, 1
-  %70 = trunc i32 %.177106 to i8
-  br label %71
+._crit_edge:                                      ; preds = %65, %.preheader90
+  %68 = sext i32 %.177106 to i64
+  %69 = getelementptr inbounds [3 x i8], ptr %16, i64 %68
+  %70 = getelementptr inbounds nuw [3 x i8], ptr %.pre135, i64 %indvars.iv125
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %69, ptr noundef nonnull align 1 dereferenceable(3) %70, i64 3, i1 false)
+  %71 = add nsw i32 %.177106, 1
+  %72 = trunc i32 %.177106 to i8
+  br label %73
 
-71:                                               ; preds = %64, %._crit_edge
-  %.sink = phi i8 [ %65, %64 ], [ %70, %._crit_edge ]
-  %.2 = phi i32 [ %.177106, %64 ], [ %69, %._crit_edge ]
-  %72 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv125
-  store i8 %.sink, ptr %72, align 1
+73:                                               ; preds = %66, %._crit_edge
+  %.sink = phi i8 [ %67, %66 ], [ %72, %._crit_edge ]
+  %.2 = phi i32 [ %.177106, %66 ], [ %71, %._crit_edge ]
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv125
+  store i8 %.sink, ptr %74, align 1
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %73 = load i32, ptr %1, align 8
-  %74 = sext i32 %73 to i64
-  %75 = icmp slt i64 %indvars.iv.next126, %74
-  %76 = icmp slt i32 %.2, 257
-  %77 = select i1 %75, i1 %76, i1 false
-  br i1 %77, label %.preheader90, label %._crit_edge108, !llvm.loop !11
+  %75 = load i32, ptr %1, align 8
+  %76 = sext i32 %75 to i64
+  %77 = icmp slt i64 %indvars.iv.next126, %76
+  %78 = icmp slt i32 %.2, 257
+  %79 = select i1 %77, i1 %78, i1 false
+  br i1 %79, label %.preheader90, label %._crit_edge108, !llvm.loop !11
 
-._crit_edge108:                                   ; preds = %71, %.critedge
-  %.177.lcssa = phi i32 [ %.076.lcssa, %.critedge ], [ %.2, %71 ]
-  %78 = icmp sgt i32 %.177.lcssa, 256
-  br i1 %78, label %GifFreeMapObject.exit, label %.preheader
+._crit_edge108:                                   ; preds = %73, %.critedge
+  %.177.lcssa = phi i32 [ %.076.lcssa, %.critedge ], [ %.2, %73 ]
+  %80 = icmp sgt i32 %.177.lcssa, 256
+  br i1 %80, label %GifFreeMapObject.exit, label %.preheader
 
 GifFreeMapObject.exit:                            ; preds = %._crit_edge108
   tail call void @free(ptr noundef %16) #15
@@ -301,60 +303,60 @@ GifFreeMapObject.exit:                            ; preds = %._crit_edge108
   br label %GifMakeMapObject.exit.thread
 
 .preheader:                                       ; preds = %._crit_edge108, %.preheader
-  %.0.i85 = phi i32 [ %81, %.preheader ], [ 1, %._crit_edge108 ]
-  %79 = icmp samesign ult i32 %.0.i85, 9
-  %80 = shl nuw nsw i32 1, %.0.i85
-  %.not.i86 = icmp slt i32 %80, %.177.lcssa
-  %or.cond.i = select i1 %79, i1 %.not.i86, i1 false
-  %81 = add nuw nsw i32 %.0.i85, 1
+  %.0.i85 = phi i32 [ %83, %.preheader ], [ 1, %._crit_edge108 ]
+  %81 = icmp samesign ult i32 %.0.i85, 9
+  %82 = shl nuw nsw i32 1, %.0.i85
+  %.not.i86 = icmp slt i32 %82, %.177.lcssa
+  %or.cond.i = select i1 %81, i1 %.not.i86, i1 false
+  %83 = add nuw nsw i32 %.0.i85, 1
   br i1 %or.cond.i, label %.preheader, label %GifBitSize.exit, !llvm.loop !6
 
 GifBitSize.exit:                                  ; preds = %.preheader
-  %.not = icmp eq i32 %80, %6
-  br i1 %.not, label %97, label %82
+  %.not = icmp eq i32 %82, %6
+  br i1 %.not, label %99, label %84
 
-82:                                               ; preds = %GifBitSize.exit
-  %83 = icmp slt i32 %.177.lcssa, %80
-  br i1 %83, label %.lr.ph112.preheader, label %._crit_edge113
+84:                                               ; preds = %GifBitSize.exit
+  %85 = icmp slt i32 %.177.lcssa, %82
+  br i1 %85, label %.lr.ph112.preheader, label %._crit_edge113
 
-.lr.ph112.preheader:                              ; preds = %82
-  %84 = sext i32 %.177.lcssa to i64
-  %85 = mul nsw i64 %84, 3
-  %scevgep = getelementptr i8, ptr %16, i64 %85
-  %86 = xor i32 %.177.lcssa, -1
-  %87 = add i32 %80, %86
-  %88 = zext i32 %87 to i64
-  %89 = mul nuw nsw i64 %88, 3
-  %90 = add nuw nsw i64 %89, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %90, i1 false)
+.lr.ph112.preheader:                              ; preds = %84
+  %86 = sext i32 %.177.lcssa to i64
+  %87 = mul nsw i64 %86, 3
+  %scevgep = getelementptr i8, ptr %16, i64 %87
+  %88 = xor i32 %.177.lcssa, -1
+  %89 = add i32 %82, %88
+  %90 = zext i32 %89 to i64
+  %91 = mul nuw nsw i64 %90, 3
+  %92 = add nuw nsw i64 %91, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %92, i1 false)
   br label %._crit_edge113
 
-._crit_edge113:                                   ; preds = %.lr.ph112.preheader, %82
-  %91 = icmp slt i32 %80, %6
-  br i1 %91, label %92, label %97
+._crit_edge113:                                   ; preds = %.lr.ph112.preheader, %84
+  %93 = icmp slt i32 %82, %6
+  br i1 %93, label %94, label %99
 
-92:                                               ; preds = %._crit_edge113
-  %93 = zext nneg i32 %80 to i64
-  %94 = tail call ptr @openbsd_reallocarray(ptr noundef nonnull %16, i64 noundef %93, i64 noundef 3) #15
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %GifFreeMapObject.exit88, label %96
+94:                                               ; preds = %._crit_edge113
+  %95 = zext nneg i32 %82 to i64
+  %96 = tail call ptr @openbsd_reallocarray(ptr noundef nonnull %16, i64 noundef %95, i64 noundef 3) #15
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %GifFreeMapObject.exit88, label %98
 
-GifFreeMapObject.exit88:                          ; preds = %92
+GifFreeMapObject.exit88:                          ; preds = %94
   tail call void @free(ptr noundef nonnull %16) #15
   tail call void @free(ptr noundef nonnull %12) #15
   br label %GifMakeMapObject.exit.thread
 
-96:                                               ; preds = %92
-  store ptr %94, ptr %17, align 8
-  br label %97
+98:                                               ; preds = %94
+  store ptr %96, ptr %17, align 8
+  br label %99
 
-97:                                               ; preds = %._crit_edge113, %96, %GifBitSize.exit
-  store i32 %80, ptr %12, align 8
+99:                                               ; preds = %._crit_edge113, %98, %GifBitSize.exit
+  store i32 %82, ptr %12, align 8
   store i32 %.0.i85, ptr %25, align 4
   br label %GifMakeMapObject.exit.thread
 
-GifMakeMapObject.exit.thread:                     ; preds = %19, %GifBitSize.exit.i, %11, %97, %GifFreeMapObject.exit88, %GifFreeMapObject.exit
-  %.0 = phi ptr [ %12, %97 ], [ null, %GifFreeMapObject.exit ], [ null, %GifFreeMapObject.exit88 ], [ null, %11 ], [ null, %GifBitSize.exit.i ], [ null, %19 ]
+GifMakeMapObject.exit.thread:                     ; preds = %19, %GifBitSize.exit.i, %11, %99, %GifFreeMapObject.exit88, %GifFreeMapObject.exit
+  %.0 = phi ptr [ %12, %99 ], [ null, %GifFreeMapObject.exit ], [ null, %GifFreeMapObject.exit88 ], [ null, %11 ], [ null, %GifBitSize.exit.i ], [ null, %19 ]
   ret ptr %.0
 }
 
@@ -842,8 +844,8 @@ declare i32 @llvm.smax.i32(i32, i32) #12
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

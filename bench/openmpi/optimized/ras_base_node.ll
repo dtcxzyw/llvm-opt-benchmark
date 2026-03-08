@@ -121,7 +121,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %34
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %storemerge126 = load ptr, ptr %48, align 8, !tbaa !36
   %.not91127 = icmp eq ptr %storemerge126, %47
-  br i1 %.not91127, label %.loopexit183, label %.lr.ph
+  br i1 %.not91127, label %.loopexit182, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46, %52
   %storemerge128 = phi ptr [ %storemerge, %52 ], [ %storemerge126, %46 ]
@@ -139,14 +139,14 @@ pmix_pointer_array_get_item.exit:                 ; preds = %34
   %53 = getelementptr inbounds nuw i8, ptr %storemerge128, i64 120
   %storemerge = load ptr, ptr %53, align 8, !tbaa !36
   %.not91 = icmp eq ptr %storemerge, %47
-  br i1 %.not91, label %.loopexit183, label %.lr.ph, !llvm.loop !44
+  br i1 %.not91, label %.loopexit182, label %.lr.ph, !llvm.loop !44
 
-.loopexit183:                                     ; preds = %52, %46
+.loopexit182:                                     ; preds = %52, %46
   %.pre153 = load i8, ptr @prte_hnp_is_allocated, align 1, !tbaa !43, !range !34
   %54 = trunc nuw i8 %.pre153 to i1
   br i1 %54, label %55, label %pmix_pointer_array_get_item.exit.thread
 
-55:                                               ; preds = %.thread, %.loopexit183
+55:                                               ; preds = %.thread, %.loopexit182
   %56 = load i16, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 272), align 8, !tbaa !46
   %57 = and i16 %56, 256
   %.not92 = icmp eq i16 %57, 0
@@ -160,14 +160,13 @@ pmix_pointer_array_get_item.exit:                 ; preds = %34
 
 61:                                               ; preds = %58
   tail call void @free(ptr noundef nonnull %60) #12
-  %.pre154 = load i16, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 272), align 8, !tbaa !46
   br label %62
 
 62:                                               ; preds = %61, %58
-  %63 = phi i16 [ %.pre154, %61 ], [ %56, %58 ]
-  %64 = tail call noalias dereferenceable_or_null(5) ptr @strdup(ptr noundef nonnull @.str.3) #12
-  store ptr %64, ptr %59, align 8, !tbaa !37
-  %65 = or i16 %63, 256
+  %63 = tail call noalias dereferenceable_or_null(5) ptr @strdup(ptr noundef nonnull @.str.3) #12
+  store ptr %63, ptr %59, align 8, !tbaa !37
+  %64 = load i16, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 272), align 8, !tbaa !46
+  %65 = or i16 %64, 256
   store i16 %65, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base, i64 272), align 8, !tbaa !46
   %66 = getelementptr inbounds nuw i8, ptr %42, i64 248
   %67 = load i8, ptr %66, align 8, !tbaa !48
@@ -175,9 +174,9 @@ pmix_pointer_array_get_item.exit:                 ; preds = %34
   store i8 %68, ptr %66, align 8, !tbaa !48
   br label %pmix_pointer_array_get_item.exit.thread
 
-pmix_pointer_array_get_item.exit.thread:          ; preds = %34, %62, %55, %.loopexit183, %pmix_pointer_array_get_item.exit
-  %.0.i112 = phi ptr [ %42, %55 ], [ %42, %62 ], [ %42, %.loopexit183 ], [ %42, %pmix_pointer_array_get_item.exit ], [ null, %34 ]
-  %.not = phi i1 [ true, %55 ], [ false, %62 ], [ true, %.loopexit183 ], [ %45, %pmix_pointer_array_get_item.exit ], [ false, %34 ]
+pmix_pointer_array_get_item.exit.thread:          ; preds = %34, %62, %55, %.loopexit182, %pmix_pointer_array_get_item.exit
+  %.0.i112 = phi ptr [ %42, %55 ], [ %42, %62 ], [ %42, %.loopexit182 ], [ %42, %pmix_pointer_array_get_item.exit ], [ null, %34 ]
+  %.not = phi i1 [ true, %55 ], [ false, %62 ], [ true, %.loopexit182 ], [ %45, %pmix_pointer_array_get_item.exit ], [ false, %34 ]
   %69 = load volatile i64, ptr %5, align 8, !tbaa !3
   %70 = icmp eq i64 %69, 0
   br i1 %70, label %pmix_list_remove_first.exit.thread, label %.lr.ph139
@@ -298,8 +297,8 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %34, %62, %55, %.loo
   br label %142
 
 142:                                              ; preds = %139, %136
-  %storemerge179 = phi i8 [ %141, %139 ], [ %138, %136 ]
-  store i8 %storemerge179, ptr %77, align 8, !tbaa !48
+  %storemerge178 = phi i8 [ %141, %139 ], [ %138, %136 ]
+  store i8 %storemerge178, ptr %77, align 8, !tbaa !48
   %143 = getelementptr inbounds nuw i8, ptr %.lcssa119, i64 152
   %144 = load ptr, ptr %143, align 8, !tbaa !37
   %145 = call i32 @PMIx_Argv_append_unique_nosize(ptr noundef nonnull %78, ptr noundef %144) #12
@@ -316,14 +315,14 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %34, %62, %55, %.loo
 
 151:                                              ; preds = %149
   call void @free(ptr noundef nonnull %150) #12
-  %.pre158 = load ptr, ptr %3, align 8, !tbaa !32
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre158, i64 160
-  %.pre159 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !59
+  %.pre157 = load ptr, ptr %3, align 8, !tbaa !32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre157, i64 160
+  %.pre158 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !59
   br label %152
 
 152:                                              ; preds = %151, %149
-  %153 = phi ptr [ %.pre159, %151 ], [ %148, %149 ]
-  %154 = phi ptr [ %.pre158, %151 ], [ %146, %149 ]
+  %153 = phi ptr [ %.pre158, %151 ], [ %148, %149 ]
+  %154 = phi ptr [ %.pre157, %151 ], [ %146, %149 ]
   %155 = call noalias ptr @strdup(ptr noundef %153) #12
   store ptr %155, ptr %79, align 8, !tbaa !59
   br label %156
@@ -444,11 +443,11 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %167
 216:                                              ; preds = %208, %202, %200
   %217 = load i8, ptr @prte_managed_allocation, align 1, !tbaa !43, !range !34, !noundef !35
   %218 = trunc nuw i8 %217 to i1
-  %.pre155 = load ptr, ptr %3, align 8, !tbaa !32
+  %.pre154 = load ptr, ptr %3, align 8, !tbaa !32
   br i1 %218, label %219, label %223
 
 219:                                              ; preds = %216
-  %220 = getelementptr inbounds nuw i8, ptr %.pre155, i64 248
+  %220 = getelementptr inbounds nuw i8, ptr %.pre154, i64 248
   %221 = load i8, ptr %220, align 8, !tbaa !48
   %222 = or i8 %221, 16
   store i8 %222, ptr %220, align 8, !tbaa !48
@@ -456,7 +455,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %167
 
 223:                                              ; preds = %219, %216
   %224 = load ptr, ptr @prte_node_pool, align 8, !tbaa !25
-  %225 = call i32 @pmix_pointer_array_add(ptr noundef %224, ptr noundef %.pre155) #12
+  %225 = call i32 @pmix_pointer_array_add(ptr noundef %224, ptr noundef %.pre154) #12
   %226 = load ptr, ptr %3, align 8, !tbaa !32
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 144
   store i32 %225, ptr %227, align 8, !tbaa !67
@@ -474,10 +473,10 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %167
 
 232:                                              ; preds = %223
   %233 = call zeroext i1 @prte_get_attribute(ptr noundef nonnull %72, i16 noundef zeroext 269, ptr noundef null, i16 noundef zeroext 1) #12
-  br i1 %233, label %234, label %._crit_edge156
+  br i1 %233, label %234, label %._crit_edge155
 
-._crit_edge156:                                   ; preds = %232
-  %.pre157 = load ptr, ptr %3, align 8, !tbaa !32
+._crit_edge155:                                   ; preds = %232
+  %.pre156 = load ptr, ptr %3, align 8, !tbaa !32
   br label %284
 
 234:                                              ; preds = %232
@@ -578,8 +577,8 @@ pmix_obj_update.exit106:                          ; preds = %pmix_obj_update.exi
   store ptr %236, ptr %283, align 8, !tbaa !86
   br label %284
 
-284:                                              ; preds = %._crit_edge156, %pmix_obj_update.exit106
-  %285 = phi ptr [ %.pre157, %._crit_edge156 ], [ %282, %pmix_obj_update.exit106 ]
+284:                                              ; preds = %._crit_edge155, %pmix_obj_update.exit106
+  %285 = phi ptr [ %.pre156, %._crit_edge155 ], [ %282, %pmix_obj_update.exit106 ]
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 220
   %287 = load i32, ptr %286, align 4, !tbaa !51
   %288 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ras_base, i64 16), align 8, !tbaa !52
@@ -655,7 +654,7 @@ declare zeroext i1 @prte_check_host_is_local(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare i32 @PMIx_Argv_append_unique_nosize(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -695,7 +694,7 @@ declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -710,13 +709,13 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nounwind }

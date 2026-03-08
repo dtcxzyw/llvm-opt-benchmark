@@ -538,7 +538,7 @@ define internal void @_ZN13duckdb_yyjsonL9pool_freeEPvS0_(ptr noundef captures(n
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZN13duckdb_yyjson18yyjson_alc_dyn_newEv() local_unnamed_addr #4 {
-  %1 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #30
+  %1 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #31
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %2, !prof !3
 
@@ -558,26 +558,26 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_alc_dyn_newEv() local_unnamed_add
   ret ptr %1
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite, errnomem: write) uwtable
 define internal noalias noundef ptr @_ZN13duckdb_yyjsonL14default_mallocEPvm(ptr readnone captures(none) %0, i64 noundef %1) #5 {
-  %3 = tail call noalias ptr @malloc(i64 noundef %1) #30
+  %3 = tail call noalias ptr @malloc(i64 noundef %1) #31
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) uwtable
 define internal noalias noundef ptr @_ZN13duckdb_yyjsonL15default_reallocEPvS0_mm(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 %2, i64 noundef %3) #6 {
-  %5 = tail call ptr @realloc(ptr noundef %1, i64 noundef %3) #31
+  %5 = tail call ptr @realloc(ptr noundef %1, i64 noundef %3) #32
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN13duckdb_yyjsonL12default_freeEPvS0_(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #6 {
-  tail call void @free(ptr noundef %1) #32
+define internal void @_ZN13duckdb_yyjsonL12default_freeEPvS0_(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #7 {
+  tail call void @free(ptr noundef %1) #33
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
-define internal noundef ptr @_ZN13duckdb_yyjsonL10dyn_mallocEPvm(ptr noundef captures(none) %0, i64 noundef %1) #7 {
+define internal noundef ptr @_ZN13duckdb_yyjsonL10dyn_mallocEPvm(ptr noundef captures(none) %0, i64 noundef %1) #8 {
   %3 = add i64 %1, 4111
   %4 = and i64 %3, -4096
   %.not44 = icmp ult i64 %4, %1
@@ -590,7 +590,7 @@ define internal noundef ptr @_ZN13duckdb_yyjsonL10dyn_mallocEPvm(ptr noundef cap
   br i1 %.not, label %8, label %.preheader
 
 8:                                                ; preds = %5
-  %9 = tail call noalias noundef ptr @malloc(i64 noundef %4) #30
+  %9 = tail call noalias noundef ptr @malloc(i64 noundef %4) #31
   %.not32 = icmp eq ptr %9, null
   br i1 %.not32, label %_ZN13duckdb_yyjsonL14dyn_size_alignEPm.exit, label %10, !prof !3
 
@@ -630,7 +630,7 @@ define internal noundef ptr @_ZN13duckdb_yyjsonL10dyn_mallocEPvm(ptr noundef cap
   br i1 %.not34, label %27, label %.preheader, !llvm.loop !34
 
 27:                                               ; preds = %24
-  %28 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %15, i64 noundef %4) #31
+  %28 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %15, i64 noundef %4) #32
   %.not35 = icmp eq ptr %28, null
   br i1 %.not35, label %_ZN13duckdb_yyjsonL14dyn_size_alignEPm.exit, label %29, !prof !3
 
@@ -652,7 +652,7 @@ _ZN13duckdb_yyjsonL14dyn_size_alignEPm.exit:      ; preds = %2, %27, %8, %29, %1
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
-define internal noundef ptr @_ZN13duckdb_yyjsonL11dyn_reallocEPvS0_mm(ptr noundef captures(none) %0, ptr noundef %1, i64 %2, i64 noundef %3) #7 {
+define internal noundef ptr @_ZN13duckdb_yyjsonL11dyn_reallocEPvS0_mm(ptr noundef captures(none) %0, ptr noundef %1, i64 %2, i64 noundef %3) #8 {
   %5 = getelementptr inbounds i8, ptr %1, i64 -16
   %6 = add i64 %3, 4111
   %7 = and i64 %6, -4096
@@ -688,7 +688,7 @@ define internal noundef ptr @_ZN13duckdb_yyjsonL11dyn_reallocEPvS0_mm(ptr nounde
   br label %_ZN13duckdb_yyjsonL21dyn_chunk_list_removeEPNS_9dyn_chunkES1_.exit
 
 _ZN13duckdb_yyjsonL21dyn_chunk_list_removeEPNS_9dyn_chunkES1_.exit: ; preds = %12, %15
-  %18 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %5, i64 noundef %7) #31
+  %18 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %5, i64 noundef %7) #32
   %.not19 = icmp eq ptr %18, null
   br i1 %.not19, label %20, label %19, !prof !3
 
@@ -769,10 +769,10 @@ _ZN13duckdb_yyjsonL21dyn_chunk_list_removeEPNS_9dyn_chunkES1_.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
-define void @_ZN13duckdb_yyjson19yyjson_alc_dyn_freeEPNS_10yyjson_alcE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
+define void @_ZN13duckdb_yyjson19yyjson_alc_dyn_freeEPNS_10yyjson_alcE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2, !prof !3
 
@@ -786,7 +786,7 @@ define void @_ZN13duckdb_yyjson19yyjson_alc_dyn_freeEPNS_10yyjson_alcE(ptr nound
   %.020 = phi ptr [ %6, %.lr.ph ], [ %4, %2 ]
   %5 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !33
-  tail call void @free(ptr noundef nonnull %.020) #32
+  tail call void @free(ptr noundef nonnull %.020) #33
   %.not17 = icmp eq ptr %6, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
@@ -800,12 +800,12 @@ define void @_ZN13duckdb_yyjson19yyjson_alc_dyn_freeEPNS_10yyjson_alcE(ptr nound
   %.122 = phi ptr [ %10, %.lr.ph24 ], [ %8, %._crit_edge ]
   %9 = getelementptr inbounds nuw i8, ptr %.122, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !33
-  tail call void @free(ptr noundef nonnull %.122) #32
+  tail call void @free(ptr noundef nonnull %.122) #33
   %.not18 = icmp eq ptr %10, null
   br i1 %.not18, label %._crit_edge25, label %.lr.ph24, !llvm.loop !39
 
 ._crit_edge25:                                    ; preds = %.lr.ph24, %._crit_edge
-  tail call void @free(ptr noundef nonnull %0) #32
+  tail call void @free(ptr noundef nonnull %0) #33
   br label %11
 
 11:                                               ; preds = %1, %._crit_edge25
@@ -813,7 +813,7 @@ define void @_ZN13duckdb_yyjson19yyjson_alc_dyn_freeEPNS_10yyjson_alcE(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_str_pool_growEPNS_15yyjson_str_poolEPKNS_10yyjson_alcEm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_str_pool_growEPNS_15yyjson_str_poolEPKNS_10yyjson_alcEm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #10 {
   %4 = icmp ugt i64 %2, -17
   br i1 %4, label %25, label %5, !prof !3
 
@@ -857,7 +857,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_str_pool_growEPNS_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_val_pool_growEPNS_15yyjson_val_poolEPKNS_10yyjson_alcEm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_val_pool_growEPNS_15yyjson_val_poolEPKNS_10yyjson_alcEm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #10 {
   %4 = icmp ugt i64 %2, 768614336404564649
   br i1 %4, label %26, label %5, !prof !3
 
@@ -902,7 +902,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_val_pool_growEPNS_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson32yyjson_mut_doc_set_str_pool_sizeEPNS_14yyjson_mut_docEm(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson32yyjson_mut_doc_set_str_pool_sizeEPNS_14yyjson_mut_docEm(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #11 {
   %3 = icmp ne ptr %0, null
   %4 = add i64 %1, -1
   %5 = icmp ult i64 %4, -17
@@ -920,7 +920,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson32yyjson_mut_doc_set_str_pool_sizeE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson32yyjson_mut_doc_set_val_pool_sizeEPNS_14yyjson_mut_docEm(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson32yyjson_mut_doc_set_val_pool_sizeEPNS_14yyjson_mut_docEm(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #11 {
   %3 = icmp ne ptr %0, null
   %4 = add i64 %1, -1
   %5 = icmp ult i64 %4, 768614336404564649
@@ -939,7 +939,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson32yyjson_mut_doc_set_val_pool_sizeE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13duckdb_yyjson19yyjson_mut_doc_freeEPNS_14yyjson_mut_docE(ptr noundef %0) local_unnamed_addr #9 {
+define void @_ZN13duckdb_yyjson19yyjson_mut_doc_freeEPNS_14yyjson_mut_docE(ptr noundef %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -984,7 +984,7 @@ _ZN13duckdb_yyjsonL30unsafe_yyjson_val_pool_releaseEPNS_15yyjson_val_poolEPNS_10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson18yyjson_mut_doc_newEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson18yyjson_mut_doc_newEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   %spec.store.select = select i1 %.not, ptr @_ZN13duckdb_yyjsonL18YYJSON_DEFAULT_ALCE, ptr %0
   %2 = load ptr, ptr %spec.store.select, align 8, !tbaa !17
@@ -1013,7 +1013,7 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_mut_doc_newEPKNS_10yyjson_alcE(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson19yyjson_doc_mut_copyEPNS_10yyjson_docEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson19yyjson_doc_mut_copyEPNS_10yyjson_docEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN13duckdb_yyjson18yyjson_mut_doc_newEPKNS_10yyjson_alcE.exit.thread, label %3
 
@@ -1094,7 +1094,7 @@ _ZN13duckdb_yyjson18yyjson_mut_doc_newEPKNS_10yyjson_alcE.exit.thread: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson19yyjson_val_mut_copyEPNS_14yyjson_mut_docEPNS_10yyjson_valE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson19yyjson_val_mut_copyEPNS_14yyjson_mut_docEPNS_10yyjson_valE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #10 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1310,7 +1310,7 @@ _ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.thread: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson23yyjson_mut_doc_mut_copyEPNS_14yyjson_mut_docEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson23yyjson_mut_doc_mut_copyEPNS_14yyjson_mut_docEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN13duckdb_yyjson18yyjson_mut_doc_newEPKNS_10yyjson_alcE.exit, label %3
 
@@ -1422,7 +1422,7 @@ _ZN13duckdb_yyjson18yyjson_mut_doc_newEPKNS_10yyjson_alcE.exit: ; preds = %16, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1438,7 +1438,7 @@ define noundef ptr @_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL30unsafe_yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #9 {
+define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL30unsafe_yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !60
@@ -1576,7 +1576,7 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson24yyjson_mut_doc_imut_copyEPNS_14yyjson_mut_docEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson24yyjson_mut_doc_imut_copyEPNS_14yyjson_mut_docEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -1591,7 +1591,7 @@ define noundef ptr @_ZN13duckdb_yyjson24yyjson_mut_doc_imut_copyEPNS_14yyjson_mu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson24yyjson_mut_val_imut_copyEPNS_14yyjson_mut_valEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson24yyjson_mut_val_imut_copyEPNS_14yyjson_mut_valEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -1669,7 +1669,7 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit:       ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc void @_ZN13duckdb_yyjsonL15yyjson_mut_statEPNS_14yyjson_mut_valEPmS2_(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #11 {
+define internal fastcc void @_ZN13duckdb_yyjsonL15yyjson_mut_statEPNS_14yyjson_mut_valEPmS2_(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #12 {
   %4 = load i64, ptr %0, align 8, !tbaa !73
   %5 = trunc i64 %4 to i8
   %6 = load i64, ptr %1, align 8, !tbaa !85
@@ -1748,7 +1748,7 @@ define internal fastcc void @_ZN13duckdb_yyjsonL15yyjson_mut_statEPNS_14yyjson_m
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc noundef i64 @_ZN13duckdb_yyjsonL16yyjson_imut_copyEPPNS_10yyjson_valEPPcPNS_14yyjson_mut_valE(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #11 {
+define internal fastcc noundef i64 @_ZN13duckdb_yyjsonL16yyjson_imut_copyEPPNS_10yyjson_valEPPcPNS_14yyjson_mut_valE(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #12 {
   %4 = load ptr, ptr %0, align 8, !tbaa !87
   %5 = load i64, ptr %2, align 8, !tbaa !73
   %6 = trunc i64 %5 to i8
@@ -1860,7 +1860,7 @@ define internal fastcc noundef i64 @_ZN13duckdb_yyjsonL16yyjson_imut_copyEPPNS_1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson20unsafe_yyjson_equalsEPNS_10yyjson_valES1_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #12 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson20unsafe_yyjson_equalsEPNS_10yyjson_valES1_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #13 {
   %3 = load i64, ptr %0, align 8, !tbaa !73
   %4 = trunc i64 %3 to i8
   %5 = and i8 %4, 7
@@ -2124,7 +2124,7 @@ default.unreachable:                              ; preds = %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson24unsafe_yyjson_mut_equalsEPNS_14yyjson_mut_valES1_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson24unsafe_yyjson_mut_equalsEPNS_14yyjson_mut_valES1_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
   %3 = load i64, ptr %0, align 8, !tbaa !73
   %4 = trunc i64 %3 to i8
   %5 = and i8 %4, 7
@@ -2320,7 +2320,7 @@ default.unreachable:                              ; preds = %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define noundef ptr @_ZN13duckdb_yyjson22unsafe_yyjson_ptr_getxEPNS_10yyjson_valEPKcmPNS_14yyjson_ptr_errE(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #13 {
+define noundef ptr @_ZN13duckdb_yyjson22unsafe_yyjson_ptr_getxEPNS_10yyjson_valEPKcmPNS_14yyjson_ptr_errE(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #14 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   br label %6
 
@@ -2613,7 +2613,7 @@ _ZN13duckdb_yyjsonL11ptr_obj_getEPNS_10yyjson_valEPKcmm.exit: ; preds = %.lr.ph1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define noundef ptr @_ZN13duckdb_yyjson26unsafe_yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #13 {
+define noundef ptr @_ZN13duckdb_yyjson26unsafe_yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #14 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not40 = icmp ne ptr %3, null
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2958,7 +2958,7 @@ _ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson26unsafe_yyjson_mut_ptr_putxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #9 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson26unsafe_yyjson_mut_ptr_putxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #10 {
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   br label %11
 
@@ -4486,7 +4486,7 @@ _ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit301: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define noundef ptr @_ZN13duckdb_yyjson30unsafe_yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #14 {
+define noundef ptr @_ZN13duckdb_yyjson30unsafe_yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #15 {
   %7 = alloca %"struct.duckdb_yyjson::yyjson_ptr_ctx", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -4765,7 +4765,7 @@ _ZN13duckdb_yyjsonL18yyjson_mut_obj_putEPNS_14yyjson_mut_valES1_S1_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define noundef ptr @_ZN13duckdb_yyjson29unsafe_yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #14 {
+define noundef ptr @_ZN13duckdb_yyjson29unsafe_yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #15 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_ptr_ctx", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -4932,7 +4932,7 @@ _ZN13duckdb_yyjsonL18yyjson_mut_obj_putEPNS_14yyjson_mut_valES1_S1_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson12yyjson_patchEPNS_14yyjson_mut_docEPNS_10yyjson_valES3_PNS_16yyjson_patch_errE(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson12yyjson_patchEPNS_14yyjson_mut_docEPNS_10yyjson_valES3_PNS_16yyjson_patch_errE(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca %"struct.duckdb_yyjson::yyjson_patch_err", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
@@ -5858,7 +5858,7 @@ _ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit.thread: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef range(i32 0, 7) i32 @_ZN13duckdb_yyjsonL12patch_op_getEPNS_10yyjson_valE(i64 %.0.val, ptr readonly captures(none) %.8.val) unnamed_addr #15 {
+define internal fastcc noundef range(i32 0, 7) i32 @_ZN13duckdb_yyjsonL12patch_op_getEPNS_10yyjson_valE(i64 %.0.val, ptr readonly captures(none) %.8.val) unnamed_addr #16 {
   %1 = lshr i64 %.0.val, 8
   switch i64 %1, label %8 [
     i64 3, label %2
@@ -5907,7 +5907,7 @@ define internal fastcc noundef range(i32 0, 7) i32 @_ZN13duckdb_yyjsonL12patch_o
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson16yyjson_mut_patchEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valES3_PNS_16yyjson_patch_errE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson16yyjson_mut_patchEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valES3_PNS_16yyjson_patch_errE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca %"struct.duckdb_yyjson::yyjson_patch_err", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
@@ -6842,7 +6842,7 @@ _ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit.thread: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson18yyjson_merge_patchEPNS_14yyjson_mut_docEPNS_10yyjson_valES3_(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson18yyjson_merge_patchEPNS_14yyjson_mut_docEPNS_10yyjson_valES3_(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #10 {
   %4 = alloca %"struct.duckdb_yyjson::yyjson_val", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i75 = icmp eq ptr %2, null
@@ -7169,7 +7169,7 @@ _ZN13duckdb_yyjsonL14yyjson_mut_objEPNS_14yyjson_mut_docE.exit.thread: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson22yyjson_mut_merge_patchEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valES3_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson22yyjson_mut_merge_patchEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valES3_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #10 {
   %.sroa.0 = alloca i64, align 8
   %.sroa.5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
@@ -7543,7 +7543,7 @@ _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = alloca i32, align 4
   %7 = alloca %"struct.duckdb_yyjson::bigint", align 8
   %8 = alloca %"struct.duckdb_yyjson::bigint", align 8
@@ -28357,7 +28357,7 @@ _ZN13duckdb_yyjsonL16read_root_minifyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL24skip_spaces_and_commentsEPPh(ptr noundef nonnull captures(none) %0) unnamed_addr #16 {
+define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL24skip_spaces_and_commentsEPPh(ptr noundef nonnull captures(none) %0) unnamed_addr #17 {
   %2 = load ptr, ptr %0, align 8, !tbaa !86
   br label %.outer
 
@@ -28452,7 +28452,7 @@ define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL24skip_spaces_and_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL16read_root_singleEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly byval(%"struct.duckdb_yyjson::yyjson_alc") align 8 captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) unnamed_addr #17 {
+define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL16read_root_singleEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly byval(%"struct.duckdb_yyjson::yyjson_alc") align 8 captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) unnamed_addr #18 {
   %7 = alloca i32, align 4
   %8 = alloca %"struct.duckdb_yyjson::bigint", align 8
   %9 = alloca %"struct.duckdb_yyjson::bigint", align 8
@@ -32571,7 +32571,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit173: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_fileEPKcjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_fileEPKcjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca %"struct.duckdb_yyjson::yyjson_read_err", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
@@ -32616,7 +32616,7 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_fileEPKcjPKNS_10yyjson_alcEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson14yyjson_read_fpEP8_IO_FILEjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson14yyjson_read_fpEP8_IO_FILEjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca %"struct.duckdb_yyjson::yyjson_read_err", align 8
   %6 = alloca %"struct.duckdb_yyjson::yyjson_alc", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -32814,13 +32814,13 @@ define noundef ptr @_ZN13duckdb_yyjson14yyjson_read_fpEP8_IO_FILEjPKNS_10yyjson_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #18
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
@@ -35303,7 +35303,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson21yyjson_val_write_optsEPKNS_10yyjson_valEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson21yyjson_val_write_optsEPKNS_10yyjson_valEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %2, null
@@ -47644,7 +47644,7 @@ _ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson17yyjson_write_optsEPKNS_10yyjson_docEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson17yyjson_write_optsEPKNS_10yyjson_docEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %6
 
@@ -47659,7 +47659,7 @@ define noundef ptr @_ZN13duckdb_yyjson17yyjson_write_optsEPKNS_10yyjson_docEjPKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_val_write_fileEPKcPKNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_val_write_fileEPKcPKNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -47744,7 +47744,7 @@ _ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_val_write_fpEP8_IO_FILEPKNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_val_write_fpEP8_IO_FILEPKNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -47798,7 +47798,7 @@ _ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson17yyjson_write_fileEPKcPKNS_10yyjson_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson17yyjson_write_fileEPKcPKNS_10yyjson_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
@@ -47813,7 +47813,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson17yyjson_write_fileEPKcPKNS_10yyjso
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson15yyjson_write_fpEP8_IO_FILEPKNS_10yyjson_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson15yyjson_write_fpEP8_IO_FILEPKNS_10yyjson_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
   %.not = icmp eq ptr %1, null
@@ -47876,13 +47876,13 @@ _ZN13duckdb_yyjson19yyjson_val_write_fpEP8_IO_FILEPKNS_10yyjson_valEjPKNS_10yyjs
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson25yyjson_mut_val_write_optsEPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson25yyjson_mut_val_write_optsEPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = tail call fastcc noundef ptr @_ZN13duckdb_yyjsonL26yyjson_mut_write_opts_implEPKNS_14yyjson_mut_valEmjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %0, i64 noundef 0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL26yyjson_mut_write_opts_implEPKNS_14yyjson_mut_valEmjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #9 {
+define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL26yyjson_mut_write_opts_implEPKNS_14yyjson_mut_valEmjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #10 {
   %7 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %3, null
@@ -60283,7 +60283,7 @@ _ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_a
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson21yyjson_mut_write_optsEPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
+define noundef ptr @_ZN13duckdb_yyjson21yyjson_mut_write_optsEPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN13duckdb_yyjsonL32yyjson_mut_doc_estimated_val_numEPKNS_14yyjson_mut_docE.exit, label %6, !prof !3
 
@@ -60334,7 +60334,7 @@ _ZN13duckdb_yyjsonL32yyjson_mut_doc_estimated_val_numEPKNS_14yyjson_mut_docE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson25yyjson_mut_val_write_fileEPKcPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson25yyjson_mut_val_write_fileEPKcPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -60419,7 +60419,7 @@ _ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson23yyjson_mut_val_write_fpEP8_IO_FILEPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson23yyjson_mut_val_write_fpEP8_IO_FILEPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -60473,7 +60473,7 @@ _ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_mut_write_fileEPKcPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_mut_write_fileEPKcPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
@@ -60488,7 +60488,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_mut_write_fileEPKcPKNS_14y
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_mut_write_fpEP8_IO_FILEPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_mut_write_fpEP8_IO_FILEPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
   %.not = icmp eq ptr %1, null
@@ -60565,17 +60565,17 @@ define internal void @_ZN13duckdb_yyjsonL9null_freeEPvS0_(ptr readnone captures(
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #19
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #20
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #20
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #21
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree noinline norecurse nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL16is_truncated_endEPhS0_S0_jj(ptr noundef readnone captures(address) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 2, 12) %3, i32 noundef %4) unnamed_addr #22 {
+define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL16is_truncated_endEPhS0_S0_jj(ptr noundef readnone captures(address) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 2, 12) %3, i32 noundef %4) unnamed_addr #23 {
   %6 = ptrtoint ptr %2 to i64
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %7, label %_ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit118
@@ -60855,13 +60855,13 @@ _ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit118: ; preds = %30, %40, %.l
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #18
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #23 {
+define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #24 {
   %6 = load ptr, ptr %0, align 8, !tbaa !86
   %7 = load ptr, ptr %1, align 8, !tbaa !86
   %.not = icmp eq ptr %7, null
@@ -61150,7 +61150,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit.thread: ; pre
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPiPhS3_S3_(ptr noundef nonnull captures(none) initializes((0, 4), (8, 16)) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone captures(address) %5) unnamed_addr #24 {
+define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPiPhS3_S3_(ptr noundef nonnull captures(none) initializes((0, 4), (8, 16)) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone captures(address) %5) unnamed_addr #25 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %9, !prof !3
 
@@ -61508,68 +61508,69 @@ _ZN13duckdb_yyjsonL14bigint_add_u64EPNS_6bigintEm.exit: ; preds = %._crit_edge14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #25
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #26
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #25
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #26
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #27
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #28
+declare i64 @llvm.umin.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #28
+declare i64 @llvm.umax.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #29
+declare i32 @llvm.abs.i32(i32, i1 immarg) #30
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree noinline norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #27 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #28 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #30 = { nounwind allocsize(0) }
-attributes #31 = { nounwind allocsize(1) }
-attributes #32 = { nounwind }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree noinline norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #28 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #29 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #30 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #31 = { nounwind allocsize(0) }
+attributes #32 = { nounwind allocsize(1) }
+attributes #33 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

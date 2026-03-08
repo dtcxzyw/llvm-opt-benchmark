@@ -2034,77 +2034,77 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   br label %843
 
 843:                                              ; preds = %.lr.ph1161, %._crit_edge1155
-  %844 = phi i32 [ %818, %.lr.ph1161 ], [ %1181, %._crit_edge1155 ]
   %.06571159 = phi i64 [ 0, %.lr.ph1161 ], [ %1223, %._crit_edge1155 ]
   %.36751158 = phi i64 [ -1, %.lr.ph1161 ], [ %.4676, %._crit_edge1155 ]
   %.36811157 = phi i64 [ -1, %.lr.ph1161 ], [ %.4682, %._crit_edge1155 ]
   %.37131156 = phi i64 [ 0, %.lr.ph1161 ], [ %1170, %._crit_edge1155 ]
-  %845 = call noalias ptr @malloc(i64 noundef %.1654) #16
-  %846 = icmp eq ptr %845, null
-  br i1 %846, label %847, label %863
+  %844 = call noalias ptr @malloc(i64 noundef %.1654) #16
+  %845 = icmp eq ptr %844, null
+  br i1 %845, label %846, label %862
 
-847:                                              ; preds = %843
-  %848 = load i32, ptr @enable_error_stack, align 4, !tbaa !14
-  %849 = icmp sgt i32 %848, 0
-  br i1 %849, label %850, label %.loopexit
+846:                                              ; preds = %843
+  %847 = load i32, ptr @enable_error_stack, align 4, !tbaa !14
+  %848 = icmp sgt i32 %847, 0
+  br i1 %848, label %849, label %.loopexit
 
-850:                                              ; preds = %847
-  %851 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !18
-  %852 = icmp sgt i64 %851, -1
-  %853 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %854 = icmp sgt i64 %853, -1
-  %or.cond68 = select i1 %852, i1 %854, i1 false
-  br i1 %or.cond68, label %855, label %859
+849:                                              ; preds = %846
+  %850 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !18
+  %851 = icmp sgt i64 %850, -1
+  %852 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %853 = icmp sgt i64 %852, -1
+  %or.cond68 = select i1 %851, i1 %853, i1 false
+  br i1 %or.cond68, label %854, label %858
 
-855:                                              ; preds = %850
-  %856 = load i64, ptr @H5E_tools_g, align 8, !tbaa !18
-  %857 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !18
-  %858 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %851, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.diff_datasetid, i32 noundef 700, i64 noundef %853, i64 noundef %856, i64 noundef %857, ptr noundef nonnull @.str.26) #13
+854:                                              ; preds = %849
+  %855 = load i64, ptr @H5E_tools_g, align 8, !tbaa !18
+  %856 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !18
+  %857 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %850, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.diff_datasetid, i32 noundef 700, i64 noundef %852, i64 noundef %855, i64 noundef %856, ptr noundef nonnull @.str.26) #13
   br label %.loopexit
 
-859:                                              ; preds = %850
-  %860 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %861 = call i64 @fwrite(ptr nonnull @.str.26, i64 40, i64 1, ptr %860) #14
-  %862 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %fputc914 = call i32 @fputc(i32 10, ptr %862)
+858:                                              ; preds = %849
+  %859 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %860 = call i64 @fwrite(ptr nonnull @.str.26, i64 40, i64 1, ptr %859) #14
+  %861 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %fputc914 = call i32 @fputc(i32 10, ptr %861)
   br label %.loopexit
 
-863:                                              ; preds = %843
-  %864 = call noalias ptr @malloc(i64 noundef %.1654) #16
-  %865 = icmp eq ptr %864, null
-  br i1 %865, label %866, label %882
+862:                                              ; preds = %843
+  %863 = call noalias ptr @malloc(i64 noundef %.1654) #16
+  %864 = icmp eq ptr %863, null
+  br i1 %864, label %865, label %881
 
-866:                                              ; preds = %863
-  %867 = load i32, ptr @enable_error_stack, align 4, !tbaa !14
-  %868 = icmp sgt i32 %867, 0
-  br i1 %868, label %869, label %.loopexit
+865:                                              ; preds = %862
+  %866 = load i32, ptr @enable_error_stack, align 4, !tbaa !14
+  %867 = icmp sgt i32 %866, 0
+  br i1 %867, label %868, label %.loopexit
 
-869:                                              ; preds = %866
-  %870 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !18
-  %871 = icmp sgt i64 %870, -1
-  %872 = load i64, ptr @H5tools_ERR_CLS_g, align 8
-  %873 = icmp sgt i64 %872, -1
-  %or.cond71 = select i1 %871, i1 %873, i1 false
-  br i1 %or.cond71, label %874, label %878
+868:                                              ; preds = %865
+  %869 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !18
+  %870 = icmp sgt i64 %869, -1
+  %871 = load i64, ptr @H5tools_ERR_CLS_g, align 8
+  %872 = icmp sgt i64 %871, -1
+  %or.cond71 = select i1 %870, i1 %872, i1 false
+  br i1 %or.cond71, label %873, label %877
 
-874:                                              ; preds = %869
-  %875 = load i64, ptr @H5E_tools_g, align 8, !tbaa !18
-  %876 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !18
-  %877 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %870, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.diff_datasetid, i32 noundef 702, i64 noundef %872, i64 noundef %875, i64 noundef %876, ptr noundef nonnull @.str.26) #13
+873:                                              ; preds = %868
+  %874 = load i64, ptr @H5E_tools_g, align 8, !tbaa !18
+  %875 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !18
+  %876 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %869, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.diff_datasetid, i32 noundef 702, i64 noundef %871, i64 noundef %874, i64 noundef %875, ptr noundef nonnull @.str.26) #13
   br label %.loopexit
 
-878:                                              ; preds = %869
-  %879 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %880 = call i64 @fwrite(ptr nonnull @.str.26, i64 40, i64 1, ptr %879) #14
-  %881 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %fputc913 = call i32 @fputc(i32 10, ptr %881)
+877:                                              ; preds = %868
+  %878 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %879 = call i64 @fwrite(ptr nonnull @.str.26, i64 40, i64 1, ptr %878) #14
+  %880 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %fputc913 = call i32 @fputc(i32 10, ptr %880)
   br label %.loopexit
 
-882:                                              ; preds = %863
-  %883 = icmp sgt i32 %844, 0
+881:                                              ; preds = %862
+  %882 = load i32, ptr %513, align 8, !tbaa !32
+  %883 = icmp sgt i32 %882, 0
   br i1 %883, label %884, label %1106
 
-884:                                              ; preds = %882
+884:                                              ; preds = %881
   %885 = load ptr, ptr %603, align 8, !tbaa !38
   %.not890 = icmp eq ptr %885, null
   br i1 %.not890, label %.preheader980, label %.preheader981
@@ -2502,13 +2502,13 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   %fputc905 = call i32 @fputc(i32 10, ptr %1105)
   br label %.loopexit
 
-1106:                                             ; preds = %882, %1087
-  %.4682 = phi i64 [ %958, %1087 ], [ %.36811157, %882 ]
-  %.4676 = phi i64 [ %1069, %1087 ], [ %.36751158, %882 ]
-  %.1652 = phi i64 [ %939, %1087 ], [ 1, %882 ]
+1106:                                             ; preds = %881, %1087
+  %.4682 = phi i64 [ %958, %1087 ], [ %.36811157, %881 ]
+  %.4676 = phi i64 [ %1069, %1087 ], [ %.36751158, %881 ]
+  %.1652 = phi i64 [ %939, %1087 ], [ 1, %881 ]
   store i64 %.1652, ptr %492, align 8, !tbaa !36
   %1107 = load i64, ptr %6, align 8, !tbaa !18
-  %1108 = call i32 @H5Dread(i64 noundef %0, i64 noundef %1107, i64 noundef %.4682, i64 noundef %35, i64 noundef 0, ptr noundef nonnull %845) #13
+  %1108 = call i32 @H5Dread(i64 noundef %0, i64 noundef %1107, i64 noundef %.4682, i64 noundef %35, i64 noundef 0, ptr noundef nonnull %844) #13
   %1109 = icmp slt i32 %1108, 0
   br i1 %1109, label %1110, label %1126
 
@@ -2540,7 +2540,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 
 1126:                                             ; preds = %1106
   %1127 = load i64, ptr %7, align 8, !tbaa !18
-  %1128 = call i32 @H5Dread(i64 noundef %1, i64 noundef %1127, i64 noundef %.4676, i64 noundef %73, i64 noundef 0, ptr noundef nonnull %864) #13
+  %1128 = call i32 @H5Dread(i64 noundef %1, i64 noundef %1127, i64 noundef %.4676, i64 noundef %73, i64 noundef 0, ptr noundef nonnull %863) #13
   %1129 = icmp slt i32 %1128, 0
   br i1 %1129, label %1130, label %1146
 
@@ -2614,26 +2614,26 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 
 ._crit_edge1150:                                  ; preds = %.lr.ph1149.preheader, %.preheader977
   call void @init_acc_pos(i32 noundef %1149, ptr noundef nonnull %515, ptr noundef nonnull %516, ptr noundef nonnull %517, ptr noundef nonnull %518) #13
-  %1169 = call i64 @diff_array(ptr noundef nonnull %845, ptr noundef nonnull %864, ptr noundef nonnull %4, i64 noundef %0, i64 noundef %1) #13
+  %1169 = call i64 @diff_array(ptr noundef nonnull %844, ptr noundef nonnull %863, ptr noundef nonnull %4, i64 noundef %0, i64 noundef %1) #13
   %1170 = add i64 %1169, %.37131156
   br i1 %.not867.not.not, label %1171, label %1174
 
 1171:                                             ; preds = %._crit_edge1150
   %1172 = load i64, ptr %6, align 8, !tbaa !18
-  %1173 = call i32 @H5Treclaim(i64 noundef %1172, i64 noundef %.4682, i64 noundef 0, ptr noundef nonnull %845) #13
+  %1173 = call i32 @H5Treclaim(i64 noundef %1172, i64 noundef %.4682, i64 noundef 0, ptr noundef nonnull %844) #13
   br label %1174
 
 1174:                                             ; preds = %1171, %._crit_edge1150
-  call void @free(ptr noundef nonnull %845) #13
+  call void @free(ptr noundef nonnull %844) #13
   br i1 %.not869.not.not, label %1175, label %1178
 
 1175:                                             ; preds = %1174
   %1176 = load i64, ptr %7, align 8, !tbaa !18
-  %1177 = call i32 @H5Treclaim(i64 noundef %1176, i64 noundef %.4676, i64 noundef 0, ptr noundef nonnull %864) #13
+  %1177 = call i32 @H5Treclaim(i64 noundef %1176, i64 noundef %.4676, i64 noundef 0, ptr noundef nonnull %863) #13
   br label %1178
 
 1178:                                             ; preds = %1175, %1174
-  call void @free(ptr noundef nonnull %864) #13
+  call void @free(ptr noundef nonnull %863) #13
   %1179 = call i32 @H5Sclose(i64 noundef %.4682) #13
   %1180 = call i32 @H5Sclose(i64 noundef %.4676) #13
   %1181 = load i32, ptr %513, align 8, !tbaa !32
@@ -2724,13 +2724,13 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   %1225 = icmp ult i64 %1223, %1224
   br i1 %1225, label %843, label %.loopexit, !llvm.loop !67
 
-.loopexit:                                        ; preds = %._crit_edge1155, %.loopexit983, %1161, %1165, %1153, %1138, %1142, %1130, %1118, %1122, %1110, %1098, %1102, %1090, %1079, %1083, %1071, %1060, %1064, %1052, %1041, %1045, %1033, %1015, %1019, %1007, %987, %991, %979, %968, %972, %960, %949, %953, %941, %930, %934, %922, %904, %908, %896, %874, %878, %866, %855, %859, %847, %788, %792, %780, %680, %684, %672
-  %.2712 = phi i64 [ 0, %788 ], [ %.37131156, %855 ], [ %.37131156, %874 ], [ %.37131156, %930 ], [ %.37131156, %949 ], [ %.37131156, %968 ], [ %.37131156, %987 ], [ %.37131156, %1041 ], [ %.37131156, %1060 ], [ %.37131156, %1079 ], [ %.37131156, %1098 ], [ %.37131156, %1118 ], [ %.37131156, %1138 ], [ %.37131156, %1015 ], [ %.37131156, %904 ], [ %.37131156, %1161 ], [ 0, %680 ], [ 0, %672 ], [ 0, %684 ], [ 0, %780 ], [ 0, %792 ], [ %.37131156, %847 ], [ %.37131156, %859 ], [ %.37131156, %866 ], [ %.37131156, %878 ], [ %.37131156, %896 ], [ %.37131156, %908 ], [ %.37131156, %922 ], [ %.37131156, %934 ], [ %.37131156, %941 ], [ %.37131156, %953 ], [ %.37131156, %960 ], [ %.37131156, %972 ], [ %.37131156, %979 ], [ %.37131156, %991 ], [ %.37131156, %1007 ], [ %.37131156, %1019 ], [ %.37131156, %1033 ], [ %.37131156, %1045 ], [ %.37131156, %1052 ], [ %.37131156, %1064 ], [ %.37131156, %1071 ], [ %.37131156, %1083 ], [ %.37131156, %1090 ], [ %.37131156, %1102 ], [ %.37131156, %1110 ], [ %.37131156, %1122 ], [ %.37131156, %1130 ], [ %.37131156, %1142 ], [ %.37131156, %1153 ], [ %.37131156, %1165 ], [ 0, %.loopexit983 ], [ %1170, %._crit_edge1155 ]
-  %.2692 = phi ptr [ null, %788 ], [ null, %855 ], [ %845, %874 ], [ %845, %930 ], [ %845, %949 ], [ %845, %968 ], [ %845, %987 ], [ %845, %1041 ], [ %845, %1060 ], [ %845, %1079 ], [ %845, %1098 ], [ %845, %1118 ], [ %845, %1138 ], [ %845, %1015 ], [ %845, %904 ], [ %845, %1161 ], [ null, %680 ], [ null, %672 ], [ null, %684 ], [ null, %780 ], [ null, %792 ], [ null, %847 ], [ null, %859 ], [ %845, %866 ], [ %845, %878 ], [ %845, %896 ], [ %845, %908 ], [ %845, %922 ], [ %845, %934 ], [ %845, %941 ], [ %845, %953 ], [ %845, %960 ], [ %845, %972 ], [ %845, %979 ], [ %845, %991 ], [ %845, %1007 ], [ %845, %1019 ], [ %845, %1033 ], [ %845, %1045 ], [ %845, %1052 ], [ %845, %1064 ], [ %845, %1071 ], [ %845, %1083 ], [ %845, %1090 ], [ %845, %1102 ], [ %845, %1110 ], [ %845, %1122 ], [ %845, %1130 ], [ %845, %1142 ], [ %845, %1153 ], [ %845, %1165 ], [ null, %.loopexit983 ], [ null, %._crit_edge1155 ]
-  %.2686 = phi ptr [ null, %788 ], [ null, %855 ], [ null, %874 ], [ %864, %930 ], [ %864, %949 ], [ %864, %968 ], [ %864, %987 ], [ %864, %1041 ], [ %864, %1060 ], [ %864, %1079 ], [ %864, %1098 ], [ %864, %1118 ], [ %864, %1138 ], [ %864, %1015 ], [ %864, %904 ], [ %864, %1161 ], [ null, %680 ], [ null, %672 ], [ null, %684 ], [ null, %780 ], [ null, %792 ], [ null, %847 ], [ null, %859 ], [ null, %866 ], [ null, %878 ], [ %864, %896 ], [ %864, %908 ], [ %864, %922 ], [ %864, %934 ], [ %864, %941 ], [ %864, %953 ], [ %864, %960 ], [ %864, %972 ], [ %864, %979 ], [ %864, %991 ], [ %864, %1007 ], [ %864, %1019 ], [ %864, %1033 ], [ %864, %1045 ], [ %864, %1052 ], [ %864, %1064 ], [ %864, %1071 ], [ %864, %1083 ], [ %864, %1090 ], [ %864, %1102 ], [ %864, %1110 ], [ %864, %1122 ], [ %864, %1130 ], [ %864, %1142 ], [ %864, %1153 ], [ %864, %1165 ], [ null, %.loopexit983 ], [ null, %._crit_edge1155 ]
-  %.2680 = phi i64 [ -1, %788 ], [ %.36811157, %855 ], [ %.36811157, %874 ], [ %.36811157, %930 ], [ %.36811157, %949 ], [ %958, %968 ], [ %958, %987 ], [ %958, %1041 ], [ %958, %1060 ], [ %958, %1079 ], [ %958, %1098 ], [ %.4682, %1118 ], [ %.4682, %1138 ], [ %958, %1015 ], [ %.36811157, %904 ], [ %.4682, %1161 ], [ -1, %680 ], [ -1, %672 ], [ -1, %684 ], [ -1, %780 ], [ -1, %792 ], [ %.36811157, %847 ], [ %.36811157, %859 ], [ %.36811157, %866 ], [ %.36811157, %878 ], [ %.36811157, %896 ], [ %.36811157, %908 ], [ %.36811157, %922 ], [ %.36811157, %934 ], [ %.36811157, %941 ], [ %.36811157, %953 ], [ %958, %960 ], [ %958, %972 ], [ %958, %979 ], [ %958, %991 ], [ %958, %1007 ], [ %958, %1019 ], [ %958, %1033 ], [ %958, %1045 ], [ %958, %1052 ], [ %958, %1064 ], [ %958, %1071 ], [ %958, %1083 ], [ %958, %1090 ], [ %958, %1102 ], [ %.4682, %1110 ], [ %.4682, %1122 ], [ %.4682, %1130 ], [ %.4682, %1142 ], [ %.4682, %1153 ], [ %.4682, %1165 ], [ -1, %.loopexit983 ], [ %.4682, %._crit_edge1155 ]
-  %.2674 = phi i64 [ -1, %788 ], [ %.36751158, %855 ], [ %.36751158, %874 ], [ %.36751158, %930 ], [ %.36751158, %949 ], [ %.36751158, %968 ], [ %.36751158, %987 ], [ %.36751158, %1041 ], [ %.36751158, %1060 ], [ %1069, %1079 ], [ %1069, %1098 ], [ %.4676, %1118 ], [ %.4676, %1138 ], [ %.36751158, %1015 ], [ %.36751158, %904 ], [ %.4676, %1161 ], [ -1, %680 ], [ -1, %672 ], [ -1, %684 ], [ -1, %780 ], [ -1, %792 ], [ %.36751158, %847 ], [ %.36751158, %859 ], [ %.36751158, %866 ], [ %.36751158, %878 ], [ %.36751158, %896 ], [ %.36751158, %908 ], [ %.36751158, %922 ], [ %.36751158, %934 ], [ %.36751158, %941 ], [ %.36751158, %953 ], [ %.36751158, %960 ], [ %.36751158, %972 ], [ %.36751158, %979 ], [ %.36751158, %991 ], [ %.36751158, %1007 ], [ %.36751158, %1019 ], [ %.36751158, %1033 ], [ %.36751158, %1045 ], [ %.36751158, %1052 ], [ %.36751158, %1064 ], [ %1069, %1071 ], [ %1069, %1083 ], [ %1069, %1090 ], [ %1069, %1102 ], [ %.4676, %1110 ], [ %.4676, %1122 ], [ %.4676, %1130 ], [ %.4676, %1142 ], [ %.4676, %1153 ], [ %.4676, %1165 ], [ -1, %.loopexit983 ], [ %.4676, %._crit_edge1155 ]
-  %.2 = phi i32 [ 2, %788 ], [ 2, %855 ], [ 2, %874 ], [ 2, %930 ], [ 2, %949 ], [ 2, %968 ], [ 2, %987 ], [ 2, %1041 ], [ 2, %1060 ], [ 2, %1079 ], [ 2, %1098 ], [ 2, %1118 ], [ 2, %1138 ], [ 2, %1015 ], [ 2, %904 ], [ 2, %1161 ], [ 2, %680 ], [ 2, %672 ], [ 2, %684 ], [ 2, %780 ], [ 2, %792 ], [ 2, %847 ], [ 2, %859 ], [ 2, %866 ], [ 2, %878 ], [ 2, %896 ], [ 2, %908 ], [ 2, %922 ], [ 2, %934 ], [ 2, %941 ], [ 2, %953 ], [ 2, %960 ], [ 2, %972 ], [ 2, %979 ], [ 2, %991 ], [ 2, %1007 ], [ 2, %1019 ], [ 2, %1033 ], [ 2, %1045 ], [ 2, %1052 ], [ 2, %1064 ], [ 2, %1071 ], [ 2, %1083 ], [ 2, %1090 ], [ 2, %1102 ], [ 2, %1110 ], [ 2, %1122 ], [ 2, %1130 ], [ 2, %1142 ], [ 2, %1153 ], [ 2, %1165 ], [ %34, %.loopexit983 ], [ %34, %._crit_edge1155 ]
+.loopexit:                                        ; preds = %._crit_edge1155, %.loopexit983, %1161, %1165, %1153, %1138, %1142, %1130, %1118, %1122, %1110, %1098, %1102, %1090, %1079, %1083, %1071, %1060, %1064, %1052, %1041, %1045, %1033, %1015, %1019, %1007, %987, %991, %979, %968, %972, %960, %949, %953, %941, %930, %934, %922, %904, %908, %896, %873, %877, %865, %854, %858, %846, %788, %792, %780, %680, %684, %672
+  %.2712 = phi i64 [ 0, %788 ], [ %.37131156, %854 ], [ %.37131156, %873 ], [ %.37131156, %930 ], [ %.37131156, %949 ], [ %.37131156, %968 ], [ %.37131156, %987 ], [ %.37131156, %1041 ], [ %.37131156, %1060 ], [ %.37131156, %1079 ], [ %.37131156, %1098 ], [ %.37131156, %1118 ], [ %.37131156, %1138 ], [ %.37131156, %1015 ], [ %.37131156, %904 ], [ %.37131156, %1161 ], [ 0, %680 ], [ 0, %672 ], [ 0, %684 ], [ 0, %780 ], [ 0, %792 ], [ %.37131156, %846 ], [ %.37131156, %858 ], [ %.37131156, %865 ], [ %.37131156, %877 ], [ %.37131156, %896 ], [ %.37131156, %908 ], [ %.37131156, %922 ], [ %.37131156, %934 ], [ %.37131156, %941 ], [ %.37131156, %953 ], [ %.37131156, %960 ], [ %.37131156, %972 ], [ %.37131156, %979 ], [ %.37131156, %991 ], [ %.37131156, %1007 ], [ %.37131156, %1019 ], [ %.37131156, %1033 ], [ %.37131156, %1045 ], [ %.37131156, %1052 ], [ %.37131156, %1064 ], [ %.37131156, %1071 ], [ %.37131156, %1083 ], [ %.37131156, %1090 ], [ %.37131156, %1102 ], [ %.37131156, %1110 ], [ %.37131156, %1122 ], [ %.37131156, %1130 ], [ %.37131156, %1142 ], [ %.37131156, %1153 ], [ %.37131156, %1165 ], [ 0, %.loopexit983 ], [ %1170, %._crit_edge1155 ]
+  %.2692 = phi ptr [ null, %788 ], [ null, %854 ], [ %844, %873 ], [ %844, %930 ], [ %844, %949 ], [ %844, %968 ], [ %844, %987 ], [ %844, %1041 ], [ %844, %1060 ], [ %844, %1079 ], [ %844, %1098 ], [ %844, %1118 ], [ %844, %1138 ], [ %844, %1015 ], [ %844, %904 ], [ %844, %1161 ], [ null, %680 ], [ null, %672 ], [ null, %684 ], [ null, %780 ], [ null, %792 ], [ null, %846 ], [ null, %858 ], [ %844, %865 ], [ %844, %877 ], [ %844, %896 ], [ %844, %908 ], [ %844, %922 ], [ %844, %934 ], [ %844, %941 ], [ %844, %953 ], [ %844, %960 ], [ %844, %972 ], [ %844, %979 ], [ %844, %991 ], [ %844, %1007 ], [ %844, %1019 ], [ %844, %1033 ], [ %844, %1045 ], [ %844, %1052 ], [ %844, %1064 ], [ %844, %1071 ], [ %844, %1083 ], [ %844, %1090 ], [ %844, %1102 ], [ %844, %1110 ], [ %844, %1122 ], [ %844, %1130 ], [ %844, %1142 ], [ %844, %1153 ], [ %844, %1165 ], [ null, %.loopexit983 ], [ null, %._crit_edge1155 ]
+  %.2686 = phi ptr [ null, %788 ], [ null, %854 ], [ null, %873 ], [ %863, %930 ], [ %863, %949 ], [ %863, %968 ], [ %863, %987 ], [ %863, %1041 ], [ %863, %1060 ], [ %863, %1079 ], [ %863, %1098 ], [ %863, %1118 ], [ %863, %1138 ], [ %863, %1015 ], [ %863, %904 ], [ %863, %1161 ], [ null, %680 ], [ null, %672 ], [ null, %684 ], [ null, %780 ], [ null, %792 ], [ null, %846 ], [ null, %858 ], [ null, %865 ], [ null, %877 ], [ %863, %896 ], [ %863, %908 ], [ %863, %922 ], [ %863, %934 ], [ %863, %941 ], [ %863, %953 ], [ %863, %960 ], [ %863, %972 ], [ %863, %979 ], [ %863, %991 ], [ %863, %1007 ], [ %863, %1019 ], [ %863, %1033 ], [ %863, %1045 ], [ %863, %1052 ], [ %863, %1064 ], [ %863, %1071 ], [ %863, %1083 ], [ %863, %1090 ], [ %863, %1102 ], [ %863, %1110 ], [ %863, %1122 ], [ %863, %1130 ], [ %863, %1142 ], [ %863, %1153 ], [ %863, %1165 ], [ null, %.loopexit983 ], [ null, %._crit_edge1155 ]
+  %.2680 = phi i64 [ -1, %788 ], [ %.36811157, %854 ], [ %.36811157, %873 ], [ %.36811157, %930 ], [ %.36811157, %949 ], [ %958, %968 ], [ %958, %987 ], [ %958, %1041 ], [ %958, %1060 ], [ %958, %1079 ], [ %958, %1098 ], [ %.4682, %1118 ], [ %.4682, %1138 ], [ %958, %1015 ], [ %.36811157, %904 ], [ %.4682, %1161 ], [ -1, %680 ], [ -1, %672 ], [ -1, %684 ], [ -1, %780 ], [ -1, %792 ], [ %.36811157, %846 ], [ %.36811157, %858 ], [ %.36811157, %865 ], [ %.36811157, %877 ], [ %.36811157, %896 ], [ %.36811157, %908 ], [ %.36811157, %922 ], [ %.36811157, %934 ], [ %.36811157, %941 ], [ %.36811157, %953 ], [ %958, %960 ], [ %958, %972 ], [ %958, %979 ], [ %958, %991 ], [ %958, %1007 ], [ %958, %1019 ], [ %958, %1033 ], [ %958, %1045 ], [ %958, %1052 ], [ %958, %1064 ], [ %958, %1071 ], [ %958, %1083 ], [ %958, %1090 ], [ %958, %1102 ], [ %.4682, %1110 ], [ %.4682, %1122 ], [ %.4682, %1130 ], [ %.4682, %1142 ], [ %.4682, %1153 ], [ %.4682, %1165 ], [ -1, %.loopexit983 ], [ %.4682, %._crit_edge1155 ]
+  %.2674 = phi i64 [ -1, %788 ], [ %.36751158, %854 ], [ %.36751158, %873 ], [ %.36751158, %930 ], [ %.36751158, %949 ], [ %.36751158, %968 ], [ %.36751158, %987 ], [ %.36751158, %1041 ], [ %.36751158, %1060 ], [ %1069, %1079 ], [ %1069, %1098 ], [ %.4676, %1118 ], [ %.4676, %1138 ], [ %.36751158, %1015 ], [ %.36751158, %904 ], [ %.4676, %1161 ], [ -1, %680 ], [ -1, %672 ], [ -1, %684 ], [ -1, %780 ], [ -1, %792 ], [ %.36751158, %846 ], [ %.36751158, %858 ], [ %.36751158, %865 ], [ %.36751158, %877 ], [ %.36751158, %896 ], [ %.36751158, %908 ], [ %.36751158, %922 ], [ %.36751158, %934 ], [ %.36751158, %941 ], [ %.36751158, %953 ], [ %.36751158, %960 ], [ %.36751158, %972 ], [ %.36751158, %979 ], [ %.36751158, %991 ], [ %.36751158, %1007 ], [ %.36751158, %1019 ], [ %.36751158, %1033 ], [ %.36751158, %1045 ], [ %.36751158, %1052 ], [ %.36751158, %1064 ], [ %1069, %1071 ], [ %1069, %1083 ], [ %1069, %1090 ], [ %1069, %1102 ], [ %.4676, %1110 ], [ %.4676, %1122 ], [ %.4676, %1130 ], [ %.4676, %1142 ], [ %.4676, %1153 ], [ %.4676, %1165 ], [ -1, %.loopexit983 ], [ %.4676, %._crit_edge1155 ]
+  %.2 = phi i32 [ 2, %788 ], [ 2, %854 ], [ 2, %873 ], [ 2, %930 ], [ 2, %949 ], [ 2, %968 ], [ 2, %987 ], [ 2, %1041 ], [ 2, %1060 ], [ 2, %1079 ], [ 2, %1098 ], [ 2, %1118 ], [ 2, %1138 ], [ 2, %1015 ], [ 2, %904 ], [ 2, %1161 ], [ 2, %680 ], [ 2, %672 ], [ 2, %684 ], [ 2, %780 ], [ 2, %792 ], [ 2, %846 ], [ 2, %858 ], [ 2, %865 ], [ 2, %877 ], [ 2, %896 ], [ 2, %908 ], [ 2, %922 ], [ 2, %934 ], [ 2, %941 ], [ 2, %953 ], [ 2, %960 ], [ 2, %972 ], [ 2, %979 ], [ 2, %991 ], [ 2, %1007 ], [ 2, %1019 ], [ 2, %1033 ], [ 2, %1045 ], [ 2, %1052 ], [ 2, %1064 ], [ 2, %1071 ], [ 2, %1083 ], [ 2, %1090 ], [ 2, %1102 ], [ 2, %1110 ], [ 2, %1122 ], [ 2, %1130 ], [ 2, %1142 ], [ 2, %1153 ], [ 2, %1165 ], [ %34, %.loopexit983 ], [ %34, %._crit_edge1155 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
@@ -2943,7 +2943,7 @@ declare i64 @H5Dget_storage_size(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -3456,7 +3456,7 @@ declare i32 @match_up_memsize(i64 noundef, i64 noundef, ptr noundef, ptr noundef
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 declare ptr @diff_basename(ptr noundef) local_unnamed_addr #2
@@ -3472,7 +3472,7 @@ declare i32 @H5Treclaim(i64 noundef, i64 noundef, i64 noundef, ptr noundef) loca
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 declare i32 @H5Sselect_hyperslab(i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -3523,12 +3523,12 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nofree nounwind }
 attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

@@ -1282,7 +1282,8 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %Vec_PtrAllocSimInfo
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %64, ptr %77, align 8, !tbaa !3
   %78 = trunc i64 %74 to i32
-  %79 = icmp sgt i32 %.val79, 0
+  %.val2932.i = load i32, ptr %12, align 8, !tbaa !15
+  %79 = icmp sgt i32 %.val2932.i, 0
   br i1 %79, label %.lr.ph35.i, label %.preheader.i
 
 .lr.ph35.i:                                       ; preds = %Vec_PtrAllocSimInfo.exit
@@ -1329,7 +1330,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %Vec_PtrAllocSimInfo
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.loopexit47.i, %Vec_PtrAllocSimInfo.exit
-  %.val115 = phi i32 [ %.val79, %Vec_PtrAllocSimInfo.exit ], [ %.val29.us.i, %.preheader.loopexit47.i ]
+  %.val115 = phi i32 [ %.val2932.i, %Vec_PtrAllocSimInfo.exit ], [ %.val29.us.i, %.preheader.loopexit47.i ]
   %.val3041.i = phi i32 [ %57, %Vec_PtrAllocSimInfo.exit ], [ %.val3041.i.pre, %.preheader.loopexit47.i ]
   %.023.lcssa.i = phi i32 [ 0, %Vec_PtrAllocSimInfo.exit ], [ %95, %.preheader.loopexit47.i ]
   %96 = icmp slt i32 %.023.lcssa.i, %.val3041.i
@@ -1370,7 +1371,7 @@ Cec_ManSeqDeriveInfoInitRandom.exit.loopexit:     ; preds = %._crit_edge.us.i
   br label %Cec_ManSeqDeriveInfoInitRandom.exit
 
 Cec_ManSeqDeriveInfoInitRandom.exit:              ; preds = %Cec_ManSeqDeriveInfoInitRandom.exit.loopexit, %.lr.ph35.i, %.preheader.i
-  %.val = phi i32 [ %.val.pre, %Cec_ManSeqDeriveInfoInitRandom.exit.loopexit ], [ %.val79, %.lr.ph35.i ], [ %.val115, %.preheader.i ]
+  %.val = phi i32 [ %.val.pre, %Cec_ManSeqDeriveInfoInitRandom.exit.loopexit ], [ %.val2932.i, %.lr.ph35.i ], [ %.val115, %.preheader.i ]
   %106 = call ptr @Cec_ManSatSolveSeq(ptr noundef nonnull %75, ptr noundef nonnull %45, ptr noundef nonnull %5, i32 noundef %.val, ptr noundef nonnull %6) #14
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8, !tbaa !103
@@ -1596,7 +1597,7 @@ declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly c
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1621,7 +1622,7 @@ attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buf
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }

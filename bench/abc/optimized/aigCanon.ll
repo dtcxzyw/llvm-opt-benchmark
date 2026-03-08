@@ -86,7 +86,7 @@ declare ptr @Aig_ManStart(i32 noundef) local_unnamed_addr #1
 
 declare ptr @Aig_IthVar(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare ptr @Aig_MmFlexStart(...) local_unnamed_addr #1
@@ -226,13 +226,17 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %11
   %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !25
   %.not30 = icmp eq ptr %20, null
-  br i1 %.not30, label %._crit_edge, label %.lr.ph.preheader.i.i
+  br i1 %.not30, label %._crit_edge, label %.lr.ph.preheader.i.i.lr.ph
 
-.lr.ph.preheader.i.i:                             ; preds = %.lr.ph, %Aig_RManTableLookup.exit
-  %.02743.sink = phi ptr [ %21, %Aig_RManTableLookup.exit ], [ %20, %.lr.ph ]
-  %21 = load ptr, ptr %.02743.sink, align 8, !tbaa !29
-  %22 = getelementptr inbounds nuw i8, ptr %.02743.sink, i64 16
-  %23 = getelementptr inbounds nuw i8, ptr %.02743.sink, i64 12
+.lr.ph.preheader.i.i.lr.ph:                       ; preds = %.lr.ph
+  %21 = load i32, ptr %5, align 8, !tbaa !16
+  br label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %Aig_RManTableLookup.exit, %.lr.ph.preheader.i.i.lr.ph
+  %.045 = phi ptr [ %20, %.lr.ph.preheader.i.i.lr.ph ], [ %.02743, %Aig_RManTableLookup.exit ]
+  %.02743 = load ptr, ptr %.045, align 8, !tbaa !29
+  %22 = getelementptr inbounds nuw i8, ptr %.045, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.045, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = lshr i32 %24, 27
   %26 = icmp ult i32 %24, 805306368
@@ -257,7 +261,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %11
   br i1 %exitcond.not.i.i, label %Aig_RManTableHash.exit.i, label %.lr.ph.i.i, !llvm.loop !24
 
 Aig_RManTableHash.exit.i:                         ; preds = %.lr.ph.i.i
-  %37 = urem i32 %36, %9
+  %37 = urem i32 %36, %21
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds [8 x i8], ptr %17, i64 %38
   %.022.i = load ptr, ptr %39, align 8, !tbaa !25
@@ -291,9 +295,9 @@ Kit_TruthIsEqual.exit.i:                          ; preds = %42
 
 Aig_RManTableLookup.exit:                         ; preds = %Kit_TruthIsEqual.exit.i, %select.unfold.i.i, %Aig_RManTableHash.exit.i
   %.01321.i = phi ptr [ %.01324.i, %select.unfold.i.i ], [ %39, %Aig_RManTableHash.exit.i ], [ %.025.i, %Kit_TruthIsEqual.exit.i ]
-  store ptr %.02743.sink, ptr %.01321.i, align 8, !tbaa !25
-  store ptr null, ptr %.02743.sink, align 8, !tbaa !29
-  %.not32 = icmp eq ptr %21, null
+  store ptr %.045, ptr %.01321.i, align 8, !tbaa !25
+  store ptr null, ptr %.045, align 8, !tbaa !29
+  %.not32 = icmp eq ptr %.02743, null
   br i1 %.not32, label %._crit_edge, label %.lr.ph.preheader.i.i, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %Aig_RManTableLookup.exit, %.lr.ph
@@ -1500,7 +1504,7 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

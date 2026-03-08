@@ -1766,8 +1766,8 @@ _ZN5Eigen11IndexedViewINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEESt6vectorIiSaIiEENS_8
   store i64 -1, ptr %718, align 8, !tbaa !164
   %719 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %720 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %721 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %719, i8 0, i64 56, i1 false)
+  %721 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   store ptr %721, ptr %720, align 8, !tbaa !168
   %.not6.i = icmp eq ptr %721, null
   br i1 %.not6.i, label %722, label %727
@@ -1798,8 +1798,8 @@ _ZN5Eigen11IndexedViewINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEESt6vectorIiSaIiEENS_8
   store i64 -1, ptr %729, align 8, !tbaa !164
   %730 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %731 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %732 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %730, i8 0, i64 56, i1 false)
+  %732 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   store ptr %732, ptr %731, align 8, !tbaa !168
   %.not6.i1040 = icmp eq ptr %732, null
   br i1 %.not6.i1040, label %733, label %738
@@ -1971,8 +1971,8 @@ _ZN5Eigen12SparseMatrixIbLi0EiED2Ev.exit:         ; preds = %791, %795
   store i64 -1, ptr %796, align 8, !tbaa !164
   %797 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %798 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %799 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %797, i8 0, i64 56, i1 false)
+  %799 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   store ptr %799, ptr %798, align 8, !tbaa !168
   %.not6.i1046 = icmp eq ptr %799, null
   br i1 %.not6.i1046, label %800, label %805
@@ -2521,8 +2521,8 @@ _ZN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13scal
   store i64 -1, ptr %1005, align 8, !tbaa !164
   %1006 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %1007 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %1008 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1006, i8 0, i64 56, i1 false)
+  %1008 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   store ptr %1008, ptr %1007, align 8, !tbaa !168
   %.not6.i1052 = icmp eq ptr %1008, null
   br i1 %.not6.i1052, label %1009, label %1014
@@ -2653,7 +2653,7 @@ _ZNK5Eigen16SparseMatrixBaseINS_7ProductINS_12SparseMatrixIbLi0EiEES3_Li2EEEE4ev
   br i1 %1053, label %1054, label %_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal21scalar_boolean_and_opEKNS_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEKNS1_INS2_13scalar_cmp_opIiiLNS2_14ComparisonNameE0EEEKNS4_IiLin1ELi1ELi0ELin1ELi1EEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIiEESA_EEEEEEE4evalEv.exit.thread2329
 
 1054:                                             ; preds = %1052
-  %1055 = call noalias ptr @malloc(i64 noundef %1050) #24
+  %1055 = call noalias ptr @malloc(i64 noundef %1050) #24, !noalias !239
   %1056 = icmp eq ptr %1055, null
   br i1 %1056, label %.noexc.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i780
 
@@ -2929,8 +2929,8 @@ _ZN5Eigen5ArrayIbLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sca
   store i64 -1, ptr %1139, align 8, !tbaa !164
   %1140 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %1141 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %1142 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1140, i8 0, i64 56, i1 false)
+  %1142 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   store ptr %1142, ptr %1141, align 8, !tbaa !168
   %.not6.i1058 = icmp eq ptr %1142, null
   br i1 %.not6.i1058, label %1143, label %1163
@@ -3122,8 +3122,8 @@ _ZN5Eigen12SparseMatrixIbLi0EiED2Ev.exit817:      ; preds = %1206, %1210
   store i64 -1, ptr %1214, align 8, !tbaa !164
   %1215 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %1216 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %1217 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1215, i8 0, i64 56, i1 false)
+  %1217 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   store ptr %1217, ptr %1216, align 8, !tbaa !168
   %.not6.i1064 = icmp eq ptr %1217, null
   br i1 %.not6.i1064, label %1218, label %1235
@@ -3189,8 +3189,8 @@ _ZN5Eigen12SparseMatrixIbLi0EiED2Ev.exit817:      ; preds = %1206, %1210
   store i64 -1, ptr %1237, align 8, !tbaa !164
   %1238 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %1239 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %1240 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1238, i8 0, i64 56, i1 false)
+  %1240 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   store ptr %1240, ptr %1239, align 8, !tbaa !168
   %.not6.i1070 = icmp eq ptr %1240, null
   br i1 %.not6.i1070, label %1241, label %1246
@@ -3714,8 +3714,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %1363
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
   store i8 0, ptr %84, align 8, !tbaa !162
   store i64 -1, ptr %1375, align 8, !tbaa !164
-  %1480 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1376, i8 0, i64 56, i1 false)
+  %1480 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #24
   store ptr %1480, ptr %1377, align 8, !tbaa !168
   %.not6.i1081 = icmp eq ptr %1480, null
   br i1 %.not6.i1081, label %1481, label %1485
@@ -3913,7 +3913,7 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i.i: ; preds = %1541
   %1543 = shl nuw i64 %1538, 2
-  %1544 = call noalias ptr @malloc(i64 noundef %1543) #24
+  %1544 = call noalias ptr @malloc(i64 noundef %1543) #24, !noalias !289
   %1545 = icmp eq ptr %1544, null
   br i1 %1545, label %.invoke2530, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i4.i
 
@@ -3930,7 +3930,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i4.i: ; preds = %
   %1547 = load ptr, ptr %86, align 8, !tbaa !125, !noalias !289
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1544, ptr align 4 %1547, i64 %1543, i1 false), !noalias !289
   %1548 = load i64, ptr %1438, align 8, !tbaa !294, !noalias !295
-  %1549 = call noalias ptr @malloc(i64 noundef %1543) #24
+  %1549 = call noalias ptr @malloc(i64 noundef %1543) #24, !noalias !295
   %1550 = icmp eq ptr %1549, null
   br i1 %1550, label %1551, label %1553
 
@@ -3944,7 +3944,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i4.i: ; preds = %
   unreachable
 
 1553:                                             ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i4.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1549, ptr align 4 %1547, i64 %1543, i1 false), !noalias !295
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1549, ptr nonnull align 4 %1544, i64 %1543, i1 false), !noalias !295
   br label %1556
 
 1554:                                             ; preds = %1551
@@ -6824,7 +6824,7 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i: ; preds = %9
   %13 = shl nuw i64 %6, 2
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #24
+  %14 = tail call noalias ptr @malloc(i64 noundef %13) #24, !noalias !375
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i4
 
@@ -6856,7 +6856,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i4: ; preds = %_Z
   store ptr %19, ptr %24, align 8, !tbaa !125
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %6, ptr %25, align 8, !tbaa !160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr align 4 %18, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr nonnull align 4 %14, i64 %13, i1 false)
   br label %26
 
 26:                                               ; preds = %23, %_ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread
@@ -7149,7 +7149,7 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i: ; preds = %11
   %15 = shl nuw i64 %6, 2
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #24
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #24, !noalias !383
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i4
 
@@ -7183,7 +7183,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i4: ; preds = %_Z
   store ptr %23, ptr %28, align 8, !tbaa !125
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %6, ptr %29, align 8, !tbaa !160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %20, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr nonnull align 4 %16, i64 %15, i1 false)
   br label %30
 
 30:                                               ; preds = %27, %_ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread
@@ -7228,7 +7228,7 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i: ; preds = %8
   %12 = shl nuw i64 %5, 2
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #24
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #24, !noalias !388
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i3
 
@@ -7260,7 +7260,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i3: ; preds = %_Z
   store ptr %18, ptr %23, align 8, !tbaa !125
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %5, ptr %24, align 8, !tbaa !160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %17, i64 %12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr nonnull align 4 %13, i64 %12, i1 false)
   br label %25
 
 25:                                               ; preds = %22, %_ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread
@@ -7304,7 +7304,7 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i: ; preds = %11
   %15 = shl nuw i64 %6, 2
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #24
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #24, !noalias !391
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i4
 
@@ -7338,7 +7338,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i4: ; preds = %_Z
   store ptr %23, ptr %28, align 8, !tbaa !125
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %6, ptr %29, align 8, !tbaa !160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %20, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr nonnull align 4 %16, i64 %15, i1 false)
   br label %30
 
 30:                                               ; preds = %27, %_ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread
@@ -7385,7 +7385,7 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i: ; preds = %11
   %15 = shl nuw i64 %6, 2
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #24
+  %16 = tail call noalias ptr @malloc(i64 noundef %15) #24, !noalias !395
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i4
 
@@ -7419,7 +7419,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i4: ; preds = %_Z
   store ptr %23, ptr %28, align 8, !tbaa !125
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %6, ptr %29, align 8, !tbaa !160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %20, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr nonnull align 4 %16, i64 %15, i1 false)
   br label %30
 
 30:                                               ; preds = %27, %_ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread
@@ -7495,7 +7495,7 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i: ; preds = %8
   %12 = shl nuw i64 %5, 2
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #24
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #24, !noalias !398
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i3
 
@@ -7527,7 +7527,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i3: ; preds = %_Z
   store ptr %18, ptr %23, align 8, !tbaa !125
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %5, ptr %24, align 8, !tbaa !160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %17, i64 %12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr nonnull align 4 %13, i64 %12, i1 false)
   br label %25
 
 25:                                               ; preds = %22, %_ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread
@@ -7569,7 +7569,7 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i: ; preds = %9
   %13 = shl nuw i64 %6, 2
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #24
+  %14 = tail call noalias ptr @malloc(i64 noundef %13) #24, !noalias !401
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i4
 
@@ -7601,7 +7601,7 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i.i.i4: ; preds = %_Z
   store ptr %19, ptr %24, align 8, !tbaa !125
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %6, ptr %25, align 8, !tbaa !160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr align 4 %18, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr nonnull align 4 %14, i64 %13, i1 false)
   br label %26
 
 26:                                               ; preds = %23, %_ZN5Eigen8internal28conditional_aligned_new_autoIiLb1EEEPT_m.exit.i.i.i.i.thread
@@ -7747,7 +7747,7 @@ declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: cold noreturn
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -20756,7 +20756,7 @@ declare i64 @llvm.smax.i64(i64, i64) #20
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
@@ -20787,7 +20787,7 @@ attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { cold noreturn }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -20799,7 +20799,7 @@ attributes #18 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "n
 attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #22 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #22 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #24 = { nounwind allocsize(0) }
 attributes #25 = { nounwind }

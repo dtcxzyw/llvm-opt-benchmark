@@ -495,7 +495,6 @@ define noalias noundef ptr @Gia_FlaConvertToGla(ptr noundef %0, ptr noundef read
   br i1 %37, label %23, label %.critedge2, !llvm.loop !59
 
 .critedge2:                                       ; preds = %.critedge, %.lr.ph94, %.critedge.preheader
-  %.val7095 = phi i32 [ %.val6891, %.critedge.preheader ], [ %.val6891, %.lr.ph94 ], [ %.val68, %.critedge ]
   %38 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %38, align 8, !tbaa !21
   %39 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
@@ -518,6 +517,7 @@ define noalias noundef ptr @Gia_FlaConvertToGla(ptr noundef %0, ptr noundef read
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %44, i8 0, i64 %47, i1 false)
   store i32 1, ptr %44, align 4, !tbaa !42
   %48 = getelementptr i8, ptr %0, i64 72
+  %.val7095 = load i32, ptr %8, align 8, !tbaa !56
   %.val7196 = load ptr, ptr %48, align 8, !tbaa !60
   %49 = getelementptr i8, ptr %.val7196, i64 4
   %.val71.val97 = load i32, ptr %49, align 4, !tbaa !44
@@ -525,9 +525,9 @@ define noalias noundef ptr @Gia_FlaConvertToGla(ptr noundef %0, ptr noundef read
   br i1 %50, label %.lr.ph100.preheader, label %.critedge4
 
 .lr.ph100.preheader:                              ; preds = %.critedge2
-  %.val74128 = load ptr, ptr %3, align 8, !tbaa !54
-  %.not52129 = icmp eq ptr %.val74128, null
-  br i1 %.not52129, label %.critedge4, label %.lr.ph
+  %.val74127 = load ptr, ptr %3, align 8, !tbaa !54
+  %.not52128 = icmp eq ptr %.val74127, null
+  br i1 %.not52128, label %.critedge4, label %.lr.ph
 
 .lr.ph100:                                        ; preds = %.lr.ph
   %.val74 = load ptr, ptr %3, align 8, !tbaa !54
@@ -535,21 +535,21 @@ define noalias noundef ptr @Gia_FlaConvertToGla(ptr noundef %0, ptr noundef read
   br i1 %.not52, label %.critedge4, label %.lr.ph, !llvm.loop !61
 
 .lr.ph:                                           ; preds = %.lr.ph100.preheader, %.lr.ph100
-  %.val74132 = phi ptr [ %.val74, %.lr.ph100 ], [ %.val74128, %.lr.ph100.preheader ]
-  %.val7199131 = phi ptr [ %.val71, %.lr.ph100 ], [ %.val7196, %.lr.ph100.preheader ]
-  %indvars.iv112130 = phi i64 [ %indvars.iv.next113, %.lr.ph100 ], [ 0, %.lr.ph100.preheader ]
-  %51 = getelementptr i8, ptr %.val7199131, i64 8
+  %.val74131 = phi ptr [ %.val74, %.lr.ph100 ], [ %.val74127, %.lr.ph100.preheader ]
+  %.val7199130 = phi ptr [ %.val71, %.lr.ph100 ], [ %.val7196, %.lr.ph100.preheader ]
+  %indvars.iv112129 = phi i64 [ %indvars.iv.next113, %.lr.ph100 ], [ 0, %.lr.ph100.preheader ]
+  %51 = getelementptr i8, ptr %.val7199130, i64 8
   %.val75.val = load ptr, ptr %51, align 8, !tbaa !41
-  %52 = getelementptr inbounds nuw [4 x i8], ptr %.val75.val, i64 %indvars.iv112130
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.val75.val, i64 %indvars.iv112129
   %53 = load i32, ptr %52, align 4, !tbaa !42
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds [12 x i8], ptr %.val74132, i64 %54
+  %55 = getelementptr inbounds [12 x i8], ptr %.val74131, i64 %54
   %56 = load i64, ptr %55, align 4
   %57 = and i64 %56, 536870911
   %58 = sub nsw i64 0, %57
   %59 = getelementptr inbounds [12 x i8], ptr %55, i64 %58
   tail call void @Gia_FlaConvertToGla_rec(ptr noundef nonnull %0, ptr noundef nonnull %59, ptr noundef nonnull %39)
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112130, 1
+  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112129, 1
   %.val70 = load i32, ptr %8, align 8, !tbaa !56
   %.val71 = load ptr, ptr %48, align 8, !tbaa !60
   %60 = getelementptr i8, ptr %.val71, i64 4
@@ -572,13 +572,13 @@ define noalias noundef ptr @Gia_FlaConvertToGla(ptr noundef %0, ptr noundef read
   br label %66
 
 66:                                               ; preds = %.lr.ph105, %85
-  %.val69126 = phi i32 [ %.val69102, %.lr.ph105 ], [ %.val69, %85 ]
+  %.val69125 = phi i32 [ %.val69102, %.lr.ph105 ], [ %.val69, %85 ]
   %indvars.iv115 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next116, %85 ]
   %.val73 = load ptr, ptr %48, align 8, !tbaa !60
   %67 = getelementptr i8, ptr %.val73, i64 4
   %.val73.val = load i32, ptr %67, align 4, !tbaa !44
   %68 = trunc nuw nsw i64 %indvars.iv115 to i32
-  %69 = sub i32 %68, %.val69126
+  %69 = sub i32 %68, %.val69125
   %70 = add i32 %69, %.val73.val
   %.val76 = load ptr, ptr %3, align 8, !tbaa !54
   %71 = getelementptr i8, ptr %.val73, i64 8
@@ -608,7 +608,7 @@ define noalias noundef ptr @Gia_FlaConvertToGla(ptr noundef %0, ptr noundef read
   br label %85
 
 85:                                               ; preds = %77, %80
-  %.val69 = phi i32 [ %.val69126, %77 ], [ %.val69.pre, %80 ]
+  %.val69 = phi i32 [ %.val69125, %77 ], [ %.val69.pre, %80 ]
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %86 = sext i32 %.val69 to i64
   %87 = icmp slt i64 %indvars.iv.next116, %86
@@ -657,7 +657,8 @@ Vec_IntAlloc.exit.i:                              ; preds = %2
 
 Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.thread.i, %Vec_IntAlloc.exit.i, %12
   %.val14 = phi ptr [ null, %Vec_IntAlloc.exit.thread.i ], [ null, %Vec_IntAlloc.exit.i ], [ %10, %12 ]
-  %15 = icmp sgt i32 %.val21, 0
+  %.val2022 = load i32, ptr %3, align 8, !tbaa !56
+  %15 = icmp sgt i32 %.val2022, 0
   br i1 %15, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Vec_IntStart.exit
@@ -674,14 +675,14 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %.val19.val = load ptr, ptr %19, align 8, !tbaa !41
   %20 = getelementptr i8, ptr %.val17, i64 4
   %.val = load ptr, ptr %17, align 8, !tbaa !41
-  %21 = zext nneg i32 %.val21 to i64
+  %21 = zext nneg i32 %.val2022 to i64
   br label %22
 
 22:                                               ; preds = %.lr.ph.split, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %34 ]
   %.val17.val = load i32, ptr %20, align 4, !tbaa !44
   %23 = trunc nuw nsw i64 %indvars.iv to i32
-  %24 = sub i32 %23, %.val21
+  %24 = sub i32 %23, %.val2022
   %25 = add i32 %24, %.val17.val
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds [4 x i8], ptr %.val19.val, i64 %26
@@ -805,10 +806,10 @@ define i32 @Gia_GlaCountNodes(ptr noundef readonly captures(none) %0, ptr nounde
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -825,8 +826,8 @@ attributes #4 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none
 attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { nounwind allocsize(0) }

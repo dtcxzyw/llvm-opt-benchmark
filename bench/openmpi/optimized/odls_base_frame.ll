@@ -142,7 +142,7 @@ declare i32 @prte_progress_thread_finalize(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
@@ -177,7 +177,7 @@ define void @prte_odls_base_start_threads(ptr noundef readonly captures(none) %0
   fence release
   %11 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 496)) #13
   %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 456)) #13
-  br label %73
+  br label %74
 
 13:                                               ; preds = %._crit_edge
   %14 = load i8, ptr @prte_persistent, align 1, !tbaa !34, !range !22, !noundef !23
@@ -273,36 +273,37 @@ define void @prte_odls_base_start_threads(ptr noundef readonly captures(none) %0
   %56 = shl nsw i64 %55, 3
   %57 = tail call noalias ptr @malloc(i64 noundef %56) #14
   store ptr %57, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 304), align 8, !tbaa !30
-  %58 = icmp sgt i32 %54, 0
-  br i1 %58, label %.lr.ph14, label %.loopexit
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 292), align 4, !tbaa !26
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %.lr.ph14, label %.loopexit
 
 .lr.ph14:                                         ; preds = %53, %.lr.ph14
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph14 ], [ 0, %53 ]
-  %59 = trunc nuw nsw i64 %indvars.iv to i32
-  %60 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef %59) #13
-  %61 = load ptr, ptr %2, align 8, !tbaa !28
-  %62 = call ptr @prte_progress_thread_init(ptr noundef %61) #13
-  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 304), align 8, !tbaa !30
-  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
-  store ptr %62, ptr %64, align 8, !tbaa !31
-  %65 = load ptr, ptr %2, align 8, !tbaa !28
-  %66 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 312), ptr noundef %65) #13
-  %67 = load ptr, ptr %2, align 8, !tbaa !28
-  call void @free(ptr noundef %67) #13
+  %60 = trunc nuw nsw i64 %indvars.iv to i32
+  %61 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef %60) #13
+  %62 = load ptr, ptr %2, align 8, !tbaa !28
+  %63 = call ptr @prte_progress_thread_init(ptr noundef %62) #13
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 304), align 8, !tbaa !30
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
+  store ptr %63, ptr %65, align 8, !tbaa !31
+  %66 = load ptr, ptr %2, align 8, !tbaa !28
+  %67 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 312), ptr noundef %66) #13
+  %68 = load ptr, ptr %2, align 8, !tbaa !28
+  call void @free(ptr noundef %68) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %68 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 292), align 4, !tbaa !26
-  %69 = sext i32 %68 to i64
-  %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %.lr.ph14, label %.loopexit, !llvm.loop !53
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 292), align 4, !tbaa !26
+  %70 = sext i32 %69 to i64
+  %71 = icmp slt i64 %indvars.iv.next, %70
+  br i1 %71, label %.lr.ph14, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %.lr.ph14, %53, %42
   store volatile i8 0, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 544), align 8, !tbaa !3
   fence release
-  %71 = call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 496)) #13
-  %72 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 456)) #13
-  br label %73
+  %72 = call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 496)) #13
+  %73 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prte_odls_globals, i64 456)) #13
+  br label %74
 
-73:                                               ; preds = %.loopexit, %10
+74:                                               ; preds = %.loopexit, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -1017,7 +1018,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1722,7 +1722,7 @@ define noalias ptr @H5FL_arr_malloc(ptr noundef %0, i64 noundef %1) local_unname
 8:                                                ; preds = %2
   %9 = xor i1 %6, true
   %10 = select i1 %4, i1 true, i1 %9
-  br i1 %10, label %11, label %93, !prof !88
+  br i1 %10, label %11, label %95, !prof !88
 
 11:                                               ; preds = %.thread, %8
   %12 = load i8, ptr %0, align 8, !tbaa !52, !range !7, !noundef !8
@@ -1732,12 +1732,12 @@ define noalias ptr @H5FL_arr_malloc(ptr noundef %0, i64 noundef %1) local_unname
 ._crit_edge:                                      ; preds = %11
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !51
-  br label %43
+  br label %45
 
 14:                                               ; preds = %11
   %15 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %36, label %17
+  br i1 %16, label %38, label %17
 
 17:                                               ; preds = %14
   store ptr %0, ptr %15, align 8, !tbaa !47
@@ -1753,128 +1753,130 @@ define noalias ptr @H5FL_arr_malloc(ptr noundef %0, i64 noundef %1) local_unname
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %24, ptr %25, align 8, !tbaa !51
   %26 = icmp eq ptr %24, null
-  br i1 %26, label %36, label %.preheader.i
+  br i1 %26, label %38, label %.preheader.i
 
 .preheader.i:                                     ; preds = %17
-  %.not.i = icmp eq i32 %21, 0
+  %27 = load i32, ptr %20, align 8, !tbaa !113
+  %28 = sext i32 %27 to i64
+  %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %H5FL__arr_init.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %28 = load i64, ptr %27, align 8, !tbaa !119
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = load i64, ptr %29, align 8, !tbaa !120
-  br label %31
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %30 = load i64, ptr %29, align 8, !tbaa !119
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %32 = load i64, ptr %31, align 8, !tbaa !120
+  br label %33
 
-31:                                               ; preds = %31, %.lr.ph.i
-  %.01719.i = phi i64 [ 0, %.lr.ph.i ], [ %35, %31 ]
-  %32 = mul i64 %.01719.i, %30
-  %33 = add i64 %32, %28
-  %34 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %.01719.i
-  store i64 %33, ptr %34, align 8, !tbaa !109
-  %35 = add nuw i64 %.01719.i, 1
-  %exitcond.not.i = icmp eq i64 %35, %22
-  br i1 %exitcond.not.i, label %H5FL__arr_init.exit, label %31, !llvm.loop !121
+33:                                               ; preds = %33, %.lr.ph.i
+  %.01719.i = phi i64 [ 0, %.lr.ph.i ], [ %37, %33 ]
+  %34 = mul i64 %.01719.i, %32
+  %35 = add i64 %34, %30
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %.01719.i
+  store i64 %35, ptr %36, align 8, !tbaa !109
+  %37 = add nuw i64 %.01719.i, 1
+  %exitcond.not.i = icmp eq i64 %37, %28
+  br i1 %exitcond.not.i, label %H5FL__arr_init.exit, label %33, !llvm.loop !121
 
-H5FL__arr_init.exit:                              ; preds = %31, %.preheader.i
+H5FL__arr_init.exit:                              ; preds = %33, %.preheader.i
   store i8 1, ptr %0, align 8, !tbaa !52
-  br label %43
+  br label %45
 
-36:                                               ; preds = %17, %14
+38:                                               ; preds = %17, %14
   %.sink = phi i32 [ 1158, %14 ], [ 1170, %17 ]
-  %37 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !87
-  %38 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !87
-  %39 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FL__arr_init, i32 noundef %.sink, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.5) #11
-  %40 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !87
-  %41 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !87
-  %42 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FL_arr_malloc, i32 noundef 1281, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.10) #11
+  %39 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !87
+  %40 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !87
+  %41 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FL__arr_init, i32 noundef %.sink, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.5) #11
+  %42 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !87
+  %43 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !87
+  %44 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FL_arr_malloc, i32 noundef 1281, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.10) #11
+  br label %95
+
+45:                                               ; preds = %._crit_edge, %H5FL__arr_init.exit
+  %46 = phi ptr [ %.pre, %._crit_edge ], [ %24, %H5FL__arr_init.exit ]
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %1
+  %49 = load i64, ptr %48, align 8, !tbaa !109
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %51 = load ptr, ptr %50, align 8, !tbaa !106
+  %.not = icmp eq ptr %51, null
+  br i1 %.not, label %62, label %52
+
+52:                                               ; preds = %45
+  %53 = load ptr, ptr %51, align 8, !tbaa !97
+  store ptr %53, ptr %50, align 8, !tbaa !106
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 12
+  %55 = load i32, ptr %54, align 4, !tbaa !110
+  %56 = add i32 %55, -1
+  store i32 %56, ptr %54, align 4, !tbaa !110
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %58 = load i64, ptr %57, align 8, !tbaa !111
+  %59 = sub i64 %58, %49
+  store i64 %59, ptr %57, align 8, !tbaa !111
+  %60 = load i64, ptr @H5FL_arr_gc_head.0, align 8, !tbaa !112
+  %61 = sub i64 %60, %49
+  store i64 %61, ptr @H5FL_arr_gc_head.0, align 8, !tbaa !112
   br label %93
 
-43:                                               ; preds = %._crit_edge, %H5FL__arr_init.exit
-  %44 = phi ptr [ %.pre, %._crit_edge ], [ %24, %H5FL__arr_init.exit ]
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %46 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %1
-  %47 = load i64, ptr %46, align 8, !tbaa !109
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !106
-  %.not = icmp eq ptr %49, null
-  br i1 %.not, label %60, label %50
-
-50:                                               ; preds = %43
-  %51 = load ptr, ptr %49, align 8, !tbaa !97
-  store ptr %51, ptr %48, align 8, !tbaa !106
-  %52 = getelementptr inbounds nuw i8, ptr %46, i64 12
-  %53 = load i32, ptr %52, align 4, !tbaa !110
-  %54 = add i32 %53, -1
-  store i32 %54, ptr %52, align 4, !tbaa !110
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load i64, ptr %55, align 8, !tbaa !111
-  %57 = sub i64 %56, %47
-  store i64 %57, ptr %55, align 8, !tbaa !111
-  %58 = load i64, ptr @H5FL_arr_gc_head.0, align 8, !tbaa !112
-  %59 = sub i64 %58, %47
-  store i64 %59, ptr @H5FL_arr_gc_head.0, align 8, !tbaa !112
-  br label %91
-
-60:                                               ; preds = %43
-  %61 = add i64 %47, 8
-  %62 = load i8, ptr @H5FL_init_g, align 1, !tbaa !3, !range !7, !noundef !8
-  %63 = trunc nuw i8 %62 to i1
-  %64 = load i8, ptr @H5_libterm_g, align 1, !range !7
+62:                                               ; preds = %45
+  %63 = add i64 %49, 8
+  %64 = load i8, ptr @H5FL_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %65 = trunc nuw i8 %64 to i1
-  %66 = xor i1 %65, true
-  %67 = select i1 %63, i1 true, i1 %66
-  br i1 %67, label %68, label %79, !prof !15
+  %66 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %67 = trunc nuw i8 %66 to i1
+  %68 = xor i1 %67, true
+  %69 = select i1 %65, i1 true, i1 %68
+  br i1 %69, label %70, label %81, !prof !15
 
-68:                                               ; preds = %60
-  %69 = tail call noalias ptr @malloc(i64 noundef %61) #12
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %71, label %H5FL__malloc.exit
+70:                                               ; preds = %62
+  %71 = tail call noalias ptr @malloc(i64 noundef %63) #12
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %H5FL__malloc.exit
 
-71:                                               ; preds = %68
-  %72 = tail call i32 @H5FL_garbage_coll()
-  %73 = tail call noalias ptr @malloc(i64 noundef %61) #12
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %75, label %.H5FL__malloc.exit_crit_edge
+73:                                               ; preds = %70
+  %74 = tail call i32 @H5FL_garbage_coll()
+  %75 = tail call noalias ptr @malloc(i64 noundef %63) #12
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %77, label %.H5FL__malloc.exit_crit_edge
 
-.H5FL__malloc.exit_crit_edge:                     ; preds = %71
-  %.pre32 = load ptr, ptr %45, align 8, !tbaa !51
+.H5FL__malloc.exit_crit_edge:                     ; preds = %73
+  %.pre32 = load ptr, ptr %47, align 8, !tbaa !51
   br label %H5FL__malloc.exit
 
-75:                                               ; preds = %71
-  %76 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !87
-  %77 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !87
-  %78 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FL__malloc, i32 noundef 218, i64 noundef %76, i64 noundef %77, ptr noundef nonnull @.str.7) #11
-  br label %79
+77:                                               ; preds = %73
+  %78 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !87
+  %79 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !87
+  %80 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FL__malloc, i32 noundef 218, i64 noundef %78, i64 noundef %79, ptr noundef nonnull @.str.7) #11
+  br label %81
 
-79:                                               ; preds = %60, %75
-  %80 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !87
-  %81 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !87
-  %82 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FL_arr_malloc, i32 noundef 1308, i64 noundef %80, i64 noundef %81, ptr noundef nonnull @.str.5) #11
+81:                                               ; preds = %62, %77
+  %82 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !87
+  %83 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !87
+  %84 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FL_arr_malloc, i32 noundef 1308, i64 noundef %82, i64 noundef %83, ptr noundef nonnull @.str.5) #11
+  br label %95
+
+H5FL__malloc.exit:                                ; preds = %.H5FL__malloc.exit_crit_edge, %70
+  %85 = phi ptr [ %.pre32, %.H5FL__malloc.exit_crit_edge ], [ %46, %70 ]
+  %.0.i29 = phi ptr [ %75, %.H5FL__malloc.exit_crit_edge ], [ %71, %70 ]
+  %86 = getelementptr inbounds nuw [24 x i8], ptr %85, i64 %1
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = load i32, ptr %87, align 8, !tbaa !115
+  %89 = add i32 %88, 1
+  store i32 %89, ptr %87, align 8, !tbaa !115
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %91 = load i32, ptr %90, align 4, !tbaa !48
+  %92 = add i32 %91, 1
+  store i32 %92, ptr %90, align 4, !tbaa !48
   br label %93
 
-H5FL__malloc.exit:                                ; preds = %.H5FL__malloc.exit_crit_edge, %68
-  %83 = phi ptr [ %.pre32, %.H5FL__malloc.exit_crit_edge ], [ %44, %68 ]
-  %.0.i29 = phi ptr [ %73, %.H5FL__malloc.exit_crit_edge ], [ %69, %68 ]
-  %84 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %1
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %86 = load i32, ptr %85, align 8, !tbaa !115
-  %87 = add i32 %86, 1
-  store i32 %87, ptr %85, align 8, !tbaa !115
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %89 = load i32, ptr %88, align 4, !tbaa !48
-  %90 = add i32 %89, 1
-  store i32 %90, ptr %88, align 4, !tbaa !48
-  br label %91
-
-91:                                               ; preds = %H5FL__malloc.exit, %50
-  %.026 = phi ptr [ %49, %50 ], [ %.0.i29, %H5FL__malloc.exit ]
+93:                                               ; preds = %H5FL__malloc.exit, %52
+  %.026 = phi ptr [ %51, %52 ], [ %.0.i29, %H5FL__malloc.exit ]
   store i64 %1, ptr %.026, align 8, !tbaa !97
-  %92 = getelementptr inbounds nuw i8, ptr %.026, i64 8
-  br label %93
+  %94 = getelementptr inbounds nuw i8, ptr %.026, i64 8
+  br label %95
 
-93:                                               ; preds = %36, %79, %91, %8
-  %.0 = phi ptr [ %92, %91 ], [ null, %79 ], [ null, %36 ], [ null, %8 ]
+95:                                               ; preds = %38, %81, %93, %8
+  %.0 = phi ptr [ %94, %93 ], [ null, %81 ], [ null, %38 ], [ null, %8 ]
   ret ptr %.0
 }
 
@@ -2771,7 +2773,7 @@ define noundef i32 @H5FL_get_free_list_sizes(ptr noundef writeonly captures(addr
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -2779,7 +2781,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
@@ -2792,9 +2794,9 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind allocsize(0) }

@@ -427,7 +427,7 @@ sat_solver_bookmark.exit:                         ; preds = %18, %53
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 declare ptr @Gia_ManDupDfs(ptr noundef) local_unnamed_addr #3
@@ -2088,78 +2088,81 @@ Vec_IntAlloc.exit.i:                              ; preds = %142, %136
   br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %.lr.ph.i, !llvm.loop !119
 
 Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %Vec_IntAlloc.exit.i
-  %150 = add i32 %.val45, %10
-  %151 = sub i32 %.val46.val, %150
-  %152 = tail call ptr @Gia_ManDupCones(ptr noundef nonnull %0, ptr noundef %146, i32 noundef %151, i32 noundef 0) #19
+  %.val43 = load i32, ptr %137, align 8, !tbaa !102
+  %.val44.val = load i32, ptr %139, align 4, !tbaa !52
+  %150 = load i32, ptr %9, align 4, !tbaa !115
+  %151 = add i32 %.val43, %150
+  %152 = sub i32 %.val44.val, %151
+  %153 = tail call ptr @Gia_ManDupCones(ptr noundef nonnull %0, ptr noundef %146, i32 noundef %152, i32 noundef 0) #19
   %.val = load i32, ptr %137, align 8, !tbaa !102
   %.val42 = load ptr, ptr %138, align 8, !tbaa !103
-  %153 = getelementptr i8, ptr %.val42, i64 4
-  %.val42.val = load i32, ptr %153, align 4, !tbaa !52
-  %154 = sub nsw i32 %.val42.val, %.val
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds [4 x i8], ptr %146, i64 %155
-  %157 = load i32, ptr %9, align 4, !tbaa !115
-  %158 = sext i32 %157 to i64
-  %159 = sub nsw i64 0, %158
-  %160 = getelementptr inbounds [4 x i8], ptr %156, i64 %159
-  %161 = tail call ptr @Gia_ManDupCones(ptr noundef nonnull %0, ptr noundef %160, i32 noundef %157, i32 noundef 0) #19
+  %154 = getelementptr i8, ptr %.val42, i64 4
+  %.val42.val = load i32, ptr %154, align 4, !tbaa !52
+  %155 = sub nsw i32 %.val42.val, %.val
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr inbounds [4 x i8], ptr %146, i64 %156
+  %158 = load i32, ptr %9, align 4, !tbaa !115
+  %159 = sext i32 %158 to i64
+  %160 = sub nsw i64 0, %159
+  %161 = getelementptr inbounds [4 x i8], ptr %157, i64 %160
+  %162 = tail call ptr @Gia_ManDupCones(ptr noundef nonnull %0, ptr noundef %161, i32 noundef %158, i32 noundef 0) #19
   %.not.i58 = icmp eq ptr %146, null
-  br i1 %.not.i58, label %Gia_ManAppendCo.exit, label %162
+  br i1 %.not.i58, label %Gia_ManAppendCo.exit, label %163
 
-162:                                              ; preds = %Vec_IntStartNatural.exit
+163:                                              ; preds = %Vec_IntStartNatural.exit
   tail call void @free(ptr noundef nonnull %146) #19
   br label %Gia_ManAppendCo.exit
 
-Gia_ManAppendCo.exit:                             ; preds = %162, %Vec_IntStartNatural.exit, %131, %Vec_IntPush.exit.i
-  %.038 = phi ptr [ %17, %131 ], [ %17, %Vec_IntPush.exit.i ], [ %161, %Vec_IntStartNatural.exit ], [ %161, %162 ]
-  %.0 = phi ptr [ %13, %131 ], [ %13, %Vec_IntPush.exit.i ], [ %152, %Vec_IntStartNatural.exit ], [ %152, %162 ]
-  %163 = load i32, ptr %3, align 4, !tbaa !58
-  %.not39 = icmp eq i32 %163, 0
-  br i1 %.not39, label %167, label %164
+Gia_ManAppendCo.exit:                             ; preds = %163, %Vec_IntStartNatural.exit, %131, %Vec_IntPush.exit.i
+  %.038 = phi ptr [ %17, %131 ], [ %17, %Vec_IntPush.exit.i ], [ %162, %Vec_IntStartNatural.exit ], [ %162, %163 ]
+  %.0 = phi ptr [ %13, %131 ], [ %13, %Vec_IntPush.exit.i ], [ %153, %Vec_IntStartNatural.exit ], [ %153, %163 ]
+  %164 = load i32, ptr %3, align 4, !tbaa !58
+  %.not39 = icmp eq i32 %164, 0
+  br i1 %.not39, label %168, label %165
 
-164:                                              ; preds = %Gia_ManAppendCo.exit
-  %165 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27)
+165:                                              ; preds = %Gia_ManAppendCo.exit
+  %166 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27)
   tail call void @Gia_ManPrintStats(ptr noundef %.0, ptr noundef null) #19
-  %166 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28)
+  %167 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28)
   tail call void @Gia_ManPrintStats(ptr noundef %.038, ptr noundef null) #19
-  br label %167
+  br label %168
 
-167:                                              ; preds = %164, %Gia_ManAppendCo.exit
-  %168 = tail call ptr @Gia_ManDupLevelized(ptr noundef %.0) #19
+168:                                              ; preds = %165, %Gia_ManAppendCo.exit
+  %169 = tail call ptr @Gia_ManDupLevelized(ptr noundef %.0) #19
   tail call void @Gia_ManStop(ptr noundef %.0) #19
-  %169 = tail call ptr @Ssc_PerformSweepingInt(ptr noundef %168, ptr noundef %.038, ptr noundef nonnull %1)
-  %170 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %171 = load i32, ptr %170, align 4, !tbaa !114
-  %.not.i59 = icmp eq i32 %171, 0
-  br i1 %.not.i59, label %Ssc_PerformSweeping.exit, label %172
+  %170 = tail call ptr @Ssc_PerformSweepingInt(ptr noundef %169, ptr noundef %.038, ptr noundef nonnull %1)
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %172 = load i32, ptr %171, align 4, !tbaa !114
+  %.not.i59 = icmp eq i32 %172, 0
+  br i1 %.not.i59, label %Ssc_PerformSweeping.exit, label %173
 
-172:                                              ; preds = %167
-  %173 = tail call i32 @Ssc_PerformVerification(ptr noundef %168, ptr noundef %169, ptr noundef %.038)
+173:                                              ; preds = %168
+  %174 = tail call i32 @Ssc_PerformVerification(ptr noundef %169, ptr noundef %170, ptr noundef %.038)
   br label %Ssc_PerformSweeping.exit
 
-Ssc_PerformSweeping.exit:                         ; preds = %167, %172
-  %174 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %175 = load i32, ptr %174, align 4, !tbaa !120
-  %.not40 = icmp eq i32 %175, 0
-  br i1 %.not40, label %182, label %176
+Ssc_PerformSweeping.exit:                         ; preds = %168, %173
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %176 = load i32, ptr %175, align 4, !tbaa !120
+  %.not40 = icmp eq i32 %176, 0
+  br i1 %.not40, label %183, label %177
 
-176:                                              ; preds = %Ssc_PerformSweeping.exit
-  tail call void @Gia_ManDupAppendShare(ptr noundef %169, ptr noundef %.038) #19
-  %177 = getelementptr i8, ptr %.038, i64 16
-  %.038.val = load i32, ptr %177, align 8, !tbaa !102
-  %178 = getelementptr i8, ptr %.038, i64 72
-  %.038.val41 = load ptr, ptr %178, align 8, !tbaa !103
-  %179 = getelementptr i8, ptr %.038.val41, i64 4
-  %.038.val41.val = load i32, ptr %179, align 4, !tbaa !52
-  %180 = sub nsw i32 %.038.val41.val, %.038.val
-  %181 = getelementptr inbounds nuw i8, ptr %169, i64 172
-  store i32 %180, ptr %181, align 4, !tbaa !115
-  br label %182
+177:                                              ; preds = %Ssc_PerformSweeping.exit
+  tail call void @Gia_ManDupAppendShare(ptr noundef %170, ptr noundef %.038) #19
+  %178 = getelementptr i8, ptr %.038, i64 16
+  %.038.val = load i32, ptr %178, align 8, !tbaa !102
+  %179 = getelementptr i8, ptr %.038, i64 72
+  %.038.val41 = load ptr, ptr %179, align 8, !tbaa !103
+  %180 = getelementptr i8, ptr %.038.val41, i64 4
+  %.038.val41.val = load i32, ptr %180, align 4, !tbaa !52
+  %181 = sub nsw i32 %.038.val41.val, %.038.val
+  %182 = getelementptr inbounds nuw i8, ptr %170, i64 172
+  store i32 %181, ptr %182, align 4, !tbaa !115
+  br label %183
 
-182:                                              ; preds = %176, %Ssc_PerformSweeping.exit
-  tail call void @Gia_ManStop(ptr noundef %168) #19
+183:                                              ; preds = %177, %Ssc_PerformSweeping.exit
+  tail call void @Gia_ManStop(ptr noundef %169) #19
   tail call void @Gia_ManStop(ptr noundef %.038) #19
-  ret ptr %169
+  ret ptr %170
 }
 
 declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #3
@@ -2175,7 +2178,7 @@ declare void @Gia_ManDupAppendShare(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #3
@@ -2199,7 +2202,7 @@ declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly c
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #13
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: inlinehint nounwind uwtable
@@ -2390,16 +2393,16 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nofree nounwind }

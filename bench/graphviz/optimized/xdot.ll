@@ -4932,11 +4932,11 @@ define noundef ptr @parseXDotColor(ptr noundef %0, ptr noundef captures(none) %1
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
   %17 = load i8, ptr %0, align 1, !tbaa !15
-  switch i8 %17, label %144 [
+  switch i8 %17, label %146 [
     i8 91, label %18
-    i8 40, label %75
-    i8 35, label %142
-    i8 47, label %142
+    i8 40, label %76
+    i8 35, label %144
+    i8 47, label %144
   ]
 
 18:                                               ; preds = %2
@@ -5060,275 +5060,277 @@ parseReal.exit59.i:                               ; preds = %34
 
 gv_calloc.exit.i:                                 ; preds = %52, %.thread.i
   %59 = phi ptr [ %47, %.thread.i ], [ %53, %52 ]
-  %60 = icmp sgt i32 %42, 0
-  br i1 %60, label %.lr.ph.i, label %._crit_edge.i
+  %60 = load i32, ptr %40, align 8, !tbaa !15
+  %61 = icmp sgt i32 %60, 0
+  br i1 %61, label %.lr.ph.i, label %._crit_edge.i
 
-61:                                               ; preds = %68
+62:                                               ; preds = %69
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %62 = load i32, ptr %40, align 8, !tbaa !15
-  %63 = sext i32 %62 to i64
-  %64 = icmp slt i64 %indvars.iv.next.i, %63
-  br i1 %64, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !72
+  %63 = load i32, ptr %40, align 8, !tbaa !15
+  %64 = sext i32 %63 to i64
+  %65 = icmp slt i64 %indvars.iv.next.i, %64
+  br i1 %65, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !72
 
-.lr.ph.i:                                         ; preds = %gv_calloc.exit.i, %61
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %61 ], [ 0, %gv_calloc.exit.i ]
-  %.03977.i = phi ptr [ %72, %61 ], [ %43, %gv_calloc.exit.i ]
+.lr.ph.i:                                         ; preds = %gv_calloc.exit.i, %62
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %62 ], [ 0, %gv_calloc.exit.i ]
+  %.03977.i = phi ptr [ %73, %62 ], [ %43, %gv_calloc.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %65 = call double @strtod(ptr noundef nonnull %.03977.i, ptr noundef nonnull %11) #24
-  %66 = load ptr, ptr %11, align 8, !tbaa !21
-  %67 = icmp eq ptr %66, %.03977.i
+  %66 = call double @strtod(ptr noundef nonnull %.03977.i, ptr noundef nonnull %11) #24
+  %67 = load ptr, ptr %11, align 8, !tbaa !21
+  %68 = icmp eq ptr %67, %.03977.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %.not52.i = icmp eq ptr %66, null
-  %or.cond.i = or i1 %67, %.not52.i
-  br i1 %or.cond.i, label %.loopexit.i, label %68
+  %.not52.i = icmp eq ptr %67, null
+  %or.cond.i = or i1 %68, %.not52.i
+  br i1 %or.cond.i, label %.loopexit.i, label %69
 
 .loopexit.i:                                      ; preds = %.lr.ph.i
   tail call void @free(ptr noundef %59) #24
   br label %linGradient.exit
 
-68:                                               ; preds = %.lr.ph.i
-  %69 = fptrunc double %65 to float
-  %70 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %indvars.iv.i
-  store float %69, ptr %70, align 8, !tbaa !73
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %72 = tail call fastcc ptr @parseString(ptr noundef %66, ptr noundef nonnull %71)
-  %.not53.i = icmp eq ptr %72, null
-  br i1 %.not53.i, label %73, label %61
+69:                                               ; preds = %.lr.ph.i
+  %70 = fptrunc double %66 to float
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %indvars.iv.i
+  store float %70, ptr %71, align 8, !tbaa !73
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = tail call fastcc ptr @parseString(ptr noundef %67, ptr noundef nonnull %72)
+  %.not53.i = icmp eq ptr %73, null
+  br i1 %.not53.i, label %74, label %62
 
-73:                                               ; preds = %68
+74:                                               ; preds = %69
   tail call void @free(ptr noundef nonnull %59) #24
   br label %linGradient.exit
 
-._crit_edge.i:                                    ; preds = %61, %gv_calloc.exit.i
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr %59, ptr %74, align 8, !tbaa !15
+._crit_edge.i:                                    ; preds = %62, %gv_calloc.exit.i
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr %59, ptr %75, align 8, !tbaa !15
   br label %linGradient.exit
 
-75:                                               ; preds = %2
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1
+76:                                               ; preds = %2
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i32 2, ptr %1, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %77 = call double @strtod(ptr noundef nonnull %76, ptr noundef nonnull %10) #24
-  %78 = load ptr, ptr %10, align 8, !tbaa !21
-  %79 = icmp eq ptr %78, %76
-  br i1 %79, label %parseReal.exit.thread.i27, label %parseReal.exit.i15
+  %78 = call double @strtod(ptr noundef nonnull %77, ptr noundef nonnull %10) #24
+  %79 = load ptr, ptr %10, align 8, !tbaa !21
+  %80 = icmp eq ptr %79, %77
+  br i1 %80, label %parseReal.exit.thread.i27, label %parseReal.exit.i15
 
-parseReal.exit.thread.i27:                        ; preds = %75
+parseReal.exit.thread.i27:                        ; preds = %76
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %linGradient.exit
 
-parseReal.exit.i15:                               ; preds = %75
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %77, ptr %80, align 8, !tbaa !30
+parseReal.exit.i15:                               ; preds = %76
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store double %78, ptr %81, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.not.i16 = icmp eq ptr %78, null
-  br i1 %.not.i16, label %linGradient.exit, label %81
+  %.not.i16 = icmp eq ptr %79, null
+  br i1 %.not.i16, label %linGradient.exit, label %82
 
-81:                                               ; preds = %parseReal.exit.i15
+82:                                               ; preds = %parseReal.exit.i15
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %82 = call double @strtod(ptr noundef nonnull %78, ptr noundef nonnull %9) #24
-  %83 = load ptr, ptr %9, align 8, !tbaa !21
-  %84 = icmp eq ptr %83, %78
-  br i1 %84, label %parseReal.exit67.thread.i, label %parseReal.exit67.i
+  %83 = call double @strtod(ptr noundef nonnull %79, ptr noundef nonnull %9) #24
+  %84 = load ptr, ptr %9, align 8, !tbaa !21
+  %85 = icmp eq ptr %84, %79
+  br i1 %85, label %parseReal.exit67.thread.i, label %parseReal.exit67.i
 
-parseReal.exit67.thread.i:                        ; preds = %81
+parseReal.exit67.thread.i:                        ; preds = %82
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %linGradient.exit
 
-parseReal.exit67.i:                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store double %82, ptr %85, align 8, !tbaa !30
+parseReal.exit67.i:                               ; preds = %82
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store double %83, ptr %86, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.not58.i = icmp eq ptr %83, null
-  br i1 %.not58.i, label %linGradient.exit, label %86
+  %.not58.i = icmp eq ptr %84, null
+  br i1 %.not58.i, label %linGradient.exit, label %87
 
-86:                                               ; preds = %parseReal.exit67.i
+87:                                               ; preds = %parseReal.exit67.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %87 = call double @strtod(ptr noundef nonnull %83, ptr noundef nonnull %8) #24
-  %88 = load ptr, ptr %8, align 8, !tbaa !21
-  %89 = icmp eq ptr %88, %83
-  br i1 %89, label %parseReal.exit69.thread.i, label %parseReal.exit69.i
+  %88 = call double @strtod(ptr noundef nonnull %84, ptr noundef nonnull %8) #24
+  %89 = load ptr, ptr %8, align 8, !tbaa !21
+  %90 = icmp eq ptr %89, %84
+  br i1 %90, label %parseReal.exit69.thread.i, label %parseReal.exit69.i
 
-parseReal.exit69.thread.i:                        ; preds = %86
+parseReal.exit69.thread.i:                        ; preds = %87
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %linGradient.exit
 
-parseReal.exit69.i:                               ; preds = %86
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store double %87, ptr %90, align 8, !tbaa !30
+parseReal.exit69.i:                               ; preds = %87
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store double %88, ptr %91, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not59.i = icmp eq ptr %88, null
-  br i1 %.not59.i, label %linGradient.exit, label %91
+  %.not59.i = icmp eq ptr %89, null
+  br i1 %.not59.i, label %linGradient.exit, label %92
 
-91:                                               ; preds = %parseReal.exit69.i
+92:                                               ; preds = %parseReal.exit69.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %92 = call double @strtod(ptr noundef nonnull %88, ptr noundef nonnull %7) #24
-  %93 = load ptr, ptr %7, align 8, !tbaa !21
-  %94 = icmp eq ptr %93, %88
-  br i1 %94, label %parseReal.exit71.thread.i, label %parseReal.exit71.i
+  %93 = call double @strtod(ptr noundef nonnull %89, ptr noundef nonnull %7) #24
+  %94 = load ptr, ptr %7, align 8, !tbaa !21
+  %95 = icmp eq ptr %94, %89
+  br i1 %95, label %parseReal.exit71.thread.i, label %parseReal.exit71.i
 
-parseReal.exit71.thread.i:                        ; preds = %91
+parseReal.exit71.thread.i:                        ; preds = %92
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %linGradient.exit
 
-parseReal.exit71.i:                               ; preds = %91
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store double %92, ptr %95, align 8, !tbaa !30
+parseReal.exit71.i:                               ; preds = %92
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store double %93, ptr %96, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not60.i = icmp eq ptr %93, null
-  br i1 %.not60.i, label %linGradient.exit, label %96
+  %.not60.i = icmp eq ptr %94, null
+  br i1 %.not60.i, label %linGradient.exit, label %97
 
-96:                                               ; preds = %parseReal.exit71.i
+97:                                               ; preds = %parseReal.exit71.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %97 = call double @strtod(ptr noundef nonnull %93, ptr noundef nonnull %6) #24
-  %98 = load ptr, ptr %6, align 8, !tbaa !21
-  %99 = icmp eq ptr %98, %93
-  br i1 %99, label %parseReal.exit73.thread.i, label %parseReal.exit73.i
+  %98 = call double @strtod(ptr noundef nonnull %94, ptr noundef nonnull %6) #24
+  %99 = load ptr, ptr %6, align 8, !tbaa !21
+  %100 = icmp eq ptr %99, %94
+  br i1 %100, label %parseReal.exit73.thread.i, label %parseReal.exit73.i
 
-parseReal.exit73.thread.i:                        ; preds = %96
+parseReal.exit73.thread.i:                        ; preds = %97
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %linGradient.exit
 
-parseReal.exit73.i:                               ; preds = %96
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store double %97, ptr %100, align 8, !tbaa !30
+parseReal.exit73.i:                               ; preds = %97
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store double %98, ptr %101, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not61.i = icmp eq ptr %98, null
-  br i1 %.not61.i, label %linGradient.exit, label %101
+  %.not61.i = icmp eq ptr %99, null
+  br i1 %.not61.i, label %linGradient.exit, label %102
 
-101:                                              ; preds = %parseReal.exit73.i
+102:                                              ; preds = %parseReal.exit73.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %102 = call double @strtod(ptr noundef nonnull %98, ptr noundef nonnull %5) #24
-  %103 = load ptr, ptr %5, align 8, !tbaa !21
-  %104 = icmp eq ptr %103, %98
-  br i1 %104, label %parseReal.exit75.thread.i, label %parseReal.exit75.i
+  %103 = call double @strtod(ptr noundef nonnull %99, ptr noundef nonnull %5) #24
+  %104 = load ptr, ptr %5, align 8, !tbaa !21
+  %105 = icmp eq ptr %104, %99
+  br i1 %105, label %parseReal.exit75.thread.i, label %parseReal.exit75.i
 
-parseReal.exit75.thread.i:                        ; preds = %101
+parseReal.exit75.thread.i:                        ; preds = %102
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %linGradient.exit
 
-parseReal.exit75.i:                               ; preds = %101
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store double %102, ptr %105, align 8, !tbaa !30
+parseReal.exit75.i:                               ; preds = %102
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store double %103, ptr %106, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not62.i = icmp eq ptr %103, null
-  br i1 %.not62.i, label %linGradient.exit, label %106
+  %.not62.i = icmp eq ptr %104, null
+  br i1 %.not62.i, label %linGradient.exit, label %107
 
-106:                                              ; preds = %parseReal.exit75.i
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 56
+107:                                              ; preds = %parseReal.exit75.i
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %108 = call i64 @strtol(ptr noundef nonnull %103, ptr noundef nonnull %4, i32 noundef 10) #24
-  %109 = trunc i64 %108 to i32
-  store i32 %109, ptr %107, align 4, !tbaa !29
-  %110 = load ptr, ptr %4, align 8, !tbaa !21
-  %111 = icmp eq ptr %103, %110
+  %109 = call i64 @strtol(ptr noundef nonnull %104, ptr noundef nonnull %4, i32 noundef 10) #24
+  %110 = trunc i64 %109 to i32
+  store i32 %110, ptr %108, align 4, !tbaa !29
+  %111 = load ptr, ptr %4, align 8, !tbaa !21
+  %112 = icmp eq ptr %104, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not6395.i = icmp eq ptr %110, null
-  %.not63.i = or i1 %111, %.not6395.i
-  br i1 %.not63.i, label %linGradient.exit, label %112
+  %.not6395.i = icmp eq ptr %111, null
+  %.not63.i = or i1 %112, %.not6395.i
+  br i1 %.not63.i, label %linGradient.exit, label %113
 
-112:                                              ; preds = %106
-  %sext.i17 = shl i64 %108, 32
-  %113 = ashr exact i64 %sext.i17, 32
+113:                                              ; preds = %107
+  %sext.i17 = shl i64 %109, 32
+  %114 = ashr exact i64 %sext.i17, 32
   %.not96.i = icmp eq i64 %sext.i17, 0
-  br i1 %.not96.i, label %.thread.i26, label %115
+  br i1 %.not96.i, label %.thread.i26, label %116
 
-.thread.i26:                                      ; preds = %112
-  %114 = tail call noalias ptr @calloc(i64 noundef %113, i64 noundef 16) #21
+.thread.i26:                                      ; preds = %113
+  %115 = tail call noalias ptr @calloc(i64 noundef %114, i64 noundef 16) #21
   br label %gv_calloc.exit.i19
 
-115:                                              ; preds = %112
-  %mul.ov.i.i18 = icmp ugt i64 %113, 1152921504606846975
-  br i1 %mul.ov.i.i18, label %116, label %119
+116:                                              ; preds = %113
+  %mul.ov.i.i18 = icmp ugt i64 %114, 1152921504606846975
+  br i1 %mul.ov.i.i18, label %117, label %120
 
-116:                                              ; preds = %115
-  %117 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %118 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull @.str.2, i64 noundef %113, i64 noundef 16) #22
+117:                                              ; preds = %116
+  %118 = load ptr, ptr @stderr, align 8, !tbaa !3
+  %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.2, i64 noundef %114, i64 noundef 16) #22
   tail call fastcc void @graphviz_exit() #23
   unreachable
 
-119:                                              ; preds = %115
-  %120 = tail call noalias ptr @calloc(i64 noundef %113, i64 noundef 16) #21
-  %121 = icmp eq ptr %120, null
-  br i1 %121, label %122, label %gv_calloc.exit.i19
+120:                                              ; preds = %116
+  %121 = tail call noalias ptr @calloc(i64 noundef %114, i64 noundef 16) #21
+  %122 = icmp eq ptr %121, null
+  br i1 %122, label %123, label %gv_calloc.exit.i19
 
-122:                                              ; preds = %119
-  %123 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %124 = ashr exact i64 %sext.i17, 28
-  %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.3, i64 noundef %124) #22
+123:                                              ; preds = %120
+  %124 = load ptr, ptr @stderr, align 8, !tbaa !3
+  %125 = ashr exact i64 %sext.i17, 28
+  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull @.str.3, i64 noundef %125) #22
   tail call fastcc void @graphviz_exit() #23
   unreachable
 
-gv_calloc.exit.i19:                               ; preds = %119, %.thread.i26
-  %126 = phi ptr [ %114, %.thread.i26 ], [ %120, %119 ]
-  %127 = icmp sgt i32 %109, 0
-  br i1 %127, label %.lr.ph.i21, label %._crit_edge.i20
+gv_calloc.exit.i19:                               ; preds = %120, %.thread.i26
+  %127 = phi ptr [ %115, %.thread.i26 ], [ %121, %120 ]
+  %128 = load i32, ptr %108, align 8, !tbaa !15
+  %129 = icmp sgt i32 %128, 0
+  br i1 %129, label %.lr.ph.i21, label %._crit_edge.i20
 
-128:                                              ; preds = %135
+130:                                              ; preds = %137
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i22, 1
-  %129 = load i32, ptr %107, align 8, !tbaa !15
-  %130 = sext i32 %129 to i64
-  %131 = icmp slt i64 %indvars.iv.next.i24, %130
-  br i1 %131, label %.lr.ph.i21, label %._crit_edge.i20, !llvm.loop !74
+  %131 = load i32, ptr %108, align 8, !tbaa !15
+  %132 = sext i32 %131 to i64
+  %133 = icmp slt i64 %indvars.iv.next.i24, %132
+  br i1 %133, label %.lr.ph.i21, label %._crit_edge.i20, !llvm.loop !74
 
-.lr.ph.i21:                                       ; preds = %gv_calloc.exit.i19, %128
-  %indvars.iv.i22 = phi i64 [ %indvars.iv.next.i24, %128 ], [ 0, %gv_calloc.exit.i19 ]
-  %.04797.i = phi ptr [ %139, %128 ], [ %110, %gv_calloc.exit.i19 ]
+.lr.ph.i21:                                       ; preds = %gv_calloc.exit.i19, %130
+  %indvars.iv.i22 = phi i64 [ %indvars.iv.next.i24, %130 ], [ 0, %gv_calloc.exit.i19 ]
+  %.04797.i = phi ptr [ %141, %130 ], [ %111, %gv_calloc.exit.i19 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %132 = call double @strtod(ptr noundef nonnull %.04797.i, ptr noundef nonnull %3) #24
-  %133 = load ptr, ptr %3, align 8, !tbaa !21
-  %134 = icmp eq ptr %133, %.04797.i
+  %134 = call double @strtod(ptr noundef nonnull %.04797.i, ptr noundef nonnull %3) #24
+  %135 = load ptr, ptr %3, align 8, !tbaa !21
+  %136 = icmp eq ptr %135, %.04797.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not64.i = icmp eq ptr %133, null
-  %or.cond.i23 = or i1 %134, %.not64.i
-  br i1 %or.cond.i23, label %.loopexit.i25, label %135
+  %.not64.i = icmp eq ptr %135, null
+  %or.cond.i23 = or i1 %136, %.not64.i
+  br i1 %or.cond.i23, label %.loopexit.i25, label %137
 
 .loopexit.i25:                                    ; preds = %.lr.ph.i21
-  tail call void @free(ptr noundef %126) #24
+  tail call void @free(ptr noundef %127) #24
   br label %linGradient.exit
 
-135:                                              ; preds = %.lr.ph.i21
-  %136 = fptrunc double %132 to float
-  %137 = getelementptr inbounds nuw [16 x i8], ptr %126, i64 %indvars.iv.i22
-  store float %136, ptr %137, align 8, !tbaa !73
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %139 = tail call fastcc ptr @parseString(ptr noundef %133, ptr noundef nonnull %138)
-  %.not65.i = icmp eq ptr %139, null
-  br i1 %.not65.i, label %140, label %128
+137:                                              ; preds = %.lr.ph.i21
+  %138 = fptrunc double %134 to float
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %127, i64 %indvars.iv.i22
+  store float %138, ptr %139, align 8, !tbaa !73
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %141 = tail call fastcc ptr @parseString(ptr noundef %135, ptr noundef nonnull %140)
+  %.not65.i = icmp eq ptr %141, null
+  br i1 %.not65.i, label %142, label %130
 
-140:                                              ; preds = %135
-  tail call void @free(ptr noundef nonnull %126) #24
+142:                                              ; preds = %137
+  tail call void @free(ptr noundef nonnull %127) #24
   br label %linGradient.exit
 
-._crit_edge.i20:                                  ; preds = %128, %gv_calloc.exit.i19
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %126, ptr %141, align 8, !tbaa !15
+._crit_edge.i20:                                  ; preds = %130, %gv_calloc.exit.i19
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store ptr %127, ptr %143, align 8, !tbaa !15
   br label %linGradient.exit
 
-142:                                              ; preds = %2, %2
+144:                                              ; preds = %2, %2
   store i32 0, ptr %1, align 8, !tbaa !26
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %0, ptr %143, align 8, !tbaa !15
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %0, ptr %145, align 8, !tbaa !15
   br label %linGradient.exit
 
-144:                                              ; preds = %2
-  %145 = sext i8 %17 to i32
-  %146 = and i32 %145, -33
-  %147 = add nsw i32 %146, -65
-  %148 = icmp ult i32 %147, 26
-  %149 = add nsw i32 %145, -48
-  %150 = icmp ult i32 %149, 10
-  %151 = select i1 %148, i1 true, i1 %150
-  br i1 %151, label %152, label %linGradient.exit
+146:                                              ; preds = %2
+  %147 = sext i8 %17 to i32
+  %148 = and i32 %147, -33
+  %149 = add nsw i32 %148, -65
+  %150 = icmp ult i32 %149, 26
+  %151 = add nsw i32 %147, -48
+  %152 = icmp ult i32 %151, 10
+  %153 = select i1 %150, i1 true, i1 %152
+  br i1 %153, label %154, label %linGradient.exit
 
-152:                                              ; preds = %144
+154:                                              ; preds = %146
   store i32 0, ptr %1, align 8, !tbaa !26
-  %153 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %0, ptr %153, align 8, !tbaa !15
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %0, ptr %155, align 8, !tbaa !15
   br label %linGradient.exit
 
-linGradient.exit:                                 ; preds = %._crit_edge.i20, %140, %.loopexit.i25, %106, %parseReal.exit75.i, %parseReal.exit75.thread.i, %parseReal.exit73.i, %parseReal.exit73.thread.i, %parseReal.exit71.i, %parseReal.exit71.thread.i, %parseReal.exit69.i, %parseReal.exit69.thread.i, %parseReal.exit67.i, %parseReal.exit67.thread.i, %parseReal.exit.i15, %parseReal.exit.thread.i27, %._crit_edge.i, %73, %.loopexit.i, %39, %parseReal.exit59.i, %parseReal.exit59.thread.i, %parseReal.exit57.i, %parseReal.exit57.thread.i, %parseReal.exit55.i, %parseReal.exit55.thread.i, %parseReal.exit.i, %parseReal.exit.thread.i, %144, %152, %142
-  %.0 = phi ptr [ %0, %152 ], [ %0, %142 ], [ null, %144 ], [ null, %parseReal.exit59.thread.i ], [ null, %73 ], [ null, %.loopexit.i ], [ %19, %._crit_edge.i ], [ null, %parseReal.exit59.i ], [ null, %parseReal.exit57.i ], [ null, %parseReal.exit55.i ], [ null, %parseReal.exit.i ], [ null, %39 ], [ null, %parseReal.exit.thread.i ], [ null, %parseReal.exit55.thread.i ], [ null, %parseReal.exit57.thread.i ], [ null, %140 ], [ null, %.loopexit.i25 ], [ %76, %._crit_edge.i20 ], [ null, %parseReal.exit75.i ], [ null, %parseReal.exit73.i ], [ null, %parseReal.exit71.i ], [ null, %parseReal.exit69.i ], [ null, %parseReal.exit67.i ], [ null, %parseReal.exit.i15 ], [ null, %106 ], [ null, %parseReal.exit.thread.i27 ], [ null, %parseReal.exit67.thread.i ], [ null, %parseReal.exit69.thread.i ], [ null, %parseReal.exit71.thread.i ], [ null, %parseReal.exit73.thread.i ], [ null, %parseReal.exit75.thread.i ]
+linGradient.exit:                                 ; preds = %._crit_edge.i20, %142, %.loopexit.i25, %107, %parseReal.exit75.i, %parseReal.exit75.thread.i, %parseReal.exit73.i, %parseReal.exit73.thread.i, %parseReal.exit71.i, %parseReal.exit71.thread.i, %parseReal.exit69.i, %parseReal.exit69.thread.i, %parseReal.exit67.i, %parseReal.exit67.thread.i, %parseReal.exit.i15, %parseReal.exit.thread.i27, %._crit_edge.i, %74, %.loopexit.i, %39, %parseReal.exit59.i, %parseReal.exit59.thread.i, %parseReal.exit57.i, %parseReal.exit57.thread.i, %parseReal.exit55.i, %parseReal.exit55.thread.i, %parseReal.exit.i, %parseReal.exit.thread.i, %146, %154, %144
+  %.0 = phi ptr [ %0, %154 ], [ %0, %144 ], [ null, %146 ], [ null, %parseReal.exit59.thread.i ], [ null, %74 ], [ null, %.loopexit.i ], [ %19, %._crit_edge.i ], [ null, %parseReal.exit59.i ], [ null, %parseReal.exit57.i ], [ null, %parseReal.exit55.i ], [ null, %parseReal.exit.i ], [ null, %39 ], [ null, %parseReal.exit.thread.i ], [ null, %parseReal.exit55.thread.i ], [ null, %parseReal.exit57.thread.i ], [ null, %142 ], [ null, %.loopexit.i25 ], [ %77, %._crit_edge.i20 ], [ null, %parseReal.exit75.i ], [ null, %parseReal.exit73.i ], [ null, %parseReal.exit71.i ], [ null, %parseReal.exit69.i ], [ null, %parseReal.exit67.i ], [ null, %parseReal.exit.i15 ], [ null, %107 ], [ null, %parseReal.exit.thread.i27 ], [ null, %parseReal.exit67.thread.i ], [ null, %parseReal.exit69.thread.i ], [ null, %parseReal.exit71.thread.i ], [ null, %parseReal.exit73.thread.i ], [ null, %parseReal.exit75.thread.i ]
   ret ptr %.0
 }
 
@@ -5403,13 +5405,13 @@ define internal fastcc void @graphviz_exit() unnamed_addr #8 {
   unreachable
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
@@ -7313,7 +7315,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #15
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias ptr @strndup(ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -7346,14 +7348,14 @@ attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buf
 attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nofree nounwind }

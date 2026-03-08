@@ -608,8 +608,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl3bbwIN5Eigen6MatrixIdLin1EL
   store i64 -1, ptr %29, align 8, !tbaa !61
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %32 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %30, i8 0, i64 56, i1 false)
+  %32 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #26
   store ptr %32, ptr %31, align 8, !tbaa !65
   %.not6.i = icmp eq ptr %32, null
   br i1 %.not6.i, label %33, label %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ev.exit
@@ -713,8 +713,8 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sc
   %61 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %62 = ashr exact i64 %sext, 30
   %63 = add nsw i64 %62, 4
-  %64 = call noalias ptr @malloc(i64 noundef %63) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %60, i8 0, i64 64, i1 false)
+  %64 = call noalias ptr @malloc(i64 noundef %63) #26
   store ptr %64, ptr %61, align 8, !tbaa !65
   %.not6.i113 = icmp eq ptr %64, null
   br i1 %.not6.i113, label %65, label %70
@@ -745,8 +745,8 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sc
   store i8 0, ptr %13, align 8, !tbaa !59
   %74 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %76 = call noalias ptr @malloc(i64 noundef %63) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %74, i8 0, i64 64, i1 false)
+  %76 = call noalias ptr @malloc(i64 noundef %63) #26
   store ptr %76, ptr %75, align 8, !tbaa !65
   %.not6.i120 = icmp eq ptr %76, null
   br i1 %.not6.i120, label %77, label %82
@@ -775,8 +775,8 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sc
   store i8 0, ptr %14, align 8, !tbaa !59
   %84 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %86 = call noalias ptr @malloc(i64 noundef %63) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %84, i8 0, i64 64, i1 false)
+  %86 = call noalias ptr @malloc(i64 noundef %63) #26
   store ptr %86, ptr %85, align 8, !tbaa !65
   %.not6.i127 = icmp eq ptr %86, null
   br i1 %.not6.i127, label %87, label %92
@@ -4018,7 +4018,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal17CompressedStorageIdiED2E
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -5356,7 +5356,7 @@ attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { cold noreturn }
 attributes #16 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { inlinehint mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

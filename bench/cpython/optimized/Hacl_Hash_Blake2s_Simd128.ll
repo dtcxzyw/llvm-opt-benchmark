@@ -860,45 +860,51 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2s_Simd128_mall
   ret ptr %1
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2s_Simd128_malloc_with_params_and_key(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #11 {
-  %.sroa.02.0.copyload = load i16, ptr %0, align 8
-  %4 = lshr i16 %.sroa.02.0.copyload, 8
-  %.sroa.01.0.insert.insert = tail call i16 @llvm.bswap.i16(i16 %.sroa.02.0.copyload)
-  %5 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #26
+  %.sroa.02.0.copyload = load i8, ptr %0, align 8, !tbaa !3
+  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sroa.43.0.copyload = load i8, ptr %.sroa.43.0..sroa_idx, align 1, !tbaa !3
+  %.sroa.4.0.insert.ext = zext i8 %.sroa.02.0.copyload to i16
+  %.sroa.4.0.insert.shift = shl nuw i16 %.sroa.4.0.insert.ext, 8
+  %.sroa.01.0.insert.ext = zext i8 %.sroa.43.0.copyload to i16
+  %.sroa.01.0.insert.insert = or disjoint i16 %.sroa.4.0.insert.shift, %.sroa.01.0.insert.ext
+  %4 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #26
+  %5 = tail call noalias align 16 dereferenceable_or_null(64) ptr @aligned_alloc(i64 noundef 16, i64 noundef 64) #25
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %6 = tail call noalias align 16 dereferenceable_or_null(64) ptr @aligned_alloc(i64 noundef 16, i64 noundef 64) #25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false)
-  %7 = tail call noalias align 16 dereferenceable_or_null(64) ptr @aligned_alloc(i64 noundef 16, i64 noundef 64) #25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, i8 0, i64 32, i1 false)
-  %8 = zext i1 %1 to i8
-  %.not.i = icmp eq i16 %4, 0
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 32, i1 false)
+  %7 = zext i1 %1 to i8
+  %.not.i = icmp eq i8 %.sroa.43.0.copyload, 0
   %..i = select i1 %.not.i, i64 0, i64 64
-  %9 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #27
-  store i16 %.sroa.01.0.insert.insert, ptr %9, align 8
-  %.sroa.092.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 2
-  store i8 %8, ptr %.sroa.092.sroa.5.0..sroa_idx.i, align 2, !tbaa !10
-  %.sroa.092.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 3
+  %8 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #27
+  store i16 %.sroa.01.0.insert.insert, ptr %8, align 8
+  %.sroa.092.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 2
+  store i8 %7, ptr %.sroa.092.sroa.5.0..sroa_idx.i, align 2, !tbaa !10
+  %.sroa.092.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.092.sroa.6.0..sroa_idx.i, i8 0, i64 5, i1 false)
-  %.sroa.092.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %6, ptr %.sroa.092.sroa.7.0..sroa_idx.i, align 8, !tbaa !12
-  %.sroa.092.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %7, ptr %.sroa.092.sroa.8.0..sroa_idx.i, align 8, !tbaa !12
-  %.sroa.493.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %5, ptr %.sroa.493.0..sroa_idx.i, align 8, !tbaa !14
-  %.sroa.594.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sroa.092.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %5, ptr %.sroa.092.sroa.7.0..sroa_idx.i, align 8, !tbaa !12
+  %.sroa.092.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %6, ptr %.sroa.092.sroa.8.0..sroa_idx.i, align 8, !tbaa !12
+  %.sroa.493.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr %4, ptr %.sroa.493.0..sroa_idx.i, align 8, !tbaa !14
+  %.sroa.594.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %..i, ptr %.sroa.594.0..sroa_idx.i, align 8, !tbaa !16
-  br i1 %.not.i, label %malloc_raw.exit, label %10
+  %9 = load i8, ptr %.sroa.43.0..sroa_idx, align 1, !tbaa !18
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %malloc_raw.exit, label %11
 
-10:                                               ; preds = %3
-  %11 = zext nneg i16 %4 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr readonly align 1 %2, i64 %11, i1 false)
+11:                                               ; preds = %3
+  %12 = zext i8 %9 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr readonly align 1 %2, i64 %12, i1 false)
   br label %malloc_raw.exit
 
-malloc_raw.exit:                                  ; preds = %3, %10
-  %12 = zext i16 %.sroa.02.0.copyload to i32
+malloc_raw.exit:                                  ; preds = %3, %11
+  %.sroa.0.0.copyload.i = load i8, ptr %0, align 8, !tbaa !3
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.sroa.5.0.copyload.i = load i16, ptr %.sroa.5.0..sroa_idx.i, align 2
   %13 = zext i16 %.sroa.5.0.copyload.i to i32
@@ -915,9 +921,9 @@ malloc_raw.exit:                                  ; preds = %3, %10
   %.sroa.1268.0.copyload.i = load ptr, ptr %.sroa.1268.0..sroa_idx.i, align 8, !tbaa !14
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.14.0.copyload.i = load ptr, ptr %.sroa.14.0..sroa_idx.i, align 8, !tbaa !14
-  %17 = getelementptr i8, ptr %7, i64 16
-  %18 = getelementptr i8, ptr %7, i64 32
-  %19 = getelementptr i8, ptr %7, i64 48
+  %17 = getelementptr i8, ptr %6, i64 16
+  %18 = getelementptr i8, ptr %6, i64 32
+  %19 = getelementptr i8, ptr %6, i64 48
   store <2 x i64> <i64 -4942790177982912921, i64 -6534734903820487822>, ptr %18, align 16, !tbaa !3
   store <2 x i64> <i64 -7276294671082564993, i64 6620516960021240235>, ptr %19, align 16, !tbaa !3
   %.sroa.1268.0.copyload.val.i = load i32, ptr %.sroa.1268.0.copyload.i, align 1
@@ -926,30 +932,34 @@ malloc_raw.exit:                                  ; preds = %3, %10
   %.sroa.14.0.copyload.val.i = load i32, ptr %.sroa.14.0.copyload.i, align 1
   %21 = getelementptr i8, ptr %.sroa.14.0.copyload.i, i64 4
   %.val.i = load i32, ptr %21, align 1
-  %22 = or disjoint i32 %14, %12
-  %23 = trunc i64 %.sroa.8.0.copyload.i to i32
-  %24 = lshr i64 %.sroa.8.0.copyload.i, 32
-  %25 = trunc nuw i64 %24 to i32
-  %26 = xor i32 %22, 1779033703
-  %27 = xor i32 %.sroa.7.0.copyload.i, -1150833019
-  %28 = xor i32 %23, 1013904242
-  %29 = xor i32 %16, %25
-  %30 = xor i32 %29, -1521486534
-  %31 = xor i32 %.sroa.1268.0.copyload.val.i, 1359893119
-  %32 = xor i32 %.val114.i, -1694144372
-  %33 = xor i32 %.sroa.14.0.copyload.val.i, 528734635
-  %34 = xor i32 %.val.i, 1541459225
-  %35 = insertelement <4 x i32> poison, i32 %26, i64 0
-  %36 = insertelement <4 x i32> %35, i32 %27, i64 1
-  %37 = insertelement <4 x i32> %36, i32 %28, i64 2
-  %38 = insertelement <4 x i32> %37, i32 %30, i64 3
-  store <4 x i32> %38, ptr %7, align 16, !tbaa !3
-  %39 = insertelement <4 x i32> poison, i32 %31, i64 0
-  %40 = insertelement <4 x i32> %39, i32 %32, i64 1
-  %41 = insertelement <4 x i32> %40, i32 %33, i64 2
+  %22 = zext i8 %.sroa.0.0.copyload.i to i32
+  %23 = zext i8 %9 to i32
+  %24 = shl nuw nsw i32 %23, 8
+  %25 = or disjoint i32 %24, %22
+  %26 = or disjoint i32 %25, %14
+  %27 = trunc i64 %.sroa.8.0.copyload.i to i32
+  %28 = lshr i64 %.sroa.8.0.copyload.i, 32
+  %29 = trunc nuw i64 %28 to i32
+  %30 = xor i32 %26, 1779033703
+  %31 = xor i32 %.sroa.7.0.copyload.i, -1150833019
+  %32 = xor i32 %27, 1013904242
+  %33 = xor i32 %16, %29
+  %34 = xor i32 %33, -1521486534
+  %35 = xor i32 %.sroa.1268.0.copyload.val.i, 1359893119
+  %36 = xor i32 %.val114.i, -1694144372
+  %37 = xor i32 %.sroa.14.0.copyload.val.i, 528734635
+  %38 = xor i32 %.val.i, 1541459225
+  %39 = insertelement <4 x i32> poison, i32 %30, i64 0
+  %40 = insertelement <4 x i32> %39, i32 %31, i64 1
+  %41 = insertelement <4 x i32> %40, i32 %32, i64 2
   %42 = insertelement <4 x i32> %41, i32 %34, i64 3
-  store <4 x i32> %42, ptr %17, align 16, !tbaa !3
-  ret ptr %9
+  store <4 x i32> %42, ptr %6, align 16, !tbaa !3
+  %43 = insertelement <4 x i32> poison, i32 %35, i64 0
+  %44 = insertelement <4 x i32> %43, i32 %36, i64 1
+  %45 = insertelement <4 x i32> %44, i32 %37, i64 2
+  %46 = insertelement <4 x i32> %45, i32 %38, i64 3
+  store <4 x i32> %46, ptr %17, align 16, !tbaa !3
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -1497,10 +1507,10 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2s_Simd128_copy
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #19
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
@@ -1745,9 +1755,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #23
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #23
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
@@ -1758,7 +1765,7 @@ attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #7 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
@@ -1767,8 +1774,8 @@ attributes #15 = { nofree norecurse nosync nounwind memory(readwrite, inaccessib
 attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #21 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

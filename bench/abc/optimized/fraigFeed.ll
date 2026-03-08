@@ -10,15 +10,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @Fraig_FeedBackInit(ptr noundef captures(none) initializes((152, 192)) %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @Fraig_NodeVecAlloc(i32 noundef 500) #12
+  %2 = tail call ptr @Fraig_NodeVecAlloc(i32 noundef 500) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %2, ptr %3, align 8, !tbaa !3
-  %4 = tail call ptr @Msat_IntVecAlloc(i32 noundef 1000) #12
+  %4 = tail call ptr @Msat_IntVecAlloc(i32 noundef 1000) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %4, ptr %5, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8, !tbaa !21
-  %8 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %7) #12
+  %8 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %7) #11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %8, ptr %9, align 8, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -27,11 +27,11 @@ define void @Fraig_FeedBackInit(ptr noundef captures(none) initializes((152, 192
   %13 = shl nsw i64 %12, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %8, i8 0, i64 %13, i1 false)
   %14 = load ptr, ptr %6, align 8, !tbaa !21
-  %15 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %14) #12
+  %15 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %14) #11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %15, ptr %16, align 8, !tbaa !24
   %17 = load ptr, ptr %6, align 8, !tbaa !21
-  %18 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %17) #12
+  %18 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %17) #11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %18, ptr %19, align 8, !tbaa !25
   ret void
@@ -51,7 +51,7 @@ define void @Fraig_FeedBack(ptr noundef %0, ptr noundef readonly captures(none) 
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #12
+  %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #11
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %Abc_Clock.exit, label %10
 
@@ -93,8 +93,8 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   br i1 %30, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %Abc_Clock.exit
-  %31 = call i32 @Msat_IntVecReadSize(ptr noundef %2) #12
-  %32 = call ptr @Msat_IntVecReadArray(ptr noundef %2) #12
+  %31 = call i32 @Msat_IntVecReadSize(ptr noundef %2) #11
+  %32 = call ptr @Msat_IntVecReadArray(ptr noundef %2) #11
   %33 = icmp sgt i32 %31, 0
   br i1 %33, label %.lr.ph28.i, label %Fraig_FeedBackPrepare.exit
 
@@ -114,7 +114,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds [8 x i8], ptr %38, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !34
-  %44 = call i32 @Fraig_NodeIsVar(ptr noundef %43) #12
+  %44 = call i32 @Fraig_NodeIsVar(ptr noundef %43) #11
   %.not.i = icmp eq i32 %44, 0
   br i1 %.not.i, label %59, label %45
 
@@ -164,7 +164,7 @@ Fraig_FeedBackPrepare.exit:                       ; preds = %Fraig_FeedBackPrepa
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %74 = load ptr, ptr %73, align 8, !tbaa !20
   %75 = shl nsw i32 %69, 5
-  call void @Msat_IntVecPush(ptr noundef %74, i32 noundef %75) #12
+  call void @Msat_IntVecPush(ptr noundef %74, i32 noundef %75) #11
   %76 = load i32, ptr %68, align 8, !tbaa !40
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %78 = load ptr, ptr %77, align 8, !tbaa !22
@@ -209,7 +209,7 @@ Fraig_FeedBackPrepare.exit:                       ; preds = %Fraig_FeedBackPrepa
   br i1 %.not78.i, label %100, label %104
 
 100:                                              ; preds = %97
-  %101 = call i32 @Aig_ManRandom(i32 noundef 0) #12
+  %101 = call i32 @Aig_ManRandom(i32 noundef 0) #11
   %102 = load ptr, ptr %95, align 8, !tbaa !41
   %103 = getelementptr inbounds [4 x i8], ptr %102, i64 %indvars.iv.i36
   store i32 %101, ptr %103, align 4, !tbaa !38
@@ -321,7 +321,7 @@ Fraig_FeedBackInsert.exit:                        ; preds = %._crit_edge84.i, %F
   %163 = load ptr, ptr %162, align 8, !tbaa !33
   %164 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %indvars.iv
   %165 = load ptr, ptr %164, align 8, !tbaa !34
-  %166 = call i32 @Fraig_NodeIsAnd(ptr noundef %165) #12
+  %166 = call i32 @Fraig_NodeIsAnd(ptr noundef %165) #11
   %.not31 = icmp eq i32 %166, 0
   br i1 %.not31, label %175, label %167
 
@@ -333,7 +333,7 @@ Fraig_FeedBackInsert.exit:                        ; preds = %._crit_edge84.i, %F
   %172 = load ptr, ptr %171, align 8, !tbaa !34
   %173 = load i32, ptr %68, align 8, !tbaa !40
   %174 = add nsw i32 %173, %.1.i32
-  call void @Fraig_NodeSimulate(ptr noundef %172, i32 noundef %173, i32 noundef %174, i32 noundef 0) #12
+  call void @Fraig_NodeSimulate(ptr noundef %172, i32 noundef %173, i32 noundef %174, i32 noundef 0) #11
   br label %175
 
 175:                                              ; preds = %.lr.ph, %167
@@ -352,7 +352,7 @@ Fraig_FeedBackInsert.exit:                        ; preds = %._crit_edge84.i, %F
   br i1 %.not, label %185, label %183
 
 183:                                              ; preds = %._crit_edge
-  %184 = call i32 @Fraig_TableRehashF0(ptr noundef nonnull %0, i32 noundef 0) #12
+  %184 = call i32 @Fraig_TableRehashF0(ptr noundef nonnull %0, i32 noundef 0) #11
   br label %185
 
 185:                                              ; preds = %183, %._crit_edge
@@ -363,9 +363,9 @@ Fraig_FeedBackInsert.exit:                        ; preds = %._crit_edge84.i, %F
 
 188:                                              ; preds = %185
   %.val = load ptr, ptr %73, align 8, !tbaa !20
-  %189 = call i32 @Msat_IntVecReadSize(ptr noundef %.val) #12
+  %189 = call i32 @Msat_IntVecReadSize(ptr noundef %.val) #11
   %190 = add nsw i32 %189, -1
-  %191 = call i32 @Msat_IntVecReadEntry(ptr noundef %.val, i32 noundef %190) #12
+  %191 = call i32 @Msat_IntVecReadEntry(ptr noundef %.val, i32 noundef %190) #11
   br label %192
 
 192:                                              ; preds = %188, %185
@@ -383,7 +383,7 @@ Fraig_FeedBackInsert.exit:                        ; preds = %._crit_edge84.i, %F
   %storemerge = phi i32 [ %198, %197 ], [ %194, %192 ]
   store i32 %storemerge, ptr %68, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %200 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #12
+  %200 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #11
   %201 = icmp slt i32 %200, 0
   br i1 %201, label %Abc_Clock.exit39, label %202
 
@@ -436,7 +436,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8, !tbaa !52
-  %14 = tail call ptr @Fraig_NodeVecAlloc(i32 noundef 100) #12
+  %14 = tail call ptr @Fraig_NodeVecAlloc(i32 noundef 100) #11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !53
   %17 = icmp sgt i32 %16, 0
@@ -472,7 +472,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
 28:                                               ; preds = %28, %.lr.ph145.i.i
   %.0116134.i.i = phi ptr [ %.0118143.i.i, %.lr.ph145.i.i ], [ %31, %28 ]
   %29 = load ptr, ptr %18, align 8, !tbaa !3
-  tail call void @Fraig_NodeVecPush(ptr noundef %29, ptr noundef nonnull %.0116134.i.i) #12
+  tail call void @Fraig_NodeVecPush(ptr noundef %29, ptr noundef nonnull %.0116134.i.i) #11
   %30 = getelementptr inbounds nuw i8, ptr %.0116134.i.i, i64 72
   %31 = load ptr, ptr %30, align 8, !tbaa !56
   %.not127.i.i = icmp eq ptr %31, null
@@ -513,13 +513,13 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   %47 = load ptr, ptr %46, align 8, !tbaa !34
   %48 = load i32, ptr %19, align 8, !tbaa !40
   %49 = load ptr, ptr %20, align 8, !tbaa !22
-  %50 = tail call i32 @Fraig_CompareSimInfoUnderMask(ptr noundef %45, ptr noundef %47, i32 noundef %48, i32 noundef 0, ptr noundef %49) #12
+  %50 = tail call i32 @Fraig_CompareSimInfoUnderMask(ptr noundef %45, ptr noundef %47, i32 noundef %48, i32 noundef 0, ptr noundef %49) #11
   %.not128.i.i = icmp eq i32 %50, 0
   br i1 %.not128.i.i, label %82, label %51
 
 51:                                               ; preds = %.lr.ph138.i.i
   %52 = load ptr, ptr %21, align 8, !tbaa !21
-  %53 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %52) #12
+  %53 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %52) #11
   %54 = load ptr, ptr %18, align 8, !tbaa !3
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !33
@@ -559,7 +559,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %81, label %68, label %._crit_edge.i.i, !llvm.loop !59
 
 ._crit_edge.i.i:                                  ; preds = %68, %51
-  tail call void @Fraig_NodeVecPush(ptr noundef %14, ptr noundef %53) #12
+  tail call void @Fraig_NodeVecPush(ptr noundef %14, ptr noundef %53) #11
   br label %82
 
 82:                                               ; preds = %._crit_edge.i.i, %.lr.ph138.i.i
@@ -673,7 +673,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond204.not.i.i, label %._crit_edge164.i.i, label %104, !llvm.loop !66
 
 ._crit_edge164.i.i:                               ; preds = %._crit_edge160.i.i, %95
-  %126 = tail call i32 @Fraig_TableRehashF0(ptr noundef %0, i32 noundef 1) #12
+  %126 = tail call i32 @Fraig_TableRehashF0(ptr noundef %0, i32 noundef 1) #11
   %127 = load i32, ptr %98, align 8, !tbaa !53
   %128 = icmp sgt i32 %127, 0
   br i1 %128, label %.lr.ph183.i.i, label %Fraig_FeedBackCoveringStart.exit.i
@@ -708,7 +708,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
 139:                                              ; preds = %139, %.lr.ph179.i.i
   %.1117165.i.i = phi ptr [ %.2120177.i.i, %.lr.ph179.i.i ], [ %142, %139 ]
   %140 = load ptr, ptr %129, align 8, !tbaa !3
-  tail call void @Fraig_NodeVecPush(ptr noundef %140, ptr noundef nonnull %.1117165.i.i) #12
+  tail call void @Fraig_NodeVecPush(ptr noundef %140, ptr noundef nonnull %.1117165.i.i) #11
   %141 = getelementptr inbounds nuw i8, ptr %.1117165.i.i, i64 72
   %142 = load ptr, ptr %141, align 8, !tbaa !56
   %.not124.i.i = icmp eq ptr %142, null
@@ -737,7 +737,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph172.i.i:                                    ; preds = %._crit_edge169.i.i, %.lr.ph172.i.preheader.i
   %indvars.iv210.i.i = phi i64 [ %indvars.iv.next211.i.i, %._crit_edge169.i.i ], [ %indvars.iv.next214.i81.i, %.lr.ph172.i.preheader.i ]
   %149 = load ptr, ptr %130, align 8, !tbaa !21
-  %150 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %149) #12
+  %150 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %149) #11
   %151 = load ptr, ptr %129, align 8, !tbaa !3
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = load ptr, ptr %152, align 8, !tbaa !33
@@ -777,7 +777,7 @@ define i32 @Fraig_FeedBackCompress(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %178, label %165, label %._crit_edge169.i.i, !llvm.loop !69
 
 ._crit_edge169.i.i:                               ; preds = %165, %.lr.ph172.i.i
-  tail call void @Fraig_NodeVecPush(ptr noundef %14, ptr noundef %150) #12
+  tail call void @Fraig_NodeVecPush(ptr noundef %14, ptr noundef %150) #11
   %indvars.iv.next211.i.i = add nuw nsw i64 %indvars.iv210.i.i, 1
   %179 = load ptr, ptr %129, align 8, !tbaa !3
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 4
@@ -809,596 +809,597 @@ Fraig_FeedBackCoveringStart.exit.i:               ; preds = %._crit_edge180.i.i,
   %190 = load i32, ptr %189, align 4, !tbaa !30
   %191 = sext i32 %190 to i64
   %192 = shl nsw i64 %191, 2
-  %193 = tail call noalias ptr @malloc(i64 noundef %192) #13
-  %194 = icmp sgt i32 %190, 0
-  br i1 %194, label %.lr.ph.i, label %._crit_edge.i
+  %193 = tail call noalias ptr @malloc(i64 noundef %192) #12
+  %194 = load i32, ptr %189, align 4, !tbaa !30
+  %195 = icmp sgt i32 %194, 0
+  br i1 %195, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %Fraig_FeedBackCoveringStart.exit.i
-  %195 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  br label %197
+  %196 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  br label %198
 
-197:                                              ; preds = %197, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %197 ]
-  %198 = load ptr, ptr %195, align 8, !tbaa !33
-  %199 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %indvars.iv.i
-  %200 = load ptr, ptr %199, align 8, !tbaa !34
-  %201 = load i32, ptr %196, align 8, !tbaa !40
-  %202 = tail call i32 @Fraig_BitStringCountOnes(ptr noundef %200, i32 noundef %201) #12
-  %203 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv.i
-  store i32 %202, ptr %203, align 4, !tbaa !38
+198:                                              ; preds = %198, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %198 ]
+  %199 = load ptr, ptr %196, align 8, !tbaa !33
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %indvars.iv.i
+  %201 = load ptr, ptr %200, align 8, !tbaa !34
+  %202 = load i32, ptr %197, align 8, !tbaa !40
+  %203 = tail call i32 @Fraig_BitStringCountOnes(ptr noundef %201, i32 noundef %202) #11
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv.i
+  store i32 %203, ptr %204, align 4, !tbaa !38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %204 = load i32, ptr %189, align 4, !tbaa !30
-  %205 = sext i32 %204 to i64
-  %206 = icmp slt i64 %indvars.iv.next.i, %205
-  br i1 %206, label %197, label %._crit_edge.i, !llvm.loop !73
+  %205 = load i32, ptr %189, align 4, !tbaa !30
+  %206 = sext i32 %205 to i64
+  %207 = icmp slt i64 %indvars.iv.next.i, %206
+  br i1 %207, label %198, label %._crit_edge.i, !llvm.loop !73
 
-._crit_edge.i:                                    ; preds = %197, %Fraig_FeedBackCoveringStart.exit.i
-  %207 = tail call i32 @Msat_IntVecReadSize(ptr noundef %11) #12
-  %208 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %210 = load i32, ptr %189, align 4, !tbaa !30
-  %211 = icmp sgt i32 %210, 0
-  br i1 %211, label %.lr.ph.preheader.i.i, label %._crit_edge85.i
+._crit_edge.i:                                    ; preds = %198, %Fraig_FeedBackCoveringStart.exit.i
+  %208 = tail call i32 @Msat_IntVecReadSize(ptr noundef %11) #11
+  %209 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %211 = load i32, ptr %189, align 4, !tbaa !30
+  %212 = icmp sgt i32 %211, 0
+  br i1 %212, label %.lr.ph.preheader.i.i, label %._crit_edge85.i
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge.i, %Fraig_CancelCoveredColumns.exit.i
-  %212 = phi i32 [ %251, %Fraig_CancelCoveredColumns.exit.i ], [ %210, %._crit_edge.i ]
-  %wide.trip.count.i53.i = zext nneg i32 %212 to i64
+  %213 = phi i32 [ %252, %Fraig_CancelCoveredColumns.exit.i ], [ %211, %._crit_edge.i ]
+  %wide.trip.count.i53.i = zext nneg i32 %213 to i64
   br label %.lr.ph.i54.i
 
-.lr.ph.i54.i:                                     ; preds = %218, %.lr.ph.preheader.i.i
-  %indvars.iv.i55.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i56.i, %218 ]
-  %.023.i.i = phi i32 [ 1000000, %.lr.ph.preheader.i.i ], [ %.1.i.i, %218 ]
-  %.01522.i.i = phi i32 [ -1, %.lr.ph.preheader.i.i ], [ %.116.i.i, %218 ]
-  %213 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv.i55.i
-  %214 = load i32, ptr %213, align 4, !tbaa !38
-  %215 = trunc nuw nsw i64 %indvars.iv.i55.i to i32
-  switch i32 %214, label %216 [
-    i32 0, label %218
+.lr.ph.i54.i:                                     ; preds = %219, %.lr.ph.preheader.i.i
+  %indvars.iv.i55.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i56.i, %219 ]
+  %.023.i.i = phi i32 [ 1000000, %.lr.ph.preheader.i.i ], [ %.1.i.i, %219 ]
+  %.01522.i.i = phi i32 [ -1, %.lr.ph.preheader.i.i ], [ %.116.i.i, %219 ]
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv.i55.i
+  %215 = load i32, ptr %214, align 4, !tbaa !38
+  %216 = trunc nuw nsw i64 %indvars.iv.i55.i to i32
+  switch i32 %215, label %217 [
+    i32 0, label %219
     i32 1, label %Fraig_GetSmallestColumn.exit.i
   ]
 
-216:                                              ; preds = %.lr.ph.i54.i
-  %217 = icmp sgt i32 %.023.i.i, %214
-  %spec.select.i.i = select i1 %217, i32 %215, i32 %.01522.i.i
-  %spec.select20.i.i = tail call i32 @llvm.smin.i32(i32 %.023.i.i, i32 %214)
-  br label %218
+217:                                              ; preds = %.lr.ph.i54.i
+  %218 = icmp sgt i32 %.023.i.i, %215
+  %spec.select.i.i = select i1 %218, i32 %216, i32 %.01522.i.i
+  %spec.select20.i.i = tail call i32 @llvm.smin.i32(i32 %.023.i.i, i32 %215)
+  br label %219
 
-218:                                              ; preds = %216, %.lr.ph.i54.i
-  %.116.i.i = phi i32 [ %.01522.i.i, %.lr.ph.i54.i ], [ %spec.select.i.i, %216 ]
-  %.1.i.i = phi i32 [ %.023.i.i, %.lr.ph.i54.i ], [ %spec.select20.i.i, %216 ]
+219:                                              ; preds = %217, %.lr.ph.i54.i
+  %.116.i.i = phi i32 [ %.01522.i.i, %.lr.ph.i54.i ], [ %spec.select.i.i, %217 ]
+  %.1.i.i = phi i32 [ %.023.i.i, %.lr.ph.i54.i ], [ %spec.select20.i.i, %217 ]
   %indvars.iv.next.i56.i = add nuw nsw i64 %indvars.iv.i55.i, 1
   %exitcond.not.i57.i = icmp eq i64 %indvars.iv.next.i56.i, %wide.trip.count.i53.i
   br i1 %exitcond.not.i57.i, label %Fraig_GetSmallestColumn.exit.i, label %.lr.ph.i54.i, !llvm.loop !74
 
-Fraig_GetSmallestColumn.exit.i:                   ; preds = %218, %.lr.ph.i54.i
-  %.018.i.i = phi i32 [ %215, %.lr.ph.i54.i ], [ %.116.i.i, %218 ]
+Fraig_GetSmallestColumn.exit.i:                   ; preds = %219, %.lr.ph.i54.i
+  %.018.i.i = phi i32 [ %216, %.lr.ph.i54.i ], [ %.116.i.i, %219 ]
   %.not.i = icmp eq i32 %.018.i.i, -1
-  br i1 %.not.i, label %.preheader.i, label %220
+  br i1 %.not.i, label %.preheader.i, label %221
 
 .preheader.i:                                     ; preds = %Fraig_GetSmallestColumn.exit.i
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  br label %253
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  br label %254
 
-220:                                              ; preds = %Fraig_GetSmallestColumn.exit.i
-  %221 = load ptr, ptr %208, align 8, !tbaa !33
-  %222 = sext i32 %.018.i.i to i64
-  %223 = getelementptr inbounds [8 x i8], ptr %221, i64 %222
-  %224 = load ptr, ptr %223, align 8, !tbaa !34
-  %225 = load i32, ptr %209, align 8, !tbaa !40
-  %226 = icmp sgt i32 %225, 0
-  br i1 %226, label %.lr.ph.preheader.i58.i, label %Fraig_GetHittingPattern.exit.i
+221:                                              ; preds = %Fraig_GetSmallestColumn.exit.i
+  %222 = load ptr, ptr %209, align 8, !tbaa !33
+  %223 = sext i32 %.018.i.i to i64
+  %224 = getelementptr inbounds [8 x i8], ptr %222, i64 %223
+  %225 = load ptr, ptr %224, align 8, !tbaa !34
+  %226 = load i32, ptr %210, align 8, !tbaa !40
+  %227 = icmp sgt i32 %226, 0
+  br i1 %227, label %.lr.ph.preheader.i58.i, label %Fraig_GetHittingPattern.exit.i
 
-.lr.ph.preheader.i58.i:                           ; preds = %220
-  %wide.trip.count.i59.i = zext nneg i32 %225 to i64
+.lr.ph.preheader.i58.i:                           ; preds = %221
+  %wide.trip.count.i59.i = zext nneg i32 %226 to i64
   br label %.lr.ph.i60.i
 
 .lr.ph.i60.i:                                     ; preds = %.loopexit.i64.i, %.lr.ph.preheader.i58.i
   %indvars.iv.i61.i = phi i64 [ 0, %.lr.ph.preheader.i58.i ], [ %indvars.iv.next.i65.i, %.loopexit.i64.i ]
-  %227 = getelementptr inbounds nuw [4 x i8], ptr %224, i64 %indvars.iv.i61.i
-  %228 = load i32, ptr %227, align 4, !tbaa !38
-  %229 = icmp eq i32 %228, 0
-  br i1 %229, label %.loopexit.i64.i, label %.preheader.i.i
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %225, i64 %indvars.iv.i61.i
+  %229 = load i32, ptr %228, align 4, !tbaa !38
+  %230 = icmp eq i32 %229, 0
+  br i1 %230, label %.loopexit.i64.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.lr.ph.i60.i, %236
-  %.017.i.i = phi i32 [ %237, %236 ], [ 0, %.lr.ph.i60.i ]
-  %230 = shl nuw i32 1, %.017.i.i
-  %231 = and i32 %230, %228
-  %.not.i62.i = icmp eq i32 %231, 0
-  br i1 %.not.i62.i, label %236, label %232
+.preheader.i.i:                                   ; preds = %.lr.ph.i60.i, %237
+  %.017.i.i = phi i32 [ %238, %237 ], [ 0, %.lr.ph.i60.i ]
+  %231 = shl nuw i32 1, %.017.i.i
+  %232 = and i32 %231, %229
+  %.not.i62.i = icmp eq i32 %232, 0
+  br i1 %.not.i62.i, label %237, label %233
 
-232:                                              ; preds = %.preheader.i.i
-  %233 = trunc nuw nsw i64 %indvars.iv.i61.i to i32
-  %234 = shl nsw i32 %233, 5
-  %235 = add nuw nsw i32 %.017.i.i, %234
+233:                                              ; preds = %.preheader.i.i
+  %234 = trunc nuw nsw i64 %indvars.iv.i61.i to i32
+  %235 = shl nsw i32 %234, 5
+  %236 = add nuw nsw i32 %.017.i.i, %235
   br label %Fraig_GetHittingPattern.exit.i
 
-236:                                              ; preds = %.preheader.i.i
-  %237 = add nuw nsw i32 %.017.i.i, 1
-  %exitcond.not.i63.i = icmp eq i32 %237, 32
+237:                                              ; preds = %.preheader.i.i
+  %238 = add nuw nsw i32 %.017.i.i, 1
+  %exitcond.not.i63.i = icmp eq i32 %238, 32
   br i1 %exitcond.not.i63.i, label %.loopexit.i64.i, label %.preheader.i.i, !llvm.loop !75
 
-.loopexit.i64.i:                                  ; preds = %236, %.lr.ph.i60.i
+.loopexit.i64.i:                                  ; preds = %237, %.lr.ph.i60.i
   %indvars.iv.next.i65.i = add nuw nsw i64 %indvars.iv.i61.i, 1
   %exitcond22.not.i.i = icmp eq i64 %indvars.iv.next.i65.i, %wide.trip.count.i59.i
   br i1 %exitcond22.not.i.i, label %Fraig_GetHittingPattern.exit.i, label %.lr.ph.i60.i, !llvm.loop !76
 
-Fraig_GetHittingPattern.exit.i:                   ; preds = %.loopexit.i64.i, %232, %220
-  %.013.i.i = phi i32 [ %235, %232 ], [ -1, %220 ], [ -1, %.loopexit.i64.i ]
-  %238 = ashr i32 %.013.i.i, 5
-  %239 = sext i32 %238 to i64
-  %240 = and i32 %.013.i.i, 31
-  %241 = shl nuw i32 1, %240
-  br label %242
+Fraig_GetHittingPattern.exit.i:                   ; preds = %.loopexit.i64.i, %233, %221
+  %.013.i.i = phi i32 [ %236, %233 ], [ -1, %221 ], [ -1, %.loopexit.i64.i ]
+  %239 = ashr i32 %.013.i.i, 5
+  %240 = sext i32 %239 to i64
+  %241 = and i32 %.013.i.i, 31
+  %242 = shl nuw i32 1, %241
+  br label %243
 
-242:                                              ; preds = %250, %Fraig_GetHittingPattern.exit.i
-  %indvars.iv.i68.i = phi i64 [ 0, %Fraig_GetHittingPattern.exit.i ], [ %indvars.iv.next.i71.i, %250 ]
-  %243 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %indvars.iv.i68.i
-  %244 = load ptr, ptr %243, align 8, !tbaa !34
-  %245 = getelementptr inbounds [4 x i8], ptr %244, i64 %239
-  %246 = load i32, ptr %245, align 4, !tbaa !38
-  %247 = and i32 %246, %241
-  %.not.i69.i = icmp eq i32 %247, 0
-  br i1 %.not.i69.i, label %250, label %248
+243:                                              ; preds = %251, %Fraig_GetHittingPattern.exit.i
+  %indvars.iv.i68.i = phi i64 [ 0, %Fraig_GetHittingPattern.exit.i ], [ %indvars.iv.next.i71.i, %251 ]
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %indvars.iv.i68.i
+  %245 = load ptr, ptr %244, align 8, !tbaa !34
+  %246 = getelementptr inbounds [4 x i8], ptr %245, i64 %240
+  %247 = load i32, ptr %246, align 4, !tbaa !38
+  %248 = and i32 %247, %242
+  %.not.i69.i = icmp eq i32 %248, 0
+  br i1 %.not.i69.i, label %251, label %249
 
-248:                                              ; preds = %242
-  %249 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv.i68.i
-  store i32 0, ptr %249, align 4, !tbaa !38
-  br label %250
+249:                                              ; preds = %243
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv.i68.i
+  store i32 0, ptr %250, align 4, !tbaa !38
+  br label %251
 
-250:                                              ; preds = %248, %242
+251:                                              ; preds = %249, %243
   %indvars.iv.next.i71.i = add nuw nsw i64 %indvars.iv.i68.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i71.i, %wide.trip.count.i53.i
-  br i1 %exitcond.not.i, label %Fraig_CancelCoveredColumns.exit.i, label %242, !llvm.loop !77
+  br i1 %exitcond.not.i, label %Fraig_CancelCoveredColumns.exit.i, label %243, !llvm.loop !77
 
-Fraig_CancelCoveredColumns.exit.i:                ; preds = %250
-  tail call void @Msat_IntVecPush(ptr noundef %11, i32 noundef %.013.i.i) #12
-  %251 = load i32, ptr %189, align 4, !tbaa !30
-  %252 = icmp sgt i32 %251, 0
-  br i1 %252, label %.lr.ph.preheader.i.i, label %._crit_edge85.i, !llvm.loop !78
+Fraig_CancelCoveredColumns.exit.i:                ; preds = %251
+  tail call void @Msat_IntVecPush(ptr noundef %11, i32 noundef %.013.i.i) #11
+  %252 = load i32, ptr %189, align 4, !tbaa !30
+  %253 = icmp sgt i32 %252, 0
+  br i1 %253, label %.lr.ph.preheader.i.i, label %._crit_edge85.i, !llvm.loop !78
 
-253:                                              ; preds = %253, %.preheader.i
-  %indvars.iv93.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next94.i, %253 ]
-  %254 = load ptr, ptr %219, align 8, !tbaa !21
-  %255 = load ptr, ptr %208, align 8, !tbaa !33
-  %256 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %indvars.iv93.i
-  %257 = load ptr, ptr %256, align 8, !tbaa !34
-  tail call void @Fraig_MemFixedEntryRecycle(ptr noundef %254, ptr noundef %257) #12
+254:                                              ; preds = %254, %.preheader.i
+  %indvars.iv93.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next94.i, %254 ]
+  %255 = load ptr, ptr %220, align 8, !tbaa !21
+  %256 = load ptr, ptr %209, align 8, !tbaa !33
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %256, i64 %indvars.iv93.i
+  %258 = load ptr, ptr %257, align 8, !tbaa !34
+  tail call void @Fraig_MemFixedEntryRecycle(ptr noundef %255, ptr noundef %258) #11
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
-  %258 = load i32, ptr %189, align 4, !tbaa !30
-  %259 = sext i32 %258 to i64
-  %260 = icmp slt i64 %indvars.iv.next94.i, %259
-  br i1 %260, label %253, label %._crit_edge85.i.thread, !llvm.loop !79
+  %259 = load i32, ptr %189, align 4, !tbaa !30
+  %260 = sext i32 %259 to i64
+  %261 = icmp slt i64 %indvars.iv.next94.i, %260
+  br i1 %261, label %254, label %._crit_edge85.i.thread, !llvm.loop !79
 
-._crit_edge85.i.thread:                           ; preds = %253
-  tail call void @Fraig_NodeVecFree(ptr noundef nonnull %14) #12
-  br label %261
+._crit_edge85.i.thread:                           ; preds = %254
+  tail call void @Fraig_NodeVecFree(ptr noundef nonnull %14) #11
+  br label %262
 
 ._crit_edge85.i:                                  ; preds = %Fraig_CancelCoveredColumns.exit.i, %._crit_edge.i
-  tail call void @Fraig_NodeVecFree(ptr noundef nonnull %14) #12
+  tail call void @Fraig_NodeVecFree(ptr noundef nonnull %14) #11
   %.not51.i = icmp eq ptr %193, null
-  br i1 %.not51.i, label %Fraig_FeedBackCovering.exit, label %261
+  br i1 %.not51.i, label %Fraig_FeedBackCovering.exit, label %262
 
-261:                                              ; preds = %._crit_edge85.i.thread, %._crit_edge85.i
-  tail call void @free(ptr noundef nonnull %193) #12
+262:                                              ; preds = %._crit_edge85.i.thread, %._crit_edge85.i
+  tail call void @free(ptr noundef nonnull %193) #11
   br label %Fraig_FeedBackCovering.exit
 
-Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge85.i, %261
-  %262 = load ptr, ptr %10, align 8, !tbaa !20
-  %263 = tail call i32 @Msat_IntVecReadSize(ptr noundef %262) #12
-  %264 = load ptr, ptr %10, align 8, !tbaa !20
-  %265 = tail call ptr @Msat_IntVecReadArray(ptr noundef %264) #12
-  %266 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %267 = load i32, ptr %266, align 8, !tbaa !80
-  %268 = add nsw i32 %267, %263
-  %269 = ashr i32 %268, 5
-  %270 = and i32 %268, 31
-  %271 = icmp ne i32 %270, 0
-  %272 = zext i1 %271 to i32
-  %273 = add nsw i32 %269, %272
-  store i32 %273, ptr %209, align 8, !tbaa !40
-  %274 = load ptr, ptr %0, align 8, !tbaa !29
-  %275 = getelementptr inbounds nuw i8, ptr %274, i64 4
-  %276 = load i32, ptr %275, align 4, !tbaa !30
-  %277 = icmp sgt i32 %276, 0
-  br i1 %277, label %.lr.ph140, label %._crit_edge141
+Fraig_FeedBackCovering.exit:                      ; preds = %._crit_edge85.i, %262
+  %263 = load ptr, ptr %10, align 8, !tbaa !20
+  %264 = tail call i32 @Msat_IntVecReadSize(ptr noundef %263) #11
+  %265 = load ptr, ptr %10, align 8, !tbaa !20
+  %266 = tail call ptr @Msat_IntVecReadArray(ptr noundef %265) #11
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %268 = load i32, ptr %267, align 8, !tbaa !80
+  %269 = add nsw i32 %268, %264
+  %270 = ashr i32 %269, 5
+  %271 = and i32 %269, 31
+  %272 = icmp ne i32 %271, 0
+  %273 = zext i1 %272 to i32
+  %274 = add nsw i32 %270, %273
+  store i32 %274, ptr %210, align 8, !tbaa !40
+  %275 = load ptr, ptr %0, align 8, !tbaa !29
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 4
+  %277 = load i32, ptr %276, align 4, !tbaa !30
+  %278 = icmp sgt i32 %277, 0
+  br i1 %278, label %.lr.ph140, label %._crit_edge141
 
 .lr.ph140:                                        ; preds = %Fraig_FeedBackCovering.exit
-  %278 = getelementptr inbounds nuw i8, ptr %274, i64 8
-  %279 = load ptr, ptr %278, align 8, !tbaa !33
-  %280 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %281 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %282 = icmp sgt i32 %263, 0
-  %wide.trip.count = zext nneg i32 %263 to i64
-  br label %283
+  %279 = getelementptr inbounds nuw i8, ptr %275, i64 8
+  %280 = load ptr, ptr %279, align 8, !tbaa !33
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %283 = icmp sgt i32 %264, 0
+  %wide.trip.count = zext nneg i32 %264 to i64
+  br label %284
 
-283:                                              ; preds = %.lr.ph140, %._crit_edge137
-  %284 = phi i32 [ %273, %.lr.ph140 ], [ %330, %._crit_edge137 ]
+284:                                              ; preds = %.lr.ph140, %._crit_edge137
+  %285 = phi i32 [ %274, %.lr.ph140 ], [ %331, %._crit_edge137 ]
   %indvars.iv174 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next175, %._crit_edge137 ]
-  %285 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %indvars.iv174
-  %286 = load ptr, ptr %285, align 8, !tbaa !34
-  %287 = getelementptr inbounds nuw i8, ptr %286, i64 112
-  %288 = load ptr, ptr %287, align 8, !tbaa !41
-  %289 = load i32, ptr %280, align 4, !tbaa !81
-  %290 = icmp slt i32 %289, %284
-  br i1 %290, label %.lr.ph, label %.preheader118
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %280, i64 %indvars.iv174
+  %287 = load ptr, ptr %286, align 8, !tbaa !34
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 112
+  %289 = load ptr, ptr %288, align 8, !tbaa !41
+  %290 = load i32, ptr %281, align 4, !tbaa !81
+  %291 = icmp slt i32 %290, %285
+  br i1 %291, label %.lr.ph, label %.preheader118
 
-.lr.ph:                                           ; preds = %283
-  %291 = load ptr, ptr %281, align 8, !tbaa !24
-  %292 = sext i32 %289 to i64
-  br label %294
+.lr.ph:                                           ; preds = %284
+  %292 = load ptr, ptr %282, align 8, !tbaa !24
+  %293 = sext i32 %290 to i64
+  br label %295
 
-.preheader118:                                    ; preds = %294, %283
-  %293 = phi i32 [ %284, %283 ], [ %296, %294 ]
-  br i1 %282, label %.lr.ph130, label %._crit_edge
+.preheader118:                                    ; preds = %295, %284
+  %294 = phi i32 [ %285, %284 ], [ %297, %295 ]
+  br i1 %283, label %.lr.ph130, label %._crit_edge
 
-294:                                              ; preds = %.lr.ph, %294
-  %indvars.iv = phi i64 [ %292, %.lr.ph ], [ %indvars.iv.next, %294 ]
-  %295 = getelementptr inbounds [4 x i8], ptr %291, i64 %indvars.iv
-  store i32 0, ptr %295, align 4, !tbaa !38
+295:                                              ; preds = %.lr.ph, %295
+  %indvars.iv = phi i64 [ %293, %.lr.ph ], [ %indvars.iv.next, %295 ]
+  %296 = getelementptr inbounds [4 x i8], ptr %292, i64 %indvars.iv
+  store i32 0, ptr %296, align 4, !tbaa !38
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %296 = load i32, ptr %209, align 8, !tbaa !40
-  %297 = sext i32 %296 to i64
-  %298 = icmp slt i64 %indvars.iv.next, %297
-  br i1 %298, label %294, label %.preheader118, !llvm.loop !82
+  %297 = load i32, ptr %210, align 8, !tbaa !40
+  %298 = sext i32 %297 to i64
+  %299 = icmp slt i64 %indvars.iv.next, %298
+  br i1 %299, label %295, label %.preheader118, !llvm.loop !82
 
-.lr.ph130:                                        ; preds = %.preheader118, %324
-  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %324 ], [ 0, %.preheader118 ]
-  %299 = getelementptr inbounds nuw [4 x i8], ptr %265, i64 %indvars.iv163
-  %300 = load i32, ptr %299, align 4, !tbaa !38
-  %301 = ashr i32 %300, 5
-  %302 = sext i32 %301 to i64
-  %303 = getelementptr inbounds [4 x i8], ptr %288, i64 %302
-  %304 = load i32, ptr %303, align 4, !tbaa !38
-  %305 = and i32 %300, 31
-  %306 = shl nuw i32 1, %305
-  %307 = and i32 %306, %304
-  %.not109 = icmp eq i32 %307, 0
-  br i1 %.not109, label %324, label %308
+.lr.ph130:                                        ; preds = %.preheader118, %325
+  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %325 ], [ 0, %.preheader118 ]
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %266, i64 %indvars.iv163
+  %301 = load i32, ptr %300, align 4, !tbaa !38
+  %302 = ashr i32 %301, 5
+  %303 = sext i32 %302 to i64
+  %304 = getelementptr inbounds [4 x i8], ptr %289, i64 %303
+  %305 = load i32, ptr %304, align 4, !tbaa !38
+  %306 = and i32 %301, 31
+  %307 = shl nuw i32 1, %306
+  %308 = and i32 %307, %305
+  %.not109 = icmp eq i32 %308, 0
+  br i1 %.not109, label %325, label %309
 
-308:                                              ; preds = %.lr.ph130
-  %309 = load i32, ptr %266, align 8, !tbaa !80
-  %310 = trunc nuw nsw i64 %indvars.iv163 to i32
-  %311 = add nsw i32 %309, %310
-  %312 = load i32, ptr %280, align 4, !tbaa !81
-  %313 = shl nsw i32 %312, 5
-  %314 = icmp slt i32 %311, %313
-  %315 = and i32 %311, 31
-  %316 = shl nuw i32 1, %315
-  br i1 %314, label %.sink.split, label %317
+309:                                              ; preds = %.lr.ph130
+  %310 = load i32, ptr %267, align 8, !tbaa !80
+  %311 = trunc nuw nsw i64 %indvars.iv163 to i32
+  %312 = add nsw i32 %310, %311
+  %313 = load i32, ptr %281, align 4, !tbaa !81
+  %314 = shl nsw i32 %313, 5
+  %315 = icmp slt i32 %312, %314
+  %316 = and i32 %312, 31
+  %317 = shl nuw i32 1, %316
+  br i1 %315, label %.sink.split, label %318
 
-317:                                              ; preds = %308
-  %318 = load ptr, ptr %281, align 8, !tbaa !24
+318:                                              ; preds = %309
+  %319 = load ptr, ptr %282, align 8, !tbaa !24
   br label %.sink.split
 
-.sink.split:                                      ; preds = %308, %317
-  %.sink219 = phi ptr [ %318, %317 ], [ %288, %308 ]
-  %319 = ashr i32 %311, 5
-  %320 = sext i32 %319 to i64
-  %321 = getelementptr inbounds [4 x i8], ptr %.sink219, i64 %320
-  %322 = load i32, ptr %321, align 4, !tbaa !38
-  %323 = or i32 %322, %316
-  store i32 %323, ptr %321, align 4, !tbaa !38
-  br label %324
+.sink.split:                                      ; preds = %309, %318
+  %.sink219 = phi ptr [ %319, %318 ], [ %289, %309 ]
+  %320 = ashr i32 %312, 5
+  %321 = sext i32 %320 to i64
+  %322 = getelementptr inbounds [4 x i8], ptr %.sink219, i64 %321
+  %323 = load i32, ptr %322, align 4, !tbaa !38
+  %324 = or i32 %323, %317
+  store i32 %324, ptr %322, align 4, !tbaa !38
+  br label %325
 
-324:                                              ; preds = %.sink.split, %.lr.ph130
+325:                                              ; preds = %.sink.split, %.lr.ph130
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph130, !llvm.loop !83
 
-._crit_edge.loopexit:                             ; preds = %324
-  %.pre = load i32, ptr %209, align 8, !tbaa !40
+._crit_edge.loopexit:                             ; preds = %325
+  %.pre = load i32, ptr %210, align 8, !tbaa !40
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader118
-  %325 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %293, %.preheader118 ]
-  %326 = load i32, ptr %280, align 4, !tbaa !81
-  %327 = icmp slt i32 %326, %325
-  br i1 %327, label %.lr.ph133, label %.preheader
+  %326 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %294, %.preheader118 ]
+  %327 = load i32, ptr %281, align 4, !tbaa !81
+  %328 = icmp slt i32 %327, %326
+  br i1 %328, label %.lr.ph133, label %.preheader
 
 .lr.ph133:                                        ; preds = %._crit_edge
-  %328 = load ptr, ptr %281, align 8, !tbaa !24
-  %329 = sext i32 %326 to i64
-  br label %332
+  %329 = load ptr, ptr %282, align 8, !tbaa !24
+  %330 = sext i32 %327 to i64
+  br label %333
 
-.preheader:                                       ; preds = %332, %._crit_edge
-  %330 = phi i32 [ %325, %._crit_edge ], [ %336, %332 ]
-  %331 = icmp sgt i32 %330, 0
-  br i1 %331, label %.lr.ph136.preheader, label %._crit_edge137
+.preheader:                                       ; preds = %333, %._crit_edge
+  %331 = phi i32 [ %326, %._crit_edge ], [ %337, %333 ]
+  %332 = icmp sgt i32 %331, 0
+  br i1 %332, label %.lr.ph136.preheader, label %._crit_edge137
 
 .lr.ph136.preheader:                              ; preds = %.preheader
-  %wide.trip.count172 = zext nneg i32 %330 to i64
+  %wide.trip.count172 = zext nneg i32 %331 to i64
   br label %.lr.ph136
 
-332:                                              ; preds = %.lr.ph133, %332
-  %indvars.iv166 = phi i64 [ %329, %.lr.ph133 ], [ %indvars.iv.next167, %332 ]
-  %333 = getelementptr inbounds [4 x i8], ptr %328, i64 %indvars.iv166
-  %334 = load i32, ptr %333, align 4, !tbaa !38
-  %335 = getelementptr inbounds [4 x i8], ptr %288, i64 %indvars.iv166
-  store i32 %334, ptr %335, align 4, !tbaa !38
+333:                                              ; preds = %.lr.ph133, %333
+  %indvars.iv166 = phi i64 [ %330, %.lr.ph133 ], [ %indvars.iv.next167, %333 ]
+  %334 = getelementptr inbounds [4 x i8], ptr %329, i64 %indvars.iv166
+  %335 = load i32, ptr %334, align 4, !tbaa !38
+  %336 = getelementptr inbounds [4 x i8], ptr %289, i64 %indvars.iv166
+  store i32 %335, ptr %336, align 4, !tbaa !38
   %indvars.iv.next167 = add nsw i64 %indvars.iv166, 1
-  %336 = load i32, ptr %209, align 8, !tbaa !40
-  %337 = sext i32 %336 to i64
-  %338 = icmp slt i64 %indvars.iv.next167, %337
-  br i1 %338, label %332, label %.preheader, !llvm.loop !84
+  %337 = load i32, ptr %210, align 8, !tbaa !40
+  %338 = sext i32 %337 to i64
+  %339 = icmp slt i64 %indvars.iv.next167, %338
+  br i1 %339, label %333, label %.preheader, !llvm.loop !84
 
 .lr.ph136:                                        ; preds = %.lr.ph136.preheader, %.lr.ph136
   %indvars.iv169 = phi i64 [ 0, %.lr.ph136.preheader ], [ %indvars.iv.next170, %.lr.ph136 ]
-  %.0135 = phi i32 [ 0, %.lr.ph136.preheader ], [ %344, %.lr.ph136 ]
-  %339 = getelementptr inbounds nuw [4 x i8], ptr %288, i64 %indvars.iv169
-  %340 = load i32, ptr %339, align 4, !tbaa !38
-  %341 = getelementptr inbounds nuw [4 x i8], ptr @s_FraigPrimes, i64 %indvars.iv169
-  %342 = load i32, ptr %341, align 4, !tbaa !38
-  %343 = mul i32 %342, %340
-  %344 = xor i32 %343, %.0135
+  %.0135 = phi i32 [ 0, %.lr.ph136.preheader ], [ %345, %.lr.ph136 ]
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %289, i64 %indvars.iv169
+  %341 = load i32, ptr %340, align 4, !tbaa !38
+  %342 = getelementptr inbounds nuw [4 x i8], ptr @s_FraigPrimes, i64 %indvars.iv169
+  %343 = load i32, ptr %342, align 4, !tbaa !38
+  %344 = mul i32 %343, %341
+  %345 = xor i32 %344, %.0135
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
   br i1 %exitcond173.not, label %._crit_edge137, label %.lr.ph136, !llvm.loop !85
 
 ._crit_edge137:                                   ; preds = %.lr.ph136, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %344, %.lr.ph136 ]
-  %345 = getelementptr inbounds nuw i8, ptr %286, i64 100
-  store i32 %.0.lcssa, ptr %345, align 4, !tbaa !44
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %345, %.lr.ph136 ]
+  %346 = getelementptr inbounds nuw i8, ptr %287, i64 100
+  store i32 %.0.lcssa, ptr %346, align 4, !tbaa !44
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
-  %346 = load i32, ptr %275, align 4, !tbaa !30
-  %347 = sext i32 %346 to i64
-  %348 = icmp slt i64 %indvars.iv.next175, %347
-  br i1 %348, label %283, label %._crit_edge141.loopexit, !llvm.loop !86
+  %347 = load i32, ptr %276, align 4, !tbaa !30
+  %348 = sext i32 %347 to i64
+  %349 = icmp slt i64 %indvars.iv.next175, %348
+  br i1 %349, label %284, label %._crit_edge141.loopexit, !llvm.loop !86
 
 ._crit_edge141.loopexit:                          ; preds = %._crit_edge137
-  %.pre183 = load i32, ptr %266, align 8, !tbaa !80
-  %.pre184 = add nsw i32 %.pre183, %263
+  %.pre183 = load i32, ptr %267, align 8, !tbaa !80
+  %.pre184 = add nsw i32 %.pre183, %264
   br label %._crit_edge141
 
 ._crit_edge141:                                   ; preds = %._crit_edge141.loopexit, %Fraig_FeedBackCovering.exit
-  %.pre-phi = phi i32 [ %.pre184, %._crit_edge141.loopexit ], [ %268, %Fraig_FeedBackCovering.exit ]
-  %349 = phi i32 [ %330, %._crit_edge141.loopexit ], [ %273, %Fraig_FeedBackCovering.exit ]
-  %350 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i32 %349, ptr %350, align 4, !tbaa !81
-  store i32 %.pre-phi, ptr %266, align 8, !tbaa !80
-  %351 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %352 = load ptr, ptr %351, align 8, !tbaa !37
-  %353 = getelementptr inbounds nuw i8, ptr %352, i64 4
-  %354 = load i32, ptr %353, align 4, !tbaa !30
-  %355 = icmp sgt i32 %354, 1
-  br i1 %355, label %.lr.ph144, label %._crit_edge145
+  %.pre-phi = phi i32 [ %.pre184, %._crit_edge141.loopexit ], [ %269, %Fraig_FeedBackCovering.exit ]
+  %350 = phi i32 [ %331, %._crit_edge141.loopexit ], [ %274, %Fraig_FeedBackCovering.exit ]
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  store i32 %350, ptr %351, align 4, !tbaa !81
+  store i32 %.pre-phi, ptr %267, align 8, !tbaa !80
+  %352 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %353 = load ptr, ptr %352, align 8, !tbaa !37
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 4
+  %355 = load i32, ptr %354, align 4, !tbaa !30
+  %356 = icmp sgt i32 %355, 1
+  br i1 %356, label %.lr.ph144, label %._crit_edge145
 
-.lr.ph144:                                        ; preds = %._crit_edge141, %370
-  %indvars.iv177 = phi i64 [ %indvars.iv.next178, %370 ], [ 1, %._crit_edge141 ]
-  %356 = phi ptr [ %371, %370 ], [ %352, %._crit_edge141 ]
-  %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
-  %358 = load ptr, ptr %357, align 8, !tbaa !33
-  %359 = getelementptr inbounds nuw [8 x i8], ptr %358, i64 %indvars.iv177
-  %360 = load ptr, ptr %359, align 8, !tbaa !34
-  %361 = tail call i32 @Fraig_NodeIsAnd(ptr noundef %360) #12
-  %.not108 = icmp eq i32 %361, 0
-  br i1 %.not108, label %370, label %362
+.lr.ph144:                                        ; preds = %._crit_edge141, %371
+  %indvars.iv177 = phi i64 [ %indvars.iv.next178, %371 ], [ 1, %._crit_edge141 ]
+  %357 = phi ptr [ %372, %371 ], [ %353, %._crit_edge141 ]
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 8
+  %359 = load ptr, ptr %358, align 8, !tbaa !33
+  %360 = getelementptr inbounds nuw [8 x i8], ptr %359, i64 %indvars.iv177
+  %361 = load ptr, ptr %360, align 8, !tbaa !34
+  %362 = tail call i32 @Fraig_NodeIsAnd(ptr noundef %361) #11
+  %.not108 = icmp eq i32 %362, 0
+  br i1 %.not108, label %371, label %363
 
-362:                                              ; preds = %.lr.ph144
-  %363 = load ptr, ptr %351, align 8, !tbaa !37
-  %364 = getelementptr inbounds nuw i8, ptr %363, i64 8
-  %365 = load ptr, ptr %364, align 8, !tbaa !33
-  %366 = getelementptr inbounds nuw [8 x i8], ptr %365, i64 %indvars.iv177
-  %367 = load ptr, ptr %366, align 8, !tbaa !34
-  %368 = getelementptr inbounds nuw i8, ptr %367, i64 100
-  store i32 0, ptr %368, align 4, !tbaa !44
-  %369 = load i32, ptr %350, align 4, !tbaa !81
-  tail call void @Fraig_NodeSimulate(ptr noundef %367, i32 noundef 0, i32 noundef %369, i32 noundef 0) #12
-  br label %370
+363:                                              ; preds = %.lr.ph144
+  %364 = load ptr, ptr %352, align 8, !tbaa !37
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
+  %366 = load ptr, ptr %365, align 8, !tbaa !33
+  %367 = getelementptr inbounds nuw [8 x i8], ptr %366, i64 %indvars.iv177
+  %368 = load ptr, ptr %367, align 8, !tbaa !34
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 100
+  store i32 0, ptr %369, align 4, !tbaa !44
+  %370 = load i32, ptr %351, align 4, !tbaa !81
+  tail call void @Fraig_NodeSimulate(ptr noundef %368, i32 noundef 0, i32 noundef %370, i32 noundef 0) #11
+  br label %371
 
-370:                                              ; preds = %.lr.ph144, %362
+371:                                              ; preds = %.lr.ph144, %363
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %371 = load ptr, ptr %351, align 8, !tbaa !37
-  %372 = getelementptr inbounds nuw i8, ptr %371, i64 4
-  %373 = load i32, ptr %372, align 4, !tbaa !30
-  %374 = sext i32 %373 to i64
-  %375 = icmp slt i64 %indvars.iv.next178, %374
-  br i1 %375, label %.lr.ph144, label %._crit_edge145, !llvm.loop !87
+  %372 = load ptr, ptr %352, align 8, !tbaa !37
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 4
+  %374 = load i32, ptr %373, align 4, !tbaa !30
+  %375 = sext i32 %374 to i64
+  %376 = icmp slt i64 %indvars.iv.next178, %375
+  br i1 %376, label %.lr.ph144, label %._crit_edge145, !llvm.loop !87
 
-._crit_edge145:                                   ; preds = %370, %._crit_edge141
-  br i1 %4, label %376, label %.thread
+._crit_edge145:                                   ; preds = %371, %._crit_edge141
+  br i1 %4, label %377, label %.thread
 
-376:                                              ; preds = %._crit_edge145
+377:                                              ; preds = %._crit_edge145
   tail call fastcc void @Fraig_FeedBackCheckTable(ptr noundef nonnull %0)
-  %377 = load i32, ptr %93, align 4, !tbaa !48
-  %.not107 = icmp eq i32 %377, 0
-  br i1 %.not107, label %382, label %380
+  %378 = load i32, ptr %93, align 4, !tbaa !48
+  %.not107 = icmp eq i32 %378, 0
+  br i1 %.not107, label %383, label %381
 
 .thread:                                          ; preds = %._crit_edge145
-  %378 = load i32, ptr %93, align 4, !tbaa !48
-  %.not107116 = icmp eq i32 %378, 0
-  br i1 %.not107116, label %382, label %.thread117
+  %379 = load i32, ptr %93, align 4, !tbaa !48
+  %.not107116 = icmp eq i32 %379, 0
+  br i1 %.not107116, label %383, label %.thread117
 
 .thread117:                                       ; preds = %.thread
-  %379 = tail call i32 @Fraig_TableRehashF0(ptr noundef nonnull %0, i32 noundef 0) #12
-  br label %382
+  %380 = tail call i32 @Fraig_TableRehashF0(ptr noundef nonnull %0, i32 noundef 0) #11
+  br label %383
 
-380:                                              ; preds = %376
-  %381 = tail call i32 @Fraig_TableRehashF0(ptr noundef nonnull %0, i32 noundef 0) #12
+381:                                              ; preds = %377
+  %382 = tail call i32 @Fraig_TableRehashF0(ptr noundef nonnull %0, i32 noundef 0) #11
   tail call fastcc void @Fraig_FeedBackCheckTableF0(ptr noundef nonnull %0)
-  br label %382
+  br label %383
 
-382:                                              ; preds = %.thread117, %.thread, %380, %376
-  %383 = load i32, ptr %350, align 4, !tbaa !81
-  %384 = add nsw i32 %383, 5
-  %385 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %386 = load i32, ptr %385, align 4, !tbaa !23
-  %387 = icmp sgt i32 %384, %386
-  br i1 %387, label %388, label %471
+383:                                              ; preds = %.thread117, %.thread, %381, %377
+  %384 = load i32, ptr %351, align 4, !tbaa !81
+  %385 = add nsw i32 %384, 5
+  %386 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %387 = load i32, ptr %386, align 4, !tbaa !23
+  %388 = icmp sgt i32 %385, %387
+  br i1 %388, label %389, label %472
 
-388:                                              ; preds = %382
-  %389 = shl nsw i32 %386, 1
-  store i32 %389, ptr %385, align 4, !tbaa !23
-  %390 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %391 = load i32, ptr %390, align 8, !tbaa !88
-  %392 = add nsw i32 %391, %389
-  %393 = shl i32 %392, 2
-  %394 = tail call ptr @Fraig_MemFixedStart(i32 noundef %393) #12
-  %395 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %396 = load ptr, ptr %395, align 8, !tbaa !89
-  %397 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %394) #12
-  %398 = getelementptr inbounds nuw i8, ptr %396, i64 104
-  store ptr %397, ptr %398, align 8, !tbaa !90
-  %399 = load i32, ptr %390, align 8, !tbaa !88
-  %400 = sext i32 %399 to i64
-  %401 = getelementptr inbounds [4 x i8], ptr %397, i64 %400
-  %402 = getelementptr inbounds nuw i8, ptr %396, i64 112
-  store ptr %401, ptr %402, align 8, !tbaa !41
-  %403 = shl nsw i64 %400, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %397, i8 0, i64 %403, i1 false)
-  %404 = load ptr, ptr %402, align 8, !tbaa !41
-  %405 = load i32, ptr %385, align 4, !tbaa !23
-  %406 = sext i32 %405 to i64
-  %407 = shl nsw i64 %406, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %404, i8 0, i64 %407, i1 false)
-  %408 = load ptr, ptr %0, align 8, !tbaa !29
-  %409 = getelementptr inbounds nuw i8, ptr %408, i64 4
-  %410 = load i32, ptr %409, align 4, !tbaa !30
-  %411 = icmp sgt i32 %410, 0
-  br i1 %411, label %.lr.ph.i112, label %._crit_edge.i110
+389:                                              ; preds = %383
+  %390 = shl nsw i32 %387, 1
+  store i32 %390, ptr %386, align 4, !tbaa !23
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %392 = load i32, ptr %391, align 8, !tbaa !88
+  %393 = add nsw i32 %392, %390
+  %394 = shl i32 %393, 2
+  %395 = tail call ptr @Fraig_MemFixedStart(i32 noundef %394) #11
+  %396 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %397 = load ptr, ptr %396, align 8, !tbaa !89
+  %398 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %395) #11
+  %399 = getelementptr inbounds nuw i8, ptr %397, i64 104
+  store ptr %398, ptr %399, align 8, !tbaa !90
+  %400 = load i32, ptr %391, align 8, !tbaa !88
+  %401 = sext i32 %400 to i64
+  %402 = getelementptr inbounds [4 x i8], ptr %398, i64 %401
+  %403 = getelementptr inbounds nuw i8, ptr %397, i64 112
+  store ptr %402, ptr %403, align 8, !tbaa !41
+  %404 = shl nsw i64 %401, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %398, i8 0, i64 %404, i1 false)
+  %405 = load ptr, ptr %403, align 8, !tbaa !41
+  %406 = load i32, ptr %386, align 4, !tbaa !23
+  %407 = sext i32 %406 to i64
+  %408 = shl nsw i64 %407, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %405, i8 0, i64 %408, i1 false)
+  %409 = load ptr, ptr %0, align 8, !tbaa !29
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 4
+  %411 = load i32, ptr %410, align 4, !tbaa !30
+  %412 = icmp sgt i32 %411, 0
+  br i1 %412, label %.lr.ph.i112, label %._crit_edge.i110
 
-.lr.ph.i112:                                      ; preds = %388, %.lr.ph.i112
-  %indvars.iv.i113 = phi i64 [ %indvars.iv.next.i114, %.lr.ph.i112 ], [ 0, %388 ]
-  %412 = phi ptr [ %429, %.lr.ph.i112 ], [ %408, %388 ]
-  %413 = getelementptr inbounds nuw i8, ptr %412, i64 8
-  %414 = load ptr, ptr %413, align 8, !tbaa !33
-  %415 = getelementptr inbounds nuw [8 x i8], ptr %414, i64 %indvars.iv.i113
-  %416 = load ptr, ptr %415, align 8, !tbaa !34
-  %417 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %394) #12
-  %418 = getelementptr inbounds nuw i8, ptr %416, i64 104
-  %419 = load ptr, ptr %418, align 8, !tbaa !90
-  %420 = load i32, ptr %390, align 8, !tbaa !88
-  %421 = load i32, ptr %209, align 8, !tbaa !40
-  %422 = add nsw i32 %421, %420
-  %423 = sext i32 %422 to i64
-  %424 = shl nsw i64 %423, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %417, ptr align 4 %419, i64 %424, i1 false)
-  store ptr %417, ptr %418, align 8, !tbaa !90
-  %425 = load i32, ptr %390, align 8, !tbaa !88
-  %426 = sext i32 %425 to i64
-  %427 = getelementptr inbounds [4 x i8], ptr %417, i64 %426
-  %428 = getelementptr inbounds nuw i8, ptr %416, i64 112
-  store ptr %427, ptr %428, align 8, !tbaa !41
+.lr.ph.i112:                                      ; preds = %389, %.lr.ph.i112
+  %indvars.iv.i113 = phi i64 [ %indvars.iv.next.i114, %.lr.ph.i112 ], [ 0, %389 ]
+  %413 = phi ptr [ %430, %.lr.ph.i112 ], [ %409, %389 ]
+  %414 = getelementptr inbounds nuw i8, ptr %413, i64 8
+  %415 = load ptr, ptr %414, align 8, !tbaa !33
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %415, i64 %indvars.iv.i113
+  %417 = load ptr, ptr %416, align 8, !tbaa !34
+  %418 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %395) #11
+  %419 = getelementptr inbounds nuw i8, ptr %417, i64 104
+  %420 = load ptr, ptr %419, align 8, !tbaa !90
+  %421 = load i32, ptr %391, align 8, !tbaa !88
+  %422 = load i32, ptr %210, align 8, !tbaa !40
+  %423 = add nsw i32 %422, %421
+  %424 = sext i32 %423 to i64
+  %425 = shl nsw i64 %424, 2
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %418, ptr align 4 %420, i64 %425, i1 false)
+  store ptr %418, ptr %419, align 8, !tbaa !90
+  %426 = load i32, ptr %391, align 8, !tbaa !88
+  %427 = sext i32 %426 to i64
+  %428 = getelementptr inbounds [4 x i8], ptr %418, i64 %427
+  %429 = getelementptr inbounds nuw i8, ptr %417, i64 112
+  store ptr %428, ptr %429, align 8, !tbaa !41
   %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i113, 1
-  %429 = load ptr, ptr %0, align 8, !tbaa !29
-  %430 = getelementptr inbounds nuw i8, ptr %429, i64 4
-  %431 = load i32, ptr %430, align 4, !tbaa !30
-  %432 = sext i32 %431 to i64
-  %433 = icmp slt i64 %indvars.iv.next.i114, %432
-  br i1 %433, label %.lr.ph.i112, label %._crit_edge.i110, !llvm.loop !91
+  %430 = load ptr, ptr %0, align 8, !tbaa !29
+  %431 = getelementptr inbounds nuw i8, ptr %430, i64 4
+  %432 = load i32, ptr %431, align 4, !tbaa !30
+  %433 = sext i32 %432 to i64
+  %434 = icmp slt i64 %indvars.iv.next.i114, %433
+  br i1 %434, label %.lr.ph.i112, label %._crit_edge.i110, !llvm.loop !91
 
-._crit_edge.i110:                                 ; preds = %.lr.ph.i112, %388
-  %434 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %435 = load ptr, ptr %434, align 8, !tbaa !21
-  tail call void @Fraig_MemFixedStop(ptr noundef %435, i32 noundef 0) #12
-  store ptr %394, ptr %434, align 8, !tbaa !21
-  %436 = load ptr, ptr %351, align 8, !tbaa !37
-  %437 = getelementptr inbounds nuw i8, ptr %436, i64 4
-  %438 = load i32, ptr %437, align 4, !tbaa !30
-  %439 = icmp sgt i32 %438, 1
-  br i1 %439, label %.lr.ph60.i, label %Fraig_ReallocateSimulationInfo.exit
+._crit_edge.i110:                                 ; preds = %.lr.ph.i112, %389
+  %435 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %436 = load ptr, ptr %435, align 8, !tbaa !21
+  tail call void @Fraig_MemFixedStop(ptr noundef %436, i32 noundef 0) #11
+  store ptr %395, ptr %435, align 8, !tbaa !21
+  %437 = load ptr, ptr %352, align 8, !tbaa !37
+  %438 = getelementptr inbounds nuw i8, ptr %437, i64 4
+  %439 = load i32, ptr %438, align 4, !tbaa !30
+  %440 = icmp sgt i32 %439, 1
+  br i1 %440, label %.lr.ph60.i, label %Fraig_ReallocateSimulationInfo.exit
 
-.lr.ph60.i:                                       ; preds = %._crit_edge.i110, %456
-  %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %456 ], [ 1, %._crit_edge.i110 ]
-  %440 = phi ptr [ %457, %456 ], [ %436, %._crit_edge.i110 ]
-  %441 = getelementptr inbounds nuw i8, ptr %440, i64 8
-  %442 = load ptr, ptr %441, align 8, !tbaa !33
-  %443 = getelementptr inbounds nuw [8 x i8], ptr %442, i64 %indvars.iv63.i
-  %444 = load ptr, ptr %443, align 8, !tbaa !34
-  %445 = tail call i32 @Fraig_NodeIsAnd(ptr noundef %444) #12
-  %.not.i111 = icmp eq i32 %445, 0
-  br i1 %.not.i111, label %456, label %446
+.lr.ph60.i:                                       ; preds = %._crit_edge.i110, %457
+  %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %457 ], [ 1, %._crit_edge.i110 ]
+  %441 = phi ptr [ %458, %457 ], [ %437, %._crit_edge.i110 ]
+  %442 = getelementptr inbounds nuw i8, ptr %441, i64 8
+  %443 = load ptr, ptr %442, align 8, !tbaa !33
+  %444 = getelementptr inbounds nuw [8 x i8], ptr %443, i64 %indvars.iv63.i
+  %445 = load ptr, ptr %444, align 8, !tbaa !34
+  %446 = tail call i32 @Fraig_NodeIsAnd(ptr noundef %445) #11
+  %.not.i111 = icmp eq i32 %446, 0
+  br i1 %.not.i111, label %457, label %447
 
-446:                                              ; preds = %.lr.ph60.i
-  %447 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %394) #12
-  %448 = getelementptr inbounds nuw i8, ptr %444, i64 104
-  store ptr %447, ptr %448, align 8, !tbaa !90
-  %449 = load i32, ptr %390, align 8, !tbaa !88
-  %450 = sext i32 %449 to i64
-  %451 = getelementptr inbounds [4 x i8], ptr %447, i64 %450
-  %452 = getelementptr inbounds nuw i8, ptr %444, i64 112
-  store ptr %451, ptr %452, align 8, !tbaa !41
-  %453 = getelementptr inbounds nuw i8, ptr %444, i64 96
-  store i32 0, ptr %453, align 8, !tbaa !92
-  tail call void @Fraig_NodeSimulate(ptr noundef %444, i32 noundef 0, i32 noundef %449, i32 noundef 1) #12
-  %454 = getelementptr inbounds nuw i8, ptr %444, i64 100
-  store i32 0, ptr %454, align 4, !tbaa !44
-  %455 = load i32, ptr %209, align 8, !tbaa !40
-  tail call void @Fraig_NodeSimulate(ptr noundef %444, i32 noundef 0, i32 noundef %455, i32 noundef 0) #12
-  br label %456
+447:                                              ; preds = %.lr.ph60.i
+  %448 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %395) #11
+  %449 = getelementptr inbounds nuw i8, ptr %445, i64 104
+  store ptr %448, ptr %449, align 8, !tbaa !90
+  %450 = load i32, ptr %391, align 8, !tbaa !88
+  %451 = sext i32 %450 to i64
+  %452 = getelementptr inbounds [4 x i8], ptr %448, i64 %451
+  %453 = getelementptr inbounds nuw i8, ptr %445, i64 112
+  store ptr %452, ptr %453, align 8, !tbaa !41
+  %454 = getelementptr inbounds nuw i8, ptr %445, i64 96
+  store i32 0, ptr %454, align 8, !tbaa !92
+  tail call void @Fraig_NodeSimulate(ptr noundef %445, i32 noundef 0, i32 noundef %450, i32 noundef 1) #11
+  %455 = getelementptr inbounds nuw i8, ptr %445, i64 100
+  store i32 0, ptr %455, align 4, !tbaa !44
+  %456 = load i32, ptr %210, align 8, !tbaa !40
+  tail call void @Fraig_NodeSimulate(ptr noundef %445, i32 noundef 0, i32 noundef %456, i32 noundef 0) #11
+  br label %457
 
-456:                                              ; preds = %446, %.lr.ph60.i
+457:                                              ; preds = %447, %.lr.ph60.i
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %457 = load ptr, ptr %351, align 8, !tbaa !37
-  %458 = getelementptr inbounds nuw i8, ptr %457, i64 4
-  %459 = load i32, ptr %458, align 4, !tbaa !30
-  %460 = sext i32 %459 to i64
-  %461 = icmp slt i64 %indvars.iv.next64.i, %460
-  br i1 %461, label %.lr.ph60.i, label %Fraig_ReallocateSimulationInfo.exit, !llvm.loop !93
+  %458 = load ptr, ptr %352, align 8, !tbaa !37
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 4
+  %460 = load i32, ptr %459, align 4, !tbaa !30
+  %461 = sext i32 %460 to i64
+  %462 = icmp slt i64 %indvars.iv.next64.i, %461
+  br i1 %462, label %.lr.ph60.i, label %Fraig_ReallocateSimulationInfo.exit, !llvm.loop !93
 
-Fraig_ReallocateSimulationInfo.exit:              ; preds = %456, %._crit_edge.i110
-  %462 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %394) #12
-  %463 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %462, ptr %463, align 8, !tbaa !22
-  %464 = load i32, ptr %385, align 4, !tbaa !23
-  %465 = sext i32 %464 to i64
-  %466 = shl nsw i64 %465, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %462, i8 0, i64 %466, i1 false)
-  %467 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %394) #12
-  %468 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %467, ptr %468, align 8, !tbaa !24
-  %469 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %394) #12
-  %470 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %469, ptr %470, align 8, !tbaa !25
-  br label %471
+Fraig_ReallocateSimulationInfo.exit:              ; preds = %457, %._crit_edge.i110
+  %463 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %395) #11
+  %464 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store ptr %463, ptr %464, align 8, !tbaa !22
+  %465 = load i32, ptr %386, align 4, !tbaa !23
+  %466 = sext i32 %465 to i64
+  %467 = shl nsw i64 %466, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %463, i8 0, i64 %467, i1 false)
+  %468 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %395) #11
+  %469 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store ptr %468, ptr %469, align 8, !tbaa !24
+  %470 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %395) #11
+  %471 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store ptr %470, ptr %471, align 8, !tbaa !25
+  br label %472
 
-471:                                              ; preds = %Fraig_ReallocateSimulationInfo.exit, %382
-  %472 = load ptr, ptr %10, align 8, !tbaa !20
-  tail call void @Msat_IntVecClear(ptr noundef %472) #12
-  %473 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %474 = load ptr, ptr %473, align 8, !tbaa !22
-  %475 = load i32, ptr %385, align 4, !tbaa !23
-  %476 = sext i32 %475 to i64
-  %477 = shl nsw i64 %476, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %474, i8 0, i64 %477, i1 false)
-  %478 = load i32, ptr %350, align 4, !tbaa !81
-  %479 = icmp sgt i32 %478, 0
-  br i1 %479, label %.lr.ph149, label %._crit_edge150
+472:                                              ; preds = %Fraig_ReallocateSimulationInfo.exit, %383
+  %473 = load ptr, ptr %10, align 8, !tbaa !20
+  tail call void @Msat_IntVecClear(ptr noundef %473) #11
+  %474 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %475 = load ptr, ptr %474, align 8, !tbaa !22
+  %476 = load i32, ptr %386, align 4, !tbaa !23
+  %477 = sext i32 %476 to i64
+  %478 = shl nsw i64 %477, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %475, i8 0, i64 %478, i1 false)
+  %479 = load i32, ptr %351, align 4, !tbaa !81
+  %480 = icmp sgt i32 %479, 0
+  br i1 %480, label %.lr.ph149, label %._crit_edge150
 
-.lr.ph149:                                        ; preds = %471
-  %480 = load ptr, ptr %473, align 8, !tbaa !22
-  br label %481
+.lr.ph149:                                        ; preds = %472
+  %481 = load ptr, ptr %474, align 8, !tbaa !22
+  br label %482
 
-481:                                              ; preds = %.lr.ph149, %481
-  %indvars.iv180 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next181, %481 ]
-  %482 = getelementptr inbounds nuw [4 x i8], ptr %480, i64 %indvars.iv180
-  store i32 -1, ptr %482, align 4, !tbaa !38
+482:                                              ; preds = %.lr.ph149, %482
+  %indvars.iv180 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next181, %482 ]
+  %483 = getelementptr inbounds nuw [4 x i8], ptr %481, i64 %indvars.iv180
+  store i32 -1, ptr %483, align 4, !tbaa !38
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %483 = load i32, ptr %350, align 4, !tbaa !81
-  %484 = sext i32 %483 to i64
-  %485 = icmp slt i64 %indvars.iv.next181, %484
-  br i1 %485, label %481, label %._crit_edge150, !llvm.loop !94
+  %484 = load i32, ptr %351, align 4, !tbaa !81
+  %485 = sext i32 %484 to i64
+  %486 = icmp slt i64 %indvars.iv.next181, %485
+  br i1 %486, label %482, label %._crit_edge150, !llvm.loop !94
 
-._crit_edge150:                                   ; preds = %481, %471
-  %.lcssa = phi i32 [ %478, %471 ], [ %483, %481 ]
-  %486 = load i32, ptr %266, align 8, !tbaa !80
-  %487 = srem i32 %486, 32
-  %488 = icmp sgt i32 %487, 0
-  br i1 %488, label %489, label %496
+._crit_edge150:                                   ; preds = %482, %472
+  %.lcssa = phi i32 [ %479, %472 ], [ %484, %482 ]
+  %487 = load i32, ptr %267, align 8, !tbaa !80
+  %488 = srem i32 %487, 32
+  %489 = icmp sgt i32 %488, 0
+  br i1 %489, label %490, label %497
 
-489:                                              ; preds = %._crit_edge150
-  %490 = sub nuw nsw i32 32, %487
-  %491 = lshr i32 -1, %490
-  %492 = load ptr, ptr %473, align 8, !tbaa !22
-  %493 = sext i32 %.lcssa to i64
-  %494 = getelementptr [4 x i8], ptr %492, i64 %493
-  %495 = getelementptr i8, ptr %494, i64 -4
-  store i32 %491, ptr %495, align 4, !tbaa !38
-  br label %496
+490:                                              ; preds = %._crit_edge150
+  %491 = sub nuw nsw i32 32, %488
+  %492 = lshr i32 -1, %491
+  %493 = load ptr, ptr %474, align 8, !tbaa !22
+  %494 = sext i32 %.lcssa to i64
+  %495 = getelementptr [4 x i8], ptr %493, i64 %494
+  %496 = getelementptr i8, ptr %495, i64 -4
+  store i32 %492, ptr %496, align 4, !tbaa !38
+  br label %497
 
-496:                                              ; preds = %489, %._crit_edge150
-  %497 = load i32, ptr %209, align 8, !tbaa !40
-  ret i32 %497
+497:                                              ; preds = %490, %._crit_edge150
+  %498 = load i32, ptr %210, align 8, !tbaa !40
+  ret i32 %498
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1438,7 +1439,7 @@ define internal fastcc void @Fraig_FeedBackCheckTable(ptr noundef readonly captu
 15:                                               ; preds = %.lr.ph50, %15
   %.03439 = phi ptr [ %.03549, %.lr.ph50 ], [ %18, %15 ]
   %16 = load ptr, ptr %7, align 8, !tbaa !3
-  tail call void @Fraig_NodeVecPush(ptr noundef %16, ptr noundef nonnull %.03439) #12
+  tail call void @Fraig_NodeVecPush(ptr noundef %16, ptr noundef nonnull %.03439) #11
   %17 = getelementptr inbounds nuw i8, ptr %.03439, i64 72
   %18 = load ptr, ptr %17, align 8, !tbaa !56
   %.not36 = icmp eq ptr %18, null
@@ -1477,7 +1478,7 @@ define internal fastcc void @Fraig_FeedBackCheckTable(ptr noundef readonly captu
   %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv57
   %33 = load ptr, ptr %32, align 8, !tbaa !34
   %34 = load i32, ptr %8, align 8, !tbaa !40
-  %35 = tail call i32 @Fraig_CompareSimInfo(ptr noundef %31, ptr noundef %33, i32 noundef %34, i32 noundef 0) #12
+  %35 = tail call i32 @Fraig_CompareSimInfo(ptr noundef %31, ptr noundef %33, i32 noundef %34, i32 noundef 0) #11
   %.not37 = icmp eq i32 %35, 0
   br i1 %.not37, label %47, label %36
 
@@ -1555,7 +1556,7 @@ define internal fastcc void @Fraig_FeedBackCheckTableF0(ptr noundef readonly cap
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %.03136 = phi ptr [ %.031, %.lr.ph ], [ %.03134, %9 ]
   %15 = load ptr, ptr %7, align 8, !tbaa !3
-  tail call void @Fraig_NodeVecPush(ptr noundef %15, ptr noundef nonnull %.03136) #12
+  tail call void @Fraig_NodeVecPush(ptr noundef %15, ptr noundef nonnull %.03136) #11
   %16 = getelementptr inbounds nuw i8, ptr %.03136, i64 64
   %.031 = load ptr, ptr %16, align 8, !tbaa !34
   %.not = icmp eq ptr %.031, null
@@ -1610,7 +1611,7 @@ define internal fastcc void @Fraig_FeedBackCheckTableF0(ptr noundef readonly cap
   %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv50
   %38 = load ptr, ptr %37, align 8, !tbaa !34
   %39 = load i32, ptr %8, align 8, !tbaa !40
-  %40 = tail call i32 @Fraig_CompareSimInfo(ptr noundef %36, ptr noundef %38, i32 noundef %39, i32 noundef 0) #12
+  %40 = tail call i32 @Fraig_CompareSimInfo(ptr noundef %36, ptr noundef %38, i32 noundef %39, i32 noundef 0) #11
   %.not32 = icmp eq i32 %40, 0
   br i1 %.not32, label %52, label %41
 
@@ -1655,23 +1656,27 @@ declare ptr @Msat_IntVecReadArray(ptr noundef) local_unnamed_addr #1
 
 declare void @Msat_IntVecClear(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @Fraig_ManAllocCounterExample(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !tbaa !29
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !30
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 2
-  %calloc = tail call ptr @calloc(i64 1, i64 %6)
-  ret ptr %calloc
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #12
+  %8 = load i32, ptr %3, align 4, !tbaa !30
+  %9 = sext i32 %8 to i64
+  %10 = shl nsw i64 %9, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %7, i8 0, i64 %10, i1 false)
+  ret ptr %7
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Fraig_ManSimulateBitNode_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @Fraig_NodeIsTravIdCurrent(ptr noundef %0, ptr noundef %1) #12
+  %3 = tail call i32 @Fraig_NodeIsTravIdCurrent(ptr noundef %0, ptr noundef %1) #11
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %common.ret
 
@@ -1687,7 +1692,7 @@ common.ret17:                                     ; preds = %8, %common.ret
   ret i32 %common.ret17.op
 
 8:                                                ; preds = %2
-  tail call void @Fraig_NodeSetTravIdCurrent(ptr noundef %0, ptr noundef %1) #12
+  tail call void @Fraig_NodeSetTravIdCurrent(ptr noundef %0, ptr noundef %1) #11
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !105
   %11 = ptrtoint ptr %10 to i64
@@ -1725,7 +1730,7 @@ declare void @Fraig_NodeSetTravIdCurrent(ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Fraig_ManSimulateBitNode(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
-  tail call void @Fraig_ManIncrementTravId(ptr noundef %0) #12
+  tail call void @Fraig_ManIncrementTravId(ptr noundef %0) #11
   %4 = load ptr, ptr %0, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !30
@@ -1739,7 +1744,7 @@ define range(i32 0, 2) i32 @Fraig_ManSimulateBitNode(ptr noundef %0, ptr noundef
   %10 = load ptr, ptr %9, align 8, !tbaa !33
   %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !34
-  tail call void @Fraig_NodeSetTravIdCurrent(ptr noundef nonnull %0, ptr noundef %12) #12
+  tail call void @Fraig_NodeSetTravIdCurrent(ptr noundef nonnull %0, ptr noundef %12) #11
   %13 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !38
   %15 = load ptr, ptr %0, align 8, !tbaa !29
@@ -1786,113 +1791,117 @@ define noalias noundef ptr @Fraig_ManSaveCounterExample(ptr noundef readonly cap
   %9 = load i32, ptr %8, align 4, !tbaa !30
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 2
-  %calloc.i = tail call noalias noundef ptr @calloc(i64 1, i64 %11)
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !89
-  %14 = and i64 %3, -2
-  %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %17 = load i32, ptr %16, align 8, !tbaa !88
-  %18 = tail call i32 @Fraig_FindFirstDiff(ptr noundef %13, ptr noundef %15, i32 noundef %6, i32 noundef %17, i32 noundef 1) #12
-  %19 = icmp sgt i32 %18, -1
-  br i1 %19, label %.preheader, label %41
+  %12 = tail call noalias noundef ptr @malloc(i64 noundef %11) #12
+  %13 = load i32, ptr %8, align 4, !tbaa !30
+  %14 = sext i32 %13 to i64
+  %15 = shl nsw i64 %14, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %12, i8 0, i64 %15, i1 false)
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = load ptr, ptr %16, align 8, !tbaa !89
+  %18 = and i64 %3, -2
+  %19 = inttoptr i64 %18 to ptr
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %21 = load i32, ptr %20, align 8, !tbaa !88
+  %22 = tail call i32 @Fraig_FindFirstDiff(ptr noundef %17, ptr noundef %19, i32 noundef %6, i32 noundef %21, i32 noundef 1) #11
+  %23 = icmp sgt i32 %22, -1
+  br i1 %23, label %.preheader, label %45
 
 .preheader:                                       ; preds = %2
-  %20 = load ptr, ptr %0, align 8, !tbaa !29
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %22 = load i32, ptr %21, align 4, !tbaa !30
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph45, label %.loopexit
+  %24 = load ptr, ptr %0, align 8, !tbaa !29
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %26 = load i32, ptr %25, align 4, !tbaa !30
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %.lr.ph45, label %.loopexit
 
 .lr.ph45:                                         ; preds = %.preheader
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !33
-  %26 = lshr i32 %18, 5
-  %27 = zext nneg i32 %26 to i64
-  %28 = and i32 %18, 31
-  %29 = shl nuw i32 1, %28
-  %wide.trip.count51 = zext nneg i32 %22 to i64
-  br label %30
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !33
+  %30 = lshr i32 %22, 5
+  %31 = zext nneg i32 %30 to i64
+  %32 = and i32 %22, 31
+  %33 = shl nuw i32 1, %32
+  %wide.trip.count51 = zext nneg i32 %26 to i64
+  br label %34
 
-30:                                               ; preds = %.lr.ph45, %40
-  %indvars.iv48 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next49, %40 ]
-  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv48
-  %32 = load ptr, ptr %31, align 8, !tbaa !34
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 104
-  %34 = load ptr, ptr %33, align 8, !tbaa !90
-  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %27
-  %36 = load i32, ptr %35, align 4, !tbaa !38
-  %37 = and i32 %36, %29
-  %.not40 = icmp eq i32 %37, 0
-  br i1 %.not40, label %40, label %38
+34:                                               ; preds = %.lr.ph45, %44
+  %indvars.iv48 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next49, %44 ]
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv48
+  %36 = load ptr, ptr %35, align 8, !tbaa !34
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 104
+  %38 = load ptr, ptr %37, align 8, !tbaa !90
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %31
+  %40 = load i32, ptr %39, align 4, !tbaa !38
+  %41 = and i32 %40, %33
+  %.not40 = icmp eq i32 %41, 0
+  br i1 %.not40, label %44, label %42
 
-38:                                               ; preds = %30
-  %39 = getelementptr inbounds nuw [4 x i8], ptr %calloc.i, i64 %indvars.iv48
-  store i32 1, ptr %39, align 4, !tbaa !38
-  br label %40
+42:                                               ; preds = %34
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv48
+  store i32 1, ptr %43, align 4, !tbaa !38
+  br label %44
 
-40:                                               ; preds = %30, %38
+44:                                               ; preds = %34, %42
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %.loopexit, label %30, !llvm.loop !108
+  br i1 %exitcond52.not, label %.loopexit, label %34, !llvm.loop !108
 
-41:                                               ; preds = %2
-  %42 = load ptr, ptr %12, align 8, !tbaa !89
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %44 = load i32, ptr %43, align 8, !tbaa !40
-  %45 = tail call i32 @Fraig_FindFirstDiff(ptr noundef %42, ptr noundef %15, i32 noundef %6, i32 noundef %44, i32 noundef 0) #12
-  %46 = icmp sgt i32 %45, -1
-  br i1 %46, label %.preheader41, label %68
+45:                                               ; preds = %2
+  %46 = load ptr, ptr %16, align 8, !tbaa !89
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %48 = load i32, ptr %47, align 8, !tbaa !40
+  %49 = tail call i32 @Fraig_FindFirstDiff(ptr noundef %46, ptr noundef %19, i32 noundef %6, i32 noundef %48, i32 noundef 0) #11
+  %50 = icmp sgt i32 %49, -1
+  br i1 %50, label %.preheader41, label %72
 
-.preheader41:                                     ; preds = %41
-  %47 = load ptr, ptr %0, align 8, !tbaa !29
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %49 = load i32, ptr %48, align 4, !tbaa !30
-  %50 = icmp sgt i32 %49, 0
-  br i1 %50, label %.lr.ph, label %.loopexit
+.preheader41:                                     ; preds = %45
+  %51 = load ptr, ptr %0, align 8, !tbaa !29
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %53 = load i32, ptr %52, align 4, !tbaa !30
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader41
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !33
-  %53 = lshr i32 %45, 5
-  %54 = zext nneg i32 %53 to i64
-  %55 = and i32 %45, 31
-  %56 = shl nuw i32 1, %55
-  %wide.trip.count = zext nneg i32 %49 to i64
-  br label %57
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !33
+  %57 = lshr i32 %49, 5
+  %58 = zext nneg i32 %57 to i64
+  %59 = and i32 %49, 31
+  %60 = shl nuw i32 1, %59
+  %wide.trip.count = zext nneg i32 %53 to i64
+  br label %61
 
-57:                                               ; preds = %.lr.ph, %67
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %58 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
-  %59 = load ptr, ptr %58, align 8, !tbaa !34
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 112
-  %61 = load ptr, ptr %60, align 8, !tbaa !41
-  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %54
-  %63 = load i32, ptr %62, align 4, !tbaa !38
-  %64 = and i32 %63, %56
-  %.not39 = icmp eq i32 %64, 0
-  br i1 %.not39, label %67, label %65
+61:                                               ; preds = %.lr.ph, %71
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
+  %63 = load ptr, ptr %62, align 8, !tbaa !34
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 112
+  %65 = load ptr, ptr %64, align 8, !tbaa !41
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %58
+  %67 = load i32, ptr %66, align 4, !tbaa !38
+  %68 = and i32 %67, %60
+  %.not39 = icmp eq i32 %68, 0
+  br i1 %.not39, label %71, label %69
 
-65:                                               ; preds = %57
-  %66 = getelementptr inbounds nuw [4 x i8], ptr %calloc.i, i64 %indvars.iv
-  store i32 1, ptr %66, align 4, !tbaa !38
-  br label %67
+69:                                               ; preds = %61
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
+  store i32 1, ptr %70, align 4, !tbaa !38
+  br label %71
 
-67:                                               ; preds = %57, %65
+71:                                               ; preds = %61, %69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %57, !llvm.loop !109
+  br i1 %exitcond.not, label %.loopexit, label %61, !llvm.loop !109
 
-68:                                               ; preds = %41
-  %.not = icmp eq ptr %calloc.i, null
-  br i1 %.not, label %.loopexit, label %69
+72:                                               ; preds = %45
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %.loopexit, label %73
 
-69:                                               ; preds = %68
-  tail call void @free(ptr noundef nonnull %calloc.i) #12
+73:                                               ; preds = %72
+  tail call void @free(ptr noundef nonnull %12) #11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %67, %40, %.preheader41, %.preheader, %69, %68
-  %.035 = phi ptr [ %calloc.i, %.preheader ], [ null, %69 ], [ null, %68 ], [ %calloc.i, %.preheader41 ], [ %calloc.i, %40 ], [ %calloc.i, %67 ]
+.loopexit:                                        ; preds = %71, %44, %.preheader41, %.preheader, %73, %72
+  %.035 = phi ptr [ %12, %.preheader ], [ null, %73 ], [ null, %72 ], [ %12, %.preheader41 ], [ %12, %44 ], [ %12, %71 ]
   ret ptr %.035
 }
 
@@ -1943,23 +1952,19 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind allocsize(0) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

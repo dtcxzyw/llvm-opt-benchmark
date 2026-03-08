@@ -578,7 +578,7 @@ define range(i32 -1, 1) i32 @H5R__create_attr(ptr noundef readonly captures(none
   %9 = trunc nuw i8 %8 to i1
   %10 = xor i1 %9, true
   %11 = select i1 %7, i1 true, i1 %10
-  br i1 %11, label %12, label %46, !prof !9
+  br i1 %11, label %12, label %54, !prof !9
 
 12:                                               ; preds = %4
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
@@ -599,7 +599,7 @@ define range(i32 -1, 1) i32 @H5R__create_attr(ptr noundef readonly captures(none
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %22, ptr %23, align 8, !tbaa !10
   %24 = icmp eq ptr %22, null
-  br i1 %24, label %25, label %H5R__set_obj_token.exit
+  br i1 %24, label %25, label %29
 
 25:                                               ; preds = %20
   %26 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !17
@@ -607,41 +607,53 @@ define range(i32 -1, 1) i32 @H5R__create_attr(ptr noundef readonly captures(none
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5R__create_attr, i32 noundef 286, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.5) #15
   br label %.critedge
 
-H5R__set_obj_token.exit:                          ; preds = %20
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 -1, ptr %29, align 8, !tbaa !11
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  store i8 4, ptr %30, align 4, !tbaa !15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr readonly align 1 %0, i64 %1, i1 false)
-  %31 = trunc i64 %1 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 45
-  store i8 %31, ptr %32, align 1, !tbaa !16
-  %33 = call i32 @H5R__encode(ptr noundef null, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0)
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %35, label %39
+29:                                               ; preds = %20
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i64 -1, ptr %30, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 44
+  store i8 4, ptr %31, align 4, !tbaa !15
+  %32 = load i8, ptr @H5R_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %33 = trunc nuw i8 %32 to i1
+  %34 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %35 = trunc nuw i8 %34 to i1
+  %36 = xor i1 %35, true
+  %37 = select i1 %33, i1 true, i1 %36
+  br i1 %37, label %38, label %H5R__set_obj_token.exit, !prof !9
 
-35:                                               ; preds = %H5R__set_obj_token.exit
-  %36 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !17
-  %37 = load i64, ptr @H5E_CANTENCODE_g, align 8, !tbaa !17
-  %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5R__create_attr, i32 noundef 295, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.2) #15
+38:                                               ; preds = %29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3, ptr readonly align 1 %0, i64 %1, i1 false)
+  %39 = trunc i64 %1 to i8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 45
+  store i8 %39, ptr %40, align 1, !tbaa !16
+  br label %H5R__set_obj_token.exit
+
+H5R__set_obj_token.exit:                          ; preds = %29, %38
+  %41 = call i32 @H5R__encode(ptr noundef null, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0)
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %43, label %47
+
+43:                                               ; preds = %H5R__set_obj_token.exit
+  %44 = load i64, ptr @H5E_REFERENCE_g, align 8, !tbaa !17
+  %45 = load i64, ptr @H5E_CANTENCODE_g, align 8, !tbaa !17
+  %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5R__create_attr, i32 noundef 295, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.2) #15
   br label %.critedge
 
-39:                                               ; preds = %H5R__set_obj_token.exit
-  %40 = load i64, ptr %5, align 8, !tbaa !17
-  %41 = trunc i64 %40 to i32
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 %41, ptr %42, align 8, !tbaa !18
-  br label %46
+47:                                               ; preds = %H5R__set_obj_token.exit
+  %48 = load i64, ptr %5, align 8, !tbaa !17
+  %49 = trunc i64 %48 to i32
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i32 %49, ptr %50, align 8, !tbaa !18
+  br label %54
 
-.critedge:                                        ; preds = %35, %25, %15
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %44 = load ptr, ptr %43, align 8, !tbaa !10
-  %45 = tail call ptr @H5MM_xfree(ptr noundef %44) #15
-  store ptr null, ptr %43, align 8, !tbaa !10
-  br label %46
+.critedge:                                        ; preds = %43, %25, %15
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %52 = load ptr, ptr %51, align 8, !tbaa !10
+  %53 = tail call ptr @H5MM_xfree(ptr noundef %52) #15
+  store ptr null, ptr %51, align 8, !tbaa !10
+  br label %54
 
-46:                                               ; preds = %39, %.critedge, %4
-  %.0 = phi i32 [ -1, %.critedge ], [ 0, %39 ], [ 0, %4 ]
+54:                                               ; preds = %47, %.critedge, %4
+  %.0 = phi i32 [ -1, %.critedge ], [ 0, %47 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -649,7 +661,7 @@ H5R__set_obj_token.exit:                          ; preds = %20
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #3
@@ -2268,7 +2280,7 @@ declare ptr @H5S_create(i32 noundef) local_unnamed_addr #3
 
 declare i32 @H5S_set_extent_simple(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -2288,13 +2300,13 @@ attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }

@@ -2154,13 +2154,13 @@ define internal fastcc void @print_ident(ptr noundef nonnull captures(none) %0, 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8, !tbaa !15, !range !24, !noundef !25
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %143, label %6
+  br i1 %5, label %149, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %8 = load i8, ptr %7, align 1, !tbaa !16, !range !24, !noundef !25
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %143, label %10
+  br i1 %9, label %149, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2182,7 +2182,7 @@ print_str.exit:                                   ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !12
   tail call void %19(ptr noundef %15, i64 noundef %17, ptr noundef %21) #13
-  br label %143
+  br label %149
 
 22:                                               ; preds = %.preheader204, %24
   %.0156 = phi i64 [ %25, %24 ], [ 4, %.preheader204 ]
@@ -2196,7 +2196,7 @@ print_str.exit:                                   ; preds = %10
 
 27:                                               ; preds = %24
   store i8 1, ptr %3, align 8, !tbaa !15
-  br label %143
+  br label %149
 
 28:                                               ; preds = %22
   %29 = shl nuw i64 %.0156, 2
@@ -2214,7 +2214,7 @@ print_str.exit:                                   ; preds = %10
 
 32:                                               ; preds = %28
   store i8 1, ptr %3, align 8, !tbaa !15
-  br label %143
+  br label %149
 
 .preheader202:                                    ; preds = %35, %.preheader203
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2438,19 +2438,29 @@ print_str.exit:                                   ; preds = %10
 
 ._crit_edge236:                                   ; preds = %137, %.thread192
   %.0.lcssa = phi i64 [ 0, %.thread192 ], [ %.1, %137 ]
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %140 = load ptr, ptr %139, align 8, !tbaa !13
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %142 = load ptr, ptr %141, align 8, !tbaa !12
-  tail call void %140(ptr noundef nonnull %.1163, i64 noundef %.0.lcssa, ptr noundef %142) #13
+  %139 = load i8, ptr %3, align 8, !tbaa !15, !range !24, !noundef !25
+  %140 = trunc nuw i8 %139 to i1
+  br i1 %140, label %print_str.exit182, label %141
+
+141:                                              ; preds = %._crit_edge236
+  %142 = load i8, ptr %7, align 1, !tbaa !16, !range !24, !noundef !25
+  %143 = trunc nuw i8 %142 to i1
+  br i1 %143, label %print_str.exit182, label %144
+
+144:                                              ; preds = %141
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %146 = load ptr, ptr %145, align 8, !tbaa !13
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %148 = load ptr, ptr %147, align 8, !tbaa !12
+  tail call void %146(ptr noundef nonnull %.1163, i64 noundef %.0.lcssa, ptr noundef %148) #13
   br label %print_str.exit182
 
-print_str.exit182:                                ; preds = %83, %59, %77, %79, %49, %._crit_edge236
-  %.4 = phi ptr [ %.1163, %._crit_edge236 ], [ %.0162220, %83 ], [ %.0162220, %59 ], [ %.0162220, %49 ], [ %.0162220, %79 ], [ %.0162220, %77 ]
+print_str.exit182:                                ; preds = %83, %59, %77, %79, %49, %144, %141, %._crit_edge236
+  %.4 = phi ptr [ %.1163, %144 ], [ %.1163, %._crit_edge236 ], [ %.1163, %141 ], [ %.0162220, %49 ], [ %.0162220, %79 ], [ %.0162220, %77 ], [ %.0162220, %59 ], [ %.0162220, %83 ]
   tail call void @free(ptr noundef %.4) #13
-  br label %143
+  br label %149
 
-143:                                              ; preds = %27, %print_str.exit182, %32, %2, %6, %print_str.exit
+149:                                              ; preds = %27, %print_str.exit182, %32, %2, %6, %print_str.exit
   ret void
 }
 
@@ -3569,10 +3579,10 @@ next.exit:                                        ; preds = %peek.exit.i35
   ret i64 %.027
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -6036,8 +6046,8 @@ attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

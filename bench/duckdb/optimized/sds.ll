@@ -40,7 +40,7 @@ _ZN10duckdb_hllL10sdsReqTypeEm.exit:              ; preds = %2, %4, %6, %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = add i64 %1, 1
   %14 = add i64 %13, %switch.load
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #31
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #32
   %16 = icmp ne ptr %0, null
   br i1 %16, label %18, label %17
 
@@ -123,7 +123,7 @@ default.unreachable65:                            ; preds = %20
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -134,7 +134,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
 define noalias noundef ptr @_ZN10duckdb_hll8sdsemptyEv() local_unnamed_addr #4 {
-  %1 = tail call noalias dereferenceable_or_null(5) ptr @malloc(i64 noundef 5) #31
+  %1 = tail call noalias dereferenceable_or_null(5) ptr @malloc(i64 noundef 5) #32
   %2 = icmp eq ptr %1, null
   br i1 %2, label %_ZN10duckdb_hll9sdsnewlenEPKvm.exit, label %3
 
@@ -166,7 +166,7 @@ _ZN10duckdb_hll9sdsnewlenEPKvm.exit:              ; preds = %1
   br label %_ZN10duckdb_hll9sdsnewlenEPKvm.exit5
 
 .split:                                           ; preds = %1
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #32
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #33
   %6 = icmp ult i64 %5, 32
   br i1 %6, label %_ZN10duckdb_hllL10sdsReqTypeEm.exit.i, label %7
 
@@ -194,7 +194,7 @@ _ZN10duckdb_hllL10sdsReqTypeEm.exit.i:            ; preds = %11, %9, %7, %.split
   %switch.load = load i64, ptr %switch.gep, align 8
   %16 = add i64 %5, 1
   %17 = add i64 %16, %switch.load
-  %18 = tail call noalias ptr @malloc(i64 noundef %17) #31
+  %18 = tail call noalias ptr @malloc(i64 noundef %17) #32
   %19 = icmp eq ptr %18, null
   br i1 %19, label %_ZN10duckdb_hll9sdsnewlenEPKvm.exit5, label %20
 
@@ -342,7 +342,7 @@ _ZN10duckdb_hllL10sdsReqTypeEm.exit.i:            ; preds = %1, %6, %29, %27, %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %34 = add i64 %.0.i4, 1
   %35 = add i64 %34, %switch.load
-  %36 = tail call noalias ptr @malloc(i64 noundef %35) #31
+  %36 = tail call noalias ptr @malloc(i64 noundef %35) #32
   %37 = icmp eq ptr %36, null
   br i1 %37, label %_ZN10duckdb_hll9sdsnewlenEPKvm.exit, label %38
 
@@ -436,7 +436,7 @@ switch.lookup:                                    ; preds = %3
 _ZN10duckdb_hllL10sdsHdrSizeEc.exit:              ; preds = %3, %switch.lookup
   %.0.i.neg = phi i64 [ %switch.load, %switch.lookup ], [ 0, %3 ]
   %9 = getelementptr inbounds i8, ptr %0, i64 %.0.i.neg
-  tail call void @free(ptr noundef %9) #33
+  tail call void @free(ptr noundef %9) #34
   br label %10
 
 10:                                               ; preds = %1, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit
@@ -448,7 +448,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN10duckdb_hll12sdsupdatelenEPc(ptr noundef captures(none) %0) local_unnamed_addr #8 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #32
+  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #33
   %3 = getelementptr inbounds i8, ptr %0, i64 -1
   %4 = load i8, ptr %3, align 1, !tbaa !20
   %5 = and i8 %4, 7
@@ -672,12 +672,12 @@ _ZN10duckdb_hllL10sdsHdrSizeEc.exit51:            ; preds = %66, %_ZN10duckdb_hl
   br i1 %68, label %71, label %74
 
 71:                                               ; preds = %_ZN10duckdb_hllL10sdsHdrSizeEc.exit51
-  %72 = tail call ptr @realloc(ptr noundef %58, i64 noundef %70) #34
+  %72 = tail call ptr @realloc(ptr noundef %58, i64 noundef %70) #35
   %73 = icmp eq ptr %72, null
   br i1 %73, label %_ZN10duckdb_hllL11sdssetallocEPcm.exit, label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
 
 74:                                               ; preds = %_ZN10duckdb_hllL10sdsHdrSizeEc.exit51
-  %75 = tail call noalias ptr @malloc(i64 noundef %70) #31
+  %75 = tail call noalias ptr @malloc(i64 noundef %70) #32
   %76 = icmp eq ptr %75, null
   br i1 %76, label %_ZN10duckdb_hllL11sdssetallocEPcm.exit, label %77
 
@@ -685,7 +685,7 @@ _ZN10duckdb_hllL10sdsHdrSizeEc.exit51:            ; preds = %66, %_ZN10duckdb_hl
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 %.0.i50
   %79 = add i64 %.0.i47, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr nonnull align 1 %0, i64 %79, i1 false)
-  tail call void @free(ptr noundef %58) #33
+  tail call void @free(ptr noundef %58) #34
   %80 = getelementptr inbounds i8, ptr %78, i64 -1
   store i8 %.0.i4958, ptr %80, align 1, !tbaa !20
   switch i8 %.0.i4958, label %default.unreachable56 [
@@ -762,7 +762,7 @@ _ZN10duckdb_hllL11sdssetallocEPcm.exit:           ; preds = %99, %96, %93, %90, 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -850,7 +850,7 @@ _ZN10duckdb_hllL10sdsHdrSizeEc.exit41.thread:     ; preds = %32, %_ZN10duckdb_hl
   %.0.i38434865 = phi i64 [ %.0.i384348, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41 ], [ %.0.i38, %32 ]
   %39 = or disjoint i64 %.0.i, 1
   %40 = add i64 %39, %.0.i38434865
-  %41 = tail call ptr @realloc(ptr noundef %38, i64 noundef %40) #34
+  %41 = tail call ptr @realloc(ptr noundef %38, i64 noundef %40) #35
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZN10duckdb_hllL11sdssetallocEPcm.exit, label %43
 
@@ -863,14 +863,14 @@ _ZN10duckdb_hllL10sdsHdrSizeEc.exit41.thread:     ; preds = %32, %_ZN10duckdb_hl
 45:                                               ; preds = %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41
   %46 = add nuw nsw i64 %.0.i384348, 1
   %47 = add nuw nsw i64 %46, %.0.i40
-  %48 = tail call noalias ptr @malloc(i64 noundef %47) #31
+  %48 = tail call noalias ptr @malloc(i64 noundef %47) #32
   %49 = icmp eq ptr %48, null
   br i1 %49, label %_ZN10duckdb_hllL11sdssetallocEPcm.exit, label %50
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 %.0.i40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %46, i1 false)
-  tail call void @free(ptr noundef %36) #33
+  tail call void @free(ptr noundef %36) #34
   %52 = getelementptr inbounds i8, ptr %51, i64 -1
   store i8 %35, ptr %52, align 1, !tbaa !20
   %.tr.i = trunc nuw i64 %.0.i384348 to i8
@@ -1275,7 +1275,7 @@ _ZN10duckdb_hllL9sdssetlenEPcm.exit:              ; preds = %28, %34, %36, %39, 
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZN10duckdb_hll6sdscatEPcPKc(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #32
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #33
   %4 = getelementptr inbounds i8, ptr %0, i64 -1
   %5 = load i8, ptr %4, align 1, !tbaa !20
   %6 = zext i8 %5 to i32
@@ -1666,7 +1666,7 @@ _ZN10duckdb_hllL9sdssetlenEPcm.exit:              ; preds = %65, %62, %59, %56, 
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZN10duckdb_hll6sdscpyEPcPKc(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #32
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #33
   %4 = tail call noundef ptr @_ZN10duckdb_hll9sdscpylenEPcPKcm(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3)
   ret ptr %4
 }
@@ -1846,7 +1846,7 @@ _ZN10duckdb_hllL10sdsReqTypeEm.exit.i:            ; preds = %30, %28, %26, %_ZN1
   %switch.load = load i64, ptr %switch.gep, align 8
   %35 = add nsw i64 %24, 1
   %36 = add nsw i64 %35, %switch.load
-  %37 = call noalias ptr @malloc(i64 noundef %36) #31
+  %37 = call noalias ptr @malloc(i64 noundef %36) #32
   %38 = icmp eq ptr %37, null
   br i1 %38, label %_ZN10duckdb_hll9sdsnewlenEPKvm.exit, label %39
 
@@ -1925,13 +1925,13 @@ define noundef ptr @_ZN10duckdb_hll13sdscatvprintfEPcPKcP13__va_list_tag(ptr nou
   %5 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #32
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #33
   %7 = shl i64 %6, 1
   %8 = icmp ugt i64 %7, 1024
   br i1 %8, label %9, label %.preheader
 
 9:                                                ; preds = %3
-  %10 = tail call noalias ptr @malloc(i64 noundef %7) #31
+  %10 = tail call noalias ptr @malloc(i64 noundef %7) #32
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %.preheader
 
@@ -1947,7 +1947,7 @@ define noundef ptr @_ZN10duckdb_hll13sdscatvprintfEPcPKcP13__va_list_tag(ptr nou
   %14 = getelementptr i8, ptr %13, i64 -2
   store i8 0, ptr %14, align 1, !tbaa !20
   call void @llvm.va_copy.p0(ptr nonnull %4, ptr %2)
-  %15 = call i32 @vsnprintf(ptr noundef nonnull %.124, i64 noundef %.1, ptr noundef nonnull %1, ptr noundef nonnull %4) #33
+  %15 = call i32 @vsnprintf(ptr noundef nonnull %.124, i64 noundef %.1, ptr noundef nonnull %1, ptr noundef nonnull %4) #34
   call void @llvm.va_end.p0(ptr nonnull %4)
   %16 = load i8, ptr %14, align 1, !tbaa !20
   %.not = icmp eq i8 %16, 0
@@ -1958,17 +1958,17 @@ define noundef ptr @_ZN10duckdb_hll13sdscatvprintfEPcPKcP13__va_list_tag(ptr nou
   br i1 %.not29, label %19, label %18
 
 18:                                               ; preds = %17
-  call void @free(ptr noundef nonnull %.124) #33
+  call void @free(ptr noundef nonnull %.124) #34
   br label %19
 
 19:                                               ; preds = %18, %17
   %20 = shl i64 %.1, 1
-  %21 = call noalias ptr @malloc(i64 noundef %20) #31
+  %21 = call noalias ptr @malloc(i64 noundef %20) #32
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit, label %12, !llvm.loop !26
 
 23:                                               ; preds = %12
-  %24 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.124) #32
+  %24 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.124) #33
   %25 = getelementptr inbounds i8, ptr %0, i64 -1
   %26 = load i8, ptr %25, align 1, !tbaa !20
   %27 = zext i8 %26 to i32
@@ -2069,7 +2069,7 @@ _ZN10duckdb_hll6sdscatEPcPKc.exit:                ; preds = %_ZN10duckdb_hllL6sd
   br i1 %.not28, label %.loopexit, label %69
 
 69:                                               ; preds = %_ZN10duckdb_hll6sdscatEPcPKc.exit
-  call void @free(ptr noundef nonnull %.124) #33
+  call void @free(ptr noundef nonnull %.124) #34
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %_ZN10duckdb_hll6sdscatEPcPKc.exit, %69, %9
@@ -2268,7 +2268,7 @@ _ZN10duckdb_hllL8sdsavailEPc.exit.thread:         ; preds = %33, %_ZN10duckdb_hl
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %85
-  %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #32
+  %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #33
   br label %_ZN10duckdb_hllL6sdslenEPc.exit79
 
 91:                                               ; preds = %85
@@ -3021,7 +3021,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %9, %12, %16, %20, %
   %.034 = phi ptr [ %33, %32 ], [ %0, %_ZN10duckdb_hllL6sdslenEPc.exit ]
   %29 = load i8, ptr %.034, align 1, !tbaa !20
   %30 = sext i8 %29 to i32
-  %31 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef %30) #32
+  %31 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef %30) #33
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %.critedge.loopexit, label %32
 
@@ -3051,7 +3051,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %9, %12, %16, %20, %
   %.02837 = phi ptr [ %41, %40 ], [ %34, %.lr.ph38.preheader ]
   %37 = load i8, ptr %.02837, align 1, !tbaa !20
   %38 = sext i8 %37 to i32
-  %39 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef %38) #32
+  %39 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef %38) #33
   %.not31 = icmp eq ptr %39, null
   br i1 %.not31, label %.critedge2, label %40
 
@@ -3302,7 +3302,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %6, %9, %13, %17, %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 %.07
   %25 = load i8, ptr %24, align 1, !tbaa !20
   %26 = sext i8 %25 to i32
-  %27 = tail call i32 @tolower(i32 noundef %26) #32
+  %27 = tail call i32 @tolower(i32 noundef %26) #33
   %28 = trunc i32 %27 to i8
   store i8 %28, ptr %24, align 1, !tbaa !20
   %29 = add nuw i64 %.07, 1
@@ -3368,7 +3368,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %6, %9, %13, %17, %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 %.07
   %25 = load i8, ptr %24, align 1, !tbaa !20
   %26 = sext i8 %25 to i32
-  %27 = tail call i32 @toupper(i32 noundef %26) #32
+  %27 = tail call i32 @toupper(i32 noundef %26) #33
   %28 = trunc i32 %27 to i8
   store i8 %28, ptr %24, align 1, !tbaa !20
   %29 = add nuw i64 %.07, 1
@@ -3469,7 +3469,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %2, %7, %10, %14, %1
 _ZN10duckdb_hllL6sdslenEPc.exit17:                ; preds = %_ZN10duckdb_hllL6sdslenEPc.exit, %29, %32, %36, %40, %44
   %.0.i16 = phi i64 [ %46, %44 ], [ %31, %29 ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ 0, %_ZN10duckdb_hllL6sdslenEPc.exit ]
   %47 = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 %.0.i16)
-  %48 = tail call i32 @memcmp(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %47) #32
+  %48 = tail call i32 @memcmp(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %47) #33
   %49 = icmp eq i32 %48, 0
   %50 = tail call i32 @llvm.ucmp.i32.i64(i64 %.0.i, i64 %.0.i16)
   %.0 = select i1 %49, i32 %50, i32 %48
@@ -3487,7 +3487,7 @@ define noalias noundef ptr @_ZN10duckdb_hll11sdssplitlenEPKclS1_iPi(ptr noundef 
   br i1 %or.cond, label %150, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #31
+  %9 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #32
   %10 = icmp eq ptr %9, null
   br i1 %10, label %150, label %11
 
@@ -3522,7 +3522,7 @@ define noalias noundef ptr @_ZN10duckdb_hll11sdssplitlenEPKclS1_iPi(ptr noundef 
   %24 = shl nsw i32 %.067103, 1
   %25 = sext i32 %24 to i64
   %26 = shl nsw i64 %25, 3
-  %27 = tail call ptr @realloc(ptr noundef %.062106, i64 noundef %26) #34
+  %27 = tail call ptr @realloc(ptr noundef %.062106, i64 noundef %26) #35
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.loopexit, label %29
 
@@ -3574,7 +3574,7 @@ _ZN10duckdb_hllL10sdsReqTypeEm.exit.i:            ; preds = %46, %44, %42, %38
   %switch.load = load i64, ptr %switch.gep, align 8
   %51 = add i64 %40, 1
   %52 = add i64 %51, %switch.load
-  %53 = tail call noalias ptr @malloc(i64 noundef %52) #31
+  %53 = tail call noalias ptr @malloc(i64 noundef %52) #32
   br i1 %19, label %55, label %54
 
 default.unreachable:                              ; preds = %57, %109
@@ -3698,7 +3698,7 @@ _ZN10duckdb_hllL10sdsReqTypeEm.exit.i76:          ; preds = %97, %95, %93, %._cr
   %switch.load150 = load i64, ptr %switch.gep149, align 8
   %102 = add i64 %91, 1
   %103 = add i64 %102, %switch.load150
-  %104 = tail call noalias ptr @malloc(i64 noundef %103) #31
+  %104 = tail call noalias ptr @malloc(i64 noundef %103) #32
   %105 = icmp ne ptr %0, null
   br i1 %105, label %107, label %106
 
@@ -3818,7 +3818,7 @@ switch.lookup:                                    ; preds = %143
 _ZN10duckdb_hllL10sdsHdrSizeEc.exit.i88:          ; preds = %143, %switch.lookup
   %.0.i.neg.i = phi i64 [ %switch.load152, %switch.lookup ], [ 0, %143 ]
   %149 = getelementptr inbounds i8, ptr %141, i64 %.0.i.neg.i
-  tail call void @free(ptr noundef %149) #33
+  tail call void @free(ptr noundef %149) #34
   br label %_ZN10duckdb_hll7sdsfreeEPc.exit
 
 _ZN10duckdb_hll7sdsfreeEPc.exit:                  ; preds = %.lr.ph111, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit.i88
@@ -3827,7 +3827,7 @@ _ZN10duckdb_hll7sdsfreeEPc.exit:                  ; preds = %.lr.ph111, %_ZN10du
   br i1 %exitcond.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !39
 
 ._crit_edge112:                                   ; preds = %_ZN10duckdb_hll7sdsfreeEPc.exit, %.loopexit
-  tail call void @free(ptr noundef %.3) #33
+  tail call void @free(ptr noundef %.3) #34
   br label %.sink.split
 
 .sink.split:                                      ; preds = %11, %132, %._crit_edge112
@@ -3878,7 +3878,7 @@ switch.lookup:                                    ; preds = %7
 _ZN10duckdb_hllL10sdsHdrSizeEc.exit.i:            ; preds = %7, %switch.lookup
   %.0.i.neg.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %7 ]
   %13 = getelementptr inbounds i8, ptr %5, i64 %.0.i.neg.i
-  tail call void @free(ptr noundef %13) #33
+  tail call void @free(ptr noundef %13) #34
   br label %_ZN10duckdb_hll7sdsfreeEPc.exit
 
 _ZN10duckdb_hll7sdsfreeEPc.exit:                  ; preds = %.lr.ph, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit.i
@@ -3886,7 +3886,7 @@ _ZN10duckdb_hll7sdsfreeEPc.exit:                  ; preds = %.lr.ph, %_ZN10duckd
   br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %_ZN10duckdb_hll7sdsfreeEPc.exit, %.preheader
-  tail call void @free(ptr noundef nonnull %0) #33
+  tail call void @free(ptr noundef nonnull %0) #34
   br label %14
 
 14:                                               ; preds = %2, %._crit_edge
@@ -4496,7 +4496,7 @@ _ZN10duckdb_hllL9sdssetlenEPcm.exit.i41:          ; preds = %275, %272, %269, %2
   br label %_ZN10duckdb_hll9sdscatlenEPcPKvm.exit23
 
 278:                                              ; preds = %.lr.ph
-  %279 = tail call i32 @isprint(i32 noundef %50) #32
+  %279 = tail call i32 @isprint(i32 noundef %50) #33
   %.not18 = icmp eq i32 %279, 0
   br i1 %.not18, label %282, label %280
 
@@ -4715,7 +4715,7 @@ define noundef ptr @_ZN10duckdb_hll12sdssplitargsEPKcPi(ptr noundef readonly cap
   br i1 %.not142224, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2, %.loopexit
-  %4 = phi i8 [ %347, %.loopexit ], [ %3, %2 ]
+  %4 = phi i8 [ %348, %.loopexit ], [ %3, %2 ]
   %.066226 = phi ptr [ %343, %.loopexit ], [ null, %2 ]
   %.071225 = phi ptr [ %spec.select179, %.loopexit ], [ %0, %2 ]
   br label %.lr.ph
@@ -4724,7 +4724,7 @@ define noundef ptr @_ZN10duckdb_hll12sdssplitargsEPKcPi(ptr noundef readonly cap
   %5 = phi i8 [ %10, %8 ], [ %4, %.lr.ph.preheader ]
   %.172143 = phi ptr [ %9, %8 ], [ %.071225, %.lr.ph.preheader ]
   %6 = sext i8 %5 to i32
-  %7 = tail call i32 @isspace(i32 noundef %6) #32
+  %7 = tail call i32 @isspace(i32 noundef %6) #33
   %.not80 = icmp eq i32 %7, 0
   br i1 %.not80, label %.critedge, label %8
 
@@ -4735,7 +4735,7 @@ define noundef ptr @_ZN10duckdb_hll12sdssplitargsEPKcPi(ptr noundef readonly cap
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 .critedge:                                        ; preds = %.lr.ph
-  %11 = tail call noalias dereferenceable_or_null(5) ptr @malloc(i64 noundef 5) #31
+  %11 = tail call noalias dereferenceable_or_null(5) ptr @malloc(i64 noundef 5) #32
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZN10duckdb_hll8sdsemptyEv.exit.preheader, label %13
 
@@ -5025,7 +5025,7 @@ _ZN10duckdb_hllL9sdssetlenEPcm.exit.i103:         ; preds = %132, %129, %126, %1
 
 138:                                              ; preds = %135
   %139 = sext i8 %137 to i32
-  %140 = tail call i32 @isspace(i32 noundef %139) #32
+  %140 = tail call i32 @isspace(i32 noundef %139) #33
   %.not93 = icmp eq i32 %140, 0
   br i1 %.not93, label %.preheader, label %.loopexit
 
@@ -5248,7 +5248,7 @@ _ZN10duckdb_hllL9sdssetlenEPcm.exit.i113:         ; preds = %235, %232, %229, %2
 
 241:                                              ; preds = %238
   %242 = sext i8 %240 to i32
-  %243 = tail call i32 @isspace(i32 noundef %242) #32
+  %243 = tail call i32 @isspace(i32 noundef %242) #33
   %.not87 = icmp eq i32 %243, 0
   br i1 %.not87, label %.preheader, label %.loopexit
 
@@ -5480,97 +5480,98 @@ _ZN10duckdb_hll9sdscatlenEPcPKvm.exit:            ; preds = %289, %_ZN10duckdb_h
   %340 = add nsw i32 %339, 1
   %341 = sext i32 %340 to i64
   %342 = shl nsw i64 %341, 3
-  %343 = tail call ptr @realloc(ptr noundef %.066226, i64 noundef %342) #34
-  %344 = sext i32 %339 to i64
-  %345 = getelementptr inbounds [8 x i8], ptr %343, i64 %344
-  store ptr %.270147, ptr %345, align 8, !tbaa !27
-  %346 = add nsw i32 %339, 1
-  store i32 %346, ptr %1, align 4, !tbaa !30
-  %347 = load i8, ptr %spec.select179, align 1, !tbaa !20
-  %.not142 = icmp eq i8 %347, 0
+  %343 = tail call ptr @realloc(ptr noundef %.066226, i64 noundef %342) #35
+  %344 = load i32, ptr %1, align 4, !tbaa !30
+  %345 = sext i32 %344 to i64
+  %346 = getelementptr inbounds [8 x i8], ptr %343, i64 %345
+  store ptr %.270147, ptr %346, align 8, !tbaa !27
+  %347 = add nsw i32 %344, 1
+  store i32 %347, ptr %1, align 4, !tbaa !30
+  %348 = load i8, ptr %spec.select179, align 1, !tbaa !20
+  %.not142 = icmp eq i8 %348, 0
   br i1 %.not142, label %._crit_edge, label %.lr.ph.preheader
 
 .preheader:                                       ; preds = %138, %241, %17, %188
-  %348 = load i32, ptr %1, align 4, !tbaa !30
-  %349 = add nsw i32 %348, -1
-  store i32 %349, ptr %1, align 4, !tbaa !30
-  %.not94151 = icmp eq i32 %348, 0
+  %349 = load i32, ptr %1, align 4, !tbaa !30
+  %350 = add nsw i32 %349, -1
+  store i32 %350, ptr %1, align 4, !tbaa !30
+  %.not94151 = icmp eq i32 %349, 0
   br i1 %.not94151, label %._crit_edge153, label %.lr.ph152
 
 ._crit_edge:                                      ; preds = %.loopexit, %8, %2
   %.066222 = phi ptr [ %.066226, %8 ], [ null, %2 ], [ %343, %.loopexit ]
-  %350 = icmp eq ptr %.066222, null
-  br i1 %350, label %351, label %375
+  %351 = icmp eq ptr %.066222, null
+  br i1 %351, label %352, label %376
 
-351:                                              ; preds = %._crit_edge
-  %352 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #31
-  br label %375
+352:                                              ; preds = %._crit_edge
+  %353 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #32
+  br label %376
 
 .lr.ph152:                                        ; preds = %.preheader, %_ZN10duckdb_hll7sdsfreeEPc.exit
-  %353 = phi i32 [ %366, %_ZN10duckdb_hll7sdsfreeEPc.exit ], [ %349, %.preheader ]
-  %354 = sext i32 %353 to i64
-  %355 = getelementptr inbounds [8 x i8], ptr %.066226, i64 %354
-  %356 = load ptr, ptr %355, align 8, !tbaa !27
-  %357 = icmp eq ptr %356, null
-  br i1 %357, label %_ZN10duckdb_hll7sdsfreeEPc.exit, label %358
+  %354 = phi i32 [ %367, %_ZN10duckdb_hll7sdsfreeEPc.exit ], [ %350, %.preheader ]
+  %355 = sext i32 %354 to i64
+  %356 = getelementptr inbounds [8 x i8], ptr %.066226, i64 %355
+  %357 = load ptr, ptr %356, align 8, !tbaa !27
+  %358 = icmp eq ptr %357, null
+  br i1 %358, label %_ZN10duckdb_hll7sdsfreeEPc.exit, label %359
 
-358:                                              ; preds = %.lr.ph152
-  %359 = getelementptr inbounds i8, ptr %356, i64 -1
-  %360 = load i8, ptr %359, align 1, !tbaa !20
-  %361 = and i8 %360, 7
-  %362 = icmp samesign ult i8 %361, 5
-  br i1 %362, label %switch.lookup, label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit.i
+359:                                              ; preds = %.lr.ph152
+  %360 = getelementptr inbounds i8, ptr %357, i64 -1
+  %361 = load i8, ptr %360, align 1, !tbaa !20
+  %362 = and i8 %361, 7
+  %363 = icmp samesign ult i8 %362, 5
+  br i1 %363, label %switch.lookup, label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit.i
 
-switch.lookup:                                    ; preds = %358
-  %363 = zext nneg i8 %361 to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.3, i64 %363
+switch.lookup:                                    ; preds = %359
+  %364 = zext nneg i8 %362 to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.3, i64 %364
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit.i
 
-_ZN10duckdb_hllL10sdsHdrSizeEc.exit.i:            ; preds = %358, %switch.lookup
-  %.0.i.neg.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %358 ]
-  %364 = getelementptr inbounds i8, ptr %356, i64 %.0.i.neg.i
-  tail call void @free(ptr noundef %364) #33
+_ZN10duckdb_hllL10sdsHdrSizeEc.exit.i:            ; preds = %359, %switch.lookup
+  %.0.i.neg.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %359 ]
+  %365 = getelementptr inbounds i8, ptr %357, i64 %.0.i.neg.i
+  tail call void @free(ptr noundef %365) #34
   %.pre = load i32, ptr %1, align 4, !tbaa !30
   br label %_ZN10duckdb_hll7sdsfreeEPc.exit
 
 _ZN10duckdb_hll7sdsfreeEPc.exit:                  ; preds = %.lr.ph152, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit.i
-  %365 = phi i32 [ %353, %.lr.ph152 ], [ %.pre, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit.i ]
-  %366 = add nsw i32 %365, -1
-  store i32 %366, ptr %1, align 4, !tbaa !30
-  %.not94 = icmp eq i32 %365, 0
+  %366 = phi i32 [ %354, %.lr.ph152 ], [ %.pre, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit.i ]
+  %367 = add nsw i32 %366, -1
+  store i32 %367, ptr %1, align 4, !tbaa !30
+  %.not94 = icmp eq i32 %366, 0
   br i1 %.not94, label %._crit_edge153, label %.lr.ph152, !llvm.loop !44
 
 ._crit_edge153:                                   ; preds = %_ZN10duckdb_hll7sdsfreeEPc.exit, %.preheader
-  tail call void @free(ptr noundef %.066226) #33
+  tail call void @free(ptr noundef %.066226) #34
   %.not95 = icmp eq ptr %.270147, null
-  br i1 %.not95, label %374, label %367
+  br i1 %.not95, label %375, label %368
 
-367:                                              ; preds = %._crit_edge153
-  %368 = getelementptr inbounds i8, ptr %.270147, i64 -1
-  %369 = load i8, ptr %368, align 1, !tbaa !20
-  %370 = and i8 %369, 7
-  %371 = icmp samesign ult i8 %370, 5
-  br i1 %371, label %switch.lookup227, label %_ZN10duckdb_hll7sdsfreeEPc.exit128
+368:                                              ; preds = %._crit_edge153
+  %369 = getelementptr inbounds i8, ptr %.270147, i64 -1
+  %370 = load i8, ptr %369, align 1, !tbaa !20
+  %371 = and i8 %370, 7
+  %372 = icmp samesign ult i8 %371, 5
+  br i1 %372, label %switch.lookup227, label %_ZN10duckdb_hll7sdsfreeEPc.exit128
 
-switch.lookup227:                                 ; preds = %367
-  %372 = zext nneg i8 %370 to i64
-  %switch.gep228 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.3, i64 %372
+switch.lookup227:                                 ; preds = %368
+  %373 = zext nneg i8 %371 to i64
+  %switch.gep228 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.3, i64 %373
   %switch.load229 = load i64, ptr %switch.gep228, align 8
   br label %_ZN10duckdb_hll7sdsfreeEPc.exit128
 
-_ZN10duckdb_hll7sdsfreeEPc.exit128:               ; preds = %367, %switch.lookup227
-  %.0.i.neg.i127 = phi i64 [ %switch.load229, %switch.lookup227 ], [ 0, %367 ]
-  %373 = getelementptr inbounds i8, ptr %.270147, i64 %.0.i.neg.i127
-  tail call void @free(ptr noundef %373) #33
-  br label %374
-
-374:                                              ; preds = %_ZN10duckdb_hll7sdsfreeEPc.exit128, %._crit_edge153
-  store i32 0, ptr %1, align 4, !tbaa !30
+_ZN10duckdb_hll7sdsfreeEPc.exit128:               ; preds = %368, %switch.lookup227
+  %.0.i.neg.i127 = phi i64 [ %switch.load229, %switch.lookup227 ], [ 0, %368 ]
+  %374 = getelementptr inbounds i8, ptr %.270147, i64 %.0.i.neg.i127
+  tail call void @free(ptr noundef %374) #34
   br label %375
 
-375:                                              ; preds = %._crit_edge, %351, %374
-  %.076 = phi ptr [ null, %374 ], [ %352, %351 ], [ %.066222, %._crit_edge ]
+375:                                              ; preds = %_ZN10duckdb_hll7sdsfreeEPc.exit128, %._crit_edge153
+  store i32 0, ptr %1, align 4, !tbaa !30
+  br label %376
+
+376:                                              ; preds = %._crit_edge, %352, %375
+  %.076 = phi ptr [ null, %375 ], [ %353, %352 ], [ %.066222, %._crit_edge ]
   ret ptr %.076
 }
 
@@ -5661,7 +5662,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %9, %12, %16, %20, %
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZN10duckdb_hll7sdsjoinEPPciS0_(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #22 {
-  %4 = tail call noalias dereferenceable_or_null(5) ptr @malloc(i64 noundef 5) #31
+  %4 = tail call noalias dereferenceable_or_null(5) ptr @malloc(i64 noundef 5) #32
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_ZN10duckdb_hll8sdsemptyEv.exit, label %6
 
@@ -5691,7 +5692,7 @@ _ZN10duckdb_hll8sdsemptyEv.exit:                  ; preds = %3, %6
   %.01017 = phi ptr [ %.0.i.i, %.lr.ph ], [ %.1, %_ZN10duckdb_hll6sdscatEPcPKc.exit16 ]
   %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !27
-  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #32
+  %16 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %15) #33
   %17 = getelementptr inbounds i8, ptr %.01017, i64 -1
   %18 = load i8, ptr %17, align 1, !tbaa !20
   %19 = zext i8 %18 to i32
@@ -5792,7 +5793,7 @@ _ZN10duckdb_hll6sdscatEPcPKc.exit:                ; preds = %_ZN10duckdb_hllL6sd
   br i1 %.not, label %_ZN10duckdb_hll6sdscatEPcPKc.exit16, label %61
 
 61:                                               ; preds = %_ZN10duckdb_hll6sdscatEPcPKc.exit
-  %62 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #32
+  %62 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #33
   %63 = getelementptr inbounds i8, ptr %39, i64 -1
   %64 = load i8, ptr %63, align 1, !tbaa !20
   %65 = zext i8 %64 to i32
@@ -5901,7 +5902,7 @@ _ZN10duckdb_hll6sdscatEPcPKc.exit16:              ; preds = %_ZN10duckdb_hllL9sd
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @_ZN10duckdb_hll10sdsjoinsdsEPPciPKcm(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #22 {
-  %5 = tail call noalias dereferenceable_or_null(5) ptr @malloc(i64 noundef 5) #31
+  %5 = tail call noalias dereferenceable_or_null(5) ptr @malloc(i64 noundef 5) #32
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZN10duckdb_hll8sdsemptyEv.exit, label %7
 
@@ -6042,50 +6043,50 @@ _ZN10duckdb_hll9sdscatlenEPcPKvm.exit:            ; preds = %_ZN10duckdb_hllL9sd
   ret ptr %.011.lcssa
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite, errnomem: write) uwtable
 define noalias noundef ptr @_ZN10duckdb_hll8sdmallocEm(i64 noundef %0) local_unnamed_addr #25 {
-  %2 = tail call noalias ptr @malloc(i64 noundef %0) #31
+  %2 = tail call noalias ptr @malloc(i64 noundef %0) #32
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @_ZN10duckdb_hll9sdreallocEPvm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
-  %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #34
+; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) uwtable
+define noalias noundef ptr @_ZN10duckdb_hll9sdreallocEPvm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #26 {
+  %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #35
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN10duckdb_hll6sdfreeEPv(ptr noundef captures(none) %0) local_unnamed_addr #6 {
-  tail call void @free(ptr noundef %0) #33
+  tail call void @free(ptr noundef %0) #34
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #27
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #27
+declare i64 @llvm.abs.i64(i64, i1 immarg) #28
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #28
+declare i64 @llvm.smax.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #28
+declare i64 @llvm.umin.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #28
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #29
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #30
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #30
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #31
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6095,7 +6096,7 @@ attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6109,16 +6110,17 @@ attributes #21 = { mustprogress nofree norecurse nounwind willreturn memory(argm
 attributes #22 = { mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nounwind memory(readwrite, target_mem0: read, target_mem1: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #27 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #28 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #29 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #30 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #31 = { nounwind allocsize(0) }
-attributes #32 = { nounwind willreturn memory(read) }
-attributes #33 = { nounwind }
-attributes #34 = { nounwind allocsize(1) }
+attributes #25 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #29 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #30 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #31 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
+attributes #32 = { nounwind allocsize(0) }
+attributes #33 = { nounwind willreturn memory(read) }
+attributes #34 = { nounwind }
+attributes #35 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

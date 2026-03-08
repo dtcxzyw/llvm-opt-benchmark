@@ -370,11 +370,11 @@ if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %cond.false.i.i.i.i.
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
   call void @_ZN4llvh22report_bad_alloc_errorEPKcb(ptr noundef nonnull @.str, i1 noundef zeroext true) #10
-  %.pre.i16.i.i.i.i.i.i.i.i.i.i = load i32, ptr %Size.i.i13.i.i.i.i.i.i.i.i.i.i, align 8
+  %.pre = load i32, ptr %Size.i.i13.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZN4llvh15MallocAllocator8AllocateEmm.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZN4llvh15MallocAllocator8AllocateEmm.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i
-  %33 = phi i32 [ %31, %if.end.i.i.i.i.i.i.i.i.i.i ], [ %.pre.i16.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+  %33 = phi i32 [ %.pre, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %if.end.i.i.i.i.i.i.i.i.i.i ]
   %34 = load i32, ptr %Capacity2.i.i.i.i.i.i.i.i4.i, align 4
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %33, %34
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSlabEv.exit.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i14.i.i.i.i.i.i.i.i.i.i
@@ -396,9 +396,9 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSla
   store i32 %add.i.i15.i.i.i.i.i.i.i.i.i.i, ptr %Size.i.i13.i.i.i.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 %mul.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %End.i.i.i.i.i.i.i.i.i.i, align 8
-  %sub.i18.i.i.i.i.i.i.i.i.i.i = add i64 %37, 7
-  %and.i20.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i18.i.i.i.i.i.i.i.i.i.i, -8
-  %39 = inttoptr i64 %and.i20.i.i.i.i.i.i.i.i.i.i to ptr
+  %sub.i17.i.i.i.i.i.i.i.i.i.i = add i64 %37, 7
+  %and.i19.i.i.i.i.i.i.i.i.i.i = and i64 %sub.i17.i.i.i.i.i.i.i.i.i.i, -8
+  %39 = inttoptr i64 %and.i19.i.i.i.i.i.i.i.i.i.i to ptr
   %add.ptr19.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %add.ptr19.i.i.i.i.i.i.i.i.i.i, ptr %Allocator.i.i.i.i.i.i.i.i, align 8
   br label %_ZN4llvh15ScopedHashTableIN12_GLOBAL__N_18CSEValueEPN6hermes5ValueENS_12DenseMapInfoIS2_EENS_18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEENS_18ScopedHashTableValIS2_S5_EELm32ELm8EEEE6insertERKS2_RKS5_.exit.i.i.i.i
@@ -935,11 +935,10 @@ if.end.i.i.i.i:                                   ; preds = %cond.false.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i
   tail call void @_ZN4llvh22report_bad_alloc_errorEPKcb(ptr noundef nonnull @.str, i1 noundef zeroext true) #10
-  %.pre.i16.i.i.i.i = load i32, ptr %Size.i.i13.i.i.i.i, align 8
   br label %_ZN4llvh15MallocAllocator8AllocateEmm.exit.i.i.i.i.i
 
 _ZN4llvh15MallocAllocator8AllocateEmm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i
-  %8 = phi i32 [ %6, %if.end.i.i.i.i ], [ %.pre.i16.i.i.i.i, %if.then.i.i.i.i.i.i.i ]
+  %8 = load i32, ptr %Size.i.i13.i.i.i.i, align 8
   %Capacity.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   %9 = load i32, ptr %Capacity.i.i.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i.i = icmp ult i32 %8, %9
@@ -963,9 +962,9 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSla
   store i32 %add.i.i15.i.i.i.i, ptr %Size.i.i13.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i, i64 %mul.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i, ptr %End.i.i.i.i, align 8
-  %sub.i18.i.i.i.i = add i64 %12, 7
-  %and.i20.i.i.i.i = and i64 %sub.i18.i.i.i.i, -8
-  %14 = inttoptr i64 %and.i20.i.i.i.i to ptr
+  %sub.i17.i.i.i.i = add i64 %12, 7
+  %and.i19.i.i.i.i = and i64 %sub.i17.i.i.i.i, -8
+  %14 = inttoptr i64 %and.i19.i.i.i.i to ptr
   %add.ptr19.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr %add.ptr19.i.i.i.i, ptr %Allocator.i, align 8
   br label %_ZN4llvh18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEEN12_GLOBAL__N_19StackNodeELm56ELm8EE8AllocateEv.exit
@@ -996,7 +995,7 @@ _ZN4llvh18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm40
 
 declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 declare void @_ZN4llvh22report_bad_alloc_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -1501,7 +1500,7 @@ attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

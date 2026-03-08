@@ -42,13 +42,13 @@ define dso_local range(i32 0, 21) i32 @onas_ht_init(ptr noundef writeonly captur
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -1145,7 +1145,7 @@ define dso_local range(i32 -1, 21) i32 @onas_ht_add_hierarchy(ptr noundef captur
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
-  br i1 %or.cond, label %6, label %123
+  br i1 %or.cond, label %6, label %122
 
 6:                                                ; preds = %2
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
@@ -1207,14 +1207,14 @@ onas_get_parent.exit.thread:                      ; preds = %21, %6, %onas_get_p
 
 .thread110:                                       ; preds = %onas_get_parent.exit.thread
   %28 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #21
-  br label %122
+  br label %121
 
-.lr.ph:                                           ; preds = %.preheader118, %119
-  %29 = phi ptr [ %120, %119 ], [ %27, %.preheader118 ]
+.lr.ph:                                           ; preds = %.preheader118, %118
+  %29 = phi ptr [ %119, %118 ], [ %27, %.preheader118 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 98
   %31 = load i16, ptr %30, align 2, !tbaa !51
   %cond = icmp eq i16 %31, 1
-  br i1 %cond, label %32, label %119
+  br i1 %cond, label %32, label %118
 
 32:                                               ; preds = %.lr.ph
   %calloc.i = call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
@@ -1283,202 +1283,202 @@ onas_free_hashnode.exit22.i:                      ; preds = %onas_free_listnode.
   store ptr %54, ptr %55, align 8, !tbaa !33
   %56 = icmp eq ptr %54, null
   %57 = icmp ult i16 %49, 2
-  %or.cond.i76 = or i1 %57, %56
-  br i1 %or.cond.i76, label %74, label %58
+  %or.cond.i76 = or i1 %56, %57
+  br i1 %or.cond.i76, label %73, label %.lr.ph.i82.preheader
 
-58:                                               ; preds = %45
-  %59 = add nsw i32 %50, -2
+.lr.ph.i82.preheader:                             ; preds = %45
+  %58 = add nsw i32 %50, -2
   br label %.lr.ph.i82
 
-.lr.ph.i82:                                       ; preds = %58, %63
-  %.020.i83 = phi i32 [ %64, %63 ], [ %59, %58 ]
-  %60 = zext nneg i32 %.020.i83 to i64
-  %61 = getelementptr inbounds nuw i8, ptr %54, i64 %60
-  %62 = load i8, ptr %61, align 1, !tbaa !40
-  %.not.i84 = icmp eq i8 %62, 47
-  br i1 %.not.i84, label %.critedge.i77, label %63
+.lr.ph.i82:                                       ; preds = %.lr.ph.i82.preheader, %62
+  %.020.i83 = phi i32 [ %63, %62 ], [ %58, %.lr.ph.i82.preheader ]
+  %59 = zext nneg i32 %.020.i83 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 %59
+  %61 = load i8, ptr %60, align 1, !tbaa !40
+  %.not.i84 = icmp eq i8 %61, 47
+  br i1 %.not.i84, label %.critedge.i77, label %62
 
-63:                                               ; preds = %.lr.ph.i82
-  %64 = add nsw i32 %.020.i83, -1
-  %65 = icmp sgt i32 %.020.i83, 0
-  br i1 %65, label %.lr.ph.i82, label %.critedge.i77
+62:                                               ; preds = %.lr.ph.i82
+  %63 = add nsw i32 %.020.i83, -1
+  %64 = icmp sgt i32 %.020.i83, 0
+  br i1 %64, label %.lr.ph.i82, label %.critedge.i77
 
-.critedge.i77:                                    ; preds = %63, %.lr.ph.i82
-  %.0.lcssa.i78 = phi i32 [ %.020.i83, %.lr.ph.i82 ], [ -1, %63 ]
-  %spec.select.i79 = call i32 @llvm.umax.i32(i32 %.0.lcssa.i78, i32 1)
-  %66 = sext i32 %spec.select.i79 to i64
-  %67 = call noalias ptr @strndup(ptr noundef nonnull readonly %54, i64 noundef %66) #21
-  %.not19.i80 = icmp eq ptr %67, null
-  br i1 %.not19.i80, label %68, label %70
+.critedge.i77:                                    ; preds = %62, %.lr.ph.i82
+  %.0.lcssa.i78.ph = phi i32 [ -1, %62 ], [ %.020.i83, %.lr.ph.i82 ]
+  %spec.select.i79 = call i32 @llvm.umax.i32(i32 %.0.lcssa.i78.ph, i32 1)
+  %65 = sext i32 %spec.select.i79 to i64
+  %66 = call noalias ptr @strndup(ptr noundef nonnull readonly %54, i64 noundef %65) #21
+  %.not19.i80 = icmp eq ptr %66, null
+  br i1 %.not19.i80, label %67, label %69
 
-68:                                               ; preds = %.critedge.i77
-  %69 = tail call ptr @__errno_location() #23
-  store i32 12, ptr %69, align 4, !tbaa !9
-  br label %74
+67:                                               ; preds = %.critedge.i77
+  %68 = tail call ptr @__errno_location() #23
+  store i32 12, ptr %68, align 4, !tbaa !9
+  br label %73
 
-70:                                               ; preds = %.critedge.i77
-  %71 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
-  store ptr %67, ptr %71, align 8, !tbaa !34
-  %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #22
-  %73 = trunc i64 %72 to i32
-  br label %76
+69:                                               ; preds = %.critedge.i77
+  %70 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
+  store ptr %66, ptr %70, align 8, !tbaa !34
+  %71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #22
+  %72 = trunc i64 %71 to i32
+  br label %75
 
-74:                                               ; preds = %45, %68
-  %75 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
-  store ptr null, ptr %75, align 8, !tbaa !34
-  br label %76
+73:                                               ; preds = %45, %67
+  %74 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
+  store ptr null, ptr %74, align 8, !tbaa !34
+  br label %75
 
-76:                                               ; preds = %70, %74
-  %.sink = phi i32 [ %73, %70 ], [ 0, %74 ]
-  %77 = phi ptr [ %71, %70 ], [ %75, %74 ]
-  %78 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
-  store i32 %.sink, ptr %78, align 8, !tbaa !59
-  %79 = call ptr @fts_children(ptr noundef nonnull %26, i32 noundef 0) #21
-  %.not69 = icmp eq ptr %79, null
+75:                                               ; preds = %69, %73
+  %.sink = phi i32 [ %72, %69 ], [ 0, %73 ]
+  %76 = phi ptr [ %70, %69 ], [ %74, %73 ]
+  %77 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
+  store i32 %.sink, ptr %77, align 8, !tbaa !59
+  %78 = call ptr @fts_children(ptr noundef nonnull %26, i32 noundef 0) #21
+  %.not69 = icmp eq ptr %78, null
   br i1 %.not69, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %76, %onas_add_hashnode_child.exit.thread
-  %.054 = phi ptr [ %103, %onas_add_hashnode_child.exit.thread ], [ %79, %76 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.054, i64 98
-  %81 = load i16, ptr %80, align 2, !tbaa !51
-  %82 = icmp eq i16 %81, 1
-  br i1 %82, label %83, label %onas_add_hashnode_child.exit.thread
+.preheader:                                       ; preds = %75, %onas_add_hashnode_child.exit.thread
+  %.054 = phi ptr [ %102, %onas_add_hashnode_child.exit.thread ], [ %78, %75 ]
+  %79 = getelementptr inbounds nuw i8, ptr %.054, i64 98
+  %80 = load i16, ptr %79, align 2, !tbaa !51
+  %81 = icmp eq i16 %80, 1
+  br i1 %81, label %82, label %onas_add_hashnode_child.exit.thread
 
-83:                                               ; preds = %.preheader
+82:                                               ; preds = %.preheader
   %calloc.i.i88 = call noalias noundef dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   %.not.i89 = icmp eq ptr %calloc.i.i88, null
-  br i1 %.not.i89, label %onas_add_hashnode_child.exit, label %84
+  br i1 %.not.i89, label %onas_add_hashnode_child.exit, label %83
 
-84:                                               ; preds = %83
-  %85 = getelementptr inbounds nuw i8, ptr %.054, i64 112
-  %86 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %85) #22
-  %87 = call noalias ptr @strndup(ptr noundef nonnull readonly %85, i64 noundef %86) #21
-  store ptr %87, ptr %calloc.i.i88, align 8, !tbaa !32
-  %88 = load ptr, ptr %36, align 8, !tbaa !50
-  %.not13.i90 = icmp eq ptr %88, null
-  br i1 %.not13.i90, label %onas_add_hashnode_child.exit.thread, label %89
+83:                                               ; preds = %82
+  %84 = getelementptr inbounds nuw i8, ptr %.054, i64 112
+  %85 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %84) #22
+  %86 = call noalias ptr @strndup(ptr noundef nonnull readonly %84, i64 noundef %85) #21
+  store ptr %86, ptr %calloc.i.i88, align 8, !tbaa !32
+  %87 = load ptr, ptr %36, align 8, !tbaa !50
+  %.not13.i90 = icmp eq ptr %87, null
+  br i1 %.not13.i90, label %onas_add_hashnode_child.exit.thread, label %88
 
-89:                                               ; preds = %84
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %91 = load ptr, ptr %90, align 8, !tbaa !49
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store ptr %calloc.i.i88, ptr %92, align 8, !tbaa !30
-  %93 = getelementptr inbounds nuw i8, ptr %calloc.i.i88, i64 16
-  store ptr %91, ptr %93, align 8, !tbaa !49
-  %94 = getelementptr inbounds nuw i8, ptr %calloc.i.i88, i64 8
-  store ptr %88, ptr %94, align 8, !tbaa !30
-  store ptr %calloc.i.i88, ptr %90, align 8, !tbaa !49
+88:                                               ; preds = %83
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %90 = load ptr, ptr %89, align 8, !tbaa !49
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  store ptr %calloc.i.i88, ptr %91, align 8, !tbaa !30
+  %92 = getelementptr inbounds nuw i8, ptr %calloc.i.i88, i64 16
+  store ptr %90, ptr %92, align 8, !tbaa !49
+  %93 = getelementptr inbounds nuw i8, ptr %calloc.i.i88, i64 8
+  store ptr %87, ptr %93, align 8, !tbaa !30
+  store ptr %calloc.i.i88, ptr %89, align 8, !tbaa !49
   br label %onas_add_hashnode_child.exit.thread
 
-onas_add_hashnode_child.exit:                     ; preds = %83
-  %95 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 32
-  %96 = load ptr, ptr %95, align 8, !tbaa !27
-  %.not.i.i = icmp eq ptr %96, null
+onas_add_hashnode_child.exit:                     ; preds = %82
+  %94 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 32
+  %95 = load ptr, ptr %94, align 8, !tbaa !27
+  %.not.i.i = icmp eq ptr %95, null
   br i1 %.not.i.i, label %onas_free_hashnode.exit, label %onas_free_listnode.exit.i.i
 
 onas_free_listnode.exit.i.i:                      ; preds = %onas_add_hashnode_child.exit, %onas_free_listnode.exit.i.i
-  %.09.i.i = phi ptr [ %98, %onas_free_listnode.exit.i.i ], [ %96, %onas_add_hashnode_child.exit ]
-  %97 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !30
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false)
-  %99 = load ptr, ptr %.09.i.i, align 8, !tbaa !32
-  call void @free(ptr noundef %99) #21
+  %.09.i.i = phi ptr [ %97, %onas_free_listnode.exit.i.i ], [ %95, %onas_add_hashnode_child.exit ]
+  %96 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 8
+  %97 = load ptr, ptr %96, align 8, !tbaa !30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
+  %98 = load ptr, ptr %.09.i.i, align 8, !tbaa !32
+  call void @free(ptr noundef %98) #21
   call void @free(ptr noundef nonnull %.09.i.i) #21
-  %.not8.i.i = icmp eq ptr %98, null
+  %.not8.i.i = icmp eq ptr %97, null
   br i1 %.not8.i.i, label %onas_free_hashnode.exit, label %onas_free_listnode.exit.i.i
 
 onas_free_hashnode.exit:                          ; preds = %onas_free_listnode.exit.i.i, %onas_add_hashnode_child.exit
-  store ptr null, ptr %95, align 8, !tbaa !27
-  %100 = load ptr, ptr %55, align 8, !tbaa !33
-  call void @free(ptr noundef %100) #21
+  store ptr null, ptr %94, align 8, !tbaa !27
+  %99 = load ptr, ptr %55, align 8, !tbaa !33
+  call void @free(ptr noundef %99) #21
   store ptr null, ptr %55, align 8, !tbaa !33
-  %101 = load ptr, ptr %77, align 8, !tbaa !34
-  call void @free(ptr noundef %101) #21
+  %100 = load ptr, ptr %76, align 8, !tbaa !34
+  call void @free(ptr noundef %100) #21
   call void @free(ptr noundef nonnull %calloc.i) #21
   br label %.thread113
 
-onas_add_hashnode_child.exit.thread:              ; preds = %84, %89, %.preheader
-  %102 = getelementptr inbounds nuw i8, ptr %.054, i64 16
-  %103 = load ptr, ptr %102, align 8, !tbaa !60
-  %.not70 = icmp eq ptr %103, null
+onas_add_hashnode_child.exit.thread:              ; preds = %83, %88, %.preheader
+  %101 = getelementptr inbounds nuw i8, ptr %.054, i64 16
+  %102 = load ptr, ptr %101, align 8, !tbaa !60
+  %.not70 = icmp eq ptr %102, null
   br i1 %.not70, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %onas_add_hashnode_child.exit.thread, %76
-  %104 = load ptr, ptr %55, align 8, !tbaa !33
-  %105 = load i32, ptr %calloc.i, align 8, !tbaa !57
-  %106 = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #19
-  %.not.i92 = icmp eq ptr %106, null
-  br i1 %.not.i92, label %107, label %115
+.loopexit:                                        ; preds = %onas_add_hashnode_child.exit.thread, %75
+  %103 = load ptr, ptr %55, align 8, !tbaa !33
+  %104 = load i32, ptr %calloc.i, align 8, !tbaa !57
+  %105 = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #19
+  %.not.i92 = icmp eq ptr %105, null
+  br i1 %.not.i92, label %106, label %114
 
-107:                                              ; preds = %.loopexit
-  %108 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 32
-  %109 = load ptr, ptr %108, align 8, !tbaa !27
-  %.not.i.i94 = icmp eq ptr %109, null
+106:                                              ; preds = %.loopexit
+  %107 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 32
+  %108 = load ptr, ptr %107, align 8, !tbaa !27
+  %.not.i.i94 = icmp eq ptr %108, null
   br i1 %.not.i.i94, label %onas_free_hashnode.exit99, label %onas_free_listnode.exit.i.i95
 
-onas_free_listnode.exit.i.i95:                    ; preds = %107, %onas_free_listnode.exit.i.i95
-  %.09.i.i96 = phi ptr [ %111, %onas_free_listnode.exit.i.i95 ], [ %109, %107 ]
-  %110 = getelementptr inbounds nuw i8, ptr %.09.i.i96, i64 8
-  %111 = load ptr, ptr %110, align 8, !tbaa !30
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, i8 0, i64 16, i1 false)
-  %112 = load ptr, ptr %.09.i.i96, align 8, !tbaa !32
-  call void @free(ptr noundef %112) #21
+onas_free_listnode.exit.i.i95:                    ; preds = %106, %onas_free_listnode.exit.i.i95
+  %.09.i.i96 = phi ptr [ %110, %onas_free_listnode.exit.i.i95 ], [ %108, %106 ]
+  %109 = getelementptr inbounds nuw i8, ptr %.09.i.i96, i64 8
+  %110 = load ptr, ptr %109, align 8, !tbaa !30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false)
+  %111 = load ptr, ptr %.09.i.i96, align 8, !tbaa !32
+  call void @free(ptr noundef %111) #21
   call void @free(ptr noundef nonnull %.09.i.i96) #21
-  %.not8.i.i97 = icmp eq ptr %111, null
+  %.not8.i.i97 = icmp eq ptr %110, null
   br i1 %.not8.i.i97, label %onas_free_hashnode.exit99.loopexit, label %onas_free_listnode.exit.i.i95
 
 onas_free_hashnode.exit99.loopexit:               ; preds = %onas_free_listnode.exit.i.i95
   %.pre = load ptr, ptr %55, align 8, !tbaa !33
   br label %onas_free_hashnode.exit99
 
-onas_free_hashnode.exit99:                        ; preds = %onas_free_hashnode.exit99.loopexit, %107
-  %113 = phi ptr [ %.pre, %onas_free_hashnode.exit99.loopexit ], [ %104, %107 ]
-  store ptr null, ptr %108, align 8, !tbaa !27
-  call void @free(ptr noundef %113) #21
+onas_free_hashnode.exit99:                        ; preds = %onas_free_hashnode.exit99.loopexit, %106
+  %112 = phi ptr [ %.pre, %onas_free_hashnode.exit99.loopexit ], [ %103, %106 ]
+  store ptr null, ptr %107, align 8, !tbaa !27
+  call void @free(ptr noundef %112) #21
   store ptr null, ptr %55, align 8, !tbaa !33
-  %114 = load ptr, ptr %77, align 8, !tbaa !34
-  call void @free(ptr noundef %114) #21
+  %113 = load ptr, ptr %76, align 8, !tbaa !34
+  call void @free(ptr noundef %113) #21
   call void @free(ptr noundef nonnull %calloc.i) #21
   br label %.thread113
 
-115:                                              ; preds = %.loopexit
-  %116 = sext i32 %105 to i64
-  store ptr %104, ptr %106, align 8, !tbaa !35
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %106, i64 8
-  store i64 %116, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !36
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %106, i64 16
+114:                                              ; preds = %.loopexit
+  %115 = sext i32 %104 to i64
+  store ptr %103, ptr %105, align 8, !tbaa !35
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %105, i64 8
+  store i64 %115, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !36
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %105, i64 16
   store ptr %calloc.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !37
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %106, i64 24
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %105, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, i8 0, i64 16, i1 false)
-  %117 = call i32 @onas_ht_insert(ptr noundef nonnull %0, ptr noundef nonnull %106)
-  %.not72 = icmp eq i32 %117, 0
-  br i1 %.not72, label %119, label %118
+  %116 = call i32 @onas_ht_insert(ptr noundef nonnull %0, ptr noundef nonnull %105)
+  %.not72 = icmp eq i32 %116, 0
+  br i1 %.not72, label %118, label %117
 
-118:                                              ; preds = %115
-  call void @onas_free_element(ptr noundef nonnull %106)
+117:                                              ; preds = %114
+  call void @onas_free_element(ptr noundef nonnull %105)
   br label %.thread113
 
-119:                                              ; preds = %115, %.lr.ph
-  %120 = call ptr @fts_read(ptr noundef nonnull %26) #21
-  %.not66 = icmp eq ptr %120, null
+118:                                              ; preds = %114, %.lr.ph
+  %119 = call ptr @fts_read(ptr noundef nonnull %26) #21
+  %.not66 = icmp eq ptr %119, null
   br i1 %.not66, label %.thread113, label %.lr.ph
 
-.thread113:                                       ; preds = %119, %32, %.preheader118, %onas_free_hashnode.exit99, %118, %onas_free_hashnode.exit, %onas_free_hashnode.exit22.i, %onas_free_hashnode.exit.i
-  %.052115 = phi i32 [ -1, %118 ], [ 20, %onas_free_hashnode.exit22.i ], [ 20, %onas_free_hashnode.exit ], [ 20, %onas_free_hashnode.exit.i ], [ 20, %onas_free_hashnode.exit99 ], [ 0, %.preheader118 ], [ 0, %119 ], [ 20, %32 ]
-  %121 = call i32 @fts_close(ptr noundef nonnull %26) #21
-  br label %122
+.thread113:                                       ; preds = %118, %32, %.preheader118, %onas_free_hashnode.exit99, %117, %onas_free_hashnode.exit, %onas_free_hashnode.exit22.i, %onas_free_hashnode.exit.i
+  %.052115 = phi i32 [ -1, %117 ], [ 20, %onas_free_hashnode.exit22.i ], [ 20, %onas_free_hashnode.exit ], [ 20, %onas_free_hashnode.exit.i ], [ 20, %onas_free_hashnode.exit99 ], [ 0, %.preheader118 ], [ 0, %118 ], [ 20, %32 ]
+  %120 = call i32 @fts_close(ptr noundef nonnull %26) #21
+  br label %121
 
-122:                                              ; preds = %.thread110, %.thread113
+121:                                              ; preds = %.thread110, %.thread113
   %.052112 = phi i32 [ 3, %.thread110 ], [ %.052115, %.thread113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %123
+  br label %122
 
-123:                                              ; preds = %2, %122
-  %.0 = phi i32 [ %.052112, %122 ], [ 2, %2 ]
+122:                                              ; preds = %2, %121
+  %.0 = phi i32 [ %.052112, %121 ], [ 2, %2 ]
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias ptr @strndup(ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
@@ -1679,9 +1679,9 @@ declare i32 @llvm.ctpop.i32(i32) #18
 declare i32 @llvm.umax.i32(i32, i32) #18
 
 attributes #0 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1692,7 +1692,7 @@ attributes #10 = { mustprogress nounwind willreturn memory(readwrite, target_mem
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

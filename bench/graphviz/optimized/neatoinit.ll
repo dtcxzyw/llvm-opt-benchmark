@@ -2503,7 +2503,7 @@ gv_calloc.exit106.i:                              ; preds = %124, %.thread.i105.
   %177 = icmp ne i32 %176, 0
   %178 = zext i1 %177 to i64
   %179 = add nuw nsw i64 %175, %178
-  %180 = call noalias ptr @calloc(i64 noundef %179, i64 noundef 1) #23
+  %180 = call noalias ptr @calloc(i64 noundef %179, i64 noundef 1) #23, !noalias !143
   %181 = icmp eq ptr %180, null
   br i1 %181, label %182, label %bitarray_new.exit.i.i
 
@@ -2539,7 +2539,7 @@ bitarray_new.exit.i.i:                            ; preds = %174, %170
   br i1 %.not.i.i.i, label %.thread.i57.i.i, label %192
 
 192:                                              ; preds = %._crit_edge.i.i26
-  %193 = call noalias ptr @calloc(i64 noundef %191, i64 noundef 8) #23
+  %193 = call noalias ptr @calloc(i64 noundef %191, i64 noundef 8) #23, !noalias !143
   %194 = icmp eq ptr %193, null
   br i1 %194, label %195, label %201
 
@@ -2551,12 +2551,12 @@ bitarray_new.exit.i.i:                            ; preds = %174, %170
   unreachable
 
 .thread.i57.i.i:                                  ; preds = %._crit_edge.i.i26, %bitarray_new.exit.i.i
-  %199 = call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #23
-  %200 = call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #23
+  %199 = call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #23, !noalias !143
+  %200 = call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #23, !noalias !143
   br label %gv_calloc.exit58.i.i
 
 201:                                              ; preds = %192
-  %202 = call noalias ptr @calloc(i64 noundef %191, i64 noundef 4) #23
+  %202 = call noalias ptr @calloc(i64 noundef %191, i64 noundef 4) #23, !noalias !143
   %203 = icmp eq ptr %202, null
   br i1 %203, label %204, label %gv_calloc.exit58.i.i
 
@@ -2594,7 +2594,7 @@ gv_calloc.exit58.i.i:                             ; preds = %201, %.thread.i57.i
   br i1 %.not.i59.i.i, label %.thread.i62.i.i, label %217
 
 .thread.i62.i.i:                                  ; preds = %211
-  %216 = call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #23
+  %216 = call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #23, !noalias !143
   br label %gv_calloc.exit63.i.i
 
 217:                                              ; preds = %211
@@ -2608,7 +2608,7 @@ gv_calloc.exit58.i.i:                             ; preds = %201, %.thread.i57.i
   unreachable
 
 221:                                              ; preds = %217
-  %222 = call noalias ptr @calloc(i64 noundef %215, i64 noundef 4) #23
+  %222 = call noalias ptr @calloc(i64 noundef %215, i64 noundef 4) #23, !noalias !143
   %223 = icmp eq ptr %222, null
   br i1 %223, label %224, label %gv_calloc.exit63.i.i
 
@@ -2689,11 +2689,11 @@ bitarray_set.exit.i.i:                            ; preds = %235, %.lr.ph85.i.i,
   br i1 %.not.i64.i.i, label %.thread.i67.i.i, label %255
 
 .thread.i67.i.i:                                  ; preds = %._crit_edge99.i.i
-  %254 = call noalias ptr @calloc(i64 noundef 0, i64 noundef 32) #23
+  %254 = call noalias ptr @calloc(i64 noundef 0, i64 noundef 32) #23, !noalias !143
   br label %gv_calloc.exit68.i.i
 
 255:                                              ; preds = %._crit_edge99.i.i
-  %256 = call noalias ptr @calloc(i64 noundef %253, i64 noundef 32) #23
+  %256 = call noalias ptr @calloc(i64 noundef %253, i64 noundef 32) #23, !noalias !143
   %257 = icmp eq ptr %256, null
   br i1 %257, label %258, label %gv_calloc.exit68.i.i
 
@@ -2711,7 +2711,7 @@ gv_calloc.exit68.i.i:                             ; preds = %255, %.thread.i67.i
   br i1 %.not.i69.i.i, label %.thread.i72.i.i, label %265
 
 .thread.i72.i.i:                                  ; preds = %gv_calloc.exit68.i.i
-  %264 = call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #23
+  %264 = call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #23, !noalias !143
   br label %gv_calloc.exit73.i.i
 
 265:                                              ; preds = %gv_calloc.exit68.i.i
@@ -2725,7 +2725,7 @@ gv_calloc.exit68.i.i:                             ; preds = %255, %.thread.i67.i
   unreachable
 
 269:                                              ; preds = %265
-  %270 = call noalias ptr @calloc(i64 noundef %263, i64 noundef 4) #23
+  %270 = call noalias ptr @calloc(i64 noundef %263, i64 noundef 4) #23, !noalias !143
   %271 = icmp eq ptr %270, null
   br i1 %271, label %272, label %gv_calloc.exit73.i.i
 
@@ -3070,7 +3070,7 @@ define internal fastcc void @graphviz_exit() unnamed_addr #8 {
   unreachable
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree noreturn nounwind
@@ -3213,7 +3213,7 @@ gv_recalloc.exit:                                 ; preds = %20, %27, %29
 
 declare void @do_graph_label(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 declare i32 @agnedges(ptr noundef) local_unnamed_addr #1
@@ -4176,10 +4176,10 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

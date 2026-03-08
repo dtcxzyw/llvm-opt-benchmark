@@ -3915,7 +3915,7 @@ _get_profiles.exit:                               ; preds = %52, %1
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 declare ptr @gtk_box_new(i32 noundef, i32 noundef) local_unnamed_addr #3
@@ -5650,7 +5650,7 @@ define noalias noundef ptr @legacy_params(ptr noundef readnone captures(none) %0
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
@@ -5982,7 +5982,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @get_params(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
+define noalias noundef ptr @get_params(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !84
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -6200,47 +6200,48 @@ define noalias noundef ptr @get_params(ptr noundef readonly captures(none) %0, p
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge192:                                   ; preds = %.lr.ph191, %._crit_edge
-  %.0164.lcssa = phi i32 [ %138, %._crit_edge ], [ %176, %.lr.ph191 ]
-  %.not177 = icmp eq i32 %.0164.lcssa, %77
-  br i1 %.not177, label %178, label %177, !prof !227
+  %.0164.lcssa = phi i32 [ %138, %._crit_edge ], [ %177, %.lr.ph191 ]
+  %156 = load i32, ptr %1, align 4, !tbaa !132
+  %.not177 = icmp eq i32 %.0164.lcssa, %156
+  br i1 %.not177, label %179, label %178, !prof !227
 
 .lr.ph191:                                        ; preds = %.lr.ph191.preheader, %.lr.ph191
   %indvars.iv = phi i64 [ 0, %.lr.ph191.preheader ], [ %indvars.iv.next, %.lr.ph191 ]
-  %.0164188 = phi i32 [ %138, %.lr.ph191.preheader ], [ %176, %.lr.ph191 ]
-  %156 = sext i32 %.0164188 to i64
-  %157 = getelementptr inbounds i8, ptr %79, i64 %156
-  %158 = getelementptr inbounds nuw [96 x i8], ptr %4, i64 %indvars.iv
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 1400
-  %160 = load i32, ptr %159, align 8
-  store i32 %160, ptr %157, align 1
-  %161 = add i32 %.0164188, 4
-  %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds i8, ptr %79, i64 %162
-  %164 = getelementptr inbounds nuw i8, ptr %158, i64 1404
-  %165 = load i32, ptr %164, align 4
-  store i32 %165, ptr %163, align 1
-  %166 = add i32 %.0164188, 8
-  %167 = sext i32 %166 to i64
-  %168 = getelementptr inbounds i8, ptr %79, i64 %167
-  %169 = getelementptr inbounds nuw i8, ptr %158, i64 1408
-  %170 = load i32, ptr %169, align 8
-  store i32 %170, ptr %168, align 1
-  %171 = add i32 %.0164188, 12
-  %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds i8, ptr %79, i64 %172
-  %174 = getelementptr inbounds nuw i8, ptr %158, i64 1412
-  %175 = load i32, ptr %174, align 4
-  store i32 %175, ptr %173, align 1
-  %176 = add i32 %.0164188, 16
+  %.0164188 = phi i32 [ %138, %.lr.ph191.preheader ], [ %177, %.lr.ph191 ]
+  %157 = sext i32 %.0164188 to i64
+  %158 = getelementptr inbounds i8, ptr %79, i64 %157
+  %159 = getelementptr inbounds nuw [96 x i8], ptr %4, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 1400
+  %161 = load i32, ptr %160, align 8
+  store i32 %161, ptr %158, align 1
+  %162 = add i32 %.0164188, 4
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds i8, ptr %79, i64 %163
+  %165 = getelementptr inbounds nuw i8, ptr %159, i64 1404
+  %166 = load i32, ptr %165, align 4
+  store i32 %166, ptr %164, align 1
+  %167 = add i32 %.0164188, 8
+  %168 = sext i32 %167 to i64
+  %169 = getelementptr inbounds i8, ptr %79, i64 %168
+  %170 = getelementptr inbounds nuw i8, ptr %159, i64 1408
+  %171 = load i32, ptr %170, align 8
+  store i32 %171, ptr %169, align 1
+  %172 = add i32 %.0164188, 12
+  %173 = sext i32 %172 to i64
+  %174 = getelementptr inbounds i8, ptr %79, i64 %173
+  %175 = getelementptr inbounds nuw i8, ptr %159, i64 1412
+  %176 = load i32, ptr %175, align 4
+  store i32 %176, ptr %174, align 1
+  %177 = add i32 %.0164188, 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge192, label %.lr.ph191
 
-177:                                              ; preds = %._crit_edge192
+178:                                              ; preds = %._crit_edge192
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 3428, ptr noundef nonnull @__func__.get_params, ptr noundef nonnull @.str.102) #23
   unreachable
 
-178:                                              ; preds = %._crit_edge192
+179:                                              ; preds = %._crit_edge192
   ret ptr %79
 }
 
@@ -7124,87 +7125,98 @@ define internal range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(n
   br label %.loopexit
 
 30:                                               ; preds = %12
-  %31 = icmp sgt i32 %22, 0
-  %32 = icmp sgt i32 %18, 0
-  %or.cond89 = and i1 %31, %32
-  br i1 %15, label %.preheader44, label %.preheader46
+  %31 = load i32, ptr %13, align 4, !tbaa !251
+  %32 = icmp eq i32 %31, 8
+  %33 = load i32, ptr %21, align 4, !tbaa !255
+  %34 = icmp sgt i32 %33, 0
+  br i1 %32, label %.preheader44, label %.preheader46
 
 .preheader46:                                     ; preds = %30
-  br i1 %or.cond89, label %.preheader45, label %.loopexit
+  br i1 %34, label %.preheader45.lr.ph, label %.loopexit
+
+.preheader45.lr.ph:                               ; preds = %.preheader46
+  %35 = load i32, ptr %17, align 8, !tbaa !253
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.preheader45, label %.loopexit
 
 .preheader44:                                     ; preds = %30
-  br i1 %or.cond89, label %.preheader, label %.loopexit
+  br i1 %34, label %.preheader.lr.ph, label %.loopexit
 
-.preheader:                                       ; preds = %.preheader44, %._crit_edge59
-  %33 = phi i32 [ %36, %._crit_edge59 ], [ %22, %.preheader44 ]
-  %34 = phi i32 [ %37, %._crit_edge59 ], [ %18, %.preheader44 ]
-  %.03764 = phi i32 [ %38, %._crit_edge59 ], [ 0, %.preheader44 ]
-  %.03863 = phi ptr [ %.139.lcssa, %._crit_edge59 ], [ %25, %.preheader44 ]
-  %.04062 = phi ptr [ %.141.lcssa, %._crit_edge59 ], [ %2, %.preheader44 ]
-  %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph58, label %._crit_edge59
+.preheader.lr.ph:                                 ; preds = %.preheader44
+  %37 = load i32, ptr %17, align 8, !tbaa !253
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %.preheader, label %.loopexit
+
+.preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge59
+  %39 = phi i32 [ %42, %._crit_edge59 ], [ %33, %.preheader.lr.ph ]
+  %40 = phi i32 [ %43, %._crit_edge59 ], [ %37, %.preheader.lr.ph ]
+  %.03764 = phi i32 [ %44, %._crit_edge59 ], [ 0, %.preheader.lr.ph ]
+  %.03863 = phi ptr [ %.139.lcssa, %._crit_edge59 ], [ %25, %.preheader.lr.ph ]
+  %.04062 = phi ptr [ %.141.lcssa, %._crit_edge59 ], [ %2, %.preheader.lr.ph ]
+  %41 = icmp sgt i32 %40, 0
+  br i1 %41, label %.lr.ph58, label %._crit_edge59
 
 ._crit_edge59.loopexit:                           ; preds = %.lr.ph58
   %.pre71 = load i32, ptr %21, align 4, !tbaa !255
   br label %._crit_edge59
 
 ._crit_edge59:                                    ; preds = %._crit_edge59.loopexit, %.preheader
-  %36 = phi i32 [ %33, %.preheader ], [ %.pre71, %._crit_edge59.loopexit ]
-  %37 = phi i32 [ %34, %.preheader ], [ %43, %._crit_edge59.loopexit ]
-  %.141.lcssa = phi ptr [ %.04062, %.preheader ], [ %41, %._crit_edge59.loopexit ]
-  %.139.lcssa = phi ptr [ %.03863, %.preheader ], [ %42, %._crit_edge59.loopexit ]
-  %38 = add nuw nsw i32 %.03764, 1
-  %39 = icmp slt i32 %38, %36
-  br i1 %39, label %.preheader, label %.loopexit, !llvm.loop !273
+  %42 = phi i32 [ %39, %.preheader ], [ %.pre71, %._crit_edge59.loopexit ]
+  %43 = phi i32 [ %40, %.preheader ], [ %49, %._crit_edge59.loopexit ]
+  %.141.lcssa = phi ptr [ %.04062, %.preheader ], [ %47, %._crit_edge59.loopexit ]
+  %.139.lcssa = phi ptr [ %.03863, %.preheader ], [ %48, %._crit_edge59.loopexit ]
+  %44 = add nuw nsw i32 %.03764, 1
+  %45 = icmp slt i32 %44, %42
+  br i1 %45, label %.preheader, label %.loopexit, !llvm.loop !273
 
 .lr.ph58:                                         ; preds = %.preheader, %.lr.ph58
-  %.03657 = phi i32 [ %40, %.lr.ph58 ], [ 0, %.preheader ]
-  %.13956 = phi ptr [ %42, %.lr.ph58 ], [ %.03863, %.preheader ]
-  %.14155 = phi ptr [ %41, %.lr.ph58 ], [ %.04062, %.preheader ]
+  %.03657 = phi i32 [ %46, %.lr.ph58 ], [ 0, %.preheader ]
+  %.13956 = phi ptr [ %48, %.lr.ph58 ], [ %.03863, %.preheader ]
+  %.14155 = phi ptr [ %47, %.lr.ph58 ], [ %.04062, %.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.13956, ptr noundef nonnull align 1 dereferenceable(3) %.14155, i64 3, i1 false)
-  %40 = add nuw nsw i32 %.03657, 1
-  %41 = getelementptr inbounds nuw i8, ptr %.14155, i64 4
-  %42 = getelementptr inbounds nuw i8, ptr %.13956, i64 3
-  %43 = load i32, ptr %17, align 8, !tbaa !253
-  %44 = icmp slt i32 %40, %43
-  br i1 %44, label %.lr.ph58, label %._crit_edge59.loopexit
+  %46 = add nuw nsw i32 %.03657, 1
+  %47 = getelementptr inbounds nuw i8, ptr %.14155, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.13956, i64 3
+  %49 = load i32, ptr %17, align 8, !tbaa !253
+  %50 = icmp slt i32 %46, %49
+  br i1 %50, label %.lr.ph58, label %._crit_edge59.loopexit
 
-.preheader45:                                     ; preds = %.preheader46, %._crit_edge
-  %45 = phi i32 [ %48, %._crit_edge ], [ %22, %.preheader46 ]
-  %46 = phi i32 [ %49, %._crit_edge ], [ %18, %.preheader46 ]
-  %.03254 = phi i32 [ %50, %._crit_edge ], [ 0, %.preheader46 ]
-  %.03353 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %25, %.preheader46 ]
-  %.03452 = phi ptr [ %.135.lcssa, %._crit_edge ], [ %2, %.preheader46 ]
-  %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %.lr.ph, label %._crit_edge
+.preheader45:                                     ; preds = %.preheader45.lr.ph, %._crit_edge
+  %51 = phi i32 [ %54, %._crit_edge ], [ %33, %.preheader45.lr.ph ]
+  %52 = phi i32 [ %55, %._crit_edge ], [ %35, %.preheader45.lr.ph ]
+  %.03254 = phi i32 [ %56, %._crit_edge ], [ 0, %.preheader45.lr.ph ]
+  %.03353 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %25, %.preheader45.lr.ph ]
+  %.03452 = phi ptr [ %.135.lcssa, %._crit_edge ], [ %2, %.preheader45.lr.ph ]
+  %53 = icmp sgt i32 %52, 0
+  br i1 %53, label %.lr.ph, label %._crit_edge
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %21, align 4, !tbaa !255
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader45
-  %48 = phi i32 [ %45, %.preheader45 ], [ %.pre, %._crit_edge.loopexit ]
-  %49 = phi i32 [ %46, %.preheader45 ], [ %55, %._crit_edge.loopexit ]
-  %.135.lcssa = phi ptr [ %.03452, %.preheader45 ], [ %53, %._crit_edge.loopexit ]
-  %.1.lcssa = phi ptr [ %.03353, %.preheader45 ], [ %54, %._crit_edge.loopexit ]
-  %50 = add nuw nsw i32 %.03254, 1
-  %51 = icmp slt i32 %50, %48
-  br i1 %51, label %.preheader45, label %.loopexit, !llvm.loop !275
+  %54 = phi i32 [ %51, %.preheader45 ], [ %.pre, %._crit_edge.loopexit ]
+  %55 = phi i32 [ %52, %.preheader45 ], [ %61, %._crit_edge.loopexit ]
+  %.135.lcssa = phi ptr [ %.03452, %.preheader45 ], [ %59, %._crit_edge.loopexit ]
+  %.1.lcssa = phi ptr [ %.03353, %.preheader45 ], [ %60, %._crit_edge.loopexit ]
+  %56 = add nuw nsw i32 %.03254, 1
+  %57 = icmp slt i32 %56, %54
+  br i1 %57, label %.preheader45, label %.loopexit, !llvm.loop !275
 
 .lr.ph:                                           ; preds = %.preheader45, %.lr.ph
-  %.050 = phi i32 [ %52, %.lr.ph ], [ 0, %.preheader45 ]
-  %.149 = phi ptr [ %54, %.lr.ph ], [ %.03353, %.preheader45 ]
-  %.13548 = phi ptr [ %53, %.lr.ph ], [ %.03452, %.preheader45 ]
+  %.050 = phi i32 [ %58, %.lr.ph ], [ 0, %.preheader45 ]
+  %.149 = phi ptr [ %60, %.lr.ph ], [ %.03353, %.preheader45 ]
+  %.13548 = phi ptr [ %59, %.lr.ph ], [ %.03452, %.preheader45 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.149, ptr noundef nonnull align 2 dereferenceable(6) %.13548, i64 6, i1 false)
-  %52 = add nuw nsw i32 %.050, 1
-  %53 = getelementptr inbounds nuw i8, ptr %.13548, i64 8
-  %54 = getelementptr inbounds nuw i8, ptr %.149, i64 6
-  %55 = load i32, ptr %17, align 8, !tbaa !253
-  %56 = icmp slt i32 %52, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge.loopexit
+  %58 = add nuw nsw i32 %.050, 1
+  %59 = getelementptr inbounds nuw i8, ptr %.13548, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.149, i64 6
+  %61 = load i32, ptr %17, align 8, !tbaa !253
+  %62 = icmp slt i32 %58, %61
+  br i1 %62, label %.lr.ph, label %._crit_edge.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge, %._crit_edge59, %.preheader46, %.preheader44, %29
-  %.042 = phi i32 [ 1, %29 ], [ 0, %.preheader44 ], [ 0, %._crit_edge59 ], [ 0, %.preheader46 ], [ 0, %._crit_edge ]
+.loopexit:                                        ; preds = %._crit_edge, %._crit_edge59, %.preheader.lr.ph, %.preheader45.lr.ph, %.preheader46, %.preheader44, %29
+  %.042 = phi i32 [ 1, %29 ], [ 0, %.preheader44 ], [ 0, %.preheader.lr.ph ], [ 0, %.preheader46 ], [ 0, %._crit_edge59 ], [ 0, %.preheader45.lr.ph ], [ 0, %._crit_edge ]
   ret i32 %.042
 }
 
@@ -7245,9 +7257,9 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nofree nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #12 = { noreturn "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #14 = { allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }

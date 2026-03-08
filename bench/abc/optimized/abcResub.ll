@@ -4157,14 +4157,14 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %4
   br label %42
 
 42:                                               ; preds = %Dec_GraphAddNodeAnd.exit, %Dec_GraphAddNodeOr.exit
-  %.sink31 = phi i32 [ %23, %Dec_GraphAddNodeAnd.exit ], [ %35, %Dec_GraphAddNodeOr.exit ]
-  %.sink30 = phi i32 [ %37, %Dec_GraphAddNodeAnd.exit ], [ %36, %Dec_GraphAddNodeOr.exit ]
+  %.sink27 = phi i32 [ %23, %Dec_GraphAddNodeAnd.exit ], [ %35, %Dec_GraphAddNodeOr.exit ]
+  %.sink26 = phi i32 [ %37, %Dec_GraphAddNodeAnd.exit ], [ %36, %Dec_GraphAddNodeOr.exit ]
   %.sink = phi i32 [ %41, %Dec_GraphAddNodeAnd.exit ], [ %34, %Dec_GraphAddNodeOr.exit ]
   %.sroa.08.0 = phi i32 [ 4, %Dec_GraphAddNodeAnd.exit ], [ 5, %Dec_GraphAddNodeOr.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i32 %.sink31, ptr %43, align 8
+  store i32 %.sink27, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 52
-  store i32 %.sink30, ptr %44, align 4
+  store i32 %.sink26, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 %.sink, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
@@ -4233,9 +4233,9 @@ define noalias noundef ptr @Abc_ManResubQuit21(ptr noundef readonly captures(non
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %42 = shl nuw nsw i32 %40, 15
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 100
-  br i1 %.not, label %Dec_GraphAddNodeAnd.exit57, label %Dec_GraphAddNodeOr.exit44
+  br i1 %.not, label %Dec_GraphAddNodeAnd.exit45, label %Dec_GraphAddNodeOr.exit40
 
-Dec_GraphAddNodeOr.exit44:                        ; preds = %5
+Dec_GraphAddNodeOr.exit40:                        ; preds = %5
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
@@ -4261,7 +4261,7 @@ Dec_GraphAddNodeOr.exit44:                        ; preds = %5
   store i32 6, ptr %43, align 4
   br label %69
 
-Dec_GraphAddNodeAnd.exit57:                       ; preds = %5
+Dec_GraphAddNodeAnd.exit45:                       ; preds = %5
   %58 = or disjoint i32 %40, 4
   %59 = or disjoint i32 %34, 2
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 72
@@ -4284,8 +4284,8 @@ Dec_GraphAddNodeAnd.exit57:                       ; preds = %5
   store i32 %42, ptr %41, align 8
   br label %69
 
-69:                                               ; preds = %Dec_GraphAddNodeAnd.exit57, %Dec_GraphAddNodeOr.exit44
-  %.sroa.013.0 = phi i32 [ 9, %Dec_GraphAddNodeOr.exit44 ], [ 8, %Dec_GraphAddNodeAnd.exit57 ]
+69:                                               ; preds = %Dec_GraphAddNodeAnd.exit45, %Dec_GraphAddNodeOr.exit40
+  %.sroa.013.0 = phi i32 [ 9, %Dec_GraphAddNodeOr.exit40 ], [ 8, %Dec_GraphAddNodeAnd.exit45 ]
   %70 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
   store i32 %.sroa.013.0, ptr %70, align 8, !tbaa !57
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4383,14 +4383,14 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %5
   br label %64
 
 64:                                               ; preds = %Dec_GraphAddNodeAnd.exit, %Dec_GraphAddNodeOr.exit
-  %.sink68 = phi i32 [ %52, %Dec_GraphAddNodeAnd.exit ], [ %44, %Dec_GraphAddNodeOr.exit ]
-  %.sink67 = phi i32 [ %59, %Dec_GraphAddNodeAnd.exit ], [ %45, %Dec_GraphAddNodeOr.exit ]
+  %.sink56 = phi i32 [ %52, %Dec_GraphAddNodeAnd.exit ], [ %44, %Dec_GraphAddNodeOr.exit ]
+  %.sink55 = phi i32 [ %59, %Dec_GraphAddNodeAnd.exit ], [ %45, %Dec_GraphAddNodeOr.exit ]
   %.sink = phi i32 [ %63, %Dec_GraphAddNodeAnd.exit ], [ %43, %Dec_GraphAddNodeOr.exit ]
   %.sroa.015.0 = phi i32 [ 6, %Dec_GraphAddNodeAnd.exit ], [ 7, %Dec_GraphAddNodeOr.exit ]
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store i32 %.sink68, ptr %65, align 8
+  store i32 %.sink56, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 76
-  store i32 %.sink67, ptr %66, align 4
+  store i32 %.sink55, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store i32 %.sink, ptr %67, align 8
   %.not42 = icmp eq i32 %4, 0
@@ -4398,9 +4398,9 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %5
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
-  br i1 %.not42, label %Dec_GraphAddNodeAnd.exit65, label %Dec_GraphAddNodeOr.exit58
+  br i1 %.not42, label %Dec_GraphAddNodeAnd.exit53, label %Dec_GraphAddNodeOr.exit50
 
-Dec_GraphAddNodeOr.exit58:                        ; preds = %64
+Dec_GraphAddNodeOr.exit50:                        ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 100
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %72 = shl nuw nsw i32 %28, 15
@@ -4415,7 +4415,7 @@ Dec_GraphAddNodeOr.exit58:                        ; preds = %64
   store i32 %78, ptr %70, align 4
   br label %85
 
-Dec_GraphAddNodeAnd.exit65:                       ; preds = %64
+Dec_GraphAddNodeAnd.exit53:                       ; preds = %64
   store i32 %28, ptr %68, align 8, !tbaa !57
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 100
   store i32 %.sroa.015.0, ptr %79, align 4, !tbaa !57
@@ -4427,8 +4427,8 @@ Dec_GraphAddNodeAnd.exit65:                       ; preds = %64
   store i32 %84, ptr %80, align 8
   br label %85
 
-85:                                               ; preds = %Dec_GraphAddNodeAnd.exit65, %Dec_GraphAddNodeOr.exit58
-  %.sroa.017.0 = phi i32 [ 9, %Dec_GraphAddNodeOr.exit58 ], [ 8, %Dec_GraphAddNodeAnd.exit65 ]
+85:                                               ; preds = %Dec_GraphAddNodeAnd.exit53, %Dec_GraphAddNodeOr.exit50
+  %.sroa.017.0 = phi i32 [ 9, %Dec_GraphAddNodeOr.exit50 ], [ 8, %Dec_GraphAddNodeAnd.exit53 ]
   %86 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
   store i32 %.sroa.017.0, ptr %86, align 8, !tbaa !57
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4481,7 +4481,7 @@ define noalias noundef ptr @Abc_ManResubQuit3(ptr noundef readonly captures(none
   %28 = and i64 %12, 1
   %29 = and i64 %28, %16
   %or.cond.not.not = icmp eq i64 %29, 0
-  br i1 %or.cond.not.not, label %Dec_GraphAddNodeAnd.exit109, label %Dec_GraphAddNodeOr.exit
+  br i1 %or.cond.not.not, label %Dec_GraphAddNodeAnd.exit97, label %Dec_GraphAddNodeOr.exit
 
 Dec_GraphAddNodeOr.exit:                          ; preds = %6
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 20
@@ -4508,13 +4508,13 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %6
   store i32 %47, ptr %40, align 4
   %48 = and i64 %20, 1
   %49 = and i64 %48, %24
-  %or.cond140.not.not = icmp eq i64 %49, 0
+  %or.cond112.not.not = icmp eq i64 %49, 0
   %50 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %51 = load i32, ptr %50, align 4
   %52 = lshr i32 %51, 7
-  br i1 %or.cond140.not.not, label %Dec_GraphAddNodeAnd.exit, label %Dec_GraphAddNodeOr.exit96
+  br i1 %or.cond112.not.not, label %Dec_GraphAddNodeAnd.exit, label %Dec_GraphAddNodeOr.exit92
 
-Dec_GraphAddNodeOr.exit96:                        ; preds = %Dec_GraphAddNodeOr.exit
+Dec_GraphAddNodeOr.exit92:                        ; preds = %Dec_GraphAddNodeOr.exit
   %53 = and i32 %52, 1
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %55 = load i32, ptr %54, align 4
@@ -4562,7 +4562,7 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %Dec_GraphAddNodeOr.
   store i32 %85, ptr %82, align 8
   br label %144
 
-Dec_GraphAddNodeAnd.exit109:                      ; preds = %6
+Dec_GraphAddNodeAnd.exit97:                       ; preds = %6
   %86 = trunc i64 %12 to i32
   %87 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %88 = load i32, ptr %87, align 4
@@ -4589,13 +4589,13 @@ Dec_GraphAddNodeAnd.exit109:                      ; preds = %6
   store i32 %105, ptr %102, align 8
   %106 = and i64 %20, 1
   %107 = and i64 %106, %24
-  %or.cond142.not.not = icmp eq i64 %107, 0
+  %or.cond114.not.not = icmp eq i64 %107, 0
   %108 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %109 = load i32, ptr %108, align 4
   %110 = lshr i32 %109, 7
-  br i1 %or.cond142.not.not, label %Dec_GraphAddNodeAnd.exit123, label %Dec_GraphAddNodeOr.exit116
+  br i1 %or.cond114.not.not, label %Dec_GraphAddNodeAnd.exit103, label %Dec_GraphAddNodeOr.exit100
 
-Dec_GraphAddNodeOr.exit116:                       ; preds = %Dec_GraphAddNodeAnd.exit109
+Dec_GraphAddNodeOr.exit100:                       ; preds = %Dec_GraphAddNodeAnd.exit97
   %111 = and i32 %110, 1
   %112 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %113 = load i32, ptr %112, align 4
@@ -4617,7 +4617,7 @@ Dec_GraphAddNodeOr.exit116:                       ; preds = %Dec_GraphAddNodeAnd
   store i32 %125, ptr %118, align 4
   br label %144
 
-Dec_GraphAddNodeAnd.exit123:                      ; preds = %Dec_GraphAddNodeAnd.exit109
+Dec_GraphAddNodeAnd.exit103:                      ; preds = %Dec_GraphAddNodeAnd.exit97
   %126 = trunc i64 %24 to i32
   %127 = xor i32 %110, %126
   %128 = and i32 %127, 1
@@ -4642,17 +4642,17 @@ Dec_GraphAddNodeAnd.exit123:                      ; preds = %Dec_GraphAddNodeAnd
   store i32 %143, ptr %140, align 8
   br label %144
 
-144:                                              ; preds = %Dec_GraphAddNodeOr.exit116, %Dec_GraphAddNodeAnd.exit123, %Dec_GraphAddNodeOr.exit96, %Dec_GraphAddNodeAnd.exit
-  %.sroa.032.0 = phi i32 [ 11, %Dec_GraphAddNodeOr.exit96 ], [ 10, %Dec_GraphAddNodeAnd.exit ], [ 11, %Dec_GraphAddNodeOr.exit116 ], [ 10, %Dec_GraphAddNodeAnd.exit123 ]
-  %.sroa.034.0 = phi i32 [ 9, %Dec_GraphAddNodeOr.exit96 ], [ 9, %Dec_GraphAddNodeAnd.exit ], [ 8, %Dec_GraphAddNodeOr.exit116 ], [ 8, %Dec_GraphAddNodeAnd.exit123 ]
+144:                                              ; preds = %Dec_GraphAddNodeOr.exit100, %Dec_GraphAddNodeAnd.exit103, %Dec_GraphAddNodeOr.exit92, %Dec_GraphAddNodeAnd.exit
+  %.sroa.032.0 = phi i32 [ 11, %Dec_GraphAddNodeOr.exit92 ], [ 10, %Dec_GraphAddNodeAnd.exit ], [ 11, %Dec_GraphAddNodeOr.exit100 ], [ 10, %Dec_GraphAddNodeAnd.exit103 ]
+  %.sroa.034.0 = phi i32 [ 9, %Dec_GraphAddNodeOr.exit92 ], [ 9, %Dec_GraphAddNodeAnd.exit ], [ 8, %Dec_GraphAddNodeOr.exit100 ], [ 8, %Dec_GraphAddNodeAnd.exit103 ]
   %.not85 = icmp eq i32 %5, 0
   store i32 7, ptr %8, align 8, !tbaa !109
   %145 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %146 = getelementptr inbounds nuw i8, ptr %10, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, i8 0, i64 16, i1 false)
-  br i1 %.not85, label %Dec_GraphAddNodeAnd.exit137, label %Dec_GraphAddNodeOr.exit130
+  br i1 %.not85, label %Dec_GraphAddNodeAnd.exit109, label %Dec_GraphAddNodeOr.exit106
 
-Dec_GraphAddNodeOr.exit130:                       ; preds = %144
+Dec_GraphAddNodeOr.exit106:                       ; preds = %144
   %147 = getelementptr inbounds nuw i8, ptr %10, i64 148
   %148 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %149 = shl nuw nsw i32 %.sroa.034.0, 15
@@ -4668,7 +4668,7 @@ Dec_GraphAddNodeOr.exit130:                       ; preds = %144
   store i32 %156, ptr %147, align 4
   br label %164
 
-Dec_GraphAddNodeAnd.exit137:                      ; preds = %144
+Dec_GraphAddNodeAnd.exit109:                      ; preds = %144
   store i32 %.sroa.034.0, ptr %145, align 8, !tbaa !57
   %157 = getelementptr inbounds nuw i8, ptr %10, i64 148
   store i32 %.sroa.032.0, ptr %157, align 4, !tbaa !57
@@ -4681,8 +4681,8 @@ Dec_GraphAddNodeAnd.exit137:                      ; preds = %144
   store i32 %163, ptr %158, align 8
   br label %164
 
-164:                                              ; preds = %Dec_GraphAddNodeAnd.exit137, %Dec_GraphAddNodeOr.exit130
-  %.sroa.036.0 = phi i32 [ 13, %Dec_GraphAddNodeOr.exit130 ], [ 12, %Dec_GraphAddNodeAnd.exit137 ]
+164:                                              ; preds = %Dec_GraphAddNodeAnd.exit109, %Dec_GraphAddNodeOr.exit106
+  %.sroa.036.0 = phi i32 [ 13, %Dec_GraphAddNodeOr.exit106 ], [ 12, %Dec_GraphAddNodeAnd.exit109 ]
   %165 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
   store i32 %.sroa.036.0, ptr %165, align 8, !tbaa !57
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -5083,7 +5083,7 @@ declare void @Extra_ProgressBarUpdate_int(ptr noundef, i32 noundef, ptr noundef)
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -5145,7 +5145,7 @@ declare void @llvm.va_end.p0(ptr) #12
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 declare i32 @Abc_ObjRequiredLevel(ptr noundef) local_unnamed_addr #1
@@ -9646,7 +9646,7 @@ declare i32 @llvm.umax.i32(i32, i32) #18
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #19
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9659,16 +9659,16 @@ attributes #6 = { mustprogress nofree nounwind willreturn memory(readwrite, argm
 attributes #7 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nofree nounwind }
 attributes #18 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #19 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
 attributes #20 = { nounwind }
 attributes #21 = { nounwind allocsize(0) }
 attributes #22 = { nounwind allocsize(1) }

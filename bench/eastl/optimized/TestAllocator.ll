@@ -1076,7 +1076,7 @@ _ZL18TestFixedAllocatorv.exit:                    ; preds = %while.body.i.i.i226
   %mpPrev.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %myList1.i12, i64 8
   %144 = getelementptr inbounds nuw i8, ptr %myList2.i13, i64 16
   %mpPrev.i.i.i2.i = getelementptr inbounds nuw i8, ptr %myList2.i13, i64 8
-  %call.i.i.i.i.i.i.i.i = call noalias noundef dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
+  %call.i.i.i.i.i.i.i.i = call noalias noundef dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13, !noalias !56
   %mValue.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i.i, i64 16
   store i32 1, ptr %mValue.i.i.i.i.i15, align 4, !noalias !56
   store ptr %myList1.i12, ptr %call.i.i.i.i.i.i.i.i, align 8, !noalias !56
@@ -1085,7 +1085,7 @@ _ZL18TestFixedAllocatorv.exit:                    ; preds = %while.body.i.i.i226
   store ptr %call.i.i.i.i.i.i.i.i, ptr %myList1.i12, align 8, !noalias !56
   store ptr %call.i.i.i.i.i.i.i.i, ptr %mpPrev.i.i.i.i14, align 8, !noalias !56
   store i64 1, ptr %143, align 8, !noalias !56
-  %call.i.i.i.i.i.i.i3.i = call noalias noundef dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
+  %call.i.i.i.i.i.i.i3.i = call noalias noundef dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13, !noalias !59
   %mValue.i.i.i.i4.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i3.i, i64 16
   store i32 1, ptr %mValue.i.i.i.i4.i, align 4, !noalias !59
   store ptr %myList2.i13, ptr %call.i.i.i.i.i.i.i3.i, align 8, !noalias !59
@@ -1117,7 +1117,7 @@ _ZN5eastleqIiNS_16allocator_mallocEEEbRKNS_4listIT_T0_EES7_.exit.i: ; preds = %l
           to label %invoke.cont9.i unwind label %lpad1.i
 
 invoke.cont9.i:                                   ; preds = %_ZN5eastleqIiNS_16allocator_mallocEEEbRKNS_4listIT_T0_EES7_.exit.i
-  %call.i.i.i.i.i.i.i9.i = call noalias noundef dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
+  %call.i.i.i.i.i.i.i9.i = call noalias noundef dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13, !noalias !63
   %mValue.i.i.i.i10.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i9.i, i64 16
   store i32 2, ptr %mValue.i.i.i.i10.i, align 4, !noalias !63
   store ptr %myList1.i12, ptr %call.i.i.i.i.i.i.i9.i, align 8, !noalias !63
@@ -1146,7 +1146,7 @@ invoke.cont12.i:                                  ; preds = %invoke.cont9.i
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i.i9)
   call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i10)
   %150 = load ptr, ptr %myList2.i13, align 8, !noalias !72
-  %call.i.i.i.i.i.i.i16.i = call noalias noundef dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
+  %call.i.i.i.i.i.i.i16.i = call noalias noundef dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13, !noalias !75
   %mValue.i.i.i.i17.i29 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i16.i, i64 16
   store i32 2, ptr %mValue.i.i.i.i17.i29, align 4, !noalias !75
   store ptr %150, ptr %call.i.i.i.i.i.i.i16.i, align 8, !noalias !75
@@ -1814,7 +1814,7 @@ return:                                           ; preds = %for.inc82, %land.rh
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
@@ -2140,7 +2140,7 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

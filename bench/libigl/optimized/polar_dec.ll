@@ -3594,7 +3594,7 @@ declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: cold noreturn
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
@@ -4719,7 +4719,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %22, %_ZN5Eigen8inte
   %34 = tail call ptr @__cxa_allocate_exception(i64 8) #22
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %34, align 8, !tbaa !24
   invoke void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
-          to label %.noexc40 unwind label %61
+          to label %.noexc40 unwind label %60
 
 .noexc40:                                         ; preds = %33
   unreachable
@@ -4727,91 +4727,91 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %22, %_ZN5Eigen8inte
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit: ; preds = %_ZN5Eigen8internal14aligned_mallocEm.exit
   %35 = load ptr, ptr %5, align 8, !tbaa !154
   %.not35 = icmp eq ptr %35, null
-  br i1 %.not35, label %36, label %47
+  %36 = shl nuw i64 %31, 3
+  br i1 %.not35, label %37, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit._crit_edge
 
-36:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit
-  %37 = shl nuw i64 %31, 3
+37:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit
   %38 = icmp samesign ult i64 %31, 16385
   br i1 %38, label %39, label %42
 
-39:                                               ; preds = %36
-  %40 = add nuw nsw i64 %37, 15
+39:                                               ; preds = %37
+  %40 = add nuw nsw i64 %36, 15
   %41 = alloca i8, i64 %40, align 16
-  br label %47
+  br label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit._crit_edge
 
-42:                                               ; preds = %36
-  %43 = tail call noalias ptr @malloc(i64 noundef %37) #23
+42:                                               ; preds = %37
+  %43 = tail call noalias ptr @malloc(i64 noundef %36) #23
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %47
+  br i1 %44, label %45, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit._crit_edge
 
 45:                                               ; preds = %42
   %46 = tail call ptr @__cxa_allocate_exception(i64 8) #22
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %46, align 8, !tbaa !24
   invoke void @__cxa_throw(ptr nonnull %46, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
-          to label %.noexc43 unwind label %63
+          to label %.noexc43 unwind label %62
 
 .noexc43:                                         ; preds = %45
   unreachable
 
-47:                                               ; preds = %39, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit, %42
-  %48 = phi ptr [ null, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit ], [ %41, %39 ], [ %43, %42 ]
-  %49 = phi ptr [ %35, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit ], [ %41, %39 ], [ %43, %42 ]
-  %50 = icmp samesign ugt i64 %31, 16384
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %52 = load i64, ptr %51, align 8, !tbaa !161
-  %53 = load ptr, ptr %1, align 8, !tbaa !226
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %55 = load ptr, ptr %54, align 8, !tbaa !228
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load i64, ptr %56, align 8, !tbaa !26
-  invoke void @_ZN5Eigen8internal33selfadjoint_matrix_vector_productIdlLi0ELi1ELb0ELb0ELi0EE3runElPKdlS4_Pdd(i64 noundef %52, ptr noundef nonnull %53, i64 noundef %57, ptr noundef nonnull %49, ptr noundef nonnull %28, double noundef %9)
-          to label %58 unwind label %65
+_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit._crit_edge: ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit, %39, %42
+  %47 = phi ptr [ %43, %42 ], [ %41, %39 ], [ null, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit ]
+  %48 = phi ptr [ %43, %42 ], [ %41, %39 ], [ %35, %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit ]
+  %49 = icmp ugt i64 %31, 16384
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %51 = load i64, ptr %50, align 8, !tbaa !161
+  %52 = load ptr, ptr %1, align 8, !tbaa !226
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %54 = load ptr, ptr %53, align 8, !tbaa !228
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %56 = load i64, ptr %55, align 8, !tbaa !26
+  invoke void @_ZN5Eigen8internal33selfadjoint_matrix_vector_productIdlLi0ELi1ELb0ELb0ELi0EE3runElPKdlS4_Pdd(i64 noundef %51, ptr noundef nonnull %52, i64 noundef %56, ptr noundef nonnull %48, ptr noundef nonnull %28, double noundef %9)
+          to label %57 unwind label %64
 
-58:                                               ; preds = %47
-  br i1 %50, label %59, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
+57:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit._crit_edge
+  br i1 %49, label %58, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
 
-59:                                               ; preds = %58
-  call void @free(ptr noundef %48) #22
+58:                                               ; preds = %57
+  call void @free(ptr noundef %47) #22
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit: ; preds = %58, %59
-  br i1 %29, label %60, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit45
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit: ; preds = %57, %58
+  br i1 %29, label %59, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit45
 
-60:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
+59:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
   call void @free(ptr noundef %27) #22
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit45
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit45: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit, %60
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit45: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit, %59
   ret void
 
-61:                                               ; preds = %33
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %33
+  %61 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46
 
-63:                                               ; preds = %45
-  %64 = landingpad { ptr, i32 }
+62:                                               ; preds = %45
+  %63 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46
 
-65:                                               ; preds = %47
-  %66 = landingpad { ptr, i32 }
+64:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit._crit_edge
+  %65 = landingpad { ptr, i32 }
           cleanup
-  br i1 %50, label %67, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46
+  br i1 %49, label %66, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46
 
-67:                                               ; preds = %65
-  call void @free(ptr noundef %48) #22
+66:                                               ; preds = %64
+  call void @free(ptr noundef %47) #22
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46: ; preds = %65, %67, %63, %61
-  %.pn.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %64, %63 ], [ %66, %67 ], [ %66, %65 ]
-  br i1 %29, label %68, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit47
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46: ; preds = %64, %66, %62, %60
+  %.pn.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %63, %62 ], [ %65, %66 ], [ %65, %64 ]
+  br i1 %29, label %67, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit47
 
-68:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46
+67:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46
   call void @free(ptr noundef %27) #22
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit47
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit47: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46, %68
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit47: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46, %67
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -23087,7 +23087,7 @@ attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync no
 attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { cold noreturn }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { mustprogress noinline uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { inlinehint mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

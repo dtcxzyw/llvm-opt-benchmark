@@ -83,14 +83,14 @@ define internal fastcc void @Abc_NtkRetimeMinDelayTry(ptr noundef %0, i32 nounde
   %29 = icmp slt i32 %1, 1
   br label %30
 
-30:                                               ; preds = %571, %.thread
-  %31 = phi i32 [ 100, %.thread ], [ %541, %571 ]
-  %32 = phi i32 [ 100, %.thread ], [ %542, %571 ]
-  %.087 = phi i32 [ 0, %.thread ], [ %572, %571 ]
-  %.084 = phi i32 [ 0, %.thread ], [ %.185, %571 ]
-  %.081 = phi i32 [ 1000000000, %.thread ], [ %.182, %571 ]
-  %.079 = phi i32 [ -1, %.thread ], [ %spec.select, %571 ]
-  %.0 = phi i32 [ %.val, %.thread ], [ %.1, %571 ]
+30:                                               ; preds = %572, %.thread
+  %31 = phi i32 [ 100, %.thread ], [ %541, %572 ]
+  %32 = phi i32 [ 100, %.thread ], [ %542, %572 ]
+  %.087 = phi i32 [ 0, %.thread ], [ %573, %572 ]
+  %.084 = phi i32 [ 0, %.thread ], [ %.185, %572 ]
+  %.081 = phi i32 [ 1000000000, %.thread ], [ %.182, %572 ]
+  %.079 = phi i32 [ -1, %.thread ], [ %spec.select, %572 ]
+  %.0 = phi i32 [ %.val, %.thread ], [ %.1, %572 ]
   %33 = load ptr, ptr %21, align 8, !tbaa !12
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %34, label %Abc_NtkIncrementTravId.exit.i
@@ -1288,124 +1288,127 @@ Abc_NtkRetimeTiming.exit:                         ; preds = %.critedge14.i, %544
   %545 = icmp eq i32 %.087, 0
   %spec.select = select i1 %545, i32 %.6.i, i32 %.079
   %546 = icmp sgt i32 %.081, %.6.i
-  br i1 %546, label %547, label %559
+  br i1 %546, label %547, label %560
 
 547:                                              ; preds = %Abc_NtkRetimeTiming.exit
-  %.val104.pre125 = load i32, ptr %16, align 8, !tbaa !3
   br i1 %or.cond114, label %559, label %548
 
 548:                                              ; preds = %547
-  %549 = sub nsw i32 %.val104.pre125, %.0
+  %.val100 = load i32, ptr %16, align 8, !tbaa !3
+  %549 = sub nsw i32 %.val100, %.0
   %550 = sitofp i32 %549 to double
   %551 = sub nsw i32 %.081, %.6.i
   %552 = sitofp i32 %551 to double
   %553 = fdiv double %550, %552
   %554 = fmul nnan double %550, 1.000000e+02
-  %555 = sitofp i32 %.val104.pre125 to double
+  %555 = sitofp i32 %.val100 to double
   %556 = fdiv double %554, %555
   %557 = fdiv double %556, %552
-  %558 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %28, i32 noundef %.087, i32 noundef %.6.i, i32 noundef %.val104.pre125, double noundef %553, double noundef %557)
-  %.val104.pre = load i32, ptr %16, align 8, !tbaa !3
+  %558 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %28, i32 noundef %.087, i32 noundef %.6.i, i32 noundef %.val100, double noundef %553, double noundef %557)
   br label %559
 
-559:                                              ; preds = %547, %548, %Abc_NtkRetimeTiming.exit
-  %.185 = phi i32 [ %.084, %Abc_NtkRetimeTiming.exit ], [ %.087, %548 ], [ %.087, %547 ]
-  %.182 = phi i32 [ %.081, %Abc_NtkRetimeTiming.exit ], [ %.6.i, %548 ], [ %.6.i, %547 ]
-  %.1 = phi i32 [ %.0, %Abc_NtkRetimeTiming.exit ], [ %.val104.pre, %548 ], [ %.val104.pre125, %547 ]
-  %560 = icmp ne i32 %.087, %4
-  %561 = sub nsw i32 %.087, %.185
-  %562 = icmp slt i32 %561, 21
-  %or.cond98.not121 = select i1 %560, i1 %562, i1 false
+559:                                              ; preds = %548, %547
+  %.val104 = load i32, ptr %16, align 8, !tbaa !3
+  br label %560
+
+560:                                              ; preds = %559, %Abc_NtkRetimeTiming.exit
+  %.185 = phi i32 [ %.087, %559 ], [ %.084, %Abc_NtkRetimeTiming.exit ]
+  %.182 = phi i32 [ %.6.i, %559 ], [ %.081, %Abc_NtkRetimeTiming.exit ]
+  %.1 = phi i32 [ %.val104, %559 ], [ %.0, %Abc_NtkRetimeTiming.exit ]
+  %561 = icmp ne i32 %.087, %4
+  %562 = sub nsw i32 %.087, %.185
+  %563 = icmp slt i32 %562, 21
+  %or.cond98.not121 = select i1 %561, i1 %563, i1 false
   %.not92 = icmp sgt i32 %.6.i, %1
   %or.cond99 = or i1 %29, %.not92
   %or.cond = select i1 %or.cond98.not121, i1 %or.cond99, i1 false
-  br i1 %or.cond, label %.preheader, label %573
+  br i1 %or.cond, label %.preheader, label %574
 
-.preheader:                                       ; preds = %559
-  %563 = icmp sgt i32 %.val105, 0
-  br i1 %563, label %.lr.ph, label %.critedge
+.preheader:                                       ; preds = %560
+  %564 = icmp sgt i32 %.val105, 0
+  br i1 %564, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
   %.val106 = load ptr, ptr %20, align 8, !tbaa !11
   %wide.trip.count = zext nneg i32 %.val105 to i64
-  br label %564
+  br label %565
 
-564:                                              ; preds = %.lr.ph, %569
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %569 ]
-  %565 = getelementptr inbounds nuw [8 x i8], ptr %.val106, i64 %indvars.iv
-  %566 = load ptr, ptr %565, align 8, !tbaa !34
-  %567 = tail call i32 @Abc_NtkRetimeNodeIsEnabled(ptr noundef %566, i32 noundef %2) #12
-  %.not94 = icmp eq i32 %567, 0
-  br i1 %.not94, label %569, label %568
+565:                                              ; preds = %.lr.ph, %570
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %570 ]
+  %566 = getelementptr inbounds nuw [8 x i8], ptr %.val106, i64 %indvars.iv
+  %567 = load ptr, ptr %566, align 8, !tbaa !34
+  %568 = tail call i32 @Abc_NtkRetimeNodeIsEnabled(ptr noundef %567, i32 noundef %2) #12
+  %.not94 = icmp eq i32 %568, 0
+  br i1 %.not94, label %570, label %569
 
-568:                                              ; preds = %564
-  tail call void @Abc_NtkRetimeNode(ptr noundef %566, i32 noundef %2, i32 noundef %3) #12
-  br label %569
+569:                                              ; preds = %565
+  tail call void @Abc_NtkRetimeNode(ptr noundef %567, i32 noundef %2, i32 noundef %3) #12
+  br label %570
 
-569:                                              ; preds = %564, %568
+570:                                              ; preds = %565, %569
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %564, !llvm.loop !57
+  br i1 %exitcond.not, label %.critedge, label %565, !llvm.loop !57
 
-.critedge:                                        ; preds = %569, %.preheader
-  br i1 %.not410.i, label %570, label %571
+.critedge:                                        ; preds = %570, %.preheader
+  br i1 %.not410.i, label %571, label %572
 
-570:                                              ; preds = %.critedge
+571:                                              ; preds = %.critedge
   tail call void @Abc_NtkRetimeShareLatches(ptr noundef %0, i32 noundef %3) #12
-  br label %571
+  br label %572
 
-571:                                              ; preds = %.critedge, %570
-  %572 = add nuw nsw i32 %.087, 1
+572:                                              ; preds = %.critedge, %571
+  %573 = add nuw nsw i32 %.087, 1
   br label %30
 
-573:                                              ; preds = %559
-  %574 = load ptr, ptr %20, align 8, !tbaa !11
-  %.not.i107 = icmp eq ptr %574, null
-  br i1 %.not.i107, label %Vec_PtrFree.exit, label %575
+574:                                              ; preds = %560
+  %575 = load ptr, ptr %20, align 8, !tbaa !11
+  %.not.i107 = icmp eq ptr %575, null
+  br i1 %.not.i107, label %Vec_PtrFree.exit, label %576
 
-575:                                              ; preds = %573
-  tail call void @free(ptr noundef nonnull %574) #12
+576:                                              ; preds = %574
+  tail call void @free(ptr noundef nonnull %575) #12
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %573, %575
+Vec_PtrFree.exit:                                 ; preds = %574, %576
   tail call void @free(ptr noundef nonnull %17) #12
-  br i1 %.not115, label %582, label %576
+  br i1 %.not115, label %583, label %577
 
-576:                                              ; preds = %Vec_PtrFree.exit
-  br i1 %.not410.i, label %578, label %577
+577:                                              ; preds = %Vec_PtrFree.exit
+  br i1 %.not410.i, label %579, label %578
 
-577:                                              ; preds = %576
+578:                                              ; preds = %577
   tail call void @Abc_NtkRetimeTranferFromCopy(ptr noundef %0) #12
-  br label %582
+  br label %583
 
-578:                                              ; preds = %576
+579:                                              ; preds = %577
   tail call void @Abc_NtkRetimeBackwardInitialFinish(ptr noundef %0, ptr noundef %.083113, ptr noundef %.088112, i32 noundef %6) #12
   tail call void @Abc_NtkDelete(ptr noundef %.083113) #12
-  %579 = getelementptr inbounds nuw i8, ptr %.088112, i64 8
-  %580 = load ptr, ptr %579, align 8, !tbaa !31
-  %.not.i108 = icmp eq ptr %580, null
-  br i1 %.not.i108, label %Vec_IntFree.exit, label %581
+  %580 = getelementptr inbounds nuw i8, ptr %.088112, i64 8
+  %581 = load ptr, ptr %580, align 8, !tbaa !31
+  %.not.i108 = icmp eq ptr %581, null
+  br i1 %.not.i108, label %Vec_IntFree.exit, label %582
 
-581:                                              ; preds = %578
-  tail call void @free(ptr noundef nonnull %580) #12
+582:                                              ; preds = %579
+  tail call void @free(ptr noundef nonnull %581) #12
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %578, %581
+Vec_IntFree.exit:                                 ; preds = %579, %582
   tail call void @free(ptr noundef nonnull %.088112) #12
-  br label %582
+  br label %583
 
-582:                                              ; preds = %577, %Vec_IntFree.exit, %Vec_PtrFree.exit
-  br i1 %or.cond114, label %586, label %583
+583:                                              ; preds = %578, %Vec_IntFree.exit, %Vec_PtrFree.exit
+  br i1 %or.cond114, label %587, label %584
 
-583:                                              ; preds = %582
-  %584 = select i1 %.not410.i, ptr @.str.6, ptr @.str.5
-  %585 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %584, i32 noundef %spec.select, i32 noundef %.182, i32 noundef %.185, i32 noundef %4)
-  br label %586
+584:                                              ; preds = %583
+  %585 = select i1 %.not410.i, ptr @.str.6, ptr @.str.5
+  %586 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %585, i32 noundef %spec.select, i32 noundef %.182, i32 noundef %.185, i32 noundef %4)
+  br label %587
 
-586:                                              ; preds = %583, %582
-  %587 = icmp eq i32 %4, 1
-  %588 = select i1 %587, i32 1, i32 %.185
-  store i32 %588, ptr %5, align 4, !tbaa !3
+587:                                              ; preds = %584, %583
+  %588 = icmp eq i32 %4, 1
+  %589 = select i1 %588, i32 1, i32 %.185
+  store i32 %589, ptr %5, align 4, !tbaa !3
   ret void
 }
 
@@ -1430,7 +1433,7 @@ declare void @Abc_NtkRetimeBackwardInitialFinish(ptr noundef, ptr noundef, ptr n
 
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -1740,7 +1743,7 @@ Abc_NodeTravId.exit:                              ; preds = %1, %._crit_edge.i.i
   ret i32 %50
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -1767,10 +1770,10 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { inlinehint mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nofree nounwind }

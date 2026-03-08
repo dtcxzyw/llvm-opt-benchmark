@@ -1088,36 +1088,36 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(a
   %or.cond = or i1 %5, %6
   %7 = icmp eq ptr %1, null
   %or.cond3 = or i1 %7, %or.cond
-  br i1 %or.cond3, label %171, label %8
+  br i1 %or.cond3, label %176, label %8
 
 8:                                                ; preds = %3
   %9 = load i32, ptr %1, align 4
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %171, label %11
+  br i1 %10, label %176, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %171, label %15
+  br i1 %14, label %176, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i8, ptr %16, align 4
   %18 = add i8 %17, -5
   %or.cond193 = icmp ult i8 %18, -2
-  br i1 %or.cond193, label %171, label %19
+  br i1 %or.cond193, label %176, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %21 = load i8, ptr %20, align 1
   %22 = icmp ugt i8 %21, 1
-  br i1 %22, label %171, label %23
+  br i1 %22, label %176, label %23
 
 23:                                               ; preds = %19
   %24 = udiv i32 400000000, %9
   %.not = icmp ult i32 %13, %24
-  br i1 %.not, label %25, label %171
+  br i1 %.not, label %25, label %176
 
 25:                                               ; preds = %23
   %26 = mul i32 %13, %9
@@ -1128,7 +1128,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(a
   %30 = sext i32 %29 to i64
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #31
   %.not192 = icmp eq ptr %31, null
-  br i1 %.not192, label %171, label %32
+  br i1 %.not192, label %176, label %32
 
 32:                                               ; preds = %25
   store i8 113, ptr %31, align 1
@@ -1138,90 +1138,95 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(a
   store i8 105, ptr %34, align 1
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 3
   store i8 102, ptr %35, align 1
-  %36 = lshr i32 %9, 24
-  %37 = trunc nuw i32 %36 to i8
-  %38 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i8 %37, ptr %38, align 1
-  %39 = lshr i32 %9, 16
-  %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds nuw i8, ptr %31, i64 5
-  store i8 %40, ptr %41, align 1
-  %42 = lshr i32 %9, 8
-  %43 = trunc i32 %42 to i8
-  %44 = getelementptr inbounds nuw i8, ptr %31, i64 6
-  store i8 %43, ptr %44, align 1
-  %45 = trunc i32 %9 to i8
-  %46 = getelementptr inbounds nuw i8, ptr %31, i64 7
-  store i8 %45, ptr %46, align 1
-  %47 = lshr i32 %13, 24
-  %48 = trunc nuw nsw i32 %47 to i8
-  %49 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i8 %48, ptr %49, align 1
-  %50 = lshr i32 %13, 16
-  %51 = trunc i32 %50 to i8
-  %52 = getelementptr inbounds nuw i8, ptr %31, i64 9
-  store i8 %51, ptr %52, align 1
-  %53 = lshr i32 %13, 8
-  %54 = trunc i32 %53 to i8
-  %55 = getelementptr inbounds nuw i8, ptr %31, i64 10
-  store i8 %54, ptr %55, align 1
-  %56 = trunc i32 %13 to i8
-  %57 = getelementptr inbounds nuw i8, ptr %31, i64 11
+  %36 = load i32, ptr %1, align 4
+  %37 = lshr i32 %36, 24
+  %38 = trunc nuw i32 %37 to i8
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store i8 %38, ptr %39, align 1
+  %40 = lshr i32 %36, 16
+  %41 = trunc i32 %40 to i8
+  %42 = getelementptr inbounds nuw i8, ptr %31, i64 5
+  store i8 %41, ptr %42, align 1
+  %43 = lshr i32 %36, 8
+  %44 = trunc i32 %43 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %31, i64 6
+  store i8 %44, ptr %45, align 1
+  %46 = trunc i32 %36 to i8
+  %47 = getelementptr inbounds nuw i8, ptr %31, i64 7
+  store i8 %46, ptr %47, align 1
+  %48 = load i32, ptr %12, align 4
+  %49 = lshr i32 %48, 24
+  %50 = trunc nuw i32 %49 to i8
+  %51 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i8 %50, ptr %51, align 1
+  %52 = lshr i32 %48, 16
+  %53 = trunc i32 %52 to i8
+  %54 = getelementptr inbounds nuw i8, ptr %31, i64 9
+  store i8 %53, ptr %54, align 1
+  %55 = lshr i32 %48, 8
+  %56 = trunc i32 %55 to i8
+  %57 = getelementptr inbounds nuw i8, ptr %31, i64 10
   store i8 %56, ptr %57, align 1
-  %58 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  store i8 %17, ptr %58, align 1
-  %59 = getelementptr inbounds nuw i8, ptr %31, i64 13
-  store i8 %21, ptr %59, align 1
+  %58 = trunc i32 %48 to i8
+  %59 = getelementptr inbounds nuw i8, ptr %31, i64 11
+  store i8 %58, ptr %59, align 1
+  %60 = load i8, ptr %16, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  store i8 %60, ptr %61, align 1
+  %62 = load i8, ptr %20, align 1
+  %63 = getelementptr inbounds nuw i8, ptr %31, i64 13
+  store i8 %62, ptr %63, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
-  %60 = zext nneg i8 %17 to i32
-  %61 = mul i32 %26, %60
-  %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph, label %.preheader
+  %64 = mul i32 %48, %36
+  %65 = zext i8 %60 to i32
+  %66 = mul i32 %64, %65
+  %67 = icmp sgt i32 %66, 0
+  br i1 %67, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %32
-  %63 = sub nsw i32 %61, %60
-  %64 = icmp eq i8 %17, 4
-  %65 = zext nneg i8 %17 to i64
-  %66 = zext i32 %63 to i64
-  %67 = zext nneg i32 %61 to i64
-  br label %71
+  %68 = sub nsw i32 %66, %65
+  %69 = icmp eq i8 %60, 4
+  %70 = zext i8 %60 to i64
+  %71 = zext i32 %68 to i64
+  %72 = zext nneg i32 %66 to i64
+  br label %76
 
-.preheader.loopexit:                              ; preds = %169
-  %68 = sext i32 %.1218 to i64
+.preheader.loopexit:                              ; preds = %174
+  %73 = sext i32 %.1218 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %32
-  %.0217.lcssa = phi i64 [ 14, %32 ], [ %68, %.preheader.loopexit ]
+  %.0217.lcssa = phi i64 [ 14, %32 ], [ %73, %.preheader.loopexit ]
   %scevgep = getelementptr i8, ptr %31, i64 %.0217.lcssa
   store i64 72057594037927936, ptr %scevgep, align 1
-  %69 = trunc nsw i64 %.0217.lcssa to i32
-  %70 = add i32 %69, 8
-  store i32 %70, ptr %2, align 4
-  br label %171
+  %74 = trunc nsw i64 %.0217.lcssa to i32
+  %75 = add i32 %74, 8
+  store i32 %75, ptr %2, align 4
+  br label %176
 
-71:                                               ; preds = %.lr.ph, %169
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %169 ]
-  %.0178226 = phi i32 [ 0, %.lr.ph ], [ %.1, %169 ]
-  %.sroa.25.0224 = phi i8 [ -1, %.lr.ph ], [ %.sroa.25.1, %169 ]
-  %.sroa.0.0223 = phi i8 [ 0, %.lr.ph ], [ %.sroa.066.0, %169 ]
-  %.sroa.5.0222 = phi i8 [ 0, %.lr.ph ], [ %.sroa.11.0, %169 ]
-  %.sroa.7.0221 = phi i8 [ 0, %.lr.ph ], [ %.sroa.18.0, %169 ]
-  %.0217220 = phi i32 [ 14, %.lr.ph ], [ %.1218, %169 ]
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  br i1 %64, label %73, label %74
+76:                                               ; preds = %.lr.ph, %174
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %174 ]
+  %.0178226 = phi i32 [ 0, %.lr.ph ], [ %.1, %174 ]
+  %.sroa.25.0224 = phi i8 [ -1, %.lr.ph ], [ %.sroa.25.1, %174 ]
+  %.sroa.0.0223 = phi i8 [ 0, %.lr.ph ], [ %.sroa.066.0, %174 ]
+  %.sroa.5.0222 = phi i8 [ 0, %.lr.ph ], [ %.sroa.11.0, %174 ]
+  %.sroa.7.0221 = phi i8 [ 0, %.lr.ph ], [ %.sroa.18.0, %174 ]
+  %.0217220 = phi i32 [ 14, %.lr.ph ], [ %.1218, %174 ]
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  br i1 %69, label %78, label %79
 
-73:                                               ; preds = %71
-  %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %72, i64 3
+78:                                               ; preds = %76
+  %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %77, i64 3
   %.sroa.25.0.copyload = load i8, ptr %.sroa.25.0..sroa_idx, align 1
-  br label %74
+  br label %79
 
-74:                                               ; preds = %71, %73
-  %.sroa.25.1 = phi i8 [ %.sroa.25.0.copyload, %73 ], [ %.sroa.25.0224, %71 ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %.sroa.18.0.in = getelementptr inbounds nuw i8, ptr %75, i64 2
+79:                                               ; preds = %76, %78
+  %.sroa.25.1 = phi i8 [ %.sroa.25.0.copyload, %78 ], [ %.sroa.25.0224, %76 ]
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %.sroa.18.0.in = getelementptr inbounds nuw i8, ptr %80, i64 2
   %.sroa.18.0 = load i8, ptr %.sroa.18.0.in, align 1
-  %.sroa.066.0 = load i8, ptr %72, align 1
-  %.sroa.11.0.in = getelementptr inbounds nuw i8, ptr %75, i64 1
+  %.sroa.066.0 = load i8, ptr %77, align 1
+  %.sroa.11.0.in = getelementptr inbounds nuw i8, ptr %80, i64 1
   %.sroa.11.0 = load i8, ptr %.sroa.11.0.in, align 1
   %.sroa.25.0.insert.ext = zext i8 %.sroa.25.1 to i32
   %.sroa.25.0.insert.shift = shl nuw i32 %.sroa.25.0.insert.ext, 24
@@ -1243,167 +1248,167 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(a
   %.sroa.5.0.insert.insert = or disjoint i32 %.sroa.7.0.insert.insert, %.sroa.5.0.insert.shift
   %.sroa.0.0.insert.ext = zext i8 %.sroa.0.0223 to i32
   %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.5.0.insert.insert, %.sroa.0.0.insert.ext
-  %76 = icmp eq i32 %.sroa.066.0.insert.insert, %.sroa.0.0.insert.insert
-  br i1 %76, label %77, label %87
+  %81 = icmp eq i32 %.sroa.066.0.insert.insert, %.sroa.0.0.insert.insert
+  br i1 %81, label %82, label %92
 
-77:                                               ; preds = %74
-  %78 = add nsw i32 %.0178226, 1
-  %79 = icmp eq i32 %78, 62
-  %80 = icmp eq i64 %indvars.iv, %66
-  %or.cond194 = select i1 %79, i1 true, i1 %80
-  br i1 %or.cond194, label %81, label %169
+82:                                               ; preds = %79
+  %83 = add nsw i32 %.0178226, 1
+  %84 = icmp eq i32 %83, 62
+  %85 = icmp eq i64 %indvars.iv, %71
+  %or.cond194 = select i1 %84, i1 true, i1 %85
+  br i1 %or.cond194, label %86, label %174
 
-81:                                               ; preds = %77
-  %82 = trunc i32 %.0178226 to i8
-  %83 = or i8 %82, -64
-  %84 = add nsw i32 %.0217220, 1
-  %85 = sext i32 %.0217220 to i64
-  %86 = getelementptr inbounds i8, ptr %31, i64 %85
-  store i8 %83, ptr %86, align 1
-  br label %169
+86:                                               ; preds = %82
+  %87 = trunc i32 %.0178226 to i8
+  %88 = or i8 %87, -64
+  %89 = add nsw i32 %.0217220, 1
+  %90 = sext i32 %.0217220 to i64
+  %91 = getelementptr inbounds i8, ptr %31, i64 %90
+  store i8 %88, ptr %91, align 1
+  br label %174
 
-87:                                               ; preds = %74
-  %88 = icmp sgt i32 %.0178226, 0
-  br i1 %88, label %89, label %96
+92:                                               ; preds = %79
+  %93 = icmp sgt i32 %.0178226, 0
+  br i1 %93, label %94, label %101
 
-89:                                               ; preds = %87
-  %90 = trunc i32 %.0178226 to i8
-  %91 = add i8 %90, 63
-  %92 = or i8 %91, -64
-  %93 = add nsw i32 %.0217220, 1
-  %94 = sext i32 %.0217220 to i64
-  %95 = getelementptr inbounds i8, ptr %31, i64 %94
-  store i8 %92, ptr %95, align 1
-  br label %96
+94:                                               ; preds = %92
+  %95 = trunc i32 %.0178226 to i8
+  %96 = add i8 %95, 63
+  %97 = or i8 %96, -64
+  %98 = add nsw i32 %.0217220, 1
+  %99 = sext i32 %.0217220 to i64
+  %100 = getelementptr inbounds i8, ptr %31, i64 %99
+  store i8 %97, ptr %100, align 1
+  br label %101
 
-96:                                               ; preds = %89, %87
-  %.2219 = phi i32 [ %93, %89 ], [ %.0217220, %87 ]
-  %.2 = phi i32 [ 0, %89 ], [ %.0178226, %87 ]
-  %97 = mul nuw nsw i32 %.sroa.066.0.insert.ext, 3
-  %98 = mul nuw nsw i32 %.sroa.11.0.insert.ext, 5
-  %99 = mul nuw nsw i32 %.sroa.18.0.insert.ext, 7
-  %100 = mul nuw nsw i32 %.sroa.25.0.insert.ext, 11
-  %101 = add nuw nsw i32 %99, %100
-  %102 = add nuw nsw i32 %101, %97
-  %103 = add nuw nsw i32 %102, %98
-  %104 = and i32 %103, 63
-  %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %105
-  %107 = load i32, ptr %106, align 4
-  %108 = icmp eq i32 %107, %.sroa.066.0.insert.insert
-  br i1 %108, label %109, label %114
+101:                                              ; preds = %94, %92
+  %.2219 = phi i32 [ %98, %94 ], [ %.0217220, %92 ]
+  %.2 = phi i32 [ 0, %94 ], [ %.0178226, %92 ]
+  %102 = mul nuw nsw i32 %.sroa.066.0.insert.ext, 3
+  %103 = mul nuw nsw i32 %.sroa.11.0.insert.ext, 5
+  %104 = mul nuw nsw i32 %.sroa.18.0.insert.ext, 7
+  %105 = mul nuw nsw i32 %.sroa.25.0.insert.ext, 11
+  %106 = add nuw nsw i32 %104, %105
+  %107 = add nuw nsw i32 %106, %102
+  %108 = add nuw nsw i32 %107, %103
+  %109 = and i32 %108, 63
+  %110 = zext nneg i32 %109 to i64
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %110
+  %112 = load i32, ptr %111, align 4
+  %113 = icmp eq i32 %112, %.sroa.066.0.insert.insert
+  br i1 %113, label %114, label %119
 
-109:                                              ; preds = %96
-  %110 = trunc nuw nsw i32 %104 to i8
-  %111 = add nsw i32 %.2219, 1
-  %112 = sext i32 %.2219 to i64
-  %113 = getelementptr inbounds i8, ptr %31, i64 %112
-  store i8 %110, ptr %113, align 1
-  br label %169
+114:                                              ; preds = %101
+  %115 = trunc nuw nsw i32 %109 to i8
+  %116 = add nsw i32 %.2219, 1
+  %117 = sext i32 %.2219 to i64
+  %118 = getelementptr inbounds i8, ptr %31, i64 %117
+  store i8 %115, ptr %118, align 1
+  br label %174
 
-114:                                              ; preds = %96
-  store i8 %.sroa.066.0, ptr %106, align 4
-  %.sroa.11.0..sroa_idx81 = getelementptr inbounds nuw i8, ptr %106, i64 1
+119:                                              ; preds = %101
+  store i8 %.sroa.066.0, ptr %111, align 4
+  %.sroa.11.0..sroa_idx81 = getelementptr inbounds nuw i8, ptr %111, i64 1
   store i8 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx81, align 1
-  %.sroa.18.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %106, i64 2
+  %.sroa.18.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %111, i64 2
   store i8 %.sroa.18.0, ptr %.sroa.18.0..sroa_idx91, align 2
-  %.sroa.25.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %106, i64 3
+  %.sroa.25.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %111, i64 3
   store i8 %.sroa.25.1, ptr %.sroa.25.0..sroa_idx101, align 1
-  %115 = icmp eq i8 %.sroa.25.1, %.sroa.25.0224
-  br i1 %115, label %116, label %161
+  %120 = icmp eq i8 %.sroa.25.1, %.sroa.25.0224
+  br i1 %120, label %121, label %166
 
-116:                                              ; preds = %114
-  %117 = sub i8 %.sroa.066.0, %.sroa.0.0223
-  %118 = sub i8 %.sroa.11.0, %.sroa.5.0222
-  %119 = sub i8 %.sroa.18.0, %.sroa.7.0221
-  %120 = add i8 %117, 2
-  %121 = add i8 %118, 2
-  %122 = add i8 %119, 2
-  %123 = or i8 %120, %121
-  %124 = or i8 %123, %122
-  %or.cond18 = icmp ult i8 %124, 4
-  br i1 %or.cond18, label %125, label %136
+121:                                              ; preds = %119
+  %122 = sub i8 %.sroa.066.0, %.sroa.0.0223
+  %123 = sub i8 %.sroa.11.0, %.sroa.5.0222
+  %124 = sub i8 %.sroa.18.0, %.sroa.7.0221
+  %125 = add i8 %122, 2
+  %126 = add i8 %123, 2
+  %127 = add i8 %124, 2
+  %128 = or i8 %125, %126
+  %129 = or i8 %128, %127
+  %or.cond18 = icmp ult i8 %129, 4
+  br i1 %or.cond18, label %130, label %141
 
-125:                                              ; preds = %116
-  %126 = shl i8 %117, 4
-  %127 = add i8 %126, 32
-  %128 = shl i8 %118, 2
-  %129 = add i8 %128, 8
-  %130 = or i8 %127, %129
-  %131 = or disjoint i8 %130, %122
-  %132 = or i8 %131, 64
-  %133 = add nsw i32 %.2219, 1
-  %134 = sext i32 %.2219 to i64
-  %135 = getelementptr inbounds i8, ptr %31, i64 %134
-  store i8 %132, ptr %135, align 1
-  br label %169
+130:                                              ; preds = %121
+  %131 = shl i8 %122, 4
+  %132 = add i8 %131, 32
+  %133 = shl i8 %123, 2
+  %134 = add i8 %133, 8
+  %135 = or i8 %132, %134
+  %136 = or disjoint i8 %135, %127
+  %137 = or i8 %136, 64
+  %138 = add nsw i32 %.2219, 1
+  %139 = sext i32 %.2219 to i64
+  %140 = getelementptr inbounds i8, ptr %31, i64 %139
+  store i8 %137, ptr %140, align 1
+  br label %174
 
-136:                                              ; preds = %116
-  %137 = sub i8 %119, %118
-  %138 = sub i8 %117, %118
-  %139 = add i8 %138, 8
-  %140 = add i8 %118, 32
-  %141 = icmp ult i8 %140, 64
-  %142 = add i8 %137, 8
-  %143 = or i8 %142, %139
-  %144 = icmp ult i8 %143, 16
-  %or.cond33 = and i1 %141, %144
-  br i1 %or.cond33, label %145, label %154
+141:                                              ; preds = %121
+  %142 = sub i8 %124, %123
+  %143 = sub i8 %122, %123
+  %144 = add i8 %143, 8
+  %145 = add i8 %123, 32
+  %146 = icmp ult i8 %145, 64
+  %147 = add i8 %142, 8
+  %148 = or i8 %147, %144
+  %149 = icmp ult i8 %148, 16
+  %or.cond33 = and i1 %146, %149
+  br i1 %or.cond33, label %150, label %159
 
-145:                                              ; preds = %136
-  %146 = or disjoint i8 %140, -128
-  %147 = sext i32 %.2219 to i64
-  %148 = getelementptr i8, ptr %31, i64 %147
-  store i8 %146, ptr %148, align 1
-  %149 = shl i8 %138, 4
-  %150 = or disjoint i8 %149, %142
-  %151 = xor i8 %150, -128
-  %152 = add nsw i32 %.2219, 2
-  %153 = getelementptr i8, ptr %148, i64 1
+150:                                              ; preds = %141
+  %151 = or disjoint i8 %145, -128
+  %152 = sext i32 %.2219 to i64
+  %153 = getelementptr i8, ptr %31, i64 %152
   store i8 %151, ptr %153, align 1
-  br label %169
+  %154 = shl i8 %143, 4
+  %155 = or disjoint i8 %154, %147
+  %156 = xor i8 %155, -128
+  %157 = add nsw i32 %.2219, 2
+  %158 = getelementptr i8, ptr %153, i64 1
+  store i8 %156, ptr %158, align 1
+  br label %174
 
-154:                                              ; preds = %136
-  %155 = sext i32 %.2219 to i64
-  %156 = getelementptr i8, ptr %31, i64 %155
-  store i8 -2, ptr %156, align 1
-  %157 = getelementptr i8, ptr %156, i64 1
-  store i8 %.sroa.066.0, ptr %157, align 1
-  %158 = getelementptr i8, ptr %156, i64 2
-  store i8 %.sroa.11.0, ptr %158, align 1
-  %159 = add nsw i32 %.2219, 4
-  %160 = getelementptr i8, ptr %156, i64 3
-  store i8 %.sroa.18.0, ptr %160, align 1
-  br label %169
+159:                                              ; preds = %141
+  %160 = sext i32 %.2219 to i64
+  %161 = getelementptr i8, ptr %31, i64 %160
+  store i8 -2, ptr %161, align 1
+  %162 = getelementptr i8, ptr %161, i64 1
+  store i8 %.sroa.066.0, ptr %162, align 1
+  %163 = getelementptr i8, ptr %161, i64 2
+  store i8 %.sroa.11.0, ptr %163, align 1
+  %164 = add nsw i32 %.2219, 4
+  %165 = getelementptr i8, ptr %161, i64 3
+  store i8 %.sroa.18.0, ptr %165, align 1
+  br label %174
 
-161:                                              ; preds = %114
-  %162 = sext i32 %.2219 to i64
-  %163 = getelementptr i8, ptr %31, i64 %162
-  store i8 -1, ptr %163, align 1
-  %164 = getelementptr i8, ptr %163, i64 1
-  store i8 %.sroa.066.0, ptr %164, align 1
-  %165 = getelementptr i8, ptr %163, i64 2
-  store i8 %.sroa.11.0, ptr %165, align 1
-  %166 = getelementptr i8, ptr %163, i64 3
-  store i8 %.sroa.18.0, ptr %166, align 1
-  %167 = add nsw i32 %.2219, 5
-  %168 = getelementptr i8, ptr %163, i64 4
-  store i8 %.sroa.25.1, ptr %168, align 1
-  br label %169
+166:                                              ; preds = %119
+  %167 = sext i32 %.2219 to i64
+  %168 = getelementptr i8, ptr %31, i64 %167
+  store i8 -1, ptr %168, align 1
+  %169 = getelementptr i8, ptr %168, i64 1
+  store i8 %.sroa.066.0, ptr %169, align 1
+  %170 = getelementptr i8, ptr %168, i64 2
+  store i8 %.sroa.11.0, ptr %170, align 1
+  %171 = getelementptr i8, ptr %168, i64 3
+  store i8 %.sroa.18.0, ptr %171, align 1
+  %172 = add nsw i32 %.2219, 5
+  %173 = getelementptr i8, ptr %168, i64 4
+  store i8 %.sroa.25.1, ptr %173, align 1
+  br label %174
 
-169:                                              ; preds = %77, %109, %125, %154, %145, %161, %81
-  %.1218 = phi i32 [ %84, %81 ], [ %.0217220, %77 ], [ %111, %109 ], [ %133, %125 ], [ %152, %145 ], [ %159, %154 ], [ %167, %161 ]
-  %.1 = phi i32 [ 0, %81 ], [ %78, %77 ], [ %.2, %109 ], [ %.2, %125 ], [ %.2, %145 ], [ %.2, %154 ], [ %.2, %161 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, %65
-  %170 = icmp samesign ult i64 %indvars.iv.next, %67
-  br i1 %170, label %71, label %.preheader.loopexit, !llvm.loop !5
+174:                                              ; preds = %82, %114, %130, %159, %150, %166, %86
+  %.1218 = phi i32 [ %89, %86 ], [ %.0217220, %82 ], [ %116, %114 ], [ %138, %130 ], [ %157, %150 ], [ %164, %159 ], [ %172, %166 ]
+  %.1 = phi i32 [ 0, %86 ], [ %83, %82 ], [ %.2, %114 ], [ %.2, %130 ], [ %.2, %150 ], [ %.2, %159 ], [ %.2, %166 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, %70
+  %175 = icmp samesign ult i64 %indvars.iv.next, %72
+  br i1 %175, label %76, label %.preheader.loopexit, !llvm.loop !5
 
-171:                                              ; preds = %25, %3, %8, %11, %15, %19, %23, %.preheader
+176:                                              ; preds = %25, %3, %8, %11, %15, %19, %23, %.preheader
   %.0 = phi ptr [ null, %3 ], [ %31, %.preheader ], [ null, %23 ], [ null, %19 ], [ null, %15 ], [ null, %11 ], [ null, %8 ], [ null, %25 ]
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -47083,7 +47088,7 @@ attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

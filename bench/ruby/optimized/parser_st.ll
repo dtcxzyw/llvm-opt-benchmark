@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @rb_parser_st_init_existing_table_with_size(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i64 %2, 4611686018427387903
-  br i1 %4, label %46, label %5
+  br i1 %4, label %49, label %5
 
 5:                                                ; preds = %3
   %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
@@ -51,52 +51,61 @@ define dso_local noundef ptr @rb_parser_st_init_existing_table_with_size(ptr nou
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %27, ptr %28, align 8, !tbaa !23
   %29 = icmp eq ptr %27, null
-  br i1 %29, label %30, label %31
+  br i1 %29, label %30, label %._crit_edge
+
+._crit_edge:                                      ; preds = %23
+  %.val24.pre = load i8, ptr %0, align 8, !tbaa !17
+  br label %31
 
 30:                                               ; preds = %23
   tail call void @free(ptr noundef nonnull %0) #27
-  br label %46
+  br label %49
 
-31:                                               ; preds = %23, %21
-  %32 = phi ptr [ %27, %23 ], [ null, %21 ]
-  %33 = shl i64 24, %12
-  %34 = tail call noalias ptr @malloc(i64 noundef %33) #26
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %34, ptr %35, align 8, !tbaa !25
-  %36 = icmp eq ptr %34, null
-  br i1 %36, label %37, label %38
-
-37:                                               ; preds = %31
-  tail call void @free(ptr noundef %32) #27
-  tail call void @free(ptr noundef nonnull %0) #27
-  br label %46
+31:                                               ; preds = %._crit_edge, %21
+  %32 = phi ptr [ %27, %._crit_edge ], [ null, %21 ]
+  %.val24 = phi i8 [ %.val24.pre, %._crit_edge ], [ %11, %21 ]
+  %33 = zext nneg i8 %.val24 to i64
+  %34 = shl i64 24, %33
+  %35 = tail call noalias ptr @malloc(i64 noundef %34) #26
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %35, ptr %36, align 8, !tbaa !25
+  %37 = icmp eq ptr %35, null
+  br i1 %37, label %38, label %39
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %39, align 8, !tbaa !26
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %make_tab_empty.exit, label %41
+  tail call void @free(ptr noundef %32) #27
+  tail call void @free(ptr noundef nonnull %0) #27
+  br label %49
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !24
-  %44 = shl i64 %43, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %32, i8 noundef 0, i64 noundef %44, i1 noundef false) #27
+39:                                               ; preds = %31
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %40, align 8, !tbaa !26
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
+  %.not.i = icmp eq ptr %32, null
+  br i1 %.not.i, label %make_tab_empty.exit, label %42
+
+42:                                               ; preds = %39
+  %.val.i = load i8, ptr %0, align 8, !tbaa !17
+  %43 = zext i8 %.val.i to i64
+  %44 = getelementptr [16 x i8], ptr @features, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load i64, ptr %45, align 8, !tbaa !24
+  %47 = shl i64 %46, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %32, i8 noundef 0, i64 noundef %47, i1 noundef false) #27
   br label %make_tab_empty.exit
 
-make_tab_empty.exit:                              ; preds = %38, %41
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %45, align 4, !tbaa !27
-  br label %46
+make_tab_empty.exit:                              ; preds = %39, %42
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %48, align 4, !tbaa !27
+  br label %49
 
-46:                                               ; preds = %3, %make_tab_empty.exit, %37, %30
-  %.0 = phi ptr [ null, %30 ], [ null, %37 ], [ %0, %make_tab_empty.exit ], [ null, %3 ]
+49:                                               ; preds = %3, %make_tab_empty.exit, %38, %30
+  %.0 = phi ptr [ null, %30 ], [ null, %38 ], [ %0, %make_tab_empty.exit ], [ null, %3 ]
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -1571,8 +1580,6 @@ define dso_local noundef ptr @rb_parser_st_replace(ptr noundef writeonly capture
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %7, align 8, !tbaa !23
-  %.val23.pre = load i8, ptr %1, align 8, !tbaa !17
-  %.pre = zext nneg i8 %.val23.pre to i64
   br label %17
 
 8:                                                ; preds = %2
@@ -1589,45 +1596,48 @@ define dso_local noundef ptr @rb_parser_st_replace(ptr noundef writeonly capture
   br i1 %16, label %nonempty_memcpy.exit26, label %17
 
 17:                                               ; preds = %8, %6
-  %.pre-phi = phi i64 [ %9, %8 ], [ %.pre, %6 ]
   %18 = phi ptr [ %14, %8 ], [ null, %6 ]
-  %.val23 = phi i8 [ %.val21, %8 ], [ %.val23.pre, %6 ]
-  %19 = shl i64 24, %.pre-phi
-  %20 = tail call noalias ptr @malloc(i64 noundef %19) #26
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %20, ptr %21, align 8, !tbaa !25
-  %22 = icmp eq ptr %20, null
-  br i1 %22, label %nonempty_memcpy.exit26, label %23
+  %.val23 = load i8, ptr %1, align 8, !tbaa !17
+  %19 = zext nneg i8 %.val23 to i64
+  %20 = shl i64 24, %19
+  %21 = tail call noalias ptr @malloc(i64 noundef %20) #26
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %21, ptr %22, align 8, !tbaa !25
+  %23 = icmp eq ptr %21, null
+  br i1 %23, label %nonempty_memcpy.exit26, label %24
 
-23:                                               ; preds = %17
-  %.not.i = icmp ugt i8 %.val23, 60
-  br i1 %.not.i, label %nonempty_memcpy.exit, label %24
+24:                                               ; preds = %17
+  %.val22 = load i8, ptr %1, align 8, !tbaa !17
+  %25 = zext nneg i8 %.val22 to i64
+  %.not.i = icmp ugt i8 %.val22, 60
+  br i1 %.not.i, label %nonempty_memcpy.exit, label %26
 
-24:                                               ; preds = %23
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %20, ptr noundef nonnull readonly align 1 %26, i64 noundef range(i64 1, 0) %19, i1 noundef false) #27
+26:                                               ; preds = %24
+  %27 = shl i64 24, %25
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %29 = load ptr, ptr %28, align 8, !tbaa !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %21, ptr noundef nonnull readonly align 1 %29, i64 noundef range(i64 1, 0) %27, i1 noundef false) #27
   br label %nonempty_memcpy.exit
 
-nonempty_memcpy.exit:                             ; preds = %23, %24
-  %27 = load ptr, ptr %3, align 8, !tbaa !23
-  %.not = icmp eq ptr %27, null
-  br i1 %.not, label %nonempty_memcpy.exit26, label %28
+nonempty_memcpy.exit:                             ; preds = %24, %26
+  %30 = load ptr, ptr %3, align 8, !tbaa !23
+  %.not = icmp eq ptr %30, null
+  br i1 %.not, label %nonempty_memcpy.exit26, label %31
 
-28:                                               ; preds = %nonempty_memcpy.exit
-  %29 = getelementptr [16 x i8], ptr @features, i64 %.pre-phi
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !24
-  %32 = shl i64 %31, 3
-  %.not.i24 = icmp eq i64 %32, 0
-  br i1 %.not.i24, label %nonempty_memcpy.exit26, label %33
+31:                                               ; preds = %nonempty_memcpy.exit
+  %32 = getelementptr [16 x i8], ptr @features, i64 %25
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load i64, ptr %33, align 8, !tbaa !24
+  %35 = shl i64 %34, 3
+  %.not.i24 = icmp eq i64 %35, 0
+  br i1 %.not.i24, label %nonempty_memcpy.exit26, label %36
 
-33:                                               ; preds = %28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %18, ptr noundef nonnull readonly align 1 %27, i64 noundef range(i64 1, 0) %32, i1 noundef false) #27
+36:                                               ; preds = %31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %18, ptr noundef nonnull readonly align 1 %30, i64 noundef range(i64 1, 0) %35, i1 noundef false) #27
   br label %nonempty_memcpy.exit26
 
-nonempty_memcpy.exit26:                           ; preds = %33, %28, %nonempty_memcpy.exit, %17, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %17 ], [ %0, %nonempty_memcpy.exit ], [ %0, %28 ], [ %0, %33 ]
+nonempty_memcpy.exit26:                           ; preds = %36, %31, %nonempty_memcpy.exit, %17, %8
+  %.0 = phi ptr [ null, %8 ], [ null, %17 ], [ %0, %nonempty_memcpy.exit ], [ %0, %31 ], [ %0, %36 ]
   ret ptr %.0
 }
 
@@ -4100,7 +4110,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @llvm.umax.i64(i64, i64) #24
 
 attributes #0 = { nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind sspstrong willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

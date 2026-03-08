@@ -1445,12 +1445,12 @@ _ZNK12hb_hashmap_tIj17face_table_info_tLb0EE3hasIS0_EEbRKjPPT_.exit.thread: ; pr
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 declare i32 @hb_blob_get_length(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 declare i32 @__gxx_personality_v0(...)
@@ -2049,7 +2049,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: noreturn nounwind uwtable
@@ -2121,27 +2121,27 @@ _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tE
   br label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread
 
 _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread: ; preds = %21, %10, %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit
-  %23 = phi i32 [ %22, %21 ], [ %8, %10 ], [ %13, %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit ]
-  %24 = tail call noalias dereferenceable_or_null(1792) ptr @malloc(i64 noundef 1792) #21
-  %.not4 = icmp eq ptr %24, null
-  br i1 %.not4, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread9, label %25
+  %23 = tail call noalias dereferenceable_or_null(1792) ptr @malloc(i64 noundef 1792) #21
+  %.not4 = icmp eq ptr %23, null
+  br i1 %.not4, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread9, label %24
 
-25:                                               ; preds = %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread
-  %26 = load i32, ptr %5, align 4
-  %.not.i5 = icmp slt i32 %26, %23
+24:                                               ; preds = %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread
+  %25 = load i32, ptr %5, align 4
+  %26 = load i32, ptr %4, align 8
+  %.not.i5 = icmp slt i32 %25, %26
   br i1 %.not.i5, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread.i, label %27
 
-27:                                               ; preds = %25
-  %28 = add i32 %26, 1
-  %29 = icmp slt i32 %23, 0
+27:                                               ; preds = %24
+  %28 = add i32 %25, 1
+  %29 = icmp slt i32 %26, 0
   br i1 %29, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread6.i, label %30
 
 30:                                               ; preds = %27
-  %.not.i.i = icmp ugt i32 %28, %23
+  %.not.i.i = icmp ugt i32 %28, %26
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %30, %.preheader.i.i
-  %.143.i.i = phi i32 [ %33, %.preheader.i.i ], [ %23, %30 ]
+  %.143.i.i = phi i32 [ %33, %.preheader.i.i ], [ %26, %30 ]
   %31 = lshr i32 %.143.i.i, 1
   %32 = add i32 %.143.i.i, 8
   %33 = add i32 %32, %31
@@ -2167,7 +2167,7 @@ _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tE
   br i1 %.not21.i.i, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread9.i: ; preds = %41, %.thread.i.i
-  %.01538.sink.i.ph.in.i = phi i32 [ %23, %.thread.i.i ], [ %42, %41 ]
+  %.01538.sink.i.ph.in.i = phi i32 [ %26, %.thread.i.i ], [ %42, %41 ]
   %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
   store i32 %.01538.sink.i.ph.i, ptr %4, align 8
   br label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread6.i
@@ -2182,7 +2182,7 @@ _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tE
   store i64 %43, ptr @_hb_CrapPool, align 16
   br label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE4pushIJRS5_EEEPS5_DpOT_.exit.preheader
 
-_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread.i: ; preds = %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.i, %41, %30, %25
+_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread.i: ; preds = %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.i, %41, %30, %24
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %5, align 4
@@ -2190,7 +2190,7 @@ _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tE
   store i32 %47, ptr %5, align 4
   %48 = zext i32 %46 to i64
   %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %48
-  store ptr %24, ptr %49, align 8
+  store ptr %23, ptr %49, align 8
   br label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE4pushIJRS5_EEEPS5_DpOT_.exit.preheader
 
 _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE4pushIJRS5_EEEPS5_DpOT_.exit.preheader: ; preds = %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread6.i, %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE5allocEjb.exit.thread.i
@@ -2199,20 +2199,20 @@ _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tE
 _ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE4pushIJRS5_EEEPS5_DpOT_.exit: ; preds = %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE4pushIJRS5_EEEPS5_DpOT_.exit.preheader, %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE4pushIJRS5_EEEPS5_DpOT_.exit
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE4pushIJRS5_EEEPS5_DpOT_.exit ], [ 0, %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE4pushIJRS5_EEEPS5_DpOT_.exit.preheader ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %50 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %indvars.iv.next.i
-  %51 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [56 x i8], ptr %23, i64 %indvars.iv.next.i
+  %51 = getelementptr inbounds nuw [56 x i8], ptr %23, i64 %indvars.iv.i
   store ptr %50, ptr %51, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 31
   br i1 %exitcond.not.i, label %_ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_t6threadEv.exit, label %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE4pushIJRS5_EEEPS5_DpOT_.exit, !llvm.loop !71
 
 _ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_t6threadEv.exit: ; preds = %_ZN11hb_vector_tIPN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_tELb0EE4pushIJRS5_EEEPS5_DpOT_.exit
-  %52 = getelementptr inbounds nuw i8, ptr %24, i64 1736
+  %52 = getelementptr inbounds nuw i8, ptr %23, i64 1736
   store ptr null, ptr %52, align 8
-  store ptr %24, ptr %0, align 8
+  store ptr %23, ptr %0, align 8
   br label %53
 
 53:                                               ; preds = %_ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_t6threadEv.exit, %1
-  %54 = phi ptr [ %24, %_ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_t6threadEv.exit ], [ %2, %1 ]
+  %54 = phi ptr [ %23, %_ZN9hb_pool_tIN22hb_serialize_context_t8object_tELj32EE7chunk_t6threadEv.exit ], [ %2, %1 ]
   %55 = load ptr, ptr %54, align 8
   store ptr %55, ptr %0, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %54, i8 0, i64 56, i1 false)
@@ -3964,7 +3964,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIPKN22hb_seriali
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %52, label %6
+  br i1 %.not, label %55, label %6
 
 6:                                                ; preds = %2
   %.not25 = icmp eq i32 %1, 0
@@ -3976,7 +3976,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIPKN22hb_seriali
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = icmp ult i32 %9, %11
-  br i1 %12, label %52, label %13
+  br i1 %12, label %55, label %13
 
 13:                                               ; preds = %7, %6
   %14 = lshr i32 %4, 1
@@ -3990,84 +3990,87 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIPKN22hb_seriali
   %20 = shl nuw nsw i64 %19, 4
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #21
   %.not26 = icmp eq ptr %21, null
-  br i1 %.not26, label %22, label %24
+  br i1 %.not26, label %22, label %25
 
 22:                                               ; preds = %13
-  %23 = and i32 %4, -2
-  store i32 %23, ptr %3, align 8
-  br label %52
+  %23 = load i32, ptr %3, align 8
+  %24 = and i32 %23, -2
+  store i32 %24, ptr %3, align 8
+  br label %55
 
-24:                                               ; preds = %13
-  %25 = and i64 %19, 268435455
-  %.not.i27 = icmp eq i64 %25, 0
-  br i1 %.not.i27, label %_ZL9hb_memsetPvij.exit, label %26
+25:                                               ; preds = %13
+  %26 = and i64 %19, 268435455
+  %.not.i27 = icmp eq i64 %26, 0
+  br i1 %.not.i27, label %_ZL9hb_memsetPvij.exit, label %27
 
-26:                                               ; preds = %24
-  %27 = and i64 %20, 4294967280
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %27, i1 false)
+27:                                               ; preds = %25
+  %28 = and i64 %20, 4294967280
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %28, i1 false)
   br label %_ZL9hb_memsetPvij.exit
 
-_ZL9hb_memsetPvij.exit:                           ; preds = %24, %26
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load i32, ptr %28, align 8
-  %.fr = freeze i32 %29
-  %30 = add i32 %.fr, 1
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %33, align 4
-  store i32 1, ptr %3, align 8
-  %34 = add i32 %18, -1
-  store i32 %34, ptr %28, align 8
-  %35 = icmp eq i32 %17, 0
-  br i1 %35, label %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit, label %36
+_ZL9hb_memsetPvij.exit:                           ; preds = %25, %27
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %30 = load i32, ptr %29, align 8
+  %.fr = freeze i32 %30
+  %31 = add i32 %.fr, 1
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %34, align 4
+  %35 = load i32, ptr %3, align 8
+  %36 = and i32 %35, 1
+  store i32 %36, ptr %3, align 8
+  %37 = add i32 %18, -1
+  store i32 %37, ptr %29, align 8
+  %38 = icmp eq i32 %17, 0
+  br i1 %38, label %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit, label %39
 
-36:                                               ; preds = %_ZL9hb_memsetPvij.exit
-  %37 = zext nneg i32 %narrow.i to i64
-  %38 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.prime_mod, i64 %37
-  %39 = load i32, ptr %38, align 4
+39:                                               ; preds = %_ZL9hb_memsetPvij.exit
+  %40 = zext nneg i32 %narrow.i to i64
+  %41 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.prime_mod, i64 %40
+  %42 = load i32, ptr %41, align 4
   br label %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit
 
-_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit: ; preds = %_ZL9hb_memsetPvij.exit, %36
-  %.0.i = phi i32 [ %39, %36 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.0.i, ptr %40, align 4
-  %41 = shl nuw nsw i32 %narrow.i, 1
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %41, ptr %42, align 8
-  store ptr %21, ptr %31, align 8
+_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit: ; preds = %_ZL9hb_memsetPvij.exit, %39
+  %.0.i = phi i32 [ %42, %39 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %.0.i, ptr %43, align 4
+  %44 = shl nuw nsw i32 %narrow.i, 1
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %44, ptr %45, align 8
+  store ptr %21, ptr %32, align 8
   %.off = add i32 %.fr, -1
   %switch = icmp ult i32 %.off, -2
   br i1 %switch, label %.lr.ph.split.preheader, label %._crit_edge
 
 .lr.ph.split.preheader:                           ; preds = %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit
-  %wide.trip.count = zext i32 %30 to i64
+  %wide.trip.count = zext i32 %31 to i64
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %51
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %51 ]
-  %43 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load i32, ptr %44, align 8
-  %46 = trunc i32 %45 to i1
-  br i1 %46, label %47, label %51
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %54
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %54 ]
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load i32, ptr %47, align 8
+  %49 = trunc i32 %48 to i1
+  br i1 %49, label %50, label %54
 
-47:                                               ; preds = %.lr.ph.split
-  %48 = lshr i32 %45, 2
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  %50 = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE13set_with_hashIS3_jEEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %43, i32 noundef %48, ptr noundef nonnull align 4 dereferenceable(4) %49, i1 noundef zeroext true)
-  br label %51
+50:                                               ; preds = %.lr.ph.split
+  %51 = lshr i32 %48, 2
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 12
+  %53 = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE13set_with_hashIS3_jEEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %46, i32 noundef %51, ptr noundef nonnull align 4 dereferenceable(4) %52, i1 noundef zeroext true)
+  br label %54
 
-51:                                               ; preds = %.lr.ph.split, %47
+54:                                               ; preds = %.lr.ph.split, %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !135
 
-._crit_edge:                                      ; preds = %51, %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit
-  tail call void @free(ptr noundef %32) #22
-  br label %52
+._crit_edge:                                      ; preds = %54, %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit
+  tail call void @free(ptr noundef %33) #22
+  br label %55
 
-52:                                               ; preds = %7, %2, %._crit_edge, %22
+55:                                               ; preds = %7, %2, %._crit_edge, %22
   %.022 = phi i1 [ false, %2 ], [ true, %._crit_edge ], [ false, %22 ], [ true, %7 ]
   ret i1 %.022
 }
@@ -4411,7 +4414,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIj17face_table_i
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %49, label %6
+  br i1 %.not, label %52, label %6
 
 6:                                                ; preds = %2
   %.not25 = icmp eq i32 %1, 0
@@ -4423,7 +4426,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIj17face_table_i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = icmp ult i32 %9, %11
-  br i1 %12, label %49, label %13
+  br i1 %12, label %52, label %13
 
 13:                                               ; preds = %7, %6
   %14 = lshr i32 %4, 1
@@ -4436,83 +4439,86 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN12hb_hashmap_tIj17face_table_i
   %19 = shl nuw nsw i64 24, %18
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #21
   %.not26 = icmp eq ptr %20, null
-  br i1 %.not26, label %21, label %23
+  br i1 %.not26, label %21, label %24
 
 21:                                               ; preds = %13
-  %22 = and i32 %4, -2
-  store i32 %22, ptr %3, align 8
-  br label %49
+  %22 = load i32, ptr %3, align 8
+  %23 = and i32 %22, -2
+  store i32 %23, ptr %3, align 8
+  br label %52
 
-23:                                               ; preds = %13
-  %24 = and i64 %19, 4294967288
-  %.not.i27 = icmp eq i64 %24, 0
-  br i1 %.not.i27, label %_ZL9hb_memsetPvij.exit, label %25
+24:                                               ; preds = %13
+  %25 = and i64 %19, 4294967288
+  %.not.i27 = icmp eq i64 %25, 0
+  br i1 %.not.i27, label %_ZL9hb_memsetPvij.exit, label %26
 
-25:                                               ; preds = %23
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %24, i1 false)
+26:                                               ; preds = %24
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %25, i1 false)
   br label %_ZL9hb_memsetPvij.exit
 
-_ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = load i32, ptr %26, align 8
-  %.fr = freeze i32 %27
-  %28 = add i32 %.fr, 1
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %31, align 4
-  store i32 1, ptr %3, align 8
+_ZL9hb_memsetPvij.exit:                           ; preds = %24, %26
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %28 = load i32, ptr %27, align 8
+  %.fr = freeze i32 %28
+  %29 = add i32 %.fr, 1
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %32, align 4
+  %33 = load i32, ptr %3, align 8
+  %34 = and i32 %33, 1
+  store i32 %34, ptr %3, align 8
   %notmask = shl nsw i32 -1, %narrow.i
-  %32 = xor i32 %notmask, -1
-  store i32 %32, ptr %26, align 8
-  %33 = icmp eq i32 %17, 0
-  br i1 %33, label %_ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.exit, label %34
+  %35 = xor i32 %notmask, -1
+  store i32 %35, ptr %27, align 8
+  %36 = icmp eq i32 %17, 0
+  br i1 %36, label %_ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.exit, label %37
 
-34:                                               ; preds = %_ZL9hb_memsetPvij.exit
-  %35 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.prime_mod, i64 %18
-  %36 = load i32, ptr %35, align 4
+37:                                               ; preds = %_ZL9hb_memsetPvij.exit
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.prime_mod, i64 %18
+  %39 = load i32, ptr %38, align 4
   br label %_ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.exit
 
-_ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.exit: ; preds = %_ZL9hb_memsetPvij.exit, %34
-  %.0.i = phi i32 [ %36, %34 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.0.i, ptr %37, align 4
-  %38 = shl nuw nsw i32 %narrow.i, 1
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %38, ptr %39, align 8
-  store ptr %20, ptr %29, align 8
+_ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.exit: ; preds = %_ZL9hb_memsetPvij.exit, %37
+  %.0.i = phi i32 [ %39, %37 ], [ 2147483647, %_ZL9hb_memsetPvij.exit ]
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %.0.i, ptr %40, align 4
+  %41 = shl nuw nsw i32 %narrow.i, 1
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %41, ptr %42, align 8
+  store ptr %20, ptr %30, align 8
   %.off = add i32 %.fr, -1
   %switch = icmp ult i32 %.off, -2
   br i1 %switch, label %.lr.ph.split.preheader, label %._crit_edge
 
 .lr.ph.split.preheader:                           ; preds = %_ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.exit
-  %wide.trip.count = zext i32 %28 to i64
+  %wide.trip.count = zext i32 %29 to i64
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %48
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %48 ]
-  %40 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %indvars.iv
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %42 = load i32, ptr %41, align 4
-  %43 = trunc i32 %42 to i1
-  br i1 %43, label %44, label %48
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %51
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %51 ]
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %45 = load i32, ptr %44, align 4
+  %46 = trunc i32 %45 to i1
+  br i1 %46, label %47, label %51
 
-44:                                               ; preds = %.lr.ph.split
-  %45 = lshr i32 %42, 2
-  %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %47 = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIj17face_table_info_tLb0EE13set_with_hashIjS0_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %40, i32 noundef %45, ptr noundef nonnull align 8 dereferenceable(16) %46, i1 noundef zeroext true)
-  br label %48
+47:                                               ; preds = %.lr.ph.split
+  %48 = lshr i32 %45, 2
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %50 = tail call noundef zeroext i1 @_ZN12hb_hashmap_tIj17face_table_info_tLb0EE13set_with_hashIjS0_EEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %43, i32 noundef %48, ptr noundef nonnull align 8 dereferenceable(16) %49, i1 noundef zeroext true)
+  br label %51
 
-48:                                               ; preds = %.lr.ph.split, %44
+51:                                               ; preds = %.lr.ph.split, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !138
 
-._crit_edge:                                      ; preds = %48, %_ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.exit
-  tail call void @free(ptr noundef %30) #22
-  br label %49
+._crit_edge:                                      ; preds = %51, %_ZN12hb_hashmap_tIj17face_table_info_tLb0EE9prime_forEj.exit
+  tail call void @free(ptr noundef %31) #22
+  br label %52
 
-49:                                               ; preds = %7, %2, %._crit_edge, %21
+52:                                               ; preds = %7, %2, %._crit_edge, %21
   %.022 = phi i1 [ false, %2 ], [ true, %._crit_edge ], [ false, %21 ], [ true, %7 ]
   ret i1 %.022
 }
@@ -4697,14 +4703,14 @@ declare void @llvm.assume(i1 noundef) #19
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { cold nofree noreturn }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

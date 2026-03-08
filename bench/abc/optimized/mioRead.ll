@@ -1084,7 +1084,7 @@ declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #3
 ; Function Attrs: nofree nounwind
 declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
@@ -1093,7 +1093,7 @@ declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i6
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 declare ptr @Mem_FlexStart(...) local_unnamed_addr #1
@@ -1239,54 +1239,56 @@ define void @Mio_LibrarySortGates(ptr noundef %0) local_unnamed_addr #0 {
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #20
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !80
-  %17 = icmp sgt i32 %12, 0
-  br i1 %17, label %.lr.ph40.preheader, label %._crit_edge41
+  %17 = load i32, ptr %2, align 8, !tbaa !78
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %.lr.ph40.preheader, label %._crit_edge41
 
 .lr.ph40.preheader:                               ; preds = %._crit_edge
-  %18 = zext nneg i32 %12 to i64
-  %19 = shl nuw nsw i64 %18, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %6, i64 %19, i1 false), !tbaa !66
+  %19 = zext nneg i32 %17 to i64
+  %20 = shl nuw nsw i64 %19, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %6, i64 %20, i1 false), !tbaa !66
   br label %._crit_edge41
 
 ._crit_edge41:                                    ; preds = %.lr.ph40.preheader, %._crit_edge
-  tail call void @qsort(ptr noundef %6, i64 noundef %13, i64 noundef 8, ptr noundef nonnull @Mio_LibraryCompareGatesByName) #18
-  %20 = load i32, ptr %2, align 8, !tbaa !78
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph44, label %._crit_edge45
+  %21 = sext i32 %17 to i64
+  tail call void @qsort(ptr noundef %6, i64 noundef %21, i64 noundef 8, ptr noundef nonnull @Mio_LibraryCompareGatesByName) #18
+  %22 = load i32, ptr %2, align 8, !tbaa !78
+  %23 = icmp sgt i32 %22, 0
+  br i1 %23, label %.lr.ph44, label %._crit_edge45
 
 .lr.ph44:                                         ; preds = %._crit_edge41
-  %22 = add nsw i32 %20, -1
-  %23 = zext nneg i32 %22 to i64
-  %wide.trip.count = zext nneg i32 %20 to i64
-  br label %24
+  %24 = add nsw i32 %22, -1
+  %25 = zext nneg i32 %24 to i64
+  %wide.trip.count = zext nneg i32 %22 to i64
+  br label %26
 
-24:                                               ; preds = %.lr.ph44, %30
-  %indvars.iv50 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next51, %30 ]
-  %25 = icmp samesign ult i64 %indvars.iv50, %23
-  br i1 %25, label %26, label %30
+26:                                               ; preds = %.lr.ph44, %32
+  %indvars.iv50 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next51, %32 ]
+  %27 = icmp samesign ult i64 %indvars.iv50, %25
+  br i1 %27, label %28, label %32
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv50
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !66
-  br label %30
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv50
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !66
+  br label %32
 
-30:                                               ; preds = %24, %26
-  %31 = phi ptr [ %29, %26 ], [ null, %24 ]
-  %32 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv50
-  %33 = load ptr, ptr %32, align 8, !tbaa !66
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  store ptr %31, ptr %34, align 8, !tbaa !81
+32:                                               ; preds = %26, %28
+  %33 = phi ptr [ %31, %28 ], [ null, %26 ]
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv50
+  %35 = load ptr, ptr %34, align 8, !tbaa !66
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  store ptr %33, ptr %36, align 8, !tbaa !81
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge45, label %24, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge45, label %26, !llvm.loop !82
 
-._crit_edge45:                                    ; preds = %30, %._crit_edge41
-  %35 = load ptr, ptr %6, align 8, !tbaa !66
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %35, ptr %36, align 8, !tbaa !83
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %6, ptr %37, align 8, !tbaa !84
+._crit_edge45:                                    ; preds = %32, %._crit_edge41
+  %37 = load ptr, ptr %6, align 8, !tbaa !66
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %37, ptr %38, align 8, !tbaa !83
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %6, ptr %39, align 8, !tbaa !84
   ret void
 }
 
@@ -1353,8 +1355,8 @@ attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

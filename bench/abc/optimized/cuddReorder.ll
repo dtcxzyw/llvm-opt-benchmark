@@ -330,118 +330,119 @@ ddReorderPreprocess.exit:                         ; preds = %29, %13
   %41 = sext i32 %40 to i64
   %42 = shl nsw i64 %41, 2
   %43 = tail call noalias ptr @malloc(i64 noundef %42) #13
-  %44 = icmp sgt i32 %40, 0
-  br i1 %44, label %.lr.ph62.preheader, label %._crit_edge
+  %44 = load i32, ptr %3, align 8, !tbaa !33
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %.lr.ph62.preheader, label %._crit_edge
 
 .lr.ph62.preheader:                               ; preds = %39
-  %wide.trip.count68 = zext nneg i32 %40 to i64
+  %wide.trip.count68 = zext nneg i32 %44 to i64
   br label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %.lr.ph62
   %indvars.iv65 = phi i64 [ 0, %.lr.ph62.preheader ], [ %indvars.iv.next66, %.lr.ph62 ]
-  %45 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv65
-  %46 = load i32, ptr %45, align 4, !tbaa !38
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds [4 x i8], ptr %43, i64 %47
-  %49 = trunc nuw nsw i64 %indvars.iv65 to i32
-  store i32 %49, ptr %48, align 4, !tbaa !38
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv65
+  %47 = load i32, ptr %46, align 4, !tbaa !38
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds [4 x i8], ptr %43, i64 %48
+  %50 = trunc nuw nsw i64 %indvars.iv65 to i32
+  store i32 %50, ptr %49, align 4, !tbaa !38
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
   br i1 %exitcond69.not, label %._crit_edge, label %.lr.ph62, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph62, %39
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %51 = load ptr, ptr %50, align 8, !tbaa !53
-  %52 = tail call fastcc i32 @ddCheckPermuation(ptr noundef nonnull %0, ptr noundef %51, ptr noundef %43)
-  %.not46 = icmp eq i32 %52, 0
-  br i1 %.not46, label %53, label %55
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %52 = load ptr, ptr %51, align 8, !tbaa !53
+  %53 = tail call fastcc i32 @ddCheckPermuation(ptr noundef nonnull %0, ptr noundef %52, ptr noundef %43)
+  %.not46 = icmp eq i32 %53, 0
+  br i1 %.not46, label %54, label %56
 
-53:                                               ; preds = %._crit_edge
+54:                                               ; preds = %._crit_edge
   %.not47 = icmp eq ptr %43, null
-  br i1 %.not47, label %.critedge, label %54
+  br i1 %.not47, label %.critedge, label %55
 
-54:                                               ; preds = %53
+55:                                               ; preds = %54
   tail call void @free(ptr noundef nonnull %43) #12
   br label %.critedge
 
-55:                                               ; preds = %._crit_edge
-  %56 = tail call fastcc i32 @ddUpdateMtrTree(ptr noundef nonnull %0, ptr noundef %51, ptr noundef %43)
-  %.not48 = icmp eq i32 %56, 0
+56:                                               ; preds = %._crit_edge
+  %57 = tail call fastcc i32 @ddUpdateMtrTree(ptr noundef nonnull %0, ptr noundef %52, ptr noundef %43)
+  %.not48 = icmp eq i32 %57, 0
   %.not49 = icmp eq ptr %43, null
-  br i1 %.not48, label %57, label %59
+  br i1 %.not48, label %58, label %60
 
-57:                                               ; preds = %55
-  br i1 %.not49, label %.critedge, label %58
+58:                                               ; preds = %56
+  br i1 %.not49, label %.critedge, label %59
 
-58:                                               ; preds = %57
+59:                                               ; preds = %58
   tail call void @free(ptr noundef nonnull %43) #12
   br label %.critedge
 
-59:                                               ; preds = %55
-  br i1 %.not49, label %61, label %60
+60:                                               ; preds = %56
+  br i1 %.not49, label %62, label %61
 
-60:                                               ; preds = %59
+61:                                               ; preds = %60
   tail call void @free(ptr noundef nonnull %43) #12
-  br label %61
+  br label %62
 
-61:                                               ; preds = %59, %60
+62:                                               ; preds = %60, %61
   store i32 0, ptr @ddTotalNumberSwapping, align 4, !tbaa !38
-  %62 = load i32, ptr %3, align 8, !tbaa !33
-  %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %.lr.ph.i51, label %ddShuffle.exit
+  %63 = load i32, ptr %3, align 8, !tbaa !33
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %.lr.ph.i51, label %ddShuffle.exit
 
-.lr.ph.i51:                                       ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %wide.trip.count.i52 = zext nneg i32 %62 to i64
-  br label %65
+.lr.ph.i51:                                       ; preds = %62
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %wide.trip.count.i52 = zext nneg i32 %63 to i64
+  br label %66
 
-65:                                               ; preds = %ddSiftUp.exit.i, %.lr.ph.i51
+66:                                               ; preds = %ddSiftUp.exit.i, %.lr.ph.i51
   %indvars.iv.i53 = phi i64 [ 0, %.lr.ph.i51 ], [ %indvars.iv.next.i54, %ddSiftUp.exit.i ]
-  %66 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i53
-  %67 = load i32, ptr %66, align 4, !tbaa !38
-  %68 = load ptr, ptr %64, align 8, !tbaa !54
-  %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds [4 x i8], ptr %68, i64 %69
-  %71 = load i32, ptr %70, align 4, !tbaa !38
-  %72 = sext i32 %71 to i64
-  br label %73
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i53
+  %68 = load i32, ptr %67, align 4, !tbaa !38
+  %69 = load ptr, ptr %65, align 8, !tbaa !54
+  %70 = sext i32 %68 to i64
+  %71 = getelementptr inbounds [4 x i8], ptr %69, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !38
+  %73 = sext i32 %72 to i64
+  br label %74
 
-73:                                               ; preds = %74, %65
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %74 ], [ %72, %65 ]
+74:                                               ; preds = %75, %66
+  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %75 ], [ %73, %66 ]
   %.not.not.i.i = icmp slt i64 %indvars.iv.i53, %indvars.iv70
-  br i1 %.not.not.i.i, label %74, label %ddSiftUp.exit.i
+  br i1 %.not.not.i.i, label %75, label %ddSiftUp.exit.i
 
-74:                                               ; preds = %73
+75:                                               ; preds = %74
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, -1
   %indvars = trunc i64 %indvars.iv.next71 to i32
-  %75 = trunc nsw i64 %indvars.iv70 to i32
-  %76 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %indvars, i32 noundef %75)
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %ddShuffle.exit, label %73, !llvm.loop !55
+  %76 = trunc nsw i64 %indvars.iv70 to i32
+  %77 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %indvars, i32 noundef %76)
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %ddShuffle.exit, label %74, !llvm.loop !55
 
-ddSiftUp.exit.i:                                  ; preds = %73
+ddSiftUp.exit.i:                                  ; preds = %74
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %wide.trip.count.i52
-  br i1 %exitcond.not.i55, label %ddShuffle.exit, label %65, !llvm.loop !56
+  br i1 %exitcond.not.i55, label %ddShuffle.exit, label %66, !llvm.loop !56
 
-ddShuffle.exit:                                   ; preds = %ddSiftUp.exit.i, %74, %61
-  %.0.i = phi i32 [ 1, %61 ], [ 0, %74 ], [ 1, %ddSiftUp.exit.i ]
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %79 = load ptr, ptr %78, align 8, !tbaa !43
-  %.not.i = icmp eq ptr %79, null
-  br i1 %.not.i, label %.critedge, label %80
+ddShuffle.exit:                                   ; preds = %ddSiftUp.exit.i, %75, %62
+  %.0.i = phi i32 [ 1, %62 ], [ 0, %75 ], [ 1, %ddSiftUp.exit.i ]
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %80 = load ptr, ptr %79, align 8, !tbaa !43
+  %.not.i = icmp eq ptr %80, null
+  br i1 %.not.i, label %.critedge, label %81
 
-80:                                               ; preds = %ddShuffle.exit
-  tail call void @free(ptr noundef nonnull %79) #12
-  store ptr null, ptr %78, align 8, !tbaa !43
+81:                                               ; preds = %ddShuffle.exit
+  tail call void @free(ptr noundef nonnull %80) #12
+  store ptr null, ptr %79, align 8, !tbaa !43
   br label %.critedge
 
-.critedge:                                        ; preds = %7, %2, %80, %ddShuffle.exit, %58, %57, %54, %53, %ddReorderPreprocess.exit
-  %.040 = phi i32 [ 0, %ddReorderPreprocess.exit ], [ 0, %57 ], [ %.0.i, %80 ], [ 0, %54 ], [ 0, %58 ], [ 0, %53 ], [ %.0.i, %ddShuffle.exit ], [ 1, %2 ], [ 1, %7 ]
+.critedge:                                        ; preds = %7, %2, %81, %ddShuffle.exit, %59, %58, %55, %54, %ddReorderPreprocess.exit
+  %.040 = phi i32 [ 0, %ddReorderPreprocess.exit ], [ 0, %58 ], [ %.0.i, %81 ], [ 0, %55 ], [ 0, %59 ], [ 0, %54 ], [ %.0.i, %ddShuffle.exit ], [ 1, %2 ], [ 1, %7 ]
   ret i32 %.040
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -2587,7 +2588,7 @@ define range(i32 0, 2) i32 @cuddBddAlignToZdd(ptr noundef %0) local_unnamed_addr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8, !tbaa !33
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %73, label %5
+  br i1 %4, label %74, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -2595,146 +2596,147 @@ define range(i32 0, 2) i32 @cuddBddAlignToZdd(ptr noundef %0) local_unnamed_addr
   %8 = sdiv i32 %7, %3
   %9 = mul nsw i32 %8, %3
   %.not = icmp eq i32 %9, %7
-  br i1 %.not, label %10, label %73
+  br i1 %.not, label %10, label %74
 
 10:                                               ; preds = %5
   %11 = sext i32 %3 to i64
   %12 = shl nsw i64 %11, 2
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #13
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %20, label %.preheader
+  br i1 %14, label %21, label %.preheader
 
 .preheader:                                       ; preds = %10
-  %15 = icmp sgt i32 %7, 0
-  br i1 %15, label %.lr.ph, label %._crit_edge
+  %15 = load i32, ptr %6, align 4, !tbaa !137
+  %16 = icmp sgt i32 %15, 0
+  br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %17 = load ptr, ptr %16, align 8, !tbaa !138
-  %18 = sext i32 %8 to i64
-  %19 = zext nneg i32 %7 to i64
-  br label %22
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %18 = load ptr, ptr %17, align 8, !tbaa !138
+  %19 = sext i32 %8 to i64
+  %20 = zext nneg i32 %15 to i64
+  br label %23
 
-20:                                               ; preds = %10
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %21, align 8, !tbaa !74
-  br label %73
+21:                                               ; preds = %10
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  store i32 1, ptr %22, align 8, !tbaa !74
+  br label %74
 
-22:                                               ; preds = %.lr.ph, %22
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds [4 x i8], ptr %17, i64 %indvars.iv
-  %24 = load i32, ptr %23, align 4, !tbaa !38
-  %25 = sdiv i32 %24, %8
-  %26 = trunc nsw i64 %indvars.iv to i32
-  %27 = sdiv i32 %26, %8
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [4 x i8], ptr %13, i64 %28
-  store i32 %25, ptr %29, align 4, !tbaa !38
-  %indvars.iv.next = add nsw i64 %indvars.iv, %18
-  %30 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %30, label %22, label %._crit_edge, !llvm.loop !139
+23:                                               ; preds = %.lr.ph, %23
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
+  %24 = getelementptr inbounds [4 x i8], ptr %18, i64 %indvars.iv
+  %25 = load i32, ptr %24, align 4, !tbaa !38
+  %26 = sdiv i32 %25, %8
+  %27 = trunc nsw i64 %indvars.iv to i32
+  %28 = sdiv i32 %27, %8
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds [4 x i8], ptr %13, i64 %29
+  store i32 %26, ptr %30, align 4, !tbaa !38
+  %indvars.iv.next = add nsw i64 %indvars.iv, %19
+  %31 = icmp slt i64 %indvars.iv.next, %20
+  br i1 %31, label %23, label %._crit_edge, !llvm.loop !139
 
-._crit_edge:                                      ; preds = %22, %.preheader
-  %31 = tail call i32 @cuddGarbageCollect(ptr noundef nonnull %0, i32 noundef 0) #12
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store i32 0, ptr %32, align 8, !tbaa !32
-  %33 = load i32, ptr %2, align 8, !tbaa !33
-  %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.lr.ph50, label %._crit_edge51
+._crit_edge:                                      ; preds = %23, %.preheader
+  %32 = tail call i32 @cuddGarbageCollect(ptr noundef nonnull %0, i32 noundef 0) #12
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  store i32 0, ptr %33, align 8, !tbaa !32
+  %34 = load i32, ptr %2, align 8, !tbaa !33
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %.lr.ph50, label %._crit_edge51
 
 .lr.ph50:                                         ; preds = %._crit_edge
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %36 = load ptr, ptr %35, align 8, !tbaa !34
-  %wide.trip.count = zext nneg i32 %33 to i64
-  br label %37
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %37 = load ptr, ptr %36, align 8, !tbaa !34
+  %wide.trip.count = zext nneg i32 %34 to i64
+  br label %38
 
-37:                                               ; preds = %.lr.ph50, %46
-  %38 = phi i32 [ 0, %.lr.ph50 ], [ %47, %46 ]
-  %indvars.iv54 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next55, %46 ]
-  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv54
-  %40 = load ptr, ptr %39, align 8, !tbaa !35
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %42 = load i32, ptr %41, align 4, !tbaa !36
-  %43 = icmp eq i32 %42, 1
-  br i1 %43, label %44, label %46
+38:                                               ; preds = %.lr.ph50, %47
+  %39 = phi i32 [ 0, %.lr.ph50 ], [ %48, %47 ]
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next55, %47 ]
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv54
+  %41 = load ptr, ptr %40, align 8, !tbaa !35
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %43 = load i32, ptr %42, align 4, !tbaa !36
+  %44 = icmp eq i32 %43, 1
+  br i1 %44, label %45, label %47
 
-44:                                               ; preds = %37
-  %45 = add nsw i32 %38, 1
-  store i32 %45, ptr %32, align 8, !tbaa !32
-  br label %46
+45:                                               ; preds = %38
+  %46 = add nsw i32 %39, 1
+  store i32 %46, ptr %33, align 8, !tbaa !32
+  br label %47
 
-46:                                               ; preds = %37, %44
-  %47 = phi i32 [ %38, %37 ], [ %45, %44 ]
+47:                                               ; preds = %38, %45
+  %48 = phi i32 [ %39, %38 ], [ %46, %45 ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge51, label %37, !llvm.loop !140
+  br i1 %exitcond.not, label %._crit_edge51, label %38, !llvm.loop !140
 
-._crit_edge51:                                    ; preds = %46, %._crit_edge
-  %48 = tail call i32 @cuddInitInteract(ptr noundef nonnull %0) #12
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %73, label %50
+._crit_edge51:                                    ; preds = %47, %._crit_edge
+  %49 = tail call i32 @cuddInitInteract(ptr noundef nonnull %0) #12
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %74, label %51
 
-50:                                               ; preds = %._crit_edge51
+51:                                               ; preds = %._crit_edge51
   store i32 0, ptr @ddTotalNumberSwapping, align 4, !tbaa !38
-  %51 = load i32, ptr %2, align 8, !tbaa !33
-  %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %.lr.ph.i, label %ddShuffle.exit
+  %52 = load i32, ptr %2, align 8, !tbaa !33
+  %53 = icmp sgt i32 %52, 0
+  br i1 %53, label %.lr.ph.i, label %ddShuffle.exit
 
-.lr.ph.i:                                         ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %wide.trip.count.i = zext nneg i32 %51 to i64
-  br label %54
+.lr.ph.i:                                         ; preds = %51
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %wide.trip.count.i = zext nneg i32 %52 to i64
+  br label %55
 
-54:                                               ; preds = %ddSiftUp.exit.i, %.lr.ph.i
+55:                                               ; preds = %ddSiftUp.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %ddSiftUp.exit.i ]
-  %55 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i
-  %56 = load i32, ptr %55, align 4, !tbaa !38
-  %57 = load ptr, ptr %53, align 8, !tbaa !54
-  %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds [4 x i8], ptr %57, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !38
-  %61 = sext i32 %60 to i64
-  br label %62
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i
+  %57 = load i32, ptr %56, align 4, !tbaa !38
+  %58 = load ptr, ptr %54, align 8, !tbaa !54
+  %59 = sext i32 %57 to i64
+  %60 = getelementptr inbounds [4 x i8], ptr %58, i64 %59
+  %61 = load i32, ptr %60, align 4, !tbaa !38
+  %62 = sext i32 %61 to i64
+  br label %63
 
-62:                                               ; preds = %63, %54
-  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %63 ], [ %61, %54 ]
+63:                                               ; preds = %64, %55
+  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %64 ], [ %62, %55 ]
   %.not.not.i.i = icmp slt i64 %indvars.iv.i, %indvars.iv57
-  br i1 %.not.not.i.i, label %63, label %ddSiftUp.exit.i
+  br i1 %.not.not.i.i, label %64, label %ddSiftUp.exit.i
 
-63:                                               ; preds = %62
+64:                                               ; preds = %63
   %indvars.iv.next58 = add nsw i64 %indvars.iv57, -1
   %indvars = trunc i64 %indvars.iv.next58 to i32
-  %64 = trunc nsw i64 %indvars.iv57 to i32
-  %65 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %indvars, i32 noundef %64)
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %ddShuffle.exit, label %62, !llvm.loop !55
+  %65 = trunc nsw i64 %indvars.iv57 to i32
+  %66 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %indvars, i32 noundef %65)
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %ddShuffle.exit, label %63, !llvm.loop !55
 
-ddSiftUp.exit.i:                                  ; preds = %62
+ddSiftUp.exit.i:                                  ; preds = %63
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ddShuffle.exit, label %54, !llvm.loop !56
+  br i1 %exitcond.not.i, label %ddShuffle.exit, label %55, !llvm.loop !56
 
-ddShuffle.exit:                                   ; preds = %ddSiftUp.exit.i, %63, %50
-  %.0.i = phi i32 [ 1, %50 ], [ 0, %63 ], [ 1, %ddSiftUp.exit.i ]
+ddShuffle.exit:                                   ; preds = %ddSiftUp.exit.i, %64, %51
+  %.0.i = phi i32 [ 1, %51 ], [ 0, %64 ], [ 1, %ddSiftUp.exit.i ]
   tail call void @free(ptr noundef %13) #12
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %68 = load ptr, ptr %67, align 8, !tbaa !43
-  %.not45 = icmp eq ptr %68, null
-  br i1 %.not45, label %70, label %69
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %69 = load ptr, ptr %68, align 8, !tbaa !43
+  %.not45 = icmp eq ptr %69, null
+  br i1 %.not45, label %71, label %70
 
-69:                                               ; preds = %ddShuffle.exit
-  tail call void @free(ptr noundef nonnull %68) #12
-  store ptr null, ptr %67, align 8, !tbaa !43
-  br label %70
+70:                                               ; preds = %ddShuffle.exit
+  tail call void @free(ptr noundef nonnull %69) #12
+  store ptr null, ptr %68, align 8, !tbaa !43
+  br label %71
 
-70:                                               ; preds = %ddShuffle.exit, %69
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %72 = load ptr, ptr %71, align 8, !tbaa !53
-  tail call fastcc void @bddFixTree(ptr noundef nonnull %0, ptr noundef %72)
-  br label %73
+71:                                               ; preds = %ddShuffle.exit, %70
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %73 = load ptr, ptr %72, align 8, !tbaa !53
+  tail call fastcc void @bddFixTree(ptr noundef nonnull %0, ptr noundef %73)
+  br label %74
 
-73:                                               ; preds = %._crit_edge51, %5, %1, %70, %20
-  %.0 = phi i32 [ %.0.i, %70 ], [ 1, %1 ], [ 0, %20 ], [ 0, %5 ], [ 0, %._crit_edge51 ]
+74:                                               ; preds = %._crit_edge51, %5, %1, %71, %21
+  %.0 = phi i32 [ %.0.i, %71 ], [ 1, %1 ], [ 0, %21 ], [ 0, %5 ], [ 0, %._crit_edge51 ]
   ret i32 %.0
 }
 
@@ -3169,7 +3171,7 @@ declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

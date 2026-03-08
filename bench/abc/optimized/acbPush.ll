@@ -3109,7 +3109,6 @@ define internal fastcc void @Acb_NtkCreateFanout(ptr noundef captures(none) init
 
 10:                                               ; preds = %5
   %11 = tail call ptr @realloc(ptr noundef nonnull %7, i64 noundef %9) #9
-  %.pre.i.i.i = load i32, ptr %2, align 8, !tbaa !53
   br label %14
 
 12:                                               ; preds = %5
@@ -3117,12 +3116,12 @@ define internal fastcc void @Acb_NtkCreateFanout(ptr noundef captures(none) init
   br label %14
 
 14:                                               ; preds = %12, %10
-  %15 = phi i32 [ %.pre.i.i.i, %10 ], [ %4, %12 ]
-  %16 = phi ptr [ %11, %10 ], [ %13, %12 ]
-  store ptr %16, ptr %6, align 8, !tbaa !19
-  %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds [16 x i8], ptr %16, i64 %17
-  %19 = sub nsw i32 %.val.i, %15
+  %15 = phi ptr [ %11, %10 ], [ %13, %12 ]
+  store ptr %15, ptr %6, align 8, !tbaa !19
+  %16 = load i32, ptr %2, align 8, !tbaa !53
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds [16 x i8], ptr %15, i64 %17
+  %19 = sub nsw i32 %.val.i, %16
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 %21, i1 false)
@@ -3321,10 +3320,10 @@ define void @Acb_NtkPushLogic2(ptr noundef captures(none) initializes((436, 440)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -3338,8 +3337,8 @@ attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 attributes #2 = { inlinehint nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind allocsize(1) }

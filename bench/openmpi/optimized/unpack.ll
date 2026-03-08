@@ -709,7 +709,7 @@ pmix_pointer_array_get_item.exit188:              ; preds = %155
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -1766,7 +1766,7 @@ pmix_pointer_array_get_item.exit34:               ; preds = %31
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
@@ -4842,8 +4842,8 @@ define i32 @pmix20_bfrop_unpack_darray(ptr noundef %0, ptr noundef %1, ptr nound
   %wide.trip.count = zext nneg i32 %17 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph, %51
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
+21:                                               ; preds = %.lr.ph, %52
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
   %22 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store i32 1, ptr %6, align 4, !tbaa !3
@@ -4875,12 +4875,12 @@ pmix20_bfrop_unpack_datatype.exit:                ; preds = %pmix_pointer_array_
 34:                                               ; preds = %31
   %35 = load i64, ptr %32, align 8, !tbaa !74
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %51, label %37
+  br i1 %36, label %52, label %37
 
 37:                                               ; preds = %34
   %38 = load i16, ptr %22, align 8, !tbaa !72
   %39 = icmp eq i16 %38, 0
-  br i1 %39, label %51, label %40
+  br i1 %39, label %52, label %40
 
 40:                                               ; preds = %37
   %41 = trunc i64 %35 to i32
@@ -4909,17 +4909,18 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %48, label %pmix20_bfrop_unpack_datatype.exit.thread, label %49
 
 49:                                               ; preds = %switch.lookup
-  %50 = call i32 @pmix20_bfrop_unpack_buffer(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %46, ptr noundef nonnull %6, i16 noundef zeroext %38)
-  %.not46 = icmp eq i32 %50, 0
-  br i1 %.not46, label %51, label %pmix20_bfrop_unpack_datatype.exit.thread
+  %50 = load i16, ptr %22, align 8, !tbaa !72
+  %51 = call i32 @pmix20_bfrop_unpack_buffer(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %46, ptr noundef nonnull %6, i16 noundef zeroext %50)
+  %.not46 = icmp eq i32 %51, 0
+  br i1 %.not46, label %52, label %pmix20_bfrop_unpack_datatype.exit.thread
 
-51:                                               ; preds = %49, %34, %37
+52:                                               ; preds = %49, %34, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %pmix20_bfrop_unpack_datatype.exit.thread, label %21, !llvm.loop !119
 
-pmix20_bfrop_unpack_datatype.exit.thread:         ; preds = %pmix20_bfrop_unpack_datatype.exit, %31, %switch.lookup, %49, %51, %pmix_pointer_array_get_item.exit.i, %21, %40, %switch.hole_check, %16
-  %.037 = phi i32 [ 0, %16 ], [ -47, %switch.hole_check ], [ 0, %51 ], [ %33, %31 ], [ -47, %40 ], [ -32, %switch.lookup ], [ %50, %49 ], [ -16, %pmix_pointer_array_get_item.exit.i ], [ -16, %21 ], [ %30, %pmix20_bfrop_unpack_datatype.exit ]
+pmix20_bfrop_unpack_datatype.exit.thread:         ; preds = %pmix20_bfrop_unpack_datatype.exit, %31, %switch.lookup, %49, %52, %pmix_pointer_array_get_item.exit.i, %21, %40, %switch.hole_check, %16
+  %.037 = phi i32 [ 0, %16 ], [ -47, %switch.hole_check ], [ 0, %52 ], [ %33, %31 ], [ -47, %40 ], [ -32, %switch.lookup ], [ %51, %49 ], [ -16, %pmix_pointer_array_get_item.exit.i ], [ -16, %21 ], [ %30, %pmix20_bfrop_unpack_datatype.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.037
 }
@@ -5312,10 +5313,10 @@ declare i64 @llvm.bswap.i64(i64) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

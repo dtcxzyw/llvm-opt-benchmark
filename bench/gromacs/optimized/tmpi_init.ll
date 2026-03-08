@@ -301,41 +301,41 @@ _ZL16tMPI_Global_initP11tmpi_globali.exit:        ; preds = %20, %16, %13
   store ptr %35, ptr @TMPI_GROUP_EMPTY, align 8, !tbaa !57
   %36 = tail call noundef i32 @_Z22tMPI_Thread_key_createP17tMPI_Thread_key_tPFvPvE(ptr noundef nonnull @id_key, ptr noundef null)
   %.not69 = icmp eq i32 %36, 0
-  br i1 %.not69, label %.lr.ph87, label %67
+  br i1 %.not69, label %.lr.ph87, label %70
 
 .lr.ph87:                                         ; preds = %34
   %37 = icmp ne ptr %3, null
   %38 = icmp ne ptr %4, null
   %or.cond = and i1 %37, %38
-  %wide.trip.count105 = zext nneg i32 %1 to i64
-  %.pre121 = load ptr, ptr @threads, align 8, !tbaa !29
+  %wide.trip.count103 = zext nneg i32 %1 to i64
+  %.pre119 = load ptr, ptr @threads, align 8, !tbaa !29
   br i1 %or.cond, label %.lr.ph87.split.us, label %.lr.ph87.split.preheader
 
 .lr.ph87.split.preheader:                         ; preds = %.lr.ph87
-  %.pre119 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !3
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre119, i64 8
-  %.pre120 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !59
+  %.pre117 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !3
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre117, i64 8
+  %.pre118 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !59
   br label %.lr.ph87.split
 
 .lr.ph87.split.us:                                ; preds = %.lr.ph87, %.loopexit.us
-  %39 = phi ptr [ %52, %.loopexit.us ], [ %.pre121, %.lr.ph87 ]
-  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.loopexit.us ], [ 0, %.lr.ph87 ]
-  %40 = getelementptr inbounds nuw [424 x i8], ptr %39, i64 %indvars.iv101
+  %39 = phi ptr [ %52, %.loopexit.us ], [ %.pre119, %.lr.ph87 ]
+  %indvars.iv99 = phi i64 [ %indvars.iv.next100, %.loopexit.us ], [ 0, %.lr.ph87 ]
+  %40 = getelementptr inbounds nuw [424 x i8], ptr %39, i64 %indvars.iv99
   %41 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !59
-  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv101
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv99
   store ptr %40, ptr %44, align 8, !tbaa !29
   %45 = load i32, ptr %3, align 4, !tbaa !46
   %46 = load ptr, ptr @threads, align 8, !tbaa !29
-  %47 = getelementptr inbounds nuw [424 x i8], ptr %46, i64 %indvars.iv101
+  %47 = getelementptr inbounds nuw [424 x i8], ptr %46, i64 %indvars.iv99
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 408
   store i32 %45, ptr %48, align 8, !tbaa !60
   %49 = sext i32 %45 to i64
   %50 = shl nsw i64 %49, 3
   %51 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %50)
   %52 = load ptr, ptr @threads, align 8, !tbaa !29
-  %53 = getelementptr inbounds nuw [424 x i8], ptr %52, i64 %indvars.iv101
+  %53 = getelementptr inbounds nuw [424 x i8], ptr %52, i64 %indvars.iv99
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 416
   store ptr %51, ptr %54, align 8, !tbaa !61
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 408
@@ -345,148 +345,149 @@ _ZL16tMPI_Global_initP11tmpi_globali.exit:        ; preds = %20, %16, %13
 
 58:                                               ; preds = %.lr.ph.us, %58
   %indvars.iv96 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next97, %58 ]
-  %59 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv96
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv96
   %60 = load ptr, ptr %59, align 8, !tbaa !48
   %61 = tail call noalias ptr @strdup(ptr noundef %60) #18
   %62 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv96
   store ptr %61, ptr %62, align 8, !tbaa !48
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %.loopexit.us, label %58, !llvm.loop !62
+  %63 = load i32, ptr %55, align 8, !tbaa !60
+  %64 = sext i32 %63 to i64
+  %65 = icmp slt i64 %indvars.iv.next97, %64
+  br i1 %65, label %58, label %.loopexit.us, !llvm.loop !62
 
 .loopexit.us:                                     ; preds = %58, %.lr.ph87.split.us
-  %63 = getelementptr inbounds nuw i8, ptr %53, i64 384
-  store ptr %5, ptr %63, align 8, !tbaa !63
-  %64 = getelementptr inbounds nuw i8, ptr %53, i64 392
-  store ptr %7, ptr %64, align 8, !tbaa !64
-  %65 = getelementptr inbounds nuw i8, ptr %53, i64 400
-  store ptr %6, ptr %65, align 8, !tbaa !65
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond106.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge, label %.lr.ph87.split.us, !llvm.loop !66
+  %66 = getelementptr inbounds nuw i8, ptr %53, i64 384
+  store ptr %5, ptr %66, align 8, !tbaa !63
+  %67 = getelementptr inbounds nuw i8, ptr %53, i64 392
+  store ptr %7, ptr %67, align 8, !tbaa !64
+  %68 = getelementptr inbounds nuw i8, ptr %53, i64 400
+  store ptr %6, ptr %68, align 8, !tbaa !65
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %exitcond104.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count103
+  br i1 %exitcond104.not, label %._crit_edge, label %.lr.ph87.split.us, !llvm.loop !66
 
 .lr.ph.us:                                        ; preds = %.lr.ph87.split.us
-  %66 = load ptr, ptr %4, align 8, !tbaa !47
-  %wide.trip.count99 = zext nneg i32 %56 to i64
+  %69 = load ptr, ptr %4, align 8, !tbaa !47
   br label %58
 
-67:                                               ; preds = %34
-  %68 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !3
-  %69 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %68, i32 noundef 3)
+70:                                               ; preds = %34
+  %71 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !3
+  %72 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %71, i32 noundef 3)
   br label %.thread79
 
 .lr.ph87.split:                                   ; preds = %.lr.ph87.split.preheader, %.lr.ph87.split
-  %70 = phi ptr [ %.pre121, %.lr.ph87.split.preheader ], [ %73, %.lr.ph87.split ]
+  %73 = phi ptr [ %.pre119, %.lr.ph87.split.preheader ], [ %76, %.lr.ph87.split ]
   %indvars.iv = phi i64 [ 0, %.lr.ph87.split.preheader ], [ %indvars.iv.next, %.lr.ph87.split ]
-  %71 = getelementptr inbounds nuw [424 x i8], ptr %70, i64 %indvars.iv
-  %72 = getelementptr inbounds nuw [8 x i8], ptr %.pre120, i64 %indvars.iv
-  store ptr %71, ptr %72, align 8, !tbaa !29
-  %73 = load ptr, ptr @threads, align 8, !tbaa !29
   %74 = getelementptr inbounds nuw [424 x i8], ptr %73, i64 %indvars.iv
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 408
-  store i32 0, ptr %75, align 8, !tbaa !60
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 416
-  store ptr null, ptr %76, align 8, !tbaa !61
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 384
-  store ptr %5, ptr %77, align 8, !tbaa !63
-  %78 = getelementptr inbounds nuw i8, ptr %74, i64 392
-  store ptr %7, ptr %78, align 8, !tbaa !64
-  %79 = getelementptr inbounds nuw i8, ptr %74, i64 400
-  store ptr %6, ptr %79, align 8, !tbaa !65
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %.pre118, i64 %indvars.iv
+  store ptr %74, ptr %75, align 8, !tbaa !29
+  %76 = load ptr, ptr @threads, align 8, !tbaa !29
+  %77 = getelementptr inbounds nuw [424 x i8], ptr %76, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 408
+  store i32 0, ptr %78, align 8, !tbaa !60
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 416
+  store ptr null, ptr %79, align 8, !tbaa !61
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 384
+  store ptr %5, ptr %80, align 8, !tbaa !63
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 392
+  store ptr %7, ptr %81, align 8, !tbaa !64
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 400
+  store ptr %6, ptr %82, align 8, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count105
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count103
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph87.split, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.lr.ph87.split, %.loopexit.us
-  %80 = icmp eq i32 %2, 1
-  br i1 %80, label %83, label %.thread
+  %83 = icmp eq i32 %2, 1
+  br i1 %83, label %86, label %.thread
 
 .thread:                                          ; preds = %._crit_edge
-  %81 = tail call noundef ptr @_Z16tMPI_Thread_selfv()
-  %82 = load ptr, ptr @threads, align 8, !tbaa !29
-  store ptr %81, ptr %82, align 8, !tbaa !67
-  br label %89
+  %84 = tail call noundef ptr @_Z16tMPI_Thread_selfv()
+  %85 = load ptr, ptr @threads, align 8, !tbaa !29
+  store ptr %84, ptr %85, align 8, !tbaa !67
+  br label %92
 
-83:                                               ; preds = %._crit_edge
-  %84 = tail call noundef i32 @_Z25tMPI_Thread_get_hw_numberv()
-  %85 = icmp slt i32 %84, 2
-  %86 = icmp ne i32 %84, %1
-  %or.cond74.not = or i1 %85, %86
-  %87 = tail call noundef ptr @_Z16tMPI_Thread_selfv()
-  %88 = load ptr, ptr @threads, align 8, !tbaa !29
-  store ptr %87, ptr %88, align 8, !tbaa !67
-  br i1 %or.cond74.not, label %89, label %.thread127
+86:                                               ; preds = %._crit_edge
+  %87 = tail call noundef i32 @_Z25tMPI_Thread_get_hw_numberv()
+  %88 = icmp slt i32 %87, 2
+  %89 = icmp ne i32 %87, %1
+  %or.cond74.not = or i1 %88, %89
+  %90 = tail call noundef ptr @_Z16tMPI_Thread_selfv()
+  %91 = load ptr, ptr @threads, align 8, !tbaa !29
+  store ptr %90, ptr %91, align 8, !tbaa !67
+  br i1 %or.cond74.not, label %92, label %.thread124
 
-89:                                               ; preds = %.thread, %83
+92:                                               ; preds = %.thread, %86
   %.not91 = icmp eq i32 %1, 1
   br i1 %.not91, label %._crit_edge90, label %.lr.ph.split.us.preheader
 
-.thread127:                                       ; preds = %83
-  %90 = tail call noundef i32 @_Z30tMPI_Thread_setaffinity_singleP11tMPI_Threadj(ptr noundef %87, i32 noundef 0)
-  %.not91129 = icmp eq i32 %1, 1
-  br i1 %.not91129, label %._crit_edge90, label %.lr.ph.split.preheader
+.thread124:                                       ; preds = %86
+  %93 = tail call noundef i32 @_Z30tMPI_Thread_setaffinity_singleP11tMPI_Threadj(ptr noundef %90, i32 noundef 0)
+  %.not91126 = icmp eq i32 %1, 1
+  br i1 %.not91126, label %._crit_edge90, label %.lr.ph.split.preheader
 
-.lr.ph.split.preheader:                           ; preds = %.thread127
-  %smax110 = tail call i32 @llvm.smax.i32(i32 %1, i32 2)
-  %wide.trip.count111 = zext nneg i32 %smax110 to i64
+.lr.ph.split.preheader:                           ; preds = %.thread124
+  %smax108 = tail call i32 @llvm.smax.i32(i32 %1, i32 2)
+  %wide.trip.count109 = zext nneg i32 %smax108 to i64
   br label %.lr.ph.split
 
-.lr.ph.split.us.preheader:                        ; preds = %89
-  %smax116 = tail call i32 @llvm.smax.i32(i32 %1, i32 2)
-  %wide.trip.count117 = zext nneg i32 %smax116 to i64
+.lr.ph.split.us.preheader:                        ; preds = %92
+  %smax114 = tail call i32 @llvm.smax.i32(i32 %1, i32 2)
+  %wide.trip.count115 = zext nneg i32 %smax114 to i64
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %94
-  %indvars.iv113 = phi i64 [ 1, %.lr.ph.split.us.preheader ], [ %indvars.iv.next114, %94 ]
-  %91 = load ptr, ptr @threads, align 8, !tbaa !29
-  %92 = getelementptr inbounds nuw [424 x i8], ptr %91, i64 %indvars.iv113
-  %93 = tail call noundef i32 @_Z18tMPI_Thread_createPP11tMPI_ThreadPFPvS2_ES2_(ptr noundef nonnull %92, ptr noundef nonnull @_ZL17tMPI_Thread_startPv, ptr noundef nonnull %92)
-  %.not73.us = icmp eq i32 %93, 0
-  br i1 %.not73.us, label %94, label %.split.us
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %97
+  %indvars.iv111 = phi i64 [ 1, %.lr.ph.split.us.preheader ], [ %indvars.iv.next112, %97 ]
+  %94 = load ptr, ptr @threads, align 8, !tbaa !29
+  %95 = getelementptr inbounds nuw [424 x i8], ptr %94, i64 %indvars.iv111
+  %96 = tail call noundef i32 @_Z18tMPI_Thread_createPP11tMPI_ThreadPFPvS2_ES2_(ptr noundef nonnull %95, ptr noundef nonnull @_ZL17tMPI_Thread_startPv, ptr noundef nonnull %95)
+  %.not73.us = icmp eq i32 %96, 0
+  br i1 %.not73.us, label %97, label %.split.us
 
-94:                                               ; preds = %.lr.ph.split.us
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %exitcond118.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count117
-  br i1 %exitcond118.not, label %._crit_edge90, label %.lr.ph.split.us, !llvm.loop !68
+97:                                               ; preds = %.lr.ph.split.us
+  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
+  %exitcond116.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count115
+  br i1 %exitcond116.not, label %._crit_edge90, label %.lr.ph.split.us, !llvm.loop !68
 
-95:                                               ; preds = %.lr.ph.split
-  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %exitcond112.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count111
-  br i1 %exitcond112.not, label %._crit_edge90, label %.lr.ph.split, !llvm.loop !68
+98:                                               ; preds = %.lr.ph.split
+  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
+  %exitcond110.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count109
+  br i1 %exitcond110.not, label %._crit_edge90, label %.lr.ph.split, !llvm.loop !68
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %95
-  %indvars.iv107 = phi i64 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next108, %95 ]
-  %96 = load ptr, ptr @threads, align 8, !tbaa !29
-  %97 = getelementptr inbounds nuw [424 x i8], ptr %96, i64 %indvars.iv107
-  %98 = tail call noundef i32 @_Z18tMPI_Thread_createPP11tMPI_ThreadPFPvS2_ES2_(ptr noundef nonnull %97, ptr noundef nonnull @_ZL17tMPI_Thread_startPv, ptr noundef nonnull %97)
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %98
+  %indvars.iv105 = phi i64 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next106, %98 ]
   %99 = load ptr, ptr @threads, align 8, !tbaa !29
-  %100 = getelementptr inbounds nuw [424 x i8], ptr %99, i64 %indvars.iv107
-  %101 = load ptr, ptr %100, align 8, !tbaa !67
-  %102 = trunc nuw nsw i64 %indvars.iv107 to i32
-  %103 = tail call noundef i32 @_Z30tMPI_Thread_setaffinity_singleP11tMPI_Threadj(ptr noundef %101, i32 noundef %102)
-  %.not73 = icmp eq i32 %98, 0
-  br i1 %.not73, label %95, label %.split.us
+  %100 = getelementptr inbounds nuw [424 x i8], ptr %99, i64 %indvars.iv105
+  %101 = tail call noundef i32 @_Z18tMPI_Thread_createPP11tMPI_ThreadPFPvS2_ES2_(ptr noundef nonnull %100, ptr noundef nonnull @_ZL17tMPI_Thread_startPv, ptr noundef nonnull %100)
+  %102 = load ptr, ptr @threads, align 8, !tbaa !29
+  %103 = getelementptr inbounds nuw [424 x i8], ptr %102, i64 %indvars.iv105
+  %104 = load ptr, ptr %103, align 8, !tbaa !67
+  %105 = trunc nuw nsw i64 %indvars.iv105 to i32
+  %106 = tail call noundef i32 @_Z30tMPI_Thread_setaffinity_singleP11tMPI_Threadj(ptr noundef %104, i32 noundef %105)
+  %.not73 = icmp eq i32 %101, 0
+  br i1 %.not73, label %98, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %104 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !3
-  %105 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %104, i32 noundef 3)
+  %107 = load ptr, ptr @TMPI_COMM_WORLD, align 8, !tbaa !3
+  %108 = tail call noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %107, i32 noundef 3)
   br label %.thread79
 
-._crit_edge90:                                    ; preds = %95, %94, %.thread127, %89
+._crit_edge90:                                    ; preds = %98, %97, %.thread124, %92
   %.not71 = icmp eq i32 %0, 0
-  %106 = load ptr, ptr @threads, align 8, !tbaa !29
-  br i1 %.not71, label %107, label %109
+  %109 = load ptr, ptr @threads, align 8, !tbaa !29
+  br i1 %.not71, label %110, label %112
 
-107:                                              ; preds = %._crit_edge90
-  %108 = tail call noundef ptr @_ZL17tMPI_Thread_startPv(ptr noundef %106)
+110:                                              ; preds = %._crit_edge90
+  %111 = tail call noundef ptr @_ZL17tMPI_Thread_startPv(ptr noundef %109)
   br label %.thread79
 
-109:                                              ; preds = %._crit_edge90
-  %110 = tail call fastcc noundef i32 @_ZL16tMPI_Thread_initP11tmpi_thread(ptr noundef %106)
+112:                                              ; preds = %._crit_edge90
+  %113 = tail call fastcc noundef i32 @_ZL16tMPI_Thread_initP11tmpi_thread(ptr noundef %109)
   br label %.thread79
 
-.thread79:                                        ; preds = %109, %32, %.split.us, %67, %27, %_ZL16tMPI_Global_initP11tmpi_globali.exit, %10, %8, %107
-  %.1 = phi i32 [ 0, %8 ], [ %110, %109 ], [ 0, %107 ], [ %33, %32 ], [ %105, %.split.us ], [ %69, %67 ], [ 1, %27 ], [ %26, %_ZL16tMPI_Global_initP11tmpi_globali.exit ], [ 1, %10 ]
+.thread79:                                        ; preds = %112, %32, %.split.us, %70, %27, %_ZL16tMPI_Global_initP11tmpi_globali.exit, %10, %8, %110
+  %.1 = phi i32 [ 0, %8 ], [ %113, %112 ], [ 0, %110 ], [ %33, %32 ], [ %108, %.split.us ], [ %72, %70 ], [ 1, %27 ], [ %26, %_ZL16tMPI_Global_initP11tmpi_globali.exit ], [ 1, %10 ]
   ret i32 %.1
 }
 
@@ -846,7 +847,7 @@ declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
@@ -992,7 +993,7 @@ declare noundef ptr @_Z16tMPI_Group_allocv() local_unnamed_addr #1
 
 declare noundef i32 @_Z22tMPI_Thread_key_createP17tMPI_Thread_key_tPFvPvE(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 declare noundef ptr @_Z16tMPI_Thread_selfv() local_unnamed_addr #1
@@ -1180,11 +1181,11 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #8 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }

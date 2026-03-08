@@ -43661,7 +43661,7 @@ declare void @_ZNK5clang6Module17getFullModuleNameB5cxx11Eb(ptr dead_on_unwind w
 
 declare void @_ZN4llvm3sys4path6appendERNS_15SmallVectorImplIcEERKNS_5TwineES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare noundef i32 @_ZN5clang9ModuleMap16headerKindToRoleENS_6Module10HeaderKindE(i32 noundef) local_unnamed_addr #2
@@ -61726,7 +61726,6 @@ _ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_118ASTMethodPoolTraitEEC
 63:                                               ; preds = %_ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_118ASTMethodPoolTraitEEC2Ev.exit
   %64 = sub nuw nsw i64 %54, %61
   call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %48, i64 noundef %64)
-  %.pre = load i32, ptr %32, align 8, !tbaa !42
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 65:                                               ; preds = %_ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_118ASTMethodPoolTraitEEC2Ev.exit
@@ -61743,14 +61742,14 @@ _ZN4llvm31OnDiskChainedHashTableGeneratorIN12_GLOBAL__N_118ASTMethodPoolTraitEEC
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %63, %65, %67, %69
-  %70 = phi i32 [ %.pre, %63 ], [ %33, %65 ], [ %33, %67 ], [ %33, %69 ]
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %73 = load ptr, ptr %72, align 8, !tbaa !45
-  %74 = zext i32 %70 to i64
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1096
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  %72 = load ptr, ptr %71, align 8, !tbaa !45
+  %73 = load i32, ptr %32, align 8, !tbaa !42
+  %74 = zext i32 %73 to i64
   %.idx = shl nuw nsw i64 %74, 4
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx
-  %.not253 = icmp eq i32 %70, 0
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx
+  %.not253 = icmp eq i32 %73, 0
   br i1 %.not253, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
@@ -62053,7 +62052,7 @@ _ZN12_GLOBAL__N_118ASTMethodPoolTrait17EmitKeyDataLengthERN4llvm11raw_ostreamEN5
   %229 = add i64 %224, %227
   %230 = sub i64 %229, %228
   %231 = trunc i64 %230 to i32
-  %232 = load ptr, ptr %71, align 8, !tbaa !1815, !noalias !1816
+  %232 = load ptr, ptr %70, align 8, !tbaa !1815, !noalias !1816
   %233 = load i32, ptr %109, align 8, !tbaa !1819, !noalias !1816
   %234 = icmp eq i32 %233, 0
   br i1 %234, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i.i, label %235
@@ -62122,8 +62121,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorEjNS_12DenseMapInfoIS3_vEENS
 
 .sink.split.i.i.i73.i:                            ; preds = %260, %258
   %.sink.i.i.i74.i = phi i32 [ %259, %258 ], [ %253, %260 ]
-  call void @_ZN4llvm8DenseMapIN5clang8SelectorEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(40) %71, i32 noundef %.sink.i.i.i74.i), !noalias !1816
-  %264 = load ptr, ptr %71, align 8, !tbaa !1815, !noalias !1816
+  call void @_ZN4llvm8DenseMapIN5clang8SelectorEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(40) %70, i32 noundef %.sink.i.i.i74.i), !noalias !1816
+  %264 = load ptr, ptr %70, align 8, !tbaa !1815, !noalias !1816
   %265 = load i32, ptr %109, align 8, !tbaa !1819, !noalias !1816
   %266 = icmp eq i32 %265, 0
   br i1 %266, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i, label %267
@@ -62205,13 +62204,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorEjNS_12DenseMapInfoIS3_vEENS
 300:                                              ; preds = %296
   %301 = zext i32 %298 to i64
   %302 = add nuw nsw i64 %301, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull %48, i64 noundef %302, i64 noundef 16) #36
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %48, i64 noundef %302, i64 noundef 16) #36
   %.pre.i.i.i.i.i = load i32, ptr %32, align 8, !tbaa !42
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang8SelectorEjELb1EE9push_backES4_.exit.i.i.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang8SelectorEjELb1EE9push_backES4_.exit.i.i.i.i: ; preds = %300, %296
   %303 = phi i32 [ %298, %296 ], [ %.pre.i.i.i.i.i, %300 ]
-  %304 = load ptr, ptr %72, align 8, !tbaa !45
+  %304 = load ptr, ptr %71, align 8, !tbaa !45
   %305 = zext i32 %303 to i64
   %306 = getelementptr inbounds nuw [16 x i8], ptr %304, i64 %305
   store i64 %.sroa.08.0.copyload.i, ptr %306, align 1
@@ -62226,7 +62225,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang8SelectorEjELb1EE9push_backES4_
 _ZN4llvm9MapVectorIN5clang8SelectorEjNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_jELj0EEEEixERKS2_.exit.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang8SelectorEjELb1EE9push_backES4_.exit.i.i.i.i, %._crit_edge.i.i.i.i
   %309 = phi i32 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %307, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang8SelectorEjELb1EE9push_backES4_.exit.i.i.i.i ]
   %310 = zext i32 %309 to i64
-  %311 = load ptr, ptr %72, align 8, !tbaa !45
+  %311 = load ptr, ptr %71, align 8, !tbaa !45
   %312 = getelementptr inbounds nuw [16 x i8], ptr %311, i64 %310
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
   %314 = load i32, ptr %313, align 4, !tbaa !9
@@ -63003,7 +63002,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit78: ; preds = %.lr.ph89.
   %.sroa.2.0..sroa_idx.i.i70 = getelementptr inbounds nuw i8, ptr %671, i64 72
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i70, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre298 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !79
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !79
   %681 = getelementptr inbounds nuw i8, ptr %671, i64 80
   store i64 0, ptr %681, align 8
   %.sroa.2.0..sroa_idx.i.i77 = getelementptr inbounds nuw i8, ptr %671, i64 88
@@ -63013,11 +63012,11 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit78: ; preds = %.lr.ph89.
   store ptr %674, ptr %23, align 8, !tbaa !244
   %683 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %671, ptr %683, align 8, !tbaa !249
-  call void @_ZN4llvm15BitstreamWriter12EncodeAbbrevERKNS_13BitCodeAbbrevE(ptr noundef nonnull align 8 dereferenceable(152) %.pre298, ptr noundef nonnull align 8 dereferenceable(528) %674)
-  %684 = getelementptr inbounds nuw i8, ptr %.pre298, i64 64
-  %685 = getelementptr inbounds nuw i8, ptr %.pre298, i64 72
+  call void @_ZN4llvm15BitstreamWriter12EncodeAbbrevERKNS_13BitCodeAbbrevE(ptr noundef nonnull align 8 dereferenceable(152) %.pre, ptr noundef nonnull align 8 dereferenceable(528) %674)
+  %684 = getelementptr inbounds nuw i8, ptr %.pre, i64 64
+  %685 = getelementptr inbounds nuw i8, ptr %.pre, i64 72
   %686 = load ptr, ptr %685, align 8, !tbaa !250
-  %687 = getelementptr inbounds nuw i8, ptr %.pre298, i64 80
+  %687 = getelementptr inbounds nuw i8, ptr %.pre, i64 80
   %688 = load ptr, ptr %687, align 8, !tbaa !253
   %.not.i.i.i79 = icmp eq ptr %686, %688
   br i1 %.not.i.i.i79, label %694, label %689
@@ -63135,7 +63134,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit117: ; preds = %_ZN4llvm
   store i64 32, ptr %740, align 8
   %.sroa.2.0..sroa_idx.i.i109 = getelementptr inbounds nuw i8, ptr %731, i64 72
   store i64 2, ptr %.sroa.2.0..sroa_idx.i.i109, align 8
-  %.pre299 = load ptr, ptr %682, align 8, !tbaa !79
+  %.pre298 = load ptr, ptr %682, align 8, !tbaa !79
   %741 = getelementptr inbounds nuw i8, ptr %731, i64 80
   store i64 0, ptr %741, align 8
   %.sroa.2.0..sroa_idx.i.i116 = getelementptr inbounds nuw i8, ptr %731, i64 88
@@ -63144,11 +63143,11 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit117: ; preds = %_ZN4llvm
   store ptr %734, ptr %25, align 8, !tbaa !244
   %742 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %731, ptr %742, align 8, !tbaa !249
-  call void @_ZN4llvm15BitstreamWriter12EncodeAbbrevERKNS_13BitCodeAbbrevE(ptr noundef nonnull align 8 dereferenceable(152) %.pre299, ptr noundef nonnull align 8 dereferenceable(528) %734)
-  %743 = getelementptr inbounds nuw i8, ptr %.pre299, i64 64
-  %744 = getelementptr inbounds nuw i8, ptr %.pre299, i64 72
+  call void @_ZN4llvm15BitstreamWriter12EncodeAbbrevERKNS_13BitCodeAbbrevE(ptr noundef nonnull align 8 dereferenceable(152) %.pre298, ptr noundef nonnull align 8 dereferenceable(528) %734)
+  %743 = getelementptr inbounds nuw i8, ptr %.pre298, i64 64
+  %744 = getelementptr inbounds nuw i8, ptr %.pre298, i64 72
   %745 = load ptr, ptr %744, align 8, !tbaa !250
-  %746 = getelementptr inbounds nuw i8, ptr %.pre299, i64 80
+  %746 = getelementptr inbounds nuw i8, ptr %.pre298, i64 80
   %747 = load ptr, ptr %746, align 8, !tbaa !253
   %.not.i.i.i118 = icmp eq ptr %745, %747
   br i1 %.not.i.i.i118, label %753, label %748
@@ -63284,7 +63283,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26Deall
   store i32 0, ptr %42, align 8, !tbaa !42
   %809 = load i32, ptr %38, align 8, !tbaa !42
   %.not.i1.i.i.i.i = icmp eq i32 %809, 0
-  %.pre301 = load ptr, ptr %36, align 8, !tbaa !45
+  %.pre300 = load ptr, ptr %36, align 8, !tbaa !45
   br i1 %.not.i1.i.i.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit.i.thread, label %811
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit.i.thread: ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i.i.i.i
@@ -63293,19 +63292,19 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
 
 811:                                              ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.i.i.i.i
   store i64 0, ptr %41, align 8, !tbaa !1193
-  %812 = load ptr, ptr %.pre301, align 8, !tbaa !8
+  %812 = load ptr, ptr %.pre300, align 8, !tbaa !8
   store ptr %812, ptr %35, align 8, !tbaa !1194
   %813 = getelementptr inbounds nuw i8, ptr %812, i64 4096
   %814 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %813, ptr %814, align 8, !tbaa !1195
   %815 = zext i32 %809 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %815, 3
-  %816 = getelementptr inbounds nuw i8, ptr %.pre301, i64 %.idx.i.i.i.i
+  %816 = getelementptr inbounds nuw i8, ptr %.pre300, i64 %.idx.i.i.i.i
   %.not6.i.i.i.i.i = icmp eq i32 %809, 1
   br i1 %.not6.i.i.i.i.i, label %.lr.ph.i.i149.preheader, label %.lr.ph.i2.preheader.i.i.i.i
 
 .lr.ph.i2.preheader.i.i.i.i:                      ; preds = %811
-  %817 = getelementptr inbounds nuw i8, ptr %.pre301, i64 8
+  %817 = getelementptr inbounds nuw i8, ptr %.pre300, i64 8
   br label %.lr.ph.i2.i.i.i.i
 
 .lr.ph.i2.i.i.i.i:                                ; preds = %.lr.ph.i2.i.i.i.i, %.lr.ph.i2.preheader.i.i.i.i
@@ -63327,14 +63326,14 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
   br i1 %.not.i3.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit.i.i.i.i.loopexit, label %.lr.ph.i2.i.i.i.i, !llvm.loop !1327
 
 _ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit.i.i.i.i.loopexit: ; preds = %.lr.ph.i2.i.i.i.i
-  %.pre300.pre = load ptr, ptr %36, align 8, !tbaa !45
+  %.pre299.pre = load ptr, ptr %36, align 8, !tbaa !45
   br label %.lr.ph.i.i149.preheader
 
 .lr.ph.i.i149.preheader:                          ; preds = %_ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit.i.i.i.i.loopexit, %811
-  %.pre300 = phi ptr [ %.pre300.pre, %_ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit.i.i.i.i.loopexit ], [ %.pre301, %811 ]
+  %.pre299 = phi ptr [ %.pre299.pre, %_ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit.i.i.i.i.loopexit ], [ %.pre300, %811 ]
   store i32 1, ptr %38, align 8, !tbaa !42
   %828 = load ptr, ptr %36, align 8, !tbaa !45
-  %829 = ptrtoint ptr %.pre300 to i64
+  %829 = ptrtoint ptr %.pre299 to i64
   %830 = ptrtoint ptr %828 to i64
   %831 = sub i64 %829, %830
   %sum.shift.i.i = lshr i64 %831, 10
@@ -63343,7 +63342,7 @@ _ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit.i.i.i.i.loopexit: ; preds = %.
   %834 = call i32 @llvm.umin.i32(i32 %833, i32 30)
   %.sroa.speculated.i.i.i = zext nneg i32 %834 to i64
   %835 = shl nuw nsw i64 4096, %.sroa.speculated.i.i.i
-  %836 = load ptr, ptr %.pre300, align 8, !tbaa !8
+  %836 = load ptr, ptr %.pre299, align 8, !tbaa !8
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %836, i64 noundef %835, i64 noundef 16) #36
   %.pr = load i32, ptr %42, align 8, !tbaa !42
   %837 = load ptr, ptr %40, align 8, !tbaa !45
@@ -63391,7 +63390,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev.ex
 
 850:                                              ; preds = %.lr.ph, %979
   %.0255 = phi i32 [ 0, %.lr.ph ], [ %.1, %979 ]
-  %.037254 = phi ptr [ %73, %.lr.ph ], [ %980, %979 ]
+  %.037254 = phi ptr [ %72, %.lr.ph ], [ %980, %979 ]
   %851 = load i64, ptr %.037254, align 8, !tbaa !50
   %852 = getelementptr inbounds nuw i8, ptr %.037254, i64 8
   %853 = load i32, ptr %852, align 8, !tbaa !1851
@@ -146772,13 +146771,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9FileEntryEjNS_12DenseMapInfoIS5_vE
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #26
 
 ; Function Attrs: noreturn
 declare void @_ZN4llvm22report_bad_alloc_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #16
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #27
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -162584,7 +162583,7 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -162605,8 +162604,8 @@ attributes #22 = { mustprogress nofree nosync nounwind willreturn memory(none) "
 attributes #23 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #28 = { nobuiltin nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #30 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

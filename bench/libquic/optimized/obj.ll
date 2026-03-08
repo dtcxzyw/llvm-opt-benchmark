@@ -1280,14 +1280,14 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden ptr @OBJ_dup(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %43, label %3
+  br i1 %2, label %44, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !6
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %43, label %7
+  br i1 %.not, label %44, label %7
 
 7:                                                ; preds = %3
   %8 = tail call ptr @ASN1_OBJECT_new() #10
@@ -1296,7 +1296,7 @@ define hidden ptr @OBJ_dup(ptr noundef readonly captures(address_is_null, ret: a
 
 10:                                               ; preds = %7
   tail call void @ERR_put_error(i32 noundef 8, i32 noundef 0, i32 noundef 12, ptr noundef nonnull @.str, i32 noundef 111) #10
-  br label %43
+  br label %44
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1306,68 +1306,70 @@ define hidden ptr @OBJ_dup(ptr noundef readonly captures(address_is_null, ret: a
   %15 = sext i32 %14 to i64
   %16 = tail call noalias ptr @malloc(i64 noundef %15) #11
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %42, label %18
+  br i1 %17, label %43, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !14
   %.not49 = icmp eq ptr %20, null
-  br i1 %.not49, label %22, label %21
+  %.pre = load i32, ptr %13, align 4, !tbaa !13
+  br i1 %.not49, label %23, label %21
 
 21:                                               ; preds = %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %20, i64 %15, i1 false)
-  br label %22
+  %22 = sext i32 %.pre to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %20, i64 %22, i1 false)
+  br label %23
 
-22:                                               ; preds = %21, %18
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %16, ptr %23, align 8, !tbaa !14
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 %14, ptr %24, align 4, !tbaa !13
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !15
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 %26, ptr %27, align 8, !tbaa !15
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !16
-  %.not50 = icmp eq ptr %29, null
-  br i1 %.not50, label %33, label %30
+23:                                               ; preds = %21, %18
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr %16, ptr %24, align 8, !tbaa !14
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  store i32 %.pre, ptr %25, align 4, !tbaa !13
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = load i32, ptr %26, align 8, !tbaa !15
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i32 %27, ptr %28, align 8, !tbaa !15
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !16
+  %.not50 = icmp eq ptr %30, null
+  br i1 %.not50, label %34, label %31
 
-30:                                               ; preds = %22
-  %31 = tail call ptr @OPENSSL_strdup(ptr noundef nonnull %29) #10
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %42, label %33
+31:                                               ; preds = %23
+  %32 = tail call ptr @OPENSSL_strdup(ptr noundef nonnull %30) #10
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %43, label %34
 
-33:                                               ; preds = %30, %22
-  %.1 = phi ptr [ %31, %30 ], [ null, %22 ]
-  %34 = load ptr, ptr %0, align 8, !tbaa !17
-  %.not51 = icmp eq ptr %34, null
-  br i1 %.not51, label %38, label %35
+34:                                               ; preds = %31, %23
+  %.1 = phi ptr [ %32, %31 ], [ null, %23 ]
+  %35 = load ptr, ptr %0, align 8, !tbaa !17
+  %.not51 = icmp eq ptr %35, null
+  br i1 %.not51, label %39, label %36
 
-35:                                               ; preds = %33
-  %36 = tail call ptr @OPENSSL_strdup(ptr noundef nonnull %34) #10
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %42, label %38
+36:                                               ; preds = %34
+  %37 = tail call ptr @OPENSSL_strdup(ptr noundef nonnull %35) #10
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %43, label %39
 
-38:                                               ; preds = %35, %33
-  %.137 = phi ptr [ %36, %35 ], [ null, %33 ]
+39:                                               ; preds = %36, %34
+  %.137 = phi ptr [ %37, %36 ], [ null, %34 ]
   store ptr %.137, ptr %8, align 8, !tbaa !17
   store ptr %.1, ptr %12, align 8, !tbaa !16
-  %39 = load i32, ptr %4, align 8, !tbaa !6
-  %40 = or i32 %39, 13
-  %41 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 %40, ptr %41, align 8, !tbaa !6
-  br label %43
+  %40 = load i32, ptr %4, align 8, !tbaa !6
+  %41 = or i32 %40, 13
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i32 %41, ptr %42, align 8, !tbaa !6
+  br label %44
 
-42:                                               ; preds = %35, %30, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %30 ], [ %.1, %35 ]
+43:                                               ; preds = %36, %31, %11
+  %.0 = phi ptr [ null, %11 ], [ null, %31 ], [ %.1, %36 ]
   tail call void @ERR_put_error(i32 noundef 8, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 152) #10
   tail call void @free(ptr noundef %.0) #10
   tail call void @free(ptr noundef %16) #10
   tail call void @free(ptr noundef nonnull %8) #10
-  br label %43
+  br label %44
 
-43:                                               ; preds = %3, %1, %42, %38, %10
-  %.038 = phi ptr [ null, %1 ], [ null, %10 ], [ null, %42 ], [ %8, %38 ], [ %0, %3 ]
+44:                                               ; preds = %3, %1, %43, %39, %10
+  %.038 = phi ptr [ null, %1 ], [ null, %10 ], [ null, %43 ], [ %8, %39 ], [ %0, %3 ]
   ret ptr %.038
 }
 
@@ -1375,7 +1377,7 @@ declare ptr @ASN1_OBJECT_new() local_unnamed_addr #1
 
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2624,7 +2626,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

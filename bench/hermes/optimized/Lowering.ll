@@ -3941,11 +3941,10 @@ if.end.i.i.i.i:                                   ; preds = %cond.false.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i
   tail call void @_ZN4llvh22report_bad_alloc_errorEPKcb(ptr noundef nonnull @.str, i1 noundef zeroext true) #13
-  %.pre.i16.i.i.i.i = load i32, ptr %Size.i.i13.i.i.i.i, align 8
   br label %_ZN4llvh15MallocAllocator8AllocateEmm.exit.i.i.i.i.i
 
 _ZN4llvh15MallocAllocator8AllocateEmm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i
-  %8 = phi i32 [ %6, %if.end.i.i.i.i ], [ %.pre.i16.i.i.i.i, %if.then.i.i.i.i.i.i.i ]
+  %8 = load i32, ptr %Size.i.i13.i.i.i.i, align 8
   %Capacity.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   %9 = load i32, ptr %Capacity.i.i.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i.i = icmp ult i32 %8, %9
@@ -3969,9 +3968,9 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSla
   store i32 %add.i.i15.i.i.i.i, ptr %Size.i.i13.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i, i64 %mul.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i, ptr %End.i.i.i.i, align 8
-  %sub.i18.i.i.i.i = add i64 %12, 7
-  %and.i20.i.i.i.i = and i64 %sub.i18.i.i.i.i, -8
-  %14 = inttoptr i64 %and.i20.i.i.i.i to ptr
+  %sub.i17.i.i.i.i = add i64 %12, 7
+  %and.i19.i.i.i.i = and i64 %sub.i17.i.i.i.i, -8
+  %14 = inttoptr i64 %and.i19.i.i.i.i to ptr
   %add.ptr19.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %add.ptr19.i.i.i.i, ptr %Allocator.i, align 8
   br label %"_ZN4llvh18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEEN6hermes10DomTreeDFS9StackNodeIZL22orderBlocksByDominanceIZNS4_16LowerAllocObject13collectStoresEPNS4_15AllocObjectInstERKNS_8DenseMapIPNS4_10BasicBlockENS_11SmallVectorIPNS4_23StoreNewOwnPropertyInstELj4EEENS_12DenseMapInfoISD_EENS_6detail12DenseMapPairISD_SH_EEEERKNS4_13DominanceInfoEE3$_0ENSE_ISD_Lj4EEESS_SD_OT_E18OrderBlocksContextEELm32ELm8EE8AllocateEv.exit"
@@ -3990,7 +3989,7 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSla
   ret ptr %cond.i.i.i
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 declare void @_ZN4llvh22report_bad_alloc_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -5211,7 +5210,7 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

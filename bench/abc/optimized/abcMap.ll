@@ -411,8 +411,8 @@ define ptr @Abc_NtkToMap(ptr noundef %0, double noundef %1, i32 noundef %2, ptr 
   %.val119.val = load i32, ptr %23, align 4, !tbaa !30
   tail call void @Map_ManCreateAigIds(ptr noundef nonnull %17, i32 noundef %.val119.val) #16
   %24 = tail call ptr (...) @Scl_ConReadMan() #16
-  %.not180 = icmp eq ptr %24, null
-  br i1 %.not180, label %56, label %25
+  %.not182 = icmp eq ptr %24, null
+  br i1 %.not182, label %56, label %25
 
 25:                                               ; preds = %19
   %26 = tail call ptr (...) @Scl_ConReadMan() #16
@@ -451,7 +451,8 @@ Scl_ConHasInArrs.exit:                            ; preds = %32, %25
   %.val11.val.i = load i32, ptr %40, align 4, !tbaa !30
   %41 = sext i32 %.val11.val.i to i64
   %42 = tail call noalias ptr @calloc(i64 noundef %41, i64 noundef 12) #17
-  %43 = icmp sgt i32 %.val11.val.i, 0
+  %.val.val13.i = load i32, ptr %40, align 4, !tbaa !30
+  %43 = icmp sgt i32 %.val.val13.i, 0
   br i1 %43, label %.lr.ph.i, label %Abc_NtkMapCopyCiArrivalCon.exit
 
 .lr.ph.i:                                         ; preds = %38, %.lr.ph.i
@@ -485,11 +486,12 @@ Scl_ConHasInArrs.exit:                            ; preds = %32, %25
   %.val.val.i145 = load i32, ptr %59, align 4, !tbaa !30
   %60 = sext i32 %.val.val.i145 to i64
   %61 = tail call noalias ptr @calloc(i64 noundef %60, i64 noundef 12) #17
-  %62 = icmp sgt i32 %.val.val.i145, 0
+  %.val21.val.i = load i32, ptr %59, align 4, !tbaa !30
+  %62 = icmp sgt i32 %.val21.val.i, 0
   br i1 %62, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %56
-  %wide.trip.count.i = zext nneg i32 %.val.val.i145 to i64
+  %wide.trip.count.i = zext nneg i32 %.val21.val.i to i64
   br label %.lr.ph.i146
 
 .lr.ph.i146:                                      ; preds = %.lr.ph.i146, %.lr.ph.preheader.i
@@ -522,8 +524,8 @@ Abc_NtkMapCopyCiArrivalCon.exit:                  ; preds = %.lr.ph.i, %._crit_e
   %.sink = phi ptr [ %42, %38 ], [ %61, %._crit_edge.thread.i ], [ %61, %._crit_edge.i ], [ %42, %.lr.ph.i ]
   tail call void @Map_ManSetInputArrivals(ptr noundef nonnull %17, ptr noundef %.sink) #16
   %72 = tail call ptr (...) @Scl_ConReadMan() #16
-  %.not181 = icmp eq ptr %72, null
-  br i1 %.not181, label %104, label %73
+  %.not183 = icmp eq ptr %72, null
+  br i1 %.not183, label %104, label %73
 
 73:                                               ; preds = %Abc_NtkMapCopyCiArrivalCon.exit
   %74 = tail call ptr (...) @Scl_ConReadMan() #16
@@ -552,8 +554,8 @@ Abc_NtkMapCopyCiArrivalCon.exit:                  ; preds = %.lr.ph.i, %._crit_e
 
 Scl_ConHasOutReqs.exit:                           ; preds = %80, %73
   %.0.lcssa.i.i.i149 = phi i32 [ 0, %73 ], [ %85, %80 ]
-  %.not182 = icmp eq i32 %.0.lcssa.i.i.i149, %76
-  br i1 %.not182, label %104, label %86
+  %.not184 = icmp eq i32 %.0.lcssa.i.i.i149, %76
+  br i1 %.not184, label %104, label %86
 
 86:                                               ; preds = %Scl_ConHasOutReqs.exit
   %87 = getelementptr i8, ptr %0, i64 64
@@ -562,53 +564,55 @@ Scl_ConHasOutReqs.exit:                           ; preds = %80, %73
   %.val11.val.i157 = load i32, ptr %88, align 4, !tbaa !30
   %89 = sext i32 %.val11.val.i157 to i64
   %90 = tail call noalias ptr @calloc(i64 noundef %89, i64 noundef 12) #17
-  %91 = icmp sgt i32 %.val11.val.i157, 0
-  br i1 %91, label %.lr.ph.i159, label %Abc_NtkMapCopyCoRequiredCon.exit
+  %.val.val13.i158 = load i32, ptr %88, align 4, !tbaa !30
+  %91 = icmp sgt i32 %.val.val13.i158, 0
+  br i1 %91, label %.lr.ph.i160, label %Abc_NtkMapCopyCoRequiredCon.exit
 
-.lr.ph.i159:                                      ; preds = %86, %.lr.ph.i159
-  %indvars.iv.i160 = phi i64 [ %indvars.iv.next.i162, %.lr.ph.i159 ], [ 0, %86 ]
+.lr.ph.i160:                                      ; preds = %86, %.lr.ph.i160
+  %indvars.iv.i161 = phi i64 [ %indvars.iv.next.i163, %.lr.ph.i160 ], [ 0, %86 ]
   %92 = tail call ptr (...) @Scl_ConReadMan() #16
   %93 = getelementptr i8, ptr %92, i64 136
-  %.val.i.i161 = load ptr, ptr %93, align 8, !tbaa !9
-  %94 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i161, i64 %indvars.iv.i160
+  %.val.i.i162 = load ptr, ptr %93, align 8, !tbaa !9
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i162, i64 %indvars.iv.i161
   %95 = load i32, ptr %94, align 4, !tbaa !32
   %96 = sitofp i32 %95 to float
   %97 = fdiv float %96, 1.000000e+03
-  %98 = getelementptr inbounds nuw [12 x i8], ptr %90, i64 %indvars.iv.i160
+  %98 = getelementptr inbounds nuw [12 x i8], ptr %90, i64 %indvars.iv.i161
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store float %97, ptr %99, align 4, !tbaa !40
   store float %97, ptr %98, align 4, !tbaa !42
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store float %97, ptr %100, align 4, !tbaa !43
-  %indvars.iv.next.i162 = add nuw nsw i64 %indvars.iv.i160, 1
-  %.val.i163 = load ptr, ptr %87, align 8, !tbaa !49
-  %101 = getelementptr i8, ptr %.val.i163, i64 4
-  %.val.val.i164 = load i32, ptr %101, align 4, !tbaa !30
-  %102 = sext i32 %.val.val.i164 to i64
-  %103 = icmp slt i64 %indvars.iv.next.i162, %102
-  br i1 %103, label %.lr.ph.i159, label %Abc_NtkMapCopyCoRequiredCon.exit, !llvm.loop !50
+  %indvars.iv.next.i163 = add nuw nsw i64 %indvars.iv.i161, 1
+  %.val.i164 = load ptr, ptr %87, align 8, !tbaa !49
+  %101 = getelementptr i8, ptr %.val.i164, i64 4
+  %.val.val.i165 = load i32, ptr %101, align 4, !tbaa !30
+  %102 = sext i32 %.val.val.i165 to i64
+  %103 = icmp slt i64 %indvars.iv.next.i163, %102
+  br i1 %103, label %.lr.ph.i160, label %Abc_NtkMapCopyCoRequiredCon.exit, !llvm.loop !50
 
 104:                                              ; preds = %Scl_ConHasOutReqs.exit, %Abc_NtkMapCopyCiArrivalCon.exit
   %105 = tail call ptr @Abc_NtkGetCoRequiredTimes(ptr noundef nonnull %0) #16
   %106 = getelementptr i8, ptr %0, i64 64
-  %.val.i165 = load ptr, ptr %106, align 8, !tbaa !49
-  %107 = getelementptr i8, ptr %.val.i165, i64 4
-  %.val.val.i166 = load i32, ptr %107, align 4, !tbaa !30
-  %108 = sext i32 %.val.val.i166 to i64
+  %.val.i166 = load ptr, ptr %106, align 8, !tbaa !49
+  %107 = getelementptr i8, ptr %.val.i166, i64 4
+  %.val.val.i167 = load i32, ptr %107, align 4, !tbaa !30
+  %108 = sext i32 %.val.val.i167 to i64
   %109 = tail call noalias ptr @calloc(i64 noundef %108, i64 noundef 12) #17
-  %110 = icmp sgt i32 %.val.val.i166, 0
-  br i1 %110, label %.lr.ph.preheader.i170, label %._crit_edge.i167
+  %.val21.val.i168 = load i32, ptr %107, align 4, !tbaa !30
+  %110 = icmp sgt i32 %.val21.val.i168, 0
+  br i1 %110, label %.lr.ph.preheader.i172, label %._crit_edge.i169
 
-.lr.ph.preheader.i170:                            ; preds = %104
-  %wide.trip.count.i171 = zext nneg i32 %.val.val.i166 to i64
-  br label %.lr.ph.i172
+.lr.ph.preheader.i172:                            ; preds = %104
+  %wide.trip.count.i173 = zext nneg i32 %.val21.val.i168 to i64
+  br label %.lr.ph.i174
 
-.lr.ph.i172:                                      ; preds = %.lr.ph.i172, %.lr.ph.preheader.i170
-  %indvars.iv.i173 = phi i64 [ 0, %.lr.ph.preheader.i170 ], [ %indvars.iv.next.i174, %.lr.ph.i172 ]
-  %111 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv.i173
+.lr.ph.i174:                                      ; preds = %.lr.ph.i174, %.lr.ph.preheader.i172
+  %indvars.iv.i175 = phi i64 [ 0, %.lr.ph.preheader.i172 ], [ %indvars.iv.next.i176, %.lr.ph.i174 ]
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv.i175
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %113 = load float, ptr %112, align 4, !tbaa !45
-  %114 = getelementptr inbounds nuw [12 x i8], ptr %109, i64 %indvars.iv.i173
+  %114 = getelementptr inbounds nuw [12 x i8], ptr %109, i64 %indvars.iv.i175
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   store float %113, ptr %115, align 4, !tbaa !43
   %116 = load float, ptr %111, align 4, !tbaa !47
@@ -617,31 +621,31 @@ Scl_ConHasOutReqs.exit:                           ; preds = %80, %73
   %118 = select i1 %117, float %113, float %116
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store float %118, ptr %119, align 4, !tbaa !40
-  %indvars.iv.next.i174 = add nuw nsw i64 %indvars.iv.i173, 1
-  %exitcond.not.i175 = icmp eq i64 %indvars.iv.next.i174, %wide.trip.count.i171
-  br i1 %exitcond.not.i175, label %._crit_edge.thread.i169, label %.lr.ph.i172, !llvm.loop !51
+  %indvars.iv.next.i176 = add nuw nsw i64 %indvars.iv.i175, 1
+  %exitcond.not.i177 = icmp eq i64 %indvars.iv.next.i176, %wide.trip.count.i173
+  br i1 %exitcond.not.i177, label %._crit_edge.thread.i171, label %.lr.ph.i174, !llvm.loop !51
 
-._crit_edge.i167:                                 ; preds = %104
-  %.not.i168 = icmp eq ptr %105, null
-  br i1 %.not.i168, label %Abc_NtkMapCopyCoRequiredCon.exit, label %._crit_edge.thread.i169
+._crit_edge.i169:                                 ; preds = %104
+  %.not.i170 = icmp eq ptr %105, null
+  br i1 %.not.i170, label %Abc_NtkMapCopyCoRequiredCon.exit, label %._crit_edge.thread.i171
 
-._crit_edge.thread.i169:                          ; preds = %.lr.ph.i172, %._crit_edge.i167
+._crit_edge.thread.i171:                          ; preds = %.lr.ph.i174, %._crit_edge.i169
   tail call void @free(ptr noundef nonnull %105) #16
   br label %Abc_NtkMapCopyCoRequiredCon.exit
 
-Abc_NtkMapCopyCoRequiredCon.exit:                 ; preds = %.lr.ph.i159, %._crit_edge.thread.i169, %._crit_edge.i167, %86
-  %.sink221 = phi ptr [ %90, %86 ], [ %109, %._crit_edge.thread.i169 ], [ %109, %._crit_edge.i167 ], [ %90, %.lr.ph.i159 ]
-  tail call void @Map_ManSetOutputRequireds(ptr noundef nonnull %17, ptr noundef %.sink221) #16
+Abc_NtkMapCopyCoRequiredCon.exit:                 ; preds = %.lr.ph.i160, %._crit_edge.thread.i171, %._crit_edge.i169, %86
+  %.sink223 = phi ptr [ %90, %86 ], [ %109, %._crit_edge.thread.i171 ], [ %109, %._crit_edge.i169 ], [ %90, %.lr.ph.i160 ]
+  tail call void @Map_ManSetOutputRequireds(ptr noundef nonnull %17, ptr noundef %.sink223) #16
   tail call void @Abc_NtkCleanCopy(ptr noundef nonnull %0) #16
   %120 = tail call ptr @Map_ManReadConst1(ptr noundef nonnull %17) #16
   %121 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %0) #16
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 64
   store ptr %120, ptr %122, align 8, !tbaa !52
   %123 = getelementptr i8, ptr %0, i64 56
-  %.val120185 = load ptr, ptr %123, align 8, !tbaa !39
-  %124 = getelementptr i8, ptr %.val120185, i64 4
-  %.val120.val186 = load i32, ptr %124, align 4, !tbaa !30
-  %125 = icmp sgt i32 %.val120.val186, 0
+  %.val120187 = load ptr, ptr %123, align 8, !tbaa !39
+  %124 = getelementptr i8, ptr %.val120187, i64 4
+  %.val120.val188 = load i32, ptr %124, align 4, !tbaa !30
+  %125 = icmp sgt i32 %.val120.val188, 0
   br i1 %125, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Abc_NtkMapCopyCoRequiredCon.exit
@@ -650,14 +654,14 @@ Abc_NtkMapCopyCoRequiredCon.exit:                 ; preds = %.lr.ph.i159, %._cri
 
 126:                                              ; preds = %.lr.ph, %145
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %145 ]
-  %.val120.val189 = phi i32 [ %.val120.val186, %.lr.ph ], [ %.val120.val, %145 ]
-  %.val120188 = phi ptr [ %.val120185, %.lr.ph ], [ %.val120, %145 ]
-  %127 = getelementptr i8, ptr %.val120188, i64 8
+  %.val120.val191 = phi i32 [ %.val120.val188, %.lr.ph ], [ %.val120.val, %145 ]
+  %.val120190 = phi ptr [ %.val120187, %.lr.ph ], [ %.val120, %145 ]
+  %127 = getelementptr i8, ptr %.val120190, i64 8
   %.val125.val = load ptr, ptr %127, align 8, !tbaa !53
   %128 = getelementptr inbounds nuw [8 x i8], ptr %.val125.val, i64 %indvars.iv
   %129 = load ptr, ptr %128, align 8, !tbaa !54
   %130 = load i32, ptr %10, align 4, !tbaa !33
-  %131 = sub nsw i32 %.val120.val189, %130
+  %131 = sub nsw i32 %.val120.val191, %130
   %132 = zext i32 %131 to i64
   %133 = icmp eq i64 %indvars.iv, %132
   br i1 %133, label %.critedge, label %134
@@ -694,24 +698,24 @@ Abc_NtkMapCopyCoRequiredCon.exit:                 ; preds = %.lr.ph.i159, %._cri
 .critedge:                                        ; preds = %126, %145, %Abc_NtkMapCopyCoRequiredCon.exit
   %151 = tail call ptr @Abc_AigDfsMap(ptr noundef nonnull %0) #16
   %152 = getelementptr i8, ptr %151, i64 4
-  %.val197 = load i32, ptr %152, align 4, !tbaa !30
-  %153 = icmp sgt i32 %.val197, 0
-  br i1 %153, label %.lr.ph199, label %.critedge2
+  %.val199 = load i32, ptr %152, align 4, !tbaa !30
+  %153 = icmp sgt i32 %.val199, 0
+  br i1 %153, label %.lr.ph201, label %.critedge2
 
-.lr.ph199:                                        ; preds = %.critedge
+.lr.ph201:                                        ; preds = %.critedge
   %154 = getelementptr i8, ptr %151, i64 8
   %.not112 = icmp eq ptr %3, null
   br label %155
 
-155:                                              ; preds = %.lr.ph199, %232
-  %indvars.iv209 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next210, %232 ]
+155:                                              ; preds = %.lr.ph201, %232
+  %indvars.iv211 = phi i64 [ 0, %.lr.ph201 ], [ %indvars.iv.next212, %232 ]
   %.val124 = load ptr, ptr %154, align 8, !tbaa !53
-  %156 = getelementptr inbounds nuw [8 x i8], ptr %.val124, i64 %indvars.iv209
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %.val124, i64 %indvars.iv211
   %157 = load ptr, ptr %156, align 8, !tbaa !54
   %158 = getelementptr i8, ptr %157, i64 20
   %.val126 = load i32, ptr %158, align 4
   %159 = and i32 %.val126, 15
-  %.not183 = icmp eq i32 %159, 8
+  %.not185 = icmp eq i32 %159, 8
   %.val127 = load ptr, ptr %157, align 8, !tbaa !62
   %160 = getelementptr i8, ptr %157, i64 32
   %.val128 = load ptr, ptr %160, align 8, !tbaa !63
@@ -723,7 +727,7 @@ Abc_NtkMapCopyCoRequiredCon.exit:                 ; preds = %.lr.ph.i159, %._cri
   %163 = sext i32 %.val128.val to i64
   %164 = getelementptr inbounds [8 x i8], ptr %.val127.val.val, i64 %163
   %165 = load ptr, ptr %164, align 8, !tbaa !54
-  br i1 %.not183, label %166, label %190
+  br i1 %.not185, label %166, label %190
 
 166:                                              ; preds = %155
   %.val129 = load ptr, ptr %165, align 8, !tbaa !62
@@ -802,49 +806,49 @@ Abc_NtkMapCopyCoRequiredCon.exit:                 ; preds = %.lr.ph.i159, %._cri
 219:                                              ; preds = %213, %190
   %220 = getelementptr inbounds nuw i8, ptr %157, i64 56
   %221 = load ptr, ptr %220, align 8, !tbaa !52
-  %.not.i176 = icmp eq ptr %221, null
-  br i1 %.not.i176, label %Abc_AigNodeIsChoice.exit.thread, label %Abc_AigNodeIsChoice.exit
+  %.not.i178 = icmp eq ptr %221, null
+  br i1 %.not.i178, label %Abc_AigNodeIsChoice.exit.thread, label %Abc_AigNodeIsChoice.exit
 
 Abc_AigNodeIsChoice.exit:                         ; preds = %219
   %222 = getelementptr i8, ptr %157, i64 44
-  %.val.i177 = load i32, ptr %222, align 4, !tbaa !65
-  %223 = icmp slt i32 %.val.i177, 1
-  br i1 %223, label %Abc_AigNodeIsChoice.exit.thread, label %.lr.ph196
+  %.val.i179 = load i32, ptr %222, align 4, !tbaa !65
+  %223 = icmp slt i32 %.val.i179, 1
+  br i1 %223, label %Abc_AigNodeIsChoice.exit.thread, label %.lr.ph198
 
-.lr.ph196:                                        ; preds = %Abc_AigNodeIsChoice.exit, %.lr.ph196
-  %.0102195 = phi ptr [ %.0102, %.lr.ph196 ], [ %221, %Abc_AigNodeIsChoice.exit ]
-  %.0101194 = phi ptr [ %.0102195, %.lr.ph196 ], [ %157, %Abc_AigNodeIsChoice.exit ]
-  %224 = getelementptr inbounds nuw i8, ptr %.0101194, i64 64
+.lr.ph198:                                        ; preds = %Abc_AigNodeIsChoice.exit, %.lr.ph198
+  %.0102197 = phi ptr [ %.0102, %.lr.ph198 ], [ %221, %Abc_AigNodeIsChoice.exit ]
+  %.0101196 = phi ptr [ %.0102197, %.lr.ph198 ], [ %157, %Abc_AigNodeIsChoice.exit ]
+  %224 = getelementptr inbounds nuw i8, ptr %.0101196, i64 64
   %225 = load ptr, ptr %224, align 8, !tbaa !52
-  %226 = getelementptr inbounds nuw i8, ptr %.0102195, i64 64
+  %226 = getelementptr inbounds nuw i8, ptr %.0102197, i64 64
   %227 = load ptr, ptr %226, align 8, !tbaa !52
   tail call void @Map_NodeSetNextE(ptr noundef %225, ptr noundef %227) #16
   %228 = load ptr, ptr %226, align 8, !tbaa !52
   %229 = load ptr, ptr %212, align 8, !tbaa !52
   tail call void @Map_NodeSetRepr(ptr noundef %228, ptr noundef %229) #16
-  %.0102.in = getelementptr inbounds nuw i8, ptr %.0102195, i64 56
+  %.0102.in = getelementptr inbounds nuw i8, ptr %.0102197, i64 56
   %.0102 = load ptr, ptr %.0102.in, align 8, !tbaa !52
   %.not114 = icmp eq ptr %.0102, null
-  br i1 %.not114, label %Abc_AigNodeIsChoice.exit.thread, label %.lr.ph196, !llvm.loop !66
+  br i1 %.not114, label %Abc_AigNodeIsChoice.exit.thread, label %.lr.ph198, !llvm.loop !66
 
-Abc_AigNodeIsChoice.exit.thread:                  ; preds = %.lr.ph196, %219, %Abc_AigNodeIsChoice.exit
+Abc_AigNodeIsChoice.exit.thread:                  ; preds = %.lr.ph198, %219, %Abc_AigNodeIsChoice.exit
   %230 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %231 = load i32, ptr %230, align 8, !tbaa !57
   tail call void @Map_NodeSetAigId(ptr noundef %211, i32 noundef %231) #16
   br label %232
 
 232:                                              ; preds = %Abc_AigNodeIsChoice.exit.thread, %166
-  %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
+  %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %.val = load i32, ptr %152, align 4, !tbaa !30
   %233 = sext i32 %.val to i64
-  %234 = icmp slt i64 %indvars.iv.next210, %233
+  %234 = icmp slt i64 %indvars.iv.next212, %233
   br i1 %234, label %155, label %.critedge2, !llvm.loop !67
 
 .critedge2:                                       ; preds = %232, %.critedge
   %235 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %236 = load ptr, ptr %235, align 8, !tbaa !53
-  %.not.i178 = icmp eq ptr %236, null
-  br i1 %.not.i178, label %Vec_PtrFree.exit, label %237
+  %.not.i180 = icmp eq ptr %236, null
+  br i1 %.not.i180, label %Vec_PtrFree.exit, label %237
 
 237:                                              ; preds = %.critedge2
   tail call void @free(ptr noundef nonnull %236) #16
@@ -853,26 +857,26 @@ Abc_AigNodeIsChoice.exit.thread:                  ; preds = %.lr.ph196, %219, %A
 Vec_PtrFree.exit:                                 ; preds = %.critedge2, %237
   tail call void @free(ptr noundef nonnull %151) #16
   %238 = getelementptr i8, ptr %0, i64 64
-  %.val122200 = load ptr, ptr %238, align 8, !tbaa !49
-  %239 = getelementptr i8, ptr %.val122200, i64 4
-  %.val122.val201 = load i32, ptr %239, align 4, !tbaa !30
-  %240 = icmp sgt i32 %.val122.val201, 0
-  br i1 %240, label %.lr.ph205, label %.critedge4
+  %.val122202 = load ptr, ptr %238, align 8, !tbaa !49
+  %239 = getelementptr i8, ptr %.val122202, i64 4
+  %.val122.val203 = load i32, ptr %239, align 4, !tbaa !30
+  %240 = icmp sgt i32 %.val122.val203, 0
+  br i1 %240, label %.lr.ph207, label %.critedge4
 
-.lr.ph205:                                        ; preds = %Vec_PtrFree.exit, %245
-  %indvars.iv212 = phi i64 [ %indvars.iv.next213, %245 ], [ 0, %Vec_PtrFree.exit ]
-  %.val122.val204 = phi i32 [ %.val122.val, %245 ], [ %.val122.val201, %Vec_PtrFree.exit ]
-  %.val122203 = phi ptr [ %.val122, %245 ], [ %.val122200, %Vec_PtrFree.exit ]
+.lr.ph207:                                        ; preds = %Vec_PtrFree.exit, %245
+  %indvars.iv214 = phi i64 [ %indvars.iv.next215, %245 ], [ 0, %Vec_PtrFree.exit ]
+  %.val122.val206 = phi i32 [ %.val122.val, %245 ], [ %.val122.val203, %Vec_PtrFree.exit ]
+  %.val122205 = phi ptr [ %.val122, %245 ], [ %.val122202, %Vec_PtrFree.exit ]
   %241 = load i32, ptr %10, align 4, !tbaa !33
-  %242 = sub nsw i32 %.val122.val204, %241
+  %242 = sub nsw i32 %.val122.val206, %241
   %243 = zext i32 %242 to i64
-  %244 = icmp eq i64 %indvars.iv212, %243
+  %244 = icmp eq i64 %indvars.iv214, %243
   br i1 %244, label %.critedge4, label %245
 
-245:                                              ; preds = %.lr.ph205
-  %246 = getelementptr i8, ptr %.val122203, i64 8
+245:                                              ; preds = %.lr.ph207
+  %246 = getelementptr i8, ptr %.val122205, i64 8
   %.val143.val = load ptr, ptr %246, align 8, !tbaa !53
-  %247 = getelementptr inbounds nuw [8 x i8], ptr %.val143.val, i64 %indvars.iv212
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %.val143.val, i64 %indvars.iv214
   %248 = load ptr, ptr %247, align 8, !tbaa !54
   %.val133 = load ptr, ptr %248, align 8, !tbaa !62
   %249 = getelementptr i8, ptr %248, i64 32
@@ -896,17 +900,17 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %237
   %262 = xor i64 %261, %257
   %263 = inttoptr i64 %262 to ptr
   %264 = tail call ptr @Map_ManReadOutputs(ptr noundef nonnull %17) #16
-  %265 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %indvars.iv212
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %indvars.iv214
   store ptr %263, ptr %265, align 8, !tbaa !55
-  %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
+  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %.val122 = load ptr, ptr %238, align 8, !tbaa !49
   %266 = getelementptr i8, ptr %.val122, i64 4
   %.val122.val = load i32, ptr %266, align 4, !tbaa !30
   %267 = sext i32 %.val122.val to i64
-  %268 = icmp slt i64 %indvars.iv.next213, %267
-  br i1 %268, label %.lr.ph205, label %.critedge4, !llvm.loop !68
+  %268 = icmp slt i64 %indvars.iv.next215, %267
+  br i1 %268, label %.lr.ph207, label %.critedge4, !llvm.loop !68
 
-.critedge4:                                       ; preds = %245, %.lr.ph205, %Vec_PtrFree.exit, %5
+.critedge4:                                       ; preds = %245, %.lr.ph207, %Vec_PtrFree.exit, %5
   ret ptr %17
 }
 
@@ -1199,11 +1203,12 @@ define noalias noundef ptr @Abc_NtkMapCopyCiArrival(ptr noundef readonly capture
   %.val.val = load i32, ptr %4, align 4, !tbaa !30
   %5 = sext i32 %.val.val to i64
   %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 12) #17
-  %7 = icmp sgt i32 %.val.val, 0
+  %.val21.val = load i32, ptr %4, align 4, !tbaa !30
+  %7 = icmp sgt i32 %.val21.val, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %2
-  %wide.trip.count = zext nneg i32 %.val.val to i64
+  %wide.trip.count = zext nneg i32 %.val21.val to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1236,7 +1241,7 @@ define noalias noundef ptr @Abc_NtkMapCopyCiArrival(ptr noundef readonly capture
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -1250,11 +1255,12 @@ define noalias noundef ptr @Abc_NtkMapCopyCoRequired(ptr noundef readonly captur
   %.val.val = load i32, ptr %4, align 4, !tbaa !30
   %5 = sext i32 %.val.val to i64
   %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 12) #17
-  %7 = icmp sgt i32 %.val.val, 0
+  %.val21.val = load i32, ptr %4, align 4, !tbaa !30
+  %7 = icmp sgt i32 %.val21.val, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %2
-  %wide.trip.count = zext nneg i32 %.val.val to i64
+  %wide.trip.count = zext nneg i32 %.val21.val to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1295,7 +1301,8 @@ define noalias noundef ptr @Abc_NtkMapCopyCiArrivalCon(ptr noundef readonly capt
   %.val11.val = load i32, ptr %3, align 4, !tbaa !30
   %4 = sext i32 %.val11.val to i64
   %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 12) #17
-  %6 = icmp sgt i32 %.val11.val, 0
+  %.val.val13 = load i32, ptr %3, align 4, !tbaa !30
+  %6 = icmp sgt i32 %.val.val13, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
@@ -1333,7 +1340,8 @@ define noalias noundef ptr @Abc_NtkMapCopyCoRequiredCon(ptr noundef readonly cap
   %.val11.val = load i32, ptr %3, align 4, !tbaa !30
   %4 = sext i32 %.val11.val to i64
   %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 12) #17
-  %6 = icmp sgt i32 %.val11.val, 0
+  %.val.val13 = load i32, ptr %3, align 4, !tbaa !30
+  %6 = icmp sgt i32 %.val.val13, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
@@ -3330,10 +3338,10 @@ declare ptr @Abc_SopRegister(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @Mio_GateReadSop(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -3350,15 +3358,15 @@ attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nofree nounwind }
 attributes #16 = { nounwind }

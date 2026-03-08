@@ -216,7 +216,7 @@ define noalias nonnull ptr @ggml_gallocr_new_n(ptr noundef readonly captures(non
   br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph48, !llvm.loop !42
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 declare i64 @ggml_backend_buft_get_alignment(ptr noundef) local_unnamed_addr #1
@@ -1137,14 +1137,18 @@ ggml_gallocr_alloc_graph_impl.exit:               ; preds = %180, %.preheader122
   %403 = call noalias ptr @calloc(i64 noundef %402, i64 noundef 264) #14
   store ptr %403, ptr %399, align 8, !tbaa !44
   %.not167 = icmp eq ptr %403, null
-  br i1 %.not167, label %404, label %405
+  br i1 %.not167, label %404, label %._crit_edge496
+
+._crit_edge496:                                   ; preds = %398
+  %.pre = load i32, ptr %6, align 4, !tbaa !49
+  br label %405
 
 404:                                              ; preds = %398
   call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.1, i32 noundef 701, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.10) #13
   unreachable
 
-405:                                              ; preds = %398, %ggml_gallocr_alloc_graph_impl.exit
-  %406 = phi i32 [ %401, %398 ], [ %387, %ggml_gallocr_alloc_graph_impl.exit ]
+405:                                              ; preds = %._crit_edge496, %ggml_gallocr_alloc_graph_impl.exit
+  %406 = phi i32 [ %.pre, %._crit_edge496 ], [ %387, %ggml_gallocr_alloc_graph_impl.exit ]
   store i32 %406, ptr %388, align 8, !tbaa !93
   %407 = icmp sgt i32 %406, 0
   br i1 %407, label %.lr.ph335, label %._crit_edge336
@@ -1360,10 +1364,10 @@ ggml_gallocr_hash_get.exit185:                    ; preds = %509, %504
   br label %532
 
 532:                                              ; preds = %ggml_gallocr_hash_get.exit185, %487
-  %.sink662 = phi i64 [ %531, %ggml_gallocr_hash_get.exit185 ], [ 0, %487 ]
+  %.sink666 = phi i64 [ %531, %ggml_gallocr_hash_get.exit185 ], [ 0, %487 ]
   %533 = getelementptr inbounds nuw [24 x i8], ptr %473, i64 %indvars.iv478
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 16
-  store i64 %.sink662, ptr %534, align 8, !tbaa !105
+  store i64 %.sink666, ptr %534, align 8, !tbaa !105
   %indvars.iv.next479 = add nuw nsw i64 %indvars.iv478, 1
   %exitcond481.not = icmp eq i64 %indvars.iv.next479, 10
   br i1 %exitcond481.not, label %474, label %478, !llvm.loop !106
@@ -1377,14 +1381,18 @@ ggml_gallocr_hash_get.exit185:                    ; preds = %509, %504
   %540 = call noalias ptr @calloc(i64 noundef %539, i64 noundef 24) #14
   store ptr %540, ptr %536, align 8, !tbaa !45
   %.not168 = icmp eq ptr %540, null
-  br i1 %.not168, label %541, label %542
+  br i1 %.not168, label %541, label %._crit_edge497
+
+._crit_edge497:                                   ; preds = %535
+  %.pre498 = load i32, ptr %8, align 8, !tbaa !51
+  br label %542
 
 541:                                              ; preds = %535
   call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.1, i32 noundef 734, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.11) #13
   unreachable
 
-542:                                              ; preds = %535, %._crit_edge336
-  %543 = phi i32 [ %538, %535 ], [ %414, %._crit_edge336 ]
+542:                                              ; preds = %._crit_edge497, %._crit_edge336
+  %543 = phi i32 [ %.pre498, %._crit_edge497 ], [ %414, %._crit_edge336 ]
   store i32 %543, ptr %412, align 8, !tbaa !95
   %544 = icmp sgt i32 %543, 0
   br i1 %544, label %.lr.ph340, label %.preheader198
@@ -1467,18 +1475,18 @@ ggml_gallocr_hash_get.exit190:                    ; preds = %574, %569
   br i1 %.not171, label %588, label %ggml_gallocr_hash_get.exit190._crit_edge
 
 ggml_gallocr_hash_get.exit190._crit_edge:         ; preds = %ggml_gallocr_hash_get.exit190
-  %.pre = load ptr, ptr %548, align 8, !tbaa !45
+  %.pre499 = load ptr, ptr %548, align 8, !tbaa !45
   br label %591
 
 588:                                              ; preds = %ggml_gallocr_hash_get.exit190
   %589 = getelementptr inbounds nuw i8, ptr %555, i64 248
   %590 = load ptr, ptr %589, align 8, !tbaa !96
   %.not172 = icmp eq ptr %590, null
-  %.pre496 = load ptr, ptr %548, align 8, !tbaa !45
+  %.pre500 = load ptr, ptr %548, align 8, !tbaa !45
   br i1 %.not172, label %595, label %591
 
 591:                                              ; preds = %ggml_gallocr_hash_get.exit190._crit_edge, %588
-  %592 = phi ptr [ %.pre, %ggml_gallocr_hash_get.exit190._crit_edge ], [ %.pre496, %588 ]
+  %592 = phi ptr [ %.pre499, %ggml_gallocr_hash_get.exit190._crit_edge ], [ %.pre500, %588 ]
   %593 = getelementptr inbounds nuw [24 x i8], ptr %592, i64 %indvars.iv485
   store i32 -1, ptr %593, align 8, !tbaa !107
   %594 = getelementptr inbounds nuw i8, ptr %593, i64 8
@@ -1488,7 +1496,7 @@ ggml_gallocr_hash_get.exit190._crit_edge:         ; preds = %ggml_gallocr_hash_g
 595:                                              ; preds = %588
   %596 = getelementptr inbounds nuw i8, ptr %585, i64 8
   %597 = load i32, ptr %596, align 8, !tbaa !83
-  %598 = getelementptr inbounds nuw [24 x i8], ptr %.pre496, i64 %indvars.iv485
+  %598 = getelementptr inbounds nuw [24 x i8], ptr %.pre500, i64 %indvars.iv485
   store i32 %597, ptr %598, align 8, !tbaa !107
   %599 = getelementptr inbounds nuw i8, ptr %585, i64 16
   %600 = load i64, ptr %599, align 8, !tbaa !82
@@ -1504,10 +1512,10 @@ ggml_gallocr_hash_get.exit190._crit_edge:         ; preds = %ggml_gallocr_hash_g
 
 608:                                              ; preds = %595, %591
   %609 = phi ptr [ %607, %595 ], [ %592, %591 ]
-  %.sink665 = phi i64 [ %606, %595 ], [ 0, %591 ]
+  %.sink669 = phi i64 [ %606, %595 ], [ 0, %591 ]
   %610 = getelementptr inbounds nuw [24 x i8], ptr %609, i64 %indvars.iv485
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 16
-  store i64 %.sink665, ptr %611, align 8, !tbaa !110
+  store i64 %.sink669, ptr %611, align 8, !tbaa !110
   %indvars.iv.next486 = add nuw nsw i64 %indvars.iv485, 1
   %612 = load i32, ptr %8, align 8, !tbaa !51
   %613 = sext i32 %612 to i64
@@ -1554,11 +1562,11 @@ ggml_gallocr_hash_get.exit190._crit_edge:         ; preds = %ggml_gallocr_hash_g
 
 631:                                              ; preds = %.loopexit
   %632 = call i64 @ggml_backend_buffer_get_size(ptr noundef nonnull %630) #12
-  %.pre497.pre = load ptr, ptr %551, align 8, !tbaa !26
+  %.pre501.pre = load ptr, ptr %551, align 8, !tbaa !26
   br label %633
 
 633:                                              ; preds = %.loopexit, %631
-  %.pre497 = phi ptr [ %.pre497.pre, %631 ], [ %628, %.loopexit ]
+  %.pre501 = phi ptr [ %.pre501.pre, %631 ], [ %628, %.loopexit ]
   %634 = phi i64 [ %632, %631 ], [ 0, %.loopexit ]
   %635 = load ptr, ptr %550, align 8, !tbaa !27
   %636 = getelementptr inbounds nuw [8 x i8], ptr %635, i64 %indvars.iv493
@@ -1566,16 +1574,16 @@ ggml_gallocr_hash_get.exit190._crit_edge:         ; preds = %ggml_gallocr_hash_g
   %638 = getelementptr i8, ptr %637, i64 4112
   %.val = load i64, ptr %638, align 8, !tbaa !41
   %639 = icmp ugt i64 %.val, %634
-  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre497, i64 %indvars.iv493
-  %.pre499 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !31
-  br i1 %639, label %._crit_edge498, label %640
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre501, i64 %indvars.iv493
+  %.pre503 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !31
+  br i1 %639, label %._crit_edge502, label %640
 
 640:                                              ; preds = %633
-  %641 = icmp eq ptr %.pre499, null
-  br i1 %641, label %._crit_edge498, label %655
+  %641 = icmp eq ptr %.pre503, null
+  br i1 %641, label %._crit_edge502, label %655
 
-._crit_edge498:                                   ; preds = %633, %640
-  %642 = phi ptr [ null, %640 ], [ %.pre499, %633 ]
+._crit_edge502:                                   ; preds = %633, %640
+  %642 = phi ptr [ null, %640 ], [ %.pre503, %633 ]
   call void @ggml_backend_buffer_free(ptr noundef %642) #12
   %643 = load ptr, ptr %0, align 8, !tbaa !13
   %644 = getelementptr inbounds nuw [8 x i8], ptr %643, i64 %indvars.iv493
@@ -1587,7 +1595,7 @@ ggml_gallocr_hash_get.exit190._crit_edge:         ; preds = %ggml_gallocr_hash_g
   %649 = icmp eq ptr %646, null
   br i1 %649, label %.critedge, label %654
 
-.critedge:                                        ; preds = %._crit_edge498
+.critedge:                                        ; preds = %._crit_edge502
   %650 = load ptr, ptr %0, align 8, !tbaa !13
   %651 = getelementptr inbounds nuw [8 x i8], ptr %650, i64 %indvars.iv493
   %652 = load ptr, ptr %651, align 8, !tbaa !29
@@ -1595,7 +1603,7 @@ ggml_gallocr_hash_get.exit190._crit_edge:         ; preds = %ggml_gallocr_hash_g
   call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.ggml_gallocr_reserve_n, ptr noundef %653, i64 noundef %.val) #12
   br label %.critedge179
 
-654:                                              ; preds = %._crit_edge498
+654:                                              ; preds = %._crit_edge502
   call void @ggml_backend_buffer_set_usage(ptr noundef nonnull %646, i32 noundef 2) #12
   br label %655
 
@@ -1616,7 +1624,7 @@ declare void @ggml_hash_set_new(ptr dead_on_unwind writable sret(%struct.ggml_ha
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
@@ -2843,7 +2851,7 @@ ggml_gallocr_is_allocated.exit.thread:            ; preds = %ggml_gallocr_hash_g
 
 declare void @ggml_backend_view_init(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -2861,12 +2869,12 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

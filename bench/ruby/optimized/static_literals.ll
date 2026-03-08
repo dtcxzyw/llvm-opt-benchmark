@@ -34,16 +34,16 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, i32 noundef %1, ptr no
     i16 82, label %13
     i16 138, label %13
     i16 54, label %18
-    i16 123, label %72
-    i16 68, label %72
-    i16 141, label %78
-    i16 137, label %78
-    i16 125, label %84
-    i16 143, label %90
-    i16 144, label %96
-    i16 51, label %101
-    i16 108, label %106
-    i16 136, label %111
+    i16 123, label %73
+    i16 68, label %73
+    i16 141, label %79
+    i16 137, label %79
+    i16 125, label %85
+    i16 143, label %91
+    i16 144, label %97
+    i16 51, label %102
+    i16 108, label %107
+    i16 136, label %112
   ]
 
 13:                                               ; preds = %5, %5
@@ -76,7 +76,7 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, i32 noundef %1, ptr no
 
 ._crit_edge72.i:                                  ; preds = %18
   %.pre73.i = add i32 %27, -1
-  br label %50
+  br label %51
 
 28:                                               ; preds = %18
   %29 = icmp eq i32 %27, 0
@@ -89,188 +89,190 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, i32 noundef %1, ptr no
 
 34:                                               ; preds = %28
   %35 = add i32 %spec.select.i, -1
-  br i1 %29, label %._crit_edge.i, label %.lr.ph.i
+  %36 = load i32, ptr %26, align 4, !tbaa !23
+  %.not67.i = icmp eq i32 %36, 0
+  br i1 %.not67.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %34, %45
-  %36 = phi i32 [ %46, %45 ], [ %27, %34 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %45 ], [ 0, %34 ]
-  %37 = load ptr, ptr %19, align 8, !tbaa !24
-  %38 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv.i
-  %39 = load ptr, ptr %38, align 8, !tbaa !25
-  %.not56.i = icmp eq ptr %39, null
-  br i1 %.not56.i, label %45, label %40
+.lr.ph.i:                                         ; preds = %34, %46
+  %37 = phi i32 [ %47, %46 ], [ %36, %34 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %46 ], [ 0, %34 ]
+  %38 = load ptr, ptr %19, align 8, !tbaa !24
+  %39 = getelementptr [8 x i8], ptr %38, i64 %indvars.iv.i
+  %40 = load ptr, ptr %39, align 8, !tbaa !25
+  %.not56.i = icmp eq ptr %40, null
+  br i1 %.not56.i, label %46, label %41
 
-40:                                               ; preds = %.lr.ph.i
-  %41 = call fastcc i32 @node_hash(ptr noundef nonnull %7, ptr noundef nonnull %39)
-  %42 = and i32 %41, %35
-  %43 = zext i32 %42 to i64
-  %44 = getelementptr [8 x i8], ptr %32, i64 %43
-  store ptr %39, ptr %44, align 8, !tbaa !25
+41:                                               ; preds = %.lr.ph.i
+  %42 = call fastcc i32 @node_hash(ptr noundef nonnull %7, ptr noundef nonnull %40)
+  %43 = and i32 %42, %35
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr [8 x i8], ptr %32, i64 %44
+  store ptr %40, ptr %45, align 8, !tbaa !25
   %.pre.i = load i32, ptr %26, align 4, !tbaa !23
-  br label %45
+  br label %46
 
-45:                                               ; preds = %40, %.lr.ph.i
-  %46 = phi i32 [ %.pre.i, %40 ], [ %36, %.lr.ph.i ]
+46:                                               ; preds = %41, %.lr.ph.i
+  %47 = phi i32 [ %.pre.i, %41 ], [ %37, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %47 = zext i32 %46 to i64
-  %48 = icmp samesign ult i64 %indvars.iv.next.i, %47
-  br i1 %48, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !27
+  %48 = zext i32 %47 to i64
+  %49 = icmp samesign ult i64 %indvars.iv.next.i, %48
+  br i1 %49, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !27
 
-._crit_edge.i:                                    ; preds = %45, %34
-  %49 = load ptr, ptr %19, align 8, !tbaa !24
-  tail call void @free(ptr noundef %49) #9
+._crit_edge.i:                                    ; preds = %46, %34
+  %50 = load ptr, ptr %19, align 8, !tbaa !24
+  tail call void @free(ptr noundef %50) #9
   store ptr %32, ptr %19, align 8, !tbaa !24
   store i32 %spec.select.i, ptr %26, align 4, !tbaa !23
-  br label %50
+  br label %51
 
-50:                                               ; preds = %._crit_edge.i, %._crit_edge72.i
+51:                                               ; preds = %._crit_edge.i, %._crit_edge72.i
   %.pre-phi.i = phi i32 [ %.pre73.i, %._crit_edge72.i ], [ %35, %._crit_edge.i ]
-  %51 = call fastcc i32 @node_hash(ptr noundef nonnull %7, ptr noundef nonnull %3)
-  %.05059.i = and i32 %51, %.pre-phi.i
-  %52 = load ptr, ptr %19, align 8, !tbaa !24
-  %53 = zext i32 %.05059.i to i64
-  %54 = getelementptr [8 x i8], ptr %52, i64 %53
-  %55 = load ptr, ptr %54, align 8, !tbaa !25
-  %.not5760.i = icmp eq ptr %55, null
+  %52 = call fastcc i32 @node_hash(ptr noundef nonnull %7, ptr noundef nonnull %3)
+  %.05059.i = and i32 %52, %.pre-phi.i
+  %53 = load ptr, ptr %19, align 8, !tbaa !24
+  %54 = zext i32 %.05059.i to i64
+  %55 = getelementptr [8 x i8], ptr %53, i64 %54
+  %56 = load ptr, ptr %55, align 8, !tbaa !25
+  %.not5760.i = icmp eq ptr %56, null
   br i1 %.not5760.i, label %._crit_edge64.thread.i, label %.lr.ph63.i.preheader
 
-.lr.ph63.i.preheader:                             ; preds = %50
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %57 = load double, ptr %56, align 8, !tbaa !29
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %59 = load double, ptr %58, align 8, !tbaa !29
-  %60 = fcmp ueq double %59, %57
-  br i1 %60, label %.loopexit, label %.lr.ph
+.lr.ph63.i.preheader:                             ; preds = %51
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %58 = load double, ptr %57, align 8, !tbaa !29
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %60 = load double, ptr %59, align 8, !tbaa !29
+  %61 = fcmp ueq double %60, %58
+  br i1 %61, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph63.i.preheader, %.lr.ph63.i
   %.05061.i64 = phi i32 [ %.050.i, %.lr.ph63.i ], [ %.05059.i, %.lr.ph63.i.preheader ]
-  %61 = add i32 %.05061.i64, 1
-  %.050.i = and i32 %61, %.pre-phi.i
-  %62 = zext i32 %.050.i to i64
-  %63 = getelementptr [8 x i8], ptr %52, i64 %62
-  %64 = load ptr, ptr %63, align 8, !tbaa !25
-  %.not57.i = icmp eq ptr %64, null
+  %62 = add i32 %.05061.i64, 1
+  %.050.i = and i32 %62, %.pre-phi.i
+  %63 = zext i32 %.050.i to i64
+  %64 = getelementptr [8 x i8], ptr %53, i64 %63
+  %65 = load ptr, ptr %64, align 8, !tbaa !25
+  %.not57.i = icmp eq ptr %65, null
   br i1 %.not57.i, label %._crit_edge64.thread.i, label %.lr.ph63.i, !llvm.loop !32
 
 .lr.ph63.i:                                       ; preds = %.lr.ph
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %66 = load double, ptr %65, align 8, !tbaa !29
-  %67 = fcmp ueq double %66, %57
-  br i1 %67, label %.loopexit, label %.lr.ph, !llvm.loop !32
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  %67 = load double, ptr %66, align 8, !tbaa !29
+  %68 = fcmp ueq double %67, %58
+  br i1 %68, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
-._crit_edge64.thread.i:                           ; preds = %.lr.ph, %50
-  %.lcssa.ph.i = phi i64 [ %53, %50 ], [ %62, %.lr.ph ]
-  %68 = getelementptr [8 x i8], ptr %52, i64 %.lcssa.ph.i
-  %69 = load i32, ptr %23, align 8, !tbaa !20
-  %70 = add i32 %69, 1
-  store i32 %70, ptr %23, align 8, !tbaa !20
-  store ptr %3, ptr %68, align 8, !tbaa !25
+._crit_edge64.thread.i:                           ; preds = %.lr.ph, %51
+  %.lcssa.ph.i = phi i64 [ %54, %51 ], [ %63, %.lr.ph ]
+  %69 = getelementptr [8 x i8], ptr %53, i64 %.lcssa.ph.i
+  %70 = load i32, ptr %23, align 8, !tbaa !20
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %23, align 8, !tbaa !20
+  store ptr %3, ptr %69, align 8, !tbaa !25
   br label %pm_node_hash_insert.exit
 
 .loopexit:                                        ; preds = %.lr.ph63.i, %.lr.ph63.i.preheader
-  %.pre70.pre.i = phi ptr [ %55, %.lr.ph63.i.preheader ], [ %64, %.lr.ph63.i ]
-  %.lcssa = phi i64 [ %53, %.lr.ph63.i.preheader ], [ %62, %.lr.ph63.i ]
-  br i1 %4, label %71, label %pm_node_hash_insert.exit
+  %.pre70.pre.i = phi ptr [ %56, %.lr.ph63.i.preheader ], [ %65, %.lr.ph63.i ]
+  %.lcssa = phi i64 [ %54, %.lr.ph63.i.preheader ], [ %63, %.lr.ph63.i ]
+  br i1 %4, label %72, label %pm_node_hash_insert.exit
 
-71:                                               ; preds = %.loopexit
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr [8 x i8], ptr %52, i64 %.lcssa
+72:                                               ; preds = %.loopexit
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr [8 x i8], ptr %53, i64 %.lcssa
   store ptr %3, ptr %.phi.trans.insert.phi.trans.insert.i, align 8, !tbaa !25
   br label %pm_node_hash_insert.exit
 
-72:                                               ; preds = %5, %5
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 32
+73:                                               ; preds = %5, %5
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %0, ptr %8, align 8, !tbaa !16
-  %74 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %1, ptr %74, align 8, !tbaa !18
-  %75 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 0, ptr %75, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr null, ptr %76, align 8, !tbaa !19
-  %77 = call fastcc ptr @pm_node_hash_insert(ptr noundef nonnull %73, ptr noundef %8, ptr noundef nonnull %3, i1 noundef zeroext %4, ptr noundef nonnull @pm_compare_number_nodes)
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 %1, ptr %75, align 8, !tbaa !18
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i32 0, ptr %76, align 4
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr null, ptr %77, align 8, !tbaa !19
+  %78 = call fastcc ptr @pm_node_hash_insert(ptr noundef nonnull %74, ptr noundef %8, ptr noundef nonnull %3, i1 noundef zeroext %4, ptr noundef nonnull @pm_compare_number_nodes)
   br label %pm_node_hash_insert.exit
 
-78:                                               ; preds = %5, %5
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 48
+79:                                               ; preds = %5, %5
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %0, ptr %9, align 8, !tbaa !16
-  %80 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %1, ptr %80, align 8, !tbaa !18
-  %81 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %81, align 4
-  %82 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr null, ptr %82, align 8, !tbaa !19
-  %83 = call fastcc ptr @pm_node_hash_insert(ptr noundef nonnull %79, ptr noundef %9, ptr noundef nonnull %3, i1 noundef zeroext %4, ptr noundef nonnull @pm_compare_string_nodes)
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 %1, ptr %81, align 8, !tbaa !18
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i32 0, ptr %82, align 4
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr null, ptr %83, align 8, !tbaa !19
+  %84 = call fastcc ptr @pm_node_hash_insert(ptr noundef nonnull %80, ptr noundef %9, ptr noundef nonnull %3, i1 noundef zeroext %4, ptr noundef nonnull @pm_compare_string_nodes)
   br label %pm_node_hash_insert.exit
 
-84:                                               ; preds = %5
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 64
+85:                                               ; preds = %5
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %0, ptr %10, align 8, !tbaa !16
-  %86 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %1, ptr %86, align 8, !tbaa !18
-  %87 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %87, align 4
-  %88 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr null, ptr %88, align 8, !tbaa !19
-  %89 = call fastcc ptr @pm_node_hash_insert(ptr noundef nonnull %85, ptr noundef %10, ptr noundef nonnull %3, i1 noundef zeroext %4, ptr noundef nonnull @pm_compare_regular_expression_nodes)
+  %87 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i32 %1, ptr %87, align 8, !tbaa !18
+  %88 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  store i32 0, ptr %88, align 4
+  %89 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr null, ptr %89, align 8, !tbaa !19
+  %90 = call fastcc ptr @pm_node_hash_insert(ptr noundef nonnull %86, ptr noundef %10, ptr noundef nonnull %3, i1 noundef zeroext %4, ptr noundef nonnull @pm_compare_regular_expression_nodes)
   br label %pm_node_hash_insert.exit
 
-90:                                               ; preds = %5
-  %91 = getelementptr inbounds nuw i8, ptr %2, i64 80
+91:                                               ; preds = %5
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %0, ptr %11, align 8, !tbaa !16
-  %92 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 %1, ptr %92, align 8, !tbaa !18
-  %93 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 0, ptr %93, align 4
-  %94 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr null, ptr %94, align 8, !tbaa !19
-  %95 = call fastcc ptr @pm_node_hash_insert(ptr noundef nonnull %91, ptr noundef %11, ptr noundef nonnull %3, i1 noundef zeroext %4, ptr noundef nonnull @pm_compare_string_nodes)
+  %93 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i32 %1, ptr %93, align 8, !tbaa !18
+  %94 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  store i32 0, ptr %94, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr null, ptr %95, align 8, !tbaa !19
+  %96 = call fastcc ptr @pm_node_hash_insert(ptr noundef nonnull %92, ptr noundef %11, ptr noundef nonnull %3, i1 noundef zeroext %4, ptr noundef nonnull @pm_compare_string_nodes)
   br label %pm_node_hash_insert.exit
 
-96:                                               ; preds = %5
-  %97 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %98 = load ptr, ptr %97, align 8, !tbaa !33
-  %99 = icmp eq ptr %98, null
-  %or.cond = or i1 %4, %99
-  br i1 %or.cond, label %100, label %pm_node_hash_insert.exit
+97:                                               ; preds = %5
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %99 = load ptr, ptr %98, align 8, !tbaa !33
+  %100 = icmp eq ptr %99, null
+  %or.cond = or i1 %4, %100
+  br i1 %or.cond, label %101, label %pm_node_hash_insert.exit
 
-100:                                              ; preds = %96
-  store ptr %3, ptr %97, align 8, !tbaa !33
+101:                                              ; preds = %97
+  store ptr %3, ptr %98, align 8, !tbaa !33
   br label %pm_node_hash_insert.exit
 
-101:                                              ; preds = %5
-  %102 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %103 = load ptr, ptr %102, align 8, !tbaa !35
-  %104 = icmp eq ptr %103, null
-  %or.cond3 = or i1 %4, %104
-  br i1 %or.cond3, label %105, label %pm_node_hash_insert.exit
+102:                                              ; preds = %5
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %104 = load ptr, ptr %103, align 8, !tbaa !35
+  %105 = icmp eq ptr %104, null
+  %or.cond3 = or i1 %4, %105
+  br i1 %or.cond3, label %106, label %pm_node_hash_insert.exit
 
-105:                                              ; preds = %101
-  store ptr %3, ptr %102, align 8, !tbaa !35
+106:                                              ; preds = %102
+  store ptr %3, ptr %103, align 8, !tbaa !35
   br label %pm_node_hash_insert.exit
 
-106:                                              ; preds = %5
-  %107 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %108 = load ptr, ptr %107, align 8, !tbaa !36
-  %109 = icmp eq ptr %108, null
-  %or.cond5 = or i1 %4, %109
-  br i1 %or.cond5, label %110, label %pm_node_hash_insert.exit
+107:                                              ; preds = %5
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %109 = load ptr, ptr %108, align 8, !tbaa !36
+  %110 = icmp eq ptr %109, null
+  %or.cond5 = or i1 %4, %110
+  br i1 %or.cond5, label %111, label %pm_node_hash_insert.exit
 
-110:                                              ; preds = %106
-  store ptr %3, ptr %107, align 8, !tbaa !36
+111:                                              ; preds = %107
+  store ptr %3, ptr %108, align 8, !tbaa !36
   br label %pm_node_hash_insert.exit
 
-111:                                              ; preds = %5
-  %112 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %113 = load ptr, ptr %112, align 8, !tbaa !37
-  %114 = icmp eq ptr %113, null
-  %or.cond7 = or i1 %4, %114
-  br i1 %or.cond7, label %115, label %pm_node_hash_insert.exit
+112:                                              ; preds = %5
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %114 = load ptr, ptr %113, align 8, !tbaa !37
+  %115 = icmp eq ptr %114, null
+  %or.cond7 = or i1 %4, %115
+  br i1 %or.cond7, label %116, label %pm_node_hash_insert.exit
 
-115:                                              ; preds = %111
-  store ptr %3, ptr %112, align 8, !tbaa !37
+116:                                              ; preds = %112
+  store ptr %3, ptr %113, align 8, !tbaa !37
   br label %pm_node_hash_insert.exit
 
-pm_node_hash_insert.exit:                         ; preds = %71, %.loopexit, %._crit_edge64.thread.i, %28, %5, %115, %111, %110, %106, %105, %101, %100, %96, %90, %84, %78, %72, %13
-  %.0 = phi ptr [ %113, %115 ], [ %17, %13 ], [ null, %5 ], [ %77, %72 ], [ %83, %78 ], [ %89, %84 ], [ %95, %90 ], [ %108, %110 ], [ %98, %100 ], [ %103, %105 ], [ %98, %96 ], [ %103, %101 ], [ %108, %106 ], [ %113, %111 ], [ null, %28 ], [ %.pre70.pre.i, %.loopexit ], [ %.pre70.pre.i, %71 ], [ null, %._crit_edge64.thread.i ]
+pm_node_hash_insert.exit:                         ; preds = %72, %.loopexit, %._crit_edge64.thread.i, %28, %5, %116, %112, %111, %107, %106, %102, %101, %97, %91, %85, %79, %73, %13
+  %.0 = phi ptr [ %114, %116 ], [ %17, %13 ], [ null, %5 ], [ %78, %73 ], [ %84, %79 ], [ %90, %85 ], [ %96, %91 ], [ %109, %111 ], [ %99, %101 ], [ %104, %106 ], [ %99, %97 ], [ %104, %102 ], [ %109, %107 ], [ %114, %112 ], [ null, %28 ], [ %.pre70.pre.i, %.loopexit ], [ %.pre70.pre.i, %72 ], [ null, %._crit_edge64.thread.i ]
   ret ptr %.0
 }
 
@@ -286,7 +288,7 @@ define internal fastcc ptr @pm_node_hash_insert(ptr noundef captures(none) %0, p
 
 ._crit_edge72:                                    ; preds = %5
   %.pre73 = add i32 %10, -1
-  br label %33
+  br label %34
 
 11:                                               ; preds = %5
   %12 = icmp eq i32 %10, 0
@@ -299,106 +301,108 @@ define internal fastcc ptr @pm_node_hash_insert(ptr noundef captures(none) %0, p
 
 17:                                               ; preds = %11
   %18 = add i32 %spec.select, -1
-  br i1 %12, label %._crit_edge, label %.lr.ph
+  %19 = load i32, ptr %9, align 4, !tbaa !23
+  %.not67 = icmp eq i32 %19, 0
+  br i1 %.not67, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %17, %28
-  %19 = phi i32 [ %29, %28 ], [ %10, %17 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %17 ]
-  %20 = load ptr, ptr %0, align 8, !tbaa !24
-  %21 = getelementptr [8 x i8], ptr %20, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !25
-  %.not56 = icmp eq ptr %22, null
-  br i1 %.not56, label %28, label %23
+.lr.ph:                                           ; preds = %17, %29
+  %20 = phi i32 [ %30, %29 ], [ %19, %17 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %17 ]
+  %21 = load ptr, ptr %0, align 8, !tbaa !24
+  %22 = getelementptr [8 x i8], ptr %21, i64 %indvars.iv
+  %23 = load ptr, ptr %22, align 8, !tbaa !25
+  %.not56 = icmp eq ptr %23, null
+  br i1 %.not56, label %29, label %24
 
-23:                                               ; preds = %.lr.ph
-  %24 = tail call fastcc i32 @node_hash(ptr noundef %1, ptr noundef nonnull %22)
-  %25 = and i32 %24, %18
-  %26 = zext i32 %25 to i64
-  %27 = getelementptr [8 x i8], ptr %15, i64 %26
-  store ptr %22, ptr %27, align 8, !tbaa !25
+24:                                               ; preds = %.lr.ph
+  %25 = tail call fastcc i32 @node_hash(ptr noundef %1, ptr noundef nonnull %23)
+  %26 = and i32 %25, %18
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr [8 x i8], ptr %15, i64 %27
+  store ptr %23, ptr %28, align 8, !tbaa !25
   %.pre = load i32, ptr %9, align 4, !tbaa !23
-  br label %28
+  br label %29
 
-28:                                               ; preds = %23, %.lr.ph
-  %29 = phi i32 [ %.pre, %23 ], [ %19, %.lr.ph ]
+29:                                               ; preds = %24, %.lr.ph
+  %30 = phi i32 [ %.pre, %24 ], [ %20, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = zext i32 %29 to i64
-  %31 = icmp samesign ult i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  %31 = zext i32 %30 to i64
+  %32 = icmp samesign ult i64 %indvars.iv.next, %31
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %28, %17
-  %32 = load ptr, ptr %0, align 8, !tbaa !24
-  tail call void @free(ptr noundef %32) #9
+._crit_edge:                                      ; preds = %29, %17
+  %33 = load ptr, ptr %0, align 8, !tbaa !24
+  tail call void @free(ptr noundef %33) #9
   store ptr %15, ptr %0, align 8, !tbaa !24
   store i32 %spec.select, ptr %9, align 4, !tbaa !23
-  br label %33
+  br label %34
 
-33:                                               ; preds = %._crit_edge72, %._crit_edge
+34:                                               ; preds = %._crit_edge72, %._crit_edge
   %.pre-phi = phi i32 [ %.pre73, %._crit_edge72 ], [ %18, %._crit_edge ]
-  %34 = tail call fastcc i32 @node_hash(ptr noundef %1, ptr noundef %2)
-  %.05059 = and i32 %34, %.pre-phi
-  %35 = load ptr, ptr %0, align 8, !tbaa !24
-  %36 = zext i32 %.05059 to i64
-  %37 = getelementptr [8 x i8], ptr %35, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !25
-  %.not5760 = icmp eq ptr %38, null
+  %35 = tail call fastcc i32 @node_hash(ptr noundef %1, ptr noundef %2)
+  %.05059 = and i32 %35, %.pre-phi
+  %36 = load ptr, ptr %0, align 8, !tbaa !24
+  %37 = zext i32 %.05059 to i64
+  %38 = getelementptr [8 x i8], ptr %36, i64 %37
+  %39 = load ptr, ptr %38, align 8, !tbaa !25
+  %.not5760 = icmp eq ptr %39, null
   br i1 %.not5760, label %._crit_edge64.thread, label %.lr.ph63.preheader
 
-.lr.ph63.preheader:                               ; preds = %33
-  %39 = tail call i32 %4(ptr noundef nonnull %1, ptr noundef nonnull %38, ptr noundef %2) #9
-  %40 = icmp eq i32 %39, 0
-  %.pre69.pre87 = load ptr, ptr %0, align 8, !tbaa !24
-  br i1 %40, label %._crit_edge64, label %.lr.ph90
+.lr.ph63.preheader:                               ; preds = %34
+  %40 = tail call i32 %4(ptr noundef nonnull %1, ptr noundef nonnull %39, ptr noundef %2) #9
+  %41 = icmp eq i32 %40, 0
+  %.pre69.pre88 = load ptr, ptr %0, align 8, !tbaa !24
+  br i1 %41, label %._crit_edge64, label %.lr.ph91
 
-.lr.ph90:                                         ; preds = %.lr.ph63.preheader, %.lr.ph63
-  %.pre69.pre89 = phi ptr [ %.pre69.pre, %.lr.ph63 ], [ %.pre69.pre87, %.lr.ph63.preheader ]
-  %.0506188 = phi i32 [ %.050, %.lr.ph63 ], [ %.05059, %.lr.ph63.preheader ]
-  %41 = add i32 %.0506188, 1
-  %.050 = and i32 %41, %.pre-phi
-  %42 = zext i32 %.050 to i64
-  %43 = getelementptr [8 x i8], ptr %.pre69.pre89, i64 %42
-  %44 = load ptr, ptr %43, align 8, !tbaa !25
-  %.not57 = icmp eq ptr %44, null
+.lr.ph91:                                         ; preds = %.lr.ph63.preheader, %.lr.ph63
+  %.pre69.pre90 = phi ptr [ %.pre69.pre, %.lr.ph63 ], [ %.pre69.pre88, %.lr.ph63.preheader ]
+  %.0506189 = phi i32 [ %.050, %.lr.ph63 ], [ %.05059, %.lr.ph63.preheader ]
+  %42 = add i32 %.0506189, 1
+  %.050 = and i32 %42, %.pre-phi
+  %43 = zext i32 %.050 to i64
+  %44 = getelementptr [8 x i8], ptr %.pre69.pre90, i64 %43
+  %45 = load ptr, ptr %44, align 8, !tbaa !25
+  %.not57 = icmp eq ptr %45, null
   br i1 %.not57, label %._crit_edge64.thread, label %.lr.ph63, !llvm.loop !32
 
-.lr.ph63:                                         ; preds = %.lr.ph90
-  %45 = tail call i32 %4(ptr noundef nonnull %1, ptr noundef nonnull %44, ptr noundef %2) #9
-  %46 = icmp eq i32 %45, 0
+.lr.ph63:                                         ; preds = %.lr.ph91
+  %46 = tail call i32 %4(ptr noundef nonnull %1, ptr noundef nonnull %45, ptr noundef %2) #9
+  %47 = icmp eq i32 %46, 0
   %.pre69.pre = load ptr, ptr %0, align 8, !tbaa !24
-  br i1 %46, label %._crit_edge64, label %.lr.ph90, !llvm.loop !32
+  br i1 %47, label %._crit_edge64, label %.lr.ph91, !llvm.loop !32
 
-._crit_edge64.thread:                             ; preds = %.lr.ph90, %33
-  %.ph = phi ptr [ %35, %33 ], [ %.pre69.pre89, %.lr.ph90 ]
-  %.lcssa.ph = phi i64 [ %36, %33 ], [ %42, %.lr.ph90 ]
-  %47 = getelementptr [8 x i8], ptr %.ph, i64 %.lcssa.ph
-  br label %50
+._crit_edge64.thread:                             ; preds = %.lr.ph91, %34
+  %.ph = phi ptr [ %36, %34 ], [ %.pre69.pre90, %.lr.ph91 ]
+  %.lcssa.ph = phi i64 [ %37, %34 ], [ %43, %.lr.ph91 ]
+  %48 = getelementptr [8 x i8], ptr %.ph, i64 %.lcssa.ph
+  br label %51
 
 ._crit_edge64:                                    ; preds = %.lr.ph63, %.lr.ph63.preheader
-  %.lcssa = phi i64 [ %36, %.lr.ph63.preheader ], [ %42, %.lr.ph63 ]
-  %.pre69.pre.lcssa = phi ptr [ %.pre69.pre87, %.lr.ph63.preheader ], [ %.pre69.pre, %.lr.ph63 ]
+  %.lcssa = phi i64 [ %37, %.lr.ph63.preheader ], [ %43, %.lr.ph63 ]
+  %.pre69.pre.lcssa = phi ptr [ %.pre69.pre88, %.lr.ph63.preheader ], [ %.pre69.pre, %.lr.ph63 ]
   %.phi.trans.insert.phi.trans.insert = getelementptr [8 x i8], ptr %.pre69.pre.lcssa, i64 %.lcssa
   %.pre70.pre = load ptr, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !25
-  %48 = getelementptr [8 x i8], ptr %.pre69.pre.lcssa, i64 %.lcssa
-  %49 = icmp eq ptr %.pre70.pre, null
-  br i1 %49, label %50, label %54
+  %49 = getelementptr [8 x i8], ptr %.pre69.pre.lcssa, i64 %.lcssa
+  %50 = icmp eq ptr %.pre70.pre, null
+  br i1 %50, label %51, label %55
 
-50:                                               ; preds = %._crit_edge64.thread, %._crit_edge64
-  %51 = phi ptr [ %47, %._crit_edge64.thread ], [ %48, %._crit_edge64 ]
-  %52 = load i32, ptr %6, align 8, !tbaa !20
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %6, align 8, !tbaa !20
-  store ptr %2, ptr %51, align 8, !tbaa !25
+51:                                               ; preds = %._crit_edge64.thread, %._crit_edge64
+  %52 = phi ptr [ %48, %._crit_edge64.thread ], [ %49, %._crit_edge64 ]
+  %53 = load i32, ptr %6, align 8, !tbaa !20
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %6, align 8, !tbaa !20
+  store ptr %2, ptr %52, align 8, !tbaa !25
   br label %.thread
 
-54:                                               ; preds = %._crit_edge64
-  br i1 %3, label %55, label %.thread
+55:                                               ; preds = %._crit_edge64
+  br i1 %3, label %56, label %.thread
 
-55:                                               ; preds = %54
-  store ptr %2, ptr %48, align 8, !tbaa !25
+56:                                               ; preds = %55
+  store ptr %2, ptr %49, align 8, !tbaa !25
   br label %.thread
 
-.thread:                                          ; preds = %11, %50, %55, %54
-  %.1 = phi ptr [ null, %11 ], [ %.pre70.pre, %54 ], [ %.pre70.pre, %55 ], [ null, %50 ]
+.thread:                                          ; preds = %11, %51, %56, %55
+  %.1 = phi ptr [ null, %11 ], [ %.pre70.pre, %55 ], [ %.pre70.pre, %56 ], [ null, %51 ]
   ret ptr %.1
 }
 
@@ -996,7 +1000,7 @@ pm_static_literal_positive_p.exit.thread:         ; preds = %tailrecurse.i, %41,
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1673,7 +1677,7 @@ declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16, i16) #7
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind sspstrong willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

@@ -522,7 +522,7 @@ define i32 @agwrite(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 25:                                               ; preds = %16
   %26 = icmp ne i64 %21, 0
-  %27 = tail call noalias ptr @calloc(i64 noundef %21, i64 noundef 8) #20
+  %27 = tail call noalias ptr @calloc(i64 noundef %21, i64 noundef 8) #20, !noalias !16
   %28 = icmp eq ptr %27, null
   %or.cond3.i.i = and i1 %26, %28
   br i1 %or.cond3.i.i, label %29, label %gv_calloc.exit.i
@@ -550,7 +550,7 @@ gv_calloc.exit.i:                                 ; preds = %25
 
 39:                                               ; preds = %gv_calloc.exit.i
   %40 = icmp ne i64 %35, 0
-  %41 = tail call noalias ptr @calloc(i64 noundef %35, i64 noundef 8) #20
+  %41 = tail call noalias ptr @calloc(i64 noundef %35, i64 noundef 8) #20, !noalias !16
   %42 = icmp eq ptr %41, null
   %or.cond3.i6.i = and i1 %40, %42
   br i1 %or.cond3.i6.i, label %43, label %gv_calloc.exit7.i
@@ -579,7 +579,7 @@ gv_calloc.exit7.i:                                ; preds = %39
 
 54:                                               ; preds = %gv_calloc.exit7.i
   %55 = icmp ne i64 %50, 0
-  %56 = tail call noalias ptr @calloc(i64 noundef %50, i64 noundef 8) #20
+  %56 = tail call noalias ptr @calloc(i64 noundef %50, i64 noundef 8) #20, !noalias !16
   %57 = icmp eq ptr %56, null
   %or.cond3.i9.i = and i1 %55, %57
   br i1 %or.cond3.i9.i, label %58, label %before_write.exit
@@ -1305,7 +1305,7 @@ declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare ptr @agparent(ptr noundef) local_unnamed_addr #1
@@ -2394,7 +2394,7 @@ define internal fastcc void @graphviz_exit() unnamed_addr #8 {
   unreachable
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree noreturn nounwind
@@ -2422,9 +2422,9 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn "no-trappin
 attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

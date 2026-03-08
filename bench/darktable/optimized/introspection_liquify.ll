@@ -1588,7 +1588,7 @@ define void @init_global(ptr noundef writeonly captures(none) initializes((520, 
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -4069,7 +4069,9 @@ draw_paths.exit:                                  ; preds = %1029, %92
 ; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @smooth_paths_linsys(ptr noundef captures(address) %0) unnamed_addr #16 {
   %.not171189 = icmp eq ptr %0, null
+  %.not169192199 = icmp eq ptr %0, null
   %.not170200 = icmp eq ptr %0, null
+  %.not169201 = icmp eq ptr %0, null
   br label %2
 
 2:                                                ; preds = %1, %path_length.exit.thread
@@ -4110,9 +4112,9 @@ path_length.exit:                                 ; preds = %.lr.ph.i
   %22 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 4) #34
   br label %23
 
-23:                                               ; preds = %path_length.exit, %111
-  %.0161191 = phi ptr [ %3, %path_length.exit ], [ %29, %111 ]
-  %.0162190 = phi i64 [ 0, %path_length.exit ], [ %112, %111 ]
+23:                                               ; preds = %path_length.exit, %110
+  %.0161191 = phi ptr [ %3, %path_length.exit ], [ %29, %110 ]
+  %.0162190 = phi i64 [ 0, %path_length.exit ], [ %111, %110 ]
   %24 = getelementptr i8, ptr %.0161191, i64 16
   %.0161.val = load i8, ptr %24, align 4, !tbaa !147
   %25 = icmp eq i8 %.0161.val, -1
@@ -4181,429 +4183,429 @@ path_length.exit:                                 ; preds = %.lr.ph.i
 
 67:                                               ; preds = %63, %59
   %68 = phi i1 [ false, %59 ], [ %66, %63 ]
+  %.not171 = or i1 %.not171189, %25
   %69 = icmp ne i32 %43, 3
-  %70 = or i1 %25, %69
-  %spec.select = or i1 %70, %.not171189
+  %spec.select = or i1 %.not171, %69
   %.not172 = icmp eq ptr %36, null
-  br i1 %.not172, label %74, label %71
+  br i1 %.not172, label %73, label %70
 
-71:                                               ; preds = %67
-  %72 = load i32, ptr %36, align 4, !tbaa !151
-  %73 = icmp ne i32 %72, 3
-  br label %74
+70:                                               ; preds = %67
+  %71 = load i32, ptr %36, align 4, !tbaa !151
+  %72 = icmp ne i32 %71, 3
+  br label %73
 
-74:                                               ; preds = %71, %67
-  %75 = phi i1 [ true, %67 ], [ %73, %71 ]
-  br i1 %.not170, label %.critedge, label %76
+73:                                               ; preds = %70, %67
+  %74 = phi i1 [ true, %67 ], [ %72, %70 ]
+  br i1 %.not170, label %.critedge, label %75
 
-76:                                               ; preds = %74
-  %77 = load i32, ptr %29, align 4, !tbaa !151
-  %78 = icmp eq i32 %77, 2
-  br i1 %78, label %79, label %.critedge
+75:                                               ; preds = %73
+  %76 = load i32, ptr %29, align 4, !tbaa !151
+  %77 = icmp eq i32 %76, 2
+  br i1 %77, label %78, label %.critedge
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
-  store i32 5, ptr %80, align 4, !tbaa !7
-  br label %111
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
+  store i32 5, ptr %79, align 4, !tbaa !7
+  br label %110
 
-.critedge:                                        ; preds = %74, %76
+.critedge:                                        ; preds = %73, %75
   %or.cond = select i1 %62, i1 true, i1 %68
-  br i1 %or.cond, label %83, label %81
+  br i1 %or.cond, label %82, label %80
 
-81:                                               ; preds = %.critedge
-  %82 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
-  store i32 5, ptr %82, align 4, !tbaa !7
-  br label %111
+80:                                               ; preds = %.critedge
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
+  store i32 5, ptr %81, align 4, !tbaa !7
+  br label %110
 
-83:                                               ; preds = %.critedge
-  %or.cond3 = select i1 %spec.select, i1 %75, i1 false
+82:                                               ; preds = %.critedge
+  %or.cond3 = select i1 %spec.select, i1 %74, i1 false
   %.not173 = xor i1 %62, true
   %or.cond5.not = select i1 %or.cond3, i1 %.not173, i1 false
   %or.cond7 = select i1 %or.cond5.not, i1 %68, i1 false
-  br i1 %or.cond7, label %84, label %86
+  br i1 %or.cond7, label %83, label %85
 
-84:                                               ; preds = %83
-  %85 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
-  store i32 7, ptr %85, align 4, !tbaa !7
-  br label %111
+83:                                               ; preds = %82
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
+  store i32 7, ptr %84, align 4, !tbaa !7
+  br label %110
 
-86:                                               ; preds = %83
+85:                                               ; preds = %82
   %or.cond11 = select i1 %or.cond3, i1 %62, i1 false
   %or.cond13 = select i1 %or.cond11, i1 %68, i1 false
-  br i1 %or.cond13, label %87, label %89
+  br i1 %or.cond13, label %86, label %88
 
-87:                                               ; preds = %86
-  %88 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
-  store i32 8, ptr %88, align 4, !tbaa !7
-  br label %111
+86:                                               ; preds = %85
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
+  store i32 8, ptr %87, align 4, !tbaa !7
+  br label %110
 
-89:                                               ; preds = %86
+88:                                               ; preds = %85
   %or.cond17.not = xor i1 %or.cond11, true
   %or.cond19 = select i1 %or.cond17.not, i1 true, i1 %68
-  br i1 %or.cond19, label %92, label %90
+  br i1 %or.cond19, label %91, label %89
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
-  store i32 9, ptr %91, align 4, !tbaa !7
-  br label %111
+89:                                               ; preds = %88
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
+  store i32 9, ptr %90, align 4, !tbaa !7
+  br label %110
 
-92:                                               ; preds = %89
+91:                                               ; preds = %88
   %or.cond21 = select i1 %spec.select, i1 %62, i1 false
   %or.cond21.not = xor i1 %or.cond21, true
   %or.cond23 = select i1 %or.cond21.not, i1 true, i1 %68
-  br i1 %or.cond23, label %95, label %93
+  br i1 %or.cond23, label %94, label %92
 
-93:                                               ; preds = %92
-  %94 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
-  store i32 5, ptr %94, align 4, !tbaa !7
-  br label %111
+92:                                               ; preds = %91
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
+  store i32 5, ptr %93, align 4, !tbaa !7
+  br label %110
 
-95:                                               ; preds = %92
-  br i1 %or.cond21, label %96, label %98
+94:                                               ; preds = %91
+  br i1 %or.cond21, label %95, label %97
 
-96:                                               ; preds = %95
-  %97 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
-  store i32 1, ptr %97, align 4, !tbaa !7
-  br label %111
+95:                                               ; preds = %94
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
+  store i32 1, ptr %96, align 4, !tbaa !7
+  br label %110
 
-98:                                               ; preds = %95
-  %or.cond27 = select i1 %75, i1 %62, i1 false
+97:                                               ; preds = %94
+  %or.cond27 = select i1 %74, i1 %62, i1 false
   %or.cond29 = select i1 %or.cond27, i1 %68, i1 false
-  br i1 %or.cond29, label %99, label %101
+  br i1 %or.cond29, label %98, label %100
 
-99:                                               ; preds = %98
-  %100 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
-  store i32 3, ptr %100, align 4, !tbaa !7
-  br label %111
+98:                                               ; preds = %97
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
+  store i32 3, ptr %99, align 4, !tbaa !7
+  br label %110
 
-101:                                              ; preds = %98
-  %or.cond31.not = select i1 %75, i1 %.not173, i1 false
+100:                                              ; preds = %97
+  %or.cond31.not = select i1 %74, i1 %.not173, i1 false
   %or.cond33 = select i1 %or.cond31.not, i1 %68, i1 false
-  br i1 %or.cond33, label %102, label %104
+  br i1 %or.cond33, label %101, label %103
 
-102:                                              ; preds = %101
-  %103 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
-  store i32 7, ptr %103, align 4, !tbaa !7
-  br label %111
+101:                                              ; preds = %100
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
+  store i32 7, ptr %102, align 4, !tbaa !7
+  br label %110
 
-104:                                              ; preds = %101
+103:                                              ; preds = %100
   %or.cond35 = select i1 %.not173, i1 true, i1 %68
-  br i1 %or.cond35, label %107, label %105
+  br i1 %or.cond35, label %106, label %104
 
-105:                                              ; preds = %104
-  %106 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
-  store i32 6, ptr %106, align 4, !tbaa !7
-  br label %111
+104:                                              ; preds = %103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
+  store i32 6, ptr %105, align 4, !tbaa !7
+  br label %110
 
-107:                                              ; preds = %104
+106:                                              ; preds = %103
   %or.cond37 = select i1 %.not173, i1 %68, i1 false
-  %108 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
-  br i1 %or.cond37, label %109, label %110
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.0162190
+  br i1 %or.cond37, label %108, label %109
 
-109:                                              ; preds = %107
-  store i32 4, ptr %108, align 4, !tbaa !7
-  br label %111
+108:                                              ; preds = %106
+  store i32 4, ptr %107, align 4, !tbaa !7
+  br label %110
 
-110:                                              ; preds = %107
-  store i32 2, ptr %108, align 4, !tbaa !7
-  br label %111
+109:                                              ; preds = %106
+  store i32 2, ptr %107, align 4, !tbaa !7
+  br label %110
 
-111:                                              ; preds = %81, %87, %93, %99, %105, %110, %109, %102, %96, %90, %84, %79
-  %112 = add i64 %.0162190, 1
-  br i1 %.not170, label %113, label %23
+110:                                              ; preds = %80, %86, %92, %98, %104, %109, %108, %101, %95, %89, %83, %78
+  %111 = add i64 %.0162190, 1
+  br i1 %.not170, label %112, label %23
 
-113:                                              ; preds = %111
-  %114 = zext nneg i32 %.06.i to i64
-  %115 = shl nuw nsw i64 %114, 2
-  %116 = tail call noalias ptr @malloc(i64 noundef %115) #32
-  %117 = tail call noalias ptr @malloc(i64 noundef %115) #32
-  %118 = tail call noalias ptr @malloc(i64 noundef %115) #32
-  %119 = shl nuw nsw i64 %114, 3
-  %120 = tail call noalias ptr @malloc(i64 noundef %119) #32
+112:                                              ; preds = %110
+  %113 = zext nneg i32 %.06.i to i64
+  %114 = shl nuw nsw i64 %113, 2
+  %115 = tail call noalias ptr @malloc(i64 noundef %114) #32
+  %116 = tail call noalias ptr @malloc(i64 noundef %114) #32
+  %117 = tail call noalias ptr @malloc(i64 noundef %114) #32
+  %118 = shl nuw nsw i64 %113, 3
+  %119 = tail call noalias ptr @malloc(i64 noundef %118) #32
   br label %.lr.ph.i182
 
-.preheader179.i:                                  ; preds = %245
+.preheader179.i:                                  ; preds = %244
   %.not215.i = icmp eq i32 %.06.i, 1
   br i1 %.not215.i, label %._crit_edge.i, label %.lr.ph182.preheader.i
 
 .lr.ph182.preheader.i:                            ; preds = %.preheader179.i
-  %.pre.i = load float, ptr %117, align 4, !tbaa !11
-  %.pre202.i = load float, ptr %120, align 4
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %120, i64 4
+  %.pre.i = load float, ptr %116, align 4, !tbaa !11
+  %.pre202.i = load float, ptr %119, align 4
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %119, i64 4
   %.pre203.i = load float, ptr %.phi.trans.insert.i, align 4
   br label %.lr.ph182.i
 
-.lr.ph.i182:                                      ; preds = %113, %245
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %245 ], [ 0, %113 ]
-  %121 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv.i
-  %122 = load i32, ptr %121, align 4, !tbaa !7
-  switch i32 %122, label %245 [
-    i32 1, label %123
-    i32 2, label %139
-    i32 3, label %157
-    i32 4, label %173
-    i32 5, label %181
-    i32 6, label %189
-    i32 7, label %205
-    i32 8, label %213
-    i32 9, label %229
+.lr.ph.i182:                                      ; preds = %112, %244
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %244 ], [ 0, %112 ]
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv.i
+  %121 = load i32, ptr %120, align 4, !tbaa !7
+  switch i32 %121, label %244 [
+    i32 1, label %122
+    i32 2, label %138
+    i32 3, label %156
+    i32 4, label %172
+    i32 5, label %180
+    i32 6, label %188
+    i32 7, label %204
+    i32 8, label %212
+    i32 9, label %228
   ]
 
-123:                                              ; preds = %.lr.ph.i182
+122:                                              ; preds = %.lr.ph.i182
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv.i
+  store float 0.000000e+00, ptr %123, align 4, !tbaa !11
   %124 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %124, align 4, !tbaa !11
+  store float 2.000000e+00, ptr %124, align 4, !tbaa !11
   %125 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv.i
-  store float 2.000000e+00, ptr %125, align 4, !tbaa !11
-  %126 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i
-  store float 1.000000e+00, ptr %126, align 4, !tbaa !11
-  %127 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
-  %128 = load float, ptr %127, align 4
-  %129 = getelementptr inbounds nuw i8, ptr %127, i64 4
-  %130 = load float, ptr %129, align 4
-  %131 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %132 = load float, ptr %131, align 4
-  %133 = getelementptr inbounds nuw i8, ptr %127, i64 12
-  %134 = load float, ptr %133, align 4
-  %135 = fmul reassoc nsz arcp contract afn float %132, 2.000000e+00
-  %136 = fmul reassoc nsz arcp contract afn float %134, 2.000000e+00
-  %137 = fadd reassoc nsz arcp contract afn float %135, %128
-  %138 = fadd reassoc nsz arcp contract afn float %136, %130
+  store float 1.000000e+00, ptr %125, align 4, !tbaa !11
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
+  %127 = load float, ptr %126, align 4
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 4
+  %129 = load float, ptr %128, align 4
+  %130 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %131 = load float, ptr %130, align 4
+  %132 = getelementptr inbounds nuw i8, ptr %126, i64 12
+  %133 = load float, ptr %132, align 4
+  %134 = fmul reassoc nsz arcp contract afn float %131, 2.000000e+00
+  %135 = fmul reassoc nsz arcp contract afn float %133, 2.000000e+00
+  %136 = fadd reassoc nsz arcp contract afn float %134, %127
+  %137 = fadd reassoc nsz arcp contract afn float %135, %129
   br label %.sink.split.i
 
-139:                                              ; preds = %.lr.ph.i182
+138:                                              ; preds = %.lr.ph.i182
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv.i
+  store float 1.000000e+00, ptr %139, align 4, !tbaa !11
   %140 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv.i
-  store float 1.000000e+00, ptr %140, align 4, !tbaa !11
+  store float 4.000000e+00, ptr %140, align 4, !tbaa !11
   %141 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv.i
-  store float 4.000000e+00, ptr %141, align 4, !tbaa !11
-  %142 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i
-  store float 1.000000e+00, ptr %142, align 4, !tbaa !11
-  %143 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
-  %144 = load float, ptr %143, align 4
-  %145 = getelementptr inbounds nuw i8, ptr %143, i64 4
-  %146 = load float, ptr %145, align 4
-  %147 = fmul reassoc nsz arcp contract afn float %144, 4.000000e+00
-  %148 = fmul reassoc nsz arcp contract afn float %146, 4.000000e+00
-  %149 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %150 = load float, ptr %149, align 4
-  %151 = getelementptr inbounds nuw i8, ptr %143, i64 12
-  %152 = load float, ptr %151, align 4
-  %153 = fmul reassoc nsz arcp contract afn float %150, 2.000000e+00
-  %154 = fmul reassoc nsz arcp contract afn float %152, 2.000000e+00
+  store float 1.000000e+00, ptr %141, align 4, !tbaa !11
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
+  %143 = load float, ptr %142, align 4
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 4
+  %145 = load float, ptr %144, align 4
+  %146 = fmul reassoc nsz arcp contract afn float %143, 4.000000e+00
+  %147 = fmul reassoc nsz arcp contract afn float %145, 4.000000e+00
+  %148 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  %149 = load float, ptr %148, align 4
+  %150 = getelementptr inbounds nuw i8, ptr %142, i64 12
+  %151 = load float, ptr %150, align 4
+  %152 = fmul reassoc nsz arcp contract afn float %149, 2.000000e+00
+  %153 = fmul reassoc nsz arcp contract afn float %151, 2.000000e+00
+  %154 = fadd reassoc nsz arcp contract afn float %152, %146
   %155 = fadd reassoc nsz arcp contract afn float %153, %147
-  %156 = fadd reassoc nsz arcp contract afn float %154, %148
   br label %.sink.split.i
 
-157:                                              ; preds = %.lr.ph.i182
+156:                                              ; preds = %.lr.ph.i182
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv.i
+  store float 2.000000e+00, ptr %157, align 4, !tbaa !11
   %158 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv.i
-  store float 2.000000e+00, ptr %158, align 4, !tbaa !11
+  store float 7.000000e+00, ptr %158, align 4, !tbaa !11
   %159 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv.i
-  store float 7.000000e+00, ptr %159, align 4, !tbaa !11
-  %160 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %160, align 4, !tbaa !11
-  %161 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
-  %162 = load float, ptr %161, align 4
-  %163 = getelementptr inbounds nuw i8, ptr %161, i64 4
-  %164 = load float, ptr %163, align 4
-  %165 = fmul reassoc nsz arcp contract afn float %162, 8.000000e+00
-  %166 = fmul reassoc nsz arcp contract afn float %164, 8.000000e+00
-  %167 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %168 = load float, ptr %167, align 4
-  %169 = getelementptr inbounds nuw i8, ptr %161, i64 12
-  %170 = load float, ptr %169, align 4
-  %171 = fadd reassoc nsz arcp contract afn float %168, %165
-  %172 = fadd reassoc nsz arcp contract afn float %170, %166
+  store float 0.000000e+00, ptr %159, align 4, !tbaa !11
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
+  %161 = load float, ptr %160, align 4
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 4
+  %163 = load float, ptr %162, align 4
+  %164 = fmul reassoc nsz arcp contract afn float %161, 8.000000e+00
+  %165 = fmul reassoc nsz arcp contract afn float %163, 8.000000e+00
+  %166 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  %167 = load float, ptr %166, align 4
+  %168 = getelementptr inbounds nuw i8, ptr %160, i64 12
+  %169 = load float, ptr %168, align 4
+  %170 = fadd reassoc nsz arcp contract afn float %167, %164
+  %171 = fadd reassoc nsz arcp contract afn float %169, %165
   br label %.sink.split.i
 
-173:                                              ; preds = %.lr.ph.i182
+172:                                              ; preds = %.lr.ph.i182
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv.i
+  store float 0.000000e+00, ptr %173, align 4, !tbaa !11
   %174 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %174, align 4, !tbaa !11
+  store float 1.000000e+00, ptr %174, align 4, !tbaa !11
   %175 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv.i
-  store float 1.000000e+00, ptr %175, align 4, !tbaa !11
-  %176 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %176, align 4, !tbaa !11
-  %177 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
-  %178 = load float, ptr %177, align 4
-  %179 = getelementptr inbounds nuw i8, ptr %177, i64 4
-  %180 = load float, ptr %179, align 4
+  store float 0.000000e+00, ptr %175, align 4, !tbaa !11
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
+  %177 = load float, ptr %176, align 4
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 4
+  %179 = load float, ptr %178, align 4
   br label %.sink.split.i
 
-181:                                              ; preds = %.lr.ph.i182
+180:                                              ; preds = %.lr.ph.i182
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv.i
+  store float 0.000000e+00, ptr %181, align 4, !tbaa !11
   %182 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %182, align 4, !tbaa !11
+  store float 1.000000e+00, ptr %182, align 4, !tbaa !11
   %183 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv.i
-  store float 1.000000e+00, ptr %183, align 4, !tbaa !11
-  %184 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %184, align 4, !tbaa !11
-  %185 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
-  %186 = load float, ptr %185, align 4
-  %187 = getelementptr inbounds nuw i8, ptr %185, i64 4
-  %188 = load float, ptr %187, align 4
+  store float 0.000000e+00, ptr %183, align 4, !tbaa !11
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
+  %185 = load float, ptr %184, align 4
+  %186 = getelementptr inbounds nuw i8, ptr %184, i64 4
+  %187 = load float, ptr %186, align 4
   br label %.sink.split.i
 
-189:                                              ; preds = %.lr.ph.i182
+188:                                              ; preds = %.lr.ph.i182
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv.i
+  store float 1.000000e+00, ptr %189, align 4, !tbaa !11
   %190 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv.i
-  store float 1.000000e+00, ptr %190, align 4, !tbaa !11
+  store float 4.000000e+00, ptr %190, align 4, !tbaa !11
   %191 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv.i
-  store float 4.000000e+00, ptr %191, align 4, !tbaa !11
-  %192 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %192, align 4, !tbaa !11
-  %193 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
-  %194 = load float, ptr %193, align 4
-  %195 = getelementptr inbounds nuw i8, ptr %193, i64 4
-  %196 = load float, ptr %195, align 4
-  %197 = fmul reassoc nsz arcp contract afn float %194, 4.000000e+00
-  %198 = fmul reassoc nsz arcp contract afn float %196, 4.000000e+00
-  %199 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i
-  %200 = load float, ptr %199, align 4
-  %201 = getelementptr inbounds nuw i8, ptr %199, i64 4
-  %202 = load float, ptr %201, align 4
-  %203 = fadd reassoc nsz arcp contract afn float %200, %197
-  %204 = fadd reassoc nsz arcp contract afn float %202, %198
+  store float 0.000000e+00, ptr %191, align 4, !tbaa !11
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
+  %193 = load float, ptr %192, align 4
+  %194 = getelementptr inbounds nuw i8, ptr %192, i64 4
+  %195 = load float, ptr %194, align 4
+  %196 = fmul reassoc nsz arcp contract afn float %193, 4.000000e+00
+  %197 = fmul reassoc nsz arcp contract afn float %195, 4.000000e+00
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i
+  %199 = load float, ptr %198, align 4
+  %200 = getelementptr inbounds nuw i8, ptr %198, i64 4
+  %201 = load float, ptr %200, align 4
+  %202 = fadd reassoc nsz arcp contract afn float %199, %196
+  %203 = fadd reassoc nsz arcp contract afn float %201, %197
   br label %.sink.split.i
 
-205:                                              ; preds = %.lr.ph.i182
+204:                                              ; preds = %.lr.ph.i182
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv.i
+  store float 0.000000e+00, ptr %205, align 4, !tbaa !11
   %206 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %206, align 4, !tbaa !11
+  store float 1.000000e+00, ptr %206, align 4, !tbaa !11
   %207 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv.i
-  store float 1.000000e+00, ptr %207, align 4, !tbaa !11
-  %208 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %208, align 4, !tbaa !11
-  %209 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
-  %210 = load float, ptr %209, align 4
-  %211 = getelementptr inbounds nuw i8, ptr %209, i64 4
-  %212 = load float, ptr %211, align 4
+  store float 0.000000e+00, ptr %207, align 4, !tbaa !11
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
+  %209 = load float, ptr %208, align 4
+  %210 = getelementptr inbounds nuw i8, ptr %208, i64 4
+  %211 = load float, ptr %210, align 4
   br label %.sink.split.i
 
-213:                                              ; preds = %.lr.ph.i182
+212:                                              ; preds = %.lr.ph.i182
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv.i
+  store float 0.000000e+00, ptr %213, align 4, !tbaa !11
   %214 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %214, align 4, !tbaa !11
+  store float 3.000000e+00, ptr %214, align 4, !tbaa !11
   %215 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv.i
-  store float 3.000000e+00, ptr %215, align 4, !tbaa !11
-  %216 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %216, align 4, !tbaa !11
-  %217 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
-  %218 = load float, ptr %217, align 4
-  %219 = getelementptr inbounds nuw i8, ptr %217, i64 4
-  %220 = load float, ptr %219, align 4
-  %221 = fmul reassoc nsz arcp contract afn float %218, 2.000000e+00
-  %222 = fmul reassoc nsz arcp contract afn float %220, 2.000000e+00
-  %223 = getelementptr inbounds nuw i8, ptr %217, i64 8
-  %224 = load float, ptr %223, align 4
-  %225 = getelementptr inbounds nuw i8, ptr %217, i64 12
-  %226 = load float, ptr %225, align 4
-  %227 = fadd reassoc nsz arcp contract afn float %224, %221
-  %228 = fadd reassoc nsz arcp contract afn float %226, %222
+  store float 0.000000e+00, ptr %215, align 4, !tbaa !11
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
+  %217 = load float, ptr %216, align 4
+  %218 = getelementptr inbounds nuw i8, ptr %216, i64 4
+  %219 = load float, ptr %218, align 4
+  %220 = fmul reassoc nsz arcp contract afn float %217, 2.000000e+00
+  %221 = fmul reassoc nsz arcp contract afn float %219, 2.000000e+00
+  %222 = getelementptr inbounds nuw i8, ptr %216, i64 8
+  %223 = load float, ptr %222, align 4
+  %224 = getelementptr inbounds nuw i8, ptr %216, i64 12
+  %225 = load float, ptr %224, align 4
+  %226 = fadd reassoc nsz arcp contract afn float %223, %220
+  %227 = fadd reassoc nsz arcp contract afn float %225, %221
   br label %.sink.split.i
 
-229:                                              ; preds = %.lr.ph.i182
+228:                                              ; preds = %.lr.ph.i182
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv.i
+  store float 0.000000e+00, ptr %229, align 4, !tbaa !11
   %230 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %230, align 4, !tbaa !11
+  store float 2.000000e+00, ptr %230, align 4, !tbaa !11
   %231 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv.i
-  store float 2.000000e+00, ptr %231, align 4, !tbaa !11
-  %232 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i
-  store float 0.000000e+00, ptr %232, align 4, !tbaa !11
-  %233 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
-  %234 = load float, ptr %233, align 4
-  %235 = getelementptr inbounds nuw i8, ptr %233, i64 4
-  %236 = load float, ptr %235, align 4
-  %237 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i
-  %238 = load float, ptr %237, align 4
-  %239 = getelementptr inbounds nuw i8, ptr %237, i64 4
-  %240 = load float, ptr %239, align 4
-  %241 = fadd reassoc nsz arcp contract afn float %238, %234
-  %242 = fadd reassoc nsz arcp contract afn float %240, %236
+  store float 0.000000e+00, ptr %231, align 4, !tbaa !11
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
+  %233 = load float, ptr %232, align 4
+  %234 = getelementptr inbounds nuw i8, ptr %232, i64 4
+  %235 = load float, ptr %234, align 4
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i
+  %237 = load float, ptr %236, align 4
+  %238 = getelementptr inbounds nuw i8, ptr %236, i64 4
+  %239 = load float, ptr %238, align 4
+  %240 = fadd reassoc nsz arcp contract afn float %237, %233
+  %241 = fadd reassoc nsz arcp contract afn float %239, %235
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %229, %213, %205, %189, %181, %173, %157, %139, %123
-  %.sink206.i = phi float [ %241, %229 ], [ %227, %213 ], [ %210, %205 ], [ %203, %189 ], [ %186, %181 ], [ %178, %173 ], [ %171, %157 ], [ %155, %139 ], [ %137, %123 ]
-  %.sink.i = phi float [ %242, %229 ], [ %228, %213 ], [ %212, %205 ], [ %204, %189 ], [ %188, %181 ], [ %180, %173 ], [ %172, %157 ], [ %156, %139 ], [ %138, %123 ]
-  %243 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv.i
-  %244 = getelementptr inbounds nuw i8, ptr %243, i64 4
-  store float %.sink206.i, ptr %243, align 4
-  store float %.sink.i, ptr %244, align 4
-  br label %245
+.sink.split.i:                                    ; preds = %228, %212, %204, %188, %180, %172, %156, %138, %122
+  %.sink206.i = phi float [ %240, %228 ], [ %226, %212 ], [ %209, %204 ], [ %202, %188 ], [ %185, %180 ], [ %177, %172 ], [ %170, %156 ], [ %154, %138 ], [ %136, %122 ]
+  %.sink.i = phi float [ %241, %228 ], [ %227, %212 ], [ %211, %204 ], [ %203, %188 ], [ %187, %180 ], [ %179, %172 ], [ %171, %156 ], [ %155, %138 ], [ %137, %122 ]
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv.i
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 4
+  store float %.sink206.i, ptr %242, align 4
+  store float %.sink.i, ptr %243, align 4
+  br label %244
 
-245:                                              ; preds = %.sink.split.i, %.lr.ph.i182
+244:                                              ; preds = %.sink.split.i, %.lr.ph.i182
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %114
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %113
   br i1 %exitcond.not.i, label %.preheader179.i, label %.lr.ph.i182
 
 ._crit_edge.i:                                    ; preds = %.lr.ph182.i, %.preheader179.i
-  %246 = add nsw i64 %18, -2
-  %247 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %246
-  %248 = load float, ptr %247, align 4
-  %249 = getelementptr inbounds nuw i8, ptr %247, i64 4
-  %250 = load float, ptr %249, align 4
-  %251 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %246
-  %252 = load float, ptr %251, align 4, !tbaa !11
-  %253 = fdiv reassoc nsz arcp contract afn float %248, %252
-  %254 = fdiv reassoc nsz arcp contract afn float %250, %252
-  %255 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %246
-  %256 = getelementptr inbounds nuw i8, ptr %255, i64 4
+  %245 = add nsw i64 %18, -2
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %245
+  %247 = load float, ptr %246, align 4
+  %248 = getelementptr inbounds nuw i8, ptr %246, i64 4
+  %249 = load float, ptr %248, align 4
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %245
+  %251 = load float, ptr %250, align 4, !tbaa !11
+  %252 = fdiv reassoc nsz arcp contract afn float %247, %251
+  %253 = fdiv reassoc nsz arcp contract afn float %249, %251
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %245
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 4
+  store float %252, ptr %254, align 4
   store float %253, ptr %255, align 4
-  store float %254, ptr %256, align 4
-  %257 = icmp samesign ugt i32 %.06.i, 1
-  br i1 %257, label %.lr.ph185.preheader.i, label %.lr.ph187.i.preheader
+  %256 = icmp samesign ugt i32 %.06.i, 1
+  br i1 %256, label %.lr.ph185.preheader.i, label %.lr.ph187.i.preheader
 
 .lr.ph185.preheader.i:                            ; preds = %._crit_edge.i
-  %258 = add nsw i32 %.06.i, -2
-  %259 = zext nneg i32 %258 to i64
+  %257 = add nsw i32 %.06.i, -2
+  %258 = zext nneg i32 %257 to i64
   br label %.lr.ph185.i
 
 .lr.ph182.i:                                      ; preds = %.lr.ph182.i, %.lr.ph182.preheader.i
-  %260 = phi float [ %.pre203.i, %.lr.ph182.preheader.i ], [ %280, %.lr.ph182.i ]
-  %261 = phi float [ %.pre202.i, %.lr.ph182.preheader.i ], [ %279, %.lr.ph182.i ]
-  %262 = phi float [ %.pre.i, %.lr.ph182.preheader.i ], [ %272, %.lr.ph182.i ]
+  %259 = phi float [ %.pre203.i, %.lr.ph182.preheader.i ], [ %279, %.lr.ph182.i ]
+  %260 = phi float [ %.pre202.i, %.lr.ph182.preheader.i ], [ %278, %.lr.ph182.i ]
+  %261 = phi float [ %.pre.i, %.lr.ph182.preheader.i ], [ %271, %.lr.ph182.i ]
   %indvars.iv191.i = phi i64 [ 1, %.lr.ph182.preheader.i ], [ %indvars.iv.next192.i, %.lr.ph182.i ]
-  %263 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv191.i
-  %264 = load float, ptr %263, align 4, !tbaa !11
-  %265 = fdiv reassoc nsz arcp contract afn float %264, %262
-  %266 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv191.i
-  %267 = load float, ptr %266, align 4, !tbaa !11
-  %268 = getelementptr [4 x i8], ptr %118, i64 %indvars.iv191.i
-  %269 = getelementptr i8, ptr %268, i64 -4
-  %270 = load float, ptr %269, align 4, !tbaa !11
-  %271 = fmul reassoc nsz arcp contract afn float %270, %265
-  %272 = fsub reassoc nsz arcp contract afn float %267, %271
-  store float %272, ptr %266, align 4, !tbaa !11
-  %273 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv191.i
-  %274 = load float, ptr %273, align 4
-  %275 = getelementptr inbounds nuw i8, ptr %273, i64 4
-  %276 = load float, ptr %275, align 4
-  %277 = fmul reassoc nsz arcp contract afn float %265, %261
-  %278 = fmul reassoc nsz arcp contract afn float %265, %260
-  %279 = fsub reassoc nsz arcp contract afn float %274, %277
-  %280 = fsub reassoc nsz arcp contract afn float %276, %278
-  store float %279, ptr %273, align 4
-  store float %280, ptr %275, align 4
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv191.i
+  %263 = load float, ptr %262, align 4, !tbaa !11
+  %264 = fdiv reassoc nsz arcp contract afn float %263, %261
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv191.i
+  %266 = load float, ptr %265, align 4, !tbaa !11
+  %267 = getelementptr [4 x i8], ptr %117, i64 %indvars.iv191.i
+  %268 = getelementptr i8, ptr %267, i64 -4
+  %269 = load float, ptr %268, align 4, !tbaa !11
+  %270 = fmul reassoc nsz arcp contract afn float %269, %264
+  %271 = fsub reassoc nsz arcp contract afn float %266, %270
+  store float %271, ptr %265, align 4, !tbaa !11
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv191.i
+  %273 = load float, ptr %272, align 4
+  %274 = getelementptr inbounds nuw i8, ptr %272, i64 4
+  %275 = load float, ptr %274, align 4
+  %276 = fmul reassoc nsz arcp contract afn float %264, %260
+  %277 = fmul reassoc nsz arcp contract afn float %264, %259
+  %278 = fsub reassoc nsz arcp contract afn float %273, %276
+  %279 = fsub reassoc nsz arcp contract afn float %275, %277
+  store float %278, ptr %272, align 4
+  store float %279, ptr %274, align 4
   %indvars.iv.next192.i = add nuw nsw i64 %indvars.iv191.i, 1
-  %exitcond194.not.i = icmp eq i64 %indvars.iv.next192.i, %114
+  %exitcond194.not.i = icmp eq i64 %indvars.iv.next192.i, %113
   br i1 %exitcond194.not.i, label %._crit_edge.i, label %.lr.ph182.i
 
 .lr.ph185.i:                                      ; preds = %.lr.ph185.i, %.lr.ph185.preheader.i
-  %indvars.iv195.i = phi i64 [ %259, %.lr.ph185.preheader.i ], [ %indvars.iv.next196.i, %.lr.ph185.i ]
-  %281 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv195.i
-  %282 = load float, ptr %281, align 4
-  %283 = getelementptr inbounds nuw i8, ptr %281, i64 4
-  %284 = load float, ptr %283, align 4
-  %285 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv195.i
-  %286 = load float, ptr %285, align 4, !tbaa !11
-  %287 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv195.i
-  %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
-  %289 = load float, ptr %288, align 4
-  %290 = getelementptr inbounds nuw i8, ptr %287, i64 12
-  %291 = load float, ptr %290, align 4
-  %292 = fmul reassoc nsz arcp contract afn float %289, %286
-  %293 = fmul reassoc nsz arcp contract afn float %291, %286
-  %294 = fsub reassoc nsz arcp contract afn float %282, %292
-  %295 = fsub reassoc nsz arcp contract afn float %284, %293
-  %296 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv195.i
-  %297 = load float, ptr %296, align 4, !tbaa !11
-  %298 = fdiv reassoc nsz arcp contract afn float %294, %297
-  %299 = fdiv reassoc nsz arcp contract afn float %295, %297
-  %300 = getelementptr inbounds nuw i8, ptr %287, i64 4
-  store float %298, ptr %287, align 4
-  store float %299, ptr %300, align 4
+  %indvars.iv195.i = phi i64 [ %258, %.lr.ph185.preheader.i ], [ %indvars.iv.next196.i, %.lr.ph185.i ]
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv195.i
+  %281 = load float, ptr %280, align 4
+  %282 = getelementptr inbounds nuw i8, ptr %280, i64 4
+  %283 = load float, ptr %282, align 4
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv195.i
+  %285 = load float, ptr %284, align 4, !tbaa !11
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv195.i
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
+  %288 = load float, ptr %287, align 4
+  %289 = getelementptr inbounds nuw i8, ptr %286, i64 12
+  %290 = load float, ptr %289, align 4
+  %291 = fmul reassoc nsz arcp contract afn float %288, %285
+  %292 = fmul reassoc nsz arcp contract afn float %290, %285
+  %293 = fsub reassoc nsz arcp contract afn float %281, %291
+  %294 = fsub reassoc nsz arcp contract afn float %283, %292
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv195.i
+  %296 = load float, ptr %295, align 4, !tbaa !11
+  %297 = fdiv reassoc nsz arcp contract afn float %293, %296
+  %298 = fdiv reassoc nsz arcp contract afn float %294, %296
+  %299 = getelementptr inbounds nuw i8, ptr %286, i64 4
+  store float %297, ptr %286, align 4
+  store float %298, ptr %299, align 4
   %indvars.iv.next196.i = add nsw i64 %indvars.iv195.i, -1
   %.not216.i = icmp eq i64 %indvars.iv195.i, 0
   br i1 %.not216.i, label %.lr.ph187.i.preheader, label %.lr.ph185.i
@@ -4611,74 +4613,77 @@ path_length.exit:                                 ; preds = %.lr.ph.i
 .lr.ph187.i.preheader:                            ; preds = %.lr.ph185.i, %._crit_edge.i
   br label %.lr.ph187.i
 
-.lr.ph187.i:                                      ; preds = %.lr.ph187.i.preheader, %333
-  %indvars.iv198.i = phi i64 [ %indvars.iv.next199.i, %333 ], [ 0, %.lr.ph187.i.preheader ]
-  %301 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv198.i
-  %302 = load i32, ptr %301, align 4, !tbaa !7
-  switch i32 %302, label %317 [
-    i32 5, label %333
-    i32 6, label %333
-    i32 9, label %333
-    i32 3, label %303
-    i32 7, label %303
-    i32 8, label %303
+.lr.ph187.i:                                      ; preds = %.lr.ph187.i.preheader, %332
+  %indvars.iv198.i = phi i64 [ %indvars.iv.next199.i, %332 ], [ 0, %.lr.ph187.i.preheader ]
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv198.i
+  %301 = load i32, ptr %300, align 4, !tbaa !7
+  switch i32 %301, label %316 [
+    i32 5, label %332
+    i32 6, label %332
+    i32 9, label %332
+    i32 3, label %302
+    i32 7, label %302
+    i32 8, label %302
   ]
 
-303:                                              ; preds = %.lr.ph187.i, %.lr.ph187.i, %.lr.ph187.i
-  %304 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv198.i
-  %305 = load float, ptr %304, align 4
-  %306 = getelementptr inbounds nuw i8, ptr %304, i64 4
-  %307 = load float, ptr %306, align 4
-  %308 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv198.i
-  %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  %310 = load float, ptr %309, align 4
-  %311 = getelementptr inbounds nuw i8, ptr %308, i64 12
-  %312 = load float, ptr %311, align 4
-  %313 = fadd reassoc nsz arcp contract afn float %310, %305
-  %314 = fadd reassoc nsz arcp contract afn float %312, %307
+302:                                              ; preds = %.lr.ph187.i, %.lr.ph187.i, %.lr.ph187.i
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv198.i
+  %304 = load float, ptr %303, align 4
+  %305 = getelementptr inbounds nuw i8, ptr %303, i64 4
+  %306 = load float, ptr %305, align 4
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv198.i
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
+  %309 = load float, ptr %308, align 4
+  %310 = getelementptr inbounds nuw i8, ptr %307, i64 12
+  %311 = load float, ptr %310, align 4
+  %312 = fadd reassoc nsz arcp contract afn float %309, %304
+  %313 = fadd reassoc nsz arcp contract afn float %311, %306
+  %314 = fmul reassoc nsz arcp contract afn float %312, 5.000000e-01
   %315 = fmul reassoc nsz arcp contract afn float %313, 5.000000e-01
-  %316 = fmul reassoc nsz arcp contract afn float %314, 5.000000e-01
   br label %.sink.split209.i
 
-317:                                              ; preds = %.lr.ph187.i
-  %318 = add nuw nsw i64 %indvars.iv198.i, 1
-  %319 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %318
-  %320 = load float, ptr %319, align 4
-  %321 = getelementptr inbounds nuw i8, ptr %319, i64 4
-  %322 = load float, ptr %321, align 4
-  %323 = fmul reassoc nsz arcp contract afn float %320, 2.000000e+00
-  %324 = fmul reassoc nsz arcp contract afn float %322, 2.000000e+00
-  %325 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %318
-  %326 = load float, ptr %325, align 4
-  %327 = getelementptr inbounds nuw i8, ptr %325, i64 4
-  %328 = load float, ptr %327, align 4
-  %329 = fsub reassoc nsz arcp contract afn float %323, %326
-  %330 = fsub reassoc nsz arcp contract afn float %324, %328
+316:                                              ; preds = %.lr.ph187.i
+  %317 = add nuw nsw i64 %indvars.iv198.i, 1
+  %318 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %317
+  %319 = load float, ptr %318, align 4
+  %320 = getelementptr inbounds nuw i8, ptr %318, i64 4
+  %321 = load float, ptr %320, align 4
+  %322 = fmul reassoc nsz arcp contract afn float %319, 2.000000e+00
+  %323 = fmul reassoc nsz arcp contract afn float %321, 2.000000e+00
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %317
+  %325 = load float, ptr %324, align 4
+  %326 = getelementptr inbounds nuw i8, ptr %324, i64 4
+  %327 = load float, ptr %326, align 4
+  %328 = fsub reassoc nsz arcp contract afn float %322, %325
+  %329 = fsub reassoc nsz arcp contract afn float %323, %327
   br label %.sink.split209.i
 
-.sink.split209.i:                                 ; preds = %317, %303
-  %.sink212.i = phi float [ %315, %303 ], [ %329, %317 ]
-  %.sink210.i = phi float [ %316, %303 ], [ %330, %317 ]
-  %331 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv198.i
-  %332 = getelementptr inbounds nuw i8, ptr %331, i64 4
-  store float %.sink212.i, ptr %331, align 4
-  store float %.sink210.i, ptr %332, align 4
-  br label %333
+.sink.split209.i:                                 ; preds = %316, %302
+  %.sink212.i = phi float [ %314, %302 ], [ %328, %316 ]
+  %.sink210.i = phi float [ %315, %302 ], [ %329, %316 ]
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv198.i
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 4
+  store float %.sink212.i, ptr %330, align 4
+  store float %.sink210.i, ptr %331, align 4
+  br label %332
 
-333:                                              ; preds = %.sink.split209.i, %.lr.ph187.i, %.lr.ph187.i, %.lr.ph187.i
+332:                                              ; preds = %.sink.split209.i, %.lr.ph187.i, %.lr.ph187.i, %.lr.ph187.i
   %indvars.iv.next199.i = add nuw nsw i64 %indvars.iv198.i, 1
-  %exitcond201.not.i = icmp eq i64 %indvars.iv.next199.i, %114
+  %exitcond201.not.i = icmp eq i64 %indvars.iv.next199.i, %113
   br i1 %exitcond201.not.i, label %smooth_path_linsys.exit, label %.lr.ph187.i
 
-smooth_path_linsys.exit:                          ; preds = %333
+smooth_path_linsys.exit:                          ; preds = %332
+  tail call void @free(ptr noundef %115) #30
   tail call void @free(ptr noundef %116) #30
   tail call void @free(ptr noundef %117) #30
-  tail call void @free(ptr noundef %118) #30
-  tail call void @free(ptr noundef %120) #30
-  br i1 %.not171189, label %select.unfold._crit_edge, label %.lr.ph
+  tail call void @free(ptr noundef %119) #30
+  %.val177 = load i8, ptr %10, align 2, !tbaa !190
+  %333 = icmp eq i8 %.val177, -1
+  %.not169192 = or i1 %333, %.not169192199
+  br i1 %.not169192, label %select.unfold._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %smooth_path_linsys.exit, %select.unfold
-  %.pn.in = phi i8 [ %.1.val, %select.unfold ], [ %11, %smooth_path_linsys.exit ]
+  %.pn.in = phi i8 [ %.1.val, %select.unfold ], [ %.val177, %smooth_path_linsys.exit ]
   %.1163193 = phi i64 [ %349, %select.unfold ], [ 0, %smooth_path_linsys.exit ]
   %.pn = sext i8 %.pn.in to i64
   %.1194 = getelementptr inbounds [76 x i8], ptr %0, i64 %.pn
@@ -4710,7 +4715,8 @@ select.unfold:                                    ; preds = %336, %.lr.ph
   %350 = getelementptr i8, ptr %.1194, i64 18
   %.1.val = load i8, ptr %350, align 2, !tbaa !190
   %351 = icmp eq i8 %.1.val, -1
-  br i1 %351, label %select.unfold._crit_edge, label %.lr.ph
+  %.not169 = or i1 %351, %.not169201
+  br i1 %.not169, label %select.unfold._crit_edge, label %.lr.ph
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %smooth_path_linsys.exit
   tail call void @free(ptr noundef %19) #30
@@ -9229,7 +9235,7 @@ declare ptr @gtk_label_get_text(ptr noundef) local_unnamed_addr #3
 
 declare void @gtk_label_set_text(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #26
 
 declare i32 @dt_dev_distort_transform_plus(ptr noundef, ptr noundef, double noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -9341,7 +9347,7 @@ attributes #5 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vecto
 attributes #6 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #10 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #11 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
@@ -9358,7 +9364,7 @@ attributes #22 = { mustprogress nofree norecurse nounwind willreturn memory(argm
 attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #25 = { nofree nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #26 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #26 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #28 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #29 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

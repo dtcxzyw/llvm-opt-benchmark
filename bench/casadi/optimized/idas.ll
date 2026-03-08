@@ -230,7 +230,7 @@ define noundef ptr @IDACreate() local_unnamed_addr #0 {
   ret ptr %calloc
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -1685,7 +1685,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
 
 8:                                                ; preds = %6
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef null, i32 noundef -20, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.4)
-  br label %214
+  br label %218
 
 9:                                                ; preds = %6
   %10 = icmp slt i32 %1, 1
@@ -1693,7 +1693,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
 
 11:                                               ; preds = %9
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25)
-  br label %214
+  br label %218
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -1704,7 +1704,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
 
 15:                                               ; preds = %12
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.26)
-  br label %214
+  br label %218
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1714,7 +1714,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
 
 19:                                               ; preds = %16
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.27)
-  br label %214
+  br label %218
 
 20:                                               ; preds = %16
   %21 = icmp eq ptr %5, null
@@ -1722,7 +1722,7 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
 
 22:                                               ; preds = %20
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.28)
-  br label %214
+  br label %218
 
 23:                                               ; preds = %20
   %.not = icmp eq ptr %3, null
@@ -1968,103 +1968,107 @@ define range(i32 -22, 1) i32 @IDASensInit(ptr noundef %0, i32 noundef %1, i32 no
 
 168:                                              ; preds = %135
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %170 = shl nsw i64 %148, 2
-  %171 = tail call noalias ptr @malloc(i64 noundef %170) #15
-  store ptr %171, ptr %169, align 8, !tbaa !61
-  %172 = icmp eq ptr %171, null
-  br i1 %172, label %173, label %.lr.ph
+  %170 = load i32, ptr %13, align 4, !tbaa !139
+  %171 = sext i32 %170 to i64
+  %172 = shl nsw i64 %171, 2
+  %173 = tail call noalias ptr @malloc(i64 noundef %172) #15
+  store ptr %173, ptr %169, align 8, !tbaa !61
+  %174 = icmp eq ptr %173, null
+  br i1 %174, label %175, label %.lr.ph
 
-173:                                              ; preds = %168
-  %174 = load ptr, ptr %39, align 8, !tbaa !143
-  tail call void @N_VDestroy(ptr noundef %174) #13
-  %175 = load ptr, ptr %44, align 8, !tbaa !144
-  %176 = load i32, ptr %13, align 4, !tbaa !139
-  tail call void @N_VDestroyVectorArray(ptr noundef %175, i32 noundef %176) #13
-  %177 = load ptr, ptr %51, align 8, !tbaa !145
+175:                                              ; preds = %168
+  %176 = load ptr, ptr %39, align 8, !tbaa !143
+  tail call void @N_VDestroy(ptr noundef %176) #13
+  %177 = load ptr, ptr %44, align 8, !tbaa !144
   %178 = load i32, ptr %13, align 4, !tbaa !139
   tail call void @N_VDestroyVectorArray(ptr noundef %177, i32 noundef %178) #13
-  %179 = load ptr, ptr %60, align 8, !tbaa !146
+  %179 = load ptr, ptr %51, align 8, !tbaa !145
   %180 = load i32, ptr %13, align 4, !tbaa !139
   tail call void @N_VDestroyVectorArray(ptr noundef %179, i32 noundef %180) #13
-  %181 = load ptr, ptr %71, align 8, !tbaa !147
+  %181 = load ptr, ptr %60, align 8, !tbaa !146
   %182 = load i32, ptr %13, align 4, !tbaa !139
   tail call void @N_VDestroyVectorArray(ptr noundef %181, i32 noundef %182) #13
-  %183 = load ptr, ptr %84, align 8, !tbaa !148
+  %183 = load ptr, ptr %71, align 8, !tbaa !147
   %184 = load i32, ptr %13, align 4, !tbaa !139
   tail call void @N_VDestroyVectorArray(ptr noundef %183, i32 noundef %184) #13
-  %185 = load ptr, ptr %147, align 8, !tbaa !59
-  tail call void @free(ptr noundef %185) #13
+  %185 = load ptr, ptr %84, align 8, !tbaa !148
+  %186 = load i32, ptr %13, align 4, !tbaa !139
+  tail call void @N_VDestroyVectorArray(ptr noundef %185, i32 noundef %186) #13
+  %187 = load ptr, ptr %147, align 8, !tbaa !59
+  tail call void @free(ptr noundef %187) #13
   store ptr null, ptr %147, align 8, !tbaa !59
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %168
-  %186 = add nsw i64 %142, %148
-  store i64 %186, ptr %104, align 8, !tbaa !54
-  %187 = add nsw i64 %146, %148
-  store i64 %187, ptr %110, align 8, !tbaa !55
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %188 = load i32, ptr %13, align 4, !tbaa !139
+  %189 = sext i32 %188 to i64
+  %190 = add nsw i64 %142, %189
+  store i64 %190, ptr %104, align 8, !tbaa !54
+  %191 = add nsw i64 %146, %189
+  store i64 %191, ptr %110, align 8, !tbaa !55
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %189
+  br label %193
 
-.loopexit:                                        ; preds = %164, %46, %53, %62, %73, %86, %123, %27, %173
+.loopexit:                                        ; preds = %164, %46, %53, %62, %73, %86, %123, %27, %175
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.2)
-  br label %214
+  br label %218
 
-189:                                              ; preds = %.lr.ph, %189
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %189 ]
-  %190 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
-  %191 = load ptr, ptr %190, align 8, !tbaa !57
-  %192 = load ptr, ptr %115, align 8, !tbaa !150
-  %193 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %indvars.iv
-  %194 = load ptr, ptr %193, align 8, !tbaa !57
-  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %191, ptr noundef %194) #13
-  %195 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
-  %196 = load ptr, ptr %195, align 8, !tbaa !57
-  %197 = load ptr, ptr %188, align 8, !tbaa !150
-  %198 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %indvars.iv
-  %199 = load ptr, ptr %198, align 8, !tbaa !57
-  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %196, ptr noundef %199) #13
+193:                                              ; preds = %.lr.ph, %193
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %193 ]
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
+  %195 = load ptr, ptr %194, align 8, !tbaa !57
+  %196 = load ptr, ptr %115, align 8, !tbaa !150
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %indvars.iv
+  %198 = load ptr, ptr %197, align 8, !tbaa !57
+  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %195, ptr noundef %198) #13
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
+  %200 = load ptr, ptr %199, align 8, !tbaa !57
+  %201 = load ptr, ptr %192, align 8, !tbaa !150
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %indvars.iv
+  %203 = load ptr, ptr %202, align 8, !tbaa !57
+  tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %200, ptr noundef %203) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph69, label %189, !llvm.loop !152
+  br i1 %exitcond.not, label %.lr.ph69, label %193, !llvm.loop !152
 
-.lr.ph69:                                         ; preds = %189
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  store i64 0, ptr %200, align 8, !tbaa !153
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 1360
-  store i64 0, ptr %201, align 8, !tbaa !67
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 1392
-  store i64 0, ptr %202, align 8, !tbaa !154
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 1416
-  store i64 0, ptr %203, align 8, !tbaa !155
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 1440
-  store i64 0, ptr %204, align 8, !tbaa !156
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 1456
-  store i64 0, ptr %205, align 8, !tbaa !157
-  %206 = load ptr, ptr %169, align 8, !tbaa !61
-  %207 = load ptr, ptr %147, align 8, !tbaa !59
+.lr.ph69:                                         ; preds = %193
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 1344
+  store i64 0, ptr %204, align 8, !tbaa !153
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 1360
+  store i64 0, ptr %205, align 8, !tbaa !67
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 1392
+  store i64 0, ptr %206, align 8, !tbaa !154
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 1416
+  store i64 0, ptr %207, align 8, !tbaa !155
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 1440
+  store i64 0, ptr %208, align 8, !tbaa !156
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 1456
+  store i64 0, ptr %209, align 8, !tbaa !157
+  %210 = load ptr, ptr %169, align 8, !tbaa !61
+  %211 = load ptr, ptr %147, align 8, !tbaa !59
   %wide.trip.count76 = zext nneg i32 %1 to i64
-  br label %208
+  br label %212
 
-208:                                              ; preds = %.lr.ph69, %208
-  %indvars.iv72 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next73, %208 ]
-  %209 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %indvars.iv72
-  %210 = trunc nuw nsw i64 %indvars.iv72 to i32
-  store i32 %210, ptr %209, align 4, !tbaa !62
-  %211 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %indvars.iv72
-  store double 1.000000e+00, ptr %211, align 8, !tbaa !60
+212:                                              ; preds = %.lr.ph69, %212
+  %indvars.iv72 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next73, %212 ]
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %210, i64 %indvars.iv72
+  %214 = trunc nuw nsw i64 %indvars.iv72 to i32
+  store i32 %214, ptr %213, align 4, !tbaa !62
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %indvars.iv72
+  store double 1.000000e+00, ptr %215, align 8, !tbaa !60
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count76
-  br i1 %exitcond77.not, label %._crit_edge70, label %208, !llvm.loop !158
+  br i1 %exitcond77.not, label %._crit_edge70, label %212, !llvm.loop !158
 
-._crit_edge70:                                    ; preds = %208
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 1, ptr %212, align 8, !tbaa !37
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 1572
-  store i32 1, ptr %213, align 4, !tbaa !159
-  br label %214
+._crit_edge70:                                    ; preds = %212
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 1, ptr %216, align 8, !tbaa !37
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 1572
+  store i32 1, ptr %217, align 4, !tbaa !159
+  br label %218
 
-214:                                              ; preds = %._crit_edge70, %.loopexit, %22, %19, %15, %11, %8
+218:                                              ; preds = %._crit_edge70, %.loopexit, %22, %19, %15, %11, %8
   %.057 = phi i32 [ -20, %8 ], [ -22, %11 ], [ -22, %15 ], [ -22, %19 ], [ -22, %22 ], [ 0, %._crit_edge70 ], [ -21, %.loopexit ]
   ret i32 %.057
 }
@@ -2276,7 +2280,7 @@ define range(i32 -40, 1) i32 @IDASensSStolerances(ptr noundef captures(address_i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   %28 = load i32, ptr %27, align 8, !tbaa !164
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %29, label %37
+  br i1 %.not, label %29, label %39
 
 29:                                               ; preds = %._crit_edge
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -2284,34 +2288,38 @@ define range(i32 -40, 1) i32 @IDASensSStolerances(ptr noundef captures(address_i
   %32 = shl nsw i64 %31, 3
   %33 = tail call noalias ptr @malloc(i64 noundef %32) #15
   store ptr %33, ptr %30, align 8, !tbaa !165
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1496
-  %35 = load i64, ptr %34, align 8, !tbaa !54
-  %36 = add nsw i64 %35, %31
-  store i64 %36, ptr %34, align 8, !tbaa !54
+  %34 = load i32, ptr %16, align 4, !tbaa !139
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1496
+  %37 = load i64, ptr %36, align 8, !tbaa !54
+  %38 = add nsw i64 %37, %35
+  store i64 %38, ptr %36, align 8, !tbaa !54
   store i32 1, ptr %27, align 8, !tbaa !164
-  br label %37
+  br label %39
 
-37:                                               ; preds = %29, %._crit_edge
-  br i1 %18, label %.lr.ph39, label %.loopexit
+39:                                               ; preds = %29, %._crit_edge
+  %40 = phi i32 [ %34, %29 ], [ %17, %._crit_edge ]
+  %41 = icmp sgt i32 %40, 0
+  br i1 %41, label %.lr.ph41, label %.loopexit
 
-.lr.ph39:                                         ; preds = %37
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %39 = load ptr, ptr %38, align 8, !tbaa !165
-  %wide.trip.count44 = zext nneg i32 %17 to i64
-  br label %40
+.lr.ph41:                                         ; preds = %39
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %43 = load ptr, ptr %42, align 8, !tbaa !165
+  %wide.trip.count46 = zext nneg i32 %40 to i64
+  br label %44
 
-40:                                               ; preds = %.lr.ph39, %40
-  %indvars.iv41 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next42, %40 ]
-  %41 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv41
-  %42 = load double, ptr %41, align 8, !tbaa !60
-  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv41
-  store double %42, ptr %43, align 8, !tbaa !60
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
-  br i1 %exitcond45.not, label %.loopexit, label %40, !llvm.loop !166
+44:                                               ; preds = %.lr.ph41, %44
+  %indvars.iv43 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next44, %44 ]
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv43
+  %46 = load double, ptr %45, align 8, !tbaa !60
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv43
+  store double %46, ptr %47, align 8, !tbaa !60
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
+  br i1 %exitcond47.not, label %.loopexit, label %44, !llvm.loop !166
 
-.loopexit:                                        ; preds = %40, %37, %24, %19, %13, %10, %5
-  %.031 = phi i32 [ -20, %5 ], [ -40, %10 ], [ -22, %13 ], [ -22, %19 ], [ -22, %24 ], [ 0, %37 ], [ 0, %40 ]
+.loopexit:                                        ; preds = %44, %39, %24, %19, %13, %10, %5
+  %.031 = phi i32 [ -20, %5 ], [ -40, %10 ], [ -22, %13 ], [ -22, %19 ], [ -22, %24 ], [ 0, %39 ], [ 0, %44 ]
   ret i32 %.031
 }
 
@@ -2861,7 +2869,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensSStolerances(ptr noundef captures(addre
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1580
   %31 = load i32, ptr %30, align 4, !tbaa !185
   %.not37 = icmp eq i32 %31, 0
-  br i1 %.not37, label %32, label %40
+  br i1 %.not37, label %32, label %42
 
 32:                                               ; preds = %._crit_edge
   %33 = sext i32 %20 to i64
@@ -2869,34 +2877,38 @@ define range(i32 -50, 1) i32 @IDAQuadSensSStolerances(ptr noundef captures(addre
   %35 = tail call noalias ptr @malloc(i64 noundef %34) #15
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr %35, ptr %36, align 8, !tbaa !186
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1496
-  %38 = load i64, ptr %37, align 8, !tbaa !54
-  %39 = add nsw i64 %38, %33
-  store i64 %39, ptr %37, align 8, !tbaa !54
+  %37 = load i32, ptr %19, align 4, !tbaa !139
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1496
+  %40 = load i64, ptr %39, align 8, !tbaa !54
+  %41 = add nsw i64 %40, %38
+  store i64 %41, ptr %39, align 8, !tbaa !54
   store i32 1, ptr %30, align 4, !tbaa !185
-  br label %40
+  br label %42
 
-40:                                               ; preds = %32, %._crit_edge
-  br i1 %21, label %.lr.ph42, label %.loopexit
+42:                                               ; preds = %32, %._crit_edge
+  %43 = phi i32 [ %37, %32 ], [ %20, %._crit_edge ]
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %.lr.ph44, label %.loopexit
 
-.lr.ph42:                                         ; preds = %40
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %42 = load ptr, ptr %41, align 8, !tbaa !186
-  %wide.trip.count47 = zext nneg i32 %20 to i64
-  br label %43
+.lr.ph44:                                         ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %46 = load ptr, ptr %45, align 8, !tbaa !186
+  %wide.trip.count49 = zext nneg i32 %43 to i64
+  br label %47
 
-43:                                               ; preds = %.lr.ph42, %43
-  %indvars.iv44 = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next45, %43 ]
-  %44 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv44
-  %45 = load double, ptr %44, align 8, !tbaa !60
-  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv44
-  store double %45, ptr %46, align 8, !tbaa !60
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %.loopexit, label %43, !llvm.loop !187
+47:                                               ; preds = %.lr.ph44, %47
+  %indvars.iv46 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next47, %47 ]
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv46
+  %49 = load double, ptr %48, align 8, !tbaa !60
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv46
+  store double %49, ptr %50, align 8, !tbaa !60
+  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
+  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
+  br i1 %exitcond50.not, label %.loopexit, label %47, !llvm.loop !187
 
-.loopexit:                                        ; preds = %43, %40, %27, %22, %16, %13, %9, %5
-  %.032 = phi i32 [ -20, %5 ], [ -22, %16 ], [ -22, %22 ], [ -22, %27 ], [ -40, %9 ], [ -50, %13 ], [ 0, %40 ], [ 0, %43 ]
+.loopexit:                                        ; preds = %47, %42, %27, %22, %16, %13, %9, %5
+  %.032 = phi i32 [ -20, %5 ], [ -22, %16 ], [ -22, %22 ], [ -22, %27 ], [ -40, %9 ], [ -50, %13 ], [ 0, %42 ], [ 0, %47 ]
   ret i32 %.032
 }
 
@@ -11646,14 +11658,14 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -11664,7 +11676,7 @@ attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buf
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #12 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
 attributes #13 = { nounwind }
 attributes #14 = { cold nounwind }
 attributes #15 = { nounwind allocsize(0) }

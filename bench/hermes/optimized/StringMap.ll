@@ -465,17 +465,16 @@ if.end14:                                         ; preds = %if.else, %if.then
 
 if.then.i:                                        ; preds = %if.end14
   tail call void @_ZN4llvh22report_bad_alloc_errorEPKcb(ptr noundef nonnull @.str, i1 noundef zeroext true) #9
-  %.pre = load i32, ptr %NumBuckets, align 8
-  %.pre44.pre = load ptr, ptr %this, align 8
+  %.pre.pre = load ptr, ptr %this, align 8
   br label %_ZN4llvh11safe_callocEmm.exit
 
 _ZN4llvh11safe_callocEmm.exit:                    ; preds = %if.end14, %if.then.i
-  %.pre44 = phi ptr [ %0, %if.end14 ], [ %.pre44.pre, %if.then.i ]
-  %5 = phi i32 [ %1, %if.end14 ], [ %.pre, %if.then.i ]
+  %.pre = phi ptr [ %0, %if.end14 ], [ %.pre.pre, %if.then.i ]
   %idx.ext16 = zext i32 %NewSize.0 to i64
   %add.ptr17 = getelementptr inbounds nuw [8 x i8], ptr %call.i, i64 %idx.ext16
   %add.ptr18 = getelementptr inbounds nuw i8, ptr %add.ptr17, i64 8
   store ptr inttoptr (i64 2 to ptr), ptr %add.ptr17, align 8
+  %5 = load i32, ptr %NumBuckets, align 8
   %cmp20.not40 = icmp eq i32 %5, 0
   br i1 %cmp20.not40, label %for.end, label %for.body.lr.ph
 
@@ -488,7 +487,7 @@ for.body.lr.ph:                                   ; preds = %_ZN4llvh11safe_call
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %NewBucketNo.042 = phi i32 [ %BucketNo, %for.body.lr.ph ], [ %NewBucketNo.1, %for.inc ]
-  %arrayidx23 = getelementptr inbounds nuw [8 x i8], ptr %.pre44, i64 %indvars.iv
+  %arrayidx23 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx23, align 8
   %magicptr = ptrtoint ptr %8 to i64
   switch i64 %magicptr, label %if.then26 [
@@ -528,9 +527,9 @@ do.end:                                           ; preds = %do.body
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %if.then33, %do.end
-  %idxprom49.lcssa46.sink = phi i64 [ %idxprom49, %do.end ], [ %idxprom30, %if.then33 ]
+  %idxprom49.lcssa45.sink = phi i64 [ %idxprom49, %do.end ], [ %idxprom30, %if.then33 ]
   %and48.lcssa.sink = phi i32 [ %and48, %do.end ], [ %and, %if.then33 ]
-  %arrayidx55 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr18, i64 %idxprom49.lcssa46.sink
+  %arrayidx55 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr18, i64 %idxprom49.lcssa45.sink
   store i32 %9, ptr %arrayidx55, align 4
   %cmp56 = icmp eq i64 %indvars.iv, %6
   %spec.select37 = select i1 %cmp56, i32 %and48.lcssa.sink, i32 %NewBucketNo.042
@@ -544,7 +543,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
 
 for.end:                                          ; preds = %for.inc, %_ZN4llvh11safe_callocEmm.exit
   %NewBucketNo.0.lcssa = phi i32 [ %BucketNo, %_ZN4llvh11safe_callocEmm.exit ], [ %NewBucketNo.1, %for.inc ]
-  tail call void @free(ptr noundef %.pre44) #9
+  tail call void @free(ptr noundef %.pre) #9
   store ptr %call.i, ptr %this, align 8
   store i32 %NewSize.0, ptr %NumBuckets, align 8
   %NumTombstones64 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -559,7 +558,7 @@ return:                                           ; preds = %if.else, %for.end
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 declare void @_ZN4llvh22report_bad_alloc_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
@@ -574,7 +573,7 @@ attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }

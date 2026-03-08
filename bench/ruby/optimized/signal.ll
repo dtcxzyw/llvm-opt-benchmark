@@ -701,7 +701,7 @@ define hidden noalias nonnull ptr @rb_allocate_sigaltstack() local_unnamed_addr 
   ret ptr %10
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold noreturn
@@ -1212,7 +1212,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
 46:                                               ; preds = %43, %45
   %47 = load i32, ptr @ruby_enable_coredump, align 4, !tbaa !19
   %.not16 = icmp eq i32 %47, 0
-  br i1 %.not16, label %48, label %121
+  br i1 %.not16, label %48, label %123
 
 48:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -1337,98 +1337,100 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
 rb_allocate_sigaltstack.exit:                     ; preds = %92
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %97 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %94, ptr %97, align 8, !tbaa !65
+  %97 = load i32, ptr @rb_sigaltstack_size_value, align 4, !tbaa !19
+  %98 = zext nneg i32 %97 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %98, ptr %99, align 8, !tbaa !65
   store ptr %95, ptr %6, align 8, !tbaa !67
-  %98 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 0, ptr %98, align 8, !tbaa !68
-  %99 = call i32 @sigaltstack(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
-  %100 = load ptr, ptr %6, align 8, !tbaa !67
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 0, ptr %100, align 8, !tbaa !68
+  %101 = call i32 @sigaltstack(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
+  %102 = load ptr, ptr %6, align 8, !tbaa !67
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %101 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 472
-  store ptr %100, ptr %102, align 8, !tbaa !100
+  %103 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 472
+  store ptr %102, ptr %104, align 8, !tbaa !100
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %103 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %104 = call i32 @sigemptyset(ptr noundef nonnull %103) #16
-  %105 = icmp ult ptr @sigsegv, inttoptr (i64 2 to ptr)
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %106 = call i32 @sigemptyset(ptr noundef nonnull %105) #16
+  %107 = icmp ult ptr @sigsegv, inttoptr (i64 2 to ptr)
   store ptr @sigsegv, ptr %2, align 8, !tbaa !58
-  %106 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %107 = select i1 %105, i32 134217728, i32 134217732
-  store i32 %107, ptr %106, align 8, !tbaa !69
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %109 = select i1 %107, i32 134217728, i32 134217732
+  store i32 %109, ptr %108, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store volatile i64 1296236546, ptr %4, align 16, !tbaa !20
-  %108 = ptrtoint ptr %3 to i64
-  %109 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store volatile i64 %108, ptr %109, align 8, !tbaa !20
-  %110 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store volatile i64 152, ptr %110, align 16, !tbaa !20
-  %111 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store volatile i64 0, ptr %111, align 8, !tbaa !20
-  %112 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store volatile i64 0, ptr %112, align 16, !tbaa !20
-  %113 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %110 = ptrtoint ptr %3 to i64
+  %111 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store volatile i64 %110, ptr %111, align 8, !tbaa !20
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store volatile i64 152, ptr %112, align 16, !tbaa !20
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store volatile i64 0, ptr %113, align 8, !tbaa !20
-  %114 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, i64 0) #16, !srcloc !71
-  store volatile i64 %114, ptr %5, align 8, !tbaa !20
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store volatile i64 0, ptr %114, align 16, !tbaa !20
+  %115 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store volatile i64 0, ptr %115, align 8, !tbaa !20
+  %116 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, i64 0) #16, !srcloc !71
+  store volatile i64 %116, ptr %5, align 8, !tbaa !20
   %.0..0..0..0..0..0..0..0..i.i39 = load volatile i64, ptr %5, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %115 = call i32 @sigaction(i32 noundef 11, ptr noundef nonnull %2, ptr noundef nonnull %3) #16
-  %116 = icmp slt i32 %115, 0
-  br i1 %116, label %120, label %install_sighandler_core.exit43.thread
+  %117 = call i32 @sigaction(i32 noundef 11, ptr noundef nonnull %2, ptr noundef nonnull %3) #16
+  %118 = icmp slt i32 %117, 0
+  br i1 %118, label %122, label %install_sighandler_core.exit43.thread
 
 install_sighandler_core.exit43.thread:            ; preds = %rb_allocate_sigaltstack.exit
   %.010.i.i40 = load ptr, ptr %3, align 8, !tbaa !58
-  %117 = icmp ne ptr %.010.i.i40, inttoptr (i64 -1 to ptr)
-  call void @llvm.assume(i1 %117)
+  %119 = icmp ne ptr %.010.i.i40, inttoptr (i64 -1 to ptr)
+  call void @llvm.assume(i1 %119)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %118 = icmp eq ptr %.010.i.i40, inttoptr (i64 1 to ptr)
-  %119 = select i1 %118, ptr null, ptr %.010.i.i40
-  store ptr %119, ptr @default_sigsegv_handler, align 8, !tbaa !99
-  br label %121
+  %120 = icmp eq ptr %.010.i.i40, inttoptr (i64 1 to ptr)
+  %121 = select i1 %120, ptr null, ptr %.010.i.i40
+  store ptr %121, ptr @default_sigsegv_handler, align 8, !tbaa !99
+  br label %123
 
-120:                                              ; preds = %rb_allocate_sigaltstack.exit
+122:                                              ; preds = %rb_allocate_sigaltstack.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @Init_signal.failed.16) #27
   unreachable
 
-121:                                              ; preds = %install_sighandler_core.exit43.thread, %46
-  %122 = call fastcc i32 @install_sighandler_core(i32 noundef 13, ptr noundef nonnull @sig_do_nothing, ptr noundef null)
-  %.not23 = icmp eq i32 %122, 0
-  br i1 %.not23, label %124, label %123
+123:                                              ; preds = %install_sighandler_core.exit43.thread, %46
+  %124 = call fastcc i32 @install_sighandler_core(i32 noundef 13, ptr noundef nonnull @sig_do_nothing, ptr noundef null)
+  %.not23 = icmp eq i32 %124, 0
+  br i1 %.not23, label %126, label %125
 
-123:                                              ; preds = %121
+125:                                              ; preds = %123
   call void @perror(ptr noundef nonnull @Init_signal.failed.17) #28
-  br label %124
+  br label %126
 
-124:                                              ; preds = %123, %121
-  %125 = call fastcc i32 @install_sighandler_core(i32 noundef 31, ptr noundef nonnull @sig_do_nothing, ptr noundef null)
-  %.not25 = icmp eq i32 %125, 0
-  br i1 %.not25, label %127, label %126
+126:                                              ; preds = %125, %123
+  %127 = call fastcc i32 @install_sighandler_core(i32 noundef 31, ptr noundef nonnull @sig_do_nothing, ptr noundef null)
+  %.not25 = icmp eq i32 %127, 0
+  br i1 %.not25, label %129, label %128
 
-126:                                              ; preds = %124
+128:                                              ; preds = %126
   call void @perror(ptr noundef nonnull @Init_signal.failed.18) #28
-  br label %127
+  br label %129
 
-127:                                              ; preds = %126, %124
-  %128 = call fastcc i32 @install_sighandler_core(i32 noundef 17, ptr noundef nonnull @sighandler, ptr noundef null)
-  %.not27 = icmp eq i32 %128, 0
-  br i1 %.not27, label %130, label %129
+129:                                              ; preds = %128, %126
+  %130 = call fastcc i32 @install_sighandler_core(i32 noundef 17, ptr noundef nonnull @sighandler, ptr noundef null)
+  %.not27 = icmp eq i32 %130, 0
+  br i1 %.not27, label %132, label %131
 
-129:                                              ; preds = %127
+131:                                              ; preds = %129
   call void @perror(ptr noundef nonnull @Init_signal.failed.19) #28
-  br label %130
+  br label %132
 
-130:                                              ; preds = %127, %129
+132:                                              ; preds = %129, %131
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %131 = call i32 @sigemptyset(ptr noundef nonnull %1) #16
-  %132 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %1, ptr noundef null) #16
+  %133 = call i32 @sigemptyset(ptr noundef nonnull %1) #16
+  %134 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %1, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
@@ -2673,7 +2675,7 @@ attributes #1 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-tr
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nounwind sspstrong memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

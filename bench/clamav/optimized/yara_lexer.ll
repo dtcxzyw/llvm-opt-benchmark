@@ -547,7 +547,7 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
 
 194:                                              ; preds = %.loopexit503
   %195 = load ptr, ptr %56, align 8, !tbaa !30
-  %196 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %195) #29
+  %196 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %195) #30
   %197 = load ptr, ptr %1, align 8, !tbaa !42
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 1984
   %199 = load i16, ptr %198, align 8, !tbaa !54
@@ -595,12 +595,12 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 1976
   %220 = load ptr, ptr %219, align 8, !tbaa !43
   store i8 0, ptr %220, align 1, !tbaa !32
-  %221 = call ptr @yr_compiler_get_current_file_name(ptr noundef nonnull %2) #30
+  %221 = call ptr @yr_compiler_get_current_file_name(ptr noundef nonnull %2) #31
   %.not435 = icmp eq ptr %221, null
   br i1 %.not435, label %224, label %222
 
 222:                                              ; preds = %217
-  %223 = call i64 @cli_strlcpy(ptr noundef nonnull %4, ptr noundef nonnull %221, i64 noundef 1024) #30
+  %223 = call i64 @cli_strlcpy(ptr noundef nonnull %4, ptr noundef nonnull %221, i64 noundef 1024) #31
   br label %225
 
 224:                                              ; preds = %217
@@ -608,7 +608,7 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
   br label %225
 
 225:                                              ; preds = %224, %222
-  %226 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 47) #29
+  %226 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 47) #30
   %.not436 = icmp eq ptr %226, null
   br i1 %.not436, label %236, label %227
 
@@ -618,7 +618,7 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 948
   %231 = ptrtoint ptr %228 to i64
   %232 = sub i64 %.neg, %231
-  %233 = call i64 @cli_strlcpy(ptr noundef nonnull %228, ptr noundef nonnull %230, i64 noundef %232) #30
+  %233 = call i64 @cli_strlcpy(ptr noundef nonnull %228, ptr noundef nonnull %230, i64 noundef %232) #31
   %234 = call noalias ptr @fopen(ptr noundef nonnull %4, ptr noundef nonnull @.str.1)
   %235 = icmp eq ptr %234, null
   br i1 %235, label %236, label %.thread483
@@ -633,7 +633,7 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
 .thread483:                                       ; preds = %227, %236
   %.0396488 = phi ptr [ %239, %236 ], [ %234, %227 ]
   %.0397487 = phi ptr [ %238, %236 ], [ %4, %227 ]
-  %240 = call i32 @_yr_compiler_push_file_name(ptr noundef nonnull %2, ptr noundef nonnull %.0397487) #30
+  %240 = call i32 @_yr_compiler_push_file_name(ptr noundef nonnull %2, ptr noundef nonnull %.0397487) #31
   switch i32 %240, label %.thread489 [
     i32 0, label %241
     i32 22, label %.thread489.sink.split
@@ -641,7 +641,7 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
   ]
 
 241:                                              ; preds = %.thread483
-  %242 = call i32 @_yr_compiler_push_file(ptr noundef nonnull %2, ptr noundef nonnull %.0396488) #30
+  %242 = call i32 @_yr_compiler_push_file(ptr noundef nonnull %2, ptr noundef nonnull %.0396488) #31
   %243 = call ptr @yy_create_buffer(ptr noundef nonnull %.0396488, i32 noundef 16384, ptr noundef nonnull %1)
   call void @yypush_buffer_state(ptr noundef nonnull %243, ptr noundef nonnull %1)
   br label %.critedge
@@ -649,7 +649,7 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
 244:                                              ; preds = %236
   %245 = load ptr, ptr %1, align 8, !tbaa !42
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 948
-  %247 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.4, ptr noundef nonnull %246) #30
+  %247 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.4, ptr noundef nonnull %246) #31
   call void @yara_yyerror(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %4)
   br label %.critedge
 
@@ -672,7 +672,7 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
 
 248:                                              ; preds = %.loopexit503, %.loopexit503, %.loopexit503, %.loopexit503, %.loopexit503
   %249 = load ptr, ptr %1, align 8, !tbaa !42
-  %250 = call ptr @_yr_compiler_pop_file(ptr noundef %249) #30
+  %250 = call ptr @_yr_compiler_pop_file(ptr noundef %249) #31
   %.not431 = icmp eq ptr %250, null
   br i1 %.not431, label %253, label %251
 
@@ -681,7 +681,7 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
   br label %253
 
 253:                                              ; preds = %251, %248
-  call void @_yr_compiler_pop_file_name(ptr noundef %249) #30
+  call void @_yr_compiler_pop_file_name(ptr noundef %249) #31
   %254 = load ptr, ptr %58, align 8, !tbaa !21
   %.not.i = icmp eq ptr %254, null
   br i1 %.not.i, label %yypop_buffer_state.exit.thread, label %255
@@ -703,11 +703,11 @@ define range(i32 0, 309) i32 @yara_yylex(ptr noundef %0, ptr noundef initializes
 261:                                              ; preds = %.critedge.i.i
   %262 = getelementptr inbounds nuw i8, ptr %258, i64 8
   %263 = load ptr, ptr %262, align 8, !tbaa !57
-  call void @free(ptr noundef %263) #30
+  call void @free(ptr noundef %263) #31
   br label %yy_delete_buffer.exit.i
 
 yy_delete_buffer.exit.i:                          ; preds = %261, %.critedge.i.i
-  call void @free(ptr noundef nonnull %258) #30
+  call void @free(ptr noundef nonnull %258) #31
   %264 = load ptr, ptr %58, align 8, !tbaa !21
   %265 = load i64, ptr %59, align 8, !tbaa !22
   %266 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %265
@@ -743,7 +743,7 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
 
 275:                                              ; preds = %.loopexit503
   %276 = load ptr, ptr %56, align 8, !tbaa !30
-  %277 = call ptr @cli_safer_strdup(ptr noundef %276) #30
+  %277 = call ptr @cli_safer_strdup(ptr noundef %276) #31
   %278 = load ptr, ptr %6, align 8, !tbaa !3
   store ptr %277, ptr %278, align 8, !tbaa !32
   %279 = load ptr, ptr %6, align 8, !tbaa !3
@@ -757,7 +757,7 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
 
 283:                                              ; preds = %.loopexit503
   %284 = load ptr, ptr %56, align 8, !tbaa !30
-  %285 = call ptr @cli_safer_strdup(ptr noundef %284) #30
+  %285 = call ptr @cli_safer_strdup(ptr noundef %284) #31
   %286 = load ptr, ptr %6, align 8, !tbaa !3
   store ptr %285, ptr %286, align 8, !tbaa !32
   %287 = load ptr, ptr %6, align 8, !tbaa !3
@@ -771,7 +771,7 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
 
 291:                                              ; preds = %.loopexit503
   %292 = load ptr, ptr %56, align 8, !tbaa !30
-  %293 = call ptr @cli_safer_strdup(ptr noundef %292) #30
+  %293 = call ptr @cli_safer_strdup(ptr noundef %292) #31
   %294 = load ptr, ptr %6, align 8, !tbaa !3
   store ptr %293, ptr %294, align 8, !tbaa !32
   %295 = load ptr, ptr %6, align 8, !tbaa !3
@@ -789,7 +789,7 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
 
 300:                                              ; preds = %.loopexit503
   %301 = load ptr, ptr %56, align 8, !tbaa !30
-  %302 = call ptr @cli_safer_strdup(ptr noundef %301) #30
+  %302 = call ptr @cli_safer_strdup(ptr noundef %301) #31
   %303 = load ptr, ptr %6, align 8, !tbaa !3
   store ptr %302, ptr %303, align 8, !tbaa !32
   %304 = load ptr, ptr %6, align 8, !tbaa !3
@@ -807,7 +807,7 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
 
 309:                                              ; preds = %.loopexit503
   %310 = load ptr, ptr %56, align 8, !tbaa !30
-  %311 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %310) #29
+  %311 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %310) #30
   %312 = icmp ugt i64 %311, 128
   br i1 %312, label %313, label %314
 
@@ -818,7 +818,7 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
 
 314:                                              ; preds = %313, %309
   %315 = phi ptr [ %.pre1170, %313 ], [ %310, %309 ]
-  %316 = call ptr @cli_safer_strdup(ptr noundef %315) #30
+  %316 = call ptr @cli_safer_strdup(ptr noundef %315) #31
   %317 = load ptr, ptr %6, align 8, !tbaa !3
   store ptr %316, ptr %317, align 8, !tbaa !32
   %318 = load ptr, ptr %6, align 8, !tbaa !3
@@ -832,11 +832,11 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
 
 322:                                              ; preds = %.loopexit503
   %323 = load ptr, ptr %56, align 8, !tbaa !30
-  %324 = call i64 @strtol(ptr noundef nonnull captures(none) %323, ptr noundef null, i32 noundef 10) #30
+  %324 = call i64 @strtol(ptr noundef nonnull captures(none) %323, ptr noundef null, i32 noundef 10) #31
   %325 = load ptr, ptr %6, align 8, !tbaa !3
   store i64 %324, ptr %325, align 8, !tbaa !32
   %326 = load ptr, ptr %56, align 8, !tbaa !30
-  %327 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %326, ptr noundef nonnull dereferenceable(1) @.str.8) #29
+  %327 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %326, ptr noundef nonnull dereferenceable(1) @.str.8) #30
   %.not429 = icmp eq ptr %327, null
   br i1 %.not429, label %332, label %328
 
@@ -848,7 +848,7 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
   br label %yypop_buffer_state.exit.thread
 
 332:                                              ; preds = %322
-  %333 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %326, ptr noundef nonnull dereferenceable(1) @.str.9) #29
+  %333 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %326, ptr noundef nonnull dereferenceable(1) @.str.9) #30
   %.not430 = icmp eq ptr %333, null
   br i1 %.not430, label %yypop_buffer_state.exit.thread, label %334
 
@@ -862,7 +862,7 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
 338:                                              ; preds = %.loopexit503
   %339 = load ptr, ptr %56, align 8, !tbaa !30
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 2
-  %341 = call i32 @cli_xtoi(ptr noundef nonnull %340) #30
+  %341 = call i32 @cli_xtoi(ptr noundef nonnull %340) #31
   %342 = sext i32 %341 to i64
   %343 = load ptr, ptr %6, align 8, !tbaa !3
   store i64 %342, ptr %343, align 8, !tbaa !32
@@ -891,7 +891,7 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
   %356 = load i16, ptr %355, align 8, !tbaa !54
   %357 = zext i16 %356 to i64
   %358 = add nuw nsw i64 %357, 12
-  %359 = call ptr @cli_max_malloc(i64 noundef %358) #30
+  %359 = call ptr @cli_max_malloc(i64 noundef %358) #31
   %360 = load ptr, ptr %1, align 8, !tbaa !42
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 1984
   %362 = load i16, ptr %361, align 8, !tbaa !54
@@ -1008,7 +1008,7 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %427 = load ptr, ptr %56, align 8, !tbaa !30
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 2
-  %429 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %428, ptr noundef nonnull @.str.11, ptr noundef nonnull %5) #30
+  %429 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %428, ptr noundef nonnull @.str.11, ptr noundef nonnull %5) #31
   %430 = load ptr, ptr %1, align 8, !tbaa !42
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 1984
   %432 = load i16, ptr %431, align 8, !tbaa !54
@@ -1038,7 +1038,7 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
 
 444:                                              ; preds = %.loopexit503
   %445 = load ptr, ptr %56, align 8, !tbaa !30
-  %446 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %445) #29
+  %446 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %445) #30
   %447 = load ptr, ptr %1, align 8, !tbaa !42
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 1984
   %449 = load i16, ptr %448, align 8, !tbaa !54
@@ -1106,7 +1106,7 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
   %479 = load i16, ptr %478, align 8, !tbaa !54
   %480 = zext i16 %479 to i64
   %481 = add nuw nsw i64 %480, 12
-  %482 = call ptr @cli_max_malloc(i64 noundef %481) #30
+  %482 = call ptr @cli_max_malloc(i64 noundef %481) #31
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 4
   store i32 0, ptr %483, align 4, !tbaa !61
   %484 = load ptr, ptr %56, align 8, !tbaa !30
@@ -1142,7 +1142,7 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
   %504 = getelementptr inbounds nuw i8, ptr %499, i64 948
   %505 = add nuw nsw i32 %502, 1
   %506 = zext nneg i32 %505 to i64
-  %507 = call i64 @cli_strlcpy(ptr noundef nonnull %503, ptr noundef nonnull %504, i64 noundef %506) #30
+  %507 = call i64 @cli_strlcpy(ptr noundef nonnull %503, ptr noundef nonnull %504, i64 noundef %506) #31
   %508 = load ptr, ptr %6, align 8, !tbaa !3
   store ptr %482, ptr %508, align 8, !tbaa !32
   br label %yypop_buffer_state.exit.thread
@@ -1208,7 +1208,7 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
 
 546:                                              ; preds = %.loopexit503
   %547 = load ptr, ptr %56, align 8, !tbaa !30
-  %548 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %547) #29
+  %548 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %547) #30
   %549 = load ptr, ptr %1, align 8, !tbaa !42
   %550 = getelementptr inbounds nuw i8, ptr %549, i64 1984
   %551 = load i16, ptr %550, align 8, !tbaa !54
@@ -1271,12 +1271,12 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
 
 578:                                              ; preds = %.loopexit503
   %579 = load ptr, ptr %56, align 8, !tbaa !30
-  %580 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %579) #29
+  %580 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %579) #30
   %581 = trunc i64 %580 to i32
   %sext = shl i64 %580, 32
   %582 = ashr exact i64 %sext, 32
   %583 = add nsw i64 %582, 12
-  %584 = call ptr @cli_max_malloc(i64 noundef %583) #30
+  %584 = call ptr @cli_max_malloc(i64 noundef %583) #31
   store i32 %581, ptr %584, align 4, !tbaa !59
   %585 = getelementptr inbounds nuw i8, ptr %584, i64 4
   store i32 0, ptr %585, align 4, !tbaa !61
@@ -1284,7 +1284,7 @@ yypop_buffer_state.exit.thread491:                ; preds = %267
   %587 = load ptr, ptr %56, align 8, !tbaa !30
   %sext426 = add i64 %sext, 4294967296
   %588 = ashr exact i64 %sext426, 32
-  %589 = call i64 @cli_strlcpy(ptr noundef nonnull %586, ptr noundef %587, i64 noundef %588) #30
+  %589 = call i64 @cli_strlcpy(ptr noundef nonnull %586, ptr noundef %587, i64 noundef %588) #31
   %590 = load ptr, ptr %6, align 8, !tbaa !3
   store ptr %584, ptr %590, align 8, !tbaa !32
   br label %yypop_buffer_state.exit.thread
@@ -1507,7 +1507,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i444, %681
   call void @yara_yyerror(ptr noundef nonnull readonly %1, ptr noundef %710, ptr noundef nonnull @.str.29)
   store i32 %712, ptr %711, align 8, !tbaa !63
   %713 = getelementptr inbounds nuw i8, ptr %710, i64 24
-  call void @longjmp(ptr noundef nonnull %713, i32 noundef 1) #31
+  call void @longjmp(ptr noundef nonnull %713, i32 noundef 1) #32
   unreachable
 
 714:                                              ; preds = %705
@@ -1602,7 +1602,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i444, %681
   store i32 %storemerge146.i, ptr %749, align 8, !tbaa !65
   %754 = add nsw i32 %storemerge146.i, 2
   %755 = sext i32 %754 to i64
-  %756 = call noalias noundef ptr @realloc(ptr noundef %742, i64 noundef %755) #32
+  %756 = call noalias noundef ptr @realloc(ptr noundef %742, i64 noundef %755) #33
   store ptr %756, ptr %741, align 8, !tbaa !57
   %.not147.i = icmp eq ptr %756, null
   br i1 %.not147.i, label %.loopexit162.i, label %761
@@ -1614,7 +1614,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i444, %681
   call void @yara_yyerror(ptr noundef nonnull readonly %1, ptr noundef %757, ptr noundef nonnull @.str.30)
   store i32 %759, ptr %758, align 8, !tbaa !63
   %760 = getelementptr inbounds nuw i8, ptr %757, i64 24
-  call void @longjmp(ptr noundef nonnull %760, i32 noundef 1) #31
+  call void @longjmp(ptr noundef nonnull %760, i32 noundef 1) #32
   unreachable
 
 761:                                              ; preds = %748
@@ -1705,7 +1705,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i444, %681
 
 803:                                              ; preds = %.critedge.i
   %804 = load ptr, ptr %61, align 8, !tbaa !18
-  %805 = call i32 @ferror(ptr noundef %804) #30
+  %805 = call i32 @ferror(ptr noundef %804) #31
   %.not143.i = icmp eq i32 %805, 0
   br i1 %.not143.i, label %.loopexit.i, label %806
 
@@ -1716,11 +1716,11 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i444, %681
   call void @yara_yyerror(ptr noundef nonnull readonly %1, ptr noundef %807, ptr noundef nonnull @.str.31)
   store i32 %809, ptr %808, align 8, !tbaa !63
   %810 = getelementptr inbounds nuw i8, ptr %807, i64 24
-  call void @longjmp(ptr noundef nonnull %810, i32 noundef 1) #31
+  call void @longjmp(ptr noundef nonnull %810, i32 noundef 1) #32
   unreachable
 
 811:                                              ; preds = %._crit_edge174.i
-  %812 = tail call ptr @__errno_location() #33
+  %812 = tail call ptr @__errno_location() #34
   store i32 0, ptr %812, align 4, !tbaa !39
   %sext.i = shl i64 %725, 32
   %813 = ashr exact i64 %sext.i, 32
@@ -1737,7 +1737,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i444, %681
 
 .lr.ph177.i:                                      ; preds = %811, %835
   %822 = load ptr, ptr %61, align 8, !tbaa !18
-  %823 = call i32 @ferror(ptr noundef %822) #30
+  %823 = call i32 @ferror(ptr noundef %822) #31
   %.not140.i = icmp eq i32 %823, 0
   br i1 %.not140.i, label %.loopexit.thread203.i, label %828
 
@@ -1760,12 +1760,12 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i444, %681
   call void @yara_yyerror(ptr noundef nonnull readonly %1, ptr noundef %831, ptr noundef nonnull @.str.31)
   store i32 %833, ptr %832, align 8, !tbaa !63
   %834 = getelementptr inbounds nuw i8, ptr %831, i64 24
-  call void @longjmp(ptr noundef nonnull %834, i32 noundef 1) #31
+  call void @longjmp(ptr noundef nonnull %834, i32 noundef 1) #32
   unreachable
 
 835:                                              ; preds = %828
   store i32 0, ptr %812, align 4, !tbaa !39
-  call void @clearerr(ptr noundef %822) #30
+  call void @clearerr(ptr noundef %822) #31
   %836 = load ptr, ptr %58, align 8, !tbaa !21
   %837 = load i64, ptr %59, align 8, !tbaa !22
   %838 = getelementptr inbounds nuw [8 x i8], ptr %836, i64 %837
@@ -1858,7 +1858,7 @@ yyrestart.exit.i:                                 ; preds = %859
   %885 = getelementptr inbounds nuw i8, ptr %876, i64 8
   %886 = load ptr, ptr %885, align 8, !tbaa !57
   %887 = sext i32 %884 to i64
-  %888 = call noalias noundef ptr @realloc(ptr noundef %886, i64 noundef %887) #32
+  %888 = call noalias noundef ptr @realloc(ptr noundef %886, i64 noundef %887) #33
   %889 = load ptr, ptr %58, align 8, !tbaa !21
   %890 = load i64, ptr %59, align 8, !tbaa !22
   %891 = getelementptr inbounds nuw [8 x i8], ptr %889, i64 %890
@@ -1875,7 +1875,7 @@ yyrestart.exit.i:                                 ; preds = %859
   call void @yara_yyerror(ptr noundef nonnull readonly %1, ptr noundef %895, ptr noundef nonnull @.str.32)
   store i32 %897, ptr %896, align 8, !tbaa !63
   %898 = getelementptr inbounds nuw i8, ptr %895, i64 24
-  call void @longjmp(ptr noundef nonnull %898, i32 noundef 1) #31
+  call void @longjmp(ptr noundef nonnull %898, i32 noundef 1) #32
   unreachable
 
 899:                                              ; preds = %882
@@ -2139,7 +2139,7 @@ define internal fastcc void @yyensure_buffer_stack(ptr noundef captures(none) %0
   br i1 %.not, label %4, label %14
 
 4:                                                ; preds = %1
-  %5 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #34
+  %5 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #35
   store ptr %5, ptr %2, align 8, !tbaa !21
   %.not26 = icmp eq ptr %5, null
   br i1 %.not26, label %6, label %11
@@ -2151,7 +2151,7 @@ define internal fastcc void @yyensure_buffer_stack(ptr noundef captures(none) %0
   tail call void @yara_yyerror(ptr noundef nonnull readonly %0, ptr noundef %7, ptr noundef nonnull @.str.33)
   store i32 %9, ptr %8, align 8, !tbaa !63
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  tail call void @longjmp(ptr noundef nonnull %10, i32 noundef 1) #31
+  tail call void @longjmp(ptr noundef nonnull %10, i32 noundef 1) #32
   unreachable
 
 11:                                               ; preds = %4
@@ -2174,7 +2174,7 @@ define internal fastcc void @yyensure_buffer_stack(ptr noundef captures(none) %0
 20:                                               ; preds = %14
   %21 = add i64 %18, 8
   %22 = shl i64 %21, 3
-  %23 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %3, i64 noundef %22) #32
+  %23 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %3, i64 noundef %22) #33
   store ptr %23, ptr %2, align 8, !tbaa !21
   %.not28 = icmp eq ptr %23, null
   br i1 %.not28, label %24, label %29
@@ -2186,7 +2186,7 @@ define internal fastcc void @yyensure_buffer_stack(ptr noundef captures(none) %0
   tail call void @yara_yyerror(ptr noundef nonnull readonly %0, ptr noundef %25, ptr noundef nonnull @.str.33)
   store i32 %27, ptr %26, align 8, !tbaa !63
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  tail call void @longjmp(ptr noundef nonnull %28, i32 noundef 1) #31
+  tail call void @longjmp(ptr noundef nonnull %28, i32 noundef 1) #32
   unreachable
 
 29:                                               ; preds = %20
@@ -2202,7 +2202,7 @@ define internal fastcc void @yyensure_buffer_stack(ptr noundef captures(none) %0
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
-  %4 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #34
+  %4 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %10
 
@@ -2213,7 +2213,7 @@ define nonnull ptr @yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr noundef
   tail call void @yara_yyerror(ptr noundef nonnull readonly %2, ptr noundef %6, ptr noundef nonnull @.str.18)
   store i32 %8, ptr %7, align 8, !tbaa !63
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  tail call void @longjmp(ptr noundef nonnull %9, i32 noundef 1) #31
+  tail call void @longjmp(ptr noundef nonnull %9, i32 noundef 1) #32
   unreachable
 
 10:                                               ; preds = %3
@@ -2221,7 +2221,7 @@ define nonnull ptr @yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr noundef
   store i32 %1, ptr %11, align 8, !tbaa !65
   %12 = add nsw i32 %1, 2
   %13 = sext i32 %12 to i64
-  %14 = tail call noalias noundef ptr @malloc(i64 noundef %13) #34
+  %14 = tail call noalias noundef ptr @malloc(i64 noundef %13) #35
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %14, ptr %15, align 8, !tbaa !57
   %.not14 = icmp eq ptr %14, null
@@ -2234,7 +2234,7 @@ define nonnull ptr @yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr noundef
   tail call void @yara_yyerror(ptr noundef nonnull readonly %2, ptr noundef %17, ptr noundef nonnull @.str.18)
   store i32 %19, ptr %18, align 8, !tbaa !63
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  tail call void @longjmp(ptr noundef nonnull %20, i32 noundef 1) #31
+  tail call void @longjmp(ptr noundef nonnull %20, i32 noundef 1) #32
   unreachable
 
 21:                                               ; preds = %10
@@ -2304,25 +2304,25 @@ yara_yyget_lineno.exit:                           ; preds = %17, %12, %9, %3
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 692
-  %33 = tail call i64 @cli_strlcpy(ptr noundef nonnull %32, ptr noundef nonnull %2, i64 noundef 256) #30
+  %33 = tail call i64 @cli_strlcpy(ptr noundef nonnull %32, ptr noundef nonnull %2, i64 noundef 256) #31
   store i32 11, ptr %30, align 8, !tbaa !73
   %.not30 = icmp eq ptr %.0, null
   %34 = select i1 %.not30, ptr @.str.25, ptr %.0
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !70
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %34, i32 noundef %36, ptr noundef nonnull %2) #30
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %34, i32 noundef %36, ptr noundef nonnull %2) #31
   br label %44
 
 37:                                               ; preds = %29
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load i32, ptr %38, align 8, !tbaa !63
   store i32 %39, ptr %30, align 8, !tbaa !73
-  %40 = call ptr @yr_compiler_get_error_message(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 512) #30
+  %40 = call ptr @yr_compiler_get_error_message(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 512) #31
   %.not29 = icmp eq ptr %.0, null
   %41 = select i1 %.not29, ptr @.str.27, ptr %.0
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %43 = load i32, ptr %42, align 4, !tbaa !70
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %41, i32 noundef %43, ptr noundef nonnull %4) #30
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %41, i32 noundef %43, ptr noundef nonnull %4) #31
   br label %44
 
 44:                                               ; preds = %37, %31
@@ -2453,11 +2453,11 @@ define void @yypop_buffer_state(ptr noundef captures(none) %0) local_unnamed_add
 11:                                               ; preds = %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !57
-  tail call void @free(ptr noundef %13) #30
+  tail call void @free(ptr noundef %13) #31
   br label %yy_delete_buffer.exit
 
 yy_delete_buffer.exit:                            ; preds = %.critedge.i, %11
-  tail call void @free(ptr noundef nonnull %8) #30
+  tail call void @free(ptr noundef nonnull %8) #31
   %14 = load ptr, ptr %2, align 8, !tbaa !21
   %15 = load i64, ptr %5, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
@@ -2524,7 +2524,7 @@ define void @yara_yyfatal(ptr noundef readonly captures(none) %0, ptr noundef %1
   tail call void @yara_yyerror(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %1)
   store i32 %5, ptr %4, align 8, !tbaa !63
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  tail call void @longjmp(ptr noundef nonnull %6, i32 noundef 1) #31
+  tail call void @longjmp(ptr noundef nonnull %6, i32 noundef 1) #32
   unreachable
 }
 
@@ -2584,7 +2584,7 @@ define void @yyrestart(ptr noundef %0, ptr noundef captures(none) %1) local_unna
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @yy_init_buffer(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
-  %4 = tail call ptr @__errno_location() #33
+  %4 = tail call ptr @__errno_location() #34
   %5 = load i32, ptr %4, align 4, !tbaa !39
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %yy_flush_buffer.exit, label %6
@@ -2679,8 +2679,8 @@ yy_flush_buffer.exit:                             ; preds = %3
   br i1 %.not18, label %54, label %49
 
 49:                                               ; preds = %48
-  %50 = tail call i32 @fileno(ptr noundef nonnull %1) #30
-  %51 = tail call i32 @isatty(i32 noundef %50) #30
+  %50 = tail call i32 @fileno(ptr noundef nonnull %1) #31
+  %51 = tail call i32 @isatty(i32 noundef %50) #31
   %52 = icmp sgt i32 %51, 0
   %53 = zext i1 %52 to i32
   br label %54
@@ -2766,9 +2766,9 @@ define void @yy_switch_to_buffer(ptr noundef %0, ptr noundef captures(none) %1) 
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite, errnomem: write) uwtable
 define noalias noundef ptr @yyalloc(i64 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #8 {
-  %3 = tail call noalias ptr @malloc(i64 noundef %0) #34
+  %3 = tail call noalias ptr @malloc(i64 noundef %0) #35
   ret ptr %3
 }
 
@@ -2804,11 +2804,11 @@ define void @yy_delete_buffer(ptr noundef captures(address) %0, ptr noundef read
 15:                                               ; preds = %.critedge
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !57
-  tail call void @free(ptr noundef %17) #30
+  tail call void @free(ptr noundef %17) #31
   br label %18
 
 18:                                               ; preds = %15, %.critedge
-  tail call void @free(ptr noundef nonnull %0) #30
+  tail call void @free(ptr noundef nonnull %0) #31
   br label %19
 
 19:                                               ; preds = %2, %18
@@ -2817,7 +2817,7 @@ define void @yy_delete_buffer(ptr noundef captures(address) %0, ptr noundef read
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @yyfree(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #9 {
-  tail call void @free(ptr noundef %0) #30
+  tail call void @free(ptr noundef %0) #31
   ret void
 }
 
@@ -2898,7 +2898,7 @@ define noundef ptr @yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr noundef c
   br i1 %.not25, label %13, label %yy_switch_to_buffer.exit
 
 13:                                               ; preds = %9
-  %14 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #34
+  %14 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #35
   %.not26 = icmp eq ptr %14, null
   br i1 %.not26, label %15, label %.thread.i
 
@@ -2909,7 +2909,7 @@ define noundef ptr @yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr noundef c
   tail call void @yara_yyerror(ptr noundef nonnull readonly %2, ptr noundef %16, ptr noundef nonnull @.str.19)
   store i32 %18, ptr %17, align 8, !tbaa !63
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  tail call void @longjmp(ptr noundef nonnull %19, i32 noundef 1) #31
+  tail call void @longjmp(ptr noundef nonnull %19, i32 noundef 1) #32
   unreachable
 
 .thread.i:                                        ; preds = %13
@@ -2993,7 +2993,7 @@ yy_switch_to_buffer.exit:                         ; preds = %52, %.thread.i, %3,
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @yy_scan_string(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @yy_scan_bytes(ptr noundef nonnull %0, i32 noundef %4, ptr noundef %1)
   ret ptr %5
@@ -3003,7 +3003,7 @@ define nonnull ptr @yy_scan_string(ptr noundef readonly captures(none) %0, ptr n
 define nonnull ptr @yy_scan_bytes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = add nsw i32 %1, 2
   %5 = sext i32 %4 to i64
-  %6 = tail call noalias noundef ptr @malloc(i64 noundef %5) #34
+  %6 = tail call noalias noundef ptr @malloc(i64 noundef %5) #35
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %.preheader
 
@@ -3023,7 +3023,7 @@ define nonnull ptr @yy_scan_bytes(ptr noundef readonly captures(none) %0, i32 no
   tail call void @yara_yyerror(ptr noundef nonnull readonly %2, ptr noundef %10, ptr noundef nonnull @.str.20)
   store i32 %12, ptr %11, align 8, !tbaa !63
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  tail call void @longjmp(ptr noundef nonnull %13, i32 noundef 1) #31
+  tail call void @longjmp(ptr noundef nonnull %13, i32 noundef 1) #32
   unreachable
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %.preheader
@@ -3043,7 +3043,7 @@ define nonnull ptr @yy_scan_bytes(ptr noundef readonly captures(none) %0, i32 no
   tail call void @yara_yyerror(ptr noundef nonnull readonly %2, ptr noundef %19, ptr noundef nonnull @.str.21)
   store i32 %21, ptr %20, align 8, !tbaa !63
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  tail call void @longjmp(ptr noundef nonnull %22, i32 noundef 1) #31
+  tail call void @longjmp(ptr noundef nonnull %22, i32 noundef 1) #32
   unreachable
 
 23:                                               ; preds = %._crit_edge
@@ -3158,7 +3158,7 @@ define void @yyset_lineno(i32 noundef %0, ptr noundef readonly captures(none) %1
   tail call void @yara_yyerror(ptr noundef nonnull readonly %1, ptr noundef %11, ptr noundef nonnull @.str.22)
   store i32 %13, ptr %12, align 8, !tbaa !63
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  tail call void @longjmp(ptr noundef nonnull %14, i32 noundef 1) #31
+  tail call void @longjmp(ptr noundef nonnull %14, i32 noundef 1) #32
   unreachable
 
 15:                                               ; preds = %5
@@ -3189,7 +3189,7 @@ define void @yyset_column(i32 noundef %0, ptr noundef readonly captures(none) %1
   tail call void @yara_yyerror(ptr noundef nonnull readonly %1, ptr noundef %11, ptr noundef nonnull @.str.23)
   store i32 %13, ptr %12, align 8, !tbaa !63
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  tail call void @longjmp(ptr noundef nonnull %14, i32 noundef 1) #31
+  tail call void @longjmp(ptr noundef nonnull %14, i32 noundef 1) #32
   unreachable
 
 15:                                               ; preds = %5
@@ -3253,7 +3253,7 @@ define range(i32 0, 2) i32 @yylex_init(ptr noundef writeonly captures(address_is
 
 .sink.split:                                      ; preds = %3, %1
   %.sink = phi i32 [ 22, %1 ], [ 12, %3 ]
-  %5 = tail call ptr @__errno_location() #33
+  %5 = tail call ptr @__errno_location() #34
   store i32 %.sink, ptr %5, align 4, !tbaa !39
   br label %6
 
@@ -3274,7 +3274,7 @@ define range(i32 0, 2) i32 @yylex_init_extra(ptr noundef %0, ptr noundef writeon
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @__errno_location() #33
+  %5 = tail call ptr @__errno_location() #34
   store i32 22, ptr %5, align 4, !tbaa !39
   br label %11
 
@@ -3285,7 +3285,7 @@ define range(i32 0, 2) i32 @yylex_init_extra(ptr noundef %0, ptr noundef writeon
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @__errno_location() #33
+  %9 = tail call ptr @__errno_location() #34
   store i32 12, ptr %9, align 4, !tbaa !39
   br label %11
 
@@ -3324,11 +3324,11 @@ define noundef i32 @yylex_destroy(ptr noundef captures(none) %0) local_unnamed_a
 9:                                                ; preds = %.critedge.i
   %10 = getelementptr inbounds nuw i8, ptr %.pre30, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !57
-  tail call void @free(ptr noundef %11) #30
+  tail call void @free(ptr noundef %11) #31
   br label %yypop_buffer_state.exit
 
 yypop_buffer_state.exit:                          ; preds = %.critedge.i, %9
-  tail call void @free(ptr noundef nonnull %.pre30) #30
+  tail call void @free(ptr noundef nonnull %.pre30) #31
   %12 = load ptr, ptr %3, align 8, !tbaa !21
   %13 = load i64, ptr %2, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
@@ -3337,29 +3337,29 @@ yypop_buffer_state.exit:                          ; preds = %.critedge.i, %9
 
 .critedge:                                        ; preds = %.lr.ph.preheader, %yypop_buffer_state.exit, %1
   %.lcssa = phi ptr [ null, %1 ], [ %12, %yypop_buffer_state.exit ], [ %4, %.lr.ph.preheader ]
-  tail call void @free(ptr noundef %.lcssa) #30
+  tail call void @free(ptr noundef %.lcssa) #31
   store ptr null, ptr %3, align 8, !tbaa !21
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = load ptr, ptr %15, align 8, !tbaa !78
-  tail call void @free(ptr noundef %16) #30
-  tail call void @free(ptr noundef nonnull %0) #30
+  tail call void @free(ptr noundef %16) #31
+  tail call void @free(ptr noundef nonnull %0) #31
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #17
 
-; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @yyrealloc(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #9 {
-  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #32
+; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) uwtable
+define noalias noundef ptr @yyrealloc(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #18 {
+  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #33
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #18
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #19
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
 define void @yara_yywarning(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3382,14 +3382,14 @@ define void @yara_yywarning(ptr noundef readonly captures(none) %0, ptr noundef 
   %13 = select i1 %.not, ptr @.str.25, ptr %.0
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !70
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %13, i32 noundef %15, ptr noundef %1) #30
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %13, i32 noundef %15, ptr noundef %1) #31
   ret void
 }
 
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind
-declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #20
+declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #21
 
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
 
@@ -3397,7 +3397,7 @@ declare ptr @yr_compiler_get_error_message(ptr noundef, ptr noundef, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @yr_lex_parse_rules_string(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.28) #30
+  tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.28) #31
   ret i32 0
 }
 
@@ -3405,7 +3405,7 @@ define noundef i32 @yr_lex_parse_rules_string(ptr noundef readnone captures(none
 define i32 @yr_lex_parse_rules_file(ptr noundef %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 8, !tbaa !68
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = call i32 @_setjmp(ptr noundef nonnull %3) #35
+  %4 = call i32 @_setjmp(ptr noundef nonnull %3) #36
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %26
 
@@ -3415,7 +3415,7 @@ define i32 @yr_lex_parse_rules_file(ptr noundef %0, ptr noundef initializes((0, 
   br i1 %6, label %7, label %yylex_init.exit
 
 7:                                                ; preds = %5
-  %8 = call ptr @__errno_location() #33
+  %8 = call ptr @__errno_location() #34
   store i32 12, ptr %8, align 4, !tbaa !39
   br label %yylex_init.exit
 
@@ -3425,7 +3425,7 @@ yylex_init.exit:                                  ; preds = %5, %7
   %10 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   store ptr %0, ptr %10, align 8, !tbaa !18
   store ptr %1, ptr %calloc.i, align 8, !tbaa !42
-  %11 = call i32 @yara_yyparse(ptr noundef nonnull %calloc.i, ptr noundef nonnull %1) #30
+  %11 = call i32 @yara_yyparse(ptr noundef nonnull %calloc.i, ptr noundef nonnull %1) #31
   %12 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !21
@@ -3449,11 +3449,11 @@ yylex_init.exit:                                  ; preds = %5, %7
 18:                                               ; preds = %.critedge.i.i.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %.pre30.i, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !57
-  call void @free(ptr noundef %20) #30
+  call void @free(ptr noundef %20) #31
   br label %yypop_buffer_state.exit.i.us
 
 yypop_buffer_state.exit.i.us:                     ; preds = %18, %.critedge.i.i.lr.ph
-  call void @free(ptr noundef nonnull %.pre30.i) #30
+  call void @free(ptr noundef nonnull %.pre30.i) #31
   %21 = load ptr, ptr %13, align 8, !tbaa !21
   %22 = load i64, ptr %12, align 8, !tbaa !22
   %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
@@ -3462,12 +3462,12 @@ yypop_buffer_state.exit.i.us:                     ; preds = %18, %.critedge.i.i.
 
 yylex_destroy.exit:                               ; preds = %.lr.ph.preheader.i, %yypop_buffer_state.exit.i.us, %yylex_init.exit
   %.lcssa.i = phi ptr [ null, %yylex_init.exit ], [ %21, %yypop_buffer_state.exit.i.us ], [ %14, %.lr.ph.preheader.i ]
-  call void @free(ptr noundef %.lcssa.i) #30
+  call void @free(ptr noundef %.lcssa.i) #31
   store ptr null, ptr %13, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 96
   %25 = load ptr, ptr %24, align 8, !tbaa !78
-  call void @free(ptr noundef %25) #30
-  call void @free(ptr noundef nonnull %calloc.i) #30
+  call void @free(ptr noundef %25) #31
+  call void @free(ptr noundef nonnull %calloc.i) #31
   br label %26
 
 26:                                               ; preds = %2, %yylex_destroy.exit
@@ -3476,18 +3476,18 @@ yylex_destroy.exit:                               ; preds = %.lr.ph.preheader.i,
 }
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #21
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #22
 
 declare i32 @yara_yyparse(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #22
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #23
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #23
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
@@ -3496,25 +3496,25 @@ declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i6
 declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @isatty(i32 noundef) local_unnamed_addr #24
+declare i32 @isatty(i32 noundef) local_unnamed_addr #25
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #26
+declare void @llvm.assume(i1 noundef) #27
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #27
+declare i32 @llvm.umin.i32(i32, i32) #28
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #28
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #29
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3524,7 +3524,7 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3533,25 +3533,26 @@ attributes #13 = { mustprogress nofree nounwind willreturn memory(write, inacces
 attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #27 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #28 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #29 = { nounwind willreturn memory(read) }
-attributes #30 = { nounwind }
-attributes #31 = { noreturn nounwind }
-attributes #32 = { nounwind allocsize(1) }
-attributes #33 = { nounwind willreturn memory(none) }
-attributes #34 = { nounwind allocsize(0) }
-attributes #35 = { nounwind returns_twice }
+attributes #17 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #28 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #29 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
+attributes #30 = { nounwind willreturn memory(read) }
+attributes #31 = { nounwind }
+attributes #32 = { noreturn nounwind }
+attributes #33 = { nounwind allocsize(1) }
+attributes #34 = { nounwind willreturn memory(none) }
+attributes #35 = { nounwind allocsize(0) }
+attributes #36 = { nounwind returns_twice }
 
 !llvm.module.flags = !{!0, !1, !2}
 

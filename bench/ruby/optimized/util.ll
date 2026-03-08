@@ -5882,7 +5882,7 @@ define internal fastcc noundef ptr @nrv_alloc(ptr noundef readonly captures(none
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -6259,7 +6259,7 @@ cmp.exit.thread84:                                ; preds = %58, %cmp.exit, %.cr
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
-define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #12 {
+define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #12 {
   %7 = bitcast double %0 to i64
   %.not = icmp slt i64 %7, 0
   %8 = tail call double @llvm.fabs.f64(double %0)
@@ -6334,7 +6334,7 @@ define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr noundef readonly ca
 
 ._crit_edge102:                                   ; preds = %21
   %.pre103 = bitcast double %.sroa.0.1 to i64
-  br label %46
+  br label %47
 
 32:                                               ; preds = %21
   %33 = shl nuw nsw i32 %spec.store.select, 2
@@ -6355,22 +6355,23 @@ define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr noundef readonly ca
   %42 = bitcast double %41 to i64
   %sum.shift86 = lshr i64 %42, 52
   %43 = trunc nuw nsw i64 %sum.shift86 to i32
-  %reass.sub = sub nsw i32 %26, %33
+  %reass.sub = sub nsw i32 %43, %33
   %44 = add nsw i32 %reass.sub, -967
-  %45 = add nsw i32 %44, %43
-  store i32 %45, ptr %3, align 4, !tbaa !15
-  br label %46
+  %45 = load i32, ptr %3, align 4, !tbaa !15
+  %46 = add i32 %44, %45
+  store i32 %46, ptr %3, align 4, !tbaa !15
+  br label %47
 
-46:                                               ; preds = %._crit_edge102, %32
+47:                                               ; preds = %._crit_edge102, %32
   %.pre-phi104 = phi i64 [ %.pre103, %._crit_edge102 ], [ %42, %32 ]
   store i8 49, ptr %31, align 1, !tbaa !7
-  %47 = zext nneg i32 %28 to i64
-  %48 = getelementptr i8, ptr %31, i64 %47
+  %48 = zext nneg i32 %28 to i64
+  %49 = getelementptr i8, ptr %31, i64 %48
   %.08196 = getelementptr i8, ptr %31, i64 1
-  %49 = icmp ult ptr %.08196, %48
-  br i1 %49, label %.lr.ph.preheader, label %._crit_edge
+  %50 = icmp ult ptr %.08196, %49
+  br i1 %50, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %46
+.lr.ph.preheader:                                 ; preds = %47
   %.sroa.0.0.extract.trunc = trunc i64 %.pre-phi104 to i32
   %.sroa.0.4.extract.shift47 = lshr i64 %.pre-phi104, 32
   %.sroa.0.4.extract.trunc48 = trunc nuw i64 %.sroa.0.4.extract.shift47 to i32
@@ -6378,47 +6379,47 @@ define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr noundef readonly ca
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.08199 = phi ptr [ %.081, %.lr.ph ], [ %.08196, %.lr.ph.preheader ]
-  %.07998 = phi i32 [ %56, %.lr.ph ], [ %.sroa.0.0.extract.trunc, %.lr.ph.preheader ]
-  %.08097 = phi i32 [ %55, %.lr.ph ], [ %.sroa.0.4.extract.trunc48, %.lr.ph.preheader ]
-  %50 = lshr i32 %.08097, 16
-  %51 = and i32 %50, 15
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr i8, ptr %1, i64 %52
-  %54 = load i8, ptr %53, align 1, !tbaa !7
-  store i8 %54, ptr %.08199, align 1, !tbaa !7
-  %55 = tail call i32 @llvm.fshl.i32(i32 %.08097, i32 %.07998, i32 4)
-  %56 = shl i32 %.07998, 4
+  %.07998 = phi i32 [ %57, %.lr.ph ], [ %.sroa.0.0.extract.trunc, %.lr.ph.preheader ]
+  %.08097 = phi i32 [ %56, %.lr.ph ], [ %.sroa.0.4.extract.trunc48, %.lr.ph.preheader ]
+  %51 = lshr i32 %.08097, 16
+  %52 = and i32 %51, 15
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr i8, ptr %1, i64 %53
+  %55 = load i8, ptr %54, align 1, !tbaa !7
+  store i8 %55, ptr %.08199, align 1, !tbaa !7
+  %56 = tail call i32 @llvm.fshl.i32(i32 %.08097, i32 %.07998, i32 4)
+  %57 = shl i32 %.07998, 4
   %.081 = getelementptr i8, ptr %.08199, i64 1
-  %exitcond.not = icmp eq ptr %.081, %48
+  %exitcond.not = icmp eq ptr %.081, %49
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
 
-._crit_edge:                                      ; preds = %.lr.ph, %46
-  %57 = icmp slt i32 %spec.store.select, 0
-  br i1 %57, label %.preheader, label %.loopexit
+._crit_edge:                                      ; preds = %.lr.ph, %47
+  %58 = icmp slt i32 %spec.store.select, 0
+  br i1 %58, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader
-  %.1 = phi i32 [ %58, %.preheader ], [ 15, %._crit_edge ]
-  %58 = add i32 %.1, -1
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr i8, ptr %31, i64 %59
-  %61 = load i8, ptr %60, align 1, !tbaa !7
-  %62 = icmp eq i8 %61, 48
-  br i1 %62, label %.preheader, label %.loopexit, !llvm.loop !84
+  %.1 = phi i32 [ %59, %.preheader ], [ 15, %._crit_edge ]
+  %59 = add i32 %.1, -1
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr i8, ptr %31, i64 %60
+  %62 = load i8, ptr %61, align 1, !tbaa !7
+  %63 = icmp eq i8 %62, 48
+  br i1 %63, label %.preheader, label %.loopexit, !llvm.loop !84
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
   %.078 = phi i32 [ %spec.store.select, %._crit_edge ], [ %.1, %.preheader ]
-  %63 = sext i32 %.078 to i64
-  %64 = getelementptr i8, ptr %31, i64 %63
-  store i8 0, ptr %64, align 1, !tbaa !7
+  %64 = sext i32 %.078 to i64
+  %65 = getelementptr i8, ptr %31, i64 %64
+  store i8 0, ptr %65, align 1, !tbaa !7
   %.not87 = icmp eq ptr %5, null
-  br i1 %.not87, label %nrv_alloc.exit, label %65
+  br i1 %.not87, label %nrv_alloc.exit, label %66
 
-65:                                               ; preds = %.loopexit
-  store ptr %64, ptr %5, align 8, !tbaa !19
+66:                                               ; preds = %.loopexit
+  store ptr %65, ptr %5, align 8, !tbaa !19
   br label %nrv_alloc.exit
 
-nrv_alloc.exit:                                   ; preds = %20, %.lr.ph.i88, %11, %._crit_edge.i, %.loopexit, %65, %14
-  %.0 = phi ptr [ %31, %.loopexit ], [ %15, %14 ], [ %10, %11 ], [ %31, %65 ], [ %10, %._crit_edge.i ], [ %18, %.lr.ph.i88 ], [ %18, %20 ]
+nrv_alloc.exit:                                   ; preds = %20, %.lr.ph.i88, %11, %._crit_edge.i, %.loopexit, %66, %14
+  %.0 = phi ptr [ %31, %.loopexit ], [ %15, %14 ], [ %10, %11 ], [ %31, %66 ], [ %10, %._crit_edge.i ], [ %18, %.lr.ph.i88 ], [ %18, %20 ]
   ret ptr %.0
 }
 
@@ -6479,7 +6480,7 @@ attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn mem
 attributes #12 = { nofree nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: read) }

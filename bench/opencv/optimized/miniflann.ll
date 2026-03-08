@@ -21915,7 +21915,7 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit169:          ; preds = %281, %278
   resume { ptr, i32 } %.pn96
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress uwtable
@@ -23941,7 +23941,6 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %49
   %83 = load ptr, ptr @stderr, align 8, !tbaa !105
   %84 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 27, i64 1, ptr %83) #40
   %.pre = load ptr, ptr %2, align 8, !tbaa !253
-  %.pre27 = load i32, ptr %67, align 8, !tbaa !245
   br label %_ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_10HammingLUTEE10KMeansNodeEEEPT_m.exit
 
 85:                                               ; preds = %74
@@ -23968,12 +23967,12 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %49
   br label %_ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_10HammingLUTEE10KMeansNodeEEEPT_m.exit
 
 _ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_10HammingLUTEE10KMeansNodeEEEPT_m.exit: ; preds = %.thread.i.i24, %91
-  %98 = phi i32 [ %68, %91 ], [ %.pre27, %.thread.i.i24 ]
-  %99 = phi ptr [ %45, %91 ], [ %.pre, %.thread.i.i24 ]
+  %98 = phi ptr [ %45, %91 ], [ %.pre, %.thread.i.i24 ]
   %.1.i.i22 = phi ptr [ %93, %91 ], [ null, %.thread.i.i24 ]
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  store ptr %.1.i.i22, ptr %100, align 8, !tbaa !347
-  %101 = icmp sgt i32 %98, 0
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
+  store ptr %.1.i.i22, ptr %99, align 8, !tbaa !347
+  %100 = load i32, ptr %67, align 8, !tbaa !245
+  %101 = icmp sgt i32 %100, 0
   br i1 %101, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_10HammingLUTEE10KMeansNodeEEEPT_m.exit, %.lr.ph
@@ -29592,7 +29591,6 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %38
   %72 = load ptr, ptr @stderr, align 8, !tbaa !105
   %73 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 27, i64 1, ptr %72) #40
   %.pre = load ptr, ptr %2, align 8, !tbaa !272
-  %.pre23 = load i32, ptr %56, align 4, !tbaa !265
   br label %_ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_10HammingLUTEE4NodeEEEPT_m.exit
 
 74:                                               ; preds = %63
@@ -29619,12 +29617,12 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %38
   br label %_ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_10HammingLUTEE4NodeEEEPT_m.exit
 
 _ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_10HammingLUTEE4NodeEEEPT_m.exit: ; preds = %.thread.i.i20, %80
-  %87 = phi i32 [ %57, %80 ], [ %.pre23, %.thread.i.i20 ]
-  %88 = phi ptr [ %34, %80 ], [ %.pre, %.thread.i.i20 ]
+  %87 = phi ptr [ %34, %80 ], [ %.pre, %.thread.i.i20 ]
   %.1.i.i18 = phi ptr [ %82, %80 ], [ null, %.thread.i.i20 ]
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store ptr %.1.i.i18, ptr %89, align 8, !tbaa !520
-  %90 = icmp sgt i32 %87, 0
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  store ptr %.1.i.i18, ptr %88, align 8, !tbaa !520
+  %89 = load i32, ptr %56, align 4, !tbaa !265
+  %90 = icmp sgt i32 %89, 0
   br i1 %90, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_10HammingLUTEE4NodeEEEPT_m.exit, %.lr.ph
@@ -51701,7 +51699,6 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %52
   %86 = load ptr, ptr @stderr, align 8, !tbaa !105
   %87 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 27, i64 1, ptr %86) #40
   %.pre = load ptr, ptr %2, align 8, !tbaa !737
-  %.pre27 = load i32, ptr %70, align 8, !tbaa !729
   br label %_ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_2L2IfEEE10KMeansNodeEEEPT_m.exit
 
 88:                                               ; preds = %77
@@ -51728,12 +51725,12 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %52
   br label %_ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_2L2IfEEE10KMeansNodeEEEPT_m.exit
 
 _ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_2L2IfEEE10KMeansNodeEEEPT_m.exit: ; preds = %.thread.i.i24, %94
-  %101 = phi i32 [ %71, %94 ], [ %.pre27, %.thread.i.i24 ]
-  %102 = phi ptr [ %48, %94 ], [ %.pre, %.thread.i.i24 ]
+  %101 = phi ptr [ %48, %94 ], [ %.pre, %.thread.i.i24 ]
   %.1.i.i22 = phi ptr [ %96, %94 ], [ null, %.thread.i.i24 ]
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  store ptr %.1.i.i22, ptr %103, align 8, !tbaa !946
-  %104 = icmp sgt i32 %101, 0
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  store ptr %.1.i.i22, ptr %102, align 8, !tbaa !946
+  %103 = load i32, ptr %70, align 8, !tbaa !729
+  %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_2L2IfEEE10KMeansNodeEEEPT_m.exit, %.lr.ph
@@ -64960,7 +64957,6 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %38
   %72 = load ptr, ptr @stderr, align 8, !tbaa !105
   %73 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 27, i64 1, ptr %72) #40
   %.pre = load ptr, ptr %2, align 8, !tbaa !766
-  %.pre23 = load i32, ptr %56, align 4, !tbaa !759
   br label %_ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_2L2IfEEE4NodeEEEPT_m.exit
 
 74:                                               ; preds = %63
@@ -64987,12 +64983,12 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %38
   br label %_ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_2L2IfEEE4NodeEEEPT_m.exit
 
 _ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_2L2IfEEE4NodeEEEPT_m.exit: ; preds = %.thread.i.i20, %80
-  %87 = phi i32 [ %57, %80 ], [ %.pre23, %.thread.i.i20 ]
-  %88 = phi ptr [ %34, %80 ], [ %.pre, %.thread.i.i20 ]
+  %87 = phi ptr [ %34, %80 ], [ %.pre, %.thread.i.i20 ]
   %.1.i.i18 = phi ptr [ %82, %80 ], [ null, %.thread.i.i20 ]
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store ptr %.1.i.i18, ptr %89, align 8, !tbaa !1210
-  %90 = icmp sgt i32 %87, 0
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  store ptr %.1.i.i18, ptr %88, align 8, !tbaa !1210
+  %89 = load i32, ptr %56, align 4, !tbaa !759
+  %90 = icmp sgt i32 %89, 0
   br i1 %90, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_2L2IfEEE4NodeEEEPT_m.exit, %.lr.ph
@@ -84544,7 +84540,6 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %52
   %86 = load ptr, ptr @stderr, align 8, !tbaa !105
   %87 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 27, i64 1, ptr %86) #40
   %.pre = load ptr, ptr %2, align 8, !tbaa !1341
-  %.pre27 = load i32, ptr %70, align 8, !tbaa !1333
   br label %_ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_2L1IfEEE10KMeansNodeEEEPT_m.exit
 
 88:                                               ; preds = %77
@@ -84571,12 +84566,12 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %52
   br label %_ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_2L1IfEEE10KMeansNodeEEEPT_m.exit
 
 _ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_2L1IfEEE10KMeansNodeEEEPT_m.exit: ; preds = %.thread.i.i24, %94
-  %101 = phi i32 [ %71, %94 ], [ %.pre27, %.thread.i.i24 ]
-  %102 = phi ptr [ %48, %94 ], [ %.pre, %.thread.i.i24 ]
+  %101 = phi ptr [ %48, %94 ], [ %.pre, %.thread.i.i24 ]
   %.1.i.i22 = phi ptr [ %96, %94 ], [ null, %.thread.i.i24 ]
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  store ptr %.1.i.i22, ptr %103, align 8, !tbaa !1533
-  %104 = icmp sgt i32 %101, 0
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  store ptr %.1.i.i22, ptr %102, align 8, !tbaa !1533
+  %103 = load i32, ptr %70, align 8, !tbaa !1333
+  %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_2L1IfEEE10KMeansNodeEEEPT_m.exit, %.lr.ph
@@ -96090,7 +96085,6 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %38
   %72 = load ptr, ptr @stderr, align 8, !tbaa !105
   %73 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 27, i64 1, ptr %72) #40
   %.pre = load ptr, ptr %2, align 8, !tbaa !1369
-  %.pre23 = load i32, ptr %56, align 4, !tbaa !1362
   br label %_ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_2L1IfEEE4NodeEEEPT_m.exit
 
 74:                                               ; preds = %63
@@ -96117,12 +96111,12 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %38
   br label %_ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_2L1IfEEE4NodeEEEPT_m.exit
 
 _ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_2L1IfEEE4NodeEEEPT_m.exit: ; preds = %.thread.i.i20, %80
-  %87 = phi i32 [ %57, %80 ], [ %.pre23, %.thread.i.i20 ]
-  %88 = phi ptr [ %34, %80 ], [ %.pre, %.thread.i.i20 ]
+  %87 = phi ptr [ %34, %80 ], [ %.pre, %.thread.i.i20 ]
   %.1.i.i18 = phi ptr [ %82, %80 ], [ null, %.thread.i.i20 ]
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store ptr %.1.i.i18, ptr %89, align 8, !tbaa !1742
-  %90 = icmp sgt i32 %87, 0
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  store ptr %.1.i.i18, ptr %88, align 8, !tbaa !1742
+  %89 = load i32, ptr %56, align 4, !tbaa !1362
+  %90 = icmp sgt i32 %89, 0
   br i1 %90, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_2L1IfEEE4NodeEEEPT_m.exit, %.lr.ph
@@ -101328,7 +101322,7 @@ attributes #19 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #20 = { nofree nosync nounwind memory(none) }
 attributes #21 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #25 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn }

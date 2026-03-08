@@ -463,7 +463,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: cold noreturn
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1127,7 +1127,7 @@ _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallo
 .thread:                                          ; preds = %_ZN5folly14goodMallocSizeEm.exit, %_ZN5folly10canNallocxEv.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
   call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  %44 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40
+  %44 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40, !noalias !78
   %.not.i.i.i.i14 = icmp eq ptr %44, null
   br i1 %.not.i.i.i.i14, label %45, label %_ZN5folly13checkedMallocEm.exit.i.i.i
 
@@ -1248,7 +1248,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly5IOBuf14createSeparateEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
-  %3 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40
+  %3 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40, !noalias !80
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %4, label %_ZN5folly13checkedMallocEm.exit.i.i
 
@@ -1816,7 +1816,7 @@ define void @_ZN5folly5IOBufC2ENS0_12WrapBufferOpENS_5RangeIPKhEE(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly5IOBuf10wrapBufferEPKvm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
-  %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40
+  %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40, !noalias !110
   %.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i, label %5, label %_ZN5folly13checkedMallocEm.exit.i.i
 
@@ -1974,7 +1974,7 @@ _ZNK5folly5IOBuf15cloneOneAsValueEv.exit:         ; preds = %2, %5
   br label %22
 
 22:                                               ; preds = %19, %.lr.ph.split.us
-  %23 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40
+  %23 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40, !noalias !116
   %.not.i.i.i.us = icmp eq ptr %23, null
   br i1 %.not.i.i.i.us, label %.split.us, label %_ZN5folly13checkedMallocEm.exit.i.i.us
 
@@ -2021,7 +2021,7 @@ _ZN5folly13checkedMallocEm.exit.i.i.us:           ; preds = %22
   br label %45
 
 45:                                               ; preds = %42, %.lr.ph.split
-  %46 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40
+  %46 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40, !noalias !116
   %.not.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i, label %.split.us, label %_ZN5folly13checkedMallocEm.exit.i.i
 
@@ -2460,7 +2460,7 @@ define void @_ZNK5folly5IOBuf5cloneEv(ptr dead_on_unwind noalias writable sret(%
   br label %8
 
 8:                                                ; preds = %5, %2
-  %9 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40
+  %9 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40, !noalias !132
   %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %10, label %_ZN5folly13checkedMallocEm.exit.i.i
 
@@ -2517,7 +2517,7 @@ _ZNK5folly5IOBuf8cloneOneEv.exit:                 ; preds = %_ZN5folly13checkedM
 
 29:                                               ; preds = %26, %.lr.ph.split.us
   %30 = phi ptr [ %.pre23, %26 ], [ %23, %.lr.ph.split.us ]
-  %31 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40
+  %31 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40, !noalias !135
   %.not.i.i.i7.us = icmp eq ptr %31, null
   br i1 %.not.i.i.i7.us, label %.split.us, label %_ZN5folly13checkedMallocEm.exit.i.i8.us
 
@@ -2568,7 +2568,7 @@ _ZN5folly13checkedMallocEm.exit.i.i8.us:          ; preds = %29
 
 55:                                               ; preds = %52, %.lr.ph.split
   %56 = phi ptr [ %.pre, %52 ], [ %49, %.lr.ph.split ]
-  %57 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40
+  %57 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40, !noalias !135
   %.not.i.i.i7 = icmp eq ptr %57, null
   br i1 %.not.i.i.i7, label %.split.us, label %_ZN5folly13checkedMallocEm.exit.i.i8
 
@@ -2708,7 +2708,7 @@ define void @_ZNK5folly5IOBuf14cloneCoalescedEv(ptr dead_on_unwind noalias writa
   %24 = sub i64 %22, %23
   call void @_ZNK5folly5IOBuf41cloneCoalescedAsValueWithHeadroomTailroomEmm(ptr dead_on_unwind nonnull writable sret(%"class.folly::IOBuf") align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 noundef %10, i64 noundef %24)
   call void @llvm.experimental.noalias.scope.decl(metadata !142)
-  %25 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40
+  %25 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40, !noalias !142
   %.not.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i, label %26, label %_ZN5folly13checkedMallocEm.exit.i.i
 
@@ -2781,7 +2781,7 @@ define void @_ZNK5folly5IOBuf34cloneCoalescedWithHeadroomTailroomEmm(ptr dead_on
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNK5folly5IOBuf41cloneCoalescedAsValueWithHeadroomTailroomEmm(ptr dead_on_unwind nonnull writable sret(%"class.folly::IOBuf") align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %2, i64 noundef %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !145)
-  %6 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40
+  %6 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40, !noalias !145
   %.not.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i, label %7, label %_ZN5folly13checkedMallocEm.exit.i.i
 
@@ -4137,7 +4137,7 @@ _ZN5folly5IOBuf10SharedInfo14releaseStorageEPS0_NS1_11StorageTypeEPS1_.exit: ; p
   ret void
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #30
 
 ; Function Attrs: mustprogress uwtable
@@ -4998,7 +4998,7 @@ define void @_ZN5folly5IOBuf7wrapIovEPK5iovecm(ptr dead_on_unwind noalias writab
 
 7:                                                ; preds = %.lr.ph.split.us
   %8 = load ptr, ptr %4, align 8, !tbaa !184
-  %9 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40
+  %9 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40, !noalias !196
   %.not.i.i.i.i.us = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.us, label %.split.us, label %_ZN5folly13checkedMallocEm.exit.i.i.i.us
 
@@ -5048,7 +5048,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.us: ; preds = 
 
 24:                                               ; preds = %.lr.ph.split
   %25 = load ptr, ptr %21, align 8, !tbaa !184
-  %26 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40
+  %26 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #40, !noalias !196
   %.not.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i, label %.split.us, label %_ZN5folly13checkedMallocEm.exit.i.i.i
 
@@ -5894,7 +5894,7 @@ attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #8 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { cold mustprogress noinline noreturn optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { cold noreturn }
-attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5913,7 +5913,7 @@ attributes #26 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #28 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #31 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #32 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #33 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

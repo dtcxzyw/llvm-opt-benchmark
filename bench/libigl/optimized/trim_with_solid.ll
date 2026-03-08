@@ -832,7 +832,7 @@ define linkonce_odr dso_local void @_ZN3igl8copyleft4cgal15trim_with_solidIN5Eig
   br i1 %91, label %92, label %96
 
 92:                                               ; preds = %90
-  %93 = call noalias ptr @malloc(i64 noundef %87) #38
+  %93 = call noalias ptr @malloc(i64 noundef %87) #38, !noalias !34
   %94 = icmp eq ptr %93, null
   br i1 %94, label %.noexc.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.preheader.i.i
 
@@ -1481,8 +1481,8 @@ _ZN5Eigen11IndexedViewINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEESt6vectorIiSaIiEENS_8
   store i64 -1, ptr %351, align 8, !tbaa !88
   %352 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %353 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %354 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %352, i8 0, i64 56, i1 false)
+  %354 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #38
   store ptr %354, ptr %353, align 8, !tbaa !92
   %.not6.i = icmp eq ptr %354, null
   br i1 %.not6.i, label %355, label %360
@@ -4730,7 +4730,7 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal15trim_with_solidIN5Eigen6M
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %89
-  %92 = call noalias ptr @malloc(i64 noundef %86) #38
+  %92 = call noalias ptr @malloc(i64 noundef %86) #38, !noalias !243
   %93 = icmp eq ptr %92, null
   br i1 %93, label %.noexc.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.preheader.i.i
 
@@ -5379,8 +5379,8 @@ _ZN5Eigen11IndexedViewINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEESt6vectorIiSaIiEENS_8
   store i64 -1, ptr %350, align 8, !tbaa !88
   %351 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %352 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %353 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %351, i8 0, i64 56, i1 false)
+  %353 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #38
   store ptr %353, ptr %352, align 8, !tbaa !92
   %.not6.i = icmp eq ptr %353, null
   br i1 %.not6.i, label %354, label %359
@@ -26308,7 +26308,7 @@ _ZNSt12_Vector_baseISt6vectorIN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numb
 ; Function Attrs: nounwind
 declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #15
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #30
 
 ; Function Attrs: mustprogress uwtable
@@ -34774,7 +34774,7 @@ declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #33
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #33
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #35
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
@@ -34813,12 +34813,12 @@ attributes #26 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #27 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #28 = { nounwind memory(argmem: write) }
 attributes #29 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #31 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #32 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #33 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #34 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #35 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #35 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
 attributes #36 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #37 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #38 = { nounwind allocsize(0) }

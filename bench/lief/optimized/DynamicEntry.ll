@@ -24,32 +24,32 @@ define hidden void @_ZN4LIEF3ELF22init_c_dynamic_entriesEP12Elf_Binary_tPNS0_6Bi
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %12, ptr %13, align 8, !tbaa !13
   %.not = icmp eq ptr %8, %6
-  br i1 %.not, label %._crit_edge93, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph
+  br i1 %.not, label %._crit_edge95, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph: ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
 
-._crit_edge93.loopexit:                           ; preds = %119
+._crit_edge95.loopexit:                           ; preds = %120
   %.pre = load ptr, ptr %13, align 8, !tbaa !13
-  br label %._crit_edge93
+  br label %._crit_edge95
 
-._crit_edge93:                                    ; preds = %._crit_edge93.loopexit, %2
-  %16 = phi ptr [ %12, %2 ], [ %.pre, %._crit_edge93.loopexit ]
-  %.lcssa = phi i64 [ 0, %2 ], [ %125, %._crit_edge93.loopexit ]
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.lcssa
+._crit_edge95:                                    ; preds = %._crit_edge95.loopexit, %2
+  %16 = phi ptr [ %12, %2 ], [ %.pre, %._crit_edge95.loopexit ]
+  %.lcssa92 = phi i64 [ 0, %2 ], [ %126, %._crit_edge95.loopexit ]
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.lcssa92
   store ptr null, ptr %17, align 8, !tbaa !24
   ret void
 
-_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit: ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph, %119
-  %18 = phi ptr [ %6, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph ], [ %122, %119 ]
-  %.092 = phi i64 [ 0, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph ], [ %120, %119 ]
-  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %.092
+_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit: ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph, %120
+  %18 = phi ptr [ %6, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph ], [ %123, %120 ]
+  %.094 = phi i64 [ 0, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph ], [ %121, %120 ]
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %.094
   %20 = load ptr, ptr %19, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !28
-  switch i64 %22, label %112 [
+  switch i64 %22, label %113 [
     i64 1, label %23
     i64 14, label %33
     i64 15, label %43
@@ -57,8 +57,8 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
     i64 25, label %63
     i64 26, label %63
     i64 32, label %63
-    i64 30, label %86
-    i64 1879048187, label %99
+    i64 30, label %87
+    i64 1879048187, label %100
   ]
 
 23:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
@@ -73,9 +73,9 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %29, ptr %30, align 8, !tbaa !39
   %31 = load ptr, ptr %13, align 8, !tbaa !13
-  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.092
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.094
   store ptr %24, ptr %32, align 8, !tbaa !24
-  br label %119
+  br label %120
 
 33:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %34 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #7
@@ -89,9 +89,9 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %39, ptr %40, align 8, !tbaa !43
   %41 = load ptr, ptr %13, align 8, !tbaa !13
-  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.092
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.094
   store ptr %34, ptr %42, align 8, !tbaa !24
-  br label %119
+  br label %120
 
 43:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %44 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #7
@@ -105,9 +105,9 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr %49, ptr %50, align 8, !tbaa !47
   %51 = load ptr, ptr %13, align 8, !tbaa !13
-  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.092
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.094
   store ptr %44, ptr %52, align 8, !tbaa !24
-  br label %119
+  br label %120
 
 53:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %54 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #7
@@ -121,9 +121,9 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr %59, ptr %60, align 8, !tbaa !51
   %61 = load ptr, ptr %13, align 8, !tbaa !13
-  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.092
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.094
   store ptr %54, ptr %62, align 8, !tbaa !24
-  br label %119
+  br label %120
 
 63:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %64 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #7
@@ -138,117 +138,118 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %71 = load ptr, ptr %68, align 8, !tbaa !58
   %72 = ptrtoint ptr %70 to i64
   %73 = ptrtoint ptr %71 to i64
-  %74 = sub i64 %72, %73
-  %75 = add i64 %74, 8
+  %74 = add i64 %72, 8
+  %75 = sub i64 %74, %73
   %76 = call noalias ptr @malloc(i64 noundef %75) #7
   %77 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store ptr %76, ptr %77, align 8, !tbaa !59
-  %.not94 = icmp eq ptr %70, %71
-  br i1 %.not94, label %._crit_edge, label %.lr.ph.preheader
+  %78 = sub i64 %72, %73
+  %.not96 = icmp eq ptr %70, %71
+  br i1 %.not96, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %63
-  %78 = ashr exact i64 %74, 3
+  %79 = ashr exact i64 %78, 3
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %63
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 %74
-  store i64 0, ptr %79, align 8, !tbaa !60
-  %80 = load ptr, ptr %13, align 8, !tbaa !13
-  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %.092
-  store ptr %64, ptr %81, align 8, !tbaa !24
-  br label %119
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 %78
+  store i64 0, ptr %80, align 8, !tbaa !60
+  %81 = load ptr, ptr %13, align 8, !tbaa !13
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.094
+  store ptr %64, ptr %82, align 8, !tbaa !24
+  br label %120
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.08591 = phi i64 [ %85, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %82 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.08591
-  %83 = load i64, ptr %82, align 8, !tbaa !60
-  %84 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.08591
-  store i64 %83, ptr %84, align 8, !tbaa !60
-  %85 = add nuw i64 %.08591, 1
-  %exitcond.not = icmp eq i64 %85, %78
+  %.08593 = phi i64 [ %86, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.08593
+  %84 = load i64, ptr %83, align 8, !tbaa !60
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.08593
+  store i64 %84, ptr %85, align 8, !tbaa !60
+  %86 = add nuw i64 %.08593, 1
+  %exitcond.not = icmp eq i64 %86, %79
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 
-86:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
-  %87 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
-  store i64 30, ptr %87, align 8, !tbaa !63
-  %88 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %89 = load i64, ptr %88, align 8, !tbaa !34
-  %90 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  store i64 %89, ptr %90, align 8, !tbaa !65
+87:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
+  %88 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
+  store i64 30, ptr %88, align 8, !tbaa !63
+  %89 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %90 = load i64, ptr %89, align 8, !tbaa !34
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  store i64 %90, ptr %91, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4LIEF3ELF17DynamicEntryFlags5flagsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.92") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %20) #8
-  %91 = load ptr, ptr %13, align 8, !tbaa !13
-  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %.092
-  store ptr %87, ptr %92, align 8, !tbaa !24
-  %93 = load ptr, ptr %3, align 8, !tbaa !66
-  %.not.i.i.i = icmp eq ptr %93, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit, label %94
+  %92 = load ptr, ptr %13, align 8, !tbaa !13
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %.094
+  store ptr %88, ptr %93, align 8, !tbaa !24
+  %94 = load ptr, ptr %3, align 8, !tbaa !66
+  %.not.i.i.i = icmp eq ptr %94, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit, label %95
 
-94:                                               ; preds = %86
-  %95 = load ptr, ptr %15, align 8, !tbaa !68
-  %96 = ptrtoint ptr %95 to i64
-  %97 = ptrtoint ptr %93 to i64
-  %98 = sub i64 %96, %97
-  call void @_ZdlPvm(ptr noundef nonnull %93, i64 noundef %98) #9
+95:                                               ; preds = %87
+  %96 = load ptr, ptr %15, align 8, !tbaa !68
+  %97 = ptrtoint ptr %96 to i64
+  %98 = ptrtoint ptr %94 to i64
+  %99 = sub i64 %97, %98
+  call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef %99) #9
   br label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit: ; preds = %86, %94
+_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit: ; preds = %87, %95
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %119
+  br label %120
 
-99:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
-  %100 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
-  store i64 1879048187, ptr %100, align 8, !tbaa !63
-  %101 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %102 = load i64, ptr %101, align 8, !tbaa !34
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store i64 %102, ptr %103, align 8, !tbaa !65
+100:                                              ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
+  %101 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
+  store i64 1879048187, ptr %101, align 8, !tbaa !63
+  %102 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %103 = load i64, ptr %102, align 8, !tbaa !34
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  store i64 %103, ptr %104, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK4LIEF3ELF17DynamicEntryFlags5flagsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.92") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %20) #8
-  %104 = load ptr, ptr %13, align 8, !tbaa !13
-  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %.092
-  store ptr %100, ptr %105, align 8, !tbaa !24
-  %106 = load ptr, ptr %4, align 8, !tbaa !66
-  %.not.i.i.i86 = icmp eq ptr %106, null
-  br i1 %.not.i.i.i86, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit87, label %107
+  %105 = load ptr, ptr %13, align 8, !tbaa !13
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %.094
+  store ptr %101, ptr %106, align 8, !tbaa !24
+  %107 = load ptr, ptr %4, align 8, !tbaa !66
+  %.not.i.i.i86 = icmp eq ptr %107, null
+  br i1 %.not.i.i.i86, label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit87, label %108
 
-107:                                              ; preds = %99
-  %108 = load ptr, ptr %14, align 8, !tbaa !68
-  %109 = ptrtoint ptr %108 to i64
-  %110 = ptrtoint ptr %106 to i64
-  %111 = sub i64 %109, %110
-  call void @_ZdlPvm(ptr noundef nonnull %106, i64 noundef %111) #9
+108:                                              ; preds = %100
+  %109 = load ptr, ptr %14, align 8, !tbaa !68
+  %110 = ptrtoint ptr %109 to i64
+  %111 = ptrtoint ptr %107 to i64
+  %112 = sub i64 %110, %111
+  call void @_ZdlPvm(ptr noundef nonnull %107, i64 noundef %112) #9
   br label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit87
 
-_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit87: ; preds = %99, %107
+_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit87: ; preds = %100, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %119
+  br label %120
 
-112:                                              ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
-  %113 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
-  %114 = load ptr, ptr %13, align 8, !tbaa !13
-  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %.092
-  store ptr %113, ptr %115, align 8, !tbaa !24
-  store i64 %22, ptr %113, align 8, !tbaa !69
-  %116 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %117 = load i64, ptr %116, align 8, !tbaa !34
-  %118 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  store i64 %117, ptr %118, align 8, !tbaa !71
-  br label %119
+113:                                              ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
+  %114 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
+  %115 = load ptr, ptr %13, align 8, !tbaa !13
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %.094
+  store ptr %114, ptr %116, align 8, !tbaa !24
+  store i64 %22, ptr %114, align 8, !tbaa !69
+  %117 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %118 = load i64, ptr %117, align 8, !tbaa !34
+  %119 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  store i64 %118, ptr %119, align 8, !tbaa !71
+  br label %120
 
-119:                                              ; preds = %112, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit87, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit, %._crit_edge, %53, %43, %33, %23
-  %120 = add nuw i64 %.092, 1
-  %121 = load ptr, ptr %7, align 8, !tbaa !11
-  %122 = load ptr, ptr %5, align 8, !tbaa !72
-  %123 = ptrtoint ptr %121 to i64
+120:                                              ; preds = %113, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit87, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit, %._crit_edge, %53, %43, %33, %23
+  %121 = add nuw i64 %.094, 1
+  %122 = load ptr, ptr %7, align 8, !tbaa !11
+  %123 = load ptr, ptr %5, align 8, !tbaa !72
   %124 = ptrtoint ptr %122 to i64
-  %125 = sub i64 %123, %124
-  %126 = ashr exact i64 %125, 3
-  %127 = icmp ult i64 %120, %126
-  br i1 %127, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit, label %._crit_edge93.loopexit, !llvm.loop !73
+  %125 = ptrtoint ptr %123 to i64
+  %126 = sub i64 %124, %125
+  %127 = ashr exact i64 %126, 3
+  %128 = icmp ult i64 %121, %127
+  br i1 %128, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit, label %._crit_edge95.loopexit, !llvm.loop !73
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 declare void @_ZNK4LIEF3ELF17DynamicEntryFlags5flagsEv(ptr dead_on_unwind writable sret(%"class.std::vector.92") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
@@ -308,7 +309,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

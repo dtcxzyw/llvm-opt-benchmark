@@ -325,9 +325,9 @@ if.end39:                                         ; preds = %while.body.i, %lor.
   br i1 %cmp.not.i78, label %if.end.i79, label %doemit.exit107.thread
 
 doemit.exit107.thread:                            ; preds = %if.end39
-  %sub41147 = add nsw i64 %10, -1
-  %laststate148 = getelementptr inbounds nuw i8, ptr %call11, i64 64
-  store i64 %sub41147, ptr %laststate148, align 8
+  %sub41146 = add nsw i64 %10, -1
+  %laststate147 = getelementptr inbounds nuw i8, ptr %call11, i64 64
+  store i64 %sub41146, ptr %laststate147, align 8
   br label %categorize.exit
 
 if.end.i79:                                       ; preds = %if.end39
@@ -577,7 +577,7 @@ do.body8.i.preheader:                             ; preds = %do.body.i, %do.body
 sw.bb.i:                                          ; preds = %do.body.i
   %cmp1.i = icmp eq i64 %newlen.0.i, 0
   %spec.select.i = select i1 %cmp1.i, ptr %scan.0.i, ptr %newstart.0.i
-  %inc.i127 = add nsw i64 %newlen.0.i, 1
+  %inc.i126 = add nsw i64 %newlen.0.i, 1
   br label %do.cond30.i
 
 do.body8.i:                                       ; preds = %do.body8.i.preheader, %do.body8.i
@@ -598,7 +598,7 @@ if.then18.i:                                      ; preds = %do.body8.i
   %39 = load i32, ptr %iflags, align 8
   %or.i = or i32 %39, 4
   store i32 %or.i, ptr %iflags, align 8
-  br label %do.body.i131.preheader
+  br label %do.body.i130.preheader
 
 sw.default.i:                                     ; preds = %do.body8.i, %do.body8.i, %do.body.i
   %scan.1.i = phi ptr [ %incdec.ptr.i123, %do.body.i ], [ %add.ptr10.i, %do.body8.i ], [ %add.ptr10.i, %do.body8.i ]
@@ -617,7 +617,7 @@ do.cond30.i:                                      ; preds = %if.then26.i, %sw.de
   %scan.3.i = phi ptr [ %incdec.ptr.i123, %do.body.i ], [ %incdec.ptr.i123, %sw.bb.i ], [ %incdec.ptr.i123, %do.body.i ], [ %incdec.ptr.i123, %do.body.i ], [ %scan.1.i, %if.then26.i ], [ %scan.1.i, %sw.default.i ]
   %start.2.i = phi ptr [ %start.0.i, %do.body.i ], [ %start.0.i, %sw.bb.i ], [ %start.0.i, %do.body.i ], [ %start.0.i, %do.body.i ], [ %newstart.0.i, %if.then26.i ], [ %start.0.i, %sw.default.i ]
   %newstart.2.i = phi ptr [ %newstart.0.i, %do.body.i ], [ %spec.select.i, %sw.bb.i ], [ %newstart.0.i, %do.body.i ], [ %newstart.0.i, %do.body.i ], [ %newstart.0.i, %if.then26.i ], [ %newstart.0.i, %sw.default.i ]
-  %newlen.1.i = phi i64 [ %newlen.0.i, %do.body.i ], [ %inc.i127, %sw.bb.i ], [ %newlen.0.i, %do.body.i ], [ %newlen.0.i, %do.body.i ], [ 0, %if.then26.i ], [ 0, %sw.default.i ]
+  %newlen.1.i = phi i64 [ %newlen.0.i, %do.body.i ], [ %inc.i126, %sw.bb.i ], [ %newlen.0.i, %do.body.i ], [ %newlen.0.i, %do.body.i ], [ 0, %if.then26.i ], [ 0, %sw.default.i ]
   %s.2.i = phi i64 [ %34, %do.body.i ], [ %34, %sw.bb.i ], [ %34, %do.body.i ], [ %34, %do.body.i ], [ %s.0.i, %if.then26.i ], [ %s.0.i, %sw.default.i ]
   %and31.i = and i64 %s.2.i, 4160749568
   %cmp32.not.i = icmp eq i64 %and31.i, 134217728
@@ -626,7 +626,7 @@ do.cond30.i:                                      ; preds = %if.then26.i, %sw.de
 do.end34.i:                                       ; preds = %do.cond30.i
   %41 = load i32, ptr %mlen, align 8
   %cmp36.i = icmp eq i32 %41, 0
-  br i1 %cmp36.i, label %do.body.i131.preheader, label %if.end39.i
+  br i1 %cmp36.i, label %do.body.i130.preheader, label %if.end39.i
 
 if.end39.i:                                       ; preds = %do.end34.i
   %conv41.i = sext i32 %41 to i64
@@ -634,20 +634,24 @@ if.end39.i:                                       ; preds = %do.end34.i
   %call.i = call noalias ptr @malloc(i64 noundef %add.i125) #17
   store ptr %call.i, ptr %must, align 8
   %cmp43.i = icmp eq ptr %call.i, null
-  br i1 %cmp43.i, label %if.then45.i, label %for.cond.preheader.i126
-
-for.cond.preheader.i126:                          ; preds = %if.end39.i
-  %cmp514.i = icmp sgt i32 %41, 0
-  br i1 %cmp514.i, label %while.cond.preheader.i, label %for.end.i
+  br i1 %cmp43.i, label %if.then45.i, label %if.end47.i
 
 if.then45.i:                                      ; preds = %if.end39.i
   store i32 0, ptr %mlen, align 8
-  br label %do.body.i131.preheader
+  br label %do.body.i130.preheader
 
-while.cond.preheader.i:                           ; preds = %for.cond.preheader.i126, %while.end.i
-  %i.07.i = phi i64 [ %dec.i, %while.end.i ], [ %conv41.i, %for.cond.preheader.i126 ]
-  %cp.06.i = phi ptr [ %incdec.ptr59.i, %while.end.i ], [ %call.i, %for.cond.preheader.i126 ]
-  %scan.45.i = phi ptr [ %incdec.ptr53.i, %while.end.i ], [ %start.2.i, %for.cond.preheader.i126 ]
+if.end47.i:                                       ; preds = %if.end39.i
+  %cmp514.i = icmp sgt i32 %41, 0
+  br i1 %cmp514.i, label %while.cond.preheader.preheader.i, label %for.end.i
+
+while.cond.preheader.preheader.i:                 ; preds = %if.end47.i
+  %conv50.i = zext nneg i32 %41 to i64
+  br label %while.cond.preheader.i
+
+while.cond.preheader.i:                           ; preds = %while.end.i, %while.cond.preheader.preheader.i
+  %i.07.i = phi i64 [ %dec.i, %while.end.i ], [ %conv50.i, %while.cond.preheader.preheader.i ]
+  %cp.06.i = phi ptr [ %incdec.ptr59.i, %while.end.i ], [ %call.i, %while.cond.preheader.preheader.i ]
+  %scan.45.i = phi ptr [ %incdec.ptr53.i, %while.end.i ], [ %start.2.i, %while.cond.preheader.preheader.i ]
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %while.cond.preheader.i
@@ -666,56 +670,56 @@ while.end.i:                                      ; preds = %while.cond.i
   %cmp51.i = icmp sgt i64 %i.07.i, 1
   br i1 %cmp51.i, label %while.cond.preheader.i, label %for.end.i, !llvm.loop !12
 
-for.end.i:                                        ; preds = %while.end.i, %for.cond.preheader.i126
-  %cp.0.lcssa.i = phi ptr [ %call.i, %for.cond.preheader.i126 ], [ %incdec.ptr59.i, %while.end.i ]
+for.end.i:                                        ; preds = %while.end.i, %if.end47.i
+  %cp.0.lcssa.i = phi ptr [ %call.i, %if.end47.i ], [ %incdec.ptr59.i, %while.end.i ]
   store i8 0, ptr %cp.0.lcssa.i, align 1
-  br label %do.body.i131.preheader
+  br label %do.body.i130.preheader
 
-do.body.i131.preheader:                           ; preds = %for.end.i, %if.then45.i, %do.end34.i, %if.then18.i
-  br label %do.body.i131
+do.body.i130.preheader:                           ; preds = %for.end.i, %if.then45.i, %do.end34.i, %if.then18.i
+  br label %do.body.i130
 
-do.body.i131:                                     ; preds = %do.body.i131.preheader, %do.cond.i
-  %.pn.i = phi ptr [ %scan.0.i132, %do.cond.i ], [ %call5.i, %do.body.i131.preheader ]
-  %plusnest.0.i = phi i64 [ %plusnest.1.i, %do.cond.i ], [ 0, %do.body.i131.preheader ]
-  %maxnest.0.i = phi i64 [ %maxnest.2.i, %do.cond.i ], [ 0, %do.body.i131.preheader ]
-  %scan.0.i132 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
-  %43 = load i64, ptr %scan.0.i132, align 8
-  %and.i133 = and i64 %43, 4160749568
-  %trunc.i134 = trunc nuw i64 %and.i133 to i32
-  switch i32 %trunc.i134, label %do.cond.i [
-    i32 1207959552, label %sw.bb.i139
+do.body.i130:                                     ; preds = %do.body.i130.preheader, %do.cond.i
+  %.pn.i = phi ptr [ %scan.0.i131, %do.cond.i ], [ %call5.i, %do.body.i130.preheader ]
+  %plusnest.0.i = phi i64 [ %plusnest.1.i, %do.cond.i ], [ 0, %do.body.i130.preheader ]
+  %maxnest.0.i = phi i64 [ %maxnest.2.i, %do.cond.i ], [ 0, %do.body.i130.preheader ]
+  %scan.0.i131 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
+  %43 = load i64, ptr %scan.0.i131, align 8
+  %and.i132 = and i64 %43, 4160749568
+  %trunc.i133 = trunc nuw i64 %and.i132 to i32
+  switch i32 %trunc.i133, label %do.cond.i [
+    i32 1207959552, label %sw.bb.i138
     i32 1342177280, label %sw.bb1.i
   ]
 
-sw.bb.i139:                                       ; preds = %do.body.i131
-  %inc.i140 = add nsw i64 %plusnest.0.i, 1
+sw.bb.i138:                                       ; preds = %do.body.i130
+  %inc.i139 = add nsw i64 %plusnest.0.i, 1
   br label %do.cond.i
 
-sw.bb1.i:                                         ; preds = %do.body.i131
-  %spec.select.i135 = call i64 @llvm.smax.i64(i64 %plusnest.0.i, i64 %maxnest.0.i)
-  %dec.i136 = add nsw i64 %plusnest.0.i, -1
+sw.bb1.i:                                         ; preds = %do.body.i130
+  %spec.select.i134 = call i64 @llvm.smax.i64(i64 %plusnest.0.i, i64 %maxnest.0.i)
+  %dec.i135 = add nsw i64 %plusnest.0.i, -1
   br label %do.cond.i
 
-do.cond.i:                                        ; preds = %sw.bb1.i, %sw.bb.i139, %do.body.i131
-  %plusnest.1.i = phi i64 [ %plusnest.0.i, %do.body.i131 ], [ %inc.i140, %sw.bb.i139 ], [ %dec.i136, %sw.bb1.i ]
-  %maxnest.2.i = phi i64 [ %maxnest.0.i, %do.body.i131 ], [ %maxnest.0.i, %sw.bb.i139 ], [ %spec.select.i135, %sw.bb1.i ]
-  %cmp6.not.i = icmp eq i64 %and.i133, 134217728
-  br i1 %cmp6.not.i, label %do.end.i, label %do.body.i131, !llvm.loop !13
+do.cond.i:                                        ; preds = %sw.bb1.i, %sw.bb.i138, %do.body.i130
+  %plusnest.1.i = phi i64 [ %plusnest.0.i, %do.body.i130 ], [ %inc.i139, %sw.bb.i138 ], [ %dec.i135, %sw.bb1.i ]
+  %maxnest.2.i = phi i64 [ %maxnest.0.i, %do.body.i130 ], [ %maxnest.0.i, %sw.bb.i138 ], [ %spec.select.i134, %sw.bb1.i ]
+  %cmp6.not.i = icmp eq i64 %and.i132, 134217728
+  br i1 %cmp6.not.i, label %do.end.i, label %do.body.i130, !llvm.loop !13
 
 do.end.i:                                         ; preds = %do.cond.i
   %cmp7.not.i = icmp eq i64 %plusnest.1.i, 0
-  %.pre164 = load i32, ptr %iflags, align 8
+  %.pre163 = load i32, ptr %iflags, align 8
   br i1 %cmp7.not.i, label %pluscount.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %do.end.i
-  %or.i138 = or i32 %.pre164, 4
-  store i32 %or.i138, ptr %iflags, align 8
+  %or.i137 = or i32 %.pre163, 4
+  store i32 %or.i137, ptr %iflags, align 8
   br label %pluscount.exit
 
 pluscount.exit:                                   ; preds = %stripsnug.exit.pluscount.exit_crit_edge, %do.end.i, %if.then8.i
-  %cmp.not.i120177 = phi i1 [ false, %stripsnug.exit.pluscount.exit_crit_edge ], [ true, %if.then8.i ], [ true, %do.end.i ]
-  %pa.val75175 = phi i32 [ 1, %stripsnug.exit.pluscount.exit_crit_edge ], [ %pa.val75.pre, %if.then8.i ], [ %pa.val75.pre, %do.end.i ]
-  %44 = phi i32 [ %.pre, %stripsnug.exit.pluscount.exit_crit_edge ], [ %or.i138, %if.then8.i ], [ %.pre164, %do.end.i ]
+  %cmp.not.i120176 = phi i1 [ false, %stripsnug.exit.pluscount.exit_crit_edge ], [ true, %if.then8.i ], [ true, %do.end.i ]
+  %pa.val75174 = phi i32 [ 1, %stripsnug.exit.pluscount.exit_crit_edge ], [ %pa.val75.pre, %if.then8.i ], [ %pa.val75.pre, %do.end.i ]
+  %44 = phi i32 [ %.pre, %stripsnug.exit.pluscount.exit_crit_edge ], [ %or.i137, %if.then8.i ], [ %.pre163, %do.end.i ]
   %retval.0.i = phi i64 [ 0, %stripsnug.exit.pluscount.exit_crit_edge ], [ %maxnest.2.i, %if.then8.i ], [ %maxnest.2.i, %do.end.i ]
   %nplus = getelementptr inbounds nuw i8, ptr %call11, i64 128
   store i64 %retval.0.i, ptr %nplus, align 8
@@ -731,38 +735,38 @@ pluscount.exit:                                   ; preds = %stripsnug.exit.plus
   br i1 %tobool46.not, label %if.end49, label %if.then47
 
 if.then47:                                        ; preds = %pluscount.exit
-  br i1 %cmp.not.i120177, label %if.then.i145, label %if.end49.thread
+  br i1 %cmp.not.i120176, label %if.then.i144, label %if.end49.thread
 
-if.then.i145:                                     ; preds = %if.then47
+if.then.i144:                                     ; preds = %if.then47
   store i32 15, ptr %error, align 8
   br label %if.end49.thread
 
-if.end49.thread:                                  ; preds = %if.then.i145, %if.then47
+if.end49.thread:                                  ; preds = %if.then.i144, %if.then47
   store ptr @nuls, ptr %pa, align 8
   store ptr @nuls, ptr %end, align 8
   br label %if.then52
 
 if.end49:                                         ; preds = %pluscount.exit
-  %cmp51.not = icmp eq i32 %pa.val75175, 0
+  %cmp51.not = icmp eq i32 %pa.val75174, 0
   br i1 %cmp51.not, label %return, label %if.then52
 
 if.then52:                                        ; preds = %if.end49.thread, %if.end49
   call void @llvh_regfree(ptr noundef nonnull %preg) #19
-  %.pre165 = load i32, ptr %error, align 8
+  %.pre164 = load i32, ptr %error, align 8
   br label %return
 
 return:                                           ; preds = %if.end49, %if.then52, %if.end10, %if.then6, %entry, %if.then19
-  %retval.0 = phi i32 [ 12, %if.end10 ], [ 16, %entry ], [ 16, %if.then6 ], [ 12, %if.then19 ], [ %.pre165, %if.then52 ], [ 0, %if.end49 ]
+  %retval.0 = phi i32 [ 12, %if.end10 ], [ 16, %entry ], [ 16, %if.then6 ], [ 12, %if.then19 ], [ %.pre164, %if.then52 ], [ 0, %if.end49 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -6640,7 +6644,7 @@ return:                                           ; preds = %if.else, %if.then11
   ret i8 %retval.0
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -6857,15 +6861,15 @@ declare i64 @llvm.smax.i64(i64, i64) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

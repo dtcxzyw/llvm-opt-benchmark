@@ -1752,11 +1752,7 @@ _ZN4llvm17LiveIntervalUnion5Array5clearEv.exit:   ; preds = %6, %._crit_edge.i
 27:                                               ; preds = %25
   %28 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #14
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %_ZN4llvm11safe_mallocEm.exit.thread
-
-_ZN4llvm11safe_mallocEm.exit.thread:              ; preds = %27
-  store ptr %28, ptr %7, align 8, !tbaa !96
-  br label %.loopexit
+  br i1 %29, label %30, label %_ZN4llvm11safe_mallocEm.exit
 
 30:                                               ; preds = %27
   tail call void @_ZN4llvm22report_bad_alloc_errorEPKcb(ptr noundef nonnull @.str.3, i1 noundef zeroext true) #13
@@ -1766,31 +1762,33 @@ _ZN4llvm11safe_mallocEm.exit.thread:              ; preds = %27
   tail call void @_ZN4llvm22report_bad_alloc_errorEPKcb(ptr noundef nonnull @.str.3, i1 noundef zeroext true) #13
   unreachable
 
-_ZN4llvm11safe_mallocEm.exit:                     ; preds = %_ZN4llvm17LiveIntervalUnion5Array5clearEv.exit
-  store ptr %23, ptr %7, align 8, !tbaa !96
-  %.not8 = icmp eq i32 %2, 0
+_ZN4llvm11safe_mallocEm.exit:                     ; preds = %_ZN4llvm17LiveIntervalUnion5Array5clearEv.exit, %27
+  %.0.i = phi ptr [ %23, %_ZN4llvm17LiveIntervalUnion5Array5clearEv.exit ], [ %28, %27 ]
+  store ptr %.0.i, ptr %7, align 8, !tbaa !96
+  %32 = load i32, ptr %0, align 8, !tbaa !94
+  %.not8 = icmp eq i32 %32, 0
   br i1 %.not8, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm11safe_mallocEm.exit, %.lr.ph
-  %.09 = phi i32 [ %39, %.lr.ph ], [ 0, %_ZN4llvm11safe_mallocEm.exit ]
-  %32 = load ptr, ptr %7, align 8, !tbaa !96
-  %33 = zext i32 %.09 to i64
-  %34 = getelementptr inbounds nuw [216 x i8], ptr %32, i64 %33
-  store i32 0, ptr %34, align 8, !tbaa !9
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 200
-  store i32 0, ptr %36, align 8, !tbaa !28
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 204
-  store i32 0, ptr %37, align 4, !tbaa !29
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 208
-  store ptr %1, ptr %38, align 8, !tbaa !98
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %35, i8 0, i64 192, i1 false)
-  %39 = add i32 %.09, 1
-  %40 = load i32, ptr %0, align 8, !tbaa !94
-  %.not = icmp eq i32 %39, %40
+  %.09 = phi i32 [ %40, %.lr.ph ], [ 0, %_ZN4llvm11safe_mallocEm.exit ]
+  %33 = load ptr, ptr %7, align 8, !tbaa !96
+  %34 = zext i32 %.09 to i64
+  %35 = getelementptr inbounds nuw [216 x i8], ptr %33, i64 %34
+  store i32 0, ptr %35, align 8, !tbaa !9
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 200
+  store i32 0, ptr %37, align 8, !tbaa !28
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 204
+  store i32 0, ptr %38, align 4, !tbaa !29
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 208
+  store ptr %1, ptr %39, align 8, !tbaa !98
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %36, i8 0, i64 192, i1 false)
+  %40 = add i32 %.09, 1
+  %41 = load i32, ptr %0, align 8, !tbaa !94
+  %.not = icmp eq i32 %40, %41
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !99
 
-.loopexit:                                        ; preds = %.lr.ph, %_ZN4llvm11safe_mallocEm.exit.thread, %_ZN4llvm11safe_mallocEm.exit, %3
+.loopexit:                                        ; preds = %.lr.ph, %_ZN4llvm11safe_mallocEm.exit, %3
   ret void
 }
 
@@ -1859,7 +1857,7 @@ declare void @_ZNK4llvm9SlotIndex5printERNS_11raw_ostreamE(ptr noundef nonnull a
 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: noreturn
@@ -6048,7 +6046,7 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

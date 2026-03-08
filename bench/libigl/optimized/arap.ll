@@ -1721,8 +1721,8 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_1
   store i64 -1, ptr %83, align 8, !tbaa !95
   %84 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %86 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %84, i8 0, i64 56, i1 false)
+  %86 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #23
   store ptr %86, ptr %85, align 8, !tbaa !161
   %.not6.i = icmp eq ptr %86, null
   br i1 %.not6.i, label %87, label %92
@@ -1753,8 +1753,8 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_1
   store i64 -1, ptr %94, align 8, !tbaa !95
   %95 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %96 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %97 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %95, i8 0, i64 56, i1 false)
+  %97 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #23
   store ptr %97, ptr %96, align 8, !tbaa !161
   %.not6.i232 = icmp eq ptr %97, null
   br i1 %.not6.i232, label %98, label %103
@@ -1813,8 +1813,8 @@ _ZN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEC2IS1_EERKNS_9EigenBaseIT_EE.exit: ; 
   store i64 -1, ptr %112, align 8, !tbaa !95
   %113 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %114 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %115 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %113, i8 0, i64 56, i1 false)
+  %115 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #23
   store ptr %115, ptr %114, align 8, !tbaa !161
   %.not6.i238 = icmp eq ptr %115, null
   br i1 %.not6.i238, label %116, label %121
@@ -1971,8 +1971,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit:         ; preds = %160, %164
   store i64 -1, ptr %170, align 8, !tbaa !95
   %171 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %172 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %173 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %171, i8 0, i64 56, i1 false)
+  %173 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #23
   store ptr %173, ptr %172, align 8, !tbaa !161
   %.not6.i244 = icmp eq ptr %173, null
   br i1 %.not6.i244, label %174, label %179
@@ -2210,8 +2210,8 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
   store i64 -1, ptr %263, align 8, !tbaa !95
   %264 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %265 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %266 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %264, i8 0, i64 56, i1 false)
+  %266 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #23
   store ptr %266, ptr %265, align 8, !tbaa !161
   %.not6.i253 = icmp eq ptr %266, null
   br i1 %.not6.i253, label %267, label %272
@@ -2423,8 +2423,8 @@ _ZNK5Eigen16SparseMatrixBaseINS_12CwiseUnaryOpINS_8internal18scalar_opposite_opI
   store i64 -1, ptr %339, align 8, !tbaa !95
   %340 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %341 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %342 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %340, i8 0, i64 56, i1 false)
+  %342 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #23
   store ptr %342, ptr %341, align 8, !tbaa !161
   %.not6.i259 = icmp eq ptr %342, null
   br i1 %.not6.i259, label %343, label %348
@@ -2713,8 +2713,8 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit217:      ; preds = %430, %434
   store i64 -1, ptr %447, align 8, !tbaa !95
   %448 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %449 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %450 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %448, i8 0, i64 56, i1 false)
+  %450 = call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #23
   store ptr %450, ptr %449, align 8, !tbaa !161
   %.not6.i265 = icmp eq ptr %450, null
   br i1 %.not6.i265, label %451, label %456
@@ -3294,7 +3294,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal17CompressedStorageIdiED2E
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -12401,7 +12401,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #20
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
@@ -12414,7 +12414,7 @@ attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wid
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { cold noreturn }
@@ -12429,7 +12429,7 @@ attributes #18 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "n
 attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #22 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #22 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
 attributes #23 = { nounwind allocsize(0) }
 attributes #24 = { nounwind }
 attributes #25 = { noreturn }

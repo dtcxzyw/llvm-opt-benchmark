@@ -17441,78 +17441,78 @@ if.then.i:                                        ; preds = %_ZNSt10shared_ptrIN
   unreachable
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit.i
-  %.pr16.i = phi i32 [ %.pr.i, %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit.i ], [ %17, %for.cond.preheader.i ]
+  %19 = phi i32 [ %24, %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit.i ], [ %17, %for.cond.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit.i ], [ 0, %for.cond.preheader.i ]
-  %19 = load ptr, ptr %scratch, align 8
-  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv.i
-  %20 = load ptr, ptr %arrayidx.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %20, null
+  %20 = load ptr, ptr %scratch, align 8
+  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %indvars.iv.i
+  %21 = load ptr, ptr %arrayidx.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i, label %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit.i, label %_ZN8facebook5velox10raw_vectorIcE8freeDataEPc.exit.i.i.i
 
 _ZN8facebook5velox10raw_vectorIcE8freeDataEPc.exit.i.i.i: ; preds = %for.body.i
-  %21 = ptrtoint ptr %20 to i64
-  %add.i.i.i.i.i8 = add i64 %21, -32
-  %22 = inttoptr i64 %add.i.i.i.i.i8 to ptr
-  call void @free(ptr noundef %22) #20
-  %.pr.pre.i = load i32, ptr %fill_.i, align 8
+  %22 = ptrtoint ptr %21 to i64
+  %add.i.i.i.i.i8 = add i64 %22, -32
+  %23 = inttoptr i64 %add.i.i.i.i.i8 to ptr
+  call void @free(ptr noundef %23) #20
+  %.pre.i = load i32, ptr %fill_.i, align 8
   br label %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit.i
 
 _ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit.i: ; preds = %_ZN8facebook5velox10raw_vectorIcE8freeDataEPc.exit.i.i.i, %for.body.i
-  %.pr.i = phi i32 [ %.pr16.i, %for.body.i ], [ %.pr.pre.i, %_ZN8facebook5velox10raw_vectorIcE8freeDataEPc.exit.i.i.i ]
+  %24 = phi i32 [ %19, %for.body.i ], [ %.pre.i, %_ZN8facebook5velox10raw_vectorIcE8freeDataEPc.exit.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %23 = sext i32 %.pr.i to i64
-  %cmp3.i = icmp slt i64 %indvars.iv.next.i, %23
+  %25 = sext i32 %24 to i64
+  %cmp3.i = icmp slt i64 %indvars.iv.next.i, %25
   br i1 %cmp3.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !160
 
 for.end.loopexit.i:                               ; preds = %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit.i
-  %.pre.i = load i32, ptr %capacity_.i, align 4
+  %.pre16.i = load i32, ptr %capacity_.i, align 4
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %for.cond.preheader.i
-  %24 = phi i32 [ %18, %for.cond.preheader.i ], [ %.pre.i, %for.end.loopexit.i ]
-  %.lcssa.i = phi i32 [ %17, %for.cond.preheader.i ], [ %.pr.i, %for.end.loopexit.i ]
-  %cmp5.i = icmp slt i32 %24, 0
+  %26 = phi i32 [ %24, %for.end.loopexit.i ], [ %17, %for.cond.preheader.i ]
+  %27 = phi i32 [ %.pre16.i, %for.end.loopexit.i ], [ %18, %for.cond.preheader.i ]
+  %cmp5.i = icmp slt i32 %27, 0
   %.pre = load ptr, ptr %scratch, align 8
   br i1 %cmp5.i, label %if.then6.i, label %_ZN8facebook5velox7ScratchD2Ev.exit
 
 if.then6.i:                                       ; preds = %for.end.i
   %call.i = call noalias ptr @malloc(i64 noundef 0) #42
-  %cmp8.i = icmp sgt i32 %.lcssa.i, 0
+  %cmp8.i = icmp sgt i32 %26, 0
   br i1 %cmp8.i, label %if.then9.i, label %if.end14.i
 
 if.then9.i:                                       ; preds = %if.then6.i
-  %conv12.i = zext nneg i32 %.lcssa.i to i64
+  %conv12.i = zext nneg i32 %26 to i64
   %mul13.i = shl nuw nsw i64 %conv12.i, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i, ptr align 8 %.pre, i64 %mul13.i, i1 false)
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then9.i, %if.then6.i
-  %idx.ext.i = sext i32 %.lcssa.i to i64
+  %idx.ext.i = sext i32 %26 to i64
   %add.ptr.i = getelementptr inbounds [16 x i8], ptr %call.i, i64 %idx.ext.i
-  %sub.i = sub nsw i32 0, %.lcssa.i
+  %sub.i = sub nsw i32 0, %26
   %conv17.i = sext i32 %sub.i to i64
   %mul18.i = shl nsw i64 %conv17.i, 4
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i, i8 0, i64 %mul18.i, i1 false)
   call void @free(ptr noundef %.pre) #20
   store ptr %call.i, ptr %scratch, align 8
   store i32 0, ptr %capacity_.i, align 4
-  %.pre19.i = load i32, ptr %fill_.i, align 8
+  %.pre18.i = load i32, ptr %fill_.i, align 8
   br label %_ZN8facebook5velox7ScratchD2Ev.exit
 
 _ZN8facebook5velox7ScratchD2Ev.exit:              ; preds = %if.end14.i, %for.end.i
-  %25 = phi ptr [ %call.i, %if.end14.i ], [ %.pre, %for.end.i ]
-  %26 = phi i32 [ %.pre19.i, %if.end14.i ], [ %.lcssa.i, %for.end.i ]
-  %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %26, i32 0)
+  %28 = phi ptr [ %call.i, %if.end14.i ], [ %.pre, %for.end.i ]
+  %29 = phi i32 [ %.pre18.i, %if.end14.i ], [ %26, %for.end.i ]
+  %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %29, i32 0)
   store i32 %.sroa.speculated.i, ptr %fill_.i, align 8
-  call void @free(ptr noundef %25) #20
+  call void @free(ptr noundef %28) #20
   ret void
 
 lpad:                                             ; preds = %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit
-  %27 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #20
   call void @_ZN8facebook5velox7ScratchD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scratch) #20
-  resume { ptr, i32 } %27
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25834,7 +25834,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -25863,74 +25863,75 @@ if.then:                                          ; preds = %entry
   unreachable
 
 for.body:                                         ; preds = %for.body.preheader, %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit
-  %.pr16 = phi i32 [ %0, %for.body.preheader ], [ %.pr, %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit ]
+  %3 = phi i32 [ %0, %for.body.preheader ], [ %8, %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit ]
   %indvars.iv = phi i64 [ %2, %for.body.preheader ], [ %indvars.iv.next, %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit ]
-  %3 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds [16 x i8], ptr %3, i64 %indvars.iv
-  %4 = load ptr, ptr %arrayidx, align 8
-  %tobool.not.i.i = icmp eq ptr %4, null
+  %4 = load ptr, ptr %this, align 8
+  %arrayidx = getelementptr inbounds [16 x i8], ptr %4, i64 %indvars.iv
+  %5 = load ptr, ptr %arrayidx, align 8
+  %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit, label %_ZN8facebook5velox10raw_vectorIcE8freeDataEPc.exit.i.i
 
 _ZN8facebook5velox10raw_vectorIcE8freeDataEPc.exit.i.i: ; preds = %for.body
-  %5 = ptrtoint ptr %4 to i64
-  %add.i.i.i.i = add i64 %5, -32
-  %6 = inttoptr i64 %add.i.i.i.i to ptr
-  tail call void @free(ptr noundef %6) #20
-  %.pr.pre = load i32, ptr %fill_, align 8
+  %6 = ptrtoint ptr %5 to i64
+  %add.i.i.i.i = add i64 %6, -32
+  %7 = inttoptr i64 %add.i.i.i.i to ptr
+  tail call void @free(ptr noundef %7) #20
+  %.pre = load i32, ptr %fill_, align 8
   br label %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit
 
 _ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit: ; preds = %for.body, %_ZN8facebook5velox10raw_vectorIcE8freeDataEPc.exit.i.i
-  %.pr = phi i32 [ %.pr16, %for.body ], [ %.pr.pre, %_ZN8facebook5velox10raw_vectorIcE8freeDataEPc.exit.i.i ]
+  %8 = phi i32 [ %3, %for.body ], [ %.pre, %_ZN8facebook5velox10raw_vectorIcE8freeDataEPc.exit.i.i ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %7 = sext i32 %.pr to i64
-  %cmp3 = icmp slt i64 %indvars.iv.next, %7
+  %9 = sext i32 %8 to i64
+  %cmp3 = icmp slt i64 %indvars.iv.next, %9
   br i1 %cmp3, label %for.body, label %for.end.loopexit, !llvm.loop !160
 
 for.end.loopexit:                                 ; preds = %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit
-  %.pre = load i32, ptr %capacity_, align 4
+  %.pre16 = load i32, ptr %capacity_, align 4
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
-  %8 = phi i32 [ %1, %for.cond.preheader ], [ %.pre, %for.end.loopexit ]
-  %.lcssa = phi i32 [ %0, %for.cond.preheader ], [ %.pr, %for.end.loopexit ]
-  %cmp5 = icmp sgt i32 %newCapacity, %8
+  %10 = phi i32 [ %8, %for.end.loopexit ], [ %0, %for.cond.preheader ]
+  %11 = phi i32 [ %.pre16, %for.end.loopexit ], [ %1, %for.cond.preheader ]
+  %cmp5 = icmp sgt i32 %newCapacity, %11
   br i1 %cmp5, label %if.then6, label %if.end22
 
 if.then6:                                         ; preds = %for.end
   %conv = sext i32 %newCapacity to i64
   %mul = shl nsw i64 %conv, 4
   %call = tail call noalias ptr @malloc(i64 noundef %mul) #42
-  %cmp8 = icmp sgt i32 %.lcssa, 0
-  %.pre18 = load ptr, ptr %this, align 8
+  %12 = load i32, ptr %fill_, align 8
+  %cmp8 = icmp sgt i32 %12, 0
+  %.pre17 = load ptr, ptr %this, align 8
   br i1 %cmp8, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %if.then6
-  %conv12 = zext nneg i32 %.lcssa to i64
+  %conv12 = zext nneg i32 %12 to i64
   %mul13 = shl nuw nsw i64 %conv12, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call, ptr align 8 %.pre18, i64 %mul13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call, ptr align 8 %.pre17, i64 %mul13, i1 false)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then9, %if.then6
-  %idx.ext = sext i32 %.lcssa to i64
+  %idx.ext = sext i32 %12 to i64
   %add.ptr = getelementptr inbounds [16 x i8], ptr %call, i64 %idx.ext
-  %sub = sub nsw i32 %newCapacity, %.lcssa
+  %sub = sub nsw i32 %newCapacity, %12
   %conv17 = sext i32 %sub to i64
   %mul18 = shl nsw i64 %conv17, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr, i8 0, i64 %mul18, i1 false)
-  tail call void @free(ptr noundef %.pre18) #20
+  tail call void @free(ptr noundef %.pre17) #20
   store ptr %call, ptr %this, align 8
   store i32 %newCapacity, ptr %capacity_, align 4
-  %.pre19 = load i32, ptr %fill_, align 8
+  %.pre18 = load i32, ptr %fill_, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end14, %for.end
-  %9 = phi i32 [ %.pre19, %if.end14 ], [ %.lcssa, %for.end ]
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %newCapacity, i32 %9)
+  %13 = phi i32 [ %.pre18, %if.end14 ], [ %10, %for.end ]
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %newCapacity, i32 %13)
   store i32 %.sroa.speculated, ptr %fill_, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -70142,77 +70143,77 @@ if.then.i:                                        ; preds = %invoke.cont
   unreachable
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit.i
-  %.pr16.i = phi i32 [ %.pr.i, %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit.i ], [ %1, %for.cond.preheader.i ]
+  %3 = phi i32 [ %8, %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit.i ], [ %1, %for.cond.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit.i ], [ 0, %for.cond.preheader.i ]
-  %3 = load ptr, ptr %scratch, align 8
-  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.i
-  %4 = load ptr, ptr %arrayidx.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %4, null
+  %4 = load ptr, ptr %scratch, align 8
+  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.i
+  %5 = load ptr, ptr %arrayidx.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit.i, label %_ZN8facebook5velox10raw_vectorIcE8freeDataEPc.exit.i.i.i
 
 _ZN8facebook5velox10raw_vectorIcE8freeDataEPc.exit.i.i.i: ; preds = %for.body.i
-  %5 = ptrtoint ptr %4 to i64
-  %add.i.i.i.i.i = add i64 %5, -32
-  %6 = inttoptr i64 %add.i.i.i.i.i to ptr
-  call void @free(ptr noundef %6) #20
-  %.pr.pre.i = load i32, ptr %fill_.i, align 8
+  %6 = ptrtoint ptr %5 to i64
+  %add.i.i.i.i.i = add i64 %6, -32
+  %7 = inttoptr i64 %add.i.i.i.i.i to ptr
+  call void @free(ptr noundef %7) #20
+  %.pre.i = load i32, ptr %fill_.i, align 8
   br label %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit.i
 
 _ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit.i: ; preds = %_ZN8facebook5velox10raw_vectorIcE8freeDataEPc.exit.i.i.i, %for.body.i
-  %.pr.i = phi i32 [ %.pr16.i, %for.body.i ], [ %.pr.pre.i, %_ZN8facebook5velox10raw_vectorIcE8freeDataEPc.exit.i.i.i ]
+  %8 = phi i32 [ %3, %for.body.i ], [ %.pre.i, %_ZN8facebook5velox10raw_vectorIcE8freeDataEPc.exit.i.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %7 = sext i32 %.pr.i to i64
-  %cmp3.i = icmp slt i64 %indvars.iv.next.i, %7
+  %9 = sext i32 %8 to i64
+  %cmp3.i = icmp slt i64 %indvars.iv.next.i, %9
   br i1 %cmp3.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !160
 
 for.end.loopexit.i:                               ; preds = %_ZSt10destroy_atIN8facebook5velox10raw_vectorIcEEEvPT_.exit.i
-  %.pre.i = load i32, ptr %capacity_.i, align 4
+  %.pre16.i = load i32, ptr %capacity_.i, align 4
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %for.cond.preheader.i
-  %8 = phi i32 [ %2, %for.cond.preheader.i ], [ %.pre.i, %for.end.loopexit.i ]
-  %.lcssa.i = phi i32 [ %1, %for.cond.preheader.i ], [ %.pr.i, %for.end.loopexit.i ]
-  %cmp5.i = icmp slt i32 %8, 0
+  %10 = phi i32 [ %8, %for.end.loopexit.i ], [ %1, %for.cond.preheader.i ]
+  %11 = phi i32 [ %.pre16.i, %for.end.loopexit.i ], [ %2, %for.cond.preheader.i ]
+  %cmp5.i = icmp slt i32 %11, 0
   %.pre = load ptr, ptr %scratch, align 8
   br i1 %cmp5.i, label %if.then6.i, label %_ZN8facebook5velox7ScratchD2Ev.exit
 
 if.then6.i:                                       ; preds = %for.end.i
   %call.i = call noalias ptr @malloc(i64 noundef 0) #42
-  %cmp8.i = icmp sgt i32 %.lcssa.i, 0
+  %cmp8.i = icmp sgt i32 %10, 0
   br i1 %cmp8.i, label %if.then9.i, label %if.end14.i
 
 if.then9.i:                                       ; preds = %if.then6.i
-  %conv12.i = zext nneg i32 %.lcssa.i to i64
+  %conv12.i = zext nneg i32 %10 to i64
   %mul13.i = shl nuw nsw i64 %conv12.i, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i, ptr align 8 %.pre, i64 %mul13.i, i1 false)
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then9.i, %if.then6.i
-  %idx.ext.i = sext i32 %.lcssa.i to i64
+  %idx.ext.i = sext i32 %10 to i64
   %add.ptr.i = getelementptr inbounds [16 x i8], ptr %call.i, i64 %idx.ext.i
-  %sub.i = sub nsw i32 0, %.lcssa.i
+  %sub.i = sub nsw i32 0, %10
   %conv17.i = sext i32 %sub.i to i64
   %mul18.i = shl nsw i64 %conv17.i, 4
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i, i8 0, i64 %mul18.i, i1 false)
   call void @free(ptr noundef %.pre) #20
   store ptr %call.i, ptr %scratch, align 8
   store i32 0, ptr %capacity_.i, align 4
-  %.pre19.i = load i32, ptr %fill_.i, align 8
+  %.pre18.i = load i32, ptr %fill_.i, align 8
   br label %_ZN8facebook5velox7ScratchD2Ev.exit
 
 _ZN8facebook5velox7ScratchD2Ev.exit:              ; preds = %if.end14.i, %for.end.i
-  %9 = phi ptr [ %call.i, %if.end14.i ], [ %.pre, %for.end.i ]
-  %10 = phi i32 [ %.pre19.i, %if.end14.i ], [ %.lcssa.i, %for.end.i ]
-  %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %10, i32 0)
+  %12 = phi ptr [ %call.i, %if.end14.i ], [ %.pre, %for.end.i ]
+  %13 = phi i32 [ %.pre18.i, %if.end14.i ], [ %10, %for.end.i ]
+  %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %13, i32 0)
   store i32 %.sroa.speculated.i, ptr %fill_.i, align 8
-  call void @free(ptr noundef %9) #20
+  call void @free(ptr noundef %12) #20
   ret void
 
 lpad:                                             ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8facebook5velox7ScratchD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %scratch) #20
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -83850,9 +83851,9 @@ attributes #10 = { cold nofree noreturn }
 attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
 attributes #19 = { nounwind memory(argmem: readwrite) }

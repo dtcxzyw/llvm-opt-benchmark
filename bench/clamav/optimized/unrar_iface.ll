@@ -89,313 +89,315 @@ define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_open(ptr noundef %0, pt
   store i8 %4, ptr @unrar_debug, align 1, !tbaa !3
   %14 = tail call noalias dereferenceable_or_null(176) ptr @calloc(i64 noundef 176, i64 noundef 1) #14
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %18
+  br i1 %15, label %16, label %19
 
 16:                                               ; preds = %13
-  %.not89 = icmp eq i8 %4, 0
-  br i1 %.not89, label %.thread126, label %17, !prof !6
+  %17 = load i8, ptr @unrar_debug, align 1, !tbaa !3
+  %.not89 = icmp eq i8 %17, 0
+  br i1 %.not89, label %.thread126, label %18, !prof !6
 
-17:                                               ; preds = %16
+18:                                               ; preds = %16
   tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.1)
   br label %.thread126
 
-18:                                               ; preds = %13
+19:                                               ; preds = %13
   store ptr %0, ptr %14, align 1, !tbaa !7
-  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i32 1, ptr %19, align 1, !tbaa !14
-  %20 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  store i32 1, ptr %20, align 1, !tbaa !15
-  %21 = tail call noalias dereferenceable_or_null(65536) ptr @calloc(i64 noundef 1, i64 noundef 65536) #14
-  %22 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %21, ptr %22, align 1, !tbaa !16
-  %23 = icmp eq ptr %21, null
-  br i1 %23, label %24, label %26
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store i32 1, ptr %20, align 1, !tbaa !14
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  store i32 1, ptr %21, align 1, !tbaa !15
+  %22 = tail call noalias dereferenceable_or_null(65536) ptr @calloc(i64 noundef 1, i64 noundef 65536) #14
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store ptr %22, ptr %23, align 1, !tbaa !16
+  %24 = icmp eq ptr %22, null
+  br i1 %24, label %25, label %28
 
-24:                                               ; preds = %18
-  %.not88 = icmp eq i8 %4, 0
-  br i1 %.not88, label %.thread133.thread, label %25, !prof !6
+25:                                               ; preds = %19
+  %26 = load i8, ptr @unrar_debug, align 1, !tbaa !3
+  %.not88 = icmp eq i8 %26, 0
+  br i1 %.not88, label %.thread133.thread, label %27, !prof !6
 
-25:                                               ; preds = %24
+27:                                               ; preds = %25
   tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.2)
   br label %.thread133
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i32 65536, ptr %27, align 1, !tbaa !17
-  %28 = tail call ptr @RAROpenArchiveEx(ptr noundef nonnull %14)
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %37
+28:                                               ; preds = %19
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  store i32 65536, ptr %29, align 1, !tbaa !17
+  %30 = tail call ptr @RAROpenArchiveEx(ptr noundef nonnull %14)
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %39
 
-30:                                               ; preds = %26
-  %31 = load i8, ptr @unrar_debug, align 1, !tbaa !3
-  %.not87 = icmp eq i8 %31, 0
-  br i1 %.not87, label %33, label %32, !prof !6
+32:                                               ; preds = %28
+  %33 = load i8, ptr @unrar_debug, align 1, !tbaa !3
+  %.not87 = icmp eq i8 %33, 0
+  br i1 %.not87, label %35, label %34, !prof !6
 
-32:                                               ; preds = %30
+34:                                               ; preds = %32
   tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.3, ptr noundef nonnull %0)
-  br label %33
+  br label %35
 
-33:                                               ; preds = %30, %32
-  %34 = getelementptr inbounds nuw i8, ptr %14, i64 20
-  %35 = load i32, ptr %34, align 1, !tbaa !18
-  %36 = tail call fastcc noundef i32 @_ZL13unrar_retcodei(i32 noundef %35)
+35:                                               ; preds = %32, %34
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 20
+  %37 = load i32, ptr %36, align 1, !tbaa !18
+  %38 = tail call fastcc noundef i32 @_ZL13unrar_retcodei(i32 noundef %37)
   br label %.thread133
 
-37:                                               ; preds = %26
-  %38 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %39 = load i32, ptr %38, align 1, !tbaa !19
-  %40 = load i8, ptr @unrar_debug, align 1, !tbaa !3
-  %.not65 = icmp eq i8 %40, 0
-  switch i32 %39, label %51 [
-    i32 0, label %41
-    i32 12, label %43
-    i32 20, label %45
-    i32 1, label %47
-    i32 11, label %49
+39:                                               ; preds = %28
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %41 = load i32, ptr %40, align 1, !tbaa !19
+  %42 = load i8, ptr @unrar_debug, align 1, !tbaa !3
+  %.not65 = icmp eq i8 %42, 0
+  switch i32 %41, label %53 [
+    i32 0, label %43
+    i32 12, label %45
+    i32 20, label %47
+    i32 1, label %49
+    i32 11, label %51
   ]
 
-41:                                               ; preds = %37
-  br i1 %.not65, label %53, label %42, !prof !6
-
-42:                                               ; preds = %41
-  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.4)
-  br label %53
-
-43:                                               ; preds = %37
-  br i1 %.not65, label %53, label %44, !prof !6
+43:                                               ; preds = %39
+  br i1 %.not65, label %55, label %44, !prof !6
 
 44:                                               ; preds = %43
-  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.5)
-  br label %53
+  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.4)
+  br label %55
 
-45:                                               ; preds = %37
-  br i1 %.not65, label %53, label %46, !prof !6
+45:                                               ; preds = %39
+  br i1 %.not65, label %55, label %46, !prof !6
 
 46:                                               ; preds = %45
-  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.6)
-  br label %53
+  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.5)
+  br label %55
 
-47:                                               ; preds = %37
-  br i1 %.not65, label %53, label %48, !prof !6
+47:                                               ; preds = %39
+  br i1 %.not65, label %55, label %48, !prof !6
 
 48:                                               ; preds = %47
-  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.7)
-  br label %53
+  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.6)
+  br label %55
 
-49:                                               ; preds = %37
-  br i1 %.not65, label %53, label %50, !prof !6
+49:                                               ; preds = %39
+  br i1 %.not65, label %55, label %50, !prof !6
 
 50:                                               ; preds = %49
-  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.8)
-  br label %53
+  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.7)
+  br label %55
 
-51:                                               ; preds = %37
-  br i1 %.not65, label %53, label %52, !prof !6
+51:                                               ; preds = %39
+  br i1 %.not65, label %55, label %52, !prof !6
 
 52:                                               ; preds = %51
-  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.9, i32 noundef %39)
-  br label %53
+  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.8)
+  br label %55
 
-53:                                               ; preds = %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41
-  %54 = getelementptr inbounds nuw i8, ptr %14, i64 36
-  %55 = load i32, ptr %54, align 1, !tbaa !20
-  %.not66 = icmp eq i32 %55, 0
-  br i1 %.not66, label %72, label %56
+53:                                               ; preds = %39
+  br i1 %.not65, label %55, label %54, !prof !6
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr %27, align 1, !tbaa !17
-  %. = tail call i32 @llvm.umin.i32(i32 %55, i32 %57)
+54:                                               ; preds = %53
+  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.9, i32 noundef %41)
+  br label %55
+
+55:                                               ; preds = %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43
+  %56 = getelementptr inbounds nuw i8, ptr %14, i64 36
+  %57 = load i32, ptr %56, align 1, !tbaa !20
+  %.not66 = icmp eq i32 %57, 0
+  br i1 %.not66, label %74, label %58
+
+58:                                               ; preds = %55
+  %59 = load i32, ptr %29, align 1, !tbaa !17
+  %. = tail call i32 @llvm.umin.i32(i32 %57, i32 %59)
   store i32 %., ptr %3, align 4, !tbaa !21
-  %58 = load ptr, ptr %22, align 1, !tbaa !16
-  %59 = zext i32 %. to i64
-  %.not.i = icmp eq ptr %58, null
-  br i1 %.not.i, label %68, label %60
+  %60 = load ptr, ptr %23, align 1, !tbaa !16
+  %61 = zext i32 %. to i64
+  %.not.i = icmp eq ptr %60, null
+  br i1 %.not.i, label %70, label %62
 
-60:                                               ; preds = %56
-  %.not8.i.i = icmp eq i32 %57, 0
+62:                                               ; preds = %58
+  %.not8.i.i = icmp eq i32 %59, 0
   br i1 %.not8.i.i, label %_ZL13unrar_strnlenPKcm.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %60, %63
-  %.05.i.i = phi i64 [ %64, %63 ], [ 0, %60 ]
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %.05.i.i
-  %62 = load i8, ptr %61, align 1, !tbaa !3
-  %.not.i.i = icmp eq i8 %62, 0
-  br i1 %.not.i.i, label %_ZL13unrar_strnlenPKcm.exit.i, label %63
+.lr.ph.i.i:                                       ; preds = %62, %65
+  %.05.i.i = phi i64 [ %66, %65 ], [ 0, %62 ]
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %.05.i.i
+  %64 = load i8, ptr %63, align 1, !tbaa !3
+  %.not.i.i = icmp eq i8 %64, 0
+  br i1 %.not.i.i, label %_ZL13unrar_strnlenPKcm.exit.i, label %65
 
-63:                                               ; preds = %.lr.ph.i.i
-  %64 = add nuw nsw i64 %.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %64, %59
+65:                                               ; preds = %.lr.ph.i.i
+  %66 = add nuw nsw i64 %.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %66, %61
   br i1 %exitcond.not.i.i, label %_ZL13unrar_strnlenPKcm.exit.i, label %.lr.ph.i.i, !llvm.loop !22
 
-_ZL13unrar_strnlenPKcm.exit.i:                    ; preds = %63, %.lr.ph.i.i, %60
-  %.0.lcssa.i.i = phi i64 [ 0, %60 ], [ %59, %63 ], [ %.05.i.i, %.lr.ph.i.i ]
-  %65 = add nuw i64 %.0.lcssa.i.i, 1
-  %66 = tail call noalias ptr @malloc(i64 noundef %65) #15
-  %.not13.i = icmp eq ptr %66, null
-  br i1 %.not13.i, label %68, label %_ZL13unrar_strndupPKcm.exit
+_ZL13unrar_strnlenPKcm.exit.i:                    ; preds = %65, %.lr.ph.i.i, %62
+  %.0.lcssa.i.i = phi i64 [ 0, %62 ], [ %61, %65 ], [ %.05.i.i, %.lr.ph.i.i ]
+  %67 = add nuw i64 %.0.lcssa.i.i, 1
+  %68 = tail call noalias ptr @malloc(i64 noundef %67) #15
+  %.not13.i = icmp eq ptr %68, null
+  br i1 %.not13.i, label %70, label %_ZL13unrar_strndupPKcm.exit
 
 _ZL13unrar_strndupPKcm.exit:                      ; preds = %_ZL13unrar_strnlenPKcm.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull readonly align 1 %58, i64 %.0.lcssa.i.i, i1 false)
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.0.lcssa.i.i
-  store i8 0, ptr %67, align 1, !tbaa !3
-  store ptr %66, ptr %2, align 8, !tbaa !24
-  br label %72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr nonnull readonly align 1 %60, i64 %.0.lcssa.i.i, i1 false)
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.0.lcssa.i.i
+  store i8 0, ptr %69, align 1, !tbaa !3
+  store ptr %68, ptr %2, align 8, !tbaa !24
+  br label %74
 
-68:                                               ; preds = %56, %_ZL13unrar_strnlenPKcm.exit.i
+70:                                               ; preds = %58, %_ZL13unrar_strnlenPKcm.exit.i
   store ptr null, ptr %2, align 8, !tbaa !24
-  %69 = load i8, ptr @unrar_debug, align 1, !tbaa !3
-  %.not67 = icmp eq i8 %69, 0
-  br i1 %.not67, label %71, label %70, !prof !6
+  %71 = load i8, ptr @unrar_debug, align 1, !tbaa !3
+  %.not67 = icmp eq i8 %71, 0
+  br i1 %.not67, label %73, label %72, !prof !6
 
-70:                                               ; preds = %68
+72:                                               ; preds = %70
   tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.10)
-  br label %71
+  br label %73
 
-71:                                               ; preds = %68, %70
+73:                                               ; preds = %70, %72
   store i32 0, ptr %3, align 4, !tbaa !21
-  br label %72
+  br label %74
 
-72:                                               ; preds = %_ZL13unrar_strndupPKcm.exit, %71, %53
-  %73 = load i8, ptr @unrar_debug, align 1, !tbaa !3
-  %.not68 = icmp eq i8 %73, 0
-  br i1 %.not68, label %108, label %74, !prof !6
+74:                                               ; preds = %_ZL13unrar_strndupPKcm.exit, %73, %55
+  %75 = load i8, ptr @unrar_debug, align 1, !tbaa !3
+  %.not68 = icmp eq i8 %75, 0
+  br i1 %.not68, label %110, label %76, !prof !6
 
-74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw i8, ptr %14, i64 44
-  %76 = load i32, ptr %75, align 1, !tbaa !25
-  %77 = and i32 %76, 1
-  %.not69 = icmp eq i32 %77, 0
-  %78 = select i1 %.not69, ptr @.str.13, ptr @.str.12
-  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull %78)
+76:                                               ; preds = %74
+  %77 = getelementptr inbounds nuw i8, ptr %14, i64 44
+  %78 = load i32, ptr %77, align 1, !tbaa !25
+  %79 = and i32 %78, 1
+  %.not69 = icmp eq i32 %79, 0
+  %80 = select i1 %.not69, ptr @.str.13, ptr @.str.12
+  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull %80)
   %.pr = load i8, ptr @unrar_debug, align 1, !tbaa !3
   %.not70 = icmp eq i8 %.pr, 0
-  br i1 %.not70, label %.thread173, label %79, !prof !26
+  br i1 %.not70, label %.thread173, label %81, !prof !26
 
-.thread173:                                       ; preds = %74
-  store ptr %28, ptr %1, align 8, !tbaa !27
+.thread173:                                       ; preds = %76
+  store ptr %30, ptr %1, align 8, !tbaa !27
   br label %.thread133
 
-79:                                               ; preds = %74
-  %80 = load i32, ptr %75, align 1, !tbaa !25
-  %81 = and i32 %80, 2
-  %.not71 = icmp eq i32 %81, 0
-  %82 = select i1 %.not71, ptr @.str.13, ptr @.str.12
-  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull %82)
+81:                                               ; preds = %76
+  %82 = load i32, ptr %77, align 1, !tbaa !25
+  %83 = and i32 %82, 2
+  %.not71 = icmp eq i32 %83, 0
+  %84 = select i1 %.not71, ptr @.str.13, ptr @.str.12
+  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull %84)
   %.pr95 = load i8, ptr @unrar_debug, align 1, !tbaa !3
   %.not72 = icmp eq i8 %.pr95, 0
   br i1 %.not72, label %.thread149, label %.thread96, !prof !26
 
-.thread96:                                        ; preds = %79
-  %83 = load i32, ptr %75, align 1, !tbaa !25
-  %84 = and i32 %83, 4
-  %.not73 = icmp eq i32 %84, 0
-  %85 = select i1 %.not73, ptr @.str.13, ptr @.str.12
-  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull %85)
+.thread96:                                        ; preds = %81
+  %85 = load i32, ptr %77, align 1, !tbaa !25
+  %86 = and i32 %85, 4
+  %.not73 = icmp eq i32 %86, 0
+  %87 = select i1 %.not73, ptr @.str.13, ptr @.str.12
+  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.15, ptr noundef nonnull %87)
   %.pr98.pr = load i8, ptr @unrar_debug, align 1, !tbaa !3
   %.not74 = icmp eq i8 %.pr98.pr, 0
-  br i1 %.not74, label %.thread149, label %86, !prof !28
+  br i1 %.not74, label %.thread149, label %88, !prof !28
 
-86:                                               ; preds = %.thread96
-  %87 = load i32, ptr %75, align 1, !tbaa !25
-  %88 = and i32 %87, 8
-  %.not75 = icmp eq i32 %88, 0
-  %89 = select i1 %.not75, ptr @.str.13, ptr @.str.12
-  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.16, ptr noundef nonnull %89)
+88:                                               ; preds = %.thread96
+  %89 = load i32, ptr %77, align 1, !tbaa !25
+  %90 = and i32 %89, 8
+  %.not75 = icmp eq i32 %90, 0
+  %91 = select i1 %.not75, ptr @.str.13, ptr @.str.12
+  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.16, ptr noundef nonnull %91)
   %.pr101 = load i8, ptr @unrar_debug, align 1, !tbaa !3
   %.not76 = icmp eq i8 %.pr101, 0
   br i1 %.not76, label %.thread164, label %.thread103, !prof !26
 
-.thread103:                                       ; preds = %86
-  %90 = load i32, ptr %75, align 1, !tbaa !25
-  %91 = and i32 %90, 16
-  %.not77 = icmp eq i32 %91, 0
-  %92 = select i1 %.not77, ptr @.str.13, ptr @.str.12
-  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.17, ptr noundef nonnull %92)
+.thread103:                                       ; preds = %88
+  %92 = load i32, ptr %77, align 1, !tbaa !25
+  %93 = and i32 %92, 16
+  %.not77 = icmp eq i32 %93, 0
+  %94 = select i1 %.not77, ptr @.str.13, ptr @.str.12
+  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.17, ptr noundef nonnull %94)
   %.pr106.pr.pr = load i8, ptr @unrar_debug, align 1, !tbaa !3
   %.not78 = icmp eq i8 %.pr106.pr.pr, 0
-  br i1 %.not78, label %.thread164, label %93, !prof !29
+  br i1 %.not78, label %.thread164, label %95, !prof !29
 
-93:                                               ; preds = %.thread103
-  %94 = load i32, ptr %75, align 1, !tbaa !25
-  %95 = and i32 %94, 32
-  %.not79 = icmp eq i32 %95, 0
-  %96 = select i1 %.not79, ptr @.str.13, ptr @.str.12
-  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.18, ptr noundef nonnull %96)
+95:                                               ; preds = %.thread103
+  %96 = load i32, ptr %77, align 1, !tbaa !25
+  %97 = and i32 %96, 32
+  %.not79 = icmp eq i32 %97, 0
+  %98 = select i1 %.not79, ptr @.str.13, ptr @.str.12
+  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.18, ptr noundef nonnull %98)
   %.pr109 = load i8, ptr @unrar_debug, align 1, !tbaa !3
   %.not80 = icmp eq i8 %.pr109, 0
   br i1 %.not80, label %.thread149, label %.thread111, !prof !26
 
-.thread111:                                       ; preds = %93
-  %97 = load i32, ptr %75, align 1, !tbaa !25
-  %98 = and i32 %97, 64
-  %.not81 = icmp eq i32 %98, 0
-  %99 = select i1 %.not81, ptr @.str.13, ptr @.str.12
-  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.19, ptr noundef nonnull %99)
+.thread111:                                       ; preds = %95
+  %99 = load i32, ptr %77, align 1, !tbaa !25
+  %100 = and i32 %99, 64
+  %.not81 = icmp eq i32 %100, 0
+  %101 = select i1 %.not81, ptr @.str.13, ptr @.str.12
+  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.19, ptr noundef nonnull %101)
   %.pr114.pr.pr = load i8, ptr @unrar_debug, align 1, !tbaa !3
   %.not82 = icmp eq i8 %.pr114.pr.pr, 0
-  br i1 %.not82, label %.thread149, label %100, !prof !26
+  br i1 %.not82, label %.thread149, label %102, !prof !26
 
-100:                                              ; preds = %.thread111
-  %101 = load i32, ptr %75, align 1, !tbaa !25
-  %102 = and i32 %101, 128
-  %.not83 = icmp eq i32 %102, 0
-  %103 = select i1 %.not83, ptr @.str.13, ptr @.str.12
-  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.20, ptr noundef nonnull %103)
+102:                                              ; preds = %.thread111
+  %103 = load i32, ptr %77, align 1, !tbaa !25
+  %104 = and i32 %103, 128
+  %.not83 = icmp eq i32 %104, 0
+  %105 = select i1 %.not83, ptr @.str.13, ptr @.str.12
+  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.20, ptr noundef nonnull %105)
   %.pr117 = load i8, ptr @unrar_debug, align 1, !tbaa !3
   %.not84 = icmp eq i8 %.pr117, 0
   br i1 %.not84, label %.thread139, label %.thread119, !prof !26
 
-.thread139:                                       ; preds = %100
-  store ptr %28, ptr %1, align 8, !tbaa !27
+.thread139:                                       ; preds = %102
+  store ptr %30, ptr %1, align 8, !tbaa !27
   br label %.thread133
 
-.thread149:                                       ; preds = %79, %.thread96, %.thread111, %93
-  store ptr %28, ptr %1, align 8, !tbaa !27
+.thread149:                                       ; preds = %81, %.thread96, %.thread111, %95
+  store ptr %30, ptr %1, align 8, !tbaa !27
   br label %.thread133
 
-.thread164:                                       ; preds = %86, %.thread103
-  store ptr %28, ptr %1, align 8, !tbaa !27
+.thread164:                                       ; preds = %88, %.thread103
+  store ptr %30, ptr %1, align 8, !tbaa !27
   br label %.thread133
 
-.thread119:                                       ; preds = %100
-  %104 = load i32, ptr %75, align 1, !tbaa !25
-  %105 = and i32 %104, 256
-  %.not85 = icmp eq i32 %105, 0
-  %106 = select i1 %.not85, ptr @.str.13, ptr @.str.12
-  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.21, ptr noundef nonnull %106)
+.thread119:                                       ; preds = %102
+  %106 = load i32, ptr %77, align 1, !tbaa !25
+  %107 = and i32 %106, 256
+  %.not85 = icmp eq i32 %107, 0
+  %108 = select i1 %.not85, ptr @.str.13, ptr @.str.12
+  tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.21, ptr noundef nonnull %108)
   %.pr122.pr.pr.pr = load i8, ptr @unrar_debug, align 1, !tbaa !3
   %.not86 = icmp eq i8 %.pr122.pr.pr.pr, 0
-  br i1 %.not86, label %.thread171, label %107, !prof !30
+  br i1 %.not86, label %.thread171, label %109, !prof !30
 
-107:                                              ; preds = %.thread119
+109:                                              ; preds = %.thread119
   tail call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.22, ptr noundef %0)
   br label %.thread171
 
-.thread171:                                       ; preds = %107, %.thread119
-  store ptr %28, ptr %1, align 8, !tbaa !27
+.thread171:                                       ; preds = %109, %.thread119
+  store ptr %30, ptr %1, align 8, !tbaa !27
   br label %.thread133
 
-108:                                              ; preds = %72
-  store ptr %28, ptr %1, align 8, !tbaa !27
+110:                                              ; preds = %74
+  store ptr %30, ptr %1, align 8, !tbaa !27
   br label %.thread133
 
-.thread133:                                       ; preds = %108, %.thread173, %.thread171, %.thread164, %.thread149, %25, %33, %.thread139
-  %.0138.ph = phi i32 [ 0, %.thread173 ], [ 0, %.thread171 ], [ 0, %.thread164 ], [ 0, %.thread149 ], [ %36, %33 ], [ 3, %25 ], [ 0, %108 ], [ 0, %.thread139 ]
-  %.pr186 = load ptr, ptr %22, align 1, !tbaa !16
+.thread133:                                       ; preds = %110, %.thread173, %.thread171, %.thread164, %.thread149, %27, %35, %.thread139
+  %.0138.ph = phi i32 [ 0, %.thread173 ], [ 0, %.thread171 ], [ 0, %.thread164 ], [ 0, %.thread149 ], [ %38, %35 ], [ 3, %27 ], [ 0, %110 ], [ 0, %.thread139 ]
+  %.pr186 = load ptr, ptr %23, align 1, !tbaa !16
   %.not92 = icmp eq ptr %.pr186, null
-  br i1 %.not92, label %.thread133.thread, label %109
+  br i1 %.not92, label %.thread133.thread, label %111
 
-109:                                              ; preds = %.thread133
+111:                                              ; preds = %.thread133
   tail call void @free(ptr noundef nonnull %.pr186) #16
   br label %.thread133.thread
 
-.thread133.thread:                                ; preds = %24, %109, %.thread133
-  %.0138189 = phi i32 [ %.0138.ph, %.thread133 ], [ %.0138.ph, %109 ], [ 3, %24 ]
+.thread133.thread:                                ; preds = %25, %111, %.thread133
+  %.0138189 = phi i32 [ %.0138.ph, %.thread133 ], [ %.0138.ph, %111 ], [ 3, %25 ]
   tail call void @free(ptr noundef nonnull %14) #16
   br label %.thread126
 
-.thread126:                                       ; preds = %16, %17, %10, %12, %.thread133.thread
-  %.0130 = phi i32 [ 4, %12 ], [ %.0138189, %.thread133.thread ], [ 3, %16 ], [ 3, %17 ], [ 4, %10 ]
+.thread126:                                       ; preds = %16, %18, %10, %12, %.thread133.thread
+  %.0130 = phi i32 [ 4, %12 ], [ %.0138189, %.thread133.thread ], [ 3, %16 ], [ 3, %18 ], [ 4, %10 ]
   ret i32 %.0130
 }
 
@@ -411,7 +413,7 @@ define internal void @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef readonly captur
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare ptr @RAROpenArchiveEx(ptr noundef) local_unnamed_addr #3
@@ -894,7 +896,7 @@ declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly c
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #9
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -908,7 +910,7 @@ declare i32 @llvm.umin.i32(i32, i32) #13
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -917,7 +919,7 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind allocsize(0,1) }

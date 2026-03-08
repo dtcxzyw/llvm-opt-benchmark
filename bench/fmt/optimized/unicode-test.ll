@@ -3733,7 +3733,7 @@ _ZN3fmt3v116detail9allocatorIcE8allocateEm.exit:  ; preds = %2
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #20
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -18158,7 +18158,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail13format_dragonENS1_8basic_fp
 43:                                               ; preds = %42
   %44 = call noalias dereferenceable_or_null(192) ptr @malloc(i64 noundef 192) #43
   %.not.i.i905 = icmp eq ptr %44, null
-  br i1 %.not.i.i905, label %.invoke1456, label %.noexc
+  br i1 %.not.i.i905, label %.invoke1453, label %.noexc
 
 .noexc:                                           ; preds = %43
   store ptr %44, ptr %6, align 8, !tbaa !364
@@ -18201,9 +18201,9 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail13format_dragonENS1_8basic_fp
 61:                                               ; preds = %._crit_edge.i
   %62 = add nuw nsw i64 %48, 1
   %.not577 = icmp samesign ult i64 %39, %47
-  br i1 %.not577, label %_ZN3fmt3v116detail6bigintlSEi.exit.thread1131, label %64
+  br i1 %.not577, label %_ZN3fmt3v116detail6bigintlSEi.exit.thread1129, label %64
 
-_ZN3fmt3v116detail6bigintlSEi.exit.thread1131:    ; preds = %61
+_ZN3fmt3v116detail6bigintlSEi.exit.thread1129:    ; preds = %61
   store i64 %62, ptr %12, align 8, !tbaa !374
   %63 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %48
   store i32 %57, ptr %63, align 4, !tbaa !206
@@ -18214,26 +18214,26 @@ _ZN3fmt3v116detail6bigintlSEi.exit.thread1131:    ; preds = %61
   %66 = add nuw nsw i64 %65, %47
   %67 = shl nuw nsw i64 %66, 2
   %68 = call noalias ptr @malloc(i64 noundef %67) #43
-  %.not.i.i1180 = icmp eq ptr %68, null
-  br i1 %.not.i.i1180, label %.invoke1456, label %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i
+  %.not.i.i1178 = icmp eq ptr %68, null
+  br i1 %.not.i.i1178, label %.invoke1453, label %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i
 
 _ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i: ; preds = %64
   %69 = shl nuw nsw i64 %48, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %68, ptr noundef nonnull align 4 dereferenceable(1) %46, i64 %69, i1 false)
   store ptr %68, ptr %6, align 8, !tbaa !364
   store i64 %66, ptr %10, align 8, !tbaa !365
-  %.not.i1181 = icmp eq ptr %46, %13
-  br i1 %.not.i1181, label %_ZN3fmt3v116detail6bigintlSEi.exit, label %70
+  %.not.i1179 = icmp eq ptr %46, %13
+  br i1 %.not.i1179, label %_ZN3fmt3v116detail6bigintlSEi.exit, label %70
 
 70:                                               ; preds = %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i
   call void @free(ptr noundef nonnull %46) #37
   %.pre.i.i.pre = load i64, ptr %12, align 8, !tbaa !374
   %.pre692.pre = load ptr, ptr %6, align 8, !tbaa !364
-  %.pre1281 = add i64 %.pre.i.i.pre, 1
+  %.pre1279 = add i64 %.pre.i.i.pre, 1
   br label %_ZN3fmt3v116detail6bigintlSEi.exit
 
 _ZN3fmt3v116detail6bigintlSEi.exit:               ; preds = %70, %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i
-  %.pre2.i.i.pre-phi = phi i64 [ %.pre1281, %70 ], [ %62, %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i ]
+  %.pre2.i.i.pre-phi = phi i64 [ %.pre1279, %70 ], [ %62, %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i ]
   %.pre692 = phi ptr [ %.pre692.pre, %70 ], [ %68, %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i ]
   %.pre.i.i = phi i64 [ %.pre.i.i.pre, %70 ], [ %48, %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i ]
   store i64 %.pre2.i.i.pre-phi, ptr %12, align 8, !tbaa !374
@@ -18241,7 +18241,7 @@ _ZN3fmt3v116detail6bigintlSEi.exit:               ; preds = %70, %_ZN3fmt3v116de
   store i32 %57, ptr %71, align 4, !tbaa !206
   br label %_ZN3fmt3v116detail6bigintlSEi.exit.thread
 
-_ZN3fmt3v116detail6bigintlSEi.exit.thread:        ; preds = %45, %._crit_edge.i, %_ZN3fmt3v116detail6bigintlSEi.exit, %_ZN3fmt3v116detail6bigintlSEi.exit.thread1131
+_ZN3fmt3v116detail6bigintlSEi.exit.thread:        ; preds = %45, %._crit_edge.i, %_ZN3fmt3v116detail6bigintlSEi.exit, %_ZN3fmt3v116detail6bigintlSEi.exit.thread1129
   store i32 1, ptr %23, align 8, !tbaa !206
   store i64 1, ptr %22, align 8, !tbaa !374
   %72 = lshr i32 %33, 5
@@ -18278,7 +18278,7 @@ _ZN3fmt3v116detail6bigintlSEi.exit139:            ; preds = %.lr.ph.i128, %_ZN3f
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %.invoke1456, %_ZN3fmt3v116detail6bigintlSEi.exit159, %106, %_ZN3fmt3v116detail6bigintlSEi.exit263, %98, %_ZN3fmt3v1119basic_memory_bufferIjLm32ENS0_6detail9allocatorIjEEE6resizeEm.exit.thread.i, %_ZN3fmt3v1119basic_memory_bufferIjLm32ENS0_6detail9allocatorIjEEE6resizeEm.exit.thread.i183, %153, %203, %210, %228, %290, %297, %306
+.loopexit.split-lp:                               ; preds = %.invoke1453, %_ZN3fmt3v116detail6bigintlSEi.exit159, %106, %_ZN3fmt3v116detail6bigintlSEi.exit263, %98, %_ZN3fmt3v1119basic_memory_bufferIjLm32ENS0_6detail9allocatorIjEEE6resizeEm.exit.thread.i, %_ZN3fmt3v1119basic_memory_bufferIjLm32ENS0_6detail9allocatorIjEEE6resizeEm.exit.thread.i183, %153, %203, %210, %228, %290, %297, %306
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -18712,7 +18712,7 @@ _ZN3fmt3v116detail6bufferIjE9push_backERKj.exit.i234: ; preds = %.noexc238, %227
 241:                                              ; preds = %240
   %242 = call noalias dereferenceable_or_null(192) ptr @malloc(i64 noundef 192) #43
   %.not.i.i909 = icmp eq ptr %242, null
-  br i1 %.not.i.i909, label %.invoke1456, label %243
+  br i1 %.not.i.i909, label %.invoke1453, label %243
 
 243:                                              ; preds = %241
   store ptr %242, ptr %6, align 8, !tbaa !364
@@ -18752,38 +18752,38 @@ _ZN3fmt3v116detail6bufferIjE9push_backERKj.exit.i234: ; preds = %.noexc238, %227
 256:                                              ; preds = %254
   %257 = lshr exact i64 %245, 1
   %258 = add nuw nsw i64 %257, %245
-  %.0.i1183 = call i64 @llvm.umax.i64(i64 %255, i64 %258)
-  %259 = shl i64 %.0.i1183, 2
+  %.0.i1181 = call i64 @llvm.umax.i64(i64 %255, i64 %258)
+  %259 = shl i64 %.0.i1181, 2
   %260 = call noalias ptr @malloc(i64 noundef %259) #43
-  %.not.i.i1184 = icmp eq ptr %260, null
-  br i1 %.not.i.i1184, label %.invoke1456, label %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i1185
+  %.not.i.i1182 = icmp eq ptr %260, null
+  br i1 %.not.i.i1182, label %.invoke1453, label %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i1183
 
-.invoke1456:                                      ; preds = %256, %43, %241, %64
+.invoke1453:                                      ; preds = %256, %43, %241, %64
   %261 = call ptr @__cxa_allocate_exception(i64 8) #37
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %261, align 8, !tbaa !4
   invoke void @__cxa_throw(ptr nonnull %261, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #41
-          to label %.cont1457 unwind label %.loopexit.split-lp
+          to label %.cont1454 unwind label %.loopexit.split-lp
 
-.cont1457:                                        ; preds = %.invoke1456
+.cont1454:                                        ; preds = %.invoke1453
   unreachable
 
-_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i1185: ; preds = %256
+_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i1183: ; preds = %256
   %262 = shl i64 %237, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %260, ptr nonnull align 4 %244, i64 %262, i1 false)
   store ptr %260, ptr %6, align 8, !tbaa !364
-  store i64 %.0.i1183, ptr %10, align 8, !tbaa !365
-  %.not.i1186 = icmp eq ptr %244, %13
-  br i1 %.not.i1186, label %.noexc262, label %263
+  store i64 %.0.i1181, ptr %10, align 8, !tbaa !365
+  %.not.i1184 = icmp eq ptr %244, %13
+  br i1 %.not.i1184, label %.noexc262, label %263
 
-263:                                              ; preds = %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i1185
+263:                                              ; preds = %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i1183
   call void @free(ptr noundef nonnull %244) #37
   %.pre.i.i260.pre = load i64, ptr %12, align 8, !tbaa !374
   %.pre.pre = load ptr, ptr %6, align 8, !tbaa !364
   br label %.noexc262
 
-.noexc262:                                        ; preds = %263, %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i1185
-  %.pre = phi ptr [ %.pre.pre, %263 ], [ %260, %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i1185 ]
-  %.pre.i.i260 = phi i64 [ %.pre.i.i260.pre, %263 ], [ %237, %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i1185 ]
+.noexc262:                                        ; preds = %263, %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i1183
+  %.pre = phi ptr [ %.pre.pre, %263 ], [ %260, %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i1183 ]
+  %.pre.i.i260 = phi i64 [ %.pre.i.i260.pre, %263 ], [ %237, %_ZN3fmt3v116detail9allocatorIjE8allocateEm.exit.i1183 ]
   %.pre2.i.i261 = add i64 %.pre.i.i260, 1
   br label %_ZN3fmt3v116detail6bufferIjE9push_backERKj.exit.i258
 
@@ -18794,11 +18794,10 @@ _ZN3fmt3v116detail6bufferIjE9push_backERKj.exit.i258: ; preds = %.noexc262, %254
   store i64 %.pre-phi.i.i259, ptr %12, align 8, !tbaa !374
   %266 = getelementptr inbounds nuw [4 x i8], ptr %264, i64 %265
   store i32 %250, ptr %266, align 4, !tbaa !206
-  %.pre999 = load i32, ptr %4, align 4, !tbaa !206
   br label %_ZN3fmt3v116detail6bigintlSEi.exit263
 
 _ZN3fmt3v116detail6bigintlSEi.exit263:            ; preds = %_ZN3fmt3v116detail6bufferIjE9push_backERKj.exit.i258, %._crit_edge.i256
-  %267 = phi i32 [ %.pre999, %_ZN3fmt3v116detail6bufferIjE9push_backERKj.exit.i258 ], [ %104, %._crit_edge.i256 ]
+  %267 = load i32, ptr %4, align 4, !tbaa !206
   invoke void @_ZN3fmt3v116detail6bigint12assign_pow10Ei(ptr noundef nonnull align 8 dereferenceable(172) %7, i32 noundef %267)
           to label %268 unwind label %.loopexit.split-lp
 
@@ -39187,7 +39186,7 @@ attributes #16 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { cold noreturn }
 attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #23 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

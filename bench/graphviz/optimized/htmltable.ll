@@ -3547,99 +3547,100 @@ set_cell_heights.exit:                            ; preds = %._crit_edge91.i107,
   br i1 %exitcond204.not, label %.preheader, label %.lr.ph180, !llvm.loop !260
 
 ._crit_edge185:                                   ; preds = %.lr.ph184, %.preheader
-  %.048.lcssa = phi double [ %465, %.preheader ], [ %473, %.lr.ph184 ]
-  %470 = and i16 %282, 1
-  %.not58 = icmp eq i16 %470, 0
-  br i1 %.not58, label %486, label %475
+  %.048.lcssa = phi double [ %465, %.preheader ], [ %474, %.lr.ph184 ]
+  %470 = load i16, ptr %281, align 8, !tbaa !232
+  %471 = and i16 %470, 1
+  %.not58 = icmp eq i16 %471, 0
+  br i1 %.not58, label %487, label %476
 
 .lr.ph184:                                        ; preds = %.preheader, %.lr.ph184
-  %.0183 = phi i64 [ %474, %.lr.ph184 ], [ 0, %.preheader ]
-  %.048182 = phi double [ %473, %.lr.ph184 ], [ %465, %.preheader ]
-  %471 = getelementptr inbounds nuw [8 x i8], ptr %386, i64 %.0183
-  %472 = load double, ptr %471, align 8, !tbaa !25
-  %473 = fadd double %.048182, %472
-  %474 = add nuw i64 %.0183, 1
-  %exitcond205.not = icmp eq i64 %474, %372
+  %.0183 = phi i64 [ %475, %.lr.ph184 ], [ 0, %.preheader ]
+  %.048182 = phi double [ %474, %.lr.ph184 ], [ %465, %.preheader ]
+  %472 = getelementptr inbounds nuw [8 x i8], ptr %386, i64 %.0183
+  %473 = load double, ptr %472, align 8, !tbaa !25
+  %474 = fadd double %.048182, %473
+  %475 = add nuw i64 %.0183, 1
+  %exitcond205.not = icmp eq i64 %475, %372
   br i1 %exitcond205.not, label %._crit_edge185, label %.lr.ph184, !llvm.loop !261
 
-475:                                              ; preds = %._crit_edge185
-  %476 = getelementptr inbounds nuw i8, ptr %1, i64 66
-  %477 = load i16, ptr %476, align 2, !tbaa !262
-  %.not59 = icmp eq i16 %477, 0
-  br i1 %.not59, label %.sink.split282, label %478
+476:                                              ; preds = %._crit_edge185
+  %477 = getelementptr inbounds nuw i8, ptr %1, i64 66
+  %478 = load i16, ptr %477, align 2, !tbaa !262
+  %.not59 = icmp eq i16 %478, 0
+  br i1 %.not59, label %.sink.split282, label %479
 
-478:                                              ; preds = %475
-  %479 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %480 = load i16, ptr %479, align 4, !tbaa !263
-  %.not60 = icmp eq i16 %480, 0
-  br i1 %.not60, label %.sink.split282, label %481
+479:                                              ; preds = %476
+  %480 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %481 = load i16, ptr %480, align 4, !tbaa !263
+  %.not60 = icmp eq i16 %481, 0
+  br i1 %.not60, label %.sink.split282, label %482
 
-481:                                              ; preds = %478
-  %482 = uitofp i16 %477 to double
-  %483 = fcmp ogt double %.049.lcssa, %482
-  %484 = uitofp i16 %480 to double
-  %485 = fcmp ogt double %.048.lcssa, %484
-  %or.cond = select i1 %483, i1 true, i1 %485
-  br i1 %or.cond, label %.sink.split282, label %486
+482:                                              ; preds = %479
+  %483 = uitofp i16 %478 to double
+  %484 = fcmp ogt double %.049.lcssa, %483
+  %485 = uitofp i16 %481 to double
+  %486 = fcmp ogt double %.048.lcssa, %485
+  %or.cond = select i1 %484, i1 true, i1 %486
+  br i1 %or.cond, label %.sink.split282, label %487
 
-.sink.split282:                                   ; preds = %475, %478, %481
-  %.str.17.sink = phi ptr [ @.str.17, %481 ], [ @.str.18, %478 ], [ @.str.18, %475 ]
-  %.150.ph = phi double [ 0.000000e+00, %481 ], [ %.049.lcssa, %478 ], [ %.049.lcssa, %475 ]
-  %.1.ph = phi double [ 0.000000e+00, %481 ], [ %.048.lcssa, %478 ], [ %.048.lcssa, %475 ]
+.sink.split282:                                   ; preds = %476, %479, %482
+  %.str.17.sink = phi ptr [ @.str.17, %482 ], [ @.str.18, %479 ], [ @.str.18, %476 ]
+  %.150.ph = phi double [ 0.000000e+00, %482 ], [ %.049.lcssa, %479 ], [ %.049.lcssa, %476 ]
+  %.1.ph = phi double [ 0.000000e+00, %482 ], [ %.048.lcssa, %479 ], [ %.048.lcssa, %476 ]
   tail call void (ptr, ...) @agwarningf(ptr noundef nonnull %.str.17.sink) #23
-  br label %486
+  br label %487
 
-486:                                              ; preds = %.sink.split282, %481, %._crit_edge185
-  %.051 = phi i32 [ %.055.i.lcssa260, %._crit_edge185 ], [ %.055.i.lcssa260, %481 ], [ 1, %.sink.split282 ]
-  %.150 = phi double [ %.049.lcssa, %._crit_edge185 ], [ 0.000000e+00, %481 ], [ %.150.ph, %.sink.split282 ]
-  %.1 = phi double [ %.048.lcssa, %._crit_edge185 ], [ 0.000000e+00, %481 ], [ %.1.ph, %.sink.split282 ]
-  %487 = getelementptr inbounds nuw i8, ptr %1, i64 66
-  %488 = load i16, ptr %487, align 2, !tbaa !262
-  %489 = uitofp i16 %488 to double
-  %490 = tail call double @llvm.maxnum.f64(double %.150, double %489)
-  %491 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store double %490, ptr %491, align 8, !tbaa !125
-  %492 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %493 = load i16, ptr %492, align 4, !tbaa !263
-  %494 = uitofp i16 %493 to double
-  %495 = tail call double @llvm.maxnum.f64(double %.1, double %494)
-  %496 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store double %495, ptr %496, align 8, !tbaa !217
-  %497 = load ptr, ptr %7, align 8, !tbaa !86
-  %.not61 = icmp eq ptr %497, null
-  br i1 %.not61, label %popFontInfo.exit, label %498
+487:                                              ; preds = %.sink.split282, %482, %._crit_edge185
+  %.051 = phi i32 [ %.055.i.lcssa260, %._crit_edge185 ], [ %.055.i.lcssa260, %482 ], [ 1, %.sink.split282 ]
+  %.150 = phi double [ %.049.lcssa, %._crit_edge185 ], [ 0.000000e+00, %482 ], [ %.150.ph, %.sink.split282 ]
+  %.1 = phi double [ %.048.lcssa, %._crit_edge185 ], [ 0.000000e+00, %482 ], [ %.1.ph, %.sink.split282 ]
+  %488 = getelementptr inbounds nuw i8, ptr %1, i64 66
+  %489 = load i16, ptr %488, align 2, !tbaa !262
+  %490 = uitofp i16 %489 to double
+  %491 = tail call double @llvm.maxnum.f64(double %.150, double %490)
+  %492 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  store double %491, ptr %492, align 8, !tbaa !125
+  %493 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %494 = load i16, ptr %493, align 4, !tbaa !263
+  %495 = uitofp i16 %494 to double
+  %496 = tail call double @llvm.maxnum.f64(double %.1, double %495)
+  %497 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  store double %496, ptr %497, align 8, !tbaa !217
+  %498 = load ptr, ptr %7, align 8, !tbaa !86
+  %.not61 = icmp eq ptr %498, null
+  br i1 %.not61, label %popFontInfo.exit, label %499
 
-498:                                              ; preds = %486
-  %499 = load ptr, ptr @size_html_tbl.savef.0, align 8, !tbaa !87
-  %.not.i116 = icmp eq ptr %499, null
-  br i1 %.not.i116, label %502, label %500
+499:                                              ; preds = %487
+  %500 = load ptr, ptr @size_html_tbl.savef.0, align 8, !tbaa !87
+  %.not.i116 = icmp eq ptr %500, null
+  br i1 %.not.i116, label %503, label %501
 
-500:                                              ; preds = %498
-  %501 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %499, ptr %501, align 8, !tbaa !40
-  br label %502
+501:                                              ; preds = %499
+  %502 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %500, ptr %502, align 8, !tbaa !40
+  br label %503
 
-502:                                              ; preds = %500, %498
-  %503 = load ptr, ptr @size_html_tbl.savef.1, align 8, !tbaa !88
-  %.not11.i = icmp eq ptr %503, null
-  br i1 %.not11.i, label %506, label %504
+503:                                              ; preds = %501, %499
+  %504 = load ptr, ptr @size_html_tbl.savef.1, align 8, !tbaa !88
+  %.not11.i = icmp eq ptr %504, null
+  br i1 %.not11.i, label %507, label %505
 
-504:                                              ; preds = %502
-  %505 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %503, ptr %505, align 8, !tbaa !34
-  br label %506
+505:                                              ; preds = %503
+  %506 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %504, ptr %506, align 8, !tbaa !34
+  br label %507
 
-506:                                              ; preds = %504, %502
-  %507 = load double, ptr @size_html_tbl.savef.2, align 8, !tbaa !89
-  %508 = fcmp ult double %507, 0.000000e+00
-  br i1 %508, label %popFontInfo.exit, label %509
+507:                                              ; preds = %505, %503
+  %508 = load double, ptr @size_html_tbl.savef.2, align 8, !tbaa !89
+  %509 = fcmp ult double %508, 0.000000e+00
+  br i1 %509, label %popFontInfo.exit, label %510
 
-509:                                              ; preds = %506
-  %510 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store double %507, ptr %510, align 8, !tbaa !42
+510:                                              ; preds = %507
+  %511 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store double %508, ptr %511, align 8, !tbaa !42
   br label %popFontInfo.exit
 
-popFontInfo.exit:                                 ; preds = %509, %506, %486
+popFontInfo.exit:                                 ; preds = %510, %507, %487
   ret i32 %.051
 }
 
@@ -5425,10 +5426,10 @@ define internal fastcc void @graphviz_exit() unnamed_addr #13 {
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #14
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #16
 
 declare zeroext i1 @findStopColor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -5454,7 +5455,7 @@ declare void @pop_obj_state(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
 declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -5515,10 +5516,10 @@ attributes #11 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -2216,11 +2216,11 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
 
 ._crit_edge335:                                   ; preds = %271
   %.pre336 = load i16, ptr %101, align 2, !tbaa !208
-  %.pre340 = zext i16 %.pre336 to i32
+  %.pre339 = zext i16 %.pre336 to i32
   br label %276
 
 276:                                              ; preds = %._crit_edge335, %264
-  %.pre-phi = phi i32 [ %.pre340, %._crit_edge335 ], [ %269, %264 ]
+  %.pre-phi = phi i32 [ %.pre339, %._crit_edge335 ], [ %269, %264 ]
   %277 = zext i8 %.sroa.70.1 to i32
   %reass.sub = sub nsw i32 %266, %277
   %278 = add nsw i32 %reass.sub, 1
@@ -2258,20 +2258,19 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
 
 ._crit_edge337:                                   ; preds = %292
   %.pre338 = load ptr, ptr %122, align 8, !tbaa !174
-  %.pre339 = load i16, ptr %101, align 2, !tbaa !208
-  %.pre341 = zext i16 %.pre339 to i64
-  %.pre343 = shl nuw nsw i64 %.pre341, 3
   br label %297
 
 297:                                              ; preds = %._crit_edge337, %284
-  %.pre-phi344 = phi i64 [ %.pre343, %._crit_edge337 ], [ %290, %284 ]
   %298 = phi ptr [ %.pre338, %._crit_edge337 ], [ %291, %284 ]
   %299 = zext i8 %.sroa.70.1 to i64
   %300 = load i8, ptr %223, align 8, !tbaa !209
   %301 = zext i8 %300 to i64
   %302 = sub nsw i64 %299, %301
   %303 = getelementptr inbounds [8 x i8], ptr %242, i64 %302
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %298, ptr align 8 %303, i64 %.pre-phi344, i1 false)
+  %304 = load i16, ptr %101, align 2, !tbaa !208
+  %305 = zext i16 %304 to i64
+  %306 = shl nuw nsw i64 %305, 3
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %298, ptr align 8 %303, i64 %306, i1 false)
   call void @free(ptr noundef %242) #23
   store i8 %.sroa.70.1, ptr %223, align 8, !tbaa !209
   br label %.outer
@@ -2279,23 +2278,23 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
 .outer:                                           ; preds = %100, %112, %116, %107, %226, %297, %220, %177, %50, %65, %93, %78
   %.219 = phi i64 [ %.017.ph256, %297 ], [ %.017.ph256, %226 ], [ %.017.ph256, %177 ], [ %.017.ph256, %220 ], [ %.118, %65 ], [ %.017.ph256, %116 ], [ %.017.ph256, %112 ], [ %.017.ph256, %107 ], [ %.118, %93 ], [ %.118, %78 ], [ %.118, %50 ], [ %.017.ph256, %100 ]
   %.2 = phi ptr [ %.0.ph257, %297 ], [ %.0.ph257, %226 ], [ %.0.ph257, %177 ], [ %.0.ph257, %220 ], [ %.1, %65 ], [ %.0.ph257, %116 ], [ %.0.ph257, %112 ], [ %.0.ph257, %107 ], [ %.1, %93 ], [ %.1, %78 ], [ %.1, %50 ], [ %.0.ph257, %100 ]
-  %304 = load ptr, ptr %7, align 8, !tbaa !195
-  %305 = icmp eq ptr %304, %7
-  br i1 %305, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !211
+  %307 = load ptr, ptr %7, align 8, !tbaa !195
+  %308 = icmp eq ptr %307, %7
+  br i1 %308, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !211
 
 .outer._crit_edge:                                ; preds = %.outer, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit54, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit
   %.0.ph.lcssa254 = phi ptr [ %.0.ph257, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit54 ], [ null, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit ], [ %.2, %.outer ]
   call void @free(ptr noundef %.0.ph.lcssa254) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.103)
-  %306 = load ptr, ptr %7, align 8, !tbaa !195
-  %.not8.i.i = icmp eq ptr %306, %7
+  %309 = load ptr, ptr %7, align 8, !tbaa !195
+  %.not8.i.i = icmp eq ptr %309, %7
   br i1 %.not8.i.i, label %_ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.outer._crit_edge, %.lr.ph.i.i
-  %.09.i.i = phi ptr [ %307, %.lr.ph.i.i ], [ %306, %.outer._crit_edge ]
-  %307 = load ptr, ptr %.09.i.i, align 8, !tbaa !195
+  %.09.i.i = phi ptr [ %310, %.lr.ph.i.i ], [ %309, %.outer._crit_edge ]
+  %310 = load ptr, ptr %.09.i.i, align 8, !tbaa !195
   call void @_ZdlPv(ptr noundef nonnull %.09.i.i) #24
-  %.not.i.i = icmp eq ptr %307, %7
+  %.not.i.i = icmp eq ptr %310, %7
   br i1 %.not.i.i, label %_ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !212
 
 _ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit: ; preds = %.lr.ph.i.i, %.outer._crit_edge
@@ -2305,15 +2304,15 @@ _ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev
 .loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.loopexit.split-lp, %.loopexit.loopexit, %256, %218, %98, %70
   %.pn = phi { ptr, i32 } [ %257, %256 ], [ %71, %70 ], [ %219, %218 ], [ %99, %98 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit210, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp211, %.loopexit.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.103)
-  %308 = load ptr, ptr %7, align 8, !tbaa !195
-  %.not8.i.i55 = icmp eq ptr %308, %7
+  %311 = load ptr, ptr %7, align 8, !tbaa !195
+  %.not8.i.i55 = icmp eq ptr %311, %7
   br i1 %.not8.i.i55, label %_ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit59, label %.lr.ph.i.i56
 
 .lr.ph.i.i56:                                     ; preds = %.loopexit, %.lr.ph.i.i56
-  %.09.i.i57 = phi ptr [ %309, %.lr.ph.i.i56 ], [ %308, %.loopexit ]
-  %309 = load ptr, ptr %.09.i.i57, align 8, !tbaa !195
+  %.09.i.i57 = phi ptr [ %312, %.lr.ph.i.i56 ], [ %311, %.loopexit ]
+  %312 = load ptr, ptr %.09.i.i57, align 8, !tbaa !195
   call void @_ZdlPv(ptr noundef nonnull %.09.i.i57) #24
-  %.not.i.i58 = icmp eq ptr %309, %7
+  %.not.i.i58 = icmp eq ptr %312, %7
   br i1 %.not.i.i58, label %_ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit59, label %.lr.ph.i.i56, !llvm.loop !212
 
 _ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit59: ; preds = %.lr.ph.i.i56, %.loopexit
@@ -3184,11 +3183,11 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
 
 ._crit_edge335:                                   ; preds = %271
   %.pre336 = load i16, ptr %101, align 2, !tbaa !208
-  %.pre340 = zext i16 %.pre336 to i32
+  %.pre339 = zext i16 %.pre336 to i32
   br label %276
 
 276:                                              ; preds = %._crit_edge335, %264
-  %.pre-phi = phi i32 [ %.pre340, %._crit_edge335 ], [ %269, %264 ]
+  %.pre-phi = phi i32 [ %.pre339, %._crit_edge335 ], [ %269, %264 ]
   %277 = zext i8 %.sroa.70.1 to i32
   %reass.sub = sub nsw i32 %266, %277
   %278 = add nsw i32 %reass.sub, 1
@@ -3226,20 +3225,19 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
 
 ._crit_edge337:                                   ; preds = %292
   %.pre338 = load ptr, ptr %122, align 8, !tbaa !174
-  %.pre339 = load i16, ptr %101, align 2, !tbaa !208
-  %.pre341 = zext i16 %.pre339 to i64
-  %.pre343 = shl nuw nsw i64 %.pre341, 3
   br label %297
 
 297:                                              ; preds = %._crit_edge337, %284
-  %.pre-phi344 = phi i64 [ %.pre343, %._crit_edge337 ], [ %290, %284 ]
   %298 = phi ptr [ %.pre338, %._crit_edge337 ], [ %291, %284 ]
   %299 = zext i8 %.sroa.70.1 to i64
   %300 = load i8, ptr %223, align 8, !tbaa !209
   %301 = zext i8 %300 to i64
   %302 = sub nsw i64 %299, %301
   %303 = getelementptr inbounds [8 x i8], ptr %242, i64 %302
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %298, ptr align 8 %303, i64 %.pre-phi344, i1 false)
+  %304 = load i16, ptr %101, align 2, !tbaa !208
+  %305 = zext i16 %304 to i64
+  %306 = shl nuw nsw i64 %305, 3
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %298, ptr align 8 %303, i64 %306, i1 false)
   call void @free(ptr noundef %242) #23
   store i8 %.sroa.70.1, ptr %223, align 8, !tbaa !209
   br label %.outer
@@ -3247,23 +3245,23 @@ _ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backE
 .outer:                                           ; preds = %100, %112, %116, %107, %226, %297, %220, %177, %50, %65, %93, %78
   %.219 = phi i64 [ %.017.ph256, %297 ], [ %.017.ph256, %226 ], [ %.017.ph256, %177 ], [ %.017.ph256, %220 ], [ %.118, %65 ], [ %.017.ph256, %116 ], [ %.017.ph256, %112 ], [ %.017.ph256, %107 ], [ %.118, %93 ], [ %.118, %78 ], [ %.118, %50 ], [ %.017.ph256, %100 ]
   %.2 = phi ptr [ %.0.ph257, %297 ], [ %.0.ph257, %226 ], [ %.0.ph257, %177 ], [ %.0.ph257, %220 ], [ %.1, %65 ], [ %.0.ph257, %116 ], [ %.0.ph257, %112 ], [ %.0.ph257, %107 ], [ %.1, %93 ], [ %.1, %78 ], [ %.1, %50 ], [ %.0.ph257, %100 ]
-  %304 = load ptr, ptr %7, align 8, !tbaa !195
-  %305 = icmp eq ptr %304, %7
-  br i1 %305, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !213
+  %307 = load ptr, ptr %7, align 8, !tbaa !195
+  %308 = icmp eq ptr %307, %7
+  br i1 %308, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !213
 
 .outer._crit_edge:                                ; preds = %.outer, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit54, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit
   %.0.ph.lcssa254 = phi ptr [ %.0.ph257, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit54 ], [ null, %_ZNSt7__cxx114listIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EE9push_backERKS5_.exit ], [ %.2, %.outer ]
   call void @free(ptr noundef %.0.ph.lcssa254) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.103)
-  %306 = load ptr, ptr %7, align 8, !tbaa !195
-  %.not8.i.i = icmp eq ptr %306, %7
+  %309 = load ptr, ptr %7, align 8, !tbaa !195
+  %.not8.i.i = icmp eq ptr %309, %7
   br i1 %.not8.i.i, label %_ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.outer._crit_edge, %.lr.ph.i.i
-  %.09.i.i = phi ptr [ %307, %.lr.ph.i.i ], [ %306, %.outer._crit_edge ]
-  %307 = load ptr, ptr %.09.i.i, align 8, !tbaa !195
+  %.09.i.i = phi ptr [ %310, %.lr.ph.i.i ], [ %309, %.outer._crit_edge ]
+  %310 = load ptr, ptr %.09.i.i, align 8, !tbaa !195
   call void @_ZdlPv(ptr noundef nonnull %.09.i.i) #24
-  %.not.i.i = icmp eq ptr %307, %7
+  %.not.i.i = icmp eq ptr %310, %7
   br i1 %.not.i.i, label %_ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !212
 
 _ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit: ; preds = %.lr.ph.i.i, %.outer._crit_edge
@@ -3273,15 +3271,15 @@ _ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev
 .loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.loopexit.split-lp, %.loopexit.loopexit, %256, %218, %98, %70
   %.pn = phi { ptr, i32 } [ %257, %256 ], [ %71, %70 ], [ %219, %218 ], [ %99, %98 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit210, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp211, %.loopexit.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.103)
-  %308 = load ptr, ptr %7, align 8, !tbaa !195
-  %.not8.i.i55 = icmp eq ptr %308, %7
+  %311 = load ptr, ptr %7, align 8, !tbaa !195
+  %.not8.i.i55 = icmp eq ptr %311, %7
   br i1 %.not8.i.i55, label %_ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit59, label %.lr.ph.i.i56
 
 .lr.ph.i.i56:                                     ; preds = %.loopexit, %.lr.ph.i.i56
-  %.09.i.i57 = phi ptr [ %309, %.lr.ph.i.i56 ], [ %308, %.loopexit ]
-  %309 = load ptr, ptr %.09.i.i57, align 8, !tbaa !195
+  %.09.i.i57 = phi ptr [ %312, %.lr.ph.i.i56 ], [ %311, %.loopexit ]
+  %312 = load ptr, ptr %.09.i.i57, align 8, !tbaa !195
   call void @_ZdlPv(ptr noundef nonnull %.09.i.i57) #24
-  %.not.i.i58 = icmp eq ptr %309, %7
+  %.not.i.i58 = icmp eq ptr %312, %7
   br i1 %.not.i.i58, label %_ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit59, label %.lr.ph.i.i56, !llvm.loop !212
 
 _ZNSt7__cxx1110_List_baseIN3zmq15generic_mtrie_tINS1_6pipe_tEE4iterESaIS5_EED2Ev.exit59: ; preds = %.lr.ph.i.i56, %.loopexit
@@ -4463,7 +4461,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -5168,7 +5166,7 @@ _ZSt4copyIPPhS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, 
 
 declare noundef i32 @_ZN3zmq13do_getsockoptEPvPmPKvm(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #19
 
 declare noundef zeroext i1 @_ZNK3zmq15generic_mtrie_tINS_6pipe_tEE12is_redundantEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -5702,9 +5700,9 @@ attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #22 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

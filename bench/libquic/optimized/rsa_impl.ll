@@ -183,7 +183,7 @@ declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #1
 
 declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 declare i32 @RSA_padding_add_PKCS1_type_2(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -803,7 +803,7 @@ define internal fastcc ptr @rsa_blinding_get(ptr noundef %0, ptr noundef nonnull
 
 20:                                               ; preds = %13
   tail call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %3) #8
-  br label %51
+  br label %56
 
 thread-pre-split:                                 ; preds = %13
   %.pr = load i32, ptr %4, align 8, !tbaa !34
@@ -814,7 +814,7 @@ thread-pre-split:                                 ; preds = %13
   tail call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %3) #8
   %22 = tail call ptr @BN_BLINDING_new() #8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %51, label %24
+  br i1 %23, label %56, label %24
 
 24:                                               ; preds = %.thread
   %25 = icmp ugt i32 %21, 1023
@@ -822,7 +822,7 @@ thread-pre-split:                                 ; preds = %13
 
 26:                                               ; preds = %24
   store i32 1024, ptr %1, align 4, !tbaa !24
-  br label %51
+  br label %56
 
 27:                                               ; preds = %24
   tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %3) #8
@@ -832,49 +832,54 @@ thread-pre-split:                                 ; preds = %13
   %31 = shl nuw nsw i64 %30, 3
   %32 = tail call noalias ptr @malloc(i64 noundef %31) #9
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %50, label %34
+  br i1 %33, label %55, label %34
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %36 = load ptr, ptr %35, align 8, !tbaa !37
-  %37 = zext i32 %28 to i64
-  %38 = shl nuw nsw i64 %37, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 8 %36, i64 %38, i1 false)
-  %39 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %37
-  store ptr %22, ptr %39, align 8, !tbaa !38
-  %40 = tail call noalias ptr @malloc(i64 noundef %30) #9
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %49, label %42
+  %37 = load i32, ptr %4, align 8, !tbaa !34
+  %38 = zext i32 %37 to i64
+  %39 = shl nuw nsw i64 %38, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 8 %36, i64 %39, i1 false)
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %38
+  store ptr %22, ptr %40, align 8, !tbaa !38
+  %41 = add i32 %37, 1
+  %42 = zext i32 %41 to i64
+  %43 = tail call noalias ptr @malloc(i64 noundef %42) #9
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %54, label %45
 
-42:                                               ; preds = %34
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %44 = load ptr, ptr %43, align 8, !tbaa !32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr align 1 %44, i64 %37, i1 false)
-  %45 = getelementptr inbounds nuw i8, ptr %40, i64 %37
-  store i8 1, ptr %45, align 1, !tbaa !33
-  store i32 %28, ptr %1, align 4, !tbaa !24
+45:                                               ; preds = %34
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %47 = load ptr, ptr %46, align 8, !tbaa !32
+  %48 = load i32, ptr %4, align 8, !tbaa !34
+  %49 = zext i32 %48 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %47, i64 %49, i1 false)
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 %49
+  store i8 1, ptr %50, align 1, !tbaa !33
+  store i32 %48, ptr %1, align 4, !tbaa !24
   tail call void @free(ptr noundef %36) #8
   store ptr %32, ptr %35, align 8, !tbaa !37
-  %46 = load ptr, ptr %43, align 8, !tbaa !32
-  tail call void @free(ptr noundef %46) #8
-  store ptr %40, ptr %43, align 8, !tbaa !32
-  %47 = load i32, ptr %4, align 8, !tbaa !34
-  %48 = add i32 %47, 1
-  store i32 %48, ptr %4, align 8, !tbaa !34
+  %51 = load ptr, ptr %46, align 8, !tbaa !32
+  tail call void @free(ptr noundef %51) #8
+  store ptr %43, ptr %46, align 8, !tbaa !32
+  %52 = load i32, ptr %4, align 8, !tbaa !34
+  %53 = add i32 %52, 1
+  store i32 %53, ptr %4, align 8, !tbaa !34
   tail call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %3) #8
-  br label %51
+  br label %56
 
-49:                                               ; preds = %34
+54:                                               ; preds = %34
   tail call void @free(ptr noundef nonnull %32) #8
-  br label %50
+  br label %55
 
-50:                                               ; preds = %27, %49
+55:                                               ; preds = %27, %54
   tail call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %3) #8
   tail call void @BN_BLINDING_free(ptr noundef nonnull %22) #8
-  br label %51
+  br label %56
 
-51:                                               ; preds = %.thread, %50, %42, %26, %20
-  %.051 = phi ptr [ %19, %20 ], [ %22, %42 ], [ %22, %26 ], [ null, %50 ], [ null, %.thread ]
+56:                                               ; preds = %.thread, %55, %45, %26, %20
+  %.051 = phi ptr [ %19, %20 ], [ %22, %45 ], [ %22, %26 ], [ null, %55 ], [ null, %.thread ]
   ret ptr %.051
 }
 
@@ -1955,17 +1960,17 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #7 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(0) }
 

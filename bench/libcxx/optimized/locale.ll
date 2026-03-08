@@ -32709,7 +32709,7 @@ _ZNSt3__110unique_ptrIjPFvPvEED2B8ne210000Ev.exit391: ; preds = %1062
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: noreturn
@@ -38835,7 +38835,15 @@ _ZNKSt3__15ctypeIcE5widenB8ne210000Ec.exit:       ; preds = %45
 _ZNSt3__110unique_ptrIcPFvPvEE5resetB8ne210000EPc.exit: ; preds = %108
   %111 = call noalias ptr @malloc(i64 noundef %109) #49
   %112 = icmp eq ptr %111, null
-  br i1 %112, label %113, label %122
+  br i1 %112, label %113, label %_ZNSt3__110unique_ptrIcPFvPvEE5resetB8ne210000EPc.exit._crit_edge
+
+_ZNSt3__110unique_ptrIcPFvPvEE5resetB8ne210000EPc.exit._crit_edge: ; preds = %_ZNSt3__110unique_ptrIcPFvPvEE5resetB8ne210000EPc.exit
+  %.pre = load i8, ptr %5, align 8
+  %.pre56 = trunc i8 %.pre to i1
+  %.pre57 = lshr i8 %.pre, 1
+  %.pre59 = zext nneg i8 %.pre57 to i64
+  %.pre61 = select i1 %.pre56, i64 %60, i64 %.pre59
+  br label %122
 
 113:                                              ; preds = %_ZNSt3__110unique_ptrIcPFvPvEE5resetB8ne210000EPc.exit
   invoke void @_ZSt17__throw_bad_allocv() #47
@@ -38864,9 +38872,11 @@ _ZNSt3__110unique_ptrIcPFvPvEE5resetB8ne210000EPc.exit: ; preds = %108
           cleanup
   br label %_ZNSt3__110unique_ptrIcPFvPvEED2B8ne210000Ev.exit41
 
-122:                                              ; preds = %_ZNSt3__110unique_ptrIcPFvPvEE5resetB8ne210000EPc.exit, %108
-  %.sroa.0.0 = phi ptr [ %111, %_ZNSt3__110unique_ptrIcPFvPvEE5resetB8ne210000EPc.exit ], [ null, %108 ]
-  %.028 = phi ptr [ %111, %_ZNSt3__110unique_ptrIcPFvPvEE5resetB8ne210000EPc.exit ], [ %18, %108 ]
+122:                                              ; preds = %_ZNSt3__110unique_ptrIcPFvPvEE5resetB8ne210000EPc.exit._crit_edge, %108
+  %.pre-phi62 = phi i64 [ %.pre61, %_ZNSt3__110unique_ptrIcPFvPvEE5resetB8ne210000EPc.exit._crit_edge ], [ %63, %108 ]
+  %.pre-phi = phi i1 [ %.pre56, %_ZNSt3__110unique_ptrIcPFvPvEE5resetB8ne210000EPc.exit._crit_edge ], [ %59, %108 ]
+  %.sroa.0.0 = phi ptr [ %111, %_ZNSt3__110unique_ptrIcPFvPvEE5resetB8ne210000EPc.exit._crit_edge ], [ null, %108 ]
+  %.028 = phi ptr [ %111, %_ZNSt3__110unique_ptrIcPFvPvEE5resetB8ne210000EPc.exit._crit_edge ], [ %18, %108 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %123 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -38874,8 +38884,8 @@ _ZNSt3__110unique_ptrIcPFvPvEE5resetB8ne210000EPc.exit: ; preds = %108
   %125 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %128 = select i1 %59, ptr %126, ptr %127
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 %63
+  %128 = select i1 %.pre-phi, ptr %126, ptr %127
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 %.pre-phi62
   %130 = load i8, ptr %12, align 1, !tbaa !4
   %131 = load i8, ptr %13, align 1, !tbaa !4
   invoke void @_ZNSt3__111__money_putIcE8__formatEPcRS2_S3_jPKcS5_RKNS_5ctypeIcEEbRKNS_10money_base7patternEccRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESL_SL_i(ptr noundef nonnull %.028, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef %124, ptr noundef %128, ptr noundef %129, ptr noundef nonnull align 8 dereferenceable(25) %37, i1 noundef zeroext %56, ptr noundef nonnull align 1 dereferenceable(4) %11, i8 noundef signext %130, i8 noundef signext %131, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef %65)
@@ -40559,7 +40569,15 @@ _ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit: ; preds = %108
   %111 = shl i64 %109, 2
   %112 = call noalias ptr @malloc(i64 noundef %111) #49
   %113 = icmp eq ptr %112, null
-  br i1 %113, label %114, label %123
+  br i1 %113, label %114, label %_ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit._crit_edge
+
+_ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit._crit_edge: ; preds = %_ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit
+  %.pre = load i8, ptr %5, align 8
+  %.pre55 = trunc i8 %.pre to i1
+  %.pre56 = lshr i8 %.pre, 1
+  %.pre58 = zext nneg i8 %.pre56 to i64
+  %.pre60 = select i1 %.pre55, i64 %60, i64 %.pre58
+  br label %123
 
 114:                                              ; preds = %_ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit
   invoke void @_ZSt17__throw_bad_allocv() #47
@@ -40588,9 +40606,11 @@ _ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit: ; preds = %108
           cleanup
   br label %_ZNSt3__110unique_ptrIwPFvPvEED2B8ne210000Ev.exit40
 
-123:                                              ; preds = %_ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit, %108
-  %.sroa.0.0 = phi ptr [ %112, %_ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit ], [ null, %108 ]
-  %.028 = phi ptr [ %112, %_ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit ], [ %18, %108 ]
+123:                                              ; preds = %_ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit._crit_edge, %108
+  %.pre-phi61 = phi i64 [ %.pre60, %_ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit._crit_edge ], [ %63, %108 ]
+  %.pre-phi = phi i1 [ %.pre55, %_ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit._crit_edge ], [ %59, %108 ]
+  %.sroa.0.0 = phi ptr [ %112, %_ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit._crit_edge ], [ null, %108 ]
+  %.028 = phi ptr [ %112, %_ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit._crit_edge ], [ %18, %108 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %124 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -40598,8 +40618,8 @@ _ZNSt3__110unique_ptrIwPFvPvEE5resetB8ne210000EPw.exit: ; preds = %108
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %129 = select i1 %59, ptr %127, ptr %128
-  %130 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %63
+  %129 = select i1 %.pre-phi, ptr %127, ptr %128
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %.pre-phi61
   %131 = load i32, ptr %12, align 4, !tbaa !10
   %132 = load i32, ptr %13, align 4, !tbaa !10
   invoke void @_ZNSt3__111__money_putIwE8__formatEPwRS2_S3_jPKwS5_RKNS_5ctypeIwEEbRKNS_10money_base7patternEwwRKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERKNSE_IwNSF_IwEENSH_IwEEEESQ_i(ptr noundef nonnull %.028, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef %125, ptr noundef %129, ptr noundef %130, ptr noundef nonnull align 8 dereferenceable(16) %37, i1 noundef zeroext %56, ptr noundef nonnull align 1 dereferenceable(4) %11, i32 noundef signext %131, i32 noundef signext %132, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef %65)
@@ -82899,7 +82919,7 @@ _ZNSt3__18__locale14__locale_guardD2B8ne210000Ev.exit: ; preds = %4, %8
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #13
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #42
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -83191,7 +83211,7 @@ attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wid
 attributes #6 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -83224,7 +83244,7 @@ attributes #38 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "n
 attributes #39 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #40 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #41 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #42 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #42 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #43 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #44 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #45 = { nounwind }

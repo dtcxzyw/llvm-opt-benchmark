@@ -545,7 +545,7 @@ define range(i32 0, 2) i32 @lsrkStep_CheckNVector(ptr noundef readonly captures(
 
 declare ptr @arkCreate(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 declare void @ARKodeFree(ptr noundef) local_unnamed_addr #1
@@ -559,12 +559,12 @@ define range(i32 -49, 1) i32 @lsrkStep_Init(ptr noundef %0, double %1, i32 nound
 
 lsrkStep_AccessStepMem.exit:                      ; preds = %3
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -21, i32 noundef 2160, ptr noundef nonnull @__func__.lsrkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.39) #13
-  br label %56
+  br label %60
 
 7:                                                ; preds = %3
   %8 = add i32 %2, -1
   %or.cond = icmp ult i32 %8, 2
-  br i1 %or.cond, label %56, label %9
+  br i1 %or.cond, label %60, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 768
@@ -599,13 +599,13 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
 
 25:                                               ; preds = %21
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -49, i32 noundef 339, ptr noundef nonnull @__func__.lsrkStep_Init, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10) #13
-  br label %56
+  br label %60
 
 26:                                               ; preds = %21, %18
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %28 = load ptr, ptr %27, align 8, !tbaa !17
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %40
+  br i1 %29, label %30, label %42
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 160
@@ -614,44 +614,48 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %34 = tail call noalias ptr @calloc(i64 noundef %33, i64 noundef 8) #14
   store ptr %34, ptr %27, align 8, !tbaa !17
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %56, label %36
+  br i1 %35, label %60, label %36
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %38 = load i64, ptr %37, align 8, !tbaa !22
-  %39 = add nsw i64 %38, %33
-  store i64 %39, ptr %37, align 8, !tbaa !22
-  br label %40
+  %37 = load i32, ptr %31, align 8, !tbaa !21
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %40 = load i64, ptr %39, align 8, !tbaa !22
+  %41 = add nsw i64 %40, %38
+  store i64 %41, ptr %39, align 8, !tbaa !22
+  br label %42
 
-40:                                               ; preds = %36, %26
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  %42 = load ptr, ptr %41, align 8, !tbaa !23
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %54
+42:                                               ; preds = %36, %26
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  %44 = load ptr, ptr %43, align 8, !tbaa !23
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %58
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 160
-  %46 = load i32, ptr %45, align 8, !tbaa !21
-  %47 = sext i32 %46 to i64
-  %48 = tail call noalias ptr @calloc(i64 noundef %47, i64 noundef 8) #14
-  store ptr %48, ptr %41, align 8, !tbaa !23
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %56, label %50
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 160
+  %48 = load i32, ptr %47, align 8, !tbaa !21
+  %49 = sext i32 %48 to i64
+  %50 = tail call noalias ptr @calloc(i64 noundef %49, i64 noundef 8) #14
+  store ptr %50, ptr %43, align 8, !tbaa !23
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %60, label %52
 
-50:                                               ; preds = %44
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %52 = load i64, ptr %51, align 8, !tbaa !24
-  %53 = add nsw i64 %52, %47
-  store i64 %53, ptr %51, align 8, !tbaa !24
-  br label %54
+52:                                               ; preds = %46
+  %53 = load i32, ptr %47, align 8, !tbaa !21
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %56 = load i64, ptr %55, align 8, !tbaa !24
+  %57 = add nsw i64 %56, %54
+  store i64 %57, ptr %55, align 8, !tbaa !24
+  br label %58
 
-54:                                               ; preds = %50, %40
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 980
-  store i32 1, ptr %55, align 4, !tbaa !61
-  br label %56
+58:                                               ; preds = %52, %42
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 980
+  store i32 1, ptr %59, align 4, !tbaa !61
+  br label %60
 
-56:                                               ; preds = %lsrkStep_AccessStepMem.exit, %44, %30, %7, %54, %25
-  %.0 = phi i32 [ -49, %25 ], [ -21, %lsrkStep_AccessStepMem.exit ], [ 0, %7 ], [ -20, %30 ], [ 0, %54 ], [ -20, %44 ]
+60:                                               ; preds = %lsrkStep_AccessStepMem.exit, %46, %30, %7, %58, %25
+  %.0 = phi i32 [ -49, %25 ], [ -21, %lsrkStep_AccessStepMem.exit ], [ 0, %7 ], [ -20, %30 ], [ 0, %58 ], [ -20, %46 ]
   ret i32 %.0
 }
 
@@ -3278,7 +3282,7 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

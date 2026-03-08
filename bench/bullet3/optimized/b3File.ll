@@ -254,7 +254,7 @@ define dso_local void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 der
 71:                                               ; preds = %73
   %72 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %72, null
-  br i1 %.not, label %99, label %77
+  br i1 %.not, label %100, label %77
 
 73:                                               ; preds = %3, %73
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %73 ]
@@ -277,32 +277,33 @@ define dso_local void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 der
   %84 = sext i32 %83 to i64
   %85 = tail call noalias ptr @malloc(i64 noundef %84) #31
   store ptr %85, ptr %5, align 8, !tbaa !59
-  %86 = sext i32 %82 to i64
-  %87 = tail call i64 @fread(ptr noundef %85, i64 noundef %86, i64 noundef 1, ptr noundef nonnull %72)
-  %88 = tail call i32 @fclose(ptr noundef nonnull %72)
-  %89 = load ptr, ptr %0, align 8, !tbaa !9
-  %90 = load ptr, ptr %89, align 8
-  invoke void %90(ptr noundef nonnull align 8 dereferenceable(540) %0)
-          to label %99 unwind label %91
+  %86 = load i32, ptr %6, align 8, !tbaa !58
+  %87 = sext i32 %86 to i64
+  %88 = tail call i64 @fread(ptr noundef %85, i64 noundef %87, i64 noundef 1, ptr noundef nonnull %72)
+  %89 = tail call i32 @fclose(ptr noundef nonnull %72)
+  %90 = load ptr, ptr %0, align 8, !tbaa !9
+  %91 = load ptr, ptr %90, align 8
+  invoke void %91(ptr noundef nonnull align 8 dereferenceable(540) %0)
+          to label %100 unwind label %92
 
-91:                                               ; preds = %77
-  %92 = landingpad { ptr, i32 }
+92:                                               ; preds = %77
+  %93 = landingpad { ptr, i32 }
           cleanup
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %93) #32
-  tail call void @_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %94) #32
-  tail call void @_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %95) #32
-  tail call void @_ZN20b3AlignedObjectArrayIPcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %96) #32
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %94) #32
+  tail call void @_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %95) #32
+  tail call void @_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %96) #32
   tail call void @_ZN20b3AlignedObjectArrayIPcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %97) #32
-  tail call void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %98) #32
-  resume { ptr, i32 } %92
+  tail call void @_ZN20b3AlignedObjectArrayIPcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %98) #32
+  tail call void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %99) #32
+  resume { ptr, i32 } %93
 
-99:                                               ; preds = %77, %71
+100:                                              ; preds = %77, %71
   ret void
 }
 
@@ -317,7 +318,7 @@ declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef)
 ; Function Attrs: nofree nounwind
 declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
@@ -5891,7 +5892,7 @@ attributes #0 = { mustprogress nofree norecurse nounwind memory(argmem: readwrit
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -310,7 +310,7 @@ Dec_FactorTrivial.exit:                           ; preds = %.._crit_edge_crit_e
   %45 = phi i32 [ 0, %.._crit_edge_crit_edge.i ], [ %.pre19.i, %._crit_edge.loopexit.i ]
   %46 = phi ptr [ %.pre.i, %.._crit_edge_crit_edge.i ], [ %40, %._crit_edge.loopexit.i ]
   %47 = tail call fastcc i32 @Dec_FactorTrivialTree_rec(ptr noundef %0, ptr noundef %46, i32 noundef %45, i32 noundef 1)
-  br label %148
+  br label %152
 
 48:                                               ; preds = %2
   call void @Mvc_CoverDivideInternal(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
@@ -327,7 +327,7 @@ Dec_FactorTrivial.exit:                           ; preds = %.._crit_edge_crit_e
   %55 = call fastcc i32 @Dec_FactorLF_rec(ptr noundef %0, ptr noundef %1, ptr noundef %53)
   %56 = load ptr, ptr %4, align 8, !tbaa !32
   call void @Mvc_CoverFree(ptr noundef %56) #8
-  br label %148
+  br label %152
 
 57:                                               ; preds = %48
   call void @Mvc_CoverMakeCubeFree(ptr noundef %53) #8
@@ -337,7 +337,7 @@ Dec_FactorTrivial.exit:                           ; preds = %.._crit_edge_crit_e
   %60 = call i32 @Mvc_CoverIsCubeFree(ptr noundef %59) #8
   %.not = icmp eq i32 %60, 0
   %61 = load ptr, ptr %3, align 8, !tbaa !32
-  br i1 %.not, label %142, label %62
+  br i1 %.not, label %146, label %62
 
 62:                                               ; preds = %57
   %63 = call fastcc i32 @Dec_Factor_rec(ptr noundef %0, ptr noundef %61)
@@ -365,9 +365,6 @@ Dec_FactorTrivial.exit:                           ; preds = %.._crit_edge_crit_e
 
 79:                                               ; preds = %75
   %80 = call ptr @realloc(ptr noundef nonnull %74, i64 noundef %78) #10
-  %.pre.i.i28 = load i32, ptr %70, align 4, !tbaa !30
-  %.pre15.pre.i.i = load i32, ptr %68, align 8, !tbaa !29
-  %.pre17.i.i = shl nsw i32 %.pre.i.i28, 1
   br label %83
 
 81:                                               ; preds = %75
@@ -375,122 +372,121 @@ Dec_FactorTrivial.exit:                           ; preds = %.._crit_edge_crit_e
   br label %83
 
 83:                                               ; preds = %81, %79
-  %.pre-phi.i.i = phi i32 [ %76, %81 ], [ %.pre17.i.i, %79 ]
-  %.pre15.i.i = phi i32 [ %69, %81 ], [ %.pre15.pre.i.i, %79 ]
-  %84 = phi ptr [ %82, %81 ], [ %80, %79 ]
+  %84 = phi ptr [ %80, %79 ], [ %82, %81 ]
   store ptr %84, ptr %73, align 8, !tbaa !31
-  store i32 %.pre-phi.i.i, ptr %70, align 4, !tbaa !30
+  %85 = load i32, ptr %70, align 4, !tbaa !30
+  %86 = shl nsw i32 %85, 1
+  store i32 %86, ptr %70, align 4, !tbaa !30
+  %.pre14.i.i = load i32, ptr %68, align 8, !tbaa !29
   br label %Dec_GraphAddNodeAnd.exit
 
 Dec_GraphAddNodeAnd.exit:                         ; preds = %62, %83
-  %85 = phi i32 [ %.pre15.i.i, %83 ], [ %69, %62 ]
-  %86 = phi ptr [ %84, %83 ], [ %74, %62 ]
-  %87 = add nsw i32 %85, 1
-  store i32 %87, ptr %68, align 8, !tbaa !29
-  %88 = sext i32 %85 to i64
-  %89 = getelementptr inbounds [24 x i8], ptr %86, i64 %88
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
-  store i32 %63, ptr %89, align 8, !tbaa !16
-  %91 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  store i32 %65, ptr %91, align 4, !tbaa !16
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %93 = shl i32 %63, 15
-  %94 = and i32 %93, 32768
-  %95 = shl i32 %65, 16
-  %96 = and i32 %95, 65536
-  %97 = or disjoint i32 %96, %94
-  store i32 %97, ptr %92, align 8
-  %98 = load i32, ptr %68, align 8, !tbaa !29
-  %99 = shl i32 %98, 1
-  %100 = add i32 %99, 2147483646
-  %101 = and i32 %100, 2147483646
-  %102 = load ptr, ptr %5, align 8, !tbaa !32
-  %103 = call i32 @Mvc_CoverReadCubeNum(ptr noundef %102) #8
-  %104 = icmp eq i32 %103, 0
-  %105 = load ptr, ptr %5, align 8, !tbaa !32
-  br i1 %104, label %106, label %107
+  %87 = phi i32 [ %.pre14.i.i, %83 ], [ %69, %62 ]
+  %88 = phi ptr [ %84, %83 ], [ %74, %62 ]
+  %89 = add nsw i32 %87, 1
+  store i32 %89, ptr %68, align 8, !tbaa !29
+  %90 = sext i32 %87 to i64
+  %91 = getelementptr inbounds [24 x i8], ptr %88, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
+  store i32 %63, ptr %91, align 8, !tbaa !16
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
+  store i32 %65, ptr %93, align 4, !tbaa !16
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %95 = shl i32 %63, 15
+  %96 = and i32 %95, 32768
+  %97 = shl i32 %65, 16
+  %98 = and i32 %97, 65536
+  %99 = or disjoint i32 %98, %96
+  store i32 %99, ptr %94, align 8
+  %100 = load i32, ptr %68, align 8, !tbaa !29
+  %101 = shl i32 %100, 1
+  %102 = add i32 %101, 2147483646
+  %103 = and i32 %102, 2147483646
+  %104 = load ptr, ptr %5, align 8, !tbaa !32
+  %105 = call i32 @Mvc_CoverReadCubeNum(ptr noundef %104) #8
+  %106 = icmp eq i32 %105, 0
+  %107 = load ptr, ptr %5, align 8, !tbaa !32
+  br i1 %106, label %108, label %109
 
-106:                                              ; preds = %Dec_GraphAddNodeAnd.exit
-  call void @Mvc_CoverFree(ptr noundef %105) #8
-  br label %148
+108:                                              ; preds = %Dec_GraphAddNodeAnd.exit
+  call void @Mvc_CoverFree(ptr noundef %107) #8
+  br label %152
 
-107:                                              ; preds = %Dec_GraphAddNodeAnd.exit
-  %108 = call fastcc i32 @Dec_Factor_rec(ptr noundef nonnull %0, ptr noundef %105)
-  %109 = load ptr, ptr %5, align 8, !tbaa !32
-  call void @Mvc_CoverFree(ptr noundef %109) #8
-  %110 = load i32, ptr %68, align 8, !tbaa !29
-  %111 = load i32, ptr %70, align 4, !tbaa !30
-  %112 = icmp eq i32 %110, %111
-  %113 = load ptr, ptr %73, align 8, !tbaa !31
-  br i1 %112, label %114, label %Dec_GraphAddNodeOr.exit
+109:                                              ; preds = %Dec_GraphAddNodeAnd.exit
+  %110 = call fastcc i32 @Dec_Factor_rec(ptr noundef nonnull %0, ptr noundef %107)
+  %111 = load ptr, ptr %5, align 8, !tbaa !32
+  call void @Mvc_CoverFree(ptr noundef %111) #8
+  %112 = load i32, ptr %68, align 8, !tbaa !29
+  %113 = load i32, ptr %70, align 4, !tbaa !30
+  %114 = icmp eq i32 %112, %113
+  %115 = load ptr, ptr %73, align 8, !tbaa !31
+  br i1 %114, label %116, label %Dec_GraphAddNodeOr.exit
 
-114:                                              ; preds = %107
-  %.not.i.i29 = icmp eq ptr %113, null
-  %115 = shl nsw i32 %110, 1
-  %116 = sext i32 %115 to i64
-  %117 = mul nsw i64 %116, 24
-  br i1 %.not.i.i29, label %120, label %118
+116:                                              ; preds = %109
+  %.not.i.i28 = icmp eq ptr %115, null
+  %117 = shl nsw i32 %112, 1
+  %118 = sext i32 %117 to i64
+  %119 = mul nsw i64 %118, 24
+  br i1 %.not.i.i28, label %122, label %120
 
-118:                                              ; preds = %114
-  %119 = call ptr @realloc(ptr noundef nonnull %113, i64 noundef %117) #10
-  %.pre.i.i30 = load i32, ptr %70, align 4, !tbaa !30
-  %.pre15.pre.i.i31 = load i32, ptr %68, align 8, !tbaa !29
-  %.pre17.i.i32 = shl nsw i32 %.pre.i.i30, 1
-  br label %122
+120:                                              ; preds = %116
+  %121 = call ptr @realloc(ptr noundef nonnull %115, i64 noundef %119) #10
+  br label %124
 
-120:                                              ; preds = %114
-  %121 = call noalias ptr @malloc(i64 noundef %117) #9
-  br label %122
+122:                                              ; preds = %116
+  %123 = call noalias ptr @malloc(i64 noundef %119) #9
+  br label %124
 
-122:                                              ; preds = %120, %118
-  %.pre-phi.i.i33 = phi i32 [ %115, %120 ], [ %.pre17.i.i32, %118 ]
-  %.pre15.i.i34 = phi i32 [ %110, %120 ], [ %.pre15.pre.i.i31, %118 ]
-  %123 = phi ptr [ %121, %120 ], [ %119, %118 ]
-  store ptr %123, ptr %73, align 8, !tbaa !31
-  store i32 %.pre-phi.i.i33, ptr %70, align 4, !tbaa !30
+124:                                              ; preds = %122, %120
+  %125 = phi ptr [ %121, %120 ], [ %123, %122 ]
+  store ptr %125, ptr %73, align 8, !tbaa !31
+  %126 = load i32, ptr %70, align 4, !tbaa !30
+  %127 = shl nsw i32 %126, 1
+  store i32 %127, ptr %70, align 4, !tbaa !30
+  %.pre14.i.i29 = load i32, ptr %68, align 8, !tbaa !29
   br label %Dec_GraphAddNodeOr.exit
 
-Dec_GraphAddNodeOr.exit:                          ; preds = %107, %122
-  %124 = phi i32 [ %.pre15.i.i34, %122 ], [ %110, %107 ]
-  %125 = phi ptr [ %123, %122 ], [ %113, %107 ]
-  %126 = add nsw i32 %124, 1
-  store i32 %126, ptr %68, align 8, !tbaa !29
-  %127 = sext i32 %124 to i64
-  %128 = getelementptr inbounds [24 x i8], ptr %125, i64 %127
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %129, i8 0, i64 16, i1 false)
-  %130 = getelementptr inbounds nuw i8, ptr %128, i64 4
-  %131 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  %132 = shl i32 %108, 16
-  %133 = and i32 %132, 65536
-  %134 = or disjoint i32 %133, 16384
-  store i32 %134, ptr %131, align 8
-  %135 = or disjoint i32 %101, 1
-  store i32 %135, ptr %128, align 8
-  %136 = xor i32 %108, 1
-  store i32 %136, ptr %130, align 4
-  %137 = load i32, ptr %68, align 8, !tbaa !29
-  %138 = shl i32 %137, 1
-  %139 = add i32 %138, 2147483646
-  %140 = and i32 %139, 2147483646
-  %141 = or disjoint i32 %140, 1
-  br label %148
+Dec_GraphAddNodeOr.exit:                          ; preds = %109, %124
+  %128 = phi i32 [ %.pre14.i.i29, %124 ], [ %112, %109 ]
+  %129 = phi ptr [ %125, %124 ], [ %115, %109 ]
+  %130 = add nsw i32 %128, 1
+  store i32 %130, ptr %68, align 8, !tbaa !29
+  %131 = sext i32 %128 to i64
+  %132 = getelementptr inbounds [24 x i8], ptr %129, i64 %131
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, i8 0, i64 16, i1 false)
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 16
+  %136 = shl i32 %110, 16
+  %137 = and i32 %136, 65536
+  %138 = or disjoint i32 %137, 16384
+  store i32 %138, ptr %135, align 8
+  %139 = or disjoint i32 %103, 1
+  store i32 %139, ptr %132, align 8
+  %140 = xor i32 %110, 1
+  store i32 %140, ptr %134, align 4
+  %141 = load i32, ptr %68, align 8, !tbaa !29
+  %142 = shl i32 %141, 1
+  %143 = add i32 %142, 2147483646
+  %144 = and i32 %143, 2147483646
+  %145 = or disjoint i32 %144, 1
+  br label %152
 
-142:                                              ; preds = %57
-  %143 = call ptr @Mvc_CoverCommonCubeCover(ptr noundef %61) #8
-  %144 = load ptr, ptr %3, align 8, !tbaa !32
-  call void @Mvc_CoverFree(ptr noundef %144) #8
-  %145 = load ptr, ptr %4, align 8, !tbaa !32
-  call void @Mvc_CoverFree(ptr noundef %145) #8
-  %146 = load ptr, ptr %5, align 8, !tbaa !32
-  call void @Mvc_CoverFree(ptr noundef %146) #8
-  %147 = call fastcc i32 @Dec_FactorLF_rec(ptr noundef %0, ptr noundef %1, ptr noundef %143)
-  call void @Mvc_CoverFree(ptr noundef %143) #8
-  br label %148
+146:                                              ; preds = %57
+  %147 = call ptr @Mvc_CoverCommonCubeCover(ptr noundef %61) #8
+  %148 = load ptr, ptr %3, align 8, !tbaa !32
+  call void @Mvc_CoverFree(ptr noundef %148) #8
+  %149 = load ptr, ptr %4, align 8, !tbaa !32
+  call void @Mvc_CoverFree(ptr noundef %149) #8
+  %150 = load ptr, ptr %5, align 8, !tbaa !32
+  call void @Mvc_CoverFree(ptr noundef %150) #8
+  %151 = call fastcc i32 @Dec_FactorLF_rec(ptr noundef %0, ptr noundef %1, ptr noundef %147)
+  call void @Mvc_CoverFree(ptr noundef %147) #8
+  br label %152
 
-148:                                              ; preds = %142, %Dec_GraphAddNodeOr.exit, %106, %54, %Dec_FactorTrivial.exit
-  %.sroa.027.0 = phi i32 [ %47, %Dec_FactorTrivial.exit ], [ %55, %54 ], [ %101, %106 ], [ %141, %Dec_GraphAddNodeOr.exit ], [ %147, %142 ]
+152:                                              ; preds = %146, %Dec_GraphAddNodeOr.exit, %108, %54, %Dec_FactorTrivial.exit
+  %.sroa.027.0 = phi i32 [ %47, %Dec_FactorTrivial.exit ], [ %55, %54 ], [ %103, %108 ], [ %145, %Dec_GraphAddNodeOr.exit ], [ %151, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -501,7 +497,7 @@ declare i32 @Abc_SopIsComplement(ptr noundef) local_unnamed_addr #1
 
 declare void @Mvc_CoverFree(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -549,9 +545,6 @@ define internal fastcc range(i32 0, -2147483648) i32 @Dec_FactorLF_rec(ptr nound
 
 26:                                               ; preds = %22
   %27 = call ptr @realloc(ptr noundef nonnull %21, i64 noundef %25) #10
-  %.pre.i.i = load i32, ptr %17, align 4, !tbaa !30
-  %.pre15.pre.i.i = load i32, ptr %15, align 8, !tbaa !29
-  %.pre17.i.i = shl nsw i32 %.pre.i.i, 1
   br label %30
 
 28:                                               ; preds = %22
@@ -559,110 +552,109 @@ define internal fastcc range(i32 0, -2147483648) i32 @Dec_FactorLF_rec(ptr nound
   br label %30
 
 30:                                               ; preds = %28, %26
-  %.pre-phi.i.i = phi i32 [ %23, %28 ], [ %.pre17.i.i, %26 ]
-  %.pre15.i.i = phi i32 [ %16, %28 ], [ %.pre15.pre.i.i, %26 ]
-  %31 = phi ptr [ %29, %28 ], [ %27, %26 ]
+  %31 = phi ptr [ %27, %26 ], [ %29, %28 ]
   store ptr %31, ptr %20, align 8, !tbaa !31
-  store i32 %.pre-phi.i.i, ptr %17, align 4, !tbaa !30
+  %32 = load i32, ptr %17, align 4, !tbaa !30
+  %33 = shl nsw i32 %32, 1
+  store i32 %33, ptr %17, align 4, !tbaa !30
+  %.pre14.i.i = load i32, ptr %15, align 8, !tbaa !29
   br label %Dec_GraphAddNodeAnd.exit
 
 Dec_GraphAddNodeAnd.exit:                         ; preds = %3, %30
-  %32 = phi i32 [ %.pre15.i.i, %30 ], [ %16, %3 ]
-  %33 = phi ptr [ %31, %30 ], [ %21, %3 ]
-  %34 = add nsw i32 %32, 1
-  store i32 %34, ptr %15, align 8, !tbaa !29
-  %35 = sext i32 %32 to i64
-  %36 = getelementptr inbounds [24 x i8], ptr %33, i64 %35
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
-  store i32 %11, ptr %36, align 8, !tbaa !16
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  store i32 %13, ptr %38, align 4, !tbaa !16
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %40 = shl i32 %11, 15
-  %41 = and i32 %40, 32768
-  %42 = shl i32 %13, 16
-  %43 = and i32 %42, 65536
-  %44 = or disjoint i32 %43, %41
-  store i32 %44, ptr %39, align 8
-  %45 = load i32, ptr %15, align 8, !tbaa !29
-  %46 = shl i32 %45, 1
-  %47 = add i32 %46, 2147483646
-  %48 = and i32 %47, 2147483646
-  %49 = load ptr, ptr %5, align 8, !tbaa !32
-  %50 = call i32 @Mvc_CoverReadCubeNum(ptr noundef %49) #8
-  %51 = icmp eq i32 %50, 0
-  %52 = load ptr, ptr %5, align 8, !tbaa !32
-  br i1 %51, label %53, label %54
+  %34 = phi i32 [ %.pre14.i.i, %30 ], [ %16, %3 ]
+  %35 = phi ptr [ %31, %30 ], [ %21, %3 ]
+  %36 = add nsw i32 %34, 1
+  store i32 %36, ptr %15, align 8, !tbaa !29
+  %37 = sext i32 %34 to i64
+  %38 = getelementptr inbounds [24 x i8], ptr %35, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
+  store i32 %11, ptr %38, align 8, !tbaa !16
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  store i32 %13, ptr %40, align 4, !tbaa !16
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %42 = shl i32 %11, 15
+  %43 = and i32 %42, 32768
+  %44 = shl i32 %13, 16
+  %45 = and i32 %44, 65536
+  %46 = or disjoint i32 %45, %43
+  store i32 %46, ptr %41, align 8
+  %47 = load i32, ptr %15, align 8, !tbaa !29
+  %48 = shl i32 %47, 1
+  %49 = add i32 %48, 2147483646
+  %50 = and i32 %49, 2147483646
+  %51 = load ptr, ptr %5, align 8, !tbaa !32
+  %52 = call i32 @Mvc_CoverReadCubeNum(ptr noundef %51) #8
+  %53 = icmp eq i32 %52, 0
+  %54 = load ptr, ptr %5, align 8, !tbaa !32
+  br i1 %53, label %55, label %56
 
-53:                                               ; preds = %Dec_GraphAddNodeAnd.exit
-  call void @Mvc_CoverFree(ptr noundef %52) #8
-  br label %89
+55:                                               ; preds = %Dec_GraphAddNodeAnd.exit
+  call void @Mvc_CoverFree(ptr noundef %54) #8
+  br label %93
 
-54:                                               ; preds = %Dec_GraphAddNodeAnd.exit
-  %55 = call fastcc i32 @Dec_Factor_rec(ptr noundef nonnull %0, ptr noundef %52)
-  %56 = load ptr, ptr %5, align 8, !tbaa !32
-  call void @Mvc_CoverFree(ptr noundef %56) #8
-  %57 = load i32, ptr %15, align 8, !tbaa !29
-  %58 = load i32, ptr %17, align 4, !tbaa !30
-  %59 = icmp eq i32 %57, %58
-  %60 = load ptr, ptr %20, align 8, !tbaa !31
-  br i1 %59, label %61, label %Dec_GraphAddNodeOr.exit
+56:                                               ; preds = %Dec_GraphAddNodeAnd.exit
+  %57 = call fastcc i32 @Dec_Factor_rec(ptr noundef nonnull %0, ptr noundef %54)
+  %58 = load ptr, ptr %5, align 8, !tbaa !32
+  call void @Mvc_CoverFree(ptr noundef %58) #8
+  %59 = load i32, ptr %15, align 8, !tbaa !29
+  %60 = load i32, ptr %17, align 4, !tbaa !30
+  %61 = icmp eq i32 %59, %60
+  %62 = load ptr, ptr %20, align 8, !tbaa !31
+  br i1 %61, label %63, label %Dec_GraphAddNodeOr.exit
 
-61:                                               ; preds = %54
-  %.not.i.i22 = icmp eq ptr %60, null
-  %62 = shl nsw i32 %57, 1
-  %63 = sext i32 %62 to i64
-  %64 = mul nsw i64 %63, 24
-  br i1 %.not.i.i22, label %67, label %65
+63:                                               ; preds = %56
+  %.not.i.i22 = icmp eq ptr %62, null
+  %64 = shl nsw i32 %59, 1
+  %65 = sext i32 %64 to i64
+  %66 = mul nsw i64 %65, 24
+  br i1 %.not.i.i22, label %69, label %67
 
-65:                                               ; preds = %61
-  %66 = call ptr @realloc(ptr noundef nonnull %60, i64 noundef %64) #10
-  %.pre.i.i23 = load i32, ptr %17, align 4, !tbaa !30
-  %.pre15.pre.i.i24 = load i32, ptr %15, align 8, !tbaa !29
-  %.pre17.i.i25 = shl nsw i32 %.pre.i.i23, 1
-  br label %69
+67:                                               ; preds = %63
+  %68 = call ptr @realloc(ptr noundef nonnull %62, i64 noundef %66) #10
+  br label %71
 
-67:                                               ; preds = %61
-  %68 = call noalias ptr @malloc(i64 noundef %64) #9
-  br label %69
+69:                                               ; preds = %63
+  %70 = call noalias ptr @malloc(i64 noundef %66) #9
+  br label %71
 
-69:                                               ; preds = %67, %65
-  %.pre-phi.i.i26 = phi i32 [ %62, %67 ], [ %.pre17.i.i25, %65 ]
-  %.pre15.i.i27 = phi i32 [ %57, %67 ], [ %.pre15.pre.i.i24, %65 ]
-  %70 = phi ptr [ %68, %67 ], [ %66, %65 ]
-  store ptr %70, ptr %20, align 8, !tbaa !31
-  store i32 %.pre-phi.i.i26, ptr %17, align 4, !tbaa !30
+71:                                               ; preds = %69, %67
+  %72 = phi ptr [ %68, %67 ], [ %70, %69 ]
+  store ptr %72, ptr %20, align 8, !tbaa !31
+  %73 = load i32, ptr %17, align 4, !tbaa !30
+  %74 = shl nsw i32 %73, 1
+  store i32 %74, ptr %17, align 4, !tbaa !30
+  %.pre14.i.i23 = load i32, ptr %15, align 8, !tbaa !29
   br label %Dec_GraphAddNodeOr.exit
 
-Dec_GraphAddNodeOr.exit:                          ; preds = %54, %69
-  %71 = phi i32 [ %.pre15.i.i27, %69 ], [ %57, %54 ]
-  %72 = phi ptr [ %70, %69 ], [ %60, %54 ]
-  %73 = add nsw i32 %71, 1
-  store i32 %73, ptr %15, align 8, !tbaa !29
-  %74 = sext i32 %71 to i64
-  %75 = getelementptr inbounds [24 x i8], ptr %72, i64 %74
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %79 = shl i32 %55, 16
-  %80 = and i32 %79, 65536
-  %81 = or disjoint i32 %80, 16384
-  store i32 %81, ptr %78, align 8
-  %82 = or disjoint i32 %48, 1
-  store i32 %82, ptr %75, align 8
-  %83 = xor i32 %55, 1
-  store i32 %83, ptr %77, align 4
-  %84 = load i32, ptr %15, align 8, !tbaa !29
-  %85 = shl i32 %84, 1
-  %86 = add i32 %85, 2147483646
-  %87 = and i32 %86, 2147483646
-  %88 = or disjoint i32 %87, 1
-  br label %89
+Dec_GraphAddNodeOr.exit:                          ; preds = %56, %71
+  %75 = phi i32 [ %.pre14.i.i23, %71 ], [ %59, %56 ]
+  %76 = phi ptr [ %72, %71 ], [ %62, %56 ]
+  %77 = add nsw i32 %75, 1
+  store i32 %77, ptr %15, align 8, !tbaa !29
+  %78 = sext i32 %75 to i64
+  %79 = getelementptr inbounds [24 x i8], ptr %76, i64 %78
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %83 = shl i32 %57, 16
+  %84 = and i32 %83, 65536
+  %85 = or disjoint i32 %84, 16384
+  store i32 %85, ptr %82, align 8
+  %86 = or disjoint i32 %50, 1
+  store i32 %86, ptr %79, align 8
+  %87 = xor i32 %57, 1
+  store i32 %87, ptr %81, align 4
+  %88 = load i32, ptr %15, align 8, !tbaa !29
+  %89 = shl i32 %88, 1
+  %90 = add i32 %89, 2147483646
+  %91 = and i32 %90, 2147483646
+  %92 = or disjoint i32 %91, 1
+  br label %93
 
-89:                                               ; preds = %Dec_GraphAddNodeOr.exit, %53
-  %.sroa.021.0 = phi i32 [ %48, %53 ], [ %88, %Dec_GraphAddNodeOr.exit ]
+93:                                               ; preds = %Dec_GraphAddNodeOr.exit, %55
+  %.sroa.021.0 = phi i32 [ %50, %55 ], [ %92, %Dec_GraphAddNodeOr.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.sroa.021.0
@@ -794,7 +786,7 @@ define internal fastcc i32 @Dec_FactorTrivialTree_rec(ptr noundef %0, ptr nounde
 
 6:                                                ; preds = %4
   %.sroa.021.0.copyload = load i32, ptr %1, align 4, !tbaa !16
-  br label %81
+  br label %85
 
 7:                                                ; preds = %4
   %8 = sdiv i32 %2, 2
@@ -811,7 +803,7 @@ define internal fastcc i32 @Dec_FactorTrivialTree_rec(ptr noundef %0, ptr nounde
   %18 = icmp eq i32 %15, %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !31
-  br i1 %.not, label %53, label %21
+  br i1 %.not, label %55, label %21
 
 21:                                               ; preds = %7
   br i1 %18, label %22, label %Dec_GraphAddNodeOr.exit
@@ -825,9 +817,6 @@ define internal fastcc i32 @Dec_FactorTrivialTree_rec(ptr noundef %0, ptr nounde
 
 26:                                               ; preds = %22
   %27 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %25) #10
-  %.pre.i.i = load i32, ptr %16, align 4, !tbaa !30
-  %.pre15.pre.i.i = load i32, ptr %14, align 8, !tbaa !29
-  %.pre17.i.i = shl nsw i32 %.pre.i.i, 1
   br label %30
 
 28:                                               ; preds = %22
@@ -835,102 +824,101 @@ define internal fastcc i32 @Dec_FactorTrivialTree_rec(ptr noundef %0, ptr nounde
   br label %30
 
 30:                                               ; preds = %28, %26
-  %.pre-phi.i.i = phi i32 [ %23, %28 ], [ %.pre17.i.i, %26 ]
-  %.pre15.i.i = phi i32 [ %15, %28 ], [ %.pre15.pre.i.i, %26 ]
-  %31 = phi ptr [ %29, %28 ], [ %27, %26 ]
+  %31 = phi ptr [ %27, %26 ], [ %29, %28 ]
   store ptr %31, ptr %19, align 8, !tbaa !31
-  store i32 %.pre-phi.i.i, ptr %16, align 4, !tbaa !30
+  %32 = load i32, ptr %16, align 4, !tbaa !30
+  %33 = shl nsw i32 %32, 1
+  store i32 %33, ptr %16, align 4, !tbaa !30
+  %.pre14.i.i = load i32, ptr %14, align 8, !tbaa !29
   br label %Dec_GraphAddNodeOr.exit
 
 Dec_GraphAddNodeOr.exit:                          ; preds = %21, %30
-  %32 = phi i32 [ %.pre15.i.i, %30 ], [ %15, %21 ]
-  %33 = phi ptr [ %31, %30 ], [ %20, %21 ]
-  %34 = add nsw i32 %32, 1
-  store i32 %34, ptr %14, align 8, !tbaa !29
-  %35 = sext i32 %32 to i64
-  %36 = getelementptr inbounds [24 x i8], ptr %33, i64 %35
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %40 = shl i32 %10, 15
-  %41 = and i32 %40, 32768
-  %42 = shl i32 %13, 16
-  %43 = and i32 %42, 65536
-  %44 = or disjoint i32 %41, %43
-  %45 = or disjoint i32 %44, 16384
-  store i32 %45, ptr %39, align 8
-  %46 = xor i32 %10, 1
-  store i32 %46, ptr %36, align 8
-  %47 = xor i32 %13, 1
-  store i32 %47, ptr %38, align 4
-  %48 = load i32, ptr %14, align 8, !tbaa !29
-  %49 = shl i32 %48, 1
-  %50 = add i32 %49, 2147483646
-  %51 = and i32 %50, 2147483646
-  %52 = or disjoint i32 %51, 1
-  br label %81
+  %34 = phi i32 [ %.pre14.i.i, %30 ], [ %15, %21 ]
+  %35 = phi ptr [ %31, %30 ], [ %20, %21 ]
+  %36 = add nsw i32 %34, 1
+  store i32 %36, ptr %14, align 8, !tbaa !29
+  %37 = sext i32 %34 to i64
+  %38 = getelementptr inbounds [24 x i8], ptr %35, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %42 = shl i32 %10, 15
+  %43 = and i32 %42, 32768
+  %44 = shl i32 %13, 16
+  %45 = and i32 %44, 65536
+  %46 = or disjoint i32 %43, %45
+  %47 = or disjoint i32 %46, 16384
+  store i32 %47, ptr %41, align 8
+  %48 = xor i32 %10, 1
+  store i32 %48, ptr %38, align 8
+  %49 = xor i32 %13, 1
+  store i32 %49, ptr %40, align 4
+  %50 = load i32, ptr %14, align 8, !tbaa !29
+  %51 = shl i32 %50, 1
+  %52 = add i32 %51, 2147483646
+  %53 = and i32 %52, 2147483646
+  %54 = or disjoint i32 %53, 1
+  br label %85
 
-53:                                               ; preds = %7
-  br i1 %18, label %54, label %Dec_GraphAddNodeAnd.exit
+55:                                               ; preds = %7
+  br i1 %18, label %56, label %Dec_GraphAddNodeAnd.exit
 
-54:                                               ; preds = %53
+56:                                               ; preds = %55
   %.not.i.i22 = icmp eq ptr %20, null
-  %55 = shl nsw i32 %15, 1
-  %56 = sext i32 %55 to i64
-  %57 = mul nsw i64 %56, 24
-  br i1 %.not.i.i22, label %60, label %58
+  %57 = shl nsw i32 %15, 1
+  %58 = sext i32 %57 to i64
+  %59 = mul nsw i64 %58, 24
+  br i1 %.not.i.i22, label %62, label %60
 
-58:                                               ; preds = %54
-  %59 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %57) #10
-  %.pre.i.i23 = load i32, ptr %16, align 4, !tbaa !30
-  %.pre15.pre.i.i24 = load i32, ptr %14, align 8, !tbaa !29
-  %.pre17.i.i25 = shl nsw i32 %.pre.i.i23, 1
-  br label %62
+60:                                               ; preds = %56
+  %61 = tail call ptr @realloc(ptr noundef nonnull %20, i64 noundef %59) #10
+  br label %64
 
-60:                                               ; preds = %54
-  %61 = tail call noalias ptr @malloc(i64 noundef %57) #9
-  br label %62
+62:                                               ; preds = %56
+  %63 = tail call noalias ptr @malloc(i64 noundef %59) #9
+  br label %64
 
-62:                                               ; preds = %60, %58
-  %.pre-phi.i.i26 = phi i32 [ %55, %60 ], [ %.pre17.i.i25, %58 ]
-  %.pre15.i.i27 = phi i32 [ %15, %60 ], [ %.pre15.pre.i.i24, %58 ]
-  %63 = phi ptr [ %61, %60 ], [ %59, %58 ]
-  store ptr %63, ptr %19, align 8, !tbaa !31
-  store i32 %.pre-phi.i.i26, ptr %16, align 4, !tbaa !30
+64:                                               ; preds = %62, %60
+  %65 = phi ptr [ %61, %60 ], [ %63, %62 ]
+  store ptr %65, ptr %19, align 8, !tbaa !31
+  %66 = load i32, ptr %16, align 4, !tbaa !30
+  %67 = shl nsw i32 %66, 1
+  store i32 %67, ptr %16, align 4, !tbaa !30
+  %.pre14.i.i23 = load i32, ptr %14, align 8, !tbaa !29
   br label %Dec_GraphAddNodeAnd.exit
 
-Dec_GraphAddNodeAnd.exit:                         ; preds = %53, %62
-  %64 = phi i32 [ %.pre15.i.i27, %62 ], [ %15, %53 ]
-  %65 = phi ptr [ %63, %62 ], [ %20, %53 ]
-  %66 = add nsw i32 %64, 1
-  store i32 %66, ptr %14, align 8, !tbaa !29
-  %67 = sext i32 %64 to i64
-  %68 = getelementptr inbounds [24 x i8], ptr %65, i64 %67
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
-  store i32 %10, ptr %68, align 8, !tbaa !16
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  store i32 %13, ptr %70, align 4, !tbaa !16
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %72 = shl i32 %10, 15
-  %73 = and i32 %72, 32768
-  %74 = shl i32 %13, 16
-  %75 = and i32 %74, 65536
-  %76 = or disjoint i32 %75, %73
-  store i32 %76, ptr %71, align 8
-  %77 = load i32, ptr %14, align 8, !tbaa !29
-  %78 = shl i32 %77, 1
-  %79 = add i32 %78, 2147483646
-  %80 = and i32 %79, 2147483646
-  br label %81
+Dec_GraphAddNodeAnd.exit:                         ; preds = %55, %64
+  %68 = phi i32 [ %.pre14.i.i23, %64 ], [ %15, %55 ]
+  %69 = phi ptr [ %65, %64 ], [ %20, %55 ]
+  %70 = add nsw i32 %68, 1
+  store i32 %70, ptr %14, align 8, !tbaa !29
+  %71 = sext i32 %68 to i64
+  %72 = getelementptr inbounds [24 x i8], ptr %69, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, i8 0, i64 16, i1 false)
+  store i32 %10, ptr %72, align 8, !tbaa !16
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  store i32 %13, ptr %74, align 4, !tbaa !16
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %76 = shl i32 %10, 15
+  %77 = and i32 %76, 32768
+  %78 = shl i32 %13, 16
+  %79 = and i32 %78, 65536
+  %80 = or disjoint i32 %79, %77
+  store i32 %80, ptr %75, align 8
+  %81 = load i32, ptr %14, align 8, !tbaa !29
+  %82 = shl i32 %81, 1
+  %83 = add i32 %82, 2147483646
+  %84 = and i32 %83, 2147483646
+  br label %85
 
-81:                                               ; preds = %Dec_GraphAddNodeAnd.exit, %Dec_GraphAddNodeOr.exit, %6
-  %.sroa.021.0 = phi i32 [ %.sroa.021.0.copyload, %6 ], [ %52, %Dec_GraphAddNodeOr.exit ], [ %80, %Dec_GraphAddNodeAnd.exit ]
+85:                                               ; preds = %Dec_GraphAddNodeAnd.exit, %Dec_GraphAddNodeOr.exit, %6
+  %.sroa.021.0 = phi i32 [ %.sroa.021.0.copyload, %6 ], [ %54, %Dec_GraphAddNodeOr.exit ], [ %84, %Dec_GraphAddNodeAnd.exit ]
   ret i32 %.sroa.021.0
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare ptr @Mvc_CoverBestLiteralCover(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -949,17 +937,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #7 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(0) }
 attributes #10 = { nounwind allocsize(1) }

@@ -72,7 +72,7 @@ define dso_local void @assoc_init(i32 noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
@@ -355,7 +355,7 @@ define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captu
   %.not25 = icmp eq i32 %3, 0
   br i1 %.not25, label %._crit_edge26, label %.preheader
 
-.preheader:                                       ; preds = %1, %87
+.preheader:                                       ; preds = %1, %89
   %4 = load i32, ptr @hash_bulk_move, align 4, !tbaa !4
   %5 = icmp sgt i32 %4, 0
   %.b21 = load i1, ptr @expanding, align 1
@@ -471,13 +471,13 @@ define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captu
 
 ._crit_edge24:                                    ; preds = %59, %.preheader
   %.b.lcssa = phi i1 [ %.b21, %.preheader ], [ %.b, %59 ]
-  br i1 %.b.lcssa, label %87, label %64
+  br i1 %.b.lcssa, label %89, label %64
 
 64:                                               ; preds = %._crit_edge24
   %65 = tail call i32 @pthread_cond_wait(ptr noundef nonnull @maintenance_cond, ptr noundef nonnull @maintenance_lock) #18
   %66 = load volatile i32, ptr @do_run_maintenance_thread, align 4, !tbaa !4
   %.not15 = icmp eq i32 %66, 0
-  br i1 %.not15, label %87, label %67
+  br i1 %.not15, label %89, label %67
 
 67:                                               ; preds = %64
   tail call void @pause_threads(i32 noundef 1) #18
@@ -490,7 +490,7 @@ define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captu
   %73 = tail call noalias ptr @calloc(i64 noundef %72, i64 noundef 8) #15
   store ptr %73, ptr @primary_hashtable, align 8, !tbaa !8
   %.not.i = icmp eq ptr %73, null
-  br i1 %.not.i, label %86, label %74
+  br i1 %.not.i, label %88, label %74
 
 74:                                               ; preds = %67
   %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !31
@@ -500,42 +500,41 @@ define internal noalias noundef ptr @assoc_maintenance_thread(ptr readnone captu
 77:                                               ; preds = %74
   %78 = load ptr, ptr @stderr, align 8, !tbaa !11
   %79 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 30, i64 1, ptr %78) #16
-  %.pre.i = load i32, ptr @hashpower, align 4, !tbaa !4
-  %.pre1.i = add i32 %.pre.i, 1
   br label %80
 
 80:                                               ; preds = %77, %74
-  %.pre-phi.i = phi i32 [ %.pre1.i, %77 ], [ %70, %74 ]
-  store i32 %.pre-phi.i, ptr @hashpower, align 4, !tbaa !4
+  %81 = load i32, ptr @hashpower, align 4, !tbaa !4
+  %82 = add i32 %81, 1
+  store i32 %82, ptr @hashpower, align 4, !tbaa !4
   store i1 true, ptr @expanding, align 1
   store i64 0, ptr @expand_bucket, align 8, !tbaa !19
   tail call void @STATS_LOCK() #18
-  %81 = load i32, ptr @hashpower, align 4, !tbaa !4
-  store i32 %81, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 44), align 4, !tbaa !13
-  %82 = zext nneg i32 %81 to i64
-  %83 = shl i64 8, %82
-  %84 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 24), align 8, !tbaa !18
-  %85 = add i64 %84, %83
-  store i64 %85, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 24), align 8, !tbaa !18
+  %83 = load i32, ptr @hashpower, align 4, !tbaa !4
+  store i32 %83, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 44), align 4, !tbaa !13
+  %84 = zext nneg i32 %83 to i64
+  %85 = shl i64 8, %84
+  %86 = load i64, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 24), align 8, !tbaa !18
+  %87 = add i64 %86, %85
+  store i64 %87, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 24), align 8, !tbaa !18
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 52), align 4, !tbaa !30
   tail call void @STATS_UNLOCK() #18
   br label %assoc_expand.exit
 
-86:                                               ; preds = %67
+88:                                               ; preds = %67
   store ptr %68, ptr @primary_hashtable, align 8, !tbaa !8
   br label %assoc_expand.exit
 
-assoc_expand.exit:                                ; preds = %80, %86
+assoc_expand.exit:                                ; preds = %80, %88
   tail call void @pause_threads(i32 noundef 2) #18
-  br label %87
+  br label %89
 
-87:                                               ; preds = %64, %assoc_expand.exit, %._crit_edge24
-  %88 = load volatile i32, ptr @do_run_maintenance_thread, align 4, !tbaa !4
-  %.not = icmp eq i32 %88, 0
+89:                                               ; preds = %64, %assoc_expand.exit, %._crit_edge24
+  %90 = load volatile i32, ptr @do_run_maintenance_thread, align 4, !tbaa !4
+  %.not = icmp eq i32 %90, 0
   br i1 %.not, label %._crit_edge26, label %.preheader, !llvm.loop !37
 
-._crit_edge26:                                    ; preds = %87, %1
-  %89 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @maintenance_lock) #18
+._crit_edge26:                                    ; preds = %89, %1
+  %91 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @maintenance_lock) #18
   ret ptr null
 }
 
@@ -705,7 +704,7 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i32 @llvm.umax.i32(i32, i32) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

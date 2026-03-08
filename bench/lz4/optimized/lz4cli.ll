@@ -295,7 +295,7 @@ init_nbWorkers.exit:                              ; preds = %init_cLevel.exit, %
 .thread680:                                       ; preds = %init_nbWorkers.exit
   %59 = load ptr, ptr @stderr, align 8, !tbaa !11
   %60 = tail call i64 @fwrite(ptr nonnull @.str, i64 38, i64 1, ptr %59) #26
-  br label %764
+  br label %765
 
 61:                                               ; preds = %init_nbWorkers.exit
   store ptr @.str.1, ptr %50, align 8, !tbaa !14
@@ -820,13 +820,13 @@ sub_1706:                                         ; preds = %.tail699, %sub_1701
   %248 = getelementptr inbounds nuw i8, ptr %230, i64 1
   %249 = load i8, ptr %248, align 1
   %.not1248 = icmp eq i8 %249, 50
-  br i1 %.not1248, label %.tail704, label %.tail714.thread.thread.thread1510
+  br i1 %.not1248, label %.tail704, label %.tail714.thread.thread.thread1508
 
 .tail704:                                         ; preds = %sub_1706
   %250 = getelementptr inbounds nuw i8, ptr %230, i64 2
   %251 = load i8, ptr %250, align 1
   %252 = icmp eq i8 %251, 0
-  br i1 %252, label %253, label %.tail714.thread.thread.thread1510
+  br i1 %252, label %253, label %.tail714.thread.thread.thread1508
 
 253:                                              ; preds = %.tail704
   %254 = getelementptr inbounds nuw i8, ptr %231, i64 2
@@ -852,7 +852,7 @@ sub_1711:                                         ; preds = %sub_0695
   %262 = getelementptr inbounds nuw i8, ptr %230, i64 1
   %263 = load i8, ptr %262, align 1
   %264 = icmp eq i8 %263, 0
-  br i1 %264, label %265, label %.thread1505
+  br i1 %264, label %265, label %.thread1503
 
 265:                                              ; preds = %.tail714
   %266 = tail call i32 @LZ4IO_setOverwrite(ptr noundef %51, i32 noundef 1) #22
@@ -918,13 +918,13 @@ readU32FromChar.exit:                             ; preds = %.critedge.i, %285, 
   %292 = getelementptr inbounds i8, ptr %.lcssa11071112, i64 -1
   br label %.outer720.backedge
 
-.tail714.thread.thread.thread1510:                ; preds = %sub_1706, %.tail704
+.tail714.thread.thread.thread1508:                ; preds = %sub_1706, %.tail704
   store ptr %230, ptr %7, align 8
   br label %370
 
 .tail714.thread.thread:                           ; preds = %.tail714.thread
   store ptr %230, ptr %7, align 8
-  switch i8 %229, label %.thread1505 [
+  switch i8 %229, label %.thread1503 [
     i8 86, label %293
     i8 104, label %.tail714.thread.thread.thread
     i8 72, label %297
@@ -1136,7 +1136,7 @@ readU32FromChar.exit497:                          ; preds = %.critedge.i485, %34
   tail call void @BMK_setDecodeOnlyMode(i32 noundef 1) #22
   br label %.thread550
 
-370:                                              ; preds = %.tail714.thread.thread.thread1510, %.tail714.thread.thread
+370:                                              ; preds = %.tail714.thread.thread.thread1508, %.tail714.thread.thread
   %371 = tail call i32 @LZ4IO_setPassThrough(ptr noundef %51, i32 noundef 1) #22
   br label %.thread550
 
@@ -1398,7 +1398,7 @@ readU32FromChar.exit527:                          ; preds = %.critedge.i515, %47
 480:                                              ; preds = %.tail714.thread.thread
   br label %.thread550
 
-.thread1505:                                      ; preds = %.tail714.thread.thread, %.tail714
+.thread1503:                                      ; preds = %.tail714.thread.thread, %.tail714
   tail call fastcc void @badusage(ptr noundef nonnull %.1.i459)
   unreachable
 
@@ -1474,12 +1474,12 @@ readU32FromChar.exit527:                          ; preds = %.critedge.i515, %47
 .thread606:                                       ; preds = %163, %293, %.tail714.thread.thread.thread, %297, %169
   %.2264.ph599 = phi i32 [ %.12631213, %169 ], [ %.3265.ph1180, %297 ], [ %.3265.ph1180, %.tail714.thread.thread.thread ], [ %.3265.ph1180, %293 ], [ %.12631213, %163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %762
+  br label %763
 
 .thread627:                                       ; preds = %197, %186, %188, %199
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %762
+  br label %763
 
 500:                                              ; preds = %202
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1724,8 +1724,8 @@ UTIL_realloc.exit.i:                              ; preds = %561
   br label %UTIL_createFileList.exit.thread.sink.split
 
 UTIL_createFileList.exit.thread.sink.split:       ; preds = %561, %579, %544, %._crit_edge.i, %592
-  %.lcssa1515.sink = phi ptr [ %543, %544 ], [ %577, %579 ], [ %583, %592 ], [ %577, %._crit_edge.i ], [ %547, %561 ]
-  tail call void @free(ptr noundef %.lcssa1515.sink) #22
+  %.lcssa1513.sink = phi ptr [ %543, %544 ], [ %577, %579 ], [ %583, %592 ], [ %577, %._crit_edge.i ], [ %547, %561 ]
+  tail call void @free(ptr noundef %.lcssa1513.sink) #22
   br label %UTIL_createFileList.exit.thread
 
 UTIL_createFileList.exit.thread:                  ; preds = %567, %UTIL_createFileList.exit.thread.sink.split, %542
@@ -1810,7 +1810,7 @@ UTIL_createFileList.exit.split:                   ; preds = %UTIL_createFileList
   %622 = load i32, ptr @displayLevel, align 4, !tbaa !9
   tail call void @BMK_setNotificationLevel(i32 noundef %622) #22
   %623 = tail call i32 @BMK_benchFiles(ptr noundef nonnull %.1301, i32 noundef %.2297, i32 noundef %.0237.lcssa, i32 noundef %.0242.lcssa, ptr noundef %.0306.lcssa) #22
-  br label %762
+  br label %763
 
 624:                                              ; preds = %620
   %625 = icmp eq i32 %.2324.lcssa, 3
@@ -1859,10 +1859,10 @@ UTIL_createFileList.exit.split:                   ; preds = %UTIL_createFileList
   %643 = icmp eq ptr %.7, null
   %644 = icmp eq i32 %.1269.lcssa, 0
   %or.cond8 = select i1 %643, i1 %644, i1 false
-  br i1 %or.cond8, label %645, label %693
+  br i1 %or.cond8, label %645, label %694
 
 645:                                              ; preds = %640
-  switch i32 %.6328, label %693 [
+  switch i32 %.6328, label %694 [
     i32 0, label %646
     i32 1, label %.thread642
     i32 2, label %.thread652
@@ -1917,11 +1917,7 @@ UTIL_createFileList.exit.split:                   ; preds = %UTIL_createFileList
 668:                                              ; preds = %.thread652
   %669 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %665, ptr noundef nonnull dereferenceable(1) %spec.store.select5) #22
   %670 = icmp ugt i64 %663, 4
-  br i1 %670, label %.lr.ph1238.preheader, label %..critedge.thread_crit_edge
-
-..critedge.thread_crit_edge:                      ; preds = %668
-  %.pre1452 = load i32, ptr @displayLevel, align 4, !tbaa !9
-  br label %.critedge.thread
+  br i1 %670, label %.lr.ph1238.preheader, label %.critedge.thread
 
 .lr.ph1238.preheader:                             ; preds = %668
   %671 = add i64 %663, -4
@@ -1949,11 +1945,10 @@ UTIL_createFileList.exit.split:                   ; preds = %UTIL_createFileList
   %.1247.lcssa.ph = phi i64 [ %680, %679 ], [ %.12471237, %.lr.ph1238 ]
   %682 = add i64 %663, -5
   %.not374 = icmp eq i64 %.1247.lcssa.ph, %682
-  %.pre1453 = load i32, ptr @displayLevel, align 4, !tbaa !9
   br i1 %.not374, label %688, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %..critedge.thread_crit_edge, %.critedge
-  %683 = phi i32 [ %.pre1452, %..critedge.thread_crit_edge ], [ %.pre1453, %.critedge ]
+.critedge.thread:                                 ; preds = %668, %.critedge
+  %683 = load i32, ptr @displayLevel, align 4, !tbaa !9
   %.not375 = icmp eq i32 %683, 0
   br i1 %.not375, label %687, label %684
 
@@ -1967,198 +1962,199 @@ UTIL_createFileList.exit.split:                   ; preds = %UTIL_createFileList
   unreachable
 
 688:                                              ; preds = %.critedge
-  %689 = icmp ugt i32 %.pre1453, 1
-  br i1 %689, label %690, label %.thread658
+  %689 = load i32, ptr @displayLevel, align 4, !tbaa !9
+  %690 = icmp ugt i32 %689, 1
+  br i1 %690, label %691, label %.thread658
 
-690:                                              ; preds = %688
-  %691 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %692 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %691, ptr noundef nonnull @.str.62, ptr noundef nonnull %665) #23
+691:                                              ; preds = %688
+  %692 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %693 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %692, ptr noundef nonnull @.str.62, ptr noundef nonnull %665) #23
   br label %.thread658
 
-693:                                              ; preds = %645, %640
-  %694 = icmp ne i32 %.6328, 5
-  %brmerge = or i1 %539, %694
-  br i1 %brmerge, label %.thread658, label %695
+694:                                              ; preds = %645, %640
+  %695 = icmp ne i32 %.6328, 5
+  %brmerge = or i1 %539, %695
+  br i1 %brmerge, label %.thread658, label %696
 
-695:                                              ; preds = %693
-  %696 = add i32 %.2297, 1
-  %697 = zext i32 %.2297 to i64
-  %698 = getelementptr inbounds nuw [8 x i8], ptr %.1301, i64 %697
-  store ptr %spec.store.select5, ptr %698, align 8, !tbaa !14
+696:                                              ; preds = %694
+  %697 = add i32 %.2297, 1
+  %698 = zext i32 %.2297 to i64
+  %699 = getelementptr inbounds nuw [8 x i8], ptr %.1301, i64 %698
+  store ptr %spec.store.select5, ptr %699, align 8, !tbaa !14
   br label %.thread658
 
-.thread658:                                       ; preds = %656, %660, %688, %690, %693, %695
-  %.1304666 = phi ptr [ null, %693 ], [ null, %695 ], [ %665, %690 ], [ %665, %688 ], [ %653, %660 ], [ %653, %656 ]
-  %.8665 = phi ptr [ %.7, %693 ], [ %.7, %695 ], [ %665, %690 ], [ %665, %688 ], [ %653, %660 ], [ %653, %656 ]
-  %.7329664 = phi i32 [ %.6328, %693 ], [ 5, %695 ], [ 2, %690 ], [ 2, %688 ], [ 1, %660 ], [ 1, %656 ]
-  %.4299 = phi i32 [ %.2297, %693 ], [ %696, %695 ], [ %.2297, %690 ], [ %.2297, %688 ], [ %.2297, %660 ], [ %.2297, %656 ]
+.thread658:                                       ; preds = %656, %660, %688, %691, %694, %696
+  %.1304666 = phi ptr [ null, %694 ], [ null, %696 ], [ %665, %691 ], [ %665, %688 ], [ %653, %660 ], [ %653, %656 ]
+  %.8665 = phi ptr [ %.7, %694 ], [ %.7, %696 ], [ %665, %691 ], [ %665, %688 ], [ %653, %660 ], [ %653, %656 ]
+  %.7329664 = phi i32 [ %.6328, %694 ], [ 5, %696 ], [ 2, %691 ], [ 2, %688 ], [ 1, %660 ], [ 1, %656 ]
+  %.4299 = phi i32 [ %.2297, %694 ], [ %697, %696 ], [ %.2297, %691 ], [ %.2297, %688 ], [ %.2297, %660 ], [ %.2297, %656 ]
   %.not376 = icmp eq ptr %.8665, null
   %spec.store.select9 = select i1 %.not376, ptr @.str.63, ptr %.8665
-  %699 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select9, ptr noundef nonnull dereferenceable(7) @.str.3) #25
-  %700 = icmp eq i32 %699, 0
-  %701 = icmp ne i32 %.7329664, 5
-  %or.cond11 = and i1 %701, %700
-  br i1 %or.cond11, label %702, label %.thread658._crit_edge
+  %700 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select9, ptr noundef nonnull dereferenceable(7) @.str.3) #25
+  %701 = icmp eq i32 %700, 0
+  %702 = icmp ne i32 %.7329664, 5
+  %or.cond11 = and i1 %702, %701
+  br i1 %or.cond11, label %703, label %.thread658._crit_edge
 
 .thread658._crit_edge:                            ; preds = %.thread658
-  %.pre1454 = load i32, ptr @displayLevel, align 4
+  %.pre1452 = load i32, ptr @displayLevel, align 4
+  br label %714
+
+703:                                              ; preds = %.thread658
+  %704 = load ptr, ptr @stdout, align 8, !tbaa !11
+  %705 = tail call i32 @fileno(ptr noundef %704) #22
+  %706 = tail call i32 @isatty(i32 noundef %705) #22
+  %707 = icmp eq i32 %706, 0
+  %708 = icmp ne i32 %.1254.lcssa, 0
+  %or.cond13 = select i1 %707, i1 true, i1 %708
+  %.pre1453 = load i32, ptr @displayLevel, align 4
+  br i1 %or.cond13, label %714, label %709
+
+709:                                              ; preds = %703
+  %.not377 = icmp eq i32 %.pre1453, 0
+  br i1 %.not377, label %713, label %710
+
+710:                                              ; preds = %709
+  %711 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %712 = tail call i64 @fwrite(ptr nonnull @.str.64, i64 41, i64 1, ptr %711) #26
   br label %713
 
-702:                                              ; preds = %.thread658
-  %703 = load ptr, ptr @stdout, align 8, !tbaa !11
-  %704 = tail call i32 @fileno(ptr noundef %703) #22
-  %705 = tail call i32 @isatty(i32 noundef %704) #22
-  %706 = icmp eq i32 %705, 0
-  %707 = icmp ne i32 %.1254.lcssa, 0
-  %or.cond13 = select i1 %706, i1 true, i1 %707
-  %.pre1455 = load i32, ptr @displayLevel, align 4
-  br i1 %or.cond13, label %713, label %708
-
-708:                                              ; preds = %702
-  %.not377 = icmp eq i32 %.pre1455, 0
-  br i1 %.not377, label %712, label %709
-
-709:                                              ; preds = %708
-  %710 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %711 = tail call i64 @fwrite(ptr nonnull @.str.64, i64 41, i64 1, ptr %710) #26
-  br label %712
-
-712:                                              ; preds = %709, %708
+713:                                              ; preds = %710, %709
   tail call void @exit(i32 noundef 1) #27
   unreachable
 
-713:                                              ; preds = %.thread658._crit_edge, %702
-  %714 = phi i32 [ %.pre1454, %.thread658._crit_edge ], [ %.pre1455, %702 ]
-  %715 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select9, ptr noundef nonnull dereferenceable(7) @.str.3) #25
-  %716 = icmp eq i32 %715, 0
-  %717 = icmp eq i32 %714, 2
-  %or.cond15 = select i1 %716, i1 %717, i1 false
-  %718 = icmp eq i32 %714, 2
-  %or.cond17 = select i1 %539, i1 %718, i1 false
-  %or.cond1727 = select i1 %or.cond15, i1 true, i1 %or.cond17
-  br i1 %or.cond1727, label %.sink.split, label %719
+714:                                              ; preds = %.thread658._crit_edge, %703
+  %715 = phi i32 [ %.pre1452, %.thread658._crit_edge ], [ %.pre1453, %703 ]
+  %716 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select9, ptr noundef nonnull dereferenceable(7) @.str.3) #25
+  %717 = icmp eq i32 %716, 0
+  %718 = icmp eq i32 %715, 2
+  %or.cond15 = select i1 %717, i1 %718, i1 false
+  %719 = icmp eq i32 %715, 2
+  %or.cond17 = select i1 %539, i1 %719, i1 false
+  %or.cond1725 = select i1 %or.cond15, i1 true, i1 %or.cond17
+  br i1 %or.cond1725, label %.sink.split, label %720
 
-.sink.split:                                      ; preds = %713
+.sink.split:                                      ; preds = %714
   store i32 1, ptr @displayLevel, align 4, !tbaa !9
-  br label %719
+  br label %720
 
-719:                                              ; preds = %713, %.sink.split
-  %720 = phi i32 [ %714, %713 ], [ 1, %.sink.split ]
-  %721 = icmp eq i32 %.7329664, 0
-  br i1 %721, label %722, label %729
+720:                                              ; preds = %714, %.sink.split
+  %721 = phi i32 [ %715, %714 ], [ 1, %.sink.split ]
+  %722 = icmp eq i32 %.7329664, 0
+  br i1 %722, label %723, label %730
 
-722:                                              ; preds = %719
-  %723 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select5) #25
-  %724 = tail call i64 @llvm.usub.sat.i64(i64 %723, i64 4)
-  %725 = getelementptr inbounds nuw i8, ptr %spec.store.select5, i64 %724
-  %726 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %725, ptr noundef nonnull dereferenceable(5) @.str.59) #25
-  %.not.i533 = icmp eq i32 %726, 0
-  %727 = tail call i32 @LZ4IO_setNotificationLevel(i32 noundef %720) #22
-  %728 = icmp eq i32 %.4299, 0
+723:                                              ; preds = %720
+  %724 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select5) #25
+  %725 = tail call i64 @llvm.usub.sat.i64(i64 %724, i64 4)
+  %726 = getelementptr inbounds nuw i8, ptr %spec.store.select5, i64 %725
+  %727 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %726, ptr noundef nonnull dereferenceable(5) @.str.59) #25
+  %.not.i533 = icmp eq i32 %727, 0
+  %728 = tail call i32 @LZ4IO_setNotificationLevel(i32 noundef %721) #22
+  %729 = icmp eq i32 %.4299, 0
   br i1 %.not.i533, label %.thread672, label %.thread668
 
-.thread668:                                       ; preds = %722
-  %spec.select446670 = select i1 %728, i32 0, i32 %.1269.lcssa
-  br label %741
+.thread668:                                       ; preds = %723
+  %spec.select446670 = select i1 %729, i32 0, i32 %.1269.lcssa
+  br label %742
 
-.thread672:                                       ; preds = %722
-  br i1 %728, label %.thread677, label %732
+.thread672:                                       ; preds = %723
+  br i1 %729, label %.thread677, label %733
 
-729:                                              ; preds = %719
-  %730 = tail call i32 @LZ4IO_setNotificationLevel(i32 noundef %720) #22
-  %731 = icmp eq i32 %.4299, 0
-  %spec.select446 = select i1 %731, i32 0, i32 %.1269.lcssa
-  switch i32 %.7329664, label %741 [
-    i32 2, label %732
-    i32 5, label %738
+730:                                              ; preds = %720
+  %731 = tail call i32 @LZ4IO_setNotificationLevel(i32 noundef %721) #22
+  %732 = icmp eq i32 %.4299, 0
+  %spec.select446 = select i1 %732, i32 0, i32 %.1269.lcssa
+  switch i32 %.7329664, label %742 [
+    i32 2, label %733
+    i32 5, label %739
   ]
 
-732:                                              ; preds = %.thread672, %729
-  %spec.select446675 = phi i32 [ %.1269.lcssa, %.thread672 ], [ %spec.select446, %729 ]
+733:                                              ; preds = %.thread672, %730
+  %spec.select446675 = phi i32 [ %.1269.lcssa, %.thread672 ], [ %spec.select446, %730 ]
   %.not383 = icmp eq i32 %spec.select446675, 0
-  br i1 %.not383, label %.thread677, label %733
+  br i1 %.not383, label %.thread677, label %734
 
-733:                                              ; preds = %732
-  %734 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select9, ptr noundef nonnull dereferenceable(7) @.str.3) #25
-  %.not384 = icmp eq i32 %734, 0
+734:                                              ; preds = %733
+  %735 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select9, ptr noundef nonnull dereferenceable(7) @.str.3) #25
+  %.not384 = icmp eq i32 %735, 0
   %spec.store.select18 = select i1 %.not384, ptr @.str.3, ptr @.str.59
-  %735 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select9, ptr noundef nonnull dereferenceable(10) @.str.48) #25
-  %.not385 = icmp eq i32 %735, 0
+  %736 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select9, ptr noundef nonnull dereferenceable(10) @.str.48) #25
+  %.not385 = icmp eq i32 %736, 0
   %spec.store.select23 = select i1 %.not385, ptr @.str.48, ptr %spec.store.select18
-  %736 = tail call i32 @LZ4IO_decompressMultipleFilenames(ptr noundef nonnull %.1301, i32 noundef %.4299, ptr noundef nonnull %spec.store.select23, ptr noundef %51) #22
-  br label %762
+  %737 = tail call i32 @LZ4IO_decompressMultipleFilenames(ptr noundef nonnull %.1301, i32 noundef %.4299, ptr noundef nonnull %spec.store.select23, ptr noundef %51) #22
+  br label %763
 
-.thread677:                                       ; preds = %.thread672, %732
-  %737 = tail call i32 @LZ4IO_decompressFilename(ptr noundef nonnull %spec.store.select5, ptr noundef nonnull %spec.store.select9, ptr noundef %51) #22
-  br label %762
+.thread677:                                       ; preds = %.thread672, %733
+  %738 = tail call i32 @LZ4IO_decompressFilename(ptr noundef nonnull %spec.store.select5, ptr noundef nonnull %spec.store.select9, ptr noundef %51) #22
+  br label %763
 
-738:                                              ; preds = %729
-  %739 = zext i32 %.4299 to i64
-  %740 = tail call i32 @LZ4IO_displayCompressedFilesInfo(ptr noundef nonnull %.1301, i64 noundef %739) #22
-  br label %762
+739:                                              ; preds = %730
+  %740 = zext i32 %.4299 to i64
+  %741 = tail call i32 @LZ4IO_displayCompressedFilesInfo(ptr noundef nonnull %.1301, i64 noundef %740) #22
+  br label %763
 
-741:                                              ; preds = %.thread668, %729
-  %spec.select446671 = phi i32 [ %spec.select446670, %.thread668 ], [ %spec.select446, %729 ]
-  br i1 %.0248.lcssa, label %755, label %742
+742:                                              ; preds = %.thread668, %730
+  %spec.select446671 = phi i32 [ %spec.select446670, %.thread668 ], [ %spec.select446, %730 ]
+  br i1 %.0248.lcssa, label %756, label %743
 
-742:                                              ; preds = %741
-  %743 = load i32, ptr @displayLevel, align 4, !tbaa !9
-  %744 = icmp ugt i32 %743, 2
-  br i1 %744, label %745, label %748
+743:                                              ; preds = %742
+  %744 = load i32, ptr @displayLevel, align 4, !tbaa !9
+  %745 = icmp ugt i32 %744, 2
+  br i1 %745, label %746, label %749
 
-745:                                              ; preds = %742
-  %746 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %747 = tail call i64 @fwrite(ptr nonnull @.str.65, i64 47, i64 1, ptr %746) #26
-  br label %748
+746:                                              ; preds = %743
+  %747 = load ptr, ptr @stderr, align 8, !tbaa !11
+  %748 = tail call i64 @fwrite(ptr nonnull @.str.65, i64 47, i64 1, ptr %747) #26
+  br label %749
 
-748:                                              ; preds = %745, %742
+749:                                              ; preds = %746, %743
   %.not381 = icmp eq i32 %spec.select446671, 0
-  br i1 %.not381, label %753, label %749
+  br i1 %.not381, label %754, label %750
 
-749:                                              ; preds = %748
-  %750 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select9, ptr noundef nonnull dereferenceable(7) @.str.3) #25
-  %.not382 = icmp eq i32 %750, 0
-  %751 = select i1 %.not382, ptr @.str.3, ptr @.str.59
-  %752 = tail call i32 @LZ4IO_compressMultipleFilenames_Legacy(ptr noundef nonnull %.1301, i32 noundef %.4299, ptr noundef nonnull %751, i32 noundef %.0237.lcssa, ptr noundef %51) #22
-  br label %762
+750:                                              ; preds = %749
+  %751 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select9, ptr noundef nonnull dereferenceable(7) @.str.3) #25
+  %.not382 = icmp eq i32 %751, 0
+  %752 = select i1 %.not382, ptr @.str.3, ptr @.str.59
+  %753 = tail call i32 @LZ4IO_compressMultipleFilenames_Legacy(ptr noundef nonnull %.1301, i32 noundef %.4299, ptr noundef nonnull %752, i32 noundef %.0237.lcssa, ptr noundef %51) #22
+  br label %763
 
-753:                                              ; preds = %748
-  %754 = tail call i32 @LZ4IO_compressFilename_Legacy(ptr noundef nonnull %spec.store.select5, ptr noundef nonnull %spec.store.select9, i32 noundef %.0237.lcssa, ptr noundef %51) #22
-  br label %762
+754:                                              ; preds = %749
+  %755 = tail call i32 @LZ4IO_compressFilename_Legacy(ptr noundef nonnull %spec.store.select5, ptr noundef nonnull %spec.store.select9, i32 noundef %.0237.lcssa, ptr noundef %51) #22
+  br label %763
 
-755:                                              ; preds = %741
+756:                                              ; preds = %742
   %.not379 = icmp eq i32 %spec.select446671, 0
-  br i1 %.not379, label %760, label %756
+  br i1 %.not379, label %761, label %757
 
-756:                                              ; preds = %755
-  %757 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select9, ptr noundef nonnull dereferenceable(7) @.str.3) #25
-  %.not380 = icmp eq i32 %757, 0
-  %758 = select i1 %.not380, ptr @.str.3, ptr @.str.59
-  %759 = tail call i32 @LZ4IO_compressMultipleFilenames(ptr noundef nonnull %.1301, i32 noundef %.4299, ptr noundef nonnull %758, i32 noundef %.0237.lcssa, ptr noundef %51) #22
-  br label %762
+757:                                              ; preds = %756
+  %758 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select9, ptr noundef nonnull dereferenceable(7) @.str.3) #25
+  %.not380 = icmp eq i32 %758, 0
+  %759 = select i1 %.not380, ptr @.str.3, ptr @.str.59
+  %760 = tail call i32 @LZ4IO_compressMultipleFilenames(ptr noundef nonnull %.1301, i32 noundef %.4299, ptr noundef nonnull %759, i32 noundef %.0237.lcssa, ptr noundef %51) #22
+  br label %763
 
-760:                                              ; preds = %755
-  %761 = tail call i32 @LZ4IO_compressFilename(ptr noundef nonnull %spec.store.select5, ptr noundef nonnull %spec.store.select9, i32 noundef %.0237.lcssa, ptr noundef %51) #22
-  br label %762
+761:                                              ; preds = %756
+  %762 = tail call i32 @LZ4IO_compressFilename(ptr noundef nonnull %spec.store.select5, ptr noundef nonnull %spec.store.select9, i32 noundef %.0237.lcssa, ptr noundef %51) #22
+  br label %763
 
-762:                                              ; preds = %.thread627, %.thread606, %.thread677, %733, %753, %749, %760, %756, %738, %621
-  %.0536 = phi ptr [ null, %.thread606 ], [ null, %.thread627 ], [ %.1537, %621 ], [ %.1537, %760 ], [ %.1537, %756 ], [ %.1537, %753 ], [ %.1537, %749 ], [ %.1537, %.thread677 ], [ %.1537, %733 ], [ %.1537, %738 ]
-  %.0303 = phi ptr [ null, %.thread606 ], [ null, %.thread627 ], [ null, %621 ], [ %.1304666, %760 ], [ %.1304666, %756 ], [ %.1304666, %753 ], [ %.1304666, %749 ], [ %.1304666, %.thread677 ], [ %.1304666, %733 ], [ %.1304666, %738 ]
-  %.0300 = phi ptr [ %50, %.thread606 ], [ %50, %.thread627 ], [ %.1301, %621 ], [ %.1301, %760 ], [ %.1301, %756 ], [ %.1301, %753 ], [ %.1301, %749 ], [ %.1301, %.thread677 ], [ %.1301, %733 ], [ %.1301, %738 ]
-  %.0291 = phi i32 [ 0, %.thread606 ], [ 1, %.thread627 ], [ %623, %621 ], [ %761, %760 ], [ %759, %756 ], [ %754, %753 ], [ %752, %749 ], [ %737, %.thread677 ], [ %736, %733 ], [ %740, %738 ]
-  %.0262 = phi i32 [ %.2264.ph599, %.thread606 ], [ %.12631213, %.thread627 ], [ %.1263.lcssa, %621 ], [ %.1263.lcssa, %760 ], [ %.1263.lcssa, %756 ], [ %.1263.lcssa, %753 ], [ %.1263.lcssa, %749 ], [ %.1263.lcssa, %.thread677 ], [ %.1263.lcssa, %733 ], [ %.1263.lcssa, %738 ]
+763:                                              ; preds = %.thread627, %.thread606, %.thread677, %734, %754, %750, %761, %757, %739, %621
+  %.0536 = phi ptr [ null, %.thread606 ], [ null, %.thread627 ], [ %.1537, %621 ], [ %.1537, %761 ], [ %.1537, %757 ], [ %.1537, %754 ], [ %.1537, %750 ], [ %.1537, %.thread677 ], [ %.1537, %734 ], [ %.1537, %739 ]
+  %.0303 = phi ptr [ null, %.thread606 ], [ null, %.thread627 ], [ null, %621 ], [ %.1304666, %761 ], [ %.1304666, %757 ], [ %.1304666, %754 ], [ %.1304666, %750 ], [ %.1304666, %.thread677 ], [ %.1304666, %734 ], [ %.1304666, %739 ]
+  %.0300 = phi ptr [ %50, %.thread606 ], [ %50, %.thread627 ], [ %.1301, %621 ], [ %.1301, %761 ], [ %.1301, %757 ], [ %.1301, %754 ], [ %.1301, %750 ], [ %.1301, %.thread677 ], [ %.1301, %734 ], [ %.1301, %739 ]
+  %.0291 = phi i32 [ 0, %.thread606 ], [ 1, %.thread627 ], [ %623, %621 ], [ %762, %761 ], [ %760, %757 ], [ %755, %754 ], [ %753, %750 ], [ %738, %.thread677 ], [ %737, %734 ], [ %741, %739 ]
+  %.0262 = phi i32 [ %.2264.ph599, %.thread606 ], [ %.12631213, %.thread627 ], [ %.1263.lcssa, %621 ], [ %.1263.lcssa, %761 ], [ %.1263.lcssa, %757 ], [ %.1263.lcssa, %754 ], [ %.1263.lcssa, %750 ], [ %.1263.lcssa, %.thread677 ], [ %.1263.lcssa, %734 ], [ %.1263.lcssa, %739 ]
   %.not442 = icmp eq i32 %.0262, 0
-  br i1 %.not442, label %764, label %763
+  br i1 %.not442, label %765, label %764
 
-763:                                              ; preds = %762
+764:                                              ; preds = %763
   tail call fastcc void @waitEnter()
-  br label %764
+  br label %765
 
-764:                                              ; preds = %.thread680, %763, %762
-  %.0291690 = phi i32 [ 1, %.thread680 ], [ %.0291, %763 ], [ %.0291, %762 ]
-  %.0300689 = phi ptr [ null, %.thread680 ], [ %.0300, %763 ], [ %.0300, %762 ]
-  %.0303688 = phi ptr [ null, %.thread680 ], [ %.0303, %763 ], [ %.0303, %762 ]
-  %.0536687 = phi ptr [ null, %.thread680 ], [ %.0536, %763 ], [ %.0536, %762 ]
+765:                                              ; preds = %.thread680, %764, %763
+  %.0291690 = phi i32 [ 1, %.thread680 ], [ %.0291, %764 ], [ %.0291, %763 ]
+  %.0300689 = phi ptr [ null, %.thread680 ], [ %.0300, %764 ], [ %.0300, %763 ]
+  %.0303688 = phi ptr [ null, %.thread680 ], [ %.0303, %764 ], [ %.0303, %763 ]
+  %.0536687 = phi ptr [ null, %.thread680 ], [ %.0536, %764 ], [ %.0536, %763 ]
   tail call void @free(ptr noundef %.0303688) #22
   tail call void @free(ptr noundef %.0536687) #22
   tail call void @LZ4IO_freePreferences(ptr noundef %51) #22
@@ -2166,7 +2162,7 @@ UTIL_createFileList.exit.split:                   ; preds = %UTIL_createFileList
   ret i32 %.0291690
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @LZ4IO_defaultPreferences() local_unnamed_addr #2
@@ -2638,7 +2634,7 @@ define internal fastcc void @usage(ptr noundef %0) unnamed_addr #14 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
@@ -2836,7 +2832,7 @@ UTIL_realloc.exit..critedge_crit_edge:            ; preds = %UTIL_realloc.exit
 ; Function Attrs: nofree nounwind
 declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
@@ -2875,7 +2871,7 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 declare i64 @llvm.usub.sat.i64(i64, i64) #21
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2890,8 +2886,8 @@ attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { cold nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nofree nounwind }

@@ -139,7 +139,7 @@ define void @Hop_TableInsert(ptr noundef captures(none) %0, ptr noundef %1) loca
 
 16:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %17 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #9
+  %17 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load ptr, ptr %18, align 8, !tbaa !16
@@ -181,10 +181,14 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
   store i32 %24, ptr %9, align 8, !tbaa !17
   %31 = sext i32 %24 to i64
   %32 = shl nsw i64 %31, 3
-  %calloc.i = call ptr @calloc(i64 1, i64 %32)
-  store ptr %calloc.i, ptr %18, align 8, !tbaa !16
-  %33 = icmp sgt i32 %20, 0
-  br i1 %33, label %.lr.ph50.preheader.i, label %._crit_edge51.i
+  %33 = call noalias ptr @malloc(i64 noundef %32) #11
+  store ptr %33, ptr %18, align 8, !tbaa !16
+  %34 = load i32, ptr %9, align 8, !tbaa !17
+  %35 = sext i32 %34 to i64
+  %36 = shl nsw i64 %35, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %33, i8 0, i64 %36, i1 false)
+  %37 = icmp sgt i32 %20, 0
+  br i1 %37, label %.lr.ph50.preheader.i, label %._crit_edge51.i
 
 .lr.ph50.preheader.i:                             ; preds = %Abc_PrimeCudd.exit.i
   %wide.trip.count.i = zext nneg i32 %20 to i64
@@ -192,66 +196,66 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
 
 .lr.ph50.i:                                       ; preds = %._crit_edge.i, %.lr.ph50.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph50.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %34 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
-  %35 = load ptr, ptr %34, align 8, !tbaa !24
-  %.not32.i = icmp eq ptr %35, null
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
+  %39 = load ptr, ptr %38, align 8, !tbaa !24
+  %.not32.i = icmp eq ptr %39, null
   br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph50.i, %Hop_TableFind.exit.i
-  %.sink62.i = phi ptr [ %37, %Hop_TableFind.exit.i ], [ %35, %.lr.ph50.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !19
+  %.sink62.i = phi ptr [ %41, %Hop_TableFind.exit.i ], [ %39, %.lr.ph50.i ]
+  %40 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !19
   %.val38.i = load ptr, ptr %18, align 8, !tbaa !16
   %.val39.i = load i32, ptr %9, align 8, !tbaa !17
-  %38 = getelementptr i8, ptr %.sink62.i, i64 32
-  %.val11.i.i.i = load i32, ptr %38, align 8
-  %39 = and i32 %.val11.i.i.i, 7
-  %40 = icmp eq i32 %39, 5
-  %41 = select i1 %40, i64 1699, i64 0
-  %42 = getelementptr i8, ptr %.sink62.i, i64 16
-  %.val.i.i.i = load ptr, ptr %42, align 8, !tbaa !14
-  %43 = ptrtoint ptr %.val.i.i.i to i64
-  %44 = and i64 %43, -2
-  %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 36
-  %47 = load i32, ptr %46, align 4, !tbaa !18
-  %48 = mul nsw i32 %47, 7937
-  %49 = sext i32 %48 to i64
-  %50 = xor i64 %41, %49
-  %51 = getelementptr i8, ptr %.sink62.i, i64 24
-  %.val10.i.i.i = load ptr, ptr %51, align 8, !tbaa !15
-  %52 = ptrtoint ptr %.val10.i.i.i to i64
-  %53 = and i64 %52, -2
-  %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 36
-  %56 = load i32, ptr %55, align 4, !tbaa !18
-  %57 = mul nsw i32 %56, 2971
-  %58 = sext i32 %57 to i64
-  %59 = trunc i64 %43 to i1
-  %60 = select i1 %59, i64 911, i64 0
-  %61 = trunc i64 %52 to i1
-  %62 = select i1 %61, i64 353, i64 0
-  %63 = xor i64 %50, %60
-  %64 = xor i64 %63, %58
-  %65 = xor i64 %64, %62
-  %66 = sext i32 %.val39.i to i64
-  %67 = urem i64 %65, %66
-  %68 = getelementptr inbounds nuw [8 x i8], ptr %.val38.i, i64 %67
-  br label %69
+  %42 = getelementptr i8, ptr %.sink62.i, i64 32
+  %.val11.i.i.i = load i32, ptr %42, align 8
+  %43 = and i32 %.val11.i.i.i, 7
+  %44 = icmp eq i32 %43, 5
+  %45 = select i1 %44, i64 1699, i64 0
+  %46 = getelementptr i8, ptr %.sink62.i, i64 16
+  %.val.i.i.i = load ptr, ptr %46, align 8, !tbaa !14
+  %47 = ptrtoint ptr %.val.i.i.i to i64
+  %48 = and i64 %47, -2
+  %49 = inttoptr i64 %48 to ptr
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 36
+  %51 = load i32, ptr %50, align 4, !tbaa !18
+  %52 = mul nsw i32 %51, 7937
+  %53 = sext i32 %52 to i64
+  %54 = xor i64 %45, %53
+  %55 = getelementptr i8, ptr %.sink62.i, i64 24
+  %.val10.i.i.i = load ptr, ptr %55, align 8, !tbaa !15
+  %56 = ptrtoint ptr %.val10.i.i.i to i64
+  %57 = and i64 %56, -2
+  %58 = inttoptr i64 %57 to ptr
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 36
+  %60 = load i32, ptr %59, align 4, !tbaa !18
+  %61 = mul nsw i32 %60, 2971
+  %62 = sext i32 %61 to i64
+  %63 = trunc i64 %47 to i1
+  %64 = select i1 %63, i64 911, i64 0
+  %65 = trunc i64 %56 to i1
+  %66 = select i1 %65, i64 353, i64 0
+  %67 = xor i64 %54, %64
+  %68 = xor i64 %67, %62
+  %69 = xor i64 %68, %66
+  %70 = sext i32 %.val39.i to i64
+  %71 = urem i64 %69, %70
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %.val38.i, i64 %71
+  br label %73
 
-69:                                               ; preds = %69, %.lr.ph.i
-  %.0.i40.i = phi ptr [ %68, %.lr.ph.i ], [ %72, %69 ]
-  %70 = load ptr, ptr %.0.i40.i, align 8, !tbaa !24
-  %.not.i41.i = icmp eq ptr %70, null
-  %71 = icmp eq ptr %70, %.sink62.i
-  %or.cond.i.i = or i1 %.not.i41.i, %71
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  br i1 %or.cond.i.i, label %Hop_TableFind.exit.i, label %69, !llvm.loop !25
+73:                                               ; preds = %73, %.lr.ph.i
+  %.0.i40.i = phi ptr [ %72, %.lr.ph.i ], [ %76, %73 ]
+  %74 = load ptr, ptr %.0.i40.i, align 8, !tbaa !24
+  %.not.i41.i = icmp eq ptr %74, null
+  %75 = icmp eq ptr %74, %.sink62.i
+  %or.cond.i.i = or i1 %.not.i41.i, %75
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  br i1 %or.cond.i.i, label %Hop_TableFind.exit.i, label %73, !llvm.loop !25
 
-Hop_TableFind.exit.i:                             ; preds = %69
+Hop_TableFind.exit.i:                             ; preds = %73
   store ptr %.sink62.i, ptr %.0.i40.i, align 8, !tbaa !24
-  store ptr null, ptr %36, align 8, !tbaa !19
-  %.not34.i = icmp eq ptr %37, null
+  store ptr null, ptr %40, align 8, !tbaa !19
+  %.not34.i = icmp eq ptr %41, null
   br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %Hop_TableFind.exit.i, %.lr.ph50.i
@@ -261,63 +265,63 @@ Hop_TableFind.exit.i:                             ; preds = %69
 
 ._crit_edge51.i:                                  ; preds = %._crit_edge.i, %Abc_PrimeCudd.exit.i
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %Hop_TableResize.exit, label %73
+  br i1 %.not.i, label %Hop_TableResize.exit, label %77
 
-73:                                               ; preds = %._crit_edge51.i
-  call void @free(ptr noundef nonnull %19) #9
+77:                                               ; preds = %._crit_edge51.i
+  call void @free(ptr noundef nonnull %19) #10
   br label %Hop_TableResize.exit
 
-Hop_TableResize.exit:                             ; preds = %73, %._crit_edge51.i, %8, %2
-  %74 = getelementptr i8, ptr %0, i64 104
-  %.val9 = load ptr, ptr %74, align 8, !tbaa !16
-  %75 = getelementptr i8, ptr %0, i64 112
-  %.val10 = load i32, ptr %75, align 8, !tbaa !17
-  %76 = getelementptr i8, ptr %1, i64 32
-  %.val11.i.i = load i32, ptr %76, align 8
-  %77 = and i32 %.val11.i.i, 7
-  %78 = icmp eq i32 %77, 5
-  %79 = select i1 %78, i64 1699, i64 0
-  %80 = getelementptr i8, ptr %1, i64 16
-  %.val.i.i = load ptr, ptr %80, align 8, !tbaa !14
-  %81 = ptrtoint ptr %.val.i.i to i64
-  %82 = and i64 %81, -2
-  %83 = inttoptr i64 %82 to ptr
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 36
-  %85 = load i32, ptr %84, align 4, !tbaa !18
-  %86 = mul nsw i32 %85, 7937
-  %87 = sext i32 %86 to i64
-  %88 = xor i64 %79, %87
-  %89 = getelementptr i8, ptr %1, i64 24
-  %.val10.i.i = load ptr, ptr %89, align 8, !tbaa !15
-  %90 = ptrtoint ptr %.val10.i.i to i64
-  %91 = and i64 %90, -2
-  %92 = inttoptr i64 %91 to ptr
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 36
-  %94 = load i32, ptr %93, align 4, !tbaa !18
-  %95 = mul nsw i32 %94, 2971
-  %96 = sext i32 %95 to i64
-  %97 = trunc i64 %81 to i1
-  %98 = select i1 %97, i64 911, i64 0
-  %99 = trunc i64 %90 to i1
-  %100 = select i1 %99, i64 353, i64 0
-  %101 = xor i64 %88, %98
-  %102 = xor i64 %101, %96
-  %103 = xor i64 %102, %100
-  %104 = sext i32 %.val10 to i64
-  %105 = urem i64 %103, %104
-  %106 = getelementptr inbounds nuw [8 x i8], ptr %.val9, i64 %105
-  br label %107
+Hop_TableResize.exit:                             ; preds = %77, %._crit_edge51.i, %8, %2
+  %78 = getelementptr i8, ptr %0, i64 104
+  %.val9 = load ptr, ptr %78, align 8, !tbaa !16
+  %79 = getelementptr i8, ptr %0, i64 112
+  %.val10 = load i32, ptr %79, align 8, !tbaa !17
+  %80 = getelementptr i8, ptr %1, i64 32
+  %.val11.i.i = load i32, ptr %80, align 8
+  %81 = and i32 %.val11.i.i, 7
+  %82 = icmp eq i32 %81, 5
+  %83 = select i1 %82, i64 1699, i64 0
+  %84 = getelementptr i8, ptr %1, i64 16
+  %.val.i.i = load ptr, ptr %84, align 8, !tbaa !14
+  %85 = ptrtoint ptr %.val.i.i to i64
+  %86 = and i64 %85, -2
+  %87 = inttoptr i64 %86 to ptr
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 36
+  %89 = load i32, ptr %88, align 4, !tbaa !18
+  %90 = mul nsw i32 %89, 7937
+  %91 = sext i32 %90 to i64
+  %92 = xor i64 %83, %91
+  %93 = getelementptr i8, ptr %1, i64 24
+  %.val10.i.i = load ptr, ptr %93, align 8, !tbaa !15
+  %94 = ptrtoint ptr %.val10.i.i to i64
+  %95 = and i64 %94, -2
+  %96 = inttoptr i64 %95 to ptr
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 36
+  %98 = load i32, ptr %97, align 4, !tbaa !18
+  %99 = mul nsw i32 %98, 2971
+  %100 = sext i32 %99 to i64
+  %101 = trunc i64 %85 to i1
+  %102 = select i1 %101, i64 911, i64 0
+  %103 = trunc i64 %94 to i1
+  %104 = select i1 %103, i64 353, i64 0
+  %105 = xor i64 %92, %102
+  %106 = xor i64 %105, %100
+  %107 = xor i64 %106, %104
+  %108 = sext i32 %.val10 to i64
+  %109 = urem i64 %107, %108
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %.val9, i64 %109
+  br label %111
 
-107:                                              ; preds = %107, %Hop_TableResize.exit
-  %.0.i = phi ptr [ %106, %Hop_TableResize.exit ], [ %110, %107 ]
-  %108 = load ptr, ptr %.0.i, align 8, !tbaa !24
-  %.not.i11 = icmp eq ptr %108, null
-  %109 = icmp eq ptr %108, %1
-  %or.cond.i = or i1 %.not.i11, %109
-  %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  br i1 %or.cond.i, label %Hop_TableFind.exit, label %107, !llvm.loop !25
+111:                                              ; preds = %111, %Hop_TableResize.exit
+  %.0.i = phi ptr [ %110, %Hop_TableResize.exit ], [ %114, %111 ]
+  %112 = load ptr, ptr %.0.i, align 8, !tbaa !24
+  %.not.i11 = icmp eq ptr %112, null
+  %113 = icmp eq ptr %112, %1
+  %or.cond.i = or i1 %.not.i11, %113
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  br i1 %or.cond.i, label %Hop_TableFind.exit, label %111, !llvm.loop !25
 
-Hop_TableFind.exit:                               ; preds = %107
+Hop_TableFind.exit:                               ; preds = %111
   store ptr %1, ptr %.0.i, align 8, !tbaa !24
   ret void
 }
@@ -470,31 +474,36 @@ define void @Hop_TableProfile(ptr noundef readonly captures(none) %0) local_unna
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
-
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #9 = { nounwind }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

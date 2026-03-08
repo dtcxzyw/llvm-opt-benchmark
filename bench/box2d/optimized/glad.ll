@@ -33030,91 +33030,92 @@ thread-pre-split.i.i.i:                           ; preds = %8556
   br i1 %8566, label %gladLoadGLLoader.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %8564
-  %.not16.i.i.i = icmp eq i32 %8558, 0
+  %8567 = load i32, ptr @num_exts_i, align 4, !tbaa !16
+  %.not16.i.i.i = icmp eq i32 %8567, 0
   br i1 %.not16.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %8574
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %8574 ], [ 0, %.preheader.i.i.i ]
-  %8567 = load ptr, ptr @glad_glGetStringi, align 8, !tbaa !11
-  %8568 = trunc nuw i64 %indvars.iv.i.i.i to i32
-  %8569 = call ptr %8567(i32 noundef 7939, i32 noundef %8568) #8
-  %8570 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8569) #9
-  %8571 = add i64 %8570, 1
-  %8572 = call noalias ptr @malloc(i64 noundef %8571) #10
-  %.not.i.i.i = icmp eq ptr %8572, null
-  br i1 %.not.i.i.i, label %8574, label %8573
+.lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %8575
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %8575 ], [ 0, %.preheader.i.i.i ]
+  %8568 = load ptr, ptr @glad_glGetStringi, align 8, !tbaa !11
+  %8569 = trunc nuw i64 %indvars.iv.i.i.i to i32
+  %8570 = call ptr %8568(i32 noundef 7939, i32 noundef %8569) #8
+  %8571 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8570) #9
+  %8572 = add i64 %8571, 1
+  %8573 = call noalias ptr @malloc(i64 noundef %8572) #10
+  %.not.i.i.i = icmp eq ptr %8573, null
+  br i1 %.not.i.i.i, label %8575, label %8574
 
-8573:                                             ; preds = %.lr.ph.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8572, ptr nonnull align 1 %8569, i64 %8571, i1 false)
-  br label %8574
+8574:                                             ; preds = %.lr.ph.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8573, ptr nonnull align 1 %8570, i64 %8572, i1 false)
+  br label %8575
 
-8574:                                             ; preds = %8573, %.lr.ph.i.i.i
-  %8575 = load ptr, ptr @exts_i, align 8, !tbaa !18
-  %8576 = getelementptr inbounds nuw [8 x i8], ptr %8575, i64 %indvars.iv.i.i.i
-  store ptr %8572, ptr %8576, align 8, !tbaa !6
+8575:                                             ; preds = %8574, %.lr.ph.i.i.i
+  %8576 = load ptr, ptr @exts_i, align 8, !tbaa !18
+  %8577 = getelementptr inbounds nuw [8 x i8], ptr %8576, i64 %indvars.iv.i.i.i
+  store ptr %8573, ptr %8577, align 8, !tbaa !6
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %8577 = load i32, ptr @num_exts_i, align 4, !tbaa !16
-  %8578 = zext i32 %8577 to i64
-  %8579 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %8578
-  br i1 %8579, label %.lr.ph.i.i.i, label %.preheader.i2.i.i, !llvm.loop !20
+  %8578 = load i32, ptr @num_exts_i, align 4, !tbaa !16
+  %8579 = zext i32 %8578 to i64
+  %8580 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %8579
+  br i1 %8580, label %.lr.ph.i.i.i, label %.preheader.i2.i.i, !llvm.loop !20
 
 .loopexit.i.i:                                    ; preds = %load_GL_VERSION_4_6.exit.i
-  %8580 = load ptr, ptr @glad_glGetString, align 8, !tbaa !11
-  %8581 = call ptr %8580(i32 noundef 7939) #8
-  store ptr %8581, ptr @exts, align 8, !tbaa !6
+  %8581 = load ptr, ptr @glad_glGetString, align 8, !tbaa !11
+  %8582 = call ptr %8581(i32 noundef 7939) #8
+  store ptr %8582, ptr @exts, align 8, !tbaa !6
   %.pre.i.i = load ptr, ptr @exts_i, align 8, !tbaa !18
   %.not.i1.i.i = icmp eq ptr %.pre.i.i, null
-  br i1 %.not.i1.i.i, label %8591, label %.loopexit.i..preheader.i2thread-pre-split.i_crit_edge.i
+  br i1 %.not.i1.i.i, label %8592, label %.preheader.i2thread-pre-split.i.i
 
-.loopexit.i..preheader.i2thread-pre-split.i_crit_edge.i: ; preds = %.loopexit.i.i
-  %.pr.i.pre.i = load i32, ptr @num_exts_i, align 4, !tbaa !16
+.preheader.i2thread-pre-split.i.i:                ; preds = %.loopexit.i.i
+  %.pr.i.i = load i32, ptr @num_exts_i, align 4, !tbaa !16
   br label %.preheader.i2.i.i
 
-.preheader.i2.i.i:                                ; preds = %8574, %.loopexit.i..preheader.i2thread-pre-split.i_crit_edge.i
-  %8582 = phi i32 [ %.pr.i.pre.i, %.loopexit.i..preheader.i2thread-pre-split.i_crit_edge.i ], [ %8577, %8574 ]
-  %8583 = phi ptr [ %.pre.i.i, %.loopexit.i..preheader.i2thread-pre-split.i_crit_edge.i ], [ %8575, %8574 ]
-  %8584 = icmp sgt i32 %8582, 0
-  br i1 %8584, label %.lr.ph.i3.i.i, label %._crit_edge.i.i.i
+.preheader.i2.i.i:                                ; preds = %8575, %.preheader.i2thread-pre-split.i.i
+  %8583 = phi i32 [ %.pr.i.i, %.preheader.i2thread-pre-split.i.i ], [ %8578, %8575 ]
+  %8584 = phi ptr [ %.pre.i.i, %.preheader.i2thread-pre-split.i.i ], [ %8576, %8575 ]
+  %8585 = icmp sgt i32 %8583, 0
+  br i1 %8585, label %.lr.ph.i3.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i3.i.i:                                    ; preds = %.preheader.i2.i.i, %.lr.ph.i3.i.i
   %indvars.iv.i4.i.i = phi i64 [ %indvars.iv.next.i5.i.i, %.lr.ph.i3.i.i ], [ 0, %.preheader.i2.i.i ]
-  %8585 = getelementptr inbounds nuw [8 x i8], ptr %8583, i64 %indvars.iv.i4.i.i
-  %8586 = load ptr, ptr %8585, align 8, !tbaa !6
-  call void @free(ptr noundef %8586) #8
+  %8586 = getelementptr inbounds nuw [8 x i8], ptr %8584, i64 %indvars.iv.i4.i.i
+  %8587 = load ptr, ptr %8586, align 8, !tbaa !6
+  call void @free(ptr noundef %8587) #8
   %indvars.iv.next.i5.i.i = add nuw nsw i64 %indvars.iv.i4.i.i, 1
-  %8587 = load i32, ptr @num_exts_i, align 4, !tbaa !16
-  %8588 = sext i32 %8587 to i64
-  %8589 = icmp slt i64 %indvars.iv.next.i5.i.i, %8588
-  br i1 %8589, label %.lr.ph.i3.i.i, label %._crit_edge.i.i.i, !llvm.loop !21
+  %8588 = load i32, ptr @num_exts_i, align 4, !tbaa !16
+  %8589 = sext i32 %8588 to i64
+  %8590 = icmp slt i64 %indvars.iv.next.i5.i.i, %8589
+  br i1 %8590, label %.lr.ph.i3.i.i, label %._crit_edge.i.i.i, !llvm.loop !21
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i3.i.i, %.preheader.i2.i.i, %.preheader.i.i.i
-  %8590 = phi ptr [ %8565, %.preheader.i.i.i ], [ %8583, %.preheader.i2.i.i ], [ %8583, %.lr.ph.i3.i.i ]
-  call void @free(ptr noundef nonnull %8590) #8
+  %8591 = phi ptr [ %8584, %.preheader.i2.i.i ], [ %8565, %.preheader.i.i.i ], [ %8584, %.lr.ph.i3.i.i ]
+  call void @free(ptr noundef nonnull %8591) #8
   store ptr null, ptr @exts_i, align 8, !tbaa !18
-  br label %8591
+  br label %8592
 
-8591:                                             ; preds = %._crit_edge.i.i.i, %.loopexit.i.i
-  %8592 = load i32, ptr @GLVersion, align 4, !tbaa !12
-  %8593 = icmp ne i32 %8592, 0
-  %8594 = load i32, ptr getelementptr inbounds nuw (i8, ptr @GLVersion, i64 4), align 4
-  %8595 = icmp ne i32 %8594, 0
-  %8596 = select i1 %8593, i1 true, i1 %8595
-  %8597 = zext i1 %8596 to i32
+8592:                                             ; preds = %._crit_edge.i.i.i, %.loopexit.i.i
+  %8593 = load i32, ptr @GLVersion, align 4, !tbaa !12
+  %8594 = icmp ne i32 %8593, 0
+  %8595 = load i32, ptr getelementptr inbounds nuw (i8, ptr @GLVersion, i64 4), align 4
+  %8596 = icmp ne i32 %8595, 0
+  %8597 = select i1 %8594, i1 true, i1 %8596
+  %8598 = zext i1 %8597 to i32
   br label %gladLoadGLLoader.exit
 
-gladLoadGLLoader.exit:                            ; preds = %get_proc.exit6321, %18, %8564, %8591
-  %.0.i.ph = phi i32 [ 0, %8564 ], [ %8597, %8591 ], [ 0, %get_proc.exit6321 ], [ 0, %18 ]
+gladLoadGLLoader.exit:                            ; preds = %get_proc.exit6321, %18, %8564, %8592
+  %.0.i.ph = phi i32 [ 0, %8564 ], [ %8598, %8592 ], [ 0, %get_proc.exit6321 ], [ 0, %18 ]
   %.pr8395 = load ptr, ptr @libGL, align 8, !tbaa !11
   %.not.i1 = icmp eq ptr %.pr8395, null
-  br i1 %.not.i1, label %close_gl.exit, label %8598
+  br i1 %.not.i1, label %close_gl.exit, label %8599
 
-8598:                                             ; preds = %gladLoadGLLoader.exit
-  %8599 = call i32 @dlclose(ptr noundef nonnull %.pr8395) #8
+8599:                                             ; preds = %gladLoadGLLoader.exit
+  %8600 = call i32 @dlclose(ptr noundef nonnull %.pr8395) #8
   br label %close_gl.exit.sink.split
 
-close_gl.exit.sink.split:                         ; preds = %10, %8598
-  %libGL.sink = phi ptr [ @libGL, %8598 ], [ @glad_glGetString, %10 ]
-  %.0.ph = phi i32 [ %.0.i.ph, %8598 ], [ 0, %10 ]
+close_gl.exit.sink.split:                         ; preds = %10, %8599
+  %libGL.sink = phi ptr [ @libGL, %8599 ], [ @glad_glGetString, %10 ]
+  %.0.ph = phi i32 [ %.0.i.ph, %8599 ], [ 0, %10 ]
   store ptr null, ptr %libGL.sink, align 8, !tbaa !11
   br label %close_gl.exit
 
@@ -35550,80 +35551,81 @@ thread-pre-split.i.i:                             ; preds = %1154
   br i1 %1164, label %find_extensionsGL.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %1162
-  %.not16.i.i = icmp eq i32 %1156, 0
+  %1165 = load i32, ptr @num_exts_i, align 4, !tbaa !16
+  %.not16.i.i = icmp eq i32 %1165, 0
   br i1 %.not16.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %1172
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %1172 ], [ 0, %.preheader.i.i ]
-  %1165 = load ptr, ptr @glad_glGetStringi, align 8, !tbaa !11
-  %1166 = trunc nuw i64 %indvars.iv.i.i to i32
-  %1167 = call ptr %1165(i32 noundef 7939, i32 noundef %1166) #8
-  %1168 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1167) #9
-  %1169 = add i64 %1168, 1
-  %1170 = call noalias ptr @malloc(i64 noundef %1169) #10
-  %.not.i.i = icmp eq ptr %1170, null
-  br i1 %.not.i.i, label %1172, label %1171
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %1173
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %1173 ], [ 0, %.preheader.i.i ]
+  %1166 = load ptr, ptr @glad_glGetStringi, align 8, !tbaa !11
+  %1167 = trunc nuw i64 %indvars.iv.i.i to i32
+  %1168 = call ptr %1166(i32 noundef 7939, i32 noundef %1167) #8
+  %1169 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1168) #9
+  %1170 = add i64 %1169, 1
+  %1171 = call noalias ptr @malloc(i64 noundef %1170) #10
+  %.not.i.i = icmp eq ptr %1171, null
+  br i1 %.not.i.i, label %1173, label %1172
 
-1171:                                             ; preds = %.lr.ph.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1170, ptr nonnull align 1 %1167, i64 %1169, i1 false)
-  br label %1172
+1172:                                             ; preds = %.lr.ph.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1171, ptr nonnull align 1 %1168, i64 %1170, i1 false)
+  br label %1173
 
-1172:                                             ; preds = %1171, %.lr.ph.i.i
-  %1173 = load ptr, ptr @exts_i, align 8, !tbaa !18
-  %1174 = getelementptr inbounds nuw [8 x i8], ptr %1173, i64 %indvars.iv.i.i
-  store ptr %1170, ptr %1174, align 8, !tbaa !6
+1173:                                             ; preds = %1172, %.lr.ph.i.i
+  %1174 = load ptr, ptr @exts_i, align 8, !tbaa !18
+  %1175 = getelementptr inbounds nuw [8 x i8], ptr %1174, i64 %indvars.iv.i.i
+  store ptr %1171, ptr %1175, align 8, !tbaa !6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %1175 = load i32, ptr @num_exts_i, align 4, !tbaa !16
-  %1176 = zext i32 %1175 to i64
-  %1177 = icmp samesign ult i64 %indvars.iv.next.i.i, %1176
-  br i1 %1177, label %.lr.ph.i.i, label %.preheader.i2.i, !llvm.loop !20
+  %1176 = load i32, ptr @num_exts_i, align 4, !tbaa !16
+  %1177 = zext i32 %1176 to i64
+  %1178 = icmp samesign ult i64 %indvars.iv.next.i.i, %1177
+  br i1 %1178, label %.lr.ph.i.i, label %.preheader.i2.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %load_GL_VERSION_4_6.exit
-  %1178 = load ptr, ptr @glad_glGetString, align 8, !tbaa !11
-  %1179 = call ptr %1178(i32 noundef 7939) #8
-  store ptr %1179, ptr @exts, align 8, !tbaa !6
+  %1179 = load ptr, ptr @glad_glGetString, align 8, !tbaa !11
+  %1180 = call ptr %1179(i32 noundef 7939) #8
+  store ptr %1180, ptr @exts, align 8, !tbaa !6
   %.pre.i = load ptr, ptr @exts_i, align 8, !tbaa !18
   %.not.i1.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i1.i, label %1189, label %.loopexit.i..preheader.i2thread-pre-split.i_crit_edge
+  br i1 %.not.i1.i, label %1190, label %.preheader.i2thread-pre-split.i
 
-.loopexit.i..preheader.i2thread-pre-split.i_crit_edge: ; preds = %.loopexit.i
-  %.pr.i.pre = load i32, ptr @num_exts_i, align 4, !tbaa !16
+.preheader.i2thread-pre-split.i:                  ; preds = %.loopexit.i
+  %.pr.i = load i32, ptr @num_exts_i, align 4, !tbaa !16
   br label %.preheader.i2.i
 
-.preheader.i2.i:                                  ; preds = %1172, %.loopexit.i..preheader.i2thread-pre-split.i_crit_edge
-  %1180 = phi i32 [ %.pr.i.pre, %.loopexit.i..preheader.i2thread-pre-split.i_crit_edge ], [ %1175, %1172 ]
-  %1181 = phi ptr [ %.pre.i, %.loopexit.i..preheader.i2thread-pre-split.i_crit_edge ], [ %1173, %1172 ]
-  %1182 = icmp sgt i32 %1180, 0
-  br i1 %1182, label %.lr.ph.i3.i, label %._crit_edge.i.i
+.preheader.i2.i:                                  ; preds = %1173, %.preheader.i2thread-pre-split.i
+  %1181 = phi i32 [ %.pr.i, %.preheader.i2thread-pre-split.i ], [ %1176, %1173 ]
+  %1182 = phi ptr [ %.pre.i, %.preheader.i2thread-pre-split.i ], [ %1174, %1173 ]
+  %1183 = icmp sgt i32 %1181, 0
+  br i1 %1183, label %.lr.ph.i3.i, label %._crit_edge.i.i
 
 .lr.ph.i3.i:                                      ; preds = %.preheader.i2.i, %.lr.ph.i3.i
   %indvars.iv.i4.i = phi i64 [ %indvars.iv.next.i5.i, %.lr.ph.i3.i ], [ 0, %.preheader.i2.i ]
-  %1183 = getelementptr inbounds nuw [8 x i8], ptr %1181, i64 %indvars.iv.i4.i
-  %1184 = load ptr, ptr %1183, align 8, !tbaa !6
-  call void @free(ptr noundef %1184) #8
+  %1184 = getelementptr inbounds nuw [8 x i8], ptr %1182, i64 %indvars.iv.i4.i
+  %1185 = load ptr, ptr %1184, align 8, !tbaa !6
+  call void @free(ptr noundef %1185) #8
   %indvars.iv.next.i5.i = add nuw nsw i64 %indvars.iv.i4.i, 1
-  %1185 = load i32, ptr @num_exts_i, align 4, !tbaa !16
-  %1186 = sext i32 %1185 to i64
-  %1187 = icmp slt i64 %indvars.iv.next.i5.i, %1186
-  br i1 %1187, label %.lr.ph.i3.i, label %._crit_edge.i.i, !llvm.loop !21
+  %1186 = load i32, ptr @num_exts_i, align 4, !tbaa !16
+  %1187 = sext i32 %1186 to i64
+  %1188 = icmp slt i64 %indvars.iv.next.i5.i, %1187
+  br i1 %1188, label %.lr.ph.i3.i, label %._crit_edge.i.i, !llvm.loop !21
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i3.i, %.preheader.i.i, %.preheader.i2.i
-  %1188 = phi ptr [ %1163, %.preheader.i.i ], [ %1181, %.preheader.i2.i ], [ %1181, %.lr.ph.i3.i ]
-  call void @free(ptr noundef nonnull %1188) #8
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i3.i, %.preheader.i2.i, %.preheader.i.i
+  %1189 = phi ptr [ %1182, %.preheader.i2.i ], [ %1163, %.preheader.i.i ], [ %1182, %.lr.ph.i3.i ]
+  call void @free(ptr noundef nonnull %1189) #8
   store ptr null, ptr @exts_i, align 8, !tbaa !18
-  br label %1189
+  br label %1190
 
-1189:                                             ; preds = %.loopexit.i, %._crit_edge.i.i
-  %1190 = load i32, ptr @GLVersion, align 4, !tbaa !12
-  %1191 = icmp ne i32 %1190, 0
-  %1192 = load i32, ptr getelementptr inbounds nuw (i8, ptr @GLVersion, i64 4), align 4
-  %1193 = icmp ne i32 %1192, 0
-  %1194 = select i1 %1191, i1 true, i1 %1193
-  %1195 = zext i1 %1194 to i32
+1190:                                             ; preds = %.loopexit.i, %._crit_edge.i.i
+  %1191 = load i32, ptr @GLVersion, align 4, !tbaa !12
+  %1192 = icmp ne i32 %1191, 0
+  %1193 = load i32, ptr getelementptr inbounds nuw (i8, ptr @GLVersion, i64 4), align 4
+  %1194 = icmp ne i32 %1193, 0
+  %1195 = select i1 %1192, i1 true, i1 %1194
+  %1196 = zext i1 %1195 to i32
   br label %find_extensionsGL.exit
 
-find_extensionsGL.exit:                           ; preds = %1162, %6, %1, %1189
-  %.0 = phi i32 [ 0, %6 ], [ 0, %1 ], [ %1195, %1189 ], [ 0, %1162 ]
+find_extensionsGL.exit:                           ; preds = %1162, %6, %1, %1190
+  %.0 = phi i32 [ 0, %6 ], [ 0, %1 ], [ %1196, %1190 ], [ 0, %1162 ]
   ret i32 %.0
 }
 
@@ -35648,7 +35650,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 ; Function Attrs: nofree nounwind
 declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -35665,7 +35667,7 @@ attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }

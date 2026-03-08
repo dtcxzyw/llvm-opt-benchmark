@@ -221,11 +221,11 @@ define internal fastcc void @zddReorderPostprocess(ptr noundef captures(none) %0
   %46 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i32 %45, ptr %46, align 4, !tbaa !50
   %.not96 = icmp eq i32 %35, 0
-  %.pre105 = zext i32 %26 to i64
+  %.pre102 = zext i32 %26 to i64
   br i1 %.not96, label %.preheader.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %41
-  %47 = shl nuw nsw i64 %.pre105, 2
+  %47 = shl nuw nsw i64 %.pre102, 2
   %48 = and i64 %47, 17179869176
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %39, i8 0, i64 %48, i1 false), !tbaa !28
   br label %.preheader.preheader
@@ -280,12 +280,11 @@ define internal fastcc void @zddReorderPostprocess(ptr noundef captures(none) %0
 
 ._crit_edge:                                      ; preds = %.lr.ph91, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %.pre105
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %.pre102
   br i1 %exitcond.not, label %82, label %.preheader, !llvm.loop !55
 
 82:                                               ; preds = %._crit_edge
   tail call void @free(ptr noundef nonnull %34) #13
-  %.pre.pre = load i32, ptr %9, align 4, !tbaa !42
   %83 = sub i32 %35, %26
   %84 = zext i32 %83 to i64
   %85 = shl nuw nsw i64 %84, 3
@@ -307,10 +306,11 @@ define internal fastcc void @zddReorderPostprocess(ptr noundef captures(none) %0
   %97 = shl nsw i32 %96, 1
   %98 = sub nsw i32 %., %97
   store i32 %98, ptr %20, align 8, !tbaa !62
+  %.pre = load i32, ptr %9, align 4, !tbaa !42
   br label %99
 
 99:                                               ; preds = %82, %21, %31
-  %100 = phi i32 [ %.pre.pre, %82 ], [ %22, %21 ], [ %22, %31 ]
+  %100 = phi i32 [ %.pre, %82 ], [ %22, %21 ], [ %22, %31 ]
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next100, %101
@@ -380,7 +380,7 @@ define range(i32 0, 2) i32 @cuddZddAlignToBdd(ptr noundef %0) local_unnamed_addr
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %3 = load i32, ptr %2, align 4, !tbaa !42
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %59, label %5
+  br i1 %4, label %60, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -391,127 +391,128 @@ define range(i32 0, 2) i32 @cuddZddAlignToBdd(ptr noundef %0) local_unnamed_addr
   %10 = sdiv i32 %3, %9
   %11 = mul nsw i32 %10, %9
   %.not = icmp eq i32 %11, %3
-  br i1 %.not, label %12, label %59
+  br i1 %.not, label %12, label %60
 
 12:                                               ; preds = %5
   %13 = sext i32 %3 to i64
   %14 = shl nsw i64 %13, 2
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #14
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %38, label %.preheader
+  br i1 %16, label %39, label %.preheader
 
 .preheader:                                       ; preds = %12
-  %17 = icmp sgt i32 %9, 0
-  br i1 %17, label %.lr.ph48, label %._crit_edge49
+  %17 = load i32, ptr %8, align 8, !tbaa !67
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %.lr.ph48, label %._crit_edge49
 
 .lr.ph48:                                         ; preds = %.preheader
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %19 = load ptr, ptr %18, align 8, !tbaa !68
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %21 = load ptr, ptr %20, align 8, !tbaa !64
-  %22 = icmp sgt i32 %10, 0
-  br i1 %22, label %.lr.ph48.split.us, label %._crit_edge49
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %20 = load ptr, ptr %19, align 8, !tbaa !68
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %22 = load ptr, ptr %21, align 8, !tbaa !64
+  %23 = icmp sgt i32 %10, 0
+  br i1 %23, label %.lr.ph48.split.us, label %._crit_edge49
 
 .lr.ph48.split.us:                                ; preds = %.lr.ph48
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %24 = load ptr, ptr %23, align 8, !tbaa !69
-  %25 = zext nneg i32 %10 to i64
-  %wide.trip.count56 = zext nneg i32 %9 to i64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %25 = load ptr, ptr %24, align 8, !tbaa !69
+  %26 = zext nneg i32 %10 to i64
+  %wide.trip.count56 = zext nneg i32 %17 to i64
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.lr.ph48.split.us
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %._crit_edge.us ], [ 0, %.lr.ph48.split.us ]
-  %26 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv53
-  %27 = load i32, ptr %26, align 4, !tbaa !34
-  %28 = mul nsw i32 %27, %10
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds [4 x i8], ptr %21, i64 %29
-  %31 = load i32, ptr %30, align 4, !tbaa !34
-  %.fr.us = freeze i32 %31
-  %32 = srem i32 %.fr.us, %10
-  %33 = sub nsw i32 %.fr.us, %32
-  %34 = mul nuw nsw i64 %indvars.iv53, %25
-  %35 = sext i32 %33 to i64
-  %invariant.gep = getelementptr [4 x i8], ptr %24, i64 %35
-  %invariant.gep67 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %34
-  br label %36
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv53
+  %28 = load i32, ptr %27, align 4, !tbaa !34
+  %29 = mul nsw i32 %28, %10
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds [4 x i8], ptr %22, i64 %30
+  %32 = load i32, ptr %31, align 4, !tbaa !34
+  %.fr.us = freeze i32 %32
+  %33 = srem i32 %.fr.us, %10
+  %34 = sub nsw i32 %.fr.us, %33
+  %35 = mul nuw nsw i64 %indvars.iv53, %26
+  %36 = sext i32 %34 to i64
+  %invariant.gep = getelementptr [4 x i8], ptr %25, i64 %36
+  %invariant.gep67 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %35
+  br label %37
 
-36:                                               ; preds = %.lr.ph.us, %36
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %36 ]
+37:                                               ; preds = %.lr.ph.us, %37
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %37 ]
   %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
-  %37 = load i32, ptr %gep, align 4, !tbaa !34
+  %38 = load i32, ptr %gep, align 4, !tbaa !34
   %gep68 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep67, i64 %indvars.iv
-  store i32 %37, ptr %gep68, align 4, !tbaa !34
+  store i32 %38, ptr %gep68, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge.us, label %37, !llvm.loop !70
 
-._crit_edge.us:                                   ; preds = %36
+._crit_edge.us:                                   ; preds = %37
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
   br i1 %exitcond57.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !71
 
-38:                                               ; preds = %12
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %39, align 8, !tbaa !72
-  br label %59
+39:                                               ; preds = %12
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  store i32 1, ptr %40, align 8, !tbaa !72
+  br label %60
 
 ._crit_edge49:                                    ; preds = %._crit_edge.us, %.lr.ph48, %.preheader
-  %40 = tail call i32 @cuddGarbageCollect(ptr noundef nonnull %0, i32 noundef 0) #13
+  %41 = tail call i32 @cuddGarbageCollect(ptr noundef nonnull %0, i32 noundef 0) #13
   store i32 0, ptr @zddTotalNumberSwapping, align 4, !tbaa !34
-  %41 = load i32, ptr %2, align 4, !tbaa !42
-  %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.lr.ph.i, label %zddShuffle.exit
+  %42 = load i32, ptr %2, align 4, !tbaa !42
+  %43 = icmp sgt i32 %42, 0
+  br i1 %43, label %.lr.ph.i, label %zddShuffle.exit
 
 .lr.ph.i:                                         ; preds = %._crit_edge49
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %wide.trip.count.i = zext nneg i32 %41 to i64
-  br label %44
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %wide.trip.count.i = zext nneg i32 %42 to i64
+  br label %45
 
-44:                                               ; preds = %zddSiftUp.exit.i, %.lr.ph.i
+45:                                               ; preds = %zddSiftUp.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %zddSiftUp.exit.i ]
-  %45 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i
-  %46 = load i32, ptr %45, align 4, !tbaa !34
-  %47 = load ptr, ptr %43, align 8, !tbaa !64
-  %48 = sext i32 %46 to i64
-  %49 = getelementptr inbounds [4 x i8], ptr %47, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !34
-  %51 = sext i32 %50 to i64
-  br label %52
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i
+  %47 = load i32, ptr %46, align 4, !tbaa !34
+  %48 = load ptr, ptr %44, align 8, !tbaa !64
+  %49 = sext i32 %47 to i64
+  %50 = getelementptr inbounds [4 x i8], ptr %48, i64 %49
+  %51 = load i32, ptr %50, align 4, !tbaa !34
+  %52 = sext i32 %51 to i64
+  br label %53
 
-52:                                               ; preds = %53, %44
-  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %53 ], [ %51, %44 ]
+53:                                               ; preds = %54, %45
+  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %54 ], [ %52, %45 ]
   %.not.not.i.i = icmp slt i64 %indvars.iv.i, %indvars.iv58
-  br i1 %.not.not.i.i, label %53, label %zddSiftUp.exit.i
+  br i1 %.not.not.i.i, label %54, label %zddSiftUp.exit.i
 
-53:                                               ; preds = %52
+54:                                               ; preds = %53
   %indvars.iv.next59 = add nsw i64 %indvars.iv58, -1
   %indvars = trunc i64 %indvars.iv.next59 to i32
-  %54 = trunc nsw i64 %indvars.iv58 to i32
-  %55 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %indvars, i32 noundef %54)
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %zddShuffle.exit, label %52, !llvm.loop !65
+  %55 = trunc nsw i64 %indvars.iv58 to i32
+  %56 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %indvars, i32 noundef %55)
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %zddShuffle.exit, label %53, !llvm.loop !65
 
-zddSiftUp.exit.i:                                 ; preds = %52
+zddSiftUp.exit.i:                                 ; preds = %53
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %zddShuffle.exit, label %44, !llvm.loop !66
+  br i1 %exitcond.not.i, label %zddShuffle.exit, label %45, !llvm.loop !66
 
-zddShuffle.exit:                                  ; preds = %zddSiftUp.exit.i, %53, %._crit_edge49
-  %.0.i = phi i32 [ 1, %._crit_edge49 ], [ 0, %53 ], [ 1, %zddSiftUp.exit.i ]
+zddShuffle.exit:                                  ; preds = %zddSiftUp.exit.i, %54, %._crit_edge49
+  %.0.i = phi i32 [ 1, %._crit_edge49 ], [ 0, %54 ], [ 1, %zddSiftUp.exit.i ]
   tail call void @free(ptr noundef %15) #13
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %58 = load ptr, ptr %57, align 8, !tbaa !73
-  tail call fastcc void @zddFixTree(ptr noundef nonnull %0, ptr noundef %58)
-  br label %59
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %59 = load ptr, ptr %58, align 8, !tbaa !73
+  tail call fastcc void @zddFixTree(ptr noundef nonnull %0, ptr noundef %59)
+  br label %60
 
-59:                                               ; preds = %5, %1, %zddShuffle.exit, %38
-  %.0 = phi i32 [ %.0.i, %zddShuffle.exit ], [ 1, %1 ], [ 0, %38 ], [ 0, %5 ]
+60:                                               ; preds = %5, %1, %zddShuffle.exit, %39
+  %.0 = phi i32 [ %.0.i, %zddShuffle.exit ], [ 1, %1 ], [ 0, %39 ], [ 0, %5 ]
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 declare i32 @cuddGarbageCollect(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -2382,7 +2383,7 @@ declare i32 @llvm.smin.i32(i32, i32) #11
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

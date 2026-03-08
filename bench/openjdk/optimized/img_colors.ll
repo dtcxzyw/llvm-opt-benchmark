@@ -379,7 +379,6 @@ init_primaries.exit:                              ; preds = %171
   %188 = tail call ptr @JNU_GetEnv(ptr noundef %187, i32 noundef 65538) #11
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %188, ptr noundef nonnull @.str) #11
   %.pre245.pre = load ptr, ptr @virt_cmap, align 8
-  %.pre247.pre = load i32, ptr @num_virt_cmap_entries, align 4
   br label %init_virt_cmap.exit
 
 .lr.ph.i:                                         ; preds = %207, %.lr.ph.preheader.i
@@ -477,10 +476,11 @@ init_primaries.exit:                              ; preds = %171
   %224 = getelementptr inbounds nuw [4 x i8], ptr @Utab, i64 %222
   %225 = getelementptr inbounds nuw [4 x i8], ptr @Vtab, i64 %222
   %wide.trip.count189.i = zext nneg i32 %2 to i64
+  %.pre191.pre.pre.i = load i32, ptr @num_virt_cmap_entries, align 4
   br label %.lr.ph161.us.i
 
 .lr.ph161.us.i:                                   ; preds = %._crit_edge162.split.us.us.i, %.lr.ph166.i
-  %.pre191196.i = phi i32 [ %.pre191192.i, %._crit_edge162.split.us.us.i ], [ %179, %.lr.ph166.i ]
+  %.pre191.pre.i = phi i32 [ %.pre191.pre196.i, %._crit_edge162.split.us.us.i ], [ %.pre191.pre.pre.i, %.lr.ph166.i ]
   %indvars.iv186.i = phi i64 [ %indvars.iv.next187.i, %._crit_edge162.split.us.us.i ], [ 0, %.lr.ph166.i ]
   %.0117164.us.i = phi ptr [ %.3120.us.us.i, %._crit_edge162.split.us.us.i ], [ %182, %.lr.ph166.i ]
   %226 = trunc nuw nsw i64 %indvars.iv186.i to i32
@@ -498,7 +498,8 @@ init_primaries.exit:                              ; preds = %171
   br label %.lr.ph155.us.us.i
 
 .lr.ph155.us.us.i:                                ; preds = %._crit_edge156.us.us.i, %.lr.ph161.us.i
-  %.pre191.i = phi i32 [ %.pre191192.i, %._crit_edge156.us.us.i ], [ %.pre191196.i, %.lr.ph161.us.i ]
+  %.pre191.pre199.i = phi i32 [ %.pre191.pre196.i, %._crit_edge156.us.us.i ], [ %.pre191.pre.i, %.lr.ph161.us.i ]
+  %.pre191.i = phi i32 [ %.pre191192.i, %._crit_edge156.us.us.i ], [ %.pre191.pre.i, %.lr.ph161.us.i ]
   %indvars.iv181.i = phi i64 [ %indvars.iv.next182.i, %._crit_edge156.us.us.i ], [ 0, %.lr.ph161.us.i ]
   %.1118158.us.us.i = phi ptr [ %.3120.us.us.i, %._crit_edge156.us.us.i ], [ %.0117164.us.i, %.lr.ph161.us.i ]
   %238 = trunc nuw nsw i64 %indvars.iv181.i to i32
@@ -517,6 +518,7 @@ init_primaries.exit:                              ; preds = %171
   br label %250
 
 250:                                              ; preds = %358, %.lr.ph155.us.us.i
+  %.pre191.pre198.i = phi i32 [ %.pre191.pre196.i, %358 ], [ %.pre191.pre199.i, %.lr.ph155.us.us.i ]
   %.pre191194.i = phi i32 [ %.pre191192.i, %358 ], [ %.pre191.i, %.lr.ph155.us.us.i ]
   %251 = phi i32 [ %359, %358 ], [ %.pre191.i, %.lr.ph155.us.us.i ]
   %indvars.iv176.i = phi i64 [ %indvars.iv.next177.i, %358 ], [ 0, %.lr.ph155.us.us.i ]
@@ -607,6 +609,7 @@ init_primaries.exit:                              ; preds = %171
   br label %LUV_convert.exit.us.us.i
 
 LUV_convert.exit.us.us.i:                         ; preds = %304, %303, %289
+  %.pre191.pre197.i = phi i32 [ %.pre.i, %304 ], [ %.pre.i, %303 ], [ %.pre191.pre198.i, %289 ]
   %.pre191193.i = phi i32 [ %.pre.i, %304 ], [ %.pre.i, %303 ], [ %.pre191194.i, %289 ]
   %314 = phi float [ %311, %304 ], [ 0.000000e+00, %303 ], [ 0.000000e+00, %289 ]
   %315 = phi float [ %storemerge.i.us.us.i, %304 ], [ %storemerge.i.us.us.i, %303 ], [ 0.000000e+00, %289 ]
@@ -685,6 +688,7 @@ LUV_convert.exit.us.us.i:                         ; preds = %304, %303, %289
   br label %358
 
 358:                                              ; preds = %351, %339, %250
+  %.pre191.pre196.i = phi i32 [ %.pre191.pre198.i, %250 ], [ %.pre191.pre197.i, %351 ], [ %.pre191.pre197.i, %339 ]
   %.pre191192.i = phi i32 [ %.pre191194.i, %250 ], [ %.pre191193.i, %351 ], [ %.pre191193.i, %339 ]
   %359 = phi i32 [ %251, %250 ], [ %316, %351 ], [ %316, %339 ]
   %.3120.us.us.i = phi ptr [ %.2119151.us.us.i, %250 ], [ %357, %351 ], [ %341, %339 ]
@@ -714,15 +718,15 @@ LUV_convert.exit.us.us.i:                         ; preds = %304, %303, %289
   %365 = getelementptr inbounds nuw [4 x i8], ptr @nexttest, i64 %indvars.iv173.i
   store i32 %spec.select.i, ptr %365, align 4
   %indvars.iv.next174.i = add nsw i64 %indvars.iv173.i, -1
-  %.not203.i = icmp eq i64 %indvars.iv173.i, 0
-  br i1 %.not203.i, label %.lr.ph166.i, label %.lr.ph150.i, !llvm.loop !20
+  %.not207.i = icmp eq i64 %indvars.iv173.i, 0
+  br i1 %.not207.i, label %.lr.ph166.i, label %.lr.ph150.i, !llvm.loop !20
 
 init_virt_cmap.exit:                              ; preds = %._crit_edge162.split.us.us.i, %186, %._crit_edge144.i
-  %.pre247 = phi i32 [ %179, %._crit_edge144.i ], [ %.pre247.pre, %186 ], [ %.pre191192.i, %._crit_edge162.split.us.us.i ]
   %.pre245 = phi ptr [ %182, %._crit_edge144.i ], [ %.pre245.pre, %186 ], [ %182, %._crit_edge162.split.us.us.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %366 = load i32, ptr @total, align 4
   %367 = icmp slt i32 %366, %0
+  %.pre247 = load i32, ptr @num_virt_cmap_entries, align 4
   br i1 %367, label %.lr.ph186, label %._crit_edge187
 
 .lr.ph186:                                        ; preds = %init_virt_cmap.exit
@@ -737,16 +741,16 @@ handle_biggest_offenders.exit.us:                 ; preds = %handle_biggest_offe
   br label %handle_biggest_offenders.exit.us
 
 .lr.ph186.split:                                  ; preds = %.lr.ph186, %handle_biggest_offenders.exit
-  %369 = phi i32 [ %782, %handle_biggest_offenders.exit ], [ %366, %.lr.ph186 ]
+  %369 = phi i32 [ %.pr, %handle_biggest_offenders.exit ], [ %.pre247, %.lr.ph186 ]
+  %370 = phi i32 [ %782, %handle_biggest_offenders.exit ], [ %366, %.lr.ph186 ]
   store i32 0, ptr @num_offenders, align 4
-  %370 = load i32, ptr @num_virt_cmap_entries, align 4
-  %371 = icmp sgt i32 %370, 0
+  %371 = icmp sgt i32 %369, 0
   br i1 %371, label %.lr.ph.preheader.i125, label %handle_biggest_offenders.exit
 
 .lr.ph.preheader.i125:                            ; preds = %.lr.ph186.split
   %372 = load float, ptr @Lscale, align 4
   %373 = load float, ptr @Weight, align 4
-  %wide.trip.count.i144 = zext nneg i32 %369 to i64
+  %wide.trip.count.i144 = zext nneg i32 %370 to i64
   br label %.lr.ph.i126
 
 .lr.ph.i126:                                      ; preds = %insert_in_list.exit.i, %.lr.ph.preheader.i125
@@ -789,7 +793,7 @@ handle_biggest_offenders.exit.us:                 ; preds = %handle_biggest_offe
 
 398:                                              ; preds = %394
   %399 = getelementptr inbounds nuw i8, ptr %.03247.i, i64 20
-  %400 = icmp slt i32 %377, %369
+  %400 = icmp slt i32 %377, %370
   br i1 %400, label %.lr.ph82.i158, label %find_nearest.exit167
 
 .lr.ph82.i158:                                    ; preds = %398
@@ -849,7 +853,7 @@ handle_biggest_offenders.exit.us:                 ; preds = %handle_biggest_offe
   %431 = getelementptr inbounds nuw i8, ptr %.03247.i, i64 16
   %432 = load float, ptr %431, align 4
   %433 = getelementptr inbounds nuw i8, ptr %.03247.i, i64 20
-  %434 = icmp slt i32 %377, %369
+  %434 = icmp slt i32 %377, %370
   br i1 %434, label %.lr.ph.i150, label %find_nearest.exit167
 
 .lr.ph.i150:                                      ; preds = %428
@@ -902,7 +906,7 @@ handle_biggest_offenders.exit.us:                 ; preds = %handle_biggest_offe
 
 find_nearest.exit167:                             ; preds = %463, %426, %428, %398
   %465 = phi float [ %427, %426 ], [ %383, %398 ], [ %383, %428 ], [ %464, %463 ]
-  store i32 %369, ptr %376, align 4
+  store i32 %370, ptr %376, align 4
   br label %.lr.ph.preheader.i.i
 
 466:                                              ; preds = %379
@@ -922,7 +926,7 @@ find_nearest.exit167:                             ; preds = %463, %426, %428, %3
 
 477:                                              ; preds = %473
   %478 = getelementptr inbounds nuw i8, ptr %.03247.i, i64 20
-  %479 = icmp slt i32 %377, %369
+  %479 = icmp slt i32 %377, %370
   br i1 %479, label %.lr.ph82.i, label %find_nearest.exit
 
 .lr.ph82.i:                                       ; preds = %477
@@ -981,7 +985,7 @@ find_nearest.exit167:                             ; preds = %463, %426, %428, %3
   %509 = getelementptr inbounds nuw i8, ptr %.03247.i, i64 16
   %510 = load float, ptr %509, align 4
   %511 = getelementptr inbounds nuw i8, ptr %.03247.i, i64 20
-  %512 = icmp slt i32 %377, %369
+  %512 = icmp slt i32 %377, %370
   br i1 %512, label %.lr.ph.i143, label %find_nearest.exit
 
 .lr.ph.i143:                                      ; preds = %506
@@ -1032,7 +1036,7 @@ find_nearest.exit167:                             ; preds = %463, %426, %428, %3
   br i1 %exitcond.not.i147, label %find_nearest.exit, label %519, !llvm.loop !22
 
 find_nearest.exit:                                ; preds = %541, %505, %506, %477
-  store i32 %369, ptr %376, align 4
+  store i32 %370, ptr %376, align 4
   %542 = icmp sgt i32 %375, 0
   br i1 %542, label %find_nearest.exit..lr.ph.preheader.i.i_crit_edge, label %._crit_edge.thread.i.i
 
@@ -1090,7 +1094,7 @@ insert_in_list.exit.i:                            ; preds = %558, %._crit_edge.i
   %561 = phi i32 [ %559, %558 ], [ %375, %._crit_edge.i.i ], [ 32, %381 ], [ %375, %.lr.ph.i126 ]
   %562 = add nuw nsw i32 %.049.i, 1
   %563 = getelementptr inbounds nuw i8, ptr %.03247.i, i64 32
-  %exitcond.not.i127 = icmp eq i32 %562, %370
+  %exitcond.not.i127 = icmp eq i32 %562, %369
   br i1 %exitcond.not.i127, label %._crit_edge.i128, label %.lr.ph.i126, !llvm.loop !24
 
 ._crit_edge.i128:                                 ; preds = %insert_in_list.exit.i
@@ -1107,11 +1111,11 @@ insert_in_list.exit.i:                            ; preds = %558, %._crit_edge.i
   br label %.lr.ph55.i
 
 .lr.ph55.i:                                       ; preds = %565, %.loopexit.i
-  %572 = phi i32 [ %775, %.loopexit.i ], [ %369, %565 ]
-  %.pre.i134244 = phi i32 [ %.pre.i134243, %.loopexit.i ], [ %369, %565 ]
+  %572 = phi i32 [ %775, %.loopexit.i ], [ %370, %565 ]
+  %.pre.i134244 = phi i32 [ %.pre.i134243, %.loopexit.i ], [ %370, %565 ]
   %.pre66.i172239 = phi i32 [ %.pre66.i172240, %.loopexit.i ], [ %560, %565 ]
   %573 = phi i32 [ %776, %.loopexit.i ], [ %560, %565 ]
-  %574 = phi i32 [ %777, %.loopexit.i ], [ %369, %565 ]
+  %574 = phi i32 [ %777, %.loopexit.i ], [ %370, %565 ]
   %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %.loopexit.i ], [ 0, %565 ]
   %indvars.iv.i129 = phi i64 [ %indvars.iv.next.i131, %.loopexit.i ], [ 1, %565 ]
   %575 = getelementptr inbounds nuw [8 x i8], ptr @offenders, i64 %indvars.iv62.i
@@ -1466,17 +1470,14 @@ find_nearest.exit.i:                              ; preds = %._crit_edge.i42.i, 
   br i1 %781, label %.lr.ph55.i, label %handle_biggest_offenders.exit, !llvm.loop !26
 
 handle_biggest_offenders.exit:                    ; preds = %.loopexit.i, %.lr.ph186.split, %._crit_edge.i128
-  %782 = phi i32 [ %369, %._crit_edge.i128 ], [ %369, %.lr.ph186.split ], [ %775, %.loopexit.i ]
+  %782 = phi i32 [ %370, %._crit_edge.i128 ], [ %370, %.lr.ph186.split ], [ %775, %.loopexit.i ]
   %783 = icmp slt i32 %782, %0
-  br i1 %783, label %.lr.ph186.split, label %._crit_edge187.loopexit, !llvm.loop !27
+  %.pr = load i32, ptr @num_virt_cmap_entries, align 4
+  br i1 %783, label %.lr.ph186.split, label %._crit_edge187, !llvm.loop !27
 
-._crit_edge187.loopexit:                          ; preds = %handle_biggest_offenders.exit
-  %.pre246 = load i32, ptr @num_virt_cmap_entries, align 4
-  br label %._crit_edge187
-
-._crit_edge187:                                   ; preds = %._crit_edge187.loopexit, %init_virt_cmap.exit
-  %784 = phi i32 [ %.pre247, %init_virt_cmap.exit ], [ %.pre246, %._crit_edge187.loopexit ]
-  %.lcssa184 = phi i32 [ %366, %init_virt_cmap.exit ], [ %782, %._crit_edge187.loopexit ]
+._crit_edge187:                                   ; preds = %handle_biggest_offenders.exit, %init_virt_cmap.exit
+  %784 = phi i32 [ %.pre247, %init_virt_cmap.exit ], [ %.pr, %handle_biggest_offenders.exit ]
+  %.lcssa184 = phi i32 [ %366, %init_virt_cmap.exit ], [ %782, %handle_biggest_offenders.exit ]
   %785 = sext i32 %0 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr nonnull align 16 @cmap_r, i64 %785, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr nonnull align 16 @cmap_g, i64 %785, i1 false)
@@ -1958,7 +1959,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 declare ptr @JNU_GetEnv(ptr noundef, i32 noundef) local_unnamed_addr #8
@@ -1984,7 +1985,7 @@ attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrit
 attributes #4 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

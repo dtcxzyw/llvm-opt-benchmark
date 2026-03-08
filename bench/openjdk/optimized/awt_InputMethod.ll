@@ -277,7 +277,7 @@ getX11InputMethodData.exit.thread:                ; preds = %30, %22, %.thread, 
 
 declare ptr @JNU_GetEnv(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -1245,7 +1245,7 @@ destroyX11InputMethodData.exit:                   ; preds = %.thread118, %349, %
 
 declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
@@ -3716,7 +3716,7 @@ define internal void @PreeditDrawCallback(ptr readnone captures(none) %0, ptr no
   %5 = load ptr, ptr @jvm, align 8
   %6 = tail call ptr @JNU_GetEnv(ptr noundef %5, i32 noundef 65538) #14
   %7 = icmp eq ptr %2, null
-  br i1 %7, label %173, label %8
+  br i1 %7, label %174, label %8
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %6, align 8
@@ -3823,7 +3823,7 @@ getX11InputMethodData.exit:                       ; preds = %isX11InputMethodGRe
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %65 = load ptr, ptr %64, align 8
   %.not85 = icmp eq ptr %65, null
-  br i1 %.not85, label %129, label %66
+  br i1 %.not85, label %130, label %66
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 24
@@ -3878,7 +3878,7 @@ wcstombsdmp.exit:                                 ; preds = %87
   %94 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %95 = load ptr, ptr %94, align 8
   %.not87 = icmp eq ptr %95, null
-  br i1 %.not87, label %129, label %96
+  br i1 %.not87, label %130, label %96
 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %6, align 8
@@ -3906,113 +3906,114 @@ wcstombsdmp.exit:                                 ; preds = %87
   %113 = shl nuw nsw i64 %112, 2
   %114 = tail call noalias ptr @malloc(i64 noundef %113) #15
   %115 = icmp eq ptr %114, null
-  br i1 %115, label %118, label %.preheader
+  br i1 %115, label %119, label %.preheader
 
 .preheader:                                       ; preds = %110
-  %116 = zext i16 %111 to i32
-  %.not99 = icmp eq i16 %111, 0
+  %116 = load i16, ptr %65, align 8
+  %117 = zext i16 %116 to i32
+  %.not99 = icmp eq i16 %116, 0
   br i1 %.not99, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %.pre = load ptr, ptr %94, align 8
-  %117 = zext i16 %111 to i64
+  %118 = zext i16 %116 to i64
   br label %.lr.ph
 
-118:                                              ; preds = %110
-  %119 = load ptr, ptr @jvm, align 8
-  %120 = tail call ptr @JNU_GetEnv(ptr noundef %119, i32 noundef 65538) #14
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %120, ptr noundef null) #14
+119:                                              ; preds = %110
+  %120 = load ptr, ptr @jvm, align 8
+  %121 = tail call ptr @JNU_GetEnv(ptr noundef %120, i32 noundef 65538) #14
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %121, ptr noundef null) #14
   br label %getX11InputMethodData.exit.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %121 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
-  %122 = load i64, ptr %121, align 8
-  %123 = trunc i64 %122 to i32
-  %124 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv
-  store i32 %123, ptr %124, align 4
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
+  %123 = load i64, ptr %122, align 8
+  %124 = trunc i64 %123 to i32
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv
+  store i32 %124, ptr %125, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %125 = icmp samesign ult i64 %indvars.iv.next, %117
-  br i1 %125, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  %126 = icmp samesign ult i64 %indvars.iv.next, %118
+  br i1 %126, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %126 = load ptr, ptr %6, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 1688
-  %128 = load ptr, ptr %127, align 8
-  tail call void %128(ptr noundef nonnull %6, ptr noundef nonnull %102, i32 noundef 0, i32 noundef %116, ptr noundef nonnull %114) #14
+  %127 = load ptr, ptr %6, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 1688
+  %129 = load ptr, ptr %128, align 8
+  tail call void %129(ptr noundef nonnull %6, ptr noundef nonnull %102, i32 noundef 0, i32 noundef %117, ptr noundef nonnull %114) #14
   tail call void @free(ptr noundef nonnull %114) #14
-  br label %129
+  br label %130
 
-129:                                              ; preds = %93, %._crit_edge, %63
+130:                                              ; preds = %93, %._crit_edge, %63
   %.070 = phi ptr [ %102, %._crit_edge ], [ null, %93 ], [ null, %63 ]
   %.0 = phi ptr [ %.1, %._crit_edge ], [ %.1, %93 ], [ null, %63 ]
-  %130 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %133 = load i32, ptr %132, align 4
-  %134 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %135 = load i32, ptr %134, align 8
-  %136 = load i32, ptr %2, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %134 = load i32, ptr %133, align 4
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %136 = load i32, ptr %135, align 8
+  %137 = load i32, ptr %2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %137 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
-  %138 = load i64, ptr %4, align 8
-  %139 = mul nsw i64 %138, 1000
-  %140 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %141 = load i64, ptr %140, align 8
-  %142 = sdiv i64 %141, 1000
-  %143 = add nsw i64 %142, %139
+  %138 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
+  %139 = load i64, ptr %4, align 8
+  %140 = mul nsw i64 %139, 1000
+  %141 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %142 = load i64, ptr %141, align 8
+  %143 = sdiv i64 %142, 1000
+  %144 = add nsw i64 %143, %140
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %144 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %6, ptr noundef null, ptr noundef %131, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef %.0, ptr noundef %.070, i32 noundef %133, i32 noundef %135, i32 noundef %136, i64 noundef %143) #14
+  %145 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallMethodByName(ptr noundef nonnull %6, ptr noundef null, ptr noundef %132, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef %.0, ptr noundef %.070, i32 noundef %134, i32 noundef %136, i32 noundef %137, i64 noundef %144) #14
   br label %getX11InputMethodData.exit.thread
 
-getX11InputMethodData.exit.thread:                ; preds = %90, %84, %57, %49, %104, %118, %129, %39, %.loopexit, %getX11InputMethodData.exit, %73, %wcstombsdmp.exit
+getX11InputMethodData.exit.thread:                ; preds = %90, %84, %57, %49, %104, %119, %130, %39, %.loopexit, %getX11InputMethodData.exit, %73, %wcstombsdmp.exit
   tail call void (...) @awt_output_flush() #14
-  %145 = load ptr, ptr %6, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 120
-  %147 = load ptr, ptr %146, align 8
-  %148 = tail call ptr %147(ptr noundef nonnull %6) #14
-  %.not88 = icmp eq ptr %148, null
-  br i1 %.not88, label %153, label %149
+  %146 = load ptr, ptr %6, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 120
+  %148 = load ptr, ptr %147, align 8
+  %149 = tail call ptr %148(ptr noundef nonnull %6) #14
+  %.not88 = icmp eq ptr %149, null
+  br i1 %.not88, label %154, label %150
 
-149:                                              ; preds = %getX11InputMethodData.exit.thread
-  %150 = load ptr, ptr %6, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 136
-  %152 = load ptr, ptr %151, align 8
-  tail call void %152(ptr noundef nonnull %6) #14
-  br label %153
+150:                                              ; preds = %getX11InputMethodData.exit.thread
+  %151 = load ptr, ptr %6, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 136
+  %153 = load ptr, ptr %152, align 8
+  tail call void %153(ptr noundef nonnull %6) #14
+  br label %154
 
-153:                                              ; preds = %149, %getX11InputMethodData.exit.thread
-  %154 = load ptr, ptr %6, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 1128
-  %156 = load ptr, ptr %155, align 8
-  %157 = load ptr, ptr @tkClass, align 8
-  %158 = load ptr, ptr @awtUnlockMID, align 8
-  tail call void (ptr, ptr, ptr, ...) %156(ptr noundef nonnull %6, ptr noundef %157, ptr noundef %158) #14
-  %159 = load ptr, ptr %6, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 1824
-  %161 = load ptr, ptr %160, align 8
-  %162 = tail call zeroext i8 %161(ptr noundef nonnull %6) #14
-  %.not89 = icmp eq i8 %162, 0
-  br i1 %.not89, label %167, label %163
+154:                                              ; preds = %150, %getX11InputMethodData.exit.thread
+  %155 = load ptr, ptr %6, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 1128
+  %157 = load ptr, ptr %156, align 8
+  %158 = load ptr, ptr @tkClass, align 8
+  %159 = load ptr, ptr @awtUnlockMID, align 8
+  tail call void (ptr, ptr, ptr, ...) %157(ptr noundef nonnull %6, ptr noundef %158, ptr noundef %159) #14
+  %160 = load ptr, ptr %6, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 1824
+  %162 = load ptr, ptr %161, align 8
+  %163 = tail call zeroext i8 %162(ptr noundef nonnull %6) #14
+  %.not89 = icmp eq i8 %163, 0
+  br i1 %.not89, label %168, label %164
 
-163:                                              ; preds = %153
-  %164 = load ptr, ptr %6, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 136
-  %166 = load ptr, ptr %165, align 8
-  tail call void %166(ptr noundef nonnull %6) #14
-  br label %167
+164:                                              ; preds = %154
+  %165 = load ptr, ptr %6, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 136
+  %167 = load ptr, ptr %166, align 8
+  tail call void %167(ptr noundef nonnull %6) #14
+  br label %168
 
-167:                                              ; preds = %163, %153
-  br i1 %.not88, label %173, label %168
+168:                                              ; preds = %164, %154
+  br i1 %.not88, label %174, label %169
 
-168:                                              ; preds = %167
-  %169 = load ptr, ptr %6, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 104
-  %171 = load ptr, ptr %170, align 8
-  %172 = tail call i32 %171(ptr noundef nonnull %6, ptr noundef nonnull %148) #14
-  br label %173
+169:                                              ; preds = %168
+  %170 = load ptr, ptr %6, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 104
+  %172 = load ptr, ptr %171, align 8
+  %173 = tail call i32 %172(ptr noundef nonnull %6, ptr noundef nonnull %149) #14
+  br label %174
 
-173:                                              ; preds = %167, %168, %3
+174:                                              ; preds = %168, %169, %3
   ret void
 }
 
@@ -4456,10 +4457,10 @@ attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vecto
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

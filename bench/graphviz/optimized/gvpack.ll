@@ -3099,33 +3099,34 @@ define internal fastcc void @_ZL16cloneClusterTreeP8Agraph_sS0_(ptr noundef read
 _ZL9gv_callocmm.exit:                             ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 240
   store ptr %24, ptr %30, align 8, !tbaa !128
-  %.not1820 = icmp slt i32 %16, 1
+  %31 = load i32, ptr %11, align 4, !tbaa !85
+  %.not1820 = icmp slt i32 %31, 1
   br i1 %.not1820, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL9gv_callocmm.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %_ZL9gv_callocmm.exit ]
-  %31 = phi ptr [ %45, %.lr.ph ], [ %10, %_ZL9gv_callocmm.exit ]
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 240
-  %33 = load ptr, ptr %32, align 8, !tbaa !128
-  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
-  %35 = load ptr, ptr %34, align 8, !tbaa !65
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !81
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 160
-  %39 = load ptr, ptr %38, align 8, !tbaa !129
-  %40 = load ptr, ptr %4, align 8, !tbaa !81
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 240
-  %42 = load ptr, ptr %41, align 8, !tbaa !128
-  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
-  store ptr %39, ptr %43, align 8, !tbaa !65
-  %44 = load ptr, ptr %34, align 8, !tbaa !65
-  tail call fastcc void @_ZL16cloneClusterTreeP8Agraph_sS0_(ptr noundef %44, ptr noundef %39)
+  %32 = phi ptr [ %46, %.lr.ph ], [ %10, %_ZL9gv_callocmm.exit ]
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 240
+  %34 = load ptr, ptr %33, align 8, !tbaa !128
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
+  %36 = load ptr, ptr %35, align 8, !tbaa !65
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8, !tbaa !81
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 160
+  %40 = load ptr, ptr %39, align 8, !tbaa !129
+  %41 = load ptr, ptr %4, align 8, !tbaa !81
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 240
+  %43 = load ptr, ptr %42, align 8, !tbaa !128
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
+  store ptr %40, ptr %44, align 8, !tbaa !65
+  %45 = load ptr, ptr %35, align 8, !tbaa !65
+  tail call fastcc void @_ZL16cloneClusterTreeP8Agraph_sS0_(ptr noundef %45, ptr noundef %40)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = load ptr, ptr %3, align 8, !tbaa !81
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 236
-  %47 = load i32, ptr %46, align 4, !tbaa !85
-  %48 = sext i32 %47 to i64
-  %.not18.not = icmp slt i64 %indvars.iv, %48
+  %46 = load ptr, ptr %3, align 8, !tbaa !81
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 236
+  %48 = load i32, ptr %47, align 4, !tbaa !85
+  %49 = sext i32 %48 to i64
+  %.not18.not = icmp slt i64 %indvars.iv, %49
   br i1 %.not18.not, label %.lr.ph, label %.loopexit, !llvm.loop !174
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZL9gv_callocmm.exit, %2
@@ -4318,7 +4319,7 @@ declare ptr @agedge(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noun
 
 declare ptr @agattr_html(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress uwtable
@@ -4415,7 +4416,7 @@ attributes #19 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"
 attributes #20 = { inlinehint mustprogress norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

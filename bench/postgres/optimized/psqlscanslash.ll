@@ -95,13 +95,13 @@ define dso_local range(i32 0, 2) i32 @slash_yylex(ptr noundef %0, ptr noundef in
   br i1 %.not406, label %37, label %55
 
 31:                                               ; preds = %23
-  %32 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #27
+  %32 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #28
   store ptr %32, ptr %24, align 8
   %.not28.i = icmp eq ptr %32, null
   br i1 %.not28.i, label %33, label %34
 
 33:                                               ; preds = %31
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #29
   unreachable
 
 34:                                               ; preds = %31
@@ -122,13 +122,13 @@ define dso_local range(i32 0, 2) i32 @slash_yylex(ptr noundef %0, ptr noundef in
 41:                                               ; preds = %37
   %42 = add i64 %39, 8
   %43 = shl i64 %42, 3
-  %44 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %25, i64 noundef %43) #29
+  %44 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %25, i64 noundef %43) #30
   store ptr %44, ptr %24, align 8
   %.not30.i = icmp eq ptr %44, null
   br i1 %.not30.i, label %45, label %46
 
 45:                                               ; preds = %41
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #29
   unreachable
 
 46:                                               ; preds = %41
@@ -318,13 +318,13 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
 124:                                              ; preds = %123
   %125 = load ptr, ptr %83, align 8
   %126 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef %125, i32 noundef %126) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef %125, i32 noundef %126) #31
   br label %.loopexit.backedge
 
 127:                                              ; preds = %123
   %128 = load ptr, ptr %83, align 8
   %129 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef %128, i32 noundef %129) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef %128, i32 noundef %129) #31
   br label %.loopexit.backedge
 
 130:                                              ; preds = %123
@@ -335,7 +335,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
 133:                                              ; preds = %130
   %134 = load ptr, ptr %83, align 8
   %135 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef %134, i32 noundef %135) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef %134, i32 noundef %135) #31
   store i32 15, ptr %80, align 4
   br label %.loopexit.backedge
 
@@ -385,7 +385,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
 148:                                              ; preds = %123
   %149 = load ptr, ptr %83, align 8
   %150 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef %149, i32 noundef %150) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef %149, i32 noundef %150) #31
   %151 = load ptr, ptr @option_quote, align 8
   store i8 34, ptr %151, align 1
   store i32 0, ptr @unquoted_option_chars, align 4
@@ -401,31 +401,31 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
 
 157:                                              ; preds = %152
   %158 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef nonnull %73, ptr noundef %156, i32 noundef %158) #30
+  call void @psqlscan_emit(ptr noundef nonnull %73, ptr noundef %156, i32 noundef %158) #31
   br label %174
 
 159:                                              ; preds = %152
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 1
   %161 = load i32, ptr %84, align 8
   %162 = add i32 %161, -1
-  %163 = call ptr @psqlscan_extract_substring(ptr noundef nonnull %73, ptr noundef nonnull %160, i32 noundef %162) #30
+  %163 = call ptr @psqlscan_extract_substring(ptr noundef nonnull %73, ptr noundef nonnull %160, i32 noundef %162) #31
   %164 = load ptr, ptr %92, align 8
   %165 = load ptr, ptr %164, align 8
   %166 = load ptr, ptr %93, align 8
-  %167 = call ptr %165(ptr noundef %163, i32 noundef 0, ptr noundef %166) #30
-  call void @free(ptr noundef %163) #30
+  %167 = call ptr %165(ptr noundef %163, i32 noundef 0, ptr noundef %166) #31
+  call void @free(ptr noundef %163) #31
   %.not411 = icmp eq ptr %167, null
   br i1 %.not411, label %169, label %168
 
 168:                                              ; preds = %159
-  call void @appendPQExpBufferStr(ptr noundef %75, ptr noundef nonnull %167) #30
-  call void @free(ptr noundef nonnull %167) #30
+  call void @appendPQExpBufferStr(ptr noundef %75, ptr noundef nonnull %167) #31
+  call void @free(ptr noundef nonnull %167) #31
   br label %172
 
 169:                                              ; preds = %159
   %170 = load ptr, ptr %83, align 8
   %171 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef nonnull %73, ptr noundef %170, i32 noundef %171) #30
+  call void @psqlscan_emit(ptr noundef nonnull %73, ptr noundef %170, i32 noundef %171) #31
   br label %172
 
 172:                                              ; preds = %169, %168
@@ -440,7 +440,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
 175:                                              ; preds = %123
   %176 = load ptr, ptr %83, align 8
   %177 = load i32, ptr %84, align 8
-  call void @psqlscan_escape_variable(ptr noundef %73, ptr noundef %176, i32 noundef %177, i32 noundef 1) #30
+  call void @psqlscan_escape_variable(ptr noundef %73, ptr noundef %176, i32 noundef %177, i32 noundef 1) #31
   %178 = load ptr, ptr @option_quote, align 8
   store i8 58, ptr %178, align 1
   store i32 0, ptr @unquoted_option_chars, align 4
@@ -449,7 +449,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
 179:                                              ; preds = %123
   %180 = load ptr, ptr %83, align 8
   %181 = load i32, ptr %84, align 8
-  call void @psqlscan_escape_variable(ptr noundef %73, ptr noundef %180, i32 noundef %181, i32 noundef 2) #30
+  call void @psqlscan_escape_variable(ptr noundef %73, ptr noundef %180, i32 noundef %181, i32 noundef 2) #31
   %182 = load ptr, ptr @option_quote, align 8
   store i8 58, ptr %182, align 1
   store i32 0, ptr @unquoted_option_chars, align 4
@@ -458,7 +458,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
 183:                                              ; preds = %123
   %184 = load ptr, ptr %83, align 8
   %185 = load i32, ptr %84, align 8
-  call void @psqlscan_test_variable(ptr noundef %73, ptr noundef %184, i32 noundef %185) #30
+  call void @psqlscan_test_variable(ptr noundef %73, ptr noundef %184, i32 noundef %185) #31
   br label %.loopexit.backedge
 
 186:                                              ; preds = %123
@@ -477,7 +477,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
   store i32 %191, ptr @unquoted_option_chars, align 4
   %192 = load ptr, ptr %83, align 8
   %193 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef %192, i32 noundef %193) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef %192, i32 noundef %193) #31
   br label %.loopexit.backedge
 
 194:                                              ; preds = %123
@@ -496,7 +496,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
   store i32 %199, ptr @unquoted_option_chars, align 4
   %200 = load ptr, ptr %83, align 8
   %201 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef %200, i32 noundef %201) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef %200, i32 noundef %201) #31
   br label %.loopexit.backedge
 
 202:                                              ; preds = %123
@@ -515,7 +515,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
   store i32 %207, ptr @unquoted_option_chars, align 4
   %208 = load ptr, ptr %83, align 8
   %209 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef %208, i32 noundef %209) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef %208, i32 noundef %209) #31
   br label %.loopexit.backedge
 
 210:                                              ; preds = %123
@@ -534,7 +534,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
   store i32 %215, ptr @unquoted_option_chars, align 4
   %216 = load ptr, ptr %83, align 8
   %217 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef %216, i32 noundef %217) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef %216, i32 noundef %217) #31
   br label %.loopexit.backedge
 
 218:                                              ; preds = %123
@@ -543,7 +543,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
   store i32 %220, ptr @unquoted_option_chars, align 4
   %221 = load ptr, ptr %83, align 8
   %222 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef %221, i32 noundef %222) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef %221, i32 noundef %222) #31
   br label %.loopexit.backedge
 
 223:                                              ; preds = %123
@@ -551,55 +551,55 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
   br label %.loopexit.backedge
 
 224:                                              ; preds = %123
-  call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext 39) #30
+  call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext 39) #31
   br label %.loopexit.backedge
 
 225:                                              ; preds = %123
-  call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext 10) #30
+  call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext 10) #31
   br label %.loopexit.backedge
 
 226:                                              ; preds = %123
-  call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext 9) #30
+  call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext 9) #31
   br label %.loopexit.backedge
 
 227:                                              ; preds = %123
-  call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext 8) #30
+  call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext 8) #31
   br label %.loopexit.backedge
 
 228:                                              ; preds = %123
-  call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext 13) #30
+  call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext 13) #31
   br label %.loopexit.backedge
 
 229:                                              ; preds = %123
-  call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext 12) #30
+  call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext 12) #31
   br label %.loopexit.backedge
 
 230:                                              ; preds = %123
   %231 = load ptr, ptr %83, align 8
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 1
-  %233 = call i64 @strtol(ptr noundef nonnull captures(none) %232, ptr noundef null, i32 noundef 8) #30
+  %233 = call i64 @strtol(ptr noundef nonnull captures(none) %232, ptr noundef null, i32 noundef 8) #31
   %234 = trunc i64 %233 to i8
-  call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext %234) #30
+  call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext %234) #31
   br label %.loopexit.backedge
 
 235:                                              ; preds = %123
   %236 = load ptr, ptr %83, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 2
-  %238 = call i64 @strtol(ptr noundef nonnull captures(none) %237, ptr noundef null, i32 noundef 16) #30
+  %238 = call i64 @strtol(ptr noundef nonnull captures(none) %237, ptr noundef null, i32 noundef 16) #31
   %239 = trunc i64 %238 to i8
-  call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext %239) #30
+  call void @appendPQExpBufferChar(ptr noundef %75, i8 noundef signext %239) #31
   br label %.loopexit.backedge
 
 240:                                              ; preds = %123
   %241 = load ptr, ptr %83, align 8
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 1
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef nonnull %242, i32 noundef 1) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef nonnull %242, i32 noundef 1) #31
   br label %.loopexit.backedge
 
 243:                                              ; preds = %123
   %244 = load ptr, ptr %83, align 8
   %245 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef %244, i32 noundef %245) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef %244, i32 noundef %245) #31
   br label %.loopexit.backedge
 
 246:                                              ; preds = %123
@@ -608,7 +608,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
   br i1 %248, label %251, label %249
 
 249:                                              ; preds = %246
-  %250 = call zeroext i1 @conditional_active(ptr noundef nonnull %247) #30
+  %250 = call zeroext i1 @conditional_active(ptr noundef nonnull %247) #31
   br i1 %250, label %251, label %297
 
 251:                                              ; preds = %249, %246
@@ -619,7 +619,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
   %255 = getelementptr inbounds i8, ptr %252, i64 %254
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @initPQExpBuffer(ptr noundef nonnull %3) #30
+  call void @initPQExpBuffer(ptr noundef nonnull %3) #31
   %256 = call i32 @fflush(ptr noundef null)
   %257 = call noalias ptr @popen(ptr noundef %255, ptr noundef nonnull @.str.16)
   %.not.i412 = icmp eq ptr %257, null
@@ -627,17 +627,17 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
 
 .preheader.i:                                     ; preds = %251, %261
   %258 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 512, ptr noundef nonnull %257)
-  %259 = call i32 @ferror(ptr noundef nonnull %257) #30
+  %259 = call i32 @ferror(ptr noundef nonnull %257) #31
   %.not27.not.not.not.i.not = icmp eq i32 %259, 0
   br i1 %.not27.not.not.not.i.not, label %261, label %260
 
 260:                                              ; preds = %.preheader.i
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %255) #30
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %255) #31
   br label %.loopexit.i
 
 261:                                              ; preds = %.preheader.i
-  call void @appendBinaryPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %258) #30
-  %262 = call i32 @feof(ptr noundef nonnull %257) #30
+  call void @appendBinaryPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %258) #31
+  %262 = call i32 @feof(ptr noundef nonnull %257) #31
   %.not28.i413 = icmp eq i32 %262, 0
   br i1 %.not28.i413, label %.preheader.i, label %.loopexit.i, !llvm.loop !6
 
@@ -652,7 +652,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
   br i1 %267, label %.thread7.i, label %280
 
 .thread438:                                       ; preds = %251, %.loopexit.i
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %255) #30
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %255) #31
   %268 = load i64, ptr %94, align 8
   %269 = icmp eq i64 %268, 0
   br i1 %269, label %.thread7.i, label %.thread445
@@ -669,7 +669,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
 
 .thread7.i:                                       ; preds = %.thread438, %265
   %.122.i443 = phi i32 [ -1, %.thread438 ], [ %263, %265 ]
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef %255) #30
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef %255) #31
   %275 = load i32, ptr @backtick_start_offset, align 4
   %276 = sext i32 %275 to i64
   %277 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -709,13 +709,13 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %34, %37, %46
 
 295:                                              ; preds = %293, %288, %286
   %296 = phi i64 [ %294, %293 ], [ %287, %288 ], [ 0, %286 ]
-  call void @appendBinaryPQExpBuffer(ptr noundef nonnull %.val, ptr noundef %.pre.i, i64 noundef %296) #30
+  call void @appendBinaryPQExpBuffer(ptr noundef nonnull %.val, ptr noundef %.pre.i, i64 noundef %296) #31
   br label %evaluate_backtick.exit
 
 evaluate_backtick.exit:                           ; preds = %.thread445, %.thread7.i, %280, %295
   %.122.i441 = phi i32 [ %.122.i443, %.thread7.i ], [ %263, %280 ], [ %263, %295 ], [ -1, %.thread445 ]
-  call void @SetShellResultVariables(i32 noundef %.122.i441) #30
-  call void @termPQExpBuffer(ptr noundef nonnull %3) #30
+  call void @SetShellResultVariables(i32 noundef %.122.i441) #31
+  call void @termPQExpBuffer(ptr noundef nonnull %3) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %297
@@ -733,25 +733,25 @@ evaluate_backtick.exit:                           ; preds = %.thread445, %.threa
 
 303:                                              ; preds = %298
   %304 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef nonnull %73, ptr noundef %302, i32 noundef %304) #30
+  call void @psqlscan_emit(ptr noundef nonnull %73, ptr noundef %302, i32 noundef %304) #31
   br label %.loopexit.backedge
 
 305:                                              ; preds = %298
   %306 = getelementptr inbounds nuw i8, ptr %302, i64 1
   %307 = load i32, ptr %84, align 8
   %308 = add i32 %307, -1
-  %309 = call ptr @psqlscan_extract_substring(ptr noundef nonnull %73, ptr noundef nonnull %306, i32 noundef %308) #30
+  %309 = call ptr @psqlscan_extract_substring(ptr noundef nonnull %73, ptr noundef nonnull %306, i32 noundef %308) #31
   %310 = load ptr, ptr %92, align 8
   %311 = load ptr, ptr %310, align 8
   %312 = load ptr, ptr %93, align 8
-  %313 = call ptr %311(ptr noundef %309, i32 noundef 0, ptr noundef %312) #30
-  call void @free(ptr noundef %309) #30
+  %313 = call ptr %311(ptr noundef %309, i32 noundef 0, ptr noundef %312) #31
+  call void @free(ptr noundef %309) #31
   %.not410 = icmp eq ptr %313, null
   br i1 %.not410, label %315, label %314
 
 314:                                              ; preds = %305
-  call void @appendPQExpBufferStr(ptr noundef %75, ptr noundef nonnull %313) #30
-  call void @free(ptr noundef nonnull %313) #30
+  call void @appendPQExpBufferStr(ptr noundef %75, ptr noundef nonnull %313) #31
+  call void @free(ptr noundef nonnull %313) #31
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %123, %314, %315, %336, %338, %303, %133, %136, %347, %341, %333, %330, %327, %321, %318, %297, %243, %240, %235, %230, %229, %228, %227, %226, %225, %224, %223, %218, %210, %202, %194, %186, %183, %179, %175, %174, %148, %144, %142, %139, %127, %124
@@ -760,13 +760,13 @@ evaluate_backtick.exit:                           ; preds = %.thread445, %.threa
 315:                                              ; preds = %305
   %316 = load ptr, ptr %83, align 8
   %317 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef nonnull %73, ptr noundef %316, i32 noundef %317) #30
+  call void @psqlscan_emit(ptr noundef nonnull %73, ptr noundef %316, i32 noundef %317) #31
   br label %.loopexit.backedge
 
 318:                                              ; preds = %123
   %319 = load ptr, ptr %83, align 8
   %320 = load i32, ptr %84, align 8
-  call void @psqlscan_escape_variable(ptr noundef %73, ptr noundef %319, i32 noundef %320, i32 noundef 3) #30
+  call void @psqlscan_escape_variable(ptr noundef %73, ptr noundef %319, i32 noundef %320, i32 noundef 3) #31
   br label %.loopexit.backedge
 
 321:                                              ; preds = %123
@@ -782,26 +782,26 @@ evaluate_backtick.exit:                           ; preds = %.thread445, %.threa
   store ptr %323, ptr %81, align 8
   %325 = load ptr, ptr %83, align 8
   %326 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef %325, i32 noundef %326) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef %325, i32 noundef %326) #31
   br label %.loopexit.backedge
 
 327:                                              ; preds = %123
   %328 = load ptr, ptr %83, align 8
   %329 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef %328, i32 noundef %329) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef %328, i32 noundef %329) #31
   br label %.loopexit.backedge
 
 330:                                              ; preds = %123
   %331 = load ptr, ptr %83, align 8
   %332 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef %331, i32 noundef %332) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef %331, i32 noundef %332) #31
   store i32 7, ptr %80, align 4
   br label %.loopexit.backedge
 
 333:                                              ; preds = %123
   %334 = load ptr, ptr %83, align 8
   %335 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef %334, i32 noundef %335) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef %334, i32 noundef %335) #31
   br label %.loopexit.backedge
 
 336:                                              ; preds = %123
@@ -812,13 +812,13 @@ evaluate_backtick.exit:                           ; preds = %.thread445, %.threa
 338:                                              ; preds = %336
   %339 = load ptr, ptr %83, align 8
   %340 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef %339, i32 noundef %340) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef %339, i32 noundef %340) #31
   br label %.loopexit.backedge
 
 341:                                              ; preds = %123
   %342 = load ptr, ptr %83, align 8
   %343 = load i32, ptr %84, align 8
-  call void @psqlscan_emit(ptr noundef %73, ptr noundef %342, i32 noundef %343) #30
+  call void @psqlscan_emit(ptr noundef %73, ptr noundef %342, i32 noundef %343) #31
   br label %.loopexit.backedge
 
 344:                                              ; preds = %123, %123, %123, %123, %123, %123, %123, %123, %123
@@ -827,12 +827,12 @@ evaluate_backtick.exit:                           ; preds = %.thread445, %.threa
   br i1 %346, label %.loopexit1090, label %347
 
 347:                                              ; preds = %344
-  call void @psqlscan_pop_buffer_stack(ptr noundef nonnull %73) #30
-  call void @psqlscan_select_top_buffer(ptr noundef nonnull %73) #30
+  call void @psqlscan_pop_buffer_stack(ptr noundef nonnull %73) #31
+  call void @psqlscan_select_top_buffer(ptr noundef nonnull %73) #31
   br label %.loopexit.backedge
 
 348:                                              ; preds = %123
-  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str) #28
+  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str) #29
   unreachable
 
 349:                                              ; preds = %123
@@ -955,7 +955,7 @@ yy_get_previous_state.exit:                       ; preds = %398, %379
   br i1 %416, label %417, label %418
 
 417:                                              ; preds = %411
-  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #28
+  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #29
   unreachable
 
 418:                                              ; preds = %411
@@ -1057,13 +1057,13 @@ yy_get_previous_state.exit:                       ; preds = %398, %379
   store i32 %storemerge148.i, ptr %458, align 8
   %465 = add i32 %storemerge148.i, 2
   %466 = sext i32 %465 to i64
-  %467 = call noalias noundef ptr @realloc(ptr noundef %451, i64 noundef %466) #29
+  %467 = call noalias noundef ptr @realloc(ptr noundef %451, i64 noundef %466) #30
   store ptr %467, ptr %450, align 8
   %.not149.i = icmp eq ptr %467, null
   br i1 %.not149.i, label %.loopexit.i418, label %468
 
 .loopexit.i418:                                   ; preds = %464, %.thread.i
-  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #28
+  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #29
   unreachable
 
 468:                                              ; preds = %464
@@ -1147,12 +1147,12 @@ yy_get_previous_state.exit:                       ; preds = %398, %379
 
 505:                                              ; preds = %.critedge.i
   %506 = load ptr, ptr %88, align 8
-  %507 = call i32 @ferror(ptr noundef %506) #30
+  %507 = call i32 @ferror(ptr noundef %506) #31
   %.not145.i = icmp eq i32 %507, 0
   br i1 %.not145.i, label %509, label %508
 
 508:                                              ; preds = %505
-  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #28
+  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #29
   unreachable
 
 509:                                              ; preds = %505, %.thread154.i, %.critedge.i
@@ -1161,7 +1161,7 @@ yy_get_previous_state.exit:                       ; preds = %398, %379
   br label %.critedge2.i
 
 510:                                              ; preds = %._crit_edge169.i
-  %511 = tail call ptr @__errno_location() #31
+  %511 = tail call ptr @__errno_location() #32
   store i32 0, ptr %511, align 4
   %sext.i = shl i64 %429, 32
   %512 = ashr exact i64 %sext.i, 32
@@ -1182,7 +1182,7 @@ yy_get_previous_state.exit:                       ; preds = %398, %379
 
 .lr.ph172.i:                                      ; preds = %510, %530
   %525 = load ptr, ptr %88, align 8
-  %526 = call i32 @ferror(ptr noundef %525) #30
+  %526 = call i32 @ferror(ptr noundef %525) #31
   %.not142.i = icmp eq i32 %526, 0
   br i1 %.not142.i, label %.critedge2.i, label %527
 
@@ -1192,13 +1192,13 @@ yy_get_previous_state.exit:                       ; preds = %398, %379
   br i1 %.not143.i, label %530, label %529
 
 529:                                              ; preds = %527
-  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #28
+  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #29
   unreachable
 
 530:                                              ; preds = %527
   store i32 0, ptr %511, align 4
   %531 = load ptr, ptr %88, align 8
-  call void @clearerr(ptr noundef %531) #30
+  call void @clearerr(ptr noundef %531) #31
   %532 = load ptr, ptr %85, align 8
   %533 = load i64, ptr %86, align 8
   %534 = getelementptr inbounds nuw [8 x i8], ptr %532, i64 %533
@@ -1267,7 +1267,7 @@ yy_get_previous_state.exit:                       ; preds = %398, %379
   %574 = getelementptr inbounds nuw i8, ptr %567, i64 8
   %575 = load ptr, ptr %574, align 8
   %576 = sext i32 %573 to i64
-  %577 = call noalias noundef ptr @realloc(ptr noundef %575, i64 noundef %576) #29
+  %577 = call noalias noundef ptr @realloc(ptr noundef %575, i64 noundef %576) #30
   %578 = load ptr, ptr %85, align 8
   %579 = load i64, ptr %86, align 8
   %580 = getelementptr inbounds nuw [8 x i8], ptr %578, i64 %579
@@ -1284,7 +1284,7 @@ yy_get_previous_state.exit:                       ; preds = %398, %379
   br i1 %.not151.i, label %589, label %590
 
 589:                                              ; preds = %571
-  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #28
+  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #29
   unreachable
 
 590:                                              ; preds = %571
@@ -1429,7 +1429,7 @@ yy_get_previous_state.exit429:                    ; preds = %yy_get_next_buffer.
   br label %123
 
 666:                                              ; preds = %123
-  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #28
+  call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #29
   unreachable
 
 .sink.split:                                      ; preds = %123, %123, %123
@@ -1455,12 +1455,12 @@ yy_get_previous_state.exit429:                    ; preds = %yy_get_next_buffer.
 
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @slash_yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
-  %4 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #27
+  %4 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #28
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #29
   unreachable
 
 6:                                                ; preds = %3
@@ -1468,20 +1468,20 @@ define dso_local nonnull ptr @slash_yy_create_buffer(ptr noundef %0, i32 noundef
   store i32 %1, ptr %7, align 8
   %8 = add i32 %1, 2
   %9 = sext i32 %8 to i64
-  %10 = tail call noalias noundef ptr @malloc(i64 noundef %9) #27
+  %10 = tail call noalias noundef ptr @malloc(i64 noundef %9) #28
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #29
   unreachable
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 1, ptr %14, align 8
-  %15 = tail call ptr @__errno_location() #31
+  %15 = tail call ptr @__errno_location() #32
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 0, ptr %17, align 4
@@ -1586,8 +1586,8 @@ declare void @psqlscan_select_top_buffer(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %2, ptr noundef nonnull @.str.15, ptr noundef %0) #30
-  tail call void @exit(i32 noundef 2) #32
+  %3 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %2, ptr noundef nonnull @.str.15, ptr noundef %0) #31
+  tail call void @exit(i32 noundef 2) #33
   unreachable
 }
 
@@ -1607,13 +1607,13 @@ define dso_local void @slash_yyrestart(ptr noundef %0, ptr noundef captures(none
   br i1 %.not16, label %16, label %.thread
 
 10:                                               ; preds = %2
-  %11 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #27
+  %11 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #28
   store ptr %11, ptr %3, align 8
   %.not28.i = icmp eq ptr %11, null
   br i1 %.not28.i, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #29
   unreachable
 
 13:                                               ; preds = %10
@@ -1634,13 +1634,13 @@ define dso_local void @slash_yyrestart(ptr noundef %0, ptr noundef captures(none
 20:                                               ; preds = %16
   %21 = add i64 %18, 8
   %22 = shl i64 %21, 3
-  %23 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %22) #29
+  %23 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %22) #30
   store ptr %23, ptr %3, align 8
   %.not30.i = icmp eq ptr %23, null
   br i1 %.not30.i, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #29
   unreachable
 
 25:                                               ; preds = %20
@@ -1664,7 +1664,7 @@ define dso_local void @slash_yyrestart(ptr noundef %0, ptr noundef captures(none
   br i1 %.not17, label %.thread19, label %.thread
 
 .thread19:                                        ; preds = %28
-  %36 = tail call ptr @__errno_location() #31
+  %36 = tail call ptr @__errno_location() #32
   %37 = load i32, ptr %36, align 4
   br label %slash_yy_flush_buffer.exit.i
 
@@ -1674,7 +1674,7 @@ define dso_local void @slash_yyrestart(ptr noundef %0, ptr noundef captures(none
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call ptr @__errno_location() #31
+  %43 = tail call ptr @__errno_location() #32
   %44 = load i32, ptr %43, align 4
   %.not.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i, label %slash_yy_flush_buffer.exit.i, label %45
@@ -1791,13 +1791,13 @@ define dso_local void @slash_yy_switch_to_buffer(ptr noundef %0, ptr noundef cap
   br i1 %.not.i, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #27
+  %6 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #28
   store ptr %6, ptr %3, align 8
   %.not28.i = icmp eq ptr %6, null
   br i1 %.not28.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #29
   unreachable
 
 8:                                                ; preds = %5
@@ -1820,13 +1820,13 @@ define dso_local void @slash_yy_switch_to_buffer(ptr noundef %0, ptr noundef cap
 17:                                               ; preds = %11
   %18 = add i64 %15, 8
   %19 = shl i64 %18, 3
-  %20 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %19) #29
+  %20 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %19) #30
   store ptr %20, ptr %3, align 8
   %.not30.i = icmp eq ptr %20, null
   br i1 %.not30.i, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #29
   unreachable
 
 22:                                               ; preds = %17
@@ -1909,9 +1909,9 @@ define dso_local void @slash_yy_switch_to_buffer(ptr noundef %0, ptr noundef cap
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite, errnomem: write) uwtable
 define dso_local noalias noundef ptr @slash_yyalloc(i64 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 {
-  %3 = tail call noalias ptr @malloc(i64 noundef %0) #27
+  %3 = tail call noalias ptr @malloc(i64 noundef %0) #28
   ret ptr %3
 }
 
@@ -1947,11 +1947,11 @@ define dso_local void @slash_yy_delete_buffer(ptr noundef captures(address) %0, 
 15:                                               ; preds = %.critedge
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  tail call void @free(ptr noundef %17) #30
+  tail call void @free(ptr noundef %17) #31
   br label %18
 
 18:                                               ; preds = %15, %.critedge
-  tail call void @free(ptr noundef nonnull %0) #30
+  tail call void @free(ptr noundef nonnull %0) #31
   br label %19
 
 19:                                               ; preds = %2, %18
@@ -1960,7 +1960,7 @@ define dso_local void @slash_yy_delete_buffer(ptr noundef captures(address) %0, 
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local void @slash_yyfree(ptr noundef captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #7 {
-  tail call void @free(ptr noundef %0) #30
+  tail call void @free(ptr noundef %0) #31
   ret void
 }
 
@@ -2035,13 +2035,13 @@ define dso_local void @slash_yypush_buffer_state(ptr noundef %0, ptr noundef cap
   br i1 %.not.i, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #27
+  %8 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #28
   store ptr %8, ptr %5, align 8
   %.not28.i = icmp eq ptr %8, null
   br i1 %.not28.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #29
   unreachable
 
 10:                                               ; preds = %7
@@ -2064,13 +2064,13 @@ define dso_local void @slash_yypush_buffer_state(ptr noundef %0, ptr noundef cap
 19:                                               ; preds = %13
   %20 = add i64 %17, 8
   %21 = shl i64 %20, 3
-  %22 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %6, i64 noundef %21) #29
+  %22 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %6, i64 noundef %21) #30
   store ptr %22, ptr %5, align 8
   %.not30.i = icmp eq ptr %22, null
   br i1 %.not30.i, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #29
   unreachable
 
 24:                                               ; preds = %19
@@ -2183,11 +2183,11 @@ define dso_local void @slash_yypop_buffer_state(ptr noundef captures(none) %0) l
 11:                                               ; preds = %.critedge.i
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void @free(ptr noundef %13) #30
+  tail call void @free(ptr noundef %13) #31
   br label %slash_yy_delete_buffer.exit
 
 slash_yy_delete_buffer.exit:                      ; preds = %.critedge.i, %11
-  tail call void @free(ptr noundef nonnull %8) #30
+  tail call void @free(ptr noundef nonnull %8) #31
   %14 = load ptr, ptr %2, align 8
   %15 = load i64, ptr %5, align 8
   %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
@@ -2260,12 +2260,12 @@ define dso_local noundef ptr @slash_yy_scan_buffer(ptr noundef %0, i64 noundef %
   br i1 %.not26, label %13, label %27
 
 13:                                               ; preds = %9
-  %14 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #27
+  %14 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #28
   %.not27 = icmp eq ptr %14, null
   br i1 %.not27, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #29
   unreachable
 
 16:                                               ; preds = %13
@@ -2299,7 +2299,7 @@ define dso_local noundef ptr @slash_yy_scan_buffer(ptr noundef %0, i64 noundef %
 
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @slash_yy_scan_string(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #33
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #34
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @slash_yy_scan_bytes(ptr noundef nonnull %0, i32 noundef %4, ptr noundef %1)
   ret ptr %5
@@ -2309,7 +2309,7 @@ define dso_local nonnull ptr @slash_yy_scan_string(ptr noundef readonly captures
 define dso_local nonnull ptr @slash_yy_scan_bytes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = add i32 %1, 2
   %5 = sext i32 %4 to i64
-  %6 = tail call noalias noundef ptr @malloc(i64 noundef %5) #27
+  %6 = tail call noalias noundef ptr @malloc(i64 noundef %5) #28
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %14, label %.preheader
 
@@ -2330,7 +2330,7 @@ define dso_local nonnull ptr @slash_yy_scan_bytes(ptr noundef readonly captures(
   br label %21
 
 14:                                               ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #29
   unreachable
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -2359,16 +2359,16 @@ define dso_local nonnull ptr @slash_yy_scan_bytes(ptr noundef readonly captures(
   br i1 %.not26.i, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #27
+  %30 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #28
   %.not27.i = icmp eq ptr %30, null
   br i1 %.not27.i, label %31, label %33
 
 31:                                               ; preds = %29
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #29
   unreachable
 
 32:                                               ; preds = %25, %21, %._crit_edge
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.5) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.5) #29
   unreachable
 
 33:                                               ; preds = %29
@@ -2506,7 +2506,7 @@ define dso_local void @slash_yyset_lineno(i32 noundef %0, ptr noundef readonly c
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.6) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.6) #29
   unreachable
 
 11:                                               ; preds = %5
@@ -2531,7 +2531,7 @@ define dso_local void @slash_yyset_column(i32 noundef %0, ptr noundef readonly c
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.7) #28
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.7) #29
   unreachable
 
 11:                                               ; preds = %5
@@ -2595,7 +2595,7 @@ define dso_local range(i32 0, 2) i32 @slash_yylex_init(ptr noundef writeonly cap
 
 .sink.split:                                      ; preds = %3, %1
   %.sink = phi i32 [ 22, %1 ], [ 12, %3 ]
-  %5 = tail call ptr @__errno_location() #31
+  %5 = tail call ptr @__errno_location() #32
   store i32 %.sink, ptr %5, align 4
   br label %6
 
@@ -2616,7 +2616,7 @@ define dso_local range(i32 0, 2) i32 @slash_yylex_init_extra(ptr noundef %0, ptr
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @__errno_location() #31
+  %5 = tail call ptr @__errno_location() #32
   store i32 22, ptr %5, align 4
   br label %11
 
@@ -2627,7 +2627,7 @@ define dso_local range(i32 0, 2) i32 @slash_yylex_init_extra(ptr noundef %0, ptr
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @__errno_location() #31
+  %9 = tail call ptr @__errno_location() #32
   store i32 12, ptr %9, align 4
   br label %11
 
@@ -2673,11 +2673,11 @@ define dso_local noundef i32 @slash_yylex_destroy(ptr noundef captures(none) %0)
 19:                                               ; preds = %.critedge.i
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %21 = load ptr, ptr %20, align 8
-  tail call void @free(ptr noundef %21) #30
+  tail call void @free(ptr noundef %21) #31
   br label %slash_yy_delete_buffer.exit
 
 slash_yy_delete_buffer.exit:                      ; preds = %.critedge.i, %19
-  tail call void @free(ptr noundef nonnull %15) #30
+  tail call void @free(ptr noundef nonnull %15) #31
   %22 = load ptr, ptr %3, align 8
   %23 = load i64, ptr %2, align 8
   %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
@@ -2703,11 +2703,11 @@ slash_yy_delete_buffer.exit:                      ; preds = %.critedge.i, %19
 32:                                               ; preds = %.critedge.i.i
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load ptr, ptr %33, align 8
-  tail call void @free(ptr noundef %34) #30
+  tail call void @free(ptr noundef %34) #31
   br label %slash_yy_delete_buffer.exit.i
 
 slash_yy_delete_buffer.exit.i:                    ; preds = %32, %.critedge.i.i
-  tail call void @free(ptr noundef nonnull %29) #30
+  tail call void @free(ptr noundef nonnull %29) #31
   %35 = load ptr, ptr %3, align 8
   %36 = load i64, ptr %2, align 8
   %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
@@ -2760,32 +2760,32 @@ slash_yypop_buffer_state.exit:                    ; preds = %26, %44, %47
 
 .critedge:                                        ; preds = %slash_yypop_buffer_state.exit, %slash_yy_delete_buffer.exit, %41, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %41 ], [ null, %slash_yy_delete_buffer.exit ], [ %56, %slash_yypop_buffer_state.exit ]
-  tail call void @free(ptr noundef %.lcssa) #30
+  tail call void @free(ptr noundef %.lcssa) #31
   store ptr null, ptr %3, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %62 = load ptr, ptr %61, align 8
-  tail call void @free(ptr noundef %62) #30
-  tail call void @free(ptr noundef nonnull %0) #30
+  tail call void @free(ptr noundef %62) #31
+  tail call void @free(ptr noundef nonnull %0) #31
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #17
 
-; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local noalias noundef ptr @slash_yyrealloc(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #7 {
-  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #29
+; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) uwtable
+define dso_local noalias noundef ptr @slash_yyrealloc(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #18 {
+  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #30
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #18
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @psql_scan_slash_command(ptr noundef initializes((8, 16)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.PQExpBufferData, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @initPQExpBuffer(ptr noundef nonnull %2) #30
+  call void @initPQExpBuffer(ptr noundef nonnull %2) #31
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2800,7 +2800,7 @@ define dso_local ptr @psql_scan_slash_command(ptr noundef initializes((8, 16)) %
   store i32 1, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = call i32 @slash_yylex(ptr noundef null, ptr noundef %9)
-  call void @psql_scan_reselect_sql_lexer(ptr noundef nonnull %0) #30
+  call void @psql_scan_reselect_sql_lexer(ptr noundef nonnull %0) #31
   %11 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %11
@@ -2819,7 +2819,7 @@ define dso_local ptr @psql_scan_slash_option(ptr noundef initializes((8, 16)) %0
   %7 = icmp eq ptr %2, null
   %spec.store.select = select i1 %7, ptr %6, ptr %2
   store i8 0, ptr %spec.store.select, align 1
-  call void @initPQExpBuffer(ptr noundef nonnull %5) #30
+  call void @initPQExpBuffer(ptr noundef nonnull %5) #31
   store i32 %1, ptr @option_type, align 4
   store ptr %spec.store.select, ptr @option_quote, align 8
   store i32 0, ptr @unquoted_option_chars, align 4
@@ -2840,7 +2840,7 @@ define dso_local ptr @psql_scan_slash_option(ptr noundef initializes((8, 16)) %0
   %15 = load ptr, ptr %0, align 8
   %16 = call i32 @slash_yylex(ptr noundef null, ptr noundef %15)
   %17 = load i32, ptr %14, align 8
-  call void @psql_scan_reselect_sql_lexer(ptr noundef nonnull %0) #30
+  call void @psql_scan_reselect_sql_lexer(ptr noundef nonnull %0) #31
   switch i32 %17, label %70 [
     i32 2, label %.critedge6
     i32 3, label %18
@@ -2899,14 +2899,14 @@ define dso_local ptr @psql_scan_slash_option(ptr noundef initializes((8, 16)) %0
   %44 = load i32, ptr %43, align 8
   call void @dequote_downcase_identifier(ptr noundef %41, i1 noundef zeroext %42, i32 noundef %44)
   %45 = load ptr, ptr %5, align 8
-  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #33
+  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #34
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %46, ptr %47, align 8
   br label %.critedge6
 
 48:                                               ; preds = %4, %4, %4
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.8) #30
-  call void @termPQExpBuffer(ptr noundef nonnull %5) #30
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.8) #31
+  call void @termPQExpBuffer(ptr noundef nonnull %5) #31
   br label %82
 
 49:                                               ; preds = %4
@@ -2930,7 +2930,7 @@ define dso_local ptr @psql_scan_slash_option(ptr noundef initializes((8, 16)) %0
   br i1 %60, label %61, label %.critedge6
 
 61:                                               ; preds = %59
-  %62 = tail call ptr @__ctype_b_loc() #31
+  %62 = tail call ptr @__ctype_b_loc() #32
   %63 = load ptr, ptr %62, align 8
   %64 = zext nneg i8 %57 to i64
   %65 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %64
@@ -2950,8 +2950,8 @@ define dso_local ptr @psql_scan_slash_option(ptr noundef initializes((8, 16)) %0
 
 70:                                               ; preds = %4
   %71 = load ptr, ptr @stderr, align 8
-  %72 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %71, ptr noundef nonnull @.str.9) #30
-  call void @exit(i32 noundef 1) #32
+  %72 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %71, ptr noundef nonnull @.str.9) #31
+  call void @exit(i32 noundef 1) #33
   unreachable
 
 .critedge6:                                       ; preds = %.critedge8, %59, %61, %49, %40, %.critedge, %4
@@ -2966,7 +2966,7 @@ define dso_local ptr @psql_scan_slash_option(ptr noundef initializes((8, 16)) %0
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %76
-  call void @termPQExpBuffer(ptr noundef nonnull %5) #30
+  call void @termPQExpBuffer(ptr noundef nonnull %5) #31
   br label %82
 
 80:                                               ; preds = %76, %.critedge6
@@ -3010,7 +3010,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   %.118.us = phi i8 [ %12, %11 ], [ 1, %7 ]
   %.1.us = phi ptr [ %.0.us, %11 ], [ %8, %7 ]
   %14 = getelementptr inbounds nuw i8, ptr %.1.us, i64 1
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1.us) #33
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1.us) #34
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.1.us, ptr nonnull align 1 %14, i64 %15, i1 false)
   br label %.split.us.outer, !llvm.loop !14
 
@@ -3020,7 +3020,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   br label %.split.us
 
 16:                                               ; preds = %.split.us
-  %17 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.0.us, i32 noundef %2) #30
+  %17 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.0.us, i32 noundef %2) #31
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %.0.us, i64 %18
   br label %.split.us, !llvm.loop !14
@@ -3051,7 +3051,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   %.118 = phi i8 [ %28, %27 ], [ 1, %23 ]
   %.1 = phi ptr [ %.0, %27 ], [ %24, %23 ]
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #33
+  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #34
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.1, ptr nonnull align 1 %30, i64 %31, i1 false)
   br label %.split.outer, !llvm.loop !14
 
@@ -3065,12 +3065,12 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   br i1 %32, label %36, label %34
 
 34:                                               ; preds = %33
-  %35 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %20) #30
+  %35 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %20) #31
   store i8 %35, ptr %.0, align 1
   br label %36
 
 36:                                               ; preds = %34, %33
-  %37 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.0, i32 noundef %2) #30
+  %37 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.0, i32 noundef %2) #31
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i8, ptr %.0, i64 %38
   br label %.split, !llvm.loop !14
@@ -3089,7 +3089,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #14
 declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #19
+declare void @exit(i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @psql_scan_slash_command_end(ptr noundef initializes((8, 16)) %0) local_unnamed_addr #0 {
@@ -3107,7 +3107,7 @@ define dso_local void @psql_scan_slash_command_end(ptr noundef initializes((8, 1
   store i32 8, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = tail call i32 @slash_yylex(ptr noundef null, ptr noundef %8)
-  tail call void @psql_scan_reselect_sql_lexer(ptr noundef nonnull %0) #30
+  tail call void @psql_scan_reselect_sql_lexer(ptr noundef nonnull %0) #31
   ret void
 }
 
@@ -3126,61 +3126,61 @@ define dso_local void @psql_scan_set_paren_depth(ptr noundef writeonly captures(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #20
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #21
 
 declare zeroext i8 @pg_tolower(i8 noundef zeroext) local_unnamed_addr #1
 
 declare i32 @PQmblenBounded(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #21
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #22
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #21
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nofree nounwind
-declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #21
+declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #21
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #21
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #22
 
 declare void @appendBinaryPQExpBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #21
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #21
+declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare void @SetShellResultVariables(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #24
+declare i32 @llvm.umin.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #25
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #26
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #26
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #27
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3192,23 +3192,24 @@ attributes #13 = { mustprogress nofree nounwind willreturn memory(write, inacces
 attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #26 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #27 = { nounwind allocsize(0) }
-attributes #28 = { noreturn }
-attributes #29 = { nounwind allocsize(1) }
-attributes #30 = { nounwind }
-attributes #31 = { nounwind willreturn memory(none) }
-attributes #32 = { cold noreturn nounwind }
-attributes #33 = { nounwind willreturn memory(read) }
+attributes #17 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #22 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #25 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #27 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
+attributes #28 = { nounwind allocsize(0) }
+attributes #29 = { noreturn }
+attributes #30 = { nounwind allocsize(1) }
+attributes #31 = { nounwind }
+attributes #32 = { nounwind willreturn memory(none) }
+attributes #33 = { cold noreturn nounwind }
+attributes #34 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

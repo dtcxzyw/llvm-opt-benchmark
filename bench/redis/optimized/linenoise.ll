@@ -149,13 +149,13 @@ define dso_local void @linenoiseAddCompletion(ptr noundef captures(none) %0, ptr
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -1149,7 +1149,7 @@ define dso_local void @linenoiseEditMoveEnd(ptr noundef captures(none) %0) local
 define dso_local void @linenoiseEditHistoryNext(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = load i32, ptr @history_len, align 4, !tbaa !4
   %4 = icmp sgt i32 %3, 1
-  br i1 %4, label %5, label %48
+  br i1 %4, label %5, label %49
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @history, align 8, !tbaa !40
@@ -1164,61 +1164,62 @@ define dso_local void @linenoiseEditHistoryNext(ptr noundef captures(none) %0, i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = tail call noalias ptr @strdup(ptr noundef %15) #25
-  %17 = load i32, ptr %7, align 8, !tbaa !41
-  %18 = xor i32 %17, -1
-  %19 = add i32 %3, %18
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds [8 x i8], ptr %6, i64 %20
-  store ptr %16, ptr %21, align 8, !tbaa !15
-  %22 = icmp eq i32 %1, 1
-  %23 = select i1 %22, i32 1, i32 -1
-  %24 = add nsw i32 %17, %23
-  store i32 %24, ptr %7, align 8, !tbaa !41
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %5
-  store i32 0, ptr %7, align 8, !tbaa !41
-  br label %48
+  %17 = load i32, ptr @history_len, align 4, !tbaa !4
+  %18 = load i32, ptr %7, align 8, !tbaa !41
+  %19 = xor i32 %18, -1
+  %20 = add i32 %17, %19
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds [8 x i8], ptr %6, i64 %21
+  store ptr %16, ptr %22, align 8, !tbaa !15
+  %23 = icmp eq i32 %1, 1
+  %24 = select i1 %23, i32 1, i32 -1
+  %25 = add nsw i32 %18, %24
+  store i32 %25, ptr %7, align 8, !tbaa !41
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %27, label %28
 
 27:                                               ; preds = %5
-  %.not = icmp samesign ult i32 %24, %3
-  br i1 %.not, label %30, label %28
+  store i32 0, ptr %7, align 8, !tbaa !41
+  br label %49
 
-28:                                               ; preds = %27
-  %29 = add nsw i32 %3, -1
-  store i32 %29, ptr %7, align 8, !tbaa !41
-  br label %48
+28:                                               ; preds = %5
+  %.not = icmp slt i32 %25, %17
+  br i1 %.not, label %31, label %29
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %14, align 8, !tbaa !20
-  %32 = xor i32 %24, -1
-  %33 = add nsw i32 %3, %32
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds [8 x i8], ptr %6, i64 %34
-  %36 = load ptr, ptr %35, align 8, !tbaa !15
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %38 = load i64, ptr %37, align 8, !tbaa !25
-  %39 = tail call ptr @strncpy(ptr noundef %31, ptr noundef %36, i64 noundef %38) #25
-  %40 = load ptr, ptr %14, align 8, !tbaa !20
-  %41 = load i64, ptr %37, align 8, !tbaa !25
-  %42 = getelementptr i8, ptr %40, i64 %41
-  %43 = getelementptr i8, ptr %42, i64 -1
-  store i8 0, ptr %43, align 1, !tbaa !21
-  %44 = load ptr, ptr %14, align 8, !tbaa !20
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #26
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %45, ptr %46, align 8, !tbaa !26
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %45, ptr %47, align 8, !tbaa !17
+29:                                               ; preds = %28
+  %30 = add nsw i32 %17, -1
+  store i32 %30, ptr %7, align 8, !tbaa !41
+  br label %49
+
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %14, align 8, !tbaa !20
+  %33 = xor i32 %25, -1
+  %34 = add nsw i32 %17, %33
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds [8 x i8], ptr %6, i64 %35
+  %37 = load ptr, ptr %36, align 8, !tbaa !15
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %39 = load i64, ptr %38, align 8, !tbaa !25
+  %40 = tail call ptr @strncpy(ptr noundef %32, ptr noundef %37, i64 noundef %39) #25
+  %41 = load ptr, ptr %14, align 8, !tbaa !20
+  %42 = load i64, ptr %38, align 8, !tbaa !25
+  %43 = getelementptr i8, ptr %41, i64 %42
+  %44 = getelementptr i8, ptr %43, i64 -1
+  store i8 0, ptr %44, align 1, !tbaa !21
+  %45 = load ptr, ptr %14, align 8, !tbaa !20
+  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #26
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %46, ptr %47, align 8, !tbaa !26
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 %46, ptr %48, align 8, !tbaa !17
   tail call fastcc void @refreshLine(ptr noundef nonnull %0)
-  br label %48
+  br label %49
 
-48:                                               ; preds = %30, %28, %26, %2
+49:                                               ; preds = %31, %29, %27, %2
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2686,86 +2687,95 @@ define dso_local void @linenoiseFree(ptr noundef captures(none) %0) local_unname
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i32 0, 2) i32 @linenoiseHistoryAdd(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = load i32, ptr @history_max_len, align 4, !tbaa !4
-  %4 = load ptr, ptr @history, align 8, !tbaa !40
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %16
+  %3 = load ptr, ptr @history, align 8, !tbaa !40
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %23
 
-6:                                                ; preds = %2
-  %7 = zext nneg i32 %3 to i64
+5:                                                ; preds = %2
+  %6 = load i32, ptr @history_max_len, align 4, !tbaa !4
+  %7 = zext nneg i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #27
   store ptr %9, ptr @history, align 8, !tbaa !40
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %43, label %11
+  br i1 %10, label %52, label %11
 
-11:                                               ; preds = %6
-  %12 = shl nuw nsw i64 %7, 2
-  %calloc = tail call ptr @calloc(i64 1, i64 %12)
-  store ptr %calloc, ptr @history_sensitive, align 8, !tbaa !64
-  %13 = icmp eq ptr %calloc, null
-  br i1 %13, label %14, label %15
+11:                                               ; preds = %5
+  %12 = load i32, ptr @history_max_len, align 4, !tbaa !4
+  %13 = zext nneg i32 %12 to i64
+  %14 = shl nuw nsw i64 %13, 2
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #27
+  store ptr %15, ptr @history_sensitive, align 8, !tbaa !64
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
-14:                                               ; preds = %11
+17:                                               ; preds = %11
   tail call void @free(ptr noundef nonnull %9) #25
   store ptr null, ptr @history, align 8, !tbaa !40
-  br label %43
+  br label %52
 
-15:                                               ; preds = %11
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %8, i1 false)
-  br label %16
+18:                                               ; preds = %11
+  %19 = load i32, ptr @history_max_len, align 4, !tbaa !4
+  %20 = zext nneg i32 %19 to i64
+  %21 = shl nuw nsw i64 %20, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %9, i8 0, i64 %21, i1 false)
+  %22 = shl nuw nsw i64 %20, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %15, i8 0, i64 %22, i1 false)
+  br label %23
 
-16:                                               ; preds = %15, %2
-  %17 = phi ptr [ %9, %15 ], [ %4, %2 ]
-  %18 = load i32, ptr @history_len, align 4, !tbaa !4
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %25, label %19
+23:                                               ; preds = %18, %2
+  %24 = phi ptr [ %9, %18 ], [ %3, %2 ]
+  %25 = load i32, ptr @history_len, align 4, !tbaa !4
+  %.not = icmp eq i32 %25, 0
+  br i1 %.not, label %32, label %26
 
-19:                                               ; preds = %16
-  %20 = sext i32 %18 to i64
-  %21 = getelementptr [8 x i8], ptr %17, i64 %20
-  %22 = getelementptr i8, ptr %21, i64 -8
-  %23 = load ptr, ptr %22, align 8, !tbaa !15
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %0) #26
-  %.not8 = icmp eq i32 %24, 0
-  br i1 %.not8, label %43, label %25
+26:                                               ; preds = %23
+  %27 = sext i32 %25 to i64
+  %28 = getelementptr [8 x i8], ptr %24, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 -8
+  %30 = load ptr, ptr %29, align 8, !tbaa !15
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %0) #26
+  %.not8 = icmp eq i32 %31, 0
+  br i1 %.not8, label %52, label %32
 
-25:                                               ; preds = %19, %16
-  %26 = tail call noalias ptr @strdup(ptr noundef %0) #25
-  %.not9 = icmp eq ptr %26, null
-  br i1 %.not9, label %43, label %27
+32:                                               ; preds = %26, %23
+  %33 = tail call noalias ptr @strdup(ptr noundef %0) #25
+  %.not9 = icmp eq ptr %33, null
+  br i1 %.not9, label %52, label %34
 
-27:                                               ; preds = %25
-  %28 = icmp eq i32 %18, %3
+34:                                               ; preds = %32
+  %35 = load i32, ptr @history_len, align 4, !tbaa !4
+  %36 = load i32, ptr @history_max_len, align 4, !tbaa !4
+  %37 = icmp eq i32 %35, %36
   %.pre = load ptr, ptr @history_sensitive, align 8, !tbaa !64
-  br i1 %28, label %29, label %37
+  br i1 %37, label %38, label %46
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %17, align 8, !tbaa !15
-  tail call void @free(ptr noundef %30) #25
-  %31 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %32 = add nsw i32 %3, -1
-  %33 = zext nneg i32 %32 to i64
-  %34 = shl nuw nsw i64 %33, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 8 %31, i64 %34, i1 false)
-  %35 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
-  %36 = shl nuw nsw i64 %33, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.pre, ptr nonnull align 4 %35, i64 %36, i1 false)
-  br label %37
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %24, align 8, !tbaa !15
+  tail call void @free(ptr noundef %39) #25
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %41 = add nsw i32 %35, -1
+  %42 = zext nneg i32 %41 to i64
+  %43 = shl nuw nsw i64 %42, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 %40, i64 %43, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %.pre, i64 4
+  %45 = shl nuw nsw i64 %42, 2
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.pre, ptr nonnull align 4 %44, i64 %45, i1 false)
+  br label %46
 
-37:                                               ; preds = %29, %27
-  %38 = phi i32 [ %32, %29 ], [ %18, %27 ]
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [8 x i8], ptr %17, i64 %39
-  store ptr %26, ptr %40, align 8, !tbaa !15
-  %41 = getelementptr inbounds [4 x i8], ptr %.pre, i64 %39
-  store i32 %1, ptr %41, align 4, !tbaa !4
-  %42 = add nsw i32 %38, 1
-  store i32 %42, ptr @history_len, align 4, !tbaa !4
-  br label %43
+46:                                               ; preds = %38, %34
+  %47 = phi i32 [ %41, %38 ], [ %35, %34 ]
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds [8 x i8], ptr %24, i64 %48
+  store ptr %33, ptr %49, align 8, !tbaa !15
+  %50 = getelementptr inbounds [4 x i8], ptr %.pre, i64 %48
+  store i32 %1, ptr %50, align 4, !tbaa !4
+  %51 = add nsw i32 %47, 1
+  store i32 %51, ptr @history_len, align 4, !tbaa !4
+  br label %52
 
-43:                                               ; preds = %25, %19, %6, %37, %14
-  %.0 = phi i32 [ 0, %6 ], [ 0, %19 ], [ 0, %14 ], [ 1, %37 ], [ 0, %25 ]
+52:                                               ; preds = %32, %26, %5, %46, %17
+  %.0 = phi i32 [ 0, %5 ], [ 0, %26 ], [ 0, %17 ], [ 1, %46 ], [ 0, %32 ]
   ret i32 %.0
 }
 
@@ -2775,20 +2785,20 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 ; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local range(i32 0, 2) i32 @linenoiseHistorySetMaxLen(i32 noundef %0) local_unnamed_addr #18 {
   %2 = icmp slt i32 %0, 1
-  br i1 %2, label %31, label %3
+  br i1 %2, label %34, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @history, align 8, !tbaa !40
   %.not = icmp eq ptr %4, null
   %.pre = load i32, ptr @history_len, align 4, !tbaa !4
-  br i1 %.not, label %28, label %5
+  br i1 %.not, label %30, label %5
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
   %7 = shl nuw nsw i64 %6, 3
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #27
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %31, label %10
+  br i1 %9, label %34, label %10
 
 10:                                               ; preds = %5
   %11 = shl nuw nsw i64 %6, 2
@@ -2798,7 +2808,7 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistorySetMaxLen(i32 noundef %0) 
 
 14:                                               ; preds = %10
   tail call void @free(ptr noundef nonnull %8) #25
-  br label %31
+  br label %34
 
 15:                                               ; preds = %10
   %16 = icmp slt i32 %0, %.pre
@@ -2822,37 +2832,39 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistorySetMaxLen(i32 noundef %0) 
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !66
 
-.critedge:                                        ; preds = %.lr.ph, %15, %.preheader
-  %.pre-phi = phi i32 [ %17, %.preheader ], [ 0, %15 ], [ %17, %.lr.ph ]
-  %.028 = phi i32 [ %0, %.preheader ], [ %.pre, %15 ], [ %0, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %.preheader, %15
+  %.028 = phi i32 [ %.pre, %15 ], [ %0, %.preheader ], [ %0, %.lr.ph ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %7, i1 false)
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %12, i8 0, i64 %11, i1 false)
-  %21 = zext nneg i32 %.pre-phi to i64
-  %22 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %21
-  %23 = sext i32 %.028 to i64
-  %24 = shl nsw i64 %23, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr nonnull align 8 %22, i64 %24, i1 false)
-  %25 = load ptr, ptr @history_sensitive, align 8, !tbaa !64
-  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %21
-  %27 = shl nsw i64 %23, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %12, ptr align 4 %26, i64 %27, i1 false)
+  %21 = load i32, ptr @history_len, align 4, !tbaa !4
+  %22 = sub nsw i32 %21, %.028
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds [8 x i8], ptr %4, i64 %23
+  %25 = sext i32 %.028 to i64
+  %26 = shl nsw i64 %25, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr nonnull align 8 %24, i64 %26, i1 false)
+  %27 = load ptr, ptr @history_sensitive, align 8, !tbaa !64
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
+  %29 = shl nsw i64 %25, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %12, ptr align 4 %28, i64 %29, i1 false)
   tail call void @free(ptr noundef nonnull %4) #25
-  tail call void @free(ptr noundef %25) #25
+  tail call void @free(ptr noundef %27) #25
   store ptr %8, ptr @history, align 8, !tbaa !40
   store ptr %12, ptr @history_sensitive, align 8, !tbaa !64
-  br label %28
+  br label %30
 
-28:                                               ; preds = %.critedge, %3
+30:                                               ; preds = %.critedge, %3
+  %31 = phi i32 [ %21, %.critedge ], [ %.pre, %3 ]
   store i32 %0, ptr @history_max_len, align 4, !tbaa !4
-  %29 = icmp sgt i32 %.pre, %0
-  br i1 %29, label %30, label %31
+  %32 = icmp sgt i32 %31, %0
+  br i1 %32, label %33, label %34
 
-30:                                               ; preds = %28
+33:                                               ; preds = %30
   store i32 %0, ptr @history_len, align 4, !tbaa !4
-  br label %31
+  br label %34
 
-31:                                               ; preds = %28, %30, %14, %5, %1
-  %.030 = phi i32 [ 0, %1 ], [ 0, %14 ], [ 0, %5 ], [ 1, %30 ], [ 1, %28 ]
+34:                                               ; preds = %30, %33, %14, %5, %1
+  %.030 = phi i32 [ 0, %1 ], [ 0, %14 ], [ 0, %5 ], [ 1, %33 ], [ 1, %30 ]
   ret i32 %.030
 }
 
@@ -3140,7 +3152,7 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
@@ -3243,13 +3255,13 @@ attributes #1 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapp
 attributes #2 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3258,7 +3270,7 @@ attributes #16 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #17 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nofree nounwind }

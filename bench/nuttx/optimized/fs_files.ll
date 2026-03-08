@@ -230,133 +230,139 @@ define internal fastcc range(i32 -24, 1) i32 @files_extend(ptr noundef captures(
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
   %.not = icmp ugt i64 %1, %6
-  br i1 %.not, label %7, label %48
+  br i1 %.not, label %7, label %54
 
 7:                                                ; preds = %2
   %8 = zext i8 %5 to i32
   %9 = icmp ugt i8 %5, 32
-  br i1 %9, label %48, label %10
+  br i1 %9, label %54, label %10
 
 10:                                               ; preds = %7
   %11 = shl nsw i64 %1, 3
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #11
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %48, label %.preheader60
+  br i1 %13, label %54, label %14
 
-.preheader60:                                     ; preds = %10, %26
-  %indvars.iv70.in = phi i32 [ %indvars.iv70, %26 ], [ %8, %10 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ %6, %10 ]
-  %14 = tail call noalias dereferenceable_or_null(192) ptr @zalloc(i64 noundef 192) #12
-  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
-  store ptr %14, ptr %15, align 8
-  %16 = icmp eq ptr %14, null
-  br i1 %16, label %.preheader, label %26
+14:                                               ; preds = %10
+  %15 = load i8, ptr %4, align 1
+  %16 = zext i8 %15 to i64
+  %17 = zext i8 %15 to i32
+  br label %18
 
-.preheader:                                       ; preds = %.preheader60
-  %17 = load i8, ptr %4, align 1
-  %18 = zext i8 %17 to i64
-  %.not57.not64 = icmp ugt i64 %indvars.iv, %18
-  br i1 %.not57.not64, label %.lr.ph66.preheader, label %._crit_edge67
+18:                                               ; preds = %31, %14
+  %indvars.iv69.in = phi i32 [ %indvars.iv69, %31 ], [ %17, %14 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ %16, %14 ]
+  %19 = tail call noalias dereferenceable_or_null(192) ptr @zalloc(i64 noundef 192) #12
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
+  store ptr %19, ptr %20, align 8
+  %21 = icmp eq ptr %19, null
+  br i1 %21, label %.preheader, label %31
 
-.lr.ph66.preheader:                               ; preds = %.preheader
-  %19 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.lr.ph66
+.preheader:                                       ; preds = %18
+  %22 = load i8, ptr %4, align 1
+  %23 = zext i8 %22 to i64
+  %.not57.not63 = icmp samesign ugt i64 %indvars.iv, %23
+  br i1 %.not57.not63, label %.lr.ph65.preheader, label %._crit_edge66
 
-.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
-  %.165 = phi i32 [ %20, %.lr.ph66 ], [ %19, %.lr.ph66.preheader ]
-  %20 = add nsw i32 %.165, -1
-  %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %21
-  %23 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %23)
-  %24 = load i8, ptr %4, align 1
-  %25 = zext i8 %24 to i32
-  %.not57.not = icmp sgt i32 %20, %25
-  br i1 %.not57.not, label %.lr.ph66, label %._crit_edge67, !llvm.loop !14
+.lr.ph65.preheader:                               ; preds = %.preheader
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.lr.ph65
 
-._crit_edge67:                                    ; preds = %.lr.ph66, %.preheader
+.lr.ph65:                                         ; preds = %.lr.ph65.preheader, %.lr.ph65
+  %.164 = phi i32 [ %25, %.lr.ph65 ], [ %24, %.lr.ph65.preheader ]
+  %25 = add nsw i32 %.164, -1
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %26
+  %28 = load ptr, ptr %27, align 8
+  tail call void @free(ptr noundef %28)
+  %29 = load i8, ptr %4, align 1
+  %30 = zext i8 %29 to i32
+  %.not57.not = icmp sgt i32 %25, %30
+  br i1 %.not57.not, label %.lr.ph65, label %._crit_edge66, !llvm.loop !14
+
+._crit_edge66:                                    ; preds = %.lr.ph65, %.preheader
   tail call void @free(ptr noundef nonnull %12)
-  br label %48
+  br label %54
 
-26:                                               ; preds = %.preheader60
-  %indvars.iv70 = add i32 %indvars.iv70.in, 1
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %1
-  br i1 %exitcond.not, label %27, label %.preheader60, !llvm.loop !15
+31:                                               ; preds = %18
+  %indvars.iv69 = add i32 %indvars.iv69.in, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %32 = icmp ugt i64 %1, %indvars.iv.next
+  br i1 %32, label %18, label %33, !llvm.loop !15
 
-27:                                               ; preds = %26
-  %28 = trunc nuw nsw i64 %indvars.iv to i32
+33:                                               ; preds = %31
+  %34 = trunc nuw nsw i64 %indvars.iv to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #10, !srcloc !9
-  %29 = load i64, ptr %3, align 8
+  %35 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
-  %30 = load i8, ptr %4, align 1
-  %31 = zext i8 %30 to i64
-  %.not52 = icmp samesign ugt i64 %1, %31
-  br i1 %.not52, label %38, label %32
+  %36 = load i8, ptr %4, align 1
+  %37 = zext i8 %36 to i64
+  %.not52 = icmp samesign ugt i64 %1, %37
+  br i1 %.not52, label %44, label %38
 
-32:                                               ; preds = %27
-  %33 = and i64 %29, 512
-  %.not.i = icmp eq i64 %33, 0
-  br i1 %.not.i, label %up_irq_restore.exit, label %34
+38:                                               ; preds = %33
+  %39 = and i64 %35, 512
+  %.not.i = icmp eq i64 %39, 0
+  br i1 %.not.i, label %up_irq_restore.exit, label %40
 
-34:                                               ; preds = %32
+40:                                               ; preds = %38
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   br label %up_irq_restore.exit
 
-up_irq_restore.exit:                              ; preds = %32, %34
-  %.not5662 = icmp samesign ult i32 %28, %8
-  br i1 %.not5662, label %._crit_edge, label %.lr.ph
+up_irq_restore.exit:                              ; preds = %38, %40
+  %.not5661 = icmp samesign ult i32 %34, %8
+  br i1 %.not5661, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %up_irq_restore.exit
-  %35 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %1
-  %.pre = load ptr, ptr %35, align 8
-  br label %36
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.next
+  %.pre = load ptr, ptr %41, align 8
+  br label %42
 
-36:                                               ; preds = %.lr.ph, %36
-  %.063 = phi i32 [ %8, %.lr.ph ], [ %37, %36 ]
+42:                                               ; preds = %.lr.ph, %42
+  %.062 = phi i32 [ %8, %.lr.ph ], [ %43, %42 ]
   call void @free(ptr noundef %.pre)
-  %37 = add nuw i32 %.063, 1
-  %exitcond73.not = icmp eq i32 %.063, %indvars.iv70.in
-  br i1 %exitcond73.not, label %._crit_edge, label %36, !llvm.loop !16
+  %43 = add nuw i32 %.062, 1
+  %exitcond.not = icmp eq i32 %.062, %indvars.iv69.in
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %36, %up_irq_restore.exit
+._crit_edge:                                      ; preds = %42, %up_irq_restore.exit
   call void @free(ptr noundef nonnull %12)
-  br label %48
+  br label %54
 
-38:                                               ; preds = %27
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %.not53 = icmp eq ptr %40, null
-  br i1 %.not53, label %43, label %41
+44:                                               ; preds = %33
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %.not53 = icmp eq ptr %46, null
+  br i1 %.not53, label %49, label %47
 
-41:                                               ; preds = %38
-  %42 = shl nuw nsw i64 %31, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %40, i64 %42, i1 false)
-  br label %43
+47:                                               ; preds = %44
+  %48 = shl nuw nsw i64 %37, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr nonnull align 8 %46, i64 %48, i1 false)
+  br label %49
 
-43:                                               ; preds = %41, %38
-  store ptr %12, ptr %39, align 8
-  %44 = trunc i64 %1 to i8
-  store i8 %44, ptr %4, align 1
-  %45 = and i64 %29, 512
-  %.not.i58 = icmp eq i64 %45, 0
-  br i1 %.not.i58, label %up_irq_restore.exit59, label %46
+49:                                               ; preds = %47, %44
+  store ptr %12, ptr %45, align 8
+  %50 = trunc i64 %1 to i8
+  store i8 %50, ptr %4, align 1
+  %51 = and i64 %35, 512
+  %.not.i58 = icmp eq i64 %51, 0
+  br i1 %.not.i58, label %up_irq_restore.exit59, label %52
 
-46:                                               ; preds = %43
+52:                                               ; preds = %49
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   br label %up_irq_restore.exit59
 
-up_irq_restore.exit59:                            ; preds = %43, %46
-  br i1 %.not53, label %48, label %47
+up_irq_restore.exit59:                            ; preds = %49, %52
+  br i1 %.not53, label %54, label %53
 
-47:                                               ; preds = %up_irq_restore.exit59
-  call void @free(ptr noundef nonnull %40)
-  br label %48
+53:                                               ; preds = %up_irq_restore.exit59
+  call void @free(ptr noundef nonnull %46)
+  br label %54
 
-48:                                               ; preds = %up_irq_restore.exit59, %47, %10, %7, %2, %._crit_edge, %._crit_edge67
-  %.043 = phi i32 [ -23, %10 ], [ 0, %2 ], [ -24, %7 ], [ -23, %._crit_edge67 ], [ 0, %._crit_edge ], [ 0, %47 ], [ 0, %up_irq_restore.exit59 ]
+54:                                               ; preds = %up_irq_restore.exit59, %53, %10, %7, %2, %._crit_edge, %._crit_edge66
+  %.043 = phi i32 [ -23, %10 ], [ 0, %2 ], [ -24, %7 ], [ -23, %._crit_edge66 ], [ 0, %._crit_edge ], [ 0, %53 ], [ 0, %up_irq_restore.exit59 ]
   ret i32 %.043
 }
 
@@ -1098,7 +1104,7 @@ files_fget_by_index.exit:                         ; preds = %9, %15
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: allocsize(0)
@@ -1121,7 +1127,7 @@ attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }

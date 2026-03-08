@@ -509,7 +509,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #13
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -3839,7 +3839,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %21, %_ZN5Eigen8inte
   %33 = tail call ptr @__cxa_allocate_exception(i64 8) #29
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %33, align 8, !tbaa !15
   invoke void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #30
-          to label %.noexc28 unwind label %57
+          to label %.noexc28 unwind label %56
 
 .noexc28:                                         ; preds = %32
   unreachable
@@ -3847,87 +3847,87 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %21, %_ZN5Eigen8inte
 34:                                               ; preds = %_ZN5Eigen8internal14aligned_mallocEm.exit
   %35 = load ptr, ptr %6, align 8, !tbaa !61
   %.not23 = icmp eq ptr %35, null
-  br i1 %.not23, label %36, label %47
+  %36 = shl nuw i64 %30, 3
+  br i1 %.not23, label %37, label %._crit_edge
 
-36:                                               ; preds = %34
-  %37 = shl nuw i64 %30, 3
+37:                                               ; preds = %34
   %38 = icmp samesign ult i64 %30, 16385
   br i1 %38, label %39, label %42
 
-39:                                               ; preds = %36
-  %40 = add nuw nsw i64 %37, 15
+39:                                               ; preds = %37
+  %40 = add nuw nsw i64 %36, 15
   %41 = alloca i8, i64 %40, align 16
-  br label %47
+  br label %._crit_edge
 
-42:                                               ; preds = %36
-  %43 = tail call noalias ptr @malloc(i64 noundef %37) #31
+42:                                               ; preds = %37
+  %43 = tail call noalias ptr @malloc(i64 noundef %36) #31
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %47
+  br i1 %44, label %45, label %._crit_edge
 
 45:                                               ; preds = %42
   %46 = tail call ptr @__cxa_allocate_exception(i64 8) #29
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %46, align 8, !tbaa !15
   invoke void @__cxa_throw(ptr nonnull %46, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #30
-          to label %.noexc31 unwind label %59
+          to label %.noexc31 unwind label %58
 
 .noexc31:                                         ; preds = %45
   unreachable
 
-47:                                               ; preds = %39, %34, %42
-  %48 = phi ptr [ null, %34 ], [ %41, %39 ], [ %43, %42 ]
-  %49 = phi ptr [ %35, %34 ], [ %41, %39 ], [ %43, %42 ]
-  %50 = icmp samesign ugt i64 %30, 16384
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %52 = load i64, ptr %51, align 8, !tbaa !94
-  %53 = load ptr, ptr %5, align 8, !tbaa !95
-  invoke void @_ZN5Eigen8internal33selfadjoint_matrix_vector_productIdlLi0ELi2ELb0ELb0ELi0EE3runElPKdlS4_Pdd(i64 noundef %52, ptr noundef nonnull %53, i64 noundef %52, ptr noundef nonnull %49, ptr noundef nonnull %27, double noundef %7)
-          to label %54 unwind label %61
+._crit_edge:                                      ; preds = %34, %39, %42
+  %47 = phi ptr [ %43, %42 ], [ %41, %39 ], [ null, %34 ]
+  %48 = phi ptr [ %43, %42 ], [ %41, %39 ], [ %35, %34 ]
+  %49 = icmp ugt i64 %30, 16384
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %51 = load i64, ptr %50, align 8, !tbaa !94
+  %52 = load ptr, ptr %5, align 8, !tbaa !95
+  invoke void @_ZN5Eigen8internal33selfadjoint_matrix_vector_productIdlLi0ELi2ELb0ELb0ELi0EE3runElPKdlS4_Pdd(i64 noundef %51, ptr noundef nonnull %52, i64 noundef %51, ptr noundef nonnull %48, ptr noundef nonnull %27, double noundef %7)
+          to label %53 unwind label %60
 
-54:                                               ; preds = %47
-  br i1 %50, label %55, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
+53:                                               ; preds = %._crit_edge
+  br i1 %49, label %54, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
 
-55:                                               ; preds = %54
-  call void @free(ptr noundef %48) #29
+54:                                               ; preds = %53
+  call void @free(ptr noundef %47) #29
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit: ; preds = %54, %55
-  br i1 %28, label %56, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit33
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit: ; preds = %53, %54
+  br i1 %28, label %55, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit33
 
-56:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
+55:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
   call void @free(ptr noundef %26) #29
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit33
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit33: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit, %56
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit33: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit, %55
   ret void
 
-57:                                               ; preds = %32
-  %58 = landingpad { ptr, i32 }
+56:                                               ; preds = %32
+  %57 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34
 
-59:                                               ; preds = %45
-  %60 = landingpad { ptr, i32 }
+58:                                               ; preds = %45
+  %59 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34
 
-61:                                               ; preds = %47
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %._crit_edge
+  %61 = landingpad { ptr, i32 }
           cleanup
-  br i1 %50, label %63, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34
+  br i1 %49, label %62, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34
 
-63:                                               ; preds = %61
-  call void @free(ptr noundef %48) #29
+62:                                               ; preds = %60
+  call void @free(ptr noundef %47) #29
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34: ; preds = %61, %63, %59, %57
-  %.pn.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %60, %59 ], [ %62, %63 ], [ %62, %61 ]
-  br i1 %28, label %64, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit35
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34: ; preds = %60, %62, %58, %56
+  %.pn.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %59, %58 ], [ %61, %62 ], [ %61, %60 ]
+  br i1 %28, label %63, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit35
 
-64:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34
+63:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34
   call void @free(ptr noundef %26) #29
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit35
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit35: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34, %64
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit35: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34, %63
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -4240,7 +4240,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %25, %_ZN5Eigen8inte
   %37 = tail call ptr @__cxa_allocate_exception(i64 8) #29
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %37, align 8, !tbaa !15
   invoke void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #30
-          to label %.noexc28 unwind label %61
+          to label %.noexc28 unwind label %60
 
 .noexc28:                                         ; preds = %36
   unreachable
@@ -4248,87 +4248,87 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %25, %_ZN5Eigen8inte
 38:                                               ; preds = %_ZN5Eigen8internal14aligned_mallocEm.exit
   %39 = load ptr, ptr %7, align 8, !tbaa !61
   %.not23 = icmp eq ptr %39, null
-  br i1 %.not23, label %40, label %51
+  %40 = shl nuw i64 %34, 3
+  br i1 %.not23, label %41, label %._crit_edge
 
-40:                                               ; preds = %38
-  %41 = shl nuw i64 %34, 3
+41:                                               ; preds = %38
   %42 = icmp samesign ult i64 %34, 16385
   br i1 %42, label %43, label %46
 
-43:                                               ; preds = %40
-  %44 = add nuw nsw i64 %41, 15
+43:                                               ; preds = %41
+  %44 = add nuw nsw i64 %40, 15
   %45 = alloca i8, i64 %44, align 16
-  br label %51
+  br label %._crit_edge
 
-46:                                               ; preds = %40
-  %47 = tail call noalias ptr @malloc(i64 noundef %41) #31
+46:                                               ; preds = %41
+  %47 = tail call noalias ptr @malloc(i64 noundef %40) #31
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %51
+  br i1 %48, label %49, label %._crit_edge
 
 49:                                               ; preds = %46
   %50 = tail call ptr @__cxa_allocate_exception(i64 8) #29
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %50, align 8, !tbaa !15
   invoke void @__cxa_throw(ptr nonnull %50, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #30
-          to label %.noexc31 unwind label %63
+          to label %.noexc31 unwind label %62
 
 .noexc31:                                         ; preds = %49
   unreachable
 
-51:                                               ; preds = %43, %38, %46
-  %52 = phi ptr [ null, %38 ], [ %45, %43 ], [ %47, %46 ]
-  %53 = phi ptr [ %39, %38 ], [ %45, %43 ], [ %47, %46 ]
-  %54 = icmp samesign ugt i64 %34, 16384
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %56 = load i64, ptr %55, align 8, !tbaa !94
-  %57 = load ptr, ptr %5, align 8, !tbaa !95
-  invoke void @_ZN5Eigen8internal33selfadjoint_matrix_vector_productIdlLi0ELi2ELb0ELb0ELi0EE3runElPKdlS4_Pdd(i64 noundef %56, ptr noundef nonnull %57, i64 noundef %56, ptr noundef nonnull %53, ptr noundef nonnull %31, double noundef %11)
-          to label %58 unwind label %65
+._crit_edge:                                      ; preds = %38, %43, %46
+  %51 = phi ptr [ %47, %46 ], [ %45, %43 ], [ null, %38 ]
+  %52 = phi ptr [ %47, %46 ], [ %45, %43 ], [ %39, %38 ]
+  %53 = icmp ugt i64 %34, 16384
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %55 = load i64, ptr %54, align 8, !tbaa !94
+  %56 = load ptr, ptr %5, align 8, !tbaa !95
+  invoke void @_ZN5Eigen8internal33selfadjoint_matrix_vector_productIdlLi0ELi2ELb0ELb0ELi0EE3runElPKdlS4_Pdd(i64 noundef %55, ptr noundef nonnull %56, i64 noundef %55, ptr noundef nonnull %52, ptr noundef nonnull %31, double noundef %11)
+          to label %57 unwind label %64
 
-58:                                               ; preds = %51
-  br i1 %54, label %59, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
+57:                                               ; preds = %._crit_edge
+  br i1 %53, label %58, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
 
-59:                                               ; preds = %58
-  call void @free(ptr noundef %52) #29
+58:                                               ; preds = %57
+  call void @free(ptr noundef %51) #29
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit: ; preds = %58, %59
-  br i1 %32, label %60, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit33
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit: ; preds = %57, %58
+  br i1 %32, label %59, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit33
 
-60:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
+59:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
   call void @free(ptr noundef %30) #29
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit33
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit33: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit, %60
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit33: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit, %59
   ret void
 
-61:                                               ; preds = %36
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %36
+  %61 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34
 
-63:                                               ; preds = %49
-  %64 = landingpad { ptr, i32 }
+62:                                               ; preds = %49
+  %63 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34
 
-65:                                               ; preds = %51
-  %66 = landingpad { ptr, i32 }
+64:                                               ; preds = %._crit_edge
+  %65 = landingpad { ptr, i32 }
           cleanup
-  br i1 %54, label %67, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34
+  br i1 %53, label %66, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34
 
-67:                                               ; preds = %65
-  call void @free(ptr noundef %52) #29
+66:                                               ; preds = %64
+  call void @free(ptr noundef %51) #29
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34: ; preds = %65, %67, %63, %61
-  %.pn.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %64, %63 ], [ %66, %67 ], [ %66, %65 ]
-  br i1 %32, label %68, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit35
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34: ; preds = %64, %66, %62, %60
+  %.pn.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %63, %62 ], [ %65, %66 ], [ %65, %64 ]
+  br i1 %32, label %67, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit35
 
-68:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34
+67:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34
   call void @free(ptr noundef %30) #29
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit35
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit35: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34, %68
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit35: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit34, %67
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -4766,7 +4766,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %23, %_ZN5Eigen8inte
   %35 = tail call ptr @__cxa_allocate_exception(i64 8) #29
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %35, align 8, !tbaa !15
   invoke void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #30
-          to label %.noexc40 unwind label %61
+          to label %.noexc40 unwind label %60
 
 .noexc40:                                         ; preds = %34
   unreachable
@@ -4774,89 +4774,89 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %23, %_ZN5Eigen8inte
 36:                                               ; preds = %_ZN5Eigen8internal14aligned_mallocEm.exit
   %37 = load ptr, ptr %6, align 8, !tbaa !61
   %.not35 = icmp eq ptr %37, null
-  br i1 %.not35, label %38, label %49
+  %38 = shl nuw i64 %32, 3
+  br i1 %.not35, label %39, label %._crit_edge
 
-38:                                               ; preds = %36
-  %39 = shl nuw i64 %32, 3
+39:                                               ; preds = %36
   %40 = icmp samesign ult i64 %32, 16385
   br i1 %40, label %41, label %44
 
-41:                                               ; preds = %38
-  %42 = add nuw nsw i64 %39, 15
+41:                                               ; preds = %39
+  %42 = add nuw nsw i64 %38, 15
   %43 = alloca i8, i64 %42, align 16
-  br label %49
+  br label %._crit_edge
 
-44:                                               ; preds = %38
-  %45 = tail call noalias ptr @malloc(i64 noundef %39) #31
+44:                                               ; preds = %39
+  %45 = tail call noalias ptr @malloc(i64 noundef %38) #31
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %49
+  br i1 %46, label %47, label %._crit_edge
 
 47:                                               ; preds = %44
   %48 = tail call ptr @__cxa_allocate_exception(i64 8) #29
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %48, align 8, !tbaa !15
   invoke void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #30
-          to label %.noexc43 unwind label %63
+          to label %.noexc43 unwind label %62
 
 .noexc43:                                         ; preds = %47
   unreachable
 
-49:                                               ; preds = %44, %36, %41
-  %50 = phi ptr [ null, %36 ], [ %43, %41 ], [ %45, %44 ]
-  %51 = phi ptr [ %37, %36 ], [ %43, %41 ], [ %45, %44 ]
-  %52 = icmp samesign ugt i64 %32, 16384
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %54 = load i64, ptr %53, align 8, !tbaa !93
-  %55 = load ptr, ptr %1, align 8, !tbaa !95
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %57 = load i64, ptr %56, align 8, !tbaa !94
-  invoke void @_ZN5Eigen8internal33selfadjoint_matrix_vector_productIdlLi1ELi1ELb0ELb0ELi0EE3runElPKdlS4_Pdd(i64 noundef %54, ptr noundef nonnull %55, i64 noundef %57, ptr noundef nonnull %51, ptr noundef nonnull %29, double noundef %10)
-          to label %58 unwind label %65
+._crit_edge:                                      ; preds = %36, %44, %41
+  %49 = phi ptr [ %43, %41 ], [ %45, %44 ], [ null, %36 ]
+  %50 = phi ptr [ %43, %41 ], [ %45, %44 ], [ %37, %36 ]
+  %51 = icmp ugt i64 %32, 16384
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %53 = load i64, ptr %52, align 8, !tbaa !93
+  %54 = load ptr, ptr %1, align 8, !tbaa !95
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %56 = load i64, ptr %55, align 8, !tbaa !94
+  invoke void @_ZN5Eigen8internal33selfadjoint_matrix_vector_productIdlLi1ELi1ELb0ELb0ELi0EE3runElPKdlS4_Pdd(i64 noundef %53, ptr noundef nonnull %54, i64 noundef %56, ptr noundef nonnull %50, ptr noundef nonnull %29, double noundef %10)
+          to label %57 unwind label %64
 
-58:                                               ; preds = %49
-  br i1 %52, label %59, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
+57:                                               ; preds = %._crit_edge
+  br i1 %51, label %58, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
 
-59:                                               ; preds = %58
-  call void @free(ptr noundef %50) #29
+58:                                               ; preds = %57
+  call void @free(ptr noundef %49) #29
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit: ; preds = %58, %59
-  br i1 %30, label %60, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit45
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit: ; preds = %57, %58
+  br i1 %30, label %59, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit45
 
-60:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
+59:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit
   call void @free(ptr noundef %28) #29
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit45
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit45: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit, %60
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit45: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit, %59
   ret void
 
-61:                                               ; preds = %34
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %34
+  %61 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46
 
-63:                                               ; preds = %47
-  %64 = landingpad { ptr, i32 }
+62:                                               ; preds = %47
+  %63 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46
 
-65:                                               ; preds = %49
-  %66 = landingpad { ptr, i32 }
+64:                                               ; preds = %._crit_edge
+  %65 = landingpad { ptr, i32 }
           cleanup
-  br i1 %52, label %67, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46
+  br i1 %51, label %66, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46
 
-67:                                               ; preds = %65
-  call void @free(ptr noundef %50) #29
+66:                                               ; preds = %64
+  call void @free(ptr noundef %49) #29
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46: ; preds = %65, %67, %63, %61
-  %.pn.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %64, %63 ], [ %66, %67 ], [ %66, %65 ]
-  br i1 %30, label %68, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit47
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46: ; preds = %64, %66, %62, %60
+  %.pn.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %63, %62 ], [ %65, %66 ], [ %65, %64 ]
+  br i1 %30, label %67, label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit47
 
-68:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46
+67:                                               ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46
   call void @free(ptr noundef %28) #29
   br label %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit47
 
-_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit47: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46, %68
+_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit47: ; preds = %_ZN5Eigen8internal28aligned_stack_memory_handlerIdED2Ev.exit46, %67
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -5133,7 +5133,7 @@ attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" 
 attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { cold noreturn }
 attributes #14 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

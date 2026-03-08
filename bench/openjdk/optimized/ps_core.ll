@@ -209,7 +209,7 @@ define noundef ptr @Pgrab_core(ptr noundef %0, ptr noundef readonly captures(non
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @print_debug(ptr noundef, ...) local_unnamed_addr #2
@@ -628,86 +628,86 @@ define internal fastcc range(i32 0, 2) i32 @sort_map_array(ptr noundef nonnull r
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i64, ptr %4, align 8
-  %6 = shl i64 %5, 3
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #16
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %.preheader
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %7 = load ptr, ptr %6, align 8
+  %8 = shl i64 %5, 3
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #16
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %.024.in29 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %.02430 = load ptr, ptr %.024.in29, align 8
-  %.not31 = icmp eq ptr %.02430, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  %.not29 = icmp eq ptr %7, null
+  br i1 %.not29, label %._crit_edge, label %.lr.ph
 
-9:                                                ; preds = %1
+11:                                               ; preds = %1
   tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.44) #15
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %.02433 = phi ptr [ %.024, %.lr.ph ], [ %.02430, %.preheader ]
-  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
-  store ptr %.02433, ptr %10, align 8
+  %.02430 = phi ptr [ %14, %.lr.ph ], [ %7, %.preheader ]
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
+  store ptr %.02430, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.024.in = getelementptr inbounds nuw i8, ptr %.02433, i64 40
-  %.024 = load ptr, ptr %.024.in, align 8
-  %.not = icmp eq ptr %.024, null
+  %13 = getelementptr inbounds nuw i8, ptr %.02430, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %12 = load ptr, ptr %11, align 8
-  %.not27 = icmp eq ptr %12, null
-  br i1 %.not27, label %14, label %13
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %16 = load ptr, ptr %15, align 8
+  %.not27 = icmp eq ptr %16, null
+  br i1 %.not27, label %18, label %17
 
-13:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef nonnull %12) #15
+17:                                               ; preds = %._crit_edge
+  tail call void @free(ptr noundef nonnull %16) #15
   %.pre = load ptr, ptr %2, align 8
-  br label %14
+  br label %18
 
-14:                                               ; preds = %13, %._crit_edge
-  %15 = phi ptr [ %.pre, %13 ], [ %3, %._crit_edge ]
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store ptr %7, ptr %16, align 8
-  %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %21 = load i64, ptr %20, align 8
-  tail call void @qsort(ptr noundef %19, i64 noundef %21, i64 noundef 8, ptr noundef nonnull @core_cmp_mapping) #15
-  %22 = tail call i32 (...) @is_debug() #15
-  %.not28 = icmp eq i32 %22, 0
-  br i1 %.not28, label %.loopexit, label %23
+18:                                               ; preds = %17, %._crit_edge
+  %19 = phi ptr [ %.pre, %17 ], [ %3, %._crit_edge ]
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
+  store ptr %9, ptr %20, align 8
+  %21 = load ptr, ptr %2, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %25 = load i64, ptr %24, align 8
+  tail call void @qsort(ptr noundef %23, i64 noundef %25, i64 noundef 8, ptr noundef nonnull @core_cmp_mapping) #15
+  %26 = tail call i32 (...) @is_debug() #15
+  %.not28 = icmp eq i32 %26, 0
+  br i1 %.not28, label %.loopexit, label %27
 
-23:                                               ; preds = %14
+27:                                               ; preds = %18
   tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.45) #15
-  %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = load i64, ptr %25, align 8
-  %.not37 = icmp eq i64 %26, 0
-  br i1 %.not37, label %.loopexit, label %.lr.ph36
+  %28 = load ptr, ptr %2, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %30 = load i64, ptr %29, align 8
+  %.not35 = icmp eq i64 %30, 0
+  br i1 %.not35, label %.loopexit, label %.lr.ph34
 
-.lr.ph36:                                         ; preds = %23, %.lr.ph36
-  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %.lr.ph36 ], [ 0, %23 ]
-  %27 = phi ptr [ %36, %.lr.ph36 ], [ %24, %23 ]
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv39
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %35 = load i64, ptr %34, align 8
-  tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.46, i64 noundef %33, i64 noundef %35) #15
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %38 = load i64, ptr %37, align 8
-  %39 = icmp ugt i64 %38, %indvars.iv.next40
-  br i1 %39, label %.lr.ph36, label %.loopexit, !llvm.loop !12
+.lr.ph34:                                         ; preds = %27, %.lr.ph34
+  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.lr.ph34 ], [ 0, %27 ]
+  %31 = phi ptr [ %40, %.lr.ph34 ], [ %28, %27 ]
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv37
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %37 = load i64, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %39 = load i64, ptr %38, align 8
+  tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.46, i64 noundef %37, i64 noundef %39) #15
+  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %40 = load ptr, ptr %2, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %42 = load i64, ptr %41, align 8
+  %43 = icmp ugt i64 %42, %indvars.iv.next38
+  br i1 %43, label %.lr.ph34, label %.loopexit, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.lr.ph36, %23, %14, %9
-  %.022 = phi i32 [ 0, %9 ], [ 1, %14 ], [ 1, %23 ], [ 1, %.lr.ph36 ]
+.loopexit:                                        ; preds = %.lr.ph34, %27, %18, %11
+  %.022 = phi i32 [ 0, %11 ], [ 1, %18 ], [ 1, %27 ], [ 1, %.lr.ph34 ]
   ret i32 %.022
 }
 
@@ -1064,7 +1064,7 @@ declare ptr @add_map_info(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i6
 ; Function Attrs: nounwind
 declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree
@@ -1314,7 +1314,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1323,7 +1323,7 @@ attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

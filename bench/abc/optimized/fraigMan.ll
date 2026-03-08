@@ -232,6 +232,7 @@ define noundef ptr @Fraig_ManCreate(ptr noundef captures(address_is_null) %0) lo
   br i1 %3, label %.thread212, label %4
 
 .thread212:                                       ; preds = %1
+  store i32 2048, ptr %.sroa.0, align 8, !tbaa !25
   store i32 2048, ptr %.sroa.4, align 4, !tbaa !27
   store i32 99, ptr %.sroa.6, align 8, !tbaa !28
   store i32 20, ptr %.sroa.8, align 4, !tbaa !29
@@ -289,117 +290,116 @@ define noundef ptr @Fraig_ManCreate(ptr noundef captures(address_is_null) %0) lo
   %.0.sroa.phi131.sroa.phi138190 = phi ptr [ %.0.sroa.phi131.sroa.gep140, %.thread ], [ %.0.sroa.phi131.sroa.gep140, %8 ], [ %.0.sroa.phi131.sroa.gep140, %6 ], [ %.sroa.10, %.thread212 ]
   %.0.sroa.phi131.sroa.phi135188 = phi ptr [ %.0.sroa.phi131.sroa.gep137, %.thread ], [ %.0.sroa.phi131.sroa.gep137, %8 ], [ %.0.sroa.phi131.sroa.gep137, %6 ], [ %.sroa.8, %.thread212 ]
   %.0.sroa.phi131.sroa.phi186 = phi ptr [ %.0.sroa.phi131.sroa.gep134, %.thread ], [ %.0.sroa.phi131.sroa.gep134, %8 ], [ %.0.sroa.phi131.sroa.gep134, %6 ], [ %.sroa.6, %.thread212 ]
-  %10 = phi i32 [ 128, %.thread ], [ 32768, %8 ], [ %.pre, %6 ], [ 2048, %.thread212 ]
-  %11 = load i32, ptr %.0.sroa.phi131.sroa.phi165208, align 4, !tbaa !27
-  %12 = icmp slt i32 %11, 128
-  br i1 %12, label %.sink.split, label %13
+  %10 = load i32, ptr %.0.sroa.phi131.sroa.phi165208, align 4, !tbaa !27
+  %11 = icmp slt i32 %10, 128
+  br i1 %11, label %.sink.split, label %12
 
-13:                                               ; preds = %9
-  %14 = icmp samesign ugt i32 %11, 32768
-  br i1 %14, label %.sink.split, label %15
+12:                                               ; preds = %9
+  %13 = icmp samesign ugt i32 %10, 32768
+  br i1 %13, label %.sink.split, label %14
 
-.sink.split:                                      ; preds = %13, %9
-  %.sink = phi i32 [ 128, %9 ], [ 32768, %13 ]
+.sink.split:                                      ; preds = %12, %9
+  %.sink = phi i32 [ 128, %9 ], [ 32768, %12 ]
   store i32 %.sink, ptr %.0.sroa.phi131.sroa.phi165208, align 4, !tbaa !27
-  br label %15
+  br label %14
 
-15:                                               ; preds = %.sink.split, %13
-  %16 = phi i32 [ %11, %13 ], [ %.sink, %.sink.split ]
-  %17 = load i32, ptr %.0.sroa.phi131.sroa.phi138190, align 8, !tbaa !30
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %18, label %19
+14:                                               ; preds = %.sink.split, %12
+  %15 = load i32, ptr %.0.sroa.phi131.sroa.phi138190, align 8, !tbaa !30
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %16, label %17
 
-18:                                               ; preds = %15
+16:                                               ; preds = %14
   store i32 128, ptr %.0.sroa.phi131.sroa.phi165208, align 4, !tbaa !27
   store i32 128, ptr %.0.sroa.phi131210, align 8, !tbaa !25
-  br label %19
+  br label %17
 
-19:                                               ; preds = %18, %15
-  %20 = phi i32 [ 128, %18 ], [ %16, %15 ]
-  %21 = phi i32 [ 128, %18 ], [ %10, %15 ]
+17:                                               ; preds = %16, %14
   %calloc = tail call dereferenceable_or_null(464) ptr @calloc(i64 1, i64 464)
-  %22 = lshr i32 %21, 5
-  %23 = and i32 %21, 31
-  %24 = icmp ne i32 %23, 0
-  %25 = zext i1 %24 to i32
-  %26 = add nuw nsw i32 %22, %25
-  %27 = getelementptr inbounds nuw i8, ptr %calloc, i64 72
-  store i32 %26, ptr %27, align 8, !tbaa !36
-  %28 = lshr i32 %20, 5
-  %29 = and i32 %20, 31
-  %30 = icmp ne i32 %29, 0
-  %31 = zext i1 %30 to i32
-  %32 = add nuw nsw i32 %28, %31
-  %33 = getelementptr inbounds nuw i8, ptr %calloc, i64 76
-  store i32 %32, ptr %33, align 4, !tbaa !49
-  %34 = load i32, ptr %.0.sroa.phi131.sroa.phi186, align 8, !tbaa !28
-  %35 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
-  store i32 %34, ptr %35, align 8, !tbaa !50
-  %36 = load i32, ptr %.0.sroa.phi131.sroa.phi135188, align 4, !tbaa !29
-  %37 = getelementptr inbounds nuw i8, ptr %calloc, i64 84
-  store i32 %36, ptr %37, align 4, !tbaa !51
-  %38 = getelementptr inbounds nuw i8, ptr %calloc, i64 88
-  store i32 %17, ptr %38, align 8, !tbaa !52
-  %39 = load i32, ptr %.0.sroa.phi131.sroa.phi141192, align 4, !tbaa !31
-  %40 = getelementptr inbounds nuw i8, ptr %calloc, i64 92
-  store i32 %39, ptr %40, align 4, !tbaa !53
-  %41 = load i32, ptr %.0.sroa.phi131.sroa.phi144194, align 8, !tbaa !32
-  %42 = getelementptr inbounds nuw i8, ptr %calloc, i64 96
-  store i32 %41, ptr %42, align 8, !tbaa !54
-  %43 = load i32, ptr %.0.sroa.phi131.sroa.phi147196, align 4, !tbaa !33
-  %44 = getelementptr inbounds nuw i8, ptr %calloc, i64 100
-  store i32 %43, ptr %44, align 4, !tbaa !55
-  %45 = load i32, ptr %.0.sroa.phi131.sroa.phi150198, align 8, !tbaa !34
-  %46 = getelementptr inbounds nuw i8, ptr %calloc, i64 104
-  store i32 %45, ptr %46, align 8, !tbaa !56
-  %47 = load i32, ptr %.0.sroa.phi131.sroa.phi153200, align 4, !tbaa !35
-  %48 = getelementptr inbounds nuw i8, ptr %calloc, i64 108
-  store i32 %47, ptr %48, align 4, !tbaa !57
-  %49 = load i32, ptr %.0.sroa.phi131.sroa.phi156202, align 8, !tbaa !58
-  %50 = getelementptr inbounds nuw i8, ptr %calloc, i64 112
-  store i32 %49, ptr %50, align 8, !tbaa !59
-  %51 = load i32, ptr %.0.sroa.phi131.sroa.phi159204, align 4, !tbaa !60
-  %52 = getelementptr inbounds nuw i8, ptr %calloc, i64 116
-  store i32 %51, ptr %52, align 4, !tbaa !61
-  %53 = load i64, ptr %.0.sroa.phi131.sroa.phi162206, align 8, !tbaa !62
-  %54 = getelementptr inbounds nuw i8, ptr %calloc, i64 120
-  store i64 %53, ptr %54, align 8, !tbaa !63
-  %55 = tail call ptr @Fraig_MemFixedStart(i32 noundef 160) #12
-  %56 = getelementptr inbounds nuw i8, ptr %calloc, i64 216
-  store ptr %55, ptr %56, align 8, !tbaa !64
-  %57 = add nuw nsw i32 %32, %26
-  %58 = shl nuw nsw i32 %57, 2
-  %59 = tail call ptr @Fraig_MemFixedStart(i32 noundef %58) #12
-  %60 = getelementptr inbounds nuw i8, ptr %calloc, i64 224
-  store ptr %59, ptr %60, align 8, !tbaa !65
+  %18 = load i32, ptr %.0.sroa.phi131210, align 8, !tbaa !25
+  %19 = ashr i32 %18, 5
+  %20 = and i32 %18, 31
+  %21 = icmp ne i32 %20, 0
+  %22 = zext i1 %21 to i32
+  %23 = add nsw i32 %19, %22
+  %24 = getelementptr inbounds nuw i8, ptr %calloc, i64 72
+  store i32 %23, ptr %24, align 8, !tbaa !36
+  %25 = load i32, ptr %.0.sroa.phi131.sroa.phi165208, align 4, !tbaa !27
+  %26 = ashr i32 %25, 5
+  %27 = and i32 %25, 31
+  %28 = icmp ne i32 %27, 0
+  %29 = zext i1 %28 to i32
+  %30 = add nsw i32 %26, %29
+  %31 = getelementptr inbounds nuw i8, ptr %calloc, i64 76
+  store i32 %30, ptr %31, align 4, !tbaa !49
+  %32 = load i32, ptr %.0.sroa.phi131.sroa.phi186, align 8, !tbaa !28
+  %33 = getelementptr inbounds nuw i8, ptr %calloc, i64 80
+  store i32 %32, ptr %33, align 8, !tbaa !50
+  %34 = load i32, ptr %.0.sroa.phi131.sroa.phi135188, align 4, !tbaa !29
+  %35 = getelementptr inbounds nuw i8, ptr %calloc, i64 84
+  store i32 %34, ptr %35, align 4, !tbaa !51
+  %36 = load i32, ptr %.0.sroa.phi131.sroa.phi138190, align 8, !tbaa !30
+  %37 = getelementptr inbounds nuw i8, ptr %calloc, i64 88
+  store i32 %36, ptr %37, align 8, !tbaa !52
+  %38 = load i32, ptr %.0.sroa.phi131.sroa.phi141192, align 4, !tbaa !31
+  %39 = getelementptr inbounds nuw i8, ptr %calloc, i64 92
+  store i32 %38, ptr %39, align 4, !tbaa !53
+  %40 = load i32, ptr %.0.sroa.phi131.sroa.phi144194, align 8, !tbaa !32
+  %41 = getelementptr inbounds nuw i8, ptr %calloc, i64 96
+  store i32 %40, ptr %41, align 8, !tbaa !54
+  %42 = load i32, ptr %.0.sroa.phi131.sroa.phi147196, align 4, !tbaa !33
+  %43 = getelementptr inbounds nuw i8, ptr %calloc, i64 100
+  store i32 %42, ptr %43, align 4, !tbaa !55
+  %44 = load i32, ptr %.0.sroa.phi131.sroa.phi150198, align 8, !tbaa !34
+  %45 = getelementptr inbounds nuw i8, ptr %calloc, i64 104
+  store i32 %44, ptr %45, align 8, !tbaa !56
+  %46 = load i32, ptr %.0.sroa.phi131.sroa.phi153200, align 4, !tbaa !35
+  %47 = getelementptr inbounds nuw i8, ptr %calloc, i64 108
+  store i32 %46, ptr %47, align 4, !tbaa !57
+  %48 = load i32, ptr %.0.sroa.phi131.sroa.phi156202, align 8, !tbaa !58
+  %49 = getelementptr inbounds nuw i8, ptr %calloc, i64 112
+  store i32 %48, ptr %49, align 8, !tbaa !59
+  %50 = load i32, ptr %.0.sroa.phi131.sroa.phi159204, align 4, !tbaa !60
+  %51 = getelementptr inbounds nuw i8, ptr %calloc, i64 116
+  store i32 %50, ptr %51, align 4, !tbaa !61
+  %52 = load i64, ptr %.0.sroa.phi131.sroa.phi162206, align 8, !tbaa !62
+  %53 = getelementptr inbounds nuw i8, ptr %calloc, i64 120
+  store i64 %52, ptr %53, align 8, !tbaa !63
+  %54 = tail call ptr @Fraig_MemFixedStart(i32 noundef 160) #12
+  %55 = getelementptr inbounds nuw i8, ptr %calloc, i64 216
+  store ptr %54, ptr %55, align 8, !tbaa !64
+  %56 = add nsw i32 %30, %23
+  %57 = shl nsw i32 %56, 2
+  %58 = tail call ptr @Fraig_MemFixedStart(i32 noundef %57) #12
+  %59 = getelementptr inbounds nuw i8, ptr %calloc, i64 224
+  store ptr %58, ptr %59, align 8, !tbaa !65
+  %60 = tail call ptr @Fraig_NodeVecAlloc(i32 noundef 1000) #12
+  store ptr %60, ptr %calloc, align 8, !tbaa !66
   %61 = tail call ptr @Fraig_NodeVecAlloc(i32 noundef 1000) #12
-  store ptr %61, ptr %calloc, align 8, !tbaa !66
-  %62 = tail call ptr @Fraig_NodeVecAlloc(i32 noundef 1000) #12
-  %63 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
-  store ptr %62, ptr %63, align 8, !tbaa !67
-  %64 = tail call ptr @Fraig_NodeVecAlloc(i32 noundef 1000) #12
-  %65 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
-  store ptr %64, ptr %65, align 8, !tbaa !68
-  %66 = tail call ptr @Fraig_HashTableCreate(i32 noundef 1000) #12
-  %67 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
-  store ptr %66, ptr %67, align 8, !tbaa !69
-  %68 = tail call ptr @Fraig_HashTableCreate(i32 noundef 1000) #12
-  %69 = getelementptr inbounds nuw i8, ptr %calloc, i64 56
-  store ptr %68, ptr %69, align 8, !tbaa !70
-  %70 = tail call ptr @Fraig_HashTableCreate(i32 noundef 1000) #12
-  %71 = getelementptr inbounds nuw i8, ptr %calloc, i64 64
-  store ptr %70, ptr %71, align 8, !tbaa !71
-  %72 = tail call ptr @Fraig_NodeCreateConst(ptr noundef nonnull %calloc) #12
-  %73 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  store ptr %72, ptr %73, align 8, !tbaa !72
+  %62 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
+  store ptr %61, ptr %62, align 8, !tbaa !67
+  %63 = tail call ptr @Fraig_NodeVecAlloc(i32 noundef 1000) #12
+  %64 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
+  store ptr %63, ptr %64, align 8, !tbaa !68
+  %65 = tail call ptr @Fraig_HashTableCreate(i32 noundef 1000) #12
+  %66 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
+  store ptr %65, ptr %66, align 8, !tbaa !69
+  %67 = tail call ptr @Fraig_HashTableCreate(i32 noundef 1000) #12
+  %68 = getelementptr inbounds nuw i8, ptr %calloc, i64 56
+  store ptr %67, ptr %68, align 8, !tbaa !70
+  %69 = tail call ptr @Fraig_HashTableCreate(i32 noundef 1000) #12
+  %70 = getelementptr inbounds nuw i8, ptr %calloc, i64 64
+  store ptr %69, ptr %70, align 8, !tbaa !71
+  %71 = tail call ptr @Fraig_NodeCreateConst(ptr noundef nonnull %calloc) #12
+  %72 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
+  store ptr %71, ptr %72, align 8, !tbaa !72
   tail call void @Fraig_FeedBackInit(ptr noundef nonnull %calloc) #12
-  %74 = tail call ptr @Msat_IntVecAlloc(i32 noundef 10) #12
-  %75 = getelementptr inbounds nuw i8, ptr %calloc, i64 240
-  store ptr %74, ptr %75, align 8, !tbaa !73
-  %76 = getelementptr inbounds nuw i8, ptr %calloc, i64 128
-  store i32 1, ptr %76, align 8, !tbaa !74
-  %77 = getelementptr inbounds nuw i8, ptr %calloc, i64 132
-  store i32 1, ptr %77, align 4, !tbaa !75
+  %73 = tail call ptr @Msat_IntVecAlloc(i32 noundef 10) #12
+  %74 = getelementptr inbounds nuw i8, ptr %calloc, i64 240
+  store ptr %73, ptr %74, align 8, !tbaa !73
+  %75 = getelementptr inbounds nuw i8, ptr %calloc, i64 128
+  store i32 1, ptr %75, align 8, !tbaa !74
+  %76 = getelementptr inbounds nuw i8, ptr %calloc, i64 132
+  store i32 1, ptr %76, align 4, !tbaa !75
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
@@ -418,7 +418,7 @@ define noundef ptr @Fraig_ManCreate(ptr noundef captures(address_is_null) %0) lo
 
 declare i32 @Aig_ManRandom(i32 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 declare ptr @Fraig_MemFixedStart(i32 noundef) local_unnamed_addr #5
@@ -1469,7 +1469,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1478,12 +1478,12 @@ attributes #2 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapp
 attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nofree nounwind }
-attributes #11 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #11 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind allocsize(0) }
 

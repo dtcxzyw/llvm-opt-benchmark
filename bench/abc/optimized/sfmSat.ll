@@ -1097,7 +1097,7 @@ define i64 @Sfm_ComputeInterpolant(ptr noundef captures(none) %0) local_unnamed_
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %1, %.lr.ph.preheader.i
-  %.pre-phi187 = phi i64 [ %27, %.lr.ph.preheader.i ], [ 17179869184, %1 ]
+  %.pre-phi185 = phi i64 [ %27, %.lr.ph.preheader.i ], [ 17179869184, %1 ]
   %.pre-phi = phi i64 [ %26, %.lr.ph.preheader.i ], [ 2147483648, %1 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 7672
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1245,7 +1245,6 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 108:                                              ; preds = %107
   %109 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %106, i64 noundef 64) #11
-  %.pre.pre = load i32, ptr %100, align 4, !tbaa !23
   br label %Vec_IntGrow.exit.i118
 
 110:                                              ; preds = %107
@@ -1253,10 +1252,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %Vec_IntGrow.exit.i118
 
 Vec_IntGrow.exit.i118:                            ; preds = %110, %108
-  %.pre = phi i32 [ %.pre.pre, %108 ], [ 0, %110 ]
   %112 = phi ptr [ %109, %108 ], [ %111, %110 ]
   store ptr %112, ptr %105, align 8, !tbaa !27
   store i32 16, ptr %99, align 8, !tbaa !34
+  %.pre = load i32, ptr %100, align 4, !tbaa !23
   br label %Vec_IntPush.exit119
 
 Vec_IntPush.exit119:                              ; preds = %.critedge, %Vec_IntGrow.exit.i118
@@ -1417,7 +1416,7 @@ Vec_IntPush.exit126:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %25, label %.lr.ph.preheader.i127, label %Abc_TtFill.exit
 
 .lr.ph.preheader.i127:                            ; preds = %193
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %33, i8 -1, i64 %.pre-phi187, i1 false), !tbaa !55
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %33, i8 -1, i64 %.pre-phi185, i1 false), !tbaa !55
   br label %Abc_TtFill.exit
 
 Abc_TtFill.exit:                                  ; preds = %193, %.lr.ph.preheader.i127
@@ -1438,7 +1437,6 @@ Abc_TtFill.exit:                                  ; preds = %193, %.lr.ph.prehea
 
 206:                                              ; preds = %205
   %207 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %204, i64 noundef 64) #11
-  %.pre182.pre = load i32, ptr %198, align 4, !tbaa !23
   br label %Vec_IntGrow.exit.i133
 
 208:                                              ; preds = %205
@@ -1446,10 +1444,10 @@ Abc_TtFill.exit:                                  ; preds = %193, %.lr.ph.prehea
   br label %Vec_IntGrow.exit.i133
 
 Vec_IntGrow.exit.i133:                            ; preds = %208, %206
-  %.pre182 = phi i32 [ %.pre182.pre, %206 ], [ 0, %208 ]
   %210 = phi ptr [ %207, %206 ], [ %209, %208 ]
   store ptr %210, ptr %203, align 8, !tbaa !27
   store i32 16, ptr %197, align 8, !tbaa !34
+  %.pre182 = load i32, ptr %198, align 4, !tbaa !23
   br label %Vec_IntPush.exit134
 
 Vec_IntPush.exit134:                              ; preds = %Abc_TtFill.exit, %Vec_IntGrow.exit.i133
@@ -1816,7 +1814,6 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
 
 72:                                               ; preds = %71
   %73 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %70, i64 noundef 64) #11
-  %.pre.pre = load i32, ptr %64, align 4, !tbaa !23
   %.pre142.pre = load ptr, ptr %46, align 8, !tbaa !45
   %.pre143.pre = load ptr, ptr %4, align 8, !tbaa !9
   %.phi.trans.insert.phi.trans.insert = getelementptr i8, ptr %.pre143.pre, i64 328
@@ -1830,10 +1827,10 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
 Vec_IntGrow.exit.i109:                            ; preds = %74, %72
   %.val106.pre = phi ptr [ %.val106.pre.pre, %72 ], [ %.val104, %74 ]
   %.pre142 = phi ptr [ %.pre142.pre, %72 ], [ %63, %74 ]
-  %.pre = phi i32 [ %.pre.pre, %72 ], [ 0, %74 ]
   %76 = phi ptr [ %73, %72 ], [ %75, %74 ]
   store ptr %76, ptr %69, align 8, !tbaa !27
   store i32 16, ptr %63, align 8, !tbaa !34
+  %.pre = load i32, ptr %64, align 4, !tbaa !23
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %57, %Vec_IntGrow.exit.i109
@@ -2392,7 +2389,6 @@ define void @Sfm_ComputeInterpolantCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 16:                                               ; preds = %15
   %17 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %14, i64 noundef 64) #11
-  %.pre.pre = load i32, ptr %7, align 4, !tbaa !23
   %.pre19.pre = load ptr, ptr %5, align 8, !tbaa !54
   br label %Vec_IntGrow.exit.i
 
@@ -2402,10 +2398,10 @@ define void @Sfm_ComputeInterpolantCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 Vec_IntGrow.exit.i:                               ; preds = %18, %16
   %.pre19 = phi ptr [ %.pre19.pre, %16 ], [ %6, %18 ]
-  %.pre = phi i32 [ %.pre.pre, %16 ], [ 0, %18 ]
   %20 = phi ptr [ %17, %16 ], [ %19, %18 ]
   store ptr %20, ptr %13, align 8, !tbaa !27
   store i32 16, ptr %6, align 8, !tbaa !34
+  %.pre = load i32, ptr %7, align 4, !tbaa !23
   %.val.pre = load ptr, ptr %8, align 8, !tbaa !27
   br label %Vec_IntPush.exit
 
@@ -2519,10 +2515,10 @@ declare void @Kit_DsdPrintFromTruth(ptr noundef, i32 noundef) local_unnamed_addr
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -2547,8 +2543,8 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { inlinehint nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nofree nounwind }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }

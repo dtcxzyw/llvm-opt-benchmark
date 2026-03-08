@@ -36,7 +36,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 define void @ELinitialize() local_unnamed_addr #0 {
   tail call void @freeinit(ptr noundef nonnull @hfl, i32 noundef 56) #13
   %1 = load i32, ptr @sqrt_nsites, align 4, !tbaa !8
-  %2 = shl i32 %1, 1
+  %2 = shl nsw i32 %1, 1
   store i32 %2, ptr @ELhashsize, align 4, !tbaa !8
   %3 = load ptr, ptr @ELhash, align 8, !tbaa !3
   %4 = icmp eq ptr %3, null
@@ -69,63 +69,64 @@ define void @ELinitialize() local_unnamed_addr #0 {
 
 gv_calloc.exit:                                   ; preds = %10
   store ptr %12, ptr @ELhash, align 8, !tbaa !3
+  %.pre = load i32, ptr @ELhashsize, align 4, !tbaa !8
   br label %18
 
 18:                                               ; preds = %gv_calloc.exit, %0
   %19 = phi ptr [ %12, %gv_calloc.exit ], [ %3, %0 ]
-  %20 = icmp sgt i32 %1, 0
-  br i1 %20, label %.lr.ph, label %._crit_edge
+  %20 = phi i32 [ %.pre, %gv_calloc.exit ], [ %2, %0 ]
+  %21 = icmp sgt i32 %20, 0
+  br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %18
-  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %21 = zext nneg i32 %smax to i64
-  %22 = shl nuw nsw i64 %21, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %19, i8 0, i64 %22, i1 false), !tbaa !12
+  %22 = zext nneg i32 %20 to i64
+  %23 = shl nuw nsw i64 %22, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %19, i8 0, i64 %23, i1 false), !tbaa !12
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
-  %23 = tail call ptr @getfree(ptr noundef nonnull @hfl) #13
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr null, ptr %24, align 8, !tbaa !14
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 28
-  store i8 0, ptr %25, align 4, !tbaa !19
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  store ptr null, ptr %26, align 8, !tbaa !20
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store ptr null, ptr %27, align 8, !tbaa !21
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store i32 0, ptr %28, align 8, !tbaa !22
-  store ptr %23, ptr @ELleftend, align 8, !tbaa !12
-  %29 = tail call ptr @getfree(ptr noundef nonnull @hfl) #13
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store ptr null, ptr %30, align 8, !tbaa !14
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 28
-  store i8 0, ptr %31, align 4, !tbaa !19
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  store ptr null, ptr %32, align 8, !tbaa !20
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  store ptr null, ptr %33, align 8, !tbaa !21
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store i32 0, ptr %34, align 8, !tbaa !22
-  store ptr %29, ptr @ELrightend, align 8, !tbaa !12
-  %35 = load ptr, ptr @ELleftend, align 8, !tbaa !12
-  store ptr null, ptr %35, align 8, !tbaa !23
-  %36 = load ptr, ptr @ELrightend, align 8, !tbaa !12
-  %37 = load ptr, ptr @ELleftend, align 8, !tbaa !12
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %36, ptr %38, align 8, !tbaa !24
-  store ptr %37, ptr %36, align 8, !tbaa !23
-  %39 = load ptr, ptr @ELrightend, align 8, !tbaa !12
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr null, ptr %40, align 8, !tbaa !24
-  %41 = load ptr, ptr @ELhash, align 8, !tbaa !3
-  store ptr %37, ptr %41, align 8, !tbaa !12
-  %42 = load ptr, ptr @ELrightend, align 8, !tbaa !12
-  %43 = load i32, ptr @ELhashsize, align 4, !tbaa !8
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr [8 x i8], ptr %41, i64 %44
-  %46 = getelementptr i8, ptr %45, i64 -8
-  store ptr %42, ptr %46, align 8, !tbaa !12
+  %24 = tail call ptr @getfree(ptr noundef nonnull @hfl) #13
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store ptr null, ptr %25, align 8, !tbaa !14
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 28
+  store i8 0, ptr %26, align 4, !tbaa !19
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  store ptr null, ptr %27, align 8, !tbaa !20
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  store ptr null, ptr %28, align 8, !tbaa !21
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store i32 0, ptr %29, align 8, !tbaa !22
+  store ptr %24, ptr @ELleftend, align 8, !tbaa !12
+  %30 = tail call ptr @getfree(ptr noundef nonnull @hfl) #13
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  store ptr null, ptr %31, align 8, !tbaa !14
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 28
+  store i8 0, ptr %32, align 4, !tbaa !19
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  store ptr null, ptr %33, align 8, !tbaa !20
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store ptr null, ptr %34, align 8, !tbaa !21
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  store i32 0, ptr %35, align 8, !tbaa !22
+  store ptr %30, ptr @ELrightend, align 8, !tbaa !12
+  %36 = load ptr, ptr @ELleftend, align 8, !tbaa !12
+  store ptr null, ptr %36, align 8, !tbaa !23
+  %37 = load ptr, ptr @ELrightend, align 8, !tbaa !12
+  %38 = load ptr, ptr @ELleftend, align 8, !tbaa !12
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store ptr %37, ptr %39, align 8, !tbaa !24
+  store ptr %38, ptr %37, align 8, !tbaa !23
+  %40 = load ptr, ptr @ELrightend, align 8, !tbaa !12
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store ptr null, ptr %41, align 8, !tbaa !24
+  %42 = load ptr, ptr @ELhash, align 8, !tbaa !3
+  store ptr %38, ptr %42, align 8, !tbaa !12
+  %43 = load ptr, ptr @ELrightend, align 8, !tbaa !12
+  %44 = load i32, ptr @ELhashsize, align 4, !tbaa !8
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr [8 x i8], ptr %42, i64 %45
+  %47 = getelementptr i8, ptr %46, i64 -8
+  store ptr %43, ptr %47, align 8, !tbaa !12
   ret void
 }
 
@@ -689,7 +690,7 @@ define internal fastcc void @graphviz_exit() unnamed_addr #8 {
   unreachable
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree noreturn nounwind
@@ -718,7 +719,7 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }

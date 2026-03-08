@@ -178,11 +178,10 @@ if.end14:                                         ; preds = %if.end
 
 if.then.i.i.i:                                    ; preds = %if.end14
   tail call void @_ZN4llvh22report_bad_alloc_errorEPKcb(ptr noundef nonnull @.str, i1 noundef zeroext true) #10
-  %.pre.i16 = load i32, ptr %Size.i.i13, align 8
   br label %_ZN4llvh15MallocAllocator8AllocateEmm.exit.i
 
 _ZN4llvh15MallocAllocator8AllocateEmm.exit.i:     ; preds = %if.then.i.i.i, %if.end14
-  %13 = phi i32 [ %11, %if.end14 ], [ %.pre.i16, %if.then.i.i.i ]
+  %13 = load i32, ptr %Size.i.i13, align 8
   %Capacity.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %14 = load i32, ptr %Capacity.i.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %13, %14
@@ -206,9 +205,9 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSla
   store i32 %add.i.i15, ptr %Size.i.i13, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %mul.i.i
   store ptr %add.ptr.i, ptr %End, align 8
-  %sub.i18 = add i64 %add.i.i, %17
-  %and.i20 = and i64 %sub.i18, %not.i.i
-  %19 = inttoptr i64 %and.i20 to ptr
+  %sub.i17 = add i64 %add.i.i, %17
+  %and.i19 = and i64 %sub.i17, %not.i.i
+  %19 = inttoptr i64 %and.i19 to ptr
   %add.ptr19 = getelementptr inbounds i8, ptr %19, i64 %Size
   store ptr %add.ptr19, ptr %this, align 8
   br label %return
@@ -218,7 +217,7 @@ return:                                           ; preds = %_ZN4llvh20BumpPtrAl
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 declare void @_ZN4llvh22report_bad_alloc_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
@@ -652,7 +651,7 @@ declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

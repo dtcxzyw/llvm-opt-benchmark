@@ -816,100 +816,102 @@ define hidden void @LoadFontDefault() local_unnamed_addr #5 {
   call void @LoadTextureFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Texture) align 4 %2, ptr noundef nonnull byval(%struct.Image) align 8 %1) #46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
   br label %27
 
 27:                                               ; preds = %26, %11
-  %28 = phi i32 [ %.pre, %26 ], [ 224, %11 ]
+  %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
   %29 = sext i32 %28 to i64
   %30 = call noalias ptr @calloc(i64 noundef %29, i64 noundef 40) #47
   store ptr %30, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 40), align 8
-  %31 = call noalias ptr @calloc(i64 noundef %29, i64 noundef 16) #47
-  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
-  %32 = icmp sgt i32 %28, 0
-  br i1 %32, label %.lr.ph, label %._crit_edge
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
+  %32 = sext i32 %31 to i64
+  %33 = call noalias ptr @calloc(i64 noundef %32, i64 noundef 16) #47
+  store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
+  %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %64, %27
+._crit_edge:                                      ; preds = %67, %27
   call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %1) #46
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  %35 = load float, ptr %34, align 4
-  %36 = fptosi float %35 to i32
-  store i32 %36, ptr @defaultFont, align 8
-  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %37) #46
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 12
+  %38 = load float, ptr %37, align 4
+  %39 = fptosi float %38 to i32
+  store i32 %39, ptr @defaultFont, align 8
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %40) #46
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
-.lr.ph:                                           ; preds = %27, %64
-  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %64 ], [ 0, %27 ]
-  %.05165 = phi i32 [ %.1, %64 ], [ 1, %27 ]
-  %.05464 = phi i32 [ %.155, %64 ], [ 0, %27 ]
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 40), align 8
-  %39 = getelementptr inbounds nuw [40 x i8], ptr %38, i64 %indvars.iv75
-  %40 = trunc i64 %indvars.iv75 to i32
-  %41 = add i32 %40, 32
-  store i32 %41, ptr %39, align 8
-  %42 = sitofp i32 %.05165 to float
-  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
-  %44 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %indvars.iv75
-  store float %42, ptr %44, align 4
-  %45 = mul nsw i32 %.05464, 11
-  %46 = add nsw i32 %45, 1
-  %47 = sitofp i32 %46 to float
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store float %47, ptr %48, align 4
-  %49 = getelementptr inbounds nuw [4 x i8], ptr @__const.LoadFontDefault.charsWidth, i64 %indvars.iv75
-  %50 = load i32, ptr %49, align 4
-  %51 = sitofp i32 %50 to float
-  %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store float %51, ptr %52, align 4
-  %53 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  store float 1.000000e+01, ptr %53, align 4
-  %54 = fadd float %51, 1.000000e+00
-  %55 = fptosi float %54 to i32
-  %56 = add nsw i32 %.05165, %55
-  %57 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 16), align 8
-  %.not = icmp slt i32 %56, %57
-  br i1 %.not, label %64, label %58
+.lr.ph:                                           ; preds = %27, %67
+  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %67 ], [ 0, %27 ]
+  %.05165 = phi i32 [ %.1, %67 ], [ 1, %27 ]
+  %.05464 = phi i32 [ %.155, %67 ], [ 0, %27 ]
+  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 40), align 8
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %41, i64 %indvars.iv75
+  %43 = trunc i64 %indvars.iv75 to i32
+  %44 = add i32 %43, 32
+  store i32 %44, ptr %42, align 8
+  %45 = sitofp i32 %.05165 to float
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 32), align 8
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %indvars.iv75
+  store float %45, ptr %47, align 4
+  %48 = mul nsw i32 %.05464, 11
+  %49 = add nsw i32 %48, 1
+  %50 = sitofp i32 %49 to float
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  store float %50, ptr %51, align 4
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @__const.LoadFontDefault.charsWidth, i64 %indvars.iv75
+  %53 = load i32, ptr %52, align 4
+  %54 = sitofp i32 %53 to float
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store float %54, ptr %55, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 12
+  store float 1.000000e+01, ptr %56, align 4
+  %57 = fadd float %54, 1.000000e+00
+  %58 = fptosi float %57 to i32
+  %59 = add nsw i32 %.05165, %58
+  %60 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 16), align 8
+  %.not = icmp slt i32 %59, %60
+  br i1 %.not, label %67, label %61
 
-58:                                               ; preds = %.lr.ph
-  %59 = add nsw i32 %.05464, 1
-  %60 = add nsw i32 %50, 2
-  store float 1.000000e+00, ptr %44, align 4
-  %61 = mul nsw i32 %59, 11
-  %62 = add nsw i32 %61, 1
-  %63 = sitofp i32 %62 to float
-  store float %63, ptr %48, align 4
-  br label %64
+61:                                               ; preds = %.lr.ph
+  %62 = add nsw i32 %.05464, 1
+  %63 = add nsw i32 %53, 2
+  store float 1.000000e+00, ptr %47, align 4
+  %64 = mul nsw i32 %62, 11
+  %65 = add nsw i32 %64, 1
+  %66 = sitofp i32 %65 to float
+  store float %66, ptr %51, align 4
+  br label %67
 
-64:                                               ; preds = %.lr.ph, %58
-  %.155 = phi i32 [ %59, %58 ], [ %.05464, %.lr.ph ]
-  %.1 = phi i32 [ %60, %58 ], [ %56, %.lr.ph ]
-  %65 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  store i32 0, ptr %65, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i32 0, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %39, i64 12
-  store i32 0, ptr %67, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %39, i64 16
+67:                                               ; preds = %.lr.ph, %61
+  %.155 = phi i32 [ %62, %61 ], [ %.05464, %.lr.ph ]
+  %.1 = phi i32 [ %63, %61 ], [ %59, %.lr.ph ]
+  %68 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  store i32 0, ptr %68, align 4
+  %69 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store i32 0, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %42, i64 12
+  store i32 0, ptr %70, align 4
+  %71 = getelementptr inbounds nuw i8, ptr %42, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %69 = load <2 x float>, ptr %44, align 4
-  %70 = load <2 x float>, ptr %52, align 4
-  call void @ImageFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %3, ptr noundef nonnull byval(%struct.Image) align 8 %1, <2 x float> %69, <2 x float> %70) #46
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  %72 = load <2 x float>, ptr %47, align 4
+  %73 = load <2 x float>, ptr %55, align 4
+  call void @ImageFromImage(ptr dead_on_unwind nonnull writable sret(%struct.Image) align 8 %3, ptr noundef nonnull byval(%struct.Image) align 8 %1, <2 x float> %72, <2 x float> %73) #46
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
-  %72 = sext i32 %71 to i64
-  %73 = icmp slt i64 %indvars.iv.next76, %72
-  br i1 %73, label %.lr.ph, label %._crit_edge
+  %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 4), align 4
+  %75 = sext i32 %74 to i64
+  %76 = icmp slt i64 %indvars.iv.next76, %75
+  br i1 %76, label %.lr.ph, label %._crit_edge
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 declare void @LoadTextureFromImage(ptr dead_on_unwind writable sret(%struct.Texture) align 4, ptr noundef byval(%struct.Image) align 8) local_unnamed_addr #8
@@ -1226,7 +1228,7 @@ GetLine.exit143.i:                                ; preds = %92, %.split.loop.ex
 102:                                              ; preds = %GetLine.exit143.i
   %103 = load i32, ptr %9, align 4, !noalias !8
   %104 = sext i32 %103 to i64
-  %105 = call noalias ptr @calloc(i64 noundef %104, i64 noundef 24) #47
+  %105 = call noalias ptr @calloc(i64 noundef %104, i64 noundef 24) #47, !noalias !8
   %106 = icmp sgt i32 %103, 0
   br i1 %106, label %.lr.ph171.i, label %._crit_edge172.thread.i
 
@@ -1263,7 +1265,7 @@ GetLine.exit143.i:                                ; preds = %92, %.split.loop.ex
   %119 = load i32, ptr %118, align 4, !noalias !8
   %120 = mul nsw i32 %119, %117
   %121 = sext i32 %120 to i64
-  %122 = call noalias ptr @calloc(i64 noundef %121, i64 noundef 2) #47
+  %122 = call noalias ptr @calloc(i64 noundef %121, i64 noundef 2) #47, !noalias !8
   %123 = icmp sgt i32 %120, 0
   br i1 %123, label %.lr.ph.i, label %._crit_edge.i
 
@@ -1370,9 +1372,9 @@ GetLine.exit143.i:                                ; preds = %92, %.split.loop.ex
   %164 = load i32, ptr %6, align 4, !noalias !8
   %165 = sext i32 %164 to i64
   %166 = mul nsw i64 %165, 40
-  %167 = call noalias ptr @malloc(i64 noundef %166) #49
+  %167 = call noalias ptr @malloc(i64 noundef %166) #49, !noalias !8
   %168 = shl nsw i64 %165, 4
-  %169 = call noalias ptr @malloc(i64 noundef %168) #49
+  %169 = call noalias ptr @malloc(i64 noundef %168) #49, !noalias !8
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !8
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !8
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !8
@@ -2247,7 +2249,7 @@ declare void @UnloadFileData(ptr noundef) local_unnamed_addr #8
 
 declare ptr @LoadImageColors(ptr noundef byval(%struct.Image) align 8) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -4358,13 +4360,13 @@ stbtt__sort_edges.exit.i.i.i.i.i:                 ; preds = %1031, %._crit_edge1
 
 .thread.i.i.i.i.i.i.i.i:                          ; preds = %1085
   store ptr %.sroa.0.113.i.i.i.i.i.i, ptr %1086, align 8
-  %.pre.pre.i.i.i.i.i.i = load float, ptr %1076, align 4
-  %.pre41.pre.i.i.i.i.i.i = load float, ptr %1075, align 4
+  %.pre41.pre.i.i.i.i.i.i = load float, ptr %1076, align 4
+  %.pre42.pre.i.i.i.i.i.i = load float, ptr %1075, align 4
   br label %1088
 
 1088:                                             ; preds = %.thread.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i
-  %.pre41.i.i.i.i.i.i = phi float [ %.pre41.pre.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i.i ], [ %1074, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %.pre.i.i.i.i.i.i = phi float [ %.pre.pre.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i.i ], [ %1077, %._crit_edge.i.i.i.i.i.i.i.i ]
+  %.pre42.i.i.i.i.i.i = phi float [ %.pre42.pre.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i.i ], [ %1074, %._crit_edge.i.i.i.i.i.i.i.i ]
+  %.pre41.i.i.i.i.i.i = phi float [ %.pre41.pre.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i.i ], [ %1077, %._crit_edge.i.i.i.i.i.i.i.i ]
   %.sroa.0.2.i.i.i.i.i.i = phi ptr [ %1086, %.thread.i.i.i.i.i.i.i.i ], [ %.sroa.0.113.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i ]
   %1089 = phi i32 [ 799, %.thread.i.i.i.i.i.i.i.i ], [ %1084, %._crit_edge.i.i.i.i.i.i.i.i ]
   %1090 = getelementptr inbounds nuw i8, ptr %.sroa.0.2.i.i.i.i.i.i, i64 8
@@ -4374,8 +4376,8 @@ stbtt__sort_edges.exit.i.i.i.i.i:                 ; preds = %1031, %._crit_edge1
   br label %1094
 
 1094:                                             ; preds = %1088, %1080
-  %1095 = phi float [ %.pre41.i.i.i.i.i.i, %1088 ], [ %1074, %1080 ]
-  %1096 = phi float [ %.pre.i.i.i.i.i.i, %1088 ], [ %1077, %1080 ]
+  %1095 = phi float [ %.pre42.i.i.i.i.i.i, %1088 ], [ %1074, %1080 ]
+  %1096 = phi float [ %.pre41.i.i.i.i.i.i, %1088 ], [ %1077, %1080 ]
   %.sroa.7.4.i.i.i.i.i.i = phi ptr [ null, %1088 ], [ %1081, %1080 ]
   %.sroa.11.2.i.i.i.i.i.i = phi i32 [ %1089, %1088 ], [ %.sroa.11.112.i.i.i.i.i.i, %1080 ]
   %.sroa.0.3.i.i.i.i.i.i = phi ptr [ %.sroa.0.2.i.i.i.i.i.i, %1088 ], [ %.sroa.0.113.i.i.i.i.i.i, %1080 ]
@@ -4414,8 +4416,8 @@ stbtt__sort_edges.exit.i.i.i.i.i:                 ; preds = %1031, %._crit_edge1
   store float %1120, ptr %1121, align 4
   store ptr null, ptr %.022.i.ph.i.i.i.i.i.i.i, align 8
   %1122 = fcmp olt float %1120, %1058
-  %or.cond132.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i1 %1122, i1 false
-  br i1 %or.cond132.i.i.i.i.i.i, label %1123, label %1124
+  %or.cond134.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i1 %1122, i1 false
+  br i1 %or.cond134.i.i.i.i.i.i, label %1123, label %1124
 
 1123:                                             ; preds = %1094
   store float %1058, ptr %1121, align 4
@@ -6166,8 +6168,8 @@ stbtt__fill_active_edges_new.exit.i.i.i.i.i.i:    ; preds = %stbtt__handle_clipp
 ._crit_edge26.i.i.i.i.i.i:                        ; preds = %.lr.ph25.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i
   %2187 = add nsw i32 %.07531.i.i.i.i.i.i, 1
   %2188 = add nuw nsw i32 %.07630.i.i.i.i.i.i, 1
-  %exitcond60.not.i.i.i = icmp eq i32 %2188, %863
-  br i1 %exitcond60.not.i.i.i, label %._crit_edge35.i.i.i.i.i.i, label %1057
+  %exitcond61.not.i.i.i = icmp eq i32 %2188, %863
+  br i1 %exitcond61.not.i.i.i, label %._crit_edge35.i.i.i.i.i.i, label %1057
 
 ._crit_edge35.i.i.i.i.i.i:                        ; preds = %._crit_edge26.i.i.i.i.i.i
   %.not1.i.i.i.i.i.i.i = icmp eq ptr %.sroa.0.1.lcssa.i.i.i.i.i.i, null
@@ -11030,7 +11032,7 @@ define noundef nonnull ptr @CodepointToUTF8(i32 noundef %0, ptr noundef writeonl
   ret ptr @CodepointToUTF8.utf8
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #36
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -15946,13 +15948,13 @@ attributes #3 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -15975,7 +15977,7 @@ attributes #32 = { nofree norecurse nosync nounwind memory(write, argmem: readwr
 attributes #33 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #34 = { nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #35 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #36 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #37 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #38 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #39 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

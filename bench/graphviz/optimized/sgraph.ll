@@ -136,92 +136,94 @@ define void @initSEdges(ptr noundef captures(none) %0, i32 noundef %1) local_unn
 
 gv_calloc.exit:                                   ; preds = %.thread.i, %13
   %20 = phi ptr [ %8, %.thread.i ], [ %14, %13 ]
-  %21 = mul nsw i32 %3, 3
-  %22 = add nsw i32 %21, %1
-  %23 = sext i32 %22 to i64
-  %.not.i21 = icmp eq i32 %22, 0
-  br i1 %.not.i21, label %.thread.i24, label %25
+  %21 = load i32, ptr %0, align 8, !tbaa !3
+  %22 = mul nsw i32 %21, 3
+  %23 = add nsw i32 %22, %1
+  %24 = sext i32 %23 to i64
+  %.not.i21 = icmp eq i32 %23, 0
+  br i1 %.not.i21, label %.thread.i24, label %26
 
 .thread.i24:                                      ; preds = %gv_calloc.exit
-  %24 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 24) #11
+  %25 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 24) #11
   br label %gv_calloc.exit25
 
-25:                                               ; preds = %gv_calloc.exit
-  %mul.ov.i23 = icmp slt i32 %22, 0
-  br i1 %mul.ov.i23, label %26, label %29
+26:                                               ; preds = %gv_calloc.exit
+  %mul.ov.i23 = icmp slt i32 %23, 0
+  br i1 %mul.ov.i23, label %27, label %30
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %23, i64 noundef 24) #12
+27:                                               ; preds = %26
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str, i64 noundef range(i64 -2147483648, 2147483648) %24, i64 noundef 24) #12
   tail call fastcc void @graphviz_exit() #13
   unreachable
 
-29:                                               ; preds = %25
-  %30 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %23, i64 noundef 24) #11
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %gv_calloc.exit25
+30:                                               ; preds = %26
+  %31 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %24, i64 noundef 24) #11
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %gv_calloc.exit25
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr @stderr, align 8, !tbaa !25
-  %34 = mul nuw nsw i64 %23, 24
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.1, i64 noundef %34) #12
+33:                                               ; preds = %30
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %35 = mul nuw nsw i64 %24, 24
+  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.1, i64 noundef %35) #12
   tail call fastcc void @graphviz_exit() #13
   unreachable
 
-gv_calloc.exit25:                                 ; preds = %.thread.i24, %29
-  %36 = phi ptr [ %24, %.thread.i24 ], [ %30, %29 ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %36, ptr %37, align 8, !tbaa !27
-  %38 = icmp sgt i32 %3, 0
-  br i1 %38, label %.lr.ph, label %.preheader
+gv_calloc.exit25:                                 ; preds = %.thread.i24, %30
+  %37 = phi ptr [ %25, %.thread.i24 ], [ %31, %30 ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %37, ptr %38, align 8, !tbaa !27
+  %39 = load i32, ptr %0, align 8, !tbaa !3
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %gv_calloc.exit25
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !14
-  %wide.trip.count = zext nneg i32 %3 to i64
-  br label %46
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !14
+  %wide.trip.count = zext nneg i32 %39 to i64
+  br label %48
 
 .preheader:                                       ; preds = %gv_calloc.exit25
-  %41 = icmp sgt i32 %3, -2
-  br i1 %41, label %.lr.ph31, label %._crit_edge
+  %43 = icmp sgt i32 %39, -2
+  br i1 %43, label %.lr.ph32, label %._crit_edge
 
-.lr.ph31:                                         ; preds = %.preheader.thread, %.preheader
-  %.0.lcssa47 = phi ptr [ %49, %.preheader.thread ], [ %20, %.preheader ]
-  %.019.lcssa46 = phi i64 [ %50, %.preheader.thread ], [ 0, %.preheader ]
-  %42 = add nsw i32 %3, 2
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !14
-  %45 = sext i32 %1 to i64
-  %wide.trip.count37 = zext nneg i32 %42 to i64
-  br label %51
+.lr.ph32:                                         ; preds = %.preheader.thread, %.preheader
+  %.0.lcssa48 = phi ptr [ %51, %.preheader.thread ], [ %20, %.preheader ]
+  %.019.lcssa47 = phi i64 [ %52, %.preheader.thread ], [ 0, %.preheader ]
+  %44 = add nsw i32 %39, 2
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %46 = load ptr, ptr %45, align 8, !tbaa !14
+  %47 = sext i32 %1 to i64
+  %wide.trip.count38 = zext nneg i32 %44 to i64
+  br label %53
 
-46:                                               ; preds = %.lr.ph, %46
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %.027 = phi ptr [ %20, %.lr.ph ], [ %49, %46 ]
-  %47 = getelementptr inbounds nuw [64 x i8], ptr %40, i64 %indvars.iv
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  store ptr %.027, ptr %48, align 8, !tbaa !28
-  %49 = getelementptr inbounds nuw i8, ptr %.027, i64 24
+48:                                               ; preds = %.lr.ph, %48
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
+  %.027 = phi ptr [ %20, %.lr.ph ], [ %51, %48 ]
+  %49 = getelementptr inbounds nuw [64 x i8], ptr %42, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
+  store ptr %.027, ptr %50, align 8, !tbaa !28
+  %51 = getelementptr inbounds nuw i8, ptr %.027, i64 24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.thread, label %46, !llvm.loop !29
+  br i1 %exitcond.not, label %.preheader.thread, label %48, !llvm.loop !29
 
-.preheader.thread:                                ; preds = %46
-  %50 = zext nneg i32 %3 to i64
-  br label %.lr.ph31
+.preheader.thread:                                ; preds = %48
+  %52 = zext nneg i32 %39 to i64
+  br label %.lr.ph32
 
-51:                                               ; preds = %.lr.ph31, %51
-  %indvars.iv34 = phi i64 [ %.019.lcssa46, %.lr.ph31 ], [ %indvars.iv.next35, %51 ]
-  %.130 = phi ptr [ %.0.lcssa47, %.lr.ph31 ], [ %54, %51 ]
-  %52 = getelementptr inbounds nuw [64 x i8], ptr %44, i64 %indvars.iv34
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  store ptr %.130, ptr %53, align 8, !tbaa !28
-  %54 = getelementptr inbounds [4 x i8], ptr %.130, i64 %45
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %._crit_edge, label %51, !llvm.loop !30
+53:                                               ; preds = %.lr.ph32, %53
+  %indvars.iv35 = phi i64 [ %.019.lcssa47, %.lr.ph32 ], [ %indvars.iv.next36, %53 ]
+  %.131 = phi ptr [ %.0.lcssa48, %.lr.ph32 ], [ %56, %53 ]
+  %54 = getelementptr inbounds nuw [64 x i8], ptr %46, i64 %indvars.iv35
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
+  store ptr %.131, ptr %55, align 8, !tbaa !28
+  %56 = getelementptr inbounds [4 x i8], ptr %.131, i64 %47
+  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
+  %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
+  br i1 %exitcond39.not, label %._crit_edge, label %53, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %51, %.preheader
+._crit_edge:                                      ; preds = %53, %.preheader
   ret void
 }
 
@@ -501,7 +503,7 @@ define internal fastcc void @graphviz_exit() unnamed_addr #8 {
   unreachable
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree noreturn nounwind
@@ -516,7 +518,7 @@ attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind allocsize(0,1) }
 attributes #12 = { cold nounwind }

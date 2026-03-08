@@ -1900,38 +1900,40 @@ define linkonce_odr dso_local void @_ZN11DynamicTree9BuildTreeEv(ptr noundef non
   store ptr %16, ptr %4, align 8, !tbaa !39
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 0, ptr %17, align 8, !tbaa !40
-  %18 = shl nsw i64 %14, 2
-  %19 = tail call noalias ptr @malloc(i64 noundef %18) #25
-  store ptr %19, ptr %6, align 8, !tbaa !44
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store i32 0, ptr %20, align 8, !tbaa !45
+  %18 = load i32, ptr %13, align 4, !tbaa !41
+  %19 = sext i32 %18 to i64
+  %20 = shl nsw i64 %19, 2
+  %21 = tail call noalias ptr @malloc(i64 noundef %20) #25
+  store ptr %21, ptr %6, align 8, !tbaa !44
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  store i32 0, ptr %22, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @b2DynamicTree_Create(ptr dead_on_unwind nonnull writable sret(%struct.b2DynamicTree) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false), !tbaa.struct !145
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %21 = load i32, ptr %8, align 8, !tbaa !46
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.preheader.lr.ph, label %._crit_edge61
+  %23 = load i32, ptr %8, align 8, !tbaa !46
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %.preheader.lr.ph, label %._crit_edge61
 
 .preheader.lr.ph:                                 ; preds = %1
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 364
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 380
-  %26 = load i32, ptr %10, align 4, !tbaa !47
-  %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.preheader, label %._crit_edge61
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 364
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 380
+  %28 = load i32, ptr %10, align 4, !tbaa !47
+  %29 = icmp sgt i32 %28, 0
+  br i1 %29, label %.preheader, label %._crit_edge61
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %28 = phi i32 [ %32, %._crit_edge ], [ %21, %.preheader.lr.ph ]
-  %29 = phi i32 [ %34, %._crit_edge ], [ %26, %.preheader.lr.ph ]
-  %30 = phi i32 [ %35, %._crit_edge ], [ %26, %.preheader.lr.ph ]
-  %.060 = phi float [ %36, %._crit_edge ], [ -4.000000e+00, %.preheader.lr.ph ]
-  %.05059 = phi i32 [ %37, %._crit_edge ], [ 0, %.preheader.lr.ph ]
-  %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph.preheader, label %.preheader.._crit_edge_crit_edge
+  %30 = phi i32 [ %34, %._crit_edge ], [ %23, %.preheader.lr.ph ]
+  %31 = phi i32 [ %36, %._crit_edge ], [ %28, %.preheader.lr.ph ]
+  %32 = phi i32 [ %37, %._crit_edge ], [ %28, %.preheader.lr.ph ]
+  %.060 = phi float [ %38, %._crit_edge ], [ -4.000000e+00, %.preheader.lr.ph ]
+  %.05059 = phi i32 [ %39, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %33 = icmp sgt i32 %32, 0
+  br i1 %33, label %.lr.ph.preheader, label %.preheader.._crit_edge_crit_edge
 
 .preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
-  %.pre66 = load float, ptr %25, align 4, !tbaa !43
+  %.pre66 = load float, ptr %27, align 4, !tbaa !43
   br label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -1941,144 +1943,144 @@ define linkonce_odr dso_local void @_ZN11DynamicTree9BuildTreeEv(ptr noundef non
 ._crit_edge61:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %1
   ret void
 
-._crit_edge.loopexit:                             ; preds = %114
+._crit_edge.loopexit:                             ; preds = %116
   %.pre67 = load i32, ptr %8, align 8, !tbaa !46
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader.._crit_edge_crit_edge, %._crit_edge.loopexit
-  %32 = phi i32 [ %.pre67, %._crit_edge.loopexit ], [ %28, %.preheader.._crit_edge_crit_edge ]
-  %33 = phi float [ %117, %._crit_edge.loopexit ], [ %.pre66, %.preheader.._crit_edge_crit_edge ]
-  %34 = phi i32 [ %115, %._crit_edge.loopexit ], [ %29, %.preheader.._crit_edge_crit_edge ]
-  %35 = phi i32 [ %115, %._crit_edge.loopexit ], [ %30, %.preheader.._crit_edge_crit_edge ]
-  %36 = fadd float %.060, %33
-  %37 = add nuw nsw i32 %.05059, 1
-  %38 = icmp slt i32 %37, %32
-  br i1 %38, label %.preheader, label %._crit_edge61, !llvm.loop !150
+  %34 = phi i32 [ %.pre67, %._crit_edge.loopexit ], [ %30, %.preheader.._crit_edge_crit_edge ]
+  %35 = phi float [ %119, %._crit_edge.loopexit ], [ %.pre66, %.preheader.._crit_edge_crit_edge ]
+  %36 = phi i32 [ %117, %._crit_edge.loopexit ], [ %31, %.preheader.._crit_edge_crit_edge ]
+  %37 = phi i32 [ %117, %._crit_edge.loopexit ], [ %32, %.preheader.._crit_edge_crit_edge ]
+  %38 = fadd float %.060, %35
+  %39 = add nuw nsw i32 %.05059, 1
+  %40 = icmp slt i32 %39, %34
+  br i1 %40, label %.preheader, label %._crit_edge61, !llvm.loop !150
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %114
-  %39 = phi i32 [ %115, %114 ], [ %29, %.lr.ph.preheader ]
-  %40 = phi i32 [ %116, %114 ], [ %.pre64, %.lr.ph.preheader ]
-  %.05158 = phi float [ %118, %114 ], [ -4.000000e+01, %.lr.ph.preheader ]
-  %.05257 = phi i32 [ %119, %114 ], [ 0, %.lr.ph.preheader ]
-  %41 = shl i32 %40, 13
-  %42 = xor i32 %41, %40
-  %43 = lshr i32 %42, 17
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %116
+  %41 = phi i32 [ %117, %116 ], [ %31, %.lr.ph.preheader ]
+  %42 = phi i32 [ %118, %116 ], [ %.pre64, %.lr.ph.preheader ]
+  %.05158 = phi float [ %120, %116 ], [ -4.000000e+01, %.lr.ph.preheader ]
+  %.05257 = phi i32 [ %121, %116 ], [ 0, %.lr.ph.preheader ]
+  %43 = shl i32 %42, 13
   %44 = xor i32 %43, %42
-  %45 = shl i32 %44, 5
+  %45 = lshr i32 %44, 17
   %46 = xor i32 %45, %44
-  store i32 %46, ptr @g_seed, align 4, !tbaa !64
-  %47 = and i32 %46, 32767
-  %48 = uitofp nneg i32 %47 to float
-  %49 = fdiv nnan float %48, 3.276700e+04
-  %50 = load float, ptr %23, align 4, !tbaa !19
-  %51 = fcmp ugt float %49, %50
-  br i1 %51, label %114, label %52
+  %47 = shl i32 %46, 5
+  %48 = xor i32 %47, %46
+  store i32 %48, ptr @g_seed, align 4, !tbaa !64
+  %49 = and i32 %48, 32767
+  %50 = uitofp nneg i32 %49 to float
+  %51 = fdiv nnan float %50, 3.276700e+04
+  %52 = load float, ptr %25, align 4, !tbaa !19
+  %53 = fcmp ugt float %51, %52
+  br i1 %53, label %116, label %54
 
-52:                                               ; preds = %.lr.ph
-  %53 = load ptr, ptr %4, align 8, !tbaa !39
-  %54 = load i32, ptr %17, align 8, !tbaa !40
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds [64 x i8], ptr %53, i64 %55
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  store float %.05158, ptr %57, align 4, !tbaa !15
-  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 36
+54:                                               ; preds = %.lr.ph
+  %55 = load ptr, ptr %4, align 8, !tbaa !39
+  %56 = load i32, ptr %17, align 8, !tbaa !40
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds [64 x i8], ptr %55, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  store float %.05158, ptr %59, align 4, !tbaa !15
+  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 36
   store float %.060, ptr %.sroa.416.0..sroa_idx, align 4, !tbaa !15
-  %58 = load float, ptr %24, align 8, !tbaa !42
-  %59 = shl i32 %46, 13
-  %60 = xor i32 %59, %46
-  %61 = lshr i32 %60, 17
-  %62 = xor i32 %61, %60
-  %63 = shl i32 %62, 5
+  %60 = load float, ptr %26, align 8, !tbaa !42
+  %61 = shl i32 %48, 13
+  %62 = xor i32 %61, %48
+  %63 = lshr i32 %62, 17
   %64 = xor i32 %63, %62
-  %65 = and i32 %64, 32767
-  %66 = uitofp nneg i32 %65 to float
-  %67 = fdiv nnan float %66, 3.276700e+04
-  %68 = fadd float %58, -1.000000e+00
-  %69 = fmul float %67, %68
-  %70 = fadd float %69, 1.000000e+00
-  %71 = shl i32 %64, 13
-  %72 = xor i32 %71, %64
-  %73 = lshr i32 %72, 17
-  %74 = xor i32 %73, %72
-  %75 = shl i32 %74, 5
+  %65 = shl i32 %64, 5
+  %66 = xor i32 %65, %64
+  %67 = and i32 %66, 32767
+  %68 = uitofp nneg i32 %67 to float
+  %69 = fdiv nnan float %68, 3.276700e+04
+  %70 = fadd float %60, -1.000000e+00
+  %71 = fmul float %69, %70
+  %72 = fadd float %71, 1.000000e+00
+  %73 = shl i32 %66, 13
+  %74 = xor i32 %73, %66
+  %75 = lshr i32 %74, 17
   %76 = xor i32 %75, %74
-  %77 = and i32 %76, 32767
-  %78 = uitofp nneg i32 %77 to float
-  %79 = fdiv nnan float %78, 3.276700e+04
-  %80 = fmul nnan float %79, 0x3FD99999A0000000
-  %81 = fadd float %80, 0x3FB99999A0000000
-  %82 = shl i32 %76, 13
-  %83 = xor i32 %82, %76
-  %84 = lshr i32 %83, 17
-  %85 = xor i32 %84, %83
-  %86 = shl i32 %85, 5
+  %77 = shl i32 %76, 5
+  %78 = xor i32 %77, %76
+  %79 = and i32 %78, 32767
+  %80 = uitofp nneg i32 %79 to float
+  %81 = fdiv nnan float %80, 3.276700e+04
+  %82 = fmul nnan float %81, 0x3FD99999A0000000
+  %83 = fadd float %82, 0x3FB99999A0000000
+  %84 = shl i32 %78, 13
+  %85 = xor i32 %84, %78
+  %86 = lshr i32 %85, 17
   %87 = xor i32 %86, %85
-  store i32 %87, ptr @g_seed, align 4, !tbaa !64
-  %88 = and i32 %87, 32767
-  %89 = uitofp nneg i32 %88 to float
-  %90 = fdiv nnan float %89, 3.276700e+04
-  %91 = fmul nnan float %90, 2.000000e+00
-  %92 = fadd float %91, -1.000000e+00
-  %93 = fcmp ogt float %92, 0.000000e+00
-  %94 = fmul float %81, %70
-  %. = select i1 %93, float %94, float %81
-  %.75 = select i1 %93, float %81, float %94
-  %95 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  store float %., ptr %95, align 4, !tbaa !152
-  %96 = getelementptr inbounds nuw i8, ptr %56, i64 44
-  store float %.75, ptr %96, align 4, !tbaa !155
-  store float %.05158, ptr %56, align 4, !tbaa !15
-  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %88 = shl i32 %87, 5
+  %89 = xor i32 %88, %87
+  store i32 %89, ptr @g_seed, align 4, !tbaa !64
+  %90 = and i32 %89, 32767
+  %91 = uitofp nneg i32 %90 to float
+  %92 = fdiv nnan float %91, 3.276700e+04
+  %93 = fmul nnan float %92, 2.000000e+00
+  %94 = fadd float %93, -1.000000e+00
+  %95 = fcmp ogt float %94, 0.000000e+00
+  %96 = fmul float %83, %72
+  %. = select i1 %95, float %96, float %83
+  %.75 = select i1 %95, float %83, float %96
+  %97 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  store float %., ptr %97, align 4, !tbaa !152
+  %98 = getelementptr inbounds nuw i8, ptr %58, i64 44
+  store float %.75, ptr %98, align 4, !tbaa !155
+  store float %.05158, ptr %58, align 4, !tbaa !15
+  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 4
   store float %.060, ptr %.sroa.49.0..sroa_idx, align 4, !tbaa !15
-  %97 = fadd float %.05158, %.
-  %98 = fadd float %.060, %.75
-  %99 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store float %97, ptr %99, align 4, !tbaa !15
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 12
-  store float %98, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !15
-  %.sroa.05.0.copyload = load <2 x float>, ptr %56, align 4
+  %99 = fadd float %.05158, %.
+  %100 = fadd float %.060, %.75
+  %101 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store float %99, ptr %101, align 4, !tbaa !15
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 12
+  store float %100, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !15
+  %.sroa.05.0.copyload = load <2 x float>, ptr %58, align 4
   %.sroa.01.0.vec.extract.i = extractelement <2 x float> %.sroa.05.0.copyload, i64 0
-  %100 = fadd float %.sroa.01.0.vec.extract.i, 0xBFB99999A0000000
-  %.sroa.02.0.vec.insert.i = insertelement <2 x float> poison, float %100, i64 0
+  %102 = fadd float %.sroa.01.0.vec.extract.i, 0xBFB99999A0000000
+  %.sroa.02.0.vec.insert.i = insertelement <2 x float> poison, float %102, i64 0
   %.sroa.01.4.vec.extract.i = extractelement <2 x float> %.sroa.05.0.copyload, i64 1
-  %101 = fadd float %.sroa.01.4.vec.extract.i, 0xBFB99999A0000000
-  %.sroa.02.4.vec.insert.i = insertelement <2 x float> %.sroa.02.0.vec.insert.i, float %101, i64 1
-  %102 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store <2 x float> %.sroa.02.4.vec.insert.i, ptr %102, align 4
-  %.sroa.02.0.copyload = load <2 x float>, ptr %99, align 4
+  %103 = fadd float %.sroa.01.4.vec.extract.i, 0xBFB99999A0000000
+  %.sroa.02.4.vec.insert.i = insertelement <2 x float> %.sroa.02.0.vec.insert.i, float %103, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  store <2 x float> %.sroa.02.4.vec.insert.i, ptr %104, align 4
+  %.sroa.02.0.copyload = load <2 x float>, ptr %101, align 4
   %.sroa.01.0.vec.extract.i53 = extractelement <2 x float> %.sroa.02.0.copyload, i64 0
-  %103 = fadd float %.sroa.01.0.vec.extract.i53, 0x3FB99999A0000000
-  %.sroa.02.0.vec.insert.i54 = insertelement <2 x float> poison, float %103, i64 0
+  %105 = fadd float %.sroa.01.0.vec.extract.i53, 0x3FB99999A0000000
+  %.sroa.02.0.vec.insert.i54 = insertelement <2 x float> poison, float %105, i64 0
   %.sroa.01.4.vec.extract.i55 = extractelement <2 x float> %.sroa.02.0.copyload, i64 1
-  %104 = fadd float %.sroa.01.4.vec.extract.i55, 0x3FB99999A0000000
-  %.sroa.02.4.vec.insert.i56 = insertelement <2 x float> %.sroa.02.0.vec.insert.i54, float %104, i64 1
-  %105 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  store <2 x float> %.sroa.02.4.vec.insert.i56, ptr %105, align 4
-  %106 = load i32, ptr %17, align 8, !tbaa !40
-  %107 = call i32 @b2DynamicTree_CreateProxy(ptr noundef nonnull %3, <2 x float> %.sroa.02.4.vec.insert.i, <2 x float> %.sroa.02.4.vec.insert.i56, i64 noundef 1, i32 noundef %106)
-  %108 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  store i32 %107, ptr %108, align 4, !tbaa !156
-  %109 = getelementptr inbounds nuw i8, ptr %56, i64 52
-  store i32 -1, ptr %109, align 4, !tbaa !157
-  %110 = getelementptr inbounds nuw i8, ptr %56, i64 56
-  store i32 -1, ptr %110, align 4, !tbaa !158
-  %111 = getelementptr inbounds nuw i8, ptr %56, i64 60
-  store i8 0, ptr %111, align 4, !tbaa !159
-  %112 = load i32, ptr %17, align 8, !tbaa !40
-  %113 = add nsw i32 %112, 1
-  store i32 %113, ptr %17, align 8, !tbaa !40
+  %106 = fadd float %.sroa.01.4.vec.extract.i55, 0x3FB99999A0000000
+  %.sroa.02.4.vec.insert.i56 = insertelement <2 x float> %.sroa.02.0.vec.insert.i54, float %106, i64 1
+  %107 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  store <2 x float> %.sroa.02.4.vec.insert.i56, ptr %107, align 4
+  %108 = load i32, ptr %17, align 8, !tbaa !40
+  %109 = call i32 @b2DynamicTree_CreateProxy(ptr noundef nonnull %3, <2 x float> %.sroa.02.4.vec.insert.i, <2 x float> %.sroa.02.4.vec.insert.i56, i64 noundef 1, i32 noundef %108)
+  %110 = getelementptr inbounds nuw i8, ptr %58, i64 48
+  store i32 %109, ptr %110, align 4, !tbaa !156
+  %111 = getelementptr inbounds nuw i8, ptr %58, i64 52
+  store i32 -1, ptr %111, align 4, !tbaa !157
+  %112 = getelementptr inbounds nuw i8, ptr %58, i64 56
+  store i32 -1, ptr %112, align 4, !tbaa !158
+  %113 = getelementptr inbounds nuw i8, ptr %58, i64 60
+  store i8 0, ptr %113, align 4, !tbaa !159
+  %114 = load i32, ptr %17, align 8, !tbaa !40
+  %115 = add nsw i32 %114, 1
+  store i32 %115, ptr %17, align 8, !tbaa !40
   %.pre = load i32, ptr @g_seed, align 4, !tbaa !64
   %.pre65 = load i32, ptr %10, align 4, !tbaa !47
-  br label %114
+  br label %116
 
-114:                                              ; preds = %52, %.lr.ph
-  %115 = phi i32 [ %.pre65, %52 ], [ %39, %.lr.ph ]
-  %116 = phi i32 [ %.pre, %52 ], [ %46, %.lr.ph ]
-  %117 = load float, ptr %25, align 4, !tbaa !43
-  %118 = fadd float %.05158, %117
-  %119 = add nuw nsw i32 %.05257, 1
-  %120 = icmp slt i32 %119, %115
-  br i1 %120, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !160
+116:                                              ; preds = %54, %.lr.ph
+  %117 = phi i32 [ %.pre65, %54 ], [ %41, %.lr.ph ]
+  %118 = phi i32 [ %.pre, %54 ], [ %48, %.lr.ph ]
+  %119 = load float, ptr %27, align 4, !tbaa !43
+  %120 = fadd float %.05158, %119
+  %121 = add nuw nsw i32 %.05257, 1
+  %122 = icmp slt i32 %121, %117
+  br i1 %122, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !160
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2728,7 +2730,7 @@ declare void @b2DynamicTree_Destroy(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 declare void @b2DynamicTree_Create(ptr dead_on_unwind writable sret(%struct.b2DynamicTree) align 8) local_unnamed_addr #0
@@ -9137,7 +9139,7 @@ attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { cold nofree noreturn }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

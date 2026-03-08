@@ -517,7 +517,7 @@ FASTCOVER_computeFrequency.exit:                  ; preds = %.loopexit.i, %131, 
 
 declare void @COVER_warnOnSmallCorpus(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
@@ -1223,7 +1223,7 @@ declare void @COVER_best_destroy(ptr noundef) local_unnamed_addr #4
 
 declare void @POOL_free(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 declare void @COVER_best_start(ptr noundef) local_unnamed_addr #4
@@ -1263,7 +1263,7 @@ define internal void @FASTCOVER_tryParameters(ptr noundef captures(none) %0) #0 
 22:                                               ; preds = %1
   %23 = load i32, ptr @g_displayLevel, align 4, !tbaa !11
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %25, label %58
+  br i1 %24, label %25, label %61
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @stderr, align 8, !tbaa !21
@@ -1273,54 +1273,57 @@ define internal void @FASTCOVER_tryParameters(ptr noundef captures(none) %0) #0 
 28:                                               ; preds = %1
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %30 = load ptr, ptr %29, align 8, !tbaa !31
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %30, i64 %17, i1 false)
+  %31 = load i32, ptr %9, align 4, !tbaa !40
+  %32 = zext nneg i32 %31 to i64
+  %33 = shl i64 4, %32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %30, i64 %33, i1 false)
   %.val = load i32, ptr %2, align 8, !tbaa !14
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.val43 = load i32, ptr %31, align 4
-  %32 = call fastcc i64 @FASTCOVER_buildDictionary(ptr noundef nonnull %5, ptr noundef nonnull %18, ptr noundef nonnull %14, i64 noundef %8, i32 %.val, i32 %.val43, ptr noundef nonnull %13)
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %34 = load i64, ptr %33, align 8, !tbaa !32
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %36 = load i32, ptr %35, align 8, !tbaa !33
-  %37 = zext i32 %36 to i64
-  %38 = mul i64 %34, %37
-  %39 = udiv i64 %38, 100
-  %40 = trunc i64 %39 to i32
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.val43 = load i32, ptr %34, align 4
+  %35 = call fastcc i64 @FASTCOVER_buildDictionary(ptr noundef nonnull %5, ptr noundef nonnull %18, ptr noundef nonnull %14, i64 noundef %8, i32 %.val, i32 %.val43, ptr noundef nonnull %13)
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %37 = load i64, ptr %36, align 8, !tbaa !32
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %39 = load i32, ptr %38, align 8, !tbaa !33
+  %40 = zext i32 %39 to i64
+  %41 = mul i64 %37, %40
+  %42 = udiv i64 %41, 100
+  %43 = trunc i64 %42 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %41 = getelementptr inbounds nuw i8, ptr %14, i64 %32
-  %42 = sub i64 %8, %32
-  %43 = load ptr, ptr %5, align 8, !tbaa !35
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !36
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %47 = load i64, ptr %46, align 8, !tbaa !37
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !34
-  call void @COVER_selectDict(ptr dead_on_unwind nonnull writable sret(%struct.COVER_dictSelection) align 8 %4, ptr noundef nonnull %41, i64 noundef %8, i64 noundef %42, ptr noundef %43, ptr noundef %45, i32 noundef %40, i64 noundef %34, i64 noundef %47, ptr noundef nonnull byval(%struct.ZDICT_cover_params_t) align 8 %2, ptr noundef %49, i64 noundef -1) #14
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 %35
+  %45 = sub i64 %8, %35
+  %46 = load ptr, ptr %5, align 8, !tbaa !35
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %48 = load ptr, ptr %47, align 8, !tbaa !36
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %50 = load i64, ptr %49, align 8, !tbaa !37
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !34
+  call void @COVER_selectDict(ptr dead_on_unwind nonnull writable sret(%struct.COVER_dictSelection) align 8 %4, ptr noundef nonnull %44, i64 noundef %8, i64 noundef %45, ptr noundef %46, ptr noundef %48, i32 noundef %43, i64 noundef %37, i64 noundef %50, ptr noundef nonnull byval(%struct.ZDICT_cover_params_t) align 8 %2, ptr noundef %52, i64 noundef -1) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !79
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %50 = call i32 @COVER_dictSelectionIsError(ptr noundef nonnull byval(%struct.COVER_dictSelection) align 8 %3) #14
-  %.not = icmp ne i32 %50, 0
-  %51 = load i32, ptr @g_displayLevel, align 4
-  %52 = icmp sgt i32 %51, 0
-  %or.cond42 = select i1 %.not, i1 %52, i1 false
-  br i1 %or.cond42, label %53, label %58
+  %53 = call i32 @COVER_dictSelectionIsError(ptr noundef nonnull byval(%struct.COVER_dictSelection) align 8 %3) #14
+  %.not = icmp ne i32 %53, 0
+  %54 = load i32, ptr @g_displayLevel, align 4
+  %55 = icmp sgt i32 %54, 0
+  %or.cond42 = select i1 %.not, i1 %55, i1 false
+  br i1 %or.cond42, label %56, label %61
 
-53:                                               ; preds = %28
-  %54 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %55 = call i64 @fwrite(ptr nonnull @.str.26, i64 28, i64 1, ptr %54) #12
+56:                                               ; preds = %28
+  %57 = load ptr, ptr @stderr, align 8, !tbaa !21
+  %58 = call i64 @fwrite(ptr nonnull @.str.26, i64 28, i64 1, ptr %57) #12
   br label %.sink.split
 
-.sink.split:                                      ; preds = %25, %53
-  %56 = load ptr, ptr @stderr, align 8, !tbaa !21
-  %57 = call i32 @fflush(ptr noundef %56)
-  br label %58
+.sink.split:                                      ; preds = %25, %56
+  %59 = load ptr, ptr @stderr, align 8, !tbaa !21
+  %60 = call i32 @fflush(ptr noundef %59)
+  br label %61
 
-58:                                               ; preds = %.sink.split, %28, %22
+61:                                               ; preds = %.sink.split, %28, %22
   call void @free(ptr noundef %14) #14
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !61
-  call void @COVER_best_finish(ptr noundef %60, ptr noundef nonnull byval(%struct.ZDICT_cover_params_t) align 8 %2, ptr noundef nonnull byval(%struct.COVER_dictSelection) align 8 %3) #14
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !61
+  call void @COVER_best_finish(ptr noundef %63, ptr noundef nonnull byval(%struct.ZDICT_cover_params_t) align 8 %2, ptr noundef nonnull byval(%struct.COVER_dictSelection) align 8 %3) #14
   call void @free(ptr noundef nonnull %0) #14
   call void @free(ptr noundef %13) #14
   call void @COVER_dictSelectionFree(ptr noundef nonnull byval(%struct.COVER_dictSelection) align 8 %3) #14
@@ -1372,9 +1375,9 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

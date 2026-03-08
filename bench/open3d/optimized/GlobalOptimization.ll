@@ -1046,7 +1046,7 @@ _ZNK5Eigen8internal18dense_product_baseINS_7ProductINS_9TransposeINS_6MatrixIdLi
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i: ; preds = %.loopexit
   %176 = ashr exact i64 %sext.i, 29
-  %177 = call noalias ptr @malloc(i64 noundef %176) #39
+  %177 = call noalias ptr @malloc(i64 noundef %176) #39, !noalias !48
   %178 = icmp eq ptr %177, null
   br i1 %178, label %.noexc3.i.i, label %.lr.ph.i119
 
@@ -1635,7 +1635,7 @@ _ZN6open3d9pipelines12registration9PoseGraphaSERKS2_.exit: ; preds = %.noexc145
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i149: ; preds = %_ZN6open3d9pipelines12registration9PoseGraphaSERKS2_.exit
   %448 = ashr exact i64 %sext.i147, 29
-  %449 = call noalias ptr @malloc(i64 noundef %448) #39
+  %449 = call noalias ptr @malloc(i64 noundef %448) #39, !noalias !72
   %450 = icmp eq ptr %449, null
   br i1 %450, label %.noexc3.i.i157, label %.lr.ph.i150
 
@@ -2506,7 +2506,7 @@ _ZNK5Eigen8internal18dense_product_baseINS_7ProductINS_9TransposeINS_6MatrixIdLi
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i: ; preds = %185
   %195 = ashr exact i64 %sext.i, 29
-  %196 = call noalias ptr @malloc(i64 noundef %195) #39
+  %196 = call noalias ptr @malloc(i64 noundef %195) #39, !noalias !94
   %197 = icmp eq ptr %196, null
   br i1 %197, label %.noexc3.i.i, label %.lr.ph.i169
 
@@ -3606,7 +3606,7 @@ _ZN6open3d9pipelines12registration9PoseGraphaSERKS2_.exit.i: ; preds = %.noexc.i
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i198: ; preds = %.loopexit449
   %713 = ashr exact i64 %sext.i196, 29
-  %714 = call noalias ptr @malloc(i64 noundef %713) #39
+  %714 = call noalias ptr @malloc(i64 noundef %713) #39, !noalias !124
   %715 = icmp eq ptr %714, null
   br i1 %715, label %.noexc3.i.i205, label %.lr.ph.i199
 
@@ -4499,7 +4499,7 @@ _ZN6open3d9pipelines12registration9PoseGraphaSERKS2_.exit: ; preds = %.noexc230
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i234: ; preds = %_ZN6open3d9pipelines12registration9PoseGraphaSERKS2_.exit
   %1329 = ashr exact i64 %sext.i232, 29
-  %1330 = call noalias ptr @malloc(i64 noundef %1329) #39
+  %1330 = call noalias ptr @malloc(i64 noundef %1329) #39, !noalias !149
   %1331 = icmp eq ptr %1330, null
   br i1 %1331, label %.noexc3.i.i242, label %.lr.ph.i235
 
@@ -5225,7 +5225,7 @@ declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: cold noreturn
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: noreturn
@@ -40429,7 +40429,7 @@ attributes #5 = { noinline noreturn nounwind ssp uwtable "no-trapping-math"="tru
 attributes #6 = { cold nofree noreturn }
 attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold noreturn }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

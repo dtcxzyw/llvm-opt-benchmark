@@ -77,19 +77,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_NtkCecSat(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
+  %5 = tail call ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
   %puts44 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.44)
-  br label %32
+  br label %35
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %5) #15
-  switch i32 %9, label %20 [
+  %9 = tail call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %5) #14
+  switch i32 %9, label %23 [
     i32 0, label %10
-    i32 1, label %19
+    i32 1, label %22
   ]
 
 10:                                               ; preds = %8
@@ -100,68 +100,72 @@ define void @Abc_NtkCecSat(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
   %.val.val.i = load i32, ptr %12, align 4, !tbaa !24
   %13 = sext i32 %.val.val.i to i64
   %14 = shl nsw i64 %13, 2
-  %calloc = tail call ptr @calloc(i64 1, i64 %14)
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 304
-  store ptr %calloc, ptr %15, align 8, !tbaa !26
-  tail call fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr noundef %1, ptr noundef %calloc)
-  %16 = load ptr, ptr %15, align 8, !tbaa !26
-  %.not43 = icmp eq ptr %16, null
-  br i1 %.not43, label %18, label %17
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #15
+  %.val5.val.i = load i32, ptr %12, align 4, !tbaa !24
+  %16 = sext i32 %.val5.val.i to i64
+  %17 = shl nsw i64 %16, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %15, i8 0, i64 %17, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 304
+  store ptr %15, ptr %18, align 8, !tbaa !26
+  tail call fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr noundef %1, ptr noundef %15)
+  %19 = load ptr, ptr %18, align 8, !tbaa !26
+  %.not43 = icmp eq ptr %19, null
+  br i1 %.not43, label %21, label %20
 
-17:                                               ; preds = %10
-  tail call void @free(ptr noundef nonnull %16) #15
-  store ptr null, ptr %15, align 8, !tbaa !26
-  br label %18
+20:                                               ; preds = %10
+  tail call void @free(ptr noundef nonnull %19) #14
+  store ptr null, ptr %18, align 8, !tbaa !26
+  br label %21
 
-18:                                               ; preds = %10, %17
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %5) #15
-  br label %32
+21:                                               ; preds = %10, %20
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %5) #14
+  br label %35
 
-19:                                               ; preds = %8
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %5) #15
+22:                                               ; preds = %8
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %5) #14
   %puts41 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.42)
-  br label %32
+  br label %35
 
-20:                                               ; preds = %8
-  %21 = tail call ptr @Abc_NtkMulti(ptr noundef nonnull %5, i32 noundef 0, i32 noundef 100, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %5) #15
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %24
+23:                                               ; preds = %8
+  %24 = tail call ptr @Abc_NtkMulti(ptr noundef nonnull %5, i32 noundef 0, i32 noundef 100, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %5) #14
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %27
 
-23:                                               ; preds = %20
+26:                                               ; preds = %23
   %puts40 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.29)
-  br label %32
+  br label %35
 
-24:                                               ; preds = %20
-  %25 = sext i32 %2 to i64
-  %26 = sext i32 %3 to i64
-  %27 = tail call i32 @Abc_NtkMiterSat(ptr noundef nonnull %21, i64 noundef %25, i64 noundef %26, i32 noundef 0, ptr noundef null, ptr noundef null) #15
-  %switch.selectcmp = icmp eq i32 %27, 0
+27:                                               ; preds = %23
+  %28 = sext i32 %2 to i64
+  %29 = sext i32 %3 to i64
+  %30 = tail call i32 @Abc_NtkMiterSat(ptr noundef nonnull %24, i64 noundef %28, i64 noundef %29, i32 noundef 0, ptr noundef null, ptr noundef null) #14
+  %switch.selectcmp = icmp eq i32 %30, 0
   %switch.select = select i1 %switch.selectcmp, ptr @str.27, ptr @str.26
-  %switch.selectcmp49 = icmp eq i32 %27, -1
+  %switch.selectcmp49 = icmp eq i32 %30, -1
   %switch.select50 = select i1 %switch.selectcmp49, ptr @str.28, ptr %switch.select
   %puts37 = tail call i32 @puts(ptr nonnull dereferenceable(1) %switch.select50)
-  %28 = getelementptr inbounds nuw i8, ptr %21, i64 304
-  %29 = load ptr, ptr %28, align 8, !tbaa !26
-  %.not = icmp eq ptr %29, null
-  br i1 %.not, label %.thread, label %30
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 304
+  %32 = load ptr, ptr %31, align 8, !tbaa !26
+  %.not = icmp eq ptr %32, null
+  br i1 %.not, label %.thread, label %33
 
-30:                                               ; preds = %24
-  tail call fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %29)
-  %.pr = load ptr, ptr %28, align 8, !tbaa !26
+33:                                               ; preds = %27
+  tail call fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %32)
+  %.pr = load ptr, ptr %31, align 8, !tbaa !26
   %.not39 = icmp eq ptr %.pr, null
-  br i1 %.not39, label %.thread, label %31
+  br i1 %.not39, label %.thread, label %34
 
-31:                                               ; preds = %30
-  tail call void @free(ptr noundef nonnull %.pr) #15
-  store ptr null, ptr %28, align 8, !tbaa !26
+34:                                               ; preds = %33
+  tail call void @free(ptr noundef nonnull %.pr) #14
+  store ptr null, ptr %31, align 8, !tbaa !26
   br label %.thread
 
-.thread:                                          ; preds = %24, %30, %31
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %21) #15
-  br label %32
+.thread:                                          ; preds = %27, %33, %34
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %24) #14
+  br label %35
 
-32:                                               ; preds = %.thread, %23, %19, %18, %7
+35:                                               ; preds = %.thread, %26, %22, %21, %7
   ret void
 }
 
@@ -181,8 +185,9 @@ define noalias noundef ptr @Abc_NtkVerifyGetCleanModel(ptr noundef readonly capt
   %5 = mul nsw i32 %.val.val, %1
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 2
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #16
-  %9 = sext i32 %.val.val to i64
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #15
+  %.val5.val = load i32, ptr %4, align 4, !tbaa !24
+  %9 = sext i32 %.val5.val to i64
   %10 = sext i32 %1 to i64
   %11 = shl nsw i64 %10, 2
   %12 = mul i64 %11, %9
@@ -250,7 +255,7 @@ define internal fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr nounde
   %.val82.val = load ptr, ptr %27, align 8, !tbaa !31
   %28 = getelementptr inbounds nuw [8 x i8], ptr %.val82.val, i64 %indvars.iv114
   %29 = load ptr, ptr %28, align 8, !tbaa !32
-  %30 = tail call ptr @Abc_ObjName(ptr noundef %29) #15
+  %30 = tail call ptr @Abc_ObjName(ptr noundef %29) #14
   %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, ptr noundef %30)
   %32 = add nuw nsw i32 %.06192, 1
   %33 = icmp eq i32 %32, 3
@@ -293,7 +298,7 @@ define internal fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr nounde
   %44 = zext nneg i32 %.1 to i64
   %45 = getelementptr inbounds nuw [8 x i8], ptr %.val83.val, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !32
-  %47 = tail call ptr @Abc_ObjName(ptr noundef %46) #15
+  %47 = tail call ptr @Abc_ObjName(ptr noundef %46) #14
   %48 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %44
   %49 = load i32, ptr %48, align 4, !tbaa !28
   %50 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %44
@@ -306,7 +311,7 @@ define internal fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr nounde
   %55 = getelementptr inbounds nuw [8 x i8], ptr %.val84.val, i64 %44
   %56 = load ptr, ptr %55, align 8, !tbaa !32
   store ptr %56, ptr %4, align 8, !tbaa !34
-  %57 = call ptr @Abc_NtkNodeSupport(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 1) #15
+  %57 = call ptr @Abc_NtkNodeSupport(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 1) #14
   %58 = getelementptr i8, ptr %0, i64 56
   %.val76104 = load ptr, ptr %58, align 8, !tbaa !3
   %59 = getelementptr i8, ptr %.val76104, i64 4
@@ -362,7 +367,7 @@ define internal fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr nounde
   %76 = getelementptr inbounds nuw [8 x i8], ptr %.val78, i64 %indvars.iv120
   %77 = load ptr, ptr %76, align 8, !tbaa !32
   store ptr %77, ptr %4, align 8, !tbaa !34
-  %78 = call ptr @Abc_ObjName(ptr noundef %77) #15
+  %78 = call ptr @Abc_ObjName(ptr noundef %77) #14
   %79 = load ptr, ptr %4, align 8, !tbaa !34
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
   %81 = load ptr, ptr %80, align 8, !tbaa !36
@@ -386,11 +391,11 @@ define internal fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr nounde
   br i1 %.not.i, label %.thread, label %91
 
 91:                                               ; preds = %.critedge2
-  call void @free(ptr noundef nonnull %90) #15
+  call void @free(ptr noundef nonnull %90) #14
   br label %.thread
 
 .thread:                                          ; preds = %91, %.critedge2
-  call void @free(ptr noundef nonnull %57) #15
+  call void @free(ptr noundef nonnull %57) #14
   br label %93
 
 92:                                               ; preds = %40
@@ -398,7 +403,7 @@ define internal fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr nounde
   br i1 %.not73, label %94, label %93
 
 93:                                               ; preds = %.thread, %92
-  call void @free(ptr noundef nonnull %5) #15
+  call void @free(ptr noundef nonnull %5) #14
   br label %94
 
 94:                                               ; preds = %92, %93
@@ -406,7 +411,7 @@ define internal fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr nounde
   br i1 %.not74, label %96, label %95
 
 95:                                               ; preds = %94
-  call void @free(ptr noundef nonnull %6) #15
+  call void @free(ptr noundef nonnull %6) #14
   br label %96
 
 96:                                               ; preds = %94, %95
@@ -432,7 +437,7 @@ define void @Abc_NtkCecFraig(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   %9 = alloca %struct.Prove_ParamsStruct_t_, align 8
   %10 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #15
+  %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #14
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %Abc_Clock.exit, label %13
 
@@ -485,31 +490,31 @@ Abc_Clock.exit:                                   ; preds = %4, %13
 
 34:                                               ; preds = %26, %32, %30, %24
   %.0 = phi ptr [ %29, %26 ], [ %31, %30 ], [ %33, %32 ], [ null, %24 ]
-  %35 = call ptr @Abc_NtkMiter(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
+  %35 = call ptr @Abc_NtkMiter(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   store ptr %35, ptr %10, align 8, !tbaa !44
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %34
   %puts52 = call i32 @puts(ptr nonnull dereferenceable(1) @str.44)
-  br label %116
+  br label %119
 
 38:                                               ; preds = %34
   %.not47 = icmp eq ptr %.0, null
   br i1 %.not47, label %41, label %39
 
 39:                                               ; preds = %38
-  %40 = call ptr @Abc_NtkMiter(ptr noundef nonnull %35, ptr noundef nonnull %.0, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #15
+  %40 = call ptr @Abc_NtkMiter(ptr noundef nonnull %35, ptr noundef nonnull %.0, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #14
   store ptr %40, ptr %10, align 8, !tbaa !44
-  call void @Abc_NtkDelete(ptr noundef nonnull %35) #15
+  call void @Abc_NtkDelete(ptr noundef nonnull %35) #14
   br label %41
 
 41:                                               ; preds = %39, %38
   %42 = phi ptr [ %40, %39 ], [ %35, %38 ]
-  %43 = call i32 @Abc_NtkMiterIsConstant(ptr noundef %42) #15
-  switch i32 %43, label %80 [
+  %43 = call i32 @Abc_NtkMiterIsConstant(ptr noundef %42) #14
+  switch i32 %43, label %83 [
     i32 0, label %44
-    i32 1, label %66
+    i32 1, label %69
   ]
 
 44:                                               ; preds = %41
@@ -520,151 +525,155 @@ Abc_Clock.exit:                                   ; preds = %4, %13
   %.val.val.i = load i32, ptr %47, align 4, !tbaa !24
   %48 = sext i32 %.val.val.i to i64
   %49 = shl nsw i64 %48, 2
-  %calloc = call ptr @calloc(i64 1, i64 %49)
-  %50 = getelementptr inbounds nuw i8, ptr %42, i64 304
-  store ptr %calloc, ptr %50, align 8, !tbaa !26
-  call fastcc void @Abc_NtkVerifyReportError(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %calloc)
-  %51 = load ptr, ptr %50, align 8, !tbaa !26
-  %.not51 = icmp eq ptr %51, null
-  br i1 %.not51, label %53, label %52
+  %50 = call noalias ptr @malloc(i64 noundef %49) #15
+  %.val5.val.i = load i32, ptr %47, align 4, !tbaa !24
+  %51 = sext i32 %.val5.val.i to i64
+  %52 = shl nsw i64 %51, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %50, i8 0, i64 %52, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 304
+  store ptr %50, ptr %53, align 8, !tbaa !26
+  call fastcc void @Abc_NtkVerifyReportError(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %50)
+  %54 = load ptr, ptr %53, align 8, !tbaa !26
+  %.not51 = icmp eq ptr %54, null
+  br i1 %.not51, label %56, label %55
 
-52:                                               ; preds = %44
-  call void @free(ptr noundef nonnull %51) #15
-  store ptr null, ptr %50, align 8, !tbaa !26
-  br label %53
+55:                                               ; preds = %44
+  call void @free(ptr noundef nonnull %54) #14
+  store ptr null, ptr %53, align 8, !tbaa !26
+  br label %56
 
-53:                                               ; preds = %44, %52
-  call void @Abc_NtkDelete(ptr noundef nonnull %42) #15
+56:                                               ; preds = %44, %55
+  call void @Abc_NtkDelete(ptr noundef nonnull %42) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %54 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #15
-  %55 = icmp slt i32 %54, 0
-  br i1 %55, label %Abc_Clock.exit54, label %56
+  %57 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #14
+  %58 = icmp slt i32 %57, 0
+  br i1 %58, label %Abc_Clock.exit54, label %59
 
-56:                                               ; preds = %53
-  %57 = load i64, ptr %7, align 8, !tbaa !39
-  %58 = mul nsw i64 %57, 1000000
-  %59 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %60 = load i64, ptr %59, align 8, !tbaa !42
-  %61 = sdiv i64 %60, 1000
-  %62 = add nsw i64 %61, %58
+59:                                               ; preds = %56
+  %60 = load i64, ptr %7, align 8, !tbaa !39
+  %61 = mul nsw i64 %60, 1000000
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %63 = load i64, ptr %62, align 8, !tbaa !42
+  %64 = sdiv i64 %63, 1000
+  %65 = add nsw i64 %64, %61
   br label %Abc_Clock.exit54
 
-Abc_Clock.exit54:                                 ; preds = %53, %56
-  %.0.i53 = phi i64 [ %62, %56 ], [ -1, %53 ]
+Abc_Clock.exit54:                                 ; preds = %56, %59
+  %.0.i53 = phi i64 [ %65, %59 ], [ -1, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %63 = sub nsw i64 %.0.i53, %.0.i
+  %66 = sub nsw i64 %.0.i53, %.0.i
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.12)
-  %64 = sitofp i64 %63 to double
-  %65 = fdiv double %64, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.61, double noundef %65)
-  br label %116
+  %67 = sitofp i64 %66 to double
+  %68 = fdiv double %67, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.61, double noundef %68)
+  br label %119
 
-66:                                               ; preds = %41
-  %67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
-  call void @Abc_NtkDelete(ptr noundef %42) #15
+69:                                               ; preds = %41
+  %70 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13)
+  call void @Abc_NtkDelete(ptr noundef %42) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %68 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #15
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %Abc_Clock.exit56, label %70
+  %71 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #14
+  %72 = icmp slt i32 %71, 0
+  br i1 %72, label %Abc_Clock.exit56, label %73
 
-70:                                               ; preds = %66
-  %71 = load i64, ptr %6, align 8, !tbaa !39
-  %72 = mul nsw i64 %71, 1000000
-  %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %74 = load i64, ptr %73, align 8, !tbaa !42
-  %75 = sdiv i64 %74, 1000
-  %76 = add nsw i64 %75, %72
+73:                                               ; preds = %69
+  %74 = load i64, ptr %6, align 8, !tbaa !39
+  %75 = mul nsw i64 %74, 1000000
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %77 = load i64, ptr %76, align 8, !tbaa !42
+  %78 = sdiv i64 %77, 1000
+  %79 = add nsw i64 %78, %75
   br label %Abc_Clock.exit56
 
-Abc_Clock.exit56:                                 ; preds = %66, %70
-  %.0.i55 = phi i64 [ %76, %70 ], [ -1, %66 ]
+Abc_Clock.exit56:                                 ; preds = %69, %73
+  %.0.i55 = phi i64 [ %79, %73 ], [ -1, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %77 = sub nsw i64 %.0.i55, %.0.i
+  %80 = sub nsw i64 %.0.i55, %.0.i
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.12)
-  %78 = sitofp i64 %77 to double
-  %79 = fdiv double %78, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.61, double noundef %79)
-  br label %116
+  %81 = sitofp i64 %80 to double
+  %82 = fdiv double %81, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.61, double noundef %82)
+  br label %119
 
-80:                                               ; preds = %41
-  call void @Prove_ParamsSetDefault(ptr noundef nonnull %9) #15
-  %81 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 5, ptr %81, align 8, !tbaa !45
-  %82 = call i32 @Abc_NtkIvyProve(ptr noundef nonnull %10, ptr noundef nonnull %9) #15
-  switch i32 %82, label %95 [
-    i32 -1, label %83
-    i32 0, label %85
+83:                                               ; preds = %41
+  call void @Prove_ParamsSetDefault(ptr noundef nonnull %9) #14
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i32 5, ptr %84, align 8, !tbaa !45
+  %85 = call i32 @Abc_NtkIvyProve(ptr noundef nonnull %10, ptr noundef nonnull %9) #14
+  switch i32 %85, label %98 [
+    i32 -1, label %86
+    i32 0, label %88
   ]
 
-83:                                               ; preds = %80
-  %84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14)
-  br label %97
+86:                                               ; preds = %83
+  %87 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14)
+  br label %100
 
-85:                                               ; preds = %80
-  %86 = load ptr, ptr %10, align 8, !tbaa !44
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 304
-  %88 = load ptr, ptr %87, align 8, !tbaa !26
-  %89 = call ptr @Abc_NtkVerifySimulatePattern(ptr noundef %86, ptr noundef %88)
-  %90 = load i32, ptr %89, align 4, !tbaa !28
-  %.not48 = icmp eq i32 %90, 1
-  br i1 %.not48, label %92, label %91
+88:                                               ; preds = %83
+  %89 = load ptr, ptr %10, align 8, !tbaa !44
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 304
+  %91 = load ptr, ptr %90, align 8, !tbaa !26
+  %92 = call ptr @Abc_NtkVerifySimulatePattern(ptr noundef %89, ptr noundef %91)
+  %93 = load i32, ptr %92, align 4, !tbaa !28
+  %.not48 = icmp eq i32 %93, 1
+  br i1 %.not48, label %95, label %94
 
-91:                                               ; preds = %85
+94:                                               ; preds = %88
   %puts49 = call i32 @puts(ptr nonnull dereferenceable(1) @str.20)
-  br label %94
-
-92:                                               ; preds = %85
-  %93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16)
-  br label %94
-
-94:                                               ; preds = %91, %92
-  call void @free(ptr noundef nonnull %89) #15
   br label %97
 
-95:                                               ; preds = %80
-  %96 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17)
+95:                                               ; preds = %88
+  %96 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16)
   br label %97
 
-97:                                               ; preds = %94, %95, %83
+97:                                               ; preds = %94, %95
+  call void @free(ptr noundef nonnull %92) #14
+  br label %100
+
+98:                                               ; preds = %83
+  %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17)
+  br label %100
+
+100:                                              ; preds = %97, %98, %86
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %98 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #15
-  %99 = icmp slt i32 %98, 0
-  br i1 %99, label %Abc_Clock.exit58, label %100
+  %101 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #14
+  %102 = icmp slt i32 %101, 0
+  br i1 %102, label %Abc_Clock.exit58, label %103
 
-100:                                              ; preds = %97
-  %101 = load i64, ptr %5, align 8, !tbaa !39
-  %102 = mul nsw i64 %101, 1000000
-  %103 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %104 = load i64, ptr %103, align 8, !tbaa !42
-  %105 = sdiv i64 %104, 1000
-  %106 = add nsw i64 %105, %102
+103:                                              ; preds = %100
+  %104 = load i64, ptr %5, align 8, !tbaa !39
+  %105 = mul nsw i64 %104, 1000000
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %107 = load i64, ptr %106, align 8, !tbaa !42
+  %108 = sdiv i64 %107, 1000
+  %109 = add nsw i64 %108, %105
   br label %Abc_Clock.exit58
 
-Abc_Clock.exit58:                                 ; preds = %97, %100
-  %.0.i57 = phi i64 [ %106, %100 ], [ -1, %97 ]
+Abc_Clock.exit58:                                 ; preds = %100, %103
+  %.0.i57 = phi i64 [ %109, %103 ], [ -1, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %107 = sub nsw i64 %.0.i57, %.0.i
+  %110 = sub nsw i64 %.0.i57, %.0.i
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.12)
-  %108 = sitofp i64 %107 to double
-  %109 = fdiv double %108, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.61, double noundef %109)
-  %110 = load ptr, ptr %10, align 8, !tbaa !44
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 304
-  %112 = load ptr, ptr %111, align 8, !tbaa !26
-  %.not50 = icmp eq ptr %112, null
-  br i1 %.not50, label %114, label %113
+  %111 = sitofp i64 %110 to double
+  %112 = fdiv double %111, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.61, double noundef %112)
+  %113 = load ptr, ptr %10, align 8, !tbaa !44
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 304
+  %115 = load ptr, ptr %114, align 8, !tbaa !26
+  %.not50 = icmp eq ptr %115, null
+  br i1 %.not50, label %117, label %116
 
-113:                                              ; preds = %Abc_Clock.exit58
-  call fastcc void @Abc_NtkVerifyReportError(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %112)
+116:                                              ; preds = %Abc_Clock.exit58
+  call fastcc void @Abc_NtkVerifyReportError(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %115)
   %.pre = load ptr, ptr %10, align 8, !tbaa !44
-  br label %114
+  br label %117
 
-114:                                              ; preds = %113, %Abc_Clock.exit58
-  %115 = phi ptr [ %.pre, %113 ], [ %110, %Abc_Clock.exit58 ]
-  call void @Abc_NtkDelete(ptr noundef %115) #15
-  br label %116
+117:                                              ; preds = %116, %Abc_Clock.exit58
+  %118 = phi ptr [ %.pre, %116 ], [ %113, %Abc_Clock.exit58 ]
+  call void @Abc_NtkDelete(ptr noundef %118) #14
+  br label %119
 
-116:                                              ; preds = %114, %Abc_Clock.exit56, %Abc_Clock.exit54, %37
+119:                                              ; preds = %117, %Abc_Clock.exit56, %Abc_Clock.exit54, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
@@ -681,7 +690,7 @@ define noalias noundef ptr @Abc_NtkVerifySimulatePattern(ptr noundef %0, ptr nou
   br i1 %.not62, label %5, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @Abc_NtkStrash(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
+  %4 = tail call ptr @Abc_NtkStrash(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   br label %5
 
 5:                                                ; preds = %3, %2
@@ -705,7 +714,7 @@ define noalias noundef ptr @Abc_NtkVerifySimulatePattern(ptr noundef %0, ptr nou
 14:                                               ; preds = %8
   %15 = sext i32 %12 to i64
   %16 = shl nsw i64 %15, 2
-  %17 = tail call noalias ptr @malloc(i64 noundef %16) #16
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #15
   store ptr %17, ptr %6, align 8, !tbaa !51
   store i32 %12, ptr %9, align 8, !tbaa !50
   br label %Vec_IntGrow.exit.i.i
@@ -731,7 +740,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %5, %Vec_IntFill.exi
   %24 = load i32, ptr %23, align 8, !tbaa !53
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr %23, align 8, !tbaa !53
-  %26 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %.043) #15
+  %26 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %.043) #14
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
   store ptr inttoptr (i64 1 to ptr), ptr %27, align 8, !tbaa !36
   %28 = getelementptr i8, ptr %.043, i64 56
@@ -842,14 +851,15 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %5, %Vec_IntFill.exi
   %.043.val59.val = load i32, ptr %88, align 4, !tbaa !24
   %89 = sext i32 %.043.val59.val to i64
   %90 = shl nsw i64 %89, 2
-  %91 = tail call noalias ptr @malloc(i64 noundef %90) #16
-  %92 = icmp sgt i32 %.043.val59.val, 0
+  %91 = tail call noalias ptr @malloc(i64 noundef %90) #15
+  %.043.val60.val = load i32, ptr %88, align 4, !tbaa !24
+  %92 = icmp sgt i32 %.043.val60.val, 0
   br i1 %92, label %.lr.ph71, label %.critedge4
 
 .lr.ph71:                                         ; preds = %.critedge2
   %93 = getelementptr i8, ptr %.043.val59, i64 8
   %.043.val61.val = load ptr, ptr %93, align 8, !tbaa !31
-  %wide.trip.count = zext nneg i32 %.043.val59.val to i64
+  %wide.trip.count = zext nneg i32 %.043.val60.val to i64
   br label %94
 
 94:                                               ; preds = %.lr.ph71, %94
@@ -886,7 +896,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %5, %Vec_IntFill.exi
   br i1 %.not62, label %113, label %112
 
 112:                                              ; preds = %.critedge4
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %.043) #15
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %.043) #14
   br label %113
 
 113:                                              ; preds = %112, %.critedge4
@@ -899,22 +909,22 @@ define void @Abc_NtkCecFraigPart(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @Prove_ParamsSetDefault(ptr noundef nonnull %6) #15
+  call void @Prove_ParamsSetDefault(ptr noundef nonnull %6) #14
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 5, ptr %8, align 8, !tbaa !45
-  %9 = call ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef %3, i32 noundef 0, i32 noundef 0) #15
+  %9 = call ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef %3, i32 noundef 0, i32 noundef 0) #14
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %5
   %puts62 = call i32 @puts(ptr nonnull dereferenceable(1) @str.44)
-  br label %95
+  br label %98
 
 12:                                               ; preds = %5
-  %13 = call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %9) #15
-  switch i32 %13, label %24 [
+  %13 = call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %9) #14
+  switch i32 %13, label %27 [
     i32 0, label %14
-    i32 1, label %23
+    i32 1, label %26
   ]
 
 14:                                               ; preds = %12
@@ -925,189 +935,193 @@ define void @Abc_NtkCecFraigPart(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %.val.val.i = load i32, ptr %16, align 4, !tbaa !24
   %17 = sext i32 %.val.val.i to i64
   %18 = shl nsw i64 %17, 2
-  %calloc = call ptr @calloc(i64 1, i64 %18)
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 304
-  store ptr %calloc, ptr %19, align 8, !tbaa !26
-  call fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr noundef %1, ptr noundef %calloc)
-  %20 = load ptr, ptr %19, align 8, !tbaa !26
-  %.not61 = icmp eq ptr %20, null
-  br i1 %.not61, label %22, label %21
+  %19 = call noalias ptr @malloc(i64 noundef %18) #15
+  %.val5.val.i = load i32, ptr %16, align 4, !tbaa !24
+  %20 = sext i32 %.val5.val.i to i64
+  %21 = shl nsw i64 %20, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %19, i8 0, i64 %21, i1 false)
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 304
+  store ptr %19, ptr %22, align 8, !tbaa !26
+  call fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr noundef %1, ptr noundef %19)
+  %23 = load ptr, ptr %22, align 8, !tbaa !26
+  %.not61 = icmp eq ptr %23, null
+  br i1 %.not61, label %25, label %24
 
-21:                                               ; preds = %14
-  call void @free(ptr noundef nonnull %20) #15
-  store ptr null, ptr %19, align 8, !tbaa !26
-  br label %22
+24:                                               ; preds = %14
+  call void @free(ptr noundef nonnull %23) #14
+  store ptr null, ptr %22, align 8, !tbaa !26
+  br label %25
 
-22:                                               ; preds = %14, %21
-  call void @Abc_NtkDelete(ptr noundef nonnull %9) #15
-  br label %95
+25:                                               ; preds = %14, %24
+  call void @Abc_NtkDelete(ptr noundef nonnull %9) #14
+  br label %98
 
-23:                                               ; preds = %12
+26:                                               ; preds = %12
   %puts59 = call i32 @puts(ptr nonnull dereferenceable(1) @str.42)
-  call void @Abc_NtkDelete(ptr noundef nonnull %9) #15
-  br label %95
+  call void @Abc_NtkDelete(ptr noundef nonnull %9) #14
+  br label %98
 
-24:                                               ; preds = %12
-  %25 = call ptr (...) @Abc_FrameGetGlobalFrame() #15
-  %26 = call i32 @Cmd_CommandExecute(ptr noundef %25, ptr noundef nonnull @.str.18) #15
-  %27 = getelementptr i8, ptr %9, i64 48
-  %.val6980 = load ptr, ptr %27, align 8, !tbaa !60
-  %28 = getelementptr i8, ptr %.val6980, i64 4
-  %.val69.val81 = load i32, ptr %28, align 4, !tbaa !24
-  %29 = icmp sgt i32 %.val69.val81, 0
-  br i1 %29, label %.lr.ph, label %.critedge90
+27:                                               ; preds = %12
+  %28 = call ptr (...) @Abc_FrameGetGlobalFrame() #14
+  %29 = call i32 @Cmd_CommandExecute(ptr noundef %28, ptr noundef nonnull @.str.18) #14
+  %30 = getelementptr i8, ptr %9, i64 48
+  %.val6980 = load ptr, ptr %30, align 8, !tbaa !60
+  %31 = getelementptr i8, ptr %.val6980, i64 4
+  %.val69.val81 = load i32, ptr %31, align 4, !tbaa !24
+  %32 = icmp sgt i32 %.val69.val81, 0
+  br i1 %32, label %.lr.ph, label %.critedge90
 
-.lr.ph:                                           ; preds = %24, %80
-  %indvars.iv = phi i64 [ %indvars.iv.next, %80 ], [ 0, %24 ]
-  %.val6985 = phi ptr [ %.val69, %80 ], [ %.val6980, %24 ]
-  %.084 = phi i32 [ %.1, %80 ], [ 0, %24 ]
-  %.04583 = phi i32 [ %.2, %80 ], [ 1, %24 ]
-  %30 = getelementptr i8, ptr %.val6985, i64 8
-  %.val71.val = load ptr, ptr %30, align 8, !tbaa !31
-  %31 = getelementptr inbounds nuw [8 x i8], ptr %.val71.val, i64 %indvars.iv
-  %32 = load ptr, ptr %31, align 8, !tbaa !32
-  %.val = load ptr, ptr %32, align 8, !tbaa !55
-  %33 = getelementptr i8, ptr %32, i64 32
-  %.val63 = load ptr, ptr %33, align 8, !tbaa !57
-  %34 = getelementptr i8, ptr %.val, i64 32
-  %.val.val = load ptr, ptr %34, align 8, !tbaa !49
+.lr.ph:                                           ; preds = %27, %83
+  %indvars.iv = phi i64 [ %indvars.iv.next, %83 ], [ 0, %27 ]
+  %.val6985 = phi ptr [ %.val69, %83 ], [ %.val6980, %27 ]
+  %.084 = phi i32 [ %.1, %83 ], [ 0, %27 ]
+  %.04583 = phi i32 [ %.2, %83 ], [ 1, %27 ]
+  %33 = getelementptr i8, ptr %.val6985, i64 8
+  %.val71.val = load ptr, ptr %33, align 8, !tbaa !31
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.val71.val, i64 %indvars.iv
+  %35 = load ptr, ptr %34, align 8, !tbaa !32
+  %.val = load ptr, ptr %35, align 8, !tbaa !55
+  %36 = getelementptr i8, ptr %35, i64 32
+  %.val63 = load ptr, ptr %36, align 8, !tbaa !57
+  %37 = getelementptr i8, ptr %.val, i64 32
+  %.val.val = load ptr, ptr %37, align 8, !tbaa !49
   %.val63.val = load i32, ptr %.val63, align 4, !tbaa !28
-  %35 = getelementptr i8, ptr %.val.val, i64 8
-  %.val.val.val = load ptr, ptr %35, align 8, !tbaa !31
-  %36 = sext i32 %.val63.val to i64
-  %37 = getelementptr inbounds [8 x i8], ptr %.val.val.val, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !32
-  %39 = call ptr @Abc_AigConst1(ptr noundef nonnull %9) #15
-  %40 = icmp eq ptr %38, %39
-  br i1 %40, label %41, label %44
+  %38 = getelementptr i8, ptr %.val.val, i64 8
+  %.val.val.val = load ptr, ptr %38, align 8, !tbaa !31
+  %39 = sext i32 %.val63.val to i64
+  %40 = getelementptr inbounds [8 x i8], ptr %.val.val.val, i64 %39
+  %41 = load ptr, ptr %40, align 8, !tbaa !32
+  %42 = call ptr @Abc_AigConst1(ptr noundef nonnull %9) #14
+  %43 = icmp eq ptr %41, %42
+  br i1 %43, label %44, label %47
 
-41:                                               ; preds = %.lr.ph
-  %42 = getelementptr i8, ptr %32, i64 20
-  %.val66 = load i32, ptr %42, align 4
-  %43 = and i32 %.val66, 1024
-  %.not54 = icmp eq i32 %43, 0
+44:                                               ; preds = %.lr.ph
+  %45 = getelementptr i8, ptr %35, i64 20
+  %.val66 = load i32, ptr %45, align 4
+  %46 = and i32 %.val66, 1024
+  %.not54 = icmp eq i32 %46, 0
   store ptr null, ptr %7, align 8, !tbaa !44
   br i1 %.not54, label %.thread74, label %.thread
 
-44:                                               ; preds = %.lr.ph
-  %.val64 = load ptr, ptr %32, align 8, !tbaa !55
-  %.val65 = load ptr, ptr %33, align 8, !tbaa !57
-  %45 = getelementptr i8, ptr %.val64, i64 32
-  %.val64.val = load ptr, ptr %45, align 8, !tbaa !49
+47:                                               ; preds = %.lr.ph
+  %.val64 = load ptr, ptr %35, align 8, !tbaa !55
+  %.val65 = load ptr, ptr %36, align 8, !tbaa !57
+  %48 = getelementptr i8, ptr %.val64, i64 32
+  %.val64.val = load ptr, ptr %48, align 8, !tbaa !49
   %.val65.val = load i32, ptr %.val65, align 4, !tbaa !28
-  %46 = getelementptr i8, ptr %.val64.val, i64 8
-  %.val64.val.val = load ptr, ptr %46, align 8, !tbaa !31
-  %47 = sext i32 %.val65.val to i64
-  %48 = getelementptr inbounds [8 x i8], ptr %.val64.val.val, i64 %47
-  %49 = load ptr, ptr %48, align 8, !tbaa !32
-  %50 = call ptr @Abc_ObjName(ptr noundef nonnull %32) #15
-  %51 = call ptr @Abc_NtkCreateCone(ptr noundef nonnull %9, ptr noundef %49, ptr noundef %50, i32 noundef 0) #15
-  store ptr %51, ptr %7, align 8, !tbaa !44
-  %52 = getelementptr i8, ptr %32, i64 20
-  %.val67 = load i32, ptr %52, align 4
-  %53 = and i32 %.val67, 1024
-  %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %61, label %54
+  %49 = getelementptr i8, ptr %.val64.val, i64 8
+  %.val64.val.val = load ptr, ptr %49, align 8, !tbaa !31
+  %50 = sext i32 %.val65.val to i64
+  %51 = getelementptr inbounds [8 x i8], ptr %.val64.val.val, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !32
+  %53 = call ptr @Abc_ObjName(ptr noundef nonnull %35) #14
+  %54 = call ptr @Abc_NtkCreateCone(ptr noundef nonnull %9, ptr noundef %52, ptr noundef %53, i32 noundef 0) #14
+  store ptr %54, ptr %7, align 8, !tbaa !44
+  %55 = getelementptr i8, ptr %35, i64 20
+  %.val67 = load i32, ptr %55, align 4
+  %56 = and i32 %.val67, 1024
+  %.not = icmp eq i32 %56, 0
+  br i1 %.not, label %64, label %57
 
-54:                                               ; preds = %44
-  %55 = getelementptr i8, ptr %51, i64 48
-  %.val72 = load ptr, ptr %55, align 8, !tbaa !60
-  %56 = getelementptr i8, ptr %.val72, i64 8
-  %.val72.val = load ptr, ptr %56, align 8, !tbaa !31
-  %57 = load ptr, ptr %.val72.val, align 8, !tbaa !32
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 20
-  %59 = load i32, ptr %58, align 4
-  %60 = xor i32 %59, 1024
-  store i32 %60, ptr %58, align 4
-  br label %61
+57:                                               ; preds = %47
+  %58 = getelementptr i8, ptr %54, i64 48
+  %.val72 = load ptr, ptr %58, align 8, !tbaa !60
+  %59 = getelementptr i8, ptr %.val72, i64 8
+  %.val72.val = load ptr, ptr %59, align 8, !tbaa !31
+  %60 = load ptr, ptr %.val72.val, align 8, !tbaa !32
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 20
+  %62 = load i32, ptr %61, align 4
+  %63 = xor i32 %62, 1024
+  store i32 %63, ptr %61, align 4
+  br label %64
 
-61:                                               ; preds = %44, %54
-  %62 = call i32 @Abc_NtkIvyProve(ptr noundef nonnull %7, ptr noundef nonnull %6) #15
-  switch i32 %62, label %.thread [
-    i32 -1, label %63
+64:                                               ; preds = %47, %57
+  %65 = call i32 @Abc_NtkIvyProve(ptr noundef nonnull %7, ptr noundef nonnull %6) #14
+  switch i32 %65, label %.thread [
+    i32 -1, label %66
     i32 0, label %..thread74_crit_edge
   ]
 
-..thread74_crit_edge:                             ; preds = %61
+..thread74_crit_edge:                             ; preds = %64
   %.pre = load ptr, ptr %7, align 8, !tbaa !44
   br label %.thread74
 
-63:                                               ; preds = %61
-  %64 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19)
-  br label %77
-
-.thread74:                                        ; preds = %41, %..thread74_crit_edge
-  %65 = phi ptr [ %.pre, %..thread74_crit_edge ], [ null, %41 ]
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 304
-  %67 = load ptr, ptr %66, align 8, !tbaa !26
-  %68 = call ptr @Abc_NtkVerifySimulatePattern(ptr noundef %65, ptr noundef %67)
-  %69 = load i32, ptr %68, align 4, !tbaa !28
-  %.not55 = icmp eq i32 %69, 1
-  %str.13.str.14 = select i1 %.not55, ptr @str.19, ptr @str.20
-  %puts = call i32 @puts(ptr nonnull dereferenceable(1) %str.13.str.14)
-  call void @free(ptr noundef nonnull %68) #15
-  %70 = call ptr (...) @Abc_FrameGetGlobalFrame() #15
-  %71 = call i32 @Cmd_CommandExecute(ptr noundef %70, ptr noundef nonnull @.str.22) #15
-  br label %94
-
-.thread:                                          ; preds = %41, %61
-  %.val70 = load ptr, ptr %27, align 8, !tbaa !60
-  %72 = getelementptr i8, ptr %.val70, i64 4
-  %.val70.val = load i32, ptr %72, align 4, !tbaa !24
-  %73 = trunc i64 %indvars.iv to i32
-  %74 = add i32 %73, 1
-  %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %74, i32 noundef %.val70.val)
-  %76 = add nsw i32 %.084, %3
-  br label %77
-
-77:                                               ; preds = %.thread, %63
-  %.2 = phi i32 [ -1, %63 ], [ %.04583, %.thread ]
-  %.1 = phi i32 [ %.084, %63 ], [ %76, %.thread ]
-  %78 = load ptr, ptr %7, align 8, !tbaa !44
-  %.not58 = icmp eq ptr %78, null
-  br i1 %.not58, label %80, label %79
-
-79:                                               ; preds = %77
-  call void @Abc_NtkDelete(ptr noundef nonnull %78) #15
+66:                                               ; preds = %64
+  %67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19)
   br label %80
 
-80:                                               ; preds = %77, %79
+.thread74:                                        ; preds = %44, %..thread74_crit_edge
+  %68 = phi ptr [ %.pre, %..thread74_crit_edge ], [ null, %44 ]
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 304
+  %70 = load ptr, ptr %69, align 8, !tbaa !26
+  %71 = call ptr @Abc_NtkVerifySimulatePattern(ptr noundef %68, ptr noundef %70)
+  %72 = load i32, ptr %71, align 4, !tbaa !28
+  %.not55 = icmp eq i32 %72, 1
+  %str.13.str.14 = select i1 %.not55, ptr @str.19, ptr @str.20
+  %puts = call i32 @puts(ptr nonnull dereferenceable(1) %str.13.str.14)
+  call void @free(ptr noundef nonnull %71) #14
+  %73 = call ptr (...) @Abc_FrameGetGlobalFrame() #14
+  %74 = call i32 @Cmd_CommandExecute(ptr noundef %73, ptr noundef nonnull @.str.22) #14
+  br label %97
+
+.thread:                                          ; preds = %44, %64
+  %.val70 = load ptr, ptr %30, align 8, !tbaa !60
+  %75 = getelementptr i8, ptr %.val70, i64 4
+  %.val70.val = load i32, ptr %75, align 4, !tbaa !24
+  %76 = trunc i64 %indvars.iv to i32
+  %77 = add i32 %76, 1
+  %78 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %77, i32 noundef %.val70.val)
+  %79 = add nsw i32 %.084, %3
+  br label %80
+
+80:                                               ; preds = %.thread, %66
+  %.2 = phi i32 [ -1, %66 ], [ %.04583, %.thread ]
+  %.1 = phi i32 [ %.084, %66 ], [ %79, %.thread ]
+  %81 = load ptr, ptr %7, align 8, !tbaa !44
+  %.not58 = icmp eq ptr %81, null
+  br i1 %.not58, label %83, label %82
+
+82:                                               ; preds = %80
+  call void @Abc_NtkDelete(ptr noundef nonnull %81) #14
+  br label %83
+
+83:                                               ; preds = %80, %82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val69 = load ptr, ptr %27, align 8, !tbaa !60
-  %81 = getelementptr i8, ptr %.val69, i64 4
-  %.val69.val = load i32, ptr %81, align 4, !tbaa !24
-  %82 = sext i32 %.val69.val to i64
-  %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !61
+  %.val69 = load ptr, ptr %30, align 8, !tbaa !60
+  %84 = getelementptr i8, ptr %.val69, i64 4
+  %.val69.val = load i32, ptr %84, align 4, !tbaa !24
+  %85 = sext i32 %.val69.val to i64
+  %86 = icmp slt i64 %indvars.iv.next, %85
+  br i1 %86, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !61
 
-.critedge.loopexit:                               ; preds = %80
-  %84 = icmp eq i32 %.2, 1
-  %85 = call ptr (...) @Abc_FrameGetGlobalFrame() #15
-  %86 = call i32 @Cmd_CommandExecute(ptr noundef %85, ptr noundef nonnull @.str.22) #15
-  br i1 %84, label %89, label %90
+.critedge.loopexit:                               ; preds = %83
+  %87 = icmp eq i32 %.2, 1
+  %88 = call ptr (...) @Abc_FrameGetGlobalFrame() #14
+  %89 = call i32 @Cmd_CommandExecute(ptr noundef %88, ptr noundef nonnull @.str.22) #14
+  br i1 %87, label %92, label %93
 
-.critedge90:                                      ; preds = %24
-  %87 = call ptr (...) @Abc_FrameGetGlobalFrame() #15
-  %88 = call i32 @Cmd_CommandExecute(ptr noundef %87, ptr noundef nonnull @.str.22) #15
-  br label %89
+.critedge90:                                      ; preds = %27
+  %90 = call ptr (...) @Abc_FrameGetGlobalFrame() #14
+  %91 = call i32 @Cmd_CommandExecute(ptr noundef %90, ptr noundef nonnull @.str.22) #14
+  br label %92
 
-89:                                               ; preds = %.critedge90, %.critedge.loopexit
+92:                                               ; preds = %.critedge90, %.critedge.loopexit
   %puts57 = call i32 @puts(ptr nonnull dereferenceable(1) @str.22)
-  br label %94
+  br label %97
 
-90:                                               ; preds = %.critedge.loopexit
-  %91 = getelementptr i8, ptr %0, i64 64
-  %.val68 = load ptr, ptr %91, align 8, !tbaa !27
-  %92 = getelementptr i8, ptr %.val68, i64 4
-  %.val68.val = load i32, ptr %92, align 4, !tbaa !24
-  %93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %.1, i32 noundef %.val68.val)
-  br label %94
+93:                                               ; preds = %.critedge.loopexit
+  %94 = getelementptr i8, ptr %0, i64 64
+  %.val68 = load ptr, ptr %94, align 8, !tbaa !27
+  %95 = getelementptr i8, ptr %.val68, i64 4
+  %.val68.val = load i32, ptr %95, align 4, !tbaa !24
+  %96 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %.1, i32 noundef %.val68.val)
+  br label %97
 
-94:                                               ; preds = %.thread74, %90, %89
-  call void @Abc_NtkDelete(ptr noundef nonnull %9) #15
-  br label %95
+97:                                               ; preds = %.thread74, %93, %92
+  call void @Abc_NtkDelete(ptr noundef nonnull %9) #14
+  br label %98
 
-95:                                               ; preds = %94, %23, %22, %11
+98:                                               ; preds = %97, %26, %25, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -1129,22 +1143,22 @@ define void @Abc_NtkCecFraigPartAuto(ptr noundef %0, ptr noundef %1, i32 noundef
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @Prove_ParamsSetDefault(ptr noundef nonnull %5) #15
+  call void @Prove_ParamsSetDefault(ptr noundef nonnull %5) #14
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 5, ptr %7, align 8, !tbaa !45
-  %8 = call ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #15
+  %8 = call ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #14
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
   %puts62 = call i32 @puts(ptr nonnull dereferenceable(1) @str.44)
-  br label %101
+  br label %104
 
 11:                                               ; preds = %4
-  %12 = call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %8) #15
-  switch i32 %12, label %23 [
+  %12 = call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %8) #14
+  switch i32 %12, label %26 [
     i32 0, label %13
-    i32 1, label %22
+    i32 1, label %25
   ]
 
 13:                                               ; preds = %11
@@ -1155,234 +1169,238 @@ define void @Abc_NtkCecFraigPartAuto(ptr noundef %0, ptr noundef %1, i32 noundef
   %.val.val.i = load i32, ptr %15, align 4, !tbaa !24
   %16 = sext i32 %.val.val.i to i64
   %17 = shl nsw i64 %16, 2
-  %calloc = call ptr @calloc(i64 1, i64 %17)
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 304
-  store ptr %calloc, ptr %18, align 8, !tbaa !26
-  call fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr noundef %1, ptr noundef %calloc)
-  %19 = load ptr, ptr %18, align 8, !tbaa !26
-  %.not61 = icmp eq ptr %19, null
-  br i1 %.not61, label %21, label %20
+  %18 = call noalias ptr @malloc(i64 noundef %17) #15
+  %.val5.val.i = load i32, ptr %15, align 4, !tbaa !24
+  %19 = sext i32 %.val5.val.i to i64
+  %20 = shl nsw i64 %19, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %18, i8 0, i64 %20, i1 false)
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 304
+  store ptr %18, ptr %21, align 8, !tbaa !26
+  call fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr noundef %1, ptr noundef %18)
+  %22 = load ptr, ptr %21, align 8, !tbaa !26
+  %.not61 = icmp eq ptr %22, null
+  br i1 %.not61, label %24, label %23
 
-20:                                               ; preds = %13
-  call void @free(ptr noundef nonnull %19) #15
-  store ptr null, ptr %18, align 8, !tbaa !26
-  br label %21
+23:                                               ; preds = %13
+  call void @free(ptr noundef nonnull %22) #14
+  store ptr null, ptr %21, align 8, !tbaa !26
+  br label %24
 
-21:                                               ; preds = %13, %20
-  call void @Abc_NtkDelete(ptr noundef nonnull %8) #15
-  br label %101
+24:                                               ; preds = %13, %23
+  call void @Abc_NtkDelete(ptr noundef nonnull %8) #14
+  br label %104
 
-22:                                               ; preds = %11
+25:                                               ; preds = %11
   %puts59 = call i32 @puts(ptr nonnull dereferenceable(1) @str.42)
-  call void @Abc_NtkDelete(ptr noundef nonnull %8) #15
-  br label %101
+  call void @Abc_NtkDelete(ptr noundef nonnull %8) #14
+  br label %104
 
-23:                                               ; preds = %11
-  %24 = call ptr (...) @Abc_FrameGetGlobalFrame() #15
-  %25 = call i32 @Cmd_CommandExecute(ptr noundef %24, ptr noundef nonnull @.str.18) #15
-  %26 = call ptr @Abc_NtkPartitionSmart(ptr noundef nonnull %8, i32 noundef 300, i32 noundef 0) #15
-  %27 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store i32 0, ptr %28, align 4, !tbaa !24
-  store i32 1000, ptr %27, align 8, !tbaa !62
-  %29 = call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #16
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %29, ptr %30, align 8, !tbaa !31
-  %31 = getelementptr i8, ptr %26, i64 4
-  %.val79 = load i32, ptr %31, align 4, !tbaa !24
-  %32 = icmp sgt i32 %.val79, 0
-  br i1 %32, label %.lr.ph, label %.critedge
+26:                                               ; preds = %11
+  %27 = call ptr (...) @Abc_FrameGetGlobalFrame() #14
+  %28 = call i32 @Cmd_CommandExecute(ptr noundef %27, ptr noundef nonnull @.str.18) #14
+  %29 = call ptr @Abc_NtkPartitionSmart(ptr noundef nonnull %8, i32 noundef 300, i32 noundef 0) #14
+  %30 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  store i32 0, ptr %31, align 4, !tbaa !24
+  store i32 1000, ptr %30, align 8, !tbaa !62
+  %32 = call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #15
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr %32, ptr %33, align 8, !tbaa !31
+  %34 = getelementptr i8, ptr %29, i64 4
+  %.val79 = load i32, ptr %34, align 4, !tbaa !24
+  %35 = icmp sgt i32 %.val79, 0
+  br i1 %35, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %23
-  %33 = getelementptr i8, ptr %26, i64 8
-  br label %34
+.lr.ph:                                           ; preds = %26
+  %36 = getelementptr i8, ptr %29, i64 8
+  br label %37
 
-34:                                               ; preds = %.lr.ph, %71
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.pre-phi, %71 ]
-  %.082 = phi i32 [ 0, %.lr.ph ], [ %.1, %71 ]
-  %.04781 = phi i32 [ 1, %.lr.ph ], [ %.249, %71 ]
-  %.val64 = load ptr, ptr %33, align 8, !tbaa !31
-  %35 = getelementptr inbounds nuw [8 x i8], ptr %.val64, i64 %indvars.iv
-  %36 = load ptr, ptr %35, align 8, !tbaa !32
-  call void @Abc_NtkConvertCos(ptr noundef nonnull %8, ptr noundef %36, ptr noundef nonnull %27) #15
-  %37 = call ptr @Abc_NtkCreateConeArray(ptr noundef nonnull %8, ptr noundef nonnull %27, i32 noundef 0) #15
-  store ptr %37, ptr %6, align 8, !tbaa !44
-  %38 = call i32 @Abc_NtkCombinePos(ptr noundef %37, i32 noundef 0, i32 noundef 0) #15
-  %39 = load ptr, ptr %6, align 8, !tbaa !44
-  %40 = call i32 @Abc_NtkMiterIsConstant(ptr noundef %39) #15
-  switch i32 %40, label %44 [
-    i32 0, label %41
-    i32 1, label %42
+37:                                               ; preds = %.lr.ph, %74
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.pre-phi, %74 ]
+  %.082 = phi i32 [ 0, %.lr.ph ], [ %.1, %74 ]
+  %.04781 = phi i32 [ 1, %.lr.ph ], [ %.249, %74 ]
+  %.val64 = load ptr, ptr %36, align 8, !tbaa !31
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.val64, i64 %indvars.iv
+  %39 = load ptr, ptr %38, align 8, !tbaa !32
+  call void @Abc_NtkConvertCos(ptr noundef nonnull %8, ptr noundef %39, ptr noundef nonnull %30) #14
+  %40 = call ptr @Abc_NtkCreateConeArray(ptr noundef nonnull %8, ptr noundef nonnull %30, i32 noundef 0) #14
+  store ptr %40, ptr %6, align 8, !tbaa !44
+  %41 = call i32 @Abc_NtkCombinePos(ptr noundef %40, i32 noundef 0, i32 noundef 0) #14
+  %42 = load ptr, ptr %6, align 8, !tbaa !44
+  %43 = call i32 @Abc_NtkMiterIsConstant(ptr noundef %42) #14
+  switch i32 %43, label %47 [
+    i32 0, label %44
+    i32 1, label %45
   ]
 
-41:                                               ; preds = %34
+44:                                               ; preds = %37
   %puts57 = call i32 @puts(ptr nonnull dereferenceable(1) @str.21)
   br label %.critedge.sink.split
 
-42:                                               ; preds = %34
-  %43 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @Abc_NtkDelete(ptr noundef %43) #15
-  %.pre = add nuw nsw i64 %indvars.iv, 1
-  br label %71
-
-44:                                               ; preds = %34
-  %45 = add nuw nsw i64 %indvars.iv, 1
-  %.val63 = load i32, ptr %31, align 4, !tbaa !24
+45:                                               ; preds = %37
   %46 = load ptr, ptr %6, align 8, !tbaa !44
-  %47 = getelementptr i8, ptr %46, i64 40
-  %.val67 = load ptr, ptr %47, align 8, !tbaa !63
-  %48 = getelementptr i8, ptr %.val67, i64 4
-  %.val67.val = load i32, ptr %48, align 4, !tbaa !24
-  %49 = getelementptr i8, ptr %46, i64 48
-  %.val66 = load ptr, ptr %49, align 8, !tbaa !60
-  %50 = getelementptr i8, ptr %.val66, i64 4
-  %.val66.val = load i32, ptr %50, align 4, !tbaa !24
-  %51 = getelementptr i8, ptr %46, i64 124
-  %.val68 = load i32, ptr %51, align 4, !tbaa !28
-  %52 = call i32 @Abc_AigLevel(ptr noundef %46) #15
-  %53 = trunc nuw nsw i64 %45 to i32
-  %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %53, i32 noundef %.val63, i32 noundef %.val67.val, i32 noundef %.val66.val, i32 noundef %.val68, i32 noundef %52)
-  %55 = load ptr, ptr @stdout, align 8, !tbaa !64
-  %56 = call i32 @fflush(ptr noundef %55)
-  %57 = call i32 @Abc_NtkIvyProve(ptr noundef nonnull %6, ptr noundef nonnull %5) #15
-  switch i32 %57, label %66 [
-    i32 -1, label %58
-    i32 0, label %60
+  call void @Abc_NtkDelete(ptr noundef %46) #14
+  %.pre = add nuw nsw i64 %indvars.iv, 1
+  br label %74
+
+47:                                               ; preds = %37
+  %48 = add nuw nsw i64 %indvars.iv, 1
+  %.val63 = load i32, ptr %34, align 4, !tbaa !24
+  %49 = load ptr, ptr %6, align 8, !tbaa !44
+  %50 = getelementptr i8, ptr %49, i64 40
+  %.val67 = load ptr, ptr %50, align 8, !tbaa !63
+  %51 = getelementptr i8, ptr %.val67, i64 4
+  %.val67.val = load i32, ptr %51, align 4, !tbaa !24
+  %52 = getelementptr i8, ptr %49, i64 48
+  %.val66 = load ptr, ptr %52, align 8, !tbaa !60
+  %53 = getelementptr i8, ptr %.val66, i64 4
+  %.val66.val = load i32, ptr %53, align 4, !tbaa !24
+  %54 = getelementptr i8, ptr %49, i64 124
+  %.val68 = load i32, ptr %54, align 4, !tbaa !28
+  %55 = call i32 @Abc_AigLevel(ptr noundef %49) #14
+  %56 = trunc nuw nsw i64 %48 to i32
+  %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %56, i32 noundef %.val63, i32 noundef %.val67.val, i32 noundef %.val66.val, i32 noundef %.val68, i32 noundef %55)
+  %58 = load ptr, ptr @stdout, align 8, !tbaa !64
+  %59 = call i32 @fflush(ptr noundef %58)
+  %60 = call i32 @Abc_NtkIvyProve(ptr noundef nonnull %6, ptr noundef nonnull %5) #14
+  switch i32 %60, label %69 [
+    i32 -1, label %61
+    i32 0, label %63
   ]
 
-58:                                               ; preds = %44
-  %59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19)
-  br label %69
+61:                                               ; preds = %47
+  %62 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19)
+  br label %72
 
-60:                                               ; preds = %44
-  %61 = load ptr, ptr %6, align 8, !tbaa !44
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 304
-  %63 = load ptr, ptr %62, align 8, !tbaa !26
-  %64 = call ptr @Abc_NtkVerifySimulatePattern(ptr noundef %61, ptr noundef %63)
-  %65 = load i32, ptr %64, align 4, !tbaa !28
-  %.not = icmp eq i32 %65, 1
+63:                                               ; preds = %47
+  %64 = load ptr, ptr %6, align 8, !tbaa !44
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 304
+  %66 = load ptr, ptr %65, align 8, !tbaa !26
+  %67 = call ptr @Abc_NtkVerifySimulatePattern(ptr noundef %64, ptr noundef %66)
+  %68 = load i32, ptr %67, align 4, !tbaa !28
+  %.not = icmp eq i32 %68, 1
   %str.19.str.20 = select i1 %.not, ptr @str.19, ptr @str.20
   %puts56 = call i32 @puts(ptr nonnull dereferenceable(1) %str.19.str.20)
-  call void @free(ptr noundef nonnull %64) #15
+  call void @free(ptr noundef nonnull %67) #14
   br label %.critedge.sink.split
 
-66:                                               ; preds = %44
-  %67 = getelementptr i8, ptr %36, i64 4
-  %.val69 = load i32, ptr %67, align 4, !tbaa !52
-  %68 = add nsw i32 %.val69, %.082
-  br label %69
+69:                                               ; preds = %47
+  %70 = getelementptr i8, ptr %39, i64 4
+  %.val69 = load i32, ptr %70, align 4, !tbaa !52
+  %71 = add nsw i32 %.val69, %.082
+  br label %72
 
-69:                                               ; preds = %66, %58
-  %.3 = phi i32 [ -1, %58 ], [ %.04781, %66 ]
-  %.2 = phi i32 [ %.082, %58 ], [ %68, %66 ]
-  %70 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @Abc_NtkDelete(ptr noundef %70) #15
-  br label %71
+72:                                               ; preds = %69, %61
+  %.3 = phi i32 [ -1, %61 ], [ %.04781, %69 ]
+  %.2 = phi i32 [ %.082, %61 ], [ %71, %69 ]
+  %73 = load ptr, ptr %6, align 8, !tbaa !44
+  call void @Abc_NtkDelete(ptr noundef %73) #14
+  br label %74
 
-71:                                               ; preds = %69, %42
-  %indvars.iv.next.pre-phi = phi i64 [ %45, %69 ], [ %.pre, %42 ]
-  %.249 = phi i32 [ %.3, %69 ], [ %.04781, %42 ]
-  %.1 = phi i32 [ %.2, %69 ], [ %.082, %42 ]
-  %.val = load i32, ptr %31, align 4, !tbaa !24
-  %72 = sext i32 %.val to i64
-  %73 = icmp slt i64 %indvars.iv.next.pre-phi, %72
-  br i1 %73, label %34, label %.critedge, !llvm.loop !66
+74:                                               ; preds = %72, %45
+  %indvars.iv.next.pre-phi = phi i64 [ %48, %72 ], [ %.pre, %45 ]
+  %.249 = phi i32 [ %.3, %72 ], [ %.04781, %45 ]
+  %.1 = phi i32 [ %.2, %72 ], [ %.082, %45 ]
+  %.val = load i32, ptr %34, align 4, !tbaa !24
+  %75 = sext i32 %.val to i64
+  %76 = icmp slt i64 %indvars.iv.next.pre-phi, %75
+  br i1 %76, label %37, label %.critedge, !llvm.loop !66
 
-.critedge.sink.split:                             ; preds = %41, %60
-  %.148.ph = phi i32 [ 0, %60 ], [ %.04781, %41 ]
-  %74 = load ptr, ptr %6, align 8, !tbaa !44
-  call void @Abc_NtkDelete(ptr noundef %74) #15
+.critedge.sink.split:                             ; preds = %44, %63
+  %.148.ph = phi i32 [ 0, %63 ], [ %.04781, %44 ]
+  %77 = load ptr, ptr %6, align 8, !tbaa !44
+  call void @Abc_NtkDelete(ptr noundef %77) #14
   br label %.critedge
 
-.critedge:                                        ; preds = %71, %.critedge.sink.split, %23
-  %.076 = phi i32 [ 0, %23 ], [ %.082, %.critedge.sink.split ], [ %.1, %71 ]
-  %.148 = phi i32 [ 1, %23 ], [ %.148.ph, %.critedge.sink.split ], [ %.249, %71 ]
-  %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27)
-  %.val11.i = load i32, ptr %31, align 4, !tbaa !67
-  %76 = icmp sgt i32 %.val11.i, 0
-  br i1 %76, label %.lr.ph.i, label %.critedge.i
+.critedge:                                        ; preds = %74, %.critedge.sink.split, %26
+  %.076 = phi i32 [ 0, %26 ], [ %.082, %.critedge.sink.split ], [ %.1, %74 ]
+  %.148 = phi i32 [ 1, %26 ], [ %.148.ph, %.critedge.sink.split ], [ %.249, %74 ]
+  %78 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27)
+  %.val11.i = load i32, ptr %34, align 4, !tbaa !67
+  %79 = icmp sgt i32 %.val11.i, 0
+  br i1 %79, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %.critedge
-  %77 = getelementptr i8, ptr %26, i64 8
-  br label %78
+  %80 = getelementptr i8, ptr %29, i64 8
+  br label %81
 
-78:                                               ; preds = %85, %.lr.ph.i
-  %.val14.i = phi i32 [ %.val11.i, %.lr.ph.i ], [ %.val.i70, %85 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %85 ]
-  %.val8.i = load ptr, ptr %77, align 8, !tbaa !69
-  %79 = getelementptr inbounds nuw [8 x i8], ptr %.val8.i, i64 %indvars.iv.i
-  %80 = load ptr, ptr %79, align 8, !tbaa !32
-  %.not.i = icmp eq ptr %80, null
-  br i1 %.not.i, label %85, label %81
-
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !31
-  %.not.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i, label %Vec_PtrFree.exit.i, label %84
+81:                                               ; preds = %88, %.lr.ph.i
+  %.val14.i = phi i32 [ %.val11.i, %.lr.ph.i ], [ %.val.i70, %88 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %88 ]
+  %.val8.i = load ptr, ptr %80, align 8, !tbaa !69
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %.val8.i, i64 %indvars.iv.i
+  %83 = load ptr, ptr %82, align 8, !tbaa !32
+  %.not.i = icmp eq ptr %83, null
+  br i1 %.not.i, label %88, label %84
 
 84:                                               ; preds = %81
-  call void @free(ptr noundef nonnull %83) #15
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %86 = load ptr, ptr %85, align 8, !tbaa !31
+  %.not.i.i = icmp eq ptr %86, null
+  br i1 %.not.i.i, label %Vec_PtrFree.exit.i, label %87
+
+87:                                               ; preds = %84
+  call void @free(ptr noundef nonnull %86) #14
   br label %Vec_PtrFree.exit.i
 
-Vec_PtrFree.exit.i:                               ; preds = %84, %81
-  call void @free(ptr noundef nonnull %80) #15
-  %.val.pre.i = load i32, ptr %31, align 4, !tbaa !67
-  br label %85
+Vec_PtrFree.exit.i:                               ; preds = %87, %84
+  call void @free(ptr noundef nonnull %83) #14
+  %.val.pre.i = load i32, ptr %34, align 4, !tbaa !67
+  br label %88
 
-85:                                               ; preds = %Vec_PtrFree.exit.i, %78
-  %.val.i70 = phi i32 [ %.val14.i, %78 ], [ %.val.pre.i, %Vec_PtrFree.exit.i ]
+88:                                               ; preds = %Vec_PtrFree.exit.i, %81
+  %.val.i70 = phi i32 [ %.val14.i, %81 ], [ %.val.pre.i, %Vec_PtrFree.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %86 = sext i32 %.val.i70 to i64
-  %87 = icmp slt i64 %indvars.iv.next.i, %86
-  br i1 %87, label %78, label %.critedge.i, !llvm.loop !70
+  %89 = sext i32 %.val.i70 to i64
+  %90 = icmp slt i64 %indvars.iv.next.i, %89
+  br i1 %90, label %81, label %.critedge.i, !llvm.loop !70
 
-.critedge.i:                                      ; preds = %85, %.critedge
-  %88 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !31
-  %.not.i9.i = icmp eq ptr %89, null
-  br i1 %.not.i9.i, label %Vec_VecFree.exit, label %90
+.critedge.i:                                      ; preds = %88, %.critedge
+  %91 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %92 = load ptr, ptr %91, align 8, !tbaa !31
+  %.not.i9.i = icmp eq ptr %92, null
+  br i1 %.not.i9.i, label %Vec_VecFree.exit, label %93
 
-90:                                               ; preds = %.critedge.i
-  call void @free(ptr noundef nonnull %89) #15
+93:                                               ; preds = %.critedge.i
+  call void @free(ptr noundef nonnull %92) #14
   br label %Vec_VecFree.exit
 
-Vec_VecFree.exit:                                 ; preds = %.critedge.i, %90
-  call void @free(ptr noundef nonnull %26) #15
-  %91 = load ptr, ptr %30, align 8, !tbaa !31
-  %.not.i71 = icmp eq ptr %91, null
-  br i1 %.not.i71, label %Vec_PtrFree.exit, label %92
+Vec_VecFree.exit:                                 ; preds = %.critedge.i, %93
+  call void @free(ptr noundef nonnull %29) #14
+  %94 = load ptr, ptr %33, align 8, !tbaa !31
+  %.not.i71 = icmp eq ptr %94, null
+  br i1 %.not.i71, label %Vec_PtrFree.exit, label %95
 
-92:                                               ; preds = %Vec_VecFree.exit
-  call void @free(ptr noundef nonnull %91) #15
+95:                                               ; preds = %Vec_VecFree.exit
+  call void @free(ptr noundef nonnull %94) #14
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %Vec_VecFree.exit, %92
-  call void @free(ptr noundef nonnull %27) #15
-  %93 = call ptr (...) @Abc_FrameGetGlobalFrame() #15
-  %94 = call i32 @Cmd_CommandExecute(ptr noundef %93, ptr noundef nonnull @.str.22) #15
-  switch i32 %.148, label %100 [
-    i32 1, label %95
-    i32 -1, label %96
+Vec_PtrFree.exit:                                 ; preds = %Vec_VecFree.exit, %95
+  call void @free(ptr noundef nonnull %30) #14
+  %96 = call ptr (...) @Abc_FrameGetGlobalFrame() #14
+  %97 = call i32 @Cmd_CommandExecute(ptr noundef %96, ptr noundef nonnull @.str.22) #14
+  switch i32 %.148, label %103 [
+    i32 1, label %98
+    i32 -1, label %99
   ]
 
-95:                                               ; preds = %Vec_PtrFree.exit
+98:                                               ; preds = %Vec_PtrFree.exit
   %puts58 = call i32 @puts(ptr nonnull dereferenceable(1) @str.22)
-  br label %100
+  br label %103
 
-96:                                               ; preds = %Vec_PtrFree.exit
-  %97 = getelementptr i8, ptr %0, i64 64
-  %.val65 = load ptr, ptr %97, align 8, !tbaa !27
-  %98 = getelementptr i8, ptr %.val65, i64 4
-  %.val65.val = load i32, ptr %98, align 4, !tbaa !24
-  %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %.076, i32 noundef %.val65.val)
-  br label %100
+99:                                               ; preds = %Vec_PtrFree.exit
+  %100 = getelementptr i8, ptr %0, i64 64
+  %.val65 = load ptr, ptr %100, align 8, !tbaa !27
+  %101 = getelementptr i8, ptr %.val65, i64 4
+  %.val65.val = load i32, ptr %101, align 4, !tbaa !24
+  %102 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %.076, i32 noundef %.val65.val)
+  br label %103
 
-100:                                              ; preds = %Vec_PtrFree.exit, %96, %95
-  call void @Abc_NtkDelete(ptr noundef nonnull %8) #15
-  br label %101
+103:                                              ; preds = %Vec_PtrFree.exit, %99, %98
+  call void @Abc_NtkDelete(ptr noundef nonnull %8) #14
+  br label %104
 
-101:                                              ; preds = %100, %22, %21, %10
+104:                                              ; preds = %103, %25, %24, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -1403,7 +1421,7 @@ declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_NtkSecSat(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
+  %6 = tail call ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
 
@@ -1412,25 +1430,25 @@ define void @Abc_NtkSecSat(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
   br label %29
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %6) #15
+  %10 = tail call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %6) #14
   switch i32 %10, label %13 [
     i32 0, label %11
     i32 1, label %12
   ]
 
 11:                                               ; preds = %9
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %6) #15
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %6) #14
   %puts37 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.43)
   br label %29
 
 12:                                               ; preds = %9
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %6) #15
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %6) #14
   %puts36 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.42)
   br label %29
 
 13:                                               ; preds = %9
-  %14 = tail call ptr @Abc_NtkFrames(ptr noundef nonnull %6, i32 noundef %4, i32 noundef 1, i32 noundef 0) #15
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %6) #15
+  %14 = tail call ptr @Abc_NtkFrames(ptr noundef nonnull %6, i32 noundef %4, i32 noundef 1, i32 noundef 0) #14
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %6) #14
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
 
@@ -1439,25 +1457,25 @@ define void @Abc_NtkSecSat(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
   br label %29
 
 17:                                               ; preds = %13
-  %18 = tail call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %14) #15
+  %18 = tail call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %14) #14
   switch i32 %18, label %21 [
     i32 0, label %19
     i32 1, label %20
   ]
 
 19:                                               ; preds = %17
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %14) #15
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %14) #14
   %puts34 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.40)
   br label %29
 
 20:                                               ; preds = %17
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %14) #15
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %14) #14
   %puts33 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.39)
   br label %29
 
 21:                                               ; preds = %17
-  %22 = tail call ptr @Abc_NtkMulti(ptr noundef nonnull %14, i32 noundef 0, i32 noundef 100, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %14) #15
+  %22 = tail call ptr @Abc_NtkMulti(ptr noundef nonnull %14, i32 noundef 0, i32 noundef 100, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %14) #14
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %25
 
@@ -1468,13 +1486,13 @@ define void @Abc_NtkSecSat(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
 25:                                               ; preds = %21
   %26 = sext i32 %2 to i64
   %27 = sext i32 %3 to i64
-  %28 = tail call i32 @Abc_NtkMiterSat(ptr noundef nonnull %22, i64 noundef %26, i64 noundef %27, i32 noundef 0, ptr noundef null, ptr noundef null) #15
+  %28 = tail call i32 @Abc_NtkMiterSat(ptr noundef nonnull %22, i64 noundef %26, i64 noundef %27, i32 noundef 0, ptr noundef null, ptr noundef null) #14
   %switch.selectcmp = icmp eq i32 %28, 0
   %switch.select = select i1 %switch.selectcmp, ptr @str.27, ptr @str.26
   %switch.selectcmp41 = icmp eq i32 %28, -1
   %switch.select42 = select i1 %switch.selectcmp41, ptr @str.28, ptr %switch.select
   %puts30 = tail call i32 @puts(ptr nonnull dereferenceable(1) %switch.select42)
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %22) #15
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %22) #14
   br label %29
 
 29:                                               ; preds = %25, %24, %20, %19, %16, %12, %11, %8
@@ -1487,16 +1505,16 @@ declare ptr @Abc_NtkFrames(ptr noundef, i32 noundef, i32 noundef, i32 noundef) l
 define range(i32 0, 2) i32 @Abc_NtkSecFraig(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.Fraig_ParamsStruct_t_, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = tail call ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
+  %7 = tail call ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
   %puts58 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.44)
-  br label %53
+  br label %56
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %7) #15
+  %11 = tail call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %7) #14
   switch i32 %11, label %28 [
     i32 0, label %12
     i32 1, label %27
@@ -1511,8 +1529,9 @@ define range(i32 0, 2) i32 @Abc_NtkSecFraig(ptr noundef %0, ptr noundef %1, i32 
   %15 = mul nsw i32 %.val.val.i, %3
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 2
-  %18 = tail call noalias ptr @malloc(i64 noundef %17) #16
-  %19 = sext i32 %.val.val.i to i64
+  %18 = tail call noalias ptr @malloc(i64 noundef %17) #15
+  %.val5.val.i = load i32, ptr %14, align 4, !tbaa !24
+  %19 = sext i32 %.val5.val.i to i64
   %20 = sext i32 %3 to i64
   %21 = shl nsw i64 %20, 2
   %22 = mul i64 %21, %19
@@ -1525,34 +1544,34 @@ define range(i32 0, 2) i32 @Abc_NtkSecFraig(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not57, label %26, label %25
 
 25:                                               ; preds = %12
-  tail call void @free(ptr noundef nonnull %24) #15
+  tail call void @free(ptr noundef nonnull %24) #14
   store ptr null, ptr %23, align 8, !tbaa !26
   br label %26
 
 26:                                               ; preds = %12, %25
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %7) #15
-  br label %53
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %7) #14
+  br label %56
 
 27:                                               ; preds = %10
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %7) #15
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %7) #14
   %puts55 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.42)
-  br label %53
+  br label %56
 
 28:                                               ; preds = %10
-  %29 = tail call ptr @Abc_NtkFrames(ptr noundef nonnull %7, i32 noundef %3, i32 noundef 1, i32 noundef 0) #15
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %7) #15
+  %29 = tail call ptr @Abc_NtkFrames(ptr noundef nonnull %7, i32 noundef %3, i32 noundef 1, i32 noundef 0) #14
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %7) #14
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %28
   %puts54 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.41)
-  br label %53
+  br label %56
 
 32:                                               ; preds = %28
-  %33 = tail call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %29) #15
-  switch i32 %33, label %43 [
+  %33 = tail call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %29) #14
+  switch i32 %33, label %46 [
     i32 0, label %34
-    i32 1, label %42
+    i32 1, label %45
   ]
 
 34:                                               ; preds = %32
@@ -1563,55 +1582,59 @@ define range(i32 0, 2) i32 @Abc_NtkSecFraig(ptr noundef %0, ptr noundef %1, i32 
   %.val.val.i60 = load i32, ptr %36, align 4, !tbaa !24
   %37 = sext i32 %.val.val.i60 to i64
   %38 = shl nsw i64 %37, 2
-  %calloc = tail call ptr @calloc(i64 1, i64 %38)
-  %39 = getelementptr inbounds nuw i8, ptr %29, i64 304
-  store ptr %calloc, ptr %39, align 8, !tbaa !26
-  %.not = icmp eq ptr %calloc, null
-  br i1 %.not, label %41, label %40
+  %39 = tail call noalias ptr @malloc(i64 noundef %38) #15
+  %.val5.val.i61 = load i32, ptr %36, align 4, !tbaa !24
+  %40 = sext i32 %.val5.val.i61 to i64
+  %41 = shl nsw i64 %40, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %39, i8 0, i64 %41, i1 false)
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 304
+  store ptr %39, ptr %42, align 8, !tbaa !26
+  %.not = icmp eq ptr %39, null
+  br i1 %.not, label %44, label %43
 
-40:                                               ; preds = %34
-  tail call void @free(ptr noundef nonnull %calloc) #15
-  store ptr null, ptr %39, align 8, !tbaa !26
-  br label %41
+43:                                               ; preds = %34
+  tail call void @free(ptr noundef nonnull %39) #14
+  store ptr null, ptr %42, align 8, !tbaa !26
+  br label %44
 
-41:                                               ; preds = %34, %40
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %29) #15
-  br label %53
+44:                                               ; preds = %34, %43
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %29) #14
+  br label %56
 
-42:                                               ; preds = %32
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %29) #15
+45:                                               ; preds = %32
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %29) #14
   %puts52 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.39)
-  br label %53
+  br label %56
 
-43:                                               ; preds = %32
-  call void @Fraig_ParamsSetDefault(ptr noundef nonnull %6) #15
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 %4, ptr %44, align 8, !tbaa !71
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %2, ptr %45, align 4, !tbaa !73
-  %46 = call ptr @Abc_NtkToFraig(ptr noundef nonnull %29, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0) #15
-  call void @Fraig_ManProveMiter(ptr noundef %46) #15
-  %47 = call i32 @Fraig_ManCheckMiter(ptr noundef %46) #15
-  %switch.tableidx = add i32 %47, 1
-  %48 = icmp ult i32 %switch.tableidx, 3
-  br i1 %48, label %switch.lookup, label %50
+46:                                               ; preds = %32
+  call void @Fraig_ParamsSetDefault(ptr noundef nonnull %6) #14
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store i32 %4, ptr %47, align 8, !tbaa !71
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i32 %2, ptr %48, align 4, !tbaa !73
+  %49 = call ptr @Abc_NtkToFraig(ptr noundef nonnull %29, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0) #14
+  call void @Fraig_ManProveMiter(ptr noundef %49) #14
+  %50 = call i32 @Fraig_ManCheckMiter(ptr noundef %49) #14
+  %switch.tableidx = add i32 %50, 1
+  %51 = icmp ult i32 %switch.tableidx, 3
+  br i1 %51, label %switch.lookup, label %53
 
-switch.lookup:                                    ; preds = %43
-  %49 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Abc_NtkSecFraig, i64 %49
+switch.lookup:                                    ; preds = %46
+  %52 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Abc_NtkSecFraig, i64 %52
   %switch.load = load ptr, ptr %switch.gep, align 8
   %puts50 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load)
-  br label %50
-
-50:                                               ; preds = %43, %switch.lookup
-  call void @Fraig_ManFree(ptr noundef %46) #15
-  call void @Abc_NtkDelete(ptr noundef nonnull %29) #15
-  %51 = icmp eq i32 %47, 1
-  %52 = zext i1 %51 to i32
   br label %53
 
-53:                                               ; preds = %50, %42, %41, %31, %27, %26, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %26 ], [ 1, %27 ], [ 0, %31 ], [ 0, %41 ], [ 1, %42 ], [ %52, %50 ]
+53:                                               ; preds = %46, %switch.lookup
+  call void @Fraig_ManFree(ptr noundef %49) #14
+  call void @Abc_NtkDelete(ptr noundef nonnull %29) #14
+  %54 = icmp eq i32 %50, 1
+  %55 = zext i1 %54 to i32
+  br label %56
+
+56:                                               ; preds = %53, %45, %44, %31, %27, %26, %9
+  %.0 = phi i32 [ 0, %9 ], [ 0, %26 ], [ 1, %27 ], [ 0, %31 ], [ 0, %44 ], [ 1, %45 ], [ %55, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -1623,7 +1646,7 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not288, label %7, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call ptr @Abc_NtkStrash(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
+  %6 = tail call ptr @Abc_NtkStrash(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -1633,13 +1656,13 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not289, label %10, label %8
 
 8:                                                ; preds = %7
-  %9 = tail call ptr @Abc_NtkStrash(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
+  %9 = tail call ptr @Abc_NtkStrash(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   br label %10
 
 10:                                               ; preds = %8, %7
   %.0228 = phi ptr [ %1, %7 ], [ %9, %8 ]
-  %11 = tail call ptr @Sim_SimulateSeqModel(ptr noundef %.0227, i32 noundef %3, ptr noundef %2) #15
-  %12 = tail call ptr @Sim_SimulateSeqModel(ptr noundef %.0228, i32 noundef %3, ptr noundef %2) #15
+  %11 = tail call ptr @Sim_SimulateSeqModel(ptr noundef %.0227, i32 noundef %3, ptr noundef %2) #14
+  %12 = tail call ptr @Sim_SimulateSeqModel(ptr noundef %.0228, i32 noundef %3, ptr noundef %2) #14
   %13 = icmp slt i32 %3, 1
   br i1 %13, label %._crit_edge.thread, label %.preheader293.lr.ph
 
@@ -1742,12 +1765,12 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
 
 ._crit_edge.thread:                               ; preds = %.preheader293.lr.ph, %10, %._crit_edge
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.45)
-  tail call void @Sim_UtilInfoFree(ptr noundef %11) #15
-  tail call void @Sim_UtilInfoFree(ptr noundef %12) #15
+  tail call void @Sim_UtilInfoFree(ptr noundef %11) #14
+  tail call void @Sim_UtilInfoFree(ptr noundef %12) #14
   br i1 %.not288, label %60, label %59
 
 59:                                               ; preds = %._crit_edge.thread
-  tail call void @Abc_NtkDelete(ptr noundef %.0227) #15
+  tail call void @Abc_NtkDelete(ptr noundef %.0227) #14
   br label %60
 
 60:                                               ; preds = %59, %._crit_edge.thread
@@ -1805,7 +1828,7 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %96, label %102, label %97
 
 97:                                               ; preds = %73
-  %98 = tail call ptr @Abc_ObjName(ptr noundef nonnull %76) #15
+  %98 = tail call ptr @Abc_ObjName(ptr noundef nonnull %76) #14
   %99 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, ptr noundef %98)
   %100 = add nuw nsw i32 %.0199329, 1
   %101 = icmp eq i32 %100, 3
@@ -1838,9 +1861,9 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
   %putchar = tail call i32 @putchar(i32 10)
   tail call void @Abc_NtkGetSeqPoSupp(ptr noundef %.0227, i32 noundef %.2205.us, i32 noundef %.2202.us)
   tail call void @Abc_NtkGetSeqPoSupp(ptr noundef %.0228, i32 noundef %.2205.us, i32 noundef %.2202.us)
-  %109 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.2226.us) #15
+  %109 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.2226.us) #14
   %110 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, ptr noundef %109, i32 noundef %.2223.us, i32 noundef %.2220.us)
-  %111 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.2226.us) #15
+  %111 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.2226.us) #14
   %112 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef %111)
   %113 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43)
   %114 = getelementptr i8, ptr %.0227, i64 40
@@ -1863,7 +1886,7 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not256, label %125, label %122
 
 122:                                              ; preds = %.lr.ph339
-  %123 = tail call ptr @Abc_ObjName(ptr noundef nonnull %119) #15
+  %123 = tail call ptr @Abc_ObjName(ptr noundef nonnull %119) #14
   %124 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %123)
   %.0227.val275.pre = load ptr, ptr %114, align 8, !tbaa !63
   br label %125
@@ -1907,7 +1930,7 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not255, label %146, label %143
 
 143:                                              ; preds = %140
-  %144 = tail call ptr @Abc_ObjName(ptr noundef nonnull %137) #15
+  %144 = tail call ptr @Abc_ObjName(ptr noundef nonnull %137) #14
   %145 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %144)
   %.pre = load ptr, ptr %130, align 8, !tbaa !79
   br label %146
@@ -1923,7 +1946,7 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
 
 .critedge6:                                       ; preds = %146, %.critedge4
   %putchar236 = tail call i32 @putchar(i32 10)
-  %151 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.2226.us) #15
+  %151 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.2226.us) #14
   %152 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef %151)
   %153 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43)
   %154 = getelementptr i8, ptr %.0228, i64 40
@@ -1946,7 +1969,7 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not253, label %165, label %162
 
 162:                                              ; preds = %.lr.ph347
-  %163 = tail call ptr @Abc_ObjName(ptr noundef nonnull %159) #15
+  %163 = tail call ptr @Abc_ObjName(ptr noundef nonnull %159) #14
   %164 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %163)
   %.0228.val274.pre = load ptr, ptr %154, align 8, !tbaa !63
   br label %165
@@ -1990,7 +2013,7 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not252, label %186, label %183
 
 183:                                              ; preds = %180
-  %184 = tail call ptr @Abc_ObjName(ptr noundef nonnull %177) #15
+  %184 = tail call ptr @Abc_ObjName(ptr noundef nonnull %177) #14
   %185 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, ptr noundef %184)
   %.pre433 = load ptr, ptr %170, align 8, !tbaa !79
   br label %186
@@ -2126,7 +2149,7 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
 
 .critedge14:                                      ; preds = %249, %.critedge12
   %putchar242 = tail call i32 @putchar(i32 32)
-  %254 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.2226.us) #15
+  %254 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.2226.us) #14
   %255 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.52, ptr noundef %254)
   %256 = load ptr, ptr %191, align 8, !tbaa !31
   %257 = load i32, ptr %192, align 8, !tbaa !74
@@ -2236,7 +2259,7 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
 
 .critedge18:                                      ; preds = %316, %.critedge16
   %putchar244 = tail call i32 @putchar(i32 32)
-  %321 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.2226.us) #15
+  %321 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.2226.us) #14
   %322 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, ptr noundef %321)
   %323 = load ptr, ptr %193, align 8, !tbaa !31
   %324 = load i32, ptr %192, align 8, !tbaa !74
@@ -2295,19 +2318,19 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %349, label %.critedge20, label %.critedge22, !llvm.loop !89
 
 .critedge22:                                      ; preds = %.critedge20, %.critedge20.preheader
-  tail call void @Sim_UtilInfoFree(ptr noundef %11) #15
-  tail call void @Sim_UtilInfoFree(ptr noundef %12) #15
+  tail call void @Sim_UtilInfoFree(ptr noundef %11) #14
+  tail call void @Sim_UtilInfoFree(ptr noundef %12) #14
   br i1 %.not288, label %351, label %350
 
 350:                                              ; preds = %.critedge22
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %.0227) #15
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %.0227) #14
   br label %351
 
 351:                                              ; preds = %350, %.critedge22
   br i1 %.not289, label %352, label %.sink.split
 
 .sink.split:                                      ; preds = %351, %60
-  tail call void @Abc_NtkDelete(ptr noundef %.0228) #15
+  tail call void @Abc_NtkDelete(ptr noundef %.0228) #14
   br label %352
 
 352:                                              ; preds = %.sink.split, %351, %60
@@ -2324,7 +2347,7 @@ declare i32 @Fraig_ManCheckMiter(ptr noundef) local_unnamed_addr #1
 
 declare void @Fraig_ManFree(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2337,7 +2360,7 @@ define void @Abc_NtkGetSeqPoSupp(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = add i32 %1, 1
-  %6 = tail call ptr @Abc_NtkFrames(ptr noundef %0, i32 noundef %5, i32 noundef 0, i32 noundef 0) #15
+  %6 = tail call ptr @Abc_NtkFrames(ptr noundef %0, i32 noundef %5, i32 noundef 0, i32 noundef 0) #14
   %7 = getelementptr i8, ptr %0, i64 48
   %.val66 = load ptr, ptr %7, align 8, !tbaa !60
   %8 = getelementptr i8, ptr %.val66, i64 4
@@ -2352,7 +2375,7 @@ define void @Abc_NtkGetSeqPoSupp(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %14 = getelementptr inbounds [8 x i8], ptr %.val67.val, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !32
   store ptr %15, ptr %4, align 8, !tbaa !34
-  %16 = call ptr @Abc_NtkNodeSupport(ptr noundef %6, ptr noundef nonnull %4, i32 noundef 1) #15
+  %16 = call ptr @Abc_NtkNodeSupport(ptr noundef %6, ptr noundef nonnull %4, i32 noundef 1) #14
   %17 = getelementptr i8, ptr %6, i64 56
   %.val6276 = load ptr, ptr %17, align 8, !tbaa !3
   %18 = getelementptr i8, ptr %.val6276, i64 4
@@ -2543,12 +2566,12 @@ define void @Abc_NtkGetSeqPoSupp(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %.not.i, label %Vec_PtrFree.exit, label %96
 
 96:                                               ; preds = %.critedge8
-  call void @free(ptr noundef nonnull %95) #15
+  call void @free(ptr noundef nonnull %95) #14
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge8, %96
-  call void @free(ptr noundef nonnull %16) #15
-  call void @Abc_NtkDelete(ptr noundef %6) #15
+  call void @free(ptr noundef nonnull %16) #14
+  call void @Abc_NtkDelete(ptr noundef %6) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -2567,7 +2590,7 @@ define void @Abc_NtkSimulteBuggyMiter(ptr noundef %0) local_unnamed_addr #0 {
   %.val68.val = load i32, ptr %3, align 4, !tbaa !24
   %4 = sext i32 %.val68.val to i64
   %5 = shl nsw i64 %4, 2
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #16
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #15
   %7 = getelementptr i8, ptr %0, i64 40
   %.val73 = load ptr, ptr %7, align 8, !tbaa !63
   %8 = getelementptr i8, ptr %.val73, i64 4
@@ -2641,7 +2664,7 @@ define void @Abc_NtkSimulteBuggyMiter(ptr noundef %0) local_unnamed_addr #0 {
   %.val67.val = load i32, ptr %35, align 4, !tbaa !24
   %36 = sext i32 %.val67.val to i64
   %37 = shl nsw i64 %36, 2
-  %38 = tail call noalias ptr @malloc(i64 noundef %37) #16
+  %38 = tail call noalias ptr @malloc(i64 noundef %37) #15
   %.val71 = load ptr, ptr %7, align 8, !tbaa !63
   %39 = getelementptr i8, ptr %.val71, i64 4
   %.val71.val = load i32, ptr %39, align 4, !tbaa !24
@@ -2715,7 +2738,7 @@ define void @Abc_NtkSimulteBuggyMiter(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %67, label %66
 
 66:                                               ; preds = %.critedge6
-  tail call void @free(ptr noundef nonnull %6) #15
+  tail call void @free(ptr noundef nonnull %6) #14
   br label %67
 
 67:                                               ; preds = %.critedge6, %66
@@ -2723,12 +2746,12 @@ define void @Abc_NtkSimulteBuggyMiter(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not63, label %69, label %68
 
 68:                                               ; preds = %67
-  tail call void @free(ptr noundef nonnull %38) #15
+  tail call void @free(ptr noundef nonnull %38) #14
   br label %69
 
 69:                                               ; preds = %68, %67
-  tail call void @free(ptr noundef %32) #15
-  tail call void @free(ptr noundef nonnull %63) #15
+  tail call void @free(ptr noundef %32) #14
+  tail call void @free(ptr noundef nonnull %63) #14
   ret void
 }
 
@@ -2739,18 +2762,18 @@ define i32 @Abc_NtkIsTrueCex(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @Abc_NtkStrash(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
+  %4 = tail call ptr @Abc_NtkStrash(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   br label %5
 
 5:                                                ; preds = %3, %2
   %.010 = phi ptr [ %0, %2 ], [ %4, %3 ]
-  %6 = tail call ptr @Abc_NtkToDar(ptr noundef %.010, i32 noundef 0, i32 noundef 1) #15
+  %6 = tail call ptr @Abc_NtkToDar(ptr noundef %.010, i32 noundef 0, i32 noundef 1) #14
   %.not12 = icmp eq ptr %6, null
   br i1 %.not12, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @Saig_ManVerifyCex(ptr noundef nonnull %6, ptr noundef %1) #15
-  tail call void @Aig_ManStop(ptr noundef nonnull %6) #15
+  %8 = tail call i32 @Saig_ManVerifyCex(ptr noundef nonnull %6, ptr noundef %1) #14
+  tail call void @Aig_ManStop(ptr noundef nonnull %6) #14
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -2758,7 +2781,7 @@ define i32 @Abc_NtkIsTrueCex(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %9
-  tail call void @Abc_NtkDelete(ptr noundef %.010) #15
+  tail call void @Abc_NtkDelete(ptr noundef %.010) #14
   br label %11
 
 11:                                               ; preds = %10, %9
@@ -2796,24 +2819,24 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #9 {
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #15
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #14
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #15
+  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #14
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #15
+  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #14
   %10 = load ptr, ptr @stdout, align 8, !tbaa !64
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #15
-  call void @free(ptr noundef %9) #15
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #14
+  call void @free(ptr noundef %9) #14
   br label %17
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr @stdout, align 8, !tbaa !64, !noalias !102
-  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #15
+  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #14
   br label %17
 
 17:                                               ; preds = %14, %8
@@ -2855,15 +2878,12 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2872,10 +2892,9 @@ attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nofree nounwind }
-attributes #14 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind allocsize(0) }
-attributes #17 = { nounwind willreturn memory(read) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind allocsize(0) }
+attributes #16 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

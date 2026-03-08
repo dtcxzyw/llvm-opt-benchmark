@@ -60,10 +60,10 @@ new_size.exit.thread:                             ; preds = %5, %16, %13, %new_s
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -497,7 +497,11 @@ new_size.exit.i:                                  ; preds = %53
   %64 = and i64 %60, 2147483647
   %65 = tail call noalias ptr @calloc(i64 noundef %64, i64 noundef 8) #12
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %rehash.exit, label %.preheader.i
+  br i1 %66, label %.rehash.exit_crit_edge, label %.preheader.i
+
+.rehash.exit_crit_edge:                           ; preds = %63
+  %.pre = load i32, ptr %8, align 8, !tbaa !17
+  br label %rehash.exit
 
 .preheader.i:                                     ; preds = %63
   %67 = icmp sgt i32 %48, 0
@@ -540,8 +544,8 @@ new_size.exit.i:                                  ; preds = %53
   store ptr %65, ptr %11, align 8, !tbaa !18
   br label %rehash.exit
 
-rehash.exit:                                      ; preds = %55, %new_size.exit.i, %63, %._crit_edge34.i
-  %79 = phi i32 [ %61, %._crit_edge34.i ], [ %48, %new_size.exit.i ], [ %48, %63 ], [ %48, %55 ]
+rehash.exit:                                      ; preds = %55, %.rehash.exit_crit_edge, %new_size.exit.i, %._crit_edge34.i
+  %79 = phi i32 [ %.pre, %.rehash.exit_crit_edge ], [ %61, %._crit_edge34.i ], [ %48, %new_size.exit.i ], [ %48, %55 ]
   %80 = urem i32 %7, %79
   br label %81
 
@@ -622,7 +626,11 @@ new_size.exit.i:                                  ; preds = %16
   %27 = and i64 %23, 2147483647
   %28 = tail call noalias ptr @calloc(i64 noundef %27, i64 noundef 8) #12
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %rehash.exit, label %.preheader.i
+  br i1 %29, label %.rehash.exit_crit_edge, label %.preheader.i
+
+.rehash.exit_crit_edge:                           ; preds = %26
+  %.pre = load i32, ptr %8, align 8, !tbaa !17
+  br label %rehash.exit
 
 .preheader.i:                                     ; preds = %26
   %30 = icmp sgt i32 %9, 0
@@ -666,8 +674,8 @@ new_size.exit.i:                                  ; preds = %16
   store ptr %28, ptr %31, align 8, !tbaa !18
   br label %rehash.exit
 
-rehash.exit:                                      ; preds = %18, %._crit_edge34.i, %26, %new_size.exit.i, %3
-  %.pn = phi i32 [ %9, %3 ], [ %24, %._crit_edge34.i ], [ %9, %new_size.exit.i ], [ %9, %26 ], [ %9, %18 ]
+rehash.exit:                                      ; preds = %18, %._crit_edge34.i, %new_size.exit.i, %.rehash.exit_crit_edge, %3
+  %.pn = phi i32 [ %9, %3 ], [ %.pre, %.rehash.exit_crit_edge ], [ %24, %._crit_edge34.i ], [ %9, %new_size.exit.i ], [ %9, %18 ]
   %43 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
   %44 = icmp eq ptr %43, null
   br i1 %44, label %56, label %45
@@ -1219,8 +1227,8 @@ define internal i32 @strhash(ptr noundef readonly captures(none) %0) #10 {
 }
 
 attributes #0 = { nounwind memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

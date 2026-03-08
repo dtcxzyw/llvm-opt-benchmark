@@ -124,7 +124,7 @@ define void @_ZN6evmone8advanced7executeERNS0_22AdvancedExecutionStateERKNS0_20A
   br i1 %.not.i, label %30, label %24
 
 24:                                               ; preds = %13
-  %25 = tail call noalias ptr @malloc(i64 noundef %23) #18
+  %25 = tail call noalias ptr @malloc(i64 noundef %23) #18, !noalias !73
   %.not13.i = icmp eq ptr %25, null
   br i1 %.not13.i, label %29, label %.thread.i
 
@@ -385,7 +385,7 @@ _ZN6evmone8advanced20AdvancedCodeAnalysisD2Ev.exit30: ; preds = %8
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store i64 0, ptr %99, align 8, !noalias !106
   store i64 4096, ptr %98, align 8, !tbaa !110, !noalias !106
-  %malloc.i.i.i.i = call dereferenceable_or_null(4096) ptr @malloc(i64 4096)
+  %malloc.i.i.i.i = call dereferenceable_or_null(4096) ptr @malloc(i64 4096), !noalias !106
   store ptr %malloc.i.i.i.i, ptr %97, align 8, !tbaa !70, !noalias !106
   %.not.i.i.i.i.i = icmp eq ptr %malloc.i.i.i.i, null
   br i1 %.not.i.i.i.i.i, label %100, label %_ZSt11make_uniqueIN6evmone8advanced22AdvancedExecutionStateEJRK12evmc_messageR13evmc_revisionRK19evmc_host_interfaceRP17evmc_host_contextRKSt17basic_string_viewIhN4evmc11byte_traitsIhEEEEENSt9_MakeUniqIT_E15__single_objectEDpOT0_.exit, !prof !111
@@ -482,7 +482,7 @@ _ZSt11make_uniqueIN6evmone8advanced22AdvancedExecutionStateEJRK12evmc_messageR13
   br i1 %.not.i.i, label %144, label %138
 
 138:                                              ; preds = %128
-  %139 = call noalias ptr @malloc(i64 noundef %137) #18
+  %139 = call noalias ptr @malloc(i64 noundef %137) #18, !noalias !138
   %.not13.i.i = icmp eq ptr %139, null
   br i1 %.not13.i.i, label %143, label %.thread.i.i
 
@@ -588,7 +588,7 @@ declare void @_ZN6evmone8advanced7analyzeE13evmc_revisionSt17basic_string_viewIh
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -974,7 +974,7 @@ attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #7 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64-v2" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }

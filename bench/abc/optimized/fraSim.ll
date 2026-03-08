@@ -729,6 +729,7 @@ define void @Fra_SmlCheckOutputSavePattern(ptr noundef readonly captures(none) %
   %48 = zext nneg i32 %47 to i64
   %invariant.gep = getelementptr [4 x i8], ptr %11, i64 %48
   %49 = and i32 %.030.lcssa, 31
+  %.pre = load i32, ptr %12, align 4, !tbaa !25
   %50 = zext nneg i32 %.val3340 to i64
   br label %51
 
@@ -738,7 +739,7 @@ define void @Fra_SmlCheckOutputSavePattern(ptr noundef readonly captures(none) %
   %53 = load ptr, ptr %52, align 8, !tbaa !65
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 36
   %55 = load i32, ptr %54, align 4, !tbaa !22
-  %56 = mul nsw i32 %13, %55
+  %56 = mul nsw i32 %.pre, %55
   %57 = sext i32 %56 to i64
   %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %57
   %58 = load i32, ptr %gep, align 4, !tbaa !28
@@ -763,7 +764,7 @@ define void @Fra_SmlCheckOutputSavePattern(ptr noundef readonly captures(none) %
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -3671,7 +3672,7 @@ define void @Fra_SmlPrintOutputs(ptr noundef readonly captures(none) %0, i32 nou
 define noalias noundef ptr @Fra_SmlSimulateCombGiven(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
   %5 = tail call ptr @Fra_SmlSimulateReadFile(ptr noundef %1)
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %67, label %7
+  br i1 %6, label %68, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr i8, ptr %5, i64 4
@@ -3696,7 +3697,7 @@ define noalias noundef ptr @Fra_SmlSimulateCombGiven(ptr noundef %0, ptr noundef
 
 Vec_StrFree.exit:                                 ; preds = %12, %16
   tail call void @free(ptr noundef nonnull %5) #24
-  br label %67
+  br label %68
 
 17:                                               ; preds = %7
   %18 = ashr i32 %11, 5
@@ -3728,92 +3729,94 @@ Vec_StrFree.exit:                                 ; preds = %12, %16
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i32 0, ptr %36, align 8, !tbaa !27
   tail call void @Fra_SmlInitializeGiven(ptr noundef nonnull %30, ptr noundef nonnull %5)
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !139
-  %.not.i34 = icmp eq ptr %38, null
-  br i1 %.not.i34, label %Vec_StrFree.exit35, label %39
+  %.val = load i32, ptr %9, align 8, !tbaa !28
+  %37 = sdiv i32 %.val33, %.val
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !139
+  %.not.i34 = icmp eq ptr %39, null
+  br i1 %.not.i34, label %Vec_StrFree.exit35, label %40
 
-39:                                               ; preds = %17
-  tail call void @free(ptr noundef nonnull %38) #24
+40:                                               ; preds = %17
+  tail call void @free(ptr noundef nonnull %39) #24
   br label %Vec_StrFree.exit35
 
-Vec_StrFree.exit35:                               ; preds = %17, %39
+Vec_StrFree.exit35:                               ; preds = %17, %40
   tail call void @free(ptr noundef nonnull %5) #24
   tail call void @Fra_SmlSimulateOne(ptr noundef nonnull %30)
   %.not25 = icmp eq i32 %2, 0
-  br i1 %.not25, label %65, label %40
+  br i1 %.not25, label %66, label %41
 
-40:                                               ; preds = %Vec_StrFree.exit35
-  %41 = load ptr, ptr %30, align 8, !tbaa !85
-  %42 = getelementptr i8, ptr %41, i64 140
-  %.val10.i = load i32, ptr %42, align 4, !tbaa !28
-  %43 = getelementptr i8, ptr %41, i64 104
-  %.val.i36 = load i32, ptr %43, align 8, !tbaa !39
-  %44 = sub nsw i32 %.val10.i, %.val.i36
-  %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.lr.ph.i, label %Fra_SmlCheckNonConstOutputs.exit
+41:                                               ; preds = %Vec_StrFree.exit35
+  %42 = load ptr, ptr %30, align 8, !tbaa !85
+  %43 = getelementptr i8, ptr %42, i64 140
+  %.val10.i = load i32, ptr %43, align 4, !tbaa !28
+  %44 = getelementptr i8, ptr %42, i64 104
+  %.val.i36 = load i32, ptr %44, align 8, !tbaa !39
+  %45 = sub nsw i32 %.val10.i, %.val.i36
+  %46 = icmp sgt i32 %45, 0
+  br i1 %46, label %.lr.ph.i, label %Fra_SmlCheckNonConstOutputs.exit
 
-.lr.ph.i:                                         ; preds = %40
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !80
-  %48 = getelementptr i8, ptr %47, i64 8
-  %.val9.i = load ptr, ptr %48, align 8, !tbaa !51
-  %49 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %50 = load i32, ptr %35, align 4, !tbaa !25
-  %51 = load i32, ptr %36, align 8, !tbaa !27
-  %52 = icmp slt i32 %51, %50
-  %53 = sext i32 %51 to i64
-  br i1 %52, label %.lr.ph.preheader.i.us.preheader.i, label %Fra_SmlCheckNonConstOutputs.exit
+.lr.ph.i:                                         ; preds = %41
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %48 = load ptr, ptr %47, align 8, !tbaa !80
+  %49 = getelementptr i8, ptr %48, i64 8
+  %.val9.i = load ptr, ptr %49, align 8, !tbaa !51
+  %50 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %51 = load i32, ptr %35, align 4, !tbaa !25
+  %52 = load i32, ptr %36, align 8, !tbaa !27
+  %53 = icmp slt i32 %52, %51
+  %54 = sext i32 %52 to i64
+  br i1 %53, label %.lr.ph.preheader.i.us.preheader.i, label %Fra_SmlCheckNonConstOutputs.exit
 
 .lr.ph.preheader.i.us.preheader.i:                ; preds = %.lr.ph.i
-  %wide.trip.count.i = zext nneg i32 %44 to i64
+  %wide.trip.count.i = zext nneg i32 %45 to i64
   br label %.lr.ph.preheader.i.us.i
 
 .lr.ph.preheader.i.us.i:                          ; preds = %.loopexit.us.i, %.lr.ph.preheader.i.us.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i.us.preheader.i ], [ %indvars.iv.next.i, %.loopexit.us.i ]
-  %54 = getelementptr inbounds nuw [8 x i8], ptr %.val9.i, i64 %indvars.iv.i
-  %55 = load ptr, ptr %54, align 8, !tbaa !65
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 36
-  %57 = load i32, ptr %56, align 4, !tbaa !22
-  %58 = mul nsw i32 %57, %50
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds [4 x i8], ptr %49, i64 %59
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %.val9.i, i64 %indvars.iv.i
+  %56 = load ptr, ptr %55, align 8, !tbaa !65
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 36
+  %58 = load i32, ptr %57, align 4, !tbaa !22
+  %59 = mul nsw i32 %58, %51
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds [4 x i8], ptr %50, i64 %60
   br label %.lr.ph.i.us.i
 
-.lr.ph.i.us.i:                                    ; preds = %63, %.lr.ph.preheader.i.us.i
-  %indvars.iv.i.us.i = phi i64 [ %53, %.lr.ph.preheader.i.us.i ], [ %indvars.iv.next.i.us.i, %63 ]
-  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %indvars.iv.i.us.i
-  %62 = load i32, ptr %61, align 4, !tbaa !28
-  %.not.i.us.i = icmp eq i32 %62, 0
-  br i1 %.not.i.us.i, label %63, label %Fra_SmlCheckNonConstOutputs.exit
+.lr.ph.i.us.i:                                    ; preds = %64, %.lr.ph.preheader.i.us.i
+  %indvars.iv.i.us.i = phi i64 [ %54, %.lr.ph.preheader.i.us.i ], [ %indvars.iv.next.i.us.i, %64 ]
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %indvars.iv.i.us.i
+  %63 = load i32, ptr %62, align 4, !tbaa !28
+  %.not.i.us.i = icmp eq i32 %63, 0
+  br i1 %.not.i.us.i, label %64, label %Fra_SmlCheckNonConstOutputs.exit
 
-63:                                               ; preds = %.lr.ph.i.us.i
+64:                                               ; preds = %.lr.ph.i.us.i
   %indvars.iv.next.i.us.i = add nsw i64 %indvars.iv.i.us.i, 1
   %lftr.wideiv.i.us.i = trunc i64 %indvars.iv.next.i.us.i to i32
-  %exitcond.not.i.us.i = icmp eq i32 %50, %lftr.wideiv.i.us.i
+  %exitcond.not.i.us.i = icmp eq i32 %51, %lftr.wideiv.i.us.i
   br i1 %exitcond.not.i.us.i, label %.loopexit.us.i, label %.lr.ph.i.us.i, !llvm.loop !34
 
-.loopexit.us.i:                                   ; preds = %63
+.loopexit.us.i:                                   ; preds = %64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Fra_SmlCheckNonConstOutputs.exit, label %.lr.ph.preheader.i.us.i, !llvm.loop !109
 
-Fra_SmlCheckNonConstOutputs.exit:                 ; preds = %.loopexit.us.i, %.lr.ph.i.us.i, %40, %.lr.ph.i
-  %.08.i = phi i32 [ 0, %40 ], [ 0, %.lr.ph.i ], [ 1, %.lr.ph.i.us.i ], [ 0, %.loopexit.us.i ]
-  %64 = getelementptr inbounds nuw i8, ptr %30, i64 28
-  store i32 %.08.i, ptr %64, align 4, !tbaa !135
-  br label %65
+Fra_SmlCheckNonConstOutputs.exit:                 ; preds = %.loopexit.us.i, %.lr.ph.i.us.i, %41, %.lr.ph.i
+  %.08.i = phi i32 [ 0, %41 ], [ 0, %.lr.ph.i ], [ 1, %.lr.ph.i.us.i ], [ 0, %.loopexit.us.i ]
+  %65 = getelementptr inbounds nuw i8, ptr %30, i64 28
+  store i32 %.08.i, ptr %65, align 4, !tbaa !135
+  br label %66
 
-65:                                               ; preds = %Fra_SmlCheckNonConstOutputs.exit, %Vec_StrFree.exit35
+66:                                               ; preds = %Fra_SmlCheckNonConstOutputs.exit, %Vec_StrFree.exit35
   %.not26 = icmp eq i32 %3, 0
-  br i1 %.not26, label %67, label %66
+  br i1 %.not26, label %68, label %67
 
-66:                                               ; preds = %65
-  tail call void @Fra_SmlPrintOutputs(ptr noundef nonnull %30, i32 noundef %11)
-  br label %67
+67:                                               ; preds = %66
+  tail call void @Fra_SmlPrintOutputs(ptr noundef nonnull %30, i32 noundef %37)
+  br label %68
 
-67:                                               ; preds = %65, %66, %4, %Vec_StrFree.exit
-  %.0 = phi ptr [ null, %4 ], [ null, %Vec_StrFree.exit ], [ %30, %66 ], [ %30, %65 ]
+68:                                               ; preds = %66, %67, %4, %Vec_StrFree.exit
+  %.0 = phi ptr [ null, %4 ], [ null, %Vec_StrFree.exit ], [ %30, %67 ], [ %30, %66 ]
   ret ptr %.0
 }
 
@@ -4326,7 +4329,7 @@ define noundef ptr @Fra_SmlCopyCounterExample(ptr noundef %0, ptr noundef readon
   ret ptr %.040
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #17
 
 declare i32 @Aig_ManRandom(i32 noundef) local_unnamed_addr #11
@@ -4359,7 +4362,7 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4369,7 +4372,7 @@ attributes #13 = { mustprogress nofree nounwind willreturn memory(readwrite, arg
 attributes #14 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }

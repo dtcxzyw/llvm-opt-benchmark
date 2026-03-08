@@ -254,7 +254,7 @@ pmix_obj_run_constructors.exit35:                 ; preds = %.lr.ph.i32, %23
   %calloc = tail call dereferenceable_or_null(128) ptr @calloc(i64 1, i64 128)
   store ptr %calloc, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 880), align 8, !tbaa !42
   %29 = icmp eq ptr %calloc, null
-  br i1 %29, label %77, label %30
+  br i1 %29, label %79, label %30
 
 30:                                               ; preds = %pmix_obj_run_constructors.exit35
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8, !tbaa !43
@@ -285,87 +285,87 @@ pmix_obj_run_constructors.exit35:                 ; preds = %.lr.ph.i32, %23
   %44 = tail call noalias ptr @strdup(ptr noundef %43) #16
   store ptr %44, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 904), align 8, !tbaa !65
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8, !tbaa !43
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 136
-  %.pre42 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !57
   br label %45
 
 45:                                               ; preds = %40, %42, %35
-  %46 = phi i32 [ %33, %40 ], [ %.pre42, %42 ], [ %33, %35 ]
-  %47 = and i32 %46, 268435458
-  %or.cond24 = icmp eq i32 %47, 0
-  br i1 %or.cond24, label %50, label %48
-
-48:                                               ; preds = %45
-  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_server_globals, i64 2648), align 8, !tbaa !66
-  br label %54
+  %46 = phi ptr [ %31, %40 ], [ %.pre, %42 ], [ %31, %35 ]
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 136
+  %48 = load i32, ptr %47, align 8, !tbaa !57
+  %49 = and i32 %48, 268435458
+  %or.cond24 = icmp eq i32 %49, 0
+  br i1 %or.cond24, label %52, label %50
 
 50:                                               ; preds = %45
-  %51 = tail call ptr @getenv(ptr noundef nonnull @.str.40) #16
-  %.not17 = icmp eq ptr %51, null
-  br i1 %.not17, label %52, label %54
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_server_globals, i64 2648), align 8, !tbaa !66
+  br label %56
 
-52:                                               ; preds = %50
-  %53 = tail call ptr @pmix_tmp_directory() #16
-  br label %54
+52:                                               ; preds = %45
+  %53 = tail call ptr @getenv(ptr noundef nonnull @.str.40) #16
+  %.not17 = icmp eq ptr %53, null
+  br i1 %.not17, label %54, label %56
 
-54:                                               ; preds = %50, %52, %48
-  %.sink54 = phi ptr [ %49, %48 ], [ %53, %52 ], [ %51, %50 ]
-  %55 = tail call noalias ptr @strdup(ptr noundef %.sink54) #16
-  store ptr %55, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 912), align 8, !tbaa !67
-  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 920), align 8, !tbaa !68
-  %.not18 = icmp eq ptr %56, null
-  br i1 %.not18, label %65, label %sub_0
+54:                                               ; preds = %52
+  %55 = tail call ptr @pmix_tmp_directory() #16
+  br label %56
 
-sub_0:                                            ; preds = %54
-  %57 = load i8, ptr %56, align 1
-  switch i8 %57, label %.tail36.thread [
+56:                                               ; preds = %52, %54, %50
+  %.sink53 = phi ptr [ %51, %50 ], [ %55, %54 ], [ %53, %52 ]
+  %57 = tail call noalias ptr @strdup(ptr noundef %.sink53) #16
+  store ptr %57, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 912), align 8, !tbaa !67
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 920), align 8, !tbaa !68
+  %.not18 = icmp eq ptr %58, null
+  br i1 %.not18, label %67, label %sub_0
+
+sub_0:                                            ; preds = %56
+  %59 = load i8, ptr %58, align 1
+  switch i8 %59, label %.tail36.thread [
     i8 45, label %.tail
     i8 43, label %.tail36
   ]
 
 .tail:                                            ; preds = %sub_0
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 1
-  %59 = load i8, ptr %58, align 1
-  %60 = icmp eq i8 %59, 0
-  br i1 %60, label %65, label %.tail36.thread
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 1
+  %61 = load i8, ptr %60, align 1
+  %62 = icmp eq i8 %61, 0
+  br i1 %62, label %67, label %.tail36.thread
 
 .tail36:                                          ; preds = %sub_0
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 1
-  %62 = load i8, ptr %61, align 1
-  %63 = icmp eq i8 %62, 0
-  br i1 %63, label %65, label %.tail36.thread
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 1
+  %64 = load i8, ptr %63, align 1
+  %65 = icmp eq i8 %64, 0
+  br i1 %65, label %67, label %.tail36.thread
 
 .tail36.thread:                                   ; preds = %sub_0, %.tail, %.tail36
-  %64 = tail call noalias ptr @strdup(ptr noundef nonnull %56) #16
-  store ptr %64, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 936), align 8, !tbaa !69
-  br label %65
+  %66 = tail call noalias ptr @strdup(ptr noundef nonnull %58) #16
+  store ptr %66, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 936), align 8, !tbaa !69
+  br label %67
 
-65:                                               ; preds = %.tail36.thread, %.tail36, %.tail, %54
-  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8, !tbaa !43
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 136
-  %68 = load i32, ptr %67, align 8, !tbaa !57
-  %69 = and i32 %68, 268435458
-  %or.cond25 = icmp eq i32 %69, 0
-  br i1 %or.cond25, label %74, label %70
+67:                                               ; preds = %.tail36.thread, %.tail36, %.tail, %56
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8, !tbaa !43
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 136
+  %70 = load i32, ptr %69, align 8, !tbaa !57
+  %71 = and i32 %70, 268435458
+  %or.cond25 = icmp eq i32 %71, 0
+  br i1 %or.cond25, label %76, label %72
 
-70:                                               ; preds = %65
-  %71 = tail call ptr @getenv(ptr noundef nonnull @.str.43) #16
-  %.not23 = icmp eq ptr %71, null
-  br i1 %.not23, label %74, label %72
+72:                                               ; preds = %67
+  %73 = tail call ptr @getenv(ptr noundef nonnull @.str.43) #16
+  %.not23 = icmp eq ptr %73, null
+  br i1 %.not23, label %76, label %74
 
-72:                                               ; preds = %70
-  %73 = tail call noalias ptr @strdup(ptr noundef nonnull %71) #16
-  store ptr %73, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 992), align 8, !tbaa !70
-  br label %74
+74:                                               ; preds = %72
+  %75 = tail call noalias ptr @strdup(ptr noundef nonnull %73) #16
+  store ptr %75, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 992), align 8, !tbaa !70
+  br label %76
 
-74:                                               ; preds = %65, %70, %72
-  %75 = tail call i32 @pmix_mca_base_framework_components_open(ptr noundef nonnull @pmix_ptl_base_framework, i32 noundef %0) #16
-  %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base_framework, i64 76), align 4, !tbaa !71
-  store i32 %76, ptr @pmix_ptl_base_output, align 4, !tbaa !32
-  br label %77
+76:                                               ; preds = %67, %72, %74
+  %77 = tail call i32 @pmix_mca_base_framework_components_open(ptr noundef nonnull @pmix_ptl_base_framework, i32 noundef %0) #16
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base_framework, i64 76), align 4, !tbaa !71
+  store i32 %78, ptr @pmix_ptl_base_output, align 4, !tbaa !32
+  br label %79
 
-77:                                               ; preds = %pmix_obj_run_constructors.exit35, %74
-  %.0 = phi i32 [ %75, %74 ], [ -32, %pmix_obj_run_constructors.exit35 ]
+79:                                               ; preds = %pmix_obj_run_constructors.exit35, %76
+  %.0 = phi i32 [ %77, %76 ], [ -32, %pmix_obj_run_constructors.exit35 ]
   ret i32 %.0
 }
 
@@ -1551,7 +1551,7 @@ declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read)
@@ -1640,7 +1640,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1649,7 +1649,7 @@ attributes #2 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessib
 attributes #3 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1658,7 +1658,7 @@ attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "
 attributes #12 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #15 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
 attributes #16 = { nounwind }
 attributes #17 = { nounwind willreturn memory(none) }
 attributes #18 = { cold }

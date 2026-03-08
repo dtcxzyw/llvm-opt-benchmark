@@ -148,7 +148,7 @@ define noundef ptr @dt_control_job_create(ptr noundef %0, ptr noundef readonly c
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
@@ -1206,73 +1206,76 @@ define void @dt_control_jobs_init(ptr noundef initializes((9888, 9892), (9896, 9
   %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 8) #17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 9896
   store ptr %5, ptr %6, align 8, !tbaa !88
-  %7 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 8) #17
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 9920
-  store ptr %7, ptr %8, align 8, !tbaa !83
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 9744
-  store atomic i32 1, ptr %9 seq_cst, align 8
-  %10 = icmp sgt i32 %2, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge
+  %7 = load i32, ptr %3, align 8, !tbaa !66
+  %8 = sext i32 %7 to i64
+  %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #17
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 9920
+  store ptr %9, ptr %10, align 8, !tbaa !83
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 9744
+  store atomic i32 1, ptr %11 seq_cst, align 8
+  %12 = load i32, ptr %3, align 8, !tbaa !66
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %23, %.lr.ph ]
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 9904
-  %12 = tail call i32 @dt_pthread_create(ptr noundef nonnull %11, ptr noundef nonnull @_control_worker_kicker, ptr noundef nonnull %0) #16
-  %13 = or i32 %12, %.0.lcssa
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 10048
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 10072
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 10080
-  br label %31
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %26, %.lr.ph ]
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 9904
+  %15 = tail call i32 @dt_pthread_create(ptr noundef nonnull %14, ptr noundef nonnull @_control_worker_kicker, ptr noundef nonnull %0) #16
+  %16 = or i32 %15, %.0.lcssa
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 10048
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 10072
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 10080
+  br label %34
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
-  %.041 = phi i32 [ %23, %.lr.ph ], [ 0, %1 ]
-  %17 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #17
-  store ptr %0, ptr %17, align 8, !tbaa !89
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %19, ptr %18, align 8, !tbaa !91
-  %20 = load ptr, ptr %6, align 8, !tbaa !88
-  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
-  %22 = tail call i32 @dt_pthread_create(ptr noundef %21, ptr noundef nonnull @_control_work, ptr noundef nonnull %17) #16
-  %23 = or i32 %22, %.041
+  %.041 = phi i32 [ %26, %.lr.ph ], [ 0, %1 ]
+  %20 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #17
+  store ptr %0, ptr %20, align 8, !tbaa !89
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %22, ptr %21, align 8, !tbaa !91
+  %23 = load ptr, ptr %6, align 8, !tbaa !88
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
+  %25 = tail call i32 @dt_pthread_create(ptr noundef %24, ptr noundef nonnull @_control_work, ptr noundef nonnull %20) #16
+  %26 = or i32 %25, %.041
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = load i32, ptr %3, align 8, !tbaa !66
-  %25 = sext i32 %24 to i64
-  %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge
+  %27 = load i32, ptr %3, align 8, !tbaa !66
+  %28 = sext i32 %27 to i64
+  %29 = icmp slt i64 %indvars.iv.next, %28
+  br i1 %29, label %.lr.ph, label %._crit_edge
 
-27:                                               ; preds = %31
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 9912
-  %29 = tail call i32 @dt_pthread_create(ptr noundef nonnull %28, ptr noundef nonnull @dt_update_cameras_thread, ptr noundef nonnull %0) #16
-  %30 = or i32 %29, %39
-  %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %41, label %40
+30:                                               ; preds = %34
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 9912
+  %32 = tail call i32 @dt_pthread_create(ptr noundef nonnull %31, ptr noundef nonnull @dt_update_cameras_thread, ptr noundef nonnull %0) #16
+  %33 = or i32 %32, %42
+  %.not = icmp eq i32 %33, 0
+  br i1 %.not, label %44, label %43
 
-31:                                               ; preds = %._crit_edge, %31
-  %indvars.iv46 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next47, %31 ]
-  %.143 = phi i32 [ %13, %._crit_edge ], [ %39, %31 ]
-  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv46
-  store ptr null, ptr %32, align 8, !tbaa !59
-  %33 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv46
-  store i8 0, ptr %33, align 1, !tbaa !64
-  %34 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #17
-  store ptr %0, ptr %34, align 8, !tbaa !89
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = trunc nuw nsw i64 %indvars.iv46 to i32
-  store i32 %36, ptr %35, align 8, !tbaa !91
-  %37 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv46
-  %38 = tail call i32 @dt_pthread_create(ptr noundef nonnull %37, ptr noundef nonnull @_control_work_res, ptr noundef nonnull %34) #16
-  %39 = or i32 %38, %.143
+34:                                               ; preds = %._crit_edge, %34
+  %indvars.iv46 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next47, %34 ]
+  %.143 = phi i32 [ %16, %._crit_edge ], [ %42, %34 ]
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv46
+  store ptr null, ptr %35, align 8, !tbaa !59
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv46
+  store i8 0, ptr %36, align 1, !tbaa !64
+  %37 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #17
+  store ptr %0, ptr %37, align 8, !tbaa !89
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = trunc nuw nsw i64 %indvars.iv46 to i32
+  store i32 %39, ptr %38, align 8, !tbaa !91
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv46
+  %41 = tail call i32 @dt_pthread_create(ptr noundef nonnull %40, ptr noundef nonnull @_control_work_res, ptr noundef nonnull %37) #16
+  %42 = or i32 %41, %.143
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next47, 3
-  br i1 %exitcond.not, label %27, label %31
+  br i1 %exitcond.not, label %30, label %34
 
-40:                                               ; preds = %27
+43:                                               ; preds = %30
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.6) #16
-  br label %41
+  br label %44
 
-41:                                               ; preds = %40, %27
+44:                                               ; preds = %43, %30
   ret void
 }
 
@@ -1745,7 +1748,7 @@ declare i32 @llvm.smax.i32(i32, i32) #15
 
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #4 = { nofree nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #5 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }

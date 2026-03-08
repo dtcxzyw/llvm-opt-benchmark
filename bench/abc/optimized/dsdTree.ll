@@ -50,7 +50,7 @@ define noalias noundef ptr @Dsd_TreeNodeCreate(i32 noundef %0, i32 noundef %1, i
   ret ptr %calloc
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -770,20 +770,17 @@ define noalias noundef ptr @Dsd_TreeCollectNodesDfs(ptr noundef readonly capture
   %27 = load i32, ptr %4, align 4, !tbaa !19
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next.i.i, %28
-  br i1 %29, label %.lr.ph.i.i, label %Dsd_TreeCountNonTerminalNodes.exit.loopexit, !llvm.loop !24
+  br i1 %29, label %.lr.ph.i.i, label %Dsd_TreeCountNonTerminalNodes.exit, !llvm.loop !24
 
-Dsd_TreeCountNonTerminalNodes.exit.loopexit:      ; preds = %.lr.ph.i.i
-  %30 = icmp sgt i32 %27, 0
-  br label %Dsd_TreeCountNonTerminalNodes.exit
-
-Dsd_TreeCountNonTerminalNodes.exit:               ; preds = %Dsd_TreeCountNonTerminalNodes.exit.loopexit, %2, %._crit_edge.i
-  %31 = phi i1 [ false, %2 ], [ false, %._crit_edge.i ], [ %30, %Dsd_TreeCountNonTerminalNodes.exit.loopexit ]
-  %.07.lcssa17.i = phi i32 [ 0, %2 ], [ %16, %._crit_edge.i ], [ %16, %Dsd_TreeCountNonTerminalNodes.exit.loopexit ]
+Dsd_TreeCountNonTerminalNodes.exit:               ; preds = %.lr.ph.i.i, %2, %._crit_edge.i
+  %.07.lcssa17.i = phi i32 [ 0, %2 ], [ %16, %._crit_edge.i ], [ %16, %.lr.ph.i.i ]
   store i32 0, ptr %3, align 4, !tbaa !28
-  %32 = sext i32 %.07.lcssa17.i to i64
-  %33 = shl nsw i64 %32, 3
-  %34 = tail call noalias ptr @malloc(i64 noundef %33) #16
-  br i1 %31, label %.lr.ph, label %Dsd_TreeUnmark.exit
+  %30 = sext i32 %.07.lcssa17.i to i64
+  %31 = shl nsw i64 %30, 3
+  %32 = tail call noalias ptr @malloc(i64 noundef %31) #16
+  %33 = load i32, ptr %4, align 4, !tbaa !19
+  %34 = icmp sgt i32 %33, 0
+  br i1 %34, label %.lr.ph, label %Dsd_TreeUnmark.exit
 
 .lr.ph:                                           ; preds = %Dsd_TreeCountNonTerminalNodes.exit
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -797,7 +794,7 @@ Dsd_TreeCountNonTerminalNodes.exit:               ; preds = %Dsd_TreeCountNonTer
   %40 = ptrtoint ptr %39 to i64
   %41 = and i64 %40, -2
   %42 = inttoptr i64 %41 to ptr
-  call fastcc void @Dsd_TreeCollectNodesDfs_rec(ptr noundef %42, ptr noundef %34, ptr noundef %3)
+  call fastcc void @Dsd_TreeCollectNodesDfs_rec(ptr noundef %42, ptr noundef %32, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %4, align 4, !tbaa !19
   %44 = sext i32 %43 to i64
@@ -831,7 +828,7 @@ Dsd_TreeUnmark.exit:                              ; preds = %48, %Dsd_TreeCountN
   %58 = load i32, ptr %3, align 4, !tbaa !28
   store i32 %58, ptr %1, align 4, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %34
+  ret ptr %32
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -4113,7 +4110,7 @@ declare ptr @Cudd_bddPermute(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 declare void @Extra_PrintSymbols(ptr noundef, i8 noundef signext, i32 noundef, i32 noundef) local_unnamed_addr #3
@@ -4139,11 +4136,11 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4153,11 +4150,11 @@ attributes #7 = { nofree nosync nounwind memory(read, inaccessiblemem: none, tar
 attributes #8 = { nofree nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nofree nounwind }
-attributes #15 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #15 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" }
 attributes #16 = { nounwind allocsize(0) }
 attributes #17 = { nounwind }
 attributes #18 = { nounwind allocsize(1) }

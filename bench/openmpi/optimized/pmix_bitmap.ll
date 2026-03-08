@@ -28,7 +28,7 @@ define internal void @pmix_bitmap_destruct(ptr noundef captures(none) %0) #1 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #14
+  tail call void @free(ptr noundef nonnull %3) #13
   store ptr null, ptr %2, align 8, !tbaa !3
   br label %5
 
@@ -60,13 +60,13 @@ define range(i32 -29, 1) i32 @pmix_bitmap_init(ptr noundef captures(address_is_n
   %3 = icmp slt i32 %1, 1
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
-  br i1 %or.cond, label %pmix_bitmap_clear_all_bits.exit, label %5
+  br i1 %or.cond, label %29, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %7 = load i32, ptr %6, align 4, !tbaa !14
   %8 = icmp sgt i32 %1, %7
-  br i1 %8, label %pmix_bitmap_clear_all_bits.exit, label %9
+  br i1 %8, label %29, label %9
 
 9:                                                ; preds = %5
   %10 = add nuw i32 %1, 63
@@ -79,7 +79,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_init(ptr noundef captures(address_is_n
   br i1 %.not, label %20, label %15
 
 15:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %14) #14
+  tail call void @free(ptr noundef nonnull %14) #13
   %16 = load i32, ptr %6, align 4, !tbaa !14
   %17 = load i32, ptr %12, align 8, !tbaa !13
   %18 = icmp slt i32 %16, %17
@@ -93,21 +93,27 @@ define range(i32 -29, 1) i32 @pmix_bitmap_init(ptr noundef captures(address_is_n
   %21 = phi i32 [ %17, %15 ], [ %17, %19 ], [ %11, %9 ]
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 3
-  %calloc = tail call ptr @calloc(i64 1, i64 %23)
-  store ptr %calloc, ptr %13, align 8, !tbaa !3
-  %24 = icmp eq ptr %calloc, null
-  %spec.select = select i1 %24, i32 -29, i32 0
-  br label %pmix_bitmap_clear_all_bits.exit
+  %24 = tail call noalias ptr @malloc(i64 noundef %23) #14
+  store ptr %24, ptr %13, align 8, !tbaa !3
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %29, label %pmix_bitmap_clear_all_bits.exit
 
-pmix_bitmap_clear_all_bits.exit:                  ; preds = %20, %2, %5
-  %.0 = phi i32 [ %spec.select, %20 ], [ -27, %2 ], [ -27, %5 ]
+pmix_bitmap_clear_all_bits.exit:                  ; preds = %20
+  %26 = load i32, ptr %12, align 8, !tbaa !13
+  %27 = sext i32 %26 to i64
+  %28 = shl nsw i64 %27, 3
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %24, i8 0, i64 %28, i1 false)
+  br label %29
+
+29:                                               ; preds = %20, %2, %5, %pmix_bitmap_clear_all_bits.exit
+  %.0 = phi i32 [ 0, %pmix_bitmap_clear_all_bits.exit ], [ -27, %2 ], [ -27, %5 ], [ -29, %20 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -196,7 +202,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_set_bit(ptr noundef captures(address_i
   ret i32 %.026
 }
 
-; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -606,36 +612,38 @@ define noalias noundef ptr @pmix_bitmap_get_string(ptr noundef readonly captures
   %6 = shl nsw i32 %5, 6
   %7 = or disjoint i32 %6, 1
   %8 = sext i32 %7 to i64
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #16
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #14
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %3
-  %12 = sext i32 %6 to i64
-  %13 = getelementptr inbounds i8, ptr %9, i64 %12
-  store i8 0, ptr %13, align 1, !tbaa !25
-  %14 = icmp sgt i32 %5, 0
-  br i1 %14, label %pmix_bitmap_is_set_bit.exit.lr.ph, label %.loopexit
+  %12 = load i32, ptr %4, align 8, !tbaa !13
+  %13 = shl nsw i32 %12, 6
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds i8, ptr %9, i64 %14
+  store i8 0, ptr %15, align 1, !tbaa !25
+  %16 = icmp sgt i32 %12, 0
+  br i1 %16, label %pmix_bitmap_is_set_bit.exit.lr.ph, label %.loopexit
 
 pmix_bitmap_is_set_bit.exit.lr.ph:                ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %16 = load ptr, ptr %15, align 8, !tbaa !3
-  %wide.trip.count = zext nneg i32 %6 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %18 = load ptr, ptr %17, align 8, !tbaa !3
+  %wide.trip.count = zext nneg i32 %13 to i64
   br label %pmix_bitmap_is_set_bit.exit
 
 pmix_bitmap_is_set_bit.exit:                      ; preds = %pmix_bitmap_is_set_bit.exit.lr.ph, %pmix_bitmap_is_set_bit.exit
   %indvars.iv = phi i64 [ 0, %pmix_bitmap_is_set_bit.exit.lr.ph ], [ %indvars.iv.next, %pmix_bitmap_is_set_bit.exit ]
-  %17 = lshr i64 %indvars.iv, 6
-  %18 = and i64 %indvars.iv, 63
-  %19 = and i64 %17, 67108863
-  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %19
-  %21 = load i64, ptr %20, align 8, !tbaa !15
-  %22 = shl nuw i64 1, %18
-  %23 = and i64 %21, %22
-  %.not12.i.not = icmp eq i64 %23, 0
+  %19 = lshr i64 %indvars.iv, 6
+  %20 = and i64 %indvars.iv, 63
+  %21 = and i64 %19, 67108863
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %21
+  %23 = load i64, ptr %22, align 8, !tbaa !15
+  %24 = shl nuw i64 1, %20
+  %25 = and i64 %23, %24
+  %.not12.i.not = icmp eq i64 %25, 0
   %spec.select = select i1 %.not12.i.not, i8 95, i8 88
-  %24 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
-  store i8 %spec.select, ptr %24, align 1, !tbaa !25
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
+  store i8 %spec.select, ptr %26, align 1, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %pmix_bitmap_is_set_bit.exit, !llvm.loop !26
@@ -752,15 +760,12 @@ define noundef zeroext i1 @pmix_bitmap_is_clear(ptr noundef readonly captures(no
   ret i1 %.lcssa
 }
 
-; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -768,10 +773,9 @@ attributes #9 = { nounwind memory(readwrite, target_mem0: none, target_mem1: non
 attributes #10 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind memory(readwrite, argmem: read, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #14 = { nounwind }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind allocsize(0) }
 attributes #15 = { nounwind allocsize(1) }
-attributes #16 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 
