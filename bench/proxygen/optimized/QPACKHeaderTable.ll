@@ -504,6 +504,7 @@ if.then11:                                        ; preds = %if.end9
   %conv = zext i32 %14 to i64
   %15 = load ptr, ptr %13, align 8
   %add.ptr.i = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %conv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i) ]
   store i16 0, ptr %add.ptr.i, align 2
   br label %while.end31
 
@@ -539,6 +540,7 @@ while.body36:                                     ; preds = %land.rhs
   %conv39 = zext i32 %call2.i.i to i64
   %22 = load ptr, ptr %table_, align 8
   %add.ptr.i7 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %conv39
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i7) ]
   %23 = load ptr, ptr %add.ptr.i7, align 8
   %call.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #28
   %conv.i.i = and i64 %call.i.i.i, 4294967295
@@ -803,7 +805,7 @@ if.else.i.i.i.i:                                  ; preds = %entry
   br i1 %or.cond.i.i.i.i, label %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE14computeKeyHashIS4_EEmRKT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i.i.i.i
-  %2 = load ptr, ptr %headerName, align 8
+  %2 = load ptr, ptr %headerName, align 8, !nonnull !10, !noundef !10
   %call.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
   %call2.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
   %call.i2.i.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %call.i.i.i, i64 noundef %call2.i.i.i, i64 noundef 3339675911)
@@ -873,6 +875,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   %14 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %idxprom.i = zext i32 %14 to i64
   %arrayidx.i = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %idxprom.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %arrayidx.i) ]
   %15 = load ptr, ptr %headerName, align 8
   %16 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i.i.i = icmp eq ptr %15, %16
@@ -898,7 +901,7 @@ if.end.i.i.i.i.i:                                 ; preds = %land.rhs.i.i.i.i
 
 while.cond.i.backedge:                            ; preds = %if.end.i.i.i.i.i, %lor.rhs.i.i.i
   %cmp.i23.not = icmp eq i32 %and.i26, 0
-  br i1 %cmp.i23.not, label %while.end.i.loopexit, label %while.body.i, !llvm.loop !10
+  br i1 %cmp.i23.not, label %while.end.i.loopexit, label %while.body.i, !llvm.loop !11
 
 while.end.i.loopexit:                             ; preds = %while.cond.i.backedge
   %outboundOverflowCount_.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 15
@@ -917,11 +920,11 @@ if.end20.i:                                       ; preds = %while.end.i
   %sh_prom.i = and i64 %19, 255
   %shr.i = lshr i64 %inc.i, %sh_prom.i
   %cmp.i = icmp eq i64 %shr.i, 0
-  br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !11
+  br i1 %cmp.i, label %for.body.i, label %return, !llvm.loop !12
 
 if.end:                                           ; preds = %land.rhs.i.i.i.i, %while.body.i, %if.end.i.i.i.i.i
   %arrayidx.i.i.i.i.le = getelementptr inbounds nuw [4 x i8], ptr %rawItems_.i.i, i64 %conv9.i
-  %20 = load ptr, ptr %names_, align 8, !nonnull !12, !noundef !12
+  %20 = load ptr, ptr %names_, align 8, !nonnull !10, !noundef !10
   %21 = load i32, ptr %arrayidx.i.i.i.i.le, align 4
   %idx.ext8.i.i = zext i32 %21 to i64
   %add.ptr9.i.i = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %idx.ext8.i.i
@@ -986,6 +989,7 @@ for.body.us61.us:                                 ; preds = %for.body.lr.ph.spli
   %33 = load i32, ptr %_M_storage.i.i.i.us65.us, align 4
   %conv.us.us = zext i32 %33 to i64
   %add.ptr.i35.us.us = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %conv.us.us
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i35.us.us) ]
   %arrayidx.i.i.i.i.i.i.us.us = getelementptr inbounds nuw i8, ptr %add.ptr.i35.us.us, i64 31
   %34 = load i8, ptr %arrayidx.i.i.i.i.i.i.us.us, align 1
   %size_.i.i.i.i.us.us = getelementptr inbounds nuw i8, ptr %add.ptr.i35.us.us, i64 16
@@ -1009,6 +1013,7 @@ for.body.us61:                                    ; preds = %for.body.lr.ph.spli
   %37 = load i32, ptr %_M_storage.i.i.i.us65, align 4
   %conv.us = zext i32 %37 to i64
   %add.ptr.i35.us = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %conv.us
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i35.us) ]
   %arrayidx.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %add.ptr.i35.us, i64 31
   %38 = load i8, ptr %arrayidx.i.i.i.i.i.i.us, align 1
   %size_.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %add.ptr.i35.us, i64 16
@@ -1044,6 +1049,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %conv = zext i32 %43 to i64
   %44 = load ptr, ptr %table_, align 8
   %add.ptr.i35 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %conv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i35) ]
   %value13 = getelementptr inbounds nuw i8, ptr %add.ptr.i35, i64 8
   %45 = load ptr, ptr %value13, align 8
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i35, i64 31
@@ -1233,6 +1239,7 @@ _ZNK8proxygen16QPACKHeaderTable10toInternalEjj.exit: ; preds = %cleanup.done, %i
   %conv = zext i32 %call2.i to i64
   %2 = load ptr, ptr %table_, align 8
   %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %conv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i) ]
   ret ptr %add.ptr.i
 }
 
@@ -1289,6 +1296,7 @@ while.cond:                                       ; preds = %entry
   %conv = zext i32 %call to i64
   %1 = load ptr, ptr %0, align 8
   %add.ptr.i = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %conv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i) ]
   %2 = load i16, ptr %add.ptr.i, align 2
   %cmp.i7 = icmp eq i16 %2, 0
   br i1 %cmp.i7, label %if.end, label %if.else.i
@@ -1661,10 +1669,11 @@ land.lhs.true7:                                   ; preds = %land.lhs.true7.lr.p
   %inc14 = phi i32 [ 1, %land.lhs.true7.lr.ph ], [ %inc, %while.body ]
   %i.013 = phi i32 [ %call3, %land.lhs.true7.lr.ph ], [ %call18, %while.body ]
   %freeable.012 = phi i32 [ 0, %land.lhs.true7.lr.ph ], [ %add, %while.body ]
-  %4 = load ptr, ptr %refCount_, align 8
+  %4 = load ptr, ptr %refCount_, align 8, !nonnull !10, !noundef !10
   %conv = zext i32 %i.013 to i64
   %5 = load ptr, ptr %4, align 8
   %add.ptr.i = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %conv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i) ]
   %6 = load i16, ptr %add.ptr.i, align 2
   %cmp12 = icmp eq i16 %6, 0
   br i1 %cmp12, label %land.rhs, label %while.end
@@ -1681,6 +1690,7 @@ land.rhs:                                         ; preds = %land.lhs.true7
 while.body:                                       ; preds = %land.rhs
   %9 = load ptr, ptr %table_, align 8
   %add.ptr.i8 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %conv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i8) ]
   %10 = load ptr, ptr %add.ptr.i8, align 8
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #28
   %conv.i.i = and i64 %call.i.i.i, 4294967295
@@ -1934,6 +1944,7 @@ cleanup.done:                                     ; preds = %entry
   %conv = zext i32 %call2.i.i to i64
   %2 = load ptr, ptr %0, align 8
   %add.ptr.i = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %conv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i) ]
   %3 = load i16, ptr %add.ptr.i, align 2
   %inc = add i16 %3, 1
   store i16 %inc, ptr %add.ptr.i, align 2
@@ -1974,10 +1985,11 @@ lpad:                                             ; preds = %invoke.cont, %cond.
 cleanup.done:                                     ; preds = %entry
   %call.i = tail call noundef i32 @_ZNK8proxygen16QPACKHeaderTable18absoluteToRelativeEj(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %absIndex)
   %call2.i.i = tail call noundef i32 @_ZNK8proxygen11HeaderTable10toInternalEj(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %call.i)
-  %2 = load ptr, ptr %refCount_, align 8
+  %2 = load ptr, ptr %refCount_, align 8, !nonnull !10, !noundef !10
   %conv = zext i32 %call2.i.i to i64
   %3 = load ptr, ptr %2, align 8
   %add.ptr.i = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %conv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i) ]
   %4 = load i16, ptr %add.ptr.i, align 2
   %cmp.i2.not = icmp eq i16 %4, 0
   br i1 %cmp.i2.not, label %if.else.i, label %while.end
@@ -2040,6 +2052,7 @@ while.end:                                        ; preds = %cleanup.done, %_ZN6
   %8 = phi i16 [ %.pre11, %_ZN6google12Check_GTImplItiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge ], [ %4, %cleanup.done ]
   %9 = phi ptr [ %.pre10, %_ZN6google12Check_GTImplItiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge ], [ %3, %cleanup.done ]
   %add.ptr.i5 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %conv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i5) ]
   %dec = add i16 %8, -1
   store i16 %dec, ptr %add.ptr.i5, align 2
   ret void
@@ -2424,7 +2437,7 @@ _ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.if.else_crit_edge.i.i: ; pred
 
 if.then.i.i:                                      ; preds = %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.i.i
   %call2.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
-  %3 = load ptr, ptr %name_, align 8
+  %3 = load ptr, ptr %name_, align 8, !nonnull !10, !noundef !10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %call2.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN8proxygen15HPACKHeaderNameC2ERKS0_.exit unwind label %lpad.i.i
 
@@ -3223,9 +3236,9 @@ attributes #34 = { nounwind allocsize(0) }
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!10 = !{}
 !11 = distinct !{!11, !8}
-!12 = !{}
+!12 = distinct !{!12, !8}
 !13 = !{!14}
 !14 = distinct !{!14, !15, !"_ZNKSt7__cxx114listIjSaIjEE4rendEv: %agg.result"}
 !15 = distinct !{!15, !"_ZNKSt7__cxx114listIjSaIjEE4rendEv"}

@@ -853,6 +853,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit191: ; preds = %30
 320:                                              ; preds = %317
   %321 = load ptr, ptr %21, align 8, !tbaa !44
   %322 = getelementptr inbounds nuw [8 x i8], ptr %321, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %322) ]
   %323 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %324 = load i32, ptr %323, align 8, !tbaa !3
   %325 = add nsw i32 %324, 1
@@ -943,6 +944,7 @@ _ZN5Ipopt8SmartPtrINS_11PCalculatorEED2Ev.exit:   ; preds = %_ZN5Ipopt8SmartPtrI
 _ZN5Ipopt8SmartPtrINS_14SensBacksolverEED2Ev.exit202: ; preds = %_ZN5Ipopt8SmartPtrINS_11PCalculatorEED2Ev.exit, %358, %363
   %367 = load ptr, ptr %21, align 8, !tbaa !44
   %368 = getelementptr inbounds nuw [8 x i8], ptr %367, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %368) ]
   %369 = load ptr, ptr %368, align 8, !tbaa !47
   %370 = invoke noundef zeroext i1 @_ZN5Ipopt23AlgorithmStrategyObject10InitializeERKNS_10JournalistERNS_8IpoptNLPERNS_9IpoptDataERNS_25IpoptCalculatedQuantitiesERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(49) %369, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(2232) %6, ptr noundef nonnull align 8 dereferenceable(2185) %7, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %371 unwind label %391
@@ -950,6 +952,7 @@ _ZN5Ipopt8SmartPtrINS_14SensBacksolverEED2Ev.exit202: ; preds = %_ZN5Ipopt8Smart
 371:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_14SensBacksolverEED2Ev.exit202
   %372 = load ptr, ptr %21, align 8, !tbaa !44
   %373 = getelementptr inbounds nuw [8 x i8], ptr %372, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %373) ]
   %374 = load ptr, ptr %373, align 8, !tbaa !47
   %375 = load ptr, ptr %374, align 8, !tbaa !8
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 72
@@ -960,6 +963,7 @@ _ZN5Ipopt8SmartPtrINS_14SensBacksolverEED2Ev.exit202: ; preds = %_ZN5Ipopt8Smart
 379:                                              ; preds = %371
   %380 = load ptr, ptr %21, align 8, !tbaa !44
   %381 = getelementptr inbounds nuw [8 x i8], ptr %380, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %381) ]
   %382 = load ptr, ptr %381, align 8, !tbaa !47
   %383 = load ptr, ptr %382, align 8, !tbaa !8
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 80
@@ -2206,7 +2210,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   %84 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !115
-  %86 = load ptr, ptr %11, align 8, !tbaa !67
+  %86 = load ptr, ptr %11, align 8, !tbaa !67, !nonnull !36, !noundef !36
   %87 = ptrtoint ptr %85 to i64
   %88 = ptrtoint ptr %86 to i64
   %89 = sub i64 %87, %88

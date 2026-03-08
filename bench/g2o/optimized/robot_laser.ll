@@ -210,6 +210,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit19:             ; preds = %68, %70, %72, %74
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ]
   %77 = load ptr, ptr %36, align 8, !tbaa !19
   %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %78) ]
   %79 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %78)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = load i32, ptr %10, align 4, !tbaa !10
@@ -317,6 +318,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit19:             ; preds = %68, %70, %72, %74
   %indvars.iv36 = phi i64 [ %indvars.iv.next37, %.lr.ph33 ], [ 0, %_ZNSt6vectorIdSaIdEE6resizeEm.exit19 ]
   %142 = load ptr, ptr %57, align 16, !tbaa !19
   %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv36
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %143) ]
   %144 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %143)
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %145 = load i32, ptr %10, align 4, !tbaa !10
@@ -396,6 +398,7 @@ define noundef zeroext i1 @_ZNK3g2o10RobotLaser5writeERSo(ptr noundef nonnull re
   %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i64 noundef 1)
   %55 = load ptr, ptr %31, align 8, !tbaa !19
   %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.026
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %56) ]
   %57 = load double, ptr %56, align 8, !tbaa !12
   %58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %57)
   %59 = add nuw i64 %.026, 1
@@ -536,6 +539,7 @@ define noundef zeroext i1 @_ZNK3g2o10RobotLaser5writeERSo(ptr noundef nonnull re
   %174 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i64 noundef 1)
   %175 = load ptr, ptr %43, align 16, !tbaa !19
   %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.01727
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %176) ]
   %177 = load double, ptr %176, align 8, !tbaa !12
   %178 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %177)
   %179 = add nuw i64 %.01727, 1
@@ -719,10 +723,10 @@ declare void @llvm.assume(i1 noundef) #14
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+declare i64 @llvm.umax.i64(i64, i64) #16
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

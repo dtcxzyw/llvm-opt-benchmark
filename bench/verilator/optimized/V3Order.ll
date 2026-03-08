@@ -1265,12 +1265,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %23
 238:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128, %"_ZZN7V3Order5orderEP10AstNetlistRKSt6vectorIPN7V3Sched12LogicByScopeESaIS5_EERKSt13unordered_mapIPK10AstSenTreeSD_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SD_EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbRKSt8functionIFvPK11AstVarScopeRS2_IPSB_SaIS11_EEEEENK3$_0clEv.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @_ZN7V3Order15buildOrderGraphEP10AstNetlistRKSt6vectorIPN7V3Sched12LogicByScopeESaIS5_EERKSt13unordered_mapIPK10AstSenTreeSD_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SD_EEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %19, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(56) %2)
-  %239 = load ptr, ptr %19, align 8, !tbaa !108
+  %239 = load ptr, ptr %19, align 8, !tbaa !108, !nonnull !66, !noundef !66
   invoke void @_ZN7V3Order15orderOrderGraphER10OrderGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %239, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %240 unwind label %248
 
 240:                                              ; preds = %238
-  %241 = load ptr, ptr %19, align 8, !tbaa !108
+  %241 = load ptr, ptr %19, align 8, !tbaa !108, !nonnull !66, !noundef !66
   invoke void @_ZN7V3Order14processDomainsEP10AstNetlistR10OrderGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8functionIFvPK11AstVarScopeRSt6vectorIP10AstSenTreeSaISI_EEEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %241, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %242 unwind label %248
 
@@ -1278,7 +1278,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %23
   br i1 %4, label %243, label %252
 
 243:                                              ; preds = %242
-  %244 = load ptr, ptr %19, align 8, !tbaa !108
+  %244 = load ptr, ptr %19, align 8, !tbaa !108, !nonnull !66, !noundef !66
   %245 = invoke noundef ptr @_ZN7V3Order14createParallelER10OrderGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIPK10AstSenTreeSD_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef nonnull align 8 dereferenceable(24) %244, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext %5)
           to label %246 unwind label %250
 
@@ -1302,7 +1302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %23
 
 252:                                              ; preds = %242
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %253 = load ptr, ptr %19, align 8, !tbaa !108
+  %253 = load ptr, ptr %19, align 8, !tbaa !108, !nonnull !66, !noundef !66
   invoke void @_ZN7V3Order12createSerialER10OrderGraphRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIPK10AstSenTreeSD_St4hashISD_ESt8equal_toISD_ESaISt4pairIKSD_SD_EEEb(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.74") align 8 %20, ptr noundef nonnull align 8 dereferenceable(24) %253, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext %5)
           to label %254 unwind label %265
 
@@ -1342,6 +1342,7 @@ _ZNSt6vectorIP9AstActiveSaIS1_EED2Ev.exit:        ; preds = %._crit_edge, %259
 
 .lr.ph:                                           ; preds = %254, %_ZN8AstCFunc9addStmtspEP7AstNode.exit151
   %.sroa.0186.0229 = phi ptr [ %269, %_ZN8AstCFunc9addStmtspEP7AstNode.exit151 ], [ %255, %254 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0186.0229) ]
   %267 = load ptr, ptr %.sroa.0186.0229, align 8, !tbaa !115
   %.not.i.i149 = icmp eq ptr %267, null
   br i1 %.not.i.i149, label %_ZN8AstCFunc9addStmtspEP7AstNode.exit151, label %268
@@ -1517,6 +1518,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i16
 
 .lr.ph233:                                        ; preds = %322, %329
   %.sroa.0182.0231 = phi ptr [ %330, %329 ], [ %323, %322 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0182.0231) ]
   %328 = load ptr, ptr %.sroa.0182.0231, align 8, !tbaa !122
   invoke void @_ZN7V3Sched12LogicByScope13deleteActivesEv(ptr noundef nonnull align 8 dereferenceable(24) %328)
           to label %329 unwind label %331
@@ -1863,6 +1865,7 @@ _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE5clearEv.exit: ; preds = %1, 
 
 .lr.ph:                                           ; preds = %1, %20
   %.sroa.011.016 = phi ptr [ %21, %20 ], [ %2, %1 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.011.016) ]
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.011.016, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !134
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32

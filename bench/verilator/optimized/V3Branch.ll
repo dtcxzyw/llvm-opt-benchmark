@@ -258,6 +258,7 @@ _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i: ; preds = %27
 
 .lr.ph.i.i:                                       ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i, %38
   %.sroa.05.010.i.i = phi ptr [ %39, %38 ], [ %29, %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit.i ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.05.010.i.i) ]
   %32 = load ptr, ptr %.sroa.05.010.i.i, align 8, !tbaa !20
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 313
   %34 = load i16, ptr %33, align 1

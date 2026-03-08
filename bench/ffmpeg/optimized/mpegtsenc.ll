@@ -4531,7 +4531,7 @@ set_af_flag.exit:                                 ; preds = %1062
   %not.or.cond9 = xor i1 %or.cond9, true
   %or.cond11 = select i1 %not.or.cond9, i1 true, i1 %1080
   %or.cond13 = select i1 %or.cond11, i1 true, i1 %29
-  br i1 %or.cond13, label %get_ts_payload_start.exit416, label %1081
+  br i1 %or.cond13, label %1093, label %1081
 
 1081:                                             ; preds = %1075
   %1082 = load i64, ptr %105, align 8, !tbaa !160
@@ -4544,7 +4544,9 @@ set_af_flag.exit:                                 ; preds = %1062
 ._crit_edge.i410:                                 ; preds = %1081
   %.pre.i412 = load i8, ptr %121, align 1, !tbaa !21
   %1085 = or i8 %.pre.i412, 64
-  br label %1088
+  %.pre561 = load i8, ptr %119, align 4
+  %1086 = zext i8 %.pre561 to i64
+  br label %set_af_flag.exit413
 
 1086:                                             ; preds = %1081
   %1087 = or disjoint i8 %1076, 32
@@ -4552,23 +4554,22 @@ set_af_flag.exit:                                 ; preds = %1062
   store i8 1, ptr %119, align 4, !tbaa !21
   br label %1088
 
-1088:                                             ; preds = %1086, %._crit_edge.i410
-  %1089 = phi i8 [ %1076, %._crit_edge.i410 ], [ %1087, %1086 ]
-  %1090 = phi i8 [ %1085, %._crit_edge.i410 ], [ 64, %1086 ]
-  store i8 %1090, ptr %121, align 1, !tbaa !21
-  %1091 = load i8, ptr %119, align 4, !tbaa !21
-  %1092 = zext i8 %1091 to i64
-  %1093 = getelementptr inbounds nuw i8, ptr %121, i64 %1092
-  br label %get_ts_payload_start.exit416
+1088:                                             ; preds = %._crit_edge.i410, %1087
+  %1089 = phi i64 [ %1086, %._crit_edge.i410 ], [ 1, %1087 ]
+  %1090 = phi i8 [ %1076, %._crit_edge.i410 ], [ %1088, %1087 ]
+  %1091 = phi i8 [ %1085, %._crit_edge.i410 ], [ 64, %1087 ]
+  store i8 %1091, ptr %121, align 1, !tbaa !21
+  %1092 = getelementptr inbounds nuw i8, ptr %121, i64 %1089
+  br label %1093
 
-get_ts_payload_start.exit416:                     ; preds = %1088, %1075
-  %1094 = phi i8 [ %1076, %1075 ], [ %1089, %1088 ]
-  %.5337 = phi i32 [ %.4336, %1075 ], [ %spec.select390, %1088 ]
-  %.1317 = phi ptr [ %.0316, %1075 ], [ %1093, %1088 ]
+1093:                                             ; preds = %set_af_flag.exit413, %1075
+  %1094 = phi i8 [ %1076, %1075 ], [ %1090, %set_af_flag.exit413 ]
+  %1094 = phi i32 [ %.4336, %1075 ], [ %spec.select390, %set_af_flag.exit413 ]
+  %.5337 = phi ptr [ %.0316, %1075 ], [ %1092, %set_af_flag.exit413 ]
   %.not373 = icmp eq i32 %.5337, 0
   br i1 %.not373, label %1132, label %1095
 
-1095:                                             ; preds = %get_ts_payload_start.exit416
+1095:                                             ; preds = %1093
   %1096 = and i8 %1094, 32
   %1097 = icmp eq i8 %1096, 0
   br i1 %1097, label %1100, label %._crit_edge.i417
@@ -4648,8 +4649,8 @@ get_ts_payload_start.exit427:                     ; preds = %1110
   %1131 = getelementptr inbounds nuw i8, ptr %121, i64 %1130
   br label %1132
 
-1132:                                             ; preds = %get_ts_payload_start.exit427, %get_ts_payload_start.exit416
-  %.2318 = phi ptr [ %1131, %get_ts_payload_start.exit427 ], [ %.1317, %get_ts_payload_start.exit416 ]
+1132:                                             ; preds = %get_ts_payload_start.exit427, %1093
+  %.2318 = phi ptr [ %1131, %get_ts_payload_start.exit427 ], [ %.1317, %1093 ]
   br i1 %1063, label %1133, label %1286
 
 1133:                                             ; preds = %1132
@@ -4889,7 +4890,7 @@ get_pes_stream_id.exit:                           ; preds = %1158
   br label %.thread609
 
 .thread609:                                       ; preds = %.thread603, %1235, %1211
-  %.5321 = phi ptr [ %1254, %1235 ], [ %1234, %1211 ], [ %1210, %.thread603 ]
+  %.5321 = phi ptr [ %1254, %1235 ], [ %1234, %1211 ], [ %1210, %.thread604 ]
   br i1 %.not502, label %.thread477, label %1255
 
 1255:                                             ; preds = %.thread609
@@ -4931,7 +4932,7 @@ get_pes_stream_id.exit:                           ; preds = %1158
   br label %.thread477
 
 .thread477:                                       ; preds = %.thread609, %1271, %1266, %1264
-  %.7 = phi ptr [ %1274, %1271 ], [ %.6, %1266 ], [ %.6, %1264 ], [ %.5321, %.thread609 ]
+  %.7 = phi ptr [ %1274, %1271 ], [ %.6, %1266 ], [ %.6, %1264 ], [ %.5321, %.thread610 ]
   br i1 %28, label %.thread480, label %1277
 
 .thread480:                                       ; preds = %.thread477

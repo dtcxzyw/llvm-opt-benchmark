@@ -301,7 +301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %106
   br label %143
 
 111:                                              ; preds = %104, %101, %98, %95
-  %112 = load ptr, ptr %9, align 8, !tbaa !11
+  %112 = load ptr, ptr %9, align 8, !tbaa !11, !nonnull !24, !noundef !24
   %113 = load i8, ptr %112, align 1, !tbaa !12
   %114 = icmp eq i8 %113, 46
   br i1 %114, label %115, label %117
@@ -539,6 +539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit81: ; pred
   %.034133 = phi i1 [ %.135, %269 ], [ %212, %208 ]
   %.037132 = phi i1 [ %.138, %269 ], [ false, %208 ]
   %.sroa.0119.0131 = phi ptr [ %270, %269 ], [ %215, %208 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0119.0131) ]
   %220 = load i8, ptr %0, align 8, !tbaa !39, !range !23, !noundef !24
   %221 = trunc nuw i8 %220 to i1
   br i1 %221, label %222, label %227
@@ -628,7 +629,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit87: ; pred
   br label %266
 
 266:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit87, %227
-  %267 = load ptr, ptr %.sroa.0119.0131, align 8, !tbaa !40
+  %267 = load ptr, ptr %.sroa.0119.0131, align 8, !tbaa !40, !nonnull !24, !noundef !24
   %268 = call noundef zeroext i1 @_ZN4base10JSONWriter15BuildJSONStringERKNS_5ValueEm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %267, i64 noundef %2)
   %spec.select = select i1 %268, i1 %.034133, i1 false
   br label %269
@@ -821,7 +822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit97: ; preds
 
 358:                                              ; preds = %353
   %359 = getelementptr inbounds nuw i8, ptr %355, i64 64
-  %360 = load ptr, ptr %359, align 8, !tbaa !40
+  %360 = load ptr, ptr %359, align 8, !tbaa !40, !nonnull !24, !noundef !24
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 8
   %362 = load i32, ptr %361, align 8, !tbaa !13
   %363 = icmp eq i32 %362, 5
@@ -1004,7 +1005,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit113: ; pre
 448:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit113, %421
   %449 = load ptr, ptr %342, align 8, !tbaa !48
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 64
-  %451 = load ptr, ptr %450, align 8, !tbaa !40
+  %451 = load ptr, ptr %450, align 8, !tbaa !40, !nonnull !24, !noundef !24
   %452 = invoke noundef zeroext i1 @_ZN4base10JSONWriter15BuildJSONStringERKNS_5ValueEm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %451, i64 noundef %350)
           to label %453 unwind label %.loopexit
 

@@ -2851,6 +2851,7 @@ _ZN7globset4glob6Parser4peek17h0a8ecf91c4cf37b8E.exit.i.i: ; preds = %136, %"_ZN
   unreachable
 
 _ZN7globset4glob6Parser11have_tokens17h2279219721a48b8dE.exit.thread.i.i: ; preds = %180
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %184) ]
   %193 = getelementptr i8, ptr %183, i64 -8
   %194 = load i64, ptr %193, align 8, !noalias !446, !noundef !5
   %195 = icmp ne i64 %194, 0
@@ -3292,6 +3293,7 @@ _ZN7globset4glob6Parser4bump17h42da4adbebf2ad1fE.exit133.i: ; preds = %_ZN7globs
   br i1 %186, label %368, label %357
 
 357:                                              ; preds = %356
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %184) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !539)
   %358 = getelementptr i8, ptr %183, i64 -8
   %359 = load i64, ptr %358, align 8, !alias.scope !539, !noalias !542, !noundef !5

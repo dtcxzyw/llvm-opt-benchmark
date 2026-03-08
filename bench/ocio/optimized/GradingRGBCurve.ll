@@ -2214,7 +2214,7 @@ define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2_
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.5") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %14 = load ptr, ptr %3, align 8, !tbaa !30
+  %14 = load ptr, ptr %3, align 8, !tbaa !30, !nonnull !58, !noundef !58
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = load ptr, ptr %1, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -2223,7 +2223,7 @@ define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2_
           to label %18 unwind label %247
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr %4, align 8, !tbaa !30
+  %19 = load ptr, ptr %4, align 8, !tbaa !30, !nonnull !58, !noundef !58
   %20 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_19GradingBSplineCurveES2_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %21 unwind label %249
 
@@ -2239,7 +2239,7 @@ define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2_
           to label %26 unwind label %251
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr %5, align 8, !tbaa !30
+  %27 = load ptr, ptr %5, align 8, !tbaa !30, !nonnull !58, !noundef !58
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %28 = load ptr, ptr %1, align 8, !tbaa !10
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -2248,7 +2248,7 @@ define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2_
           to label %31 unwind label %253
 
 31:                                               ; preds = %26
-  %32 = load ptr, ptr %6, align 8, !tbaa !30
+  %32 = load ptr, ptr %6, align 8, !tbaa !30, !nonnull !58, !noundef !58
   %33 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_19GradingBSplineCurveES2_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %32)
           to label %34 unwind label %255
 
@@ -2264,7 +2264,7 @@ define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2_
           to label %39 unwind label %257
 
 39:                                               ; preds = %35
-  %40 = load ptr, ptr %7, align 8, !tbaa !30
+  %40 = load ptr, ptr %7, align 8, !tbaa !30, !nonnull !58, !noundef !58
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %41 = load ptr, ptr %1, align 8, !tbaa !10
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
@@ -2273,7 +2273,7 @@ define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2_
           to label %44 unwind label %259
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr %8, align 8, !tbaa !30
+  %45 = load ptr, ptr %8, align 8, !tbaa !30, !nonnull !58, !noundef !58
   %46 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_19GradingBSplineCurveES2_(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(8) %45)
           to label %47 unwind label %261
 
@@ -2289,7 +2289,7 @@ define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2_
           to label %52 unwind label %263
 
 52:                                               ; preds = %48
-  %53 = load ptr, ptr %9, align 8, !tbaa !30
+  %53 = load ptr, ptr %9, align 8, !tbaa !30, !nonnull !58, !noundef !58
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %54 = load ptr, ptr %1, align 8, !tbaa !10
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
@@ -2298,7 +2298,7 @@ define noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_15GradingRGBCurveES2_
           to label %57 unwind label %265
 
 57:                                               ; preds = %52
-  %58 = load ptr, ptr %10, align 8, !tbaa !30
+  %58 = load ptr, ptr %10, align 8, !tbaa !30, !nonnull !58, !noundef !58
   %59 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_19GradingBSplineCurveES2_(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(8) %58)
           to label %.critedge unwind label %267
 
@@ -3113,7 +3113,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !58
+  %7 = load ptr, ptr %6, align 8, !tbaa !59
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -3493,7 +3493,7 @@ define internal void @_GLOBAL__sub_I_GradingRGBCurve.cpp() #16 section ".text.st
   store float 1.000000e+00, ptr %.sroa.8.0..sroa_idx.i, align 4
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 20
   store float 1.000000e+00, ptr %.sroa.9.0..sroa_idx.i, align 4
-  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111DefaultCtrlE, i64 8), align 8, !tbaa !60
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111DefaultCtrlE, i64 8), align 8, !tbaa !61
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EED2Ev, ptr nonnull @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111DefaultCtrlE, ptr nonnull @__dso_handle) #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_114DefaultCtrlLinE, i8 0, i64 24, i1 false)
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
@@ -3511,7 +3511,7 @@ define internal void @_GLOBAL__sub_I_GradingRGBCurve.cpp() #16 section ".text.st
   store float 7.000000e+00, ptr %.sroa.8.0..sroa_idx.i4, align 4
   %.sroa.9.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store float 7.000000e+00, ptr %.sroa.9.0..sroa_idx.i5, align 4
-  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_114DefaultCtrlLinE, i64 8), align 8, !tbaa !60
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_114DefaultCtrlLinE, i64 8), align 8, !tbaa !61
   %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN19OpenColorIO_v2_5dev19GradingControlPointESaIS1_EED2Ev, ptr nonnull @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_114DefaultCtrlLinE, ptr nonnull @__dso_handle) #20
   tail call void @_ZN19OpenColorIO_v2_5dev23GradingBSplineCurveImplC1ERKSt6vectorINS_19GradingControlPointESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) @_ZN19OpenColorIO_v2_5dev19GradingRGBCurveImpl7DefaultE, ptr noundef nonnull align 8 dereferenceable(24) @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111DefaultCtrlE)
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN19OpenColorIO_v2_5dev23GradingBSplineCurveImplD2Ev, ptr nonnull @_ZN19OpenColorIO_v2_5dev19GradingRGBCurveImpl7DefaultE, ptr nonnull @__dso_handle) #20
@@ -3614,6 +3614,7 @@ attributes #23 = { noreturn nounwind }
 !55 = !{!56}
 !56 = distinct !{!56, !57, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRKSt10shared_ptrIKNS0_19GradingBSplineCurveEES7_S7_S7_EES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
 !57 = distinct !{!57, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev19GradingRGBCurveImplEJRKSt10shared_ptrIKNS0_19GradingBSplineCurveEES7_S7_S7_EES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
-!58 = !{!59, !45, i64 8}
-!59 = !{!"_ZTSSt9type_info", !45, i64 8}
-!60 = !{!4, !5, i64 8}
+!58 = !{}
+!59 = !{!60, !45, i64 8}
+!60 = !{!"_ZTSSt9type_info", !45, i64 8}
+!61 = !{!4, !5, i64 8}

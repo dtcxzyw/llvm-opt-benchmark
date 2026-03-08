@@ -310,6 +310,7 @@ define noalias nonnull ptr @lean_get_stdin(ptr noundef readnone captures(none) %
 
 _ZN4leanL24get_stream_current_stdinEv.exit:       ; preds = %1, %4
   %7 = phi ptr [ %.pre.i, %4 ], [ %3, %1 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -374,6 +375,7 @@ define noalias nonnull ptr @lean_get_stdout(ptr noundef readnone captures(none) 
 
 _ZN4leanL25get_stream_current_stdoutEv.exit:      ; preds = %1, %4
   %7 = phi ptr [ %.pre.i, %4 ], [ %3, %1 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -438,6 +440,7 @@ define noalias nonnull ptr @lean_get_stderr(ptr noundef readnone captures(none) 
 
 _ZN4leanL25get_stream_current_stderrEv.exit:      ; preds = %1, %4
   %7 = phi ptr [ %.pre.i, %4 ], [ %3, %1 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -502,6 +505,7 @@ define noalias nonnull ptr @lean_get_set_stdin(ptr noundef %0, ptr noundef readn
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %5, %2
   %8 = phi ptr [ %.pre.i, %5 ], [ %4, %2 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   store ptr %0, ptr %8, align 8, !tbaa !42
   tail call void @lean_inc_heartbeat()
@@ -544,6 +548,7 @@ define noalias nonnull ptr @lean_get_set_stdout(ptr noundef %0, ptr noundef read
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %5, %2
   %8 = phi ptr [ %.pre.i, %5 ], [ %4, %2 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   store ptr %0, ptr %8, align 8, !tbaa !42
   tail call void @lean_inc_heartbeat()
@@ -584,6 +589,7 @@ define noalias nonnull ptr @lean_get_set_stderr(ptr noundef %0, ptr noundef read
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %5, %2
   %8 = phi ptr [ %.pre.i, %5 ], [ %4, %2 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   store ptr %0, ptr %8, align 8, !tbaa !42
   tail call void @lean_inc_heartbeat()

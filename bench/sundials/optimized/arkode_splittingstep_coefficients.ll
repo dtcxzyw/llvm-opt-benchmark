@@ -50,9 +50,8 @@ define noalias noundef ptr @SplittingStepCoefficients_Alloc(i32 noundef %0, i32 
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 0, ptr %14, align 4, !tbaa !13
   %15 = zext nneg i32 %0 to i64
-  %16 = tail call noalias ptr @calloc(i64 noundef %15, i64 noundef 8) #15
+  %16 = tail call noalias nonnull ptr @calloc(i64 noundef %15, i64 noundef 8) #15
   store ptr %16, ptr %8, align 8, !tbaa !14
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %16) ]
   %17 = shl nuw nsw i64 %15, 3
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #14
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -65,8 +64,7 @@ define noalias noundef ptr @SplittingStepCoefficients_Alloc(i32 noundef %0, i32 
   %22 = mul nuw nsw i32 %21, %0
   %23 = zext nneg i32 %22 to i64
   %24 = shl nuw nsw i64 %23, 3
-  %25 = tail call noalias ptr @malloc(i64 noundef %24) #14
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %25) ]
+  %25 = tail call noalias nonnull ptr @malloc(i64 noundef %24) #14
   %26 = zext nneg i32 %21 to i64
   br label %.lr.ph
 
@@ -1339,9 +1337,6 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
-
 attributes #0 = { nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1355,11 +1350,10 @@ attributes #9 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapp
 attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nofree nounwind }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { nounwind allocsize(0) }
-attributes #15 = { nounwind allocsize(0,1) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { nounwind allocsize(0,1) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

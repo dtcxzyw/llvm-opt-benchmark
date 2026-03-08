@@ -685,6 +685,7 @@ _ZNSirsERf.exit128:                               ; preds = %_ZNSirsERf.exit126
   %sext224 = shl i64 %.064239, 32
   %197 = ashr exact i64 %sext224, 28
   %198 = getelementptr inbounds i8, ptr %73, i64 %197
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %198) ]
   store float %191, ptr %198, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %198, i64 4
   store float %193, ptr %.sroa.5.0..sroa_idx, align 4
@@ -768,6 +769,7 @@ _ZNSirsERf.exit128:                               ; preds = %_ZNSirsERf.exit126
   %sext = shl i64 %.060240, 32
   %222 = ashr exact i64 %sext, 27
   %223 = getelementptr inbounds i8, ptr %221, i64 %222
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %223) ]
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 4
   %225 = load i32, ptr %224, align 4, !tbaa !74
   %226 = icmp slt i32 %225, 4
@@ -1022,8 +1024,9 @@ _ZN17btCollisionObjectnwEm.exit:                  ; preds = %294
   %indvars.iv = phi i64 [ %indvars.iv.next, %350 ], [ 0, %.preheader ]
   %306 = load ptr, ptr %36, align 8, !tbaa !44
   %307 = getelementptr inbounds nuw [32 x i8], ptr %306, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %307) ]
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 16
-  %309 = load ptr, ptr %308, align 8, !tbaa !73
+  %309 = load ptr, ptr %308, align 8, !tbaa !73, !nonnull !83, !noundef !83
   %310 = load i32, ptr %309, align 4, !tbaa !81
   %311 = getelementptr inbounds nuw i8, ptr %309, i64 4
   %312 = load i32, ptr %311, align 4, !tbaa !81
@@ -1035,7 +1038,7 @@ _ZN17btCollisionObjectnwEm.exit:                  ; preds = %294
           to label %317 unwind label %353
 
 317:                                              ; preds = %.lr.ph
-  %318 = load ptr, ptr %308, align 8, !tbaa !73
+  %318 = load ptr, ptr %308, align 8, !tbaa !73, !nonnull !83, !noundef !83
   %319 = load i32, ptr %318, align 4, !tbaa !81
   %320 = getelementptr inbounds nuw i8, ptr %318, i64 4
   %321 = load i32, ptr %320, align 4, !tbaa !81
@@ -1052,7 +1055,7 @@ _ZN17btCollisionObjectnwEm.exit:                  ; preds = %294
           to label %328 unwind label %353
 
 328:                                              ; preds = %322
-  %329 = load ptr, ptr %308, align 8, !tbaa !73
+  %329 = load ptr, ptr %308, align 8, !tbaa !73, !nonnull !83, !noundef !83
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
   %331 = load i32, ptr %330, align 4, !tbaa !81
   %332 = load i32, ptr %329, align 4, !tbaa !81
@@ -1060,7 +1063,7 @@ _ZN17btCollisionObjectnwEm.exit:                  ; preds = %294
           to label %333 unwind label %353
 
 333:                                              ; preds = %328
-  %334 = load ptr, ptr %308, align 8, !tbaa !73
+  %334 = load ptr, ptr %308, align 8, !tbaa !73, !nonnull !83, !noundef !83
   %335 = load i32, ptr %334, align 4, !tbaa !81
   %336 = getelementptr inbounds nuw i8, ptr %334, i64 12
   %337 = load i32, ptr %336, align 4, !tbaa !81
@@ -2736,6 +2739,7 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i: ; preds = %32, %_ZNK20btAli
   %59 = load ptr, ptr %39, align 8, !tbaa !207
   %60 = sext i32 %.017 to i64
   %61 = getelementptr inbounds [4 x i8], ptr %59, i64 %60
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %61) ]
   store float %58, ptr %61, align 4, !tbaa !79
   %62 = add nuw i32 %.017, 1
   %exitcond.not = icmp eq i32 %62, %1
@@ -2846,6 +2850,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %15, %19
 28:                                               ; preds = %26
   %29 = load ptr, ptr %23, align 8, !tbaa !216
   %30 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %indvars.iv43
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !208
   %.not.us = icmp eq i32 %32, %1
@@ -2937,9 +2942,11 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i.us: ; preds = %51, %_ZNK20bt
   %59 = load double, ptr %8, align 8, !tbaa !213
   %60 = fptrunc double %59 to float
   %61 = getelementptr inbounds nuw [32 x i8], ptr %58, i64 %indvars.iv43
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %61) ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !207
   %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %64) ]
   store float %60, ptr %64, align 4, !tbaa !79
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

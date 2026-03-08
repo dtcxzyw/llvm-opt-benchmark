@@ -166,7 +166,7 @@ _ZN3ue27raw_dfaD2Ev.exit:                         ; preds = %_ZSt8_DestroyIPN3ue
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN3ue27raw_dfa20stripExtraEodReportsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -180,6 +180,7 @@ define hidden void @_ZN3ue27raw_dfa20stripExtraEodReportsEv(ptr noundef nonnull 
 
 .lr.ph21:                                         ; preds = %1, %._crit_edge
   %.sroa.012.019 = phi ptr [ %13, %._crit_edge ], [ %3, %1 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.012.019) ]
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.012.019, i64 32
   %7 = load ptr, ptr %6, align 8, !noalias !7
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.012.019, i64 40
@@ -203,6 +204,7 @@ define hidden void @_ZN3ue27raw_dfa20stripExtraEodReportsEv(ptr noundef nonnull 
 14:                                               ; preds = %.lr.ph, %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit
   %15 = phi i64 [ %.pre, %.lr.ph ], [ %42, %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit ]
   %.sroa.08.017 = phi ptr [ %7, %.lr.ph ], [ %43, %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.08.017) ]
   %16 = load ptr, ptr %11, align 8, !noalias !22
   %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %15
   %18 = icmp sgt i64 %15, 0
@@ -217,6 +219,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i.i: ; p
   %.012.i.i.i.i = phi i64 [ %.1.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i.i.i ]
   %21 = lshr i64 %.012.i.i.i.i, 1
   %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
   %23 = load i32, ptr %22, align 4, !noalias !25
   %24 = icmp ult i32 %23, %19
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -233,6 +236,8 @@ _ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RK
   br i1 %.not.i.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit, label %_ZN3ue28flat_setIjSt4lessIjESaIjEE4findERKj.exit.i
 
 _ZN3ue28flat_setIjSt4lessIjESaIjEE4findERKj.exit.i: ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %11) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   %31 = load i32, ptr %.sroa.08.017, align 4, !noalias !31
   %32 = load i32, ptr %30, align 4, !noalias !31
   %33 = icmp ult i32 %31, %32
@@ -264,7 +269,7 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit: ; preds = %_ZSt11lower_boundI
   br i1 %.not15, label %._crit_edge, label %14
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef zeroext i1 @_ZNK3ue27raw_dfa13hasEodReportsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -275,6 +280,7 @@ define hidden noundef zeroext i1 @_ZNK3ue27raw_dfa13hasEodReportsEv(ptr noundef 
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.sroa.08.013 = phi ptr [ %8, %.lr.ph ], [ %3, %1 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.08.013) ]
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 72
   %7 = load i64, ptr %6, align 8
   %.not.i.i.not = icmp ne i64 %7, 0
@@ -293,12 +299,16 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #5
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { builtin nounwind }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -10245,8 +10245,13 @@ switch.lookup:                                    ; preds = %211, %193, %250
   %339 = icmp eq i64 %338, %331
   br i1 %339, label %_ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit, label %332
 
-_ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit: ; preds = %332, %326, %322
-  %.0.i.i = phi ptr [ null, %322 ], [ %323, %326 ], [ %.0.sroa.speculated.i.i.i.i.i, %332 ]
+_ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit: ; preds = %332, %326
+  %.0.i.i = phi ptr [ %323, %326 ], [ %.0.sroa.speculated.i.i.i.i.i, %332 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i6.i.i) ]
+  br label %_ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit
+
+_ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2ee9ea953febae4aE.exit.i.i", %322
+  %.0.i.i = phi ptr [ %.0.i6.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2ee9ea953febae4aE.exit.i.i" ], [ null, %322 ]
   %340 = icmp eq ptr %.0.i.i, null
   %spec.select = select i1 %340, ptr @anon.dbc83011fcb707429349569d3c6bc524.88, ptr %.0.i.i
   %341 = load i64, ptr %spec.select, align 8, !noundef !19
@@ -11441,8 +11446,13 @@ switch.lookup:                                    ; preds = %201, %183, %240
   %329 = icmp eq i64 %328, %321
   br i1 %329, label %_ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit, label %322
 
-_ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit: ; preds = %322, %316, %312
-  %.0.i.i = phi ptr [ null, %312 ], [ %313, %316 ], [ %.0.sroa.speculated.i.i.i.i.i, %322 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2ee9ea953febae4aE.exit.i.i": ; preds = %322, %316
+  %.0.i6.i.i = phi ptr [ %313, %316 ], [ %.0.sroa.speculated.i.i.i.i.i, %322 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i6.i.i) ]
+  br label %_ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit
+
+_ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit, %312
+  %.0.i.i = phi ptr [ %.0.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2ee9ea953febae4aE.exit.i.i" ], [ null, %312 ]
   %330 = icmp eq ptr %.0.i.i, null
   %spec.select = select i1 %330, ptr @anon.dbc83011fcb707429349569d3c6bc524.88, ptr %.0.i.i
   %331 = load i64, ptr %spec.select, align 8, !noundef !19
@@ -12634,8 +12644,13 @@ switch.lookup:                                    ; preds = %216, %198, %255
   %345 = icmp eq i64 %344, %337
   br i1 %345, label %_ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit, label %338
 
-_ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit: ; preds = %338, %332, %328
-  %.0.i.i = phi ptr [ null, %328 ], [ %329, %332 ], [ %.0.sroa.speculated.i.i.i.i.i, %338 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2ee9ea953febae4aE.exit.i.i": ; preds = %338, %332
+  %.0.i6.i.i = phi ptr [ %329, %332 ], [ %.0.sroa.speculated.i.i.i.i.i, %338 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i6.i.i) ]
+  br label %_ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit
+
+_ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator6max_by17he347ae188b27aae9E.exit, %328
+  %.0.i.i = phi ptr [ %.0.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2ee9ea953febae4aE.exit.i.i" ], [ null, %328 ]
   %346 = icmp eq ptr %.0.i.i, null
   %spec.select = select i1 %346, ptr @anon.dbc83011fcb707429349569d3c6bc524.88, ptr %.0.i.i
   %347 = load i64, ptr %spec.select, align 8, !noundef !19

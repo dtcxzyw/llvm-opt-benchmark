@@ -1575,6 +1575,7 @@ _ZNK3vecILi3EEixEi.exit8.i:                       ; preds = %_ZNK3vecILi3EEixEi.
   %205 = sext i32 %204 to i64
   %206 = load ptr, ptr %9, align 8, !tbaa !124
   %207 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %205
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %207) ]
   %208 = load double, ptr %207, align 8, !tbaa !8
   %209 = fcmp ogt double %196, %208
   br i1 %209, label %224, label %210
@@ -1604,6 +1605,7 @@ _ZNK3vecILi3EEixEi.exit8.i:                       ; preds = %_ZNK3vecILi3EEixEi.
   %220 = sext i32 %219 to i64
   %221 = load ptr, ptr %9, align 8, !tbaa !124
   %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %220
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %222) ]
   store double %196, ptr %222, align 8, !tbaa !8
   invoke void @_ZN8TGAImage3setEiiRK8TGAColor(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef %62, i32 noundef %.04692, ptr noundef nonnull align 1 dereferenceable(5) %25)
           to label %223 unwind label %228
@@ -1679,6 +1681,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #17
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
@@ -1705,8 +1710,9 @@ attributes #13 = { cold nofree noreturn }
 attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #18 = { noreturn nounwind }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #19 = { noreturn nounwind }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

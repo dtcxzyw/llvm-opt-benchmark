@@ -3,7 +3,7 @@ source_filename = "bench/double_conversion/original/fixed-dtoa.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define noundef zeroext i1 @_ZN17double_conversion13FastFixedDtoaEdiNS_6VectorIcEEPiS2_(double noundef %0, i32 noundef %1, ptr captures(none) %2, i32 %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = bitcast double %0 to i64
   %8 = and i64 %7, 4503599627370495
@@ -70,6 +70,7 @@ define noundef zeroext i1 @_ZN17double_conversion13FastFixedDtoaEdiNS_6VectorIcE
   %43 = add nsw i32 %42, %.02228.i
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %2, i64 %44
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %45) ]
   store i8 %41, ptr %45, align 1, !tbaa !7
   %46 = add nuw nsw i32 %.02228.i, 1
   %.not.i = icmp ult i32 %.029.i, 10
@@ -129,6 +130,7 @@ _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit: ; preds = %._crit_
   %64 = add nsw i32 %63, %.0.i.i
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i8, ptr %2, i64 %65
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %66) ]
   store i8 %62, ptr %66, align 1, !tbaa !7
   %67 = udiv i32 %.089.i.i, 10
   %68 = icmp samesign ugt i32 %.0.in10.i.i, 1
@@ -155,6 +157,7 @@ _ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi.exit.i: ; pr
   %80 = add nsw i32 %79, %.0.i22.i
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i8, ptr %2, i64 %81
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %82) ]
   store i8 %78, ptr %82, align 1, !tbaa !7
   %83 = udiv i32 %.089.i21.i, 10
   %84 = icmp samesign ugt i32 %.0.in10.i20.i, 1
@@ -178,6 +181,7 @@ _ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi.exit23.i: ; 
   %93 = add nsw i32 %92, %.0.i26.i
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds i8, ptr %2, i64 %94
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %95) ]
   store i8 %91, ptr %95, align 1, !tbaa !7
   %96 = udiv i32 %.089.i25.i, 10
   %97 = icmp samesign ugt i32 %.0.in10.i24.i, 1
@@ -239,6 +243,7 @@ _ZN17double_conversionL23FillDigits64FixedLengthEmNS_6VectorIcEEPi.exit: ; preds
   %123 = add nsw i32 %122, %.02228.i102
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds i8, ptr %2, i64 %124
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %125) ]
   store i8 %121, ptr %125, align 1, !tbaa !7
   %126 = add nuw nsw i32 %.02228.i102, 1
   %.not.i103 = icmp ult i32 %.029.i101, 10
@@ -296,6 +301,7 @@ _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit117: ; preds = %._cr
   br i1 %140, label %141, label %143
 
 141:                                              ; preds = %139
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   store i8 0, ptr %2, align 1, !tbaa !7
   store i32 0, ptr %4, align 4, !tbaa !3
   %142 = sub nsw i32 0, %1
@@ -316,6 +322,7 @@ _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit117: ; preds = %._cr
   %146 = zext nneg i32 %.pr.i to i64
   %indvars.iv.next.i120139 = add nsw i64 %146, -1
   %147 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next.i120139
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %147) ]
   %148 = load i8, ptr %147, align 1, !tbaa !7
   %149 = icmp eq i8 %148, 48
   br i1 %149, label %.lr.ph, label %.lr.ph30.preheader.i
@@ -323,6 +330,7 @@ _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit117: ; preds = %._cr
 .lr.ph.i118:                                      ; preds = %.lr.ph
   %indvars.iv.next.i120 = add nsw i64 %indvars.iv.next.i120141, -1
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next.i120
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %150) ]
   %151 = load i8, ptr %150, align 1, !tbaa !7
   %152 = icmp eq i8 %151, 48
   br i1 %152, label %.lr.ph, label %.critedge.i, !llvm.loop !12
@@ -348,6 +356,7 @@ _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit117: ; preds = %._cr
 .lr.ph30.i:                                       ; preds = %159, %.lr.ph30.preheader.i
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph30.preheader.i ], [ %indvars.iv.next40.i, %159 ]
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv39.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %156) ]
   %157 = load i8, ptr %156, align 1, !tbaa !7
   %158 = icmp eq i8 %157, 48
   br i1 %158, label %159, label %.critedge2.i
@@ -388,6 +397,7 @@ _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit117: ; preds = %._cr
   %166 = load i8, ptr %165, align 1, !tbaa !7
   %167 = sub nuw nsw i64 %indvars.iv42.i, %161
   %168 = getelementptr inbounds i8, ptr %2, i64 %167
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %168) ]
   store i8 %166, ptr %168, align 1, !tbaa !7
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %169 = load i32, ptr %4, align 4, !tbaa !3
@@ -399,6 +409,7 @@ _ZN17double_conversionL9TrimZerosENS_6VectorIcEEPiS2_.exit: ; preds = %.lr.ph, %
   %172 = phi i32 [ %.pre150, %._crit_edge.i122 ], [ %.pr.i, %144 ], [ 0, %.critedge.i ], [ %.lcssa135156, %.critedge2.i ], [ %153, %.lr.ph ]
   %173 = sext i32 %172 to i64
   %174 = getelementptr inbounds i8, ptr %2, i64 %173
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %174) ]
   store i8 0, ptr %174, align 1, !tbaa !7
   %175 = load i32, ptr %4, align 4, !tbaa !3
   %176 = icmp eq i32 %175, 0
@@ -413,7 +424,7 @@ _ZN17double_conversionL9TrimZerosENS_6VectorIcEEPiS2_.exit: ; preds = %.lr.ph, %
   ret i1 %or.cond.not
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define internal fastcc void @_ZN17double_conversionL12FillDigits64EmNS_6VectorIcEEPi(i64 noundef %0, ptr captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = urem i64 %0, 10000000
   %5 = trunc nuw nsw i64 %4 to i32
@@ -439,6 +450,7 @@ define internal fastcc void @_ZN17double_conversionL12FillDigits64EmNS_6VectorIc
   %17 = add nsw i32 %16, %.02228.i
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %1, i64 %18
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   store i8 %15, ptr %19, align 1, !tbaa !7
   %20 = add nuw nsw i32 %.02228.i, 1
   %.not.i = icmp samesign ult i32 %.029.i, 10
@@ -490,6 +502,7 @@ _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit: ; preds = %._crit_
   %35 = add nsw i32 %34, %.0.i
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds i8, ptr %1, i64 %36
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %37) ]
   store i8 %33, ptr %37, align 1, !tbaa !7
   %38 = udiv i32 %.089.i, 10
   %39 = icmp samesign ugt i32 %.0.in10.i, 1
@@ -512,6 +525,7 @@ _ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi.exit: ; pred
   %47 = add nsw i32 %46, %.0.i47
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i8, ptr %1, i64 %48
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   store i8 %45, ptr %49, align 1, !tbaa !7
   %50 = udiv i32 %.089.i46, 10
   %51 = icmp samesign ugt i32 %.0.in10.i45, 1
@@ -532,6 +546,7 @@ _ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi.exit: ; pred
   %58 = add nsw i32 %57, %.02228.i52
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i8, ptr %1, i64 %59
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %60) ]
   store i8 %56, ptr %60, align 1, !tbaa !7
   %61 = add nuw nsw i32 %.02228.i52, 1
   %.not.i53 = icmp samesign ult i32 %.029.i51, 10
@@ -583,6 +598,7 @@ _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit67: ; preds = %._cri
   %76 = add nsw i32 %75, %.0.i70
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i8, ptr %1, i64 %77
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %78) ]
   store i8 %74, ptr %78, align 1, !tbaa !7
   %79 = udiv i32 %.089.i69, 10
   %80 = icmp samesign ugt i32 %.0.in10.i68, 1
@@ -603,6 +619,7 @@ _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit67: ; preds = %._cri
   %87 = add nsw i32 %86, %.02228.i75
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i8, ptr %1, i64 %88
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %89) ]
   store i8 %85, ptr %89, align 1, !tbaa !7
   %90 = add nuw nsw i32 %.02228.i75, 1
   %.not.i76 = icmp samesign ult i32 %.029.i74, 10
@@ -647,7 +664,7 @@ _ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi.exit90: ; preds = %_ZN17
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define internal fastcc void @_ZN17double_conversionL15FillFractionalsEmiiNS_6VectorIcEEPiS2_(i64 noundef %0, i32 noundef range(i32 -128, 0) %1, i32 noundef range(i32 -2147483648, 21) %2, ptr captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   %7 = sub nsw i32 0, %1
   %8 = icmp samesign ult i32 %7, 65
@@ -674,6 +691,7 @@ define internal fastcc void @_ZN17double_conversionL15FillFractionalsEmiiNS_6Vec
   %17 = load i32, ptr %4, align 4, !tbaa !3
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %3, i64 %18
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   store i8 %16, ptr %19, align 1, !tbaa !7
   %20 = load i32, ptr %4, align 4, !tbaa !3
   %21 = add nsw i32 %20, 1
@@ -706,6 +724,7 @@ define internal fastcc void @_ZN17double_conversionL15FillFractionalsEmiiNS_6Vec
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %31
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   store i8 49, ptr %3, align 1, !tbaa !7
   store i32 1, ptr %5, align 4, !tbaa !3
   store i32 1, ptr %4, align 4, !tbaa !3
@@ -715,6 +734,7 @@ define internal fastcc void @_ZN17double_conversionL15FillFractionalsEmiiNS_6Vec
   %36 = sext i32 %32 to i64
   %37 = getelementptr i8, ptr %3, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %38) ]
   %39 = load i8, ptr %38, align 1, !tbaa !7
   %40 = add i8 %39, 1
   store i8 %40, ptr %38, align 1, !tbaa !7
@@ -730,6 +750,7 @@ define internal fastcc void @_ZN17double_conversionL15FillFractionalsEmiiNS_6Vec
   %indvars.iv.i = phi i64 [ %43, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %46 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %44) ]
   %45 = load i8, ptr %44, align 1, !tbaa !7
   %.not.i = icmp eq i8 %45, 58
   br i1 %.not.i, label %46, label %_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_.exit
@@ -738,6 +759,7 @@ define internal fastcc void @_ZN17double_conversionL15FillFractionalsEmiiNS_6Vec
   store i8 48, ptr %44, align 1, !tbaa !7
   %47 = getelementptr i8, ptr %3, i64 %indvars.iv.i
   %48 = getelementptr i8, ptr %47, i64 -2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %48) ]
   %49 = load i8, ptr %48, align 1, !tbaa !7
   %50 = add i8 %49, 1
   store i8 %50, ptr %48, align 1, !tbaa !7
@@ -745,6 +767,7 @@ define internal fastcc void @_ZN17double_conversionL15FillFractionalsEmiiNS_6Vec
   br i1 %51, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %46, %35
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %52 = load i8, ptr %3, align 1, !tbaa !7
   %53 = icmp eq i8 %52, 58
   br i1 %53, label %54, label %_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_.exit
@@ -819,6 +842,7 @@ _ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit: ; preds = %.lr.ph
   %89 = load i32, ptr %4, align 4, !tbaa !3
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds i8, ptr %3, i64 %90
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %91) ]
   store i8 %88, ptr %91, align 1, !tbaa !7
   %92 = load i32, ptr %4, align 4, !tbaa !3
   %93 = add nsw i32 %92, 1
@@ -851,6 +875,7 @@ _ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit: ; preds = %.lr.ph
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %100
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   store i8 49, ptr %3, align 1, !tbaa !7
   store i32 1, ptr %5, align 4, !tbaa !3
   store i32 1, ptr %4, align 4, !tbaa !3
@@ -860,6 +885,7 @@ _ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit: ; preds = %.lr.ph
   %105 = sext i32 %101 to i64
   %106 = getelementptr i8, ptr %3, i64 %105
   %107 = getelementptr i8, ptr %106, i64 -1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %107) ]
   %108 = load i8, ptr %107, align 1, !tbaa !7
   %109 = add i8 %108, 1
   store i8 %109, ptr %107, align 1, !tbaa !7
@@ -875,6 +901,7 @@ _ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit: ; preds = %.lr.ph
   %indvars.iv.i48 = phi i64 [ %112, %.lr.ph.preheader.i46 ], [ %indvars.iv.next.i49, %115 ]
   %indvars.iv.next.i49 = add nsw i64 %indvars.iv.i48, -1
   %113 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next.i49
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %113) ]
   %114 = load i8, ptr %113, align 1, !tbaa !7
   %.not.i50 = icmp eq i8 %114, 58
   br i1 %.not.i50, label %115, label %_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_.exit
@@ -883,6 +910,7 @@ _ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit: ; preds = %.lr.ph
   store i8 48, ptr %113, align 1, !tbaa !7
   %116 = getelementptr i8, ptr %3, i64 %indvars.iv.i48
   %117 = getelementptr i8, ptr %116, i64 -2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %117) ]
   %118 = load i8, ptr %117, align 1, !tbaa !7
   %119 = add i8 %118, 1
   store i8 %119, ptr %117, align 1, !tbaa !7
@@ -890,6 +918,7 @@ _ZN17double_conversion7UInt12814DivModPowerOf2Ei.exit: ; preds = %.lr.ph
   br i1 %120, label %.lr.ph.i47, label %._crit_edge.i45, !llvm.loop !16
 
 ._crit_edge.i45:                                  ; preds = %115, %104
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %121 = load i8, ptr %3, align 1, !tbaa !7
   %122 = icmp eq i8 %121, 58
   br i1 %122, label %123, label %_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_.exit
@@ -905,7 +934,11 @@ _ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_.exit: ; preds = %.lr.ph.i47,
   ret void
 }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #1
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -1375,7 +1375,8 @@ switch.lookup:                                    ; preds = %67
 
 cops_c_type_to_str.exit.i:                        ; preds = %switch.lookup, %77, %75, %73, %72, %70, %69, %66, %64
   %.0.i.i = phi ptr [ @.str.661, %77 ], [ @.str.683, %73 ], [ @.str.670, %64 ], [ %switch.select21.i.i, %66 ], [ @.str.684, %75 ], [ @.str.680, %70 ], [ %switch.select29.i.i, %72 ], [ %switch.select25.i.i, %69 ], [ %switch.load, %switch.lookup ]
-  %79 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %21, i32 noundef %61, ptr noundef %0, i32 noundef %.0227276, i32 noundef %51, i32 noundef %62, ptr noundef nonnull @.str.666, ptr noundef %63, ptr noundef %.0.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i.i) ]
+  %79 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %21, i32 noundef %61, ptr noundef %0, i32 noundef %.0227276, i32 noundef %51, i32 noundef %62, ptr noundef nonnull @.str.666, ptr noundef %63, ptr noundef nonnull %.0.i.i)
   %80 = load i32, ptr @ett_cops_obj, align 4
   %81 = call ptr @proto_item_add_subtree(ptr noundef %79, i32 noundef %80)
   %82 = load i32, ptr @hf_cops_obj_len, align 4
@@ -1449,13 +1450,14 @@ switch.lookup331:                                 ; preds = %89
 
 cops_c_type_to_str.exit75.i:                      ; preds = %switch.lookup331, %99, %97, %95, %94, %92, %91, %88, %86
   %.0.i62.i = phi ptr [ @.str.661, %99 ], [ @.str.683, %95 ], [ @.str.670, %86 ], [ %switch.select21.i74.i, %88 ], [ @.str.684, %97 ], [ @.str.680, %92 ], [ %switch.select29.i66.i, %94 ], [ %switch.select25.i70.i, %91 ], [ %switch.load333, %switch.lookup331 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i62.i) ]
   %101 = load i32, ptr @hf_cops_obj_c_type, align 4
   %102 = zext i8 %60 to i32
   %char0.i = load i8, ptr %.0.i62.i, align 1
   %.not.i = icmp eq i8 %char0.i, 0
   %103 = select i1 %.not.i, ptr @.str.661, ptr @.str.668
   %104 = select i1 %.not.i, ptr @.str.661, ptr @.str.669
-  %105 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %81, i32 noundef %101, ptr noundef %0, i32 noundef %59, i32 noundef 1, i32 noundef %102, ptr noundef nonnull @.str.667, ptr noundef %.0.i62.i, ptr noundef nonnull %103, i32 noundef %102, ptr noundef nonnull %104)
+  %105 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %81, i32 noundef %101, ptr noundef %0, i32 noundef %59, i32 noundef 1, i32 noundef %102, ptr noundef nonnull @.str.667, ptr noundef nonnull %.0.i62.i, ptr noundef nonnull %103, i32 noundef %102, ptr noundef nonnull %104)
   %106 = add i32 %.0227276, 4
   %107 = add nsw i32 %51, -4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -6191,6 +6193,9 @@ declare i16 @llvm.fshl.i16(i16, i16, i16) #8
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #10
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6201,9 +6206,10 @@ attributes #6 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { allocsize(1) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { allocsize(1) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

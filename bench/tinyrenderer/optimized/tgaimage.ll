@@ -477,6 +477,7 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
   %51 = add i64 %.494, 1
   %52 = load ptr, ptr %11, align 8, !tbaa !18
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %.494
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %53) ]
   store i8 %50, ptr %53, align 1, !tbaa !48
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %54 = load i8, ptr %10, align 8, !tbaa !17
@@ -547,6 +548,7 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
   %86 = add i64 %.886, 1
   %87 = load ptr, ptr %11, align 8, !tbaa !18
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 %.886
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %88) ]
   store i8 %85, ptr %88, align 1, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %89 = load i8, ptr %10, align 8, !tbaa !17
@@ -572,7 +574,7 @@ define dso_local noundef zeroext i1 @_ZN8TGAImage13load_rle_dataERSt14basic_ifst
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN8TGAImage15flip_verticallyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = load i32, ptr %0, align 8, !tbaa !5
   %3 = icmp sgt i32 %2, 0
@@ -647,6 +649,7 @@ define dso_local void @_ZN8TGAImage15flip_verticallyEv(ptr noundef nonnull reado
   %32 = sext i32 %31 to i64
   %33 = load ptr, ptr %6, align 8, !tbaa !18
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %32
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %34) ]
   %35 = load i32, ptr %4, align 4, !tbaa !16
   %36 = add i32 %35, %14
   %37 = mul nsw i32 %36, %27
@@ -655,6 +658,7 @@ define dso_local void @_ZN8TGAImage15flip_verticallyEv(ptr noundef nonnull reado
   %40 = add nsw i32 %39, %.016
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 %41
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %42) ]
   %43 = load i8, ptr %34, align 1, !tbaa !48
   %44 = load i8, ptr %42, align 1, !tbaa !48
   store i8 %44, ptr %34, align 1, !tbaa !48
@@ -666,7 +670,7 @@ define dso_local void @_ZN8TGAImage15flip_verticallyEv(ptr noundef nonnull reado
   br i1 %48, label %25, label %._crit_edge.loopexit, !llvm.loop !55
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN8TGAImage17flip_horizontallyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #8 align 2 {
   %2 = load i32, ptr %0, align 8, !tbaa !5
   %3 = icmp sgt i32 %2, 1
@@ -742,12 +746,14 @@ define dso_local void @_ZN8TGAImage17flip_horizontallyEv(ptr noundef nonnull rea
   %33 = sext i32 %32 to i64
   %34 = load ptr, ptr %6, align 8, !tbaa !18
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %33
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %35) ]
   %36 = add i32 %28, %13
   %37 = add nsw i32 %36, %29
   %38 = mul nsw i32 %37, %27
   %39 = add nsw i32 %38, %.016
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 %40
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %41) ]
   %42 = load i8, ptr %35, align 1, !tbaa !48
   %43 = load i8, ptr %41, align 1, !tbaa !48
   store i8 %43, ptr %35, align 1, !tbaa !48
@@ -1045,8 +1051,10 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.us ], [ 0, %.split.us ]
   %23 = add i64 %.049.us, %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 %23
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %24) ]
   %25 = load i8, ptr %24, align 1, !tbaa !48
   %gep.us = getelementptr i8, ptr %invariant.gep, i64 %23
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %gep.us) ]
   %26 = load i8, ptr %gep.us, align 1, !tbaa !48
   %27 = icmp eq i8 %25, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1261,6 +1269,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #16
+
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
@@ -1269,7 +1280,7 @@ attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -1277,11 +1288,12 @@ attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { noreturn }
-attributes #17 = { builtin allocsize(0) }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { builtin nounwind }
-attributes #20 = { nounwind }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #17 = { noreturn }
+attributes #18 = { builtin allocsize(0) }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { builtin nounwind }
+attributes #21 = { nounwind }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

@@ -6445,6 +6445,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt5queueIPvSt5de
   %18 = phi ptr [ %17, %for.body.lr.ph.i.i.i.i ], [ %storemerge.i.i.i.i.i.i, %_ZNSt5queueIPvSt5dequeIS0_SaIS0_EEE3popEv.exit.i.i.i.i ]
   %19 = load ptr, ptr %call_js_cb.i.i.i.i, align 8
   %20 = load ptr, ptr %context.i.i.i.i, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %18) ]
   %21 = load ptr, ptr %18, align 8
   call void %19(ptr noundef null, ptr noundef null, ptr noundef %20, ptr noundef %21) #22
   %22 = load ptr, ptr %_M_start.i.i.i.i.i.i, align 8
@@ -6807,6 +6808,7 @@ if.else.i.i:                                      ; preds = %while.body.i
   br i1 %cmp.not.not.i.i, label %if.then13.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.else.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   %10 = load ptr, ptr %9, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 -8
   %cmp.not.i.i.i.i = icmp eq ptr %9, %add.ptr.i.i.i.i
@@ -7931,6 +7933,9 @@ entry:
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #17
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #18
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
@@ -7939,9 +7944,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21
@@ -7964,9 +7966,9 @@ attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #15 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: write) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #21 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { nounwind }
 attributes #23 = { noreturn nounwind }

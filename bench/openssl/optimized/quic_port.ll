@@ -791,8 +791,7 @@ define internal fastcc ptr @port_make_channel(ptr noundef %0, ptr noundef %1, i3
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !32
-  %22 = call ptr %18(ptr noundef nonnull %13, ptr noundef %21) #11
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  %22 = call nonnull ptr %18(ptr noundef nonnull %13, ptr noundef %21) #11
   %23 = load ptr, ptr %20, align 8, !tbaa !32
   br label %24
 
@@ -1046,8 +1045,7 @@ define void @ossl_quic_port_drop_incoming(ptr noundef captures(none) %0) local_u
   %21 = add i64 %20, -1
   store i64 %21, ptr %5, align 8, !tbaa !57
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %22 = tail call ptr @ossl_quic_channel_get0_tls(ptr noundef nonnull %.val.i17) #11
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ]
+  %22 = tail call nonnull ptr @ossl_quic_channel_get0_tls(ptr noundef nonnull %.val.i17) #11
   %23 = load i32, ptr %22, align 8, !tbaa !98
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %29, label %25

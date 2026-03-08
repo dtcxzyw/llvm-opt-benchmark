@@ -5473,6 +5473,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   store i16 %34, ptr %13, align 8, !alias.scope !1301, !noalias !1296
   %35 = sub nsw i64 0, %32
   %36 = getelementptr inbounds [12 x i8], ptr %30, i64 %35
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   %37 = add i64 %9, -1
   store i64 %37, ptr %8, align 8, !alias.scope !1295, !noalias !1296
   %38 = getelementptr inbounds i8, ptr %36, i64 -12
@@ -5567,6 +5568,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %70 = and i16 %69, %.lcssa.i.i.i.i.i
   %71 = sub nsw i64 0, %68
   %72 = getelementptr inbounds [12 x i8], ptr %.lcssa13.i.i, i64 %71
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %72) ]
   %73 = add i64 %58, -1
   %74 = getelementptr inbounds i8, ptr %72, i64 -12
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %74, i64 12, i1 false), !noalias !1332

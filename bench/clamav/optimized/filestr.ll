@@ -90,6 +90,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %_ZN5ArrayIhEC2Em.ex
   %.0109 = phi i32 [ %34, %33 ], [ %.0109.ph, %_ZN5ArrayIhEC2Em.exit.outer ]
   %29 = zext i32 %.0109 to i64
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0226.0.ph, i64 %29
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   %31 = invoke noundef i32 @_ZN4File4ReadEPvm(ptr noundef nonnull align 8 dereferenceable(8256) %10, ptr noundef nonnull %30, i64 noundef 4096)
           to label %32 unwind label %.loopexit364.loopexit
 
@@ -165,6 +166,7 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %47, %55, %49
   br i1 %56, label %57, label %.thread278
 
 57:                                               ; preds = %_ZN5ArrayIhE5AllocEm.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0226.7) ]
   %58 = load i8, ptr %.sroa.0226.7, align 1, !tbaa !16
   switch i8 %58, label %67 [
     i8 -1, label %.thread416
@@ -221,6 +223,7 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %47, %55, %49
   br i1 %86, label %_Z18DetectTextEncodingPKhm.exit.thread, label %_Z18DetectTextEncodingPKhm.exit
 
 87:                                               ; preds = %.thread278
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0226.7) ]
   %88 = icmp ugt i32 %.0109, 3
   br i1 %88, label %89, label %104
 
@@ -352,6 +355,7 @@ _Z18DetectTextEncodingPKhm.exit.thread:           ; preds = %119, %.thread279, %
   %.sroa.48.4 = phi i64 [ %.sroa.48.3, %_Z18DetectTextEncodingPKhm.exit.thread ], [ %..i.i149, %139 ], [ %..i.i149, %133 ]
   %.sroa.0226.8 = phi ptr [ %.sroa.0226.7, %_Z18DetectTextEncodingPKhm.exit.thread ], [ null, %139 ], [ %137, %133 ]
   %141 = getelementptr i8, ptr %.sroa.0226.8, i64 %29
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %141) ]
   store i8 0, ptr %141, align 1, !tbaa !16
   %..i.i158 = call i64 @llvm.umax.i64(i64 %132, i64 32)
   %142 = shl nuw nsw i64 %..i.i158, 2
@@ -364,6 +368,8 @@ _Z18DetectTextEncodingPKhm.exit.thread:           ; preds = %119, %.thread279, %
           to label %_ZN5ArrayIwE5AllocEm.exit unwind label %146
 
 _ZN5ArrayIwE5AllocEm.exit:                        ; preds = %144, %140
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0226.8) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %malloc) ]
   %145 = invoke noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef nonnull %.sroa.0226.8, ptr noundef nonnull %malloc, i64 noundef %132)
           to label %_Z18DetectTextEncodingPKhm.exit.thread301 unwind label %146
 
@@ -442,6 +448,7 @@ _ZN5ArrayIwE5AllocEm.exit173:                     ; preds = %152, %163, %154
   %168 = sub nsw i64 %.sroa.30.1323350, %spec.select138358
   %169 = lshr i64 %168, 1
   %170 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.6, i64 %169
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %170) ]
   store i32 0, ptr %170, align 4, !tbaa !3
   br label %208
 
@@ -453,9 +460,11 @@ _ZN5ArrayIwE5AllocEm.exit173:                     ; preds = %152, %163, %154
 173:                                              ; preds = %.lr.ph, %173
   %.099371 = phi i64 [ %spec.select138358, %.lr.ph ], [ %183, %173 ]
   %gep373 = getelementptr i8, ptr %invariant.gep372, i64 %.099371
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %gep373) ]
   %174 = load i8, ptr %gep373, align 1, !tbaa !16
   %175 = zext i8 %174 to i32
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.099371
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %gep) ]
   %176 = load i8, ptr %gep, align 1, !tbaa !16
   %177 = zext i8 %176 to i32
   %178 = shl nuw nsw i32 %177, 8
@@ -463,6 +472,7 @@ _ZN5ArrayIwE5AllocEm.exit173:                     ; preds = %152, %163, %154
   %180 = sub nuw nsw i64 %.099371, %spec.select138358
   %181 = lshr exact i64 %180, 1
   %182 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.6, i64 %181
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %182) ]
   store i32 %179, ptr %182, align 4, !tbaa !3
   %183 = add nuw nsw i64 %.099371, 2
   %184 = icmp samesign ult i64 %183, %165
@@ -495,6 +505,7 @@ _Z18DetectTextEncodingPKhm.exit.thread301.thread329: ; preds = %.noexc145, %_Z18
 195:                                              ; preds = %_Z18DetectTextEncodingPKhm.exit.thread301.thread329, %194, %188
   %.sroa.0226.9 = phi ptr [ %.sroa.0226.2328, %_Z18DetectTextEncodingPKhm.exit.thread301.thread329 ], [ null, %194 ], [ %192, %188 ]
   %196 = getelementptr i8, ptr %.sroa.0226.9, i64 %.sroa.30.1324
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %196) ]
   store i8 0, ptr %196, align 1, !tbaa !16
   %197 = icmp ugt i64 %186, %.sroa.25.1
   br i1 %197, label %198, label %_ZN5ArrayIwE5AllocEm.exit196
@@ -516,12 +527,14 @@ _Z18DetectTextEncodingPKhm.exit.thread301.thread329: ; preds = %.noexc145, %_Z18
 _ZN5ArrayIwE5AllocEm.exit196:                     ; preds = %195, %205, %198
   %.sroa.0.7 = phi ptr [ %.sroa.0.3, %195 ], [ null, %205 ], [ %203, %198 ]
   %206 = getelementptr inbounds nuw i8, ptr %.sroa.0226.9, i64 %185
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.7) ]
   %207 = invoke noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef %206, ptr noundef nonnull %.sroa.0.7, i64 noundef %186)
           to label %208 unwind label %146
 
 208:                                              ; preds = %._crit_edge, %_Z18DetectTextEncodingPKhm.exit.thread301, %_ZN5ArrayIwE5AllocEm.exit196
   %.sroa.0.4 = phi ptr [ %.sroa.0.0, %_Z18DetectTextEncodingPKhm.exit.thread301 ], [ %.sroa.0.7, %_ZN5ArrayIwE5AllocEm.exit196 ], [ %.sroa.0.6, %._crit_edge ]
   %.sroa.0226.5 = phi ptr [ %.sroa.0226.2, %_Z18DetectTextEncodingPKhm.exit.thread301 ], [ %.sroa.0226.9, %_ZN5ArrayIwE5AllocEm.exit196 ], [ %.sroa.0226.2327346, %._crit_edge ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.4) ]
   %209 = load i32, ptr %.sroa.0.4, align 4, !tbaa !3
   %.not119382 = icmp eq i32 %209, 0
   br i1 %.not119382, label %_ZN5ArrayIwED2Ev.exit, label %.preheader363
@@ -843,6 +856,9 @@ declare i64 @llvm.umax.i64(i64, i64) #7
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #9
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -852,9 +868,10 @@ attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsiz
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #9 = { nounwind allocsize(1) }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { nounwind }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { nounwind allocsize(1) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

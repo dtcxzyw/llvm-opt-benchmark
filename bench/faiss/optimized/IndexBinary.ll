@@ -376,7 +376,7 @@ define void @_ZNK5faiss11IndexBinary22search_and_reconstructElPKhlPiPlPhPKNS_16S
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit unwind label %22
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %11
-  %17 = load ptr, ptr %9, align 8, !tbaa !12
+  %17 = load ptr, ptr %9, align 8, !tbaa !12, !nonnull !25, !noundef !25
   %18 = load i64, ptr %13, align 8, !tbaa !15
   %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %17, i64 noundef %18, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9) #19
   %20 = call ptr @__cxa_allocate_exception(i64 40) #19
@@ -457,12 +457,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %26, %
 52:                                               ; preds = %51, %47
   %53 = add nuw nsw i64 %.02933.us, 1
   %exitcond.not = icmp eq i64 %53, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %38, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us, label %38, !llvm.loop !26
 
 ._crit_edge.us:                                   ; preds = %52
   %54 = add nuw nsw i64 %.02834.us, 1
   %exitcond37.not = icmp eq i64 %54, %1
-  br i1 %exitcond37.not, label %._crit_edge35, label %.preheader.us, !llvm.loop !26
+  br i1 %exitcond37.not, label %._crit_edge35, label %.preheader.us, !llvm.loop !27
 
 ._crit_edge35:                                    ; preds = %._crit_edge.us, %31
   ret void
@@ -633,19 +633,19 @@ define void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull writ
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN5faiss11IndexBinaryE, i64 16), ptr %0, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = trunc i64 %1 to i32
-  store i32 %6, ptr %5, align 8, !tbaa !27
+  store i32 %6, ptr %5, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = sdiv i64 %1, 8
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %7, align 4, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %10, align 8, !tbaa !28
+  store i64 0, ptr %10, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %11, align 8, !tbaa !29
+  store i8 0, ptr %11, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  store i8 1, ptr %12, align 1, !tbaa !30
+  store i8 1, ptr %12, align 1, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %2, ptr %13, align 4, !tbaa !31
+  store i32 %2, ptr %13, align 4, !tbaa !32
   %14 = and i64 %1, 7
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %36, label %16
@@ -664,7 +664,7 @@ define void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull writ
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit unwind label %27
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %16
-  %22 = load ptr, ptr %4, align 8, !tbaa !12
+  %22 = load ptr, ptr %4, align 8, !tbaa !12, !nonnull !25, !noundef !25
   %23 = load i64, ptr %18, align 8, !tbaa !15
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %22, i64 noundef %23, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #19
   %25 = call ptr @__cxa_allocate_exception(i64 40) #19
@@ -782,7 +782,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   %8 = shl nuw nsw i64 %6, 2
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #22
   %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %6
-  store i32 0, ptr %9, align 4, !tbaa !32
+  store i32 0, ptr %9, align 4, !tbaa !33
   %11 = add nsw i64 %6, -1
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
@@ -790,7 +790,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc10
   %13 = getelementptr i8, ptr %9, i64 4
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %11, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %13, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !32
+  tail call void @llvm.memset.p0.i64(ptr align 4 %13, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !33
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc10, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -848,13 +848,13 @@ define void @_ZNK5faiss11IndexBinary7displayEv(ptr noundef nonnull readonly alig
   %3 = getelementptr inbounds i8, ptr %2, i64 -8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !33
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = load i8, ptr %6, align 1, !tbaa !14
   %8 = icmp eq i8 %7, 42
   %.idx.i = zext i1 %8 to i64
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !28
+  %11 = load i64, ptr %10, align 8, !tbaa !29
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef nonnull %9, i64 noundef %11)
   ret void
 }
@@ -919,13 +919,14 @@ attributes #22 = { builtin allocsize(0) }
 !22 = !{!"vtable pointer", !9, i64 0}
 !23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
+!25 = !{}
 !26 = distinct !{!26, !24}
-!27 = !{!17, !18, i64 8}
-!28 = !{!17, !11, i64 16}
-!29 = !{!17, !19, i64 24}
-!30 = !{!17, !19, i64 25}
-!31 = !{!17, !20, i64 28}
-!32 = !{!18, !18, i64 0}
-!33 = !{!34, !6, i64 8}
-!34 = !{!"_ZTSSt9type_info", !6, i64 8}
+!27 = distinct !{!27, !24}
+!28 = !{!17, !18, i64 8}
+!29 = !{!17, !11, i64 16}
+!30 = !{!17, !19, i64 24}
+!31 = !{!17, !19, i64 25}
+!32 = !{!17, !20, i64 28}
+!33 = !{!18, !18, i64 0}
+!34 = !{!35, !6, i64 8}
+!35 = !{!"_ZTSSt9type_info", !6, i64 8}

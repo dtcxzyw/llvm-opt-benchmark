@@ -138,6 +138,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 .lr.ph:                                           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12
   %.sroa.013.017 = phi ptr [ %56, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12 ], [ %25, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.013.017) ]
   %52 = load float, ptr %.sroa.013.017, align 4, !tbaa !46
   %53 = fpext float %52 to double
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %53)
@@ -292,6 +293,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19CreateAllocationOpsERNS_10OpRcPtrV
   br i1 %25, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %17
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %21) ]
   %26 = load float, ptr %21, align 4, !tbaa !46
   %27 = fpext float %26 to double
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -338,6 +340,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19CreateAllocationOpsERNS_10OpRcPtrV
   br i1 %43, label %.preheader39, label %.loopexit40
 
 .preheader39:                                     ; preds = %34
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %38) ]
   %44 = load float, ptr %38, align 4, !tbaa !46
   %45 = fpext float %44 to double
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -484,6 +487,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #12
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
@@ -499,10 +505,11 @@ attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { builtin nounwind }
-attributes #15 = { noreturn }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { builtin nounwind }
+attributes #16 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -20692,30 +20692,28 @@ define hidden noalias noundef nonnull ptr @"_ZN5alloc2rc11Rc$LT$T$GT$3new17h0fa5
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17h3d7b4c67f792c1f7E.llvm.1299376021755125212(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noalias noundef nonnull ptr @_ZN5alloc5alloc15exchange_malloc17h3d7b4c67f792c1f7E.llvm.1299376021755125212(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %3)
   %4 = icmp ult i64 %1, -9223372036854775807
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq i64 %0, 0
-  br i1 %5, label %6, label %8
-
-6:                                                ; preds = %2
-  %7 = getelementptr i8, ptr null, i64 %1
-  br label %_ZN5alloc5alloc6Global10alloc_impl17he0c59bb6b647fcfeE.llvm.1299376021755125212.exit
+  br i1 %5, label %8, label %_ZN5alloc5alloc6Global10alloc_impl17he0c59bb6b647fcfeE.llvm.1299376021755125212.exit
 
 8:                                                ; preds = %2
-  %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %10 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %0, i64 noundef range(i64 1, -9223372036854775807) %1) #40
-  br label %_ZN5alloc5alloc6Global10alloc_impl17he0c59bb6b647fcfeE.llvm.1299376021755125212.exit
+  %6 = getelementptr i8, ptr null, i64 %1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
+  br label %10
 
-_ZN5alloc5alloc6Global10alloc_impl17he0c59bb6b647fcfeE.llvm.1299376021755125212.exit: ; preds = %6, %8
-  %.sroa.0.0.i = phi ptr [ %7, %6 ], [ %10, %8 ]
-  %11 = icmp eq ptr %.sroa.0.0.i, null
-  br i1 %11, label %13, label %12
+_ZN5alloc5alloc6Global10alloc_impl17he0c59bb6b647fcfeE.llvm.1299376021755125212.exit: ; preds = %2
+  %7 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %8 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %0, i64 noundef range(i64 1, -9223372036854775807) %1) #40
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %11, label %10
 
-12:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17he0c59bb6b647fcfeE.llvm.1299376021755125212.exit
-  ret ptr %.sroa.0.0.i
+12:                                               ; preds = %8, %_ZN5alloc5alloc6Global10alloc_impl17he0c59bb6b647fcfeE.llvm.1299376021755125212.exit
+  %.sroa.0.0.i6 = phi ptr [ %6, %_ZN5alloc5alloc6Global10alloc_impl17he0c59bb6b647fcfeE.llvm.1299376021755125212.exit.thread ], [ %8, %_ZN5alloc5alloc6Global10alloc_impl17he0c59bb6b647fcfeE.llvm.1299376021755125212.exit ]
+  ret ptr %.sroa.0.0.i6
 
 13:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17he0c59bb6b647fcfeE.llvm.1299376021755125212.exit
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h59557ef4a43cd5a6E(i64 noundef %1, i64 noundef %0) #38
@@ -20729,6 +20727,7 @@ define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17he0c59bb6b647fcf
 
 6:                                                ; preds = %4
   %7 = getelementptr i8, ptr null, i64 %1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   br label %9
 
 8:                                                ; preds = %4
@@ -21525,6 +21524,7 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr null, i64 %1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   br label %_ZN5alloc5alloc6Global10alloc_impl17he0c59bb6b647fcfeE.llvm.1299376021755125212.exit
 
 7:                                                ; preds = %3
@@ -28829,6 +28829,7 @@ define hidden noalias noundef ptr @_ZN9hashbrown3raw5alloc5inner8do_alloc17h68df
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr null, i64 %1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17hcac9c0175a84319fE.llvm.1299376021755125212.exit"
 
 7:                                                ; preds = %3

@@ -379,6 +379,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Button18mouse_button_eventERKNS_5A
 
 .lr.ph:                                           ; preds = %36, %.thread
   %.sroa.090.0116 = phi ptr [ %64, %.thread ], [ %40, %36 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.090.0116) ]
   %43 = load ptr, ptr %.sroa.090.0116, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.thread, label %45
@@ -455,6 +456,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %60
 
 .preheader:                                       ; preds = %30, %81
   %.sroa.086.0114 = phi ptr [ %82, %81 ], [ %32, %30 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.086.0114) ]
   %65 = load ptr, ptr %.sroa.086.0114, align 8
   %.not52 = icmp eq ptr %65, %0
   br i1 %.not52, label %81, label %66
@@ -515,6 +517,7 @@ _ZNKSt8functionIFvbEEclEb.exit65:                 ; preds = %77
 
 .lr.ph119:                                        ; preds = %85, %.thread96
   %.sroa.082.0118 = phi ptr [ %113, %.thread96 ], [ %89, %85 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.082.0118) ]
   %92 = load ptr, ptr %.sroa.082.0118, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %.thread96, label %94
@@ -1274,6 +1277,9 @@ declare void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 derefere
 ; Function Attrs: nounwind
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
@@ -1291,10 +1297,11 @@ attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #8 = { cold nofree noreturn }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { builtin nounwind }
-attributes #14 = { noreturn nounwind }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { builtin nounwind }
+attributes #15 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

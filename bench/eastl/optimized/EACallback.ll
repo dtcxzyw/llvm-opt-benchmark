@@ -807,6 +807,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %i.010 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %5 = load ptr, ptr %mCallbackArray, align 8
   %arrayidx.i = getelementptr inbounds [8 x i8], ptr %5, i64 %i.010
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %arrayidx.i) ]
   %6 = load ptr, ptr %arrayidx.i, align 8
   %tobool6.not = icmp eq ptr %6, null
   br i1 %tobool6.not, label %for.inc, label %if.then7
@@ -1114,6 +1115,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = phi ptr [ %3, %for.body.lr.ph ], [ %37, %for.inc ]
   %i.083 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %arrayidx.i = getelementptr inbounds [8 x i8], ptr %8, i64 %i.083
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %arrayidx.i) ]
   %9 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %if.else64, label %if.then14
@@ -1170,6 +1172,7 @@ _ZN2EA4StdC8Callback4CallEmm.exit:                ; preds = %if.then20, %if.then
 
 land.lhs.true:                                    ; preds = %_ZN2EA4StdC8Callback4CallEmm.exit
   %arrayidx.i71 = getelementptr inbounds [8 x i8], ptr %16, i64 %i.083
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %arrayidx.i71) ]
   %18 = load ptr, ptr %arrayidx.i71, align 8
   %cmp28 = icmp eq ptr %18, %9
   br i1 %cmp28, label %if.then29, label %for.inc
@@ -1425,6 +1428,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %found_empty.039 = phi i64 [ %spec.select, %if.else ], [ 4294967295, %for.body.preheader ]
   %i.038 = phi i64 [ %inc, %if.else ], [ 0, %for.body.preheader ]
   %arrayidx.i = getelementptr inbounds [8 x i8], ptr %2, i64 %i.038
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %arrayidx.i) ]
   %3 = load ptr, ptr %arrayidx.i, align 8
   %cmp5 = icmp eq ptr %3, %pCallback
   br i1 %cmp5, label %if.then6, label %if.else
@@ -1500,6 +1504,7 @@ _ZN2EA4StdC15CallbackManager14CallbackVector9push_backEPNS0_8CallbackE.exit: ; p
 
 if.else17:                                        ; preds = %if.then12
   %arrayidx.i31 = getelementptr inbounds [8 x i8], ptr %2, i64 %found_empty.035
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %arrayidx.i31) ]
   store ptr %pCallback, ptr %arrayidx.i31, align 8
   br label %if.end20
 
@@ -1663,25 +1668,25 @@ for.body.preheader:                               ; preds = %if.then3
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %i.012 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %2, i64 %i.012
-  %3 = load ptr, ptr %arrayidx.i, align 8
-  %cmp7 = icmp eq ptr %3, %pCallback
-  br i1 %cmp7, label %if.then16, label %for.inc
-
-for.inc:                                          ; preds = %for.body
+for.body:                                         ; preds = %for.body
   %inc = add nuw i64 %i.012, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %if.end12.thread, label %for.body, !llvm.loop !10
 
-if.end12.thread:                                  ; preds = %for.inc, %if.then3, %if.then, %entry
+if.end12.thread:                                  ; preds = %for.body.preheader, %if.end12.thread
+  %i.012 = phi i64 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %2, i64 %i.012
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %arrayidx.i) ]
+  %3 = load ptr, ptr %arrayidx.i, align 8
+  %cmp7 = icmp eq ptr %3, %pCallback
+  br i1 %cmp7, label %if.then16, label %for.cond
+
+if.end12.thread:                                  ; preds = %for.cond, %if.then3, %if.then, %entry
   %call149 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mMutex)
   br label %if.end17
 
 if.then16:                                        ; preds = %for.body
-  %arrayidx.i.le = getelementptr inbounds [8 x i8], ptr %2, i64 %i.012
-  store ptr null, ptr %arrayidx.i.le, align 8
+  store ptr null, ptr %arrayidx.i, align 8
   %call14 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mMutex)
   %mbStarted.i = getelementptr inbounds nuw i8, ptr %pCallback, i64 52
   %4 = load atomic i32, ptr %mbStarted.i seq_cst, align 4
@@ -1782,6 +1787,9 @@ declare noundef i32 @_ZN2EA4StdC24RandomLinearCongruential19RandomUint32UniformE
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #17
+
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #17
 
@@ -1808,10 +1816,11 @@ attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nounwind }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { builtin nounwind }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #18 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

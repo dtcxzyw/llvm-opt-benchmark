@@ -120,8 +120,7 @@ builtin_lookup.exit:                              ; preds = %bin4feature.exit11.
 
 27:                                               ; preds = %22
   store ptr %1, ptr %24, align 8, !tbaa !22
-  %28 = tail call ptr @rb_iseq_ibf_load_bytes(ptr noundef nonnull %.09.lcssa.i, i64 noundef %.0) #8
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %28) ]
+  %28 = tail call nonnull ptr @rb_iseq_ibf_load_bytes(ptr noundef nonnull %.09.lcssa.i, i64 noundef %.0) #8
   store ptr null, ptr %24, align 8, !tbaa !22
   %29 = tail call i64 @rb_iseq_eval(ptr noundef nonnull %28) #8
   ret void
@@ -132,18 +131,15 @@ declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @rb_iseq_ibf_load_bytes(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
-
 declare i64 @rb_iseq_eval(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define hidden void @rb_free_loaded_builtin_table() local_unnamed_addr #4 {
+define hidden void @rb_free_loaded_builtin_table() local_unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define hidden void @Init_builtin() local_unnamed_addr #4 {
+define hidden void @Init_builtin() local_unnamed_addr #3 {
   ret void
 }
 
@@ -159,12 +155,11 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { cold noreturn nounwind }
-attributes #8 = { nounwind }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) }
+attributes #6 = { cold noreturn nounwind }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

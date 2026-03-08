@@ -902,6 +902,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIN7msdf
   %8 = phi ptr [ %20, %for.body ], [ %6, %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit ]
   %9 = load ptr, ptr %axes, align 8
   %add.ptr.i12 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i12) ]
   %axis7 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %axis7, align 8
   %arrayidx = getelementptr inbounds nuw [48 x i8], ptr %10, i64 %indvars.iv
@@ -1100,10 +1101,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
+declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare i64 @llvm.umax.i64(i64, i64) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

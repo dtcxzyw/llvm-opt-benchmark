@@ -1255,7 +1255,8 @@ default.unreachable:                              ; preds = %.split.i
 
 dt_dev_pixelpipe_type_to_str.exit:                ; preds = %82, %86, %90, %94, %98, %102
   %.0.i = phi ptr [ %105, %102 ], [ %85, %82 ], [ %89, %86 ], [ %93, %90 ], [ %97, %94 ], [ %101, %98 ]
-  %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 32, ptr noundef nonnull @.str.49, ptr noundef %.0.i) #28
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i) ]
+  %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 32, ptr noundef nonnull @.str.49, ptr noundef nonnull %.0.i) #28
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 604
   %108 = load i32, ptr %107, align 4, !tbaa !121
   %109 = and i32 %108, 1020

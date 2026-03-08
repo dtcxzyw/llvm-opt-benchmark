@@ -38,6 +38,7 @@ for.cond.i:                                       ; preds = %for.body.i, %if.end
   br i1 %cmp.i.not.i, label %_ZN12_GLOBAL__N_115OSGlobalManager4FindEj.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %it.sroa.0.0.i) ]
   %mOSGlobalID.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.0.i, i64 16
   %2 = load i32, ptr %mOSGlobalID.i, align 8
   %cmp.i = icmp eq i32 %2, %id
@@ -241,6 +242,7 @@ for.cond.i:                                       ; preds = %for.body.i, %if.end
   br i1 %cmp.i.not.i, label %if.then2, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %it.sroa.0.0.i) ]
   %mOSGlobalID.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.0.i, i64 16
   %2 = load i32, ptr %mOSGlobalID.i, align 8
   %cmp.i = icmp eq i32 %2, %id
@@ -505,6 +507,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #12
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
@@ -517,8 +522,9 @@ attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #9 = { cold nofree noreturn }
 attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

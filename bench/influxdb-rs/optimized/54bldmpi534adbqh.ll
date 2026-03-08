@@ -10063,6 +10063,7 @@ define internal fastcc noundef i64 @_ZN5ahash12random_state11RandomState8hash_on
   %35 = load i32, ptr %1, align 1, !alias.scope !2067, !noalias !2071
   %36 = zext i32 %35 to i64
   %37 = getelementptr i8, ptr %24, i64 -4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %37) ]
   %38 = load i32, ptr %37, align 1, !alias.scope !2067, !noalias !2060
   %39 = zext i32 %38 to i64
   br label %_ZN5ahash10operations10read_small17h54472519fa4a72adE.exit.i.i.i.i.i
@@ -10093,6 +10094,7 @@ _ZN5ahash10operations10read_small17h54472519fa4a72adE.exit.i.i.i.i.i: ; preds = 
   %54 = load i64, ptr %1, align 1, !alias.scope !2067, !noalias !2074
   %55 = getelementptr i8, ptr %1, i64 %2
   %56 = getelementptr i8, ptr %55, i64 -8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %56) ]
   %57 = load i64, ptr %56, align 1, !alias.scope !2067, !noalias !2077
   %.sroa.0.0.vec.extract2.i = extractelement <2 x i64> %8, i64 0
   %58 = xor i64 %54, %.sroa.0.0.vec.extract2.i
@@ -10112,6 +10114,7 @@ _ZN5ahash10operations10read_small17h54472519fa4a72adE.exit.i.i.i.i.i: ; preds = 
 69:                                               ; preds = %51
   %70 = getelementptr i8, ptr %1, i64 %2
   %71 = getelementptr i8, ptr %70, i64 -16
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %71) ]
   %72 = load i128, ptr %71, align 1, !alias.scope !2067, !noalias !2077
   %.sroa.014.0.extract.trunc.i.i.i.i.i = trunc i128 %72 to i64
   %.sroa.415.0.extract.shift.i.i.i.i.i = lshr i128 %72, 64
@@ -13083,6 +13086,7 @@ _ZN4core3ptr19swap_nonoverlapping17h984dcd14aa83f486E.exit.loopexit: ; preds = %
   %235 = load i32, ptr %205, align 1, !alias.scope !2280, !noalias !2284
   %236 = zext i32 %235 to i64
   %237 = getelementptr i8, ptr %224, i64 -4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %237) ], !noalias !2258
   %238 = load i32, ptr %237, align 1, !alias.scope !2280, !noalias !2273
   %239 = zext i32 %238 to i64
   br label %_ZN5ahash10operations10read_small17h54472519fa4a72adE.exit.i.i.i.i.i.i
@@ -13113,6 +13117,7 @@ _ZN5ahash10operations10read_small17h54472519fa4a72adE.exit.i.i.i.i.i.i: ; preds 
   %254 = load i64, ptr %205, align 1, !alias.scope !2280, !noalias !2287
   %255 = getelementptr i8, ptr %186, i64 %190
   %256 = getelementptr i8, ptr %255, i64 -8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %256) ], !noalias !2258
   %257 = load i64, ptr %256, align 1, !alias.scope !2280, !noalias !2290
   %.sroa.0.0.vec.extract2.i.i = extractelement <2 x i64> %208, i64 0
   %258 = xor i64 %254, %.sroa.0.0.vec.extract2.i.i
@@ -13132,6 +13137,7 @@ _ZN5ahash10operations10read_small17h54472519fa4a72adE.exit.i.i.i.i.i.i: ; preds 
 269:                                              ; preds = %251
   %270 = getelementptr i8, ptr %186, i64 %190
   %271 = getelementptr i8, ptr %270, i64 -16
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %271) ], !noalias !2258
   %272 = load i128, ptr %271, align 1, !alias.scope !2280, !noalias !2290
   %.sroa.014.0.extract.trunc.i.i.i.i.i.i = trunc i128 %272 to i64
   %.sroa.415.0.extract.shift.i.i.i.i.i.i = lshr i128 %272, 64

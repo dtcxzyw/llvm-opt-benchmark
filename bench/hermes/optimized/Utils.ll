@@ -462,12 +462,11 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc14
   %__begin1.sroa.0.018 = phi ptr [ %__begin1.sroa.0.0, %for.inc14 ], [ %__begin1.sroa.0.015, %entry ]
   %changed.017 = phi i1 [ %changed.1.lcssa, %for.inc14 ], [ false, %entry ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %__begin1.sroa.0.018) ]
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.018, i64 16
   %0 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp ne i8 %0, 33
-  %tobool.not10 = icmp eq ptr %__begin1.sroa.0.018, null
-  %tobool.not = or i1 %tobool.not10, %cmp.i.i.i.i.i.i.i.i
-  br i1 %tobool.not, label %for.end16, label %if.end
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %0, 33
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end, label %for.end16
 
 if.end:                                           ; preds = %for.body
   %call6 = tail call noundef i32 @_ZNK6hermes7PhiInst13getNumEntriesEv(ptr noundef nonnull align 8 dereferenceable(132) %__begin1.sroa.0.018) #3
@@ -531,7 +530,7 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   %Next.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %to, i64 64
-  %3 = load ptr, ptr %Next.i.i.i.i.i.i, align 8
+  %3 = load ptr, ptr %Next.i.i.i.i.i.i, align 8, !nonnull !7, !noundef !7
   tail call void @_ZN6hermes9IRBuilder22setInsertionPointAfterEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef nonnull %3) #3
   br label %return
 
@@ -570,12 +569,11 @@ if.then14:                                        ; preds = %for.body
 
 for.body24:                                       ; preds = %if.then14, %for.inc39
   %__begin3.sroa.0.040 = phi ptr [ %__begin3.sroa.0.0, %for.inc39 ], [ %__begin3.sroa.0.038, %if.then14 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %__begin3.sroa.0.040) ]
   %add.ptr.i.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.040, i64 16
   %7 = load i8, ptr %add.ptr.i.i.i.i.i.i29, align 8
-  %cmp.i.i.i.i.i.i.i.i30 = icmp ne i8 %7, 33
-  %tobool27.not35 = icmp eq ptr %__begin3.sroa.0.040, null
-  %tobool27.not = or i1 %tobool27.not35, %cmp.i.i.i.i.i.i.i.i30
-  br i1 %tobool27.not, label %for.end41, label %if.end29
+  %cmp.i.i.i.i.i.i.i.i30 = icmp eq i8 %7, 33
+  br i1 %cmp.i.i.i.i.i.i.i.i30, label %if.end29, label %for.end41
 
 if.end29:                                         ; preds = %for.body24
   %call30 = tail call noundef i32 @_ZNK6hermes7PhiInst13getNumEntriesEv(ptr noundef nonnull align 8 dereferenceable(132) %__begin3.sroa.0.040) #3
@@ -597,7 +595,7 @@ if.end38:                                         ; preds = %for.body33
 for.inc:                                          ; preds = %for.body33, %if.end38
   %inc = add nuw nsw i32 %j.037, 1
   %exitcond.not = icmp eq i32 %inc, %call30
-  br i1 %exitcond.not, label %for.inc39, label %for.body33, !llvm.loop !7
+  br i1 %exitcond.not, label %for.inc39, label %for.body33, !llvm.loop !8
 
 for.inc39:                                        ; preds = %for.inc, %if.end29
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.040, i64 8
@@ -613,7 +611,7 @@ for.inc44:                                        ; preds = %for.body, %for.end4
   %updates.1 = phi i32 [ %inc42, %for.end41 ], [ %updates.043, %for.body ]
   %inc45 = add nuw nsw i32 %i.042, 1
   %exitcond44.not = icmp eq i32 %inc45, %call10
-  br i1 %exitcond44.not, label %for.end46.loopexit, label %for.body, !llvm.loop !8
+  br i1 %exitcond44.not, label %for.end46.loopexit, label %for.body, !llvm.loop !9
 
 for.end46.loopexit:                               ; preds = %for.inc44
   tail call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef %call8) #3
@@ -691,5 +689,6 @@ attributes #3 = { nounwind }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!7 = !{}
 !8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

@@ -1357,13 +1357,13 @@ _ZN5Ipopt8SmartPtrINS_4TNLPEED2Ev.exit104:        ; preds = %172, %167, %164
           to label %185 unwind label %274
 
 185:                                              ; preds = %179
-  %186 = load ptr, ptr %12, align 8, !tbaa !69
+  %186 = load ptr, ptr %12, align 8, !tbaa !69, !nonnull !73, !noundef !73
   %187 = getelementptr inbounds nuw i8, ptr %180, i64 80
   %188 = load ptr, ptr %187, align 8, !tbaa !65
   %189 = getelementptr inbounds nuw i8, ptr %180, i64 40
   %190 = load ptr, ptr %189, align 8, !tbaa !65
   %191 = getelementptr inbounds nuw i8, ptr %180, i64 72
-  %192 = load i32, ptr %191, align 8, !tbaa !73
+  %192 = load i32, ptr %191, align 8, !tbaa !74
   %193 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %194 = load ptr, ptr %193, align 8, !tbaa !65
   %195 = load ptr, ptr %186, align 8, !tbaa !54
@@ -1461,13 +1461,13 @@ _ZN5Ipopt8SmartPtrINS_16StdInterfaceTNLPEEaSEPS1_.exit108: ; preds = %208, %211,
           to label %237 unwind label %260
 
 237:                                              ; preds = %231
-  %238 = load ptr, ptr %11, align 8, !tbaa !69
+  %238 = load ptr, ptr %11, align 8, !tbaa !69, !nonnull !73, !noundef !73
   %239 = getelementptr inbounds nuw i8, ptr %232, i64 80
   %240 = load ptr, ptr %239, align 8, !tbaa !65
   %241 = getelementptr inbounds nuw i8, ptr %232, i64 40
   %242 = load ptr, ptr %241, align 8, !tbaa !65
   %243 = getelementptr inbounds nuw i8, ptr %232, i64 72
-  %244 = load i32, ptr %243, align 8, !tbaa !73
+  %244 = load i32, ptr %243, align 8, !tbaa !74
   %245 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %246 = load ptr, ptr %245, align 8, !tbaa !65
   %247 = load ptr, ptr %238, align 8, !tbaa !54
@@ -1611,9 +1611,9 @@ define noundef zeroext i1 @GetIpoptCurrentIterate(ptr noundef readonly captures(
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 248
-  %15 = load ptr, ptr %14, align 8, !tbaa !75
+  %15 = load ptr, ptr %14, align 8, !tbaa !76
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 256
-  %17 = load ptr, ptr %16, align 8, !tbaa !79
+  %17 = load ptr, ptr %16, align 8, !tbaa !80
   %18 = tail call noundef zeroext i1 @_ZNK5Ipopt4TNLP16get_curr_iterateEPKNS_9IpoptDataEPNS_25IpoptCalculatedQuantitiesEbiPdS6_S6_iS6_S6_(ptr noundef nonnull align 8 dereferenceable(264) %11, ptr noundef %15, ptr noundef %17, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8)
   br label %19
 
@@ -1631,9 +1631,9 @@ define noundef zeroext i1 @GetIpoptCurrentViolations(ptr noundef readonly captur
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 248
-  %17 = load ptr, ptr %16, align 8, !tbaa !75
+  %17 = load ptr, ptr %16, align 8, !tbaa !76
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 256
-  %19 = load ptr, ptr %18, align 8, !tbaa !79
+  %19 = load ptr, ptr %18, align 8, !tbaa !80
   %20 = tail call noundef zeroext i1 @_ZNK5Ipopt4TNLP19get_curr_violationsEPKNS_9IpoptDataEPNS_25IpoptCalculatedQuantitiesEbiPdS6_S6_S6_S6_iS6_S6_(ptr noundef nonnull align 8 dereferenceable(264) %13, ptr noundef %17, ptr noundef %19, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10)
   br label %21
 
@@ -1771,10 +1771,11 @@ attributes #21 = { noreturn nounwind }
 !70 = !{!71, !72, i64 0}
 !71 = !{!"_ZTSN5Ipopt8SmartPtrINS_4TNLPEEE", !72, i64 0}
 !72 = !{!"p1 _ZTSN5Ipopt4TNLPE", !7, i64 0}
-!73 = !{!74, !12, i64 72}
-!74 = !{!"_ZTSN5Ipopt14IpoptExceptionE", !66, i64 8, !66, i64 40, !12, i64 72, !66, i64 80}
-!75 = !{!76, !49, i64 248}
-!76 = !{!"_ZTSN5Ipopt16StdInterfaceTNLPE", !77, i64 0, !78, i64 16, !12, i64 24, !12, i64 28, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !12, i64 64, !12, i64 68, !12, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !7, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !7, i64 144, !7, i64 152, !7, i64 160, !14, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !13, i64 232, !13, i64 240, !49, i64 248, !51, i64 256}
-!77 = !{!"_ZTSN5Ipopt4TNLPE", !21, i64 0}
-!78 = !{!"_ZTSN5Ipopt8SmartPtrIKNS_10JournalistEEE", !37, i64 0}
-!79 = !{!76, !51, i64 256}
+!73 = !{}
+!74 = !{!75, !12, i64 72}
+!75 = !{!"_ZTSN5Ipopt14IpoptExceptionE", !66, i64 8, !66, i64 40, !12, i64 72, !66, i64 80}
+!76 = !{!77, !49, i64 248}
+!77 = !{!"_ZTSN5Ipopt16StdInterfaceTNLPE", !78, i64 0, !79, i64 16, !12, i64 24, !12, i64 28, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !12, i64 64, !12, i64 68, !12, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !7, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !7, i64 144, !7, i64 152, !7, i64 160, !14, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !13, i64 232, !13, i64 240, !49, i64 248, !51, i64 256}
+!78 = !{!"_ZTSN5Ipopt4TNLPE", !21, i64 0}
+!79 = !{!"_ZTSN5Ipopt8SmartPtrIKNS_10JournalistEEE", !37, i64 0}
+!80 = !{!77, !51, i64 256}

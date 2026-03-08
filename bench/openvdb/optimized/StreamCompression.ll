@@ -2052,7 +2052,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_011compression4PageEEC2ERKS4_.exit: ; preds = %e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(17) ptr @_ZN7openvdb5v11_011compression10PageHandle4pageEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %0 = load ptr, ptr %this, align 8
+  %0 = load ptr, ptr %this, align 8, !nonnull !10, !noundef !10
   ret ptr %0
 }
 
@@ -2122,16 +2122,16 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21, !noalias !10
+  %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21, !noalias !11
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
-  store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !10
+  store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !11
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
-  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !10
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7openvdb5v11_011compression4PageESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !10
+  store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !11
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7openvdb5v11_011compression4PageESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !11
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !11
   %call.i.i.i1.i4.i.i.i.i = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
-          to label %_ZSt11make_sharedIN7openvdb5v11_011compression4PageEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7openvdb5v11_011compression4PageESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !10
+          to label %_ZSt11make_sharedIN7openvdb5v11_011compression4PageEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7openvdb5v11_011compression4PageESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i, !noalias !11
 
 common.resume:                                    ; preds = %lpad, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7openvdb5v11_011compression4PageESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %2, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7openvdb5v11_011compression4PageESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i ], [ %26, %lpad ]
@@ -2140,16 +2140,16 @@ common.resume:                                    ; preds = %lpad, %_ZNSt15__all
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7openvdb5v11_011compression4PageESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i: ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i) #22, !noalias !10
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3.i.i.i.i) #22, !noalias !11
   br label %common.resume
 
 _ZSt11make_sharedIN7openvdb5v11_011compression4PageEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_.exit: ; preds = %if.then
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i1.i4.i.i.i.i, i8 0, i64 32, i1 false), !noalias !10
-  store ptr %call.i.i.i1.i4.i.i.i.i, ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i.i1.i4.i.i.i.i, i8 0, i64 32, i1 false), !noalias !11
+  store ptr %call.i.i.i1.i4.i.i.i.i, ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !11
   %mData.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
-  store ptr null, ptr %mData.i.i.i.i.i.i.i.i, align 8, !noalias !10
+  store ptr null, ptr %mData.i.i.i.i.i.i.i.i, align 8, !noalias !11
   %mMutex.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
-  store i8 0, ptr %mMutex.i.i.i.i.i.i.i.i, align 8, !noalias !10
+  store i8 0, ptr %mMutex.i.i.i.i.i.i.i.i, align 8, !noalias !11
   %mPage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %_M_impl.i.i.i.i.i.i, ptr %mPage, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2308,7 +2308,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %pageHandle, align 8
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !nonnull !10, !noundef !10
   %4 = load ptr, ptr %3, align 8
   %uncompressedBytes.i = getelementptr inbounds nuw i8, ptr %4, i64 48
   %5 = load i64, ptr %uncompressedBytes.i, align 8
@@ -2506,18 +2506,18 @@ if.then2:                                         ; preds = %_ZN7openvdb5v11_011
   %add2.i.i = add i64 %spec.select.i.i, 16
   %cmp3.i.i = icmp ugt i64 %add2.i.i, 2147483631
   %.add2.i.i = select i1 %cmp3.i.i, i64 1, i64 %add2.i.i
-  %call5.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.add2.i.i) #21, !noalias !13
+  %call5.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.add2.i.i) #21, !noalias !14
   invoke void @_ZN7openvdb5v11_011compression13bloscCompressEPcRmmPKcm(ptr noundef nonnull %call5.i.i, ptr noundef nonnull align 8 dereferenceable(8) %compressedBytes.i, i64 noundef %add2.i.i, ptr noundef %buffer, i64 noundef %size)
-          to label %_ZN7openvdb5v11_011compression19bloscCompressedSizeEPKcm.exit unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i.i, !noalias !13
+          to label %_ZN7openvdb5v11_011compression19bloscCompressedSizeEPKcm.exit unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i.i, !noalias !14
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i.i: ; preds = %if.then2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdaPv(ptr noundef nonnull %call5.i.i) #22, !noalias !13
+  tail call void @_ZdaPv(ptr noundef nonnull %call5.i.i) #22, !noalias !14
   resume { ptr, i32 } %6
 
 _ZN7openvdb5v11_011compression19bloscCompressedSizeEPKcm.exit: ; preds = %if.then2
-  %7 = load i64, ptr %compressedBytes.i, align 8, !noalias !13
+  %7 = load i64, ptr %compressedBytes.i, align 8, !noalias !14
   tail call void @_ZdaPv(ptr noundef nonnull %call5.i.i) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %compressedBytes.i)
   store i64 %7, ptr %compressedBytes, align 8
@@ -3101,9 +3101,10 @@ attributes #24 = { noreturn nounwind }
 !7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt11make_sharedIN7openvdb5v11_011compression4PageEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
-!12 = distinct !{!12, !"_ZSt11make_sharedIN7openvdb5v11_011compression4PageEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN7openvdb5v11_011compression13bloscCompressEPKcmRmb: %agg.result"}
-!15 = distinct !{!15, !"_ZN7openvdb5v11_011compression13bloscCompressEPKcmRmb"}
+!10 = !{}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZSt11make_sharedIN7openvdb5v11_011compression4PageEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_: %agg.result"}
+!13 = distinct !{!13, !"_ZSt11make_sharedIN7openvdb5v11_011compression4PageEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN7openvdb5v11_011compression13bloscCompressEPKcmRmb: %agg.result"}
+!16 = distinct !{!16, !"_ZN7openvdb5v11_011compression13bloscCompressEPKcmRmb"}

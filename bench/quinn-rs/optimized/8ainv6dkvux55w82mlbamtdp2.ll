@@ -4578,6 +4578,7 @@ default.unreachable:                              ; preds = %"_ZN5alloc11collect
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbbde3dac121d25feE.exit.i.i94.i": ; preds = %58
   %60 = add nuw nsw i64 %.sroa.8.0.i.i93.i, 1
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i.i92.i, i64 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.0.i.i92.i) ]
   %.val5.i.i95.i = load i64, ptr %.sroa.03.0.i.i92.i, align 8, !noalias !870, !noundef !3
   %62 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val24.i91.i, i64 %.val5.i.i95.i)
   switch i8 %62, label %63 [
@@ -4613,6 +4614,7 @@ default.unreachable:                              ; preds = %"_ZN5alloc11collect
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbbde3dac121d25feE.exit.i27.i89.i": ; preds = %71
   %73 = add nuw nsw i64 %.sroa.8.0.i26.i88.i, 1
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i25.i87.i, i64 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.0.i25.i87.i) ]
   %.val5.i28.i90.i = load i64, ptr %.sroa.03.0.i25.i87.i, align 8, !noalias !870, !noundef !3
   %75 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val21.i86.i, i64 %.val5.i28.i90.i)
   switch i8 %75, label %76 [
@@ -5032,6 +5034,7 @@ default.unreachable:                              ; preds = %.lr.ph.preheader
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbbde3dac121d25feE.exit.i27.i88.i": ; preds = %51
   %53 = add nuw nsw i64 %.sroa.8.0.i26.i87.i, 1
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i25.i86.i, i64 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.0.i25.i86.i) ]
   %.val5.i28.i89.i = load i64, ptr %.sroa.03.0.i25.i86.i, align 8, !noalias !898, !noundef !3
   %55 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val21.i85.i, i64 %.val5.i28.i89.i)
   switch i8 %55, label %56 [
@@ -5525,6 +5528,7 @@ default.unreachable:                              ; preds = %"_ZN5alloc11collect
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbbde3dac121d25feE.exit.i.i97.i": ; preds = %83
   %85 = add nuw nsw i64 %.sroa.8.0.i.i96.i, 1
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i.i95.i, i64 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.0.i.i95.i) ]
   %.val5.i.i98.i = load i64, ptr %.sroa.03.0.i.i95.i, align 8, !noalias !961, !noundef !3
   %87 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val24.i94.i, i64 %.val5.i.i98.i)
   switch i8 %87, label %88 [
@@ -5560,6 +5564,7 @@ default.unreachable:                              ; preds = %"_ZN5alloc11collect
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbbde3dac121d25feE.exit.i27.i92.i": ; preds = %96
   %98 = add nuw nsw i64 %.sroa.8.0.i26.i91.i, 1
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i25.i90.i, i64 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.0.i25.i90.i) ]
   %.val5.i28.i93.i = load i64, ptr %.sroa.03.0.i25.i90.i, align 8, !noalias !961, !noundef !3
   %100 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val21.i89.i, i64 %.val5.i28.i93.i)
   switch i8 %100, label %101 [
@@ -6095,6 +6100,7 @@ default.unreachable:                              ; preds = %"_ZN5alloc11collect
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbbde3dac121d25feE.exit.i.i97.i": ; preds = %83
   %85 = add nuw nsw i64 %.sroa.8.0.i.i96.i, 1
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i.i95.i, i64 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.0.i.i95.i) ]
   %.val6.i.i98.i = load i64, ptr %.sroa.03.0.i.i95.i, align 8, !noalias !1023, !noundef !3
   %87 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val24.i94.i, i64 %.val6.i.i98.i)
   switch i8 %87, label %88 [
@@ -6130,6 +6136,7 @@ default.unreachable:                              ; preds = %"_ZN5alloc11collect
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbbde3dac121d25feE.exit.i27.i92.i": ; preds = %96
   %98 = add nuw nsw i64 %.sroa.8.0.i26.i91.i, 1
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i25.i90.i, i64 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.0.i25.i90.i) ]
   %.val6.i28.i93.i = load i64, ptr %.sroa.03.0.i25.i90.i, align 8, !noalias !1023, !noundef !3
   %100 = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %.val21.i89.i, i64 %.val6.i28.i93.i)
   switch i8 %100, label %101 [

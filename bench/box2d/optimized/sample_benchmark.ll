@@ -3170,6 +3170,7 @@ _ZNSt6vectorI6b2Vec2SaIS0_EE6resizeEm.exit27:     ; preds = %32, %30, %29, %27
   %85 = fadd float %84, 0.000000e+00
   %86 = load ptr, ptr %3, align 8, !tbaa !152
   %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %87) ]
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %87, align 4
   %88 = fsub float %74, %52
   %.sroa.02.0.vec.insert.i = insertelement <2 x float> poison, float %88, i64 0
@@ -3177,6 +3178,7 @@ _ZNSt6vectorI6b2Vec2SaIS0_EE6resizeEm.exit27:     ; preds = %32, %30, %29, %27
   %.sroa.02.4.vec.insert.i = insertelement <2 x float> %.sroa.02.0.vec.insert.i, float %89, i64 1
   %90 = load ptr, ptr %4, align 8, !tbaa !152
   %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %91) ]
   store <2 x float> %.sroa.02.4.vec.insert.i, ptr %91, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10000
@@ -3572,10 +3574,12 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast4StepER8Settings(ptr nound
   %37 = sext i32 %36 to i64
   %38 = load ptr, ptr %10, align 8, !tbaa !152
   %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %37
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %39) ]
   %.sroa.082.0.copyload = load <2 x float>, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %41 = load ptr, ptr %40, align 8, !tbaa !152
   %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %37
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %42) ]
   %.sroa.078.0.copyload = load <2 x float>, ptr %42, align 4
   %.sroa.02.4.vec.insert.i = fadd <2 x float> %.sroa.082.0.copyload, %.sroa.078.0.copyload
   call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.082.0.copyload, <2 x float> %.sroa.02.4.vec.insert.i, i32 noundef 16777215)
@@ -3592,9 +3596,11 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast4StepER8Settings(ptr nound
   %.sroa.498.0204 = phi <2 x float> [ zeroinitializer, %.lr.ph210 ], [ %.sroa.498.1, %43 ]
   %44 = load ptr, ptr %10, align 8, !tbaa !152
   %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv235
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %45) ]
   %.sroa.091.0.copyload = load <2 x float>, ptr %45, align 4
   %46 = load ptr, ptr %24, align 8, !tbaa !152
   %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv235
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %47) ]
   %.sroa.090.0.copyload = load <2 x float>, ptr %47, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.089.0.copyload = load i32, ptr %25, align 4
@@ -3665,10 +3671,12 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast4StepER8Settings(ptr nound
   %76 = sext i32 %75 to i64
   %77 = load ptr, ptr %10, align 8, !tbaa !152
   %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %76
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %78) ]
   %.sroa.050.0.copyload = load <2 x float>, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %80 = load ptr, ptr %79, align 8, !tbaa !152
   %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %76
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %81) ]
   %.sroa.045.0.copyload = load <2 x float>, ptr %81, align 4
   %foldExtExtBinop260 = fadd <2 x float> %.sroa.050.0.copyload, %.sroa.045.0.copyload
   %foldExtExtBinop262 = fadd <2 x float> %.sroa.050.0.copyload, %.sroa.045.0.copyload
@@ -3688,9 +3696,11 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast4StepER8Settings(ptr nound
   %.sroa.071.0188 = phi <2 x float> [ zeroinitializer, %.lr.ph195 ], [ %.sroa.071.1, %82 ]
   %83 = load ptr, ptr %10, align 8, !tbaa !152
   %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv231
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %84) ]
   %.sroa.063.0.copyload = load <2 x float>, ptr %84, align 4
   %85 = load ptr, ptr %65, align 8, !tbaa !152
   %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv231
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %86) ]
   %.sroa.062.0.copyload = load <2 x float>, ptr %86, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.059.0.copyload = load i32, ptr %66, align 4
@@ -3778,6 +3788,7 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast4StepER8Settings(ptr nound
   %123 = sext i32 %122 to i64
   %124 = load ptr, ptr %10, align 8, !tbaa !152
   %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %123
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %125) ]
   %.sroa.09.0.copyload = load <2 x float>, ptr %125, align 4
   %.sroa.01.0.vec.extract.i153 = extractelement <2 x float> %.sroa.09.0.copyload, i64 0
   %126 = fsub float %.sroa.01.0.vec.extract.i153, %110
@@ -3804,6 +3815,7 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast4StepER8Settings(ptr nound
   %.3139178 = phi i32 [ 0, %.lr.ph ], [ %145, %143 ]
   %132 = load ptr, ptr %10, align 8, !tbaa !152
   %133 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %133) ]
   %.sroa.024.0.copyload = load <2 x float>, ptr %133, align 4
   %.sroa.01.0.vec.extract.i165 = extractelement <2 x float> %.sroa.024.0.copyload, i64 0
   %134 = fsub float %.sroa.01.0.vec.extract.i165, %110
@@ -4088,7 +4100,7 @@ _ZNKSt6vectorI6b2Vec2SaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %27
   br label %.lr.ph.i.i.i.i.i.i.i31
 
 .lr.ph.i.i.i.i.i.i.i31:                           ; preds = %.lr.ph.i.i.i.i.i.i.i31, %37
-  %.06.i.i.i.i.i.i.i32 = phi ptr [ %41, %.lr.ph.i.i.i.i.i.i.i31 ], [ %38, %37 ]
+  %.06.i.i.i.i.i.i.i32 = phi ptr [ %41, %.lr.ph.i.i.i.i.i.i.i31 ], [ %38, %38 ]
   %40 = load i64, ptr %34, align 4
   store i64 %40, ptr %.06.i.i.i.i.i.i.i32, align 4
   %41 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i32, i64 8
@@ -4285,10 +4297,10 @@ declare void @llvm.assume(i1 noundef) #16
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+declare i64 @llvm.umax.i64(i64, i64) #18
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

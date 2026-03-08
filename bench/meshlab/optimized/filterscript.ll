@@ -311,7 +311,7 @@ _ZN7QStringD2Ev.exit25:                           ; preds = %21, %_ZN9QtPrivate8
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %78
   %.sroa.044.056 = phi ptr [ %79, %78 ], [ %37, %.lr.ph58.preheader ]
-  %38 = load ptr, ptr %.sroa.044.056, align 8
+  %38 = load ptr, ptr %.sroa.044.056, align 8, !nonnull !13, !noundef !13
   %39 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.4, i32 noundef 6)
           to label %40 unwind label %.loopexit48
 
@@ -390,7 +390,7 @@ _ZN7QStringD2Ev.exit39:                           ; preds = %49, %_ZN9QtPrivate8
 .lr.ph:                                           ; preds = %.preheader, %64
   %.sroa.040.054 = phi ptr [ %65, %64 ], [ %55, %.preheader ]
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.040.054, i64 16
-  %59 = load ptr, ptr %58, align 8
+  %59 = load ptr, ptr %58, align 8, !nonnull !13, !noundef !13
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
@@ -1397,7 +1397,7 @@ _ZN7QStringD2Ev.exit124:                          ; preds = %_ZN7QStringD2Ev.exi
   ]
 
 _ZN7QStringD2Ev.exit124.backedge:                 ; preds = %253, %_ZN9QtPrivate8RefCount5derefEv.exit.i127
-  br label %_ZN7QStringD2Ev.exit124, !llvm.loop !13
+  br label %_ZN7QStringD2Ev.exit124, !llvm.loop !14
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i127:         ; preds = %253
   %256 = atomicrmw sub ptr %254, i32 1 seq_cst, align 4
@@ -1410,7 +1410,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i126: ; preds = %253, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i129
   %257 = phi ptr [ %.pre.i130, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i129 ], [ %254, %253 ]
-  br label %_ZN7QStringD2Ev.exit124.sink.split, !llvm.loop !13
+  br label %_ZN7QStringD2Ev.exit124.sink.split, !llvm.loop !14
 
 258:                                              ; preds = %247
   %259 = landingpad { ptr, i32 }
@@ -1548,7 +1548,7 @@ _ZN7QStringD2Ev.exit137:                          ; preds = %_ZN29FilterNamePara
   ]
 
 _ZN7QStringD2Ev.exit143.backedge:                 ; preds = %289, %_ZN9QtPrivate8RefCount5derefEv.exit.i139, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i138
-  br label %_ZN7QStringD2Ev.exit143, !llvm.loop !14
+  br label %_ZN7QStringD2Ev.exit143, !llvm.loop !15
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i139:         ; preds = %289
   %292 = atomicrmw sub ptr %290, i32 1 seq_cst, align 4
@@ -2309,7 +2309,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %12, %6
   %19 = getelementptr inbounds nuw i8, ptr %.01223, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %.01322, i64 8
   %.not = icmp eq ptr %19, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 21:                                               ; preds = %.lr.ph
   %22 = landingpad { ptr, i32 }
@@ -2339,7 +2339,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %12, %6
 
 32:                                               ; preds = %28, %.lr.ph26
   %.not15 = icmp eq ptr %25, %1
-  br i1 %.not15, label %._crit_edge27, label %.lr.ph26, !llvm.loop !16
+  br i1 %.not15, label %._crit_edge27, label %.lr.ph26, !llvm.loop !17
 
 ._crit_edge27:                                    ; preds = %32, %23
   invoke void @__cxa_rethrow() #15
@@ -2413,7 +2413,8 @@ attributes #15 = { noreturn }
 !10 = !{!11}
 !11 = distinct !{!11, !12, !"_ZNK5QListI29FilterNameParameterValuesPairE3endEv: argument 0"}
 !12 = distinct !{!12, !"_ZNK5QListI29FilterNameParameterValuesPairE3endEv"}
-!13 = distinct !{!13, !6}
+!13 = !{}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}

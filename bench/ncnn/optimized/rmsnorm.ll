@@ -444,6 +444,7 @@ define hidden noundef i32 @_ZNK4ncnn7RMSNorm15forward_inplaceERNS_3MatERKNS_6Opt
   %35 = load float, ptr %34, align 4, !tbaa !44
   %36 = fmul fast float %35, %24
   %37 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv59
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %37) ]
   %38 = load float, ptr %37, align 4, !tbaa !44
   %39 = fmul fast float %36, %38
   store float %39, ptr %34, align 4, !tbaa !44
@@ -686,6 +687,7 @@ define internal void @_ZNK4ncnn7RMSNorm15forward_inplaceERNS_3MatERKNS_6OptionE.
   %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv89
   %55 = load float, ptr %54, align 4, !tbaa !44
   %56 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv89
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %56) ]
   %57 = load float, ptr %56, align 4, !tbaa !44
   %58 = fmul fast float %55, %57
   %59 = fmul fast float %58, %69
@@ -892,6 +894,7 @@ define internal void @_ZNK4ncnn7RMSNorm15forward_inplaceERNS_3MatERKNS_6OptionE.
   %62 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv126
   %63 = load float, ptr %62, align 4, !tbaa !44
   %64 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv126
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %64) ]
   %65 = load float, ptr %64, align 4, !tbaa !44
   %66 = fmul fast float %63, %65
   %67 = fmul fast float %66, %77
@@ -1060,6 +1063,7 @@ define internal void @_ZNK4ncnn7RMSNorm15forward_inplaceERNS_3MatERKNS_6OptionE.
   %53 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv97
   %54 = load float, ptr %53, align 4, !tbaa !44
   %55 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv97
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %55) ]
   %56 = load float, ptr %55, align 4, !tbaa !44
   %57 = fmul fast float %54, %56
   %58 = fmul fast float %57, %68
@@ -1117,6 +1121,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #14
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
@@ -1135,8 +1142,9 @@ attributes #11 = { nobuiltin nounwind "approx-func-fp-math"="true" "no-infs-fp-m
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { builtin nounwind }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

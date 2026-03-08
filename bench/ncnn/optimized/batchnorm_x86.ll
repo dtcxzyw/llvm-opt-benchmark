@@ -513,9 +513,11 @@ define internal void @_ZNK4ncnn13BatchNorm_x8615forward_inplaceERNS_3MatERKNS_6O
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 %32
   %34 = load ptr, ptr %22, align 8, !tbaa !16
   %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %35) ]
   %36 = load float, ptr %35, align 4, !tbaa !28
   %37 = load ptr, ptr %23, align 8, !tbaa !16
   %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %38) ]
   %39 = load float, ptr %38, align 4, !tbaa !28
   %40 = load i32, ptr %5, align 4, !tbaa !21
   %41 = icmp eq i32 %40, 4
@@ -671,9 +673,11 @@ define internal void @_ZNK4ncnn13BatchNorm_x8615forward_inplaceERNS_3MatERKNS_6O
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 %30
   %32 = load ptr, ptr %22, align 8, !tbaa !16
   %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %33) ]
   %34 = load float, ptr %33, align 4, !tbaa !28
   %35 = load ptr, ptr %23, align 8, !tbaa !16
   %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   %37 = load float, ptr %36, align 4, !tbaa !28
   %38 = load i32, ptr %5, align 4, !tbaa !21
   %39 = icmp eq i32 %38, 4
@@ -770,6 +774,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #13
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
@@ -787,8 +794,9 @@ attributes #10 = { nobuiltin nounwind "approx-func-fp-math"="true" "no-infs-fp-m
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { builtin nounwind }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
