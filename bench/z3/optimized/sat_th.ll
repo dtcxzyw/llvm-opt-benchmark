@@ -3099,63 +3099,70 @@ define hidden noundef nonnull ptr @_ZN3euf10th_explain8conflictERNS_13th_euf_sol
   store ptr %16, ptr %17, align 8, !tbaa !486
   %18 = load ptr, ptr %2, align 8, !tbaa !478
   %19 = load i32, ptr %18, align 4, !tbaa !418
-  store ptr %2, ptr %16, align 8, !tbaa !475
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 76
-  store ptr %3, ptr %20, align 8, !tbaa !477
-  %21 = load ptr, ptr %3, align 8, !tbaa !478
-  %22 = load i32, ptr %21, align 4, !tbaa !418
-  %23 = icmp ugt i32 %19, %22
-  br i1 %23, label %24, label %_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit
+  %20 = load ptr, ptr %3, align 8, !tbaa !478
+  %21 = load i32, ptr %20, align 4, !tbaa !418
+  %22 = icmp ugt i32 %19, %21
+  br i1 %22, label %.lr.ph29.i.i.i.us.preheader, label %.lr.ph29.i.i.i.preheader
 
-24:                                               ; preds = %.lr.ph.i.i.i
-  store ptr %3, ptr %16, align 8, !tbaa !419
-  store ptr %2, ptr %20, align 8, !tbaa !419
+.lr.ph29.i.i.i.preheader:                         ; preds = %.lr.ph.i.i.i
+  store ptr %2, ptr %16, align 8, !tbaa !475
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 76
+  store ptr %3, ptr %23, align 8, !tbaa !477
   br label %_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit
 
-_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit: ; preds = %24, %.lr.ph.i.i.i
+.lr.ph29.i.i.i.us.preheader:                      ; preds = %.lr.ph.i.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 76
+  store ptr %3, ptr %16, align 8, !tbaa !419
+  store ptr %2, ptr %24, align 8, !tbaa !419
+  br label %_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit
+
+_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit: ; preds = %.lr.ph29.i.i.i.preheader, %.lr.ph29.i.i.i.us.preheader
   ret ptr %9
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN3euf10th_explain8conflictERNS_13th_euf_solverEPNS_5enodeES4_PKNS_13th_proof_hintE(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
-.lr.ph29.i.i.i:
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !413
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 2184
-  %7 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %6, i64 noundef 80)
-  store ptr %0, ptr %7, align 8, !tbaa !488
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 -2, ptr %8, align 8, !tbaa !9
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  store ptr %3, ptr %10, align 8, !tbaa !479
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i32 0, ptr %11, align 8, !tbaa !482
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  store i32 1, ptr %12, align 4, !tbaa !483
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %13, ptr %14, align 8, !tbaa !484
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr %13, ptr %15, align 8, !tbaa !486
-  %16 = load ptr, ptr %1, align 8, !tbaa !478
-  %17 = load i32, ptr %16, align 4, !tbaa !418
-  store ptr %1, ptr %13, align 8, !tbaa !475
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr %2, ptr %18, align 8, !tbaa !477
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %6 = load ptr, ptr %5, align 8, !tbaa !413
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2184
+  %8 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %7, i64 noundef 80)
+  store ptr %0, ptr %8, align 8, !tbaa !488
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i32 -2, ptr %9, align 8, !tbaa !9
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  store ptr %3, ptr %11, align 8, !tbaa !479
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store i32 0, ptr %12, align 8, !tbaa !482
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  store i32 1, ptr %13, align 4, !tbaa !483
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store ptr %14, ptr %15, align 8, !tbaa !484
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  store ptr %14, ptr %16, align 8, !tbaa !486
+  %17 = load ptr, ptr %1, align 8, !tbaa !478
+  %18 = load i32, ptr %17, align 4, !tbaa !418
   %19 = load ptr, ptr %2, align 8, !tbaa !478
   %20 = load i32, ptr %19, align 4, !tbaa !418
-  %21 = icmp ugt i32 %17, %20
-  br i1 %21, label %22, label %_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit
+  %21 = icmp ugt i32 %18, %20
+  br i1 %21, label %.lr.ph29.i.i.i.us.preheader, label %.lr.ph29.i.i.i.preheader
 
-22:                                               ; preds = %.lr.ph29.i.i.i
-  store ptr %2, ptr %13, align 8, !tbaa !419
-  store ptr %1, ptr %18, align 8, !tbaa !419
+.lr.ph29.i.i.i.preheader:                         ; preds = %4
+  store ptr %1, ptr %14, align 8, !tbaa !475
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr %2, ptr %22, align 8, !tbaa !477
   br label %_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit
 
-_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit: ; preds = %22, %.lr.ph29.i.i.i
-  ret ptr %8
+.lr.ph29.i.i.i.us.preheader:                      ; preds = %4
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr %2, ptr %14, align 8, !tbaa !419
+  store ptr %1, ptr %23, align 8, !tbaa !419
+  br label %_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit
+
+_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit: ; preds = %.lr.ph29.i.i.i.preheader, %.lr.ph29.i.i.i.us.preheader
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress uwtable
