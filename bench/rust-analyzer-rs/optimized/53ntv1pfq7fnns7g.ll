@@ -1729,8 +1729,8 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %9 = load ptr, ptr %8, align 8, !noalias !571
   %.sroa.0.0.i = select i1 %trunc.i, ptr %7, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !571
-  %.not = icmp eq ptr %.sroa.0.0.i, null
-  %spec.select = select i1 %.not, ptr undef, ptr %9
+  %10 = icmp eq ptr %.sroa.0.0.i, null
+  %spec.select = select i1 %10, ptr undef, ptr %9
   %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %spec.select, 1
   ret { ptr, ptr } %11
