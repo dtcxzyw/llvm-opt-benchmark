@@ -545,8 +545,8 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline11Raw
   ret void
 
 8:                                                ; preds = %.lr.ph, %_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRT_.exit
-  %.015 = phi i64 [ 0, %.lr.ph ], [ %47, %_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRT_.exit ]
-  %9 = getelementptr inbounds nuw [96 x i8], ptr %1, i64 %.015
+  %.016 = phi i64 [ 0, %.lr.ph ], [ %47, %_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRT_.exit ]
+  %9 = getelementptr inbounds nuw [96 x i8], ptr %1, i64 %.016
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 1, i32 noundef 0)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -621,7 +621,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline11RawSkeleton5Jo
   br label %_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRT_.exit
 
 _ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRT_.exit: ; preds = %_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE6resizeEm.exit, %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline11RawSkeleton5JointEEEEEvRT_.exit
-  %47 = add nuw i64 %.015, 1
+  %47 = add nuw i64 %.016, 1
   %exitcond.not = icmp eq i64 %47, %2
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !44
 }

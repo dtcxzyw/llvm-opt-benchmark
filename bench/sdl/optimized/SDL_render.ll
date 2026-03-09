@@ -8464,15 +8464,15 @@ define hidden noundef zeroext i1 @SDL_RenderPoint_REAL(ptr noundef %0, float nou
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 144
   %20 = load float, ptr %19, align 4
   %21 = fcmp une float %20, 1.000000e+00
-  br i1 %21, label %RenderPointsWithRects.exit, label %22
+  br i1 %21, label %.lr.ph.i, label %22
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 148
   %24 = load float, ptr %23, align 4
   %25 = fcmp une float %24, 1.000000e+00
-  br i1 %25, label %RenderPointsWithRects.exit, label %37
+  br i1 %25, label %.lr.ph.i, label %37
 
-RenderPointsWithRects.exit:                       ; preds = %22, %16
+.lr.ph.i:                                         ; preds = %22, %16
   %savedstack = tail call ptr @llvm.stacksave.p0()
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = load ptr, ptr %17, align 8
@@ -8498,7 +8498,7 @@ RenderPointsWithRects.exit:                       ; preds = %22, %16
   %38 = call fastcc zeroext i1 @QueueCmdDrawPoints(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 1)
   br label %SDL_RenderPoints_REAL.exit
 
-SDL_RenderPoints_REAL.exit:                       ; preds = %8, %14, %RenderPointsWithRects.exit, %37
+SDL_RenderPoints_REAL.exit:                       ; preds = %8, %14, %.lr.ph.i, %37
   %.0.i = phi i1 [ false, %14 ], [ false, %8 ], [ %38, %37 ], [ %36, %RenderPointsWithRects.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.i
@@ -9559,9 +9559,9 @@ define hidden noundef zeroext i1 @SDL_RenderFillRect_REAL(ptr noundef %0, ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
   %3 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef %0, i32 noundef 2) #15
-  %.0.sroa.phi.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.0.sroa.phi.sroa.gep27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.0.sroa.phi.sroa.gep30 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.0.sroa.gep12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.0.sroa.gep15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
@@ -9631,10 +9631,10 @@ GetRenderViewportSize.exit:                       ; preds = %32, %34
   br label %39
 
 39:                                               ; preds = %GetRenderViewportSize.exit, %12
-  %.0.sroa.phi.sroa.phi = phi ptr [ %.0.sroa.phi.sroa.gep, %12 ], [ %.sroa.8, %GetRenderViewportSize.exit ]
-  %.0.sroa.phi.sroa.phi26 = phi ptr [ %.0.sroa.phi.sroa.gep27, %12 ], [ %.sroa.6, %GetRenderViewportSize.exit ]
-  %.0.sroa.phi.sroa.phi29 = phi ptr [ %.0.sroa.phi.sroa.gep30, %12 ], [ %.sroa.4, %GetRenderViewportSize.exit ]
-  %.0.sroa.phi = phi ptr [ %1, %12 ], [ %.sroa.0, %GetRenderViewportSize.exit ]
+  %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %12 ], [ %.sroa.8, %GetRenderViewportSize.exit ]
+  %.0.sroa.phi11 = phi ptr [ %.0.sroa.gep12, %12 ], [ %.sroa.6, %GetRenderViewportSize.exit ]
+  %.0.sroa.phi14 = phi ptr [ %.0.sroa.gep15, %12 ], [ %.sroa.4, %GetRenderViewportSize.exit ]
+  %.0 = phi ptr [ %1, %12 ], [ %.sroa.0, %GetRenderViewportSize.exit ]
   %savedstack = tail call ptr @llvm.stacksave.p0()
   %40 = tail call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %0, i32 noundef 2) #15
   br i1 %40, label %43, label %41
@@ -9646,13 +9646,13 @@ GetRenderViewportSize.exit:                       ; preds = %32, %34
 43:                                               ; preds = %39
   %44 = load i8, ptr %7, align 8, !range !3, !noundef !4
   %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %46, label %._crit_edge.i
+  br i1 %45, label %46, label %.lr.ph.i
 
 46:                                               ; preds = %43
   %47 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.29) #15
   br label %SDL_RenderFillRects_REAL.exit
 
-._crit_edge.i:                                    ; preds = %43
+.lr.ph.i:                                         ; preds = %43
   %48 = alloca [16 x i8], align 16
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %50 = load ptr, ptr %49, align 8
@@ -9663,14 +9663,14 @@ GetRenderViewportSize.exit:                       ; preds = %32, %34
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 12
-  %58 = load float, ptr %.0.sroa.phi, align 4
+  %58 = load float, ptr %.0, align 4
   %59 = fmul float %52, %58
-  %60 = load float, ptr %.0.sroa.phi.sroa.phi29, align 4
-  %61 = fmul float %54, %60
-  %62 = load float, ptr %.0.sroa.phi.sroa.phi26, align 4
+  %59 = load float, ptr %.0.sroa.phi14, align 4
+  %60 = fmul float %54, %59
+  %62 = load float, ptr %.0.sroa.phi11, align 4
   %63 = fmul float %52, %62
-  %64 = load float, ptr %.0.sroa.phi.sroa.phi, align 4
-  %65 = fmul float %54, %64
+  %62 = load float, ptr %.0.sroa.phi, align 4
+  %63 = fmul float %54, %62
   store float %59, ptr %48, align 16
   store float %61, ptr %55, align 4
   store float %63, ptr %56, align 8
@@ -9678,7 +9678,7 @@ GetRenderViewportSize.exit:                       ; preds = %32, %34
   %66 = call fastcc zeroext i1 @QueueCmdFillRects(ptr noundef nonnull %0, ptr noundef %48, i32 noundef 1)
   br label %SDL_RenderFillRects_REAL.exit
 
-SDL_RenderFillRects_REAL.exit:                    ; preds = %41, %46, %._crit_edge.i
+SDL_RenderFillRects_REAL.exit:                    ; preds = %41, %46, %.lr.ph.i
   %.0.i = phi i1 [ false, %46 ], [ false, %41 ], [ %66, %._crit_edge.i ]
   call void @llvm.stackrestore.p0(ptr %savedstack)
   br label %67

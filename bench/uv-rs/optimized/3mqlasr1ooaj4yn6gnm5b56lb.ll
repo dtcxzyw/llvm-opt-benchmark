@@ -601,8 +601,8 @@ define hidden void @_ZN4core5array11try_from_fn17h4dad3b79b92eed36E.llvm.5917275
 _ZN4core5array18try_from_fn_erased17h8884954b29f0c911E.llvm.5917275508978066245.exit: ; preds = %.noexc6.i
   %18 = extractvalue { ptr, i64 } %15, 1
   store ptr %16, ptr %0, align 8, !alias.scope !82
-  %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %18, ptr %.sroa.425.0..sroa_idx, align 8, !alias.scope !82
+  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %18, ptr %.sroa.417.0..sroa_idx, align 8, !alias.scope !82
   ret void
 }
 
@@ -719,8 +719,8 @@ define hidden void @_ZN4core5array25try_from_trusted_iterator17h1d51b9617002c32e
 16:                                               ; preds = %.noexc6.i.i
   %17 = extractvalue { ptr, i64 } %13, 1
   store ptr %14, ptr %0, align 8, !alias.scope !131, !noalias !135
-  %.sroa.425.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %17, ptr %.sroa.425.0..sroa_idx.i, align 8, !alias.scope !131, !noalias !135
+  %.sroa.417.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %17, ptr %.sroa.417.0..sroa_idx.i, align 8, !alias.scope !131, !noalias !135
   ret void
 }
 
@@ -772,8 +772,8 @@ define hidden void @"_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7tr
 _ZN4core5array25try_from_trusted_iterator17h1d51b9617002c32eE.llvm.5917275508978066245.exit: ; preds = %.noexc6.i.i.i
   %15 = extractvalue { ptr, i64 } %12, 1
   store ptr %13, ptr %0, align 8, !alias.scope !157, !noalias !161
-  %.sroa.425.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %15, ptr %.sroa.425.0..sroa_idx.i.i, align 8, !alias.scope !157, !noalias !161
+  %.sroa.417.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %15, ptr %.sroa.417.0..sroa_idx.i.i, align 8, !alias.scope !157, !noalias !161
   ret void
 }
 
@@ -817,8 +817,8 @@ define hidden void @_ZN4core5array5drain16drain_array_with17h471c2e83c0e6995eE(p
 "_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7try_map28_$u7b$$u7b$closure$u7d$$u7d$17hb88de2942d8979aeE.llvm.5917275508978066245.exit": ; preds = %.noexc6.i.i.i.i
   %13 = extractvalue { ptr, i64 } %10, 1
   store ptr %11, ptr %0, align 8, !alias.scope !188, !noalias !192
-  %.sroa.425.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %13, ptr %.sroa.425.0..sroa_idx.i.i.i, align 8, !alias.scope !188, !noalias !192
+  %.sroa.417.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %13, ptr %.sroa.417.0..sroa_idx.i.i.i, align 8, !alias.scope !188, !noalias !192
   ret void
 }
 

@@ -3106,17 +3106,17 @@ define hidden noundef nonnull ptr @_ZN3euf10th_explain8conflictERNS_13th_euf_sol
 
 .lr.ph29.i.i.i.preheader:                         ; preds = %.lr.ph.i.i.i
   store ptr %2, ptr %16, align 8, !tbaa !475
-  %23 = getelementptr inbounds nuw i8, ptr %8, i64 76
-  store ptr %3, ptr %23, align 8, !tbaa !477
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 76
+  store ptr %3, ptr %20, align 8, !tbaa !477
   br label %_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit
 
-.lr.ph29.i.i.i.us.preheader:                      ; preds = %.lr.ph.i.i.i
+24:                                               ; preds = %.lr.ph.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 76
   store ptr %3, ptr %16, align 8, !tbaa !419
   store ptr %2, ptr %24, align 8, !tbaa !419
   br label %_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit
 
-_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit: ; preds = %.lr.ph29.i.i.i.preheader, %.lr.ph29.i.i.i.us.preheader
+_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit: ; preds = %22, %24
   ret ptr %9
 }
 
@@ -3128,34 +3128,34 @@ define hidden noundef nonnull ptr @_ZN3euf10th_explain8conflictERNS_13th_euf_sol
   %8 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %7, i64 noundef 80)
   store ptr %0, ptr %8, align 8, !tbaa !488
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 -2, ptr %9, align 8, !tbaa !9
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store ptr %3, ptr %11, align 8, !tbaa !479
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 0, ptr %12, align 8, !tbaa !482
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 44
   store i32 1, ptr %13, align 4, !tbaa !483
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %14, ptr %15, align 8, !tbaa !484
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %14, ptr %16, align 8, !tbaa !486
   %17 = load ptr, ptr %1, align 8, !tbaa !478
-  %18 = load i32, ptr %17, align 4, !tbaa !418
+  %16 = load i32, ptr %17, align 4, !tbaa !418
   %19 = load ptr, ptr %2, align 8, !tbaa !478
   %20 = load i32, ptr %19, align 4, !tbaa !418
   %21 = icmp ugt i32 %18, %20
-  br i1 %21, label %.lr.ph29.i.i.i.us.preheader, label %.lr.ph29.i.i.i.preheader
+  br i1 %21, label %_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit, label %22
 
-.lr.ph29.i.i.i.preheader:                         ; preds = %4
+22:                                               ; preds = %4
   store ptr %1, ptr %14, align 8, !tbaa !475
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %2, ptr %22, align 8, !tbaa !477
   br label %_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit
 
-.lr.ph29.i.i.i.us.preheader:                      ; preds = %4
+_ZN3euf10th_explain8conflictERNS_13th_euf_solverEjPKN3sat7literalEjPKSt4pairIPNS_5enodeES9_EPKNS_13th_proof_hintE.exit: ; preds = %4
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %2, ptr %14, align 8, !tbaa !419
   store ptr %1, ptr %23, align 8, !tbaa !419
