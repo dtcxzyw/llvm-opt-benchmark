@@ -530,7 +530,7 @@ define linkonce_odr dso_local void @_ZN10LargeWorld4StepER8Settings(ptr noundef 
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load float, ptr %11, align 4, !tbaa !63
   %13 = fcmp ule float %12, 0.000000e+00
-  %14 = fdiv float 1.000000e+00, %12
+  %14 = fdiv nnan float 1.000000e+00, %12
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %16 = load i8, ptr %15, align 1, !tbaa !64, !range !31, !noundef !32
   %17 = trunc nuw i8 %16 to i1

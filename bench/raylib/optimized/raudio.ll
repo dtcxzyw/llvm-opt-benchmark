@@ -89074,7 +89074,7 @@ jar_xm_envelopes.exit.thread:                     ; preds = %191, %jar_xm_envelo
   %240 = and i32 %239, 32767
   %241 = uitofp nneg i32 %240 to float
   %242 = fmul nnan float %241, 0x3F10000000000000
-  %243 = fadd float %242, -1.000000e+00
+  %243 = fadd nnan float %242, -1.000000e+00
   br label %jar_xm_waveform.exit.i
 
 244:                                              ; preds = %203
@@ -89312,7 +89312,7 @@ jar_xm_autovibrato.exit:                          ; preds = %163, %jar_xm_envelo
   %370 = and i32 %369, 32767
   %371 = uitofp nneg i32 %370 to float
   %372 = fmul nnan float %371, 0x3F10000000000000
-  %373 = fadd float %372, -1.000000e+00
+  %373 = fadd nnan float %372, -1.000000e+00
   br label %jar_xm_vibrato.exit
 
 374:                                              ; preds = %339
@@ -89701,7 +89701,7 @@ jar_xm_arpeggio.exit:                             ; preds = %467, %468, %470
   %571 = and i32 %570, 32767
   %572 = uitofp nneg i32 %571 to float
   %573 = fmul nnan float %572, 0x3F10000000000000
-  %574 = fadd float %573, -1.000000e+00
+  %574 = fadd nnan float %573, -1.000000e+00
   br label %jar_xm_vibrato.exit252
 
 575:                                              ; preds = %540
@@ -89867,7 +89867,7 @@ jar_xm_tone_portamento.exit254:                   ; preds = %589, %593, %619
   %672 = and i32 %671, 32767
   %673 = uitofp nneg i32 %672 to float
   %674 = fmul nnan float %673, 0x3F10000000000000
-  %675 = fadd float %674, -1.000000e+00
+  %675 = fadd nnan float %674, -1.000000e+00
   br label %jar_xm_vibrato.exit260
 
 676:                                              ; preds = %641
@@ -89971,7 +89971,7 @@ jar_xm_vibrato.exit260:                           ; preds = %641, %653, %659, %6
   %738 = and i32 %737, 32767
   %739 = uitofp nneg i32 %738 to float
   %740 = fmul nnan float %739, 0x3F10000000000000
-  %741 = fadd float %740, -1.000000e+00
+  %741 = fadd nnan float %740, -1.000000e+00
   br label %jar_xm_tremolo.exit
 
 742:                                              ; preds = %708

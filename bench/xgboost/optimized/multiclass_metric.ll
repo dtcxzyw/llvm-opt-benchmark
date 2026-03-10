@@ -6922,7 +6922,7 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNKS_6metric26MultiCl
   br i1 %48, label %49, label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i
 
 49:                                               ; preds = %40
-  %50 = tail call float @llvm.log.f32(float %47), !tbaa !84
+  %50 = tail call nnan float @llvm.log.f32(float %47)
   %51 = fneg float %50
   br label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i
 
@@ -7128,7 +7128,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %114, label %115, label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i
 
 115:                                              ; preds = %107
-  %116 = call float @llvm.log.f32(float %113), !tbaa !84
+  %116 = call nnan float @llvm.log.f32(float %113)
   %117 = fneg float %116
   br label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i
 
@@ -7233,7 +7233,7 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_16
   br i1 %156, label %157, label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i64
 
 157:                                              ; preds = %149
-  %158 = call float @llvm.log.f32(float %155), !tbaa !84
+  %158 = call nnan float @llvm.log.f32(float %155)
   %159 = fneg float %158
   br label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i64
 
@@ -7307,7 +7307,7 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_16
   br i1 %196, label %197, label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i67
 
 197:                                              ; preds = %189
-  %198 = call float @llvm.log.f32(float %195), !tbaa !84
+  %198 = call nnan float @llvm.log.f32(float %195)
   %199 = fneg float %198
   br label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i67
 
@@ -7412,7 +7412,7 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_16
   br i1 %238, label %239, label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i70
 
 239:                                              ; preds = %231
-  %240 = call float @llvm.log.f32(float %237), !tbaa !84
+  %240 = call nnan float @llvm.log.f32(float %237)
   %241 = fneg float %240
   br label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i70
 
@@ -7486,7 +7486,7 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_16
   br i1 %278, label %279, label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i73
 
 279:                                              ; preds = %271
-  %280 = call float @llvm.log.f32(float %277), !tbaa !84
+  %280 = call nnan float @llvm.log.f32(float %277)
   %281 = fneg float %280
   br label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i73
 
@@ -7560,7 +7560,7 @@ _ZN4dmlc12OMPException3RunIZNK7xgboost6metric26MultiClassMetricsReductionINS3_16
   br i1 %318, label %319, label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i76
 
 319:                                              ; preds = %311
-  %320 = call float @llvm.log.f32(float %317), !tbaa !84
+  %320 = call nnan float @llvm.log.f32(float %317)
   %321 = fneg float %320
   br label %_ZN7xgboost6metric16EvalMultiLogLoss7EvalRowEiPKfm.exit.i.i76
 

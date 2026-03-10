@@ -2633,7 +2633,7 @@ hsv.exit1044:                                     ; preds = %hsv.exit1038, %220
   br label %460
 
 458:                                              ; preds = %438
-  %459 = fdiv double %450, 0x4029D70A40000000
+  %459 = fdiv nnan double %450, 0x4029D70A40000000
   br label %460
 
 460:                                              ; preds = %458, %454
@@ -2648,7 +2648,7 @@ hsv.exit1044:                                     ; preds = %hsv.exit1038, %220
   br label %468
 
 466:                                              ; preds = %460
-  %467 = fdiv double %451, 0x4029D70A40000000
+  %467 = fdiv nnan double %451, 0x4029D70A40000000
   br label %468
 
 468:                                              ; preds = %466, %462
@@ -2663,7 +2663,7 @@ hsv.exit1044:                                     ; preds = %hsv.exit1038, %220
   br label %476
 
 474:                                              ; preds = %468
-  %475 = fdiv double %452, 0x4029D70A40000000
+  %475 = fdiv nnan double %452, 0x4029D70A40000000
   br label %476
 
 476:                                              ; preds = %474, %470

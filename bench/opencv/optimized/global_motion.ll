@@ -7964,8 +7964,8 @@ define internal fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE
 
 ._crit_edge60:                                    ; preds = %3
   %16 = sitofp i32 %1 to float
-  %17 = fdiv float 0.000000e+00, %16
-  %18 = fdiv float 0.000000e+00, %16
+  %17 = tail call float @llvm.copysign.f32(float 0.000000e+00, float %16)
+  %18 = tail call float @llvm.copysign.f32(float 0.000000e+00, float %16)
   %19 = fdiv float 0.000000e+00, %16
   %20 = fdiv float 0x3FF6A09E60000000, %19
   br label %._crit_edge65
@@ -8439,6 +8439,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #26
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #27
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.copysign.f32(float, float) #27
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #27

@@ -34153,8 +34153,8 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   %.04343 = phi nsz <16 x float> [ %2094, %.lr.ph3631 ], [ %2159, %2148 ], [ %2094, %2102 ], [ %2144, %2142 ], [ %2147, %2145 ], [ %2097, %.thread3106 ], [ %2101, %2099 ]
   %.04337 = phi nsz <16 x float> [ %2093, %.lr.ph3631 ], [ %2158, %2148 ], [ %2093, %2102 ], [ %2143, %2142 ], [ %2146, %2145 ], [ %2096, %.thread3106 ], [ %2100, %2099 ]
   %.17 = phi ptr [ null, %.lr.ph3631 ], [ %2160, %2148 ], [ %.163630, %2102 ], [ %2141, %2142 ], [ %2141, %2145 ], [ %.163630, %.thread3106 ], [ %.163630, %2099 ]
-  %.54348 = fmul reassoc nnan nsz arcp contract afn <16 x float> %.04343, %120
-  %.54342 = fmul reassoc nnan nsz arcp contract afn <16 x float> %.04337, %120
+  %.54348 = fmul reassoc nsz arcp contract afn <16 x float> %.04343, %120
+  %.54342 = fmul reassoc nsz arcp contract afn <16 x float> %.04337, %120
   br i1 %.not4544, label %2164, label %2161
 
 2161:                                             ; preds = %.thread3115
@@ -36224,8 +36224,8 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   %.42664 = phi nsz <8 x float> [ %3431, %.lr.ph3690 ], [ %3474, %3464 ], [ %3431, %3440 ], [ %3459, %3458 ], [ %3462, %3461 ], [ %3434, %.thread3270 ], [ %3438, %3437 ]
   %.42658 = phi nsz <8 x float> [ %3432, %.lr.ph3690 ], [ %3475, %3464 ], [ %3432, %3440 ], [ %3460, %3458 ], [ %3463, %3461 ], [ %3435, %.thread3270 ], [ %3439, %3437 ]
   %.41 = phi ptr [ null, %.lr.ph3690 ], [ %3476, %3464 ], [ %.403689, %3440 ], [ %3457, %3458 ], [ %3457, %3461 ], [ %.403689, %.thread3270 ], [ %.403689, %3437 ]
-  %.52665 = fmul reassoc nnan nsz arcp contract afn <8 x float> %.42664, %209
-  %.52659 = fmul reassoc nnan nsz arcp contract afn <8 x float> %.42658, %209
+  %.52665 = fmul reassoc nsz arcp contract afn <8 x float> %.42664, %209
+  %.52659 = fmul reassoc nsz arcp contract afn <8 x float> %.42658, %209
   br i1 %.not4536, label %3480, label %3477
 
 3477:                                             ; preds = %.thread3279
@@ -37845,8 +37845,8 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   %.42503 = phi nsz <4 x float> [ %4378, %.lr.ph3749 ], [ %4435, %4425 ], [ %4378, %4387 ], [ %4420, %4419 ], [ %4423, %4422 ], [ %4381, %.thread3403 ], [ %4385, %4384 ]
   %.42497 = phi nsz <4 x float> [ %4379, %.lr.ph3749 ], [ %4436, %4425 ], [ %4379, %4387 ], [ %4421, %4419 ], [ %4424, %4422 ], [ %4382, %.thread3403 ], [ %4386, %4384 ]
   %.65 = phi ptr [ null, %.lr.ph3749 ], [ %4437, %4425 ], [ %.643748, %4387 ], [ %4418, %4419 ], [ %4418, %4422 ], [ %.643748, %.thread3403 ], [ %.643748, %4384 ]
-  %.52504 = fmul reassoc nnan nsz arcp contract afn <4 x float> %.42503, %2325
-  %.52498 = fmul reassoc nnan nsz arcp contract afn <4 x float> %.42497, %2325
+  %.52504 = fmul reassoc nsz arcp contract afn <4 x float> %.42503, %2325
+  %.52498 = fmul reassoc nsz arcp contract afn <4 x float> %.42497, %2325
   br i1 %.not4528, label %4441, label %4438
 
 4438:                                             ; preds = %.thread3412
@@ -38242,8 +38242,8 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   %.04356 = phi nsz <16 x float> [ %4640, %4637 ], [ %4618, %4627 ], [ %4618, %.lr.ph3777 ], [ %.44360, %4628 ], [ %4621, %.thread3461 ], [ %4625, %4624 ]
   %.04350 = phi nsz <16 x float> [ %4641, %4637 ], [ %4619, %4627 ], [ %4619, %.lr.ph3777 ], [ %.44354, %4628 ], [ %4622, %.thread3461 ], [ %4626, %4624 ]
   %.77 = phi ptr [ %4642, %4637 ], [ %.763776, %4627 ], [ null, %.lr.ph3777 ], [ %4636, %4628 ], [ %.763776, %.thread3461 ], [ %.763776, %4624 ]
-  %.54361 = fmul reassoc nnan nsz arcp contract afn <16 x float> %.04356, %3588
-  %.54355 = fmul reassoc nnan nsz arcp contract afn <16 x float> %.04350, %3588
+  %.54361 = fmul reassoc nsz arcp contract afn <16 x float> %.04356, %3588
+  %.54355 = fmul reassoc nsz arcp contract afn <16 x float> %.04350, %3588
   br i1 %.not4521, label %4681, label %4643
 
 4643:                                             ; preds = %.thread3470
@@ -38666,8 +38666,8 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   %.42374 = phi nsz <4 x float> [ %4810, %.lr.ph3801 ], [ %4832, %4829 ], [ %4810, %4819 ], [ %.22372, %4820 ], [ %4813, %.thread3498 ], [ %4817, %4816 ]
   %.42368 = phi nsz <4 x float> [ %4811, %.lr.ph3801 ], [ %4833, %4829 ], [ %4811, %4819 ], [ %.22366, %4820 ], [ %4814, %.thread3498 ], [ %4818, %4816 ]
   %.83 = phi ptr [ null, %.lr.ph3801 ], [ %4834, %4829 ], [ %.823800, %4819 ], [ %4828, %4820 ], [ %.823800, %.thread3498 ], [ %.823800, %4816 ]
-  %.52375 = fmul reassoc nnan nsz arcp contract afn <4 x float> %.42374, %3589
-  %.52369 = fmul reassoc nnan nsz arcp contract afn <4 x float> %.42368, %3589
+  %.52375 = fmul reassoc nsz arcp contract afn <4 x float> %.42374, %3589
+  %.52369 = fmul reassoc nsz arcp contract afn <4 x float> %.42368, %3589
   br i1 %.not4521, label %4848, label %4835
 
 4835:                                             ; preds = %.thread3507
@@ -39066,7 +39066,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   %.44252 = phi nsz <16 x float> [ %5023, %5022 ], [ %.342513832, %5021 ], [ %.342513832, %.lr.ph3836 ], [ %.342513832, %.thread3556 ]
   %.04240 = phi nsz <16 x float> [ %5024, %5022 ], [ %5018, %5021 ], [ %5018, %.lr.ph3836 ], [ %5020, %.thread3556 ]
   %.96 = phi ptr [ %5025, %5022 ], [ %.953835, %5021 ], [ null, %.lr.ph3836 ], [ %.953835, %.thread3556 ]
-  %.24242 = fmul reassoc nnan nsz arcp contract afn <16 x float> %.04240, %4512
+  %.24242 = fmul reassoc nsz arcp contract afn <16 x float> %.04240, %4512
   br i1 %.not, label %5049, label %5027
 
 5027:                                             ; preds = %5026
@@ -39200,8 +39200,8 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   %.12325 = phi nsz <4 x float> [ %5060, %.lr.ph3846 ], [ %5073, %5069 ], [ %5060, %5068 ], [ %5066, %.thread3560 ]
   %.12322 = phi nsz <4 x float> [ %5064, %.lr.ph3846 ], [ %5074, %5069 ], [ %5064, %5068 ], [ %5067, %.thread3560 ]
   %.98 = phi ptr [ null, %.lr.ph3846 ], [ %5075, %5069 ], [ %.973845, %5068 ], [ %.973845, %.thread3560 ]
-  %.22326 = fmul reassoc nnan nsz arcp contract afn <4 x float> %.12325, %4533
-  %.22323 = fmul reassoc nnan nsz arcp contract afn <4 x float> %.12322, %4533
+  %.22326 = fmul reassoc nsz arcp contract afn <4 x float> %.12325, %4533
+  %.22323 = fmul reassoc nsz arcp contract afn <4 x float> %.12322, %4533
   br i1 %.not, label %5095, label %5077
 
 5077:                                             ; preds = %5076
@@ -39401,8 +39401,8 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br i1 %.not4517, label %5155, label %5145
 
 5145:                                             ; preds = %5137
-  %.14207 = fadd reassoc nsz arcp contract afn float %5140, %5105
-  %.14205 = fadd reassoc nsz arcp contract afn float %5144, %5105
+  %.14207 = fadd fast float %5140, %5105
+  %.14205 = fadd fast float %5144, %5105
   br i1 %or.cond55, label %5146, label %5155
 
 5146:                                             ; preds = %5145
@@ -39457,7 +39457,7 @@ define internal fastcc void @_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3M
   br i1 %.not4516, label %5179, label %5173
 
 5173:                                             ; preds = %5169
-  %spec.select = fadd reassoc arcp contract afn float %5136, %5172
+  %spec.select = fadd reassoc nnan ninf arcp contract afn float %5136, %5172
   br i1 %or.cond55, label %5174, label %5179
 
 5174:                                             ; preds = %5173
