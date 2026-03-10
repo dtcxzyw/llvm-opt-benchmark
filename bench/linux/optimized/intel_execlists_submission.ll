@@ -3418,38 +3418,36 @@ define internal fastcc i64 @wa_csb_read(ptr noundef readonly captures(none) %0, 
   %20 = lshr exact i64 %19, 3
   %21 = trunc i64 %20 to i32
   %22 = icmp sgt i32 %21, 5
-  %23 = add i64 %19, 4294967248
-  %24 = select i1 %22, i64 %23, i64 %19
-  %25 = select i1 %22, i64 960, i64 880
-  %26 = add i64 %25, %24
-  %27 = trunc i64 %26 to i32
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %31 = load i32, ptr %30, align 8
-  %32 = add i32 %31, %27
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 152
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call i64 %34(ptr noundef %29, i32 %32, i1 noundef zeroext true) #17
+  %.v = select i1 %22, i64 912, i64 880
+  %23 = add i64 %.v, %19
+  %24 = trunc i64 %23 to i32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %28 = load i32, ptr %27, align 8
+  %29 = add i32 %28, %24
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 152
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call i64 %31(ptr noundef %26, i32 %29, i1 noundef zeroext true) #17
   br label %.thread1
 
 .thread1:                                         ; preds = %10, %2, %14
-  %36 = phi i64 [ %35, %14 ], [ %5, %2 ], [ %12, %10 ]
+  %33 = phi i64 [ %32, %14 ], [ %5, %2 ], [ %12, %10 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !71
-  %37 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !72
-  %38 = icmp ult i8 %37, 2
-  tail call void @llvm.assume(i1 %38)
-  %39 = icmp eq i8 %37, 0
-  br i1 %39, label %43, label %40, !prof !12
+  %34 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !72
+  %35 = icmp ult i8 %34, 2
+  tail call void @llvm.assume(i1 %35)
+  %36 = icmp eq i8 %34, 0
+  br i1 %36, label %40, label %37, !prof !12
 
-40:                                               ; preds = %.thread1
-  %41 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %42 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %41) #17, !srcloc !73
-  tail call void @llvm.write_register.i64(metadata !0, i64 %42)
-  br label %43
+37:                                               ; preds = %.thread1
+  %38 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %39 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %38) #17, !srcloc !73
+  tail call void @llvm.write_register.i64(metadata !0, i64 %39)
+  br label %40
 
-43:                                               ; preds = %40, %.thread1
-  ret i64 %36
+40:                                               ; preds = %37, %.thread1
+  ret i64 %33
 }
 
 ; Function Attrs: null_pointer_is_valid

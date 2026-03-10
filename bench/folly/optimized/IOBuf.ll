@@ -1482,47 +1482,48 @@ define noundef i64 @_ZN5folly5IOBuf8goodSizeEmNS0_14CombinedOptionE(i64 noundef 
   %7 = select i1 %4, i1 %5, i1 %6
   %8 = add i64 %0, 7
   %9 = and i64 %8, -8
-  %.08 = select i1 %7, i64 96, i64 32
-  %.0 = select i1 %7, i64 %0, i64 %9
-  %10 = add i64 %.0, %.08
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %_ZN5folly14goodMallocSizeEm.exit, label %12
+  %10 = add i64 %0, 96
+  %11 = add i64 %9, 32
+  %12 = select i1 %7, i64 %10, i64 %11
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %_ZN5folly14goodMallocSizeEm.exit, label %14
 
-12:                                               ; preds = %2
-  %13 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
-  %14 = icmp eq i8 %13, 0
-  br i1 %14, label %15, label %_ZN5folly10canNallocxEv.exit.i, !prof !51
+14:                                               ; preds = %2
+  %15 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %17, label %_ZN5folly10canNallocxEv.exit.i, !prof !51
 
-15:                                               ; preds = %12
-  %16 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #37
-  %.not.i.i.i.i = icmp eq i32 %16, 0
-  br i1 %.not.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, label %17
+17:                                               ; preds = %14
+  %18 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #37
+  %.not.i.i.i.i = icmp eq i32 %18, 0
+  br i1 %.not.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, label %19
 
-17:                                               ; preds = %15
+19:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %18 = call noundef zeroext i1 @_ZZN5folly6detail23usingJEMallocOrTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %20 = call noundef zeroext i1 @_ZZN5folly6detail23usingJEMallocOrTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %19 = zext i1 %18 to i8
-  store i8 %19, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !52
-  %20 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
+  %21 = zext i1 %20 to i8
+  store i8 %21, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !52
+  %22 = call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #37
   br label %_ZN5folly10canNallocxEv.exit.i
 
-_ZN5folly10canNallocxEv.exit.i:                   ; preds = %17, %15, %12
-  %21 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !52, !range !53, !noundef !54
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %_ZN5folly14goodMallocSizeEm.exit
+_ZN5folly10canNallocxEv.exit.i:                   ; preds = %19, %17, %14
+  %23 = load i8, ptr @_ZZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv, align 1, !tbaa !52, !range !53, !noundef !54
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %25, label %_ZN5folly14goodMallocSizeEm.exit
 
-23:                                               ; preds = %_ZN5folly10canNallocxEv.exit.i
-  %24 = call i64 @nallocx(i64 noundef %10, i32 noundef 0) #42
-  %.not.i = icmp eq i64 %24, 0
-  %25 = select i1 %.not.i, i64 %10, i64 %24
+25:                                               ; preds = %_ZN5folly10canNallocxEv.exit.i
+  %26 = call i64 @nallocx(i64 noundef %12, i32 noundef 0) #42
+  %.not.i = icmp eq i64 %26, 0
+  %27 = select i1 %.not.i, i64 %12, i64 %26
   br label %_ZN5folly14goodMallocSizeEm.exit
 
-_ZN5folly14goodMallocSizeEm.exit:                 ; preds = %2, %_ZN5folly10canNallocxEv.exit.i, %23
-  %.0.i = phi i64 [ 0, %2 ], [ %25, %23 ], [ %10, %_ZN5folly10canNallocxEv.exit.i ]
-  %26 = sub i64 %.0.i, %.08
-  ret i64 %26
+_ZN5folly14goodMallocSizeEm.exit:                 ; preds = %2, %_ZN5folly10canNallocxEv.exit.i, %25
+  %.0.i = phi i64 [ 0, %2 ], [ %27, %25 ], [ %12, %_ZN5folly10canNallocxEv.exit.i ]
+  %.08.neg = select i1 %7, i64 -96, i64 -32
+  %28 = add i64 %.0.i, %.08.neg
+  ret i64 %28
 }
 
 ; Function Attrs: mustprogress uwtable

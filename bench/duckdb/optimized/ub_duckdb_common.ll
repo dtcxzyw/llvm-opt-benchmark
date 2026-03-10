@@ -50051,7 +50051,7 @@ define void @_ZN6duckdb10FileBufferC2ERNS_9AllocatorENS_14FileBufferTypeEm(ptr n
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %17, label %_ZN6duckdb10FileBuffer6ResizeEm.exit
+  br i1 %.not, label %18, label %_ZN6duckdb10FileBuffer6ResizeEm.exit
 
 _ZN6duckdb10FileBuffer6ResizeEm.exit:             ; preds = %4
   %9 = icmp eq i8 %2, 3
@@ -50065,12 +50065,13 @@ _ZN6duckdb10FileBuffer6ResizeEm.exit:             ; preds = %4
   store i64 %.sroa.0.0.i.i, ptr %13, align 8, !tbaa !947
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.3.0.i.i
   store ptr %14, ptr %7, align 8, !tbaa !948
-  %15 = sub i64 %.sroa.0.0.i.i, %.sroa.3.0.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %15, ptr %16, align 8, !tbaa !949
-  br label %17
+  %15 = add i64 %11, -8
+  %16 = select i1 %9, i64 %3, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %16, ptr %17, align 8, !tbaa !949
+  br label %18
 
-17:                                               ; preds = %_ZN6duckdb10FileBuffer6ResizeEm.exit, %4
+18:                                               ; preds = %_ZN6duckdb10FileBuffer6ResizeEm.exit, %4
   ret void
 }
 
@@ -50124,17 +50125,18 @@ _ZN6duckdb10FileBuffer13ReallocBufferEm.exit:     ; preds = %.thread.i, %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %25, label %21
+  br i1 %.not, label %26, label %21
 
 21:                                               ; preds = %_ZN6duckdb10FileBuffer13ReallocBufferEm.exit
   %22 = getelementptr inbounds nuw i8, ptr %.09.i, i64 %.sroa.3.0.i
   store ptr %22, ptr %20, align 8, !tbaa !948
-  %23 = sub i64 %.sroa.0.0.i, %.sroa.3.0.i
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %23, ptr %24, align 8, !tbaa !949
-  br label %25
+  %23 = add i64 %7, -8
+  %24 = select i1 %5, i64 %1, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %24, ptr %25, align 8, !tbaa !949
+  br label %26
 
-25:                                               ; preds = %21, %_ZN6duckdb10FileBuffer13ReallocBufferEm.exit
+26:                                               ; preds = %21, %_ZN6duckdb10FileBuffer13ReallocBufferEm.exit
   ret void
 }
 

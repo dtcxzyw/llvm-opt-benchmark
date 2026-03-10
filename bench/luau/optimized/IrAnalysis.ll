@@ -595,7 +595,7 @@ define dso_local i64 @_ZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunction
 13:                                               ; preds = %.lr.ph, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit57"
   %.0122 = phi i32 [ 0, %.lr.ph ], [ %.2124, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit57" ]
   %.0 = phi i32 [ 0, %.lr.ph ], [ %.2, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit57" ]
-  %.087 = phi i32 [ %4, %.lr.ph ], [ %57, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit57" ]
+  %.087 = phi i32 [ %4, %.lr.ph ], [ %64, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit57" ]
   %14 = zext i32 %.087 to i64
   %15 = getelementptr inbounds nuw [44 x i8], ptr %8, i64 %14
   %16 = load i8, ptr %15, align 4, !tbaa !38
@@ -620,144 +620,144 @@ define dso_local i64 @_ZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunction
   %.not.i = icmp ult i32 %25, %4
   %.not3.i = icmp ugt i32 %25, %6
   %or.cond = or i1 %.not.i, %.not3.i
-  %.sink6.i = select i1 %or.cond, i32 1, i32 -1
-  %.sroa.speculated105 = select i1 %or.cond, i32 %.0122, i32 %21
-  %26 = add i32 %.sroa.speculated105, %.sink6.i
-  %spec.select = select i1 %or.cond, i32 %26, i32 %.0122
-  %spec.select141 = select i1 %or.cond, i32 %21, i32 %26
+  %26 = zext i1 %or.cond to i32
+  %spec.select = add i32 %.0122, %26
+  %not.or.cond = xor i1 %or.cond, true
+  %27 = sext i1 %not.or.cond to i32
+  %spec.select141 = add i32 %21, %27
   br label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit"
 
 "_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit": ; preds = %.sink.split.i, %17
   %.3125 = phi i32 [ %.0122, %17 ], [ %spec.select, %.sink.split.i ]
   %.3 = phi i32 [ %21, %17 ], [ %spec.select141, %.sink.split.i ]
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sroa.05.0.copyload = load i32, ptr %27, align 4, !tbaa !27
-  %28 = and i32 %.sroa.05.0.copyload, 15
-  %29 = icmp eq i32 %28, 4
-  br i1 %29, label %.sink.split.i24, label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit27"
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.05.0.copyload = load i32, ptr %28, align 4, !tbaa !27
+  %29 = and i32 %.sroa.05.0.copyload, 15
+  %30 = icmp eq i32 %29, 4
+  br i1 %30, label %.sink.split.i24, label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit27"
 
 .sink.split.i24:                                  ; preds = %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit"
-  %30 = lshr i32 %.sroa.05.0.copyload, 4
-  %.not.i22 = icmp ult i32 %30, %4
-  %.not3.i23 = icmp ugt i32 %30, %6
+  %31 = lshr i32 %.sroa.05.0.copyload, 4
+  %.not.i22 = icmp ult i32 %31, %4
+  %.not3.i23 = icmp ugt i32 %31, %6
   %or.cond80 = or i1 %.not.i22, %.not3.i23
-  %.sink6.i26 = select i1 %or.cond80, i32 1, i32 -1
-  %.sroa.speculated102 = select i1 %or.cond80, i32 %.3125, i32 %.3
-  %31 = add i32 %.sroa.speculated102, %.sink6.i26
-  %spec.select142 = select i1 %or.cond80, i32 %31, i32 %.3125
-  %spec.select143 = select i1 %or.cond80, i32 %.3, i32 %31
+  %32 = zext i1 %or.cond80 to i32
+  %spec.select142 = add i32 %.3125, %32
+  %not.or.cond80 = xor i1 %or.cond80, true
+  %33 = sext i1 %not.or.cond80 to i32
+  %spec.select143 = add i32 %.3, %33
   br label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit27"
 
 "_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit27": ; preds = %.sink.split.i24, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit"
   %.4126 = phi i32 [ %.3125, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit" ], [ %spec.select142, %.sink.split.i24 ]
   %.4 = phi i32 [ %.3, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit" ], [ %spec.select143, %.sink.split.i24 ]
-  %32 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %.sroa.04.0.copyload = load i32, ptr %32, align 4, !tbaa !27
-  %33 = and i32 %.sroa.04.0.copyload, 15
-  %34 = icmp eq i32 %33, 4
-  br i1 %34, label %.sink.split.i30, label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit33"
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %.sroa.04.0.copyload = load i32, ptr %34, align 4, !tbaa !27
+  %35 = and i32 %.sroa.04.0.copyload, 15
+  %36 = icmp eq i32 %35, 4
+  br i1 %36, label %.sink.split.i30, label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit33"
 
 .sink.split.i30:                                  ; preds = %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit27"
-  %35 = lshr i32 %.sroa.04.0.copyload, 4
-  %.not.i28 = icmp ult i32 %35, %4
-  %.not3.i29 = icmp ugt i32 %35, %6
+  %37 = lshr i32 %.sroa.04.0.copyload, 4
+  %.not.i28 = icmp ult i32 %37, %4
+  %.not3.i29 = icmp ugt i32 %37, %6
   %or.cond81 = or i1 %.not.i28, %.not3.i29
-  %.sink6.i32 = select i1 %or.cond81, i32 1, i32 -1
-  %.sroa.speculated99 = select i1 %or.cond81, i32 %.4126, i32 %.4
-  %36 = add i32 %.sroa.speculated99, %.sink6.i32
-  %spec.select144 = select i1 %or.cond81, i32 %36, i32 %.4126
-  %spec.select145 = select i1 %or.cond81, i32 %.4, i32 %36
+  %38 = zext i1 %or.cond81 to i32
+  %spec.select144 = add i32 %.4126, %38
+  %not.or.cond81 = xor i1 %or.cond81, true
+  %39 = sext i1 %not.or.cond81 to i32
+  %spec.select145 = add i32 %.4, %39
   br label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit33"
 
 "_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit33": ; preds = %.sink.split.i30, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit27"
   %.5127 = phi i32 [ %.4126, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit27" ], [ %spec.select144, %.sink.split.i30 ]
   %.5 = phi i32 [ %.4, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit27" ], [ %spec.select145, %.sink.split.i30 ]
-  %37 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sroa.03.0.copyload = load i32, ptr %37, align 4, !tbaa !27
-  %38 = and i32 %.sroa.03.0.copyload, 15
-  %39 = icmp eq i32 %38, 4
-  br i1 %39, label %.sink.split.i36, label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit39"
+  %40 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sroa.03.0.copyload = load i32, ptr %40, align 4, !tbaa !27
+  %41 = and i32 %.sroa.03.0.copyload, 15
+  %42 = icmp eq i32 %41, 4
+  br i1 %42, label %.sink.split.i36, label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit39"
 
 .sink.split.i36:                                  ; preds = %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit33"
-  %40 = lshr i32 %.sroa.03.0.copyload, 4
-  %.not.i34 = icmp ult i32 %40, %4
-  %.not3.i35 = icmp ugt i32 %40, %6
+  %43 = lshr i32 %.sroa.03.0.copyload, 4
+  %.not.i34 = icmp ult i32 %43, %4
+  %.not3.i35 = icmp ugt i32 %43, %6
   %or.cond82 = or i1 %.not.i34, %.not3.i35
-  %.sink6.i38 = select i1 %or.cond82, i32 1, i32 -1
-  %.sroa.speculated96 = select i1 %or.cond82, i32 %.5127, i32 %.5
-  %41 = add i32 %.sroa.speculated96, %.sink6.i38
-  %spec.select146 = select i1 %or.cond82, i32 %41, i32 %.5127
-  %spec.select147 = select i1 %or.cond82, i32 %.5, i32 %41
+  %44 = zext i1 %or.cond82 to i32
+  %spec.select146 = add i32 %.5127, %44
+  %not.or.cond82 = xor i1 %or.cond82, true
+  %45 = sext i1 %not.or.cond82 to i32
+  %spec.select147 = add i32 %.5, %45
   br label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit39"
 
 "_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit39": ; preds = %.sink.split.i36, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit33"
   %.6128 = phi i32 [ %.5127, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit33" ], [ %spec.select146, %.sink.split.i36 ]
   %.6 = phi i32 [ %.5, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit33" ], [ %spec.select147, %.sink.split.i36 ]
-  %42 = getelementptr inbounds nuw i8, ptr %15, i64 20
-  %.sroa.02.0.copyload = load i32, ptr %42, align 4, !tbaa !27
-  %43 = and i32 %.sroa.02.0.copyload, 15
-  %44 = icmp eq i32 %43, 4
-  br i1 %44, label %.sink.split.i42, label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit45"
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %.sroa.02.0.copyload = load i32, ptr %46, align 4, !tbaa !27
+  %47 = and i32 %.sroa.02.0.copyload, 15
+  %48 = icmp eq i32 %47, 4
+  br i1 %48, label %.sink.split.i42, label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit45"
 
 .sink.split.i42:                                  ; preds = %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit39"
-  %45 = lshr i32 %.sroa.02.0.copyload, 4
-  %.not.i40 = icmp ult i32 %45, %4
-  %.not3.i41 = icmp ugt i32 %45, %6
+  %49 = lshr i32 %.sroa.02.0.copyload, 4
+  %.not.i40 = icmp ult i32 %49, %4
+  %.not3.i41 = icmp ugt i32 %49, %6
   %or.cond83 = or i1 %.not.i40, %.not3.i41
-  %.sink6.i44 = select i1 %or.cond83, i32 1, i32 -1
-  %.sroa.speculated93 = select i1 %or.cond83, i32 %.6128, i32 %.6
-  %46 = add i32 %.sroa.speculated93, %.sink6.i44
-  %spec.select148 = select i1 %or.cond83, i32 %46, i32 %.6128
-  %spec.select149 = select i1 %or.cond83, i32 %.6, i32 %46
+  %50 = zext i1 %or.cond83 to i32
+  %spec.select148 = add i32 %.6128, %50
+  %not.or.cond83 = xor i1 %or.cond83, true
+  %51 = sext i1 %not.or.cond83 to i32
+  %spec.select149 = add i32 %.6, %51
   br label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit45"
 
 "_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit45": ; preds = %.sink.split.i42, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit39"
   %.7129 = phi i32 [ %.6128, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit39" ], [ %spec.select148, %.sink.split.i42 ]
   %.7 = phi i32 [ %.6, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit39" ], [ %spec.select149, %.sink.split.i42 ]
-  %47 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %.sroa.01.0.copyload = load i32, ptr %47, align 4, !tbaa !27
-  %48 = and i32 %.sroa.01.0.copyload, 15
-  %49 = icmp eq i32 %48, 4
-  br i1 %49, label %.sink.split.i48, label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit51"
+  %52 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sroa.01.0.copyload = load i32, ptr %52, align 4, !tbaa !27
+  %53 = and i32 %.sroa.01.0.copyload, 15
+  %54 = icmp eq i32 %53, 4
+  br i1 %54, label %.sink.split.i48, label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit51"
 
 .sink.split.i48:                                  ; preds = %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit45"
-  %50 = lshr i32 %.sroa.01.0.copyload, 4
-  %.not.i46 = icmp ult i32 %50, %4
-  %.not3.i47 = icmp ugt i32 %50, %6
+  %55 = lshr i32 %.sroa.01.0.copyload, 4
+  %.not.i46 = icmp ult i32 %55, %4
+  %.not3.i47 = icmp ugt i32 %55, %6
   %or.cond84 = or i1 %.not.i46, %.not3.i47
-  %.sink6.i50 = select i1 %or.cond84, i32 1, i32 -1
-  %.sroa.speculated90 = select i1 %or.cond84, i32 %.7129, i32 %.7
-  %51 = add i32 %.sroa.speculated90, %.sink6.i50
-  %spec.select150 = select i1 %or.cond84, i32 %51, i32 %.7129
-  %spec.select151 = select i1 %or.cond84, i32 %.7, i32 %51
+  %56 = zext i1 %or.cond84 to i32
+  %spec.select150 = add i32 %.7129, %56
+  %not.or.cond84 = xor i1 %or.cond84, true
+  %57 = sext i1 %not.or.cond84 to i32
+  %spec.select151 = add i32 %.7, %57
   br label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit51"
 
 "_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit51": ; preds = %.sink.split.i48, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit45"
   %.8130 = phi i32 [ %.7129, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit45" ], [ %spec.select150, %.sink.split.i48 ]
   %.8 = phi i32 [ %.7, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit45" ], [ %spec.select151, %.sink.split.i48 ]
-  %52 = getelementptr inbounds nuw i8, ptr %15, i64 28
-  %.sroa.0.0.copyload = load i32, ptr %52, align 4, !tbaa !27
-  %53 = and i32 %.sroa.0.0.copyload, 15
-  %54 = icmp eq i32 %53, 4
-  br i1 %54, label %.sink.split.i54, label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit57"
+  %58 = getelementptr inbounds nuw i8, ptr %15, i64 28
+  %.sroa.0.0.copyload = load i32, ptr %58, align 4, !tbaa !27
+  %59 = and i32 %.sroa.0.0.copyload, 15
+  %60 = icmp eq i32 %59, 4
+  br i1 %60, label %.sink.split.i54, label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit57"
 
 .sink.split.i54:                                  ; preds = %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit51"
-  %55 = lshr i32 %.sroa.0.0.copyload, 4
-  %.not.i52 = icmp ult i32 %55, %4
-  %.not3.i53 = icmp ugt i32 %55, %6
+  %61 = lshr i32 %.sroa.0.0.copyload, 4
+  %.not.i52 = icmp ult i32 %61, %4
+  %.not3.i53 = icmp ugt i32 %61, %6
   %or.cond85 = or i1 %.not.i52, %.not3.i53
-  %.sink6.i56 = select i1 %or.cond85, i32 1, i32 -1
-  %.sroa.speculated = select i1 %or.cond85, i32 %.8130, i32 %.8
-  %56 = add i32 %.sroa.speculated, %.sink6.i56
-  %spec.select152 = select i1 %or.cond85, i32 %56, i32 %.8130
-  %spec.select153 = select i1 %or.cond85, i32 %.8, i32 %56
+  %62 = zext i1 %or.cond85 to i32
+  %spec.select152 = add i32 %.8130, %62
+  %not.or.cond85 = xor i1 %or.cond85, true
+  %63 = sext i1 %not.or.cond85 to i32
+  %spec.select153 = add i32 %.8, %63
   br label %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit57"
 
 "_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit57": ; preds = %.sink.split.i54, %13, %13, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit51"
   %.2124 = phi i32 [ %.0122, %13 ], [ %.8130, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit51" ], [ %.0122, %13 ], [ %spec.select152, %.sink.split.i54 ]
   %.2 = phi i32 [ %.0, %13 ], [ %.8, %"_ZZN4Luau7CodeGen22getLiveInOutValueCountERNS0_10IrFunctionERNS0_7IrBlockEENK3$_0clENS0_4IrOpE.exit51" ], [ %.0, %13 ], [ %spec.select153, %.sink.split.i54 ]
-  %57 = add i32 %.087, 1
-  %.not = icmp ugt i32 %57, %6
+  %64 = add i32 %.087, 1
+  %.not = icmp ugt i32 %64, %6
   br i1 %.not, label %._crit_edge.loopexit, label %13, !llvm.loop !46
 }
 

@@ -2456,16 +2456,16 @@ define hidden noundef ptr @_ZN11OptoRuntime19fast_arraycopy_TypeEv() local_unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZL19make_arraycopy_Type13ArrayCopyType(i32 noundef range(i32 0, 4) %0) unnamed_addr #0 {
   %2 = icmp eq i32 %0, 0
-  %3 = select i1 %2, i32 3, i32 5
-  %4 = icmp eq i32 %0, 1
-  %5 = select i1 %4, i32 2, i32 0
-  %6 = select i1 %2, i32 1, i32 %5
-  %7 = add nuw nsw i32 %6, %3
+  %3 = icmp eq i32 %0, 1
+  %4 = select i1 %3, i32 2, i32 0
+  %5 = select i1 %2, i32 1, i32 %4
+  %6 = or disjoint i32 %4, 5
+  %7 = select i1 %2, i32 4, i32 %6
   %8 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef %7) #12
   %9 = load ptr, ptr @_ZN7TypePtr7NOTNULLE, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %9, ptr %10, align 8
-  %11 = icmp eq i32 %6, 0
+  %11 = icmp eq i32 %5, 0
   br i1 %11, label %.thread, label %.lr.ph.preheader
 
 .thread:                                          ; preds = %1
@@ -2487,7 +2487,7 @@ define internal fastcc noundef ptr @_ZL19make_arraycopy_Type13ArrayCopyType(i32 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 7, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.042 = phi i32 [ %6, %.lr.ph.preheader ], [ %18, %.lr.ph ]
+  %.042 = phi i32 [ %5, %.lr.ph.preheader ], [ %18, %.lr.ph ]
   %18 = add nsw i32 %.042, -1
   %19 = load ptr, ptr @_ZN8TypeLong4LONGE, align 8
   %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
@@ -2505,40 +2505,39 @@ define internal fastcc noundef ptr @_ZL19make_arraycopy_Type13ArrayCopyType(i32 
 
 ._crit_edge:                                      ; preds = %.thread, %._crit_edge.loopexit
   %.2.lcssa = phi i64 [ 10, %.thread ], [ %24, %._crit_edge.loopexit ]
-  br i1 %4, label %.thread40, label %30
+  br i1 %3, label %.thread40, label %29
 
 .thread40:                                        ; preds = %._crit_edge
   %25 = load ptr, ptr @_ZN7TypePtr7NOTNULLE, align 8
   %26 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.2.lcssa
   store ptr %25, ptr %26, align 8
-  %27 = add nuw nsw i32 %7, 5
-  %28 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef %27, ptr noundef nonnull %8) #12
-  %29 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
-  br label %34
+  %27 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef 12, ptr noundef nonnull %8) #12
+  %28 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
+  br label %33
 
-30:                                               ; preds = %._crit_edge
-  %31 = add nuw nsw i32 %7, 5
-  %32 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef %31, ptr noundef nonnull %8) #12
-  %33 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
+29:                                               ; preds = %._crit_edge
+  %30 = add nuw nsw i32 %7, 5
+  %31 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef %30, ptr noundef nonnull %8) #12
+  %32 = tail call noundef ptr @_ZN9TypeTuple6fieldsEj(i32 noundef 1) #12
   %cond = icmp eq i32 %0, 3
-  br i1 %cond, label %34, label %38
+  br i1 %cond, label %33, label %37
 
-34:                                               ; preds = %30, %.thread40
-  %35 = phi ptr [ %29, %.thread40 ], [ %33, %30 ]
-  %36 = phi ptr [ %28, %.thread40 ], [ %32, %30 ]
-  %37 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
-  br label %38
+33:                                               ; preds = %29, %.thread40
+  %34 = phi ptr [ %28, %.thread40 ], [ %32, %29 ]
+  %35 = phi ptr [ %27, %.thread40 ], [ %31, %29 ]
+  %36 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
+  br label %37
 
-38:                                               ; preds = %30, %34
-  %.sink48 = phi ptr [ %35, %34 ], [ %33, %30 ]
-  %.sink = phi ptr [ %37, %34 ], [ null, %30 ]
-  %39 = phi ptr [ %36, %34 ], [ %32, %30 ]
-  %40 = phi i32 [ 6, %34 ], [ 5, %30 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sink48, i64 40
-  store ptr %.sink, ptr %41, align 8
-  %42 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef %40, ptr noundef nonnull %.sink48) #12
-  %43 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %39, ptr noundef %42) #12
-  ret ptr %43
+37:                                               ; preds = %29, %33
+  %.sink48 = phi ptr [ %34, %33 ], [ %32, %29 ]
+  %.sink = phi ptr [ %36, %33 ], [ null, %29 ]
+  %38 = phi ptr [ %35, %33 ], [ %31, %29 ]
+  %39 = phi i32 [ 6, %33 ], [ 5, %29 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.sink48, i64 40
+  store ptr %.sink, ptr %40, align 8
+  %41 = tail call noundef ptr @_ZN9TypeTuple4makeEjPPK4Type(i32 noundef %39, ptr noundef nonnull %.sink48) #12
+  %42 = tail call noundef ptr @_ZN8TypeFunc4makeEPK9TypeTupleS2_(ptr noundef %38, ptr noundef %41) #12
+  ret ptr %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
