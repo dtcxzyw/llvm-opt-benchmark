@@ -915,7 +915,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i16 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.instruction_sequence = type { %struct._object, ptr, i32, i32, i32, ptr, i32, ptr }
-%struct.PyCompilerFlags = type { i32, i32 }
 %struct._PyFutureFeatures = type { i32, %struct._Py_SourceLocation }
 %struct._Py_SourceLocation = type { i32, i32, i32, i32 }
 
@@ -4038,102 +4037,106 @@ compiler_mod.exit:                                ; preds = %8, %12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @new_compiler(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = alloca %struct.PyCompilerFlags, align 8
-  %7 = tail call ptr @PyMem_Calloc(i64 noundef 1, i64 noundef 88) #11
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %47, label %9
+  %6 = tail call ptr @PyMem_Calloc(i64 noundef 1, i64 noundef 88) #11
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %compiler_setup.exit, label %8
 
-9:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 60129542144, ptr %6, align 8
-  %10 = tail call ptr @PyDict_New() #11
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr %10, ptr %11, align 8, !tbaa !41
-  %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %46, label %12
+8:                                                ; preds = %5
+  %9 = tail call ptr @PyDict_New() #11
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store ptr %9, ptr %10, align 8, !tbaa !41
+  %.not.i = icmp eq ptr %9, null
+  br i1 %.not.i, label %45, label %11
 
-12:                                               ; preds = %9
-  %13 = tail call ptr @PyList_New(i64 noundef 0) #11
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr %13, ptr %14, align 8, !tbaa !10
-  %.not32.i = icmp eq ptr %13, null
-  br i1 %.not32.i, label %46, label %15
+11:                                               ; preds = %8
+  %12 = tail call ptr @PyList_New(i64 noundef 0) #11
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr %12, ptr %13, align 8, !tbaa !10
+  %.not32.i = icmp eq ptr %12, null
+  br i1 %.not32.i, label %45, label %14
 
-15:                                               ; preds = %12
-  %16 = load i32, ptr %1, align 8, !tbaa !4
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %_Py_NewRef.exit.i, label %18
+14:                                               ; preds = %11
+  %15 = load i32, ptr %1, align 8, !tbaa !4
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %_Py_NewRef.exit.i, label %17
 
-18:                                               ; preds = %15
-  %19 = add nuw i32 %16, 1
-  store i32 %19, ptr %1, align 8, !tbaa !4
+17:                                               ; preds = %14
+  %18 = add nuw i32 %15, 1
+  store i32 %18, ptr %1, align 8, !tbaa !4
   br label %_Py_NewRef.exit.i
 
-_Py_NewRef.exit.i:                                ; preds = %18, %15
-  store ptr %1, ptr %7, align 8, !tbaa !77
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %21 = tail call i32 @_PyFuture_FromAST(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %20) #11
-  %.not33.i = icmp eq i32 %21, 0
-  br i1 %.not33.i, label %46, label %22
+_Py_NewRef.exit.i:                                ; preds = %17, %14
+  store ptr %1, ptr %6, align 8, !tbaa !77
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %20 = tail call i32 @_PyFuture_FromAST(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %19) #11
+  %.not33.i = icmp eq i32 %20, 0
+  br i1 %.not33.i, label %45, label %21
 
-22:                                               ; preds = %_Py_NewRef.exit.i
+21:                                               ; preds = %_Py_NewRef.exit.i
   %.not34.i = icmp eq ptr %2, null
-  %spec.store.select.i = select i1 %.not34.i, ptr %6, ptr %2
-  %23 = load i32, ptr %20, align 8, !tbaa !87
-  %24 = load i32, ptr %spec.store.select.i, align 4, !tbaa !99
-  %25 = or i32 %24, %23
-  store i32 %25, ptr %20, align 8, !tbaa !87
-  store i32 %25, ptr %spec.store.select.i, align 4, !tbaa !99
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %27 = load i64, ptr %spec.store.select.i, align 4
-  store i64 %27, ptr %26, align 4
-  %28 = icmp eq i32 %3, -1
-  br i1 %28, label %29, label %33
+  %22 = load i32, ptr %19, align 8, !tbaa !87
+  br i1 %.not34.i, label %.cont37.thread.i, label %.else.i
 
-29:                                               ; preds = %22
-  %30 = tail call ptr @_Py_GetConfig() #11
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 196
-  %32 = load i32, ptr %31, align 4, !tbaa !100
-  br label %33
+.cont37.thread.i:                                 ; preds = %21
+  %.sroa.0.0.insert.ext.i = zext i32 %22 to i64
+  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.ext.i, 60129542144
+  br label %.cont.i
 
-33:                                               ; preds = %29, %22
-  %34 = phi i32 [ %32, %29 ], [ %3, %22 ]
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  store i32 %34, ptr %35, align 4, !tbaa !88
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 0, ptr %36, align 8, !tbaa !70
-  %37 = tail call i32 @_PyAST_Optimize(ptr noundef %0, ptr noundef %4, i32 noundef %34, i32 noundef %25) #11
-  %.not35.i = icmp eq i32 %37, 0
-  br i1 %.not35.i, label %46, label %38
+.else.i:                                          ; preds = %21
+  %.else.val42.i = load i32, ptr %2, align 4, !tbaa !99
+  %23 = or i32 %.else.val42.i, %22
+  store i32 %23, ptr %19, align 8, !tbaa !87
+  store i32 %23, ptr %2, align 4, !tbaa !99
+  %.else.val.i = load i64, ptr %2, align 4
+  br label %.cont.i
 
-38:                                               ; preds = %33
-  %39 = tail call ptr @_PySymtable_Build(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %20) #11
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %39, ptr %40, align 8, !tbaa !47
-  %41 = icmp eq ptr %39, null
-  br i1 %41, label %42, label %compiler_setup.exit
+.cont.i:                                          ; preds = %.else.i, %.cont37.thread.i
+  %24 = phi i32 [ %22, %.cont37.thread.i ], [ %23, %.else.i ]
+  %25 = phi i64 [ %.sroa.0.0.insert.insert.i, %.cont37.thread.i ], [ %.else.val.i, %.else.i ]
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  store i64 %25, ptr %26, align 4
+  %27 = icmp eq i32 %3, -1
+  br i1 %27, label %28, label %32
 
-42:                                               ; preds = %38
-  %43 = tail call ptr @PyErr_Occurred() #11
-  %.not36.i = icmp eq ptr %43, null
-  br i1 %.not36.i, label %44, label %46
+28:                                               ; preds = %.cont.i
+  %29 = tail call ptr @_Py_GetConfig() #11
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 196
+  %31 = load i32, ptr %30, align 4, !tbaa !100
+  br label %32
 
-44:                                               ; preds = %42
-  %45 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !28
-  tail call void @PyErr_SetString(ptr noundef %45, ptr noundef nonnull @.str.15) #11
-  br label %46
+32:                                               ; preds = %28, %.cont.i
+  %33 = phi i32 [ %31, %28 ], [ %3, %.cont.i ]
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 44
+  store i32 %33, ptr %34, align 4, !tbaa !88
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 0, ptr %35, align 8, !tbaa !70
+  %36 = tail call i32 @_PyAST_Optimize(ptr noundef %0, ptr noundef %4, i32 noundef %33, i32 noundef %24) #11
+  %.not35.i = icmp eq i32 %36, 0
+  br i1 %.not35.i, label %45, label %37
 
-compiler_setup.exit:                              ; preds = %38
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %47
+37:                                               ; preds = %32
+  %38 = tail call ptr @_PySymtable_Build(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %19) #11
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %38, ptr %39, align 8, !tbaa !47
+  %40 = icmp eq ptr %38, null
+  br i1 %40, label %41, label %compiler_setup.exit
 
-46:                                               ; preds = %_Py_NewRef.exit.i, %12, %9, %33, %42, %44
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  tail call fastcc void @compiler_free(ptr noundef %7)
-  br label %47
+41:                                               ; preds = %37
+  %42 = tail call ptr @PyErr_Occurred() #11
+  %.not36.i = icmp eq ptr %42, null
+  br i1 %.not36.i, label %43, label %45
 
-47:                                               ; preds = %compiler_setup.exit, %5, %46
-  %.0 = phi ptr [ null, %5 ], [ null, %46 ], [ %7, %compiler_setup.exit ]
+43:                                               ; preds = %41
+  %44 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !28
+  tail call void @PyErr_SetString(ptr noundef %44, ptr noundef nonnull @.str.15) #11
+  br label %45
+
+45:                                               ; preds = %_Py_NewRef.exit.i, %11, %8, %32, %41, %43
+  tail call fastcc void @compiler_free(ptr noundef %6)
+  br label %compiler_setup.exit
+
+compiler_setup.exit:                              ; preds = %37, %5, %45
+  %.0 = phi ptr [ null, %5 ], [ null, %45 ], [ %6, %37 ]
   ret ptr %.0
 }
 

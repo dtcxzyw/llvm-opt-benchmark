@@ -97,13 +97,13 @@ define weak dso_local void @AbslInternalSleepFor(i64 %0, i32 %1) local_unnamed_a
 
 6:                                                ; preds = %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit, %2
   %.sroa.222.0.copyload = phi i32 [ %.sroa.222.0.copyload.pre, %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit ], [ %1, %2 ]
-  %.val = phi i64 [ %.sroa.021.0.copyload.pre, %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit ], [ %0, %2 ]
+  %.sroa.021.0.copyload = phi i64 [ %.sroa.021.0.copyload.pre, %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit ], [ %0, %2 ]
   %.sroa.222.0.copyload.fr = freeze i32 %.sroa.222.0.copyload
-  %.not.i.i = icmp eq i64 %.val, 0
+  %.not.i.i = icmp eq i64 %.sroa.021.0.copyload, 0
   br i1 %.not.i.i, label %_ZN4abslgtENS_8DurationES0_.exit, label %7
 
 7:                                                ; preds = %6
-  %8 = icmp sgt i64 %.val, 0
+  %8 = icmp sgt i64 %.sroa.021.0.copyload, 0
   br i1 %8, label %.thread, label %20
 
 _ZN4abslgtENS_8DurationES0_.exit:                 ; preds = %6
@@ -111,10 +111,10 @@ _ZN4abslgtENS_8DurationES0_.exit:                 ; preds = %6
   br i1 %.not, label %20, label %.thread
 
 .thread:                                          ; preds = %7, %_ZN4abslgtENS_8DurationES0_.exit
-  %.not.i.i25 = icmp eq i64 %.val, 9223372036854775807
+  %.not.i.i25 = icmp eq i64 %.sroa.021.0.copyload, 9223372036854775807
   %9 = select i1 %.not.i.i25, i32 0, i32 %.sroa.222.0.copyload.fr
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %10 = call { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64 %.val, i32 %9) #6
+  %10 = call { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64 %.sroa.021.0.copyload, i32 %9) #6
   %11 = extractvalue { i64, i64 } %10, 0
   store i64 %11, ptr %3, align 8
   %12 = extractvalue { i64, i64 } %10, 1
@@ -134,7 +134,7 @@ _ZN4abslgtENS_8DurationES0_.exit:                 ; preds = %6
 
 _ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit: ; preds = %13, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %19 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %4, i64 %.val, i32 %9)
+  %19 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %4, i64 %.sroa.021.0.copyload, i32 %9)
   %.sroa.021.0.copyload.pre = load i64, ptr %4, align 8
   %.sroa.222.0.copyload.pre = load i32, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !11
   br label %6, !llvm.loop !15

@@ -986,8 +986,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZNS1_10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS7_IKNS1_11ListOfListsIiEEEEbiiPNS1_25ObservablesReducerBuilderEE3$_0E9_M_invokeERKSt9_Any_dataS6_OS8_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) #13 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i.i.i.i.i.i.i = alloca { i64, i64 }, align 8
-  %4 = alloca %"class.std::function", align 8
+  %4 = alloca %"class.std::function", align 16
   %5 = alloca %"class.std::function", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1024,30 +1023,28 @@ _ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2E
 20:                                               ; preds = %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   br label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i.i.i.i
 
 22:                                               ; preds = %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.thread.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false)
+  %.sroa.0.i.i.i.i.i.i.sroa.0.0.copyload.pre.i = load <2 x i64>, ptr %4, align 16, !tbaa !134
   br label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i.i.i.i
 
 _ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.i.i.i.i.i: ; preds = %22, %20
+  %.sroa.0.i.i.i.i.i.i.sroa.0.0.copyload.i = phi <2 x i64> [ %.sroa.0.i.i.i.i.i.i.sroa.0.0.copyload.pre.i, %22 ], [ zeroinitializer, %20 ]
   %24 = phi ptr [ %23, %22 ], [ %21, %20 ]
   %.sroa.0.0.copyload.i817.i = phi ptr [ %.sroa.0.0.copyload.i3.i, %22 ], [ %.sroa.0.0.copyload.i.i, %20 ]
   %.sroa.2.0.copyload.i1115.i = phi ptr [ %.sroa.2.0.copyload.i5.i, %22 ], [ %.sroa.2.0.copyload.i.i, %20 ]
   %25 = phi ptr [ %15, %22 ], [ %10, %20 ]
   %26 = phi ptr [ %16, %22 ], [ %11, %20 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !133
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(40) %26, i64 16, i1 false), !tbaa.struct !133
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !133
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(40) %26, i64 16, i1 false), !tbaa.struct !133
+  store <2 x i64> %.sroa.0.i.i.i.i.i.i.sroa.0.0.copyload.i, ptr %26, align 8, !tbaa !134
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 600
   %29 = load ptr, ptr %28, align 8, !tbaa !135
-  store ptr %29, ptr %27, align 8, !tbaa !135
+  store ptr %29, ptr %27, align 16, !tbaa !135
   store ptr %9, ptr %28, align 8, !tbaa !135
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 608
   %31 = load ptr, ptr %30, align 8, !tbaa !135

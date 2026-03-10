@@ -106,8 +106,7 @@ declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
 define hidden void @_ZN3smt10seq_axiomsC2ERNS_6theoryER11th_rewriter(ptr noundef nonnull align 8 dereferenceable(1240) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(53) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i20 = alloca { i64, i64 }, align 8
   %4 = alloca %"class.std::function.4", align 8
-  %.sroa.0.i.i.i.i13 = alloca { i64, i64 }, align 8
-  %5 = alloca %"class.std::function.1", align 8
+  %5 = alloca %"class.std::function.1", align 16
   %.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %6 = alloca %"class.std::function", align 8
   %7 = alloca %class.symbol, align 8
@@ -247,7 +246,7 @@ _ZNSt8functionIFvRK10ref_vectorI4expr11ast_managerEEEC2ERKS7_.exit.i.i: ; preds 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   br label %83
 
 74:                                               ; preds = %_ZNSt8functionIFvRK10ref_vectorI4expr11ast_managerEEEC2ERKS7_.exit.i.i
@@ -268,7 +267,7 @@ _ZNSt8functionIFvRK10ref_vectorI4expr11ast_managerEEEC2ERKS7_.exit.i.i: ; preds 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %.not.i.i.not.i.i.i14 = icmp eq ptr %.pre, null
   br i1 %.not.i.i.not.i.i.i14, label %_ZNSt8functionIFvP4exprEEC2ERKS3_.exit.i.i, label %83
 
@@ -283,6 +282,7 @@ _ZNSt8functionIFvRK10ref_vectorI4expr11ast_managerEEEC2ERKS7_.exit.i.i: ; preds 
 89:                                               ; preds = %83
   %90 = load ptr, ptr %58, align 8, !tbaa !77
   %91 = load ptr, ptr %57, align 8, !tbaa !76
+  %.sroa.0.i.i.i.i13.sroa.0.0.copyload.pre = load <2 x i64>, ptr %5, align 16, !tbaa !80
   br label %_ZNSt8functionIFvP4exprEEC2ERKS3_.exit.i.i
 
 92:                                               ; preds = %83
@@ -304,16 +304,14 @@ _ZNSt8functionIFvRK10ref_vectorI4expr11ast_managerEEEC2ERKS7_.exit.i.i: ; preds 
   unreachable
 
 _ZNSt8functionIFvP4exprEEC2ERKS3_.exit.i.i:       ; preds = %89, %79
+  %.sroa.0.i.i.i.i13.sroa.0.0.copyload = phi <2 x i64> [ zeroinitializer, %79 ], [ %.sroa.0.i.i.i.i13.sroa.0.0.copyload.pre, %89 ]
   %100 = phi ptr [ %82, %79 ], [ %84, %89 ]
   %101 = phi ptr [ %81, %79 ], [ %85, %89 ]
   %102 = phi ptr [ %80, %79 ], [ %86, %89 ]
   %103 = phi ptr [ null, %79 ], [ %90, %89 ]
   %104 = phi ptr [ null, %79 ], [ %91, %89 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !79
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %102, i64 16, i1 false), !tbaa.struct !79
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i13, i64 16, i1 false), !tbaa.struct !79
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i13)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %102, i64 16, i1 false), !tbaa.struct !79
+  store <2 x i64> %.sroa.0.i.i.i.i13.sroa.0.0.copyload, ptr %102, align 8, !tbaa !80
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %106 = load ptr, ptr %105, align 8, !tbaa !81
   store ptr %106, ptr %101, align 8, !tbaa !81

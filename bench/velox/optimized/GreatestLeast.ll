@@ -27151,7 +27151,6 @@ define linkonce_odr void @_ZN8facebook5velox10FlatVectorINS0_9TimestampEE13mutab
 entry:
   %ref.tmp = alloca %"class.std::optional.339", align 8
   %newValues = alloca %"class.boost::intrusive_ptr", align 8
-  %ref.tmp18.sroa.0 = alloca %"struct.facebook::velox::Timestamp", align 8
   %conv.i = sext i32 %size to i64
   %mul.i = shl nsw i64 %conv.i, 4
   %values_ = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -27190,7 +27189,6 @@ if.then13:                                        ; preds = %if.then
 if.else:                                          ; preds = %land.lhs.true6, %land.lhs.true, %entry
   %pool_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %6 = load ptr, ptr %pool_.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18.sroa.0, i8 0, i64 16, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !253)
   %7 = icmp slt i32 %size, 0
   br i1 %7, label %if.then.i.i, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i
@@ -27256,15 +27254,8 @@ if.then.i.i.i:                                    ; preds = %call.i.i.noexc.i
 
 for.body.i.i.i.preheader.i.i:                     ; preds = %call.i.i.noexc.i
   %14 = load ptr, ptr %data_.i.i.i, align 8, !noalias !253
-  %add.ptr9.i.i = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %conv.i
-  br label %for.body.i.i.i.i.i
-
-for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.preheader.i.i
-  %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %14, %for.body.i.i.i.preheader.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18.sroa.0, i64 16, i1 false), !noalias !253
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 16
-  %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr9.i.i
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN8facebook5velox13AlignedBuffer8allocateINS0_9TimestampEEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit, label %for.body.i.i.i.i.i, !llvm.loop !256
+  tail call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 %mul.i, i1 false), !noalias !253
+  br label %_ZN8facebook5velox13AlignedBuffer8allocateINS0_9TimestampEEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
 
 common.resume:                                    ; preds = %lpad, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %15, %lpad.i ], [ %23, %lpad ]
@@ -27276,7 +27267,7 @@ lpad.i:                                           ; preds = %if.then6.i.i
           cleanup
   br label %common.resume
 
-_ZN8facebook5velox13AlignedBuffer8allocateINS0_9TimestampEEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit: ; preds = %for.body.i.i.i.i.i, %if.end.i.i
+_ZN8facebook5velox13AlignedBuffer8allocateINS0_9TimestampEEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit: ; preds = %for.body.i.i.i.preheader.i.i, %if.end.i.i
   %16 = load ptr, ptr %values_, align 8
   %cmp.i7.not = icmp eq ptr %16, null
   br i1 %cmp.i7.not, label %if.end37, label %if.then22
