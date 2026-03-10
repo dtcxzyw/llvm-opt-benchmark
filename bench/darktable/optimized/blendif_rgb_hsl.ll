@@ -3028,7 +3028,7 @@ define internal void @_blend_pinlight(ptr noundef readonly captures(none) %0, pt
   %31 = fmul reassoc nsz arcp contract afn float %8, %30
   %32 = fadd reassoc nsz arcp contract afn float %31, %19
   %33 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %32, float 0.000000e+00)
-  %34 = tail call reassoc nsz arcp contract afn noundef float @llvm.minnum.f32(float %33, float 1.000000e+00)
+  %30 = tail call reassoc nsz arcp contract afn noundef float @llvm.minnum.f32(float %33, float 1.000000e+00)
   %35 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %15
   store float %34, ptr %35, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
