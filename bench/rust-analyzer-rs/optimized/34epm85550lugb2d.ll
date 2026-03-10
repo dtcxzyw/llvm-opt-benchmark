@@ -13961,12 +13961,11 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %9 = load ptr, ptr %8, align 8, !noalias !4383
   %.sroa.0.0.i = select i1 %trunc.i, ptr %7, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4383
-  %10 = icmp ne ptr %.sroa.0.0.i, null
-  %.not2 = and i1 %10, %trunc.i
-  %. = select i1 %.not2, ptr %9, ptr undef
-  %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr %., 1
-  ret { ptr, ptr } %12
+  %.not = icmp eq ptr %.sroa.0.0.i, null
+  %spec.select = select i1 %.not, ptr undef, ptr %9
+  %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %11 = insertvalue { ptr, ptr } %10, ptr %spec.select, 1
+  ret { ptr, ptr } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14195,12 +14194,11 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %9 = load ptr, ptr %8, align 8, !noalias !4475
   %.sroa.0.0.i = select i1 %trunc.i, ptr %7, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4475
-  %10 = icmp ne ptr %.sroa.0.0.i, null
-  %.not2 = and i1 %10, %trunc.i
-  %. = select i1 %.not2, ptr %9, ptr undef
-  %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr %., 1
-  ret { ptr, ptr } %12
+  %.not = icmp eq ptr %.sroa.0.0.i, null
+  %spec.select = select i1 %.not, ptr undef, ptr %9
+  %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %11 = insertvalue { ptr, ptr } %10, ptr %spec.select, 1
+  ret { ptr, ptr } %11
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14921,12 +14919,11 @@ define hidden { ptr, ptr } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %13 = load ptr, ptr %12, align 8, !noalias !4780
   %.sroa.0.0.i = select i1 %trunc.i, ptr %11, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4780
-  %14 = icmp ne ptr %.sroa.0.0.i, null
-  %.not2 = and i1 %14, %trunc.i
-  %. = select i1 %.not2, ptr %13, ptr undef
-  %15 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %16 = insertvalue { ptr, ptr } %15, ptr %., 1
-  ret { ptr, ptr } %16
+  %.not = icmp eq ptr %.sroa.0.0.i, null
+  %spec.select = select i1 %.not, ptr undef, ptr %13
+  %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %15 = insertvalue { ptr, ptr } %14, ptr %spec.select, 1
+  ret { ptr, ptr } %15
 }
 
 ; Function Attrs: nonlazybind uwtable

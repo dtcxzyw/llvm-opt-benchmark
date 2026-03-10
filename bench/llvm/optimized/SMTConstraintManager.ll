@@ -2431,7 +2431,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit10: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, %24
   %25 = call i16 @_ZNK5clang4ento20SMTConstraintManager10checkModelEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_7SymExprERKPKNS2_7SMTExprE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %9, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %.sroa.5.0.extract.shift = lshr i16 %25, 8
   %26 = load ptr, ptr %9, align 8, !tbaa !47
   %.not.i.i11 = icmp eq ptr %26, null
   br i1 %.not.i.i11, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12, label %27
@@ -2443,27 +2442,25 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit10: ; pre
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit10, %27
   %28 = and i16 %20, 257
   %29 = icmp eq i16 %28, 257
-  br i1 %29, label %30, label %35
+  br i1 %29, label %30, label %33
 
 30:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12
-  %31 = trunc i16 %.sroa.5.0.extract.shift to i1
-  %32 = trunc i16 %25 to i1
-  %33 = xor i1 %32, true
-  %34 = and i1 %33, %31
-  br i1 %34, label %39, label %.thread
+  %31 = and i16 %25, 257
+  %32 = icmp eq i16 %31, 256
+  br i1 %32, label %37, label %.thread
 
-35:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12
-  %36 = icmp eq i16 %28, 256
-  %37 = and i16 %.sroa.5.0.extract.shift, %25
-  %38 = trunc i16 %37 to i1
-  %or.cond = select i1 %36, i1 %38, i1 false
-  br i1 %or.cond, label %39, label %.thread
+33:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12
+  %34 = icmp eq i16 %28, 256
+  %35 = and i16 %25, 257
+  %36 = icmp eq i16 %35, 257
+  %or.cond = select i1 %34, i1 %36, i1 false
+  br i1 %or.cond, label %37, label %.thread
 
-.thread:                                          ; preds = %30, %35
-  br label %39
+.thread:                                          ; preds = %30, %33
+  br label %37
 
-39:                                               ; preds = %35, %30, %.thread
-  %.sroa.4.0 = phi i16 [ 0, %.thread ], [ 257, %30 ], [ 256, %35 ]
+37:                                               ; preds = %33, %30, %.thread
+  %.sroa.4.0 = phi i16 [ 0, %.thread ], [ 257, %30 ], [ 256, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
