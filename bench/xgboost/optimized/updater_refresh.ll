@@ -6262,11 +6262,11 @@ define linkonce_odr void @_ZZN7xgboost4tree13TreeRefresher6UpdateEPKNS0_10TrainP
   %4 = load ptr, ptr %3, align 8, !tbaa !110
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !110
-  %.not14 = icmp eq ptr %4, %6
-  br i1 %.not14, label %._crit_edge, label %.lr.ph
+  %.not13 = icmp eq ptr %4, %6
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %7 = sext i32 %68 to i64
+  %7 = sext i32 %63 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
@@ -6313,9 +6313,9 @@ _ZNSt6vectorIN7xgboost4tree9GradStatsESaIS2_EE6resizeEmRKS2_.exit: ; preds = %19
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !292
   %.not5.i.i.i.i = icmp eq ptr %28, %30
-  br i1 %.not5.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost4tree9GradStatsESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit, label %.lr.ph.i.i.i.i.preheader
+  br i1 %.not5.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost4tree9GradStatsESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %_ZNSt6vectorIN7xgboost4tree9GradStatsESaIS2_EE6resizeEmRKS2_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorIN7xgboost4tree9GradStatsESaIS2_EE6resizeEmRKS2_.exit
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %28 to i64
   %33 = add i64 %31, -16
@@ -6325,15 +6325,15 @@ _ZNSt6vectorIN7xgboost4tree9GradStatsESaIS2_EE6resizeEmRKS2_.exit: ; preds = %19
   call void @llvm.memset.p0.i64(ptr align 8 %28, i8 0, i64 %36, i1 false)
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost4tree9GradStatsESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit
 
-_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost4tree9GradStatsESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %_ZNSt6vectorIN7xgboost4tree9GradStatsESaIS2_EE6resizeEmRKS2_.exit
+_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost4tree9GradStatsESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit:; preds = %.lr.ph.i.i.i.i.preheader, %_ZNSt6vectorIN7xgboost4tree9GradStatsESaIS2_EE6resizeEmRKS2_.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !297
-  %39 = load ptr, ptr %38, align 8, !tbaa !68
+  %36 = load ptr, ptr %37, align 8, !tbaa !297
+  %37 = load ptr, ptr %36, align 8, !tbaa !68
   %40 = load ptr, ptr %0, align 8, !tbaa !294
-  %41 = load ptr, ptr %40, align 8, !tbaa !62
-  %42 = load ptr, ptr %41, align 8, !tbaa !115
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %44 = load i32, ptr %43, align 8, !tbaa !298
+  %39 = load ptr, ptr %40, align 8, !tbaa !62
+  %42 = load ptr, ptr %39, align 8, !tbaa !115
+  %41 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %42 = load i32, ptr %41, align 8, !tbaa !298
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !273
@@ -6345,53 +6345,53 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost4tree9GradStatsESt6vectorIS4_
   %53 = icmp ult i64 %52, %45
   br i1 %53, label %54, label %56
 
-54:                                               ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost4tree9GradStatsESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit
+54:; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost4tree9GradStatsESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit
   %55 = sub nuw nsw i64 %45, %52
   call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(25) %39, i64 noundef %55)
   %.pre.i = load ptr, ptr %39, align 8, !tbaa !282
   %.pre2.i = load ptr, ptr %46, align 8, !tbaa !282
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
-56:                                               ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost4tree9GradStatsESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit
-  %57 = icmp ugt i64 %52, %45
-  br i1 %57, label %58, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
+51:                                               ; preds = %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost4tree9GradStatsESt6vectorIS4_SaIS4_EEEES4_EvT_SA_RKT0_.exit
+  %52 = icmp ugt i64 %52, %45
+  br i1 %52, label %53, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
-58:                                               ; preds = %56
-  %59 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %45
-  %.not.i.i.i = icmp eq ptr %47, %59
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i, label %60
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %45
+  %.not.i.i.i = icmp eq ptr %47, %54
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i, label %55
 
-60:                                               ; preds = %58
-  store ptr %59, ptr %46, align 8, !tbaa !273
+55:                                               ; preds = %53
+  store ptr %54, ptr %46, align 8, !tbaa !273
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
-_ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %60, %58, %56, %54
-  %61 = phi ptr [ %.pre2.i, %54 ], [ %47, %56 ], [ %47, %58 ], [ %59, %60 ]
-  %62 = phi ptr [ %.pre.i, %54 ], [ %48, %56 ], [ %48, %58 ], [ %48, %60 ]
-  %.not6.i.i.i.i.i = icmp eq ptr %62, %61
+_ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %55, %53, %51, %54
+  %56 = phi ptr [ %.pre2.i, %54 ], [ %47, %56 ], [ %47, %58 ], [ %54, %60 ]
+  %57 = phi ptr [ %.pre.i, %54 ], [ %48, %56 ], [ %48, %58 ], [ %48, %60 ]
+  %.not6.i.i.i.i.i = icmp eq ptr %57, %56
   br i1 %.not6.i.i.i.i.i, label %_ZN7xgboost7RegTree4FVec4InitEm.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i, %.lr.ph.i.i.i.i.i
-  %.07.i.i.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i.i.i ], [ %62, %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i ]
+  %.07.i.i.i.i.i = phi ptr [ %58, %.lr.ph.i.i.i.i.i ], [ %57, %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i ]
   store float 0x7FF8000000000000, ptr %.07.i.i.i.i.i, align 4, !tbaa !299
-  %63 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i = icmp eq ptr %63, %61
+  %58 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i = icmp eq ptr %58, %56
   br i1 %.not.i.i.i.i.i, label %_ZN7xgboost7RegTree4FVec4InitEm.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !300
 
 _ZN7xgboost7RegTree4FVec4InitEm.exit:             ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
-  %64 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  store i8 1, ptr %64, align 8, !tbaa !274
+  %59 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  store i8 1, ptr %59, align 8, !tbaa !274
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.016 = phi i32 [ %68, %.lr.ph ], [ 0, %1 ]
-  %.sroa.011.015 = phi ptr [ %69, %.lr.ph ], [ %4, %1 ]
-  %65 = load ptr, ptr %.sroa.011.015, align 8, !tbaa !115
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 12
-  %67 = load i32, ptr %66, align 4, !tbaa !117
-  %68 = add nsw i32 %67, %.016
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 8
-  %.not = icmp eq ptr %69, %6
+  %.015 = phi i32 [ %63, %.lr.ph ], [ 0, %1 ]
+  %.sroa.010.014 = phi ptr [ %64, %.lr.ph ], [ %4, %1 ]
+  %60 = load ptr, ptr %.sroa.010.014, align 8, !tbaa !115
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
+  %62 = load i32, ptr %61, align 4, !tbaa !117
+  %63 = add nsw i32 %62, %.015
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 8
+  %.not = icmp eq ptr %64, %6
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 

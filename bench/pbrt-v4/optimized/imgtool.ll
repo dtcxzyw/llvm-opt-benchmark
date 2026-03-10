@@ -20333,20 +20333,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %.sroa.09.0.insert.insert.i19.i = or disjoint i64 %.sroa.2.0.insert.shift.i17.i, %.sroa.09.0.insert.ext.i18.i
   %115 = load i8, ptr %27, align 8, !tbaa !86, !range !201, !noundef !202
   %116 = trunc nuw i8 %115 to i1
-  %.sroa.0.0.copyload.i95.sroa.speculate.load.true = load i64, ptr %25, align 8
-  %.sroa.0.0.copyload.i95.sroa.speculated = select i1 %116, i64 %.sroa.0.0.copyload.i95.sroa.speculate.load.true, i64 %.sroa.09.0.insert.insert.i.i
-  %.sroa.2.0.copyload.i.sroa.speculate.load.true = load i64, ptr %.sroa.gep, align 8
-  %.sroa.2.0.copyload.i.sroa.speculated = select i1 %116, i64 %.sroa.2.0.copyload.i.sroa.speculate.load.true, i64 %.sroa.09.0.insert.insert.i19.i
+  %.val = load i64, ptr %25, align 8
+  %.sroa.0.0.copyload.i95 = select i1 %116, i64 %.val, i64 %.sroa.09.0.insert.insert.i.i
+  %.sroa.gep.val = load i64, ptr %.sroa.gep, align 8
+  %.sroa.2.0.copyload.i = select i1 %116, i64 %.sroa.gep.val, i64 %.sroa.09.0.insert.insert.i19.i
   br i1 %.057389, label %117, label %264
 
 117:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %.sroa.0.0.extract.trunc.i.i97 = trunc i64 %.sroa.0.0.copyload.i95.sroa.speculated to i32
-  %.sroa.2.0.extract.shift.i.i = lshr i64 %.sroa.0.0.copyload.i95.sroa.speculated, 32
-  %.sroa.19.8.extract.trunc428 = trunc i64 %.sroa.2.0.copyload.i.sroa.speculated to i32
-  %118 = sub i64 %.sroa.2.0.copyload.i.sroa.speculated, %.sroa.0.0.copyload.i95.sroa.speculated
-  %.sroa.19.12.extract.shift438 = lshr i64 %.sroa.2.0.copyload.i.sroa.speculated, 32
+  %.sroa.0.0.extract.trunc.i.i97 = trunc i64 %.sroa.0.0.copyload.i95 to i32
+  %.sroa.2.0.extract.shift.i.i = lshr i64 %.sroa.0.0.copyload.i95, 32
+  %.sroa.19.8.extract.trunc428 = trunc i64 %.sroa.2.0.copyload.i to i32
+  %118 = sub i64 %.sroa.2.0.copyload.i, %.sroa.0.0.copyload.i95
+  %.sroa.19.12.extract.shift438 = lshr i64 %.sroa.2.0.copyload.i, 32
   %119 = sub nsw i64 %.sroa.19.12.extract.shift438, %.sroa.2.0.extract.shift.i.i
   %120 = mul i64 %119, %118
   %sext = shl i64 %120, 32
@@ -20364,9 +20364,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %.not490, label %._crit_edge374, label %.lr.ph373
 
 .lr.ph373:                                        ; preds = %122
-  %.sroa.0205.0.insert.ext211 = and i64 %.sroa.0.0.copyload.i95.sroa.speculated, 4294967295
+  %.sroa.0205.0.insert.ext211 = and i64 %.sroa.0.0.copyload.i95, 4294967295
   %invariant.op = or disjoint i64 %.sroa.0205.0.insert.ext211, 4294967296
-  %124 = and i64 %.sroa.0.0.copyload.i95.sroa.speculated, -4294967296
+  %124 = and i64 %.sroa.0.0.copyload.i95, -4294967296
   br label %146
 
 ._crit_edge374:                                   ; preds = %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit, %122
@@ -20438,11 +20438,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 
 146:                                              ; preds = %.lr.ph373, %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit
   %.sroa.0205.0.extract.trunc371 = phi i32 [ %.sroa.0.0.extract.trunc.i.i97, %.lr.ph373 ], [ %.sroa.0205.0.extract.trunc, %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit ]
-  %.sroa.0205.0370 = phi i64 [ %.sroa.0.0.copyload.i95.sroa.speculated, %.lr.ph373 ], [ %.sroa.0205.1, %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit ]
+  %.sroa.0205.0370 = phi i64 [ %.sroa.0.0.copyload.i95, %.lr.ph373 ], [ %.sroa.0205.1, %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %.sroa.0205.0370, ptr %10, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %147 = sub i64 %.sroa.0205.0370, %.sroa.0.0.copyload.i95.sroa.speculated
+  %147 = sub i64 %.sroa.0205.0370, %.sroa.0.0.copyload.i95
   %148 = sub i64 %.sroa.0205.0370, %124
   %.sroa.2202.0.insert.ext = and i64 %148, -4294967296
   %.sroa.0201.0.insert.ext = and i64 %147, 4294967295
@@ -20786,16 +20786,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 273:                                              ; preds = %265
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %.sroa.0.4.extract.shift413 = lshr i64 %.sroa.0.0.copyload.i95.sroa.speculated, 32
+  %.sroa.0.4.extract.shift413 = lshr i64 %.sroa.0.0.copyload.i95, 32
   %.sroa.0.4.extract.trunc414 = trunc nuw i64 %.sroa.0.4.extract.shift413 to i32
-  %.sroa.19.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i.sroa.speculated, 32
+  %.sroa.19.12.extract.shift = lshr i64 %.sroa.2.0.copyload.i, 32
   %.sroa.19.12.extract.trunc = trunc nuw i64 %.sroa.19.12.extract.shift to i32
   %274 = icmp slt i32 %.sroa.0.4.extract.trunc414, %.sroa.19.12.extract.trunc
   br i1 %274, label %.lr.ph363, label %.loopexit279
 
 .lr.ph363:                                        ; preds = %273
-  %.sroa.0.0.extract.trunc403 = trunc i64 %.sroa.0.0.copyload.i95.sroa.speculated to i32
-  %.sroa.19.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i.sroa.speculated to i32
+  %.sroa.0.0.extract.trunc403 = trunc i64 %.sroa.0.0.copyload.i95 to i32
+  %.sroa.19.8.extract.trunc = trunc i64 %.sroa.2.0.copyload.i to i32
   %275 = icmp slt i32 %.sroa.0.0.extract.trunc403, %.sroa.19.8.extract.trunc
   br i1 %275, label %.lr.ph359.us, label %.lr.ph363.split
 
@@ -21009,12 +21009,12 @@ _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit.us: ; preds = %
   br label %437
 
 359:                                              ; preds = %264
-  %.sroa.0.0.extract.trunc409 = trunc i64 %.sroa.0.0.copyload.i95.sroa.speculated to i32
-  %.sroa.19.12.extract.shift444 = lshr i64 %.sroa.2.0.copyload.i.sroa.speculated, 32
+  %.sroa.0.0.extract.trunc409 = trunc i64 %.sroa.0.0.copyload.i95 to i32
+  %.sroa.19.12.extract.shift444 = lshr i64 %.sroa.2.0.copyload.i, 32
   %.sroa.19.12.extract.trunc445 = trunc nuw i64 %.sroa.19.12.extract.shift444 to i32
-  %.sroa.19.8.extract.trunc434 = trunc i64 %.sroa.2.0.copyload.i.sroa.speculated to i32
+  %.sroa.19.8.extract.trunc434 = trunc i64 %.sroa.2.0.copyload.i to i32
   %.not.i135 = icmp sge i32 %.sroa.0.0.extract.trunc409, %.sroa.19.8.extract.trunc434
-  %.sroa.0.4.extract.shift422 = lshr i64 %.sroa.0.0.copyload.i95.sroa.speculated, 32
+  %.sroa.0.4.extract.shift422 = lshr i64 %.sroa.0.0.copyload.i95, 32
   %.sroa.0.4.extract.trunc423 = trunc nuw i64 %.sroa.0.4.extract.shift422 to i32
   %360 = call i32 @llvm.smax.i32(i32 %.sroa.0.4.extract.trunc423, i32 %.sroa.19.12.extract.trunc445)
   %.not489 = icmp sge i32 %.sroa.0.4.extract.trunc423, %.sroa.19.12.extract.trunc445
@@ -21022,13 +21022,13 @@ _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit.us: ; preds = %
   br i1 %.not, label %.loopexit279, label %.lr.ph356
 
 .lr.ph356:                                        ; preds = %359
-  %.sroa.0178.0.insert.ext184 = and i64 %.sroa.0.0.copyload.i95.sroa.speculated, 4294967295
+  %.sroa.0178.0.insert.ext184 = and i64 %.sroa.0.0.copyload.i95, 4294967295
   br label %361
 
 361:                                              ; preds = %.lr.ph356, %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit157
   %.sroa.0178.4.extract.trunc354 = phi i32 [ %.sroa.0.4.extract.trunc423, %.lr.ph356 ], [ %.sroa.0178.4.extract.trunc, %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit157 ]
   %.sroa.0178.0.extract.trunc353 = phi i32 [ %.sroa.0.0.extract.trunc409, %.lr.ph356 ], [ %.sroa.0178.0.extract.trunc, %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit157 ]
-  %.sroa.0178.0352 = phi i64 [ %.sroa.0.0.copyload.i95.sroa.speculated, %.lr.ph356 ], [ %.sroa.0178.1, %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit157 ]
+  %.sroa.0178.0352 = phi i64 [ %.sroa.0.0.copyload.i95, %.lr.ph356 ], [ %.sroa.0178.1, %_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit157 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %362 = sub nsw i32 %.sroa.0178.0.extract.trunc353, %.sroa.0.0.extract.trunc409
   %363 = sub nsw i32 %.sroa.0178.4.extract.trunc354, %.sroa.0.4.extract.trunc423

@@ -53024,43 +53024,43 @@ _ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_
 
 if.else:                                          ; preds = %entry
   %cmp.i = icmp eq ptr %__first, %__last
-  br i1 %cmp.i, label %if.end, label %for.cond.preheader.i
+  br i1 %cmp.i, label %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit58, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.else
-  %__i.013.i20 = getelementptr inbounds nuw i8, ptr %__first, i64 16
-  %cmp1.not14.i = icmp eq ptr %__i.013.i20, %__last
-  br i1 %cmp1.not14.i, label %if.end, label %for.body.lr.ph.i
+  %__i.013.i21 = getelementptr inbounds nuw i8, ptr %__first, i64 16
+  %cmp1.not14.i = icmp eq ptr %__i.013.i21, %__last
+  br i1 %cmp1.not14.i, label %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit58, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %nanos_6.i.i.i21 = getelementptr inbounds nuw i8, ptr %__first, i64 8
-  br label %for.body.i23
+  %nanos_6.i.i.i22 = getelementptr inbounds nuw i8, ptr %__first, i64 8
+  br label %for.body.i24
 
-for.body.i23:                                     ; preds = %for.inc.i39, %for.body.lr.ph.i
-  %__i.016.i24 = phi ptr [ %__i.013.i20, %for.body.lr.ph.i ], [ %__i.0.i40, %for.inc.i39 ]
-  %__first.pn15.i25 = phi ptr [ %__first, %for.body.lr.ph.i ], [ %__i.016.i24, %for.inc.i39 ]
-  %8 = load i64, ptr %__i.016.i24, align 8
+for.body.i24:                                     ; preds = %for.inc.i39, %for.body.lr.ph.i
+  %__i.016.i25 = phi ptr [ %__i.013.i21, %for.body.lr.ph.i ], [ %__i.0.i40, %for.inc.i39 ]
+  %__first.pn15.i26 = phi ptr [ %__first, %for.body.lr.ph.i ], [ %__i.016.i25, %for.inc.i39 ]
+  %8 = load i64, ptr %__i.016.i25, align 8
   %9 = load i64, ptr %__first, align 8
-  %cmp.i.i.i26 = icmp slt i64 %8, %9
-  br i1 %cmp.i.i.i26, label %if.then2.i48, label %lor.rhs.i.i.i27
+  %cmp.i.i.i27 = icmp slt i64 %8, %9
+  br i1 %cmp.i.i.i27, label %if.then2.i49, label %lor.rhs.i.i.i28
 
-lor.rhs.i.i.i27:                                  ; preds = %for.body.i23
-  %cmp5.i.i.i28 = icmp eq i64 %8, %9
-  %nanos_.i.i.i29 = getelementptr inbounds nuw i8, ptr %__first.pn15.i25, i64 24
-  %10 = load i64, ptr %nanos_.i.i.i29, align 8
-  br i1 %cmp5.i.i.i28, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN8facebook5velox9TimestampES6_EEbT_T0_.exit.i46, label %while.cond.i.i31.preheader
+lor.rhs.i.i.i28:                                  ; preds = %for.body.i24
+  %cmp5.i.i.i29 = icmp eq i64 %8, %9
+  %nanos_.i.i.i30 = getelementptr inbounds nuw i8, ptr %__first.pn15.i26, i64 24
+  %10 = load i64, ptr %nanos_.i.i.i30, align 8
+  br i1 %cmp5.i.i.i29, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN8facebook5velox9TimestampES6_EEbT_T0_.exit.i47, label %while.cond.i.i32.preheader
 
-while.cond.i.i31.preheader:                       ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN8facebook5velox9TimestampES6_EEbT_T0_.exit.i46, %lor.rhs.i.i.i27
-  br label %while.cond.i.i31
+while.cond.i.i32.preheader:                       ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN8facebook5velox9TimestampES6_EEbT_T0_.exit.i47, %lor.rhs.i.i.i28
+  br label %while.cond.i.i32
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN8facebook5velox9TimestampES6_EEbT_T0_.exit.i46: ; preds = %lor.rhs.i.i.i27
-  %11 = load i64, ptr %nanos_6.i.i.i21, align 8
-  %cmp7.i.i.i47 = icmp ult i64 %10, %11
-  br i1 %cmp7.i.i.i47, label %if.then2.i48, label %while.cond.i.i31.preheader
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN8facebook5velox9TimestampES6_EEbT_T0_.exit.i47: ; preds = %lor.rhs.i.i.i28
+  %11 = load i64, ptr %nanos_6.i.i.i22, align 8
+  %cmp7.i.i.i48 = icmp ult i64 %10, %11
+  br i1 %cmp7.i.i.i48, label %if.then2.i49, label %while.cond.i.i32.preheader
 
-if.then2.i48:                                     ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN8facebook5velox9TimestampES6_EEbT_T0_.exit.i46, %for.body.i23
-  %__val.sroa.0.0.copyload.i49 = load <2 x i64>, ptr %__i.016.i24, align 8
-  %add.ptr3.i50 = getelementptr inbounds nuw i8, ptr %__first.pn15.i25, i64 32
-  %sub.ptr.lhs.cast.i.i.i.i.i.i51 = ptrtoint ptr %__i.016.i24 to i64
+if.then2.i49:                                     ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN8facebook5velox9TimestampES6_EEbT_T0_.exit.i47, %for.body.i24
+  %__val.sroa.0.0.copyload.i49 = load <2 x i64>, ptr %__i.016.i25, align 8
+  %add.ptr3.i50 = getelementptr inbounds nuw i8, ptr %__first.pn15.i26, i64 32
+  %sub.ptr.lhs.cast.i.i.i.i.i.i51 = ptrtoint ptr %__i.016.i25 to i64
   %sub.ptr.sub.i.i.i.i.i.i52 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i51, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i53 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i52, 4
   %idx.neg.i.i.i.i.i.i54 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i53
@@ -53069,28 +53069,28 @@ if.then2.i48:                                     ; preds = %_ZNK9__gnu_cxx5__op
   store <2 x i64> %__val.sroa.0.0.copyload.i49, ptr %__first, align 8
   br label %for.inc.i39
 
-while.cond.i.i31:                                 ; preds = %while.cond.i.i31.preheader, %while.body.i.i45
-  %__last.addr.0.i.i32 = phi ptr [ %__next.0.i.i33, %while.body.i.i45 ], [ %__i.016.i24, %while.cond.i.i31.preheader ]
-  %__next.0.i.i33 = getelementptr inbounds i8, ptr %__last.addr.0.i.i32, i64 -16
-  %12 = load i64, ptr %__next.0.i.i33, align 8
-  %cmp.i.i.i.i34 = icmp slt i64 %8, %12
-  br i1 %cmp.i.i.i.i34, label %while.body.i.i45, label %lor.rhs.i.i.i.i35
+while.cond.i.i32:                                 ; preds = %while.cond.i.i32.preheader, %while.body.i.i46
+  %__last.addr.0.i.i33 = phi ptr [ %__next.0.i.i34, %while.body.i.i45 ], [ %__i.016.i25, %while.cond.i.i31.preheader ]
+  %__next.0.i.i34 = getelementptr inbounds i8, ptr %__last.addr.0.i.i33, i64 -16
+  %12 = load i64, ptr %__next.0.i.i34, align 8
+  %cmp.i.i.i.i35 = icmp slt i64 %8, %12
+  br i1 %cmp.i.i.i.i35, label %while.body.i.i46, label %lor.rhs.i.i.i.i36
 
-lor.rhs.i.i.i.i35:                                ; preds = %while.cond.i.i31
-  %cmp5.i.i.i.i36 = icmp eq i64 %8, %12
-  br i1 %cmp5.i.i.i.i36, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN8facebook5velox9TimestampEPS5_EEbRT_T0_.exit.i.i42, label %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i37
+lor.rhs.i.i.i.i36:                                ; preds = %while.cond.i.i32
+  %cmp5.i.i.i.i37 = icmp eq i64 %8, %12
+  br i1 %cmp5.i.i.i.i37, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN8facebook5velox9TimestampEPS5_EEbRT_T0_.exit.i.i43, label %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i37
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN8facebook5velox9TimestampEPS5_EEbRT_T0_.exit.i.i42: ; preds = %lor.rhs.i.i.i.i35
-  %nanos_6.i.i.i.i43 = getelementptr inbounds i8, ptr %__last.addr.0.i.i32, i64 -8
-  %13 = load i64, ptr %nanos_6.i.i.i.i43, align 8
-  %cmp7.i.i.i.i44 = icmp ult i64 %10, %13
-  br i1 %cmp7.i.i.i.i44, label %while.body.i.i45, label %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i37
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN8facebook5velox9TimestampEPS5_EEbRT_T0_.exit.i.i43: ; preds = %lor.rhs.i.i.i.i36
+  %nanos_6.i.i.i.i44 = getelementptr inbounds i8, ptr %__last.addr.0.i.i33, i64 -8
+  %13 = load i64, ptr %nanos_6.i.i.i.i44, align 8
+  %cmp7.i.i.i.i45 = icmp ult i64 %10, %13
+  br i1 %cmp7.i.i.i.i45, label %while.body.i.i46, label %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i37
 
-while.body.i.i45:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN8facebook5velox9TimestampEPS5_EEbRT_T0_.exit.i.i42, %while.cond.i.i31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i32, ptr noundef nonnull align 8 dereferenceable(16) %__next.0.i.i33, i64 16, i1 false)
-  br label %while.cond.i.i31, !llvm.loop !603
+while.body.i.i46:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN8facebook5velox9TimestampEPS5_EEbRT_T0_.exit.i.i43, %while.cond.i.i32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i33, ptr noundef nonnull align 8 dereferenceable(16) %__next.0.i.i34, i64 16, i1 false)
+  br label %while.cond.i.i32, !llvm.loop !603
 
-_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i37: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN8facebook5velox9TimestampEPS5_EEbRT_T0_.exit.i.i42, %lor.rhs.i.i.i.i35
+_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i37:; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN8facebook5velox9TimestampEPS5_EEbRT_T0_.exit.i.i42, %lor.rhs.i.i.i.i36
   store i64 %8, ptr %__last.addr.0.i.i32, align 8
   %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i38 = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i32, i64 8
   store i64 %10, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i38, align 8
@@ -53830,84 +53830,84 @@ _ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_
 
 if.else:                                          ; preds = %entry
   %cmp.i = icmp eq ptr %__first, %__last
-  br i1 %cmp.i, label %if.end, label %for.cond.preheader.i
+  br i1 %cmp.i, label %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit58, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.else
-  %__i.013.i22 = getelementptr inbounds nuw i8, ptr %__first, i64 16
-  %cmp1.not14.i = icmp eq ptr %__i.013.i22, %__last
-  br i1 %cmp1.not14.i, label %if.end, label %for.body.lr.ph.i
+  %__i.013.i23 = getelementptr inbounds nuw i8, ptr %__first, i64 16
+  %cmp1.not14.i = icmp eq ptr %__i.013.i23, %__last
+  br i1 %cmp1.not14.i, label %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit58, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %nanos_6.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %__first, i64 8
-  br label %for.body.i25
+  %nanos_6.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__first, i64 8
+  br label %for.body.i26
 
-for.body.i25:                                     ; preds = %for.inc.i41, %for.body.lr.ph.i
-  %__i.016.i26 = phi ptr [ %__i.013.i22, %for.body.lr.ph.i ], [ %__i.0.i42, %for.inc.i41 ]
-  %__first.pn15.i27 = phi ptr [ %__first, %for.body.lr.ph.i ], [ %__i.016.i26, %for.inc.i41 ]
-  %8 = load i64, ptr %__i.016.i26, align 8
+for.body.i26:                                     ; preds = %for.inc.i42, %for.body.lr.ph.i
+  %__i.016.i27 = phi ptr [ %__i.013.i23, %for.body.lr.ph.i ], [ %__i.0.i43, %for.inc.i41 ]
+  %__first.pn15.i28 = phi ptr [ %__first, %for.body.lr.ph.i ], [ %__i.016.i27, %for.inc.i41 ]
+  %8 = load i64, ptr %__i.016.i27, align 8
   %9 = load i64, ptr %__first, align 8
-  %cmp.i.i.i.i28 = icmp sgt i64 %8, %9
-  br i1 %cmp.i.i.i.i28, label %if.then2.i50, label %lor.rhs.i.i.i.i29
+  %cmp.i.i.i.i29 = icmp sgt i64 %8, %9
+  br i1 %cmp.i.i.i.i29, label %if.then2.i51, label %lor.rhs.i.i.i.i30
 
-lor.rhs.i.i.i.i29:                                ; preds = %for.body.i25
-  %cmp5.i.i.i.i30 = icmp eq i64 %8, %9
-  %nanos_.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %__first.pn15.i27, i64 24
-  %10 = load i64, ptr %nanos_.i.i.i.i31, align 8
-  br i1 %cmp5.i.i.i.i30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIPS5_S9_EEbT_T0_.exit.i48, label %while.cond.i.i33.preheader
+lor.rhs.i.i.i.i30:                                ; preds = %for.body.i26
+  %cmp5.i.i.i.i31 = icmp eq i64 %8, %9
+  %nanos_.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %__first.pn15.i28, i64 24
+  %10 = load i64, ptr %nanos_.i.i.i.i32, align 8
+  br i1 %cmp5.i.i.i.i31, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIPS5_S9_EEbT_T0_.exit.i49, label %while.cond.i.i34.preheader
 
-while.cond.i.i33.preheader:                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIPS5_S9_EEbT_T0_.exit.i48, %lor.rhs.i.i.i.i29
-  br label %while.cond.i.i33
+while.cond.i.i34.preheader:                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIPS5_S9_EEbT_T0_.exit.i49, %lor.rhs.i.i.i.i30
+  br label %while.cond.i.i34
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIPS5_S9_EEbT_T0_.exit.i48: ; preds = %lor.rhs.i.i.i.i29
-  %11 = load i64, ptr %nanos_6.i.i.i.i23, align 8
-  %cmp7.i.i.i.i49 = icmp ugt i64 %10, %11
-  br i1 %cmp7.i.i.i.i49, label %if.then2.i50, label %while.cond.i.i33.preheader
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIPS5_S9_EEbT_T0_.exit.i49: ; preds = %lor.rhs.i.i.i.i30
+  %11 = load i64, ptr %nanos_6.i.i.i.i24, align 8
+  %cmp7.i.i.i.i50 = icmp ugt i64 %10, %11
+  br i1 %cmp7.i.i.i.i50, label %if.then2.i51, label %while.cond.i.i34.preheader
 
-if.then2.i50:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIPS5_S9_EEbT_T0_.exit.i48, %for.body.i25
+if.then2.i51:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIPS5_S9_EEbT_T0_.exit.i49, %for.body.i26
   %__val.sroa.0.0.copyload.i51 = load <2 x i64>, ptr %__i.016.i26, align 8
-  %add.ptr3.i52 = getelementptr inbounds nuw i8, ptr %__first.pn15.i27, i64 32
-  %sub.ptr.lhs.cast.i.i.i.i.i.i53 = ptrtoint ptr %__i.016.i26 to i64
+  %add.ptr3.i52 = getelementptr inbounds nuw i8, ptr %__first.pn15.i28, i64 32
+  %sub.ptr.lhs.cast.i.i.i.i.i.i53 = ptrtoint ptr %__i.016.i27 to i64
   %sub.ptr.sub.i.i.i.i.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i53, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i55 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i54, 4
   %idx.neg.i.i.i.i.i.i56 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i55
   %add.ptr.i.i.i.i.i.i57 = getelementptr inbounds [16 x i8], ptr %add.ptr3.i52, i64 %idx.neg.i.i.i.i.i.i56
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i57, ptr noundef nonnull align 8 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i54, i1 false)
   store <2 x i64> %__val.sroa.0.0.copyload.i51, ptr %__first, align 8
-  br label %for.inc.i41
+  br label %for.inc.i42
 
-while.cond.i.i33:                                 ; preds = %while.cond.i.i33.preheader, %while.body.i.i47
-  %__last.addr.0.i.i34 = phi ptr [ %__next.0.i.i35, %while.body.i.i47 ], [ %__i.016.i26, %while.cond.i.i33.preheader ]
-  %__next.0.i.i35 = getelementptr inbounds i8, ptr %__last.addr.0.i.i34, i64 -16
-  %12 = load i64, ptr %__next.0.i.i35, align 8
-  %cmp.i.i.i.i.i36 = icmp sgt i64 %8, %12
-  br i1 %cmp.i.i.i.i.i36, label %while.body.i.i47, label %lor.rhs.i.i.i.i.i37
+while.cond.i.i34:                                 ; preds = %while.cond.i.i34.preheader, %while.body.i.i48
+  %__last.addr.0.i.i35 = phi ptr [ %__next.0.i.i36, %while.body.i.i47 ], [ %__i.016.i27, %while.cond.i.i33.preheader ]
+  %__next.0.i.i36 = getelementptr inbounds i8, ptr %__last.addr.0.i.i35, i64 -16
+  %12 = load i64, ptr %__next.0.i.i36, align 8
+  %cmp.i.i.i.i.i37 = icmp sgt i64 %8, %12
+  br i1 %cmp.i.i.i.i.i37, label %while.body.i.i48, label %lor.rhs.i.i.i.i.i38
 
-lor.rhs.i.i.i.i.i37:                              ; preds = %while.cond.i.i33
-  %cmp5.i.i.i.i.i38 = icmp eq i64 %8, %12
-  br i1 %cmp5.i.i.i.i.i38, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIS5_PS5_EEbRT_T0_.exit.i.i44, label %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS2_EEEEvT_T0_.exit.i39
+lor.rhs.i.i.i.i.i38:                              ; preds = %while.cond.i.i34
+  %cmp5.i.i.i.i.i39 = icmp eq i64 %8, %12
+  br i1 %cmp5.i.i.i.i.i39, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIS5_PS5_EEbRT_T0_.exit.i.i45, label %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS2_EEEEvT_T0_.exit.i40
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIS5_PS5_EEbRT_T0_.exit.i.i44: ; preds = %lor.rhs.i.i.i.i.i37
-  %nanos_6.i.i.i.i.i45 = getelementptr inbounds i8, ptr %__last.addr.0.i.i34, i64 -8
-  %13 = load i64, ptr %nanos_6.i.i.i.i.i45, align 8
-  %cmp7.i.i.i.i.i46 = icmp ugt i64 %10, %13
-  br i1 %cmp7.i.i.i.i.i46, label %while.body.i.i47, label %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS2_EEEEvT_T0_.exit.i39
+_ZN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIS5_PS5_EEbRT_T0_.exit.i.i45: ; preds = %lor.rhs.i.i.i.i.i38
+  %nanos_6.i.i.i.i.i46 = getelementptr inbounds i8, ptr %__last.addr.0.i.i35, i64 -8
+  %13 = load i64, ptr %nanos_6.i.i.i.i.i46, align 8
+  %cmp7.i.i.i.i.i47 = icmp ugt i64 %10, %13
+  br i1 %cmp7.i.i.i.i.i47, label %while.body.i.i48, label %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS2_EEEEvT_T0_.exit.i40
 
-while.body.i.i47:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIS5_PS5_EEbRT_T0_.exit.i.i44, %while.cond.i.i33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i34, ptr noundef nonnull align 8 dereferenceable(16) %__next.0.i.i35, i64 16, i1 false)
-  br label %while.cond.i.i33, !llvm.loop !614
+while.body.i.i48:                                 ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIS5_PS5_EEbRT_T0_.exit.i.i45, %while.cond.i.i34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.addr.0.i.i35, ptr noundef nonnull align 8 dereferenceable(16) %__next.0.i.i36, i64 16, i1 false)
+  br label %while.cond.i.i34, !llvm.loop !614
 
-_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS2_EEEEvT_T0_.exit.i39: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIS5_PS5_EEbRT_T0_.exit.i.i44, %lor.rhs.i.i.i.i.i37
-  store i64 %8, ptr %__last.addr.0.i.i34, align 8
-  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i40 = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i34, i64 8
-  store i64 %10, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i40, align 8
-  br label %for.inc.i41
+_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS2_EEEEvT_T0_.exit.i40: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIN8facebook5velox9TimestampEEEclIS5_PS5_EEbRT_T0_.exit.i.i45, %lor.rhs.i.i.i.i.i38
+  store i64 %8, ptr %__last.addr.0.i.i35, align 8
+  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i41 = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i35, i64 8
+  store i64 %10, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i41, align 8
+  br label %for.inc.i42
 
-for.inc.i41:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS2_EEEEvT_T0_.exit.i39, %if.then2.i50
-  %__i.0.i42 = getelementptr inbounds nuw i8, ptr %__i.016.i26, i64 16
-  %cmp1.not.i43 = icmp eq ptr %__i.0.i42, %__last
-  br i1 %cmp1.not.i43, label %if.end, label %for.body.i25, !llvm.loop !615
+for.inc.i42:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS2_EEEEvT_T0_.exit.i40, %if.then2.i51
+  %__i.0.i43 = getelementptr inbounds nuw i8, ptr %__i.016.i27, i64 16
+  %cmp1.not.i44 = icmp eq ptr %__i.0.i43, %__last
+  br i1 %cmp1.not.i44, label %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit58, label %for.body.i26, !llvm.loop !615
 
-if.end:                                           ; preds = %for.inc.i41, %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS2_EEEEvT_T0_.exit.i16, %for.cond.preheader.i, %if.else, %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit
+_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit58: ; preds = %for.inc.i42, %_ZSt25__unguarded_linear_insertIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS2_EEEEvT_T0_.exit.i16, %for.cond.preheader.i, %if.else, %_ZSt16__insertion_sortIPN8facebook5velox9TimestampEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_SA_T0_.exit
   ret void
 }
 

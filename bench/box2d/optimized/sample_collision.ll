@@ -1405,28 +1405,28 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance8UpdateUIEv(ptr noundef no
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink7.i
   %38 = load i64, ptr %37, align 8, !noalias !127
   store i64 %38, ptr %.sink6.i.sroa.phi, align 8, !alias.scope !127
-  %.sroa.716.0..sroa.716.0..sroa.716.0..sroa.716.0.copyload.pre = load <2 x float>, ptr %.sroa.716, align 8
-  %.sroa.1017.0..sroa.1017.0..sroa.1017.0..sroa.1017.0.copyload.pre = load <2 x float>, ptr %.sroa.1017, align 8
-  %.sroa.1218.0..sroa.1218.0..sroa.1218.0..sroa.1218.0.copyload.pre = load <2 x float>, ptr %.sroa.1218, align 8
+  %.sroa.716.0..sroa.716.0..pre = load <2 x float>, ptr %.sroa.716, align 8
+  %.sroa.1017.0..sroa.1017.0..pre = load <2 x float>, ptr %.sroa.1017, align 8
+  %.sroa.1218.0..sroa.1218.0..pre = load <2 x float>, ptr %.sroa.1218, align 8
   br label %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit
 
 .sink.split.i:                                    ; preds = %18
   br label %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit
 
 _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit: ; preds = %.sink.split.sink.split.i, %18, %.sink.split.i
-  %.sroa.1218.0..sroa.1218.0..sroa.1218.0.copyload = phi <2 x float> [ zeroinitializer, %18 ], [ %.sroa.1218.0..sroa.1218.0..sroa.1218.0..sroa.1218.0.copyload.pre, %.sink.split.sink.split.i ], [ zeroinitializer, %.sink.split.i ]
-  %.sroa.1017.0..sroa.1017.0..sroa.1017.0.copyload = phi <2 x float> [ zeroinitializer, %18 ], [ %.sroa.1017.0..sroa.1017.0..sroa.1017.0..sroa.1017.0.copyload.pre, %.sink.split.sink.split.i ], [ zeroinitializer, %.sink.split.i ]
-  %.sroa.716.0..sroa.716.0..sroa.716.0.copyload = phi <2 x float> [ zeroinitializer, %18 ], [ %.sroa.716.0..sroa.716.0..sroa.716.0..sroa.716.0.copyload.pre, %.sink.split.sink.split.i ], [ zeroinitializer, %.sink.split.i ]
+  %.sroa.1218.0. = phi <2 x float> [ zeroinitializer, %18 ], [ %.sroa.1218.0..sroa.1218.0..pre, %.sink.split.sink.split.i ], [ zeroinitializer, %.sink.split.i ]
+  %.sroa.1017.0. = phi <2 x float> [ zeroinitializer, %18 ], [ %.sroa.1017.0..sroa.1017.0..pre, %.sink.split.sink.split.i ], [ zeroinitializer, %.sink.split.i ]
+  %.sroa.716.0. = phi <2 x float> [ zeroinitializer, %18 ], [ %.sroa.716.0..sroa.716.0..pre, %.sink.split.sink.split.i ], [ zeroinitializer, %.sink.split.i ]
   %.sroa.1320.0 = phi i32 [ 0, %18 ], [ %.sink.ph.i, %.sink.split.sink.split.i ], [ 1, %.sink.split.i ]
   %.sroa.015.2 = phi i64 [ 0, %18 ], [ %.sroa.015.0, %.sink.split.sink.split.i ], [ 0, %.sink.split.i ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store i64 %.sroa.015.2, ptr %39, align 8
   %.sroa.716.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 584
-  store <2 x float> %.sroa.716.0..sroa.716.0..sroa.716.0.copyload, ptr %.sroa.716.0..sroa_idx, align 8
+  store <2 x float> %.sroa.716.0., ptr %.sroa.716.0..sroa_idx, align 8
   %.sroa.1017.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 592
-  store <2 x float> %.sroa.1017.0..sroa.1017.0..sroa.1017.0.copyload, ptr %.sroa.1017.0..sroa_idx, align 8
+  store <2 x float> %.sroa.1017.0., ptr %.sroa.1017.0..sroa_idx, align 8
   %.sroa.1218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store <2 x float> %.sroa.1218.0..sroa.1218.0..sroa.1218.0.copyload, ptr %.sroa.1218.0..sroa_idx, align 8
+  store <2 x float> %.sroa.1218.0., ptr %.sroa.1218.0..sroa_idx, align 8
   %.sroa.1319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 608
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.1319.0..sroa_idx, i8 0, i64 32, i1 false)
   %.sroa.1320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 640
@@ -1507,28 +1507,28 @@ _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit: ; preds = %.sink.split.sink.s
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink7.i4
   %70 = load i64, ptr %69, align 8, !noalias !131
   store i64 %70, ptr %.sink6.i5.sroa.phi, align 8, !alias.scope !131
-  %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.0.copyload.pre = load <2 x float>, ptr %.sroa.7, align 8
-  %.sroa.10.0..sroa.10.0..sroa.10.0..sroa.10.0.copyload.pre = load <2 x float>, ptr %.sroa.10, align 8
-  %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.0.copyload.pre = load <2 x float>, ptr %.sroa.12, align 8
+  %.sroa.7.0..sroa.7.0..pre = load <2 x float>, ptr %.sroa.7, align 8
+  %.sroa.10.0..sroa.10.0..pre = load <2 x float>, ptr %.sroa.10, align 8
+  %.sroa.12.0..sroa.12.0..pre = load <2 x float>, ptr %.sroa.12, align 8
   br label %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9
 
 .sink.split.i7:                                   ; preds = %50
   br label %_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9
 
 _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9: ; preds = %.sink.split.sink.split.i3, %50, %.sink.split.i7
-  %.sroa.12.0..sroa.12.0..sroa.12.0.copyload = phi <2 x float> [ zeroinitializer, %50 ], [ %.sroa.12.0..sroa.12.0..sroa.12.0..sroa.12.0.copyload.pre, %.sink.split.sink.split.i3 ], [ zeroinitializer, %.sink.split.i7 ]
-  %.sroa.10.0..sroa.10.0..sroa.10.0.copyload = phi <2 x float> [ zeroinitializer, %50 ], [ %.sroa.10.0..sroa.10.0..sroa.10.0..sroa.10.0.copyload.pre, %.sink.split.sink.split.i3 ], [ zeroinitializer, %.sink.split.i7 ]
-  %.sroa.7.0..sroa.7.0..sroa.7.0.copyload = phi <2 x float> [ zeroinitializer, %50 ], [ %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.0.copyload.pre, %.sink.split.sink.split.i3 ], [ zeroinitializer, %.sink.split.i7 ]
+  %.sroa.12.0. = phi <2 x float> [ zeroinitializer, %50 ], [ %.sroa.12.0..sroa.12.0..pre, %.sink.split.sink.split.i3 ], [ zeroinitializer, %.sink.split.i7 ]
+  %.sroa.10.0. = phi <2 x float> [ zeroinitializer, %50 ], [ %.sroa.10.0..sroa.10.0..pre, %.sink.split.sink.split.i3 ], [ zeroinitializer, %.sink.split.i7 ]
+  %.sroa.7.0. = phi <2 x float> [ zeroinitializer, %50 ], [ %.sroa.7.0..sroa.7.0..pre, %.sink.split.sink.split.i3 ], [ zeroinitializer, %.sink.split.i7 ]
   %.sroa.0.2 = phi i64 [ 0, %50 ], [ %.sroa.0.0, %.sink.split.sink.split.i3 ], [ 0, %.sink.split.i7 ]
   %.sroa.1312.0 = phi i32 [ 0, %50 ], [ %.sink.ph.i6, %.sink.split.sink.split.i3 ], [ 1, %.sink.split.i7 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store i64 %.sroa.0.2, ptr %71, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 656
-  store <2 x float> %.sroa.7.0..sroa.7.0..sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx, align 8
+  store <2 x float> %.sroa.7.0., ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 664
-  store <2 x float> %.sroa.10.0..sroa.10.0..sroa.10.0.copyload, ptr %.sroa.10.0..sroa_idx, align 8
+  store <2 x float> %.sroa.10.0., ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 672
-  store <2 x float> %.sroa.12.0..sroa.12.0..sroa.12.0.copyload, ptr %.sroa.12.0..sroa_idx, align 8
+  store <2 x float> %.sroa.12.0., ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 680
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.0..sroa_idx, i8 0, i64 32, i1 false)
   %.sroa.1312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 712

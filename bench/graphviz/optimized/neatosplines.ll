@@ -1272,13 +1272,13 @@ define range(i32 0, 2) i32 @splineEdges(ptr noundef %0, ptr noundef readonly cap
   br label %15
 
 15:                                               ; preds = %.lr.ph60, %._crit_edge56
-  %.158 = phi ptr [ %12, %.lr.ph60 ], [ %84, %._crit_edge56 ]
+  %.158 = phi ptr [ %12, %.lr.ph60 ], [ %79, %._crit_edge56 ]
   %16 = call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.158) #20
   %.not4152 = icmp eq ptr %16, null
   br i1 %.not4152, label %._crit_edge56, label %.lr.ph55
 
-.lr.ph55:                                         ; preds = %15, %82
-  %.13753 = phi ptr [ %83, %82 ], [ %16, %15 ]
+.lr.ph55:                                         ; preds = %15, %77
+  %.13753 = phi ptr [ %78, %82 ], [ %16, %15 ]
   %17 = load i32, ptr @Nop, align 4, !tbaa !83
   %18 = icmp sgt i32 %17, 1
   br i1 %18, label %19, label %28
@@ -1296,7 +1296,7 @@ define range(i32 0, 2) i32 @splineEdges(ptr noundef %0, ptr noundef readonly cap
   %26 = load i16, ptr %25, align 8, !tbaa !26
   %27 = add i16 %26, 1
   store i16 %27, ptr %25, align 8, !tbaa !26
-  br label %82
+  br label %77
 
 28:                                               ; preds = %19, %.lr.ph55
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1317,9 +1317,9 @@ define range(i32 0, 2) i32 @splineEdges(ptr noundef %0, ptr noundef readonly cap
   %41 = getelementptr inbounds nuw i8, ptr %.13753, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !20
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %.sroa.6.8.copyload.i = load <2 x double>, ptr %43, align 8
+  %.sroa.6.sroa.0.0.copyload48.i = load <2 x double>, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 72
-  %.sroa.20.32.copyload.i = load <2 x double>, ptr %44, align 8
+  %.sroa.20.sroa.0.0.copyload42.i = load <2 x double>, ptr %44, align 8
   br label %equivEdge.exit
 
 45:                                               ; preds = %28
@@ -1330,9 +1330,9 @@ define range(i32 0, 2) i32 @splineEdges(ptr noundef %0, ptr noundef readonly cap
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %.sroa.20.32.copyload38.i = load <2 x double>, ptr %50, align 8
+  %.sroa.20.sroa.0.0.copyload43.i = load <2 x double>, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 72
-  %.sroa.6.8.copyload34.i = load <2 x double>, ptr %51, align 8
+  %.sroa.6.sroa.0.0.copyload49.i = load <2 x double>, ptr %51, align 8
   br label %equivEdge.exit
 
 52:                                               ; preds = %45
@@ -1369,7 +1369,7 @@ define range(i32 0, 2) i32 @splineEdges(ptr noundef %0, ptr noundef readonly cap
   %61 = fcmp olt double %.sroa.10.0.copyload.i, %.sroa.9.0.copyload.i
   br i1 %61, label %62, label %63
 
-62:                                               ; preds = %60
+58:                                               ; preds = %60
   %.sroa.6.0.vec.insert65.i = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i, i64 0
   %.sroa.6.8.vec.insert71.i = insertelement <2 x double> %.sroa.6.0.vec.insert65.i, double %.sroa.10.0.copyload.i, i64 1
   %.sroa.20.0.vec.insert47.i = insertelement <2 x double> poison, double %.sroa.018.0.copyload.i, i64 0
@@ -1380,7 +1380,7 @@ define range(i32 0, 2) i32 @splineEdges(ptr noundef %0, ptr noundef readonly cap
   %64 = fcmp ogt double %.sroa.10.0.copyload.i, %.sroa.9.0.copyload.i
   br i1 %64, label %65, label %66
 
-65:                                               ; preds = %63
+60:                                               ; preds = %63
   %.sroa.6.0.vec.insert67.i = insertelement <2 x double> poison, double %.sroa.018.0.copyload.i, i64 0
   %.sroa.6.8.vec.insert73.i = insertelement <2 x double> %.sroa.6.0.vec.insert67.i, double %.sroa.9.0.copyload.i, i64 1
   %.sroa.20.0.vec.insert49.i = insertelement <2 x double> poison, double %.sroa.0.0.copyload.i, i64 0
@@ -1392,61 +1392,61 @@ define range(i32 0, 2) i32 @splineEdges(ptr noundef %0, ptr noundef readonly cap
   %.sroa.20.8.vec.insert60.i = insertelement <2 x double> %.sroa.20.0.vec.insert51.i, double %.sroa.10.0.copyload.i, i64 1
   br label %equivEdge.exit
 
-equivEdge.exit:                                   ; preds = %40, %49, %56, %59, %62, %65, %66
+equivEdge.exit:                                   ; preds = %40, %49, %56, %59, %58, %60, %66
   %.sroa.033.0.i = phi ptr [ %34, %40 ], [ %38, %49 ], [ %34, %59 ], [ %34, %65 ], [ %34, %66 ], [ %34, %62 ], [ %34, %56 ]
   %.sroa.17.0.i = phi ptr [ %38, %40 ], [ %34, %49 ], [ %34, %59 ], [ %34, %65 ], [ %34, %66 ], [ %34, %62 ], [ %34, %56 ]
-  %.sroa.20.0.i = phi <2 x double> [ %.sroa.20.32.copyload.i, %40 ], [ %.sroa.20.32.copyload38.i, %49 ], [ %.sroa.20.8.vec.insert54.i, %59 ], [ %.sroa.20.8.vec.insert58.i, %65 ], [ %.sroa.20.8.vec.insert60.i, %66 ], [ %.sroa.20.8.vec.insert56.i, %62 ], [ %.sroa.20.8.vec.insert.i, %56 ]
-  %.sroa.6.0.i = phi <2 x double> [ %.sroa.6.8.copyload.i, %40 ], [ %.sroa.6.8.copyload34.i, %49 ], [ %.sroa.6.8.vec.insert69.i, %59 ], [ %.sroa.6.8.vec.insert73.i, %65 ], [ %.sroa.20.8.vec.insert60.i, %66 ], [ %.sroa.6.8.vec.insert71.i, %62 ], [ %.sroa.6.8.vec.insert.i, %56 ]
+  %.sroa.20.sroa.0.0.i = phi <2 x double> [ %.sroa.20.sroa.0.0.copyload42.i, %40 ], [ %.sroa.20.sroa.0.0.copyload43.i, %49 ], [ %.sroa.20.8.vec.insert54.i, %59 ], [ %.sroa.20.8.vec.insert58.i, %65 ], [ %.sroa.20.8.vec.insert60.i, %66 ], [ %.sroa.20.8.vec.insert56.i, %62 ], [ %.sroa.20.8.vec.insert.i, %56 ]
+  %.sroa.20.sroa.11.0.i = phi <2 x double> [ %.sroa.6.8.copyload.i, %40 ], [ %.sroa.6.sroa.0.0.copyload49.i, %49 ], [ %.sroa.6.8.vec.insert69.i, %59 ], [ %.sroa.6.8.vec.insert73.i, %65 ], [ %.sroa.20.8.vec.insert60.i, %66 ], [ %.sroa.6.8.vec.insert71.i, %62 ], [ %.sroa.6.8.vec.insert.i, %56 ]
   store ptr %.sroa.033.0.i, ptr %13, align 8, !tbaa !9
-  store <2 x double> %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8
+  store <2 x double> %.sroa.20.sroa.11.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8
   store ptr %.sroa.17.0.i, ptr %.sroa.17.0..sroa_idx.i, align 8, !tbaa !9
-  store <2 x double> %.sroa.20.0.i, ptr %.sroa.20.0..sroa_idx.i, align 8
+  store <2 x double> %.sroa.20.sroa.0.0.i, ptr %.sroa.20.0..sroa_idx.i, align 8
   store ptr %.13753, ptr %14, align 8, !tbaa !13
-  %67 = load ptr, ptr %11, align 8, !tbaa !100
-  %68 = call ptr %67(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef 1) #20
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
-  %70 = load ptr, ptr %69, align 8, !tbaa !13
+  %62 = load ptr, ptr %11, align 8, !tbaa !100
+  %63 = call ptr %67(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef 1) #20
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
+  %65 = load ptr, ptr %64, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not43 = icmp eq ptr %70, %.13753
-  br i1 %.not43, label %82, label %71
+  %.not43 = icmp eq ptr %65, %.13753
+  br i1 %.not43, label %77, label %66
 
-71:                                               ; preds = %equivEdge.exit
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %73 = load ptr, ptr %72, align 8, !tbaa !20
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 224
-  %75 = load i16, ptr %74, align 8, !tbaa !26
-  %76 = add i16 %75, 1
-  store i16 %76, ptr %74, align 8, !tbaa !26
-  %77 = getelementptr inbounds nuw i8, ptr %73, i64 232
-  %78 = load ptr, ptr %77, align 8, !tbaa !48
-  %79 = getelementptr inbounds nuw i8, ptr %.13753, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !20
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 232
-  store ptr %78, ptr %81, align 8, !tbaa !48
-  store ptr %.13753, ptr %77, align 8, !tbaa !48
-  br label %82
+66:                                               ; preds = %equivEdge.exit
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %68 = load ptr, ptr %67, align 8, !tbaa !20
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 224
+  %70 = load i16, ptr %69, align 8, !tbaa !26
+  %71 = add i16 %70, 1
+  store i16 %71, ptr %69, align 8, !tbaa !26
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 232
+  %73 = load ptr, ptr %72, align 8, !tbaa !48
+  %74 = getelementptr inbounds nuw i8, ptr %.13753, i64 16
+  %75 = load ptr, ptr %74, align 8, !tbaa !20
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 232
+  store ptr %73, ptr %76, align 8, !tbaa !48
+  store ptr %.13753, ptr %72, align 8, !tbaa !48
+  br label %77
 
-82:                                               ; preds = %equivEdge.exit, %71, %24
-  %83 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.13753) #20
-  %.not41 = icmp eq ptr %83, null
+77:                                               ; preds = %equivEdge.exit, %66, %24
+  %78 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.13753) #20
+  %.not41 = icmp eq ptr %78, null
   br i1 %.not41, label %._crit_edge56, label %.lr.ph55, !llvm.loop !105
 
-._crit_edge56:                                    ; preds = %82, %15
-  %84 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.158) #20
-  %.not39 = icmp eq ptr %84, null
+._crit_edge56:                                    ; preds = %77, %15
+  %79 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.158) #20
+  %.not39 = icmp eq ptr %79, null
   br i1 %.not39, label %._crit_edge61, label %15, !llvm.loop !106
 
 ._crit_edge61:                                    ; preds = %._crit_edge56, %._crit_edge51
-  %85 = call i32 @dtclose(ptr noundef %11) #20
-  %86 = call i32 %1(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %2) #20
-  %.not40 = icmp eq i32 %86, 0
-  br i1 %.not40, label %87, label %88
+  %80 = call i32 @dtclose(ptr noundef %11) #20
+  %81 = call i32 %1(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %2) #20
+  %.not40 = icmp eq i32 %81, 0
+  br i1 %.not40, label %82, label %83
 
-87:                                               ; preds = %._crit_edge61
+82:                                               ; preds = %._crit_edge61
   store i32 1, ptr @State, align 4, !tbaa !83
-  br label %88
+  br label %83
 
-88:                                               ; preds = %._crit_edge61, %87
+83:                                               ; preds = %._crit_edge61, %82
   %.0 = phi i32 [ 0, %87 ], [ 1, %._crit_edge61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

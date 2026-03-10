@@ -8463,9 +8463,9 @@ if.end.i282:                                      ; preds = %sw.bb29
   br label %_ZN4node5DebugIJPN2v86ObjectERA16_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS4_DpOT_.exit
 
 _ZN4node5DebugIJPN2v86ObjectERA16_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS4_DpOT_.exit: ; preds = %sw.bb29, %if.end.i282
-  %call.i42 = call noalias noundef nonnull dereferenceable(48) ptr @_Znam(i64 noundef 48) #29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call.i42, ptr noundef nonnull align 8 dereferenceable(48) %payload.coerce0, i64 48, i1 false)
-  call void @_ZN4node11Environment25EnqueueDeserializeRequestEPFvN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseEES6_iS8_(ptr noundef nonnull align 8 dereferenceable(2872) %callback_data, ptr noundef nonnull @_ZN4node2fs11BindingData11DeserializeEN2v85LocalINS2_7ContextEEENS3_INS2_6ObjectEEEiPNS_21InternalFieldInfoBaseE, ptr %holder.coerce, i32 noundef %index, ptr noundef nonnull %call.i42) #24
+  %call.i41 = call noalias noundef nonnull dereferenceable(48) ptr @_Znam(i64 noundef 48) #29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call.i41, ptr noundef nonnull align 8 dereferenceable(48) %payload.coerce0, i64 48, i1 false)
+  call void @_ZN4node11Environment25EnqueueDeserializeRequestEPFvN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseEES6_iS8_(ptr noundef nonnull align 8 dereferenceable(2872) %callback_data, ptr noundef nonnull @_ZN4node2fs11BindingData11DeserializeEN2v85LocalINS2_7ContextEEENS3_INS2_6ObjectEEEiPNS_21InternalFieldInfoBaseE, ptr %holder.coerce, i32 noundef %index, ptr noundef nonnull %call.i41) #24
   br label %sw.epilog
 
 sw.bb37:                                          ; preds = %if.end20
@@ -8480,9 +8480,9 @@ if.end.i311:                                      ; preds = %sw.bb37
   br label %_ZN4node5DebugIJPN2v86ObjectERA24_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS4_DpOT_.exit
 
 _ZN4node5DebugIJPN2v86ObjectERA24_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS4_DpOT_.exit: ; preds = %sw.bb37, %if.end.i311
-  %call.i43 = call noalias noundef nonnull dereferenceable(24) ptr @_Znam(i64 noundef 24) #29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i43, ptr noundef nonnull align 8 dereferenceable(24) %payload.coerce0, i64 24, i1 false)
-  call void @_ZN4node11Environment25EnqueueDeserializeRequestEPFvN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseEES6_iS8_(ptr noundef nonnull align 8 dereferenceable(2872) %callback_data, ptr noundef nonnull @_ZN4node10mksnapshot11BindingData11DeserializeEN2v85LocalINS2_7ContextEEENS3_INS2_6ObjectEEEiPNS_21InternalFieldInfoBaseE, ptr %holder.coerce, i32 noundef %index, ptr noundef nonnull %call.i43) #24
+  %call.i42 = call noalias noundef nonnull dereferenceable(24) ptr @_Znam(i64 noundef 24) #29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i42, ptr noundef nonnull align 8 dereferenceable(24) %payload.coerce0, i64 24, i1 false)
+  call void @_ZN4node11Environment25EnqueueDeserializeRequestEPFvN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseEES6_iS8_(ptr noundef nonnull align 8 dereferenceable(2872) %callback_data, ptr noundef nonnull @_ZN4node10mksnapshot11BindingData11DeserializeEN2v85LocalINS2_7ContextEEENS3_INS2_6ObjectEEEiPNS_21InternalFieldInfoBaseE, ptr %holder.coerce, i32 noundef %index, ptr noundef nonnull %call.i42) #24
   br label %sw.epilog
 
 sw.bb45:                                          ; preds = %if.end20
@@ -8497,9 +8497,9 @@ if.end.i325:                                      ; preds = %sw.bb45
   br label %_ZN4node5DebugIJPN2v86ObjectERA22_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS4_DpOT_.exit
 
 _ZN4node5DebugIJPN2v86ObjectERA22_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS4_DpOT_.exit: ; preds = %sw.bb45, %if.end.i325
-  %call.i44 = call noalias noundef nonnull dereferenceable(40) ptr @_Znam(i64 noundef 40) #29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i44, ptr noundef nonnull align 8 dereferenceable(40) %payload.coerce0, i64 40, i1 false)
-  call void @_ZN4node11Environment25EnqueueDeserializeRequestEPFvN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseEES6_iS8_(ptr noundef nonnull align 8 dereferenceable(2872) %callback_data, ptr noundef nonnull @_ZN4node8v8_utils11BindingData11DeserializeEN2v85LocalINS2_7ContextEEENS3_INS2_6ObjectEEEiPNS_21InternalFieldInfoBaseE, ptr %holder.coerce, i32 noundef %index, ptr noundef nonnull %call.i44) #24
+  %call.i43 = call noalias noundef nonnull dereferenceable(40) ptr @_Znam(i64 noundef 40) #29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i43, ptr noundef nonnull align 8 dereferenceable(40) %payload.coerce0, i64 40, i1 false)
+  call void @_ZN4node11Environment25EnqueueDeserializeRequestEPFvN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseEES6_iS8_(ptr noundef nonnull align 8 dereferenceable(2872) %callback_data, ptr noundef nonnull @_ZN4node8v8_utils11BindingData11DeserializeEN2v85LocalINS2_7ContextEEENS3_INS2_6ObjectEEEiPNS_21InternalFieldInfoBaseE, ptr %holder.coerce, i32 noundef %index, ptr noundef nonnull %call.i43) #24
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %if.end20
@@ -8514,9 +8514,9 @@ if.end.i296:                                      ; preds = %sw.bb53
   br label %_ZN4node5DebugIJPN2v86ObjectERA16_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS4_DpOT_.exit297
 
 _ZN4node5DebugIJPN2v86ObjectERA16_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS4_DpOT_.exit297: ; preds = %sw.bb53, %if.end.i296
-  %call.i45 = call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i45, ptr noundef nonnull align 8 dereferenceable(16) %payload.coerce0, i64 16, i1 false)
-  call void @_ZN4node11Environment25EnqueueDeserializeRequestEPFvN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseEES6_iS8_(ptr noundef nonnull align 8 dereferenceable(2872) %callback_data, ptr noundef nonnull @_ZN4node15BlobBindingData11DeserializeEN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseE, ptr %holder.coerce, i32 noundef %index, ptr noundef nonnull %call.i45) #24
+  %call.i44 = call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i44, ptr noundef nonnull align 8 dereferenceable(16) %payload.coerce0, i64 16, i1 false)
+  call void @_ZN4node11Environment25EnqueueDeserializeRequestEPFvN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseEES6_iS8_(ptr noundef nonnull align 8 dereferenceable(2872) %callback_data, ptr noundef nonnull @_ZN4node15BlobBindingData11DeserializeEN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseE, ptr %holder.coerce, i32 noundef %index, ptr noundef nonnull %call.i44) #24
   br label %sw.epilog
 
 sw.bb61:                                          ; preds = %if.end20
@@ -8531,9 +8531,9 @@ if.end.i339:                                      ; preds = %sw.bb61
   br label %_ZN4node5DebugIJPN2v86ObjectERA21_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS4_DpOT_.exit
 
 _ZN4node5DebugIJPN2v86ObjectERA21_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS4_DpOT_.exit: ; preds = %sw.bb61, %if.end.i339
-  %call.i46 = call noalias noundef nonnull dereferenceable(24) ptr @_Znam(i64 noundef 24) #29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i46, ptr noundef nonnull align 8 dereferenceable(24) %payload.coerce0, i64 24, i1 false)
-  call void @_ZN4node11Environment25EnqueueDeserializeRequestEPFvN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseEES6_iS8_(ptr noundef nonnull align 8 dereferenceable(2872) %callback_data, ptr noundef nonnull @_ZN4node7process11BindingData11DeserializeEN2v85LocalINS2_7ContextEEENS3_INS2_6ObjectEEEiPNS_21InternalFieldInfoBaseE, ptr %holder.coerce, i32 noundef %index, ptr noundef nonnull %call.i46) #24
+  %call.i45 = call noalias noundef nonnull dereferenceable(24) ptr @_Znam(i64 noundef 24) #29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i45, ptr noundef nonnull align 8 dereferenceable(24) %payload.coerce0, i64 24, i1 false)
+  call void @_ZN4node11Environment25EnqueueDeserializeRequestEPFvN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseEES6_iS8_(ptr noundef nonnull align 8 dereferenceable(2872) %callback_data, ptr noundef nonnull @_ZN4node7process11BindingData11DeserializeEN2v85LocalINS2_7ContextEEENS3_INS2_6ObjectEEEiPNS_21InternalFieldInfoBaseE, ptr %holder.coerce, i32 noundef %index, ptr noundef nonnull %call.i45) #24
   br label %sw.epilog
 
 sw.bb69:                                          ; preds = %if.end20
@@ -8548,9 +8548,9 @@ if.end.i368:                                      ; preds = %sw.bb69
   br label %_ZN4node5DebugIJPN2v86ObjectERA20_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS4_DpOT_.exit
 
 _ZN4node5DebugIJPN2v86ObjectERA20_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS4_DpOT_.exit: ; preds = %sw.bb69, %if.end.i368
-  %call.i47 = call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i47, ptr noundef nonnull align 8 dereferenceable(16) %payload.coerce0, i64 16, i1 false)
-  call void @_ZN4node11Environment25EnqueueDeserializeRequestEPFvN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseEES6_iS8_(ptr noundef nonnull align 8 dereferenceable(2872) %callback_data, ptr noundef nonnull @_ZN4node6timers11BindingData11DeserializeEN2v85LocalINS2_7ContextEEENS3_INS2_6ObjectEEEiPNS_21InternalFieldInfoBaseE, ptr %holder.coerce, i32 noundef %index, ptr noundef nonnull %call.i47) #24
+  %call.i46 = call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i46, ptr noundef nonnull align 8 dereferenceable(16) %payload.coerce0, i64 16, i1 false)
+  call void @_ZN4node11Environment25EnqueueDeserializeRequestEPFvN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseEES6_iS8_(ptr noundef nonnull align 8 dereferenceable(2872) %callback_data, ptr noundef nonnull @_ZN4node6timers11BindingData11DeserializeEN2v85LocalINS2_7ContextEEENS3_INS2_6ObjectEEEiPNS_21InternalFieldInfoBaseE, ptr %holder.coerce, i32 noundef %index, ptr noundef nonnull %call.i46) #24
   br label %sw.epilog
 
 sw.bb77:                                          ; preds = %if.end20
@@ -8565,9 +8565,9 @@ if.end.i382:                                      ; preds = %sw.bb77
   br label %_ZN4node5DebugIJPN2v86ObjectERA17_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS4_DpOT_.exit
 
 _ZN4node5DebugIJPN2v86ObjectERA17_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS4_DpOT_.exit: ; preds = %sw.bb77, %if.end.i382
-  %call.i48 = call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i48, ptr noundef nonnull align 8 dereferenceable(16) %payload.coerce0, i64 16, i1 false)
-  call void @_ZN4node11Environment25EnqueueDeserializeRequestEPFvN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseEES6_iS8_(ptr noundef nonnull align 8 dereferenceable(2872) %callback_data, ptr noundef nonnull @_ZN4node3url11BindingData11DeserializeEN2v85LocalINS2_7ContextEEENS3_INS2_6ObjectEEEiPNS_21InternalFieldInfoBaseE, ptr %holder.coerce, i32 noundef %index, ptr noundef nonnull %call.i48) #24
+  %call.i47 = call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i47, ptr noundef nonnull align 8 dereferenceable(16) %payload.coerce0, i64 16, i1 false)
+  call void @_ZN4node11Environment25EnqueueDeserializeRequestEPFvN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseEES6_iS8_(ptr noundef nonnull align 8 dereferenceable(2872) %callback_data, ptr noundef nonnull @_ZN4node3url11BindingData11DeserializeEN2v85LocalINS2_7ContextEEENS3_INS2_6ObjectEEEiPNS_21InternalFieldInfoBaseE, ptr %holder.coerce, i32 noundef %index, ptr noundef nonnull %call.i47) #24
   br label %sw.epilog
 
 sw.bb85:                                          ; preds = %if.end20
@@ -8582,9 +8582,9 @@ if.end.i353:                                      ; preds = %sw.bb85
   br label %_ZN4node5DebugIJPN2v86ObjectERA21_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS4_DpOT_.exit354
 
 _ZN4node5DebugIJPN2v86ObjectERA21_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS4_DpOT_.exit354: ; preds = %sw.bb85, %if.end.i353
-  %call.i49 = call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i49, ptr noundef nonnull align 8 dereferenceable(16) %payload.coerce0, i64 16, i1 false)
-  call void @_ZN4node11Environment25EnqueueDeserializeRequestEPFvN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseEES6_iS8_(ptr noundef nonnull align 8 dereferenceable(2872) %callback_data, ptr noundef nonnull @_ZN4node7modules11BindingData11DeserializeEN2v85LocalINS2_7ContextEEENS3_INS2_6ObjectEEEiPNS_21InternalFieldInfoBaseE, ptr %holder.coerce, i32 noundef %index, ptr noundef nonnull %call.i49) #24
+  %call.i48 = call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i48, ptr noundef nonnull align 8 dereferenceable(16) %payload.coerce0, i64 16, i1 false)
+  call void @_ZN4node11Environment25EnqueueDeserializeRequestEPFvN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEEiPNS_21InternalFieldInfoBaseEES6_iS8_(ptr noundef nonnull align 8 dereferenceable(2872) %callback_data, ptr noundef nonnull @_ZN4node7modules11BindingData11DeserializeEN2v85LocalINS2_7ContextEEENS3_INS2_6ObjectEEEiPNS_21InternalFieldInfoBaseE, ptr %holder.coerce, i32 noundef %index, ptr noundef nonnull %call.i48) #24
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end20
