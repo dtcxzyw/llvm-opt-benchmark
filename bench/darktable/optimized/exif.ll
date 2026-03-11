@@ -40447,19 +40447,19 @@ _ZL24_exif_get_exiv2_tag_typePKc.exit485:         ; preds = %1434, %1436, %1425
 1450:                                             ; preds = %1448
   %1451 = load ptr, ptr %146, align 8, !tbaa !221
   %1452 = call reassoc nsz arcp contract afn double @strtod(ptr noundef nonnull captures(none) %1451, ptr noundef null) #37
-  %1453 = fptrunc reassoc nsz arcp contract afn double %1452 to float
-  %1454 = fcmp uno float %1453, 0.000000e+00
-  br i1 %1454, label %thread-pre-split, label %1455
+  %1453 = fcmp uno double %1452, 0.000000e+00
+  br i1 %1453, label %thread-pre-split, label %1454
 
-1455:                                             ; preds = %1450
-  %1456 = load ptr, ptr %146, align 8, !tbaa !221
-  invoke void @g_free(ptr noundef %1456)
+1454:                                             ; preds = %1450
+  %1455 = load ptr, ptr %146, align 8, !tbaa !221
+  invoke void @g_free(ptr noundef %1455)
           to label %.preheader unwind label %1469
 
-.preheader:                                       ; preds = %1455
-  %.0160894 = fptosi float %1453 to i32
+.preheader:                                       ; preds = %1454
+  %1456 = fptrunc reassoc nsz arcp contract afn double %1452 to float
+  %.0160894 = fptosi float %1456 to i32
   %1457 = sitofp i32 %.0160894 to float
-  %1458 = fsub reassoc nsz arcp contract afn float %1453, %1457
+  %1458 = fsub reassoc nsz arcp contract afn float %1456, %1457
   %1459 = call reassoc nsz arcp contract afn noundef float @llvm.fabs.f32(float %1458)
   %1460 = fpext reassoc nsz arcp contract afn float %1459 to double
   %1461 = fcmp reassoc nsz arcp contract afn ogt double %1460, 0x3EB0C6F7A0B5ED8D
@@ -40467,7 +40467,7 @@ _ZL24_exif_get_exiv2_tag_typePKc.exit485:         ; preds = %1434, %1436, %1425
 
 .lr.ph897:                                        ; preds = %.preheader, %.lr.ph897
   %.0159896 = phi i32 [ %1462, %.lr.ph897 ], [ 1, %.preheader ]
-  %.0161895 = phi float [ %1463, %.lr.ph897 ], [ %1453, %.preheader ]
+  %.0161895 = phi float [ %1463, %.lr.ph897 ], [ %1456, %.preheader ]
   %1462 = mul nuw nsw i32 %.0159896, 10
   %1463 = fmul reassoc nsz arcp contract afn float %.0161895, 1.000000e+01
   %.0160 = fptosi float %1463 to i32
@@ -40490,7 +40490,7 @@ _ZL24_exif_get_exiv2_tag_typePKc.exit485:         ; preds = %1434, %1436, %1425
           catch ptr @_ZTIN5Exiv28AnyErrorE
   br label %1531
 
-1469:                                             ; preds = %1455
+1469:                                             ; preds = %1454
   %1470 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Exiv28AnyErrorE

@@ -602,7 +602,7 @@ if.end:                                           ; preds = %entry
   %5 = bitcast i64 %4 to double
   %conv = fptrunc double %5 to float
   %conv9 = fpext float %conv to double
-  %6 = fcmp uno float %conv, 0.000000e+00
+  %6 = fcmp uno double %5, 0.000000e+00
   %7 = bitcast double %conv9 to i64
   %retval.sroa.0.0.i2 = select i1 %6, i64 9221120237041090560, i64 %7
   br label %return

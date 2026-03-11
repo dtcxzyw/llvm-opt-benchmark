@@ -3326,7 +3326,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   br i1 %61, label %.sink.split, label %62
 
 62:                                               ; preds = %58
-  %63 = fcmp nsz uno float %60, 0.000000e+00
+  %63 = fcmp nsz uno double %59, 0.000000e+00
   br i1 %63, label %.sink.split, label %64
 
 64:                                               ; preds = %62
@@ -3524,7 +3524,7 @@ update_minmax.exit:                               ; preds = %111, %114
   br i1 %163, label %.sink.split1093, label %164
 
 164:                                              ; preds = %160
-  %165 = fcmp nsz uno float %162, 0.000000e+00
+  %165 = fcmp nsz uno double %161, 0.000000e+00
   br i1 %165, label %.sink.split1093, label %166
 
 166:                                              ; preds = %164

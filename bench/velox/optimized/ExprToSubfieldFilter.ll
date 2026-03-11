@@ -13763,7 +13763,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr noundef zeroext i1 @_ZNK8facebook5velox6common18FloatingPointRangeIfE10testDoubleEd(ptr noundef nonnull align 8 dereferenceable(32) %this, double noundef %value) unnamed_addr #0 comdat align 2 {
 entry:
   %conv = fptrunc double %value to float
-  %0 = fcmp uno float %conv, 0.000000e+00
+  %0 = fcmp uno double %value, 0.000000e+00
   br i1 %0, label %_ZNK8facebook5velox6common18FloatingPointRangeIfE17testFloatingPointEf.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -14118,6 +14118,7 @@ land.end26:                                       ; preds = %land.rhs23, %land.e
   br i1 %tobool28, label %land.end35, label %land.rhs29
 
 land.rhs29:                                       ; preds = %land.end26
+  %conv = fpext float %16 to double
   %26 = fcmp uno float %16, 0.000000e+00
   br i1 %26, label %land.end35, label %if.end.i.i12
 
@@ -14152,11 +14153,10 @@ if.end15.i.i:                                     ; preds = %if.then12.i.i
   br i1 %or.cond6.i.i, label %land.end35, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end15.i.i, %if.end10.i.i
-  %conv31 = fpext float %16 to double
   %vtable32 = load ptr, ptr %other, align 8
   %vfn33 = getelementptr inbounds nuw i8, ptr %vtable32, i64 96
   %29 = load ptr, ptr %vfn33, align 8
-  %call34 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %conv31)
+  %call34 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %conv)
   %lnot = xor i1 %call34, true
   %30 = zext i1 %lnot to i8
   br label %land.end35
@@ -14167,6 +14167,7 @@ land.end35:                                       ; preds = %if.end15.i.i, %land
   br i1 %tobool37, label %land.end48, label %land.rhs38
 
 land.rhs38:                                       ; preds = %land.end35
+  %conv39 = fpext float %19 to double
   %31 = fcmp uno float %19, 0.000000e+00
   br i1 %31, label %land.end48, label %if.end.i.i15
 
@@ -14207,11 +14208,10 @@ if.end15.i.i32:                                   ; preds = %if.then12.i.i29
   br i1 %or.cond6.i.i36, label %land.end48, label %lor.rhs41
 
 lor.rhs41:                                        ; preds = %if.end15.i.i32, %if.end10.i.i26
-  %conv42 = fpext float %19 to double
   %vtable43 = load ptr, ptr %other, align 8
   %vfn44 = getelementptr inbounds nuw i8, ptr %vtable43, i64 96
   %38 = load ptr, ptr %vfn44, align 8
-  %call45 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %conv42)
+  %call45 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %other, double noundef %conv39)
   %lnot46 = xor i1 %call45, true
   %39 = zext i1 %lnot46 to i8
   br label %land.end48

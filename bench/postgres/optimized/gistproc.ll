@@ -3099,32 +3099,32 @@ define internal i64 @gist_bbox_zorder_abbrev_convert(i64 noundef %0, ptr readnon
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load double, ptr %4, align 8
-  %6 = fptrunc double %5 to float
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %8 = load double, ptr %7, align 8
-  %9 = fptrunc double %8 to float
-  %10 = fcmp uno float %6, 0.000000e+00
-  br i1 %10, label %ieee_float32_to_uint32.exit.i, label %11
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %7 = load double, ptr %6, align 8
+  %8 = fptrunc double %7 to float
+  %9 = fcmp uno double %5, 0.000000e+00
+  br i1 %9, label %ieee_float32_to_uint32.exit.i, label %10
 
-11:                                               ; preds = %2
-  %12 = bitcast float %6 to i32
+10:                                               ; preds = %2
+  %11 = fptrunc double %5 to float
+  %12 = bitcast float %11 to i32
   %13 = xor i32 %12, -1
-  %14 = fneg float %6
+  %14 = fneg float %11
   %15 = bitcast float %14 to i32
   %.not5.i.i = icmp slt i32 %12, 0
   %.sroa.0.0.i.i = select i1 %.not5.i.i, i32 %13, i32 %15
   %16 = zext i32 %.sroa.0.0.i.i to i64
   br label %ieee_float32_to_uint32.exit.i
 
-ieee_float32_to_uint32.exit.i:                    ; preds = %11, %2
-  %.0.i.i = phi i64 [ %16, %11 ], [ 4294967295, %2 ]
-  %17 = fcmp uno float %9, 0.000000e+00
+ieee_float32_to_uint32.exit.i:                    ; preds = %10, %2
+  %.0.i.i = phi i64 [ %16, %10 ], [ 4294967295, %2 ]
+  %17 = fcmp uno double %7, 0.000000e+00
   br i1 %17, label %point_zorder_internal.exit, label %18
 
 18:                                               ; preds = %ieee_float32_to_uint32.exit.i
-  %19 = bitcast float %9 to i32
+  %19 = bitcast float %8 to i32
   %20 = xor i32 %19, -1
-  %21 = fneg float %9
+  %21 = fneg float %8
   %22 = bitcast float %21 to i32
   %.not5.i3.i = icmp slt i32 %19, 0
   %.sroa.0.0.i4.i = select i1 %.not5.i3.i, i32 %20, i32 %22
@@ -3193,30 +3193,30 @@ define internal range(i32 -1, 2) i32 @gist_bbox_zorder_cmp(i64 noundef %0, i64 n
   br i1 %16, label %118, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3, %13
-  %17 = fptrunc double %8 to float
-  %18 = fptrunc double %12 to float
-  %19 = fcmp uno float %17, 0.000000e+00
-  br i1 %19, label %ieee_float32_to_uint32.exit.i, label %20
+  %17 = fptrunc double %12 to float
+  %18 = fcmp uno double %8, 0.000000e+00
+  br i1 %18, label %ieee_float32_to_uint32.exit.i, label %19
 
-20:                                               ; preds = %._crit_edge
-  %21 = bitcast float %17 to i32
+19:                                               ; preds = %._crit_edge
+  %20 = fptrunc double %8 to float
+  %21 = bitcast float %20 to i32
   %22 = xor i32 %21, -1
-  %23 = fneg float %17
+  %23 = fneg float %20
   %24 = bitcast float %23 to i32
   %.not5.i.i = icmp slt i32 %21, 0
   %.sroa.0.0.i.i = select i1 %.not5.i.i, i32 %22, i32 %24
   %25 = zext i32 %.sroa.0.0.i.i to i64
   br label %ieee_float32_to_uint32.exit.i
 
-ieee_float32_to_uint32.exit.i:                    ; preds = %20, %._crit_edge
-  %.0.i.i = phi i64 [ %25, %20 ], [ 4294967295, %._crit_edge ]
-  %26 = fcmp uno float %18, 0.000000e+00
+ieee_float32_to_uint32.exit.i:                    ; preds = %19, %._crit_edge
+  %.0.i.i = phi i64 [ %25, %19 ], [ 4294967295, %._crit_edge ]
+  %26 = fcmp uno double %12, 0.000000e+00
   br i1 %26, label %point_zorder_internal.exit, label %27
 
 27:                                               ; preds = %ieee_float32_to_uint32.exit.i
-  %28 = bitcast float %18 to i32
+  %28 = bitcast float %17 to i32
   %29 = xor i32 %28, -1
-  %30 = fneg float %18
+  %30 = fneg float %17
   %31 = bitcast float %30 to i32
   %.not5.i3.i = icmp slt i32 %28, 0
   %.sroa.0.0.i4.i = select i1 %.not5.i3.i, i32 %29, i32 %31
@@ -3257,32 +3257,32 @@ point_zorder_internal.exit:                       ; preds = %ieee_float32_to_uin
   %62 = or i64 %60, %61
   %63 = and i64 %62, -6148914691236517206
   %64 = or disjoint i64 %63, %47
-  %65 = fptrunc double %9 to float
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %67 = load double, ptr %66, align 8
-  %68 = fptrunc double %67 to float
-  %69 = fcmp uno float %65, 0.000000e+00
-  br i1 %69, label %ieee_float32_to_uint32.exit.i18, label %70
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %66 = load double, ptr %65, align 8
+  %67 = fptrunc double %66 to float
+  %68 = fcmp uno double %9, 0.000000e+00
+  br i1 %68, label %ieee_float32_to_uint32.exit.i18, label %69
 
-70:                                               ; preds = %point_zorder_internal.exit
-  %71 = bitcast float %65 to i32
+69:                                               ; preds = %point_zorder_internal.exit
+  %70 = fptrunc double %9 to float
+  %71 = bitcast float %70 to i32
   %72 = xor i32 %71, -1
-  %73 = fneg float %65
+  %73 = fneg float %70
   %74 = bitcast float %73 to i32
   %.not5.i.i16 = icmp slt i32 %71, 0
   %.sroa.0.0.i.i17 = select i1 %.not5.i.i16, i32 %72, i32 %74
   %75 = zext i32 %.sroa.0.0.i.i17 to i64
   br label %ieee_float32_to_uint32.exit.i18
 
-ieee_float32_to_uint32.exit.i18:                  ; preds = %70, %point_zorder_internal.exit
-  %.0.i.i19 = phi i64 [ %75, %70 ], [ 4294967295, %point_zorder_internal.exit ]
-  %76 = fcmp uno float %68, 0.000000e+00
+ieee_float32_to_uint32.exit.i18:                  ; preds = %69, %point_zorder_internal.exit
+  %.0.i.i19 = phi i64 [ %75, %69 ], [ 4294967295, %point_zorder_internal.exit ]
+  %76 = fcmp uno double %66, 0.000000e+00
   br i1 %76, label %point_zorder_internal.exit23, label %77
 
 77:                                               ; preds = %ieee_float32_to_uint32.exit.i18
-  %78 = bitcast float %68 to i32
+  %78 = bitcast float %67 to i32
   %79 = xor i32 %78, -1
-  %80 = fneg float %68
+  %80 = fneg float %67
   %81 = bitcast float %80 to i32
   %.not5.i3.i20 = icmp slt i32 %78, 0
   %.sroa.0.0.i4.i21 = select i1 %.not5.i3.i20, i32 %79, i32 %81

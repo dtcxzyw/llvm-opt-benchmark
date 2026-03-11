@@ -90314,10 +90314,9 @@ _ZNK6open3d4core7Indexer12GetOutputPtrIbEEPT_l.exit.i: ; preds = %_ZNK6open3d4co
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZN6open3d4core6kernelL21CPUIsNanElementKernelIdEEvPKvPv(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) #27 {
   %3 = load double, ptr %0, align 8, !tbaa !63
-  %4 = fptrunc double %3 to float
-  %5 = fcmp uno float %4, 0.000000e+00
-  %6 = zext i1 %5 to i8
-  store i8 %6, ptr %1, align 1, !tbaa !41
+  %4 = fcmp uno double %3, 0.000000e+00
+  %5 = zext i1 %4 to i8
+  store i8 %5, ptr %1, align 1, !tbaa !41
   ret void
 }
 

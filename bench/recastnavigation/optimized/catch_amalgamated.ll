@@ -53694,17 +53694,17 @@ define dso_local noundef zeroext i1 @_ZNK5Catch8Matchers17WithinUlpsMatcher5matc
 
 8:                                                ; preds = %2
   %9 = load double, ptr %1, align 8
-  %10 = fptrunc double %9 to float
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load double, ptr %11, align 8
-  %13 = fptrunc double %12 to float
-  %or.cond.i = fcmp uno float %10, %13
-  br i1 %or.cond.i, label %_ZN5Catch12_GLOBAL__N_115almostEqualUlpsIfEEbT_S2_m.exit, label %14
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %11 = load double, ptr %10, align 8
+  %or.cond.i = fcmp uno double %9, %11
+  br i1 %or.cond.i, label %_ZN5Catch12_GLOBAL__N_115almostEqualUlpsIfEEbT_S2_m.exit, label %12
 
-14:                                               ; preds = %8
+12:                                               ; preds = %8
+  %13 = fptrunc double %11 to float
+  %14 = fptrunc double %9 to float
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i64, ptr %15, align 8
-  %17 = tail call noundef i64 @_ZN5Catch11ulpDistanceIfEEmT_S1_(float noundef %10, float noundef %13)
+  %17 = tail call noundef i64 @_ZN5Catch11ulpDistanceIfEEmT_S1_(float noundef %14, float noundef %13)
   %18 = icmp ule i64 %17, %16
   br label %_ZN5Catch12_GLOBAL__N_115almostEqualUlpsIfEEbT_S2_m.exit
 
@@ -53769,8 +53769,8 @@ _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit: ; preds = %_ZN5Catch20Reusab
   call void @_ZN5Catch20ReusableStringStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #57
   resume { ptr, i32 } %.pn
 
-_ZN5Catch12_GLOBAL__N_115almostEqualUlpsIfEEbT_S2_m.exit: ; preds = %23, %19, %14, %8
-  %.06 = phi i1 [ false, %8 ], [ %18, %14 ], [ %27, %23 ], [ false, %19 ]
+_ZN5Catch12_GLOBAL__N_115almostEqualUlpsIfEEbT_S2_m.exit: ; preds = %23, %19, %12, %8
+  %.06 = phi i1 [ false, %8 ], [ %18, %12 ], [ %27, %23 ], [ false, %19 ]
   ret i1 %.06
 }
 
