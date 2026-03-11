@@ -106,7 +106,7 @@ declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
 define hidden void @_ZN3smt10seq_axiomsC2ERNS_6theoryER11th_rewriter(ptr noundef nonnull align 8 dereferenceable(1240) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(53) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i20 = alloca { i64, i64 }, align 8
   %4 = alloca %"class.std::function.4", align 8
-  %5 = alloca %"class.std::function.1", align 16
+  %.sroa.0.i.i.i.i13 = alloca %"class.std::function.1", align 16
   %.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %6 = alloca %"class.std::function", align 8
   %7 = alloca %class.symbol, align 8
@@ -310,7 +310,7 @@ _ZNSt8functionIFvP4exprEEC2ERKS3_.exit.i.i:       ; preds = %89, %79
   %102 = phi ptr [ %80, %79 ], [ %86, %89 ]
   %103 = phi ptr [ null, %79 ], [ %90, %89 ]
   %104 = phi ptr [ null, %79 ], [ %91, %89 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %102, i64 16, i1 false), !tbaa.struct !79
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %102, i64 16, i1 false), !tbaa.struct !79
   store <2 x i64> %.sroa.0.i.i.i.i13.sroa.0.0.copyload, ptr %102, align 8, !tbaa !80
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %106 = load ptr, ptr %105, align 8, !tbaa !81

@@ -13384,20 +13384,20 @@ define range(i32 0, 21) i32 @FT_Outline_Copy(ptr noundef readonly captures(addre
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @FT_Outline_Reverse(ptr noundef captures(address_is_null) %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %34, label %.preheader
+  br i1 %.not, label %35, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %2 = load i16, ptr %0, align 8, !tbaa !130
-  %.not50 = icmp eq i16 %2, 0
-  br i1 %.not50, label %._crit_edge49, label %.lr.ph48
+  %3 = load i16, ptr %0, align 8, !tbaa !130
+  %.not49 = icmp eq i16 %3, 0
+  br i1 %.not49, label %._crit_edge48, label %.lr.ph47
 
-.lr.ph48:                                         ; preds = %.preheader
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+.lr.ph47:                                         ; preds = %.preheader
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %6
 
-6:                                                ; preds = %.lr.ph48, %._crit_edge45
+.lr.ph.preheader:                                 ; preds = %.lr.ph47, %._crit_edge45
   %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %._crit_edge45 ]
   %.03646 = phi i64 [ 4294967295, %.lr.ph48 ], [ %11, %._crit_edge45 ]
   %7 = add nuw nsw i64 %.03646, 2
@@ -13416,23 +13416,23 @@ define void @FT_Outline_Reverse(ptr noundef captures(address_is_null) %0) local_
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.03440 = phi ptr [ %18, %.lr.ph ], [ %15, %.lr.ph.preheader ]
-  %.03539 = phi ptr [ %17, %.lr.ph ], [ %16, %.lr.ph.preheader ]
-  %.sroa.0.0.copyload = load <2 x i64>, ptr %.03539, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03539, ptr noundef nonnull align 8 dereferenceable(16) %.03440, i64 16, i1 false), !tbaa.struct !281
-  store <2 x i64> %.sroa.0.0.copyload, ptr %.03440, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %.03539, i64 16
-  %18 = getelementptr inbounds i8, ptr %.03440, i64 -16
-  %19 = icmp ult ptr %17, %18
-  br i1 %19, label %.lr.ph, label %.lr.ph44.preheader, !llvm.loop !488
+  %.03439 = phi ptr [ %19, %.lr.ph ], [ %15, %.lr.ph.preheader ]
+  %.03538 = phi ptr [ %18, %.lr.ph ], [ %16, %.lr.ph.preheader ]
+  %.sroa.0.0.copyload = load <2 x i64>, ptr %.03538, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.03538, ptr noundef nonnull align 8 dereferenceable(16) %.03439, i64 16, i1 false), !tbaa.struct !281
+  store <2 x i64> %.sroa.0.0.copyload, ptr %.03439, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %.03538, i64 16
+  %19 = getelementptr inbounds i8, ptr %.03439, i64 -16
+  %20 = icmp ult ptr %18, %19
+  br i1 %20, label %.lr.ph, label %.lr.ph44.preheader, !llvm.loop !488
 
-.lr.ph44.preheader:                               ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %20 = load ptr, ptr %5, align 8, !tbaa !202
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %11
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %12
   br label %.lr.ph44
 
-.lr.ph44:                                         ; preds = %.lr.ph44.preheader, %.lr.ph44
+.lr.ph44:; preds = %.lr.ph44.preheader, %.lr.ph44
   %.03242 = phi ptr [ %26, %.lr.ph44 ], [ %21, %.lr.ph44.preheader ]
   %.03341 = phi ptr [ %25, %.lr.ph44 ], [ %22, %.lr.ph44.preheader ]
   %23 = load i8, ptr %.03341, align 1, !tbaa !222
@@ -13444,21 +13444,21 @@ define void @FT_Outline_Reverse(ptr noundef captures(address_is_null) %0) local_
   %27 = icmp ult ptr %25, %26
   br i1 %27, label %.lr.ph44, label %._crit_edge45, !llvm.loop !489
 
-._crit_edge45:                                    ; preds = %.lr.ph44, %6
+._crit_edge45:; preds = %.lr.ph44, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = load i16, ptr %0, align 8, !tbaa !130
-  %29 = zext i16 %28 to i64
-  %30 = icmp samesign ult i64 %indvars.iv.next, %29
-  br i1 %30, label %6, label %._crit_edge49, !llvm.loop !490
+  %29 = load i16, ptr %0, align 8, !tbaa !130
+  %30 = zext i16 %29 to i64
+  %31 = icmp samesign ult i64 %indvars.iv.next, %30
+  br i1 %31, label %6, label %._crit_edge48, !llvm.loop !490
 
-._crit_edge49:                                    ; preds = %._crit_edge45, %.preheader
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %32 = load i32, ptr %31, align 8, !tbaa !487
-  %33 = xor i32 %32, 4
-  store i32 %33, ptr %31, align 8, !tbaa !487
-  br label %34
+._crit_edge48:                                    ; preds = %._crit_edge45, %.preheader
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %33 = load i32, ptr %32, align 8, !tbaa !487
+  %34 = xor i32 %33, 4
+  store i32 %34, ptr %32, align 8, !tbaa !487
+  br label %35
 
-34:                                               ; preds = %1, %._crit_edge49
+35:                                               ; preds = %1, %._crit_edge48
   ret void
 }
 

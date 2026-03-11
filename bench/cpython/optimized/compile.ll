@@ -4039,50 +4039,50 @@ compiler_mod.exit:                                ; preds = %8, %12
 define internal fastcc ptr @new_compiler(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call ptr @PyMem_Calloc(i64 noundef 1, i64 noundef 88) #11
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %compiler_setup.exit, label %8
+  br i1 %7, label %47, label %8
 
-8:                                                ; preds = %5
+9:                                                ; preds = %5
   %9 = tail call ptr @PyDict_New() #11
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %10 = getelementptr inbounds nuw i9, ptr %6, i64 56
   store ptr %9, ptr %10, align 8, !tbaa !41
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %45, label %11
 
-11:                                               ; preds = %8
-  %12 = tail call ptr @PyList_New(i64 noundef 0) #11
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr %12, ptr %13, align 8, !tbaa !10
-  %.not32.i = icmp eq ptr %12, null
-  br i1 %.not32.i, label %45, label %14
+12:                                               ; preds = %9
+  %13 = tail call ptr @PyList_New(i64 noundef 0) #11
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr %13, ptr %14, align 8, !tbaa !10
+  %.not32.i = icmp eq ptr %13, null
+  br i1 %.not32.i, label %45, label %15
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr %1, align 8, !tbaa !4
-  %16 = icmp slt i32 %15, 0
-  br i1 %16, label %_Py_NewRef.exit.i, label %17
+15:                                               ; preds = %12
+  %16 = load i32, ptr %1, align 8, !tbaa !4
+  %17 = icmp slt i32 %16, 0
+  br i1 %17, label %_Py_NewRef.exit.i, label %18
 
-17:                                               ; preds = %14
-  %18 = add nuw i32 %15, 1
-  store i32 %18, ptr %1, align 8, !tbaa !4
+18:                                               ; preds = %15
+  %19 = add nuw i32 %16, 1
+  store i32 %19, ptr %1, align 8, !tbaa !4
   br label %_Py_NewRef.exit.i
 
-_Py_NewRef.exit.i:                                ; preds = %17, %14
+_Py_NewRef.exit.i:                                ; preds = %18, %15
   store ptr %1, ptr %6, align 8, !tbaa !77
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %20 = tail call i32 @_PyFuture_FromAST(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %19) #11
-  %.not33.i = icmp eq i32 %20, 0
-  br i1 %.not33.i, label %45, label %21
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %21 = tail call i32 @_PyFuture_FromAST(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %20) #11
+  %.not33.i = icmp eq i32 %21, 0
+  br i1 %.not33.i, label %45, label %22
 
-21:                                               ; preds = %_Py_NewRef.exit.i
+22:                                               ; preds = %_Py_NewRef.exit.i
   %.not34.i = icmp eq ptr %2, null
   %22 = load i32, ptr %19, align 8, !tbaa !87
   br i1 %.not34.i, label %.cont37.thread.i, label %.else.i
 
-.cont37.thread.i:                                 ; preds = %21
+.cont37.thread.i:; preds = %22
   %.sroa.0.0.insert.ext.i = zext i32 %22 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.ext.i, 60129542144
   br label %.cont.i
 
-.else.i:                                          ; preds = %21
+.else.i:; preds = %22
   %.else.val42.i = load i32, ptr %2, align 4, !tbaa !99
   %23 = or i32 %.else.val42.i, %22
   store i32 %23, ptr %19, align 8, !tbaa !87
@@ -4090,7 +4090,7 @@ _Py_NewRef.exit.i:                                ; preds = %17, %14
   %.else.val.i = load i64, ptr %2, align 4
   br label %.cont.i
 
-.cont.i:                                          ; preds = %.else.i, %.cont37.thread.i
+.cont.i:; preds = %.else.i, %.cont37.thread.i
   %24 = phi i32 [ %22, %.cont37.thread.i ], [ %23, %.else.i ]
   %25 = phi i64 [ %.sroa.0.0.insert.insert.i, %.cont37.thread.i ], [ %.else.val.i, %.else.i ]
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 36
@@ -4098,13 +4098,13 @@ _Py_NewRef.exit.i:                                ; preds = %17, %14
   %27 = icmp eq i32 %3, -1
   br i1 %27, label %28, label %32
 
-28:                                               ; preds = %.cont.i
+28:; preds = %.cont.i
   %29 = tail call ptr @_Py_GetConfig() #11
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 196
   %31 = load i32, ptr %30, align 4, !tbaa !100
   br label %32
 
-32:                                               ; preds = %28, %.cont.i
+46:                                               ; preds = %29, %.cont.i
   %33 = phi i32 [ %31, %28 ], [ %3, %.cont.i ]
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 %33, ptr %34, align 4, !tbaa !88
@@ -4135,7 +4135,7 @@ _Py_NewRef.exit.i:                                ; preds = %17, %14
   tail call fastcc void @compiler_free(ptr noundef %6)
   br label %compiler_setup.exit
 
-compiler_setup.exit:                              ; preds = %37, %5, %45
+47:                                               ; preds = %37, %5, %45
   %.0 = phi ptr [ null, %5 ], [ null, %45 ], [ %6, %37 ]
   ret ptr %.0
 }

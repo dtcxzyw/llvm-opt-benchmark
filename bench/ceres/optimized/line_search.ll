@@ -1176,10 +1176,10 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal1
   br label %39
 
 39:                                               ; preds = %37, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %.noexc
-  %.sroa.0.0.in.i.sroa.speculated = phi i64 [ %.sroa.0.0.in.i.sroa.speculate.load., %37 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ 0, %.noexc ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.in.i.sroa.speculate.load., %37 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ 0, %.noexc ]
   %.sroa.3.0.in.i.sroa.speculated = phi i32 [ %38, %37 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ 0, %.noexc ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %.sroa.0.0.in.i.sroa.speculated, ptr %40, align 8
+  store i64 %.sroa.0.0.i, ptr %40, align 8
   %.sroa.52.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.sroa.3.0.in.i.sroa.speculated, ptr %.sroa.52.0..sroa_idx, align 8, !tbaa !20
   %41 = icmp eq ptr %.pre, %10
@@ -1214,7 +1214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %39, %
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %50 = load ptr, ptr %16, align 8, !tbaa !67
   %.not10.i.i.i.i15 = icmp eq ptr %50, null
-  %.pre102 = load ptr, ptr %5, align 8, !tbaa !3
+  %.pre104 = load ptr, ptr %5, align 8, !tbaa !3
   br i1 %.not10.i.i.i.i15, label %71, label %.lr.ph.i.i.i.i16
 
 .lr.ph.i.i.i.i16:                                 ; preds = %.noexc13
@@ -1233,7 +1233,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %39, %
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i20: ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i17, i64 32
   %57 = load ptr, ptr %56, align 8, !tbaa !3
-  %58 = call i32 @memcmp(ptr noundef %57, ptr noundef %.pre102, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i19) #35
+  %58 = call i32 @memcmp(ptr noundef %57, ptr noundef %.pre104, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i19) #35
   %.not.i.i.i.i.i.i.i21 = icmp eq i32 %58, 0
   br i1 %.not.i.i.i.i.i.i.i21, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i48, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i22
 
@@ -1270,7 +1270,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i31: ; preds = %62
   %.19.i.i.i.i24.sroa.sel77.v.sroa.sel.v.sroa.sel.v = select i1 %60, ptr %.0811.i.i.i.i18, ptr %.012.i.i.i.i17
   %.19.i.i.i.i24.sroa.sel77.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i24.sroa.sel77.v.sroa.sel.v.sroa.sel.v, i64 32
   %65 = load ptr, ptr %.19.i.i.i.i24.sroa.sel77.v.sroa.sel.v.sroa.sel, align 8, !tbaa !3
-  %66 = call i32 @memcmp(ptr noundef %.pre102, ptr noundef %65, i64 noundef %.sroa.speculated.i.i.i.i.i.i30) #35
+  %66 = call i32 @memcmp(ptr noundef %.pre104, ptr noundef %65, i64 noundef %.sroa.speculated.i.i.i.i.i.i30) #35
   %.not.i.i.i.i.i.i32 = icmp eq i32 %66, 0
   br i1 %.not.i.i.i.i.i.i32, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i44, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i33
 
@@ -1297,24 +1297,24 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal1
   br label %71
 
 71:                                               ; preds = %69, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i33, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i29, %.noexc13
-  %.sroa.0.0.in.i36.sroa.speculated = phi i64 [ %.sroa.0.0.in.i36.sroa.speculate.load., %69 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i33 ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i29 ], [ 0, %.noexc13 ]
+  %.sroa.0.0.i39 = phi i64 [ %.sroa.0.0.in.i36.sroa.speculate.load., %69 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i33 ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i29 ], [ 0, %.noexc13 ]
   %.sroa.3.0.in.i37.sroa.speculated = phi i32 [ %70, %69 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i33 ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i29 ], [ 0, %.noexc13 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i64 %.sroa.0.0.in.i36.sroa.speculated, ptr %72, align 4
+  store i64 %.sroa.0.0.i39, ptr %72, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %.sroa.3.0.in.i37.sroa.speculated, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !20
-  %73 = icmp eq ptr %.pre102, %44
+  %73 = icmp eq ptr %.pre104, %44
   br i1 %73, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53: ; preds = %71
   %74 = load i64, ptr %44, align 8, !tbaa !12
   %75 = add i64 %74, 1
-  call void @_ZdlPvm(ptr noundef %.pre102, i64 noundef %75) #32
-  %.pre103 = load ptr, ptr %16, align 8, !tbaa !67
+  call void @_ZdlPvm(ptr noundef %.pre104, i64 noundef %75) #32
+  %.pre105 = load ptr, ptr %16, align 8, !tbaa !67
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
-  %76 = phi ptr [ %.pre103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53 ], [ %50, %71 ]
+  %76 = phi ptr [ %.pre105, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53 ], [ %50, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %76)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit unwind label %77
@@ -1492,14 +1492,14 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal1
   br label %44
 
 44:                                               ; preds = %42, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %.noexc
-  %.sroa.0.0.in.i.sroa.speculated = phi i64 [ %.sroa.0.0.in.i.sroa.speculate.load., %42 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ 0, %.noexc ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.in.i.sroa.speculate.load., %42 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ 0, %.noexc ]
   %.sroa.3.0.in.i.sroa.speculated = phi i32 [ %43, %42 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ 0, %.noexc ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sroa.020.0.copyload = load i64, ptr %45, align 8
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.221.0.copyload = load i32, ptr %.sroa.221.0..sroa_idx, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %.sroa.0.0.in.i.sroa.speculated, ptr %5, align 8
+  store i64 %.sroa.0.0.i, ptr %5, align 8
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sroa.3.0.in.i.sroa.speculated, ptr %.sroa.210.0..sroa_idx.i, align 8
   %46 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl12lts_202401168DurationmIES1_(ptr noundef nonnull align 4 dereferenceable(12) %5, i64 %.sroa.020.0.copyload, i32 %.sroa.221.0.copyload) #35
@@ -1626,14 +1626,14 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal1
   br label %79
 
 79:                                               ; preds = %77, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i62, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i58, %.noexc42
-  %.sroa.0.0.in.i65.sroa.speculated = phi i64 [ %.sroa.0.0.in.i65.sroa.speculate.load., %77 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i62 ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i58 ], [ 0, %.noexc42 ]
+  %.sroa.0.0.i68 = phi i64 [ %.sroa.0.0.in.i65.sroa.speculate.load., %77 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i62 ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i58 ], [ 0, %.noexc42 ]
   %.sroa.3.0.in.i66.sroa.speculated = phi i32 [ %78, %77 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i62 ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i58 ], [ 0, %.noexc42 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %.sroa.05.0.copyload = load i64, ptr %80, align 4
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 76
   %.sroa.26.0.copyload = load i32, ptr %.sroa.26.0..sroa_idx, align 4, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %.sroa.0.0.in.i65.sroa.speculated, ptr %3, align 8
+  store i64 %.sroa.0.0.i68, ptr %3, align 8
   %.sroa.210.0..sroa_idx.i82 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sroa.3.0.in.i66.sroa.speculated, ptr %.sroa.210.0..sroa_idx.i82, align 8
   %81 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl12lts_202401168DurationmIES1_(ptr noundef nonnull align 4 dereferenceable(12) %3, i64 %.sroa.05.0.copyload, i32 %.sroa.26.0.copyload) #35

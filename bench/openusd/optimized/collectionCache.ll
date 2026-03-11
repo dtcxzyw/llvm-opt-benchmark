@@ -7815,14 +7815,14 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__19
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEESaIS7_EEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 16
   %.not = icmp eq ptr %1, %0
-  br i1 %.not, label %100, label %4
+  br i1 %.not, label %72, label %3
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr %1, align 8
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %6 to i64
-  %9 = ptrtoint ptr %7 to i64
+  %9 = ptrtoint ptr %7 to i63
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -7833,7 +7833,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   %17 = icmp ugt i64 %10, %16
   br i1 %17, label %18, label %39
 
-18:                                               ; preds = %4
+18:; preds = %4
   %19 = ashr exact i64 %10, 5
   %20 = tail call noundef ptr @_ZNSt6vectorISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEESaIS7_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS7_S9_EEEEPS7_mT_SH_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %19, ptr %7, ptr %6)
   %21 = load ptr, ptr %0, align 8
@@ -7843,26 +7843,26 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEES7_EvT_S9_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %18, %_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %31, %_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i ], [ %21, %18 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i, label %26
+  %.05.i.i.i = phi ptr [ %30, %_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i ], [ %21, %18 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
+  %24 = load ptr, ptr %23, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i, label %25
 
-26:                                               ; preds = %.lr.ph.i.i.i
-  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i, i32 noundef 3)
-          to label %_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i unwind label %28
+25:                                               ; preds = %.lr.ph.i.i.i
+  %26 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i, i32 noundef 3)
+          to label %_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i unwind label %27
 
-28:                                               ; preds = %26
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %25
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #16
+  %29 = extractvalue { ptr, i32 } %28, 0
+  tail call void @__clang_call_terminate(ptr %29) #16
   unreachable
 
-_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i: ; preds = %26, %.lr.ph.i.i.i
-  %31 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
-  %.not.i.i.i = icmp eq ptr %31, %23
+_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i: ; preds = %25, %.lr.ph.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
+  %.not.i.i.i = icmp eq ptr %30, %23
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !36
 
 _ZSt8_DestroyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i
@@ -7870,72 +7870,72 @@ _ZSt8_DestroyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFun
   br label %_ZSt8_DestroyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEES7_EvT_S9_RSaIT0_E.exit
 
 _ZSt8_DestroyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEES7_EvT_S9_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split, %18
-  %32 = phi ptr [ %.pr, %_ZSt8_DestroyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split ], [ %21, %18 ]
-  %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %_ZNSt12_Vector_baseISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEESaIS7_EE13_M_deallocateEPS7_m.exit, label %33
+  %31 = phi ptr [ %.pr, %_ZSt8_DestroyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split ], [ %21, %18 ]
+  %.not.i = icmp eq ptr %31, null
+  br i1 %.not.i, label %_ZNSt12_Vector_baseISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEESaIS7_EE13_M_deallocateEPS7_m.exit, label %32
 
-33:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEES7_EvT_S9_RSaIT0_E.exit
-  %34 = load ptr, ptr %11, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = ptrtoint ptr %32 to i64
-  %37 = sub i64 %35, %36
-  tail call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %37) #18
+32:                                               ; preds = %_ZSt8_DestroyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEES7_EvT_S9_RSaIT0_E.exit
+  %33 = load ptr, ptr %11, align 8
+  %34 = ptrtoint ptr %33 to i64
+  %35 = ptrtoint ptr %31 to i64
+  %36 = sub i64 %34, %35
+  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef %36) #18
   br label %_ZNSt12_Vector_baseISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEESaIS7_EE13_M_deallocateEPS7_m.exit
 
-_ZNSt12_Vector_baseISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZSt8_DestroyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEES7_EvT_S9_RSaIT0_E.exit, %33
+_ZNSt12_Vector_baseISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZSt8_DestroyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEES7_EvT_S9_RSaIT0_E.exit, %32
   store ptr %20, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %20, i64 %10
-  store ptr %38, ptr %11, align 8
+  %37 = getelementptr inbounds i8, ptr %20, i64 %10
+  store ptr %37, ptr %11, align 8
   br label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS3_9UsdObjectEEESt6vectorIS9_SaIS9_EEEES9_EvT_SF_RSaIT0_E.exit
 
-39:                                               ; preds = %4
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = ptrtoint ptr %41 to i64
-  %43 = sub i64 %42, %15
-  %.not24 = icmp ult i64 %43, %10
-  br i1 %.not24, label %55, label %44
+38:                                               ; preds = %3
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = ptrtoint ptr %40 to i64
+  %42 = sub i64 %41, %15
+  %.not24 = icmp ult i64 %42, %10
+  br i1 %.not24, label %57, label %43
 
-44:                                               ; preds = %39
-  %45 = tail call ptr @_ZSt13__copy_move_aILb0EN9__gnu_cxx17__normal_iteratorIPKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS3_9UsdObjectEEESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET1_T0_SJ_SI_(ptr %7, ptr %6, ptr %13)
-  %46 = load ptr, ptr %40, align 8
-  %.not4.i.i.i25 = icmp eq ptr %45, %46
-  br i1 %.not4.i.i.i25, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS3_9UsdObjectEEESt6vectorIS9_SaIS9_EEEES9_EvT_SF_RSaIT0_E.exit, label %.lr.ph.i.i.i26
+43:                                               ; preds = %38
+  %44 = tail call ptr @_ZSt13__copy_move_aILb0EN9__gnu_cxx17__normal_iteratorIPKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS3_9UsdObjectEEESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET1_T0_SJ_SI_(ptr %6, ptr %5, ptr %13)
+  %45 = load ptr, ptr %39, align 8
+  %.not4.i.i.i25 = icmp eq ptr %44, %45
+  br i1 %.not4.i.i.i25, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS3_9UsdObjectEEESt6vectorIS9_SaIS9_EEEES9_EvT_SF_RSaIT0_E.exit, label %.lr.ph.i.i.i26.preheader
 
-.lr.ph.i.i.i26:                                   ; preds = %44, %_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i28
+.lr.ph.i.i.i26.preheader:                         ; preds = %44, %_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i28
   %.sroa.01.05.i.i.i = phi ptr [ %54, %_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i28 ], [ %45, %44 ]
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i.i, i64 16
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i.i.i.i27 = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i.i.i27, label %_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i28, label %49
 
-49:                                               ; preds = %.lr.ph.i.i.i26
-  %50 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i.i.i, i32 noundef 3)
-          to label %_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i28 unwind label %51
+51:                                               ; preds = %.lr.ph.i.i.i26
+  %52 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.05.i.i.i, i32 noundef 3)
+          to label %_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i28 unwind label %53
 
-51:                                               ; preds = %49
-  %52 = landingpad { ptr, i32 }
+53:                                               ; preds = %51
+  %54 = landingpad { ptr, i32 }
           catch ptr null
-  %53 = extractvalue { ptr, i32 } %52, 0
-  tail call void @__clang_call_terminate(ptr %53) #16
+  %55 = extractvalue { ptr, i32 } %54, 0
+  tail call void @__clang_call_terminate(ptr %55) #16
   unreachable
 
-_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i28: ; preds = %49, %.lr.ph.i.i.i26
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i.i, i64 32
-  %.not.i.i.i29 = icmp eq ptr %54, %46
+_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i28: ; preds = %51, %.lr.ph.i.i.i26
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i.i, i64 32
+  %.not.i.i.i29 = icmp eq ptr %56, %45
   br i1 %.not.i.i.i29, label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS3_9UsdObjectEEESt6vectorIS9_SaIS9_EEEES9_EvT_SF_RSaIT0_E.exit, label %.lr.ph.i.i.i26, !llvm.loop !51
 
-55:                                               ; preds = %39
-  %56 = ashr exact i64 %43, 5
+57:                                               ; preds = %38
+  %56 = ashr exact i64 %42, 5
   %57 = icmp sgt i64 %56, 0
   br i1 %57, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEES8_ET0_T_SA_S9_.exit
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %55
+.lr.ph.i.i.i.i.i:; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %60
 
-60:                                               ; preds = %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
+60:; preds = %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %.016.i.i.i.i.i = phi i64 [ %56, %.lr.ph.i.i.i.i.i ], [ %90, %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i.i.i ]
   %.0815.i.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i.i ], [ %89, %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i.i.i ]
   %.0914.i.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i.i ], [ %88, %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i.i.i ]
@@ -8033,14 +8033,14 @@ _ZSt4copyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctio
   %96 = call noundef ptr @_ZSt16__do_uninit_copyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEES8_ET0_T_SA_S9_(ptr noundef %95, ptr noundef %92, ptr noundef %93)
   br label %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS3_9UsdObjectEEESt6vectorIS9_SaIS9_EEEES9_EvT_SF_RSaIT0_E.exit
 
-_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS3_9UsdObjectEEESt6vectorIS9_SaIS9_EEEES9_EvT_SF_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i28, %44, %_ZSt4copyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEES8_ET0_T_SA_S9_.exit, %_ZNSt12_Vector_baseISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEESaIS7_EE13_M_deallocateEPS7_m.exit
-  %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 %10
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %98, ptr %99, align 8
-  br label %100
+_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS3_9UsdObjectEEESt6vectorIS9_SaIS9_EEEES9_EvT_SF_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEEvPT_.exit.i.i.i28, %43, %_ZSt4copyIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEES8_ET0_T_SA_S9_.exit, %_ZNSt12_Vector_baseISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEESaIS7_EE13_M_deallocateEPS7_m.exit
+  %69 = load ptr, ptr %0, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 %10
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %70, ptr %71, align 8
+  br label %72
 
-100:                                              ; preds = %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS3_9UsdObjectEEESt6vectorIS9_SaIS9_EEEES9_EvT_SF_RSaIT0_E.exit, %2
+72:                                               ; preds = %_ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS3_9UsdObjectEEESt6vectorIS9_SaIS9_EEEES9_EvT_SF_RSaIT0_E.exit, %2
   ret ptr %0
 }
 
@@ -8117,36 +8117,36 @@ _ZNSt12_Vector_baseISt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredica
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZSt13__copy_move_aILb0EN9__gnu_cxx17__normal_iteratorIPKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS3_9UsdObjectEEESt6vectorIS9_SaIS9_EEEENS1_IPS9_SE_EEET1_T0_SJ_SI_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::function", align 16
+  %.sroa.0.i.i.i = alloca %"class.std::function", align 16
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %0 to i64
   %7 = sub i64 %5, %6
   %8 = ashr exact i64 %7, 5
   %9 = icmp sgt i64 %8, 0
-  br i1 %9, label %.lr.ph.i.i.i, label %_ZSt14__copy_move_a1ILb0EPKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEPS7_ET1_T0_SC_SB_.exit
+  br i1 %9, label %.lr.ph, label %._crit_edge
 
-.lr.ph.i.i.i:                                     ; preds = %3
+.lr.ph:                                           ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %12
 
-12:                                               ; preds = %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i, %.lr.ph.i.i.i
-  %.016.i.i.i = phi i64 [ %8, %.lr.ph.i.i.i ], [ %42, %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i ]
-  %.0815.i.i.i = phi ptr [ %2, %.lr.ph.i.i.i ], [ %41, %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i ]
-  %.0914.i.i.i = phi ptr [ %0, %.lr.ph.i.i.i ], [ %40, %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i ]
+12:                                               ; preds = %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit, %.lr.ph
+  %.015 = phi i64 [ %8, %.lr.ph.i.i.i ], [ %42, %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i ]
+  %.0814 = phi ptr [ %2, %.lr.ph.i.i.i ], [ %41, %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i ]
+  %.0913 = phi ptr [ %0, %.lr.ph.i.i.i ], [ %40, %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %13 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.0913, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %14 = load ptr, ptr %13, align 8
-  %.not.i.i.not.i.i.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i.not.i.i.i.i.i, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEC2ERKS6_.exit.i.i.i.i, label %15
+  %.not.i.i.not.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEC2ERKS6_.exit.i, label %15
 
 15:                                               ; preds = %12
-  %16 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.0914.i.i.i, i32 noundef 2)
+  %16 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.0913, i32 noundef 2)
           to label %17 unwind label %21
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.0913, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %13, align 8
   %.sroa.0.i.i.i.sroa.0.0.copyload.pre.i.i.i = load <2 x i64>, ptr %4, align 16
@@ -8156,8 +8156,8 @@ define linkonce_odr ptr @_ZSt13__copy_move_aILb0EN9__gnu_cxx17__normal_iteratorI
   %22 = landingpad { ptr, i32 }
           cleanup
   %23 = load ptr, ptr %10, align 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i.i.i.i, label %24
+  %.not.i.i.i = icmp eq ptr %23, null
+  br i1 %.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i.i, label %24
 
 24:                                               ; preds = %21
   %25 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
@@ -8170,27 +8170,27 @@ define linkonce_odr ptr @_ZSt13__copy_move_aILb0EN9__gnu_cxx17__normal_iteratorI
   call void @__clang_call_terminate(ptr %28) #16
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit.i.i.i.i.i:         ; preds = %24, %21
+_ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %24, %21
   resume { ptr, i32 } %22
 
-_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEC2ERKS6_.exit.i.i.i.i: ; preds = %17, %12
+_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEC2ERKS6_.exit.i: ; preds = %17, %12
   %.sroa.0.i.i.i.sroa.0.0.copyload.i.i.i = phi <2 x i64> [ zeroinitializer, %12 ], [ %.sroa.0.i.i.i.sroa.0.0.copyload.pre.i.i.i, %17 ]
   %29 = phi ptr [ null, %12 ], [ %19, %17 ]
   %30 = phi ptr [ null, %12 ], [ %20, %17 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.0815.i.i.i, i64 16, i1 false)
-  store <2 x i64> %.sroa.0.i.i.i.sroa.0.0.copyload.i.i.i, ptr %.0815.i.i.i, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0814, i64 16, i1 false)
+  store <2 x i64> %.sroa.0.i.i.i.sroa.0.0.copyload.i.i.i, ptr %.0814, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %.0814, i64 16
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %10, align 16
   store ptr %30, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.0814, i64 24
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %11, align 8
   store ptr %29, ptr %33, align 8
-  %.not.i.i2.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i2.i.i.i.i, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i, label %35
+  %.not.i.i2.i = icmp eq ptr %32, null
+  br i1 %.not.i.i2.i, label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit, label %35
 
-35:                                               ; preds = %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEC2ERKS6_.exit.i.i.i.i
+35:                                               ; preds = %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEC2ERKS6_.exit.i
   %36 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i unwind label %37
 
@@ -8201,17 +8201,17 @@ _ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultE
   call void @__clang_call_terminate(ptr %39) #16
   unreachable
 
-_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i: ; preds = %35, %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEC2ERKS6_.exit.i.i.i.i
+_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit: ; preds = %34, %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEC2ERKS6_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %40 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i, i64 32
-  %41 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i, i64 32
-  %42 = add nsw i64 %.016.i.i.i, -1
-  %43 = icmp sgt i64 %.016.i.i.i, 1
-  br i1 %43, label %12, label %_ZSt14__copy_move_a1ILb0EPKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEPS7_ET1_T0_SC_SB_.exit, !llvm.loop !53
+  %40 = getelementptr inbounds nuw i8, ptr %.0913, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.0814, i64 32
+  %42 = add nsw i64 %.015, -1
+  %43 = icmp sgt i64 %.015, 1
+  br i1 %43, label %12, label %._crit_edge, !llvm.loop !53
 
-_ZSt14__copy_move_a1ILb0EPKSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS1_9UsdObjectEEEPS7_ET1_T0_SC_SB_.exit: ; preds = %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i, %3
-  %.08.lcssa.i.i.i = phi ptr [ %2, %3 ], [ %41, %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i ]
-  %44 = ptrtoint ptr %.08.lcssa.i.i.i to i64
+._crit_edge:                                      ; preds = %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit, %3
+  %.08.lcssa = phi ptr [ %2, %3 ], [ %41, %_ZNSt8functionIFN32pxrInternal_v0_24__pxrReserved__26SdfPredicateFunctionResultERKNS0_9UsdObjectEEEaSERKS6_.exit.i.i.i ]
+  %44 = ptrtoint ptr %.08.lcssa to i64
   %45 = ptrtoint ptr %2 to i64
   %46 = sub i64 %44, %45
   %47 = getelementptr inbounds i8, ptr %2, i64 %46

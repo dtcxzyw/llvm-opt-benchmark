@@ -2964,24 +2964,24 @@ if.then2.i:                                       ; preds = %_ZNK9__gnu_cxx5__op
 
 if.else.i:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.i, %lor.rhs.i.i.i
   %__val.sroa.3.0.__last.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %__first.pn15.i, i64 20
-  %__val.sroa.3.0.copyload.i.i = load <2 x i32>, ptr %__val.sroa.3.0.__last.sroa_idx.i.i, align 4
+  %3 = load <2 x i32>, ptr %__val.sroa.3.0.__last.sroa_idx.i.i, align 4
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %if.else.i
   %__last.addr.0.i.i = phi ptr [ %__i.016.i.ptr, %if.else.i ], [ %__next.0.i.i, %while.body.i.i ]
   %__next.0.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i, i64 -16
   %depth2.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.i.i, i64 -4
-  %3 = load i32, ptr %depth2.i.i.i.i, align 4
-  %cmp.i.i.i.i = icmp ugt i32 %0, %3
+  %4 = load i32, ptr %depth2.i.i.i.i, align 4
+  %cmp.i.i.i.i = icmp ugt i32 %0, %4
   br i1 %cmp.i.i.i.i, label %while.body.i.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %while.cond.i.i
-  %cmp5.i.i.i.i = icmp eq i32 %0, %3
+  %cmp5.i.i.i.i = icmp eq i32 %0, %4
   br i1 %cmp5.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i, label %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i: ; preds = %lor.rhs.i.i.i.i
-  %4 = load i32, ptr %__next.0.i.i, align 4
-  %cmp7.i.i.i.i = icmp ult i32 %__val.sroa.0.0.copyload.i.pre.i, %4
+  %5 = load i32, ptr %__next.0.i.i, align 4
+  %cmp7.i.i.i.i = icmp ult i32 %__val.sroa.0.0.copyload.i.pre.i, %5
   br i1 %cmp7.i.i.i.i, label %while.body.i.i, label %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
 
 while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i, %while.cond.i.i
@@ -2991,9 +2991,9 @@ while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__op
 _ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i, %lor.rhs.i.i.i.i
   store i32 %__val.sroa.0.0.copyload.i.pre.i, ptr %__last.addr.0.i.i, align 4
   %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i, i64 4
-  store <2 x i32> %__val.sroa.3.0.copyload.i.i, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i, align 4
-  %__val.sroa.310.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i, i64 12
-  store i32 %0, ptr %__val.sroa.310.0.__last.addr.0.sroa_idx.i.i, align 4
+  store <2 x i32> %3, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i, align 4
+  %__val.sroa.39.0.__last.addr.0.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i, i64 12
+  store i32 %0, ptr %__val.sroa.39.0.__last.addr.0.sroa_idx.i.i, align 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, %if.then2.i
@@ -3006,130 +3006,130 @@ _ZSt16__insertion_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_
   %cmp.not3.i = icmp eq ptr %add.ptr, %__last
   br i1 %cmp.not3.i, label %if.end, label %for.body.i7
 
-for.body.i7:                                      ; preds = %_ZSt16__insertion_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i17
+for.body.i7:                                      ; preds = %_ZSt16__insertion_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i16
   %__i.04.i = phi ptr [ %incdec.ptr.i, %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i17 ], [ %add.ptr, %_ZSt16__insertion_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit ]
   %__val.sroa.0.0.copyload.i.i = load i32, ptr %__i.04.i, align 4
   %__val.sroa.3.0.__last.sroa_idx.i.i8 = getelementptr inbounds nuw i8, ptr %__i.04.i, i64 4
-  %__val.sroa.3.0.copyload.i.i9 = load <2 x i32>, ptr %__val.sroa.3.0.__last.sroa_idx.i.i8, align 4
-  %__val.sroa.310.0.__last.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %__i.04.i, i64 12
-  %__val.sroa.310.0.copyload.i.i = load i32, ptr %__val.sroa.310.0.__last.sroa_idx.i.i, align 4
-  br label %while.cond.i.i10
+  %6 = load <2 x i32>, ptr %__val.sroa.3.0.__last.sroa_idx.i.i8, align 4
+  %__val.sroa.39.0.__last.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %__i.04.i, i64 12
+  %__val.sroa.39.0.copyload.i.i = load i32, ptr %__val.sroa.39.0.__last.sroa_idx.i.i, align 4
+  br label %while.cond.i.i9
 
-while.cond.i.i10:                                 ; preds = %while.body.i.i22, %for.body.i7
-  %__last.addr.0.i.i11 = phi ptr [ %__i.04.i, %for.body.i7 ], [ %__next.0.i.i12, %while.body.i.i22 ]
-  %__next.0.i.i12 = getelementptr inbounds i8, ptr %__last.addr.0.i.i11, i64 -16
-  %depth2.i.i.i.i13 = getelementptr inbounds i8, ptr %__last.addr.0.i.i11, i64 -4
-  %5 = load i32, ptr %depth2.i.i.i.i13, align 4
-  %cmp.i.i.i.i14 = icmp ugt i32 %__val.sroa.310.0.copyload.i.i, %5
-  br i1 %cmp.i.i.i.i14, label %while.body.i.i22, label %lor.rhs.i.i.i.i15
+while.cond.i.i9:                                  ; preds = %while.body.i.i21, %for.body.i7
+  %__last.addr.0.i.i10 = phi ptr [ %__i.04.i, %for.body.i7 ], [ %__next.0.i.i11, %while.body.i.i22 ]
+  %__next.0.i.i11 = getelementptr inbounds i8, ptr %__last.addr.0.i.i10, i64 -16
+  %depth2.i.i.i.i12 = getelementptr inbounds i8, ptr %__last.addr.0.i.i10, i64 -4
+  %7 = load i32, ptr %depth2.i.i.i.i12, align 4
+  %cmp.i.i.i.i13 = icmp ugt i32 %__val.sroa.39.0.copyload.i.i, %7
+  br i1 %cmp.i.i.i.i13, label %while.body.i.i21, label %lor.rhs.i.i.i.i14
 
-lor.rhs.i.i.i.i15:                                ; preds = %while.cond.i.i10
-  %cmp5.i.i.i.i16 = icmp eq i32 %__val.sroa.310.0.copyload.i.i, %5
-  br i1 %cmp5.i.i.i.i16, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i20, label %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i17
+lor.rhs.i.i.i.i14:                                ; preds = %while.cond.i.i9
+  %cmp5.i.i.i.i15 = icmp eq i32 %__val.sroa.39.0.copyload.i.i, %7
+  br i1 %cmp5.i.i.i.i15, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i19, label %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i16
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i20: ; preds = %lor.rhs.i.i.i.i15
-  %6 = load i32, ptr %__next.0.i.i12, align 4
-  %cmp7.i.i.i.i21 = icmp ult i32 %__val.sroa.0.0.copyload.i.i, %6
-  br i1 %cmp7.i.i.i.i21, label %while.body.i.i22, label %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i17
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i19: ; preds = %lor.rhs.i.i.i.i14
+  %8 = load i32, ptr %__next.0.i.i11, align 4
+  %cmp7.i.i.i.i20 = icmp ult i32 %__val.sroa.0.0.copyload.i.i, %8
+  br i1 %cmp7.i.i.i.i20, label %while.body.i.i21, label %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i16
 
-while.body.i.i22:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i20, %while.cond.i.i10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__last.addr.0.i.i11, ptr noundef nonnull align 4 dereferenceable(16) %__next.0.i.i12, i64 16, i1 false)
-  br label %while.cond.i.i10, !llvm.loop !48
+while.body.i.i21:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i19, %while.cond.i.i9
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__last.addr.0.i.i10, ptr noundef nonnull align 4 dereferenceable(16) %__next.0.i.i11, i64 16, i1 false)
+  br label %while.cond.i.i9, !llvm.loop !48
 
-_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i17: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i20, %lor.rhs.i.i.i.i15
-  store i32 %__val.sroa.0.0.copyload.i.i, ptr %__last.addr.0.i.i11, align 4
-  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i18 = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i11, i64 4
-  store <2 x i32> %__val.sroa.3.0.copyload.i.i9, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i18, align 4
-  %__val.sroa.310.0.__last.addr.0.sroa_idx.i.i19 = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i11, i64 12
-  store i32 %__val.sroa.310.0.copyload.i.i, ptr %__val.sroa.310.0.__last.addr.0.sroa_idx.i.i19, align 4
+_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i16: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i19, %lor.rhs.i.i.i.i14
+  store i32 %__val.sroa.0.0.copyload.i.i, ptr %__last.addr.0.i.i10, align 4
+  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i17 = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i10, i64 4
+  store <2 x i32> %6, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i17, align 4
+  %__val.sroa.39.0.__last.addr.0.sroa_idx.i.i18 = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i10, i64 12
+  store i32 %__val.sroa.39.0.copyload.i.i, ptr %__val.sroa.39.0.__last.addr.0.sroa_idx.i.i18, align 4
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__i.04.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
   br i1 %cmp.not.i, label %if.end, label %for.body.i7, !llvm.loop !50
 
 if.else:                                          ; preds = %entry
   %cmp.i = icmp eq ptr %__first, %__last
-  br i1 %cmp.i, label %if.end, label %for.cond.preheader.i
+  br i1 %cmp.i, label %_ZSt16__insertion_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit61, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.else
   %__i.013.i23 = getelementptr inbounds nuw i8, ptr %__first, i64 16
   %cmp1.not14.i = icmp eq ptr %__i.013.i23, %__last
-  br i1 %cmp1.not14.i, label %if.end, label %for.body.lr.ph.i
+  br i1 %cmp1.not14.i, label %_ZSt16__insertion_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit61, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %depth2.i.i.i24 = getelementptr inbounds nuw i8, ptr %__first, i64 12
   br label %for.body.i26
 
-for.body.i26:                                     ; preds = %for.inc.i47, %for.body.lr.ph.i
-  %__i.016.i27 = phi ptr [ %__i.013.i23, %for.body.lr.ph.i ], [ %__i.0.i48, %for.inc.i47 ]
+for.body.i26:                                     ; preds = %for.inc.i46, %for.body.lr.ph.i
+  %__i.016.i27 = phi ptr [ %__i.013.i23, %for.body.lr.ph.i ], [ %__i.0.i47, %for.inc.i47 ]
   %__first.pn15.i28 = phi ptr [ %__first, %for.body.lr.ph.i ], [ %__i.016.i27, %for.inc.i47 ]
   %depth.i.i.i29 = getelementptr inbounds nuw i8, ptr %__first.pn15.i28, i64 28
-  %7 = load i32, ptr %depth.i.i.i29, align 4
-  %8 = load i32, ptr %depth2.i.i.i24, align 4
-  %cmp.i.i.i30 = icmp ugt i32 %7, %8
-  br i1 %cmp.i.i.i30, label %if.then2.i55, label %lor.rhs.i.i.i31
+  %9 = load i32, ptr %depth.i.i.i29, align 4
+  %10 = load i32, ptr %depth2.i.i.i24, align 4
+  %cmp.i.i.i30 = icmp ugt i32 %9, %10
+  br i1 %cmp.i.i.i30, label %if.then2.i54, label %lor.rhs.i.i.i31
 
 lor.rhs.i.i.i31:                                  ; preds = %for.body.i26
-  %cmp5.i.i.i32 = icmp eq i32 %7, %8
+  %cmp5.i.i.i32 = icmp eq i32 %9, %10
   %__val.sroa.0.0.copyload.i.pre.i33 = load i32, ptr %__i.016.i27, align 4
-  br i1 %cmp5.i.i.i32, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.i53, label %if.else.i34
+  br i1 %cmp5.i.i.i32, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.i52, label %if.else.i34
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.i53: ; preds = %lor.rhs.i.i.i31
-  %9 = load i32, ptr %__first, align 4
-  %cmp7.i.i.i54 = icmp ult i32 %__val.sroa.0.0.copyload.i.pre.i33, %9
-  br i1 %cmp7.i.i.i54, label %if.then2.i55, label %if.else.i34
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.i52: ; preds = %lor.rhs.i.i.i31
+  %11 = load i32, ptr %__first, align 4
+  %cmp7.i.i.i53 = icmp ult i32 %__val.sroa.0.0.copyload.i.pre.i33, %11
+  br i1 %cmp7.i.i.i53, label %if.then2.i54, label %if.else.i34
 
-if.then2.i55:                                     ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.i53, %for.body.i26
+if.then2.i54:                                     ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.i52, %for.body.i26
   %__val.sroa.0.0.copyload.i56 = load <4 x i32>, ptr %__i.016.i27, align 4
-  %add.ptr3.i57 = getelementptr inbounds nuw i8, ptr %__first.pn15.i28, i64 32
-  %sub.ptr.lhs.cast.i.i.i.i.i.i58 = ptrtoint ptr %__i.016.i27 to i64
-  %sub.ptr.sub.i.i.i.i.i.i59 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i58, %sub.ptr.rhs.cast
-  %sub.ptr.div.i.i.i.i.i.i60 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i59, 4
-  %idx.neg.i.i.i.i.i.i61 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i60
-  %add.ptr.i.i.i.i.i.i62 = getelementptr inbounds [16 x i8], ptr %add.ptr3.i57, i64 %idx.neg.i.i.i.i.i.i61
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i62, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i59, i1 false)
+  %add.ptr3.i55 = getelementptr inbounds nuw i8, ptr %__first.pn15.i28, i64 32
+  %sub.ptr.lhs.cast.i.i.i.i.i.i56 = ptrtoint ptr %__i.016.i27 to i64
+  %sub.ptr.sub.i.i.i.i.i.i57 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i56, %sub.ptr.rhs.cast
+  %sub.ptr.div.i.i.i.i.i.i58 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i57, 4
+  %idx.neg.i.i.i.i.i.i59 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i58
+  %add.ptr.i.i.i.i.i.i60 = getelementptr inbounds [16 x i8], ptr %add.ptr3.i55, i64 %idx.neg.i.i.i.i.i.i59
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i60, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i57, i1 false)
   store <4 x i32> %__val.sroa.0.0.copyload.i56, ptr %__first, align 4
-  br label %for.inc.i47
+  br label %for.inc.i46
 
-if.else.i34:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.i53, %lor.rhs.i.i.i31
+if.else.i34:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN6hermes20ExceptionHandlerInfoES5_EEbT_T0_.exit.i52, %lor.rhs.i.i.i31
   %__val.sroa.3.0.__last.sroa_idx.i.i35 = getelementptr inbounds nuw i8, ptr %__first.pn15.i28, i64 20
-  %__val.sroa.3.0.copyload.i.i36 = load <2 x i32>, ptr %__val.sroa.3.0.__last.sroa_idx.i.i35, align 4
-  br label %while.cond.i.i37
+  %12 = load <2 x i32>, ptr %__val.sroa.3.0.__last.sroa_idx.i.i35, align 4
+  br label %while.cond.i.i36
 
-while.cond.i.i37:                                 ; preds = %while.body.i.i52, %if.else.i34
-  %__last.addr.0.i.i38 = phi ptr [ %__i.016.i27, %if.else.i34 ], [ %__next.0.i.i39, %while.body.i.i52 ]
-  %__next.0.i.i39 = getelementptr inbounds i8, ptr %__last.addr.0.i.i38, i64 -16
-  %depth2.i.i.i.i40 = getelementptr inbounds i8, ptr %__last.addr.0.i.i38, i64 -4
-  %10 = load i32, ptr %depth2.i.i.i.i40, align 4
-  %cmp.i.i.i.i41 = icmp ugt i32 %7, %10
-  br i1 %cmp.i.i.i.i41, label %while.body.i.i52, label %lor.rhs.i.i.i.i42
+while.cond.i.i36:                                 ; preds = %while.body.i.i51, %if.else.i34
+  %__last.addr.0.i.i37 = phi ptr [ %__i.016.i27, %if.else.i34 ], [ %__next.0.i.i38, %while.body.i.i52 ]
+  %__next.0.i.i38 = getelementptr inbounds i8, ptr %__last.addr.0.i.i37, i64 -16
+  %depth2.i.i.i.i39 = getelementptr inbounds i8, ptr %__last.addr.0.i.i37, i64 -4
+  %13 = load i32, ptr %depth2.i.i.i.i39, align 4
+  %cmp.i.i.i.i40 = icmp ugt i32 %9, %13
+  br i1 %cmp.i.i.i.i40, label %while.body.i.i51, label %lor.rhs.i.i.i.i41
 
-lor.rhs.i.i.i.i42:                                ; preds = %while.cond.i.i37
-  %cmp5.i.i.i.i43 = icmp eq i32 %7, %10
-  br i1 %cmp5.i.i.i.i43, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i50, label %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i44
+lor.rhs.i.i.i.i41:                                ; preds = %while.cond.i.i36
+  %cmp5.i.i.i.i42 = icmp eq i32 %9, %13
+  br i1 %cmp5.i.i.i.i42, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i49, label %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i43
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i50: ; preds = %lor.rhs.i.i.i.i42
-  %11 = load i32, ptr %__next.0.i.i39, align 4
-  %cmp7.i.i.i.i51 = icmp ult i32 %__val.sroa.0.0.copyload.i.pre.i33, %11
-  br i1 %cmp7.i.i.i.i51, label %while.body.i.i52, label %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i44
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i49: ; preds = %lor.rhs.i.i.i.i41
+  %14 = load i32, ptr %__next.0.i.i38, align 4
+  %cmp7.i.i.i.i50 = icmp ult i32 %__val.sroa.0.0.copyload.i.pre.i33, %14
+  br i1 %cmp7.i.i.i.i50, label %while.body.i.i51, label %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i43
 
-while.body.i.i52:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i50, %while.cond.i.i37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__last.addr.0.i.i38, ptr noundef nonnull align 4 dereferenceable(16) %__next.0.i.i39, i64 16, i1 false)
-  br label %while.cond.i.i37, !llvm.loop !48
+while.body.i.i51:                                 ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i49, %while.cond.i.i36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__last.addr.0.i.i37, ptr noundef nonnull align 4 dereferenceable(16) %__next.0.i.i38, i64 16, i1 false)
+  br label %while.cond.i.i36, !llvm.loop !48
 
-_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i44: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i50, %lor.rhs.i.i.i.i42
-  store i32 %__val.sroa.0.0.copyload.i.pre.i33, ptr %__last.addr.0.i.i38, align 4
-  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i45 = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i38, i64 4
-  store <2 x i32> %__val.sroa.3.0.copyload.i.i36, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i45, align 4
-  %__val.sroa.310.0.__last.addr.0.sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i38, i64 12
-  store i32 %7, ptr %__val.sroa.310.0.__last.addr.0.sroa_idx.i.i46, align 4
-  br label %for.inc.i47
+_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i43: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN6hermes20ExceptionHandlerInfoEPS4_EEbRT_T0_.exit.i.i49, %lor.rhs.i.i.i.i41
+  store i32 %__val.sroa.0.0.copyload.i.pre.i33, ptr %__last.addr.0.i.i37, align 4
+  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i44 = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i37, i64 4
+  store <2 x i32> %12, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i44, align 4
+  %__val.sroa.39.0.__last.addr.0.sroa_idx.i.i45 = getelementptr inbounds nuw i8, ptr %__last.addr.0.i.i37, i64 12
+  store i32 %9, ptr %__val.sroa.39.0.__last.addr.0.sroa_idx.i.i45, align 4
+  br label %for.inc.i46
 
-for.inc.i47:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i44, %if.then2.i55
-  %__i.0.i48 = getelementptr inbounds nuw i8, ptr %__i.016.i27, i64 16
-  %cmp1.not.i49 = icmp eq ptr %__i.0.i48, %__last
-  br i1 %cmp1.not.i49, label %if.end, label %for.body.i26, !llvm.loop !49
+for.inc.i46:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i43, %if.then2.i54
+  %__i.0.i47 = getelementptr inbounds nuw i8, ptr %__i.016.i27, i64 16
+  %cmp1.not.i48 = icmp eq ptr %__i.0.i47, %__last
+  br i1 %cmp1.not.i48, label %_ZSt16__insertion_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit61, label %for.body.i26, !llvm.loop !49
 
-if.end:                                           ; preds = %for.inc.i47, %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i17, %for.cond.preheader.i, %if.else, %_ZSt16__insertion_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit
+_ZSt16__insertion_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit61: ; preds = %for.inc.i46, %_ZSt25__unguarded_linear_insertIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i17, %for.cond.preheader.i, %if.else, %_ZSt16__insertion_sortIPN6hermes20ExceptionHandlerInfoEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit
   ret void
 }
 

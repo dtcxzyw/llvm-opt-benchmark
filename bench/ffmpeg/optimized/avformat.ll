@@ -1957,12 +1957,12 @@ define i64 @av_guess_sample_aspect_ratio(ptr noundef readnone captures(none) %0,
   %5 = alloca %struct.AVRational, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.critedge, label %6
+  br i1 %.not, label %.critedge, label %7
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %8 = load i64, ptr %7, align 8
-  store i64 %8, ptr %4, align 8
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %9 = load i64, ptr %8, align 8
+  store i64 %9, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !87
   %.not15 = icmp eq ptr %10, null
@@ -1978,20 +1978,20 @@ define i64 @av_guess_sample_aspect_ratio(ptr noundef readnone captures(none) %0,
   store i64 4294967296, ptr %4, align 8
   br label %15
 
-15:                                               ; preds = %6, %.critedge, %12
-  %16 = phi i64 [ %11, %12 ], [ 1, %.critedge ], [ %11, %6 ]
-  %17 = phi i64 [ %8, %12 ], [ 0, %.critedge ], [ %8, %6 ]
+16:                                               ; preds = %7, %.critedge, %12
+  %17 = phi i64 [ %11, %12 ], [ 1, %.critedge ], [ %11, %6 ]
+  %18 = phi i64 [ %9, %12 ], [ 0, %.critedge ], [ %9, %6 ]
   %storemerge16 = phi i64 [ %14, %12 ], [ 4294967296, %.critedge ], [ 4294967296, %6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not17 = icmp eq ptr %2, null
   br i1 %.not17, label %.cont, label %.else
 
-.else:                                            ; preds = %15
+.else:; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %storemerge18.else.val = load i64, ptr %18, align 4
   br label %.cont
 
-.cont:                                            ; preds = %15, %.else
+.cont:; preds = %15, %.else
   %storemerge18 = phi i64 [ %storemerge16, %15 ], [ %storemerge18.else.val, %.else ]
   store i64 %storemerge18, ptr %5, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -2009,23 +2009,23 @@ define i64 @av_guess_sample_aspect_ratio(ptr noundef readnone captures(none) %0,
 
 27:                                               ; preds = %.cont
   store i64 4294967296, ptr %4, align 8
-  br label %28
+  br label %29
 
-28:                                               ; preds = %.cont, %27
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %sext25 = shl i64 %storemerge18, 32
-  %30 = ashr exact i64 %sext25, 32
-  %31 = ashr i64 %storemerge18, 32
-  %32 = call i32 @av_reduce(ptr noundef nonnull %5, ptr noundef nonnull %29, i64 noundef %30, i64 noundef %31, i64 noundef 2147483647) #13
-  %33 = load i32, ptr %5, align 8, !tbaa !135
-  %34 = icmp slt i32 %33, 1
-  %35 = load i32, ptr %29, align 4
-  %36 = icmp slt i32 %35, 1
-  %or.cond5 = select i1 %34, i1 true, i1 %36
+29:                                               ; preds = %.cont, %27
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %sext24 = shl i64 %storemerge18, 32
+  %31 = ashr exact i64 %sext24, 32
+  %32 = ashr i64 %storemerge18, 32
+  %33 = call i32 @av_reduce(ptr noundef nonnull %5, ptr noundef nonnull %30, i64 noundef %31, i64 noundef %32, i64 noundef 2147483647) #13
+  %34 = load i32, ptr %5, align 8, !tbaa !135
+  %35 = icmp slt i32 %34, 1
+  %36 = load i32, ptr %30, align 4
+  %37 = icmp slt i32 %36, 1
+  %or.cond5 = select i1 %35, i1 true, i1 %37
   %.val.pre = load i64, ptr %5, align 8
   %.val = select i1 %or.cond5, i64 4294967296, i64 %.val.pre
-  %37 = load i32, ptr %4, align 8, !tbaa !135
-  %.not19 = icmp eq i32 %37, 0
+  %38 = load i32, ptr %4, align 8, !tbaa !135
+  %.not19 = icmp eq i32 %38, 0
   %.val20 = load i64, ptr %4, align 8
   %.sroa.0.0 = select i1 %.not19, i64 %.val, i64 %.val20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

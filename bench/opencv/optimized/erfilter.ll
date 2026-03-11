@@ -35536,16 +35536,16 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.thread.
   br i1 %or.cond.i19.i, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i, label %_ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
 
 .split.us.i.i:                                    ; preds = %19
-  %.sroa.26.0..sroa_idx.i.us15.i.i = getelementptr inbounds nuw i8, ptr %.pn23.i, i64 16
-  %.sroa.26.0.copyload.i.us16.i.i = load double, ptr %.sroa.26.0..sroa_idx.i.us15.i.i, align 8, !tbaa !106
-  %22 = fcmp olt double %.sroa.4.0.copyload.fr.i.i, %.sroa.26.0.copyload.i.us16.i.i
+  %.sroa.26.0..sroa_idx.i.us14.i.i = getelementptr inbounds nuw i8, ptr %.pn23.i, i64 16
+  %.sroa.26.0.copyload.i.us15.i.i = load double, ptr %.sroa.26.0..sroa_idx.i.us14.i.i, align 8, !tbaa !106
+  %22 = fcmp olt double %.sroa.4.0.copyload.fr.i.i, %.sroa.26.0.copyload.i.us15.i.i
   br i1 %22, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i, label %_ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i: ; preds = %.split.us.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i
-  %.09.us17.i.i = phi ptr [ %.0.us18.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i ], [ %.024.i, %.split.us.i.i ]
-  %.0.us18.i.i = getelementptr inbounds i8, ptr %.09.us17.i.i, i64 -24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.us17.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0.us18.i.i, i64 24, i1 false), !tbaa.struct !746
-  %.sroa.26.0..sroa_idx.i.us.i.i = getelementptr inbounds i8, ptr %.09.us17.i.i, i64 -32
+  %.09.us16.i.i = phi ptr [ %.0.us17.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i ], [ %.024.i, %.split.us.i.i ]
+  %.0.us17.i.i = getelementptr inbounds i8, ptr %.09.us16.i.i, i64 -24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.us16.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0.us17.i.i, i64 24, i1 false), !tbaa.struct !746
+  %.sroa.26.0..sroa_idx.i.us.i.i = getelementptr inbounds i8, ptr %.09.us16.i.i, i64 -32
   %.sroa.26.0.copyload.i.us.i.i = load double, ptr %.sroa.26.0..sroa_idx.i.us.i.i, align 8, !tbaa !106
   %23 = fcmp olt double %.sroa.4.0.copyload.fr.i.i, %.sroa.26.0.copyload.i.us.i.i
   br i1 %23, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i, label %_ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, !llvm.loop !747
@@ -35562,7 +35562,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.
   br i1 %or.cond.i.i, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i, label %_ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, !llvm.loop !747
 
 _ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i, %.split.us.i.i, %.split.i.preheader.i
-  %.us-phi.i.i = phi ptr [ %.0.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i ], [ %.024.i, %.split.us.i.i ], [ %.024.i, %.split.i.preheader.i ], [ %.0.us18.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i ]
+  %.us-phi.i.i = phi ptr [ %.0.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i ], [ %.024.i, %.split.us.i.i ], [ %.024.i, %.split.i.preheader.i ], [ %.0.us17.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i ]
   store <2 x i64> %.sroa.0.0.copyload.i.i, ptr %.us-phi.i.i, align 8
   %.sroa.4.0..09.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i, i64 16
   store double %.sroa.4.0.copyload.fr.i.i, ptr %.sroa.4.0..09.sroa_idx.i.i, align 8, !tbaa !106
@@ -36463,16 +36463,16 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.thread.
   br i1 %or.cond.i19.i, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i, label %_ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
 
 .split.us.i.i:                                    ; preds = %25
-  %.sroa.26.0..sroa_idx.i.us15.i.i = getelementptr inbounds nuw i8, ptr %.pn23.i, i64 16
-  %.sroa.26.0.copyload.i.us16.i.i = load double, ptr %.sroa.26.0..sroa_idx.i.us15.i.i, align 8, !tbaa !106
-  %28 = fcmp olt double %.sroa.4.0.copyload.fr.i.i, %.sroa.26.0.copyload.i.us16.i.i
+  %.sroa.26.0..sroa_idx.i.us14.i.i = getelementptr inbounds nuw i8, ptr %.pn23.i, i64 16
+  %.sroa.26.0.copyload.i.us15.i.i = load double, ptr %.sroa.26.0..sroa_idx.i.us14.i.i, align 8, !tbaa !106
+  %28 = fcmp olt double %.sroa.4.0.copyload.fr.i.i, %.sroa.26.0.copyload.i.us15.i.i
   br i1 %28, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i, label %_ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i: ; preds = %.split.us.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i
-  %.09.us17.i.i = phi ptr [ %.0.us18.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i ], [ %.024.i, %.split.us.i.i ]
-  %.0.us18.i.i = getelementptr inbounds i8, ptr %.09.us17.i.i, i64 -24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.us17.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0.us18.i.i, i64 24, i1 false), !tbaa.struct !746
-  %.sroa.26.0..sroa_idx.i.us.i.i = getelementptr inbounds i8, ptr %.09.us17.i.i, i64 -32
+  %.09.us16.i.i = phi ptr [ %.0.us17.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i ], [ %.024.i, %.split.us.i.i ]
+  %.0.us17.i.i = getelementptr inbounds i8, ptr %.09.us16.i.i, i64 -24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.us16.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0.us17.i.i, i64 24, i1 false), !tbaa.struct !746
+  %.sroa.26.0..sroa_idx.i.us.i.i = getelementptr inbounds i8, ptr %.09.us16.i.i, i64 -32
   %.sroa.26.0.copyload.i.us.i.i = load double, ptr %.sroa.26.0..sroa_idx.i.us.i.i, align 8, !tbaa !106
   %29 = fcmp olt double %.sroa.4.0.copyload.fr.i.i, %.sroa.26.0.copyload.i.us.i.i
   br i1 %29, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i, label %_ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, !llvm.loop !747
@@ -36489,7 +36489,7 @@ _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.
   br i1 %or.cond.i.i, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i, label %_ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, !llvm.loop !747
 
 _ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i, %.split.us.i.i, %.split.i.preheader.i
-  %.us-phi.i.i = phi ptr [ %.0.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i ], [ %.024.i, %.split.us.i.i ], [ %.024.i, %.split.i.preheader.i ], [ %.0.us18.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i ]
+  %.us-phi.i.i = phi ptr [ %.0.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i ], [ %.024.i, %.split.us.i.i ], [ %.024.i, %.split.i.preheader.i ], [ %.0.us17.i.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i ]
   store <2 x i64> %.sroa.0.0.copyload.i.i, ptr %.us-phi.i.i, align 8
   %.sroa.4.0..09.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i, i64 16
   store double %.sroa.4.0.copyload.fr.i.i, ptr %.sroa.4.0..09.sroa_idx.i.i, align 8, !tbaa !106
@@ -36511,38 +36511,38 @@ _ZSt16__insertion_sortIPN2cv4text4nodeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7
   %.0.lcssa = phi ptr [ %0, %3 ], [ %10, %_ZSt16__insertion_sortIPN2cv4text4nodeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit.us ], [ %15, %_ZSt16__insertion_sortIPN2cv4text4nodeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit.loopexit ]
   %.lcssa = phi i64 [ %7, %3 ], [ %11, %_ZSt16__insertion_sortIPN2cv4text4nodeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit.us ], [ %33, %_ZSt16__insertion_sortIPN2cv4text4nodeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit.loopexit ]
   %36 = icmp eq ptr %.0.lcssa, %1
-  br i1 %36, label %_ZSt16__insertion_sortIPN2cv4text4nodeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit48, label %.preheader.i10
+  br i1 %36, label %_ZSt16__insertion_sortIPN2cv4text4nodeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit48, label %.preheader.i11
 
-.preheader.i10:                                   ; preds = %._crit_edge
-  %.021.i11 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 24
-  %.not22.i12 = icmp eq ptr %.021.i11, %1
-  br i1 %.not22.i12, label %_ZSt16__insertion_sortIPN2cv4text4nodeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit48, label %.lr.ph.i13
+.preheader.i11:                                   ; preds = %._crit_edge
+  %.021.i12 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 24
+  %.not22.i13 = icmp eq ptr %.021.i12, %1
+  br i1 %.not22.i13, label %_ZSt16__insertion_sortIPN2cv4text4nodeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit48, label %.lr.ph.i14
 
-.lr.ph.i13:                                       ; preds = %.preheader.i10
-  %.sroa.26.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
+.lr.ph.i14:                                       ; preds = %.preheader.i11
+  %.sroa.26.0..sroa_idx.i.i15 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
   br label %37
 
-37:                                               ; preds = %53, %.lr.ph.i13
-  %.024.i15 = phi ptr [ %.021.i11, %.lr.ph.i13 ], [ %.0.i29, %53 ]
-  %.pn23.i16 = phi ptr [ %.0.lcssa, %.lr.ph.i13 ], [ %.024.i15, %53 ]
-  %.sroa.2.0..sroa_idx.i.i17 = getelementptr inbounds nuw i8, ptr %.pn23.i16, i64 40
-  %.sroa.2.0.copyload.i.i18 = load double, ptr %.sroa.2.0..sroa_idx.i.i17, align 8, !tbaa !106
-  %.sroa.4.0.copyload.fr.i.i19 = freeze double %.sroa.2.0.copyload.i.i18
-  %.sroa.26.0.copyload.i.i20 = load double, ptr %.sroa.26.0..sroa_idx.i.i14, align 8, !tbaa !106
-  %38 = fcmp olt double %.sroa.4.0.copyload.fr.i.i19, %.sroa.26.0.copyload.i.i20
-  br i1 %38, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.thread.i46, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.i21
+37:                                               ; preds = %53, %.lr.ph.i14
+  %.024.i16 = phi ptr [ %.021.i12, %.lr.ph.i13 ], [ %.0.i29, %53 ]
+  %.pn23.i17 = phi ptr [ %.0.lcssa, %.lr.ph.i13 ], [ %.024.i16, %53 ]
+  %.sroa.2.0..sroa_idx.i.i18 = getelementptr inbounds nuw i8, ptr %.pn23.i17, i64 40
+  %.sroa.2.0.copyload.i.i19 = load double, ptr %.sroa.2.0..sroa_idx.i.i18, align 8, !tbaa !106
+  %.sroa.4.0.copyload.fr.i.i20 = freeze double %.sroa.2.0.copyload.i.i19
+  %.sroa.26.0.copyload.i.i21 = load double, ptr %.sroa.26.0..sroa_idx.i.i15, align 8, !tbaa !106
+  %38 = fcmp olt double %.sroa.4.0.copyload.fr.i.i20, %.sroa.26.0.copyload.i.i21
+  br i1 %38, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.thread.i46, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.i22
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.i21: ; preds = %37
-  %39 = fcmp ord double %.sroa.4.0.copyload.fr.i.i19, 0.000000e+00
-  %40 = fcmp uno double %.sroa.26.0.copyload.i.i20, 0.000000e+00
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.i22: ; preds = %37
+  %39 = fcmp ord double %.sroa.4.0.copyload.fr.i.i20, 0.000000e+00
+  %40 = fcmp uno double %.sroa.26.0.copyload.i.i21, 0.000000e+00
   %41 = and i1 %39, %40
   br i1 %41, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.thread.i46, label %46
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.thread.i46: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.i21, %37
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.thread.i46: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.i22, %37
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.024.i15, i64 24, i1 false), !tbaa.struct !746
-  %42 = getelementptr inbounds nuw i8, ptr %.pn23.i16, i64 48
-  %43 = ptrtoint ptr %.024.i15 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.024.i16, i64 24, i1 false), !tbaa.struct !746
+  %42 = getelementptr inbounds nuw i8, ptr %.pn23.i17, i64 48
+  %43 = ptrtoint ptr %.024.i16 to i64
   %44 = sub i64 %43, %.lcssa
   %.neg.i.i.i.i.i.i47 = sdiv exact i64 %44, -24
   %45 = getelementptr inbounds [24 x i8], ptr %42, i64 %.neg.i.i.i.i.i.i47
@@ -36551,57 +36551,57 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.thread.
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %53
 
-46:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.i21
+46:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.i22
   %.sroa.0.0.copyload.i.i22 = load <2 x i64>, ptr %.024.i15, align 8
   br i1 %39, label %.split.i.preheader.i36, label %.split.us.i.i23
 
 .split.i.preheader.i36:                           ; preds = %46
-  %.sroa.26.0..sroa_idx.i.i17.i37 = getelementptr inbounds i8, ptr %.024.i15, i64 -8
+  %.sroa.26.0..sroa_idx.i.i17.i37 = getelementptr inbounds i8, ptr %.024.i16, i64 -8
   %.sroa.26.0.copyload.i.i18.i38 = load double, ptr %.sroa.26.0..sroa_idx.i.i17.i37, align 8, !tbaa !106
-  %47 = fcmp olt double %.sroa.4.0.copyload.fr.i.i19, %.sroa.26.0.copyload.i.i18.i38
+  %47 = fcmp olt double %.sroa.4.0.copyload.fr.i.i20, %.sroa.26.0.copyload.i.i18.i38
   %48 = fcmp uno double %.sroa.26.0.copyload.i.i18.i38, 0.000000e+00
   %or.cond.i19.i39 = or i1 %47, %48
   br i1 %or.cond.i19.i39, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i40, label %_ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i26
 
 .split.us.i.i23:                                  ; preds = %46
-  %.sroa.26.0..sroa_idx.i.us15.i.i24 = getelementptr inbounds nuw i8, ptr %.pn23.i16, i64 16
-  %.sroa.26.0.copyload.i.us16.i.i25 = load double, ptr %.sroa.26.0..sroa_idx.i.us15.i.i24, align 8, !tbaa !106
-  %49 = fcmp olt double %.sroa.4.0.copyload.fr.i.i19, %.sroa.26.0.copyload.i.us16.i.i25
+  %.sroa.26.0..sroa_idx.i.us14.i.i24 = getelementptr inbounds nuw i8, ptr %.pn23.i17, i64 16
+  %.sroa.26.0.copyload.i.us15.i.i25 = load double, ptr %.sroa.26.0..sroa_idx.i.us14.i.i24, align 8, !tbaa !106
+  %49 = fcmp olt double %.sroa.4.0.copyload.fr.i.i20, %.sroa.26.0.copyload.i.us15.i.i25
   br i1 %49, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i31, label %_ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i26
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i31: ; preds = %.split.us.i.i23, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i31
-  %.09.us17.i.i32 = phi ptr [ %.0.us18.i.i33, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i31 ], [ %.024.i15, %.split.us.i.i23 ]
-  %.0.us18.i.i33 = getelementptr inbounds i8, ptr %.09.us17.i.i32, i64 -24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.us17.i.i32, ptr noundef nonnull align 8 dereferenceable(24) %.0.us18.i.i33, i64 24, i1 false), !tbaa.struct !746
-  %.sroa.26.0..sroa_idx.i.us.i.i34 = getelementptr inbounds i8, ptr %.09.us17.i.i32, i64 -32
+  %.09.us16.i.i32 = phi ptr [ %.0.us17.i.i33, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i31 ], [ %.024.i16, %.split.us.i.i23 ]
+  %.0.us17.i.i33 = getelementptr inbounds i8, ptr %.09.us16.i.i32, i64 -24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.us16.i.i32, ptr noundef nonnull align 8 dereferenceable(24) %.0.us17.i.i33, i64 24, i1 false), !tbaa.struct !746
+  %.sroa.26.0..sroa_idx.i.us.i.i34 = getelementptr inbounds i8, ptr %.09.us16.i.i32, i64 -32
   %.sroa.26.0.copyload.i.us.i.i35 = load double, ptr %.sroa.26.0..sroa_idx.i.us.i.i34, align 8, !tbaa !106
-  %50 = fcmp olt double %.sroa.4.0.copyload.fr.i.i19, %.sroa.26.0.copyload.i.us.i.i35
+  %50 = fcmp olt double %.sroa.4.0.copyload.fr.i.i20, %.sroa.26.0.copyload.i.us.i.i35
   br i1 %50, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i31, label %_ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i26, !llvm.loop !747
 
 _ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i40: ; preds = %.split.i.preheader.i36, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i40
-  %.09.i20.i41 = phi ptr [ %.0.i.i42, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i40 ], [ %.024.i15, %.split.i.preheader.i36 ]
+  %.09.i20.i41 = phi ptr [ %.0.i.i42, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i40 ], [ %.024.i16, %.split.i.preheader.i36 ]
   %.0.i.i42 = getelementptr inbounds i8, ptr %.09.i20.i41, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i20.i41, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i42, i64 24, i1 false), !tbaa.struct !746
   %.sroa.26.0..sroa_idx.i.i.i43 = getelementptr inbounds i8, ptr %.09.i20.i41, i64 -32
   %.sroa.26.0.copyload.i.i.i44 = load double, ptr %.sroa.26.0..sroa_idx.i.i.i43, align 8, !tbaa !106
-  %51 = fcmp olt double %.sroa.4.0.copyload.fr.i.i19, %.sroa.26.0.copyload.i.i.i44
+  %51 = fcmp olt double %.sroa.4.0.copyload.fr.i.i20, %.sroa.26.0.copyload.i.i.i44
   %52 = fcmp uno double %.sroa.26.0.copyload.i.i.i44, 0.000000e+00
   %or.cond.i.i45 = or i1 %51, %52
   br i1 %or.cond.i.i45, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i40, label %_ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i26, !llvm.loop !747
 
 _ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i26: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i31, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i40, %.split.us.i.i23, %.split.i.preheader.i36
-  %.us-phi.i.i27 = phi ptr [ %.0.i.i42, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i40 ], [ %.024.i15, %.split.us.i.i23 ], [ %.024.i15, %.split.i.preheader.i36 ], [ %.0.us18.i.i33, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i31 ]
+  %.us-phi.i.i27 = phi ptr [ %.0.i.i42, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.i.i40 ], [ %.024.i16, %.split.us.i.i23 ], [ %.024.i16, %.split.i.preheader.i36 ], [ %.0.us17.i.i33, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIN2cv4text4nodeEPS5_EEbRT_T0_.exit.thread.us.i.i31 ]
   store <2 x i64> %.sroa.0.0.copyload.i.i22, ptr %.us-phi.i.i27, align 8
   %.sroa.4.0..09.sroa_idx.i.i28 = getelementptr inbounds nuw i8, ptr %.us-phi.i.i27, i64 16
-  store double %.sroa.4.0.copyload.fr.i.i19, ptr %.sroa.4.0..09.sroa_idx.i.i28, align 8, !tbaa !106
+  store double %.sroa.4.0.copyload.fr.i.i20, ptr %.sroa.4.0..09.sroa_idx.i.i28, align 8, !tbaa !106
   br label %53
 
 53:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN2cv4text4nodeEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN2cv4text4nodeES6_EEbT_T0_.exit.thread.i46
-  %.0.i29 = getelementptr inbounds nuw i8, ptr %.024.i15, i64 24
+  %.0.i29 = getelementptr inbounds nuw i8, ptr %.024.i16, i64 24
   %.not.i30 = icmp eq ptr %.0.i29, %1
   br i1 %.not.i30, label %_ZSt16__insertion_sortIPN2cv4text4nodeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit48, label %37, !llvm.loop !748
 
-_ZSt16__insertion_sortIPN2cv4text4nodeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit48: ; preds = %53, %._crit_edge, %.preheader.i10
+_ZSt16__insertion_sortIPN2cv4text4nodeEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit48: ; preds = %53, %._crit_edge, %.preheader.i11
   ret void
 }
 

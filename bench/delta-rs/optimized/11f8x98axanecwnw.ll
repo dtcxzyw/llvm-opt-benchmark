@@ -90542,7 +90542,7 @@ define void @_ZN14deltalake_core10operations8optimize17create_merge_plan17h60fa4
   %.sroa.7.sroa.12 = alloca [4 x i64], align 8
   %.sroa.024 = alloca { { { { i64, [1 x i64] }, { i64, [2 x i64] }, { i32, [1 x i32] }, i8, i8, i8, [5 x i8] }, { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i64, i64, i64, i8, [7 x i8] }, { { i64, [2 x i64] }, i64 } }, align 8
   %106 = alloca { i64, [8 x i64] }, align 8
-  %.sroa.022.sroa.0.sroa.0 = alloca [72 x i8], align 8
+  %.sroa.022.sroa.0 = alloca [72 x i8], align 8
   %.sroa.8 = alloca [3 x i64], align 8
   %.sroa.9232 = alloca [3 x i64], align 8
   %107 = alloca ptr, align 8
@@ -93581,7 +93581,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit188.i: ; preds = %764
 
 "_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$arrow_schema..schema..Schema$GT$$GT$17hf6a18beed89c2b5bE.llvm.8226331118977765550.exit146": ; preds = %853, %856
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.022.sroa.0.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.022.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %106)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %106, ptr noundef nonnull align 8 dereferenceable(72) %111, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.024)
@@ -93631,9 +93631,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit188.i: ; preds = %764
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.024)
   %869 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %870 = load i64, ptr %869, align 8, !alias.scope !18958, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.022.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(72) %106, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.022.sroa.0, ptr noundef nonnull align 8 dereferenceable(72) %106, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %106)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.022.sroa.0.sroa.0, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.022.sroa.0, i64 72, i1 false)
   %.sroa.022.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   store <2 x i64> %.sroa.0308.sroa.0.0.copyload1865, ptr %.sroa.022.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.022.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -93664,7 +93664,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit188.i: ; preds = %764
   store ptr %861, ptr %.sroa.523.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i64 %870, ptr %.sroa.6.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.022.sroa.0.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.022.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
   call void @llvm.lifetime.end.p0(ptr nonnull %109)
   call void @llvm.lifetime.end.p0(ptr nonnull %111)

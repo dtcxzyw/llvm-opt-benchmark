@@ -4495,8 +4495,8 @@ _ZN3ue2L7prepMpvERNS_13RoseBuildImplERNS_12_GLOBAL__N_113build_contextEPmPb.exit
 
 1282:                                             ; preds = %1279
   %1283 = load ptr, ptr %111, align 8, !alias.scope !102
-  %.not14.i.i.i.i.i.i.i.i = icmp eq ptr %1283, null
-  br i1 %.not14.i.i.i.i.i.i.i.i, label %1363, label %1284
+  %.not13.i.i.i.i.i.i.i.i = icmp eq ptr %1283, null
+  br i1 %.not13.i.i.i.i.i.i.i.i, label %1363, label %1284
 
 1284:                                             ; preds = %1282
   %1285 = getelementptr inbounds nuw i8, ptr %.val.val.val.i.i.i.i, i64 24
@@ -4522,8 +4522,8 @@ _ZN3ue2L7prepMpvERNS_13RoseBuildImplERNS_12_GLOBAL__N_113build_contextEPmPb.exit
 
 1294:                                             ; preds = %1293
   %1295 = load ptr, ptr %107, align 8, !noalias !102
-  %.not15.i.i.i.i.i.i.i.i = icmp eq ptr %1295, null
-  br i1 %.not15.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS1_EED2Ev.exit36.i.i.i.i.i.i.i.i, label %1296
+  %.not14.i.i.i.i.i.i.i.i = icmp eq ptr %1295, null
+  br i1 %.not14.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS1_EED2Ev.exit36.i.i.i.i.i.i.i.i, label %1296
 
 1296:                                             ; preds = %1294
   call void @llvm.lifetime.start.p0(ptr nonnull %108), !noalias !102
@@ -4532,8 +4532,8 @@ _ZN3ue2L7prepMpvERNS_13RoseBuildImplERNS_12_GLOBAL__N_113build_contextEPmPb.exit
 
 1297:                                             ; preds = %1296
   %1298 = load ptr, ptr %108, align 8, !noalias !102
-  %.not16.i.i.i.i.i.i.i.i = icmp eq ptr %1298, null
-  br i1 %.not16.i.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i.i, label %1299
+  %.not15.i.i.i.i.i.i.i.i = icmp eq ptr %1298, null
+  br i1 %.not15.i.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i.i, label %1299
 
 1299:                                             ; preds = %1297
   %1300 = ptrtoint ptr %1298 to i64
@@ -4607,10 +4607,10 @@ _ZN3ue2L7prepMpvERNS_13RoseBuildImplERNS_12_GLOBAL__N_113build_contextEPmPb.exit
 
 1322:                                             ; preds = %1320
   %or.cond3.i.i.i.i.i.i.i.i.i = and i1 %1313, %1303
-  %.23.i.i.i.i.i.i.i.i = select i1 %or.cond3.i.i.i.i.i.i.i.i.i, ptr %1298, ptr null
-  %..cast24.i.i.i.i.i.i.i.i = select i1 %or.cond3.i.i.i.i.i.i.i.i.i, ptr null, ptr %.cast.i.i.i.i.i.i.i.i
-  %.cast.25.i.i.i.i.i.i.i.i = select i1 %or.cond3.i.i.i.i.i.i.i.i.i, ptr %.cast.i.i.i.i.i.i.i.i, ptr %1298
-  %.sink26.i.sroa.gep1..sink26.i.sroa.gep26.i.i.i.i.i.i.i.i = select i1 %or.cond3.i.i.i.i.i.i.i.i.i, ptr %.sink26.i.sroa.gep1.i.i.i.i.i.i.i.i, ptr %.sink26.i.sroa.gep.i.i.i.i.i.i.i.i
+  %.22.i.i.i.i.i.i.i.i = select i1 %or.cond3.i.i.i.i.i.i.i.i.i, ptr %1298, ptr null
+  %..cast23.i.i.i.i.i.i.i.i = select i1 %or.cond3.i.i.i.i.i.i.i.i.i, ptr null, ptr %.cast.i.i.i.i.i.i.i.i
+  %.cast.24.i.i.i.i.i.i.i.i = select i1 %or.cond3.i.i.i.i.i.i.i.i.i, ptr %.cast.i.i.i.i.i.i.i.i, ptr %1298
+  %.sink26.i.sroa.gep1..sink26.i.sroa.gep25.i.i.i.i.i.i.i.i = select i1 %or.cond3.i.i.i.i.i.i.i.i.i, ptr %.sink26.i.sroa.gep1.i.i.i.i.i.i.i.i, ptr %.sink26.i.sroa.gep.i.i.i.i.i.i.i.i
   br label %1324
 
 1323:                                             ; preds = %.noexc26.i.i.i.i.i.i.i.i
@@ -4619,17 +4619,17 @@ _ZN3ue2L7prepMpvERNS_13RoseBuildImplERNS_12_GLOBAL__N_113build_contextEPmPb.exit
   %or.cond8.i.i.i.i.i.i.i.i.i = and i1 %1313, %or.cond6.i.i.i.i.i.i.i.i.i
   %or.cond8.not.i.i.i.i.i.i.i.i.i = xor i1 %or.cond8.i.i.i.i.i.i.i.i.i, true
   %or.cond10.i.i.i.i.i.i.i.i.i = or i1 %1318, %or.cond8.not.i.i.i.i.i.i.i.i.i
-  %.27.i.i.i.i.i.i.i.i = select i1 %or.cond10.i.i.i.i.i.i.i.i.i, ptr null, ptr %1298
-  %.cast.28.i.i.i.i.i.i.i.i = select i1 %or.cond10.i.i.i.i.i.i.i.i.i, ptr %.cast.i.i.i.i.i.i.i.i, ptr null
-  %..cast29.i.i.i.i.i.i.i.i = select i1 %or.cond10.i.i.i.i.i.i.i.i.i, ptr %1298, ptr %.cast.i.i.i.i.i.i.i.i
+  %.26.i.i.i.i.i.i.i.i = select i1 %or.cond10.i.i.i.i.i.i.i.i.i, ptr null, ptr %1298
+  %.cast.27.i.i.i.i.i.i.i.i = select i1 %or.cond10.i.i.i.i.i.i.i.i.i, ptr %.cast.i.i.i.i.i.i.i.i, ptr null
+  %..cast28.i.i.i.i.i.i.i.i = select i1 %or.cond10.i.i.i.i.i.i.i.i.i, ptr %1298, ptr %.cast.i.i.i.i.i.i.i.i
   %.sink26.i.sroa.gep..sink26.i.sroa.gep1.i.i.i.i.i.i.i.i = select i1 %or.cond10.i.i.i.i.i.i.i.i.i, ptr %.sink26.i.sroa.gep.i.i.i.i.i.i.i.i, ptr %.sink26.i.sroa.gep1.i.i.i.i.i.i.i.i
   br label %1324
 
 1324:                                             ; preds = %1323, %1322, %1321, %.noexc.i.i.i.i.i.i.i.i, %1299
-  %1325 = phi ptr [ %..i.i.i.i.i.i.i.i, %1321 ], [ %.27.i.i.i.i.i.i.i.i, %1323 ], [ %.23.i.i.i.i.i.i.i.i, %1322 ], [ %1298, %1299 ], [ null, %.noexc.i.i.i.i.i.i.i.i ]
-  %1326 = phi ptr [ %..cast.i.i.i.i.i.i.i.i, %1321 ], [ %.cast.28.i.i.i.i.i.i.i.i, %1323 ], [ %..cast24.i.i.i.i.i.i.i.i, %1322 ], [ null, %1299 ], [ %.cast.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ %.cast..i.i.i.i.i.i.i.i, %1321 ], [ %..cast29.i.i.i.i.i.i.i.i, %1323 ], [ %.cast.25.i.i.i.i.i.i.i.i, %1322 ], [ %.cast.i.i.i.i.i.i.i.i, %1299 ], [ %1298, %.noexc.i.i.i.i.i.i.i.i ]
-  %.sink26.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sink26.i.sroa.gep1..sink26.i.sroa.gep.i.i.i.i.i.i.i.i, %1321 ], [ %.sink26.i.sroa.gep..sink26.i.sroa.gep1.i.i.i.i.i.i.i.i, %1323 ], [ %.sink26.i.sroa.gep1..sink26.i.sroa.gep26.i.i.i.i.i.i.i.i, %1322 ], [ %.sink26.i.sroa.gep1.i.i.i.i.i.i.i.i, %1299 ], [ %.sink26.i.sroa.gep.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i ]
+  %1325 = phi ptr [ %..i.i.i.i.i.i.i.i, %1321 ], [ %.26.i.i.i.i.i.i.i.i, %1323 ], [ %.22.i.i.i.i.i.i.i.i, %1322 ], [ %1298, %1299 ], [ null, %.noexc.i.i.i.i.i.i.i.i ]
+  %1326 = phi ptr [ %..cast.i.i.i.i.i.i.i.i, %1321 ], [ %.cast.27.i.i.i.i.i.i.i.i, %1323 ], [ %..cast23.i.i.i.i.i.i.i.i, %1322 ], [ null, %1299 ], [ %.cast.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i ]
+  %.sroa.0.0.i.i.i.i.i.i.i.i = phi ptr [ %.cast..i.i.i.i.i.i.i.i, %1321 ], [ %..cast28.i.i.i.i.i.i.i.i, %1323 ], [ %.cast.24.i.i.i.i.i.i.i.i, %1322 ], [ %.cast.i.i.i.i.i.i.i.i, %1299 ], [ %1298, %.noexc.i.i.i.i.i.i.i.i ]
+  %.sink26.i.sroa.phi.i.i.i.i.i.i.i.i = phi ptr [ %.sink26.i.sroa.gep1..sink26.i.sroa.gep.i.i.i.i.i.i.i.i, %1321 ], [ %.sink26.i.sroa.gep..sink26.i.sroa.gep1.i.i.i.i.i.i.i.i, %1323 ], [ %.sink26.i.sroa.gep1..sink26.i.sroa.gep25.i.i.i.i.i.i.i.i, %1322 ], [ %.sink26.i.sroa.gep1.i.i.i.i.i.i.i.i, %1299 ], [ %.sink26.i.sroa.gep.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i ]
   %.sroa.15.8.copyload.i.i.i.i.i.i.i.i = load <2 x i64>, ptr %.sink26.i.sroa.phi.i.i.i.i.i.i.i.i, align 8, !noalias !102
   %1327 = load ptr, ptr %111, align 8, !alias.scope !102
   store ptr %.sroa.0.0.i.i.i.i.i.i.i.i, ptr %111, align 8, !alias.scope !102
@@ -4738,15 +4738,15 @@ _ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = 
 
 .thread.i.i.i.i.i.i.i.i:                          ; preds = %1351, %1350, %1297
   call void @llvm.lifetime.end.p0(ptr nonnull %108), !noalias !102
-  %.pr11.i.i.i.i.i.i.i.i = load ptr, ptr %107, align 8, !noalias !102
-  %.not.i34.i.i.i.i.i.i.i.i = icmp eq ptr %.pr11.i.i.i.i.i.i.i.i, null
+  %.pr10.i.i.i.i.i.i.i.i = load ptr, ptr %107, align 8, !noalias !102
+  %.not.i34.i.i.i.i.i.i.i.i = icmp eq ptr %.pr10.i.i.i.i.i.i.i.i, null
   br i1 %.not.i34.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS1_EED2Ev.exit36.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i35.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i35.i.i.i.i.i.i.i.i: ; preds = %.thread.i.i.i.i.i.i.i.i
-  %1360 = load ptr, ptr %.pr11.i.i.i.i.i.i.i.i, align 8
+  %1360 = load ptr, ptr %.pr10.i.i.i.i.i.i.i.i, align 8
   %1361 = getelementptr inbounds nuw i8, ptr %1360, i64 8
   %1362 = load ptr, ptr %1361, align 8
-  call void %1362(ptr noundef nonnull align 8 dereferenceable(560) %.pr11.i.i.i.i.i.i.i.i) #27
+  call void %1362(ptr noundef nonnull align 8 dereferenceable(560) %.pr10.i.i.i.i.i.i.i.i) #27
   br label %_ZNSt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS1_EED2Ev.exit36.i.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS1_EED2Ev.exit36.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3ue27raw_dfaEEclEPS1_.exit.i35.i.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i.i, %1294
