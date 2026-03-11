@@ -21032,8 +21032,8 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br i1 %.not1194.i, label %1232, label %1222
 
 1222:                                             ; preds = %1214
-  %.11082.i = fadd reassoc nsz arcp contract afn float %1217, %1181
-  %.11080.i = fadd reassoc nsz arcp contract afn float %1221, %1181
+  %.11082.i = fadd fast float %1217, %1181
+  %.11080.i = fadd fast float %1221, %1181
   br i1 %or.cond27.i, label %1223, label %1232
 
 1223:                                             ; preds = %1222
@@ -21088,7 +21088,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br i1 %.not1193.i, label %1256, label %1250
 
 1250:                                             ; preds = %1246
-  %.1.i = fadd reassoc nsz arcp contract afn float %1249, %1213
+  %.1.i = fadd fast float %1249, %1213
   br i1 %or.cond27.i, label %1251, label %1256
 
 1251:                                             ; preds = %1250

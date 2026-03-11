@@ -157,7 +157,7 @@ define hidden i32 @SharpYuvGammaToLinear(i16 noundef zeroext %0, i32 noundef %1,
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = fdiv float %35, 4.500000e+00
+  %39 = fdiv nnan float %35, 4.500000e+00
   br label %ToLinear709.exit
 
 40:                                               ; preds = %36
@@ -245,7 +245,7 @@ define hidden i32 @SharpYuvGammaToLinear(i16 noundef zeroext %0, i32 noundef %1,
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %94
-  %97 = fdiv float %35, 4.500000e+00
+  %97 = fdiv nnan float %35, 4.500000e+00
   br label %ToLinear709.exit
 
 98:                                               ; preds = %94
@@ -261,7 +261,7 @@ define hidden i32 @SharpYuvGammaToLinear(i16 noundef zeroext %0, i32 noundef %1,
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %104
-  %107 = fdiv float %35, 4.500000e+00
+  %107 = fdiv nnan float %35, 4.500000e+00
   br label %ToLinear709.exit
 
 108:                                              ; preds = %104
@@ -477,7 +477,7 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
   %75 = tail call nnan ninf double @llvm.log10.f64(double %74)
   %76 = fptrunc nnan double %75 to float
   %77 = fmul nnan float %76, 5.000000e-01
-  %78 = fadd float %77, 1.000000e+00
+  %78 = fadd nnan float %77, 1.000000e+00
   br label %FromLinear709.exit
 
 79:                                               ; preds = %30

@@ -153,7 +153,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load double, ptr %15, align 8, !tbaa !19
   %17 = fcmp reassoc nsz arcp contract afn ogt double %16, 0.000000e+00
-  %18 = fadd reassoc nsz arcp contract afn double %16, -1.000000e+00
+  %18 = fadd reassoc nnan nsz arcp contract afn double %16, -1.000000e+00
   %19 = select i1 %17, double %18, double -1.000000e+00
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load double, ptr %20, align 8, !tbaa !20
@@ -1418,7 +1418,7 @@ encrypt_tea.exit:                                 ; preds = %150
   br label %tpdf.exit
 
 180:                                              ; preds = %encrypt_tea.exit
-  %181 = fsub reassoc nsz arcp contract afn float 2.000000e+00, %176
+  %181 = fsub reassoc nnan nsz arcp contract afn float 2.000000e+00, %176
   %182 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %181)
   %183 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %182
   br label %tpdf.exit

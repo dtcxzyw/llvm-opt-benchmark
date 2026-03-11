@@ -250,7 +250,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr noundef readonly c
   %117 = uitofp nneg i32 %115 to float
   %118 = fmul nnan float %117, 8.000000e+00
   %119 = fmul nnan float %118, 1.280000e+02
-  %120 = fdiv float %119, 1.300000e+02
+  %120 = fdiv nnan float %119, 1.300000e+02
   br label %hwloc__pci_link_speed.exit
 
 121:                                              ; preds = %112

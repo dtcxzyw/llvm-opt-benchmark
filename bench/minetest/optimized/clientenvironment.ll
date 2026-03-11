@@ -1447,8 +1447,8 @@ if.then.i.i695:                                   ; preds = %invoke.cont250
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit699: ; preds = %invoke.cont250, %if.then.i.i695
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp245)
-  %div257 = fdiv nsz float %retval.0.i691, 1.000000e+02
-  %add258 = fadd nsz float %div257, 1.000000e+00
+  %div257 = fdiv nnan nsz float %retval.0.i691, 1.000000e+02
+  %add258 = fadd nnan nsz float %div257, 1.000000e+00
   %mul259 = fmul nsz float %player_fall_factor.0, %add258
   br label %invoke.cont265
 

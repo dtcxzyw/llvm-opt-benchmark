@@ -8189,7 +8189,7 @@ define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %21
-  %32 = tail call float @llvm.log2.f32(float %29)
+  %32 = tail call nnan float @llvm.log2.f32(float %29)
   br label %33
 
 33:                                               ; preds = %36, %31
@@ -8204,7 +8204,7 @@ define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue
   br label %33
 
 39:                                               ; preds = %33
-  %40 = tail call float @llvm.log2.f32(float %34)
+  %40 = tail call nnan float @llvm.log2.f32(float %34)
   br label %41
 
 41:                                               ; preds = %44, %39
@@ -8219,7 +8219,7 @@ define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue
   br label %41
 
 47:                                               ; preds = %41
-  %48 = tail call float @llvm.log2.f32(float %42)
+  %48 = tail call nnan float @llvm.log2.f32(float %42)
   br label %_ZN6brotli3enc7cluster15ClusterCostDiff17hc0475b4e1ed5ceeeE.exit
 
 49:                                               ; preds = %41
@@ -8455,7 +8455,7 @@ define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %21
-  %32 = tail call float @llvm.log2.f32(float %29)
+  %32 = tail call nnan float @llvm.log2.f32(float %29)
   br label %33
 
 33:                                               ; preds = %36, %31
@@ -8470,7 +8470,7 @@ define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue
   br label %33
 
 39:                                               ; preds = %33
-  %40 = tail call float @llvm.log2.f32(float %34)
+  %40 = tail call nnan float @llvm.log2.f32(float %34)
   br label %41
 
 41:                                               ; preds = %44, %39
@@ -8485,7 +8485,7 @@ define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue
   br label %41
 
 47:                                               ; preds = %41
-  %48 = tail call float @llvm.log2.f32(float %42)
+  %48 = tail call nnan float @llvm.log2.f32(float %42)
   br label %_ZN6brotli3enc7cluster15ClusterCostDiff17hc0475b4e1ed5ceeeE.exit
 
 49:                                               ; preds = %41
@@ -8721,7 +8721,7 @@ define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %21
-  %32 = tail call float @llvm.log2.f32(float %29)
+  %32 = tail call nnan float @llvm.log2.f32(float %29)
   br label %33
 
 33:                                               ; preds = %36, %31
@@ -8736,7 +8736,7 @@ define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue
   br label %33
 
 39:                                               ; preds = %33
-  %40 = tail call float @llvm.log2.f32(float %34)
+  %40 = tail call nnan float @llvm.log2.f32(float %34)
   br label %41
 
 41:                                               ; preds = %44, %39
@@ -8751,7 +8751,7 @@ define internal fastcc void @_ZN6brotli3enc7cluster27BrotliCompareAndPushToQueue
   br label %41
 
 47:                                               ; preds = %41
-  %48 = tail call float @llvm.log2.f32(float %42)
+  %48 = tail call nnan float @llvm.log2.f32(float %42)
   br label %_ZN6brotli3enc7cluster15ClusterCostDiff17hc0475b4e1ed5ceeeE.exit
 
 49:                                               ; preds = %41

@@ -105,11 +105,11 @@ define dso_local float @dt_colorspaces_deltaE_2000(ptr noundef readonly captures
   br i1 %62, label %65, label %63
 
 63:                                               ; preds = %61
-  %64 = fadd reassoc nsz arcp contract afn float %58, 3.600000e+02
+  %64 = fadd reassoc nnan nsz arcp contract afn float %58, 3.600000e+02
   br label %67
 
 65:                                               ; preds = %61
-  %66 = fadd reassoc nsz arcp contract afn float %58, -3.600000e+02
+  %66 = fadd reassoc nnan nsz arcp contract afn float %58, -3.600000e+02
   br label %67
 
 67:                                               ; preds = %63, %65, %57

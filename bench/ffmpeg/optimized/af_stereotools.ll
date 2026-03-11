@@ -257,10 +257,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %79 = fcmp nsz ule double %28, 0.000000e+00
   %80 = fcmp nsz olt double %73, 5.000000e-01
   %81 = select nsz i1 %80, double 5.000000e-01, double %73
-  %82 = fdiv nsz double 1.000000e+00, %81
+  %82 = fdiv nnan nsz double 1.000000e+00, %81
   %83 = fcmp nsz olt double %75, 5.000000e-01
   %84 = select nsz i1 %83, double 5.000000e-01, double %75
-  %85 = fdiv nsz double 1.000000e+00, %84
+  %85 = fdiv nnan nsz double 1.000000e+00, %84
   %86 = fsub nsz double %74, %76
   %87 = fadd nsz double %86, 1.000000e+00
   %88 = fsub nsz double 1.000000e+00, %86
@@ -312,10 +312,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %132 = fcmp nsz ule double %30, 0.000000e+00
   %133 = fcmp nsz olt double %126, 5.000000e-01
   %134 = select nsz i1 %133, double 5.000000e-01, double %126
-  %135 = fdiv nsz double 1.000000e+00, %134
+  %135 = fdiv nnan nsz double 1.000000e+00, %134
   %136 = fcmp nsz olt double %128, 5.000000e-01
   %137 = select nsz i1 %136, double 5.000000e-01, double %128
-  %138 = fdiv nsz double 1.000000e+00, %137
+  %138 = fdiv nnan nsz double 1.000000e+00, %137
   %139 = fsub nsz double %127, %129
   %140 = fadd nsz double %139, 1.000000e+00
   %141 = fsub nsz double 1.000000e+00, %139

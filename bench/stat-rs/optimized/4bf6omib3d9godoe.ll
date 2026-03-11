@@ -846,7 +846,7 @@ define { i64, double } @"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$st
   %38 = fmul double %37, %37
   %39 = fsub double %2, %38
   %40 = tail call double @llvm.sqrt.f64(double %39)
-  %41 = tail call double @llvm.sqrt.f64(double %2)
+  %41 = tail call nnan ninf double @llvm.sqrt.f64(double %2)
   %42 = fdiv nnan double 2.500000e-01, %2
   %43 = fadd nnan double %42, 1.000000e+00
   %44 = fmul double %2, %2

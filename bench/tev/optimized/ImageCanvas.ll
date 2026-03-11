@@ -68145,8 +68145,8 @@ _ZZN3tev10ThreadPool16enqueueCoroutineEiEN7Awaiter13await_suspendENSt3__116corou
   br i1 %59, label %60, label %65
 
 60:                                               ; preds = %35
-  %61 = fadd float %56, 0x3F50624DE0000000
-  %62 = tail call float @llvm.log.f32(float %61)
+  %61 = fadd nnan float %56, 0x3F50624DE0000000
+  %62 = tail call nnan float @llvm.log.f32(float %61)
   %63 = load float, ptr @_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE8smallest, align 4
   %64 = fsub float %62, %63
   br label %71

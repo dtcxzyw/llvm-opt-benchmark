@@ -14827,9 +14827,9 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %26, %_ZNSt
   %58 = tail call noundef float @cosf(float noundef %53) #29
   %59 = fdiv float %57, %21
   %60 = tail call noundef float @llvm.floor.f32(float %59)
-  %61 = fpext float %60 to double
-  %62 = fdiv double 0x401921FB54442D18, %61
-  %63 = fptrunc double %62 to float
+  %61 = fpext nnan float %60 to double
+  %62 = fdiv nnan double 0x401921FB54442D18, %61
+  %63 = fptrunc nnan double %62 to float
   %64 = fcmp ogt float %60, 0.000000e+00
   br i1 %64, label %.lr.ph94, label %._crit_edge95
 

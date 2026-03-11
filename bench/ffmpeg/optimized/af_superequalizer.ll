@@ -163,7 +163,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef readonly capture
   %54 = fpext nsz float %53 to double
   %55 = call nsz double @llvm.pow.f64(double %54, double 0x3FD99999A0000000)
   %56 = fmul nnan nsz float %53, 0x3FB4302B40000000
-  %57 = fpext nsz float %56 to double
+  %57 = fpext nnan nsz float %56 to double
   %58 = call nsz double @llvm.fmuladd.f64(double %55, double 0x3FE2B1C440000000, double %57)
   %59 = fptrunc nsz double %58 to float
   br label %alpha.exit.i
@@ -740,7 +740,7 @@ hn.exit.i:                                        ; preds = %hn_lpf.exit29.i.i, 
   %112 = fpext nsz float %111 to double
   %113 = tail call nsz double @llvm.pow.f64(double %112, double 0x3FD99999A0000000)
   %114 = fmul nnan nsz float %111, 0x3FB4302B40000000
-  %115 = fpext nsz float %114 to double
+  %115 = fpext nnan nsz float %114 to double
   %116 = tail call nsz double @llvm.fmuladd.f64(double %113, double 0x3FE2B1C440000000, double %115)
   %117 = fptrunc nsz double %116 to float
   br label %alpha.exit.i.i

@@ -806,7 +806,7 @@ dlamc4_.exit113:                                  ; preds = %.loopexit.i105, %dl
   br i1 %.not5165.i, label %._crit_edge.i117, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %213
-  %233 = fadd double %.pre-phi272277290, -1.000000e+00
+  %233 = fadd nnan double %.pre-phi272277290, -1.000000e+00
   br label %.lr.ph.i115
 
 .lr.ph.i115:                                      ; preds = %.lr.ph.i115, %.lr.ph.preheader.i
@@ -1101,7 +1101,7 @@ define noundef i32 @dlamc5_(ptr noundef readonly captures(none) %0, ptr noundef 
   br i1 %.not5165, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %37
-  %43 = fadd double %40, -1.000000e+00
+  %43 = fadd nnan double %40, -1.000000e+00
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

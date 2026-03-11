@@ -6003,10 +6003,10 @@ define linkonce_odr hidden void @_ZNK2cv4usac17NormTransformImpl21getNormTransfo
 
 ._crit_edge:                                      ; preds = %6
   %12 = sitofp i32 %3 to double
-  %13 = fdiv double 0.000000e+00, %12
-  %14 = fdiv double 0.000000e+00, %12
-  %15 = fdiv double 0.000000e+00, %12
-  %16 = fdiv double 0.000000e+00, %12
+  %13 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %12)
+  %14 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %12)
+  %15 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %12)
+  %16 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %12)
   br label %._crit_edge143
 
 .lr.ph142:                                        ; preds = %23
@@ -6234,6 +6234,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #17
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.copysign.f64(double, double) #17
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

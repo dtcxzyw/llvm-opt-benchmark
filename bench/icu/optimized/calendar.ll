@@ -9700,7 +9700,7 @@ _ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit: ; preds = %67
   %96 = icmp eq i32 %95, 0
   %97 = select i1 %96, i32 0, i32 12
   %98 = uitofp nneg i32 %97 to double
-  %99 = fadd double %92, %98
+  %99 = fadd nnan double %92, %98
   br label %_ZN6icu_778Calendar18computeMillisInDayEv.exit
 
 _ZN6icu_778Calendar18computeMillisInDayEv.exit:   ; preds = %76, %85, %89
@@ -9934,7 +9934,7 @@ define noundef double @_ZN6icu_778Calendar18computeMillisInDayEv(ptr noundef non
   %21 = icmp eq i32 %20, 0
   %22 = select i1 %21, i32 0, i32 12
   %23 = uitofp nneg i32 %22 to double
-  %24 = fadd double %17, %23
+  %24 = fadd nnan double %17, %23
   br label %25
 
 25:                                               ; preds = %10, %14, %1

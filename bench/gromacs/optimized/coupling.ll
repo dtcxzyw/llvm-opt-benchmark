@@ -7420,7 +7420,7 @@ _ZL14energyVrescalePK7t_state.exit:               ; preds = %188, %_ZSt10accumul
   %213 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %210
   %214 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv17.i
   %215 = load float, ptr %214, align 4, !tbaa !114
-  %216 = fpext float %215 to double
+  %216 = fpext nnan float %215 to double
   %217 = fcmp ogt float %215, 0.000000e+00
   br i1 %217, label %.preheader.us.us.i, label %..loopexit_crit_edge.us.us.i
 

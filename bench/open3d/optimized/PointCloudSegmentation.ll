@@ -747,163 +747,162 @@ define void @_ZN6open3d8geometry18GetPlaneFromPointsERKSt6vectorIN5Eigen6MatrixI
   %.scalar = fdiv double 0.000000e+00, %11
   %12 = insertelement <2 x double> poison, double %.scalar, i64 0
   %13 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
-  %14 = fdiv double 0.000000e+00, %11
   br label %._crit_edge158
 
 .lr.ph:                                           ; preds = %3
-  %15 = load ptr, ptr %1, align 8, !tbaa !10
-  br label %26
+  %14 = load ptr, ptr %1, align 8, !tbaa !10
+  br label %25
 
-.lr.ph157:                                        ; preds = %26
-  %16 = ptrtoint ptr %6 to i64
-  %17 = ptrtoint ptr %4 to i64
-  %18 = sub i64 %16, %17
-  %19 = ashr exact i64 %18, 3
-  %20 = uitofp i64 %19 to double
-  %21 = insertelement <2 x double> poison, double %20, i64 0
-  %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
-  %23 = fdiv <2 x double> %30, %22
-  %24 = fdiv double %33, %20
-  %25 = load ptr, ptr %1, align 8, !tbaa !10
-  br label %48
+.lr.ph157:                                        ; preds = %25
+  %15 = ptrtoint ptr %6 to i64
+  %16 = ptrtoint ptr %4 to i64
+  %17 = sub i64 %15, %16
+  %18 = ashr exact i64 %17, 3
+  %19 = uitofp i64 %18 to double
+  %20 = insertelement <2 x double> poison, double %19, i64 0
+  %21 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> zeroinitializer
+  %22 = fdiv <2 x double> %29, %21
+  %23 = fdiv double %32, %19
+  %24 = load ptr, ptr %1, align 8, !tbaa !10
+  br label %47
 
-26:                                               ; preds = %.lr.ph, %26
-  %.sroa.0129.0146 = phi ptr [ %4, %.lr.ph ], [ %34, %26 ]
-  %.sroa.0.0145 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %30, %26 ]
-  %.sroa.10.0144 = phi double [ 0.000000e+00, %.lr.ph ], [ %33, %26 ]
-  %27 = load i64, ptr %.sroa.0129.0146, align 8, !tbaa !19
-  %28 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %27
-  %29 = load <2 x double>, ptr %28, align 1, !tbaa !17
-  %30 = fadd <2 x double> %.sroa.0.0145, %29
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %32 = load double, ptr %31, align 8, !tbaa !15
-  %33 = fadd double %.sroa.10.0144, %32
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0129.0146, i64 8
-  %.not = icmp eq ptr %34, %6
-  br i1 %.not, label %.lr.ph157, label %26
+25:                                               ; preds = %.lr.ph, %25
+  %.sroa.0129.0146 = phi ptr [ %4, %.lr.ph ], [ %33, %25 ]
+  %.sroa.0.0145 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %29, %25 ]
+  %.sroa.10.0144 = phi double [ 0.000000e+00, %.lr.ph ], [ %32, %25 ]
+  %26 = load i64, ptr %.sroa.0129.0146, align 8, !tbaa !19
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %26
+  %28 = load <2 x double>, ptr %27, align 1, !tbaa !17
+  %29 = fadd <2 x double> %.sroa.0.0145, %28
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %31 = load double, ptr %30, align 8, !tbaa !15
+  %32 = fadd double %.sroa.10.0144, %31
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0129.0146, i64 8
+  %.not = icmp eq ptr %33, %6
+  br i1 %.not, label %.lr.ph157, label %25
 
-._crit_edge158:                                   ; preds = %48, %._crit_edge.thread
-  %35 = phi double [ %14, %._crit_edge.thread ], [ %24, %48 ]
-  %36 = phi <2 x double> [ %13, %._crit_edge.thread ], [ %23, %48 ]
-  %.057.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %59, %48 ]
-  %.056.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %60, %48 ]
-  %.055.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %61, %48 ]
-  %.054.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %58, %48 ]
-  %.053.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %57, %48 ]
-  %.0.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %56, %48 ]
-  %37 = fneg double %.056.lcssa
-  %38 = fmul double %.056.lcssa, %37
-  %39 = tail call double @llvm.fmuladd.f64(double %.057.lcssa, double %.055.lcssa, double %38)
-  %40 = fneg double %.054.lcssa
-  %41 = fmul double %.054.lcssa, %40
-  %42 = tail call double @llvm.fmuladd.f64(double %.0.lcssa, double %.055.lcssa, double %41)
-  %43 = fneg double %.053.lcssa
-  %44 = fmul double %.053.lcssa, %43
-  %45 = tail call double @llvm.fmuladd.f64(double %.0.lcssa, double %.057.lcssa, double %44)
-  %46 = fcmp ogt double %39, %42
-  %47 = fcmp ogt double %39, %45
-  %or.cond = select i1 %46, i1 %47, i1 false
-  br i1 %or.cond, label %63, label %70
+._crit_edge158:                                   ; preds = %47, %._crit_edge.thread
+  %34 = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %23, %47 ]
+  %35 = phi <2 x double> [ %13, %._crit_edge.thread ], [ %22, %47 ]
+  %.057.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %58, %47 ]
+  %.056.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %59, %47 ]
+  %.055.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %60, %47 ]
+  %.054.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %57, %47 ]
+  %.053.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %56, %47 ]
+  %.0.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %55, %47 ]
+  %36 = fneg double %.056.lcssa
+  %37 = fmul double %.056.lcssa, %36
+  %38 = tail call double @llvm.fmuladd.f64(double %.057.lcssa, double %.055.lcssa, double %37)
+  %39 = fneg double %.054.lcssa
+  %40 = fmul double %.054.lcssa, %39
+  %41 = tail call double @llvm.fmuladd.f64(double %.0.lcssa, double %.055.lcssa, double %40)
+  %42 = fneg double %.053.lcssa
+  %43 = fmul double %.053.lcssa, %42
+  %44 = tail call double @llvm.fmuladd.f64(double %.0.lcssa, double %.057.lcssa, double %43)
+  %45 = fcmp ogt double %38, %41
+  %46 = fcmp ogt double %38, %44
+  %or.cond = select i1 %45, i1 %46, i1 false
+  br i1 %or.cond, label %62, label %69
 
-48:                                               ; preds = %.lr.ph157, %48
-  %.0155 = phi double [ 0.000000e+00, %.lr.ph157 ], [ %56, %48 ]
-  %.053154 = phi double [ 0.000000e+00, %.lr.ph157 ], [ %57, %48 ]
-  %.054153 = phi double [ 0.000000e+00, %.lr.ph157 ], [ %58, %48 ]
-  %.055152 = phi double [ 0.000000e+00, %.lr.ph157 ], [ %61, %48 ]
-  %.056151 = phi double [ 0.000000e+00, %.lr.ph157 ], [ %60, %48 ]
-  %.057150 = phi double [ 0.000000e+00, %.lr.ph157 ], [ %59, %48 ]
-  %.sroa.0124.0149 = phi ptr [ %4, %.lr.ph157 ], [ %62, %48 ]
-  %49 = load i64, ptr %.sroa.0124.0149, align 8, !tbaa !19
-  %50 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %49
-  %51 = load <2 x double>, ptr %50, align 1, !tbaa !17
-  %52 = fsub <2 x double> %51, %23
-  %53 = getelementptr i8, ptr %50, i64 16
-  %54 = load double, ptr %53, align 8, !tbaa !15
-  %55 = fsub double %54, %24
-  %.sroa.0107.0.vec.extract = extractelement <2 x double> %52, i64 0
-  %56 = tail call double @llvm.fmuladd.f64(double %.sroa.0107.0.vec.extract, double %.sroa.0107.0.vec.extract, double %.0155)
-  %.sroa.0107.8.vec.extract = extractelement <2 x double> %52, i64 1
-  %57 = tail call double @llvm.fmuladd.f64(double %.sroa.0107.0.vec.extract, double %.sroa.0107.8.vec.extract, double %.053154)
-  %58 = tail call double @llvm.fmuladd.f64(double %.sroa.0107.0.vec.extract, double %55, double %.054153)
-  %59 = tail call double @llvm.fmuladd.f64(double %.sroa.0107.8.vec.extract, double %.sroa.0107.8.vec.extract, double %.057150)
-  %60 = tail call double @llvm.fmuladd.f64(double %.sroa.0107.8.vec.extract, double %55, double %.056151)
-  %61 = tail call double @llvm.fmuladd.f64(double %55, double %55, double %.055152)
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.0124.0149, i64 8
-  %.not142 = icmp eq ptr %62, %6
-  br i1 %.not142, label %._crit_edge158, label %48
+47:                                               ; preds = %.lr.ph157, %47
+  %.0155 = phi double [ 0.000000e+00, %.lr.ph157 ], [ %55, %47 ]
+  %.053154 = phi double [ 0.000000e+00, %.lr.ph157 ], [ %56, %47 ]
+  %.054153 = phi double [ 0.000000e+00, %.lr.ph157 ], [ %57, %47 ]
+  %.055152 = phi double [ 0.000000e+00, %.lr.ph157 ], [ %60, %47 ]
+  %.056151 = phi double [ 0.000000e+00, %.lr.ph157 ], [ %59, %47 ]
+  %.057150 = phi double [ 0.000000e+00, %.lr.ph157 ], [ %58, %47 ]
+  %.sroa.0124.0149 = phi ptr [ %4, %.lr.ph157 ], [ %61, %47 ]
+  %48 = load i64, ptr %.sroa.0124.0149, align 8, !tbaa !19
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %48
+  %50 = load <2 x double>, ptr %49, align 1, !tbaa !17
+  %51 = fsub <2 x double> %50, %22
+  %52 = getelementptr i8, ptr %49, i64 16
+  %53 = load double, ptr %52, align 8, !tbaa !15
+  %54 = fsub double %53, %23
+  %.sroa.0107.0.vec.extract = extractelement <2 x double> %51, i64 0
+  %55 = tail call double @llvm.fmuladd.f64(double %.sroa.0107.0.vec.extract, double %.sroa.0107.0.vec.extract, double %.0155)
+  %.sroa.0107.8.vec.extract = extractelement <2 x double> %51, i64 1
+  %56 = tail call double @llvm.fmuladd.f64(double %.sroa.0107.0.vec.extract, double %.sroa.0107.8.vec.extract, double %.053154)
+  %57 = tail call double @llvm.fmuladd.f64(double %.sroa.0107.0.vec.extract, double %54, double %.054153)
+  %58 = tail call double @llvm.fmuladd.f64(double %.sroa.0107.8.vec.extract, double %.sroa.0107.8.vec.extract, double %.057150)
+  %59 = tail call double @llvm.fmuladd.f64(double %.sroa.0107.8.vec.extract, double %54, double %.056151)
+  %60 = tail call double @llvm.fmuladd.f64(double %54, double %54, double %.055152)
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.0124.0149, i64 8
+  %.not142 = icmp eq ptr %61, %6
+  br i1 %.not142, label %._crit_edge158, label %47
 
-63:                                               ; preds = %._crit_edge158
-  %64 = fneg double %.055.lcssa
-  %65 = fmul double %.053.lcssa, %64
-  %66 = tail call double @llvm.fmuladd.f64(double %.054.lcssa, double %.056.lcssa, double %65)
-  %67 = fneg double %.057.lcssa
-  %68 = fmul double %.054.lcssa, %67
-  %69 = tail call double @llvm.fmuladd.f64(double %.053.lcssa, double %.056.lcssa, double %68)
-  br label %83
+62:                                               ; preds = %._crit_edge158
+  %63 = fneg double %.055.lcssa
+  %64 = fmul double %.053.lcssa, %63
+  %65 = tail call double @llvm.fmuladd.f64(double %.054.lcssa, double %.056.lcssa, double %64)
+  %66 = fneg double %.057.lcssa
+  %67 = fmul double %.054.lcssa, %66
+  %68 = tail call double @llvm.fmuladd.f64(double %.053.lcssa, double %.056.lcssa, double %67)
+  br label %82
 
-70:                                               ; preds = %._crit_edge158
-  %71 = fcmp ogt double %42, %45
-  %72 = fneg double %.0.lcssa
-  %73 = fmul double %.056.lcssa, %72
-  %74 = tail call double @llvm.fmuladd.f64(double %.053.lcssa, double %.054.lcssa, double %73)
-  br i1 %71, label %75, label %79
+69:                                               ; preds = %._crit_edge158
+  %70 = fcmp ogt double %41, %44
+  %71 = fneg double %.0.lcssa
+  %72 = fmul double %.056.lcssa, %71
+  %73 = tail call double @llvm.fmuladd.f64(double %.053.lcssa, double %.054.lcssa, double %72)
+  br i1 %70, label %74, label %78
 
-75:                                               ; preds = %70
-  %76 = fneg double %.055.lcssa
-  %77 = fmul double %.053.lcssa, %76
-  %78 = tail call double @llvm.fmuladd.f64(double %.054.lcssa, double %.056.lcssa, double %77)
-  br label %83
+74:                                               ; preds = %69
+  %75 = fneg double %.055.lcssa
+  %76 = fmul double %.053.lcssa, %75
+  %77 = tail call double @llvm.fmuladd.f64(double %.054.lcssa, double %.056.lcssa, double %76)
+  br label %82
 
-79:                                               ; preds = %70
-  %80 = fneg double %.057.lcssa
-  %81 = fmul double %.054.lcssa, %80
-  %82 = tail call double @llvm.fmuladd.f64(double %.053.lcssa, double %.056.lcssa, double %81)
-  br label %83
+78:                                               ; preds = %69
+  %79 = fneg double %.057.lcssa
+  %80 = fmul double %.054.lcssa, %79
+  %81 = tail call double @llvm.fmuladd.f64(double %.053.lcssa, double %.056.lcssa, double %80)
+  br label %82
 
-83:                                               ; preds = %75, %79, %63
-  %.sink189 = phi double [ %78, %75 ], [ %82, %79 ], [ %39, %63 ]
-  %.sink188 = phi double [ %42, %75 ], [ %74, %79 ], [ %66, %63 ]
-  %.sroa.15.0 = phi double [ %74, %75 ], [ %45, %79 ], [ %69, %63 ]
+82:                                               ; preds = %74, %78, %62
+  %.sink189 = phi double [ %77, %74 ], [ %81, %78 ], [ %38, %62 ]
+  %.sink188 = phi double [ %41, %74 ], [ %73, %78 ], [ %65, %62 ]
+  %.sroa.15.0 = phi double [ %73, %74 ], [ %44, %78 ], [ %68, %62 ]
   %.sroa.078.0.vec.insert85 = insertelement <2 x double> poison, double %.sink189, i64 0
   %.sroa.078.8.vec.insert90 = insertelement <2 x double> %.sroa.078.0.vec.insert85, double %.sink188, i64 1
-  %84 = fmul <2 x double> %.sroa.078.8.vec.insert90, %.sroa.078.8.vec.insert90
-  %shift = shufflevector <2 x double> %84, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop = fadd <2 x double> %84, %shift
-  %85 = extractelement <2 x double> %foldExtExtBinop, i64 0
-  %86 = fmul double %.sroa.15.0, %.sroa.15.0
-  %87 = fadd double %86, %85
-  %88 = fcmp oeq double %87, 0.000000e+00
-  br i1 %88, label %99, label %89
+  %83 = fmul <2 x double> %.sroa.078.8.vec.insert90, %.sroa.078.8.vec.insert90
+  %shift = shufflevector <2 x double> %83, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop = fadd <2 x double> %83, %shift
+  %84 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %85 = fmul double %.sroa.15.0, %.sroa.15.0
+  %86 = fadd double %85, %84
+  %87 = fcmp oeq double %86, 0.000000e+00
+  br i1 %87, label %98, label %88
 
-89:                                               ; preds = %83
-  %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %87)
-  %90 = insertelement <2 x double> poison, double %.scalar.i, i64 0
-  %91 = shufflevector <2 x double> %90, <2 x double> poison, <2 x i32> zeroinitializer
-  %92 = fdiv <2 x double> %.sroa.078.8.vec.insert90, %91
-  %93 = fdiv double %.sroa.15.0, %.scalar.i
-  %94 = fmul <2 x double> %36, %92
-  %shift198 = shufflevector <2 x double> %94, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop199 = fadd <2 x double> %94, %shift198
-  %95 = extractelement <2 x double> %foldExtExtBinop199, i64 0
-  %96 = fmul double %35, %93
-  %97 = fadd double %96, %95
-  %98 = fneg double %97
-  %.sroa.078.0.vec.extract = extractelement <2 x double> %92, i64 0
-  %.sroa.078.8.vec.extract = extractelement <2 x double> %92, i64 1
-  br label %99
+88:                                               ; preds = %82
+  %.scalar.i = tail call noundef double @llvm.sqrt.f64(double %86)
+  %89 = insertelement <2 x double> poison, double %.scalar.i, i64 0
+  %90 = shufflevector <2 x double> %89, <2 x double> poison, <2 x i32> zeroinitializer
+  %91 = fdiv <2 x double> %.sroa.078.8.vec.insert90, %90
+  %92 = fdiv double %.sroa.15.0, %.scalar.i
+  %93 = fmul <2 x double> %35, %91
+  %shift198 = shufflevector <2 x double> %93, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop199 = fadd <2 x double> %93, %shift198
+  %94 = extractelement <2 x double> %foldExtExtBinop199, i64 0
+  %95 = fmul double %34, %92
+  %96 = fadd double %95, %94
+  %97 = fneg double %96
+  %.sroa.078.0.vec.extract = extractelement <2 x double> %91, i64 0
+  %.sroa.078.8.vec.extract = extractelement <2 x double> %91, i64 1
+  br label %98
 
-99:                                               ; preds = %83, %89
-  %.sroa.078.0.vec.extract.sink = phi double [ %.sroa.078.0.vec.extract, %89 ], [ 0.000000e+00, %83 ]
-  %.sroa.078.8.vec.extract.sink = phi double [ %.sroa.078.8.vec.extract, %89 ], [ 0.000000e+00, %83 ]
-  %.sink172 = phi double [ %93, %89 ], [ 0.000000e+00, %83 ]
-  %.sink = phi double [ %98, %89 ], [ 0.000000e+00, %83 ]
+98:                                               ; preds = %82, %88
+  %.sroa.078.0.vec.extract.sink = phi double [ %.sroa.078.0.vec.extract, %88 ], [ 0.000000e+00, %82 ]
+  %.sroa.078.8.vec.extract.sink = phi double [ %.sroa.078.8.vec.extract, %88 ], [ 0.000000e+00, %82 ]
+  %.sink172 = phi double [ %92, %88 ], [ 0.000000e+00, %82 ]
+  %.sink = phi double [ %97, %88 ], [ 0.000000e+00, %82 ]
   store double %.sroa.078.0.vec.extract.sink, ptr %0, align 16, !tbaa !15
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.sroa.078.8.vec.extract.sink, ptr %100, align 8, !tbaa !15
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %.sink172, ptr %101, align 16, !tbaa !15
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %.sink, ptr %102, align 8, !tbaa !15
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %.sroa.078.8.vec.extract.sink, ptr %99, align 8, !tbaa !15
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store double %.sink172, ptr %100, align 16, !tbaa !15
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store double %.sink, ptr %101, align 8, !tbaa !15
   ret void
 }
 
@@ -1281,7 +1280,7 @@ _ZNSt6vectorImSaImEE12emplace_backIJRmEEES3_DpOT_.exit: ; preds = %_ZNSt6vectorI
   %.sroa.047.071 = phi ptr [ %.sroa.047.070, %._crit_edge.thread.i ], [ %.sroa.047.3, %177 ]
   %.sroa.11.069 = phi ptr [ %.sroa.11.068, %._crit_edge.thread.i ], [ %.sroa.11.2, %177 ]
   %.sroa.17.066 = phi ptr [ %.sroa.17.067, %._crit_edge.thread.i ], [ %.sroa.17.3, %177 ]
-  %164 = phi double [ %.scalar, %._crit_edge.thread.i ], [ %155, %177 ]
+  %164 = phi double [ 0.000000e+00, %._crit_edge.thread.i ], [ %155, %177 ]
   %165 = phi <2 x double> [ %146, %._crit_edge.thread.i ], [ %154, %177 ]
   %.057.lcssa.i = phi double [ 0.000000e+00, %._crit_edge.thread.i ], [ %188, %177 ]
   %.056.lcssa.i = phi double [ 0.000000e+00, %._crit_edge.thread.i ], [ %189, %177 ]
@@ -2080,7 +2079,7 @@ _ZNSt15__new_allocatorImE8allocateEmPKv.exit.i.i.i.i..noexc23_crit_edge: ; preds
   br i1 %.not.i, label %.lr.ph157.i, label %92
 
 ._crit_edge158.i:                                 ; preds = %114, %._crit_edge.thread.i
-  %101 = phi double [ %.scalar, %._crit_edge.thread.i ], [ %91, %114 ]
+  %101 = phi double [ 0.000000e+00, %._crit_edge.thread.i ], [ %91, %114 ]
   %102 = phi <2 x double> [ %84, %._crit_edge.thread.i ], [ %90, %114 ]
   %.057.lcssa.i = phi double [ 0.000000e+00, %._crit_edge.thread.i ], [ %125, %114 ]
   %.056.lcssa.i = phi double [ 0.000000e+00, %._crit_edge.thread.i ], [ %126, %114 ]

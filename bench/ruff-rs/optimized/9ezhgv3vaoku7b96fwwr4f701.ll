@@ -18551,7 +18551,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf0bf2552acb
   %14 = shl i64 %13, 4
   %15 = icmp samesign ugt i64 %8, 576460752303423487
   %16 = icmp ugt i64 %14, 9223372036854775800
-  %17 = select i1 %15, i1 true, i1 %16, !prof !143
+  %17 = select i1 %15, i1 true, i1 %16
   br i1 %17, label %30, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i: ; preds = %11
@@ -18808,7 +18808,7 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h26628b26d0a1724e
   %8 = shl i64 %7, 3
   %9 = icmp samesign ugt i64 %5, 1152921504606846975
   %10 = icmp ugt i64 %8, 9223372036854775800
-  %11 = select i1 %9, i1 true, i1 %10, !prof !143
+  %11 = select i1 %9, i1 true, i1 %10
   br i1 %11, label %24, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i: ; preds = %2
@@ -18869,7 +18869,7 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h6c81cf66ddf1f839
   %8 = shl i64 %7, 3
   %9 = icmp samesign ugt i64 %5, 1152921504606846975
   %10 = icmp ugt i64 %8, 9223372036854775800
-  %11 = select i1 %9, i1 true, i1 %10, !prof !143
+  %11 = select i1 %9, i1 true, i1 %10
   br i1 %11, label %24, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i: ; preds = %2
@@ -18989,7 +18989,7 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h8e57a141b1aa8225
   %8 = shl i64 %7, 4
   %9 = icmp samesign ugt i64 %5, 576460752303423487
   %10 = icmp ugt i64 %8, 9223372036854775800
-  %11 = select i1 %9, i1 true, i1 %10, !prof !143
+  %11 = select i1 %9, i1 true, i1 %10
   br i1 %11, label %24, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i: ; preds = %2
@@ -19109,7 +19109,7 @@ define internal fastcc { i64, ptr } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16w
   %11 = extractvalue { i64, i1 } %9, 1
   %12 = sub nuw i64 -9223372036854775808, %1
   %13 = icmp ugt i64 %10, %12
-  %14 = select i1 %11, i1 true, i1 %13, !prof !143
+  %14 = select i1 %11, i1 true, i1 %13
   br i1 %14, label %21, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i: ; preds = %4
@@ -19168,7 +19168,7 @@ define internal fastcc void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21d
   %21 = extractvalue { i64, i1 } %19, 1
   %22 = sub nuw i64 -9223372036854775808, %3
   %23 = icmp ugt i64 %20, %22
-  %24 = select i1 %21, i1 true, i1 %23, !prof !143
+  %24 = select i1 %21, i1 true, i1 %23
   br i1 %24, label %37, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i: ; preds = %10
@@ -38500,7 +38500,7 @@ define void @_ZN15ruff_python_ast7helpers26extract_handled_exceptions17h9f6cfa4b
   %27 = shl i64 %26, 3
   %28 = icmp samesign ugt i64 %.sroa.0.056, 1152921504606846975
   %29 = icmp ugt i64 %27, 9223372036854775800
-  %30 = select i1 %28, i1 true, i1 %29, !prof !143
+  %30 = select i1 %28, i1 true, i1 %29
   br i1 %30, label %.loopexit22, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %24
@@ -38592,7 +38592,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %2
   %59 = shl i64 %58, 3
   %60 = icmp samesign ugt i64 %.sroa.0.349, 1152921504606846975
   %61 = icmp ugt i64 %59, 9223372036854775800
-  %62 = select i1 %60, i1 true, i1 %61, !prof !143
+  %62 = select i1 %60, i1 true, i1 %61
   br i1 %62, label %.loopexit21, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i9
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i9: ; preds = %56
@@ -39803,7 +39803,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
   %160 = shl i64 %159, 4
   %161 = icmp samesign ugt i64 %150, 576460752303423487
   %162 = icmp ugt i64 %160, 9223372036854775800
-  %163 = select i1 %161, i1 true, i1 %162, !prof !143
+  %163 = select i1 %161, i1 true, i1 %162
   br i1 %163, label %175, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i: ; preds = %157
@@ -40323,7 +40323,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i: ; preds = 
   %126 = shl i64 %125, 4
   %127 = icmp samesign ugt i64 %116, 576460752303423487
   %128 = icmp ugt i64 %126, 9223372036854775800
-  %129 = select i1 %127, i1 true, i1 %128, !prof !143
+  %129 = select i1 %127, i1 true, i1 %128
   br i1 %129, label %141, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i.i.i: ; preds = %123
@@ -43206,7 +43206,7 @@ _ZN15ruff_python_ast7visitor9walk_stmt17hccc52186fa361565E.exit: ; preds = %.lr.
   %247 = shl i64 %246, 3
   %248 = icmp samesign ugt i64 %241, 1152921504606846975
   %249 = icmp ugt i64 %247, 9223372036854775800
-  %250 = select i1 %248, i1 true, i1 %249, !prof !143
+  %250 = select i1 %248, i1 true, i1 %249
   br i1 %250, label %263, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %244
@@ -49989,7 +49989,7 @@ define internal fastcc void @_ZN15ruff_python_ast4name11SegmentsVec4push17h15ba0
   %20 = shl i64 %19, 4
   %21 = icmp samesign ugt i64 %14, 576460752303423487
   %22 = icmp ugt i64 %20, 9223372036854775800
-  %23 = select i1 %21, i1 true, i1 %22, !prof !143
+  %23 = select i1 %21, i1 true, i1 %22
   br i1 %23, label %36, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %17
@@ -60729,7 +60729,7 @@ select.unfold202:                                 ; preds = %"_ZN4core3str4iter2
   %171 = shl i64 %170, 4
   %172 = icmp samesign ugt i64 %.sroa.0.0312, 576460752303423487
   %173 = icmp ugt i64 %171, 9223372036854775800
-  %174 = select i1 %172, i1 true, i1 %173, !prof !143
+  %174 = select i1 %172, i1 true, i1 %173
   br i1 %174, label %.loopexit230.invoke, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %168
@@ -60808,7 +60808,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %1
   %200 = shl i64 %199, 4
   %201 = icmp samesign ugt i64 %.sroa.0.0312, 576460752303423487
   %202 = icmp ugt i64 %200, 9223372036854775800
-  %203 = select i1 %201, i1 true, i1 %202, !prof !143
+  %203 = select i1 %201, i1 true, i1 %202
   br i1 %203, label %.loopexit230.invoke, label %_ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i145
 
 _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i145: ; preds = %197

@@ -1998,7 +1998,7 @@ _ZNK3gmx10BiasWriter11hasVarBlockENS_18AwhOutputEntryTypeE.exit: ; preds = %86, 
 154:                                              ; preds = %._crit_edge.i
   %155 = getelementptr inbounds nuw i8, ptr %.sroa.035.057, i64 4
   %156 = load float, ptr %155, align 4, !tbaa !35
-  %157 = fptrunc double %152 to float
+  %157 = fptrunc nnan double %152 to float
   %158 = fdiv float %156, %157
   br label %.lr.ph24.preheader.i
 

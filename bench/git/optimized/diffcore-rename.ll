@@ -729,7 +729,7 @@ find_exact_renames.exit:                          ; preds = %find_identical_file
 299:                                              ; preds = %297
   %300 = call i64 @strtol(ptr noundef nonnull captures(none) %298, ptr noundef null, i32 noundef 10) #14
   %301 = sitofp i64 %300 to double
-  %302 = fdiv double %301, 1.000000e+02
+  %302 = fdiv nnan double %301, 1.000000e+02
   br label %303
 
 303:                                              ; preds = %299, %297

@@ -26657,7 +26657,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EE
   br i1 %28, label %.split.i.i.i.us.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68
 
 _ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.us.i
-  %29 = fadd float %27, 0.000000e+00
+  %29 = fadd nnan float %27, 0.000000e+00
   br label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i
 
 _ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i: ; preds = %.split.i.i.i.us.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68
@@ -31528,7 +31528,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %26, label %.split.i.i.i.us.i, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68
 
 _ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.us.i
-  %27 = fadd double %25, 0.000000e+00
+  %27 = fadd nnan double %25, 0.000000e+00
   br label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i
 
 _ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i: ; preds = %.split.i.i.i.us.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68
@@ -31817,8 +31817,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %26, label %.noexc.split.loop.exit70, label %.split.i.i
 
 .noexc.split.loop.exit70:                         ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %27 = fpext double %25 to x86_fp80
-  %28 = fadd x86_fp80 %27, 0xK00000000000000000000
+  %27 = fpext nnan double %25 to x86_fp80
+  %28 = fadd nnan x86_fp80 %27, 0xK00000000000000000000
   br label %.noexc
 
 .noexc:                                           ; preds = %.split.i.i, %.noexc.split.loop.exit70

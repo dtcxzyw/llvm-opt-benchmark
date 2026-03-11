@@ -9417,7 +9417,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %32, %35
   %51 = lshr exact i64 %50, 2
   %52 = trunc i64 %51 to i32
   %53 = sitofp i32 %52 to float
-  %54 = fdiv float 1.000000e+00, %53
+  %54 = fdiv nnan float 1.000000e+00, %53
   br label %55
 
 55:                                               ; preds = %44, %45

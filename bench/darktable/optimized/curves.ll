@@ -327,7 +327,7 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
   br i1 %182, label %190, label %183
 
 183:                                              ; preds = %._crit_edge219
-  %184 = fpext reassoc nsz arcp contract afn float %.1170 to double
+  %184 = fpext reassoc ninf nsz arcp contract afn float %.1170 to double
   %185 = fcmp reassoc nsz arcp contract afn ult float %.1170, 1.000000e+00
   br i1 %185, label %.thread, label %190
 
@@ -545,7 +545,7 @@ define void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull writeonly align 8 
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %94
-  %97 = fadd reassoc nsz arcp contract afn double %92, -1.000000e+00
+  %97 = fadd reassoc nnan nsz arcp contract afn double %92, -1.000000e+00
   %98 = fmul reassoc nsz arcp contract afn double %97, %69
   %99 = tail call reassoc nsz arcp contract afn double @llvm.exp.f64(double %98)
   br label %102

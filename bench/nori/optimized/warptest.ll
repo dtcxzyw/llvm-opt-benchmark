@@ -1819,7 +1819,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %66 = call noundef float @atan2f(float noundef %58, float noundef %56) #32
   %67 = fmul float %66, 0x3FC45F3060000000
   %68 = fcmp olt float %67, 0.000000e+00
-  %69 = fadd float %67, 1.000000e+00
+  %69 = fadd nnan float %67, 1.000000e+00
   %.139 = select i1 %68, float %69, float %67
   %70 = call float @llvm.fmuladd.f32(float %65, float 5.000000e-01, float 5.000000e-01)
   br label %71

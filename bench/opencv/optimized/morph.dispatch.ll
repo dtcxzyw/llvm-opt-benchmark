@@ -4783,7 +4783,7 @@ _ZN2cvL15normalizeAnchorENS_6Point_IiEENS_5Size_IiEE.exit: ; preds = %19
   %.not = icmp ult i32 %.off, 3
   %37 = sitofp i32 %23 to double
   %38 = fmul nnan double %37, %37
-  %39 = fdiv double 1.000000e+00, %38
+  %39 = fdiv nnan double 1.000000e+00, %38
   %40 = select i1 %.not, double 0.000000e+00, double %39
   br label %41
 

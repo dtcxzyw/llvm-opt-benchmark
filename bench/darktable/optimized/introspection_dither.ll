@@ -291,7 +291,7 @@ encrypt_tea.exit.us.i:                            ; preds = %36
   br i1 %57, label %63, label %59
 
 59:                                               ; preds = %encrypt_tea.exit.us.i
-  %60 = fsub reassoc nsz arcp contract afn float 2.000000e+00, %58
+  %60 = fsub reassoc nnan nsz arcp contract afn float 2.000000e+00, %58
   %61 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %60)
   %62 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %61
   br label %tpdf.exit.us.i

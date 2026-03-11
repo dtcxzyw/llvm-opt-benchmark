@@ -2074,7 +2074,7 @@ _ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit: ; preds = %367, %366, %311
   %407 = getelementptr inbounds nuw i8, ptr %7, i64 440
   %408 = load i64, ptr %407, align 8, !tbaa !17
   %409 = uitofp i64 %408 to double
-  %410 = fadd double %397, %409
+  %410 = fadd nnan double %397, %409
   br label %411
 
 411:                                              ; preds = %406, %390

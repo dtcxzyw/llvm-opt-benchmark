@@ -3226,7 +3226,7 @@ cdce.end.split.us.i:                              ; preds = %74, %.split.us.i
   br label %71
 
 69:                                               ; preds = %63
-  %70 = fdiv double %61, 1.292000e+01
+  %70 = fdiv nnan double %61, 1.292000e+01
   br label %71
 
 71:                                               ; preds = %69, %65

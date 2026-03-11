@@ -25149,7 +25149,7 @@ _ZNK11colvar_gridImE5valueERKSt6vectorIiSaIiEERKm.exit: ; preds = %16, %6
   br i1 %39, label %_ZN14colvarbias_abf16smoothing_factorEd.exit, label %40
 
 40:                                               ; preds = %35
-  %41 = fsub double %30, %38
+  %41 = fsub nnan double %30, %38
   %42 = sub i64 %32, %37
   %43 = uitofp i64 %42 to double
   %44 = fdiv double %41, %43

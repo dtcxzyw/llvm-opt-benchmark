@@ -6287,7 +6287,7 @@ get_leftop.exit:                                  ; preds = %101, %105
   br i1 %121, label %122, label %clamp_row_est.exit144
 
 122:                                              ; preds = %120
-  %123 = tail call double @llvm.rint.f64(double %117)
+  %123 = tail call nnan ninf double @llvm.rint.f64(double %117)
   br label %clamp_row_est.exit144
 
 clamp_row_est.exit144:                            ; preds = %.critedge, %120, %122
@@ -6406,7 +6406,7 @@ cost_qual_eval.exit151:                           ; preds = %cost_qual_eval.exit
   br i1 %178, label %179, label %clamp_row_est.exit154
 
 179:                                              ; preds = %177
-  %180 = call double @llvm.rint.f64(double %174)
+  %180 = call nnan ninf double @llvm.rint.f64(double %174)
   br label %clamp_row_est.exit154
 
 clamp_row_est.exit154:                            ; preds = %163, %177, %179
@@ -6426,7 +6426,7 @@ clamp_row_est.exit154:                            ; preds = %163, %177, %179
   br i1 %189, label %190, label %clamp_row_est.exit157
 
 190:                                              ; preds = %188
-  %191 = call double @llvm.rint.f64(double %185)
+  %191 = call nnan ninf double @llvm.rint.f64(double %185)
   br label %clamp_row_est.exit157
 
 clamp_row_est.exit157:                            ; preds = %clamp_row_est.exit154, %188, %190
@@ -6450,7 +6450,7 @@ clamp_row_est.exit157:                            ; preds = %clamp_row_est.exit1
   br i1 %201, label %202, label %clamp_row_est.exit160
 
 202:                                              ; preds = %200
-  %203 = call double @llvm.rint.f64(double %197)
+  %203 = call nnan ninf double @llvm.rint.f64(double %197)
   br label %clamp_row_est.exit160
 
 clamp_row_est.exit160:                            ; preds = %195, %200, %202

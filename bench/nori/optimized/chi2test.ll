@@ -1214,7 +1214,7 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIffLNS2_14Com
   %188 = call noundef float @atan2f(float noundef %186, float noundef %187) #24
   %189 = fmul float %188, 0x3FC45F3060000000
   %190 = fcmp olt float %189, 0.000000e+00
-  %191 = fadd float %189, 1.000000e+00
+  %191 = fadd nnan float %189, 1.000000e+00
   %.049 = select i1 %190, float %191, float %189
   %192 = load i32, ptr %23, align 4
   %193 = sitofp i32 %192 to float

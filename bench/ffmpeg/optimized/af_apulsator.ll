@@ -341,8 +341,8 @@ define internal fastcc double @lfo_get_value(ptr noundef readonly captures(none)
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %35
-  %38 = fadd nsz double %.026, -7.500000e-01
-  %39 = tail call nsz double @llvm.fmuladd.f64(double %38, double 4.000000e+00, double -1.000000e+00)
+  %38 = fadd nnan nsz double %.026, -7.500000e-01
+  %39 = tail call nnan nsz double @llvm.fmuladd.f64(double %38, double 4.000000e+00, double -1.000000e+00)
   br label %55
 
 40:                                               ; preds = %35
@@ -350,7 +350,7 @@ define internal fastcc double @lfo_get_value(ptr noundef readonly captures(none)
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %40
-  %43 = tail call nsz double @llvm.fmuladd.f64(double %.026, double -4.000000e+00, double 2.000000e+00)
+  %43 = tail call nnan nsz double @llvm.fmuladd.f64(double %.026, double -4.000000e+00, double 2.000000e+00)
   br label %55
 
 44:                                               ; preds = %40

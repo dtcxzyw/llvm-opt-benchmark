@@ -2003,7 +2003,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %77, %_ZNKSt7__cxx11
   br i1 %exitcond202.not, label %108, label %131, !llvm.loop !89
 
 136:                                              ; preds = %108
-  %137 = fadd float %129, 3.600000e+01
+  %137 = fadd nnan float %129, 3.600000e+01
   br label %142
 
 138:                                              ; preds = %108
@@ -2011,7 +2011,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %77, %_ZNKSt7__cxx11
   br i1 %139, label %142, label %140
 
 140:                                              ; preds = %138
-  %141 = fadd float %129, -3.600000e+01
+  %141 = fadd nnan float %129, -3.600000e+01
   br label %142
 
 142:                                              ; preds = %138, %140, %136

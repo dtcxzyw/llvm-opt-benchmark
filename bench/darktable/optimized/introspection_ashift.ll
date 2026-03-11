@@ -4178,8 +4178,8 @@ define internal fastcc float @_calculate_straightening(ptr noundef readonly capt
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %50
-  %53 = fsub reassoc nsz arcp contract afn double 0x3FF921FB54442D18, %48
-  %54 = fptrunc reassoc nsz arcp contract afn double %53 to float
+  %53 = fsub reassoc nnan nsz arcp contract afn double 0x3FF921FB54442D18, %48
+  %54 = fptrunc reassoc nnan nsz arcp contract afn double %53 to float
   br label %62
 
 55:                                               ; preds = %50
@@ -4187,8 +4187,8 @@ define internal fastcc float @_calculate_straightening(ptr noundef readonly capt
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %55
-  %58 = fsub reassoc nsz arcp contract afn double 0xBFF921FB54442D18, %48
-  %59 = fptrunc reassoc nsz arcp contract afn double %58 to float
+  %58 = fsub reassoc nnan nsz arcp contract afn double 0xBFF921FB54442D18, %48
+  %59 = fptrunc reassoc nnan nsz arcp contract afn double %58 to float
   br label %62
 
 60:                                               ; preds = %55
@@ -15805,7 +15805,7 @@ double_equal.exit.thread.i:                       ; preds = %double_equal.exit.i
 
 309:                                              ; preds = %.backedge.i
   %310 = uitofp nneg i32 %297 to double
-  %311 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %310
+  %311 = fdiv reassoc nnan nsz arcp contract afn double 1.000000e+00, %310
   br label %312
 
 312:                                              ; preds = %309, %306, %302

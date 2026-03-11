@@ -84,7 +84,7 @@ gv_calloc.exit77:                                 ; preds = %23
   %32 = tail call double @vector_product(i32 noundef %1, ptr noundef %24, ptr noundef %24) #14
   %33 = tail call double @sqrt(double noundef %32) #14, !tbaa !15
   %34 = fcmp ogt double %33, 0.000000e+00
-  %35 = fdiv double 1.000000e+00, %33
+  %35 = fdiv nnan double 1.000000e+00, %33
   %.063 = select i1 %34, double %35, double %33
   %wide.trip.count99 = zext nneg i32 %1 to i64
   br label %.lr.ph82
@@ -115,7 +115,7 @@ gv_calloc.exit77:                                 ; preds = %23
   br i1 %44, label %45, label %.lr.ph89.us
 
 45:                                               ; preds = %._crit_edge85.us
-  %46 = fdiv double 1.000000e+00, %43
+  %46 = fdiv nnan double 1.000000e+00, %43
   br label %.lr.ph89.us
 
 47:                                               ; preds = %.lr.ph84.us, %47
@@ -129,7 +129,7 @@ gv_calloc.exit77:                                 ; preds = %23
   br i1 %exitcond106.not, label %._crit_edge85.us, label %47, !llvm.loop !17
 
 51:                                               ; preds = %.preheader78.split.us
-  %52 = fdiv double 1.000000e+00, %40
+  %52 = fdiv nnan double 1.000000e+00, %40
   br label %.lr.ph89.us
 
 .lr.ph89.us:                                      ; preds = %51, %45, %._crit_edge85.us

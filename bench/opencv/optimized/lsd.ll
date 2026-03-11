@@ -1742,7 +1742,7 @@ _ZN2cv4Mat_IdEaSEOS1_.exit:                       ; preds = %3
   %68 = load i32, ptr %2, align 4
   %69 = add i32 %68, -1
   %70 = uitofp i32 %69 to double
-  %71 = fdiv double %70, %.060.lcssa
+  %71 = fdiv nnan double %70, %.060.lcssa
   %72 = select i1 %67, double %71, double 0.000000e+00
   %73 = icmp sgt i32 %66, 1
   br i1 %73, label %.lr.ph107, label %._crit_edge108

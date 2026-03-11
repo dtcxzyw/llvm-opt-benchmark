@@ -1597,7 +1597,7 @@ define noundef i32 @hwloc_pcidisc_find_linkspeed(ptr noundef readonly captures(n
 
 19:                                               ; preds = %13
   %20 = fmul nnan float %18, 1.280000e+02
-  %21 = fdiv float %20, 1.300000e+02
+  %21 = fdiv nnan float %20, 1.300000e+02
   br label %hwloc__pci_link_speed.exit
 
 22:                                               ; preds = %13

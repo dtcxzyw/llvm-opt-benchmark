@@ -17611,7 +17611,7 @@ define void @ImageFromChannel(ptr dead_on_unwind noalias writable writeonly sret
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %40 = load i8, ptr %gep, align 1
   %41 = uitofp i8 %40 to float
-  %42 = fdiv float %41, 2.550000e+02
+  %42 = fdiv nnan float %41, 2.550000e+02
   br label %227
 
 43:                                               ; preds = %.lr.ph
@@ -17620,7 +17620,7 @@ define void @ImageFromChannel(ptr dead_on_unwind noalias writable writeonly sret
   %46 = getelementptr inbounds i8, ptr %4, i64 %45
   %47 = load i8, ptr %46, align 1
   %48 = uitofp i8 %47 to float
-  %49 = fdiv float %48, 2.550000e+02
+  %49 = fdiv nnan float %48, 2.550000e+02
   %50 = add nsw i32 %.08599, 2
   br label %227
 
@@ -17732,7 +17732,7 @@ default.unreachable:                              ; preds = %88, %72, %51
   %105 = getelementptr inbounds i8, ptr %4, i64 %104
   %106 = load i8, ptr %105, align 1
   %107 = uitofp i8 %106 to float
-  %108 = fdiv float %107, 2.550000e+02
+  %108 = fdiv nnan float %107, 2.550000e+02
   %109 = add nsw i32 %.08599, 4
   br label %227
 
@@ -17742,7 +17742,7 @@ default.unreachable:                              ; preds = %88, %72, %51
   %113 = getelementptr inbounds i8, ptr %4, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = uitofp i8 %114 to float
-  %116 = fdiv float %115, 2.550000e+02
+  %116 = fdiv nnan float %115, 2.550000e+02
   %117 = add nsw i32 %.08599, 3
   br label %227
 

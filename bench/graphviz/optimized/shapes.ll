@@ -3911,9 +3911,9 @@ gv_calloc.exit546:                                ; preds = %.thread.i545, %374
   %436 = fmul double %434, %419
   %437 = fmul double %435, %420
   %438 = call double @llvm.fabs.f64(double %436)
-  %439 = call double @llvm.maxnum.f64(double %438, double 0.000000e+00)
+  %439 = call nsz double @llvm.maxnum.f64(double %438, double 0.000000e+00)
   %440 = call double @llvm.fabs.f64(double %437)
-  %441 = call double @llvm.maxnum.f64(double %440, double 0.000000e+00)
+  %441 = call nsz double @llvm.maxnum.f64(double %440, double 0.000000e+00)
   store double %436, ptr %381, align 8, !tbaa !4
   %.sroa.15.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %381, i64 8
   store double %437, ptr %.sroa.15.0..sroa_idx.us, align 8, !tbaa !4
@@ -5343,7 +5343,7 @@ invflip_angle.exit:                               ; preds = %invflip_side.exit, 
   %168 = tail call double @atan2(double noundef %116, double noundef %115) #28, !tbaa !17
   %169 = fadd double %168, 0x4012D97C7F3321D2
   %170 = fcmp ult double %169, 0x401921FB54442D18
-  %171 = fadd double %169, 0xC01921FB54442D18
+  %171 = fadd nnan double %169, 0xC01921FB54442D18
   %.0 = select i1 %170, double %169, double %171
   %172 = fmul double %.0, 2.560000e+02
   %173 = fdiv double %172, 0x401921FB54442D18

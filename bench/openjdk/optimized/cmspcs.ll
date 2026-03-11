@@ -79,7 +79,7 @@ define hidden void @cmsXYZ2Lab(ptr noundef readonly captures(address_is_null) %0
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %7
-  %13 = tail call double @llvm.fmuladd.f64(double %10, double 0x401F25ED097B425F, double 0x3FC1A7B9611A7B96)
+  %13 = tail call nnan double @llvm.fmuladd.f64(double %10, double 0x401F25ED097B425F, double 0x3FC1A7B9611A7B96)
   br label %f.exit
 
 14:                                               ; preds = %7
@@ -115,7 +115,7 @@ f.exit17:                                         ; preds = %22, %24
   br i1 %31, label %34, label %32
 
 32:                                               ; preds = %f.exit17
-  %33 = tail call double @llvm.fmuladd.f64(double %30, double 0x401F25ED097B425F, double 0x3FC1A7B9611A7B96)
+  %33 = tail call nnan double @llvm.fmuladd.f64(double %30, double 0x401F25ED097B425F, double 0x3FC1A7B9611A7B96)
   br label %f.exit19
 
 34:                                               ; preds = %f.exit17
@@ -1201,7 +1201,7 @@ atan2deg.exit96:                                  ; preds = %.lr.ph13.i92, %atan
   br i1 %66, label %69, label %67
 
 67:                                               ; preds = %65
-  %68 = fadd double %56, 3.600000e+02
+  %68 = fadd nnan double %56, 3.600000e+02
   br label %73
 
 69:                                               ; preds = %65

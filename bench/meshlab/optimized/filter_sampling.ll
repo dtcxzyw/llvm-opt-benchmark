@@ -33769,8 +33769,8 @@ _ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EED2Ev.exit: ; preds
   %68 = call noundef float @llvm.floor.f32(float %67)
   %69 = fneg float %68
   %70 = call float @llvm.fmuladd.f32(float %69, float %40, float %66)
-  %71 = fadd float %68, 1.000000e+00
-  %72 = fdiv float 1.000000e+00, %71
+  %71 = fadd nnan float %68, 1.000000e+00
+  %72 = fdiv nnan float 1.000000e+00, %71
   %73 = fcmp ogt float %68, 0.000000e+00
   br i1 %73, label %.lr.ph49, label %._crit_edge50
 

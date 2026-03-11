@@ -8911,8 +8911,8 @@ define range(i32 0, 2) i32 @button_released(ptr noundef readonly captures(none) 
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %15
-  %46 = fsub reassoc nsz arcp contract afn double 0x3FF921FB54442D18, %43
-  %47 = fptrunc reassoc nsz arcp contract afn double %46 to float
+  %46 = fsub reassoc nnan nsz arcp contract afn double 0x3FF921FB54442D18, %43
+  %47 = fptrunc reassoc nnan nsz arcp contract afn double %46 to float
   br label %55
 
 48:                                               ; preds = %15
@@ -8920,8 +8920,8 @@ define range(i32 0, 2) i32 @button_released(ptr noundef readonly captures(none) 
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %48
-  %51 = fsub reassoc nsz arcp contract afn double 0xBFF921FB54442D18, %43
-  %52 = fptrunc reassoc nsz arcp contract afn double %51 to float
+  %51 = fsub reassoc nnan nsz arcp contract afn double 0xBFF921FB54442D18, %43
+  %52 = fptrunc reassoc nnan nsz arcp contract afn double %51 to float
   br label %55
 
 53:                                               ; preds = %48

@@ -142,8 +142,8 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 
 53:                                               ; preds = %52, %50, %44
   %54 = phi reassoc nsz arcp contract afn double [ 1.000000e+00, %50 ], [ %48, %52 ], [ 0.000000e+00, %44 ]
-  %55 = fadd reassoc nnan nsz arcp contract afn double %54, %45
-  %56 = fmul reassoc nnan nsz arcp contract afn double %55, 5.000000e-01
+  %55 = fadd reassoc nsz arcp contract afn double %54, %45
+  %56 = fmul reassoc nsz arcp contract afn double %55, 5.000000e-01
   %57 = fptrunc reassoc nsz arcp contract afn double %56 to float
   store float %57, ptr %.0195233.us, align 4, !tbaa !29
   %58 = getelementptr inbounds [4 x i8], ptr %.0194234.us, i64 %25
@@ -597,7 +597,7 @@ rgb2hsl.exit.thread:                              ; preds = %.lr.ph274
   br i1 %295, label %296, label %298
 
 296:                                              ; preds = %291
-  %297 = fadd reassoc nsz arcp contract afn float %294, 1.000000e+00
+  %297 = fadd reassoc nnan nsz arcp contract afn float %294, 1.000000e+00
   br label %rgb2hsl.exit
 
 298:                                              ; preds = %291
@@ -605,7 +605,7 @@ rgb2hsl.exit.thread:                              ; preds = %.lr.ph274
   br i1 %299, label %300, label %rgb2hsl.exit
 
 300:                                              ; preds = %298
-  %301 = fadd reassoc nsz arcp contract afn float %294, -1.000000e+00
+  %301 = fadd reassoc nnan nsz arcp contract afn float %294, -1.000000e+00
   br label %rgb2hsl.exit
 
 rgb2hsl.exit:                                     ; preds = %296, %298, %300

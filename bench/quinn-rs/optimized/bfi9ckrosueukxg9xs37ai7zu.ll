@@ -2256,7 +2256,7 @@ define hidden { i64, i32 } @_ZN11quinn_proto10connection6pacing5Pacer5delay17hd5
   call void @llvm.assume(i1 %139)
   %140 = uitofp nneg i32 %.sroa.3.0 to double
   %141 = fdiv nnan double %140, 1.000000e+09
-  %142 = fadd double %.sroa.09.0, %141
+  %142 = fadd nnan double %.sroa.09.0, %141
   %143 = uitofp i64 %1 to double
   %144 = uitofp nneg i32 %2 to double
   %145 = fdiv nnan double %144, 1.000000e+09

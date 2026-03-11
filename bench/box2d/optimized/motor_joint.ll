@@ -546,7 +546,7 @@ define hidden void @b2SolveMotorJoint(ptr noundef captures(none) %0, ptr noundef
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %31
-  %53 = fadd float %50, 0x401921FB60000000
+  %53 = fadd nnan float %50, 0x401921FB60000000
   br label %b2UnwindAngle.exit
 
 54:                                               ; preds = %31
@@ -554,7 +554,7 @@ define hidden void @b2SolveMotorJoint(ptr noundef captures(none) %0, ptr noundef
   br i1 %55, label %56, label %b2UnwindAngle.exit
 
 56:                                               ; preds = %54
-  %57 = fadd float %50, 0xC01921FB60000000
+  %57 = fadd nnan float %50, 0xC01921FB60000000
   br label %b2UnwindAngle.exit
 
 b2UnwindAngle.exit:                               ; preds = %52, %54, %56

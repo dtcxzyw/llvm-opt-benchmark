@@ -1212,7 +1212,7 @@ calc_thr_3gpp.exit.i:                             ; preds = %._crit_edge57.us.i.
   br i1 %220, label %221, label %225
 
 221:                                              ; preds = %214
-  %222 = tail call nsz float @llvm.fmuladd.f32(float %217, float 0x3FE1E64140000000, float 0x3FF5269E20000000)
+  %222 = tail call nnan nsz float @llvm.fmuladd.f32(float %217, float 0x3FE1E64140000000, float 0x3FF5269E20000000)
   %223 = tail call nsz float @llvm.fmuladd.f32(float %215, float 0x3FE1E64140000000, float 0x3FF5269E20000000)
   %224 = fmul nsz float %219, 0x3FE1E64140000000
   br label %225
@@ -1570,7 +1570,7 @@ calc_reduced_thr_3gpp.exit694.us.i.us:            ; preds = %403, %400, %389, %3
   br i1 %416, label %417, label %421
 
 417:                                              ; preds = %410
-  %418 = tail call nsz float @llvm.fmuladd.f32(float %413, float 0x3FE1E64140000000, float 0x3FF5269E20000000)
+  %418 = tail call nnan nsz float @llvm.fmuladd.f32(float %413, float 0x3FE1E64140000000, float 0x3FF5269E20000000)
   %419 = tail call nsz float @llvm.fmuladd.f32(float %411, float 0x3FE1E64140000000, float 0x3FF5269E20000000)
   %420 = fmul nsz float %415, 0x3FE1E64140000000
   br label %421
@@ -1700,7 +1700,7 @@ calc_reduced_thr_3gpp.exit.i:                     ; preds = %465, %462, %451, %.
   br i1 %477, label %478, label %482
 
 478:                                              ; preds = %471
-  %479 = tail call nsz float @llvm.fmuladd.f32(float %474, float 0x3FE1E64140000000, float 0x3FF5269E20000000)
+  %479 = tail call nnan nsz float @llvm.fmuladd.f32(float %474, float 0x3FE1E64140000000, float 0x3FF5269E20000000)
   %480 = tail call nsz float @llvm.fmuladd.f32(float %472, float 0x3FE1E64140000000, float 0x3FF5269E20000000)
   %481 = fmul nsz float %476, 0x3FE1E64140000000
   br label %482

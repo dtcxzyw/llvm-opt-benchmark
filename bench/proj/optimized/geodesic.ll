@@ -1762,7 +1762,7 @@ SinCosSeries.exit328:                             ; preds = %432
   br i1 %460, label %465, label %461
 
 461:                                              ; preds = %458
-  %462 = fsub double 1.000000e+00, %.0336
+  %462 = fsub nnan double 1.000000e+00, %.0336
   %463 = fmul double %.0337, %158
   %464 = tail call double @llvm.fmuladd.f64(double %160, double %462, double %463)
   br label %470

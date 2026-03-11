@@ -1636,7 +1636,7 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %.035.lcssa88.i.i = phi double [ %282, %._crit_edge.i224.i ], [ 0.000000e+00, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit159.i" ]
   %.036.lcssa87.i.i = phi double [ %283, %._crit_edge.i224.i ], [ 0.000000e+00, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit159.i" ]
   %285 = phi double [ %273, %._crit_edge.i224.i ], [ 0x7FF8000000000000, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit159.i" ]
-  %286 = phi double [ %274, %._crit_edge.i224.i ], [ 0x7FF8000000000000, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit159.i" ]
+  %286 = phi double [ %274, %._crit_edge.i224.i ], [ 0.000000e+00, %"_ZZN5ZXingL23FitQadrilateralToPointsENS_6PointTIdEERSt6vectorIS1_SaIS1_EEEN3$_1D2Ev.exit159.i" ]
   %287 = fmul double %.036.lcssa87.i.i, %.036.lcssa87.i.i
   %288 = call double @llvm.fmuladd.f64(double %.035.lcssa88.i.i, double %.035.lcssa88.i.i, double %287)
   br label %292
@@ -1739,7 +1739,7 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %.035.lcssa88.i251.i = phi double [ %336, %._crit_edge.i250.i ], [ 0.000000e+00, %306 ]
   %.036.lcssa87.i252.i = phi double [ %337, %._crit_edge.i250.i ], [ 0.000000e+00, %306 ]
   %339 = phi double [ %327, %._crit_edge.i250.i ], [ 0x7FF8000000000000, %306 ]
-  %340 = phi double [ %328, %._crit_edge.i250.i ], [ 0x7FF8000000000000, %306 ]
+  %340 = phi double [ %328, %._crit_edge.i250.i ], [ 0.000000e+00, %306 ]
   %341 = fmul double %.036.lcssa87.i252.i, %.036.lcssa87.i252.i
   %342 = call double @llvm.fmuladd.f64(double %.035.lcssa88.i251.i, double %.035.lcssa88.i251.i, double %341)
   br label %346
@@ -1842,7 +1842,7 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %.035.lcssa88.i280.i = phi double [ %390, %._crit_edge.i279.i ], [ 0.000000e+00, %360 ]
   %.036.lcssa87.i281.i = phi double [ %391, %._crit_edge.i279.i ], [ 0.000000e+00, %360 ]
   %393 = phi double [ %381, %._crit_edge.i279.i ], [ 0x7FF8000000000000, %360 ]
-  %394 = phi double [ %382, %._crit_edge.i279.i ], [ 0x7FF8000000000000, %360 ]
+  %394 = phi double [ %382, %._crit_edge.i279.i ], [ 0.000000e+00, %360 ]
   %395 = fmul double %.036.lcssa87.i281.i, %.036.lcssa87.i281.i
   %396 = call double @llvm.fmuladd.f64(double %.035.lcssa88.i280.i, double %.035.lcssa88.i280.i, double %395)
   br label %400
@@ -1944,7 +1944,7 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %.035.lcssa88.i309.i = phi double [ %443, %._crit_edge.i308.i ], [ 0.000000e+00, %414 ]
   %.036.lcssa87.i310.i = phi double [ %444, %._crit_edge.i308.i ], [ 0.000000e+00, %414 ]
   %446 = phi double [ %434, %._crit_edge.i308.i ], [ 0x7FF8000000000000, %414 ]
-  %447 = phi double [ %435, %._crit_edge.i308.i ], [ 0x7FF8000000000000, %414 ]
+  %447 = phi double [ %435, %._crit_edge.i308.i ], [ 0.000000e+00, %414 ]
   %448 = fmul double %.036.lcssa87.i310.i, %.036.lcssa87.i310.i
   %449 = call double @llvm.fmuladd.f64(double %.035.lcssa88.i309.i, double %.035.lcssa88.i309.i, double %448)
   br label %453

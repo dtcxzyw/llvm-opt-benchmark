@@ -2520,7 +2520,7 @@ define void @_Z17pull_apply_forcesP6pull_tN3gmx8ArrayRefIKfEEPK9t_commrecPNS1_15
   %104 = getelementptr inbounds nuw i8, ptr %86, i64 376
   %105 = load double, ptr %104, align 8, !tbaa !119, !noalias !197
   %106 = fcmp ogt double %105, 0.000000e+00
-  %107 = fdiv double 1.000000e+00, %105
+  %107 = fdiv nnan double 1.000000e+00, %105
   %108 = select i1 %106, double %107, double 0.000000e+00
   %109 = getelementptr inbounds nuw i8, ptr %86, i64 384
   %110 = load double, ptr %109, align 8, !tbaa !160, !noalias !197

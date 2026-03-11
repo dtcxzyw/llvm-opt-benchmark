@@ -3780,7 +3780,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit279: ; preds = %34
   %367 = load i32, ptr %366, align 4, !tbaa !74
   %368 = sitofp i32 %367 to double
   %369 = fmul nnan double %368, 0x3EF0000000000000
-  %370 = fptrunc double %369 to float
+  %370 = fptrunc nnan double %369 to float
   br label %371
 
 371:                                              ; preds = %354, %365

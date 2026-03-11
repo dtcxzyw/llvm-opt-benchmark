@@ -1806,7 +1806,7 @@ get_signature_ts.exit.i:                          ; preds = %245, %find_signatur
   %538 = zext nneg i8 %narrow.i.i to i32
   %539 = mul i32 %.0.i463.i, %538
   %540 = sitofp i32 %539 to float
-  %541 = fdiv float %540, %..i.i60
+  %541 = fdiv nnan float %540, %..i.i60
   br label %get_legacy_rate.exit.i
 
 542:                                              ; preds = %514
@@ -1833,7 +1833,7 @@ get_signature_ts.exit.i:                          ; preds = %245, %find_signatur
   %556 = zext nneg i8 %narrow.i470.i to i32
   %557 = mul i32 %.0.i469.i, %556
   %558 = sitofp i32 %557 to float
-  %559 = fdiv float %558, %..i465.i
+  %559 = fdiv nnan float %558, %..i465.i
   br label %get_legacy_rate.exit.i
 
 560:                                              ; preds = %514
@@ -1879,7 +1879,7 @@ get_signature_ts.exit.i:                          ; preds = %245, %find_signatur
   %581 = zext nneg i8 %narrow.i to i32
   %582 = mul i32 %580, %581
   %583 = sitofp i32 %582 to float
-  %584 = fdiv float %583, %..i472.i
+  %584 = fdiv nnan float %583, %..i472.i
   br label %get_legacy_rate.exit.i
 
 585:                                              ; preds = %575
@@ -1893,7 +1893,7 @@ get_signature_ts.exit.i:                          ; preds = %245, %find_signatur
   %590 = zext nneg i8 %narrow.i to i32
   %591 = mul i32 %589, %590
   %592 = sitofp i32 %591 to float
-  %593 = fdiv float %592, %..i472.i
+  %593 = fdiv nnan float %592, %..i472.i
   br label %get_legacy_rate.exit.i
 
 594:                                              ; preds = %585
@@ -1907,11 +1907,11 @@ get_signature_ts.exit.i:                          ; preds = %245, %find_signatur
   ]
 
 597:                                              ; preds = %596
-  %598 = fdiv float 1.040000e+03, %..i472.i
+  %598 = fdiv nnan float 1.040000e+03, %..i472.i
   br label %get_legacy_rate.exit.i
 
 599:                                              ; preds = %596
-  %600 = fdiv float 2.080000e+03, %..i472.i
+  %600 = fdiv nnan float 2.080000e+03, %..i472.i
   br label %get_legacy_rate.exit.i
 
 601:                                              ; preds = %594
@@ -1921,7 +1921,7 @@ get_signature_ts.exit.i:                          ; preds = %245, %find_signatur
   %605 = zext nneg i8 %narrow.i to i32
   %606 = mul i32 %604, %605
   %607 = sitofp i32 %606 to float
-  %608 = fdiv float %607, %..i472.i
+  %608 = fdiv nnan float %607, %..i472.i
   br label %get_legacy_rate.exit.i
 
 default.unreachable:                              ; preds = %514
@@ -2708,7 +2708,7 @@ get_signature_ts.exit.i43:                        ; preds = %754, %752, %find_si
   %1089 = zext nneg i8 %narrow.i.i94 to i32
   %1090 = mul i32 %.0.i797.i, %1089
   %1091 = sitofp i32 %1090 to float
-  %1092 = fdiv float %1091, %..i.i91
+  %1092 = fdiv nnan float %1091, %..i.i91
   br label %get_legacy_rate.exit.i66
 
 1093:                                             ; preds = %1075
@@ -2727,7 +2727,7 @@ get_signature_ts.exit.i43:                        ; preds = %754, %752, %find_si
   %1099 = zext nneg i8 %narrow.i804.i to i32
   %1100 = mul i32 %.0.i803.i, %1099
   %1101 = sitofp i32 %1100 to float
-  %1102 = fdiv float %1101, %..i799.i
+  %1102 = fdiv nnan float %1101, %..i799.i
   br label %get_legacy_rate.exit.i66
 
 1103:                                             ; preds = %1075
@@ -2769,7 +2769,7 @@ get_signature_ts.exit.i43:                        ; preds = %754, %752, %find_si
   %1121 = zext i8 %.1728.i to i32
   %1122 = mul i32 %1120, %1121
   %1123 = sitofp i32 %1122 to float
-  %1124 = fdiv float %1123, %..i806.i
+  %1124 = fdiv nnan float %1123, %..i806.i
   br label %get_legacy_rate.exit.i66
 
 1125:                                             ; preds = %1115
@@ -2783,7 +2783,7 @@ get_signature_ts.exit.i43:                        ; preds = %754, %752, %find_si
   %1130 = zext i8 %.1728.i to i32
   %1131 = mul i32 %1129, %1130
   %1132 = sitofp i32 %1131 to float
-  %1133 = fdiv float %1132, %..i806.i
+  %1133 = fdiv nnan float %1132, %..i806.i
   br label %get_legacy_rate.exit.i66
 
 1134:                                             ; preds = %1125
@@ -2797,11 +2797,11 @@ get_signature_ts.exit.i43:                        ; preds = %754, %752, %find_si
   ]
 
 1137:                                             ; preds = %1136
-  %1138 = fdiv float 1.040000e+03, %..i806.i
+  %1138 = fdiv nnan float 1.040000e+03, %..i806.i
   br label %get_legacy_rate.exit.i66
 
 1139:                                             ; preds = %1136
-  %1140 = fdiv float 2.080000e+03, %..i806.i
+  %1140 = fdiv nnan float 2.080000e+03, %..i806.i
   br label %get_legacy_rate.exit.i66
 
 1141:                                             ; preds = %1134
@@ -2811,7 +2811,7 @@ get_signature_ts.exit.i43:                        ; preds = %754, %752, %find_si
   %1145 = zext i8 %.1728.i to i32
   %1146 = mul i32 %1144, %1145
   %1147 = sitofp i32 %1146 to float
-  %1148 = fdiv float %1147, %..i806.i
+  %1148 = fdiv nnan float %1147, %..i806.i
   br label %get_legacy_rate.exit.i66
 
 get_legacy_rate.exit.i66:                         ; preds = %1141, %1139, %1137, %1136, %1126, %1117, %1111, %1093, %1082, %1078, %1076, %1075

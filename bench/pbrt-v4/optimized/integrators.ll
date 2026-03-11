@@ -14816,7 +14816,7 @@ _ZN4pbrt15SampledSpectrumpLERKS0_.exit:           ; preds = %185
   %202 = load i64, ptr %201, align 8, !tbaa !518
   %203 = icmp eq i64 %202, 0
   %204 = uitofp i64 %202 to float
-  %205 = fdiv float 1.000000e+00, %204
+  %205 = fdiv nnan float 1.000000e+00, %204
   %.0.i.i.i.i = select i1 %203, float 0.000000e+00, float %205
   br label %_ZNK4pbrt12LightSampler3PMFERKNS_18LightSampleContextENS_5LightE.exit
 
@@ -25156,7 +25156,7 @@ _ZN4pbrt15SampledSpectrumpLERKS0_.exit:           ; preds = %1802
   %1817 = load i64, ptr %1816, align 8, !tbaa !518
   %1818 = icmp eq i64 %1817, 0
   %1819 = uitofp i64 %1817 to float
-  %1820 = fdiv float 1.000000e+00, %1819
+  %1820 = fdiv nnan float 1.000000e+00, %1819
   %.0.i.i.i.i = select i1 %1818, float 0.000000e+00, float %1820
   br label %_ZNK4pbrt12LightSampler3PMFERKNS_18LightSampleContextENS_5LightE.exit
 

@@ -740,7 +740,7 @@ define dso_local void @table_block_relation_estimate_size(ptr noundef %0, ptr no
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 100
   %14 = load float, ptr %13, align 4
-  %15 = fpext float %14 to double
+  %15 = fpext nnan float %14 to double
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %17 = load i32, ptr %16, align 4
   %18 = icmp ult i32 %8, 10

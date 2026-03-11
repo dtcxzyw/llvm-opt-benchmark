@@ -3120,8 +3120,8 @@ define noundef float @_Z15calc_orires_devPK14gmx_multisim_tiPKiPK9t_iparamsN3gmx
 37:                                               ; preds = %36
   %38 = load i32, ptr %0, align 8, !tbaa !254
   %39 = sitofp i32 %38 to double
-  %40 = fdiv double 1.000000e+00, %39
-  %41 = fptrunc double %40 to float
+  %40 = fdiv nnan double 1.000000e+00, %39
+  %41 = fptrunc nnan double %40 to float
   br label %42
 
 42:                                               ; preds = %36, %37

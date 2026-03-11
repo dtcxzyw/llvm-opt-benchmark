@@ -2024,7 +2024,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %27
 76:                                               ; preds = %73, %70, %65
   %.057.i = phi float [ %67, %65 ], [ %72, %70 ], [ %75, %73 ]
   %77 = fcmp olt float %.057.i, 0.000000e+00
-  %78 = fadd float %.057.i, 3.600000e+02
+  %78 = fadd nnan float %.057.i, 3.600000e+02
   %.158.i = select i1 %77, float %78, float %.057.i
   %79 = fmul float %36, %.158.i
   %80 = getelementptr inbounds nuw [4 x i8], ptr %.01215, i64 %indvars.iv.i
@@ -2273,7 +2273,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %30
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %93
-  %96 = fadd float %.163.i, 3.600000e+02
+  %96 = fadd nnan float %.163.i, 3.600000e+02
   br label %97
 
 97:                                               ; preds = %95, %93, %60
@@ -2560,7 +2560,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %27
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %76
-  %79 = fadd float %.163.i, 3.600000e+02
+  %79 = fadd nnan float %.163.i, 3.600000e+02
   br label %80
 
 80:                                               ; preds = %78, %76, %43

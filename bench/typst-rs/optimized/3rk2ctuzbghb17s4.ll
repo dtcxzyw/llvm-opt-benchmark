@@ -104254,7 +104254,7 @@ _ZN10ttf_parser6parser6Stream7read_at17hdb858725c101a281E.exit.i: ; preds = %20
 
 29:                                               ; preds = %_ZN10ttf_parser6parser6Stream7read_at17hdb858725c101a281E.exit.i, %20
   %30 = phi double [ %28, %_ZN10ttf_parser6parser6Stream7read_at17hdb858725c101a281E.exit.i ], [ 0.000000e+00, %20 ]
-  %31 = fdiv double %30, 1.000000e+02
+  %31 = fdiv nnan double %30, 1.000000e+02
   br label %_ZN5typst4math5style8MathSize6factor17hd301f5982c90607dE.exit
 
 32:                                               ; preds = %"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..EquationElem$GT$7size_in17ha841735a352ed8cbE.exit"
@@ -104273,7 +104273,7 @@ _ZN10ttf_parser6parser6Stream7read_at17hdb858725c101a281E.exit12.i: ; preds = %3
 
 40:                                               ; preds = %_ZN10ttf_parser6parser6Stream7read_at17hdb858725c101a281E.exit12.i, %32
   %41 = phi double [ %39, %_ZN10ttf_parser6parser6Stream7read_at17hdb858725c101a281E.exit12.i ], [ 0.000000e+00, %32 ]
-  %42 = fdiv double %41, 1.000000e+02
+  %42 = fdiv nnan double %41, 1.000000e+02
   br label %_ZN5typst4math5style8MathSize6factor17hd301f5982c90607dE.exit
 
 _ZN5typst4math5style8MathSize6factor17hd301f5982c90607dE.exit: ; preds = %"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..EquationElem$GT$7size_in17ha841735a352ed8cbE.exit.thread", %"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..EquationElem$GT$7size_in17ha841735a352ed8cbE.exit", %"_ZN5typst4math8equation1_53_$LT$impl$u20$typst..math..equation..EquationElem$GT$7size_in17ha841735a352ed8cbE.exit", %29, %40

@@ -93,7 +93,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.preheader: ; pr
   %indvars.iv = phi i64 [ %13, %.lr.ph.us ], [ %indvars.iv.next, %14 ]
   %15 = phi double [ 0.000000e+00, %.lr.ph.us ], [ %43, %14 ]
   %.03545.us = phi i32 [ 0, %.lr.ph.us ], [ %42, %14 ]
-  %16 = fdiv double %15, %5
+  %16 = fdiv nnan double %15, %5
   %17 = tail call i32 @rand() #11
   %18 = sitofp i32 %17 to double
   %19 = fmul double %9, %18

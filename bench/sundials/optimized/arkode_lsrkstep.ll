@@ -1982,10 +1982,10 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   br i1 %17, label %24, label %18
 
 18:                                               ; preds = %7
-  %19 = fadd double %14, 1.000000e+00
+  %19 = fadd nnan double %14, 1.000000e+00
   %20 = fmul nnan double %14, %14
   %21 = fdiv double %19, %20
-  %22 = fdiv double 1.000000e+00, %14
+  %22 = fdiv nnan double 1.000000e+00, %14
   %23 = fdiv double %15, %20
   br label %24
 

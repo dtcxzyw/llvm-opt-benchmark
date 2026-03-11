@@ -498,7 +498,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   br i1 %183, label %184, label %186
 
 184:                                              ; preds = %179
-  %185 = fadd reassoc nsz arcp contract afn float %182, 1.000000e+00
+  %185 = fadd reassoc nnan nsz arcp contract afn float %182, 1.000000e+00
   br label %rgb2hsl.exit.i
 
 186:                                              ; preds = %179
@@ -506,7 +506,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   br i1 %187, label %188, label %rgb2hsl.exit.i
 
 188:                                              ; preds = %186
-  %189 = fadd reassoc nsz arcp contract afn float %182, -1.000000e+00
+  %189 = fadd reassoc nnan nsz arcp contract afn float %182, -1.000000e+00
   br label %rgb2hsl.exit.i
 
 rgb2hsl.exit.i:                                   ; preds = %188, %186, %184, %143

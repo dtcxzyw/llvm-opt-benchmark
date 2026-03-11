@@ -1165,7 +1165,7 @@ define hidden void @b2DrawRevoluteJoint(ptr noundef readonly captures(none) %0, 
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %43
-  %49 = fadd float %46, 0x401921FB60000000
+  %49 = fadd nnan float %46, 0x401921FB60000000
   br label %b2UnwindAngle.exit
 
 50:                                               ; preds = %43
@@ -1173,7 +1173,7 @@ define hidden void @b2DrawRevoluteJoint(ptr noundef readonly captures(none) %0, 
   br i1 %51, label %52, label %b2UnwindAngle.exit
 
 52:                                               ; preds = %50
-  %53 = fadd float %46, 0xC01921FB60000000
+  %53 = fadd nnan float %46, 0xC01921FB60000000
   br label %b2UnwindAngle.exit
 
 b2UnwindAngle.exit:                               ; preds = %48, %50, %52

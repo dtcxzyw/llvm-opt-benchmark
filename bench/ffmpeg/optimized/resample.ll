@@ -1319,7 +1319,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
   %113 = fneg nsz double %112
   %114 = tail call nsz double @llvm.fmuladd.f64(double %113, double %112, double 1.000000e+00)
   %115 = fcmp nsz ogt double %114, 0.000000e+00
-  %116 = tail call nsz double @llvm.sqrt.f64(double %114)
+  %116 = tail call nnan nsz double @llvm.sqrt.f64(double %114)
   %117 = select i1 %115, double %116, double 0.000000e+00
   %118 = fmul nsz double %8, %117
   %119 = tail call nsz double @av_bessel_i0(double noundef %118) #9

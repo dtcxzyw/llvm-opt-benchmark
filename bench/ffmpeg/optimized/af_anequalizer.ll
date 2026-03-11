@@ -648,7 +648,7 @@ define internal fastcc void @equalizer(ptr noundef %0, double noundef %1) unname
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %13
-  %18 = fadd nsz double %15, 3.000000e+00
+  %18 = fadd nnan nsz double %15, 3.000000e+00
   br label %butterworth_compute_bw_gain_db.exit
 
 19:                                               ; preds = %13
@@ -665,7 +665,7 @@ define internal fastcc void @equalizer(ptr noundef %0, double noundef %1) unname
   br i1 %24, label %butterworth_compute_bw_gain_db.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = fadd nsz double %15, -3.000000e+00
+  %26 = fadd nnan nsz double %15, -3.000000e+00
   br label %butterworth_compute_bw_gain_db.exit
 
 butterworth_compute_bw_gain_db.exit:              ; preds = %17, %21, %23, %25
@@ -840,7 +840,7 @@ butterworth_fo_section.exit.i:                    ; preds = %28, %butterworth_fo
   br i1 %156, label %159, label %157
 
 157:                                              ; preds = %153
-  %158 = fadd nsz double %155, 1.000000e+00
+  %158 = fadd nnan nsz double %155, 1.000000e+00
   br label %chebyshev1_compute_bw_gain_db.exit
 
 159:                                              ; preds = %153
@@ -857,7 +857,7 @@ butterworth_fo_section.exit.i:                    ; preds = %28, %butterworth_fo
   br i1 %164, label %chebyshev1_compute_bw_gain_db.exit, label %165
 
 165:                                              ; preds = %163
-  %166 = fadd nsz double %155, -1.000000e+00
+  %166 = fadd nnan nsz double %155, -1.000000e+00
   br label %chebyshev1_compute_bw_gain_db.exit
 
 chebyshev1_compute_bw_gain_db.exit:               ; preds = %157, %161, %163, %165

@@ -1996,7 +1996,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17he8fbc4a736b0d332E.exit.i.i.i.i:
   %204 = shl i64 %203, 3
   %205 = icmp samesign ugt i64 %198, 1152921504606846975
   %206 = icmp ugt i64 %204, 9223372036854775800
-  %207 = select i1 %205, i1 true, i1 %206, !prof !13
+  %207 = select i1 %205, i1 true, i1 %206
   br i1 %207, label %.loopexit62.i.i.i.i, label %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i.i.i.i.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i.i.i.i.i.i.i: ; preds = %201
@@ -3375,7 +3375,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hd3b92a8fc4712506E.exit.i.i.i.i:
   %239 = shl i64 %238, 3
   %240 = icmp samesign ugt i64 %233, 1152921504606846975
   %241 = icmp ugt i64 %239, 9223372036854775800
-  %242 = select i1 %240, i1 true, i1 %241, !prof !13
+  %242 = select i1 %240, i1 true, i1 %241
   br i1 %242, label %.loopexit80.i.i.i.i, label %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i.i.i.i.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i.i.i.i.i.i.i: ; preds = %236
@@ -4690,7 +4690,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h0739f9a7f2bee140E.exit.i.i.i.i:
   %204 = shl i64 %203, 3
   %205 = icmp samesign ugt i64 %198, 1152921504606846975
   %206 = icmp ugt i64 %204, 9223372036854775800
-  %207 = select i1 %205, i1 true, i1 %206, !prof !13
+  %207 = select i1 %205, i1 true, i1 %206
   br i1 %207, label %.loopexit59.i.i.i.i, label %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i.i.i.i.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i.i.i.i.i.i.i: ; preds = %201
@@ -5950,7 +5950,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hcb03f5121e4f86f1E.exit.i.i.i.i:
   %193 = shl i64 %192, 3
   %194 = icmp samesign ugt i64 %187, 1152921504606846975
   %195 = icmp ugt i64 %193, 9223372036854775800
-  %196 = select i1 %194, i1 true, i1 %195, !prof !13
+  %196 = select i1 %194, i1 true, i1 %195
   br i1 %196, label %.loopexit68.i.i.i.i, label %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i.i.i.i.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i.i.i.i.i.i.i: ; preds = %190
@@ -6901,7 +6901,7 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i: ; preds = %3
   %41 = shl i64 %40, 4
   %42 = icmp samesign ugt i64 %35, 576460752303423487
   %43 = icmp ugt i64 %41, 9223372036854775800
-  %44 = select i1 %42, i1 true, i1 %43, !prof !13
+  %44 = select i1 %42, i1 true, i1 %43
   br i1 %44, label %.loopexit27, label %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i: ; preds = %38
@@ -7446,7 +7446,7 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i: ; preds = %3
   %41 = shl i64 %40, 4
   %42 = icmp samesign ugt i64 %35, 576460752303423487
   %43 = icmp ugt i64 %41, 9223372036854775800
-  %44 = select i1 %42, i1 true, i1 %43, !prof !13
+  %44 = select i1 %42, i1 true, i1 %43
   br i1 %44, label %.loopexit27, label %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i: ; preds = %38
@@ -7643,7 +7643,7 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i: ; preds = %3
   %41 = shl i64 %40, 4
   %42 = icmp samesign ugt i64 %35, 576460752303423487
   %43 = icmp ugt i64 %41, 9223372036854775800
-  %44 = select i1 %42, i1 true, i1 %43, !prof !13
+  %44 = select i1 %42, i1 true, i1 %43
   br i1 %44, label %.loopexit27, label %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i
 
 _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i: ; preds = %38
@@ -10805,7 +10805,7 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h3e28a04c713e95e4
   %8 = shl i64 %7, 4
   %9 = icmp samesign ugt i64 %5, 576460752303423487
   %10 = icmp ugt i64 %8, 9223372036854775800
-  %11 = select i1 %9, i1 true, i1 %10, !prof !13
+  %11 = select i1 %9, i1 true, i1 %10
   br i1 %11, label %24, label %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i
 
 _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %2
@@ -10866,7 +10866,7 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h3eb51a9c41bf39c4
   %8 = shl i64 %7, 3
   %9 = icmp samesign ugt i64 %5, 1152921504606846975
   %10 = icmp ugt i64 %8, 9223372036854775800
-  %11 = select i1 %9, i1 true, i1 %10, !prof !13
+  %11 = select i1 %9, i1 true, i1 %10
   br i1 %11, label %24, label %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i
 
 _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %2
@@ -10927,7 +10927,7 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h4c05e68e26ccc10d
   %8 = shl i64 %7, 6
   %9 = icmp samesign ugt i64 %5, 144115188075855871
   %10 = icmp ugt i64 %8, 9223372036854775800
-  %11 = select i1 %9, i1 true, i1 %10, !prof !13
+  %11 = select i1 %9, i1 true, i1 %10
   br i1 %11, label %24, label %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i
 
 _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %2
@@ -11106,7 +11106,7 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h6fa931b923d0a974
   %8 = shl i64 %7, 4
   %9 = icmp samesign ugt i64 %5, 576460752303423487
   %10 = icmp ugt i64 %8, 9223372036854775800
-  %11 = select i1 %9, i1 true, i1 %10, !prof !13
+  %11 = select i1 %9, i1 true, i1 %10
   br i1 %11, label %24, label %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i
 
 _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %2
@@ -11403,7 +11403,7 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hc5f34eb6b58d69f0
   %8 = shl i64 %7, 6
   %9 = icmp samesign ugt i64 %5, 144115188075855871
   %10 = icmp ugt i64 %8, 9223372036854775800
-  %11 = select i1 %9, i1 true, i1 %10, !prof !13
+  %11 = select i1 %9, i1 true, i1 %10
   br i1 %11, label %24, label %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i
 
 _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %2
@@ -11523,7 +11523,7 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hf3b30e126fe89dc5
   %8 = shl i64 %7, 4
   %9 = icmp samesign ugt i64 %5, 576460752303423487
   %10 = icmp ugt i64 %8, 9223372036854775800
-  %11 = select i1 %9, i1 true, i1 %10, !prof !13
+  %11 = select i1 %9, i1 true, i1 %10
   br i1 %11, label %24, label %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i
 
 _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %2
@@ -11610,7 +11610,7 @@ define hidden void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h
   %12 = extractvalue { i64, i1 } %10, 1
   %13 = sub nuw i64 -9223372036854775808, %3
   %14 = icmp ugt i64 %11, %13
-  %15 = select i1 %12, i1 true, i1 %14, !prof !13
+  %15 = select i1 %12, i1 true, i1 %14
   br i1 %15, label %16, label %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit
 
 16:                                               ; preds = %5
@@ -11697,7 +11697,7 @@ define hidden void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve
   %24 = extractvalue { i64, i1 } %22, 1
   %25 = sub nuw i64 -9223372036854775808, %3
   %26 = icmp ugt i64 %23, %25
-  %27 = select i1 %24, i1 true, i1 %26, !prof !13
+  %27 = select i1 %24, i1 true, i1 %26
   br i1 %27, label %40, label %_ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i
 
 _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i: ; preds = %12

@@ -69,7 +69,7 @@ define internal void @search_for_quantizers_twoloop(ptr noundef readonly capture
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %29 = load i32, ptr %28, align 4, !tbaa !30
   %30 = sitofp i32 %29 to float
-  %31 = fpext nsz float %30 to double
+  %31 = fpext nnan ninf nsz float %30 to double
   br label %32
 
 32:                                               ; preds = %4, %27

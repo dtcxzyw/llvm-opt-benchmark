@@ -538,7 +538,7 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.ex
   %164 = fadd nnan double %163, -2.500000e-01
   %165 = sub nsw i32 %161, %91
   %166 = sitofp i32 %165 to double
-  %167 = fadd double %166, -2.500000e-01
+  %167 = fadd nnan double %166, -2.500000e-01
   br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit
 
 168:                                              ; preds = %149
@@ -548,7 +548,7 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.ex
   %172 = trunc i64 %sum.shift.i1.i.i to i16
   %173 = and i16 %172, 1023
   %174 = uitofp nneg i16 %173 to double
-  %175 = fadd double %174, 2.500000e-01
+  %175 = fadd nnan double %174, 2.500000e-01
   br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit
 
 _ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit: ; preds = %160, %168

@@ -733,7 +733,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   br i1 %exitcond89.not, label %.loopexit, label %17
 
 23:                                               ; preds = %4
-  %24 = fpext reassoc nsz arcp contract afn float %9 to double
+  %24 = fpext reassoc nnan nsz arcp contract afn float %9 to double
   %25 = fcmp reassoc nsz arcp contract afn oeq float %9, 0.000000e+00
   br i1 %25, label %.preheader73, label %34
 
@@ -759,7 +759,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   br i1 %35, label %36, label %57
 
 36:                                               ; preds = %34
-  %37 = fsub reassoc nsz arcp contract afn double 1.000000e+00, %24
+  %37 = fsub reassoc nnan nsz arcp contract afn double 1.000000e+00, %24
   %38 = fmul reassoc nsz arcp contract afn double %37, %14
   %39 = fmul reassoc nsz arcp contract afn float %11, %9
   %40 = fpext reassoc nsz arcp contract afn float %39 to double

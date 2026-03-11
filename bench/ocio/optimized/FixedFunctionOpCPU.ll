@@ -3284,7 +3284,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev19Renderer_RGB_TO_HSV5applyEPKvPvl(
 34:                                               ; preds = %26, %30, %21
   %.1 = phi float [ %23, %21 ], [ %29, %26 ], [ %33, %30 ]
   %35 = fcmp olt float %.1, 0.000000e+00
-  %36 = fadd float %.1, 6.000000e+00
+  %36 = fadd nnan float %.1, 6.000000e+00
   %.2 = select i1 %35, float %36, float %.1
   %37 = fmul float %.2, 0x3FC5555560000000
   br label %.lr.ph._crit_edge

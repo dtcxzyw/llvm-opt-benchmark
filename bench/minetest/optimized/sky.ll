@@ -7452,7 +7452,7 @@ if.end8.i:                                        ; preds = %if.end.i
   br i1 %cmp10.i, label %if.end16.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end8.i
-  %sub13.i = fadd nsz double %conv5.i, -3.000000e-01
+  %sub13.i = fadd nnan nsz double %conv5.i, -3.000000e-01
   br label %_ZN3Sky15m_horizon_blendEv.exit
 
 if.end16.i:                                       ; preds = %if.end8.i
@@ -7460,7 +7460,7 @@ if.end16.i:                                       ; preds = %if.end8.i
   br i1 %cmp18.i, label %if.end16.i989, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end16.i
-  %sub21.i = fsub nsz double 5.000000e-01, %conv5.i
+  %sub21.i = fsub nnan nsz double 5.000000e-01, %conv5.i
   br label %_ZN3Sky15m_horizon_blendEv.exit
 
 _ZN3Sky15m_horizon_blendEv.exit:                  ; preds = %if.then19.i, %if.then11.i
@@ -7740,7 +7740,7 @@ if.end8.i983:                                     ; preds = %if.end385, %_ZN3Sky
 if.then11.i985:                                   ; preds = %if.end8.i983
   %sub13.i986 = fadd nnan nsz double %conv5.i, -3.000000e-01
   %mul14.i987 = fmul nnan nsz double %sub13.i986, 1.000000e+01
-  %conv15.i988 = fptrunc double %mul14.i987 to float
+  %conv15.i988 = fptrunc nnan double %mul14.i987 to float
   br label %_ZN3Sky15m_horizon_blendEv.exit995
 
 if.end16.i989:                                    ; preds = %if.end16.i, %if.end8.i983
@@ -7751,7 +7751,7 @@ if.end16.i989:                                    ; preds = %if.end16.i, %if.end
 if.then19.i991:                                   ; preds = %if.end16.i989
   %sub21.i992 = fsub nnan nsz double 5.000000e-01, %conv5.i
   %mul22.i993 = fmul nnan nsz double %sub21.i992, 1.000000e+01
-  %conv23.i994 = fptrunc double %mul22.i993 to float
+  %conv23.i994 = fptrunc nnan double %mul22.i993 to float
   br label %_ZN3Sky15m_horizon_blendEv.exit995
 
 _ZN3Sky15m_horizon_blendEv.exit995:               ; preds = %if.then19.i991, %if.end16.i989, %if.then11.i985, %if.end.i, %if.then163
@@ -7817,7 +7817,7 @@ if.end8.i1045:                                    ; preds = %if.end.i1036
 if.then11.i1047:                                  ; preds = %if.end8.i1045
   %sub13.i1048 = fadd nnan nsz double %conv5.i1042, -3.000000e-01
   %mul14.i1049 = fmul nnan nsz double %sub13.i1048, 1.000000e+01
-  %conv15.i1050 = fptrunc double %mul14.i1049 to float
+  %conv15.i1050 = fptrunc nnan double %mul14.i1049 to float
   br label %if.end424.thread
 
 if.end16.i1051:                                   ; preds = %if.end8.i1045
@@ -7827,7 +7827,7 @@ if.end16.i1051:                                   ; preds = %if.end8.i1045
 if.then19.i1053:                                  ; preds = %if.end16.i1051
   %sub21.i1054 = fsub nnan nsz double 5.000000e-01, %conv5.i1042
   %mul22.i1055 = fmul nnan nsz double %sub21.i1054, 1.000000e+01
-  %conv23.i1056 = fptrunc double %mul22.i1055 to float
+  %conv23.i1056 = fptrunc nnan double %mul22.i1055 to float
   br label %if.end424.thread
 
 if.end424:                                        ; preds = %if.end122
@@ -7978,7 +7978,7 @@ if.end8.i1151:                                    ; preds = %if.end.i1142
 if.then11.i1153:                                  ; preds = %if.end8.i1151
   %sub13.i1154 = fadd nnan nsz double %conv5.i1148, -3.000000e-01
   %mul14.i1155 = fmul nnan nsz double %sub13.i1154, 1.000000e+01
-  %conv15.i1156 = fptrunc double %mul14.i1155 to float
+  %conv15.i1156 = fptrunc nnan double %mul14.i1155 to float
   br label %_ZN3Sky15m_horizon_blendEv.exit1163
 
 if.end16.i1157:                                   ; preds = %if.end8.i1151
@@ -7988,7 +7988,7 @@ if.end16.i1157:                                   ; preds = %if.end8.i1151
 if.then19.i1159:                                  ; preds = %if.end16.i1157
   %sub21.i1160 = fsub nnan nsz double 5.000000e-01, %conv5.i1148
   %mul22.i1161 = fmul nnan nsz double %sub21.i1160, 1.000000e+01
-  %conv23.i1162 = fptrunc double %mul22.i1161 to float
+  %conv23.i1162 = fptrunc nnan double %mul22.i1161 to float
   br label %_ZN3Sky15m_horizon_blendEv.exit1163
 
 _ZN3Sky15m_horizon_blendEv.exit1163:              ; preds = %if.then19.i1159, %if.end16.i1157, %if.then11.i1153, %if.end.i1142, %if.then470

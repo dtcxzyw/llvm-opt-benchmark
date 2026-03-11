@@ -5022,8 +5022,8 @@ to_log.exit488:                                   ; preds = %.thread567, %to_log
   br i1 %776, label %..thread574_crit_edge, label %777
 
 ..thread574_crit_edge:                            ; preds = %775
-  %.pre654 = fadd reassoc nsz arcp contract afn float %772, 1.000000e+00
-  %.pre656 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %.pre654)
+  %.pre654 = fadd reassoc nnan nsz arcp contract afn float %772, 1.000000e+00
+  %.pre656 = call reassoc nnan nsz arcp contract afn float @llvm.log.f32(float %.pre654)
   br label %.thread574
 
 777:                                              ; preds = %775
@@ -5080,8 +5080,8 @@ to_log.exit494:                                   ; preds = %771, %777, %.thread
 .thread580:                                       ; preds = %802
   %804 = getelementptr inbounds nuw i8, ptr %797, i64 4
   %805 = load float, ptr %804, align 4, !tbaa !22
-  %.pre647 = fadd reassoc nsz arcp contract afn float %799, 1.000000e+00
-  %.pre648 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %.pre647)
+  %.pre647 = fadd reassoc nnan nsz arcp contract afn float %799, 1.000000e+00
+  %.pre648 = call reassoc nnan nsz arcp contract afn float @llvm.log.f32(float %.pre647)
   br label %818
 
 to_log.exit497:                                   ; preds = %796
@@ -5247,8 +5247,8 @@ to_log.exit500:                                   ; preds = %to_log.exit497, %80
 .thread586:                                       ; preds = %892
   %894 = getelementptr inbounds nuw i8, ptr %887, i64 4
   %895 = load float, ptr %894, align 4, !tbaa !22
-  %.pre650 = fadd reassoc nsz arcp contract afn float %889, 1.000000e+00
-  %.pre652 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %.pre650)
+  %.pre650 = fadd reassoc nnan nsz arcp contract afn float %889, 1.000000e+00
+  %.pre652 = call reassoc nnan nsz arcp contract afn float @llvm.log.f32(float %.pre650)
   br label %908
 
 to_log.exit503:                                   ; preds = %836

@@ -56594,7 +56594,7 @@ tailrecurse:                                      ; preds = %14
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @nvg__calculateJoins(ptr readonly captures(none) %.8848.val, float noundef %0, i32 noundef %1, float noundef %2) unnamed_addr #13 {
   %4 = fcmp ogt float %0, 0.000000e+00
-  %5 = fdiv float 1.000000e+00, %0
+  %5 = fdiv nnan float 1.000000e+00, %0
   %.071 = select i1 %4, float %5, float 0.000000e+00
   %6 = getelementptr inbounds nuw i8, ptr %.8848.val, i64 24
   %7 = load i32, ptr %6, align 8

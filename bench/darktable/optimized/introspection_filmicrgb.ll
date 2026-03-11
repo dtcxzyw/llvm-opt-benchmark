@@ -8795,7 +8795,7 @@ dt_draw_grid.exit:                                ; preds = %263, %249, %217
   %479 = getelementptr inbounds nuw i8, ptr %8, i64 448
   %480 = call reassoc nsz arcp contract afn fastcc float @filmic_spline(float noundef 0.000000e+00, ptr noundef nonnull %9, ptr noundef nonnull %473, ptr noundef nonnull %474, ptr noundef nonnull %475, ptr noundef nonnull %476, float noundef %477, float noundef %478, ptr noundef nonnull %479)
   %481 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %480, float 0.000000e+00)
-  %482 = call reassoc nsz arcp contract afn noundef float @llvm.minnum.f32(float %481, float 1.000000e+00)
+  %482 = call reassoc nnan nsz arcp contract afn float @llvm.minnum.f32(float %481, float 1.000000e+00)
   br label %483
 
 483:                                              ; preds = %472, %.thread1210, %.thread1208
