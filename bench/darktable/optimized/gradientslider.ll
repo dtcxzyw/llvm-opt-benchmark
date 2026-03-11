@@ -1629,7 +1629,7 @@ DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %18, %20
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_draw, ptr noundef nonnull @.str.9) #14
-  br label %312
+  br label %313
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread175:          ; preds = %20, %DTGTK_IS_GRADIENT_SLIDER.exit
   %24 = load atomic i64, ptr @_gradient_slider_get_type.static_g_define_type_id seq_cst, align 8
@@ -1815,303 +1815,303 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   br label %_scale_to_screen.exit
 
 _scale_to_screen.exit:                            ; preds = %131, %134, %136
-  %138 = load i64, ptr @_gradient_slider_get_type.static_g_define_type_id, align 8, !tbaa !6
-  %139 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %138) #14
+  %139 = load i64, ptr @_gradient_slider_get_type.static_g_define_type_id, align 8, !tbaa !6
+  %140 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %139) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @gtk_widget_get_allocation(ptr noundef nonnull %0, ptr noundef nonnull %6) #14
-  %140 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %141 = load i32, ptr %140, align 4, !tbaa !117
-  %142 = getelementptr inbounds nuw i8, ptr %139, i64 304
-  %143 = load i32, ptr %142, align 8, !tbaa !40
-  %144 = getelementptr inbounds nuw i8, ptr %139, i64 308
-  %145 = load i32, ptr %144, align 4, !tbaa !39
-  %146 = add i32 %143, %145
-  %147 = sub i32 %141, %146
-  %148 = sitofp i32 %147 to double
-  %149 = fmul reassoc nsz arcp contract afn double %132, %148
-  %150 = sitofp i32 %143 to double
-  %151 = fadd reassoc nsz arcp contract afn double %149, %150
-  %152 = fptosi double %151 to i32
+  %141 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %142 = load i32, ptr %141, align 4, !tbaa !117
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 304
+  %144 = load i32, ptr %143, align 8, !tbaa !40
+  %145 = getelementptr inbounds nuw i8, ptr %140, i64 308
+  %146 = load i32, ptr %145, align 4, !tbaa !39
+  %147 = add i32 %144, %146
+  %148 = sub i32 %142, %147
+  %149 = sitofp i32 %148 to double
+  %150 = fmul reassoc nsz arcp contract afn double %132, %149
+  %151 = sitofp i32 %144 to double
+  %152 = fadd reassoc nsz arcp contract afn double %150, %151
+  %153 = fptosi double %152 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %153 = getelementptr inbounds nuw i8, ptr %30, i64 296
-  %154 = load double, ptr %153, align 8, !tbaa !37
-  %155 = fcmp reassoc nsz arcp contract afn ogt double %154, 1.000000e+00
-  br i1 %155, label %159, label %156
+  %154 = getelementptr inbounds nuw i8, ptr %30, i64 296
+  %155 = load double, ptr %154, align 8, !tbaa !37
+  %156 = fcmp reassoc nsz arcp contract afn ogt double %155, 1.000000e+00
+  br i1 %156, label %160, label %157
 
-156:                                              ; preds = %_scale_to_screen.exit
-  %157 = fcmp reassoc nsz arcp contract afn olt double %154, 0.000000e+00
-  br i1 %157, label %159, label %158
+157:                                              ; preds = %_scale_to_screen.exit
+  %158 = fcmp reassoc nsz arcp contract afn olt double %155, 0.000000e+00
+  br i1 %158, label %160, label %159
 
-158:                                              ; preds = %156
-  br label %159
+159:                                              ; preds = %157
+  br label %160
 
-159:                                              ; preds = %158, %156, %_scale_to_screen.exit
-  %160 = phi reassoc nsz arcp contract afn double [ 1.000000e+00, %_scale_to_screen.exit ], [ %154, %158 ], [ 0.000000e+00, %156 ]
-  %161 = load atomic i64, ptr @_gradient_slider_get_type.static_g_define_type_id seq_cst, align 8
-  %.not.i.i.i.i164 = icmp eq i64 %161, 0
-  br i1 %.not.i.i.i.i164, label %162, label %_scale_to_screen.exit166
+160:                                              ; preds = %159, %157, %_scale_to_screen.exit
+  %161 = phi reassoc nsz arcp contract afn double [ 1.000000e+00, %_scale_to_screen.exit ], [ %155, %158 ], [ 0.000000e+00, %156 ]
+  %162 = load atomic i64, ptr @_gradient_slider_get_type.static_g_define_type_id seq_cst, align 8
+  %.not.i.i.i.i164 = icmp eq i64 %162, 0
+  br i1 %.not.i.i.i.i164, label %163, label %_scale_to_screen.exit166
 
-162:                                              ; preds = %159
-  %163 = call i32 @g_once_init_enter(ptr noundef nonnull @_gradient_slider_get_type.static_g_define_type_id) #14
-  %.not4.i.i.i.i165 = icmp eq i32 %163, 0
-  br i1 %.not4.i.i.i.i165, label %_scale_to_screen.exit166, label %164
+163:                                              ; preds = %160
+  %164 = call i32 @g_once_init_enter(ptr noundef nonnull @_gradient_slider_get_type.static_g_define_type_id) #14
+  %.not4.i.i.i.i165 = icmp eq i32 %164, 0
+  br i1 %.not4.i.i.i.i165, label %_scale_to_screen.exit166, label %165
 
-164:                                              ; preds = %162
-  %165 = call fastcc i64 @_gradient_slider_get_type_once()
-  call void @g_once_init_leave(ptr noundef nonnull @_gradient_slider_get_type.static_g_define_type_id, i64 noundef %165) #14
+165:                                              ; preds = %163
+  %166 = call fastcc i64 @_gradient_slider_get_type_once()
+  call void @g_once_init_leave(ptr noundef nonnull @_gradient_slider_get_type.static_g_define_type_id, i64 noundef %166) #14
   br label %_scale_to_screen.exit166
 
-_scale_to_screen.exit166:                         ; preds = %159, %162, %164
-  %166 = load i64, ptr @_gradient_slider_get_type.static_g_define_type_id, align 8, !tbaa !6
-  %167 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %166) #14
+_scale_to_screen.exit166:                         ; preds = %160, %163, %165
+  %167 = load i64, ptr @_gradient_slider_get_type.static_g_define_type_id, align 8, !tbaa !6
+  %168 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %167) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @gtk_widget_get_allocation(ptr noundef nonnull %0, ptr noundef nonnull %5) #14
-  %168 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %169 = load i32, ptr %168, align 4, !tbaa !117
-  %170 = getelementptr inbounds nuw i8, ptr %167, i64 304
-  %171 = load i32, ptr %170, align 8, !tbaa !40
-  %172 = getelementptr inbounds nuw i8, ptr %167, i64 308
-  %173 = load i32, ptr %172, align 4, !tbaa !39
-  %174 = add i32 %171, %173
-  %175 = sub i32 %169, %174
-  %176 = sitofp i32 %175 to double
-  %177 = fmul reassoc nsz arcp contract afn double %160, %176
-  %178 = sitofp i32 %171 to double
-  %179 = fadd reassoc nsz arcp contract afn double %177, %178
-  %180 = fptosi double %179 to i32
+  %169 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %170 = load i32, ptr %169, align 4, !tbaa !117
+  %171 = getelementptr inbounds nuw i8, ptr %168, i64 304
+  %172 = load i32, ptr %171, align 8, !tbaa !40
+  %173 = getelementptr inbounds nuw i8, ptr %168, i64 308
+  %174 = load i32, ptr %173, align 4, !tbaa !39
+  %175 = add i32 %172, %174
+  %176 = sub i32 %170, %175
+  %177 = sitofp i32 %176 to double
+  %178 = fmul reassoc nsz arcp contract afn double %161, %177
+  %179 = sitofp i32 %172 to double
+  %180 = fadd reassoc nsz arcp contract afn double %178, %179
+  %181 = fptosi double %180 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %181 = load double, ptr %121, align 8, !tbaa !37
-  %182 = fcmp reassoc nsz arcp contract afn ogt double %181, 1.000000e+00
-  br i1 %182, label %186, label %183
+  %182 = load double, ptr %121, align 8, !tbaa !37
+  %183 = fcmp reassoc nsz arcp contract afn ogt double %182, 1.000000e+00
+  br i1 %183, label %187, label %184
 
-183:                                              ; preds = %_scale_to_screen.exit166
-  %184 = fcmp reassoc nsz arcp contract afn olt double %181, 0.000000e+00
-  br i1 %184, label %186, label %185
+184:                                              ; preds = %_scale_to_screen.exit166
+  %185 = fcmp reassoc nsz arcp contract afn olt double %182, 0.000000e+00
+  br i1 %185, label %187, label %186
 
-185:                                              ; preds = %183
-  br label %186
+186:                                              ; preds = %184
+  br label %187
 
-186:                                              ; preds = %185, %183, %_scale_to_screen.exit166
-  %187 = phi reassoc nsz arcp contract afn double [ 1.000000e+00, %_scale_to_screen.exit166 ], [ %181, %185 ], [ 0.000000e+00, %183 ]
-  %188 = load atomic i64, ptr @_gradient_slider_get_type.static_g_define_type_id seq_cst, align 8
-  %.not.i.i.i.i167 = icmp eq i64 %188, 0
-  br i1 %.not.i.i.i.i167, label %189, label %_scale_to_screen.exit169
+187:                                              ; preds = %186, %184, %_scale_to_screen.exit166
+  %188 = phi reassoc nsz arcp contract afn double [ 1.000000e+00, %_scale_to_screen.exit166 ], [ %182, %185 ], [ 0.000000e+00, %183 ]
+  %189 = load atomic i64, ptr @_gradient_slider_get_type.static_g_define_type_id seq_cst, align 8
+  %.not.i.i.i.i167 = icmp eq i64 %189, 0
+  br i1 %.not.i.i.i.i167, label %190, label %_scale_to_screen.exit169
 
-189:                                              ; preds = %186
-  %190 = call i32 @g_once_init_enter(ptr noundef nonnull @_gradient_slider_get_type.static_g_define_type_id) #14
-  %.not4.i.i.i.i168 = icmp eq i32 %190, 0
-  br i1 %.not4.i.i.i.i168, label %_scale_to_screen.exit169, label %191
+190:                                              ; preds = %187
+  %191 = call i32 @g_once_init_enter(ptr noundef nonnull @_gradient_slider_get_type.static_g_define_type_id) #14
+  %.not4.i.i.i.i168 = icmp eq i32 %191, 0
+  br i1 %.not4.i.i.i.i168, label %_scale_to_screen.exit169, label %192
 
-191:                                              ; preds = %189
-  %192 = call fastcc i64 @_gradient_slider_get_type_once()
-  call void @g_once_init_leave(ptr noundef nonnull @_gradient_slider_get_type.static_g_define_type_id, i64 noundef %192) #14
+192:                                              ; preds = %190
+  %193 = call fastcc i64 @_gradient_slider_get_type_once()
+  call void @g_once_init_leave(ptr noundef nonnull @_gradient_slider_get_type.static_g_define_type_id, i64 noundef %193) #14
   br label %_scale_to_screen.exit169
 
-_scale_to_screen.exit169:                         ; preds = %186, %189, %191
-  %193 = load i64, ptr @_gradient_slider_get_type.static_g_define_type_id, align 8, !tbaa !6
-  %194 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %193) #14
+_scale_to_screen.exit169:                         ; preds = %187, %190, %192
+  %194 = load i64, ptr @_gradient_slider_get_type.static_g_define_type_id, align 8, !tbaa !6
+  %195 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %194) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @gtk_widget_get_allocation(ptr noundef nonnull %0, ptr noundef nonnull %4) #14
-  %195 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %196 = load i32, ptr %195, align 4, !tbaa !117
-  %197 = getelementptr inbounds nuw i8, ptr %194, i64 304
-  %198 = load i32, ptr %197, align 8, !tbaa !40
-  %199 = getelementptr inbounds nuw i8, ptr %194, i64 308
-  %200 = load i32, ptr %199, align 4, !tbaa !39
-  %201 = add i32 %198, %200
-  %202 = sub i32 %196, %201
-  %203 = sitofp i32 %202 to double
-  %204 = fmul reassoc nsz arcp contract afn double %187, %203
-  %205 = sitofp i32 %198 to double
-  %206 = fadd reassoc nsz arcp contract afn double %204, %205
-  %207 = fptosi double %206 to i32
+  %196 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %197 = load i32, ptr %196, align 4, !tbaa !117
+  %198 = getelementptr inbounds nuw i8, ptr %195, i64 304
+  %199 = load i32, ptr %198, align 8, !tbaa !40
+  %200 = getelementptr inbounds nuw i8, ptr %195, i64 308
+  %201 = load i32, ptr %200, align 4, !tbaa !39
+  %202 = add i32 %199, %201
+  %203 = sub i32 %197, %202
+  %204 = sitofp i32 %203 to double
+  %205 = fmul reassoc nsz arcp contract afn double %188, %204
+  %206 = sitofp i32 %199 to double
+  %207 = fadd reassoc nsz arcp contract afn double %205, %206
+  %208 = fptosi double %207 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %208 = load double, ptr %7, align 8, !tbaa !124
-  %209 = load double, ptr %117, align 8, !tbaa !125
-  %210 = load double, ptr %119, align 8, !tbaa !126
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %208, double noundef %209, double noundef %210, double noundef 3.300000e-01) #14
-  %211 = sitofp i32 %152 to double
-  %212 = sitofp i32 %82 to double
-  %213 = sitofp i32 %180 to float
-  %214 = sitofp i32 %152 to float
-  %215 = fsub reassoc nsz arcp contract afn float %213, %214
-  %216 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %215, float 0.000000e+00)
-  %217 = fpext float %216 to double
-  %218 = sitofp i32 %84 to double
-  call void @cairo_rectangle(ptr noundef %1, double noundef %211, double noundef %212, double noundef %217, double noundef %218) #14
+  %209 = load double, ptr %7, align 8, !tbaa !124
+  %210 = load double, ptr %117, align 8, !tbaa !125
+  %211 = load double, ptr %119, align 8, !tbaa !126
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %209, double noundef %210, double noundef %211, double noundef 3.300000e-01) #14
+  %212 = sitofp i32 %153 to double
+  %213 = sitofp i32 %82 to double
+  %214 = sitofp i32 %181 to float
+  %215 = sitofp i32 %153 to float
+  %216 = fsub reassoc nsz arcp contract afn float %214, %215
+  %217 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %216, float 0.000000e+00)
+  %218 = fpext float %217 to double
+  %219 = sitofp i32 %84 to double
+  call void @cairo_rectangle(ptr noundef %1, double noundef %212, double noundef %213, double noundef %218, double noundef %219) #14
   call void @cairo_fill(ptr noundef %1) #14
-  %219 = load double, ptr %7, align 8, !tbaa !124
-  %220 = load double, ptr %117, align 8, !tbaa !125
-  %221 = load double, ptr %119, align 8, !tbaa !126
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %219, double noundef %220, double noundef %221, double noundef 1.000000e+00) #14
-  %222 = sitofp i32 %207 to double
-  call void @cairo_move_to(ptr noundef %1, double noundef %222, double noundef %212) #14
-  call void @cairo_rel_line_to(ptr noundef %1, double noundef 0.000000e+00, double noundef %218) #14
+  %220 = load double, ptr %7, align 8, !tbaa !124
+  %221 = load double, ptr %117, align 8, !tbaa !125
+  %222 = load double, ptr %119, align 8, !tbaa !126
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %220, double noundef %221, double noundef %222, double noundef 1.000000e+00) #14
+  %223 = sitofp i32 %208 to double
+  call void @cairo_move_to(ptr noundef %1, double noundef %223, double noundef %213) #14
+  call void @cairo_rel_line_to(ptr noundef %1, double noundef 0.000000e+00, double noundef %219) #14
   call void @cairo_set_antialias(ptr noundef %1, i32 noundef 1) #14
   call void @cairo_set_line_width(ptr noundef %1, double noundef 1.000000e+00) #14
   call void @cairo_stroke(ptr noundef %1) #14
-  br label %223
+  br label %224
 
-223:                                              ; preds = %_scale_to_screen.exit169, %115
-  %224 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  %225 = load i32, ptr %224, align 8, !tbaa !16
-  %226 = icmp sgt i32 %225, 0
-  br i1 %226, label %.lr.ph219, label %._crit_edge220
+224:                                              ; preds = %_scale_to_screen.exit169, %115
+  %225 = getelementptr inbounds nuw i8, ptr %30, i64 56
+  %226 = load i32, ptr %225, align 8, !tbaa !16
+  %227 = icmp sgt i32 %226, 0
+  br i1 %227, label %.lr.ph219, label %._crit_edge220
 
-.lr.ph219:                                        ; preds = %223
-  %227 = getelementptr inbounds nuw i8, ptr %30, i64 64
-  %228 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %229 = getelementptr inbounds nuw i8, ptr %30, i64 224
-  %230 = sitofp i32 %82 to float
-  %231 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %232 = getelementptr inbounds nuw i8, ptr %30, i64 328
-  %.neg211 = fsub reassoc nsz arcp contract afn float %79, %230
-  br label %233
+.lr.ph219:                                        ; preds = %224
+  %228 = getelementptr inbounds nuw i8, ptr %30, i64 64
+  %229 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %30, i64 224
+  %231 = sitofp i32 %82 to float
+  %232 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  %233 = getelementptr inbounds nuw i8, ptr %30, i64 328
+  %.neg211 = fsub reassoc nsz arcp contract afn float %79, %231
+  br label %234
 
-._crit_edge220:                                   ; preds = %308, %223
+._crit_edge220:                                   ; preds = %309, %224
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %312
+  br label %313
 
-233:                                              ; preds = %.lr.ph219, %308
+234:                                              ; preds = %.lr.ph219, %309
   %indvars.iv = phi i64 [ 0, %.lr.ph219 ], [ %indvars.iv.next, %308 ]
-  %234 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %indvars.iv
-  %235 = load double, ptr %234, align 8, !tbaa !37
-  %236 = load atomic i64, ptr @_gradient_slider_get_type.static_g_define_type_id seq_cst, align 8
-  %.not.i.i.i.i170 = icmp eq i64 %236, 0
-  br i1 %.not.i.i.i.i170, label %237, label %_scale_to_screen.exit172
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %indvars.iv
+  %236 = load double, ptr %235, align 8, !tbaa !37
+  %237 = load atomic i64, ptr @_gradient_slider_get_type.static_g_define_type_id seq_cst, align 8
+  %.not.i.i.i.i170 = icmp eq i64 %237, 0
+  br i1 %.not.i.i.i.i170, label %238, label %_scale_to_screen.exit172
 
-237:                                              ; preds = %233
-  %238 = call i32 @g_once_init_enter(ptr noundef nonnull @_gradient_slider_get_type.static_g_define_type_id) #14
-  %.not4.i.i.i.i171 = icmp eq i32 %238, 0
-  br i1 %.not4.i.i.i.i171, label %_scale_to_screen.exit172, label %239
+238:                                              ; preds = %234
+  %239 = call i32 @g_once_init_enter(ptr noundef nonnull @_gradient_slider_get_type.static_g_define_type_id) #14
+  %.not4.i.i.i.i171 = icmp eq i32 %239, 0
+  br i1 %.not4.i.i.i.i171, label %_scale_to_screen.exit172, label %240
 
-239:                                              ; preds = %237
-  %240 = call fastcc i64 @_gradient_slider_get_type_once()
-  call void @g_once_init_leave(ptr noundef nonnull @_gradient_slider_get_type.static_g_define_type_id, i64 noundef %240) #14
+240:                                              ; preds = %238
+  %241 = call fastcc i64 @_gradient_slider_get_type_once()
+  call void @g_once_init_leave(ptr noundef nonnull @_gradient_slider_get_type.static_g_define_type_id, i64 noundef %241) #14
   br label %_scale_to_screen.exit172
 
-_scale_to_screen.exit172:                         ; preds = %233, %237, %239
-  %241 = load i64, ptr @_gradient_slider_get_type.static_g_define_type_id, align 8, !tbaa !6
-  %242 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %241) #14
+_scale_to_screen.exit172:                         ; preds = %234, %238, %240
+  %242 = load i64, ptr @_gradient_slider_get_type.static_g_define_type_id, align 8, !tbaa !6
+  %243 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %242) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @gtk_widget_get_allocation(ptr noundef nonnull %0, ptr noundef nonnull %3) #14
-  %243 = load i32, ptr %228, align 4, !tbaa !117
-  %244 = getelementptr inbounds nuw i8, ptr %242, i64 304
-  %245 = load i32, ptr %244, align 8, !tbaa !40
-  %246 = getelementptr inbounds nuw i8, ptr %242, i64 308
-  %247 = load i32, ptr %246, align 4, !tbaa !39
-  %248 = add i32 %245, %247
-  %249 = sub i32 %243, %248
-  %250 = sitofp i32 %249 to double
-  %251 = fmul reassoc nsz arcp contract afn double %235, %250
-  %252 = sitofp i32 %245 to double
-  %253 = fadd reassoc nsz arcp contract afn double %251, %252
-  %254 = fptosi double %253 to i32
+  %244 = load i32, ptr %229, align 4, !tbaa !117
+  %245 = getelementptr inbounds nuw i8, ptr %243, i64 304
+  %246 = load i32, ptr %245, align 8, !tbaa !40
+  %247 = getelementptr inbounds nuw i8, ptr %243, i64 308
+  %248 = load i32, ptr %247, align 4, !tbaa !39
+  %249 = add i32 %246, %248
+  %250 = sub i32 %244, %249
+  %251 = sitofp i32 %250 to double
+  %252 = fmul reassoc nsz arcp contract afn double %236, %251
+  %253 = sitofp i32 %246 to double
+  %254 = fadd reassoc nsz arcp contract afn double %252, %253
+  %255 = fptosi double %254 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %255 = getelementptr inbounds nuw [4 x i8], ptr %229, i64 %indvars.iv
-  %256 = load i32, ptr %255, align 4, !tbaa !44
-  %257 = and i32 %256, 8
-  %.not155 = icmp eq i32 %257, 0
+  %256 = getelementptr inbounds nuw [4 x i8], ptr %230, i64 %indvars.iv
+  %257 = load i32, ptr %256, align 4, !tbaa !44
+  %258 = and i32 %257, 8
+  %.not155 = icmp eq i32 %258, 0
   %.v = select i1 %.not155, float 0x3FF6666660000000, float 0x3FFE666660000000
-  %258 = fmul reassoc nnan nsz arcp contract afn float %.v, %230
-  %259 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %258)
-  %260 = fptosi float %259 to i32
-  %261 = load i32, ptr %231, align 8, !tbaa !32
-  %262 = zext i32 %261 to i64
-  %263 = icmp eq i64 %indvars.iv, %262
-  br i1 %263, label %264, label %270
+  %259 = fmul reassoc nnan nsz arcp contract afn float %.v, %231
+  %260 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %259)
+  %261 = fptosi float %260 to i32
+  %262 = load i32, ptr %232, align 8, !tbaa !32
+  %263 = zext i32 %262 to i64
+  %264 = icmp eq i64 %indvars.iv, %263
+  br i1 %264, label %265, label %271
 
-264:                                              ; preds = %_scale_to_screen.exit172
-  %265 = load i32, ptr %232, align 8, !tbaa !36
-  %.not156 = icmp eq i32 %265, 0
-  br i1 %.not156, label %270, label %266
+265:                                              ; preds = %_scale_to_screen.exit172
+  %266 = load i32, ptr %233, align 8, !tbaa !36
+  %.not156 = icmp eq i32 %266, 0
+  br i1 %.not156, label %271, label %267
 
-266:                                              ; preds = %264
-  %267 = load double, ptr %7, align 8, !tbaa !124
-  %268 = load double, ptr %117, align 8, !tbaa !125
-  %269 = load double, ptr %119, align 8, !tbaa !126
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %267, double noundef %268, double noundef %269, double noundef 1.000000e+00) #14
-  br label %277
+267:                                              ; preds = %265
+  %268 = load double, ptr %7, align 8, !tbaa !124
+  %269 = load double, ptr %117, align 8, !tbaa !125
+  %270 = load double, ptr %119, align 8, !tbaa !126
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %268, double noundef %269, double noundef %270, double noundef 1.000000e+00) #14
+  br label %278
 
-270:                                              ; preds = %264, %_scale_to_screen.exit172
-  %271 = load double, ptr %7, align 8, !tbaa !124
-  %272 = fmul reassoc nsz arcp contract afn double %271, 8.000000e-01
-  %273 = load double, ptr %117, align 8, !tbaa !125
-  %274 = fmul reassoc nsz arcp contract afn double %273, 8.000000e-01
-  %275 = load double, ptr %119, align 8, !tbaa !126
-  %276 = fmul reassoc nsz arcp contract afn double %275, 8.000000e-01
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %272, double noundef %274, double noundef %276, double noundef 1.000000e+00) #14
-  br label %277
+271:                                              ; preds = %265, %_scale_to_screen.exit172
+  %272 = load double, ptr %7, align 8, !tbaa !124
+  %273 = fmul reassoc nsz arcp contract afn double %272, 8.000000e-01
+  %274 = load double, ptr %117, align 8, !tbaa !125
+  %275 = fmul reassoc nsz arcp contract afn double %274, 8.000000e-01
+  %276 = load double, ptr %119, align 8, !tbaa !126
+  %277 = fmul reassoc nsz arcp contract afn double %276, 8.000000e-01
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %273, double noundef %275, double noundef %277, double noundef 1.000000e+00) #14
+  br label %278
 
-277:                                              ; preds = %270, %266
+278:                                              ; preds = %271, %267
   call void @cairo_set_antialias(ptr noundef %1, i32 noundef 0) #14
-  %278 = and i32 %256, 4
-  %.not157 = icmp eq i32 %278, 0
-  br i1 %.not157, label %293, label %279
+  %279 = and i32 %257, 4
+  %.not157 = icmp eq i32 %279, 0
+  br i1 %.not157, label %294, label %280
 
-279:                                              ; preds = %277
-  %280 = and i32 %256, 1
-  %.not158 = icmp eq i32 %280, 0
-  %281 = sitofp i32 %254 to float
-  %282 = sitofp i32 %260 to float
-  %283 = fmul reassoc nnan nsz arcp contract afn float %282, 5.000000e-01
-  %284 = fsub reassoc nsz arcp contract afn float %281, %283
-  %285 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %284)
-  %286 = fptosi float %285 to i32
-  %287 = fmul reassoc nnan nsz arcp contract afn float %282, 0x3FE19999A0000000
-  %288 = fsub reassoc nsz arcp contract afn float %230, %287
-  %289 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %288)
-  %290 = fptosi float %289 to i32
-  br i1 %.not158, label %292, label %291
+280:                                              ; preds = %278
+  %281 = and i32 %257, 1
+  %.not158 = icmp eq i32 %281, 0
+  %282 = sitofp i32 %255 to float
+  %283 = sitofp i32 %261 to float
+  %284 = fmul reassoc nnan nsz arcp contract afn float %283, 5.000000e-01
+  %285 = fsub reassoc nsz arcp contract afn float %282, %284
+  %286 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %285)
+  %287 = fptosi float %286 to i32
+  %288 = fmul reassoc nnan nsz arcp contract afn float %283, 0x3FE19999A0000000
+  %289 = fsub reassoc nsz arcp contract afn float %231, %288
+  %290 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %289)
+  %291 = fptosi float %290 to i32
+  br i1 %.not158, label %293, label %292
 
-291:                                              ; preds = %279
-  call void @dtgtk_cairo_paint_solid_triangle(ptr noundef %1, i32 noundef %286, i32 noundef %290, i32 noundef %260, i32 noundef %260, i32 noundef 2, ptr noundef null) #14
-  br label %293
+292:                                              ; preds = %280
+  call void @dtgtk_cairo_paint_solid_triangle(ptr noundef %1, i32 noundef %287, i32 noundef %291, i32 noundef %261, i32 noundef %261, i32 noundef 2, ptr noundef null) #14
+  br label %294
 
-292:                                              ; preds = %279
-  call void @dtgtk_cairo_paint_triangle(ptr noundef %1, i32 noundef %286, i32 noundef %290, i32 noundef %260, i32 noundef %260, i32 noundef 2, ptr noundef null) #14
-  br label %293
+293:                                              ; preds = %280
+  call void @dtgtk_cairo_paint_triangle(ptr noundef %1, i32 noundef %287, i32 noundef %291, i32 noundef %261, i32 noundef %261, i32 noundef 2, ptr noundef null) #14
+  br label %294
 
-293:                                              ; preds = %291, %292, %277
-  %294 = and i32 %256, 2
-  %.not159 = icmp eq i32 %294, 0
-  br i1 %.not159, label %308, label %295
+294:                                              ; preds = %292, %293, %278
+  %295 = and i32 %257, 2
+  %.not159 = icmp eq i32 %295, 0
+  br i1 %.not159, label %309, label %296
 
-295:                                              ; preds = %293
-  %296 = and i32 %256, 1
-  %.not160 = icmp eq i32 %296, 0
-  %297 = sitofp i32 %254 to float
-  %298 = sitofp i32 %260 to float
-  %299 = fmul reassoc nnan nsz arcp contract afn float %298, 5.000000e-01
-  %300 = fsub reassoc nsz arcp contract afn float %297, %299
-  %301 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %300)
-  %302 = fptosi float %301 to i32
-  %.neg212 = fmul reassoc nnan nsz arcp contract afn float %298, 0xBFDCCCCCC0000000
-  %303 = fadd reassoc nsz arcp contract afn float %.neg211, %.neg212
-  %304 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %303)
-  %305 = fptosi float %304 to i32
-  br i1 %.not160, label %307, label %306
+296:                                              ; preds = %294
+  %297 = and i32 %257, 1
+  %.not160 = icmp eq i32 %297, 0
+  %298 = sitofp i32 %255 to float
+  %299 = sitofp i32 %261 to float
+  %300 = fmul reassoc nnan nsz arcp contract afn float %299, 5.000000e-01
+  %301 = fsub reassoc nsz arcp contract afn float %298, %300
+  %302 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %301)
+  %303 = fptosi float %302 to i32
+  %.neg212 = fmul reassoc nnan nsz arcp contract afn float %299, 0xBFDCCCCCC0000000
+  %304 = fadd reassoc nsz arcp contract afn float %.neg211, %.neg212
+  %305 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %304)
+  %306 = fptosi float %305 to i32
+  br i1 %.not160, label %308, label %307
 
-306:                                              ; preds = %295
-  call void @dtgtk_cairo_paint_solid_triangle(ptr noundef %1, i32 noundef %302, i32 noundef %305, i32 noundef %260, i32 noundef %260, i32 noundef 1, ptr noundef null) #14
-  br label %308
+307:                                              ; preds = %296
+  call void @dtgtk_cairo_paint_solid_triangle(ptr noundef %1, i32 noundef %303, i32 noundef %306, i32 noundef %261, i32 noundef %261, i32 noundef 1, ptr noundef null) #14
+  br label %309
 
-307:                                              ; preds = %295
-  call void @dtgtk_cairo_paint_triangle(ptr noundef %1, i32 noundef %302, i32 noundef %305, i32 noundef %260, i32 noundef %260, i32 noundef 1, ptr noundef null) #14
-  br label %308
+308:                                              ; preds = %296
+  call void @dtgtk_cairo_paint_triangle(ptr noundef %1, i32 noundef %303, i32 noundef %306, i32 noundef %261, i32 noundef %261, i32 noundef 1, ptr noundef null) #14
+  br label %309
 
-308:                                              ; preds = %306, %307, %293
+309:                                              ; preds = %307, %308, %294
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %309 = load i32, ptr %224, align 8, !tbaa !16
-  %310 = sext i32 %309 to i64
-  %311 = icmp slt i64 %indvars.iv.next, %310
-  br i1 %311, label %233, label %._crit_edge220
+  %310 = load i32, ptr %225, align 8, !tbaa !16
+  %311 = sext i32 %310 to i64
+  %312 = icmp slt i64 %indvars.iv.next, %311
+  br i1 %312, label %234, label %._crit_edge220
 
-312:                                              ; preds = %._crit_edge220, %DTGTK_IS_GRADIENT_SLIDER.exit.thread
+313:                                              ; preds = %._crit_edge220, %DTGTK_IS_GRADIENT_SLIDER.exit.thread
   ret i32 0
 }
 

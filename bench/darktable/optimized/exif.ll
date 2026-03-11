@@ -40450,12 +40450,12 @@ _ZL24_exif_get_exiv2_tag_typePKc.exit485:         ; preds = %1434, %1436, %1425
   %1453 = fcmp uno double %1452, 0.000000e+00
   br i1 %1453, label %thread-pre-split, label %1454
 
-1454:                                             ; preds = %1450
-  %1455 = load ptr, ptr %146, align 8, !tbaa !221
-  invoke void @g_free(ptr noundef %1455)
+1455:                                             ; preds = %1450
+  %1456 = load ptr, ptr %146, align 8, !tbaa !221
+  invoke void @g_free(ptr noundef %1456)
           to label %.preheader unwind label %1469
 
-.preheader:                                       ; preds = %1454
+.preheader:                                       ; preds = %1455
   %1456 = fptrunc reassoc nsz arcp contract afn double %1452 to float
   %.0160894 = fptosi float %1456 to i32
   %1457 = sitofp i32 %.0160894 to float
@@ -40490,7 +40490,7 @@ _ZL24_exif_get_exiv2_tag_typePKc.exit485:         ; preds = %1434, %1436, %1425
           catch ptr @_ZTIN5Exiv28AnyErrorE
   br label %1531
 
-1469:                                             ; preds = %1454
+1469:                                             ; preds = %1455
   %1470 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Exiv28AnyErrorE

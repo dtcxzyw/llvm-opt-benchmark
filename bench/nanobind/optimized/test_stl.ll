@@ -23774,7 +23774,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = call noundef zeroext i1 @_ZN8nanobind6detail10load_cmplxEP7_objecthPSt7complexIdE(ptr noundef %1, i8 noundef zeroext %2, ptr noundef nonnull %5) #27
-  br i1 %6, label %7, label %23
+  br i1 %6, label %7, label %27
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -23784,7 +23784,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   %12 = fptrunc double %11 to float
   %13 = and i8 %2, 1
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %14, label %22
+  br i1 %.not, label %14, label %26
 
 14:                                               ; preds = %7
   %15 = fpext float %10 to double
@@ -23793,20 +23793,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8nanobind6detail11type_casterI
   %or.cond = or i1 %17, %16
   br i1 %or.cond, label %18, label %23
 
-18:                                               ; preds = %14
+17:                                               ; preds = %14
   %19 = fpext float %12 to double
-  %20 = fcmp oeq double %11, %19
+  %19 = fcmp oeq double %11, %19
   %21 = fcmp uno double %11, 0.000000e+00
-  %or.cond14 = or i1 %21, %20
+  %or.cond14 = or i1 %21, %19
   br i1 %or.cond14, label %22, label %23
 
-22:                                               ; preds = %18, %7
+26:                                               ; preds = %18, %7
   store float %10, ptr %0, align 4, !tbaa !44
   %.sroa_idx11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %12, ptr %.sroa_idx11, align 4, !tbaa !44
-  br label %23
+  br label %27
 
-23:                                               ; preds = %18, %14, %22, %4
+27:                                               ; preds = %18, %14, %22, %4
   %.0 = phi i1 [ false, %4 ], [ true, %22 ], [ false, %14 ], [ false, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0

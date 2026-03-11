@@ -2200,16 +2200,16 @@ select.unfold:                                    ; preds = %108
   br i1 %or.cond, label %._crit_edge.thread, label %128
 
 ._crit_edge.thread:                               ; preds = %.preheader122, %._crit_edge
-  %.076.lcssa213 = phi i64 [ %.278, %._crit_edge ], [ 0, %.preheader122 ]
-  %.079.lcssa212 = phi i32 [ %.281, %._crit_edge ], [ 0, %.preheader122 ]
-  %.082.lcssa211 = phi ptr [ %.284, %._crit_edge ], [ null, %.preheader122 ]
-  %122 = sdiv i32 %.079.lcssa212, 3
-  %123 = trunc nuw nsw i64 %.076.lcssa213 to i32
+  %.076.lcssa212 = phi i64 [ %.278, %._crit_edge ], [ 0, %.preheader122 ]
+  %.079.lcssa211 = phi i32 [ %.281, %._crit_edge ], [ 0, %.preheader122 ]
+  %.082.lcssa210 = phi ptr [ %.284, %._crit_edge ], [ null, %.preheader122 ]
+  %122 = sdiv i32 %.079.lcssa211, 3
+  %123 = trunc nuw nsw i64 %.076.lcssa212 to i32
   %124 = udiv i32 %123, 3
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.51, i32 noundef %122, i32 noundef %124) #25
   %125 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.52, i32 noundef 5) #25
   call void (ptr, ...) @dt_control_log(ptr noundef %125, i32 noundef %122, i32 noundef %124) #25
-  call void @free(ptr noundef %.082.lcssa211) #25
+  call void @free(ptr noundef %.082.lcssa210) #25
   %126 = load ptr, ptr %3, align 8, !tbaa !74
   call void @free(ptr noundef %126) #25
   %127 = call i32 @fclose(ptr noundef nonnull %6)

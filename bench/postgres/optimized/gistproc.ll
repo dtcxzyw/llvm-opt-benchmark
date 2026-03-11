@@ -3195,9 +3195,9 @@ define internal range(i32 -1, 2) i32 @gist_bbox_zorder_cmp(i64 noundef %0, i64 n
 ._crit_edge:                                      ; preds = %3, %13
   %17 = fptrunc double %12 to float
   %18 = fcmp uno double %8, 0.000000e+00
-  br i1 %18, label %ieee_float32_to_uint32.exit.i, label %19
+  br i1 %18, label %ieee_float32_to_uint32.exit.i, label %20
 
-19:                                               ; preds = %._crit_edge
+20:                                               ; preds = %._crit_edge
   %20 = fptrunc double %8 to float
   %21 = bitcast float %20 to i32
   %22 = xor i32 %21, -1
@@ -3208,7 +3208,7 @@ define internal range(i32 -1, 2) i32 @gist_bbox_zorder_cmp(i64 noundef %0, i64 n
   %25 = zext i32 %.sroa.0.0.i.i to i64
   br label %ieee_float32_to_uint32.exit.i
 
-ieee_float32_to_uint32.exit.i:                    ; preds = %19, %._crit_edge
+ieee_float32_to_uint32.exit.i:                    ; preds = %20, %._crit_edge
   %.0.i.i = phi i64 [ %25, %19 ], [ 4294967295, %._crit_edge ]
   %26 = fcmp uno double %12, 0.000000e+00
   br i1 %26, label %point_zorder_internal.exit, label %27
@@ -3261,9 +3261,9 @@ point_zorder_internal.exit:                       ; preds = %ieee_float32_to_uin
   %66 = load double, ptr %65, align 8
   %67 = fptrunc double %66 to float
   %68 = fcmp uno double %9, 0.000000e+00
-  br i1 %68, label %ieee_float32_to_uint32.exit.i18, label %69
+  br i1 %68, label %ieee_float32_to_uint32.exit.i18, label %70
 
-69:                                               ; preds = %point_zorder_internal.exit
+70:                                               ; preds = %point_zorder_internal.exit
   %70 = fptrunc double %9 to float
   %71 = bitcast float %70 to i32
   %72 = xor i32 %71, -1
@@ -3274,7 +3274,7 @@ point_zorder_internal.exit:                       ; preds = %ieee_float32_to_uin
   %75 = zext i32 %.sroa.0.0.i.i17 to i64
   br label %ieee_float32_to_uint32.exit.i18
 
-ieee_float32_to_uint32.exit.i18:                  ; preds = %69, %point_zorder_internal.exit
+ieee_float32_to_uint32.exit.i18:                  ; preds = %70, %point_zorder_internal.exit
   %.0.i.i19 = phi i64 [ %75, %69 ], [ 4294967295, %point_zorder_internal.exit ]
   %76 = fcmp uno double %66, 0.000000e+00
   br i1 %76, label %point_zorder_internal.exit23, label %77
