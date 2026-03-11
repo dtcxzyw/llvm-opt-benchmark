@@ -90522,10 +90522,8 @@ declare void @_ZN4llvm21SymbolTableListTraitsINS_8FunctionEJEE13addNodeToListEPS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
-  %.sroa.0.i.i.i.i.i.i.i.i.i55 = alloca { i64, i64 }, align 8
-  %3 = alloca %"class.std::function.232", align 8
-  %.sroa.0.i.i.i.i.i.i.i.i.i = alloca { i64, i64 }, align 8
-  %4 = alloca %"class.std::function.232", align 8
+  %3 = alloca %"class.std::function.232", align 16
+  %4 = alloca %"class.std::function.232", align 16
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %178, label %6
 
@@ -90625,34 +90623,33 @@ _ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE12assignRemoteEOS3_
   br label %47
 
 47:                                               ; preds = %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %39, %.lr.ph.i.i.i.i.i ], [ %66, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i ]
-  %.0811.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i ], [ %65, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i ]
-  %.0910.i.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i.i ], [ %64, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i ]
+  %.013.i.i.i.i.i = phi i64 [ %39, %.lr.ph.i.i.i.i.i ], [ %66, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i ]
+  %.0812.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i ], [ %65, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i ]
+  %.0911.i.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i.i ], [ %64, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %48 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
+  %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   %49 = load ptr, ptr %48, align 8, !tbaa !602
-  %50 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !43
   %.not.i.i.not.i.i.i.i.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i.not.i.i.i.i.i.i.i.i, label %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i, label %52
 
 52:                                               ; preds = %47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !830
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(88) %.0911.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !830
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
+  %.sroa.0.i.i.i.i.sroa.0.0.copyload.pre.i.i.i.i.i = load <2 x i64>, ptr %4, align 16, !tbaa !111
   br label %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i
 
 _ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i: ; preds = %52, %47
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false), !tbaa.struct !830
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !830
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !830
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i)
-  %53 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
+  %.sroa.0.i.i.i.i.sroa.0.0.copyload.i.i.i.i.i = phi <2 x i64> [ %.sroa.0.i.i.i.i.sroa.0.0.copyload.pre.i.i.i.i.i, %52 ], [ zeroinitializer, %47 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(88) %.0812.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !830
+  store <2 x i64> %.sroa.0.i.i.i.i.sroa.0.0.copyload.i.i.i.i.i, ptr %.0812.i.i.i.i.i, align 8, !tbaa !111
+  %53 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !638
-  store ptr %54, ptr %46, align 8, !tbaa !638
+  store ptr %54, ptr %46, align 16, !tbaa !638
   store ptr %51, ptr %53, align 8, !tbaa !638
-  %55 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !638
   store ptr %56, ptr %45, align 8, !tbaa !638
   store ptr %49, ptr %55, align 8, !tbaa !638
@@ -90665,26 +90662,26 @@ _ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i: ; preds = %52, %
 
 _ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i: ; preds = %57, %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %59 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 32
-  %60 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %60, i64 24, i1 false)
-  %61 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 56
-  %62 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 56
   %63 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_5ValueEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %62)
-  %64 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 88
-  %65 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 88
-  %66 = add nsw i64 %.012.i.i.i.i.i, -1
-  %67 = icmp sgt i64 %.012.i.i.i.i.i, 1
+  %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 88
+  %65 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i, i64 88
+  %66 = add nsw i64 %.013.i.i.i.i.i, -1
+  %67 = icmp sgt i64 %.013.i.i.i.i.i, 1
   br i1 %67, label %47, label %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !2849
 
 _ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit.loopexit: ; preds = %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !25
-  %.pre80 = load i32, ptr %40, align 8, !tbaa !26
-  %.pre82 = zext i32 %.pre80 to i64
+  %.pre81 = load i32, ptr %40, align 8, !tbaa !26
+  %.pre83 = zext i32 %.pre81 to i64
   br label %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit
 
 _ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit: ; preds = %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit.loopexit, %43
-  %.pre-phi = phi i64 [ %.pre82, %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit.loopexit ], [ %42, %43 ]
+  %.pre-phi = phi i64 [ %.pre83, %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit.loopexit ], [ %42, %43 ]
   %68 = phi ptr [ %.pre, %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit.loopexit ], [ %44, %43 ]
   %.0 = phi ptr [ %65, %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit.loopexit ], [ %44, %43 ]
   %69 = getelementptr inbounds nuw [88 x i8], ptr %68, i64 %.pre-phi
@@ -90808,89 +90805,88 @@ _ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i51: ; preds = %109, %_ZN4llvm
 _ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit54: ; preds = %_ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i51, %98
   store i32 0, ptr %40, align 8, !tbaa !26
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %39)
-  br label %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit65
+  br label %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit66
 
 111:                                              ; preds = %94
   %.not32 = icmp eq i32 %41, 0
-  br i1 %.not32, label %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit65, label %.lr.ph.i.i.i.i.i57
+  br i1 %.not32, label %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit66, label %.lr.ph.i.i.i.i.i56
 
-.lr.ph.i.i.i.i.i57:                               ; preds = %111
+.lr.ph.i.i.i.i.i56:                               ; preds = %111
   %112 = load ptr, ptr %0, align 8, !tbaa !25
   %113 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %115
 
-115:                                              ; preds = %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i64, %.lr.ph.i.i.i.i.i57
-  %.012.i.i.i.i.i58 = phi i64 [ %42, %.lr.ph.i.i.i.i.i57 ], [ %134, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i64 ]
-  %.0811.i.i.i.i.i59 = phi ptr [ %112, %.lr.ph.i.i.i.i.i57 ], [ %133, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i64 ]
-  %.0910.i.i.i.i.i60 = phi ptr [ %7, %.lr.ph.i.i.i.i.i57 ], [ %132, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i64 ]
+115:                                              ; preds = %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i65, %.lr.ph.i.i.i.i.i56
+  %.013.i.i.i.i.i57 = phi i64 [ %42, %.lr.ph.i.i.i.i.i56 ], [ %134, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i65 ]
+  %.0812.i.i.i.i.i58 = phi ptr [ %112, %.lr.ph.i.i.i.i.i56 ], [ %133, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i65 ]
+  %.0911.i.i.i.i.i59 = phi ptr [ %7, %.lr.ph.i.i.i.i.i56 ], [ %132, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %116 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i60, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  %116 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i59, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %117 = load ptr, ptr %116, align 8, !tbaa !602
-  %118 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i60, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i59, i64 16
   %119 = load ptr, ptr %118, align 8, !tbaa !43
-  %.not.i.i.not.i.i.i.i.i.i.i.i61 = icmp eq ptr %119, null
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i61, label %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i62, label %120
+  %.not.i.i.not.i.i.i.i.i.i.i.i60 = icmp eq ptr %119, null
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i60, label %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i62, label %120
 
 120:                                              ; preds = %115
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(88) %.0910.i.i.i.i.i60, i64 16, i1 false), !tbaa.struct !830
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(88) %.0911.i.i.i.i.i59, i64 16, i1 false), !tbaa.struct !830
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, i8 0, i64 16, i1 false)
+  %.sroa.0.i.i.i.i.sroa.0.0.copyload.pre.i.i.i.i.i61 = load <2 x i64>, ptr %3, align 16, !tbaa !111
   br label %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i62
 
 _ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i62: ; preds = %120, %115
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i55)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i.i55, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !830
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i59, i64 16, i1 false), !tbaa.struct !830
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.0811.i.i.i.i.i59, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i.i55, i64 16, i1 false), !tbaa.struct !830
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i55)
-  %121 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i59, i64 16
+  %.sroa.0.i.i.i.i.sroa.0.0.copyload.i.i.i.i.i63 = phi <2 x i64> [ %.sroa.0.i.i.i.i.sroa.0.0.copyload.pre.i.i.i.i.i61, %120 ], [ zeroinitializer, %115 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(88) %.0812.i.i.i.i.i58, i64 16, i1 false), !tbaa.struct !830
+  store <2 x i64> %.sroa.0.i.i.i.i.sroa.0.0.copyload.i.i.i.i.i63, ptr %.0812.i.i.i.i.i58, align 8, !tbaa !111
+  %121 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i58, i64 16
   %122 = load ptr, ptr %121, align 8, !tbaa !638
-  store ptr %122, ptr %114, align 8, !tbaa !638
+  store ptr %122, ptr %114, align 16, !tbaa !638
   store ptr %119, ptr %121, align 8, !tbaa !638
-  %123 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i59, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i58, i64 24
   %124 = load ptr, ptr %123, align 8, !tbaa !638
   store ptr %124, ptr %113, align 8, !tbaa !638
   store ptr %117, ptr %123, align 8, !tbaa !638
-  %.not.i.i.i.i.i.i.i.i63 = icmp eq ptr %122, null
-  br i1 %.not.i.i.i.i.i.i.i.i63, label %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i64, label %125
+  %.not.i.i.i.i.i.i.i.i64 = icmp eq ptr %122, null
+  br i1 %.not.i.i.i.i.i.i.i.i64, label %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i65, label %125
 
 125:                                              ; preds = %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i62
   %126 = call noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #30
-  br label %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i64
+  br label %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i65
 
-_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i64: ; preds = %125, %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i62
+_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i65: ; preds = %125, %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i62
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %127 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i59, i64 32
-  %128 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i60, i64 32
+  %127 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i58, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i59, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, ptr noundef nonnull align 8 dereferenceable(24) %128, i64 24, i1 false)
-  %129 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i59, i64 56
-  %130 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i60, i64 56
+  %129 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i58, i64 56
+  %130 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i59, i64 56
   %131 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_5ValueEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %130)
-  %132 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i60, i64 88
-  %133 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i59, i64 88
-  %134 = add nsw i64 %.012.i.i.i.i.i58, -1
-  %135 = icmp sgt i64 %.012.i.i.i.i.i58, 1
-  br i1 %135, label %115, label %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit65, !llvm.loop !2849
+  %132 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i59, i64 88
+  %133 = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i.i58, i64 88
+  %134 = add nsw i64 %.013.i.i.i.i.i57, -1
+  %135 = icmp sgt i64 %.013.i.i.i.i.i57, 1
+  br i1 %135, label %115, label %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit66, !llvm.loop !2849
 
-_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit65: ; preds = %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i64, %111, %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit54
-  %.026 = phi i64 [ 0, %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit54 ], [ 0, %111 ], [ %42, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i64 ]
+_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit66: ; preds = %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i65, %111, %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit54
+  %.026 = phi i64 [ 0, %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit54 ], [ 0, %111 ], [ %42, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoaSEOS1_.exit.i.i.i.i.i65 ]
   %136 = load ptr, ptr %1, align 8, !tbaa !25
   %137 = load i32, ptr %37, align 8, !tbaa !26
   %138 = zext i32 %137 to i64
   %139 = getelementptr inbounds nuw [88 x i8], ptr %136, i64 %138
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %138
-  br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit, label %.lr.ph.i.i.i.i.i66.preheader
+  br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit, label %.lr.ph.i.i.i.i.i67.preheader
 
-.lr.ph.i.i.i.i.i66.preheader:                     ; preds = %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit65
+.lr.ph.i.i.i.i.i67.preheader:                     ; preds = %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit66
   %140 = load ptr, ptr %0, align 8, !tbaa !25
   %141 = getelementptr inbounds nuw [88 x i8], ptr %140, i64 %.026
   %142 = getelementptr inbounds nuw [88 x i8], ptr %136, i64 %.026
-  br label %.lr.ph.i.i.i.i.i66
+  br label %.lr.ph.i.i.i.i.i67
 
-.lr.ph.i.i.i.i.i66:                               ; preds = %.lr.ph.i.i.i.i.i66.preheader, %_ZSt10_ConstructIN4llvm15OpenMPIRBuilder11OutlineInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %163, %_ZSt10_ConstructIN4llvm15OpenMPIRBuilder11OutlineInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %141, %.lr.ph.i.i.i.i.i66.preheader ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %162, %_ZSt10_ConstructIN4llvm15OpenMPIRBuilder11OutlineInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %142, %.lr.ph.i.i.i.i.i66.preheader ]
+.lr.ph.i.i.i.i.i67:                               ; preds = %.lr.ph.i.i.i.i.i67.preheader, %_ZSt10_ConstructIN4llvm15OpenMPIRBuilder11OutlineInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i
+  %.09.i.i.i.i.i = phi ptr [ %163, %_ZSt10_ConstructIN4llvm15OpenMPIRBuilder11OutlineInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %141, %.lr.ph.i.i.i.i.i67.preheader ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %162, %_ZSt10_ConstructIN4llvm15OpenMPIRBuilder11OutlineInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %142, %.lr.ph.i.i.i.i.i67.preheader ]
   %143 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.09.i.i.i.i.i, i8 0, i64 24, i1 false)
@@ -90898,18 +90894,18 @@ _ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit65: ; preds 
   store ptr %145, ptr %143, align 8, !tbaa !602
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
   %147 = load ptr, ptr %146, align 8, !tbaa !43
-  %.not.i.i.not.i.i.i.i.i.i.i.i67 = icmp eq ptr %147, null
-  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i67, label %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i68, label %148
+  %.not.i.i.not.i.i.i.i.i.i.i.i68 = icmp eq ptr %147, null
+  br i1 %.not.i.i.not.i.i.i.i.i.i.i.i68, label %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i69, label %148
 
-148:                                              ; preds = %.lr.ph.i.i.i.i.i66
+148:                                              ; preds = %.lr.ph.i.i.i.i.i67
   %149 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.04.08.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !830
   %150 = load ptr, ptr %146, align 8, !tbaa !43
   store ptr %150, ptr %149, align 8, !tbaa !43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, i8 0, i64 16, i1 false)
-  br label %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i68
+  br label %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i69
 
-_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i68: ; preds = %148, %.lr.ph.i.i.i.i.i66
+_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i69: ; preds = %148, %.lr.ph.i.i.i.i.i67
   %151 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 32
   %152 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %151, ptr noundef nonnull align 8 dereferenceable(24) %152, i64 24, i1 false)
@@ -90925,66 +90921,66 @@ _ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i68: ; preds = %148
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %158, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN4llvm15OpenMPIRBuilder11OutlineInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i, label %159
 
-159:                                              ; preds = %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i68
+159:                                              ; preds = %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i69
   %160 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 56
   %161 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_5ValueEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(32) %153, ptr noundef nonnull align 8 dereferenceable(32) %160)
   br label %_ZSt10_ConstructIN4llvm15OpenMPIRBuilder11OutlineInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-_ZSt10_ConstructIN4llvm15OpenMPIRBuilder11OutlineInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %159, %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i68
+_ZSt10_ConstructIN4llvm15OpenMPIRBuilder11OutlineInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %159, %_ZNSt8functionIFvRN4llvm8FunctionEEEC2EOS4_.exit.i.i.i.i.i.i.i69
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 88
   %163 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 88
   %.not.i.i.i.i.i = icmp eq ptr %162, %139
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.loopexit, label %.lr.ph.i.i.i.i.i66, !llvm.loop !2490
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.loopexit, label %.lr.ph.i.i.i.i.i67, !llvm.loop !2490
 
 _ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.loopexit: ; preds = %_ZSt10_ConstructIN4llvm15OpenMPIRBuilder11OutlineInfoEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %.pre81 = load ptr, ptr %1, align 8, !tbaa !25
+  %.pre82 = load ptr, ptr %1, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.loopexit, %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit65
-  %164 = phi ptr [ %.pre81, %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.loopexit ], [ %136, %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit65 ]
+_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.loopexit, %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit66
+  %164 = phi ptr [ %.pre82, %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.loopexit ], [ %136, %_ZSt4moveIPN4llvm15OpenMPIRBuilder11OutlineInfoES3_ET0_T_S5_S4_.exit66 ]
   store i32 %38, ptr %40, align 8, !tbaa !26
   %165 = load i32, ptr %37, align 8, !tbaa !26
-  %.not4.i.i69 = icmp eq i32 %165, 0
-  br i1 %.not4.i.i69, label %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit79, label %.lr.ph.i.preheader.i70
+  %.not4.i.i70 = icmp eq i32 %165, 0
+  br i1 %.not4.i.i70, label %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit80, label %.lr.ph.i.preheader.i71
 
-.lr.ph.i.preheader.i70:                           ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit
+.lr.ph.i.preheader.i71:                           ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit
   %166 = zext i32 %165 to i64
-  %.idx.i71 = mul nuw nsw i64 %166, 88
-  %167 = getelementptr inbounds nuw i8, ptr %164, i64 %.idx.i71
-  br label %.lr.ph.i.i72
+  %.idx.i72 = mul nuw nsw i64 %166, 88
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 %.idx.i72
+  br label %.lr.ph.i.i73
 
-.lr.ph.i.i72:                                     ; preds = %_ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i76, %.lr.ph.i.preheader.i70
-  %.05.i.i73 = phi ptr [ %168, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i76 ], [ %167, %.lr.ph.i.preheader.i70 ]
-  %168 = getelementptr inbounds i8, ptr %.05.i.i73, i64 -88
-  %169 = getelementptr inbounds i8, ptr %.05.i.i73, i64 -32
+.lr.ph.i.i73:                                     ; preds = %_ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i77, %.lr.ph.i.preheader.i71
+  %.05.i.i74 = phi ptr [ %168, %_ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i77 ], [ %167, %.lr.ph.i.preheader.i71 ]
+  %168 = getelementptr inbounds i8, ptr %.05.i.i74, i64 -88
+  %169 = getelementptr inbounds i8, ptr %.05.i.i74, i64 -32
   %170 = load ptr, ptr %169, align 8, !tbaa !25
-  %171 = getelementptr inbounds i8, ptr %.05.i.i73, i64 -16
+  %171 = getelementptr inbounds i8, ptr %.05.i.i74, i64 -16
   %172 = icmp eq ptr %170, %171
-  br i1 %172, label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i74, label %173
+  br i1 %172, label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i75, label %173
 
-173:                                              ; preds = %.lr.ph.i.i72
+173:                                              ; preds = %.lr.ph.i.i73
   call void @free(ptr noundef %170) #30
-  br label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i74
+  br label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i75
 
-_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i74: ; preds = %173, %.lr.ph.i.i72
-  %174 = getelementptr inbounds i8, ptr %.05.i.i73, i64 -72
+_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i75: ; preds = %173, %.lr.ph.i.i73
+  %174 = getelementptr inbounds i8, ptr %.05.i.i74, i64 -72
   %175 = load ptr, ptr %174, align 8, !tbaa !43
-  %.not.i.i.i.i75 = icmp eq ptr %175, null
-  br i1 %.not.i.i.i.i75, label %_ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i76, label %176
+  %.not.i.i.i.i76 = icmp eq ptr %175, null
+  br i1 %.not.i.i.i.i76, label %_ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i77, label %176
 
-176:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i74
+176:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i75
   %177 = call noundef zeroext i1 %175(ptr noundef nonnull align 8 dereferenceable(88) %168, ptr noundef nonnull align 8 dereferenceable(88) %168, i32 noundef 3) #30
-  br label %_ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i76
+  br label %_ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i77
 
-_ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i76: ; preds = %176, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i74
-  %.not.i.i77 = icmp eq ptr %164, %168
-  br i1 %.not.i.i77, label %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit79, label %.lr.ph.i.i72, !llvm.loop !633
+_ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i77: ; preds = %176, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i75
+  %.not.i.i78 = icmp eq ptr %164, %168
+  br i1 %.not.i.i78, label %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit80, label %.lr.ph.i.i73, !llvm.loop !633
 
-_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit79: ; preds = %_ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i76, %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit
+_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit80: ; preds = %_ZN4llvm15OpenMPIRBuilder11OutlineInfoD2Ev.exit.i.i77, %_ZN4llvm23SmallVectorTemplateBaseINS_15OpenMPIRBuilder11OutlineInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit
   store i32 0, ptr %37, align 8, !tbaa !26
   br label %178
 
-178:                                              ; preds = %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit, %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit79, %2, %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE12assignRemoteEOS3_.exit
+178:                                              ; preds = %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit, %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE5clearEv.exit80, %2, %_ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder11OutlineInfoEE12assignRemoteEOS3_.exit
   ret ptr %0
 }
 

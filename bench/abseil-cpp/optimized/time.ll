@@ -1191,9 +1191,9 @@ _ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_ta
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load i32, ptr %34, align 8, !tbaa !100
   %36 = icmp eq i32 %35, 0
-  %.sroa.019.0.copyload = select i1 %36, i64 %.fca.0.extract.i22, i64 %.fca.0.extract8.i
+  %.sroa.019.0.copyload.sroa.speculated = select i1 %36, i64 %.fca.0.extract.i22, i64 %.fca.0.extract8.i
   %.sroa.4.0.copyload.sroa.speculated = select i1 %36, i32 %.fca.1.extract.i23, i32 %.fca.1.extract9.i
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.019.0.copyload, 0
+  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.019.0.copyload.sroa.speculated, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.4.0.copyload.sroa.speculated, 1
   ret { i64, i32 } %.fca.1.insert
 }

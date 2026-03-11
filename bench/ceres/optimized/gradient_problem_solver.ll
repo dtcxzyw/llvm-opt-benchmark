@@ -1752,7 +1752,7 @@ _ZNK5ceres21GradientProblemSolver7Summary16IsSolutionUsableEv.exit: ; preds = %4
   %456 = load ptr, ptr %455, align 8, !tbaa !191
   %457 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.not10.i.i.i.i = icmp eq ptr %456, null
-  %.pre333 = load ptr, ptr %23, align 8, !tbaa !132
+  %.pre332 = load ptr, ptr %23, align 8, !tbaa !132
   br i1 %.not10.i.i.i.i, label %477, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc145
@@ -1771,7 +1771,7 @@ _ZNK5ceres21GradientProblemSolver7Summary16IsSolutionUsableEv.exit: ; preds = %4
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %459
   %463 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %464 = load ptr, ptr %463, align 8, !tbaa !132
-  %465 = call i32 @memcmp(ptr noundef %464, ptr noundef %.pre333, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #30
+  %465 = call i32 @memcmp(ptr noundef %464, ptr noundef %.pre332, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #30
   %.not.i.i.i.i.i.i.i = icmp eq i32 %465, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
 
@@ -1808,7 +1808,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %469
   %.19.i.i.i.i.sroa.sel241.v.sroa.sel.v.sroa.sel.v = select i1 %467, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.19.i.i.i.i.sroa.sel241.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.sroa.sel241.v.sroa.sel.v.sroa.sel.v, i64 32
   %472 = load ptr, ptr %.19.i.i.i.i.sroa.sel241.v.sroa.sel.v.sroa.sel, align 8, !tbaa !132
-  %473 = call i32 @memcmp(ptr noundef %.pre333, ptr noundef %472, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #30
+  %473 = call i32 @memcmp(ptr noundef %.pre332, ptr noundef %472, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #30
   %.not.i.i.i.i.i.i147 = icmp eq i32 %473, 0
   br i1 %.not.i.i.i.i.i.i147, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i
 
@@ -1830,25 +1830,25 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal1
   %.19.i.i.i.i.sroa.sel247.v.sroa.sel.v.sroa.sel.v = select i1 %467, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.19.i.i.i.i.sroa.sel247.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.sroa.sel247.v.sroa.sel.v.sroa.sel.v, i64 72
   %.sroa.3.0.in.i.sroa.speculate.load. = load i64, ptr %.19.i.i.i.i.sroa.sel247.v.sroa.sel.v.sroa.sel, align 4
-  %.sroa.0.0.i.pre = load i64, ptr %.19.i.i.i.i.sroa.sel244.v.sroa.sel.v.sroa.sel, align 4
+  %.sroa.0.0.in.i.sroa.speculate.load. = load i64, ptr %.19.i.i.i.i.sroa.sel244.v.sroa.sel.v.sroa.sel, align 4
   br label %477
 
 477:                                              ; preds = %476, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %.noexc145
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.i.pre, %476 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ 0, %.noexc145 ]
+  %.sroa.0.0.in.i.sroa.speculated = phi i64 [ %.sroa.0.0.in.i.sroa.speculate.load., %476 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ 0, %.noexc145 ]
   %.sroa.3.0.in.i.sroa.speculated = phi i64 [ %.sroa.3.0.in.i.sroa.speculate.load., %476 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ 0, %.noexc145 ]
-  %478 = icmp eq ptr %.pre333, %449
+  %478 = icmp eq ptr %.pre332, %449
   br i1 %478, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i149
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i149: ; preds = %477
   %479 = load i64, ptr %449, align 8, !tbaa !78
   %480 = add i64 %479, 1
-  call void @_ZdlPvm(ptr noundef %.pre333, i64 noundef %480) #31
+  call void @_ZdlPvm(ptr noundef %.pre332, i64 noundef %480) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %477, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i149
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %.sroa.4.8.extract.trunc = trunc i64 %.sroa.3.0.in.i.sroa.speculated to i32
-  %481 = call noundef double @_ZN4absl12lts_2024011615ToDoubleSecondsENS0_8DurationE(i64 %.sroa.0.0.i, i32 %.sroa.4.8.extract.trunc) #38
+  %481 = call noundef double @_ZN4absl12lts_2024011615ToDoubleSecondsENS0_8DurationE(i64 %.sroa.0.0.in.i.sroa.speculated, i32 %.sroa.4.8.extract.trunc) #38
   %482 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store double %481, ptr %482, align 8, !tbaa !161
   %.sroa.4.12.extract.shift = lshr i64 %.sroa.3.0.in.i.sroa.speculated, 32
@@ -1875,7 +1875,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %477, 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %489 = load ptr, ptr %455, align 8, !tbaa !191
   %.not10.i.i.i.i154 = icmp eq ptr %489, null
-  %.pre335 = load ptr, ptr %24, align 8, !tbaa !132
+  %.pre333 = load ptr, ptr %24, align 8, !tbaa !132
   br i1 %.not10.i.i.i.i154, label %509, label %.lr.ph.i.i.i.i155
 
 .lr.ph.i.i.i.i155:                                ; preds = %.noexc152
@@ -1894,7 +1894,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %477, 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i159: ; preds = %491
   %495 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i156, i64 32
   %496 = load ptr, ptr %495, align 8, !tbaa !132
-  %497 = call i32 @memcmp(ptr noundef %496, ptr noundef %.pre335, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i158) #30
+  %497 = call i32 @memcmp(ptr noundef %496, ptr noundef %.pre333, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i158) #30
   %.not.i.i.i.i.i.i.i160 = icmp eq i32 %497, 0
   br i1 %.not.i.i.i.i.i.i.i160, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i.i187, label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i161
 
@@ -1931,7 +1931,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i170: ; preds = %501
   %.19.i.i.i.i163.sroa.sel250.v.sroa.sel.v.sroa.sel.v = select i1 %499, ptr %.0811.i.i.i.i157, ptr %.012.i.i.i.i156
   %.19.i.i.i.i163.sroa.sel250.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i163.sroa.sel250.v.sroa.sel.v.sroa.sel.v, i64 32
   %504 = load ptr, ptr %.19.i.i.i.i163.sroa.sel250.v.sroa.sel.v.sroa.sel, align 8, !tbaa !132
-  %505 = call i32 @memcmp(ptr noundef %.pre335, ptr noundef %504, i64 noundef %.sroa.speculated.i.i.i.i.i.i169) #30
+  %505 = call i32 @memcmp(ptr noundef %.pre333, ptr noundef %504, i64 noundef %.sroa.speculated.i.i.i.i.i.i169) #30
   %.not.i.i.i.i.i.i171 = icmp eq i32 %505, 0
   br i1 %.not.i.i.i.i.i.i171, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i.i183, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i172
 
@@ -1953,25 +1953,25 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal1
   %.19.i.i.i.i163.sroa.sel256.v.sroa.sel.v.sroa.sel.v = select i1 %499, ptr %.0811.i.i.i.i157, ptr %.012.i.i.i.i156
   %.19.i.i.i.i163.sroa.sel256.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i163.sroa.sel256.v.sroa.sel.v.sroa.sel.v, i64 72
   %.sroa.3.0.in.i176.sroa.speculate.load. = load i64, ptr %.19.i.i.i.i163.sroa.sel256.v.sroa.sel.v.sroa.sel, align 4
-  %.sroa.0.0.i178.pre = load i64, ptr %.19.i.i.i.i163.sroa.sel253.v.sroa.sel.v.sroa.sel, align 4
+  %.sroa.0.0.in.i175.sroa.speculate.load. = load i64, ptr %.19.i.i.i.i163.sroa.sel253.v.sroa.sel.v.sroa.sel, align 4
   br label %509
 
 509:                                              ; preds = %508, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i172, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i168, %.noexc152
-  %.sroa.0.0.i178 = phi i64 [ %.sroa.0.0.i178.pre, %508 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i172 ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i168 ], [ 0, %.noexc152 ]
+  %.sroa.0.0.in.i175.sroa.speculated = phi i64 [ %.sroa.0.0.in.i175.sroa.speculate.load., %508 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i172 ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i168 ], [ 0, %.noexc152 ]
   %.sroa.3.0.in.i176.sroa.speculated = phi i64 [ %.sroa.3.0.in.i176.sroa.speculate.load., %508 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i172 ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5ceres8internal14CallStatisticsEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i168 ], [ 0, %.noexc152 ]
-  %510 = icmp eq ptr %.pre335, %483
+  %510 = icmp eq ptr %.pre333, %483
   br i1 %510, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i192
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i192: ; preds = %509
   %511 = load i64, ptr %483, align 8, !tbaa !78
   %512 = add i64 %511, 1
-  call void @_ZdlPvm(ptr noundef %.pre335, i64 noundef %512) #31
+  call void @_ZdlPvm(ptr noundef %.pre333, i64 noundef %512) #31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194: ; preds = %509, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i192
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %.sroa.499.8.extract.trunc = trunc i64 %.sroa.3.0.in.i176.sroa.speculated to i32
-  %513 = call noundef double @_ZN4absl12lts_2024011615ToDoubleSecondsENS0_8DurationE(i64 %.sroa.0.0.i178, i32 %.sroa.499.8.extract.trunc) #38
+  %513 = call noundef double @_ZN4absl12lts_2024011615ToDoubleSecondsENS0_8DurationE(i64 %.sroa.0.0.in.i175.sroa.speculated, i32 %.sroa.499.8.extract.trunc) #38
   %514 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store double %513, ptr %514, align 8, !tbaa !162
   %.sroa.499.12.extract.shift = lshr i64 %.sroa.3.0.in.i176.sroa.speculated, 32
