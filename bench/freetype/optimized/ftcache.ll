@@ -4227,56 +4227,56 @@ define internal i32 @ftc_snode_new(ptr noundef writeonly captures(none) %0, ptr 
   %19 = call ptr @ft_mem_qalloc(ptr noundef %7, i64 noundef 448, ptr noundef nonnull %4) #13
   %20 = load i32, ptr %4, align 4, !tbaa !3
   %.not39.i = icmp eq i32 %20, 0
-  br i1 %.not39.i, label %.lr.ph.i, label %FTC_SNode_New.exit
+  br i1 %.not39.i, label %21, label %FTC_SNode_New.exit
 
-.lr.ph.i:                                         ; preds = %18
-  %21 = and i32 %.val, -16
-  %22 = sub i32 %16, %21
-  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %22, i32 16)
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store ptr %.val5, ptr %23, align 8, !tbaa !81
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  store i32 %21, ptr %24, align 8, !tbaa !83
-  %25 = getelementptr inbounds nuw i8, ptr %.val5, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !77
-  %27 = add i32 %26, 1
-  store i32 %27, ptr %25, align 8, !tbaa !77
-  %28 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  store i32 %spec.store.select.i, ptr %28, align 8, !tbaa !113
+21:                                               ; preds = %18
+  %22 = and i32 %.val, -16
+  %23 = sub i32 %16, %22
+  %spec.store.select.i = call i32 @llvm.umin.i32(i32 %23, i32 16)
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  store ptr %.val5, ptr %24, align 8, !tbaa !81
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  store i32 %22, ptr %25, align 8, !tbaa !83
+  %26 = getelementptr inbounds nuw i8, ptr %.val5, i64 16
+  %27 = load i32, ptr %26, align 8, !tbaa !77
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %26, align 8, !tbaa !77
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 56
+  store i32 %spec.store.select.i, ptr %29, align 8, !tbaa !113
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %wide.trip.count.i = zext nneg i32 %spec.store.select.i to i64
-  br label %30
+  br label %31
 
-30:                                               ; preds = %30, %.lr.ph.i
+31:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
-  %31 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %indvars.iv.i
-  store i8 -1, ptr %31, align 8, !tbaa !118
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  store i8 0, ptr %32, align 1, !tbaa !214
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store ptr null, ptr %33, align 8, !tbaa !115
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %indvars.iv.i
+  store i8 -1, ptr %32, align 8, !tbaa !118
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  store i8 0, ptr %33, align 1, !tbaa !214
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store ptr null, ptr %34, align 8, !tbaa !115
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %30, !llvm.loop !215
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !215
 
-._crit_edge.i:                                    ; preds = %30
-  %34 = load ptr, ptr %14, align 8, !tbaa !18
-  %35 = call fastcc i32 @ftc_snode_load(ptr noundef nonnull %19, ptr noundef %34, i32 noundef %.val, ptr noundef null)
-  store i32 %35, ptr %4, align 4, !tbaa !3
-  %.not40.i = icmp eq i32 %35, 0
-  br i1 %.not40.i, label %FTC_SNode_New.exit, label %36
+._crit_edge.i:                                    ; preds = %31
+  %35 = load ptr, ptr %14, align 8, !tbaa !18
+  %36 = call fastcc i32 @ftc_snode_load(ptr noundef nonnull %19, ptr noundef %35, i32 noundef %.val, ptr noundef null)
+  store i32 %36, ptr %4, align 4, !tbaa !3
+  %.not40.i = icmp eq i32 %36, 0
+  br i1 %.not40.i, label %FTC_SNode_New.exit, label %37
 
-36:                                               ; preds = %._crit_edge.i
+37:                                               ; preds = %._crit_edge.i
   call void @ftc_snode_free(ptr noundef nonnull %19, ptr noundef nonnull %2)
   %.pre.i = load i32, ptr %4, align 4, !tbaa !3
   br label %FTC_SNode_New.exit
 
-FTC_SNode_New.exit:                               ; preds = %3, %18, %._crit_edge.i, %36
-  %37 = phi i32 [ 0, %._crit_edge.i ], [ %20, %18 ], [ %.pre.i, %36 ], [ 6, %3 ]
+FTC_SNode_New.exit:                               ; preds = %3, %18, %._crit_edge.i, %37
+  %38 = phi i32 [ 0, %._crit_edge.i ], [ %20, %18 ], [ %.pre.i, %36 ], [ 6, %3 ]
   %.0.i = phi ptr [ %19, %._crit_edge.i ], [ %19, %18 ], [ null, %36 ], [ null, %3 ]
   store ptr %.0.i, ptr %0, align 8, !tbaa !216
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %37
+  ret i32 %38
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

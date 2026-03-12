@@ -1573,7 +1573,7 @@ define hidden zeroext i16 @be_chan_type(ptr noundef %0, ptr noundef %1, ptr noun
   br label %47
 
 45:                                               ; preds = %41
-  %or.cond8.not = icmp eq i8 %43, 48
+  %or.cond8 = icmp eq i8 %43, 48
   %46 = add nsw i8 %28, -47
   br i1 %or.cond8.not, label %47, label %.thread
 
@@ -1674,34 +1674,34 @@ define hidden zeroext i16 @be_chan_type(ptr noundef %0, ptr noundef %1, ptr noun
   br label %90
 
 82:                                               ; preds = %57
-  %switch.tableidx205 = add nsw i32 %65, -16
+  %switch.tableidx206 = add nsw i32 %65, -16
   br i1 %.not188, label %86, label %83
 
 83:                                               ; preds = %82
-  %84 = icmp ult i32 %switch.tableidx205, 7
+  %84 = icmp ult i32 %switch.tableidx206, 7
   br i1 %84, label %switch.lookup, label %85
 
 85:                                               ; preds = %86, %83, %73, %67
   br label %90
 
 86:                                               ; preds = %82
-  %87 = icmp ult i32 %switch.tableidx205, 16
-  br i1 %87, label %switch.lookup206, label %85
+  %87 = icmp ult i32 %switch.tableidx206, 16
+  br i1 %87, label %switch.lookup207, label %85
 
 switch.lookup:                                    ; preds = %83
-  %88 = zext nneg i32 %switch.tableidx205 to i64
+  %88 = zext nneg i32 %switch.tableidx206 to i64
   %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.be_chan_type, i64 %88
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %90
 
-switch.lookup206:                                 ; preds = %86
-  %89 = zext nneg i32 %switch.tableidx205 to i64
-  %switch.gep207 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.be_chan_type.1, i64 %89
-  %switch.load208 = load ptr, ptr %switch.gep207, align 8
+switch.lookup207:                                 ; preds = %86
+  %89 = zext nneg i32 %switch.tableidx206 to i64
+  %switch.gep208 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.be_chan_type.1, i64 %89
+  %switch.load209 = load ptr, ptr %switch.gep208, align 8
   br label %90
 
-90:                                               ; preds = %switch.lookup206, %switch.lookup, %73, %67, %85, %72, %71, %70, %69, %68, %81, %80, %79, %78, %77, %76, %75, %74
-  %.0 = phi ptr [ %switch.load208, %switch.lookup206 ], [ @.str.104, %73 ], [ @.str.99, %68 ], [ @.str.100, %69 ], [ @.str.101, %70 ], [ @.str.102, %71 ], [ @.str.103, %72 ], [ %switch.load, %switch.lookup ], [ @.str.98, %67 ], [ @.str.105, %74 ], [ @.str.106, %75 ], [ @.str.107, %76 ], [ @.str.108, %77 ], [ @.str.109, %78 ], [ @.str.110, %79 ], [ @.str.111, %80 ], [ @.str.112, %81 ], [ @.str.28, %85 ]
+90:                                               ; preds = %switch.lookup207, %switch.lookup, %73, %67, %85, %72, %71, %70, %69, %68, %81, %80, %79, %78, %77, %76, %75, %74
+  %.0 = phi ptr [ %switch.load209, %switch.lookup206 ], [ @.str.104, %73 ], [ @.str.99, %68 ], [ @.str.100, %69 ], [ @.str.101, %70 ], [ @.str.102, %71 ], [ @.str.103, %72 ], [ %switch.load, %switch.lookup ], [ @.str.98, %67 ], [ @.str.105, %74 ], [ @.str.106, %75 ], [ @.str.107, %76 ], [ @.str.108, %77 ], [ @.str.109, %78 ], [ @.str.110, %79 ], [ @.str.111, %80 ], [ @.str.112, %81 ], [ @.str.28, %85 ]
   %91 = load i32, ptr @hf_gsm_a_bssmap_rate, align 4
   %92 = and i8 %58, 63
   %93 = zext nneg i8 %92 to i32

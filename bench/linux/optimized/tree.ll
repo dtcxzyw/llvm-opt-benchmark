@@ -18067,7 +18067,7 @@ define internal fastcc void @rcu_report_exp_cpu_mult(ptr noundef %0, i64 noundef
 
 9:                                                ; preds = %3
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %4) #30
-  br label %45
+  br label %49
 
 10:                                               ; preds = %3
   %11 = xor i64 %1, -1
@@ -18090,7 +18090,7 @@ define internal fastcc void @rcu_report_exp_cpu_mult(ptr noundef %0, i64 noundef
 20:                                               ; preds = %19, %10
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = load i32, ptr %21, align 16
-  %23 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1) #29, !srcloc !127
+  %23 = tail call i64 asm "rep ; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1) #29, !srcloc !127
   %24 = trunc i64 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %26 = load i32, ptr %25, align 4
@@ -18098,7 +18098,7 @@ define internal fastcc void @rcu_report_exp_cpu_mult(ptr noundef %0, i64 noundef
   %28 = icmp sgt i32 %27, %26
   br i1 %28, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %20, %41
+24:                                               ; preds = %20, %41
   %29 = phi i32 [ %43, %41 ], [ %27, %20 ]
   %30 = sub i32 %29, %22
   %31 = add i32 %30, 1
@@ -18112,22 +18112,22 @@ define internal fastcc void @rcu_report_exp_cpu_mult(ptr noundef %0, i64 noundef
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %41, label %38
 
-38:                                               ; preds = %33
+27:                                               ; preds = %33
   %39 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %36) #29, !srcloc !127
   %40 = trunc i64 %39 to i32
   br label %41
 
-41:                                               ; preds = %38, %33, %.preheader
-  %42 = phi i32 [ 64, %.preheader ], [ %40, %38 ], [ 64, %33 ]
-  %43 = add i32 %42, %22
-  %44 = icmp sgt i32 %43, %26
-  br i1 %44, label %.loopexit, label %.preheader, !llvm.loop !623
+45:                                               ; preds = %27, %33, %.preheader
+  %46 = phi i32 [ 64, %.preheader ], [ %40, %38 ], [ 64, %33 ]
+  %47 = add i32 %46, %22
+  %48 = icmp sgt i32 %47, %26
+  br i1 %48, label %.loopexit, label %.preheader, !llvm.loop !623
 
-.loopexit:                                        ; preds = %41, %20
+.loopexit:                                        ; preds = %45, %20
   tail call fastcc void @__rcu_report_exp_rnp(ptr noundef %0, i1 noundef zeroext %2, i64 noundef %4)
-  br label %45
+  br label %49
 
-45:                                               ; preds = %.loopexit, %9
+49:                                               ; preds = %.loopexit, %9
   ret void
 }
 

@@ -2468,7 +2468,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14ptr_hash_entryIKcE13str_h
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE22remove_deleted_entriesEv(ptr noundef nonnull align 8 dereferenceable(20) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef zeroext i1 @_ZN6memory16is_out_of_memoryEv()
-  br i1 %2, label %41, label %3
+  br i1 %2, label %42, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2500,14 +2500,14 @@ _ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tab
   %.not38.i = icmp eq i32 %13, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit, label %.lr.ph41.i
 
-.lr.ph41.i:                                       ; preds = %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tableEj.exit, %35
-  %.02839.i = phi ptr [ %36, %35 ], [ %12, %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tableEj.exit ]
+.lr.ph41.i:                                       ; preds = %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tableEj.exit, %36
+  %.02839.i = phi ptr [ %37, %35 ], [ %12, %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tableEj.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !26
   %20 = icmp ult ptr %19, inttoptr (i64 2 to ptr)
-  br i1 %20, label %35, label %.lr.ph.i.preheader
+  br i1 %20, label %36, label %.preheader.i
 
-.lr.ph.i.preheader:                               ; preds = %.lr.ph41.i
+.preheader.i:                                     ; preds = %.lr.ph41.i
   %21 = load i32, ptr %.02839.i, align 8, !tbaa !56
   %22 = and i32 %21, %14
   %23 = zext i32 %22 to i64
@@ -2519,31 +2519,31 @@ _ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tab
   %.not3035.i = icmp eq i32 %22, 0
   br i1 %.not3035.i, label %.preheader._crit_edge.i, label %.lr.ph37.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %28
-  %.034.i = phi ptr [ %29, %28 ], [ %24, %.lr.ph.i.preheader ]
-  %25 = getelementptr inbounds nuw i8, ptr %.034.i, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !26
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %.sink.split.i, label %28
+.lr.ph.i:                                         ; preds = %.preheader.i, %29
+  %.034.i = phi ptr [ %30, %28 ], [ %24, %.lr.ph.i.preheader ]
+  %26 = getelementptr inbounds nuw i8, ptr %.034.i, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !26
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %.sink.split.i, label %29
 
-28:                                               ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
-  %.not29.i = icmp eq ptr %29, %17
+29:                                               ; preds = %.lr.ph.i
+  %30 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
+  %.not29.i = icmp eq ptr %30, %17
   br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !59
 
-.lr.ph37.i:                                       ; preds = %.preheader.i, %33
-  %.136.i = phi ptr [ %34, %33 ], [ %8, %.preheader.i ]
-  %30 = getelementptr inbounds nuw i8, ptr %.136.i, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !26
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %.sink.split.i, label %33
+.lr.ph37.i:                                       ; preds = %.preheader.i, %34
+  %.136.i = phi ptr [ %35, %33 ], [ %8, %.preheader.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %.136.i, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !26
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %.sink.split.i, label %34
 
-33:                                               ; preds = %.lr.ph37.i
-  %34 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
-  %.not30.i = icmp eq ptr %34, %24
+34:                                               ; preds = %.lr.ph37.i
+  %35 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
+  %.not30.i = icmp eq ptr %35, %24
   br i1 %.not30.i, label %.preheader._crit_edge.i, label %.lr.ph37.i, !llvm.loop !60
 
-.preheader._crit_edge.i:                          ; preds = %.preheader.i, %33
+.preheader._crit_edge.i:                          ; preds = %.preheader.i, %34
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.21, i32 noundef 213, ptr noundef nonnull @.str.22)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   unreachable
@@ -2551,33 +2551,33 @@ _ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tab
 .sink.split.i:                                    ; preds = %.lr.ph.i, %.lr.ph37.i
   %.034.lcssa.sink.i = phi ptr [ %.136.i, %.lr.ph37.i ], [ %.034.i, %.lr.ph.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.034.lcssa.sink.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false)
-  br label %35
+  br label %36
 
-35:                                               ; preds = %.sink.split.i, %.lr.ph41.i
-  %36 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
-  %.not.i = icmp eq ptr %36, %16
+36:                                               ; preds = %.sink.split.i, %.lr.ph41.i
+  %37 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
+  %.not.i = icmp eq ptr %37, %16
   br i1 %.not.i, label %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit.loopexit, label %.lr.ph41.i, !llvm.loop !61
 
-_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit.loopexit: ; preds = %35
+_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit.loopexit: ; preds = %36
   %.pre = load ptr, ptr %0, align 8, !tbaa !23
   br label %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit
 
 _ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit: ; preds = %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit.loopexit, %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tableEj.exit
-  %37 = phi ptr [ %.pre, %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit.loopexit ], [ %12, %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tableEj.exit ]
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE12delete_tableEv.exit, label %39
+  %38 = phi ptr [ %.pre, %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit.loopexit ], [ %12, %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tableEj.exit ]
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE12delete_tableEv.exit, label %40
 
-39:                                               ; preds = %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %37)
+40:                                               ; preds = %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %38)
   br label %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE12delete_tableEv.exit
 
-_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE12delete_tableEv.exit: ; preds = %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit, %39
+_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE12delete_tableEv.exit: ; preds = %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit, %40
   store ptr %8, ptr %0, align 8, !tbaa !23
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %40, align 8, !tbaa !33
-  br label %41
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %41, align 8, !tbaa !33
+  br label %42
 
-41:                                               ; preds = %1, %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE12delete_tableEv.exit
+42:                                               ; preds = %1, %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE12delete_tableEv.exit
   ret void
 }
 

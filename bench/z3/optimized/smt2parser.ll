@@ -19310,7 +19310,7 @@ _ZNK12symbol_tableIN4smt26parser5localEE10hash_entry8get_hashEv.exit.i: ; preds 
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx43.i
   br label %.lr.ph.i
 
-.preheader.i.loopexit:                            ; preds = %41
+.preheader.i:                                     ; preds = %41
   %.not3035.i = icmp eq i32 %35, 0
   br i1 %.not3035.i, label %._crit_edge.i, label %.lr.ph37.i
 
@@ -19327,9 +19327,9 @@ _ZNK12symbol_tableIN4smt26parser5localEE10hash_entry8get_hashEv.exit.i: ; preds 
 41:                                               ; preds = %.lr.ph.i
   %42 = getelementptr inbounds nuw i8, ptr %.034.i, i64 24
   %.not29.i = icmp eq ptr %42, %16
-  br i1 %.not29.i, label %.preheader.i.loopexit, label %.lr.ph.i, !llvm.loop !525
+  br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !525
 
-.lr.ph37.i:                                       ; preds = %.preheader.i.loopexit, %46
+.lr.ph37.i:                                       ; preds = %.preheader.i, %46
   %.136.i = phi ptr [ %47, %46 ], [ %8, %.preheader.i.loopexit ]
   %43 = load ptr, ptr %.136.i, align 8, !tbaa !316
   %44 = icmp eq ptr %43, %17
@@ -19344,7 +19344,7 @@ _ZNK12symbol_tableIN4smt26parser5localEE10hash_entry8get_hashEv.exit.i: ; preds 
   %.not30.i = icmp eq ptr %47, %37
   br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !526
 
-._crit_edge.i:                                    ; preds = %46, %.preheader.i.loopexit
+._crit_edge.i:                                    ; preds = %46, %.preheader.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.65, i32 noundef 213, ptr noundef nonnull @.str.60)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   %.pre = load ptr, ptr @_ZN6symbol4nullE, align 8, !tbaa !316

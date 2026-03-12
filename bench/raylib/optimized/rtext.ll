@@ -11436,14 +11436,14 @@ define range(i32 -128, 2097152) i32 @GetCodepoint(ptr noundef readonly captures(
   %81 = and i32 %80, 258048
   %82 = or disjoint i32 %81, %79
   %.fr = freeze i32 %82
-  %83 = shl nuw nsw i32 %64, 6
-  %84 = and i32 %83, 4032
+  %82 = shl nuw nsw i32 %64, 6
+  %83 = and i32 %82, 4032
   %85 = and i32 %69, 63
   %86 = or disjoint i32 %84, %85
   %87 = or i32 %86, %.fr
   store i32 4, ptr %1, align 4
-  %88 = icmp ugt i32 %.fr, 1114111
-  %spec.select = select i1 %88, i32 63, i32 %87
+  %90 = icmp ugt i32 %.fr, 1114111
+  %spec.select = select i1 %90, i32 63, i32 %87
   br label %.critedge
 
 .critedge:                                        ; preds = %77, %44, %42, %16, %52, %18, %6, %30, %35, %41, %.critedge.critedge, %60, %65, %70, %76

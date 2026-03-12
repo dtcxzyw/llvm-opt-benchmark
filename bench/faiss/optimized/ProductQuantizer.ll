@@ -4147,8 +4147,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_125pq_knn_search_with_tablesINS_4CMa
   %23 = call i64 @llvm.umin.i64(i64 %22, i64 %20)
   store i64 %23, ptr %15, align 8, !tbaa !61
   %24 = load i64, ptr %14, align 8, !tbaa !61
-  %.not371 = icmp ugt i64 %24, %23
-  br i1 %.not371, label %._crit_edge, label %.lr.ph
+  %.not369 = icmp ugt i64 %24, %23
+  br i1 %.not369, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -5973,8 +5973,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_125pq_knn_search_with_tablesINS_4CMi
   %23 = call i64 @llvm.umin.i64(i64 %22, i64 %20)
   store i64 %23, ptr %15, align 8, !tbaa !61
   %24 = load i64, ptr %14, align 8, !tbaa !61
-  %.not371 = icmp ugt i64 %24, %23
-  br i1 %.not371, label %._crit_edge, label %.lr.ph
+  %.not369 = icmp ugt i64 %24, %23
+  br i1 %.not369, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 24

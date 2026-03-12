@@ -9560,7 +9560,7 @@ define internal fastcc noundef zeroext i1 @_ZL23mi_manage_os_memory_ex2Pvmbib10m
 .invoke:                                          ; preds = %18, %12
   %25 = phi ptr [ @.str.101, %12 ], [ @.str.102, %18 ]
   invoke void (ptr, ...) @_Z19_mi_warning_messagePKcz(ptr noundef nonnull %25, ptr noundef %0, i64 noundef %1)
-          to label %104 unwind label %105
+          to label %104 unwind label %106
 
 .thread:                                          ; preds = %18, %14
   %.077 = phi i64 [ %1, %14 ], [ %23, %18 ]
@@ -9577,7 +9577,7 @@ define internal fastcc noundef zeroext i1 @_ZL23mi_manage_os_memory_ex2Pvmbib10m
   %35 = add nuw nsw i64 %34, 192
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %36 = invoke noundef ptr @_Z21_mi_arena_meta_zallocmP10mi_memid_s(i64 noundef %35, ptr noundef nonnull %8)
-          to label %37 unwind label %105
+          to label %37 unwind label %106
 
 37:                                               ; preds = %.thread
   %38 = icmp eq ptr %36, null
@@ -9653,8 +9653,8 @@ _Z16_mi_bitmap_claimPSt6atomicImEmmmPb.exit:      ; preds = %73
   %77 = lshr i64 %.077, 31
   %78 = and i64 %26, 63
   %notmask.i.i = shl nsw i64 -1, %75
-  %79 = xor i64 %notmask.i.i, -1
-  %80 = shl i64 %79, %78
+  %80 = xor i64 %notmask.i.i, -1
+  %81 = shl i64 %80, %78
   %81 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %77
   %82 = atomicrmw or ptr %81, i64 %80 acq_rel, align 8
   br label %83
@@ -9669,50 +9669,50 @@ _Z16_mi_bitmap_claimPSt6atomicImEmmmPb.exit:      ; preds = %73
 
 .thread.i:                                        ; preds = %83
   store i32 -1, ptr %6, align 4, !tbaa !66
-  %87 = atomicrmw add ptr @_ZL14mi_arena_count, i64 1 acq_rel, align 8
-  %88 = icmp ult i64 %87, 132
-  br i1 %88, label %97, label %89
+  %88 = atomicrmw add ptr @_ZL14mi_arena_count, i64 1 acq_rel, align 8
+  %89 = icmp ult i64 %88, 132
+  br i1 %89, label %98, label %90
 
-89:                                               ; preds = %.thread.i, %84
-  %90 = atomicrmw sub ptr @_ZL14mi_arena_count, i64 1 acq_rel, align 8
+90:                                               ; preds = %.thread.i, %84
+  %91 = atomicrmw sub ptr @_ZL14mi_arena_count, i64 1 acq_rel, align 8
   br label %_ZL12mi_arena_addP10mi_arena_sPiP10mi_stats_s.exit
 
-91:                                               ; preds = %84
-  %92 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 1 monotonic, align 8
-  %93 = trunc nuw nsw i64 %85 to i32
-  %94 = add nuw nsw i32 %93, 1
-  store i32 %94, ptr %36, align 8, !tbaa !136
-  %95 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9mi_arenas, i64 %85
-  %96 = ptrtoint ptr %36 to i64
-  store atomic i64 %96, ptr %95 release, align 8
+92:                                               ; preds = %84
+  %93 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 1 monotonic, align 8
+  %94 = trunc nuw nsw i64 %85 to i32
+  %95 = add nuw nsw i32 %94, 1
+  store i32 %95, ptr %36, align 8, !tbaa !136
+  %96 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9mi_arenas, i64 %85
+  %97 = ptrtoint ptr %36 to i64
+  store atomic i64 %97, ptr %96 release, align 8
   br label %_ZL12mi_arena_addP10mi_arena_sPiP10mi_stats_s.exit
 
-97:                                               ; preds = %.thread.i
-  %98 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 1 monotonic, align 8
-  %99 = trunc nuw nsw i64 %87 to i32
-  %100 = add nuw nsw i32 %99, 1
-  store i32 %100, ptr %36, align 8, !tbaa !136
-  %101 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9mi_arenas, i64 %87
-  %102 = ptrtoint ptr %36 to i64
-  store atomic i64 %102, ptr %101 release, align 8
-  %103 = load i32, ptr %36, align 8, !tbaa !136
-  store i32 %103, ptr %6, align 4, !tbaa !66
+98:                                               ; preds = %.thread.i
+  %99 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 304), i64 1 monotonic, align 8
+  %100 = trunc nuw nsw i64 %88 to i32
+  %101 = add nuw nsw i32 %100, 1
+  store i32 %101, ptr %36, align 8, !tbaa !136
+  %102 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9mi_arenas, i64 %88
+  %103 = ptrtoint ptr %36 to i64
+  store atomic i64 %103, ptr %102 release, align 8
+  %104 = load i32, ptr %36, align 8, !tbaa !136
+  store i32 %104, ptr %6, align 4, !tbaa !66
   br label %_ZL12mi_arena_addP10mi_arena_sPiP10mi_stats_s.exit
 
-_ZL12mi_arena_addP10mi_arena_sPiP10mi_stats_s.exit: ; preds = %97, %91, %89, %37
+_ZL12mi_arena_addP10mi_arena_sPiP10mi_stats_s.exit: ; preds = %98, %92, %90, %37
   %.2 = phi i1 [ false, %37 ], [ true, %91 ], [ true, %97 ], [ false, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %104
+  br label %105
 
-104:                                              ; preds = %.invoke, %_ZL12mi_arena_addP10mi_arena_sPiP10mi_stats_s.exit
+105:                                              ; preds = %.invoke, %_ZL12mi_arena_addP10mi_arena_sPiP10mi_stats_s.exit
   %.0 = phi i1 [ false, %.invoke ], [ %.2, %_ZL12mi_arena_addP10mi_arena_sPiP10mi_stats_s.exit ]
   ret i1 %.0
 
-105:                                              ; preds = %.invoke, %.thread
-  %106 = landingpad { ptr, i32 }
+106:                                              ; preds = %.invoke, %.thread
+  %107 = landingpad { ptr, i32 }
           catch ptr null
-  %107 = extractvalue { ptr, i32 } %106, 0
-  tail call void @__clang_call_terminate(ptr %107) #58
+  %108 = extractvalue { ptr, i32 } %107, 0
+  tail call void @__clang_call_terminate(ptr %108) #58
   unreachable
 }
 
